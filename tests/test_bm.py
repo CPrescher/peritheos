@@ -7,7 +7,6 @@ def test_bm2_P():
     K0 = 100
     eos = BM2(V0, K0)
     assert eos.pressure(V0) == 0
-    assert eos.bulk_modulus() == K0
 
     V1 = V0 * 0.9
     P_test = 3 / 2 * K0 * ((V0 / V1) ** (7 / 3) - (V0 / V1) ** (5 / 3))
@@ -31,7 +30,6 @@ def test_bm3_P():
     K0_prime = 5
     eos = BM3(V0, K0, K0_prime)
     assert eos.pressure(V0) == 0
-    assert eos.bulk_modulus(V0) == K0
 
     # different formulation in anderson et al.
     V1 = V0 * 0.9

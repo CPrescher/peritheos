@@ -19,7 +19,12 @@ References:
    83(B3), 1257-1268.
 """
 
+from typing import Union
 import numpy as np
+from numpy.typing import NDArray
+
+# Type alias for numeric values (scalar or array)
+NumericType = Union[float, NDArray[np.float64]]
 
 
 class EosBase:
@@ -30,7 +35,7 @@ class EosBase:
     implementations should follow.
     """
 
-    def pressure(self, V):
+    def pressure(self, V: NumericType) -> NumericType:
         """
         Calculate pressure at a given volume.
 
@@ -46,13 +51,18 @@ class EosBase:
         """
         raise NotImplementedError("Subclasses must implement the pressure method.")
 
-    def bulk_modulus(self):
+    def bulk_modulus(self, V: NumericType) -> NumericType:
         """
         Calculate the bulk modulus.
 
+        Parameters
+        ----------
+        V : float or numpy.ndarray
+            Volume (in cubic angstroms or any consistent unit)
+
         Returns
         -------
-        float
+        float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
         raise NotImplementedError("Subclasses must implement the bulk_modulus method.")
@@ -73,7 +83,7 @@ class BM2(EosBase):
     Interior, Cambridge University Press, Cambridge, UK.
     """
 
-    def __init__(self, V0, K0):
+    def __init__(self, V0: float, K0: float) -> None:
         """
         Initialize the 2nd-order Birch-Murnaghan EOS.
 
@@ -84,10 +94,10 @@ class BM2(EosBase):
         K0 : float
             Bulk modulus at reference volume (in GPa or any consistent unit)
         """
-        self.V0 = V0
-        self.K0 = K0
+        self.V0: float = V0
+        self.K0: float = K0
 
-    def pressure(self, V):
+    def pressure(self, V: NumericType) -> NumericType:
         """
         Calculate pressure using the 2nd-order Birch-Murnaghan EOS.
 
@@ -104,13 +114,18 @@ class BM2(EosBase):
         f = ((self.V0 / V) ** (2 / 3) - 1) / 2
         return 3 * self.K0 * f * (1 + 2 * f) ** (5 / 2)
 
-    def bulk_modulus(self, V):
+    def bulk_modulus(self, V: NumericType) -> NumericType:
         """
-        Return the bulk modulus at the reference volume.
+        Return the bulk modulus at the given volume.
+
+        Parameters
+        ----------
+        V : float or numpy.ndarray
+            Volume (in the same units as V0)
 
         Returns
         -------
-        float
+        float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
         eta = ((self.V0 / V) ** (2 / 3) - 1) / 2
@@ -133,7 +148,7 @@ class BM3(EosBase):
     Oxford University Press, Oxford, UK, 2000.
     """
 
-    def __init__(self, V0, K0, K0_prime):
+    def __init__(self, V0: float, K0: float, K0_prime: float) -> None:
         """
         Initialize the 3rd-order Birch-Murnaghan EOS.
 
@@ -146,11 +161,11 @@ class BM3(EosBase):
         K0_prime : float
             Pressure derivative of the bulk modulus at reference volume (dimensionless)
         """
-        self.V0 = V0
-        self.K0 = K0
-        self.K0_prime = K0_prime
+        self.V0: float = V0
+        self.K0: float = K0
+        self.K0_prime: float = K0_prime
 
-    def pressure(self, V):
+    def pressure(self, V: NumericType) -> NumericType:
         """
         Calculate pressure using the 3rd-order Birch-Murnaghan EOS.
 
@@ -173,16 +188,21 @@ class BM3(EosBase):
             * (1 + (3 / 2) * (self.K0_prime - 4) * f)
         )
 
-    def bulk_modulus(self, V):
+    def bulk_modulus(self, V: NumericType) -> NumericType:
         """
-        Calculate the bulk modulus at the reference volume.
+        Calculate the bulk modulus at the given volume.
 
         For the 3rd-order Birch-Murnaghan EOS, the bulk modulus at V0 is:
+        K(V) = K0 * (1 + 2f)^(5/2) * [K0 + (3K0*K0'-5K0)f + 27/2(K0*K0'-4K0)f^2]
 
+        Parameters
+        ----------
+        V : float or numpy.ndarray
+            Volume (in the same units as V0)
 
         Returns
         -------
-        float
+        float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
         f = ((self.V0 / V) ** (2 / 3) - 1) / 2
