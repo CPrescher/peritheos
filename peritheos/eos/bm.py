@@ -17,6 +17,10 @@ References:
 2. Birch, F. (1978). Finite strain isotherm and velocities for single-crystal and
    polycrystalline NaCl at high pressures and 300 K. Journal of Geophysical Research,
    83(B3), 1257-1268.
+3. Anderson, O.L. (1995) Equations of State of Solids for Geophysics and Ceramic Science,
+   Oxford University Press, Oxford, UK.
+4. Poirier, J.P., (2000), Introduction to the Physics of the Earth's
+   Interior, Cambridge University Press, Cambridge, UK.
 """
 
 from typing import Union
@@ -144,8 +148,8 @@ class BM3(EosBase):
     P(V) = 3 * K0 * f * (1 + 2f)^(5/2) * [1 + (3/2) * (K0' - 4) * f]
 
     Equations from:
-    Anderson, O.L., Equations of State of Solids for Geophysics and Ceramic Science,
-    Oxford University Press, Oxford, UK, 2000.
+    Anderson, O.L., (1995) Equations of State of Solids for Geophysics and Ceramic Science,
+    Oxford University Press, Oxford, UK.
     """
 
     def __init__(self, V0: float, K0: float, K0_prime: float) -> None:
