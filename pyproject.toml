@@ -25,3 +25,8 @@ dependencies = [
 [project.urls]
 "Homepage" = "https://github.com/cprescher/theospy"
 "Bug Tracker" = "https://github.com/cprescher/theospy/issues"
+
+[dependency-groups]
+dev = [
+    "pytest>=7.4.4",
+]
