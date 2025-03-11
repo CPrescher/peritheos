@@ -1,4 +1,4 @@
-from theospy.eos import ideal_gas, van_der_waals
+from peritheos.eos import ideal_gas, van_der_waals
 
 def main():
     # Example usage of the equation of state functions

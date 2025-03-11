@@ -4,8 +4,8 @@ Tests for the ideal gas equation of state implementation
 
 import pytest
 import numpy as np
-from theospy.eos import ideal_gas
-from theospy.constants import R
+from peritheos.eos import ideal_gas
+from peritheos.constants import R
 
 
 def test_calculate_pressure():

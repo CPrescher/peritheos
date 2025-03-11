@@ -13,7 +13,7 @@ References:
 """
 
 import numpy as np
-from theospy.eos.bm import BM2, BM3
+from peritheos.eos.bm import BM2, BM3
 
 
 def test_bm2_P():

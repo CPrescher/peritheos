@@ -3,7 +3,7 @@ Ideal gas equation of state implementation
 """
 
 import numpy as np
-from theospy.constants import R
+from peritheos.constants import R
 
 
 def calculate_pressure(temperature, volume, moles):
