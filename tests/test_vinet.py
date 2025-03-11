@@ -5,7 +5,7 @@ Tests for the Vinet equation of state
 import numpy as np
 import pytest
 from peritheos.eos.vinet import Vinet
-
+from peritheos.utils import derivative
 
 # Example values for a material
 V0 = 10.0  # reference volume in cubic angstroms
@@ -96,6 +96,3 @@ def test_compare_bulk_modulus_with_derivative(vinet_eos):
     assert np.allclose(moduli, moduli_from_derivative)
 
 
-def derivative(f, x, dx=1e-6):
-    """Compute the derivative of f at x using finite differences"""
-    return (f(x + dx) - f(x - dx)) / (2 * dx)

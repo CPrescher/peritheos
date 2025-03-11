@@ -102,3 +102,7 @@ def compressibility_factor(pressure, volume, temperature, moles):
         Compressibility factor (dimensionless)
     """
     return pressure * volume / (moles * R * temperature) 
+
+def derivative(f, x, dx=1e-6):
+    """Compute the derivative of f at x using finite differences"""
+    return (f(x + dx) - f(x - dx)) / (2 * dx)
