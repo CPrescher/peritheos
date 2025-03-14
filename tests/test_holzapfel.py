@@ -4,7 +4,7 @@ Tests for the Holzapfel equation of state
 
 import numpy as np
 import pytest
-from peritheos.eos.holzapfel import Holzapfel
+from peritheos.eos.holzapfel import Holzapfel, bulk_modulus_derivative_analytical
 from peritheos.eos import NumericType
 from peritheos.utils import derivative
 
@@ -99,3 +99,58 @@ def test_bulk_modulus_with_derivative(holzapfel_eos):
     moduli = holzapfel_eos.bulk_modulus(volumes) * 1000
     moduli_from_derivative = -volumes * derivative(holzapfel_eos.pressure, volumes)
     assert np.allclose(moduli, moduli_from_derivative)
+
+
+def test_bulk_modulus_derivative_at_V(holzapfel_eos):
+    """Test bulk modulus derivative calculation"""
+    volumes = np.array([0.8, 0.9, 1.0, 1.1, 1.2]) * V0
+    k0_prime_analytical = bulk_modulus_derivative_analytical(
+        V0,
+        volumes,
+        holzapfel_eos.bulk_modulus(volumes),
+        K0,
+        holzapfel_eos._c0,
+        holzapfel_eos._c2,
+    )
+    k0_prime_numerical = holzapfel_eos.bulk_modulus_derivative(volumes)
+    assert np.allclose(k0_prime_analytical, k0_prime_numerical)
+
+    # time both functions:
+    analytical_time = time_function(
+        bulk_modulus_derivative_analytical,
+        1000,
+        V0,
+        volumes,
+        holzapfel_eos.bulk_modulus(volumes),
+        K0,
+        holzapfel_eos._c0,
+        holzapfel_eos._c2,
+    )
+    numerical_time = time_function(holzapfel_eos.bulk_modulus_derivative, 1000, volumes)
+    assert analytical_time > numerical_time
+
+
+def time_function(function, repetitions, *args):
+    """
+    Time a function
+
+    Parameters
+    ----------
+    function : function
+        The function to time
+    repetitions : int
+        The number of repetitions to run the function
+    *args : tuple
+        The arguments to pass to the function
+
+    Returns
+    -------
+    float
+        The time taken to run the function
+    """
+    import time
+
+    start_time = time.time()
+    for _ in range(repetitions):
+        function(*args)
+    return time.time() - start_time
