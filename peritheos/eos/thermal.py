@@ -1,4 +1,6 @@
 import numpy as np
+from .holzapfel import Holzapfel
+from peritheos.utils import derivative
 
 
 def Pth_original(
@@ -78,7 +80,7 @@ def Pth_original(
     gamVo : float
         Additive normalizing constant for the Gruneisen parameter, (given as delta in Sokolova et al. 2016)
     beta : float
-        Should be 1
+        Should be 0
     gb : float
         Generalized Gruneisen parameter, given as t in Sokolova et al. 2016
     ao : float
@@ -294,10 +296,10 @@ def Pth_original(
     )
     a = ao / 1000000 * x**m
 
-    QB = QBo * np.expp
-    QB1 = QB1o * np.expp
-    QE1 = QE1o * np.expp
-    QE2 = QE2o * np.expp
+    QB = QBo * expp
+    QB1 = QB1o * expp
+    QE1 = QE1o * expp
+    QE2 = QE2o * expp
 
     ggr = d * np.log(1 + QB / Tr / d)
     br = 1 / (np.exp(ggr) - 1)
@@ -344,4 +346,118 @@ def Pth_original(
     Pee = 3 / 2 * n * R * ae / 1000000 * x ** (mm) * (mm) / V * (TK**2 - Tr**2)
 
     Pth = PB + PB1 + PE1 + PE2 - PBr - PB1r - PE1r - PE2r + Pee + Pea
+    return Pth
+
+
+def Pth_modified(
+    n,
+    z,
+    V0,
+    K0,
+    K_prime,
+    Tr,
+    x,
+    expp,
+    V,
+    QE1o,
+    mE1,
+    QE2o,
+    mE2,
+    TK,
+    gamVo,
+    gb,
+    ao,
+    m,
+    mm,
+    ae,
+):
+    """
+    Original thermal pressure equation from sokolova et al. 2016.
+
+    Parameters
+    ----------
+    n : float
+        Number of atoms in the chemical formula
+    z : float
+        Atomic number of the chemical formula unit
+    V0 : float
+        Reference volume in [JBar^-1] (same as [cm^3/mol]/10)
+    K0 : float
+        Bulk modulus at reference volume [kbar]
+    K_prime : float
+        Bulk modulus derivative at reference volume
+    Tr : float
+        Reference temperature in [K] for the EOS (typically 298.15 K)
+    x : float
+        Fractional volume (V/Vo)
+    expp : float
+        unused in function
+    V : float
+        Volume in [JBar^-1] (same as [cm^3/mol]/10)
+    QE1o : float
+        Einstein characteristic temperature, Theta_1 in [K]
+    mE1 : float
+        The first Einstein number
+    QE2o : float
+        Einstein characteristic temperature, Theta_02 in [K]
+    mE2 : float
+        The second Einstein number
+    TK : float
+        Temperature in [K]
+    gamVo : float
+        Additive normalizing constant for the Gruneisen parameter, (given as delta in Sokolova et al. 2016)
+    gb : float
+        Generalized Gruneisen parameter, given as t in Sokolova et al. 2016
+    ao : float
+        Intrinsic anharmonicity parameter (10e-6 [K]), given as a_0 in Sokolova et al. 2016
+    m : float
+        Anharmonic analogue of the Grüneisen parameter
+    mm : float
+        Electronic analogue of the Grüneisen parameter, given as g in Sokolova et al. 2016
+    ae : float
+        Free electrons parameter (10e-6 [K]), given as e_0 in Sokolova et al. 2016
+
+    Returns
+    -------
+    Pth : float
+        Thermal pressure in [bar]
+    """
+    R = 8.31451
+
+    rt_eos = Holzapfel(V0=V0, K0=K0, K0_prime=K_prime, n=n, Z=z)
+    Px = rt_eos.pressure(V)
+    KT = rt_eos.bulk_modulus(V) * 1000
+    kkx = rt_eos.bulk_modulus_derivative(V)
+
+    # Equation (10) - seems not the same as in the original paper
+    gamV = (-3 * KT + 2 * Px * gb + 9 * KT * kkx - 6 * gb * KT) / 6 / (
+        3 * KT - 2 * Px * gb
+    ) + gamVo
+
+    expp_test = np.exp(0.5 * ao * TK * 1e6 * (V / V0) ** (1 / 3))
+    print(expp_test, expp)
+
+    # Equation (9)
+    QE1 = QE1o * expp
+    QE2 = QE2o * expp
+
+    # Equation (12) for the different contributions at the temperature TK
+    e1 = np.exp(QE1 / TK)
+    PE1 = mE1 * R * ((QE1 / 2 + QE1 / (e1 - 1)) * gamV / V)
+
+    e2 = np.exp(QE2 / TK)
+    PE2 = mE2 * R * ((QE2 / 2 + QE2 / (e2 - 1)) * gamV / V)
+
+    # Equation (12) for the different contributions at the reference temperature
+    e1r = np.exp(QE1 / Tr)
+    PE1r = mE1 * R * ((QE1 / 2 + QE1 / (e1r - 1)) * gamV / V)
+
+    e2r = np.exp(QE2 / Tr)
+    PE2r = mE2 * R * ((QE2 / 2 + QE2 / (e2r - 1)) * gamV / V)
+
+    # Equation (12) second additive term
+    Pea = 3 / 2 * n * R * ao / 1000000 * x ** (m) * (m) / V * (TK**2 - Tr**2)
+    Pee = 3 / 2 * n * R * ae / 1000000 * x ** (mm) * (mm) / V * (TK**2 - Tr**2)
+
+    Pth = PE1 + PE2 - PE1r - PE2r + Pee + Pea
     return Pth
