@@ -79,13 +79,13 @@ class Holzapfel(EosBase):
             Bulk modulus in [kbar]
         """
         x = (V / self.V0) ** (1 / 3)
-        term1 = self.K0 * x**-5 * np.exp(self._c0 * (1 - x))
+        term1 = self.K0 * 1000 * x**-5 * np.exp(self._c0 * (1 - x))
 
         bracket_1 = (5 - 4 * x) * (1 + self._c2 * x * (1 - x))
         bracket_2 = self._c0 * x * (1 - x) * (1 + self._c2 * x * (1 - x))
         bracket_3 = -(1 - x) * (self._c2 * x - 2 * self._c2 * x**2)
         term2 = bracket_1 + bracket_2 + bracket_3
-        return term1 * term2
+        return term1 * term2 / 1000
 
     def bulk_modulus_derivative(self, V: NumericType, eps: float = 1e-6) -> NumericType:
         """

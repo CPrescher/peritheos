@@ -1,5 +1,13 @@
 import numpy as np
-from peritheos.eos.thermal import Pth_original, Pth_modified
+from peritheos.eos.thermal import (
+    Pth_original,
+    Pth_modified,
+    f_gamV_original,
+    f_gamV,
+    I_gamV_original,
+    I_gamV,
+)
+from peritheos.eos.holzapfel import Holzapfel
 
 
 # diamond parameters
@@ -26,7 +34,7 @@ T = 3000  # in K
 x = V / V0
 
 
-def test_original():
+def test_original_thermal_pressure_calculation():
     expp = 1.09427641040855
     print(V)
     Pth = Pth_original(
@@ -61,7 +69,7 @@ def test_original():
     assert np.isclose(Pth, 148604.90047369, rtol=1e-4)
 
 
-def test_compare_original_with_modified():
+def test_compare_original_with_modified_thermal_pressure_calculation():
     expp = 1.09427641040855
     P1 = Pth_original(
         n,
@@ -100,8 +108,6 @@ def test_compare_original_with_modified():
         K0,
         K0_prime,
         Tr,
-        x,
-        expp,
         V,
         Theta_1,
         m1,
@@ -116,3 +122,53 @@ def test_compare_original_with_modified():
         e_0,
     )
     assert np.isclose(P1, P2)
+
+
+def test_f_gamV():
+    V = V0 * 0.8
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    Px = rt_eos.pressure(V)
+    KT = rt_eos.bulk_modulus(V)
+    kkx = rt_eos.bulk_modulus_derivative(V)
+
+    x = V / V0
+
+    g0 = delta
+    gb = t
+
+    gamV0_1 = f_gamV_original(x, n, z, V0, K0, K0_prime, g0, gb, 0)
+    gamV0_2 = f_gamV(x, Px, KT, kkx, g0, gb)
+
+    assert np.isclose(gamV0_1, gamV0_2)
+
+
+def test_I_gamV_compression():
+    V = V0 * 0.9
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+
+    x = V / V0
+
+    g0 = delta
+    gb = t
+
+    I_gamV_1 = I_gamV_original(z, n, x, V0, K0, K0_prime, g0, gb, 0)
+    I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
+
+    assert np.isclose(I_gamV_1, I_gamV_2)
+    assert np.isclose(np.exp(I_gamV_2), 1.09427641040855)
+
+
+def test_I_gamV_expansion():
+    V = V0 * 1.1
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+
+    x = V / V0
+
+    g0 = delta
+    gb = t
+
+    I_gamV_1 = I_gamV_original(z, n, x, V0, K0, K0_prime, g0, gb, 0)
+    I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
+
+    assert np.isclose(I_gamV_1, I_gamV_2)
+    assert np.isclose(np.exp(I_gamV_2), 0.910574451622214)

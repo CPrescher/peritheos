@@ -1,6 +1,7 @@
 import numpy as np
+from scipy.integrate import quad
+
 from .holzapfel import Holzapfel
-from peritheos.utils import derivative
 
 
 def Pth_original(
@@ -356,8 +357,6 @@ def Pth_modified(
     K0,
     K_prime,
     Tr,
-    x,
-    expp,
     V,
     QE1o,
     mE1,
@@ -388,10 +387,6 @@ def Pth_modified(
         Bulk modulus derivative at reference volume
     Tr : float
         Reference temperature in [K] for the EOS (typically 298.15 K)
-    x : float
-        Fractional volume (V/Vo)
-    expp : float
-        unused in function
     V : float
         Volume in [JBar^-1] (same as [cm^3/mol]/10)
     QE1o : float
@@ -424,9 +419,11 @@ def Pth_modified(
     """
     R = 8.31451
 
+    x = V / V0  # fractional volume
+
     rt_eos = Holzapfel(V0=V0, K0=K0, K0_prime=K_prime, n=n, Z=z)
     Px = rt_eos.pressure(V)
-    KT = rt_eos.bulk_modulus(V) * 1000
+    KT = rt_eos.bulk_modulus(V) * 1000  # conver kbar to bar
     kkx = rt_eos.bulk_modulus_derivative(V)
 
     # Equation (10) - seems not the same as in the original paper
@@ -434,21 +431,24 @@ def Pth_modified(
         3 * KT - 2 * Px * gb
     ) + gamVo
 
-    expp_test = np.exp(0.5 * ao * TK * 1e6 * (V / V0) ** (1 / 3))
-    print(expp_test, expp)
+    # Exponent part in equation (9) - However this is not the correct value - the Excel spreadsheet
+    # calculation has a more elaborate calculation included
+
+    # expp_test = np.exp(0.5 * ao * TK * 1e6 * (V / V0) ** (1 / 3))
+    expp = np.exp(I_gamV(x, gamVo, gb, rt_eos))
 
     # Equation (9)
     QE1 = QE1o * expp
     QE2 = QE2o * expp
 
-    # Equation (12) for the different contributions at the temperature TK
+    # Equation (12) for the different Einstein contributions at the temperature TK
     e1 = np.exp(QE1 / TK)
     PE1 = mE1 * R * ((QE1 / 2 + QE1 / (e1 - 1)) * gamV / V)
 
     e2 = np.exp(QE2 / TK)
     PE2 = mE2 * R * ((QE2 / 2 + QE2 / (e2 - 1)) * gamV / V)
 
-    # Equation (12) for the different contributions at the reference temperature
+    # Equation (12) for the different Einstein contributions at the reference temperature
     e1r = np.exp(QE1 / Tr)
     PE1r = mE1 * R * ((QE1 / 2 + QE1 / (e1r - 1)) * gamV / V)
 
@@ -461,3 +461,245 @@ def Pth_modified(
 
     Pth = PE1 + PE2 - PE1r - PE2r + Pee + Pea
     return Pth
+
+
+def I_gamV(x, gamVo, gb, rt_eos, e=0.001):
+    """
+    Integral of the Gruneisen parameter over the volume ratio (from x to 1).
+
+    Parameters
+    ----------
+    x : float
+        Fractional volume (V/Vo)
+    gamVo : float
+        Additive normalizing constant for the Gruneisen parameter, (given as delta in Sokolova et al. 2016)
+    gb : float
+        Generalized Gruneisen parameter, given as t in Sokolova et al. 2016
+    rt_eos : RT_EOS
+        room temperature equation of state object used for the calculation
+    e : float
+        Tolerance for the integration
+
+    Returns
+    -------
+    I_gamV : float
+        Integral of the Gruneisen parameter over the volume ratio (from x to 1)
+    """
+
+    V0 = rt_eos.V0
+
+    def f_gamV_x(x):
+        Px_x = rt_eos.pressure(x * V0)
+        KT_x = rt_eos.bulk_modulus(x * V0)
+        kkx_x = rt_eos.bulk_modulus_derivative(x * V0)
+        return f_gamV(x, Px_x, KT_x, kkx_x, gamVo, gb)
+
+    I_gamV = quad(f_gamV_x, x, 1)
+
+    return I_gamV[0]
+
+
+def I_gamV_original(z, n, b, Vo, Ko, kk, gamVo, gb, beta, e=0.001):
+    """
+    Integral of the Gruneisen parameter over the volume.
+
+    Parameters
+    ----------
+    z : float
+        Atomic number of the chemical formula unit
+    n : float
+        Number of atoms in the chemical formula
+    b : float
+        Fractional volume (V/V0)
+    Vo : float
+        Reference volume in [JBar^-1] (same as [cm^3/mol]/10)
+    Ko : float
+        Bulk modulus at reference volume [kbar]
+    kk : float
+        Bulk modulus derivative at reference volume
+    gamVo : float
+        Additive normalizing constant for the Gruneisen parameter, (given as delta in Sokolova et al. 2016)
+    gb : float
+        Generalized Gruneisen parameter, given as t in Sokolova et al. 2016
+    beta : float
+        Anharmonic analogue of the Grüneisen parameter
+    e : float
+        Tolerance for the integration
+
+    Returns
+    -------
+    I_gamV : float
+        Integral of the Gruneisen parameter over the volume
+
+    """
+    # check whether b is greater than 1
+    a = min(b, 1)
+    b = max(b, 1)
+
+    # calculate the integral using the trapezoidal rule
+    s2 = 1
+    h = b - a
+    S = f_gamV_original(a, n, z, Vo, Ko, kk, gamVo, gb, beta) + f_gamV_original(
+        b, n, z, Vo, Ko, kk, gamVo, gb, beta
+    )
+
+    while True:
+        s3 = s2
+        h /= 2
+        s1 = 0
+        x = a + h
+
+        while x < b:
+            s1 += 2 * f_gamV_original(x, n, z, Vo, Ko, kk, gamVo, gb, beta)
+            x += 2 * h
+
+        S += s1
+        s2 = (S + s1) * h / 3
+        error = abs(s3 - s2) / 15
+
+        if error < e:
+            break
+
+    return -s2 if b > 1 else s2
+
+
+def f_gamV(x, Px, KT, kkx, gamVo, gb):
+    """
+    Helper function to calculate the Gruneisen parameter at a given temperature and pressure.
+
+    Parameters
+    ----------
+    x : float
+        Fractional volume (V/Vo)
+    Px : float
+        Pressure in [bar]
+    KT: float
+        Bulk modulus at temperature in [kbar]
+    kkx: float
+        Bulk modulus derivative at temperature
+    gamVo: float
+        Additive normalizing constant for the Gruneisen parameter, (given as delta in Sokolova et al. 2016)
+    gb: float
+        Generalized Gruneisen parameter, given as t in Sokolova et al. 2016
+    """
+    KT = KT * 1000  # convert kbar to bar
+
+    f_gamV_value = (
+        gamVo
+        + (-3 * KT + 2 * Px * gb + 9 * KT * kkx - 6 * gb * KT)
+        / (6 * (3 * KT - 2 * Px * gb))
+    ) / x
+
+    return f_gamV_value
+
+
+def f_gamV_original(x, n, z, Vo, Ko, kk, gamVo, gb, beta):
+    """
+    Helper function to calculate the Gruneisen parameter at a given temperature and pressure.
+
+    Parameters
+    ----------
+    x : float
+        Fractional volume (V/Vo)
+    n : float
+        Number of atoms in the chemical formula
+    z : float
+        Atomic number of the chemical formula unit
+    Vo : float
+        Reference volume in [JBar^-1] (same as [cm^3/mol]/10)
+    Ko : float
+        Bulk modulus at reference volume [kbar]
+    kk : float
+        Bulk modulus derivative at reference volume
+    gamVo : float
+        Additive normalizing constant for the Gruneisen parameter, (given as delta in Sokolova et al. 2016)
+    gb : float
+        Generalized Gruneisen parameter, given as t in Sokolova et al. 2016
+    beta : float
+        Anharmonic analogue of the Grüneisen parameter
+
+    Returns
+    -------
+    f_gamV_value : float
+        Gruneisen parameter at a given temperature and pressure
+    """
+    fw = -np.log(3 * Ko / 10 / (1003.6 * (z * n / (Vo * 10)) ** (5 / 3)))
+    ff = x ** (1 / 3)
+    aa = 1.5 * (kk - 3) - fw
+
+    KT = (
+        Ko
+        * 1000
+        / ff**6
+        * np.exp(fw * (1 - ff))
+        * (
+            (-5 / ff**2 + 4 / ff) * (1 + aa * ff - aa * ff**2)
+            + (1 / ff - 1) * (1 + aa * ff - aa * ff**2) * (-fw)
+            + (1 / ff - 1) * (aa - 2 * aa * ff)
+        )
+        * (-x)
+    )
+
+    Px = (
+        3
+        * Ko
+        * 1000
+        * np.exp(fw * (1 - ff))
+        * (1 / ff**5 - 1 / ff**4)
+        * (1 + aa * ff - aa * ff**2)
+    )
+
+    ex = (
+        3
+        / ff**4
+        * Ko
+        * 1000
+        * np.exp(fw * (1 - ff))
+        * (
+            (-5 / ff**2 + 4 / ff) * (1 + aa * ff - aa * ff**2)
+            - (1 / ff - 1) * (1 + aa * ff - aa * ff**2) * fw
+            + (1 / ff - 1) * (aa - 2 * aa * ff)
+        )
+    )
+
+    ex1 = (
+        1
+        / ff**3
+        * Ko
+        * 1000
+        * np.exp(fw * (1 - ff))
+        * fw
+        * (
+            (-5 / ff**2 + 4 / ff) * (1 + aa * ff - aa * ff**2)
+            - (1 / ff - 1) * (1 + aa * ff - aa * ff**2) * fw
+            + (1 / ff - 1) * (aa - 2 * aa * ff)
+        )
+    )
+
+    ex2 = (
+        Ko
+        * 1000
+        * np.exp(fw * (1 - ff))
+        * (
+            (10 / ff**3 - 4 / ff**2) * (1 + aa * ff - aa * ff**2)
+            + (-5 / ff**2 + 4 / ff) * (aa - 2 * aa * ff)
+            + fw / ff**2 * (1 + aa * ff - aa * ff**2)
+            - (1 / ff - 1) * (aa - 2 * aa * ff) * fw
+            - (aa - 2 * aa * ff) / ff**2
+            - 2 * aa * (1 / ff - 1)
+        )
+        / ff**3
+    )
+
+    kkx = (ex + ex1 - ex2) / (-KT / ff) / 3
+
+    gt = gb - beta * x ** (1 / 3)
+    gtx = -beta / 3 * x ** (-2 / 3)
+
+    f_gamV_value = (
+        gamVo
+        + (-3 * KT + 2 * Px * gt + 9 * KT * kkx - 6 * gt * KT)
+        / (6 * (3 * KT - 2 * Px * gt))
+    ) / x
+
+    return f_gamV_value
