@@ -1,13 +1,12 @@
 import numpy as np
-from peritheos.eos.thermal import (
-    Pth_modified,
+from peritheos.eos.thermal.sokolova2016 import (
     f_gamV,
     I_gamV,
 )
 
 import peritheos.eos._reference.sokolova2016 as sokolova2016_original
-from peritheos.eos.holzapfel import Holzapfel
-
+from peritheos.eos.rt.holzapfel import Holzapfel
+from peritheos.eos.thermal.sokolova2016 import Sokolova2016
 
 # diamond parameters
 V0 = 0.3414  # in JBar^-1 (same as [cm^3/mol]/10)
@@ -68,6 +67,7 @@ def test_original_thermal_pressure_calculation():
 
 
 def test_compare_original_with_modified_thermal_pressure_calculation():
+    # original implementation
     expp = 1.09427641040855
     P1 = sokolova2016_original.P_thermal(
         n,
@@ -99,26 +99,10 @@ def test_compare_original_with_modified_thermal_pressure_calculation():
         e_0,
     )
 
-    P2 = Pth_modified(
-        n,
-        z,
-        V0,
-        K0,
-        K0_prime,
-        Tr,
-        V,
-        Theta_1,
-        m1,
-        Theta_2,
-        m2,
-        T,
-        delta,
-        t,
-        a_0,
-        m,
-        g,
-        e_0,
-    )
+    # class based implementation
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    sokolova_eos = Sokolova2016(rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0)
+    P2 = sokolova_eos.thermal_pressure(V, T)
     assert np.isclose(P1, P2)
 
 

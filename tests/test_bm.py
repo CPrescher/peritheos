@@ -7,7 +7,7 @@ equations of state, verifying both pressure and bulk modulus calculations.
 
 import pytest
 import numpy as np
-from peritheos.eos.bm import BM2, BM3
+from peritheos.eos.rt.bm import BM2, BM3
 from peritheos.utils import derivative
 
 V0 = 100

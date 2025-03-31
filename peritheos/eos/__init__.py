@@ -48,3 +48,13 @@ class EosBase:
             Bulk modulus (in the same units as K0)
         """
         raise NotImplementedError("Subclasses must implement the bulk_modulus method.")
+
+class ThermalEOS(EosBase):
+    def __init__(self, rt_eos: EosBase):
+        self.rt_eos = rt_eos
+
+    def thermal_pressure(self, V: float, T: float) -> float:
+        raise NotImplementedError("This method should be implemented by the subclass")
+
+    def pressure(self, V: float, T: float) -> float:
+        return self.thermal_pressure(V, T) + self.rt_eos.pressure(V)
