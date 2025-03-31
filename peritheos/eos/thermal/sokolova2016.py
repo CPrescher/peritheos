@@ -4,6 +4,7 @@ from scipy.constants import R
 
 from ..rt.holzapfel import Holzapfel
 from .. import ThermalEOS
+from .. import NumericType
 
 
 class Sokolova2016(ThermalEOS):
@@ -69,7 +70,28 @@ class Sokolova2016(ThermalEOS):
         self.g = g
         self.e_0 = e_0
 
-    def thermal_pressure(self, V: float, T: float) -> float:
+    def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """
+        Calculate the thermal pressure using the Sokolova et al. 2016 model.
+
+        Parameters
+        ----------
+        V : NumericType
+            Volume in [cm^3/mol]
+        T : NumericType
+            Temperature in [K]
+
+        Returns
+        -------
+        thermal_pressure : NumericType
+            Thermal pressure in [bar]
+        """
+        if isinstance(V, np.ndarray) and isinstance(T, np.ndarray):
+            if len(V) != len(T):
+                raise ValueError(
+                    "V and T either must have the same length or one must be a scalar"
+                )
+
         x = V / self.rt_eos.V0  # fractional volume
         Px = self.rt_eos.pressure(V)
         KT = self.rt_eos.bulk_modulus(V) * 1000  # conver kbar to bar
@@ -163,9 +185,10 @@ def I_gamV(x, delta, t, rt_eos):
         kkx_x = rt_eos.bulk_modulus_derivative(x * V0)
         return f_gamV(x, Px_x, KT_x, kkx_x, delta, t)
 
-    I_gamV = quad(f_gamV_x, x, 1)
-
-    return I_gamV[0]
+    if isinstance(x, np.ndarray) or isinstance(x, list):
+        return np.array([quad(f_gamV_x, x_i, 1)[0] for x_i in x])
+    else:
+        return quad(f_gamV_x, x, 1)[0]
 
 
 def f_gamV(x, Px, KT, kkx, delta, t):
