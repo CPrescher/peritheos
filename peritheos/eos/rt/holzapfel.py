@@ -14,13 +14,15 @@ class Holzapfel(EosBase):
 
         **Note:**
         Contrary to other EOS implementations, the reference values need to be provided in the correct units.
+        For consistency with the equation of states, the pressure unit is GPa - contrary to excel spreadsheets from
+        Sokolova et al. 2016 where the bulk modulus is given in kbar.
 
         Parameters
         ----------
         V0 : float
             Reference volume [JBar^-1] (same as [cm^3/mol]/10)
         K0 : float
-            Bulk modulus at reference volume in [kbar]
+            Bulk modulus at reference volume in [GPa]
         K0_prime : float
             Pressure derivative of bulk modulus at reference volume
         n : float
@@ -36,7 +38,7 @@ class Holzapfel(EosBase):
         self.Z: float = Z
 
         self._P_FG0 = 1003.6 * (self.Z * self.n / (self.V0 * 10)) ** (5 / 3)
-        self._c0 = -np.log(3 * self.K0 / 10 / self._P_FG0)
+        self._c0 = -np.log(3 * self.K0 / self._P_FG0)
         self._c2 = 1.5 * (self.K0_prime - 3) - self._c0
 
     def pressure(self, V: NumericType) -> NumericType:
@@ -51,18 +53,18 @@ class Holzapfel(EosBase):
         Returns
         -------
         float or np.ndarray
-            Pressure in bar
+            Pressure in [GPa]
         """
         x = (V / self.V0) ** (1 / 3)
         P_value = (
             3
             * self.K0
-            * 1000
+            * 10000
             * np.exp(self._c0 * (1 - x))
             * (1 / x**5 - 1 / x**4)
             * (1 + self._c2 * x - self._c2 * x**2)
         )
-        return P_value
+        return P_value / 10000
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -76,16 +78,16 @@ class Holzapfel(EosBase):
         Returns
         -------
         float or np.ndarray
-            Bulk modulus in [kbar]
+            Bulk modulus in [GPa]
         """
         x = (V / self.V0) ** (1 / 3)
-        term1 = self.K0 * 1000 * x**-5 * np.exp(self._c0 * (1 - x))
+        term1 = self.K0 * x**-5 * np.exp(self._c0 * (1 - x))
 
         bracket_1 = (5 - 4 * x) * (1 + self._c2 * x * (1 - x))
         bracket_2 = self._c0 * x * (1 - x) * (1 + self._c2 * x * (1 - x))
         bracket_3 = -(1 - x) * (self._c2 * x - 2 * self._c2 * x**2)
         term2 = bracket_1 + bracket_2 + bracket_3
-        return term1 * term2 / 1000
+        return term1 * term2
 
     def bulk_modulus_derivative(self, V: NumericType, eps: float = 1e-6) -> NumericType:
         """
@@ -112,7 +114,7 @@ class Holzapfel(EosBase):
         """
         V = np.array([V * (1 + eps), V * (1 - eps)])
         P = self.pressure(V)
-        K = self.bulk_modulus(V) * 1000
+        K = self.bulk_modulus(V)
         return (K[0] - K[1]) / (P[0] - P[1])
 
 
@@ -141,9 +143,9 @@ def bulk_modulus_derivative_analytical(V0, V, KT, K0, c0, c2):
     """
     x = (V / V0) ** (1 / 3)
 
-    # convert moduli from kbar to bar
-    K0 = K0 * 1000
-    KT = KT * 1000
+    # convert moduli from GPa to bar
+    K0 = K0 * 10000
+    KT = KT * 10000
 
     term1 = (
         3
