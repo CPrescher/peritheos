@@ -11,7 +11,10 @@ from peritheos.eos.thermal.sokolova2016 import Sokolova2016
 
 # diamond parameters
 V0 = 0.3414  # in JBar^-1 (same as [cm^3/mol]/10)
-K0 = 4415  # in kbar
+K0 = 441.5  # in GPa
+K0_kbar = (
+    K0 * 10
+)  # in kbar (original code from Sokolova et al. 2016 works in kbar for K0)
 K0_prime = 3.9
 Theta_1 = 684  # in K
 m1 = 0.564
@@ -39,7 +42,7 @@ def test_original_thermal_pressure_calculation():
         n,
         z,
         V0,
-        K0,
+        K0_kbar,
         K0_prime,
         Tr,
         x,
@@ -74,7 +77,7 @@ def test_compare_original_with_modified_thermal_pressure_calculation():
         n,
         z,
         V0,
-        K0,
+        K0_kbar,
         K0_prime,
         Tr,
         x,
@@ -121,7 +124,7 @@ def test_f_gamV():
     g0 = delta
     gb = t
 
-    gamV0_1 = sokolova2016_original.f_gamV(x, n, z, V0, K0, K0_prime, g0, gb, 0)
+    gamV0_1 = sokolova2016_original.f_gamV(x, n, z, V0, K0_kbar, K0_prime, g0, gb, 0)
     gamV0_2 = f_gamV(x, Px, KT, kkx, g0, gb)
 
     assert np.isclose(gamV0_1, gamV0_2)
@@ -136,7 +139,7 @@ def test_I_gamV_compression():
     g0 = delta
     gb = t
 
-    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0, K0_prime, g0, gb, 0)
+    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0_kbar, K0_prime, g0, gb, 0)
     I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
 
     assert np.isclose(I_gamV_1, I_gamV_2)
@@ -152,7 +155,7 @@ def test_I_gamV_expansion():
     g0 = delta
     gb = t
 
-    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0, K0_prime, g0, gb, 0)
+    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0_kbar, K0_prime, g0, gb, 0)
     I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
 
     assert np.isclose(I_gamV_1, I_gamV_2)

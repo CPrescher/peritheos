@@ -93,8 +93,8 @@ class Sokolova2016(ThermalEOS):
                 )
 
         x = V / self.rt_eos.V0  # fractional volume
-        Px = self.rt_eos.pressure(V)
-        KT = self.rt_eos.bulk_modulus(V) * 1000  # conver kbar to bar
+        Px = self.rt_eos.pressure(V) * 10000  # convert GPa to bar
+        KT = self.rt_eos.bulk_modulus(V) * 10000  # convert GPa to bar
         kkx = self.rt_eos.bulk_modulus_derivative(V)
 
         # Equation (10) - seems not the same as in the original paper
@@ -200,9 +200,9 @@ def f_gamV(x, Px, KT, kkx, delta, t):
     x : float
         Fractional volume (V/Vo)
     Px : float
-        Pressure in [bar]
+        Pressure in [GPa]
     KT: float
-        Bulk modulus at temperature in [kbar]
+        Bulk modulus at temperature in [GPa]
     kkx: float
         Bulk modulus derivative at temperature
     delta: float
@@ -210,7 +210,8 @@ def f_gamV(x, Px, KT, kkx, delta, t):
     gb: float
         Generalized Gruneisen parameter
     """
-    KT = KT * 1000  # convert kbar to bar
+    KT = KT * 10000  # convert GPa to bar
+    Px = Px * 10000  # convert GPa to bar
 
     f_gamV_value = (
         delta

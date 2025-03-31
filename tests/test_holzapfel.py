@@ -10,7 +10,7 @@ from peritheos.utils import derivative
 
 # Example values for diamond taken from Sokolova et al. 2016
 V0 = 0.34141  # molar volume under standard conditions in Jbar^-1
-K0 = 4415  # isothermal bulk modulus in kbar
+K0 = 441.5  # isothermal bulk modulus in GPa
 K0_prime = 3.9  # pressure derivative of bulk modulus
 n = 1.0  # number of atoms in a chemical formula
 Z = 6.0  # atomic number of the formula unit
@@ -85,9 +85,9 @@ def test_known_values_for_pressure(holzapfel_eos):
         0.273128,
     ]
     test_pressures = [
-        570207.120765631,
-        980832.589918037,
-        1510189.09071629,
+        57.0207,
+        98.0832,
+        151.0189,
     ]
     for v, p in zip(test_volumes, test_pressures):
         assert np.isclose(holzapfel_eos.pressure(v), p)
@@ -96,8 +96,9 @@ def test_known_values_for_pressure(holzapfel_eos):
 def test_bulk_modulus_with_derivative(holzapfel_eos):
     """Test bulk modulus calculation with direct derivative as comparison"""
     volumes = np.array([0.8, 0.9, 1.0, 1.1, 1.2]) * V0
-    moduli = holzapfel_eos.bulk_modulus(volumes) * 1000
+    moduli = holzapfel_eos.bulk_modulus(volumes)
     moduli_from_derivative = -volumes * derivative(holzapfel_eos.pressure, volumes)
+
     assert np.allclose(moduli, moduli_from_derivative)
 
 
