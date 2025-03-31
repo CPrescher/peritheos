@@ -4,7 +4,7 @@ Tests for the Holzapfel equation of state
 
 import numpy as np
 import pytest
-from peritheos.eos.holzapfel import Holzapfel, bulk_modulus_derivative_analytical
+from peritheos.eos.rt.holzapfel import Holzapfel, bulk_modulus_derivative_analytical
 from peritheos.eos import NumericType
 from peritheos.utils import derivative
 

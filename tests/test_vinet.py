@@ -4,7 +4,7 @@ Tests for the Vinet equation of state
 
 import numpy as np
 import pytest
-from peritheos.eos.vinet import Vinet
+from peritheos.eos.rt.vinet import Vinet
 from peritheos.utils import derivative
 
 # Example values for a material
