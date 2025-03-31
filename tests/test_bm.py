@@ -71,6 +71,23 @@ def test_bm2_K_with_derivative(bm2_eos):
     assert np.allclose(moduli, moduli_from_derivative)
 
 
+def test_bm2_calculate_volume(bm2_eos):
+    """Test volume calculation at a given pressure"""
+    pressure = 100
+    volume = bm2_eos.calculate_volume(pressure)
+    pressure_2 = bm2_eos.pressure(volume)
+
+    assert np.isclose(pressure, pressure_2)
+
+
+def test_bm2_calculate_volume_array(bm2_eos):
+    """Test volume calculation at a given pressure"""
+    pressures = [100, 200, 300, 400, 500]
+    volumes = bm2_eos.calculate_volume(pressures)
+    pressures_2 = bm2_eos.pressure(volumes)
+    assert np.allclose(pressures, pressures_2)
+
+
 @pytest.fixture
 def bm3_eos():
     return BM3(V0, K0, K0_prime)
