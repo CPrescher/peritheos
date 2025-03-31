@@ -1,12 +1,11 @@
 import numpy as np
 from peritheos.eos.thermal import (
-    Pth_original,
     Pth_modified,
-    f_gamV_original,
     f_gamV,
-    I_gamV_original,
     I_gamV,
 )
+
+import peritheos.eos._reference.sokolova2016 as sokolova2016_original
 from peritheos.eos.holzapfel import Holzapfel
 
 
@@ -36,8 +35,7 @@ x = V / V0
 
 def test_original_thermal_pressure_calculation():
     expp = 1.09427641040855
-    print(V)
-    Pth = Pth_original(
+    Pth = sokolova2016_original.P_thermal(
         n,
         z,
         V0,
@@ -71,7 +69,7 @@ def test_original_thermal_pressure_calculation():
 
 def test_compare_original_with_modified_thermal_pressure_calculation():
     expp = 1.09427641040855
-    P1 = Pth_original(
+    P1 = sokolova2016_original.P_thermal(
         n,
         z,
         V0,
@@ -136,7 +134,7 @@ def test_f_gamV():
     g0 = delta
     gb = t
 
-    gamV0_1 = f_gamV_original(x, n, z, V0, K0, K0_prime, g0, gb, 0)
+    gamV0_1 = sokolova2016_original.f_gamV(x, n, z, V0, K0, K0_prime, g0, gb, 0)
     gamV0_2 = f_gamV(x, Px, KT, kkx, g0, gb)
 
     assert np.isclose(gamV0_1, gamV0_2)
@@ -151,7 +149,7 @@ def test_I_gamV_compression():
     g0 = delta
     gb = t
 
-    I_gamV_1 = I_gamV_original(z, n, x, V0, K0, K0_prime, g0, gb, 0)
+    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0, K0_prime, g0, gb, 0)
     I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
 
     assert np.isclose(I_gamV_1, I_gamV_2)
@@ -167,7 +165,7 @@ def test_I_gamV_expansion():
     g0 = delta
     gb = t
 
-    I_gamV_1 = I_gamV_original(z, n, x, V0, K0, K0_prime, g0, gb, 0)
+    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0, K0_prime, g0, gb, 0)
     I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
 
     assert np.isclose(I_gamV_1, I_gamV_2)
