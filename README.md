@@ -16,7 +16,7 @@ A Python library for thermodynamic equations of state calculations for solid mat
 <!-- installation from github -->
 
 ```bash
-pip install git+https://github.com/yourusername/peritheos.git
+pip install git+https://github.com/CPrescher/peritheos.git
 ```
 
 ## Usage
