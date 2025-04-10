@@ -179,7 +179,7 @@ class BM4(EosBase):
             { 1 + (3/4) * (K0'- 4) * ((V0/V)^(-2/3) - 1) + (3/8) * [K0 * K0'' + (K0'- 4) * (K0' - 3) + (35/9)] * ((V0/V)^(-2/3) - 1)
 
     or in terms of the Eulerian strain f = [(V0/V)^(2/3) - 1]/2, zeta = (3/4) * (4 - K0'), and xi = (3/8) * [K0 * K0'' + (K0'- 4) * (K0' - 3) + (35/9)]:
-    P(f) = 3 * K0 *f * (1 + 2f)^(5/2) * [1 + 2 * zeta * f + 4 * xi * f^2] 
+    P(f) = 3 * K0 *f * (1 + 2f)^(5/2) * [1 + 2 * zeta * f + 4 * xi * f ** 2] 
     
     Equations from:
     Anderson, O.L., (1995) Equations of State of Solids for Geophysics and Ceramic Science,
@@ -198,13 +198,13 @@ class BM4(EosBase):
             Bulk modulus at reference volume (in GPa or any consistent unit)
         K0_prime : float
             Pressure derivative of the bulk modulus at reference volume (dimensionless)
-        K0_second : float
+        K0_double_prime : float
             Second pressure derivative of the bulk modulus at reference volume (dimensionless)    
         """
         self.V0: float = V0
         self.K0: float = K0
         self.K0_prime: float = K0_prime
-        self.K0_second: float = K0_second
+        self.K0_double_prime: float = K0_second
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -222,13 +222,13 @@ class BM4(EosBase):
         """
         f = ((self.V0/V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * [self.K0 * self.K0_second + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
+        xi = (3 / 8) * [self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
         return (
             3 
             * self.K0 
             * f 
             * (1 + 2 * f) ** (5/2) 
-            * [1 - 2 * zeta * f + 4 * xi * f^2]
+            * [1 - 2 * zeta * f + 4 * xi * f ** 2]
         ) 
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
@@ -237,7 +237,7 @@ class BM4(EosBase):
 
         For the 4th-order Birch-Murnaghan EOS, the bulk modulus at V0 with f = f = ((V0/V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - K0_prime)
-        xi = (3 / 8) * [K0 * K0_second + (K0_prime - 4) * (K0_prime - 3) + (35 / 9)]
+        xi = (3 / 8) * [K0 * K0_double_prime + (K0_prime - 4) * (K0_prime - 3) + (35 / 9)]
         K(f) = 5 * self.K0 * (1 + 2 * f) ** (5 / 2) * (1 - 2 * zeta * f + 4 * xi * f ** 2) + self.K0 * (1 + 2 * f) ** (7 / 2)
             * (1 - 4 * zeta * f + 12 * xi * f ** 2)
 
@@ -253,7 +253,7 @@ class BM4(EosBase):
         """
         f = ((self.V0/V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * [self.K0 * self.K0_second + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
+        xi = (3 / 8) * [self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
         return (
             5 
             * self.K0
