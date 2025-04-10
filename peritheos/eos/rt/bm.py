@@ -169,3 +169,98 @@ class BM3(EosBase):
             + (3.0 * self.K0 * self.K0_prime - 5 * self.K0) * f
             + 27.0 / 2.0 * (self.K0 * self.K0_prime - 4.0 * self.K0) * f * f
         )
+
+class BM4(EosBase):
+    """
+    4th-order Birch-Murnaghan equation of state.
+
+    The 4th-order Birch-Murnaghan EOS is defined as:
+    P(V) = (3/2) * K0 * [(V0/V)^(-7/3) - (V0/V)^(-5/3)] * 
+            { 1 + (3/4) * (K0'- 4) * ((V0/V)^(-2/3) - 1) + (3/8) * [K0 * K0'' + (K0'- 4) * (K0' - 3) + (35/9)] * ((V0/V)^(-2/3) - 1)
+
+    or in terms of the Eulerian strain f = [(V0/V)^(2/3) - 1]/2, zeta = (3/4) * (4 - K0'), and xi = (3/8) * [K0 * K0'' + (K0'- 4) * (K0' - 3) + (35/9)]:
+    P(f) = 3 * K0 *f * (1 + 2f)^(5/2) * [1 + 2 * zeta * f + 4 * xi * f^2] 
+    
+    Equations from:
+    Anderson, O.L., (1995) Equations of State of Solids for Geophysics and Ceramic Science,
+    Oxford University Press, Oxford, UK.
+    """
+
+    def __init__(self, V0: float, K0: float, K0_prime: float, K0_second: float) -> None:
+        """
+        Initialize the 4th-order Birch-Murnaghan EOS.
+
+        Parameters
+        ----------
+        V0 : float
+            Reference volume (in cubic angstroms or any consistent unit)
+        K0 : float
+            Bulk modulus at reference volume (in GPa or any consistent unit)
+        K0_prime : float
+            Pressure derivative of the bulk modulus at reference volume (dimensionless)
+        K0_second : float
+            Second pressure derivative of the bulk modulus at reference volume (dimensionless)    
+        """
+        self.V0: float = V0
+        self.K0: float = K0
+        self.K0_prime: float = K0_prime
+        self.K0_second: float = K0_second
+
+    def pressure(self, V: NumericType) -> NumericType:
+        """
+        Calculate pressure using the 4th-order Birch-Murnaghan EOS.
+
+        Parameters
+        ----------
+        V : float or numpy.ndarray
+            Volume (in the same units as V0)
+
+        Returns
+        -------
+        float or numpy.ndarray
+            Pressure (in the same units as K0)
+        """
+        f = ((self.V0/V) ** (2 / 3) - 1) / 2
+        zeta = (3 / 4) * (4 - self.K0_prime)
+        xi = (3 / 8) * [self.K0 * self.K0_second + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
+        return (
+            3 
+            * self.K0 
+            * f 
+            * (1 + 2 * f) ** (5/2) 
+            * [1 - 2 * zeta * f + 4 * xi * f^2]
+        ) 
+
+    def bulk_modulus(self, V: NumericType) -> NumericType:
+        """
+        Calculate the bulk modulus at the given volume.
+
+        For the 4th-order Birch-Murnaghan EOS, the bulk modulus at V0 with f = f = ((V0/V) ** (2 / 3) - 1) / 2
+        zeta = (3 / 4) * (4 - K0_prime)
+        xi = (3 / 8) * [K0 * K0_second + (K0_prime - 4) * (K0_prime - 3) + (35 / 9)]
+        K(f) = 5 * self.K0 * (1 + 2 * f) ** (5 / 2) * (1 - 2 * zeta * f + 4 * xi * f ** 2) + self.K0 * (1 + 2 * f) ** (7 / 2)
+            * (1 - 4 * zeta * f + 12 * xi * f ** 2)
+
+        Parameters
+        ----------
+        V : float or numpy.ndarray
+            Volume (in the same units as V0)
+
+        Returns
+        -------
+        float or numpy.ndarray
+            Bulk modulus (in the same units as K0)
+        """
+        f = ((self.V0/V) ** (2 / 3) - 1) / 2
+        zeta = (3 / 4) * (4 - self.K0_prime)
+        xi = (3 / 8) * [self.K0 * self.K0_second + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
+        return (
+            5 
+            * self.K0
+            * (1 + 2 * f) ** (5 / 2)
+            * (1 - 2 * zeta * f + 4 * xi * f ** 2) 
+            + self.K0
+            * (1 + 2 * f) ** (7 / 2)
+            * (1 - 4 * zeta * f + 12 * xi * f ** 2)
+        )
+
