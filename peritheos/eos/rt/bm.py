@@ -186,7 +186,7 @@ class BM4(EosBase):
     Oxford University Press, Oxford, UK.
     """
 
-    def __init__(self, V0: float, K0: float, K0_prime: float, K0_second: float) -> None:
+    def __init__(self, V0: float, K0: float, K0_prime: float, K0_double_prime: float) -> None:
         """
         Initialize the 4th-order Birch-Murnaghan EOS.
 
@@ -204,7 +204,7 @@ class BM4(EosBase):
         self.V0: float = V0
         self.K0: float = K0
         self.K0_prime: float = K0_prime
-        self.K0_double_prime: float = K0_second
+        self.K0_double_prime: float = K0_double_prime
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -222,13 +222,13 @@ class BM4(EosBase):
         """
         f = ((self.V0/V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * [self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
+        xi = (3 / 8) * (self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9))
         return (
             3 
             * self.K0 
             * f 
             * (1 + 2 * f) ** (5/2) 
-            * [1 - 2 * zeta * f + 4 * xi * f ** 2]
+            * (1 - 2 * zeta * f + 4 * xi * f ** 2)
         ) 
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
@@ -253,9 +253,10 @@ class BM4(EosBase):
         """
         f = ((self.V0/V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * [self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9)]
+        xi = (3 / 8) * (self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9))
         return (
             5 
+            * f
             * self.K0
             * (1 + 2 * f) ** (5 / 2)
             * (1 - 2 * zeta * f + 4 * xi * f ** 2) 

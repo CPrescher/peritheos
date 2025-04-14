@@ -13,6 +13,7 @@ from peritheos.utils import derivative
 V0 = 100
 K0 = 100
 K0_prime = 5
+K0_double_prime = 10
 
 
 @pytest.fixture
@@ -142,13 +143,14 @@ def test_bm3_K_with_derivative(bm3_eos):
 
 @pytest.fixture
 def bm4_eos():
-    return BM4(V0, K0, K0_prime)
+    return BM4(V0, K0, K0_prime, K0_double_prime)
 
 def test_bm4_init(bm4_eos):
     """Test initialization of BM4 EOS"""
     assert bm4_eos.V0 == V0
     assert bm4_eos.K0 == K0
     assert bm4_eos.K0_prime == K0_prime
+    assert bm4_eos.K0_double_prime == K0_double_prime
 
 def test_bm4_pressure_at_v0(bm4_eos):
     """Test pressure at reference volume is zero"""
