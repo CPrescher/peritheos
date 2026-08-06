@@ -3,8 +3,13 @@ from scipy.integrate import quad
 from scipy.constants import R
 
 from ..rt.holzapfel import Holzapfel
-from .. import ThermalEOS
-from .. import NumericType
+from .. import (
+    NumericType,
+    ThermalEOS,
+    validate_finite_scalar,
+    validate_positive_scalar,
+    validate_volume,
+)
 
 
 class Sokolova2016(ThermalEOS):
@@ -33,8 +38,6 @@ class Sokolova2016(ThermalEOS):
         Tr : float
             Reference temperature in [K] for the EOS (typically 298.15 K)
         QE1o : float
-            Volume in [JBar^-1] (same as [cm^3/mol]/10)
-        QE1o : float
             Einstein characteristic temperature, Theta_1 in [K]
         mE1 : float
             The first Einstein number
@@ -57,18 +60,22 @@ class Sokolova2016(ThermalEOS):
         e_0 : float
             Free electrons parameter (10e-6 [K])
         """
+        if not isinstance(rt_eos, Holzapfel):
+            raise TypeError("Sokolova2016 requires a Holzapfel room-temperature EOS")
         super().__init__(rt_eos)
-        self.Tr = Tr
-        self.QE1o = QE1o
-        self.mE1 = mE1
-        self.QE2o = QE2o
-        self.mE2 = mE2
-        self.delta = delta
-        self.t = t
-        self.a_0 = a_0
-        self.m = m
-        self.g = g
-        self.e_0 = e_0
+        self.Tr = validate_positive_scalar(Tr, "Tr")
+        self.QE1o = validate_positive_scalar(QE1o, "QE1o")
+        self.mE1 = validate_finite_scalar(mE1, "mE1")
+        self.QE2o = validate_positive_scalar(QE2o, "QE2o")
+        self.mE2 = validate_finite_scalar(mE2, "mE2")
+        if self.mE1 < 0 or self.mE2 < 0:
+            raise ValueError("Einstein multiplicities must not be negative")
+        self.delta = validate_finite_scalar(delta, "delta")
+        self.t = validate_finite_scalar(t, "t")
+        self.a_0 = validate_finite_scalar(a_0, "a_0")
+        self.m = validate_finite_scalar(m, "m")
+        self.g = validate_finite_scalar(g, "g")
+        self.e_0 = validate_finite_scalar(e_0, "e_0")
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         """
@@ -77,24 +84,27 @@ class Sokolova2016(ThermalEOS):
         Parameters
         ----------
         V : NumericType
-            Volume in [cm^3/mol]
+            Molar volume in [J bar^-1], equal to [cm^3/mol] / 10
         T : NumericType
             Temperature in [K]
 
         Returns
         -------
         thermal_pressure : NumericType
-            Thermal pressure in [bar]
+            Thermal pressure in [GPa]
         """
-        if isinstance(V, np.ndarray) and isinstance(T, np.ndarray):
-            if len(V) != len(T):
-                raise ValueError(
-                    "V and T either must have the same length or one must be a scalar"
-                )
+        V = validate_volume(V)
+        temperatures = np.asarray(T, dtype=float)
+        if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
+            raise ValueError("Temperature must be finite and greater than zero")
+        try:
+            V, T = np.broadcast_arrays(np.asarray(V, dtype=float), temperatures)
+        except ValueError as error:
+            raise ValueError("V and T must have broadcast-compatible shapes") from error
 
         x = V / self.rt_eos.V0  # fractional volume
-        Px = self.rt_eos.pressure(V) * 10000  # convert GPa to bar
-        KT = self.rt_eos.bulk_modulus(V) * 10000  # convert GPa to bar
+        Px = self.rt_eos.pressure(V)
+        KT = self.rt_eos.bulk_modulus(V)
         kkx = self.rt_eos.bulk_modulus_derivative(V)
 
         # Equation (10) - seems not the same as in the original paper
@@ -113,18 +123,14 @@ class Sokolova2016(ThermalEOS):
         QE2 = self.QE2o * expp
 
         # Equation (12) for the different Einstein contributions at the temperature TK
-        e1 = np.exp(QE1 / T)
-        PE1 = self.mE1 * R * ((QE1 / 2 + QE1 / (e1 - 1)) * gamV / V)
+        PE1 = self.mE1 * R * (_einstein_energy(QE1, T) * gamV / V)
 
-        e2 = np.exp(QE2 / T)
-        PE2 = self.mE2 * R * ((QE2 / 2 + QE2 / (e2 - 1)) * gamV / V)
+        PE2 = self.mE2 * R * (_einstein_energy(QE2, T) * gamV / V)
 
         # Equation (12) for the different Einstein contributions at the reference temperature
-        e1r = np.exp(QE1 / self.Tr)
-        PE1r = self.mE1 * R * ((QE1 / 2 + QE1 / (e1r - 1)) * gamV / V)
+        PE1r = self.mE1 * R * (_einstein_energy(QE1, self.Tr) * gamV / V)
 
-        e2r = np.exp(QE2 / self.Tr)
-        PE2r = self.mE2 * R * ((QE2 / 2 + QE2 / (e2r - 1)) * gamV / V)
+        PE2r = self.mE2 * R * (_einstein_energy(QE2, self.Tr) * gamV / V)
 
         # Equation (12) second additive term
         Pea = (
@@ -152,8 +158,20 @@ class Sokolova2016(ThermalEOS):
             * (T**2 - self.Tr**2)
         )
 
-        Pth = PE1 + PE2 - PE1r - PE2r + Pee + Pea
-        return Pth
+        # R [J mol^-1 K^-1] divided by V [J bar^-1 mol^-1] produces bar.
+        Pth_bar = PE1 + PE2 - PE1r - PE2r + Pee + Pea
+        Pth_gpa = Pth_bar / 10000
+        if Pth_gpa.ndim == 0:
+            return float(Pth_gpa)
+        return Pth_gpa
+
+
+def _einstein_energy(theta, temperature):
+    """Return Einstein oscillator energy in kelvin without exponential overflow."""
+    ratio = theta / temperature
+    decay = np.exp(-ratio)
+    thermal_part = theta * decay / (-np.expm1(-ratio))
+    return theta / 2 + thermal_part
 
 
 def I_gamV(x, delta, t, rt_eos):
@@ -185,10 +203,15 @@ def I_gamV(x, delta, t, rt_eos):
         kkx_x = rt_eos.bulk_modulus_derivative(x * V0)
         return f_gamV(x, Px_x, KT_x, kkx_x, delta, t)
 
-    if isinstance(x, np.ndarray) or isinstance(x, list):
-        return np.array([quad(f_gamV_x, x_i, 1)[0] for x_i in x])
-    else:
-        return quad(f_gamV_x, x, 1)[0]
+    x_values = np.asarray(x, dtype=float)
+    if not np.all(np.isfinite(x_values)) or np.any(x_values <= 0):
+        raise ValueError("Volume ratio must be finite and greater than zero")
+    integrals = np.array(
+        [quad(f_gamV_x, float(x_i), 1)[0] for x_i in x_values.flat]
+    ).reshape(x_values.shape)
+    if integrals.ndim == 0:
+        return float(integrals)
+    return integrals
 
 
 def f_gamV(x, Px, KT, kkx, delta, t):
@@ -210,9 +233,6 @@ def f_gamV(x, Px, KT, kkx, delta, t):
     gb: float
         Generalized Gruneisen parameter
     """
-    KT = KT * 10000  # convert GPa to bar
-    Px = Px * 10000  # convert GPa to bar
-
     f_gamV_value = (
         delta
         + (-3 * KT + 2 * Px * t + 9 * KT * kkx - 6 * t * KT)

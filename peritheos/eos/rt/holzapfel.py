@@ -1,5 +1,11 @@
 import numpy as np
-from peritheos.eos import EosBase, NumericType
+from peritheos.eos import (
+    EosBase,
+    NumericType,
+    validate_finite_scalar,
+    validate_positive_scalar,
+    validate_volume,
+)
 
 
 class Holzapfel(EosBase):
@@ -31,11 +37,11 @@ class Holzapfel(EosBase):
             Atomic number of the forumala unit
         """
         super().__init__()
-        self.V0: float = V0
-        self.K0: float = K0
-        self.K0_prime: float = K0_prime
-        self.n: float = n
-        self.Z: float = Z
+        self.V0 = validate_positive_scalar(V0, "V0")
+        self.K0 = validate_positive_scalar(K0, "K0")
+        self.K0_prime = validate_finite_scalar(K0_prime, "K0_prime")
+        self.n = validate_positive_scalar(n, "n")
+        self.Z = validate_positive_scalar(Z, "Z")
 
         self._P_FG0 = 1003.6 * (self.Z * self.n / (self.V0 * 10)) ** (5 / 3)
         self._c0 = -np.log(3 * self.K0 / self._P_FG0)
@@ -55,16 +61,15 @@ class Holzapfel(EosBase):
         float or np.ndarray
             Pressure in [GPa]
         """
+        V = validate_volume(V)
         x = (V / self.V0) ** (1 / 3)
-        P_value = (
+        return (
             3
             * self.K0
-            * 10000
             * np.exp(self._c0 * (1 - x))
             * (1 / x**5 - 1 / x**4)
             * (1 + self._c2 * x - self._c2 * x**2)
         )
-        return P_value / 10000
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -80,6 +85,7 @@ class Holzapfel(EosBase):
         float or np.ndarray
             Bulk modulus in [GPa]
         """
+        V = validate_volume(V)
         x = (V / self.V0) ** (1 / 3)
         term1 = self.K0 * x**-5 * np.exp(self._c0 * (1 - x))
 
@@ -91,7 +97,7 @@ class Holzapfel(EosBase):
 
     def bulk_modulus_derivative(self, V: NumericType, eps: float = 1e-6) -> NumericType:
         """
-        Compute the second derivative of the bulk modulus with respect to pressure using a
+        Compute the pressure derivative of the bulk modulus using a
         numerical approximation.
 
         This method provides a faster alternative to the analytical approach implemented in
@@ -110,8 +116,12 @@ class Holzapfel(EosBase):
         Returns
         -------
         float or np.ndarray
-            Second derivative of bulk modulus with respect to pressure (unitless)
+            Pressure derivative of bulk modulus (unitless)
         """
+        V = validate_volume(V)
+        eps = validate_positive_scalar(eps, "eps")
+        if eps >= 1:
+            raise ValueError("eps must be smaller than one")
         V = np.array([V * (1 + eps), V * (1 - eps)])
         P = self.pressure(V)
         K = self.bulk_modulus(V)
@@ -120,7 +130,7 @@ class Holzapfel(EosBase):
 
 def bulk_modulus_derivative_analytical(V0, V, KT, K0, c0, c2):
     """
-    Calculate the second derivative of bulk modulus with respect to pressure using the Holzapfel equation of state.
+    Calculate the pressure derivative of bulk modulus using the Holzapfel equation of state.
     Equation have been taken from excel sheets provided in Sokolova et al. 2016. The listed equation (5) on page
     163 in this paper seems to be incorrect.
     Values have been verified against the excel sheets provided by Sokolova et al. 2016 and the numerical

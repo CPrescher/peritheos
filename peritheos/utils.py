@@ -14,9 +14,9 @@ def convert_pressure(value, from_unit, to_unit):
     value : float
         Pressure value to convert
     from_unit : str
-        Original unit ('pa', 'bar', 'atm', 'torr', 'psi')
+        Original unit ('pa', 'mpa', 'gpa', 'bar', 'kbar', 'atm', 'torr', 'psi')
     to_unit : str
-        Target unit ('pa', 'bar', 'atm', 'torr', 'psi')
+        Target unit ('pa', 'mpa', 'gpa', 'bar', 'kbar', 'atm', 'torr', 'psi')
         
     Returns
     -------
@@ -26,17 +26,27 @@ def convert_pressure(value, from_unit, to_unit):
     # Conversion factors to Pa
     to_pa = {
         'pa': 1.0,
+        'mpa': 1e6,
+        'gpa': 1e9,
         'bar': 1e5,
+        'kbar': 1e8,
         'atm': 101325.0,
         'torr': 133.322,
         'psi': 6894.76
     }
     
+    from_unit = from_unit.lower()
+    to_unit = to_unit.lower()
+    if from_unit not in to_pa:
+        raise ValueError(f"Unsupported pressure unit: {from_unit}")
+    if to_unit not in to_pa:
+        raise ValueError(f"Unsupported pressure unit: {to_unit}")
+
     # Convert to Pa first
-    pa_value = value * to_pa[from_unit.lower()]
+    pa_value = value * to_pa[from_unit]
     
     # Convert from Pa to target unit
-    return pa_value / to_pa[to_unit.lower()]
+    return pa_value / to_pa[to_unit]
 
 
 def convert_temperature(value, from_unit, to_unit):
