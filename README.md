@@ -1,4 +1,4 @@
-# peritheos
+# Peritheos
 
 A Python library for thermodynamic equations of state calculations for solid materials.
 
