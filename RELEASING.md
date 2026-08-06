@@ -1,4 +1,4 @@
-# Releasing peritheos
+# Releasing Peritheos
 
 Releases are built by GitHub Actions and published to PyPI through Trusted
 Publishing. No PyPI API token is stored in GitHub.
