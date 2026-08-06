@@ -30,3 +30,11 @@ Publishing. No PyPI API token is stored in GitHub.
 The `Publish to PyPI` workflow checks that the tag and package version match,
 runs the tests, builds and validates the wheel and source distribution, and
 then publishes the exact uploaded artifacts from a separate OIDC-enabled job.
+
+If an automated system pushes the tag and GitHub suppresses the push trigger,
+dispatch the same workflow manually. It still checks out and validates the
+existing release tag:
+
+```bash
+gh workflow run publish.yml --ref main -f version=0.1.0
+```

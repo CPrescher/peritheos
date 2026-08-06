@@ -4,6 +4,15 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Existing release tag version, without the v prefix"
+        required: true
+        type: string
+
+env:
+  RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && format('v{0}', inputs.version) || github.ref_name }}
 
 permissions:
   contents: read
@@ -16,6 +25,8 @@ jobs:
     steps:
       - name: Check out tagged source
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: refs/tags/${{ env.RELEASE_TAG }}
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -28,8 +39,8 @@ jobs:
         shell: bash
         run: |
           package_version="$(uv run --frozen python -c 'import peritheos; print(peritheos.__version__)')"
-          if [[ "${GITHUB_REF_NAME}" != "v${package_version}" ]]; then
-            echo "Tag ${GITHUB_REF_NAME} does not match package version ${package_version}." >&2
+          if [[ "${RELEASE_TAG}" != "v${package_version}" ]]; then
+            echo "Tag ${RELEASE_TAG} does not match package version ${package_version}." >&2
             exit 1
           fi
 
