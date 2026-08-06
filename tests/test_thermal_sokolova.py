@@ -109,7 +109,7 @@ def test_compare_original_with_modified_thermal_pressure_calculation():
         rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
     )
     P2 = sokolova_eos.thermal_pressure(V, T)
-    assert np.isclose(P1, P2)
+    assert np.isclose(P1 / 10000, P2)
 
 
 def test_f_gamV():
@@ -201,7 +201,7 @@ def test_thermal_pressure_multiple_volumes_single_temperature():
             141219,
             141084,
         ]
-    )
+    ) / 10000
     assert np.allclose(thermal_pressures, expected_thermal_pressures, rtol=1e-4)
 
 
@@ -231,7 +231,7 @@ def test_thermal_pressure_single_volume_multiple_temperatures():
             193906,
             206556,
         ]
-    )
+    ) / 10000
     assert np.allclose(thermal_pressures, expected_thermal_pressures, rtol=1e-4)
 
 
@@ -262,7 +262,7 @@ def test_thermal_pressure_multiple_volumes_multiple_temperature():
             191726,
             204387,
         ]
-    )
+    ) / 10000
     assert np.allclose(thermal_pressures, expected_thermal_pressures, rtol=1e-4)
 
 
@@ -277,3 +277,74 @@ def test_thermal_pressure_multiple_volumes_multiple_temperatures_different_numbe
 
     with pytest.raises(ValueError):
         sokolova_eos.thermal_pressure(V, T)
+
+
+def test_total_pressure_uses_gpa_consistently():
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    sokolova_eos = Sokolova2016(
+        rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
+    )
+
+    thermal_pressure = sokolova_eos.thermal_pressure(V, T)
+    expected = rt_eos.pressure(V) + thermal_pressure
+
+    assert np.isclose(sokolova_eos.pressure(V, T), expected)
+    assert np.isclose(expected, 71.8816, rtol=1e-5)
+
+
+def test_thermal_volume_pressure_round_trip():
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    sokolova_eos = Sokolova2016(
+        rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
+    )
+    pressure = sokolova_eos.pressure(V, T)
+
+    calculated_volume = sokolova_eos.calculate_volume(pressure, T)
+
+    assert np.isclose(calculated_volume, V, rtol=1e-10)
+
+
+def test_thermal_volume_pressure_round_trip_arrays():
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    sokolova_eos = Sokolova2016(
+        rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
+    )
+    volumes = np.array([0.95, 0.85, 0.75]) * V0
+    temperatures = np.array([500.0, 1500.0, 3000.0])
+    pressures = sokolova_eos.pressure(volumes, temperatures)
+
+    calculated_volumes = sokolova_eos.volume(pressures, temperatures)
+
+    assert np.allclose(calculated_volumes, volumes, rtol=1e-10)
+
+
+def test_zero_pressure_volume_expands_above_reference_temperature():
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    sokolova_eos = Sokolova2016(
+        rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
+    )
+
+    expanded_volume = sokolova_eos.volume(0.0, 3000.0)
+
+    assert expanded_volume > V0
+    assert np.isclose(sokolova_eos.pressure(expanded_volume, 3000.0), 0.0, atol=1e-8)
+
+
+@pytest.mark.parametrize("temperature", [0, -1, np.nan, np.inf])
+def test_thermal_pressure_rejects_invalid_temperature(temperature):
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    sokolova_eos = Sokolova2016(
+        rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
+    )
+
+    with pytest.raises(ValueError):
+        sokolova_eos.thermal_pressure(V, temperature)
+
+
+def test_thermal_pressure_is_stable_at_low_temperature():
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    sokolova_eos = Sokolova2016(
+        rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
+    )
+
+    assert np.isfinite(sokolova_eos.thermal_pressure(V, 1.0))

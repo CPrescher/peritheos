@@ -23,7 +23,13 @@ References:
    Interior, Cambridge University Press, Cambridge, UK.
 """
 
-from peritheos.eos import EosBase, NumericType
+from peritheos.eos import (
+    EosBase,
+    NumericType,
+    validate_finite_scalar,
+    validate_positive_scalar,
+    validate_volume,
+)
 
 
 class BM2(EosBase):
@@ -52,8 +58,8 @@ class BM2(EosBase):
         K0 : float
             Bulk modulus at reference volume (in GPa or any consistent unit)
         """
-        self.V0: float = V0
-        self.K0: float = K0
+        self.V0 = validate_positive_scalar(V0, "V0")
+        self.K0 = validate_positive_scalar(K0, "K0")
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -69,6 +75,7 @@ class BM2(EosBase):
         float or numpy.ndarray
             Pressure (in the same units as K0)
         """
+        V = validate_volume(V)
         f = ((self.V0 / V) ** (2 / 3) - 1) / 2
         return 3 * self.K0 * f * (1 + 2 * f) ** (5 / 2)
 
@@ -86,6 +93,7 @@ class BM2(EosBase):
         float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
+        V = validate_volume(V)
         eta = ((self.V0 / V) ** (2 / 3) - 1) / 2
         return self.K0 * (1 + 7 * eta) * (1 + 2 * eta) ** (5 / 2)
 
@@ -119,9 +127,9 @@ class BM3(EosBase):
         K0_prime : float
             Pressure derivative of the bulk modulus at reference volume (dimensionless)
         """
-        self.V0: float = V0
-        self.K0: float = K0
-        self.K0_prime: float = K0_prime
+        self.V0 = validate_positive_scalar(V0, "V0")
+        self.K0 = validate_positive_scalar(K0, "K0")
+        self.K0_prime = validate_finite_scalar(K0_prime, "K0_prime")
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -137,6 +145,7 @@ class BM3(EosBase):
         float or numpy.ndarray
             Pressure (in the same units as K0)
         """
+        V = validate_volume(V)
         f = ((self.V0 / V) ** (2 / 3) - 1) / 2
         return (
             3
@@ -163,6 +172,7 @@ class BM3(EosBase):
         float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
+        V = validate_volume(V)
         f = ((self.V0 / V) ** (2 / 3) - 1) / 2
         return (1.0 + 2.0 * f) ** (5.0 / 2.0) * (
             self.K0
@@ -199,12 +209,15 @@ class BM4(EosBase):
         K0_prime : float
             Pressure derivative of the bulk modulus at reference volume (dimensionless)
         K0_double_prime : float
-            Second pressure derivative of the bulk modulus at reference volume (dimensionless)    
+            Second pressure derivative of the bulk modulus at reference volume
+            (inverse pressure, e.g. GPa^-1 when K0 is in GPa)
         """
-        self.V0: float = V0
-        self.K0: float = K0
-        self.K0_prime: float = K0_prime
-        self.K0_double_prime: float = K0_double_prime
+        self.V0 = validate_positive_scalar(V0, "V0")
+        self.K0 = validate_positive_scalar(K0, "K0")
+        self.K0_prime = validate_finite_scalar(K0_prime, "K0_prime")
+        self.K0_double_prime = validate_finite_scalar(
+            K0_double_prime, "K0_double_prime"
+        )
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -220,6 +233,7 @@ class BM4(EosBase):
         float or numpy.ndarray
             Pressure (in the same units as K0)
         """
+        V = validate_volume(V)
         f = ((self.V0/V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
         xi = (3 / 8) * (self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9))
@@ -251,6 +265,7 @@ class BM4(EosBase):
         float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
+        V = validate_volume(V)
         f = ((self.V0/V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
         xi = (3 / 8) * (self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9))
@@ -264,4 +279,3 @@ class BM4(EosBase):
             * (1 + 2 * f) ** (7 / 2)
             * (1 - 4 * zeta * f + 12 * xi * f ** 2)
         )
-
