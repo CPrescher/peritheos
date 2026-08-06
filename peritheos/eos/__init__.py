@@ -1,5 +1,5 @@
 """
-Equations of state module for Peritheos
+Equations of state module for peritheos
 """
 
 from typing import Callable, Union

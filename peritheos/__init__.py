@@ -1,5 +1,3 @@
-"""
-TheosPy - A library for thermodynamic equations of state calculations
-"""
+"""peritheos: thermodynamic equations of state calculations."""
 
-__version__ = "0.1.0" 
+__version__ = "0.1.0"
