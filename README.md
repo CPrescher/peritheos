@@ -6,18 +6,23 @@ A Python library for thermodynamic equations of state calculations for solid mat
 
 - Room temperature equations of state (EOS) implementations
   - Birch-Murnaghan
+  - Murnaghan
+  - Modified Tait
   - Vinet
   - Holzapfel
 - Thermal equations of state (EOS) implementations
+  - Mie-Gruneisen-Debye
+  - Mie-Gruneisen-Einstein
   - Sokolova 2016, including its complete thermal-pressure parameter set
 
 ## Unit conventions
 
 - Public pressure and bulk-modulus values are in GPa.
 - Temperatures are in K.
-- Birch-Murnaghan and Vinet accept any consistent volume unit.
-- Holzapfel and Sokolova 2016 require molar volume in J bar^-1, which is
-  equivalent to cm^3/mol divided by 10.
+- Birch-Murnaghan, Murnaghan, modified Tait, and Vinet accept any consistent
+  volume unit.
+- Holzapfel and all thermal EOS implementations require molar volume in
+  J bar^-1 mol^-1, which is equivalent to cm^3/mol divided by 10.
 
 ## Installation
 
@@ -56,6 +61,28 @@ print(f"Recovered volume: {volume}")
 ```
 
 ### Thermal equations of state
+
+Mie-Gruneisen-Debye and Mie-Gruneisen-Einstein models can wrap any of the
+room-temperature equations of state:
+
+```python
+from peritheos.eos.rt import BM3
+from peritheos.eos.thermal import MieGruneisenDebye
+
+# Thermal models require molar volume in J bar^-1 mol^-1.
+rt_eos = BM3(V0=1.0, K0=160.0, K0_prime=4.0)
+eos = MieGruneisenDebye(
+    rt_eos=rt_eos,
+    Tr=300.0,
+    theta0=800.0,
+    gamma0=1.5,
+    q=1.0,
+    n=2,
+)
+
+pressure = eos.pressure(V=0.9, T=2000.0)
+volume = eos.volume(P=pressure, T=2000.0)
+```
 
 Diamond thermal equation of state from sokolova et al. 2016
 

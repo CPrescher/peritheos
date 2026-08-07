@@ -1,7 +1,15 @@
 import numpy as np
 import pytest
 
-from peritheos.eos.rt import BM2, BM3, BM4, Holzapfel, Vinet
+from peritheos.eos.rt import (
+    BM2,
+    BM3,
+    BM4,
+    Holzapfel,
+    ModifiedTait,
+    Murnaghan,
+    Vinet,
+)
 from peritheos.utils import convert_pressure
 
 
@@ -11,6 +19,8 @@ from peritheos.utils import convert_pressure
         BM2(10.0, 100.0),
         BM3(10.0, 100.0, 4.0),
         BM4(10.0, 100.0, 4.0, -0.01),
+        Murnaghan(10.0, 100.0, 4.0),
+        ModifiedTait(10.0, 100.0, 4.0, -0.01),
         Vinet(10.0, 100.0, 4.0),
         Holzapfel(0.3414, 441.5, 3.9, 1, 6),
     ],
