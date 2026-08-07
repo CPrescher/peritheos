@@ -5,7 +5,6 @@ from peritheos.eos.thermal.sokolova2016 import (
     I_gamV,
 )
 
-import peritheos.eos._reference.sokolova2016 as sokolova2016_original
 from peritheos.eos.rt.holzapfel import Holzapfel
 from peritheos.eos.thermal.sokolova2016 import Sokolova2016
 
@@ -36,80 +35,15 @@ T = 3000  # in K
 x = V / V0
 
 
-def test_original_thermal_pressure_calculation():
-    expp = 1.09427641040855
-    Pth = sokolova2016_original.P_thermal(
-        n,
-        z,
-        V0,
-        K0_kbar,
-        K0_prime,
-        Tr,
-        x,
-        expp,
-        V,
-        1,
-        1,
-        0,
-        1,
-        1,
-        0,
-        Theta_1,
-        m1,
-        Theta_2,
-        m2,
-        T,
-        delta,
-        0,
-        t,
-        a_0,
-        m,
-        g,
-        e_0,
-    )
-    assert np.isclose(Pth, 148604.90047369, rtol=1e-4)
-
-
-def test_compare_original_with_modified_thermal_pressure_calculation():
-    # original implementation
-    expp = 1.09427641040855
-    P1 = sokolova2016_original.P_thermal(
-        n,
-        z,
-        V0,
-        K0_kbar,
-        K0_prime,
-        Tr,
-        x,
-        expp,
-        V,
-        1,
-        1,
-        0,
-        1,
-        1,
-        0,
-        Theta_1,
-        m1,
-        Theta_2,
-        m2,
-        T,
-        delta,
-        0,
-        t,
-        a_0,
-        m,
-        g,
-        e_0,
-    )
-
-    # class based implementation
+def test_diamond_thermal_pressure_regression():
     rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
     sokolova_eos = Sokolova2016(
         rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
     )
-    P2 = sokolova_eos.thermal_pressure(V, T)
-    assert np.isclose(P1 / 10000, P2)
+
+    assert np.isclose(
+        sokolova_eos.thermal_pressure(V, T), 14.860490047369, rtol=1e-4
+    )
 
 
 def test_f_gamV():
@@ -124,10 +58,7 @@ def test_f_gamV():
     g0 = delta
     gb = t
 
-    gamV0_1 = sokolova2016_original.f_gamV(x, n, z, V0, K0_kbar, K0_prime, g0, gb, 0)
-    gamV0_2 = f_gamV(x, Px, KT, kkx, g0, gb)
-
-    assert np.isclose(gamV0_1, gamV0_2)
+    assert np.isclose(f_gamV(x, Px, KT, kkx, g0, gb), 0.879820464953846)
 
 
 def test_I_gamV_compression():
@@ -139,11 +70,9 @@ def test_I_gamV_compression():
     g0 = delta
     gb = t
 
-    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0_kbar, K0_prime, g0, gb, 0)
-    I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
+    integral = I_gamV(x, g0, gb, rt_eos=rt_eos)
 
-    assert np.isclose(I_gamV_1, I_gamV_2)
-    assert np.isclose(np.exp(I_gamV_2), 1.09427641040855)
+    assert np.isclose(np.exp(integral), 1.09427641040855)
 
 
 def test_I_gamV_expansion():
@@ -155,11 +84,9 @@ def test_I_gamV_expansion():
     g0 = delta
     gb = t
 
-    I_gamV_1 = sokolova2016_original.I_gamV(z, n, x, V0, K0_kbar, K0_prime, g0, gb, 0)
-    I_gamV_2 = I_gamV(x, g0, gb, rt_eos=rt_eos)
+    integral = I_gamV(x, g0, gb, rt_eos=rt_eos)
 
-    assert np.isclose(I_gamV_1, I_gamV_2)
-    assert np.isclose(np.exp(I_gamV_2), 0.910574451622214)
+    assert np.isclose(np.exp(integral), 0.910574451622214)
 
 
 def test_I_gamV_multiple_volumes():
@@ -173,6 +100,94 @@ def test_I_gamV_multiple_volumes():
     I_gamV_1 = I_gamV(x, g0, gb, rt_eos=rt_eos)
 
     assert len(I_gamV_1) == len(V)
+
+
+def test_complete_pressure_terms_regression():
+    """Exercise pressure terms that were previously omitted from the class API."""
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    parameters = {
+        "beta": 0.35,
+        "QBo": 480.0,
+        "d": 2.4,
+        "mb": 0.75,
+        "QB1o": 1120.0,
+        "d1": 1.6,
+        "mb1": 0.4,
+        "a_0": 5.2,
+        "m": 1.3,
+        "g": 0.8,
+        "e_0": 2.7,
+    }
+    eos = Sokolova2016(
+        rt_eos,
+        Tr,
+        Theta_1,
+        m1,
+        Theta_2,
+        m2,
+        delta,
+        t,
+        parameters["a_0"],
+        parameters["m"],
+        parameters["g"],
+        parameters["e_0"],
+        beta=parameters["beta"],
+        QBo=parameters["QBo"],
+        d=parameters["d"],
+        mb=parameters["mb"],
+        QB1o=parameters["QB1o"],
+        d1=parameters["d1"],
+        mb1=parameters["mb1"],
+    )
+
+    expected_pressures = (
+        (0.72, 900.0, 3.097984574947913),
+        (0.88, 2400.0, 17.277569642979014),
+        (1.05, 700.0, 2.6221802405808816),
+    )
+    for volume_ratio, temperature, expected_pressure in expected_pressures:
+        volume = V0 * volume_ratio
+
+        assert np.isclose(
+            eos.thermal_pressure(volume, temperature),
+            expected_pressure,
+            rtol=1e-4,
+            atol=1e-7,
+        )
+
+
+@pytest.mark.parametrize(
+    ("keyword", "value"),
+    [
+        ("QBo", 0),
+        ("d", -1),
+        ("mb", -0.1),
+        ("QB1o", np.nan),
+        ("d1", 0),
+        ("mb1", -1),
+        ("beta", np.inf),
+    ],
+)
+def test_complete_pressure_parameters_are_validated(keyword, value):
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    kwargs = {keyword: value}
+
+    with pytest.raises(ValueError):
+        Sokolova2016(
+            rt_eos,
+            Tr,
+            Theta_1,
+            m1,
+            Theta_2,
+            m2,
+            delta,
+            t,
+            a_0,
+            m,
+            g,
+            e_0,
+            **kwargs,
+        )
 
 
 def test_thermal_pressure_multiple_volumes_single_temperature():

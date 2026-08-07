@@ -27,9 +27,20 @@ class Sokolova2016(ThermalEOS):
         m: float,
         g: float,
         e_0: float,
+        beta: float = 0.0,
+        QBo: float = 1.0,
+        d: float = 1.0,
+        mb: float = 0.0,
+        QB1o: float = 1.0,
+        d1: float = 1.0,
+        mb1: float = 0.0,
     ):
         """
-        Original thermal pressure equation from sokolova et al. 2016.
+        Thermal pressure equation from Sokolova et al. (2016).
+
+        The optional ``beta`` and Bose-mode parameters reproduce the complete
+        pressure expression in the original calculation model. Their defaults
+        preserve the reduced form used by existing Peritheos releases.
 
         Parameters
         ----------
@@ -45,20 +56,28 @@ class Sokolova2016(ThermalEOS):
             Einstein characteristic temperature, Theta_02 in [K]
         mE2 : float
             The second Einstein number
-        TK : float
-            Temperature in [K]
         delta : float
             Additive normalizing constant for the Gruneisen parameter
         t : float
             Generalized Gruneisen parameter
         a_0 : float
-            Intrinsic anharmonicity parameter (10e-6 [K])
+            Intrinsic anharmonicity parameter in 10^-6 K^-1
         m : float
             Anharmonic analogue of the Grüneisen parameter
         g : float
             Electronic analogue of the Grüneisen parameter
         e_0 : float
-            Free electrons parameter (10e-6 [K])
+            Free-electron parameter in 10^-6 K^-1
+        beta : float
+            Volume-dependent correction to ``t``. The model uses
+            ``t - beta * (V/V0)^(1/3)``.
+        QBo, QB1o : float
+            Reference characteristic temperatures of the two generalized
+            Bose-Einstein modes in [K].
+        d, d1 : float
+            Positive dispersion parameters for the Bose-Einstein modes.
+        mb, mb1 : float
+            Non-negative multiplicities of the Bose-Einstein modes.
         """
         if not isinstance(rt_eos, Holzapfel):
             raise TypeError("Sokolova2016 requires a Holzapfel room-temperature EOS")
@@ -76,6 +95,15 @@ class Sokolova2016(ThermalEOS):
         self.m = validate_finite_scalar(m, "m")
         self.g = validate_finite_scalar(g, "g")
         self.e_0 = validate_finite_scalar(e_0, "e_0")
+        self.beta = validate_finite_scalar(beta, "beta")
+        self.QBo = validate_positive_scalar(QBo, "QBo")
+        self.d = validate_positive_scalar(d, "d")
+        self.mb = validate_finite_scalar(mb, "mb")
+        self.QB1o = validate_positive_scalar(QB1o, "QB1o")
+        self.d1 = validate_positive_scalar(d1, "d1")
+        self.mb1 = validate_finite_scalar(mb1, "mb1")
+        if self.mb < 0 or self.mb1 < 0:
+            raise ValueError("Bose-Einstein multiplicities must not be negative")
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         """
@@ -107,27 +135,35 @@ class Sokolova2016(ThermalEOS):
         KT = self.rt_eos.bulk_modulus(V)
         kkx = self.rt_eos.bulk_modulus_derivative(V)
 
-        # Equation (10) - seems not the same as in the original paper
-        gamV = (-3 * KT + 2 * Px * self.t + 9 * KT * kkx - 6 * self.t * KT) / 6 / (
-            3 * KT - 2 * Px * self.t
+        # Equation (10), following the original calculation model.
+        generalized_t = self.t - self.beta * np.cbrt(x)
+        gamV = (
+            -3 * KT + 2 * Px * generalized_t + 9 * KT * kkx - 6 * generalized_t * KT
+        ) / 6 / (
+            3 * KT - 2 * Px * generalized_t
         ) + self.delta
 
-        # Exponent part in equation (9) - However this is not the correct value - the Excel spreadsheet
-        # calculation has a more elaborate calculation included
-
-        # expp_test = np.exp(0.5 * ao * TK * 1e6 * (V / V0) ** (1 / 3))
-        expp = np.exp(I_gamV(x, self.delta, self.t, self.rt_eos))
+        # Exponent in equation (9), obtained by integrating gamma(V) / V.
+        expp = np.exp(I_gamV(x, self.delta, self.t, self.rt_eos, self.beta))
 
         # Equation (9)
+        QB = self.QBo * expp
+        QB1 = self.QB1o * expp
         QE1 = self.QE1o * expp
         QE2 = self.QE2o * expp
 
         # Equation (12) for the different Einstein contributions at the temperature TK
+        PB = self.mb * R * (_bose_energy(QB, T, self.d) * gamV / V)
+        PB1 = self.mb1 * R * (_bose_energy(QB1, T, self.d1) * gamV / V)
         PE1 = self.mE1 * R * (_einstein_energy(QE1, T) * gamV / V)
 
         PE2 = self.mE2 * R * (_einstein_energy(QE2, T) * gamV / V)
 
         # Equation (12) for the different Einstein contributions at the reference temperature
+        PBr = self.mb * R * (_bose_energy(QB, self.Tr, self.d) * gamV / V)
+        PB1r = self.mb1 * R * (
+            _bose_energy(QB1, self.Tr, self.d1) * gamV / V
+        )
         PE1r = self.mE1 * R * (_einstein_energy(QE1, self.Tr) * gamV / V)
 
         PE2r = self.mE2 * R * (_einstein_energy(QE2, self.Tr) * gamV / V)
@@ -159,7 +195,7 @@ class Sokolova2016(ThermalEOS):
         )
 
         # R [J mol^-1 K^-1] divided by V [J bar^-1 mol^-1] produces bar.
-        Pth_bar = PE1 + PE2 - PE1r - PE2r + Pee + Pea
+        Pth_bar = PB + PB1 + PE1 + PE2 - PBr - PB1r - PE1r - PE2r + Pee + Pea
         Pth_gpa = Pth_bar / 10000
         if Pth_gpa.ndim == 0:
             return float(Pth_gpa)
@@ -174,7 +210,23 @@ def _einstein_energy(theta, temperature):
     return theta / 2 + thermal_part
 
 
-def I_gamV(x, delta, t, rt_eos):
+def _bose_energy(theta, temperature, dispersion):
+    """Return generalized Bose-mode energy in kelvin without overflow."""
+    exponent = dispersion * np.log1p(theta / (temperature * dispersion))
+    decay = np.exp(-exponent)
+    occupation = decay / (-np.expm1(-exponent))
+    zero_point = theta * (dispersion - 1) / (2 * dispersion)
+    thermal_part = (
+        temperature
+        * theta
+        * dispersion
+        * occupation
+        / (temperature * dispersion + theta)
+    )
+    return zero_point + thermal_part
+
+
+def I_gamV(x, delta, t, rt_eos, beta=0.0):
     """
     Integral of the Gruneisen parameter over the volume ratio (from x to 1).
 
@@ -188,6 +240,8 @@ def I_gamV(x, delta, t, rt_eos):
         Generalized Gruneisen parameter
     rt_eos : RT_EOS
         room temperature equation of state object used for the calculation
+    beta : float
+        Volume-dependent correction to ``t``
 
     Returns
     -------
@@ -201,7 +255,7 @@ def I_gamV(x, delta, t, rt_eos):
         Px_x = rt_eos.pressure(x * V0)
         KT_x = rt_eos.bulk_modulus(x * V0)
         kkx_x = rt_eos.bulk_modulus_derivative(x * V0)
-        return f_gamV(x, Px_x, KT_x, kkx_x, delta, t)
+        return f_gamV(x, Px_x, KT_x, kkx_x, delta, t, beta)
 
     x_values = np.asarray(x, dtype=float)
     if not np.all(np.isfinite(x_values)) or np.any(x_values <= 0):
@@ -214,7 +268,7 @@ def I_gamV(x, delta, t, rt_eos):
     return integrals
 
 
-def f_gamV(x, Px, KT, kkx, delta, t):
+def f_gamV(x, Px, KT, kkx, delta, t, beta=0.0):
     """
     Helper function to calculate the Gruneisen parameter at a given temperature and pressure.
 
@@ -230,13 +284,21 @@ def f_gamV(x, Px, KT, kkx, delta, t):
         Bulk modulus derivative at temperature
     delta: float
         Additive normalizing constant for the Gruneisen parameter
-    gb: float
+    t: float
         Generalized Gruneisen parameter
+    beta: float
+        Volume-dependent correction to ``t``
     """
+    generalized_t = t - beta * np.cbrt(x)
     f_gamV_value = (
         delta
-        + (-3 * KT + 2 * Px * t + 9 * KT * kkx - 6 * t * KT)
-        / (6 * (3 * KT - 2 * Px * t))
+        + (
+            -3 * KT
+            + 2 * Px * generalized_t
+            + 9 * KT * kkx
+            - 6 * generalized_t * KT
+        )
+        / (6 * (3 * KT - 2 * Px * generalized_t))
     ) / x
 
     return f_gamV_value

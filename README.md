@@ -9,7 +9,7 @@ A Python library for thermodynamic equations of state calculations for solid mat
   - Vinet
   - Holzapfel
 - Thermal equations of state (EOS) implementations
-  - Sokolova 2016
+  - Sokolova 2016, including its complete thermal-pressure parameter set
 
 ## Unit conventions
 
