@@ -3,7 +3,7 @@
 A Python library for thermodynamic equations of state calculations for solid materials.
 
 Full model, fitting, units, and development documentation is available at
-[cprescher.github.io/peritheos](https://cprescher.github.io/peritheos/).
+[peritheos.readthedocs.io](https://peritheos.readthedocs.io/).
 Release history is recorded in the [changelog](CHANGELOG.md).
 
 ## Features

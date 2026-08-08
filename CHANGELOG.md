@@ -15,6 +15,7 @@ All notable changes to Peritheos are documented here. The project follows
   source and wheel artifacts.
 - Citation metadata, API stability, contribution, security, support, conduct,
   issue, and pull-request policies.
+- Versioned Read the Docs builds using the locked uv documentation environment.
 
 ### Changed
 

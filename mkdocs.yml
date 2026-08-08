@@ -1,6 +1,6 @@
 site_name: Peritheos Documentation
 site_description: Thermodynamic equations of state for solid materials
-site_url: https://cprescher.github.io/peritheos/
+site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://peritheos.readthedocs.io/en/latest/"]
 repo_url: https://github.com/CPrescher/peritheos
 theme:
   name: readthedocs

@@ -36,7 +36,7 @@ uncertainty calculation should include:
 - an entry under `Unreleased` in `CHANGELOG.md`.
 
 Do not silently change an existing scientific convention. Follow the
-[API stability policy](https://cprescher.github.io/peritheos/api-stability/)
+[API stability policy](https://peritheos.readthedocs.io/en/latest/api-stability/)
 and document any migration path.
 
 ## Pull requests
