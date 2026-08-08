@@ -11,8 +11,7 @@ All notable changes to Peritheos are documented here. The project follows
   minimum-supported-dependency CI job.
 - Literature-tagged numerical cases for all public EOS families and an
   independently solvable weighted least-squares fitting benchmark.
-- GitHub Pages documentation deployment and automatic GitHub Releases with
-  source and wheel artifacts.
+- Automatic GitHub Releases with source and wheel artifacts.
 - Citation metadata, API stability, contribution, security, support, conduct,
   issue, and pull-request policies.
 - Versioned Read the Docs builds using the locked uv documentation environment.
@@ -25,6 +24,8 @@ All notable changes to Peritheos are documented here. The project follows
 - Corrected the fourth-order Birch-Murnaghan documentation to match its
   implemented Eulerian-strain signs and exponents.
 - Package maturity metadata now identifies the 0.4 development line as beta.
+- The minimum supported NumPy version is now 1.21, matching the public typing
+  APIs used by Peritheos.
 
 ## [0.3.0] - 2026-08-08
 

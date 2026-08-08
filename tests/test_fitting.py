@@ -148,7 +148,9 @@ def test_fit_thermal_eos_handles_uncertainties_in_all_observables():
 
     assert result.success
     assert np.isclose(result.parameters["gamma0"], 1.6, rtol=0.01)
-    assert np.isclose(result.parameters["q"], 1.0, rtol=0.04)
+    # The perturbed observables shift this weakly constrained parameter by
+    # about 4%; allow for small optimizer differences across SciPy versions.
+    assert np.isclose(result.parameters["q"], 1.0, rtol=0.05)
     assert np.any(np.abs(result.volume_corrections) > 0.0)
     assert np.any(np.abs(result.temperature_corrections) > 0.0)
     assert result.adjusted_temperature is not None
