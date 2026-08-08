@@ -48,6 +48,32 @@ def test_fit_with_fixed_parameter_and_absolute_uncertainties():
     assert np.all(np.diag(result.covariance) > 0.0)
 
 
+def test_bm2_fit_matches_closed_form_weighted_least_squares():
+    """Benchmark the optimizer against an independently solvable linear fit."""
+    volumes = np.array([8.0, 8.5, 9.0, 9.5, 10.0])
+    observed_pressure = np.array([35.2, 23.8, 14.5, 6.3, 0.2])
+    pressure_sigma = np.array([0.4, 0.3, 0.25, 0.2, 0.2])
+    unit_pressure = np.asarray(BM3(10.0, 1.0, 4.0).pressure(volumes))
+    weights = pressure_sigma**-2
+    expected_k0 = np.sum(weights * unit_pressure * observed_pressure) / np.sum(
+        weights * unit_pressure**2
+    )
+    expected_variance = 1.0 / np.sum(weights * unit_pressure**2)
+
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        observed_pressure,
+        initial={"K0": 90.0},
+        fixed={"V0": 10.0, "K0_prime": 4.0},
+        pressure_sigma=pressure_sigma,
+        absolute_sigma=True,
+    )
+
+    assert np.isclose(result.parameters["K0"], expected_k0, rtol=1.0e-8)
+    assert np.isclose(result.covariance[0, 0], expected_variance, rtol=1.0e-6)
+
+
 def test_fit_rt_eos_handles_pressure_and_volume_uncertainties():
     expected = BM3(10.0, 120.0, 4.3)
     true_volumes = np.linspace(8.0, 10.5, 20)

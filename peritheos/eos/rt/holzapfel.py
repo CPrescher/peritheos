@@ -1,4 +1,5 @@
 import numpy as np
+
 from peritheos.eos import (
     EosBase,
     NumericType,

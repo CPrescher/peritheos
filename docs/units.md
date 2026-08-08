@@ -24,7 +24,7 @@ from peritheos.units import (
 
 thermal_volume = convert_molar_volume(11.25, "cm3/mol", "J/bar/mol")
 density = density_from_molar_volume(40.304, 11.25)  # g/cm3
-volume = molar_volume_from_density(40.304, density) # cm3/mol
+volume = molar_volume_from_density(40.304, density)  # cm3/mol
 ```
 
 Supported molar-volume units are m3/mol, cm3/mol, L/mol, and J/bar/mol.

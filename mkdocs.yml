@@ -1,5 +1,6 @@
 site_name: Peritheos Documentation
 site_description: Thermodynamic equations of state for solid materials
+site_url: https://cprescher.github.io/peritheos/
 repo_url: https://github.com/CPrescher/peritheos
 theme:
   name: readthedocs
@@ -9,10 +10,13 @@ nav:
   - EOS models: models.md
   - Thermoelastic properties: thermoelastic-properties.md
   - Fitting data: fitting.md
+  - Calculation uncertainty: uncertainty.md
   - Units and reference states: units.md
   - API reference: api.md
+  - API stability: api-stability.md
   - Validation: validation.md
   - References: references.md
+  - Project policies: project-policies.md
   - Development: development.md
 markdown_extensions:
   - tables

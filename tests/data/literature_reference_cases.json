@@ -1,5 +1,61 @@
 [
   {
+    "id": "birch-1947-second-order",
+    "model": "BM2",
+    "parameters": {"V0": 10.0, "K0": 100.0},
+    "volume": 8.0,
+    "quantity": "pressure",
+    "expected": 34.898338662512394,
+    "doi": "10.1103/PhysRev.71.809"
+  },
+  {
+    "id": "birch-1947-third-order",
+    "model": "BM3",
+    "parameters": {"V0": 10.0, "K0": 100.0, "K0_prime": 4.5},
+    "volume": 8.0,
+    "quantity": "pressure",
+    "expected": 36.997437199778496,
+    "doi": "10.1103/PhysRev.71.809"
+  },
+  {
+    "id": "birch-1978-fourth-order",
+    "model": "BM4",
+    "parameters": {
+      "V0": 10.0,
+      "K0": 100.0,
+      "K0_prime": 4.5,
+      "K0_double_prime": -0.02
+    },
+    "volume": 8.0,
+    "quantity": "pressure",
+    "expected": 37.885923500510934,
+    "doi": "10.1029/JB083iB03p01257"
+  },
+  {
+    "id": "vinet-1987-compression",
+    "model": "Vinet",
+    "parameters": {"V0": 10.0, "K0": 100.0, "K0_prime": 4.2},
+    "volume": 8.0,
+    "quantity": "pressure",
+    "expected": 35.20215165661498,
+    "doi": "10.1088/0305-4608/17/5/003"
+  },
+  {
+    "id": "holzapfel-2001-diamond",
+    "model": "Holzapfel",
+    "parameters": {
+      "V0": 0.34141,
+      "K0": 441.5,
+      "K0_prime": 3.9,
+      "n": 1.0,
+      "Z": 6.0
+    },
+    "volume": 0.2901985,
+    "quantity": "pressure",
+    "expected": 98.08325899180373,
+    "doi": "10.1524/zkri.216.9.473.20346"
+  },
+  {
     "id": "murnaghan-1944-compression",
     "model": "Murnaghan",
     "parameters": {"V0": 10.0, "K0": 100.0, "K0_prime": 4.0},
@@ -58,5 +114,17 @@
     "quantity": "thermal_pressure",
     "expected": 10.43089500062915,
     "doi": "10.1016/0031-9201(96)03143-3"
+  },
+  {
+    "id": "mie-gruneisen-einstein-pressure",
+    "model": "MieGruneisenEinstein",
+    "reference_model": "BM3",
+    "reference_parameters": {"V0": 1.0, "K0": 160.0, "K0_prime": 4.0},
+    "parameters": {"Tr": 300.0, "theta0": 800.0, "gamma0": 1.5, "q": 1.0, "n": 2.0},
+    "volume": 0.9,
+    "temperature": 1800.0,
+    "quantity": "thermal_pressure",
+    "expected": 9.961068596665895,
+    "doi": "10.1007/s00269-010-0367-2"
   }
 ]

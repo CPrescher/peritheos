@@ -13,9 +13,7 @@ from peritheos.units import (
 
 def test_thermal_volume_convention_conversion():
     assert np.isclose(convert_molar_volume(10.0, "cm^3/mol", "J/bar/mol"), 1.0)
-    assert np.isclose(
-        convert_molar_volume(1.0, "J bar^-1 mol^-1", "cm3/mol"), 10.0
-    )
+    assert np.isclose(convert_molar_volume(1.0, "J bar^-1 mol^-1", "cm3/mol"), 10.0)
 
 
 def test_array_conversion():

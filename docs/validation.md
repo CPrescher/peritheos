@@ -45,10 +45,15 @@ The Sokolova diamond model includes published-model numerical regression cases.
 Additional equation-level cases and their source DOIs are stored in
 `tests/data/literature_reference_cases.json`; keeping the values in a data file
 makes changes to scientific baselines visible in review.
-Natural-strain, modified-Tait, Murnaghan, Debye, and Einstein implementations
-are tied to the equations cited in [References](references.md), with limiting
-forms and independent derivative identities used to reduce the risk of copying
-the same algebraic mistake into expected values.
+The cases cover Birch-Murnaghan orders two through four, Vinet, Holzapfel,
+natural strain, modified Tait, Murnaghan, Debye, Einstein, and Holland-Powell
+families. Limiting forms and independent derivative identities reduce the risk
+of copying the same algebraic mistake into expected values.
+
+The fitting suite also compares a fixed-reference second-order Birch-Murnaghan
+fit with its closed-form weighted least-squares solution, including the
+absolute covariance. This checks the optimizer and covariance calculation
+against an independently solvable statistical result.
 
 Before publishing fitted parameters, users should still compare against the
 original fitting program or publication used by their community and report the

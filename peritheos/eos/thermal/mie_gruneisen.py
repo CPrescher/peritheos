@@ -89,10 +89,7 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         ) - self.thermal_energy(volumes, self.Tr)
         # gamma * E / V is in bar for E [J/mol] and V [J/bar/mol].
         pressure = (
-            self.gruneisen_parameter(volumes)
-            * energy_difference
-            / volumes
-            / 10000.0
+            self.gruneisen_parameter(volumes) * energy_difference / volumes / 10000.0
         )
         if pressure.ndim == 0:
             return float(pressure)
@@ -145,23 +142,25 @@ class _MieGruneisenBase(ThermalEOS, ABC):
     def thermal_enthalpy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the vibrational enthalpy contribution in J mol^-1."""
         volumes, temperatures = self._broadcast_state(V, T)
-        result = np.asarray(
-            self.thermal_energy(volumes, temperatures), dtype=float
-        ) + np.asarray(
-            self.vibrational_pressure(volumes, temperatures), dtype=float
-        ) * volumes * 1.0e4
+        result = (
+            np.asarray(self.thermal_energy(volumes, temperatures), dtype=float)
+            + np.asarray(self.vibrational_pressure(volumes, temperatures), dtype=float)
+            * volumes
+            * 1.0e4
+        )
         return self._scalar_or_array(result)
 
-    def thermal_gibbs_free_energy(
-        self, V: NumericType, T: NumericType
-    ) -> NumericType:
+    def thermal_gibbs_free_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the vibrational Gibbs-energy contribution in J mol^-1."""
         volumes, temperatures = self._broadcast_state(V, T)
-        result = np.asarray(
-            self.thermal_helmholtz_free_energy(volumes, temperatures), dtype=float
-        ) + np.asarray(
-            self.vibrational_pressure(volumes, temperatures), dtype=float
-        ) * volumes * 1.0e4
+        result = (
+            np.asarray(
+                self.thermal_helmholtz_free_energy(volumes, temperatures), dtype=float
+            )
+            + np.asarray(self.vibrational_pressure(volumes, temperatures), dtype=float)
+            * volumes
+            * 1.0e4
+        )
         return self._scalar_or_array(result)
 
 
@@ -252,9 +251,7 @@ class MieGruneisenEinstein(_MieGruneisenBase):
         volumes, temperatures = self._broadcast_state(V, T)
         ratio = self.characteristic_temperature(volumes) / temperatures
         occupation = np.exp(-ratio) / (-np.expm1(-ratio))
-        entropy = 3.0 * self.n * R * (
-            ratio * occupation - np.log(-np.expm1(-ratio))
-        )
+        entropy = 3.0 * self.n * R * (ratio * occupation - np.log(-np.expm1(-ratio)))
         return self._scalar_or_array(np.asarray(entropy, dtype=float))
 
 

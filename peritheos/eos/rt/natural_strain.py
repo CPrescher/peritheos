@@ -24,23 +24,22 @@ class _NaturalStrainBase(EosBase):
         V = validate_volume(V)
         strain = np.log(self.V0 / V) / 3.0
         a, b = self._coefficients()
-        return (
-            3.0
-            * self.K0
-            * (self.V0 / V)
-            * (strain + a * strain**2 + b * strain**3)
-        )
+        return 3.0 * self.K0 * (self.V0 / V) * (strain + a * strain**2 + b * strain**3)
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """Return isothermal bulk modulus at volume *V*."""
         V = validate_volume(V)
         strain = np.log(self.V0 / V) / 3.0
         a, b = self._coefficients()
-        return self.K0 * (self.V0 / V) * (
-            1.0
-            + (3.0 + 2.0 * a) * strain
-            + (3.0 * a + 3.0 * b) * strain**2
-            + 3.0 * b * strain**3
+        return (
+            self.K0
+            * (self.V0 / V)
+            * (
+                1.0
+                + (3.0 + 2.0 * a) * strain
+                + (3.0 * a + 3.0 * b) * strain**2
+                + 3.0 * b * strain**3
+            )
         )
 
 
@@ -84,10 +83,5 @@ class NaturalStrain4(NaturalStrain3):
     def _coefficients(self) -> tuple[float, float]:
         difference = self.K0_prime - 2.0
         a = 1.5 * difference
-        b = 1.5 * (
-            self.K0 * self.K0_double_prime
-            + 1.0
-            + difference
-            + difference**2
-        )
+        b = 1.5 * (self.K0 * self.K0_double_prime + 1.0 + difference + difference**2)
         return a, b

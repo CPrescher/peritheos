@@ -4,11 +4,15 @@
 
 ```python
 from peritheos.eos.rt import (
-    BM2, BM3, BM4,
+    BM2,
+    BM3,
+    BM4,
     Holzapfel,
     ModifiedTait,
     Murnaghan,
-    NaturalStrain2, NaturalStrain3, NaturalStrain4,
+    NaturalStrain2,
+    NaturalStrain3,
+    NaturalStrain4,
     Vinet,
 )
 ```
@@ -72,3 +76,20 @@ from peritheos.units import (
     molar_volume_from_density,
 )
 ```
+
+## Uncertainty propagation
+
+```python
+from peritheos import EOSUncertainty, ParameterUncertainty, PredictionUncertainty
+```
+
+`EOSUncertainty` wraps a deterministic EOS and provides `pressure()`, `volume()`,
+`bulk_modulus()`, and the generic `evaluate()` method. Each returns a
+`PredictionUncertainty` containing the nominal value, standard error, confidence
+limits, statistical assumptions, and an optional output covariance matrix.
+
+`FitResult.eos_uncertainty()` constructs the wrapper directly from fitted
+parameter covariance. See [Uncertainty in EOS calculations](uncertainty.md).
+Partial parameter-error sets are supported. Parameters omitted from the error
+mapping or covariance ordering are treated as exact, rather than as having an
+unknown error that Peritheos will estimate.

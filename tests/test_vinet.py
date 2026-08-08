@@ -4,6 +4,7 @@ Tests for the Vinet equation of state
 
 import numpy as np
 import pytest
+
 from peritheos.eos.rt.vinet import Vinet
 from peritheos.utils import derivative
 
@@ -94,5 +95,3 @@ def test_compare_bulk_modulus_with_derivative(vinet_eos):
     moduli = vinet_eos.bulk_modulus(volumes)
     moduli_from_derivative = -volumes * derivative(vinet_eos.pressure, volumes)
     assert np.allclose(moduli, moduli_from_derivative)
-
-

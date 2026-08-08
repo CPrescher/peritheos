@@ -3,7 +3,10 @@
 ## Test suite
 
 ```bash
-uv run pytest -q
+uv sync --all-groups
+uv run ruff check .
+uv run ruff format --check .
+uv run pytest -q -W error --cov --cov-report=term-missing
 ```
 
 If the default uv cache is unavailable in a sandbox:
@@ -15,8 +18,7 @@ UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run pytest -q
 ## Documentation
 
 ```bash
-python -m pip install -r docs/requirements.txt
-mkdocs build --strict
+uv run --group docs mkdocs build --strict
 ```
 
 ## Adding an isothermal EOS

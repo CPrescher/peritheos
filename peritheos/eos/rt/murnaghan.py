@@ -51,9 +51,7 @@ class Murnaghan(EosBase):
         if self.K0_prime == 0.0:
             return self.K0 * logarithmic_compression
         return (
-            self.K0
-            * np.expm1(self.K0_prime * logarithmic_compression)
-            / self.K0_prime
+            self.K0 * np.expm1(self.K0_prime * logarithmic_compression) / self.K0_prime
         )
 
     def bulk_modulus(self, V: NumericType) -> NumericType:

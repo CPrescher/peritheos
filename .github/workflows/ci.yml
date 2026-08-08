@@ -14,6 +14,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  quality:
+    name: Lint and format
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+          python-version: "3.13"
+          version: "0.12.1"
+
+      - name: Check lint
+        run: uv run --frozen ruff check .
+
+      - name: Check formatting
+        run: uv run --frozen ruff format --check .
+
   docs:
     name: Build documentation
     runs-on: ubuntu-latest
@@ -30,7 +51,7 @@ jobs:
           version: "0.12.1"
 
       - name: Build documentation
-        run: uv run --with 'mkdocs>=1.6,<2' mkdocs build --strict
+        run: uv run --frozen --group docs mkdocs build --strict
 
   test:
     name: Python ${{ matrix.python-version }}
@@ -75,6 +96,53 @@ jobs:
 
       - name: Run tests
         run: uv run --frozen pytest -q -W error
+
+  coverage:
+    name: Coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+          python-version: "3.13"
+          version: "0.12.1"
+
+      - name: Enforce coverage floor
+        run: uv run --frozen pytest -q -W error --cov --cov-report=term-missing
+
+  minimum-dependencies:
+    name: Minimum direct dependencies / Python 3.9
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+          python-version: "3.9"
+          version: "0.12.1"
+
+      - name: Create minimum-dependency environment
+        shell: bash
+        run: |
+          uv venv --python 3.9 "${RUNNER_TEMP}/peritheos-minimum"
+          uv pip install \
+            --python "${RUNNER_TEMP}/peritheos-minimum/bin/python" \
+            --resolution lowest-direct \
+            --editable . \
+            'pytest>=7.4.4'
+
+      - name: Run tests against declared dependency floors
+        run: |
+          "${RUNNER_TEMP}/peritheos-minimum/bin/python" -m pytest -q -W error
 
   package:
     name: Build and validate distributions

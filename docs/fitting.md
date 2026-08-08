@@ -31,6 +31,18 @@ print(result.correlation)
 fitted_pressures = result.model.pressure(volumes)
 ```
 
+The fit covariance can be propagated into subsequent EOS calculations without
+supplying the parameter errors again:
+
+```python
+eos_uncertainty = result.eos_uncertainty()
+pressure_prediction = eos_uncertainty.pressure(new_volumes)
+print(pressure_prediction.standard_error)
+```
+
+See [Uncertainty in EOS calculations](uncertainty.md) for correlated parameter
+propagation, Monte Carlo intervals, and reference-EOS uncertainty.
+
 Parameters in `fixed` are passed to the constructor but not optimized:
 
 ```python

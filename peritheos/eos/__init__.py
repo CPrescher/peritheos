@@ -2,6 +2,7 @@
 Equations of state module for Peritheos
 """
 
+import inspect
 from typing import Callable, Union
 
 import numpy as np
@@ -40,7 +41,9 @@ def validate_volume(V: NumericType) -> NumericType:
     return values
 
 
-def _scalar_pressure(pressure_function: Callable[[float], NumericType], V: float) -> float:
+def _scalar_pressure(
+    pressure_function: Callable[[float], NumericType], V: float
+) -> float:
     """Evaluate a pressure callable and require a finite scalar result."""
     pressure = np.asarray(pressure_function(V), dtype=float)
     if pressure.ndim != 0:
@@ -133,6 +136,75 @@ class EosBase:
     This abstract class defines the interface that all equation of state
     implementations should follow.
     """
+
+    def _own_parameter_names(self) -> tuple[str, ...]:
+        """Return constructor parameters represented by public attributes."""
+        signature = inspect.signature(type(self).__init__)
+        names = []
+        for name, parameter in signature.parameters.items():
+            if name in {"self", "rt_eos"} or parameter.kind in {
+                inspect.Parameter.VAR_POSITIONAL,
+                inspect.Parameter.VAR_KEYWORD,
+            }:
+                continue
+            if not hasattr(self, name):
+                raise NotImplementedError(
+                    f"{type(self).__name__} does not expose constructor parameter {name!r}"
+                )
+            names.append(name)
+        return tuple(names)
+
+    def parameter_values(self, *, include_reference: bool = True) -> dict[str, float]:
+        """Return reconstructable EOS parameters in constructor order.
+
+        Thermal EOS reference-isotherm parameters use dotted names such as
+        ``rt_eos.V0`` when ``include_reference`` is true.
+        """
+        values = {
+            name: float(getattr(self, name)) for name in self._own_parameter_names()
+        }
+        reference = getattr(self, "rt_eos", None)
+        if include_reference and isinstance(reference, EosBase):
+            values.update(
+                {
+                    f"rt_eos.{name}": value
+                    for name, value in reference.parameter_values(
+                        include_reference=True
+                    ).items()
+                }
+            )
+        return values
+
+    def with_parameters(self, **updates: float) -> "EosBase":
+        """Reconstruct the EOS after replacing selected parameter values.
+
+        Reconstruction, rather than attribute mutation, ensures that derived
+        constants maintained by an EOS constructor remain consistent.
+        """
+        available = self.parameter_values(include_reference=True)
+        unknown = set(updates) - set(available)
+        if unknown:
+            raise ValueError(
+                f"Unknown parameters for {type(self).__name__}: {sorted(unknown)}"
+            )
+
+        own_values = self.parameter_values(include_reference=False)
+        own_values.update(
+            {
+                name: float(value)
+                for name, value in updates.items()
+                if not name.startswith("rt_eos.")
+            }
+        )
+        reference = getattr(self, "rt_eos", None)
+        if isinstance(reference, EosBase):
+            reference_updates = {
+                name.removeprefix("rt_eos."): float(value)
+                for name, value in updates.items()
+                if name.startswith("rt_eos.")
+            }
+            own_values["rt_eos"] = reference.with_parameters(**reference_updates)
+        return type(self)(**own_values)
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -241,9 +313,7 @@ class ThermalEOS(EosBase):
         result = -volumes * derivative
         return self._scalar_or_array(np.asarray(result, dtype=float))
 
-    def isothermal_compressibility(
-        self, V: NumericType, T: NumericType
-    ) -> NumericType:
+    def isothermal_compressibility(self, V: NumericType, T: NumericType) -> NumericType:
         """Return isothermal compressibility in GPa^-1."""
         result = 1.0 / np.asarray(self.bulk_modulus(V, T), dtype=float)
         return self._scalar_or_array(result)
@@ -278,9 +348,7 @@ class ThermalEOS(EosBase):
         volumes, temperatures = self._broadcast_state(V, T)
         cv = np.asarray(self.molar_heat_capacity_v(volumes, temperatures), dtype=float)
         alpha = np.asarray(self.thermal_expansivity(volumes, temperatures), dtype=float)
-        bulk_modulus = np.asarray(
-            self.bulk_modulus(volumes, temperatures), dtype=float
-        )
+        bulk_modulus = np.asarray(self.bulk_modulus(volumes, temperatures), dtype=float)
         # GPa * J bar^-1 = 10^4 J.
         result = cv + alpha**2 * bulk_modulus * volumes * temperatures * 1.0e4
         return self._scalar_or_array(np.asarray(result, dtype=float))
@@ -297,16 +365,12 @@ class ThermalEOS(EosBase):
         """Return thermodynamic Gruneisen parameter ``alpha K_T V / C_V``."""
         volumes, temperatures = self._broadcast_state(V, T)
         alpha = np.asarray(self.thermal_expansivity(volumes, temperatures), dtype=float)
-        bulk_modulus = np.asarray(
-            self.bulk_modulus(volumes, temperatures), dtype=float
-        )
+        bulk_modulus = np.asarray(self.bulk_modulus(volumes, temperatures), dtype=float)
         cv = np.asarray(self.molar_heat_capacity_v(volumes, temperatures), dtype=float)
         result = alpha * bulk_modulus * volumes * 1.0e4 / cv
         return self._scalar_or_array(np.asarray(result, dtype=float))
 
-    def adiabatic_bulk_modulus(
-        self, V: NumericType, T: NumericType
-    ) -> NumericType:
+    def adiabatic_bulk_modulus(self, V: NumericType, T: NumericType) -> NumericType:
         """Return adiabatic bulk modulus ``K_S = K_T C_P / C_V`` in GPa."""
         volumes, temperatures = self._broadcast_state(V, T)
         kt = np.asarray(self.bulk_modulus(volumes, temperatures), dtype=float)

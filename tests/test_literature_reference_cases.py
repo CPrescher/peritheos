@@ -6,8 +6,21 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from peritheos.eos.rt import BM3, ModifiedTait, Murnaghan, NaturalStrain3
-from peritheos.eos.thermal import MieGruneisenDebye, ThermalModifiedTait
+from peritheos.eos.rt import (
+    BM2,
+    BM3,
+    BM4,
+    Holzapfel,
+    ModifiedTait,
+    Murnaghan,
+    NaturalStrain3,
+    Vinet,
+)
+from peritheos.eos.thermal import (
+    MieGruneisenDebye,
+    MieGruneisenEinstein,
+    ThermalModifiedTait,
+)
 
 REFERENCE_FILE = Path(__file__).parent / "data" / "literature_reference_cases.json"
 CASES = json.loads(REFERENCE_FILE.read_text())
@@ -15,18 +28,28 @@ CASES = json.loads(REFERENCE_FILE.read_text())
 
 @pytest.mark.parametrize("case", CASES, ids=lambda case: case["id"])
 def test_literature_equation_reference_case(case):
-    if case["model"] == "Murnaghan":
-        model = Murnaghan(**case["parameters"])
-    elif case["model"] == "NaturalStrain3":
-        model = NaturalStrain3(**case["parameters"])
-    elif case["model"] == "ModifiedTait":
-        model = ModifiedTait(**case["parameters"])
+    room_temperature_models = {
+        "BM2": BM2,
+        "BM3": BM3,
+        "BM4": BM4,
+        "Holzapfel": Holzapfel,
+        "ModifiedTait": ModifiedTait,
+        "Murnaghan": Murnaghan,
+        "NaturalStrain3": NaturalStrain3,
+        "Vinet": Vinet,
+    }
+    if case["model"] in room_temperature_models:
+        model = room_temperature_models[case["model"]](**case["parameters"])
     elif case["model"] == "ThermalModifiedTait":
         reference = ModifiedTait(**case["reference_parameters"])
         model = ThermalModifiedTait(reference, **case["parameters"])
-    elif case["model"] == "MieGruneisenDebye":
+    elif case["model"] in {"MieGruneisenDebye", "MieGruneisenEinstein"}:
         reference = BM3(**case["reference_parameters"])
-        model = MieGruneisenDebye(reference, **case["parameters"])
+        thermal_models = {
+            "MieGruneisenDebye": MieGruneisenDebye,
+            "MieGruneisenEinstein": MieGruneisenEinstein,
+        }
+        model = thermal_models[case["model"]](reference, **case["parameters"])
     else:
         raise AssertionError(f"Unknown reference-case model: {case['model']}")
 

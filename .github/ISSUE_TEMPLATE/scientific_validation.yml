@@ -1,0 +1,44 @@
+name: Scientific validation discrepancy
+description: Report disagreement with a publication or independent implementation
+title: "[Validation]: "
+labels: [validation]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Peritheos version
+    validations:
+      required: true
+  - type: input
+    id: model
+    attributes:
+      label: EOS model and order
+    validations:
+      required: true
+  - type: textarea
+    id: parameters
+    attributes:
+      label: Parameters, reference state, and units
+      description: Include every constructor argument and the units used.
+    validations:
+      required: true
+  - type: textarea
+    id: comparison
+    attributes:
+      label: Observed and expected results
+      description: Include input states and enough digits to reproduce the discrepancy.
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Publication DOI or independent implementation
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      render: python
+    validations:
+      required: true

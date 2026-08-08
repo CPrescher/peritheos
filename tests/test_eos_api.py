@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
 
+from peritheos.constants import R
 from peritheos.eos.rt import (
     BM2,
     BM3,
@@ -13,7 +14,12 @@ from peritheos.eos.rt import (
     NaturalStrain4,
     Vinet,
 )
-from peritheos.utils import convert_pressure
+from peritheos.utils import (
+    compressibility_factor,
+    convert_pressure,
+    convert_temperature,
+    derivative,
+)
 
 
 @pytest.mark.parametrize(
@@ -65,3 +71,32 @@ def test_pressure_conversion_supports_eos_units():
 def test_pressure_conversion_reports_unsupported_units():
     with pytest.raises(ValueError, match="Unsupported pressure unit"):
         convert_pressure(1, "bogus", "GPa")
+    with pytest.raises(ValueError, match="Unsupported pressure unit"):
+        convert_pressure(1, "GPa", "bogus")
+
+
+@pytest.mark.parametrize(
+    "value,source,target,expected",
+    [
+        (273.15, "K", "C", 0.0),
+        (0.0, "C", "K", 273.15),
+        (32.0, "F", "C", 0.0),
+        (100.0, "C", "F", 212.0),
+        (32.0, "F", "K", 273.15),
+        (273.15, "K", "F", 32.0),
+    ],
+)
+def test_temperature_conversion(value, source, target, expected):
+    assert np.isclose(convert_temperature(value, source, target), expected)
+
+
+def test_temperature_conversion_rejects_unknown_units():
+    with pytest.raises(ValueError, match="Unsupported temperature unit"):
+        convert_temperature(1.0, "rankine", "K")
+    with pytest.raises(ValueError, match="Unsupported temperature unit"):
+        convert_temperature(1.0, "K", "rankine")
+
+
+def test_general_thermodynamic_utilities():
+    assert np.isclose(compressibility_factor(2.0 * R * 300.0, 1.0, 300.0, 2.0), 1.0)
+    assert np.isclose(derivative(lambda value: value**2, 3.0), 6.0)

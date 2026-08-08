@@ -1,12 +1,12 @@
-import pytest
 import numpy as np
-from peritheos.eos.thermal.sokolova2016 import (
-    f_gamV,
-    I_gamV,
-)
+import pytest
 
 from peritheos.eos.rt.holzapfel import Holzapfel
-from peritheos.eos.thermal.sokolova2016 import Sokolova2016
+from peritheos.eos.thermal.sokolova2016 import (
+    I_gamV,
+    Sokolova2016,
+    f_gamV,
+)
 
 # diamond parameters
 V0 = 0.3414  # in JBar^-1 (same as [cm^3/mol]/10)
@@ -41,9 +41,7 @@ def test_diamond_thermal_pressure_regression():
         rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0
     )
 
-    assert np.isclose(
-        sokolova_eos.thermal_pressure(V, T), 14.860490047369, rtol=1e-4
-    )
+    assert np.isclose(sokolova_eos.thermal_pressure(V, T), 14.860490047369, rtol=1e-4)
 
 
 def test_f_gamV():
@@ -202,21 +200,24 @@ def test_thermal_pressure_multiple_volumes_single_temperature():
     thermal_pressures = sokolova_eos.thermal_pressure(V, T)
     assert len(thermal_pressures) == len(V)
 
-    expected_thermal_pressures = np.array(
-        [
-            143576,
-            143214,
-            142876,
-            142564,
-            142277,
-            142015,
-            141778,
-            141566,
-            141380,
-            141219,
-            141084,
-        ]
-    ) / 10000
+    expected_thermal_pressures = (
+        np.array(
+            [
+                143576,
+                143214,
+                142876,
+                142564,
+                142277,
+                142015,
+                141778,
+                141566,
+                141380,
+                141219,
+                141084,
+            ]
+        )
+        / 10000
+    )
     assert np.allclose(thermal_pressures, expected_thermal_pressures, rtol=1e-4)
 
 
@@ -232,21 +233,24 @@ def test_thermal_pressure_single_volume_multiple_temperatures():
     thermal_pressures = sokolova_eos.thermal_pressure(V, T)
     assert len(thermal_pressures) == len(T)
 
-    expected_thermal_pressures = np.array(
-        [
-            81856,
-            94020,
-            106295,
-            118658,
-            131089,
-            143576,
-            156108,
-            168678,
-            181279,
-            193906,
-            206556,
-        ]
-    ) / 10000
+    expected_thermal_pressures = (
+        np.array(
+            [
+                81856,
+                94020,
+                106295,
+                118658,
+                131089,
+                143576,
+                156108,
+                168678,
+                181279,
+                193906,
+                206556,
+            ]
+        )
+        / 10000
+    )
     assert np.allclose(thermal_pressures, expected_thermal_pressures, rtol=1e-4)
 
 
@@ -263,21 +267,24 @@ def test_thermal_pressure_multiple_volumes_multiple_temperature():
 
     assert len(thermal_pressures) == len(V)
 
-    expected_thermal_pressures = np.array(
-        [
-            81856,
-            93690,
-            105634,
-            117674,
-            129802,
-            142015,
-            154312,
-            166694,
-            179164,
-            191726,
-            204387,
-        ]
-    ) / 10000
+    expected_thermal_pressures = (
+        np.array(
+            [
+                81856,
+                93690,
+                105634,
+                117674,
+                129802,
+                142015,
+                154312,
+                166694,
+                179164,
+                191726,
+                204387,
+            ]
+        )
+        / 10000
+    )
     assert np.allclose(thermal_pressures, expected_thermal_pressures, rtol=1e-4)
 
 

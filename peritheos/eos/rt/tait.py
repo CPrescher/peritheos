@@ -64,9 +64,7 @@ class ModifiedTait(EosBase):
         one_plus_prime = 1.0 + self.K0_prime
         numerator_c = one_plus_prime + self.K0 * self.K0_double_prime
         denominator_c = (
-            self.K0_prime**2
-            + self.K0_prime
-            - self.K0 * self.K0_double_prime
+            self.K0_prime**2 + self.K0_prime - self.K0 * self.K0_double_prime
         )
         if one_plus_prime == 0.0 or numerator_c == 0.0 or denominator_c == 0.0:
             raise ValueError(
@@ -74,10 +72,7 @@ class ModifiedTait(EosBase):
             )
 
         self._a = one_plus_prime / numerator_c
-        self._b = (
-            self.K0_prime / self.K0
-            - self.K0_double_prime / one_plus_prime
-        )
+        self._b = self.K0_prime / self.K0 - self.K0_double_prime / one_plus_prime
         self._c = numerator_c / denominator_c
 
     def _compression_base(self, V: NumericType) -> tuple[NumericType, NumericType]:
@@ -97,8 +92,4 @@ class ModifiedTait(EosBase):
         """Return the isothermal bulk modulus at volume *V*."""
         V = validate_volume(V)
         relative_volume, base = self._compression_base(V)
-        return (
-            self.K0
-            * relative_volume
-            * np.exp((-1.0 / self._c - 1.0) * np.log(base))
-        )
+        return self.K0 * relative_volume * np.exp((-1.0 / self._c - 1.0) * np.log(base))

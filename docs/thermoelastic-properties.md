@@ -15,7 +15,7 @@ K_T=-V\left(\frac{\partial P}{\partial V}\right)_T,
 \]
 
 ```python
-kt = eos.bulk_modulus(V, T)                 # GPa
+kt = eos.bulk_modulus(V, T)  # GPa
 kappa = eos.isothermal_compressibility(V, T)  # GPa^-1
 ```
 
@@ -48,8 +48,8 @@ The conversion from GPa and J bar^-1 mol^-1 to J mol^-1 is handled internally.
 ```python
 cv = eos.molar_heat_capacity_v(V, T)  # J mol^-1 K^-1
 cp = eos.molar_heat_capacity_p(V, T)  # J mol^-1 K^-1
-ks = eos.adiabatic_bulk_modulus(V, T) # GPa
-gamma = eos.gruneisen_parameter(V, T) # dimensionless
+ks = eos.adiabatic_bulk_modulus(V, T)  # GPa
+gamma = eos.gruneisen_parameter(V, T)  # dimensionless
 ```
 
 `Sokolova2016` does not yet expose a complete caloric potential and therefore

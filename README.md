@@ -2,8 +2,9 @@
 
 A Python library for thermodynamic equations of state calculations for solid materials.
 
-Full model, fitting, units, and development documentation is available in the
-[`docs/`](docs/index.md) guide.
+Full model, fitting, units, and development documentation is available at
+[cprescher.github.io/peritheos](https://cprescher.github.io/peritheos/).
+Release history is recorded in the [changelog](CHANGELOG.md).
 
 ## Features
 
@@ -20,6 +21,7 @@ Full model, fitting, units, and development documentation is available in the
   - Holland-Powell thermal modified Tait
   - Sokolova 2016, including its complete thermal-pressure parameter set
 - P-V and P-V-T parameter fitting with covariance and diagnostics
+- EOS prediction uncertainty from fitted covariance or published parameter errors
 - Thermoelastic derivatives, heat capacities, and vibrational potentials
 
 ## Unit conventions
@@ -150,3 +152,10 @@ print(f"RT pressure: {rt_pressure} GPa")
 print(f"Total pressure: {pressure} GPa")
 print(f"Recovered volume: {recovered_volume} J bar^-1")
 ```
+
+## Citation and support
+
+Use the repository's `CITATION.cff` to cite Peritheos and cite the original
+publication for each EOS used. Reproducible bugs and numerical discrepancies
+can be reported through [GitHub Issues](https://github.com/CPrescher/peritheos/issues).
+See [SUPPORT.md](SUPPORT.md) for the information needed to investigate a result.

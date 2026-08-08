@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
-from typing import Any, Callable
+from typing import TYPE_CHECKING, Any, Callable
 
 import numpy as np
 from numpy.typing import NDArray
@@ -13,6 +13,9 @@ from scipy.sparse import issparse, lil_matrix
 from scipy.sparse.linalg import spsolve
 
 from peritheos.eos import EosBase, ThermalEOS
+
+if TYPE_CHECKING:
+    from peritheos.uncertainty import EOSUncertainty
 
 
 @dataclass(frozen=True)
@@ -43,6 +46,21 @@ class FitResult:
     bic: float
     success: bool
     message: str
+
+    def eos_uncertainty(
+        self,
+        *,
+        additional: EOSUncertainty | None = None,
+        assume_blocks_independent: bool = False,
+    ) -> EOSUncertainty:
+        """Return an uncertainty-aware EOS using this fit's covariance."""
+        from peritheos.uncertainty import EOSUncertainty
+
+        return EOSUncertainty.from_fit(
+            self,
+            additional=additional,
+            assume_blocks_independent=assume_blocks_independent,
+        )
 
 
 def _validated_observations(pressure: Any) -> NDArray[np.float64]:
@@ -120,15 +138,10 @@ def _parameter_covariance(jacobian, parameter_count: int) -> NDArray[np.float64]
         _, singular_values, right_vectors = np.linalg.svd(
             np.asarray(jacobian), full_matrices=False
         )
-        tolerance = (
-            np.finfo(float).eps
-            * max(jacobian.shape)
-            * singular_values[0]
-        )
+        tolerance = np.finfo(float).eps * max(jacobian.shape) * singular_values[0]
         retained = singular_values > tolerance
         scaled_vectors = (
-            right_vectors[retained, :parameter_count].T
-            / singular_values[retained]
+            right_vectors[retained, :parameter_count].T / singular_values[retained]
         )
         return scaled_vectors @ scaled_vectors.T
 
@@ -186,7 +199,9 @@ def _fit_model(
         parameter_upper.append(float(interval[1]))
 
     adjusted_names = tuple(
-        name for name, uncertainty in coordinate_sigmas.items() if uncertainty is not None
+        name
+        for name, uncertainty in coordinate_sigmas.items()
+        if uncertainty is not None
     )
     coordinate_slices: dict[str, slice] = {}
     x0_parts = [parameter_x0]
@@ -205,9 +220,7 @@ def _fit_model(
     x0 = np.concatenate(x0_parts)
     lower = np.concatenate(lower_parts)
     upper = np.concatenate(upper_parts)
-    jacobian_sparsity = _jacobian_sparsity(
-        observed.size, len(names), coordinate_slices
-    )
+    jacobian_sparsity = _jacobian_sparsity(observed.size, len(names), coordinate_slices)
 
     def parameter_mapping(values):
         return {**fixed_values, **dict(zip(names, map(float, values[: len(names)])))}

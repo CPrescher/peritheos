@@ -5,8 +5,9 @@ This module contains tests for the 2nd, 3rd and 4th order Birch-Murnaghan
 equations of state, verifying both pressure and bulk modulus calculations.
 """
 
-import pytest
 import numpy as np
+import pytest
+
 from peritheos.eos.rt.bm import BM2, BM3, BM4
 from peritheos.utils import derivative
 
@@ -145,6 +146,7 @@ def test_bm3_K_with_derivative(bm3_eos):
 def bm4_eos():
     return BM4(V0, K0, K0_prime, K0_double_prime)
 
+
 def test_bm4_init(bm4_eos):
     """Test initialization of BM4 EOS"""
     assert bm4_eos.V0 == V0
@@ -152,17 +154,21 @@ def test_bm4_init(bm4_eos):
     assert bm4_eos.K0_prime == K0_prime
     assert bm4_eos.K0_double_prime == K0_double_prime
 
+
 def test_bm4_pressure_at_v0(bm4_eos):
     """Test pressure at reference volume is zero"""
     assert np.isclose(bm4_eos.pressure(V0), 0.0)
+
 
 def test_bm4_pressure_compression(bm4_eos):
     """Test pressure under compression is positive"""
     assert bm4_eos.pressure(0.8 * V0) > 0
 
+
 def test_bm4_pressure_expansion(bm4_eos):
     """Test pressure under expansion is negative"""
     assert bm4_eos.pressure(1.2 * V0) < 0
+
 
 def test_bm4_pressure_array(bm4_eos):
     """Test pressure calculation with array input"""
@@ -170,13 +176,16 @@ def test_bm4_pressure_array(bm4_eos):
     pressures = bm4_eos.pressure(volumes)
     assert isinstance(pressures, np.ndarray)
 
+
 def test_bm4_bulk_modulus_at_v0(bm4_eos):
     """Test bulk modulus at reference volume equals K0"""
     assert np.isclose(bm4_eos.bulk_modulus(V0), K0)
 
+
 def test_bm4_bulk_modulus_compression(bm4_eos):
     """Test bulk modulus under compression is greater than K0"""
     assert bm4_eos.bulk_modulus(0.8 * V0) > K0
+
 
 def test_bm4_K_with_derivative(bm4_eos):
     """Test bulk modulus calculation from equation of state with direct derivative as comparison"""

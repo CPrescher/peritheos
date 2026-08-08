@@ -56,9 +56,7 @@ def test_pressure_volume_round_trip(eos):
     temperature = 1800.0
     pressure = eos.pressure(expected_volume, temperature)
 
-    assert np.isclose(
-        eos.volume(pressure, temperature), expected_volume, rtol=1.0e-10
-    )
+    assert np.isclose(eos.volume(pressure, temperature), expected_volume, rtol=1.0e-10)
 
 
 def test_characteristic_temperature_obeys_gruneisen_definition(eos):

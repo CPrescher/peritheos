@@ -89,10 +89,14 @@ def test_free_energy_derivatives_recover_entropy_and_vibrational_pressure(eos):
         eos.thermal_helmholtz_free_energy(volume, temperature + temperature_step)
         - eos.thermal_helmholtz_free_energy(volume, temperature - temperature_step)
     ) / (2.0 * temperature_step)
-    pressure_from_free_energy = -(
-        eos.thermal_helmholtz_free_energy(volume + volume_step, temperature)
-        - eos.thermal_helmholtz_free_energy(volume - volume_step, temperature)
-    ) / (2.0 * volume_step) / 1.0e4
+    pressure_from_free_energy = (
+        -(
+            eos.thermal_helmholtz_free_energy(volume + volume_step, temperature)
+            - eos.thermal_helmholtz_free_energy(volume - volume_step, temperature)
+        )
+        / (2.0 * volume_step)
+        / 1.0e4
+    )
 
     assert np.isclose(
         entropy_from_free_energy,

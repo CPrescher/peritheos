@@ -3,6 +3,7 @@ Vinet equation of state
 """
 
 import numpy as np
+
 from peritheos.eos import (
     EosBase,
     NumericType,

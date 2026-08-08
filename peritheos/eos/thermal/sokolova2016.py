@@ -1,8 +1,7 @@
 import numpy as np
-from scipy.integrate import quad
 from scipy.constants import R
+from scipy.integrate import quad
 
-from ..rt.holzapfel import Holzapfel
 from .. import (
     NumericType,
     ThermalEOS,
@@ -10,6 +9,7 @@ from .. import (
     validate_positive_scalar,
     validate_volume,
 )
+from ..rt.holzapfel import Holzapfel
 
 
 class Sokolova2016(ThermalEOS):
@@ -139,9 +139,7 @@ class Sokolova2016(ThermalEOS):
         generalized_t = self.t - self.beta * np.cbrt(x)
         gamV = (
             -3 * KT + 2 * Px * generalized_t + 9 * KT * kkx - 6 * generalized_t * KT
-        ) / 6 / (
-            3 * KT - 2 * Px * generalized_t
-        ) + self.delta
+        ) / 6 / (3 * KT - 2 * Px * generalized_t) + self.delta
 
         # Exponent in equation (9), obtained by integrating gamma(V) / V.
         expp = np.exp(I_gamV(x, self.delta, self.t, self.rt_eos, self.beta))
@@ -161,9 +159,7 @@ class Sokolova2016(ThermalEOS):
 
         # Equation (12) for the different Einstein contributions at the reference temperature
         PBr = self.mb * R * (_bose_energy(QB, self.Tr, self.d) * gamV / V)
-        PB1r = self.mb1 * R * (
-            _bose_energy(QB1, self.Tr, self.d1) * gamV / V
-        )
+        PB1r = self.mb1 * R * (_bose_energy(QB1, self.Tr, self.d1) * gamV / V)
         PE1r = self.mE1 * R * (_einstein_energy(QE1, self.Tr) * gamV / V)
 
         PE2r = self.mE2 * R * (_einstein_energy(QE2, self.Tr) * gamV / V)
@@ -292,12 +288,7 @@ def f_gamV(x, Px, KT, kkx, delta, t, beta=0.0):
     generalized_t = t - beta * np.cbrt(x)
     f_gamV_value = (
         delta
-        + (
-            -3 * KT
-            + 2 * Px * generalized_t
-            + 9 * KT * kkx
-            - 6 * generalized_t * KT
-        )
+        + (-3 * KT + 2 * Px * generalized_t + 9 * KT * kkx - 6 * generalized_t * KT)
         / (6 * (3 * KT - 2 * Px * generalized_t))
     ) / x
 

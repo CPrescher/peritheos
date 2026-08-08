@@ -180,23 +180,26 @@ class BM3(EosBase):
             + 27.0 / 2.0 * (self.K0 * self.K0_prime - 4.0 * self.K0) * f * f
         )
 
+
 class BM4(EosBase):
     """
     4th-order Birch-Murnaghan equation of state.
 
     The 4th-order Birch-Murnaghan EOS is defined as:
-    P(V) = (3/2) * K0 * [(V0/V)^(-7/3) - (V0/V)^(-5/3)] * 
-            { 1 + (3/4) * (K0'- 4) * ((V0/V)^(-2/3) - 1) + (3/8) * [K0 * K0'' + (K0'- 4) * (K0' - 3) + (35/9)] * ((V0/V)^(-2/3) - 1)
+    P(V) = (3/2) * K0 * [(V0/V)^(7/3) - (V0/V)^(5/3)] times a
+    fourth-order Eulerian-strain correction.
 
     or in terms of the Eulerian strain f = [(V0/V)^(2/3) - 1]/2, zeta = (3/4) * (4 - K0'), and xi = (3/8) * [K0 * K0'' + (K0'- 4) * (K0' - 3) + (35/9)]:
-    P(f) = 3 * K0 *f * (1 + 2f)^(5/2) * [1 + 2 * zeta * f + 4 * xi * f ** 2] 
-    
+    P(f) = 3 * K0 * f * (1 + 2f)^(5/2) * [1 - 2*zeta*f + 4*xi*f^2]
+
     Equations from:
     Anderson, O.L., (1995) Equations of State of Solids for Geophysics and Ceramic Science,
     Oxford University Press, Oxford, UK.
     """
 
-    def __init__(self, V0: float, K0: float, K0_prime: float, K0_double_prime: float) -> None:
+    def __init__(
+        self, V0: float, K0: float, K0_prime: float, K0_double_prime: float
+    ) -> None:
         """
         Initialize the 4th-order Birch-Murnaghan EOS.
 
@@ -234,16 +237,20 @@ class BM4(EosBase):
             Pressure (in the same units as K0)
         """
         V = validate_volume(V)
-        f = ((self.V0/V) ** (2 / 3) - 1) / 2
+        f = ((self.V0 / V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * (self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9))
+        xi = (3 / 8) * (
+            self.K0 * self.K0_double_prime
+            + (self.K0_prime - 4) * (self.K0_prime - 3)
+            + (35 / 9)
+        )
         return (
-            3 
-            * self.K0 
-            * f 
-            * (1 + 2 * f) ** (5/2) 
-            * (1 - 2 * zeta * f + 4 * xi * f ** 2)
-        ) 
+            3
+            * self.K0
+            * f
+            * (1 + 2 * f) ** (5 / 2)
+            * (1 - 2 * zeta * f + 4 * xi * f**2)
+        )
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -266,16 +273,13 @@ class BM4(EosBase):
             Bulk modulus (in the same units as K0)
         """
         V = validate_volume(V)
-        f = ((self.V0/V) ** (2 / 3) - 1) / 2
+        f = ((self.V0 / V) ** (2 / 3) - 1) / 2
         zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * (self.K0 * self.K0_double_prime + (self.K0_prime - 4) * (self.K0_prime - 3) + (35 / 9))
-        return (
-            5 
-            * f
-            * self.K0
-            * (1 + 2 * f) ** (5 / 2)
-            * (1 - 2 * zeta * f + 4 * xi * f ** 2) 
-            + self.K0
-            * (1 + 2 * f) ** (7 / 2)
-            * (1 - 4 * zeta * f + 12 * xi * f ** 2)
+        xi = (3 / 8) * (
+            self.K0 * self.K0_double_prime
+            + (self.K0_prime - 4) * (self.K0_prime - 3)
+            + (35 / 9)
         )
+        return 5 * f * self.K0 * (1 + 2 * f) ** (5 / 2) * (
+            1 - 2 * zeta * f + 4 * xi * f**2
+        ) + self.K0 * (1 + 2 * f) ** (7 / 2) * (1 - 4 * zeta * f + 12 * xi * f**2)

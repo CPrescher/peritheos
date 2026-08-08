@@ -1,0 +1,40 @@
+name: Bug report
+description: Report reproducible incorrect or unexpected behavior
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for helping improve Peritheos. Please remove sensitive data.
+  - type: input
+    id: version
+    attributes:
+      label: Peritheos version
+      placeholder: "0.3.0"
+    validations:
+      required: true
+  - type: input
+    id: python
+    attributes:
+      label: Python, NumPy, and SciPy versions
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal reproduction
+      render: python
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior and traceback
+    validations:
+      required: true
