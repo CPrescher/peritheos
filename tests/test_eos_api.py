@@ -8,6 +8,9 @@ from peritheos.eos.rt import (
     Holzapfel,
     ModifiedTait,
     Murnaghan,
+    NaturalStrain2,
+    NaturalStrain3,
+    NaturalStrain4,
     Vinet,
 )
 from peritheos.utils import convert_pressure
@@ -21,6 +24,9 @@ from peritheos.utils import convert_pressure
         BM4(10.0, 100.0, 4.0, -0.01),
         Murnaghan(10.0, 100.0, 4.0),
         ModifiedTait(10.0, 100.0, 4.0, -0.01),
+        NaturalStrain2(10.0, 100.0),
+        NaturalStrain3(10.0, 100.0, 4.0),
+        NaturalStrain4(10.0, 100.0, 4.0, -0.01),
         Vinet(10.0, 100.0, 4.0),
         Holzapfel(0.3414, 441.5, 3.9, 1, 6),
     ],

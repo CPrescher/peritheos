@@ -1,5 +1,7 @@
 """Mie-Gruneisen thermal equations of state."""
 
+from __future__ import annotations
+
 from abc import ABC, abstractmethod
 
 import numpy as np
@@ -37,7 +39,9 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         self.q = validate_finite_scalar(q, "q")
         self.n = validate_positive_scalar(n, "n")
 
-    def gruneisen_parameter(self, V: NumericType) -> NumericType:
+    def gruneisen_parameter(
+        self, V: NumericType, T: NumericType | None = None
+    ) -> NumericType:
         """Return ``gamma(V) = gamma0 * (V / V0)**q``."""
         V = validate_volume(V)
         return self.gamma0 * np.exp(self.q * np.log(V / self.rt_eos.V0))
@@ -94,6 +98,72 @@ class _MieGruneisenBase(ThermalEOS, ABC):
             return float(pressure)
         return pressure
 
+    def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return vibrational ``C_V`` in J mol^-1 K^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        steps = 1.0e-5 * temperatures
+        result = (
+            self.thermal_energy(volumes, temperatures + steps)
+            - self.thermal_energy(volumes, temperatures - steps)
+        ) / (2.0 * steps)
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    @abstractmethod
+    def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return vibrational entropy in J mol^-1 K^-1."""
+
+    def thermal_internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return vibrational internal energy in J mol^-1."""
+        return self.thermal_energy(V, T)
+
+    def vibrational_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the unreferenced vibrational pressure in GPa."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        pressure = (
+            self.gruneisen_parameter(volumes)
+            * np.asarray(self.thermal_energy(volumes, temperatures), dtype=float)
+            / volumes
+            / 1.0e4
+        )
+        return self._scalar_or_array(np.asarray(pressure, dtype=float))
+
+    def thermal_helmholtz_free_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return vibrational Helmholtz energy in J mol^-1.
+
+        Zero-point and static reference energies are omitted.
+        """
+        volumes, temperatures = self._broadcast_state(V, T)
+        result = np.asarray(
+            self.thermal_energy(volumes, temperatures), dtype=float
+        ) - temperatures * np.asarray(
+            self.thermal_entropy(volumes, temperatures), dtype=float
+        )
+        return self._scalar_or_array(result)
+
+    def thermal_enthalpy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the vibrational enthalpy contribution in J mol^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        result = np.asarray(
+            self.thermal_energy(volumes, temperatures), dtype=float
+        ) + np.asarray(
+            self.vibrational_pressure(volumes, temperatures), dtype=float
+        ) * volumes * 1.0e4
+        return self._scalar_or_array(result)
+
+    def thermal_gibbs_free_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return the vibrational Gibbs-energy contribution in J mol^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        result = np.asarray(
+            self.thermal_helmholtz_free_energy(volumes, temperatures), dtype=float
+        ) + np.asarray(
+            self.vibrational_pressure(volumes, temperatures), dtype=float
+        ) * volumes * 1.0e4
+        return self._scalar_or_array(result)
+
 
 class MieGruneisenDebye(_MieGruneisenBase):
     """Mie-Gruneisen-Debye thermal equation of state.
@@ -133,6 +203,14 @@ class MieGruneisenDebye(_MieGruneisenBase):
             return float(energy)
         return energy
 
+    def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return Debye vibrational entropy in J mol^-1 K^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        ratio = self.characteristic_temperature(volumes) / temperatures
+        log_term = np.log(-np.expm1(-ratio))
+        entropy = self.n * R * (4.0 * _debye_function_3(ratio) - 3.0 * log_term)
+        return self._scalar_or_array(np.asarray(entropy, dtype=float))
+
 
 class MieGruneisenEinstein(_MieGruneisenBase):
     """Mie-Gruneisen-Einstein thermal equation of state.
@@ -168,6 +246,16 @@ class MieGruneisenEinstein(_MieGruneisenBase):
         if energy.ndim == 0:
             return float(energy)
         return energy
+
+    def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return Einstein vibrational entropy in J mol^-1 K^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        ratio = self.characteristic_temperature(volumes) / temperatures
+        occupation = np.exp(-ratio) / (-np.expm1(-ratio))
+        entropy = 3.0 * self.n * R * (
+            ratio * occupation - np.log(-np.expm1(-ratio))
+        )
+        return self._scalar_or_array(np.asarray(entropy, dtype=float))
 
 
 def _debye_function_3(x: NumericType) -> NumericType:

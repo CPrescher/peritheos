@@ -3,6 +3,7 @@ Equations of state module for Peritheos
 """
 
 from typing import Callable, Union
+
 import numpy as np
 from numpy.typing import NDArray
 from scipy import optimize
@@ -194,6 +195,12 @@ class EosBase:
 
 
 class ThermalEOS(EosBase):
+    """Base class for molar thermal equations of state.
+
+    Thermal EOS implementations use temperature in K, pressure in GPa, and
+    molar volume in J bar^-1 mol^-1. The latter is equal to cm^3 mol^-1 / 10.
+    """
+
     def __init__(self, rt_eos: EosBase):
         self.rt_eos = rt_eos
 
@@ -202,6 +209,111 @@ class ThermalEOS(EosBase):
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:
         return self.thermal_pressure(V, T) + self.rt_eos.pressure(V)
+
+    @staticmethod
+    def _broadcast_state(V: NumericType, T: NumericType):
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        temperatures = np.asarray(T, dtype=float)
+        if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
+            raise ValueError("Temperature must be finite and greater than zero")
+        try:
+            return np.broadcast_arrays(volumes, temperatures)
+        except ValueError as error:
+            raise ValueError("V and T must have broadcast-compatible shapes") from error
+
+    @staticmethod
+    def _scalar_or_array(values: NDArray[np.float64]) -> NumericType:
+        if values.ndim == 0:
+            return float(values)
+        return values
+
+    def bulk_modulus(
+        self, V: NumericType, T: NumericType, relative_step: float = 1.0e-6
+    ) -> NumericType:
+        """Return the isothermal bulk modulus ``-V (dP/dV)_T`` in GPa."""
+        relative_step = validate_positive_scalar(relative_step, "relative_step")
+        volumes, temperatures = self._broadcast_state(V, T)
+        steps = relative_step * volumes
+        derivative = (
+            self.pressure(volumes + steps, temperatures)
+            - self.pressure(volumes - steps, temperatures)
+        ) / (2.0 * steps)
+        result = -volumes * derivative
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def isothermal_compressibility(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return isothermal compressibility in GPa^-1."""
+        result = 1.0 / np.asarray(self.bulk_modulus(V, T), dtype=float)
+        return self._scalar_or_array(result)
+
+    def thermal_expansivity(
+        self, V: NumericType, T: NumericType, relative_step: float = 1.0e-5
+    ) -> NumericType:
+        """Return volumetric thermal expansivity in K^-1.
+
+        This uses ``alpha = (dP/dT)_V / K_T``.
+        """
+        relative_step = validate_positive_scalar(relative_step, "relative_step")
+        volumes, temperatures = self._broadcast_state(V, T)
+        steps = np.minimum(relative_step * temperatures, 0.49 * temperatures)
+        pressure_derivative = (
+            self.pressure(volumes, temperatures + steps)
+            - self.pressure(volumes, temperatures - steps)
+        ) / (2.0 * steps)
+        result = pressure_derivative / np.asarray(
+            self.bulk_modulus(volumes, temperatures), dtype=float
+        )
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return constant-volume molar heat capacity in J mol^-1 K^-1."""
+        raise NotImplementedError(
+            f"{type(self).__name__} does not provide a caloric model"
+        )
+
+    def molar_heat_capacity_p(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return constant-pressure molar heat capacity in J mol^-1 K^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        cv = np.asarray(self.molar_heat_capacity_v(volumes, temperatures), dtype=float)
+        alpha = np.asarray(self.thermal_expansivity(volumes, temperatures), dtype=float)
+        bulk_modulus = np.asarray(
+            self.bulk_modulus(volumes, temperatures), dtype=float
+        )
+        # GPa * J bar^-1 = 10^4 J.
+        result = cv + alpha**2 * bulk_modulus * volumes * temperatures * 1.0e4
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
+        """Alias for :meth:`molar_heat_capacity_v`."""
+        return self.molar_heat_capacity_v(V, T)
+
+    def heat_capacity_p(self, V: NumericType, T: NumericType) -> NumericType:
+        """Alias for :meth:`molar_heat_capacity_p`."""
+        return self.molar_heat_capacity_p(V, T)
+
+    def gruneisen_parameter(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return thermodynamic Gruneisen parameter ``alpha K_T V / C_V``."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        alpha = np.asarray(self.thermal_expansivity(volumes, temperatures), dtype=float)
+        bulk_modulus = np.asarray(
+            self.bulk_modulus(volumes, temperatures), dtype=float
+        )
+        cv = np.asarray(self.molar_heat_capacity_v(volumes, temperatures), dtype=float)
+        result = alpha * bulk_modulus * volumes * 1.0e4 / cv
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def adiabatic_bulk_modulus(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return adiabatic bulk modulus ``K_S = K_T C_P / C_V`` in GPa."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        kt = np.asarray(self.bulk_modulus(volumes, temperatures), dtype=float)
+        cv = np.asarray(self.molar_heat_capacity_v(volumes, temperatures), dtype=float)
+        cp = np.asarray(self.molar_heat_capacity_p(volumes, temperatures), dtype=float)
+        result = kt * cp / cv
+        return self._scalar_or_array(np.asarray(result, dtype=float))
 
     def calculate_volume(self, P: NumericType, T: NumericType) -> NumericType:
         """Calculate volume at pressure and temperature using bracketed roots."""

@@ -2,18 +2,25 @@
 
 A Python library for thermodynamic equations of state calculations for solid materials.
 
+Full model, fitting, units, and development documentation is available in the
+[`docs/`](docs/index.md) guide.
+
 ## Features
 
 - Room temperature equations of state (EOS) implementations
   - Birch-Murnaghan
   - Murnaghan
+  - Natural strain (orders 2-4)
   - Modified Tait
   - Vinet
   - Holzapfel
 - Thermal equations of state (EOS) implementations
   - Mie-Gruneisen-Debye
   - Mie-Gruneisen-Einstein
+  - Holland-Powell thermal modified Tait
   - Sokolova 2016, including its complete thermal-pressure parameter set
+- P-V and P-V-T parameter fitting with covariance and diagnostics
+- Thermoelastic derivatives, heat capacities, and vibrational potentials
 
 ## Unit conventions
 

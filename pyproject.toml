@@ -46,3 +46,7 @@ release = [
 
 [tool.setuptools.dynamic]
 version = {attr = "peritheos.__version__"}
+
+[tool.ruff]
+target-version = "py39"
+line-length = 88

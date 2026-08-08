@@ -1,0 +1,38 @@
+# Peritheos
+
+Peritheos is a focused Python library for pressure-volume and
+pressure-volume-temperature equations of state for solid materials. It provides
+forward evaluation, pressure-volume inversion, thermoelastic properties, and
+least-squares parameter fitting.
+
+The documentation is organized around scientific workflows:
+
+- [Getting started](getting-started.md) introduces isothermal and thermal use.
+- [EOS models](models.md) lists parameters, assumptions, and useful limits.
+- [Thermoelastic properties](thermoelastic-properties.md) defines every derived
+  property and its units.
+- [Fitting data](fitting.md) covers P-V and P-V-T regression with uncertainty.
+- [Units and reference states](units.md) explains the deliberately strict
+  thermal volume convention.
+- [Validation](validation.md) describes the numerical and literature checks.
+- [API reference](api.md) is a compact import and method reference.
+
+## Scope
+
+Peritheos models homogeneous solid phases on a chosen reference isotherm. It
+does not currently calculate phase equilibria, solid solutions, shear moduli,
+or fluid fugacities. Thermodynamic free energies exposed by the Mie-Gruneisen
+models are vibrational contributions; they are not absolute formation energies.
+
+## Building these docs
+
+```bash
+python -m pip install -r docs/requirements.txt
+mkdocs serve
+```
+
+The site can be built without executing notebook code or downloading data:
+
+```bash
+mkdocs build --strict
+```

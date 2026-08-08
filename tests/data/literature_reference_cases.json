@@ -1,0 +1,62 @@
+[
+  {
+    "id": "murnaghan-1944-compression",
+    "model": "Murnaghan",
+    "parameters": {"V0": 10.0, "K0": 100.0, "K0_prime": 4.0},
+    "volume": 8.0,
+    "quantity": "pressure",
+    "expected": 36.03515625,
+    "doi": "10.1073/pnas.30.9.244"
+  },
+  {
+    "id": "poirier-tarantola-1998-third-order",
+    "model": "NaturalStrain3",
+    "parameters": {"V0": 10.0, "K0": 100.0, "K0_prime": 4.0},
+    "volume": 8.0,
+    "quantity": "pressure",
+    "expected": 34.117074475915885,
+    "doi": "10.1016/S0031-9201(98)00112-5"
+  },
+  {
+    "id": "holland-powell-2011-modified-tait",
+    "model": "ModifiedTait",
+    "parameters": {
+      "V0": 10.0,
+      "K0": 100.0,
+      "K0_prime": 4.0,
+      "K0_double_prime": -0.01
+    },
+    "volume": 8.0,
+    "quantity": "pressure",
+    "expected": 35.6586302400171,
+    "doi": "10.1111/j.1525-1314.2010.00923.x"
+  },
+  {
+    "id": "holland-powell-2011-thermal-pressure",
+    "model": "ThermalModifiedTait",
+    "reference_parameters": {
+      "V0": 1.0,
+      "K0": 160.0,
+      "K0_prime": 4.0,
+      "K0_double_prime": -0.01
+    },
+    "parameters": {"Tr": 298.15, "theta": 700.0, "alpha0": 2.5e-5, "n": 2.0},
+    "volume": 0.9,
+    "temperature": 1200.0,
+    "quantity": "thermal_pressure",
+    "expected": 5.029535604766256,
+    "doi": "10.1111/j.1525-1314.2010.00923.x"
+  },
+  {
+    "id": "jackson-rigden-1996-mgd-pressure",
+    "model": "MieGruneisenDebye",
+    "reference_model": "BM3",
+    "reference_parameters": {"V0": 1.0, "K0": 160.0, "K0_prime": 4.0},
+    "parameters": {"Tr": 300.0, "theta0": 800.0, "gamma0": 1.5, "q": 1.0, "n": 2.0},
+    "volume": 0.9,
+    "temperature": 1800.0,
+    "quantity": "thermal_pressure",
+    "expected": 10.43089500062915,
+    "doi": "10.1016/0031-9201(96)03143-3"
+  }
+]
