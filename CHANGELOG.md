@@ -5,6 +5,8 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-08-09
+
 ### Added
 
 - Branch-aware coverage enforcement, Ruff lint and formatting gates, and a
@@ -15,6 +17,13 @@ All notable changes to Peritheos are documented here. The project follows
 - Citation metadata, API stability, contribution, security, support, conduct,
   issue, and pull-request policies.
 - Versioned Read the Docs builds using the locked uv documentation environment.
+- Joint reference-isotherm and thermal parameter fitting with complete
+  cross-covariance through `fit_joint_eos`.
+- Per-observation correlated P-V and P-V-T covariance matrices and robust
+  least-squares losses for all fitting entry points.
+- Human-readable fit summaries and versioned, JSON-safe result export including
+  model parameters, covariance, adjusted observations, diagnostics, and solver
+  metadata.
 
 ### Changed
 
@@ -26,6 +35,8 @@ All notable changes to Peritheos are documented here. The project follows
 - Package maturity metadata now identifies the 0.4 development line as beta.
 - The minimum supported NumPy version is now 1.21, matching the public typing
   APIs used by Peritheos.
+- Distribution package discovery is restricted to `peritheos`, preventing
+  generated documentation directories from entering or blocking builds.
 
 ## [0.3.0] - 2026-08-08
 
@@ -91,6 +102,7 @@ All notable changes to Peritheos are documented here. The project follows
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/CPrescher/peritheos/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/CPrescher/peritheos/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/CPrescher/peritheos/releases/tag/v0.2.0

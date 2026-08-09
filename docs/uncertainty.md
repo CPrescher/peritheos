@@ -199,7 +199,7 @@ heat_capacity = eos_uncertainty.evaluate(
 
 ## Thermal and reference-EOS uncertainty
 
-A thermal fit currently holds its reference EOS fixed. Its fit covariance
+A `fit_thermal_eos` fit holds its reference EOS fixed. Its fit covariance
 therefore covers only the fitted thermal parameters. A separately quantified
 reference EOS can be included explicitly:
 
@@ -216,8 +216,19 @@ combined = thermal_fit.eos_uncertainty(
 ```
 
 This forms a block-diagonal covariance and records the independence assumption.
-A joint P-V-T fit is required when cross-correlations between reference and
-thermal parameters matter.
+When cross-correlations between reference and thermal parameters matter, use a
+joint P-V-T fit instead:
+
+```python
+from peritheos.fitting import fit_joint_eos
+
+joint_fit = fit_joint_eos(...)
+combined = joint_fit.eos_uncertainty()
+```
+
+The dotted `rt_eos.*` parameter names in the joint covariance are understood by
+the thermal model's reconstruction API, so both linear and Monte Carlo
+propagation preserve the fitted cross-correlations.
 
 ## Interpretation limits
 

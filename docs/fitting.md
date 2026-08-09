@@ -31,6 +31,30 @@ print(result.correlation)
 fitted_pressures = result.model.pressure(volumes)
 ```
 
+## Reporting and export
+
+`FitResult.summary()` produces a compact report with free and fixed parameters,
+standard errors, fit diagnostics, and solver status:
+
+```python
+print(result.summary())
+```
+
+Machine-readable results use a versioned, JSON-safe schema:
+
+```python
+payload = result.to_dict()
+json_text = result.to_json()
+result.to_json("bm3-fit.json")
+```
+
+The export contains the model's module, class, and reconstructable parameter
+values; free-parameter ordering; covariance and correlation matrices; raw and
+weighted residuals; adjusted observations; diagnostics; and solver metadata.
+Non-finite diagnostics, such as reduced chi-square for a fit with no degrees of
+freedom, are represented as JSON `null`. The export is intended as a durable
+analysis record; it does not dynamically import and execute model classes.
+
 The fit covariance can be propagated into subsequent EOS calculations without
 supplying the parameter errors again:
 
@@ -80,6 +104,48 @@ result = fit_thermal_eos(
 )
 ```
 
+## Joint reference and thermal fitting
+
+Use `fit_joint_eos` when a single P-V-T dataset should constrain both the
+reference isotherm and the thermal model. Reference parameters use the same
+`rt_eos.*` names returned by `ThermalEOS.parameter_values()`, while thermal
+parameters retain their constructor names:
+
+```python
+from peritheos.eos.rt import BM3
+from peritheos.eos.thermal import MieGruneisenEinstein
+from peritheos.fitting import fit_joint_eos
+
+result = fit_joint_eos(
+    MieGruneisenEinstein,
+    BM3,
+    volume=volumes,
+    temperature=temperatures,
+    pressure=pressures,
+    initial={
+        "rt_eos.V0": 10.0,
+        "rt_eos.K0": 120.0,
+        "rt_eos.K0_prime": 4.0,
+        "gamma0": 1.5,
+        "q": 1.0,
+    },
+    fixed={"Tr": 300.0, "theta0": 800.0, "n": 2.0},
+    bounds={
+        "rt_eos.K0": (50.0, 250.0),
+        "gamma0": (0.0, 3.0),
+        "q": (-2.0, 4.0),
+    },
+    pressure_sigma=pressure_uncertainties,
+    absolute_sigma=True,
+)
+```
+
+`result.model.rt_eos` is the fitted reference EOS. The rows and columns of
+`result.covariance` follow `result.free_parameters` and include correlations
+between reference and thermal parameters. Consequently,
+`result.eos_uncertainty()` propagates the complete joint covariance without an
+independence assumption.
+
 ## Errors in pressure, volume, and temperature
 
 Pressure is the dependent observation. When only `pressure_sigma` is given,
@@ -114,6 +180,52 @@ result.temperature_corrections
 volume and temperature correction components when present. `residuals`
 contains the unscaled pressure residuals evaluated at the adjusted state.
 
+When separate sigma arguments are used, errors in P, V, and T are treated as
+mutually independent. Correlated errors within each observation can instead be
+supplied as `observation_covariance`. For an isothermal fit, component order is
+`(pressure, volume)` and the accepted shape is `(2, 2)` or
+`pressure.shape + (2, 2)`. For thermal and joint fits, order is
+`(pressure, volume, temperature)` and the final dimensions are `(3, 3)`:
+
+```python
+standard_deviations = np.array([pressure_error, volume_error, temperature_error])
+covariance = correlation * np.outer(standard_deviations, standard_deviations)
+
+result = fit_joint_eos(
+    ...,
+    observation_covariance=covariance,
+    absolute_sigma=True,
+)
+```
+
+A single matrix is applied to every observation; an array of matrices supplies
+different errors and correlations per observation. Matrices must be finite,
+symmetric, and positive definite. `observation_covariance` cannot be combined
+with individual sigma arguments. Correlations between different observations
+are not represented.
+
+## Robust losses
+
+Every fitting function exposes SciPy's robust least-squares losses:
+
+```python
+result = fit_rt_eos(
+    ...,
+    loss="soft_l1",
+    f_scale=1.0,
+    max_nfev=2000,
+)
+```
+
+Available named losses are `linear` (the default), `soft_l1`, `huber`,
+`cauchy`, and `arctan`; a SciPy-compatible callable is also accepted.
+`f_scale` defines the soft outlier threshold in weighted-residual units, so it
+should be chosen relative to the supplied measurement errors. Robust losses
+reduce the influence of outliers but do not replace investigation or
+documentation of anomalous measurements. `chi_square`, AIC, and BIC remain
+least-squares diagnostics of the final weighted residuals even when a robust
+loss determined the optimum.
+
 ## Uncertainty semantics
 
 - With no uncertainty arguments, pressure residuals are unweighted and
@@ -125,11 +237,12 @@ contains the unscaled pressure residuals evaluated at the adjusted state.
 - `sigma` remains a compatibility alias for `pressure_sigma`; do not pass both.
 - Fixed parameters have a reported standard error of zero and are excluded
   from the covariance matrix.
+- Joint-fit covariance includes reference/thermal cross-terms. A separate
+  reference fit can only be combined under an explicit block-independence
+  assumption.
 
 All supplied uncertainties must be finite, positive, and scalar or
-broadcastable to the pressure array. The current formulation assumes errors in
-P, V, and T are mutually independent; full per-observation covariance matrices
-are not yet supported.
+broadcastable to the pressure array.
 
 Always inspect `correlation`, residuals versus pressure, and results under
 reasonable changes in fitting range. A small residual does not make a strongly

@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import json
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable
 
 import numpy as np
@@ -16,6 +18,21 @@ from peritheos.eos import EosBase, ThermalEOS
 
 if TYPE_CHECKING:
     from peritheos.uncertainty import EOSUncertainty
+
+
+def _json_safe(value: Any) -> Any:
+    """Return nested built-in values that strict JSON can represent."""
+    if isinstance(value, Mapping):
+        return {str(key): _json_safe(item) for key, item in value.items()}
+    if isinstance(value, (list, tuple)):
+        return [_json_safe(item) for item in value]
+    if isinstance(value, np.ndarray):
+        return _json_safe(value.tolist())
+    if isinstance(value, np.generic):
+        return _json_safe(value.item())
+    if isinstance(value, float) and not np.isfinite(value):
+        return None
+    return value
 
 
 @dataclass(frozen=True)
@@ -46,6 +63,14 @@ class FitResult:
     bic: float
     success: bool
     message: str
+    loss: str = "linear"
+    f_scale: float = 1.0
+    max_nfev: int | None = None
+    status: int = 0
+    nfev: int = 0
+    njev: int | None = None
+    cost: float = np.nan
+    optimality: float = np.nan
 
     def eos_uncertainty(
         self,
@@ -61,6 +86,108 @@ class FitResult:
             additional=additional,
             assume_blocks_independent=assume_blocks_independent,
         )
+
+    def summary(self, *, precision: int = 6) -> str:
+        """Return a compact, human-readable fit report."""
+        if isinstance(precision, bool) or not isinstance(precision, (int, np.integer)):
+            raise ValueError("precision must be a positive integer")
+        if precision <= 0:
+            raise ValueError("precision must be a positive integer")
+        precision = int(precision)
+
+        def formatted(value: float) -> str:
+            return f"{float(value):.{precision}g}"
+
+        free = set(self.free_parameters)
+        parameter_order = self.free_parameters + tuple(
+            name for name in self.parameters if name not in free
+        )
+        name_width = max(9, *(len(name) for name in parameter_order))
+        lines = [
+            f"FitResult ({type(self.model).__name__})",
+            f"Success: {self.success} (status {self.status})",
+            f"Message: {self.message}",
+            "",
+            "Parameters:",
+            f"  {'Name':<{name_width}}  {'Value':>14}  {'Std. error':>14}  Status",
+        ]
+        for name in parameter_order:
+            lines.append(
+                f"  {name:<{name_width}}  "
+                f"{formatted(self.parameters[name]):>14}  "
+                f"{formatted(self.standard_errors[name]):>14}  "
+                f"{'free' if name in free else 'fixed'}"
+            )
+        lines.extend(
+            [
+                "",
+                "Diagnostics:",
+                f"  chi-square: {formatted(self.chi_square)}",
+                f"  reduced chi-square: {formatted(self.reduced_chi_square)}",
+                f"  degrees of freedom: {self.degrees_of_freedom}",
+                f"  AIC: {formatted(self.aic)}",
+                f"  BIC: {formatted(self.bic)}",
+                "",
+                "Solver:",
+                f"  loss: {self.loss}",
+                f"  f_scale: {formatted(self.f_scale)}",
+                f"  function evaluations: {self.nfev}",
+                f"  cost: {formatted(self.cost)}",
+                f"  optimality: {formatted(self.optimality)}",
+            ]
+        )
+        return "\n".join(lines)
+
+    def to_dict(self) -> dict[str, Any]:
+        """Return a versioned, JSON-safe representation of the fit."""
+        result = {
+            "schema_version": 1,
+            "model": {
+                "module": type(self.model).__module__,
+                "class": type(self.model).__name__,
+                "parameters": self.model.parameter_values(include_reference=True),
+            },
+            "parameters": self.parameters,
+            "standard_errors": self.standard_errors,
+            "free_parameters": self.free_parameters,
+            "covariance": self.covariance,
+            "correlation": self.correlation,
+            "residuals": self.residuals,
+            "weighted_residuals": self.weighted_residuals,
+            "adjusted_volume": self.adjusted_volume,
+            "adjusted_temperature": self.adjusted_temperature,
+            "volume_corrections": self.volume_corrections,
+            "temperature_corrections": self.temperature_corrections,
+            "diagnostics": {
+                "chi_square": self.chi_square,
+                "reduced_chi_square": self.reduced_chi_square,
+                "degrees_of_freedom": self.degrees_of_freedom,
+                "aic": self.aic,
+                "bic": self.bic,
+            },
+            "solver": {
+                "success": self.success,
+                "status": self.status,
+                "message": self.message,
+                "loss": self.loss,
+                "f_scale": self.f_scale,
+                "max_nfev": self.max_nfev,
+                "nfev": self.nfev,
+                "njev": self.njev,
+                "cost": self.cost,
+                "optimality": self.optimality,
+            },
+        }
+        return _json_safe(result)
+
+    def to_json(self, path: str | Path | None = None, *, indent: int | None = 2) -> str:
+        """Return strict JSON and optionally write it to *path*."""
+        serialized = json.dumps(
+            self.to_dict(), indent=indent, sort_keys=True, allow_nan=False
+        )
+        if path is not None:
+            Path(path).write_text(serialized + "\n", encoding="utf-8")
+        return serialized
 
 
 def _validated_observations(pressure: Any) -> NDArray[np.float64]:
@@ -108,8 +235,117 @@ def _pressure_uncertainty(
     return values, supplied
 
 
+def _validated_observation_covariance(
+    covariance: Any,
+    shape: tuple[int, ...],
+    component_names: Sequence[str],
+) -> NDArray[np.float64]:
+    """Return Cholesky factors for per-observation covariance matrices."""
+    component_count = len(component_names)
+    target_shape = shape + (component_count, component_count)
+    try:
+        matrices = np.broadcast_to(
+            np.asarray(covariance, dtype=float), target_shape
+        ).copy()
+    except ValueError as error:
+        raise ValueError(
+            "observation_covariance must broadcast to the pressure shape plus "
+            f"({component_count}, {component_count}) for "
+            f"{tuple(component_names)}"
+        ) from error
+    if not np.all(np.isfinite(matrices)):
+        raise ValueError("observation_covariance must contain finite values")
+    if not np.allclose(
+        matrices, np.swapaxes(matrices, -1, -2), rtol=1.0e-12, atol=1.0e-15
+    ):
+        raise ValueError("observation_covariance must be symmetric")
+    try:
+        factors = np.linalg.cholesky(matrices)
+    except np.linalg.LinAlgError as error:
+        raise ValueError("observation_covariance must be positive definite") from error
+    return factors.reshape(-1, component_count, component_count)
+
+
+def _validated_solver_options(
+    loss: str | Callable[..., Any],
+    f_scale: float,
+    max_nfev: int | None,
+) -> tuple[str | Callable[..., Any], float, int | None]:
+    allowed_losses = {"linear", "soft_l1", "huber", "cauchy", "arctan"}
+    if not callable(loss) and loss not in allowed_losses:
+        raise ValueError(f"loss must be one of {sorted(allowed_losses)} or callable")
+    f_scale = float(f_scale)
+    if not np.isfinite(f_scale) or f_scale <= 0.0:
+        raise ValueError("f_scale must be finite and greater than zero")
+    if max_nfev is not None:
+        if isinstance(max_nfev, bool) or not isinstance(max_nfev, (int, np.integer)):
+            raise ValueError("max_nfev must be a positive integer or None")
+        if max_nfev <= 0:
+            raise ValueError("max_nfev must be a positive integer or None")
+        max_nfev = int(max_nfev)
+    return loss, f_scale, max_nfev
+
+
+def _diagonal_uncertainties(
+    cholesky: NDArray[np.float64], shape: tuple[int, ...]
+) -> tuple[NDArray[np.float64], ...] | None:
+    """Return standard deviations when a covariance factor is diagonal."""
+    off_diagonal = cholesky.copy()
+    indices = np.arange(cholesky.shape[-1])
+    off_diagonal[:, indices, indices] = 0.0
+    if not np.allclose(off_diagonal, 0.0, rtol=0.0, atol=1.0e-15):
+        return None
+    return tuple(cholesky[:, index, index].reshape(shape) for index in indices)
+
+
+def _observation_error_model(
+    shape: tuple[int, ...],
+    component_names: Sequence[str],
+    component_sigmas: Sequence[Any | None],
+    sigma_alias: Any | None,
+    observation_covariance: Any | None,
+) -> tuple[tuple[NDArray[np.float64] | None, ...], NDArray[np.float64] | None, bool]:
+    """Resolve independent sigmas or correlated observation covariance."""
+    if len(component_names) != len(component_sigmas):
+        raise AssertionError("Each observation component requires a sigma entry")
+    if component_names[0] != "pressure":
+        raise AssertionError("Pressure must be the first observation component")
+
+    if observation_covariance is not None:
+        if sigma_alias is not None or any(
+            value is not None for value in component_sigmas
+        ):
+            raise ValueError(
+                "observation_covariance cannot be combined with individual "
+                "sigma arguments"
+            )
+        cholesky = _validated_observation_covariance(
+            observation_covariance, shape, component_names
+        )
+        diagonal = _diagonal_uncertainties(cholesky, shape)
+        if diagonal is not None:
+            return diagonal, None, True
+        return tuple(np.ones(shape) for _ in component_names), cholesky, True
+
+    pressure_uncertainty, pressure_supplied = _pressure_uncertainty(
+        component_sigmas[0], sigma_alias, shape
+    )
+    coordinate_uncertainties = tuple(
+        _validated_uncertainty(raw_sigma, shape, f"{name}_sigma")
+        for name, raw_sigma in zip(component_names[1:], component_sigmas[1:])
+    )
+    supplied = pressure_supplied or any(
+        uncertainty is not None for uncertainty in coordinate_uncertainties
+    )
+    return (pressure_uncertainty, *coordinate_uncertainties), None, supplied
+
+
 def _jacobian_sparsity(
-    point_count: int, parameter_count: int, coordinate_slices: Mapping[str, slice]
+    point_count: int,
+    parameter_count: int,
+    coordinate_slices: Mapping[str, slice],
+    *,
+    coupled_residuals: bool = False,
 ):
     """Describe the block-local dependence of latent observation residuals."""
     adjusted_count = len(coordinate_slices)
@@ -122,8 +358,16 @@ def _jacobian_sparsity(
         ),
         dtype=int,
     )
-    matrix[:point_count, :parameter_count] = 1
     rows = np.arange(point_count)
+    if coupled_residuals:
+        for block in range(1 + adjusted_count):
+            block_rows = point_count * block + rows
+            matrix[block_rows, :parameter_count] = 1
+            for coordinate_slice in coordinate_slices.values():
+                matrix[block_rows, coordinate_slice.start + rows] = 1
+        return matrix.tocsr()
+
+    matrix[:point_count, :parameter_count] = 1
     for block, coordinate_slice in enumerate(coordinate_slices.values()):
         columns = coordinate_slice.start + rows
         matrix[rows, columns] = 1
@@ -174,7 +418,12 @@ def _fit_model(
     fixed: Mapping[str, float] | None,
     bounds: Mapping[str, Sequence[float]] | None,
     scale_covariance: bool,
+    observation_cholesky: NDArray[np.float64] | None,
+    loss: str | Callable[..., Any],
+    f_scale: float,
+    max_nfev: int | None,
 ) -> FitResult:
+    loss, f_scale, max_nfev = _validated_solver_options(loss, f_scale, max_nfev)
     fixed_values = {name: float(value) for name, value in (fixed or {}).items()}
     overlap = set(initial) & set(fixed_values)
     if overlap:
@@ -220,7 +469,12 @@ def _fit_model(
     x0 = np.concatenate(x0_parts)
     lower = np.concatenate(lower_parts)
     upper = np.concatenate(upper_parts)
-    jacobian_sparsity = _jacobian_sparsity(observed.size, len(names), coordinate_slices)
+    jacobian_sparsity = _jacobian_sparsity(
+        observed.size,
+        len(names),
+        coordinate_slices,
+        coupled_residuals=observation_cholesky is not None,
+    )
 
     def parameter_mapping(values):
         return {**fixed_values, **dict(zip(names, map(float, values[: len(names)])))}
@@ -237,7 +491,19 @@ def _fit_model(
         predicted = np.asarray(evaluator(model, adjusted), dtype=float)
         if predicted.shape != observed.shape:
             raise ValueError("Model predictions must match the pressure shape")
-        residual_parts = [((predicted - observed) / pressure_sigma).ravel()]
+        pressure_residual = predicted - observed
+        if observation_cholesky is not None:
+            raw_components = [pressure_residual.ravel()]
+            raw_components.extend(
+                (adjusted[name] - coordinates[name]).ravel() for name in adjusted_names
+            )
+            raw_residuals = np.column_stack(raw_components)
+            whitened = np.linalg.solve(
+                observation_cholesky, raw_residuals[..., np.newaxis]
+            )[..., 0]
+            return whitened.T.ravel()
+
+        residual_parts = [(pressure_residual / pressure_sigma).ravel()]
         for name in adjusted_names:
             uncertainty = coordinate_sigmas[name]
             assert uncertainty is not None
@@ -252,6 +518,9 @@ def _fit_model(
         bounds=(lower, upper),
         jac_sparsity=jacobian_sparsity,
         x_scale="jac",
+        loss=loss,
+        f_scale=f_scale,
+        max_nfev=max_nfev,
     )
     parameters = parameter_mapping(optimization.x)
     model = factory(parameters)
@@ -310,6 +579,18 @@ def _fit_model(
         bic=float(bic),
         success=bool(optimization.success),
         message=str(optimization.message),
+        loss=(
+            loss
+            if isinstance(loss, str)
+            else getattr(loss, "__qualname__", type(loss).__name__)
+        ),
+        f_scale=f_scale,
+        max_nfev=max_nfev,
+        status=int(optimization.status),
+        nfev=int(optimization.nfev),
+        njev=(None if optimization.njev is None else int(optimization.njev)),
+        cost=float(optimization.cost),
+        optimality=float(optimization.optimality),
     )
 
 
@@ -325,12 +606,18 @@ def fit_rt_eos(
     volume_sigma: Any | None = None,
     sigma: Any | None = None,
     absolute_sigma: bool = False,
+    observation_covariance: Any | None = None,
+    loss: str | Callable[..., Any] = "linear",
+    f_scale: float = 1.0,
+    max_nfev: int | None = None,
 ) -> FitResult:
     """Fit an isothermal EOS with optional errors in pressure and volume.
 
     ``sigma`` is retained as a compatibility alias for ``pressure_sigma``.
     When ``volume_sigma`` is supplied, the true volumes are fitted as latent
     values and their normalized corrections form part of the objective.
+    ``observation_covariance`` accepts one or per-point 2-by-2 covariance
+    matrices ordered as pressure, volume and cannot be combined with sigmas.
     """
     volumes, observed = np.broadcast_arrays(
         np.asarray(volume, dtype=float), np.asarray(pressure, dtype=float)
@@ -338,12 +625,17 @@ def fit_rt_eos(
     if not np.all(np.isfinite(volumes)) or np.any(volumes <= 0.0):
         raise ValueError("Volume must be finite and greater than zero")
     observed = _validated_observations(observed)
-    pressure_uncertainties, pressure_sigma_supplied = _pressure_uncertainty(
-        pressure_sigma, sigma, observed.shape
+    uncertainties, observation_cholesky, uncertainty_supplied = (
+        _observation_error_model(
+            observed.shape,
+            ("pressure", "volume"),
+            (pressure_sigma, volume_sigma),
+            sigma,
+            observation_covariance,
+        )
     )
-    volume_uncertainties = _validated_uncertainty(
-        volume_sigma, observed.shape, "volume_sigma"
-    )
+    pressure_uncertainties, volume_uncertainties = uncertainties
+    assert pressure_uncertainties is not None
     return _fit_model(
         lambda parameters: eos_class(**parameters),
         lambda model, coordinates: np.asarray(
@@ -356,10 +648,11 @@ def fit_rt_eos(
         initial,
         fixed,
         bounds,
-        scale_covariance=(
-            not absolute_sigma
-            or not (pressure_sigma_supplied or volume_uncertainties is not None)
-        ),
+        scale_covariance=not absolute_sigma or not uncertainty_supplied,
+        observation_cholesky=observation_cholesky,
+        loss=loss,
+        f_scale=f_scale,
+        max_nfev=max_nfev,
     )
 
 
@@ -378,12 +671,18 @@ def fit_thermal_eos(
     temperature_sigma: Any | None = None,
     sigma: Any | None = None,
     absolute_sigma: bool = False,
+    observation_covariance: Any | None = None,
+    loss: str | Callable[..., Any] = "linear",
+    f_scale: float = 1.0,
+    max_nfev: int | None = None,
 ) -> FitResult:
     """Fit a thermal EOS with optional errors in pressure, volume, and temperature.
 
     The reference EOS remains fixed.  Supplied volume and temperature errors
     turn their corresponding true values into latent fit variables.
     ``sigma`` is retained as a compatibility alias for ``pressure_sigma``.
+    ``observation_covariance`` accepts one or per-point 3-by-3 covariance
+    matrices ordered as pressure, volume, temperature.
     """
     volumes, temperatures, observed = np.broadcast_arrays(
         np.asarray(volume, dtype=float),
@@ -395,15 +694,21 @@ def fit_thermal_eos(
     if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0.0):
         raise ValueError("Temperature must be finite and greater than zero")
     observed = _validated_observations(observed)
-    pressure_uncertainties, pressure_sigma_supplied = _pressure_uncertainty(
-        pressure_sigma, sigma, observed.shape
+    uncertainties, observation_cholesky, uncertainty_supplied = (
+        _observation_error_model(
+            observed.shape,
+            ("pressure", "volume", "temperature"),
+            (pressure_sigma, volume_sigma, temperature_sigma),
+            sigma,
+            observation_covariance,
+        )
     )
-    volume_uncertainties = _validated_uncertainty(
-        volume_sigma, observed.shape, "volume_sigma"
-    )
-    temperature_uncertainties = _validated_uncertainty(
-        temperature_sigma, observed.shape, "temperature_sigma"
-    )
+    (
+        pressure_uncertainties,
+        volume_uncertainties,
+        temperature_uncertainties,
+    ) = uncertainties
+    assert pressure_uncertainties is not None
     return _fit_model(
         lambda parameters: eos_class(rt_eos=rt_eos, **parameters),
         lambda model, coordinates: np.asarray(
@@ -420,12 +725,108 @@ def fit_thermal_eos(
         initial,
         fixed,
         bounds,
-        scale_covariance=(
-            not absolute_sigma
-            or not (
-                pressure_sigma_supplied
-                or volume_uncertainties is not None
-                or temperature_uncertainties is not None
-            )
+        scale_covariance=not absolute_sigma or not uncertainty_supplied,
+        observation_cholesky=observation_cholesky,
+        loss=loss,
+        f_scale=f_scale,
+        max_nfev=max_nfev,
+    )
+
+
+def fit_joint_eos(
+    eos_class: type[ThermalEOS],
+    rt_eos_class: type[EosBase],
+    volume: Any,
+    temperature: Any,
+    pressure: Any,
+    initial: Mapping[str, float],
+    *,
+    fixed: Mapping[str, float] | None = None,
+    bounds: Mapping[str, Sequence[float]] | None = None,
+    pressure_sigma: Any | None = None,
+    volume_sigma: Any | None = None,
+    temperature_sigma: Any | None = None,
+    sigma: Any | None = None,
+    absolute_sigma: bool = False,
+    observation_covariance: Any | None = None,
+    loss: str | Callable[..., Any] = "linear",
+    f_scale: float = 1.0,
+    max_nfev: int | None = None,
+) -> FitResult:
+    """Jointly fit a reference isotherm and thermal EOS to P-V-T data.
+
+    Reference-EOS parameters use the same dotted names exposed by thermal
+    models, for example ``rt_eos.V0`` and ``rt_eos.K0``. Thermal parameters
+    retain their constructor names. The returned covariance therefore includes
+    cross-correlations between reference and thermal parameters and can be
+    passed directly to :meth:`FitResult.eos_uncertainty`.
+    """
+
+    def factory(parameters: Mapping[str, float]) -> ThermalEOS:
+        reference_parameters = {
+            name.removeprefix("rt_eos."): value
+            for name, value in parameters.items()
+            if name.startswith("rt_eos.")
+        }
+        thermal_parameters = {
+            name: value
+            for name, value in parameters.items()
+            if not name.startswith("rt_eos.")
+        }
+        return eos_class(
+            rt_eos=rt_eos_class(**reference_parameters), **thermal_parameters
+        )
+
+    volumes, temperatures, observed = np.broadcast_arrays(
+        np.asarray(volume, dtype=float),
+        np.asarray(temperature, dtype=float),
+        np.asarray(pressure, dtype=float),
+    )
+    if not np.all(np.isfinite(volumes)) or np.any(volumes <= 0.0):
+        raise ValueError("Volume must be finite and greater than zero")
+    if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0.0):
+        raise ValueError("Temperature must be finite and greater than zero")
+    observed = _validated_observations(observed)
+
+    all_parameter_names = set(initial) | set(fixed or {})
+    if not any(name.startswith("rt_eos.") for name in all_parameter_names):
+        raise ValueError("Joint fitting requires rt_eos.* reference parameters")
+
+    uncertainties, observation_cholesky, uncertainty_supplied = (
+        _observation_error_model(
+            observed.shape,
+            ("pressure", "volume", "temperature"),
+            (pressure_sigma, volume_sigma, temperature_sigma),
+            sigma,
+            observation_covariance,
+        )
+    )
+    (
+        pressure_uncertainties,
+        volume_uncertainties,
+        temperature_uncertainties,
+    ) = uncertainties
+    assert pressure_uncertainties is not None
+
+    return _fit_model(
+        factory,
+        lambda model, coordinates: np.asarray(
+            model.pressure(coordinates["volume"], coordinates["temperature"]),
+            dtype=float,
         ),
+        observed,
+        pressure_uncertainties,
+        {"volume": volumes, "temperature": temperatures},
+        {
+            "volume": volume_uncertainties,
+            "temperature": temperature_uncertainties,
+        },
+        initial,
+        fixed,
+        bounds,
+        scale_covariance=not absolute_sigma or not uncertainty_supplied,
+        observation_cholesky=observation_cholesky,
+        loss=loss,
+        f_scale=f_scale,
+        max_nfev=max_nfev,
     )

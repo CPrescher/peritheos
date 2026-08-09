@@ -55,7 +55,7 @@ documented under [Thermoelastic properties](thermoelastic-properties.md).
 ## Fitting
 
 ```python
-from peritheos.fitting import FitResult, fit_rt_eos, fit_thermal_eos
+from peritheos.fitting import FitResult, fit_joint_eos, fit_rt_eos, fit_thermal_eos
 ```
 
 `FitResult` contains the fitted `model`, parameter and uncertainty mappings,
@@ -65,6 +65,16 @@ reports `adjusted_volume`, `adjusted_temperature`, `volume_corrections`, and
 `temperature_corrections` for errors-in-variables fits. See
 [Fitting P-V and P-V-T data](fitting.md) for the pressure, volume, and
 temperature uncertainty API.
+
+`FitResult.summary()` returns a compact text report. `FitResult.to_dict()` and
+`FitResult.to_json()` export a versioned, JSON-safe record containing the model
+identity and reconstructable parameters, fit arrays, diagnostics, and solver
+configuration. Passing a path to `to_json()` also writes the record to disk.
+
+`fit_joint_eos()` estimates reference-isotherm and thermal parameters in one
+regression. Reference parameters use dotted names such as `rt_eos.V0`; its
+covariance includes reference/thermal cross-correlations and is directly
+compatible with `FitResult.eos_uncertainty()`.
 
 ## Units
 

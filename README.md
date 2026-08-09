@@ -21,6 +21,9 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   - Holland-Powell thermal modified Tait
   - Sokolova 2016, including its complete thermal-pressure parameter set
 - P-V and P-V-T parameter fitting with covariance and diagnostics
+- Joint reference-isotherm and thermal fitting with cross-covariance
+- Correlated observation errors and robust least-squares losses
+- Reproducible fit summaries and versioned JSON export
 - EOS prediction uncertainty from fitted covariance or published parameter errors
 - Thermoelastic derivatives, heat capacities, and vibrational potentials
 
