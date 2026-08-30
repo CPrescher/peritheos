@@ -9,9 +9,11 @@ mod quadrature;
 mod root;
 mod validation;
 
+pub mod batch;
 pub mod isothermal;
 pub mod thermal;
 
+pub use batch::{CaloricEosBatch, IsothermalEosBatch, ThermalEosBatch};
 pub use error::EosError;
 
 /// Convenient result alias for EOS construction and evaluation.
