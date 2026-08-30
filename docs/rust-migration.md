@@ -256,6 +256,13 @@ roots from 24.3 ms to about 1.3 ms, and 10,000 Debye pressure states from
 120 ms because Python call overhead dominates it. Crossover measurements are
 reproducible with `benchmarks/native_array_scaling.py`.
 
+A final isolated-wheel rerun after the fitting, covariance, and packaging
+checkpoints measured 3.24 ms for the million-element BM3 array, 1.30 ms for
+10,000 volume roots, and 3.02 ms for 10,000 Debye pressure states. The
+same-solver fitting boundary measured 5.02x for an ordinary 100-point fit and
+2.05x with latent volumes. Checksums matched in every comparison. These final
+figures remain machine-specific observations rather than CI thresholds.
+
 Explicit vector math was evaluated but not adopted in this checkpoint. The
 portable `wide` 1.6.1 candidate requires Rust 1.89, above the workspace's 1.83
 MSRV. Its two-lane vector cube root was also about 4.7x slower than scalar
