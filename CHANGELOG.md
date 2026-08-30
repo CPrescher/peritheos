@@ -5,6 +5,21 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Temperature inversion from pressure and volume for all thermal EOS models,
+  including NumPy broadcasting through `temperature()` and
+  `calculate_temperature()`.
+- Coupled temperature inference from ambient and heated volumes with a
+  fractional DAC confinement contribution through `temperature_from_volumes()`.
+  The empirical `f_dac * thermal_pressure` pressure increment is solved in its
+  algebraically reduced form and requires `0 <= f_dac < 1`.
+  Documentation distinguishes this fraction of EOS thermal pressure from a
+  fraction of cold pressure and describes its physical limits, calibration,
+  identifiability, baseline-drift, and uncertainty constraints.
+- Fixed-volume preparation for temperature inversion, avoiding repeated
+  Sokolova volume-integral evaluations during root finding.
+
 ## [0.4.0] - 2026-08-09
 
 ### Added

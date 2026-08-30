@@ -42,15 +42,22 @@ def validate_volume(V: NumericType) -> NumericType:
 
 
 def _scalar_pressure(
-    pressure_function: Callable[[float], NumericType], V: float
+    pressure_function: Callable[[float], NumericType],
+    value: float,
+    *,
+    variable_name: str = "V",
 ) -> float:
     """Evaluate a pressure callable and require a finite scalar result."""
-    pressure = np.asarray(pressure_function(V), dtype=float)
+    pressure = np.asarray(pressure_function(value), dtype=float)
     if pressure.ndim != 0:
-        raise TypeError("The pressure function must return a scalar for scalar volume")
+        raise TypeError(
+            f"The pressure function must return a scalar for scalar {variable_name}"
+        )
     result = float(pressure)
     if not np.isfinite(result):
-        raise ArithmeticError(f"EOS returned a non-finite pressure at V={V}")
+        raise ArithmeticError(
+            f"EOS returned a non-finite pressure at {variable_name}={value}"
+        )
     return result
 
 
@@ -125,6 +132,92 @@ def solve_volume(
     if residual > 1e-8 * max(1.0, abs(target)):
         raise ArithmeticError(
             f"Volume inversion did not converge to the requested pressure; residual={residual}"
+        )
+    return float(result)
+
+
+def solve_temperature(
+    pressure_function: Callable[[float], NumericType],
+    pressure: float,
+    reference_temperature: float,
+) -> float:
+    """Solve ``pressure_function(T) == pressure`` near the reference isotherm.
+
+    Starting at the reference temperature, the search expands geometrically
+    towards both lower and higher positive temperatures. The first bracketed
+    root is therefore on the branch nearest the reference isotherm. A target
+    that cannot be bracketed over the positive-temperature search range is
+    reported as outside the model's invertible range.
+    """
+    target = validate_finite_scalar(pressure, "Pressure")
+    Tr = validate_positive_scalar(reference_temperature, "Reference temperature")
+    p0 = _scalar_pressure(pressure_function, Tr, variable_name="T")
+    f0 = p0 - target
+    pressure_tolerance = 1e-10 * max(1.0, abs(target), abs(p0))
+    if abs(f0) <= pressure_tolerance:
+        return Tr
+
+    lower = upper = Tr
+    f_lower = f_upper = f0
+    minimum_temperature = Tr * 1.0e-14
+    maximum_temperature = Tr * 1.0e8
+    lower_active = upper_active = True
+    brackets: list[tuple[float, float]] = []
+
+    for _ in range(160):
+        if lower_active:
+            next_lower = max(lower * 0.8, minimum_temperature)
+            next_f_lower = (
+                _scalar_pressure(pressure_function, next_lower, variable_name="T")
+                - target
+            )
+            if next_f_lower * f_lower <= 0.0:
+                brackets.append((next_lower, lower))
+            lower, f_lower = next_lower, next_f_lower
+            lower_active = lower > minimum_temperature
+
+        if upper_active:
+            next_upper = min(upper * 1.25, maximum_temperature)
+            next_f_upper = (
+                _scalar_pressure(pressure_function, next_upper, variable_name="T")
+                - target
+            )
+            if next_f_upper * f_upper <= 0.0:
+                brackets.append((upper, next_upper))
+            upper, f_upper = next_upper, next_f_upper
+            upper_active = upper < maximum_temperature
+
+        if brackets:
+            break
+        if not lower_active and not upper_active:
+            break
+
+    if not brackets:
+        raise ValueError(
+            f"Pressure {target} is outside the invertible temperature range"
+        )
+
+    roots = [
+        optimize.brentq(
+            lambda temperature: (
+                _scalar_pressure(pressure_function, temperature, variable_name="T")
+                - target
+            ),
+            bracket_lower,
+            bracket_upper,
+            xtol=np.finfo(float).eps * max(1.0, Tr),
+            rtol=1e-12,
+        )
+        for bracket_lower, bracket_upper in brackets
+    ]
+    result = min(roots, key=lambda temperature: abs(np.log(temperature / Tr)))
+    residual = abs(
+        _scalar_pressure(pressure_function, result, variable_name="T") - target
+    )
+    if residual > 1e-8 * max(1.0, abs(target)):
+        raise ArithmeticError(
+            "Temperature inversion did not converge to the requested pressure; "
+            f"residual={residual}"
         )
     return float(result)
 
@@ -279,6 +372,32 @@ class ThermalEOS(EosBase):
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         raise NotImplementedError("This method should be implemented by the subclass")
 
+    def _thermal_pressure_function(self, V: float) -> Callable[[float], NumericType]:
+        """Return a temperature-only thermal-pressure function at fixed volume."""
+        return lambda temperature: self.thermal_pressure(V, temperature)
+
+    @staticmethod
+    def _validate_f_dac(f_dac: float) -> float:
+        f_dac = validate_finite_scalar(f_dac, "f_dac")
+        if f_dac < 0.0 or f_dac >= 1.0:
+            raise ValueError(
+                "f_dac must be greater than or equal to zero and less than one"
+            )
+        return f_dac
+
+    def dac_thermal_pressure(
+        self, V: NumericType, T: NumericType, f_dac: float
+    ) -> NumericType:
+        """Return the effective DAC pressure contribution in GPa.
+
+        The contribution is ``f_dac * thermal_pressure(V, T)``. It models
+        the portion of the EOS thermal pressure retained by confinement in a
+        diamond-anvil cell.
+        """
+        f_dac = self._validate_f_dac(f_dac)
+        result = f_dac * np.asarray(self.thermal_pressure(V, T), dtype=float)
+        return self._scalar_or_array(result)
+
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:
         return self.thermal_pressure(V, T) + self.rt_eos.pressure(V)
 
@@ -408,3 +527,140 @@ class ThermalEOS(EosBase):
     def volume(self, P: NumericType, T: NumericType) -> NumericType:
         """Alias for :meth:`calculate_volume` for a thermal EOS."""
         return self.calculate_volume(P, T)
+
+    def calculate_temperature(
+        self,
+        P: NumericType,
+        V: NumericType,
+    ) -> NumericType:
+        """Calculate temperature at total pressure and volume using bracketed roots.
+
+        The returned root is on the positive-temperature branch nearest the
+        reference temperature.
+
+        Parameters
+        ----------
+        P : float or numpy.ndarray
+            Pressure in GPa.
+        V : float or numpy.ndarray
+            Molar volume in J bar^-1 mol^-1.
+
+        Returns
+        -------
+        float or numpy.ndarray
+            Temperature in K.
+        """
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        pressures = np.asarray(P, dtype=float)
+        if not np.all(np.isfinite(pressures)):
+            raise ValueError("Pressure must be finite")
+        try:
+            pressures, volumes = np.broadcast_arrays(pressures, volumes)
+        except ValueError as error:
+            raise ValueError("P and V must have broadcast-compatible shapes") from error
+
+        cold_pressures = np.asarray(self.rt_eos.pressure(volumes), dtype=float)
+        target_thermal_pressures = pressures - cold_pressures
+        temperatures = np.array(
+            [
+                solve_temperature(
+                    self._thermal_pressure_function(float(volume)),
+                    float(target_thermal_pressure),
+                    self.Tr,
+                )
+                for target_thermal_pressure, volume in zip(
+                    target_thermal_pressures.flat, volumes.flat
+                )
+            ]
+        ).reshape(target_thermal_pressures.shape)
+        if temperatures.ndim == 0:
+            return float(temperatures)
+        return temperatures
+
+    def temperature(
+        self,
+        P: NumericType,
+        V: NumericType,
+    ) -> NumericType:
+        """Alias for :meth:`calculate_temperature` for a thermal EOS."""
+        return self.calculate_temperature(P, V)
+
+    def temperature_from_volumes(
+        self,
+        V_ambient: NumericType,
+        V_heated: NumericType,
+        *,
+        f_dac: float,
+    ) -> NumericType:
+        """Infer temperature from ambient and heated molar volumes.
+
+        The ambient pressure is obtained from ``V_ambient`` on the reference
+        isotherm. At the heated volume, this method solves
+
+        ``pressure(V_heated, T) = P_ambient +``
+        ``f_dac * thermal_pressure(V_heated, T)``.
+
+        Since total EOS pressure is cold pressure plus thermal pressure, the
+        solved expression is equivalently
+
+        ``thermal_pressure(V_heated, T) =``
+        ``(P_cold(V_ambient) - P_cold(V_heated)) / (1 - f_dac)``.
+
+        Here ``f_dac`` is defined as ``(P_hot - P_ambient)`` divided by the
+        EOS thermal pressure. It is not a fraction of the cold pressure and
+        should be treated as an experimental boundary-condition assumption
+        unless independently calibrated.
+
+        Both volumes use J bar^-1 mol^-1 and may be broadcast-compatible
+        scalars or arrays. ``f_dac`` must be greater than or equal to zero and
+        less than one. Only heated states at or above the reference temperature are
+        accepted. This empirical confinement model is distinct from ordinary
+        total-pressure inversion with :meth:`temperature`. The result is in K.
+        """
+        f_dac = self._validate_f_dac(f_dac)
+        ambient_volumes = np.asarray(validate_volume(V_ambient), dtype=float)
+        heated_volumes = np.asarray(validate_volume(V_heated), dtype=float)
+        try:
+            ambient_volumes, heated_volumes = np.broadcast_arrays(
+                ambient_volumes, heated_volumes
+            )
+        except ValueError as error:
+            raise ValueError(
+                "V_ambient and V_heated must have broadcast-compatible shapes"
+            ) from error
+
+        ambient_pressures = np.asarray(
+            self.rt_eos.pressure(ambient_volumes), dtype=float
+        )
+        heated_cold_pressures = np.asarray(
+            self.rt_eos.pressure(heated_volumes), dtype=float
+        )
+        target_thermal_pressures = (ambient_pressures - heated_cold_pressures) / (
+            1.0 - f_dac
+        )
+        if np.any(target_thermal_pressures < 0.0):
+            raise ValueError(
+                "The volume pair implies a temperature below the reference "
+                "temperature, not a heated state"
+            )
+        temperatures = np.array(
+            [
+                solve_temperature(
+                    self._thermal_pressure_function(float(heated_volume)),
+                    float(target_thermal_pressure),
+                    self.Tr,
+                )
+                for target_thermal_pressure, heated_volume in zip(
+                    target_thermal_pressures.flat, heated_volumes.flat
+                )
+            ]
+        ).reshape(target_thermal_pressures.shape)
+        temperature_tolerance = 1.0e-10 * max(1.0, self.Tr)
+        if np.any(temperatures < self.Tr - temperature_tolerance):
+            raise ValueError(
+                "The volume pair implies a temperature below the reference "
+                "temperature, not a heated state"
+            )
+        if temperatures.ndim == 0:
+            return float(temperatures)
+        return temperatures

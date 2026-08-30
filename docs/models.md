@@ -52,6 +52,12 @@ of `K0`, `K0_prime`, and `K0_double_prime` are recovered by differentiation.
 
 `HollandPowell2011` is an alias for `ThermalModifiedTait`.
 
+`Sokolova2016` accepts the complete optional `beta` and generalized Bose-mode
+terms. Its defaults (`beta=mb=mb1=0`) disable those additions and preserve the
+reduced configuration used by existing Peritheos and simplified Dioptas-style
+parameter sets. Temperature inversion, including `temperature_from_volumes`,
+uses the same active terms and works with both configurations.
+
 ### Mie-Gruneisen volume dependence
 
 \[

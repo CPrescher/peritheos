@@ -1,6 +1,7 @@
 import numpy as np
 import pytest
 
+import peritheos.eos.thermal.sokolova2016 as sokolova_module
 from peritheos.eos.rt.holzapfel import Holzapfel
 from peritheos.eos.thermal.sokolova2016 import (
     I_gamV,
@@ -42,6 +43,25 @@ def test_diamond_thermal_pressure_regression():
     )
 
     assert np.isclose(sokolova_eos.thermal_pressure(V, T), 14.860490047369, rtol=1e-4)
+
+
+def test_temperature_inversion_prepares_volume_integral_once(monkeypatch):
+    rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
+    eos = Sokolova2016(rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0)
+    expected_temperature = 2500.0
+    pressure = eos.pressure(V, expected_temperature)
+    original_integral = sokolova_module.I_gamV
+    call_count = 0
+
+    def counting_integral(*args, **kwargs):
+        nonlocal call_count
+        call_count += 1
+        return original_integral(*args, **kwargs)
+
+    monkeypatch.setattr(sokolova_module, "I_gamV", counting_integral)
+
+    assert np.isclose(eos.temperature(pressure, V), expected_temperature)
+    assert call_count == 1
 
 
 def test_f_gamV():

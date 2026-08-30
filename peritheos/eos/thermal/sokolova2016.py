@@ -105,9 +105,94 @@ class Sokolova2016(ThermalEOS):
         if self.mb < 0 or self.mb1 < 0:
             raise ValueError("Bose-Einstein multiplicities must not be negative")
 
+    def _volume_terms(self, V: NumericType) -> tuple[np.ndarray, ...]:
+        """Precompute the volume-dependent terms in the pressure expression."""
+        volume = np.asarray(validate_volume(V), dtype=float)
+        x = volume / self.rt_eos.V0  # fractional volume
+        Px = self.rt_eos.pressure(volume)
+        KT = self.rt_eos.bulk_modulus(volume)
+        kkx = self.rt_eos.bulk_modulus_derivative(volume)
+
+        # Equation (10), following the original calculation model.
+        generalized_t = self.t - self.beta * np.cbrt(x)
+        gamV = (
+            -3 * KT + 2 * Px * generalized_t + 9 * KT * kkx - 6 * generalized_t * KT
+        ) / 6 / (3 * KT - 2 * Px * generalized_t) + self.delta
+
+        # Exponent in equation (9), obtained by integrating gamma(V) / V.
+        expp = np.exp(I_gamV(x, self.delta, self.t, self.rt_eos, self.beta))
+
+        QB = self.QBo * expp
+        QB1 = self.QB1o * expp
+        QE1 = self.QE1o * expp
+        QE2 = self.QE2o * expp
+        reference_oscillator_pressure = (
+            self.mb * R * (_bose_energy(QB, self.Tr, self.d) * gamV / volume)
+            + self.mb1 * R * (_bose_energy(QB1, self.Tr, self.d1) * gamV / volume)
+            + self.mE1 * R * (_einstein_energy(QE1, self.Tr) * gamV / volume)
+            + self.mE2 * R * (_einstein_energy(QE2, self.Tr) * gamV / volume)
+        )
+        squared_temperature_coefficient = (
+            3
+            / 2
+            * self.rt_eos.n
+            * R
+            / 1000000
+            / volume
+            * (self.a_0 * x**self.m * self.m + self.e_0 * x**self.g * self.g)
+        )
+
+        return (
+            volume,
+            np.asarray(gamV),
+            QB,
+            QB1,
+            QE1,
+            QE2,
+            np.asarray(reference_oscillator_pressure),
+            np.asarray(squared_temperature_coefficient),
+        )
+
+    def _thermal_pressure_from_volume_terms(
+        self, volume_terms: tuple[np.ndarray, ...], T: NumericType
+    ) -> NumericType:
+        """Evaluate thermal pressure using prepared fixed-volume terms."""
+        temperatures = np.asarray(T, dtype=float)
+        if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
+            raise ValueError("Temperature must be finite and greater than zero")
+        try:
+            V, gamV, QB, QB1, QE1, QE2, reference_pressure, t2_coefficient, T = (
+                np.broadcast_arrays(*volume_terms, temperatures)
+            )
+        except ValueError as error:
+            raise ValueError("V and T must have broadcast-compatible shapes") from error
+
+        # Equation (12) for the different oscillator contributions at T and Tr.
+        PB = self.mb * R * (_bose_energy(QB, T, self.d) * gamV / V)
+        PB1 = self.mb1 * R * (_bose_energy(QB1, T, self.d1) * gamV / V)
+        PE1 = self.mE1 * R * (_einstein_energy(QE1, T) * gamV / V)
+        PE2 = self.mE2 * R * (_einstein_energy(QE2, T) * gamV / V)
+
+        # R [J mol^-1 K^-1] divided by V [J bar^-1 mol^-1] produces bar.
+        Pth_bar = (
+            PB
+            + PB1
+            + PE1
+            + PE2
+            - reference_pressure
+            + t2_coefficient * (T**2 - self.Tr**2)
+        )
+        return self._scalar_or_array(np.asarray(Pth_bar / 10000))
+
+    def _thermal_pressure_function(self, V: float):
+        """Prepare the costly volume integral once for temperature inversion."""
+        volume_terms = self._volume_terms(V)
+        return lambda temperature: self._thermal_pressure_from_volume_terms(
+            volume_terms, temperature
+        )
+
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
-        """
-        Calculate the thermal pressure using the Sokolova et al. 2016 model.
+        """Calculate thermal pressure using the Sokolova et al. 2016 model.
 
         Parameters
         ----------
@@ -121,81 +206,7 @@ class Sokolova2016(ThermalEOS):
         thermal_pressure : NumericType
             Thermal pressure in [GPa]
         """
-        V = validate_volume(V)
-        temperatures = np.asarray(T, dtype=float)
-        if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
-            raise ValueError("Temperature must be finite and greater than zero")
-        try:
-            V, T = np.broadcast_arrays(np.asarray(V, dtype=float), temperatures)
-        except ValueError as error:
-            raise ValueError("V and T must have broadcast-compatible shapes") from error
-
-        x = V / self.rt_eos.V0  # fractional volume
-        Px = self.rt_eos.pressure(V)
-        KT = self.rt_eos.bulk_modulus(V)
-        kkx = self.rt_eos.bulk_modulus_derivative(V)
-
-        # Equation (10), following the original calculation model.
-        generalized_t = self.t - self.beta * np.cbrt(x)
-        gamV = (
-            -3 * KT + 2 * Px * generalized_t + 9 * KT * kkx - 6 * generalized_t * KT
-        ) / 6 / (3 * KT - 2 * Px * generalized_t) + self.delta
-
-        # Exponent in equation (9), obtained by integrating gamma(V) / V.
-        expp = np.exp(I_gamV(x, self.delta, self.t, self.rt_eos, self.beta))
-
-        # Equation (9)
-        QB = self.QBo * expp
-        QB1 = self.QB1o * expp
-        QE1 = self.QE1o * expp
-        QE2 = self.QE2o * expp
-
-        # Equation (12) for the different Einstein contributions at the temperature TK
-        PB = self.mb * R * (_bose_energy(QB, T, self.d) * gamV / V)
-        PB1 = self.mb1 * R * (_bose_energy(QB1, T, self.d1) * gamV / V)
-        PE1 = self.mE1 * R * (_einstein_energy(QE1, T) * gamV / V)
-
-        PE2 = self.mE2 * R * (_einstein_energy(QE2, T) * gamV / V)
-
-        # Equation (12) for the different Einstein contributions at the reference temperature
-        PBr = self.mb * R * (_bose_energy(QB, self.Tr, self.d) * gamV / V)
-        PB1r = self.mb1 * R * (_bose_energy(QB1, self.Tr, self.d1) * gamV / V)
-        PE1r = self.mE1 * R * (_einstein_energy(QE1, self.Tr) * gamV / V)
-
-        PE2r = self.mE2 * R * (_einstein_energy(QE2, self.Tr) * gamV / V)
-
-        # Equation (12) second additive term
-        Pea = (
-            3
-            / 2
-            * self.rt_eos.n
-            * R
-            * self.a_0
-            / 1000000
-            * x ** (self.m)
-            * (self.m)
-            / V
-            * (T**2 - self.Tr**2)
-        )
-        Pee = (
-            3
-            / 2
-            * self.rt_eos.n
-            * R
-            * self.e_0
-            / 1000000
-            * x ** (self.g)
-            * (self.g)
-            / V
-            * (T**2 - self.Tr**2)
-        )
-
-        # R [J mol^-1 K^-1] divided by V [J bar^-1 mol^-1] produces bar.
-        Pth_bar = PB + PB1 + PE1 + PE2 - PBr - PB1r - PE1r - PE2r + Pee + Pea
-        Pth_gpa = Pth_bar / 10000
-        if Pth_gpa.ndim == 0:
-            return float(Pth_gpa)
-        return Pth_gpa
+        return self._thermal_pressure_from_volume_terms(self._volume_terms(V), T)
 
 
 def _einstein_energy(theta, temperature):

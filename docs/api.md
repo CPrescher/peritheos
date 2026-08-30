@@ -38,8 +38,11 @@ from peritheos.eos.thermal import (
 Common methods:
 
 - `thermal_pressure(V, T)`
+- `dac_thermal_pressure(V, T, f_dac)`
 - `pressure(V, T)`
 - `volume(P, T)`
+- `temperature(P, V)` and `calculate_temperature(P, V)`
+- `temperature_from_volumes(V_ambient, V_heated, f_dac=...)`
 - `bulk_modulus(V, T)`
 - `isothermal_compressibility(V, T)`
 - `thermal_expansivity(V, T)`
@@ -47,6 +50,14 @@ Common methods:
 - `molar_heat_capacity_p(V, T)` when a caloric model exists
 - `adiabatic_bulk_modulus(V, T)` when a caloric model exists
 - `gruneisen_parameter(V, T)` when a caloric model exists
+
+`dac_thermal_pressure()` returns only the additional confinement term
+`f_dac * thermal_pressure(V, T)`. `temperature_from_volumes()` applies the
+empirical confinement model described in
+[Getting started](getting-started.md#diamond-anvil-cell-thermal-pressure-contribution);
+it requires `0 <= f_dac < 1`. In this API, `f_dac` means
+`(P_hot - P_ambient) / thermal_pressure(V_heated, T)`; it is not a fraction of
+the cold pressure.
 
 Mie-Gruneisen models additionally expose `gruneisen_parameter()`,
 `characteristic_temperature()`, and the vibrational thermodynamic methods

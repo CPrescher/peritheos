@@ -2,6 +2,9 @@
 
 - Birch, F. (1947). Finite elastic strain of cubic crystals. *Physical Review*,
   71, 809-824.
+- Dewaele, A., Fiquet, G. & Gillet, P. (1998). Temperature and pressure
+  distribution in the laser-heated diamond-anvil cell. *Review of Scientific
+  Instruments*, 69, 2421-2426. doi:10.1063/1.1148970.
 - Dorogokupets, P. I. (2010). P-V-T equations of state of MgO and
   thermodynamics. *Physics and Chemistry of Minerals*, 37, 677-684.
   doi:10.1007/s00269-010-0367-2.
@@ -9,6 +12,9 @@
   consistent thermodynamic dataset for phases of petrological interest,
   involving a new equation of state for solids. *Journal of Metamorphic
   Geology*, 29, 333-383. doi:10.1111/j.1525-1314.2010.00923.x.
+- Heinz, D. L. (1990). Thermal pressure in the laser-heated diamond anvil cell.
+  *Geophysical Research Letters*, 17, 1161-1164.
+  doi:10.1029/GL017i008p01161.
 - Holzapfel, W. B. (2001). Equations of state for solids under strong
   compression. *Zeitschrift fuer Kristallographie*, 216, 473-488.
   doi:10.1524/zkri.216.9.473.20346.
@@ -29,6 +35,17 @@
   doi:10.1016/j.cageo.2016.06.002.
 - Vinet, P. and coauthors (1986, 1987). Universal/Rydberg equation of state for
   compressed solids.
+- Yen, C. E., Williams, Q. & Kunz, M. (2020).
+  Thermal pressure in the laser-heated diamond anvil cell: A quantitative study
+  and implications for the density versus mineralogy correlation of the mantle.
+  *Journal of Geophysical Research: Solid Earth*, 125, e2020JB020006.
+  doi:10.1029/2020JB020006.
+
+The DAC papers use several different normalizations for reported pressure
+increases. A percentage of constant-volume thermodynamic thermal pressure is
+not interchangeable with a percentage of cold pressure. Peritheos defines
+`f_dac` using the former normalization, as described in
+[Getting started](getting-started.md#diamond-anvil-cell-thermal-pressure-contribution).
 
 The source docstrings contain the model-specific reference nearest each
 implementation. Bibliographic precision should be checked against the original

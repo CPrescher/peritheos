@@ -24,6 +24,10 @@ the API reference, and exact optimizer messages are private.
 a supported compatibility alias and will remain available throughout the 1.x
 series.
 
+`temperature()` is the preferred pressure-and-volume-to-temperature method.
+`calculate_temperature()` is its supported compatibility alias and will remain
+available throughout the 1.x series.
+
 After 1.0, planned public API removals will normally emit
 `DeprecationWarning` for at least two minor releases. Scientific corrections
 that cannot preserve old behavior will include a reproducible before-and-after

@@ -94,7 +94,25 @@ eos = MieGruneisenDebye(
 
 pressure = eos.pressure(V=0.9, T=2000.0)
 volume = eos.volume(P=pressure, T=2000.0)
+temperature = eos.temperature(P=pressure, V=0.9)
+
+# Infer temperature from volumes measured before and during DAC heating.
+ambient_volume = 0.80000
+heated_volume = 0.80001
+temperature_with_dac = eos.temperature_from_volumes(
+    V_ambient=ambient_volume,
+    V_heated=heated_volume,
+    f_dac=0.25,
+)
+ambient_pressure = eos.rt_eos.pressure(ambient_volume)
+heated_pressure = ambient_pressure + 0.25 * eos.thermal_pressure(
+    heated_volume, temperature_with_dac
+)
 ```
+
+The two-volume method uses the empirical `f_dac * thermal_pressure` confinement
+increment and requires `0 <= f_dac < 1`; report and sensitivity-test the assumed
+fraction.
 
 Diamond thermal equation of state from sokolova et al. 2016
 
@@ -149,11 +167,13 @@ thermal_pressure = sokolova.thermal_pressure(V, T)
 rt_pressure = holzapfel.pressure(V)
 pressure = sokolova.pressure(V, T)
 recovered_volume = sokolova.volume(pressure, T)
+recovered_temperature = sokolova.temperature(pressure, V)
 
 print(f"Thermal pressure: {thermal_pressure} GPa")
 print(f"RT pressure: {rt_pressure} GPa")
 print(f"Total pressure: {pressure} GPa")
 print(f"Recovered volume: {recovered_volume} J bar^-1")
+print(f"Recovered temperature: {recovered_temperature} K")
 ```
 
 ## Citation and support

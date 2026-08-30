@@ -28,8 +28,12 @@ Caloric models are checked for `C_V = dE/dT`, `F = E - TS`,
 
 ## Round trips and array behavior
 
-All model families are tested for P-to-V inversion, scalar behavior, NumPy
-arrays, and P-V-T broadcasting. Invalid volumes, temperatures, non-finite
+All model families are tested for P-to-V and P,V-to-T round trips, scalar
+behavior, NumPy arrays, and P-V-T broadcasting. The two-volume DAC inversion is
+checked independently against its reduced pressure equation for every thermal
+model, including both reduced and complete Sokolova configurations. Its
+`f_dac` domain, non-heated volume pairs, non-invertible thermal models, and
+fraction sensitivity are also tested. Invalid volumes, temperatures, non-finite
 parameters, singular parameter sets, and states outside analytic domains are
 explicitly rejected.
 

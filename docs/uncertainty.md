@@ -197,6 +197,32 @@ heat_capacity = eos_uncertainty.evaluate(
 )
 ```
 
+For `temperature_from_volumes`, both measured volumes contribute uncertainty,
+and `f_dac` is an experimental assumption rather than an EOS parameter. The
+reduced equation divides the cold-pressure difference by `1 - f_dac`, so the
+result becomes especially sensitive as `f_dac` approaches one. Propagate the two
+volume errors with
+`evaluate("temperature_from_volumes", V_ambient, V_heated, f_dac=f_dac,
+argument_sigmas={0: ambient_sigma, 1: heated_sigma})` and report a sensitivity
+sweep over the plausible `f_dac` interval; keyword-only `f_dac` uncertainty is
+not automatically propagated as a model parameter.
+
+The sensitivity sweep represents uncertainty in the experimental boundary
+condition, not ordinary uncertainty in an EOS coefficient. Do not combine a
+literature percentage with the volume errors until its denominator is known:
+fractions of EOS thermal pressure and fractions of cold pressure are different
+models. Report the `f_dac=0` isobaric result and each confinement scenario
+separately.
+
+Uncertainty in `V_ambient` should include both measurement error and uncertainty
+from choosing the stable reference interval. If reference volumes before and
+after heating differ systematically, a single pooled standard deviation is not
+an adequate description of baseline drift. Analyze the branches separately or
+use a documented time-dependent baseline. Near `f_dac=1`, or when
+`V_heated - V_ambient` is comparable with its uncertainty, the inversion can be
+strongly nonlinear; prefer Monte Carlo propagation and inspect rejected or
+nonphysical samples.
+
 ## Thermal and reference-EOS uncertainty
 
 A `fit_thermal_eos` fit holds its reference EOS fixed. Its fit covariance

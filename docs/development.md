@@ -32,8 +32,14 @@ derivative, array, invalid-input, and round-trip tests.
 
 Subclass `ThermalEOS` and implement `thermal_pressure(V, T)`. The base class
 provides total pressure, inversion, isothermal bulk modulus, compressibility,
-and expansivity. Implement `molar_heat_capacity_v()` only when the model has a
-defined caloric potential; the base class then provides `C_P` and `K_S`.
+and expansivity. Both volume and temperature inversion are array-aware.
+Implement `molar_heat_capacity_v()` only when the model has a defined caloric
+potential; the base class then provides `C_P` and `K_S`.
+
+Models with expensive fixed-volume preparation may override the private
+`_thermal_pressure_function(V)` hook. It returns a temperature-only callable
+used by both inversion methods; Sokolova uses it to evaluate its volume integral
+once per solved state.
 
 Document the required molar-volume unit, reference temperature, pressure unit,
 parameter domain, source equations, and whether energy methods are absolute or
