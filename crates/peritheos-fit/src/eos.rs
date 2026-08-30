@@ -397,6 +397,32 @@ where
     )
 }
 
+/// Jointly fit reference-isotherm and thermal parameters in one Rust model factory.
+///
+/// Rust represents the combined parameter set as one ordered slice rather
+/// than using Python's dotted parameter names. The factory receives that full
+/// slice and may reconstruct both the reference EOS and the thermal model.
+/// This is the Rust counterpart of Python's `fit_joint_eos` convenience API.
+///
+/// # Errors
+///
+/// Returns [`FitError`] for inconsistent inputs, model construction or
+/// evaluation failures, and solver failures.
+pub fn fit_joint_eos<M, F>(
+    observations: ThermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+) -> Result<EosFitResult, FitError>
+where
+    M: ThermalEos,
+    F: Fn(&[f64]) -> Result<M, FitError>,
+{
+    fit_thermal_eos(observations, initial, lower, upper, options, factory)
+}
+
 /// Fit a thermal pressure model through an explicit Rust pressure evaluator.
 ///
 /// This variant supports type-erased Rust model enums which cannot implement
@@ -571,6 +597,7 @@ where
 mod tests {
     use super::*;
     use peritheos_core::isothermal::BM3;
+    use peritheos_core::thermal::MieGruneisenDebye;
 
     #[test]
     fn isothermal_fit_recovers_model_without_callback_runtime() {
@@ -613,5 +640,52 @@ mod tests {
         let factors = [2.0, 0.0, 1.0, 1.0, 4.0, 0.0, 2.0, 2.0];
         let whitened = whiten_correlated(&[&raw_pressure, &raw_volume], &factors, 2);
         assert_eq!(whitened, vec![1.0, 1.0, 2.0, 2.0]);
+    }
+
+    #[test]
+    fn joint_fit_factory_updates_reference_and_thermal_parameters() {
+        let expected = MieGruneisenDebye::new(
+            BM3::new(1.0, 160.0, 4.0).unwrap(),
+            300.0,
+            800.0,
+            1.5,
+            1.0,
+            2.0,
+        )
+        .unwrap();
+        let volume = [0.75, 0.8, 0.85, 0.9, 0.95, 1.0];
+        let temperature = [400.0, 700.0, 1_000.0, 1_400.0, 1_900.0, 2_500.0];
+        let pressure = volume
+            .iter()
+            .zip(temperature)
+            .map(|(&volume, temperature)| expected.pressure(volume, temperature).unwrap())
+            .collect::<Vec<_>>();
+        let sigma = [0.01; 6];
+        let result = fit_joint_eos(
+            ThermalObservations {
+                pressure: &pressure,
+                volume: &volume,
+                temperature: &temperature,
+                pressure_sigma: &sigma,
+                volume_sigma: None,
+                temperature_sigma: None,
+                observation_cholesky: None,
+            },
+            &[150.0, 1.3],
+            &[100.0, 0.5],
+            &[220.0, 3.0],
+            SolverOptions::default(),
+            |parameters| {
+                let reference = BM3::new(1.0, parameters[0], 4.0)
+                    .map_err(|error| FitError::Evaluation(error.to_string()))?;
+                MieGruneisenDebye::new(reference, 300.0, 800.0, parameters[1], 1.0, 2.0)
+                    .map_err(|error| FitError::Evaluation(error.to_string()))
+            },
+        )
+        .unwrap();
+
+        assert!(result.solver.success, "{}", result.solver.message);
+        assert!((result.solver.parameters[0] - 160.0).abs() < 1.0e-6);
+        assert!((result.solver.parameters[1] - 1.5).abs() < 1.0e-6);
     }
 }

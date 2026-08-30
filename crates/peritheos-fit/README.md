@@ -40,3 +40,15 @@ let result = fit_isothermal_eos(
 The lower-level `least_squares` entry point remains available for arbitrary
 Rust residual functions. Python callbacks and SciPy are compatibility
 fallbacks in the Python package, not dependencies of this crate.
+
+`fit_joint_eos` uses the same typed observation interface for a factory whose
+ordered parameter slice reconstructs both the reference and thermal model.
+After fitting, `parameter_covariance` profiles global parameters from the
+complete residual Jacobian, including latent state coordinates.
+
+For forward uncertainty, `propagate_model_uncertainty` combines an adaptive
+finite-difference model Jacobian with a complete parameter covariance matrix.
+`monte_carlo_model_uncertainty` provides deterministic native sampling,
+invalid-model rejection, confidence intervals, and optional output covariance.
+Its seeded random stream is stable within the Rust implementation but is not
+claimed to reproduce NumPy's random stream.

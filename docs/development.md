@@ -45,8 +45,8 @@ uv run --group docs mkdocs build --strict
 `peritheos-core` owns all built-in isothermal, thermal, caloric, inversion, and
 quadrature calculations. `peritheos-fit` owns bounded robust least squares,
 typed EOS residual construction, structured latent-coordinate solving,
-covariance profiling, delta-method propagation, and Monte Carlo summary
-statistics. `peritheos-python` exposes these through the private
+covariance profiling, model-aware delta-method propagation, and deterministic
+Monte Carlo sampling and summary statistics. `peritheos-python` exposes these through the private
 `peritheos._rust` module; application code should continue importing the
 documented Python modules.
 
@@ -59,7 +59,9 @@ path so overridden scientific behavior is not bypassed. Callable fitting
 losses retain the SciPy solver because arbitrary Python loss functions cannot
 be represented by the native loss enum. Monte Carlo draws continue to use
 NumPy so seeded results and invalid-sample rejection remain compatible;
-accepted-sample statistics are native.
+accepted-sample statistics are native. Native Rust clients can instead use the
+public Rust sampler; its deterministic stream intentionally does not claim
+bit-for-bit compatibility with NumPy.
 
 Large independent native arrays use Rayon after workload-specific size
 thresholds. The binding copies the NumPy inputs before releasing the Python

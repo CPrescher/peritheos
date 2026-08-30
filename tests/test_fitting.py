@@ -5,6 +5,7 @@ import json
 import numpy as np
 import pytest
 
+import peritheos.fitting as fitting_module
 from peritheos import _rust
 from peritheos.eos.rt import (
     BM2,
@@ -185,6 +186,29 @@ def test_builtin_fit_never_calls_python_pressure_during_solve(monkeypatch):
 
     assert result.success
     assert python_evaluations == 0
+
+
+def test_native_fit_uses_rust_parameter_covariance(monkeypatch):
+    expected = BM3(10.0, 120.0, 4.3)
+    volumes = np.linspace(8.0, 10.0, 20)
+
+    def python_covariance_is_forbidden(*args, **kwargs):
+        raise AssertionError("native fits must use the Rust covariance kernel")
+
+    monkeypatch.setattr(
+        fitting_module, "_parameter_covariance", python_covariance_is_forbidden
+    )
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        expected.pressure(volumes),
+        initial={"K0": 110.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+    )
+
+    assert result.success
+    assert result.covariance.shape == (2, 2)
+    assert np.all(np.isfinite(result.covariance))
 
 
 def test_callable_loss_retains_scipy_compatibility_path(monkeypatch):

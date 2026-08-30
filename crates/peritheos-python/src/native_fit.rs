@@ -331,6 +331,7 @@ pub(super) fn fit_rt_eos_native(
     let pressure_sigma = array_values(pressure_sigma);
     let volume_sigma = optional_array_values(volume_sigma);
     let observation_cholesky = optional_array_values(observation_cholesky);
+    let global_parameter_count = initial.len();
     let options = SolverOptions {
         loss: Loss::from_name(loss).map_err(to_python_fit_error)?,
         f_scale,
@@ -355,9 +356,8 @@ pub(super) fn fit_rt_eos_native(
             )
         })
         .map_err(to_python_fit_error)?;
-    let optimizer_parameter_count = result.solver.parameters.len();
     Ok(PyLeastSquaresResult {
-        parameter_count: optimizer_parameter_count,
+        global_parameter_count,
         predicted_pressure: Some(result.predicted_pressure),
         result: result.solver,
     })
@@ -399,6 +399,7 @@ pub(super) fn fit_thermal_eos_native(
     let volume_sigma = optional_array_values(volume_sigma);
     let temperature_sigma = optional_array_values(temperature_sigma);
     let observation_cholesky = optional_array_values(observation_cholesky);
+    let global_parameter_count = initial.len();
     let options = SolverOptions {
         loss: Loss::from_name(loss).map_err(to_python_fit_error)?,
         f_scale,
@@ -430,9 +431,8 @@ pub(super) fn fit_thermal_eos_native(
             )
         })
         .map_err(to_python_fit_error)?;
-    let optimizer_parameter_count = result.solver.parameters.len();
     Ok(PyLeastSquaresResult {
-        parameter_count: optimizer_parameter_count,
+        global_parameter_count,
         predicted_pressure: Some(result.predicted_pressure),
         result: result.solver,
     })

@@ -9,10 +9,12 @@
 mod eos;
 
 pub use eos::{
-    fit_isothermal_eos, fit_thermal_eos, fit_thermal_eos_by, EosFitResult, IsothermalObservations,
-    ThermalObservations,
+    fit_isothermal_eos, fit_joint_eos, fit_thermal_eos, fit_thermal_eos_by, EosFitResult,
+    IsothermalObservations, ThermalObservations,
 };
 
+use rand::rngs::StdRng;
+use rand::{Rng, SeedableRng};
 use std::error::Error;
 use std::fmt::{Display, Formatter};
 
@@ -169,6 +171,328 @@ pub struct MonteCarloSummary {
     pub lower: Vec<f64>,
     pub upper: Vec<f64>,
     pub covariance: Option<Vec<f64>>,
+}
+
+/// Nominal model output and its finite-difference parameter Jacobian.
+#[derive(Clone, Debug, PartialEq)]
+pub struct ModelJacobian {
+    /// Model output at the unperturbed parameter vector.
+    pub nominal: Vec<f64>,
+    /// Row-major output-by-parameter Jacobian.
+    pub jacobian: Vec<f64>,
+}
+
+/// Complete local linear model-uncertainty result.
+#[derive(Clone, Debug, PartialEq)]
+pub struct ModelLinearPropagation {
+    /// Model output and finite-difference parameter Jacobian.
+    pub model: ModelJacobian,
+    /// Propagated output variance and optional covariance.
+    pub propagation: LinearPropagation,
+}
+
+/// Controls deterministic native Monte Carlo model evaluation.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct MonteCarloOptions {
+    /// Number of accepted output samples.
+    pub sample_count: usize,
+    /// Maximum attempted samples before returning an evaluation error.
+    pub max_attempts: usize,
+    /// Central confidence interval probability.
+    pub confidence: f64,
+    /// Whether to retain the full output covariance.
+    pub full_covariance: bool,
+    /// Deterministic native RNG seed.
+    pub seed: u64,
+}
+
+impl Default for MonteCarloOptions {
+    fn default() -> Self {
+        Self {
+            sample_count: 5_000,
+            max_attempts: 100_000,
+            confidence: 0.95,
+            full_covariance: false,
+            seed: 0,
+        }
+    }
+}
+
+/// Model-aware native Monte Carlo uncertainty result.
+#[derive(Clone, Debug, PartialEq)]
+pub struct ModelMonteCarlo {
+    /// Model output at the mean parameters and states.
+    pub nominal: Vec<f64>,
+    /// Statistics of accepted sampled model outputs.
+    pub summary: MonteCarloSummary,
+    /// Number of sampled parameter/state vectors attempted.
+    pub attempted_samples: usize,
+    /// Fraction of attempts rejected because model evaluation failed.
+    pub rejected_fraction: f64,
+}
+
+/// Evaluate a model and its parameter Jacobian using adaptive centered differences.
+///
+/// Perturbation scales follow the Python compatibility convention:
+/// `relative_step * max(abs(parameter), standard_error, 1)`. If only one side
+/// of a perturbation is valid, a one-sided derivative is used.
+///
+/// # Errors
+///
+/// Returns an error for inconsistent or non-finite inputs, changed output
+/// dimensions, or a parameter that cannot be perturbed on either side.
+pub fn finite_difference_model_jacobian<F>(
+    parameters: &[f64],
+    parameter_covariance: &[f64],
+    relative_step: f64,
+    evaluate: F,
+) -> Result<ModelJacobian, FitError>
+where
+    F: Fn(&[f64]) -> Result<Vec<f64>, FitError>,
+{
+    let parameter_count = parameters.len();
+    if parameter_count == 0
+        || parameter_covariance.len() != parameter_count * parameter_count
+        || !relative_step.is_finite()
+        || relative_step <= 0.0
+        || parameters
+            .iter()
+            .chain(parameter_covariance)
+            .any(|value| !value.is_finite())
+    {
+        return Err(FitError::InvalidInput(
+            "invalid model Jacobian parameters, covariance, or step".to_owned(),
+        ));
+    }
+    let nominal = evaluate(parameters)?;
+    if nominal.is_empty() || nominal.iter().any(|value| !value.is_finite()) {
+        return Err(FitError::Evaluation(
+            "nominal model output must be non-empty and finite".to_owned(),
+        ));
+    }
+    let output_count = nominal.len();
+    let mut jacobian = vec![0.0; output_count * parameter_count];
+    for parameter in 0..parameter_count {
+        let standard_error = parameter_covariance[parameter * parameter_count + parameter]
+            .max(0.0)
+            .sqrt();
+        let step = relative_step * parameters[parameter].abs().max(standard_error).max(1.0);
+        let mut plus_parameters = parameters.to_vec();
+        let mut minus_parameters = parameters.to_vec();
+        plus_parameters[parameter] += step;
+        minus_parameters[parameter] -= step;
+        let plus = evaluate(&plus_parameters).ok().filter(|values| {
+            values.len() == output_count && values.iter().all(|value| value.is_finite())
+        });
+        let minus = evaluate(&minus_parameters).ok().filter(|values| {
+            values.len() == output_count && values.iter().all(|value| value.is_finite())
+        });
+        for output in 0..output_count {
+            jacobian[output * parameter_count + parameter] = match (&plus, &minus) {
+                (Some(plus), Some(minus)) => (plus[output] - minus[output]) / (2.0 * step),
+                (Some(plus), None) => (plus[output] - nominal[output]) / step,
+                (None, Some(minus)) => (nominal[output] - minus[output]) / step,
+                (None, None) => {
+                    return Err(FitError::Evaluation(format!(
+                        "could not perturb model parameter at index {parameter}"
+                    )));
+                }
+            };
+        }
+    }
+    Ok(ModelJacobian { nominal, jacobian })
+}
+
+/// Evaluate and propagate local linear parameter uncertainty for a Rust model.
+///
+/// `state_variance` contains any independently computed state-variable
+/// contribution for each output. Pass zeros when only parameter uncertainty
+/// is required.
+///
+/// # Errors
+///
+/// Returns an error from finite differences or covariance propagation.
+pub fn propagate_model_uncertainty<F>(
+    parameters: &[f64],
+    parameter_covariance: &[f64],
+    state_variance: &[f64],
+    relative_step: f64,
+    full_covariance: bool,
+    evaluate: F,
+) -> Result<ModelLinearPropagation, FitError>
+where
+    F: Fn(&[f64]) -> Result<Vec<f64>, FitError>,
+{
+    let model = finite_difference_model_jacobian(
+        parameters,
+        parameter_covariance,
+        relative_step,
+        evaluate,
+    )?;
+    let propagation = propagate_linear_uncertainty(
+        &model.jacobian,
+        model.nominal.len(),
+        parameters.len(),
+        parameter_covariance,
+        state_variance,
+        full_covariance,
+    )?;
+    Ok(ModelLinearPropagation { model, propagation })
+}
+
+/// Sample parameters and independent states, evaluate a model, and summarize accepted outputs.
+///
+/// Parameter samples use a multivariate normal distribution with the supplied
+/// positive-semidefinite covariance. State samples are independent normals;
+/// pass empty state slices when the evaluator has no uncertain states. Native
+/// seeded results are deterministic within this backend but intentionally do
+/// not reproduce `NumPy`'s random stream.
+///
+/// # Errors
+///
+/// Returns an error for invalid dimensions or covariance, a changed model
+/// output shape, or too few valid model evaluations before `max_attempts`.
+#[allow(clippy::too_many_arguments)]
+pub fn monte_carlo_model_uncertainty<F>(
+    parameter_means: &[f64],
+    parameter_covariance: &[f64],
+    state_means: &[f64],
+    state_sigmas: &[f64],
+    options: MonteCarloOptions,
+    evaluate: F,
+) -> Result<ModelMonteCarlo, FitError>
+where
+    F: Fn(&[f64], &[f64]) -> Result<Vec<f64>, FitError>,
+{
+    let parameter_count = parameter_means.len();
+    if parameter_count == 0
+        || parameter_covariance.len() != parameter_count * parameter_count
+        || state_means.len() != state_sigmas.len()
+        || options.sample_count < 2
+        || options.max_attempts < options.sample_count
+        || !options.confidence.is_finite()
+        || !(0.0..1.0).contains(&options.confidence)
+        || parameter_means
+            .iter()
+            .chain(parameter_covariance)
+            .chain(state_means)
+            .chain(state_sigmas)
+            .any(|value| !value.is_finite())
+        || state_sigmas.iter().any(|value| *value <= 0.0)
+    {
+        return Err(FitError::InvalidInput(
+            "invalid Monte Carlo parameters, states, or options".to_owned(),
+        ));
+    }
+    let factor = positive_semidefinite_factor(parameter_covariance, parameter_count)?;
+    let nominal = evaluate(parameter_means, state_means)?;
+    if nominal.is_empty() || nominal.iter().any(|value| !value.is_finite()) {
+        return Err(FitError::Evaluation(
+            "nominal Monte Carlo model output must be non-empty and finite".to_owned(),
+        ));
+    }
+    let output_count = nominal.len();
+    let mut rng = StdRng::seed_from_u64(options.seed);
+    let mut samples = Vec::with_capacity(options.sample_count * output_count);
+    let mut attempts = 0;
+    while samples.len() / output_count < options.sample_count && attempts < options.max_attempts {
+        attempts += 1;
+        let parameter_normals = standard_normal_values(&mut rng, parameter_count);
+        let mut parameters = parameter_means.to_vec();
+        for row in 0..parameter_count {
+            parameters[row] += (0..=row)
+                .map(|column| factor[row * parameter_count + column] * parameter_normals[column])
+                .sum::<f64>();
+        }
+        let state_normals = standard_normal_values(&mut rng, state_means.len());
+        let states = state_means
+            .iter()
+            .zip(state_sigmas)
+            .zip(state_normals)
+            .map(|((&mean, &sigma), normal)| mean + sigma * normal)
+            .collect::<Vec<_>>();
+        if let Ok(values) = evaluate(&parameters, &states) {
+            if values.len() == output_count && values.iter().all(|value| value.is_finite()) {
+                samples.extend(values);
+            }
+        }
+    }
+    if samples.len() / output_count < options.sample_count {
+        return Err(FitError::Evaluation(format!(
+            "accepted fewer than {} valid Monte Carlo samples in {} attempts",
+            options.sample_count, attempts
+        )));
+    }
+    let summary = summarize_monte_carlo(
+        &samples,
+        options.sample_count,
+        output_count,
+        options.confidence,
+        options.full_covariance,
+    )?;
+    let accepted = options.sample_count;
+    let rejected_fraction = f64::from(u32::try_from(attempts - accepted).unwrap_or(u32::MAX))
+        / f64::from(u32::try_from(attempts).unwrap_or(u32::MAX));
+    Ok(ModelMonteCarlo {
+        nominal,
+        summary,
+        attempted_samples: attempts,
+        rejected_fraction,
+    })
+}
+
+fn positive_semidefinite_factor(covariance: &[f64], size: usize) -> Result<Vec<f64>, FitError> {
+    let scale = covariance
+        .iter()
+        .map(|value| value.abs())
+        .fold(1.0, f64::max);
+    let tolerance = 1.0e-12 * scale;
+    let mut factor = vec![0.0; size * size];
+    for row in 0..size {
+        for column in 0..=row {
+            let mirrored = covariance[column * size + row];
+            let value = covariance[row * size + column];
+            if (value - mirrored).abs() > tolerance {
+                return Err(FitError::InvalidInput(
+                    "parameter covariance must be symmetric".to_owned(),
+                ));
+            }
+            let correction = (0..column)
+                .map(|index| factor[row * size + index] * factor[column * size + index])
+                .sum::<f64>();
+            let remainder = value - correction;
+            if row == column {
+                if remainder < -tolerance {
+                    return Err(FitError::InvalidInput(
+                        "parameter covariance must be positive semidefinite".to_owned(),
+                    ));
+                }
+                factor[row * size + column] = remainder.max(0.0).sqrt();
+            } else if factor[column * size + column] > tolerance {
+                factor[row * size + column] = remainder / factor[column * size + column];
+            } else if remainder.abs() > tolerance {
+                return Err(FitError::InvalidInput(
+                    "parameter covariance must be positive semidefinite".to_owned(),
+                ));
+            }
+        }
+    }
+    Ok(factor)
+}
+
+fn standard_normal_values(rng: &mut StdRng, count: usize) -> Vec<f64> {
+    let mut values = Vec::with_capacity(count);
+    while values.len() < count {
+        let first = rng.gen_range(f64::MIN_POSITIVE..1.0);
+        let second = rng.gen_range(0.0..1.0);
+        let radius = (-2.0 * first.ln()).sqrt();
+        let angle = std::f64::consts::TAU * second;
+        values.push(radius * angle.cos());
+        if values.len() < count {
+            values.push(radius * angle.sin());
+        }
+    }
+    values
 }
 
 /// Propagate parameter covariance through an output-by-parameter Jacobian.
@@ -1410,6 +1734,104 @@ mod tests {
             summary.covariance.unwrap(),
             vec![5.0 / 3.0, 50.0 / 3.0, 50.0 / 3.0, 500.0 / 3.0]
         );
+    }
+
+    #[test]
+    fn model_jacobian_and_linear_propagation_match_closed_form() {
+        let parameters = [2.0, 3.0];
+        let covariance = [0.04, 0.01, 0.01, 0.09];
+        let evaluate =
+            |values: &[f64]| Ok(vec![values[0] + 2.0 * values[1], values[0] * values[1]]);
+        let result = propagate_model_uncertainty(
+            &parameters,
+            &covariance,
+            &[0.0, 0.0],
+            1.0e-6,
+            true,
+            evaluate,
+        )
+        .unwrap();
+
+        assert_eq!(result.model.nominal, vec![8.0, 6.0]);
+        let expected_jacobian = [1.0, 2.0, 3.0, 2.0];
+        for (actual, expected) in result.model.jacobian.iter().zip(expected_jacobian) {
+            assert!((actual - expected).abs() < 1.0e-8);
+        }
+        assert!((result.propagation.variance[0] - 0.44).abs() < 1.0e-8);
+        assert!((result.propagation.variance[1] - 0.84).abs() < 1.0e-8);
+        assert!(result.propagation.covariance.is_some());
+    }
+
+    #[test]
+    fn native_monte_carlo_is_seeded_and_combines_parameter_and_state_variance() {
+        let options = MonteCarloOptions {
+            sample_count: 20_000,
+            max_attempts: 20_000,
+            confidence: 0.95,
+            full_covariance: true,
+            seed: 42,
+        };
+        let evaluate = |parameters: &[f64], states: &[f64]| Ok(vec![parameters[0] + states[0]]);
+        let first =
+            monte_carlo_model_uncertainty(&[1.0], &[4.0], &[2.0], &[3.0], options, evaluate)
+                .unwrap();
+        let second =
+            monte_carlo_model_uncertainty(&[1.0], &[4.0], &[2.0], &[3.0], options, evaluate)
+                .unwrap();
+
+        assert_eq!(first, second);
+        assert_eq!(first.nominal, vec![3.0]);
+        assert_eq!(first.attempted_samples, options.sample_count);
+        assert_eq!(first.rejected_fraction.to_bits(), 0.0_f64.to_bits());
+        assert!((first.summary.standard_error[0] - 13.0_f64.sqrt()).abs() < 0.08);
+    }
+
+    #[test]
+    fn native_monte_carlo_tracks_rejected_model_evaluations() {
+        let result = monte_carlo_model_uncertainty(
+            &[0.0],
+            &[1.0],
+            &[],
+            &[],
+            MonteCarloOptions {
+                sample_count: 1_000,
+                max_attempts: 4_000,
+                seed: 7,
+                ..MonteCarloOptions::default()
+            },
+            |parameters, _| {
+                if parameters[0] < 0.0 {
+                    Err(FitError::Evaluation("negative sample".to_owned()))
+                } else {
+                    Ok(vec![parameters[0]])
+                }
+            },
+        )
+        .unwrap();
+
+        assert!(result.rejected_fraction > 0.4);
+        assert!(result.rejected_fraction < 0.6);
+        assert!(result.summary.lower[0] >= 0.0);
+    }
+
+    #[test]
+    fn native_monte_carlo_accepts_singular_positive_semidefinite_covariance() {
+        let result = monte_carlo_model_uncertainty(
+            &[1.0, 1.0],
+            &[1.0, 1.0, 1.0, 1.0],
+            &[],
+            &[],
+            MonteCarloOptions {
+                sample_count: 100,
+                max_attempts: 100,
+                seed: 9,
+                ..MonteCarloOptions::default()
+            },
+            |parameters, _| Ok(vec![parameters[0] - parameters[1]]),
+        )
+        .unwrap();
+
+        assert!(result.summary.standard_error[0] < 1.0e-14);
     }
 
     #[test]

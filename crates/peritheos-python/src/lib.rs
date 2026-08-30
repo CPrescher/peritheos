@@ -635,7 +635,7 @@ fn to_python_error(error: EosError) -> PyErr {
 #[derive(Clone, Debug, PartialEq)]
 struct PyLeastSquaresResult {
     result: peritheos_fit::SolverResult,
-    parameter_count: usize,
+    global_parameter_count: usize,
     predicted_pressure: Option<Vec<f64>>,
 }
 
@@ -661,9 +661,29 @@ impl PyLeastSquaresResult {
 
     #[getter]
     fn jac<'py>(&self, py: Python<'py>) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
+        let column_count = self.result.parameters.len();
         let output = ArrayD::from_shape_vec(
-            numpy::ndarray::IxDyn(&[self.result.residual_count, self.parameter_count]),
+            numpy::ndarray::IxDyn(&[self.result.residual_count, column_count]),
             self.result.jacobian.clone(),
+        )
+        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        Ok(output.into_pyarray(py))
+    }
+
+    /// Leading model-parameter covariance after profiling latent coordinates.
+    #[getter]
+    fn parameter_covariance<'py>(&self, py: Python<'py>) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
+        let column_count = self.result.parameters.len();
+        let covariance = peritheos_fit::parameter_covariance(
+            &self.result.jacobian,
+            self.result.residual_count,
+            column_count,
+            self.global_parameter_count,
+        )
+        .map_err(to_python_fit_error)?;
+        let output = ArrayD::from_shape_vec(
+            numpy::ndarray::IxDyn(&[self.global_parameter_count, self.global_parameter_count]),
+            covariance,
         )
         .map_err(|error| PyValueError::new_err(error.to_string()))?;
         Ok(output.into_pyarray(py))
@@ -765,6 +785,7 @@ fn fit_least_squares<'py>(
             ));
         }
     };
+    let global_parameter_count = layout.map_or(initial.len(), |value| value.global_parameter_count);
     let result = if let Some(layout) = layout {
         least_squares_structured(&initial, &lower, &upper, options, layout, evaluator)
     } else {
@@ -773,7 +794,7 @@ fn fit_least_squares<'py>(
     .map_err(to_python_fit_error)?;
     Ok(PyLeastSquaresResult {
         result,
-        parameter_count: initial.len(),
+        global_parameter_count,
         predicted_pressure: None,
     })
 }

@@ -10,12 +10,12 @@ compatibility-ready Rust and Python release. Work stays on
 |---|---|---|
 | Built-in isothermal, thermal, and caloric equations | Rust | Audit and remove obsolete Python duplicates |
 | Scalar inversion and quadrature | Rust for built-ins; Python/SciPy for custom models | Preserve the explicit custom-model fallback |
-| NumPy array evaluation | PyO3 with Rust scalar kernels and thresholded Rayon | Add a dependency-free public Rust batch API |
-| Named-loss built-in fitting | Rust end to end | Add an ergonomic joint-fitting Rust entry point and broader parity cases |
+| NumPy array evaluation | PyO3 with Rust scalar kernels and thresholded Rayon | Public dependency-free Rust batch traits complete; broaden stress coverage |
+| Named-loss built-in fitting | Rust end to end | Public joint-fitting entry point complete; broaden parity cases |
 | Callable-loss and custom-model fitting | SciPy or a Python callback | Retain as documented compatibility behavior |
-| Fit covariance | Implemented in Rust but still recomputed by Python/SciPy | Return and consume the native parameter covariance |
-| Linear uncertainty matrix propagation | Rust | Add model-aware finite-difference interfaces |
-| Monte Carlo evaluation | Python/NumPy with Rust summary statistics | Add a deterministic Rust sampling/evaluation engine without changing NumPy-seeded compatibility |
+| Fit covariance | Rust, consumed directly for native fits | Retain the SciPy calculation only for its explicit fallback paths |
+| Linear uncertainty matrix propagation | Rust | Public model-aware finite-difference and propagation interfaces complete |
+| Monte Carlo evaluation | Public Rust engine; Python/NumPy compatibility path | Preserve NumPy-seeded Python results while validating native sampling |
 | Python result objects and serialization | Python | Keep as the stable public presentation layer |
 | Crate and wheel packaging | Scaffolded and locally validated | Package crates, validate licenses, and exercise the full wheel matrix |
 

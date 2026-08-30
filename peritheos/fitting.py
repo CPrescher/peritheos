@@ -659,10 +659,14 @@ def _fit_model(
         chi_square / degrees_of_freedom if degrees_of_freedom > 0 else np.nan
     )
 
-    covariance_jacobian = optimization.jac
-    if adjusted_names and isinstance(loss, str):
-        covariance_jacobian = csr_matrix(covariance_jacobian)
-    covariance = _parameter_covariance(covariance_jacobian, len(names))
+    native_covariance = getattr(optimization, "parameter_covariance", None)
+    if native_covariance is not None:
+        covariance = np.asarray(native_covariance, dtype=float)
+    else:
+        covariance_jacobian = optimization.jac
+        if adjusted_names and isinstance(loss, str):
+            covariance_jacobian = csr_matrix(covariance_jacobian)
+        covariance = _parameter_covariance(covariance_jacobian, len(names))
     if scale_covariance and degrees_of_freedom > 0:
         covariance *= reduced_chi_square
     errors = np.sqrt(np.maximum(np.diag(covariance), 0.0))

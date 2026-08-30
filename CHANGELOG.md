@@ -13,6 +13,8 @@ All notable changes to Peritheos are documented here. The project follows
   isothermal and thermal model families.
 - Multi-platform native-wheel release jobs for supported CPython versions on
   Linux x86-64/ARM64, macOS Intel/Apple Silicon, and Windows x86-64.
+- Dependency-free public Rust batch traits, typed joint EOS fitting, and
+  model-aware linear and Monte Carlo uncertainty entry points.
 
 ### Changed
 
@@ -22,6 +24,8 @@ All notable changes to Peritheos are documented here. The project follows
   now use native numerical kernels. Custom reference EOS classes, callable
   fitting losses, and NumPy-seeded Monte Carlo draws retain documented
   compatibility paths.
+- Native fits now return their profiled global-parameter covariance directly;
+  Python no longer recomputes it through a separate SciPy/NumPy path.
 - Errors-in-variables fits now use colored latent-coordinate Jacobians and a
   block Schur-complement solve, with stress coverage for large and rank-deficient
   datasets.
