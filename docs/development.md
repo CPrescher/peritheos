@@ -19,7 +19,14 @@ Run the native gates directly with:
 cargo fmt --all -- --check
 cargo clippy --workspace --all-targets --all-features -- -D warnings
 cargo test --workspace --all-features --locked
+scripts/verify-rust-packages.sh
 ```
+
+The package verifier reflects the required crates.io publication order:
+`peritheos-core` first, then `peritheos-fit`. Before the core version exists in
+the registry, it prepares the fitting archive with a local resolution patch,
+checks that the normalized archive still contains a versioned registry
+dependency, and runs both extracted packages' tests.
 
 Python coverage omits `peritheos/eos/**` because those modules are facades over
 the PyO3 backend and contain retained custom-model compatibility paths. Their

@@ -15,6 +15,8 @@ All notable changes to Peritheos are documented here. The project follows
   Linux x86-64/ARM64, macOS Intel/Apple Silicon, and Windows x86-64.
 - Dependency-free public Rust batch traits, typed joint EOS fitting, and
   model-aware linear and Monte Carlo uncertainty entry points.
+- Package-contained scientific fixtures and a two-crate archive verifier that
+  tests the required core-before-fit crates.io publication sequence.
 
 ### Changed
 
@@ -36,6 +38,8 @@ All notable changes to Peritheos are documented here. The project follows
   Python natural-strain coefficient formulas are removed, and the historical
   coefficient-level Holzapfel helper remains available through a Rust-backed
   compatibility wrapper.
+- Native batch calls now have concurrent large-array stress coverage in
+  addition to deterministic order, shape, stride, and round-trip checks.
 
 ## [0.5.0] - 2026-08-30
 

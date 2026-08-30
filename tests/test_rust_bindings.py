@@ -1,5 +1,7 @@
 """Direct tests for the private native extension during the additive phase."""
 
+from concurrent.futures import ThreadPoolExecutor
+
 import numpy as np
 import pytest
 from scipy.optimize import least_squares
@@ -121,6 +123,24 @@ def test_large_parallel_volume_batch_round_trips_in_input_order():
 
     assert recovered.shape == volumes.shape
     assert np.allclose(recovered, volumes, rtol=1.0e-10)
+
+
+def test_concurrent_parallel_batches_are_deterministic_and_thread_safe():
+    model = _rust.RtEos.bm3(10.0, 120.0, 4.3)
+    volumes = np.linspace(6.5, 11.0, 100_000, dtype=float)
+    expected_pressure = model.pressure_array(volumes)
+    expected_modulus = model.bulk_modulus_array(volumes)
+
+    def evaluate(quantity):
+        return getattr(model, f"{quantity}_array")(volumes)
+
+    quantities = ["pressure", "bulk_modulus"] * 4
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        results = list(executor.map(evaluate, quantities))
+
+    for quantity, result in zip(quantities, results):
+        expected = expected_pressure if quantity == "pressure" else expected_modulus
+        assert np.array_equal(result, expected)
 
 
 @pytest.mark.parametrize(

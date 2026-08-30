@@ -331,7 +331,7 @@ fn assert_mie<const DEBYE: bool>(
 
 #[test]
 fn shared_python_thermal_compatibility_fixture_matches() {
-    let raw = include_str!("../../../tests/data/thermal_compatibility_cases.json");
+    let raw = include_str!("data/thermal_compatibility_cases.json");
     let document: Value = serde_json::from_str(raw).expect("valid compatibility fixture");
     assert_eq!(document["schema_version"].as_u64(), Some(1));
     let tolerance = document["relative_tolerance"].as_f64().unwrap();

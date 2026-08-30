@@ -44,6 +44,10 @@ jobs:
           cargo +stable fmt --all -- --check
           cargo +stable clippy --workspace --all-targets --all-features -- -D warnings
 
+      - name: Verify publishable Rust crates
+        if: matrix.toolchain == 'stable'
+        run: scripts/verify-rust-packages.sh
+
   quality:
     name: Lint and format
     runs-on: ubuntu-latest

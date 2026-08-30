@@ -17,7 +17,7 @@ compatibility-ready Rust and Python release. Work stays on
 | Linear uncertainty matrix propagation | Rust | Public model-aware finite-difference and propagation interfaces complete |
 | Monte Carlo evaluation | Public Rust engine; Python/NumPy compatibility path | Preserve NumPy-seeded Python results while validating native sampling |
 | Python result objects and serialization | Python | Keep as the stable public presentation layer |
-| Crate and wheel packaging | Scaffolded and locally validated | Package crates, validate licenses, and exercise the full wheel matrix |
+| Crate and wheel packaging | Packageable crates and wheel matrix | Complete dependency/license audit and run all local release gates |
 
 ## Checkpoint sequence
 

@@ -58,7 +58,7 @@ release = [
 manifest-path = "crates/peritheos-python/Cargo.toml"
 module-name = "peritheos._rust"
 python-source = "."
-include = [{path = "tests/data/**/*", format = "sdist"}]
+include = [{path = "crates/peritheos-core/tests/data/**/*", format = "sdist"}]
 
 [tool.ruff]
 target-version = "py39"

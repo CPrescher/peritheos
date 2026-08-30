@@ -56,7 +56,7 @@ fn model_from_parameters(model: &str, parameters: &HashMap<String, f64>) -> Box<
 
 #[test]
 fn shared_literature_pressure_cases_match() {
-    let raw = include_str!("../../../tests/data/literature_reference_cases.json");
+    let raw = include_str!("data/literature_reference_cases.json");
     let cases: Vec<LiteratureCase> = serde_json::from_str(raw).expect("valid reference fixture");
 
     for case in cases {
@@ -102,7 +102,7 @@ struct CompatibilityCase {
 
 #[test]
 fn python_compatibility_grid_matches_pressure_and_bulk_modulus() {
-    let raw = include_str!("../../../tests/data/isothermal_compatibility_cases.json");
+    let raw = include_str!("data/isothermal_compatibility_cases.json");
     let fixture: CompatibilityFixture =
         serde_json::from_str(raw).expect("valid compatibility fixture");
     assert_eq!(fixture.schema_version, 1);

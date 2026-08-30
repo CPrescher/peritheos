@@ -25,8 +25,11 @@ from peritheos.eos.thermal import (
 )
 from peritheos.eos.thermal.mie_gruneisen import _debye_function_3
 
-FIXTURE = Path(__file__).parent / "data" / "isothermal_compatibility_cases.json"
-THERMAL_FIXTURE = Path(__file__).parent / "data" / "thermal_compatibility_cases.json"
+FIXTURE_DIRECTORY = (
+    Path(__file__).parent.parent / "crates" / "peritheos-core" / "tests" / "data"
+)
+FIXTURE = FIXTURE_DIRECTORY / "isothermal_compatibility_cases.json"
+THERMAL_FIXTURE = FIXTURE_DIRECTORY / "thermal_compatibility_cases.json"
 
 
 def test_isothermal_compatibility_fixture_matches_python_oracle():
