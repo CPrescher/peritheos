@@ -210,15 +210,22 @@ the full Sokolova expression. Mie-Gruneisen models retain a Python fallback
 only when they wrap a user-defined `EosBase` implementation.
 
 The public fitting functions use the `peritheos-fit` bounded solver for all
-five named loss functions. Their validation, latent-variable residual model,
-correlated-observation whitening, result construction, and JSON schema remain
-in the Python compatibility layer. Errors-in-variables fits use a structured
-native path: simultaneous finite-difference coloring evaluates all points for
-one latent coordinate together, and observation-local normal blocks are
-profiled through a Schur complement. Callable Python losses intentionally
-retain SciPy's solver. Delta-method matrix propagation and accepted Monte Carlo
-sample statistics are native; NumPy retains seeded random draws and Python
-retains model reconstruction and invalid-sample rejection.
+five named loss functions. For exact built-in models, the Python layer passes
+the native model, parameter names, observations, uncertainty arrays, bounds,
+and solver options once. Rust then owns model reconstruction, EOS evaluation,
+independent or correlated residual construction, latent-coordinate assembly,
+finite differences, and optimization while the Python interpreter lock is
+released. Errors-in-variables fits use simultaneous finite-difference coloring
+and profile observation-local normal blocks through a Schur complement.
+Python still constructs the public `FitResult`, including covariance scaling,
+diagnostics, and schema-version-1 JSON output.
+
+Custom Python EOS classes and subclasses intentionally retain the native
+solver's residual callback because their overridden behavior cannot be
+represented by a built-in Rust model. Callable Python losses retain SciPy's
+solver. Delta-method matrix propagation and accepted Monte Carlo sample
+statistics are native; NumPy retains seeded random draws and Python retains
+uncertainty model reconstruction and invalid-sample rejection.
 
 These boundaries preserve extensibility without duplicating built-in equations
 or changing a scientific convention. The branch must remain unmerged until its
@@ -228,6 +235,10 @@ An indicative quick run on macOS ARM64 compared with the committed pre-Rust
 baseline improved every recorded workload. Median speedups were approximately
 8x for scalar BM3 pressure, 27x for its array path, 1,741x for volume inversion,
 226x for Debye pressure, 945x for Sokolova pressure, 1.5-1.7x for fitting, 1.9x
-for linear uncertainty, and 24x for Monte Carlo uncertainty. These figures are
-machine- and environment-specific evidence, not release performance promises;
-CI and release decisions must also consider the deterministic numerical gates.
+for linear uncertainty, and 24x for Monte Carlo uncertainty. A direct
+same-solver boundary benchmark after end-to-end fitting measured the built-in
+path about 1.6x faster than the Python-callback path for an ordinary
+100-point BM3 fit and about 1.2x faster with 100 latent volumes on the same
+machine. These figures are machine- and environment-specific evidence, not
+release performance promises; CI and release decisions must also consider the
+deterministic numerical gates.

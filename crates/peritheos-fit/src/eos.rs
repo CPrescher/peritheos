@@ -1,0 +1,617 @@
+//! End-to-end native EOS fitting built on the least-squares kernel.
+
+use peritheos_core::{IsothermalEos, ThermalEos};
+
+use crate::{
+    least_squares, least_squares_structured, FitError, SolverOptions, SolverResult,
+    StructuredLayout,
+};
+
+/// Isothermal pressure-volume observations and their error model.
+#[derive(Clone, Copy, Debug)]
+pub struct IsothermalObservations<'a> {
+    /// Observed pressures, flattened in row-major order.
+    pub pressure: &'a [f64],
+    /// Measured volumes in the same order as `pressure`.
+    pub volume: &'a [f64],
+    /// Pressure standard deviations. One value is required per observation.
+    pub pressure_sigma: &'a [f64],
+    /// Optional volume standard deviations. Their presence makes volume latent.
+    pub volume_sigma: Option<&'a [f64]>,
+    /// Optional per-observation lower Cholesky factors in row-major order.
+    ///
+    /// When present, the factors have shape `(point_count, 2, 2)` and replace
+    /// the independent standard deviations when whitening residuals.
+    pub observation_cholesky: Option<&'a [f64]>,
+}
+
+/// Thermal pressure-volume-temperature observations and their error model.
+#[derive(Clone, Copy, Debug)]
+pub struct ThermalObservations<'a> {
+    /// Observed pressures, flattened in row-major order.
+    pub pressure: &'a [f64],
+    /// Measured volumes in the same order as `pressure`.
+    pub volume: &'a [f64],
+    /// Measured temperatures in the same order as `pressure`.
+    pub temperature: &'a [f64],
+    /// Pressure standard deviations. One value is required per observation.
+    pub pressure_sigma: &'a [f64],
+    /// Optional volume standard deviations. Their presence makes volume latent.
+    pub volume_sigma: Option<&'a [f64]>,
+    /// Optional temperature standard deviations. Their presence makes
+    /// temperature latent.
+    pub temperature_sigma: Option<&'a [f64]>,
+    /// Optional per-observation lower Cholesky factors in row-major order.
+    ///
+    /// When present, the factors have shape `(point_count, 3, 3)` and replace
+    /// the independent standard deviations when whitening residuals.
+    pub observation_cholesky: Option<&'a [f64]>,
+}
+
+/// Native EOS fit result with final model predictions.
+#[derive(Clone, Debug, PartialEq)]
+pub struct EosFitResult {
+    /// Least-squares parameters and diagnostics.
+    pub solver: SolverResult,
+    /// Pressure predicted at the final adjusted coordinates.
+    pub predicted_pressure: Vec<f64>,
+}
+
+fn validate_common(
+    pressure: &[f64],
+    volume: &[f64],
+    pressure_sigma: &[f64],
+    point_count: usize,
+) -> Result<(), FitError> {
+    if point_count == 0 || volume.len() != point_count || pressure_sigma.len() != point_count {
+        return Err(FitError::InvalidInput(
+            "EOS observation arrays must have the same non-zero length".to_owned(),
+        ));
+    }
+    if pressure.iter().any(|value| !value.is_finite())
+        || volume
+            .iter()
+            .any(|value| !value.is_finite() || *value <= 0.0)
+        || pressure_sigma
+            .iter()
+            .any(|value| !value.is_finite() || *value <= 0.0)
+    {
+        return Err(FitError::InvalidInput(
+            "EOS observations and uncertainties must be finite and valid".to_owned(),
+        ));
+    }
+    Ok(())
+}
+
+fn validate_optional_sigma(
+    sigma: Option<&[f64]>,
+    point_count: usize,
+    name: &str,
+) -> Result<(), FitError> {
+    if let Some(values) = sigma {
+        if values.len() != point_count
+            || values
+                .iter()
+                .any(|value| !value.is_finite() || *value <= 0.0)
+        {
+            return Err(FitError::InvalidInput(format!(
+                "{name} must contain one positive finite value per observation"
+            )));
+        }
+    }
+    Ok(())
+}
+
+fn validate_cholesky(
+    factors: Option<&[f64]>,
+    point_count: usize,
+    component_count: usize,
+) -> Result<(), FitError> {
+    let Some(factors) = factors else {
+        return Ok(());
+    };
+    if factors.len() != point_count * component_count * component_count
+        || factors.iter().any(|value| !value.is_finite())
+    {
+        return Err(FitError::InvalidInput(
+            "observation Cholesky factors have invalid dimensions or values".to_owned(),
+        ));
+    }
+    for point in 0..point_count {
+        let offset = point * component_count * component_count;
+        for row in 0..component_count {
+            if factors[offset + row * component_count + row] <= 0.0 {
+                return Err(FitError::InvalidInput(
+                    "observation Cholesky factors must have positive diagonals".to_owned(),
+                ));
+            }
+            for column in row + 1..component_count {
+                if factors[offset + row * component_count + column] != 0.0 {
+                    return Err(FitError::InvalidInput(
+                        "observation Cholesky factors must be lower triangular".to_owned(),
+                    ));
+                }
+            }
+        }
+    }
+    Ok(())
+}
+
+fn latent_slice(
+    parameters: &[f64],
+    measured: &[f64],
+    adjusted: bool,
+    offset: &mut usize,
+) -> Vec<f64> {
+    if adjusted {
+        let values = parameters[*offset..*offset + measured.len()].to_vec();
+        *offset += measured.len();
+        values
+    } else {
+        measured.to_vec()
+    }
+}
+
+fn whiten_correlated(raw_components: &[&[f64]], cholesky: &[f64], point_count: usize) -> Vec<f64> {
+    let component_count = raw_components.len();
+    let mut residuals = vec![0.0; component_count * point_count];
+    let mut solved = vec![0.0; component_count];
+    for point in 0..point_count {
+        let factor_offset = point * component_count * component_count;
+        for row in 0..component_count {
+            let mut value = raw_components[row][point];
+            for column in 0..row {
+                value -= cholesky[factor_offset + row * component_count + column] * solved[column];
+            }
+            solved[row] = value / cholesky[factor_offset + row * component_count + row];
+            residuals[row * point_count + point] = solved[row];
+        }
+    }
+    residuals
+}
+
+#[allow(clippy::too_many_arguments)]
+fn solve_native<F>(
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    parameter_count: usize,
+    point_count: usize,
+    latent_coordinate_count: usize,
+    evaluate: F,
+) -> Result<SolverResult, FitError>
+where
+    F: FnMut(&[f64]) -> Result<Vec<f64>, FitError>,
+{
+    if parameter_count == 0
+        || initial.len() != parameter_count + point_count * latent_coordinate_count
+    {
+        return Err(FitError::InvalidInput(
+            "EOS parameter and latent-coordinate dimensions are inconsistent".to_owned(),
+        ));
+    }
+    if latent_coordinate_count == 0 {
+        least_squares(initial, lower, upper, options, evaluate)
+    } else {
+        least_squares_structured(
+            initial,
+            lower,
+            upper,
+            options,
+            StructuredLayout {
+                global_parameter_count: parameter_count,
+                point_count,
+                latent_coordinate_count,
+            },
+            evaluate,
+        )
+    }
+}
+
+type OptimizerVectors = (Vec<f64>, Vec<f64>, Vec<f64>);
+
+fn optimizer_vectors(
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    latent_coordinates: &[&[f64]],
+) -> Result<OptimizerVectors, FitError> {
+    if initial.is_empty() || lower.len() != initial.len() || upper.len() != initial.len() {
+        return Err(FitError::InvalidInput(
+            "EOS initial parameters and bounds must have the same non-zero length".to_owned(),
+        ));
+    }
+    let latent_count: usize = latent_coordinates.iter().map(|values| values.len()).sum();
+    let mut optimizer_initial = Vec::with_capacity(initial.len() + latent_count);
+    let mut optimizer_lower = Vec::with_capacity(lower.len() + latent_count);
+    let mut optimizer_upper = Vec::with_capacity(upper.len() + latent_count);
+    optimizer_initial.extend_from_slice(initial);
+    optimizer_lower.extend_from_slice(lower);
+    optimizer_upper.extend_from_slice(upper);
+    for values in latent_coordinates {
+        optimizer_initial.extend_from_slice(values);
+        optimizer_lower.extend(std::iter::repeat_n(f64::MIN_POSITIVE, values.len()));
+        optimizer_upper.extend(std::iter::repeat_n(f64::INFINITY, values.len()));
+    }
+    Ok((optimizer_initial, optimizer_lower, optimizer_upper))
+}
+
+/// Fit an isothermal EOS without leaving Rust during residual evaluation.
+///
+/// `factory` constructs the EOS from the fitted model parameters. Latent
+/// volumes and their positivity bounds are assembled internally when
+/// `volume_sigma` is present.
+///
+/// # Errors
+///
+/// Returns [`FitError`] for inconsistent inputs, model construction or
+/// evaluation failures, and solver failures.
+pub fn fit_isothermal_eos<M, F>(
+    observations: IsothermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+) -> Result<EosFitResult, FitError>
+where
+    M: IsothermalEos,
+    F: Fn(&[f64]) -> Result<M, FitError>,
+{
+    let parameter_count = initial.len();
+    let point_count = observations.pressure.len();
+    validate_common(
+        observations.pressure,
+        observations.volume,
+        observations.pressure_sigma,
+        point_count,
+    )?;
+    validate_optional_sigma(observations.volume_sigma, point_count, "volume_sigma")?;
+    validate_cholesky(observations.observation_cholesky, point_count, 2)?;
+    if observations.observation_cholesky.is_some() && observations.volume_sigma.is_none() {
+        return Err(FitError::InvalidInput(
+            "correlated pressure-volume errors require latent volumes".to_owned(),
+        ));
+    }
+    let latent_count = usize::from(observations.volume_sigma.is_some());
+    let latent_coordinates = observations
+        .volume_sigma
+        .map_or_else(Vec::new, |_| vec![observations.volume]);
+    let (optimizer_initial, optimizer_lower, optimizer_upper) =
+        optimizer_vectors(initial, lower, upper, &latent_coordinates)?;
+    let evaluate = |parameters: &[f64]| {
+        let model = factory(&parameters[..parameter_count])?;
+        let mut offset = parameter_count;
+        let volume = latent_slice(
+            parameters,
+            observations.volume,
+            observations.volume_sigma.is_some(),
+            &mut offset,
+        );
+        let predicted = volume
+            .iter()
+            .map(|value| {
+                model
+                    .pressure(*value)
+                    .map_err(|error| FitError::Evaluation(error.to_string()))
+            })
+            .collect::<Result<Vec<_>, _>>()?;
+        let pressure_residual = predicted
+            .iter()
+            .zip(observations.pressure)
+            .map(|(predicted, observed)| predicted - observed)
+            .collect::<Vec<_>>();
+        if let Some(cholesky) = observations.observation_cholesky {
+            let volume_residual = volume
+                .iter()
+                .zip(observations.volume)
+                .map(|(adjusted, measured)| adjusted - measured)
+                .collect::<Vec<_>>();
+            return Ok(whiten_correlated(
+                &[&pressure_residual, &volume_residual],
+                cholesky,
+                point_count,
+            ));
+        }
+        let mut residuals = pressure_residual
+            .iter()
+            .zip(observations.pressure_sigma)
+            .map(|(residual, sigma)| residual / sigma)
+            .collect::<Vec<_>>();
+        if let Some(sigma) = observations.volume_sigma {
+            residuals.extend(
+                volume
+                    .iter()
+                    .zip(observations.volume)
+                    .zip(sigma)
+                    .map(|((adjusted, measured), sigma)| (adjusted - measured) / sigma),
+            );
+        }
+        Ok(residuals)
+    };
+    let solver = solve_native(
+        &optimizer_initial,
+        &optimizer_lower,
+        &optimizer_upper,
+        options,
+        parameter_count,
+        point_count,
+        latent_count,
+        evaluate,
+    )?;
+    let model = factory(&solver.parameters[..parameter_count])?;
+    let volume = if observations.volume_sigma.is_some() {
+        &solver.parameters[parameter_count..parameter_count + point_count]
+    } else {
+        observations.volume
+    };
+    let predicted_pressure = volume
+        .iter()
+        .map(|value| {
+            model
+                .pressure(*value)
+                .map_err(|error| FitError::Evaluation(error.to_string()))
+        })
+        .collect::<Result<Vec<_>, _>>()?;
+    Ok(EosFitResult {
+        solver,
+        predicted_pressure,
+    })
+}
+
+/// Fit a thermal EOS without leaving Rust during residual evaluation.
+///
+/// `factory` constructs the EOS from the fitted model parameters. Latent
+/// volume and temperature blocks and their positivity bounds are assembled
+/// internally when the corresponding standard deviations are present.
+///
+/// # Errors
+///
+/// Returns [`FitError`] for inconsistent inputs, model construction or
+/// evaluation failures, and solver failures.
+pub fn fit_thermal_eos<M, F>(
+    observations: ThermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+) -> Result<EosFitResult, FitError>
+where
+    M: ThermalEos,
+    F: Fn(&[f64]) -> Result<M, FitError>,
+{
+    fit_thermal_eos_by(
+        observations,
+        initial,
+        lower,
+        upper,
+        options,
+        factory,
+        |model, volume, temperature| {
+            model
+                .pressure(volume, temperature)
+                .map_err(|error| FitError::Evaluation(error.to_string()))
+        },
+    )
+}
+
+/// Fit a thermal pressure model through an explicit Rust pressure evaluator.
+///
+/// This variant supports type-erased Rust model enums which cannot implement
+/// [`ThermalEos`] because its reference-EOS associated type differs between
+/// enum variants. Ordinary concrete thermal models should use
+/// [`fit_thermal_eos`] instead.
+///
+/// # Errors
+///
+/// Returns [`FitError`] for inconsistent inputs, model construction or
+/// evaluation failures, and solver failures.
+#[allow(clippy::too_many_arguments, clippy::too_many_lines)]
+pub fn fit_thermal_eos_by<M, F, P>(
+    observations: ThermalObservations<'_>,
+    initial: &[f64],
+    lower: &[f64],
+    upper: &[f64],
+    options: SolverOptions,
+    factory: F,
+    pressure: P,
+) -> Result<EosFitResult, FitError>
+where
+    F: Fn(&[f64]) -> Result<M, FitError>,
+    P: Fn(&M, f64, f64) -> Result<f64, FitError>,
+{
+    let parameter_count = initial.len();
+    let point_count = observations.pressure.len();
+    validate_common(
+        observations.pressure,
+        observations.volume,
+        observations.pressure_sigma,
+        point_count,
+    )?;
+    if observations.temperature.len() != point_count
+        || observations
+            .temperature
+            .iter()
+            .any(|value| !value.is_finite() || *value <= 0.0)
+    {
+        return Err(FitError::InvalidInput(
+            "temperature must contain one positive finite value per observation".to_owned(),
+        ));
+    }
+    validate_optional_sigma(observations.volume_sigma, point_count, "volume_sigma")?;
+    validate_optional_sigma(
+        observations.temperature_sigma,
+        point_count,
+        "temperature_sigma",
+    )?;
+    validate_cholesky(observations.observation_cholesky, point_count, 3)?;
+    if observations.observation_cholesky.is_some()
+        && (observations.volume_sigma.is_none() || observations.temperature_sigma.is_none())
+    {
+        return Err(FitError::InvalidInput(
+            "correlated pressure-volume-temperature errors require latent coordinates".to_owned(),
+        ));
+    }
+    let latent_count = usize::from(observations.volume_sigma.is_some())
+        + usize::from(observations.temperature_sigma.is_some());
+    let mut latent_coordinates = Vec::with_capacity(latent_count);
+    if observations.volume_sigma.is_some() {
+        latent_coordinates.push(observations.volume);
+    }
+    if observations.temperature_sigma.is_some() {
+        latent_coordinates.push(observations.temperature);
+    }
+    let (optimizer_initial, optimizer_lower, optimizer_upper) =
+        optimizer_vectors(initial, lower, upper, &latent_coordinates)?;
+    let evaluate = |parameters: &[f64]| {
+        let model = factory(&parameters[..parameter_count])?;
+        let mut offset = parameter_count;
+        let volume = latent_slice(
+            parameters,
+            observations.volume,
+            observations.volume_sigma.is_some(),
+            &mut offset,
+        );
+        let temperature = latent_slice(
+            parameters,
+            observations.temperature,
+            observations.temperature_sigma.is_some(),
+            &mut offset,
+        );
+        let predicted = volume
+            .iter()
+            .zip(&temperature)
+            .map(|(volume, temperature)| pressure(&model, *volume, *temperature))
+            .collect::<Result<Vec<_>, _>>()?;
+        let pressure_residual = predicted
+            .iter()
+            .zip(observations.pressure)
+            .map(|(predicted, observed)| predicted - observed)
+            .collect::<Vec<_>>();
+        if let Some(cholesky) = observations.observation_cholesky {
+            let volume_residual = volume
+                .iter()
+                .zip(observations.volume)
+                .map(|(adjusted, measured)| adjusted - measured)
+                .collect::<Vec<_>>();
+            let temperature_residual = temperature
+                .iter()
+                .zip(observations.temperature)
+                .map(|(adjusted, measured)| adjusted - measured)
+                .collect::<Vec<_>>();
+            return Ok(whiten_correlated(
+                &[&pressure_residual, &volume_residual, &temperature_residual],
+                cholesky,
+                point_count,
+            ));
+        }
+        let mut residuals = pressure_residual
+            .iter()
+            .zip(observations.pressure_sigma)
+            .map(|(residual, sigma)| residual / sigma)
+            .collect::<Vec<_>>();
+        if let Some(sigma) = observations.volume_sigma {
+            residuals.extend(
+                volume
+                    .iter()
+                    .zip(observations.volume)
+                    .zip(sigma)
+                    .map(|((adjusted, measured), sigma)| (adjusted - measured) / sigma),
+            );
+        }
+        if let Some(sigma) = observations.temperature_sigma {
+            residuals.extend(
+                temperature
+                    .iter()
+                    .zip(observations.temperature)
+                    .zip(sigma)
+                    .map(|((adjusted, measured), sigma)| (adjusted - measured) / sigma),
+            );
+        }
+        Ok(residuals)
+    };
+    let solver = solve_native(
+        &optimizer_initial,
+        &optimizer_lower,
+        &optimizer_upper,
+        options,
+        parameter_count,
+        point_count,
+        latent_count,
+        evaluate,
+    )?;
+    let model = factory(&solver.parameters[..parameter_count])?;
+    let mut offset = parameter_count;
+    let volume = latent_slice(
+        &solver.parameters,
+        observations.volume,
+        observations.volume_sigma.is_some(),
+        &mut offset,
+    );
+    let temperature = latent_slice(
+        &solver.parameters,
+        observations.temperature,
+        observations.temperature_sigma.is_some(),
+        &mut offset,
+    );
+    let predicted_pressure = volume
+        .iter()
+        .zip(temperature)
+        .map(|(volume, temperature)| pressure(&model, *volume, temperature))
+        .collect::<Result<Vec<_>, _>>()?;
+    Ok(EosFitResult {
+        solver,
+        predicted_pressure,
+    })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use peritheos_core::isothermal::BM3;
+
+    #[test]
+    fn isothermal_fit_recovers_model_without_callback_runtime() {
+        let expected = BM3::new(10.0, 120.0, 4.3).unwrap();
+        let volume = [8.0, 8.5, 9.0, 9.5, 10.0];
+        let pressure = volume
+            .iter()
+            .map(|value| expected.pressure(*value).unwrap())
+            .collect::<Vec<_>>();
+        let sigma = [0.1; 5];
+        let result = fit_isothermal_eos(
+            IsothermalObservations {
+                pressure: &pressure,
+                volume: &volume,
+                pressure_sigma: &sigma,
+                volume_sigma: None,
+                observation_cholesky: None,
+            },
+            &[110.0, 4.0],
+            &[50.0, f64::NEG_INFINITY],
+            &[200.0, f64::INFINITY],
+            SolverOptions::default(),
+            |parameters| {
+                BM3::new(10.0, parameters[0], parameters[1])
+                    .map_err(|error| FitError::Evaluation(error.to_string()))
+            },
+        )
+        .unwrap();
+
+        assert!(result.solver.success, "{}", result.solver.message);
+        assert!((result.solver.parameters[0] - 120.0).abs() < 1.0e-7);
+        assert!((result.solver.parameters[1] - 4.3).abs() < 1.0e-7);
+        assert_eq!(result.predicted_pressure.len(), volume.len());
+    }
+
+    #[test]
+    fn correlated_whitening_uses_component_major_residual_order() {
+        let raw_pressure = [2.0, 4.0];
+        let raw_volume = [3.0, 6.0];
+        let factors = [2.0, 0.0, 1.0, 1.0, 4.0, 0.0, 2.0, 2.0];
+        let whitened = whiten_correlated(&[&raw_pressure, &raw_volume], &factors, 2);
+        assert_eq!(whitened, vec![1.0, 1.0, 2.0, 2.0]);
+    }
+}

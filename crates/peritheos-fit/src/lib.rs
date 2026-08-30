@@ -3,8 +3,15 @@
 //! The solver deliberately owns its numerical conventions instead of adapting
 //! a partial third-party API. It supports box constraints, the robust losses
 //! exposed by the Python API, deterministic finite-difference Jacobians, and
-//! the diagnostics needed to preserve [`scipy.optimize.least_squares`]-style
+//! the diagnostics needed to preserve `scipy.optimize.least_squares`-style
 //! results.
+
+mod eos;
+
+pub use eos::{
+    fit_isothermal_eos, fit_thermal_eos, fit_thermal_eos_by, EosFitResult, IsothermalObservations,
+    ThermalObservations,
+};
 
 use std::error::Error;
 use std::fmt::{Display, Formatter};

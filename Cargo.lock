@@ -117,6 +117,9 @@ dependencies = [
 [[package]]
 name = "peritheos-fit"
 version = "0.5.0"
+dependencies = [
+ "peritheos-core",
+]
 
 [[package]]
 name = "peritheos-python"

@@ -1,5 +1,7 @@
 #![allow(clippy::needless_pass_by_value, clippy::similar_names)]
 
+mod native_fit;
+
 use numpy::ndarray::ArrayD;
 use numpy::{IntoPyArray, PyArrayDyn, PyReadonlyArrayDyn};
 use peritheos_core::isothermal::{
@@ -585,6 +587,7 @@ fn to_python_error(error: EosError) -> PyErr {
 struct PyLeastSquaresResult {
     result: peritheos_fit::SolverResult,
     parameter_count: usize,
+    predicted_pressure: Option<Vec<f64>>,
 }
 
 #[pymethods]
@@ -597,6 +600,14 @@ impl PyLeastSquaresResult {
     #[getter]
     fn fun<'py>(&self, py: Python<'py>) -> Bound<'py, PyArrayDyn<f64>> {
         vector_array(py, self.result.residuals.clone())
+    }
+
+    /// Pressure predictions are present for end-to-end native EOS fits.
+    #[getter]
+    fn predicted_pressure<'py>(&self, py: Python<'py>) -> Option<Bound<'py, PyArrayDyn<f64>>> {
+        self.predicted_pressure
+            .clone()
+            .map(|values| vector_array(py, values))
     }
 
     #[getter]
@@ -714,6 +725,7 @@ fn fit_least_squares<'py>(
     Ok(PyLeastSquaresResult {
         result,
         parameter_count: initial.len(),
+        predicted_pressure: None,
     })
 }
 
@@ -876,6 +888,11 @@ fn _rust(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_class::<PyLinearPropagation>()?;
     module.add_class::<PyMonteCarloSummary>()?;
     module.add_function(wrap_pyfunction!(fit_least_squares, module)?)?;
+    module.add_function(wrap_pyfunction!(native_fit::fit_rt_eos_native, module)?)?;
+    module.add_function(wrap_pyfunction!(
+        native_fit::fit_thermal_eos_native,
+        module
+    )?)?;
     module.add_function(wrap_pyfunction!(linear_uncertainty, module)?)?;
     module.add_function(wrap_pyfunction!(monte_carlo_summary, module)?)?;
     Ok(())

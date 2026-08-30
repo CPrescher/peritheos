@@ -5,9 +5,217 @@ import json
 import numpy as np
 import pytest
 
-from peritheos.eos.rt import BM3
-from peritheos.eos.thermal import MieGruneisenEinstein
+from peritheos import _rust
+from peritheos.eos.rt import (
+    BM2,
+    BM3,
+    BM4,
+    Holzapfel,
+    ModifiedTait,
+    Murnaghan,
+    NaturalStrain2,
+    NaturalStrain3,
+    NaturalStrain4,
+    Vinet,
+)
+from peritheos.eos.thermal import (
+    MieGruneisenDebye,
+    MieGruneisenEinstein,
+    Sokolova2016,
+    ThermalModifiedTait,
+)
 from peritheos.fitting import fit_joint_eos, fit_rt_eos, fit_thermal_eos
+
+
+@pytest.mark.parametrize(
+    "expected",
+    [
+        BM2(10.0, 120.0),
+        BM3(10.0, 120.0, 4.3),
+        BM4(10.0, 120.0, 4.3, -0.02),
+        Murnaghan(10.0, 120.0, 4.3),
+        ModifiedTait(10.0, 120.0, 4.3, -0.02),
+        NaturalStrain2(10.0, 120.0),
+        NaturalStrain3(10.0, 120.0, 4.3),
+        NaturalStrain4(10.0, 120.0, 4.3, -0.02),
+        Vinet(10.0, 120.0, 4.3),
+        Holzapfel(0.3414, 441.5, 3.9, 1.0, 6.0),
+    ],
+)
+def test_every_builtin_rt_model_fits_end_to_end_natively(expected, monkeypatch):
+    parameters = expected.parameter_values(include_reference=False)
+    volumes = np.linspace(0.8 * expected.V0, expected.V0, 12)
+    pressures = expected.pressure(volumes)
+
+    def callback_solver_is_forbidden(*args, **kwargs):
+        raise AssertionError("built-in fitting must not use a Python callback")
+
+    monkeypatch.setattr(_rust, "fit_least_squares", callback_solver_is_forbidden)
+    result = fit_rt_eos(
+        type(expected),
+        volumes,
+        pressures,
+        initial={"K0": 0.9 * parameters["K0"]},
+        fixed={name: value for name, value in parameters.items() if name != "K0"},
+    )
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(parameters["K0"], rel=1.0e-7)
+
+
+@pytest.mark.parametrize(
+    ("expected", "free_name", "initial_factor"),
+    [
+        (
+            MieGruneisenDebye(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
+            "gamma0",
+            0.8,
+        ),
+        (
+            MieGruneisenEinstein(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
+            "gamma0",
+            0.8,
+        ),
+        (
+            ThermalModifiedTait(
+                ModifiedTait(1.0, 160.0, 4.0, -0.01),
+                298.15,
+                700.0,
+                2.5e-5,
+                2.0,
+            ),
+            "alpha0",
+            0.8,
+        ),
+        (
+            Sokolova2016(
+                Holzapfel(0.3414, 441.5, 3.9, 1.0, 6.0),
+                298.15,
+                684.0,
+                0.564,
+                1561.0,
+                2.436,
+                -0.506,
+                1.085,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ),
+            "delta",
+            0.8,
+        ),
+    ],
+)
+def test_every_builtin_thermal_model_fits_end_to_end_natively(
+    expected, free_name, initial_factor, monkeypatch
+):
+    parameters = expected.parameter_values(include_reference=False)
+    volumes = np.repeat(expected.rt_eos.V0 * np.array([0.82, 0.9, 0.98]), 4)
+    temperatures = np.tile(np.linspace(500.0, 2200.0, 4), 3)
+    pressures = expected.pressure(volumes, temperatures)
+
+    def callback_solver_is_forbidden(*args, **kwargs):
+        raise AssertionError("built-in fitting must not use a Python callback")
+
+    monkeypatch.setattr(_rust, "fit_least_squares", callback_solver_is_forbidden)
+    result = fit_thermal_eos(
+        type(expected),
+        expected.rt_eos,
+        volumes,
+        temperatures,
+        pressures,
+        initial={free_name: initial_factor * parameters[free_name]},
+        fixed={name: value for name, value in parameters.items() if name != free_name},
+        max_nfev=500,
+    )
+
+    assert result.success
+    assert result.parameters[free_name] == pytest.approx(
+        parameters[free_name], rel=1.0e-6, abs=1.0e-10
+    )
+
+
+def test_custom_subclass_retains_python_residual_callback(monkeypatch):
+    class ShiftedBM3(BM3):
+        def pressure(self, V):
+            return np.asarray(super().pressure(V)) + 2.0
+
+    expected = ShiftedBM3(10.0, 120.0, 4.0)
+    volumes = np.linspace(8.0, 10.0, 12)
+    native_fast_path = _rust.fit_rt_eos_native
+
+    def native_fast_path_is_forbidden(*args, **kwargs):
+        raise AssertionError("custom subclasses must retain Python evaluation")
+
+    monkeypatch.setattr(_rust, "fit_rt_eos_native", native_fast_path_is_forbidden)
+    result = fit_rt_eos(
+        ShiftedBM3,
+        volumes,
+        expected.pressure(volumes),
+        initial={"K0": 100.0},
+        fixed={"V0": 10.0, "K0_prime": 4.0},
+    )
+    monkeypatch.setattr(_rust, "fit_rt_eos_native", native_fast_path)
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(120.0)
+
+
+def test_builtin_fit_never_calls_python_pressure_during_solve(monkeypatch):
+    expected = BM3(10.0, 120.0, 4.3)
+    volumes = np.linspace(8.0, 10.0, 20)
+    pressures = expected.pressure(volumes)
+    python_evaluations = 0
+    original_pressure = BM3.pressure
+
+    def counting_pressure(self, V):
+        nonlocal python_evaluations
+        python_evaluations += 1
+        return original_pressure(self, V)
+
+    monkeypatch.setattr(BM3, "pressure", counting_pressure)
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        pressures,
+        initial={"K0": 110.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+    )
+
+    assert result.success
+    assert python_evaluations == 0
+
+
+def test_callable_loss_retains_scipy_compatibility_path(monkeypatch):
+    expected = BM3(10.0, 120.0, 4.0)
+    volumes = np.linspace(8.0, 10.0, 12)
+
+    def linear_callable(squared_residuals):
+        return np.vstack(
+            [
+                squared_residuals,
+                np.ones_like(squared_residuals),
+                np.zeros_like(squared_residuals),
+            ]
+        )
+
+    def native_fast_path_is_forbidden(*args, **kwargs):
+        raise AssertionError("callable losses must retain SciPy compatibility")
+
+    monkeypatch.setattr(_rust, "fit_rt_eos_native", native_fast_path_is_forbidden)
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        expected.pressure(volumes),
+        initial={"K0": 100.0},
+        fixed={"V0": 10.0, "K0_prime": 4.0},
+        loss=linear_callable,
+    )
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(120.0)
+    assert result.loss.endswith("linear_callable")
 
 
 def test_fit_rt_eos_recovers_synthetic_parameters():

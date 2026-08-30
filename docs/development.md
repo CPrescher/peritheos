@@ -44,16 +44,22 @@ uv run --group docs mkdocs build --strict
 
 `peritheos-core` owns all built-in isothermal, thermal, caloric, inversion, and
 quadrature calculations. `peritheos-fit` owns bounded robust least squares,
+typed EOS residual construction, structured latent-coordinate solving,
 covariance profiling, delta-method propagation, and Monte Carlo summary
 statistics. `peritheos-python` exposes these through the private
 `peritheos._rust` module; application code should continue importing the
 documented Python modules.
 
-Custom Python `EosBase` reference models retain the Python evaluation path.
-Callable fitting losses retain the SciPy solver because arbitrary Python loss
-functions cannot be represented by the native loss enum. Monte Carlo draws
-continue to use NumPy so seeded results and invalid-sample rejection remain
-compatible; accepted-sample statistics are native.
+Named-loss fits of exact built-in Peritheos models cross the PyO3 boundary
+once. Model reconstruction, EOS evaluation, residual weighting, correlated
+whitening, latent-coordinate assembly, finite differences, and optimization
+then remain in Rust, with the Python interpreter lock released for the solve.
+Custom Python `EosBase` classes and subclasses retain the callback evaluation
+path so overridden scientific behavior is not bypassed. Callable fitting
+losses retain the SciPy solver because arbitrary Python loss functions cannot
+be represented by the native loss enum. Monte Carlo draws continue to use
+NumPy so seeded results and invalid-sample rejection remain compatible;
+accepted-sample statistics are native.
 
 ## Building distributions
 

@@ -4,6 +4,12 @@ Peritheos uses bounded nonlinear least squares and reports covariance,
 correlation, residual, and information-criterion diagnostics. Measurement
 uncertainties can be supplied for every observed state variable.
 
+Fits using a named loss and an exact built-in Peritheos EOS run end-to-end in
+Rust after one transfer of the input arrays. Custom Python EOS classes and
+subclasses retain callback evaluation, and callable loss functions retain the
+SciPy compatibility path. These backend choices do not change the public
+fitting functions or result schema.
+
 ## Objective and diagnostics
 
 With pressure as the only uncertain observation, the normalized residual for

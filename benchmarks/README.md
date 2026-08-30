@@ -21,3 +21,14 @@ uncertainty propagation.
 Future Rust Criterion benchmarks should use the same physical parameters and
 state ranges. Python-binding benchmarks must continue to measure public Python
 calls so data conversion and FFI overhead are included.
+
+`native_fit_boundary.py` isolates the cost removed by the end-to-end built-in
+fitting path. It runs the same Rust solver through the retained custom-model
+Python callback and through the typed native EOS evaluator:
+
+```bash
+uv run python benchmarks/native_fit_boundary.py
+```
+
+This is an architectural regression benchmark, not a public-API performance
+comparison. The callback remains necessary for custom Python EOS classes.
