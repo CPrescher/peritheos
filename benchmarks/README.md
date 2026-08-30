@@ -18,6 +18,13 @@ array evaluation, scalar calls, volume inversion, costly thermal quadrature,
 ordinary and errors-in-variables fitting, and linear and Monte Carlo
 uncertainty propagation.
 
+Performance comparisons must use an optimized release wheel in an isolated
+environment. `maturin develop` builds an unoptimized Rust extension by default,
+and quick mode changes workload sizes; neither output is comparable with the
+committed full release baseline. The JSON `quick`, environment, workload
+description, and native-extension fields must be checked before calculating
+ratios.
+
 Future Rust Criterion benchmarks should use the same physical parameters and
 state ranges. Python-binding benchmarks must continue to measure public Python
 calls so data conversion and FFI overhead are included.

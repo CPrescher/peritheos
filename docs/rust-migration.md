@@ -231,14 +231,18 @@ These boundaries preserve extensibility without duplicating built-in equations
 or changing a scientific convention. The branch must remain unmerged until its
 multi-platform wheel workflow and all validation gates have completed in CI.
 
-An indicative quick run on macOS ARM64 compared with the committed pre-Rust
-baseline improved every recorded workload. Median speedups were approximately
-8x for scalar BM3 pressure, 27x for its array path, 1,741x for volume inversion,
-226x for Debye pressure, 945x for Sokolova pressure, 1.5-1.7x for fitting, 1.9x
-for linear uncertainty, and 24x for Monte Carlo uncertainty. A direct
-same-solver boundary benchmark after end-to-end fitting measured the built-in
-path about 1.6x faster than the Python-callback path for an ordinary
-100-point BM3 fit and about 1.2x faster with 100 latent volumes on the same
-machine. These figures are machine- and environment-specific evidence, not
-release performance promises; CI and release decisions must also consider the
-deterministic numerical gates.
+An optimized release-wheel run on macOS ARM64 was compared with the committed
+pre-Rust baseline using identical full-size workloads, CPython 3.13.5, NumPy
+2.5.2, and SciPy 1.18.1. Median speedups were approximately 18.8x for volume
+inversion, 2.4x for Debye pressure, 108x for Sokolova pressure, 3.8x for an
+ordinary 100-point fit, 6.5x for the corresponding latent-volume fit, and 1.2x
+for Monte Carlo uncertainty. The same-solver boundary benchmark isolated the
+callback removal at 2.85x for the ordinary fit and 1.82x with latent volumes.
+
+The release comparison also identified regressions that remain optimization
+targets: one-million-element BM3 pressure evaluation was about 1.75x slower,
+50,000 individual Python scalar calls were about 3% slower, and linear
+uncertainty for 1,000 states was about 6% slower. The earlier migration note
+that claimed every workload improved mixed quick and full workload sizes and
+was invalid; it has been replaced by this like-for-like release measurement.
+All figures are machine-specific evidence, not release performance promises.
