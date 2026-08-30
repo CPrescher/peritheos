@@ -2,6 +2,7 @@
 
 import numpy as np
 import pytest
+from scipy.optimize import least_squares
 
 from peritheos import _rust
 from peritheos.eos.rt import (
@@ -228,3 +229,56 @@ def test_native_thermal_binding_enforces_reference_model_types():
             0.0,
             0.0,
         )
+
+
+@pytest.mark.parametrize("loss", ["linear", "soft_l1", "huber", "cauchy", "arctan"])
+def test_native_least_squares_matches_scipy_robust_regression(loss):
+    coordinates = np.linspace(-1.0, 1.0, 21)
+    observations = 2.5 - 1.2 * coordinates + 0.05 * np.sin(np.arange(21))
+    observations[10] += 3.0
+
+    def residuals(parameters):
+        return parameters[0] + parameters[1] * coordinates - observations
+
+    initial = np.array([1.0, 0.0])
+    lower = np.array([-5.0, -5.0])
+    upper = np.array([5.0, 5.0])
+    scipy_result = least_squares(
+        residuals,
+        initial,
+        bounds=(lower, upper),
+        x_scale="jac",
+        loss=loss,
+        f_scale=0.2,
+        max_nfev=1000,
+    )
+    native_result = _rust.fit_least_squares(
+        residuals,
+        initial,
+        lower,
+        upper,
+        loss=loss,
+        f_scale=0.2,
+        max_nfev=1000,
+    )
+
+    assert native_result.success
+    assert native_result.x == pytest.approx(scipy_result.x, rel=2.0e-5, abs=2.0e-6)
+    assert native_result.cost == pytest.approx(scipy_result.cost, rel=1.0e-9)
+    assert native_result.fun == pytest.approx(scipy_result.fun, rel=2.0e-5, abs=3.0e-6)
+    assert native_result.jac.shape == scipy_result.jac.shape
+
+
+def test_native_least_squares_reports_evaluation_limit():
+    result = _rust.fit_least_squares(
+        lambda parameters: np.array([parameters[0] - 2.0]),
+        np.array([0.0]),
+        np.array([-5.0]),
+        np.array([5.0]),
+        max_nfev=1,
+    )
+
+    assert not result.success
+    assert result.status == 0
+    assert result.nfev == 1
+    assert result.jac.shape == (1, 1)

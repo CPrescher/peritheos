@@ -14,6 +14,7 @@ from scipy.optimize import least_squares
 from scipy.sparse import issparse, lil_matrix
 from scipy.sparse.linalg import spsolve
 
+from peritheos import _rust
 from peritheos.eos import EosBase, ThermalEOS
 
 if TYPE_CHECKING:
@@ -512,16 +513,29 @@ def _fit_model(
             )
         return np.concatenate(residual_parts)
 
-    optimization = least_squares(
-        residual_function,
-        x0,
-        bounds=(lower, upper),
-        jac_sparsity=jacobian_sparsity,
-        x_scale="jac",
-        loss=loss,
-        f_scale=f_scale,
-        max_nfev=max_nfev,
-    )
+    if isinstance(loss, str):
+        optimization = _rust.fit_least_squares(
+            residual_function,
+            x0,
+            lower,
+            upper,
+            loss=loss,
+            f_scale=f_scale,
+            max_nfev=max_nfev,
+        )
+    else:
+        # Callable robust losses are an intentional compatibility fallback:
+        # arbitrary Python callables cannot be represented by the native enum.
+        optimization = least_squares(
+            residual_function,
+            x0,
+            bounds=(lower, upper),
+            jac_sparsity=jacobian_sparsity,
+            x_scale="jac",
+            loss=loss,
+            f_scale=f_scale,
+            max_nfev=max_nfev,
+        )
     parameters = parameter_mapping(optimization.x)
     model = factory(parameters)
     adjusted = adjusted_coordinates(optimization.x)

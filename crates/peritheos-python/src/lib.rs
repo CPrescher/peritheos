@@ -10,11 +10,12 @@ use peritheos_core::thermal::{
     MieGruneisenDebye, MieGruneisenEinstein, Sokolova2016, SokolovaParameters, ThermalModifiedTait,
 };
 use peritheos_core::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
+use peritheos_fit::{least_squares, FitError, Loss, SolverOptions};
 use pyo3::exceptions::{
     PyArithmeticError, PyNotImplementedError, PyRuntimeError, PyTypeError, PyValueError,
 };
 use pyo3::prelude::*;
-use pyo3::types::PyModule;
+use pyo3::types::{PyAny, PyModule};
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum RtModel {
@@ -570,9 +571,136 @@ fn to_python_error(error: EosError) -> PyErr {
     }
 }
 
+/// Private SciPy-compatible view of a native least-squares result.
+#[pyclass(
+    name = "LeastSquaresResult",
+    frozen,
+    module = "peritheos._rust",
+    skip_from_py_object
+)]
+#[derive(Clone, Debug, PartialEq)]
+struct PyLeastSquaresResult {
+    result: peritheos_fit::SolverResult,
+    parameter_count: usize,
+}
+
+#[pymethods]
+impl PyLeastSquaresResult {
+    #[getter]
+    fn x<'py>(&self, py: Python<'py>) -> Bound<'py, PyArrayDyn<f64>> {
+        vector_array(py, self.result.parameters.clone())
+    }
+
+    #[getter]
+    fn fun<'py>(&self, py: Python<'py>) -> Bound<'py, PyArrayDyn<f64>> {
+        vector_array(py, self.result.residuals.clone())
+    }
+
+    #[getter]
+    fn jac<'py>(&self, py: Python<'py>) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
+        let output = ArrayD::from_shape_vec(
+            numpy::ndarray::IxDyn(&[self.result.residual_count, self.parameter_count]),
+            self.result.jacobian.clone(),
+        )
+        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        Ok(output.into_pyarray(py))
+    }
+
+    #[getter]
+    fn cost(&self) -> f64 {
+        self.result.cost
+    }
+
+    #[getter]
+    fn optimality(&self) -> f64 {
+        self.result.optimality
+    }
+
+    #[getter]
+    fn success(&self) -> bool {
+        self.result.success
+    }
+
+    #[getter]
+    fn message(&self) -> &str {
+        &self.result.message
+    }
+
+    #[getter]
+    fn status(&self) -> i32 {
+        self.result.status
+    }
+
+    #[getter]
+    fn nfev(&self) -> usize {
+        self.result.function_evaluations
+    }
+
+    #[getter]
+    fn njev(&self) -> usize {
+        self.result.jacobian_evaluations
+    }
+}
+
+fn vector_array(py: Python<'_>, values: Vec<f64>) -> Bound<'_, PyArrayDyn<f64>> {
+    ArrayD::from_shape_vec(numpy::ndarray::IxDyn(&[values.len()]), values)
+        .expect("a vector always has a valid one-dimensional shape")
+        .into_pyarray(py)
+}
+
+#[pyfunction]
+#[pyo3(signature = (residual_function, initial, lower, upper, loss="linear", f_scale=1.0, max_nfev=None))]
+#[allow(clippy::too_many_arguments)]
+fn fit_least_squares<'py>(
+    py: Python<'py>,
+    residual_function: Bound<'py, PyAny>,
+    initial: PyReadonlyArrayDyn<'py, f64>,
+    lower: PyReadonlyArrayDyn<'py, f64>,
+    upper: PyReadonlyArrayDyn<'py, f64>,
+    loss: &str,
+    f_scale: f64,
+    max_nfev: Option<usize>,
+) -> PyResult<PyLeastSquaresResult> {
+    let initial = initial.as_array().iter().copied().collect::<Vec<_>>();
+    let lower = lower.as_array().iter().copied().collect::<Vec<_>>();
+    let upper = upper.as_array().iter().copied().collect::<Vec<_>>();
+    let options = SolverOptions {
+        loss: Loss::from_name(loss).map_err(to_python_fit_error)?,
+        f_scale,
+        max_evaluations: max_nfev,
+        ..SolverOptions::default()
+    };
+    let result = least_squares(&initial, &lower, &upper, options, |parameters| {
+        let argument = vector_array(py, parameters.to_vec());
+        let result = residual_function
+            .call1((argument,))
+            .map_err(|error| FitError::Evaluation(error.to_string()))?;
+        let array = result
+            .extract::<PyReadonlyArrayDyn<'_, f64>>()
+            .map_err(|error| FitError::Evaluation(error.to_string()))?;
+        Ok(array.as_array().iter().copied().collect())
+    })
+    .map_err(to_python_fit_error)?;
+    Ok(PyLeastSquaresResult {
+        result,
+        parameter_count: initial.len(),
+    })
+}
+
+fn to_python_fit_error(error: FitError) -> PyErr {
+    match error {
+        FitError::InvalidInput(_) => PyValueError::new_err(error.to_string()),
+        FitError::Evaluation(_) | FitError::SingularSystem => {
+            PyRuntimeError::new_err(error.to_string())
+        }
+    }
+}
+
 #[pymodule]
 fn _rust(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_class::<PyRtEos>()?;
     module.add_class::<PyThermalEos>()?;
+    module.add_class::<PyLeastSquaresResult>()?;
+    module.add_function(wrap_pyfunction!(fit_least_squares, module)?)?;
     Ok(())
 }

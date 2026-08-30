@@ -82,6 +82,17 @@ impl Loss {
             Self::Arctan => 1.0 / (1.0 + squared * squared),
         }
     }
+
+    fn second_derivative(self, squared: f64) -> f64 {
+        match self {
+            Self::Linear => 0.0,
+            Self::SoftL1 => -0.5 / (1.0 + squared).powf(1.5),
+            Self::Huber if squared <= 1.0 => 0.0,
+            Self::Huber => -0.5 / squared.powf(1.5),
+            Self::Cauchy => -1.0 / (1.0 + squared).powi(2),
+            Self::Arctan => -2.0 * squared / (1.0 + squared * squared).powi(2),
+        }
+    }
 }
 
 /// Controls the bounded nonlinear least-squares solve.
@@ -162,15 +173,14 @@ where
     let mut optimality = f64::INFINITY;
 
     while evaluations < maximum_evaluations {
-        let (jacobian, used) = finite_difference_jacobian(
+        let (jacobian, _used) = finite_difference_jacobian(
             &parameters,
             lower,
             upper,
             &residuals,
-            maximum_evaluations - evaluations,
+            usize::MAX,
             &mut evaluate,
         )?;
-        evaluations += used;
         jacobian_evaluations += 1;
         final_jacobian.clone_from(&jacobian);
         let weights = robust_weights(&residuals, options.loss, options.f_scale);
@@ -269,15 +279,14 @@ where
     }
 
     if final_jacobian.is_empty() || success {
-        let (jacobian, used) = finite_difference_jacobian(
+        let (jacobian, _used) = finite_difference_jacobian(
             &parameters,
             lower,
             upper,
             &residuals,
-            maximum_evaluations.saturating_sub(evaluations),
+            usize::MAX,
             &mut evaluate,
         )?;
-        evaluations += used;
         jacobian_evaluations += 1;
         final_jacobian = jacobian;
         let weights = robust_weights(&residuals, options.loss, options.f_scale);
@@ -291,6 +300,13 @@ where
         optimality = projected_gradient_norm(&gradient, &parameters, lower, upper);
     }
 
+    let final_jacobian = robust_result_jacobian(
+        final_jacobian,
+        &residuals,
+        parameter_count,
+        options.loss,
+        options.f_scale,
+    );
     Ok(SolverResult {
         parameters,
         residuals,
@@ -431,6 +447,27 @@ fn robust_weights(residuals: &[f64], loss: Loss, scale: f64) -> Vec<f64> {
                 .max(f64::EPSILON)
         })
         .collect()
+}
+
+fn robust_result_jacobian(
+    mut jacobian: Vec<f64>,
+    residuals: &[f64],
+    columns: usize,
+    loss: Loss,
+    scale: f64,
+) -> Vec<f64> {
+    let scale_squared = scale * scale;
+    for (row, residual) in residuals.iter().enumerate() {
+        let squared = residual * residual / scale_squared;
+        let jacobian_scale = (loss.derivative(squared)
+            + 2.0 * loss.second_derivative(squared) * squared)
+            .max(f64::EPSILON)
+            .sqrt();
+        for column in 0..columns {
+            jacobian[row * columns + column] *= jacobian_scale;
+        }
+    }
+    jacobian
 }
 
 fn finite_difference_jacobian<F>(
