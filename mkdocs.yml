@@ -4,6 +4,9 @@ site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://peritheos.readthedocs.io/en/
 repo_url: https://github.com/CPrescher/peritheos
 theme:
   name: readthedocs
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
 nav:
   - Home: index.md
   - Getting started: getting-started.md
@@ -21,5 +24,7 @@ nav:
 markdown_extensions:
   - tables
   - fenced_code
+  - pymdownx.arithmatex:
+      generic: true
   - toc:
       permalink: true

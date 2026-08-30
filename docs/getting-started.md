@@ -68,18 +68,23 @@ The ambient pressure is calculated from the volume measured at the reference
 temperature. A second volume is measured during heating. The two-volume
 temperature inversion solves
 
-```text
-P_ambient = P_cold(V_ambient),
-P_EOS(V_heated, T)
-    = P_ambient + f_DAC * Delta P_thermal(V_heated, T).
-```
+\[
+\begin{aligned}
+P_{\mathrm{ambient}} &= P_{\mathrm{cold}}(V_{\mathrm{ambient}}), \\
+P_{\mathrm{EOS}}(V_{\mathrm{heated}}, T)
+&= P_{\mathrm{ambient}}
+   + f_{\mathrm{DAC}}\,\Delta P_{\mathrm{thermal}}(V_{\mathrm{heated}}, T).
+\end{aligned}
+\]
 
 Because `P_EOS = P_cold + Delta P_thermal`, this reduces exactly to
 
-```text
-Delta P_thermal(V_heated, T)
-    = [P_cold(V_ambient) - P_cold(V_heated)] / (1 - f_DAC).
-```
+\[
+\Delta P_{\mathrm{thermal}}(V_{\mathrm{heated}}, T)
+= \frac{P_{\mathrm{cold}}(V_{\mathrm{ambient}})
+       - P_{\mathrm{cold}}(V_{\mathrm{heated}})}
+      {1-f_{\mathrm{DAC}}}.
+\]
 
 The implementation solves this reduced equation directly. This avoids
 re-evaluating both sides of the original expression and makes the domain clear:
@@ -89,10 +94,14 @@ the heated volume to have the larger cold-compression pressure.
 Here `f_dac` is defined specifically as the fraction of the EOS thermal pressure
 that appears as an increase above the reference-temperature pressure:
 
-```text
-Delta P_DAC = P_hot - P_ambient
-f_DAC = Delta P_DAC / Delta P_thermal(V_heated, T).
-```
+\[
+\begin{aligned}
+\Delta P_{\mathrm{DAC}} &= P_{\mathrm{hot}} - P_{\mathrm{ambient}}, \\
+f_{\mathrm{DAC}} &=
+\frac{\Delta P_{\mathrm{DAC}}}
+     {\Delta P_{\mathrm{thermal}}(V_{\mathrm{heated}}, T)}.
+\end{aligned}
+\]
 
 It is not the ratio `Delta P_DAC / P_ambient` and therefore is not a percentage
 of the cold pressure.
@@ -150,10 +159,13 @@ Assuming `f_dac` selects one temperature from a family of possible solutions.
 If an independent temperature is available, an experiment-specific fraction
 can instead be estimated from
 
-```text
-f_DAC = [P_EOS(V_heated, T_independent) - P_ambient]
-        / Delta P_thermal(V_heated, T_independent).
-```
+\[
+f_{\mathrm{DAC}} =
+\frac{P_{\mathrm{EOS}}(V_{\mathrm{heated}}, T_{\mathrm{independent}})
+      - P_{\mathrm{ambient}}}
+     {\Delta P_{\mathrm{thermal}}
+      (V_{\mathrm{heated}}, T_{\mathrm{independent}})}.
+\]
 
 If total high-temperature pressure is measured independently, use
 `temperature(P_hot, V_heated)` directly and do not apply the two-volume model.

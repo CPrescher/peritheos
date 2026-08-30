@@ -156,11 +156,14 @@ errors-in-variables fit. For each measurement it also fits an adjusted latent
 volume and/or temperature. For a P-V-T observation, the minimized components
 are:
 
-```text
-(P_model(V*, T*) - P_observed) / pressure_sigma
-(V* - V_observed) / volume_sigma
-(T* - T_observed) / temperature_sigma
-```
+\[
+\begin{aligned}
+\frac{P_{\mathrm{model}}(V^*,T^*)-P_{\mathrm{observed}}}
+     {\sigma_P}, \qquad
+\frac{V^*-V_{\mathrm{observed}}}{\sigma_V}, \qquad
+\frac{T^*-T_{\mathrm{observed}}}{\sigma_T}.
+\end{aligned}
+\]
 
 This is a nonlinear orthogonal-distance formulation for independent Gaussian
 measurement errors. It does not merely evaluate the EOS at the measured

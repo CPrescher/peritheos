@@ -126,9 +126,9 @@ eos_uncertainty.standard_errors
 Linear propagation is the default. Peritheos evaluates numerical parameter
 derivatives and applies the delta method:
 
-```text
-output_covariance = J @ parameter_covariance @ J.T
-```
+\[
+\Sigma_{\mathrm{output}} = J\,\Sigma_{\mathrm{parameters}}\,J^{\mathsf T}.
+\]
 
 It is fast and normally appropriate near a well-constrained fit. A complete
 covariance between calculated curve points can be requested explicitly:
