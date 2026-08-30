@@ -367,6 +367,35 @@ def test_native_least_squares_reports_evaluation_limit():
         )
 
 
+def test_native_least_squares_handles_differently_scaled_columns():
+    def residuals(parameters):
+        return np.array([1.0e-9 * (parameters[0] - 2.0), 1.0e9 * (parameters[1] - 3.0)])
+
+    result = _rust.fit_least_squares(
+        residuals,
+        np.array([0.0, 0.0]),
+        np.array([-10.0, -10.0]),
+        np.array([10.0, 10.0]),
+        max_nfev=1000,
+    )
+
+    assert result.success
+    assert result.x == pytest.approx([2.0, 3.0], abs=1.0e-8)
+    assert result.cost < 1.0e-10
+
+
+def test_native_covariance_is_a_rank_aware_pseudoinverse():
+    result = _rust.fit_least_squares(
+        lambda parameters: np.full(3, parameters[0] + 2.0 * parameters[1] - 3.0),
+        np.array([1.0, 1.0]),
+        np.array([-10.0, -10.0]),
+        np.array([10.0, 10.0]),
+    )
+    expected = np.linalg.pinv(result.jac.T @ result.jac, hermitian=True)
+
+    assert result.parameter_covariance == pytest.approx(expected)
+
+
 def test_native_linear_uncertainty_matches_dense_reference():
     jacobian = np.array([[1.0, 2.0], [-1.0, 0.5]])
     parameter_covariance = np.array([[4.0, 0.5], [0.5, 1.0]])
@@ -383,6 +412,22 @@ def test_native_linear_uncertainty_matches_dense_reference():
 
     assert result.variance == pytest.approx(np.diag(expected))
     assert result.covariance == pytest.approx(expected)
+
+
+@pytest.mark.parametrize(
+    ("covariance", "state_variance"),
+    [
+        (np.array([[-1.0]]), np.array([0.0])),
+        (np.array([[1.0]]), np.array([-1.0])),
+    ],
+)
+def test_native_linear_uncertainty_rejects_invalid_variances(
+    covariance, state_variance
+):
+    with pytest.raises(ValueError):
+        _rust.linear_uncertainty(
+            np.array([[1.0]]), covariance, state_variance, full_covariance=True
+        )
 
 
 def test_native_monte_carlo_summary_matches_numpy():

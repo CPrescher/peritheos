@@ -91,10 +91,11 @@ uv build
 uv run --group release twine check dist/*
 ```
 
-Release CI builds interpreter-specific wheels for Python 3.9 through 3.14 on
-manylinux x86-64 and ARM64, macOS Intel and Apple Silicon, and Windows x86-64.
-It builds the source distribution separately and smoke-tests an installed
-wheel outside the checkout before publication.
+Release CI builds interpreter-specific wheels for Python 3.9 through 3.14,
+including the separate CPython 3.14 free-threaded ABI, on manylinux x86-64 and
+ARM64, macOS Intel and Apple Silicon, and Windows x86-64. It builds the source
+distribution separately and smoke-tests every installed wheel outside the
+checkout before publication.
 
 Pull-request CI also builds and installs a real Python 3.13 wheel outside the
 checkout on Linux, macOS, and Windows. This catches artifact composition,

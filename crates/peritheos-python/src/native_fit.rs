@@ -11,7 +11,7 @@ use peritheos_core::thermal::{
 use peritheos_core::{EosResult, ThermalEos};
 use peritheos_fit::{
     fit_isothermal_eos, fit_thermal_eos_by, FitError, IsothermalObservations, Loss, SolverOptions,
-    ThermalObservations,
+    StructuredLayout, ThermalObservations,
 };
 use pyo3::prelude::*;
 
@@ -332,6 +332,11 @@ pub(super) fn fit_rt_eos_native(
     let volume_sigma = optional_array_values(volume_sigma);
     let observation_cholesky = optional_array_values(observation_cholesky);
     let global_parameter_count = initial.len();
+    let structured_layout = volume_sigma.as_ref().map(|_| StructuredLayout {
+        global_parameter_count,
+        point_count: pressure.len(),
+        latent_coordinate_count: 1,
+    });
     let options = SolverOptions {
         loss: Loss::from_name(loss).map_err(to_python_fit_error)?,
         f_scale,
@@ -358,6 +363,7 @@ pub(super) fn fit_rt_eos_native(
         .map_err(to_python_fit_error)?;
     Ok(PyLeastSquaresResult {
         global_parameter_count,
+        structured_layout,
         predicted_pressure: Some(result.predicted_pressure),
         result: result.solver,
     })
@@ -400,6 +406,13 @@ pub(super) fn fit_thermal_eos_native(
     let temperature_sigma = optional_array_values(temperature_sigma);
     let observation_cholesky = optional_array_values(observation_cholesky);
     let global_parameter_count = initial.len();
+    let latent_coordinate_count =
+        usize::from(volume_sigma.is_some()) + usize::from(temperature_sigma.is_some());
+    let structured_layout = (latent_coordinate_count > 0).then_some(StructuredLayout {
+        global_parameter_count,
+        point_count: pressure.len(),
+        latent_coordinate_count,
+    });
     let options = SolverOptions {
         loss: Loss::from_name(loss).map_err(to_python_fit_error)?,
         f_scale,
@@ -433,6 +446,7 @@ pub(super) fn fit_thermal_eos_native(
         .map_err(to_python_fit_error)?;
     Ok(PyLeastSquaresResult {
         global_parameter_count,
+        structured_layout,
         predicted_pressure: Some(result.predicted_pressure),
         result: result.solver,
     })

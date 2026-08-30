@@ -105,29 +105,30 @@ class Sokolova2016(ThermalEOS):
         self.mb1 = validate_finite_scalar(mb1, "mb1")
         if self.mb < 0 or self.mb1 < 0:
             raise ValueError("Bose-Einstein multiplicities must not be negative")
-        from peritheos import _rust
+        if type(self) is Sokolova2016 and type(rt_eos) is Holzapfel:
+            from peritheos import _rust
 
-        self._native = _rust.ThermalEos.sokolova2016(
-            rt_eos._native,
-            self.Tr,
-            self.QE1o,
-            self.mE1,
-            self.QE2o,
-            self.mE2,
-            self.delta,
-            self.t,
-            self.a_0,
-            self.m,
-            self.g,
-            self.e_0,
-            self.beta,
-            self.QBo,
-            self.d,
-            self.mb,
-            self.QB1o,
-            self.d1,
-            self.mb1,
-        )
+            self._native = _rust.ThermalEos.sokolova2016(
+                rt_eos._native,
+                self.Tr,
+                self.QE1o,
+                self.mE1,
+                self.QE2o,
+                self.mE2,
+                self.delta,
+                self.t,
+                self.a_0,
+                self.m,
+                self.g,
+                self.e_0,
+                self.beta,
+                self.QBo,
+                self.d,
+                self.mb,
+                self.QB1o,
+                self.d1,
+                self.mb1,
+            )
 
     def _volume_terms(self, V: NumericType) -> tuple[np.ndarray, ...]:
         """Precompute the volume-dependent terms in the pressure expression."""
@@ -235,8 +236,13 @@ class Sokolova2016(ThermalEOS):
             Thermal pressure in [GPa]
         """
         volumes, temperatures = self._broadcast_state(V, T)
-        return _native_thermal_evaluate(
-            self._native, "thermal_pressure", volumes, temperatures
+        native = getattr(self, "_native", None)
+        if native is not None:
+            return _native_thermal_evaluate(
+                native, "thermal_pressure", volumes, temperatures
+            )
+        return self._thermal_pressure_from_volume_terms(
+            self._volume_terms(volumes), temperatures
         )
 
 

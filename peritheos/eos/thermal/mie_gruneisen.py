@@ -12,6 +12,7 @@ from peritheos.eos import (
     EosBase,
     NumericType,
     ThermalEOS,
+    _native_for_exact_model,
     _native_thermal_evaluate,
     validate_finite_scalar,
     validate_positive_scalar,
@@ -39,13 +40,16 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         self.gamma0 = validate_finite_scalar(gamma0, "gamma0")
         self.q = validate_finite_scalar(q, "q")
         self.n = validate_positive_scalar(n, "n")
-        reference_native = getattr(rt_eos, "_native", None)
-        if reference_native is not None:
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None and type(self) in (
+            MieGruneisenDebye,
+            MieGruneisenEinstein,
+        ):
             from peritheos import _rust
 
             factory = (
                 _rust.ThermalEos.mie_gruneisen_debye
-                if type(self).__name__ == "MieGruneisenDebye"
+                if type(self) is MieGruneisenDebye
                 else _rust.ThermalEos.mie_gruneisen_einstein
             )
             self._native = factory(

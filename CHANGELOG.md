@@ -44,6 +44,17 @@ All notable changes to Peritheos are documented here. The project follows
   compatibility wrapper.
 - Native batch calls now have concurrent large-array stress coverage in
   addition to deterministic order, shape, stride, and round-trip checks.
+- Native least squares now equilibrates differently scaled Jacobian columns,
+  reports failed steps as failures instead of false `xtol` convergence, and
+  uses a rank-aware Moore-Penrose covariance calculation.
+- Latent-coordinate covariance profiling now preserves observation-local
+  blocks, avoiding the previous dense cubic post-fit calculation.
+- Native EOS dispatch is restricted to exact built-in Python classes so
+  subclass overrides and Debye/Einstein model identity remain authoritative.
+- Linear uncertainty kernels now reject non-positive-semidefinite parameter
+  covariance and negative state variance instead of clamping invalid inputs.
+- Tagged releases now include CPython 3.14 free-threaded wheels alongside the
+  standard CPython wheel matrix.
 
 ## [0.5.0] - 2026-08-30
 

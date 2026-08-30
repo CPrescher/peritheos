@@ -13,8 +13,9 @@ use peritheos_core::thermal::{
 };
 use peritheos_core::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use peritheos_fit::{
-    least_squares, least_squares_structured, propagate_linear_uncertainty, summarize_monte_carlo,
-    FitError, LinearPropagation, Loss, MonteCarloSummary, SolverOptions, StructuredLayout,
+    least_squares, least_squares_structured, parameter_covariance_structured,
+    propagate_linear_uncertainty, summarize_monte_carlo, FitError, LinearPropagation, Loss,
+    MonteCarloSummary, SolverOptions, StructuredLayout,
 };
 use pyo3::exceptions::{
     PyArithmeticError, PyNotImplementedError, PyRuntimeError, PyTypeError, PyValueError,
@@ -663,6 +664,7 @@ fn to_python_error(error: EosError) -> PyErr {
 struct PyLeastSquaresResult {
     result: peritheos_fit::SolverResult,
     global_parameter_count: usize,
+    structured_layout: Option<StructuredLayout>,
     predicted_pressure: Option<Vec<f64>>,
 }
 
@@ -701,12 +703,16 @@ impl PyLeastSquaresResult {
     #[getter]
     fn parameter_covariance<'py>(&self, py: Python<'py>) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
         let column_count = self.result.parameters.len();
-        let covariance = peritheos_fit::parameter_covariance(
-            &self.result.jacobian,
-            self.result.residual_count,
-            column_count,
-            self.global_parameter_count,
-        )
+        let covariance = if let Some(layout) = self.structured_layout {
+            parameter_covariance_structured(&self.result.jacobian, layout)
+        } else {
+            peritheos_fit::parameter_covariance(
+                &self.result.jacobian,
+                self.result.residual_count,
+                column_count,
+                self.global_parameter_count,
+            )
+        }
         .map_err(to_python_fit_error)?;
         let output = ArrayD::from_shape_vec(
             numpy::ndarray::IxDyn(&[self.global_parameter_count, self.global_parameter_count]),
@@ -822,6 +828,7 @@ fn fit_least_squares<'py>(
     Ok(PyLeastSquaresResult {
         result,
         global_parameter_count,
+        structured_layout: layout,
         predicted_pressure: None,
     })
 }

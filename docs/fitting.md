@@ -57,7 +57,9 @@ J_x^{\mathsf T}J_\theta\right)^{-1}.
 
 Without latent coordinates, this reduces to
 $(J_\theta^{\mathsf T}J_\theta)^{-1}$. The implementation uses a pseudoinverse
-where necessary. Unless
+with a numerical rank tolerance where necessary. Observation-local latent
+blocks remain structured during covariance profiling rather than being
+assembled into a dense matrix. Unless
 `absolute_sigma=True`, this covariance is multiplied by $\chi^2_\nu$. The
 reported information criteria use
 

@@ -164,3 +164,19 @@ def test_user_defined_reference_eos_retains_python_fallback():
     assert not hasattr(eos, "_native")
     pressure = eos.pressure(expected_volume, temperature)
     assert np.isclose(eos.volume(pressure, temperature), expected_volume)
+
+
+def test_debye_subclass_retains_debye_python_behavior():
+    class CustomDebye(MieGruneisenDebye):
+        pass
+
+    parameters = (BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0)
+    expected = MieGruneisenDebye(*parameters)
+    custom = CustomDebye(*parameters)
+
+    assert not hasattr(custom, "_native")
+    assert custom.thermal_energy(1.0, 300.0) == pytest.approx(
+        expected.thermal_energy(1.0, 300.0)
+    )
+    pressure = custom.pressure(0.9, 1200.0)
+    assert custom.volume(pressure, 1200.0) == pytest.approx(0.9)

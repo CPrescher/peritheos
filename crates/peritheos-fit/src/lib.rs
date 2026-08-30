@@ -264,6 +264,7 @@ where
             "invalid model Jacobian parameters, covariance, or step".to_owned(),
         ));
     }
+    positive_semidefinite_factor(parameter_covariance, parameter_count)?;
     let nominal = evaluate(parameters)?;
     if nominal.is_empty() || nominal.iter().any(|value| !value.is_finite()) {
         return Err(FitError::Evaluation(
@@ -531,6 +532,12 @@ pub fn propagate_linear_uncertainty(
             "linear uncertainty inputs must be finite".to_owned(),
         ));
     }
+    if state_variance.iter().any(|value| *value < 0.0) {
+        return Err(FitError::InvalidInput(
+            "state variances must be nonnegative".to_owned(),
+        ));
+    }
+    positive_semidefinite_factor(parameter_covariance, parameter_count)?;
     let mut transformed = vec![0.0; output_count * parameter_count];
     for output in 0..output_count {
         for right in 0..parameter_count {
@@ -783,18 +790,22 @@ where
 
         let mut accepted = false;
         let mut accepted_step_norm = 0.0;
+        let mut smallest_step_norm = f64::INFINITY;
+        let mut computed_step = false;
         let previous_cost = cost;
         for _ in 0..24 {
             let Ok(step) = solve_normal_step(&normal, &gradient, damping) else {
                 damping *= 10.0;
                 continue;
             };
+            computed_step = true;
             let mut candidate = parameters.clone();
             for index in 0..parameter_count {
                 candidate[index] =
                     (parameters[index] + step[index]).clamp(lower[index], upper[index]);
             }
             accepted_step_norm = scaled_norm_difference(&candidate, &parameters);
+            smallest_step_norm = smallest_step_norm.min(accepted_step_norm);
             if accepted_step_norm == 0.0 {
                 damping *= 10.0;
                 continue;
@@ -821,9 +832,20 @@ where
             if evaluations >= maximum_evaluations {
                 break;
             }
-            status = 3;
-            "`xtol` termination condition is satisfied.".clone_into(&mut message);
-            success = true;
+            let parameter_norm = parameters
+                .iter()
+                .map(|value| value * value)
+                .sum::<f64>()
+                .sqrt();
+            let step_tolerance = options.step_tolerance * (options.step_tolerance + parameter_norm);
+            if computed_step && smallest_step_norm <= step_tolerance {
+                status = 3;
+                "`xtol` termination condition is satisfied.".clone_into(&mut message);
+                success = true;
+            } else {
+                status = 0;
+                "No acceptable optimization step could be computed.".clone_into(&mut message);
+            }
             break;
         }
         let parameter_norm = parameters
@@ -943,7 +965,96 @@ pub fn parameter_covariance(
     } else {
         schur_complement(&information, columns, parameter_count)?
     };
-    regularized_inverse(&profiled, parameter_count)
+    symmetric_pseudoinverse(&profiled, parameter_count, rows.max(columns))
+}
+
+/// Return the profiled model-parameter covariance for a structured fit.
+///
+/// This preserves the observation-local latent-coordinate blocks instead of
+/// constructing a dense latent information matrix.
+///
+/// # Errors
+///
+/// Returns an error for inconsistent dimensions or a non-positive-semidefinite
+/// information block.
+pub fn parameter_covariance_structured(
+    jacobian: &[f64],
+    layout: StructuredLayout,
+) -> Result<Vec<f64>, FitError> {
+    let global_count = layout.global_parameter_count;
+    let point_count = layout.point_count;
+    let latent_count = layout.latent_coordinate_count;
+    let rows = point_count * (1 + latent_count);
+    let columns = global_count + point_count * latent_count;
+    if global_count == 0
+        || point_count == 0
+        || latent_count == 0
+        || jacobian.len() != rows * columns
+    {
+        return Err(FitError::InvalidInput(
+            "invalid structured Jacobian dimensions for covariance".to_owned(),
+        ));
+    }
+
+    let mut profiled = vec![0.0; global_count * global_count];
+    for row in 0..rows {
+        for left in 0..global_count {
+            let left_value = jacobian[row * columns + left];
+            for right in 0..=left {
+                profiled[left * global_count + right] +=
+                    left_value * jacobian[row * columns + right];
+            }
+        }
+    }
+    for left in 0..global_count {
+        for right in 0..left {
+            profiled[right * global_count + left] = profiled[left * global_count + right];
+        }
+    }
+
+    for point in 0..point_count {
+        let mut local = vec![0.0; latent_count * latent_count];
+        let mut cross = vec![0.0; latent_count * global_count];
+        for component in 0..=latent_count {
+            let row = component * point_count + point;
+            for latent_left in 0..latent_count {
+                let left_column = global_count + latent_left * point_count + point;
+                let left_value = jacobian[row * columns + left_column];
+                for global in 0..global_count {
+                    cross[latent_left * global_count + global] +=
+                        left_value * jacobian[row * columns + global];
+                }
+                for latent_right in 0..=latent_left {
+                    let right_column = global_count + latent_right * point_count + point;
+                    local[latent_left * latent_count + latent_right] +=
+                        left_value * jacobian[row * columns + right_column];
+                }
+            }
+        }
+        for left in 0..latent_count {
+            for right in 0..left {
+                local[right * latent_count + left] = local[left * latent_count + right];
+            }
+        }
+        let local_inverse = symmetric_pseudoinverse(&local, latent_count, 1 + latent_count)?;
+        for left in 0..global_count {
+            for right in 0..global_count {
+                let correction = (0..latent_count)
+                    .map(|local_left| {
+                        (0..latent_count)
+                            .map(|local_right| {
+                                cross[local_left * global_count + left]
+                                    * local_inverse[local_left * latent_count + local_right]
+                                    * cross[local_right * global_count + right]
+                            })
+                            .sum::<f64>()
+                    })
+                    .sum::<f64>();
+                profiled[left * global_count + right] -= correction;
+            }
+        }
+    }
+    symmetric_pseudoinverse(&profiled, global_count, rows.max(columns))
 }
 
 fn validate_problem(
@@ -1341,10 +1452,12 @@ fn solve_normal_step(
         NormalSystem::Dense { matrix, size } => {
             let mut damped = matrix.clone();
             for index in 0..*size {
-                damped[index * size + index] += damping * matrix[index * size + index].max(1.0);
+                let diagonal = matrix[index * size + index].abs();
+                damped[index * size + index] +=
+                    damping * if diagonal > 0.0 { diagonal } else { 1.0 };
             }
             let right_hand_side: Vec<_> = gradient.iter().map(|value| -value).collect();
-            solve_linear_system(&damped, &right_hand_side, *size)
+            solve_scaled_linear_system(&damped, &right_hand_side, *size)
         }
         NormalSystem::Structured {
             global,
@@ -1372,21 +1485,24 @@ fn solve_structured_normal_step(
         .map(|value| -value)
         .collect();
     for global_index in 0..global_count {
+        let diagonal = global[global_index * global_count + global_index].abs();
         schur[global_index * global_count + global_index] +=
-            damping * global[global_index * global_count + global_index].max(1.0);
+            damping * if diagonal > 0.0 { diagonal } else { 1.0 };
     }
     let mut damped_locals = Vec::with_capacity(point_count);
     for point in 0..point_count {
         let start = point * latent_count * latent_count;
         let mut local_matrix = local[start..start + latent_count * latent_count].to_vec();
         for latent in 0..latent_count {
+            let diagonal = local_matrix[latent * latent_count + latent].abs();
             local_matrix[latent * latent_count + latent] +=
-                damping * local_matrix[latent * latent_count + latent].max(1.0);
+                damping * if diagonal > 0.0 { diagonal } else { 1.0 };
         }
         let local_gradient: Vec<_> = (0..latent_count)
             .map(|latent| gradient[global_count + latent * point_count + point])
             .collect();
-        let solved_gradient = solve_linear_system(&local_matrix, &local_gradient, latent_count)?;
+        let solved_gradient =
+            solve_scaled_linear_system(&local_matrix, &local_gradient, latent_count)?;
         for global_index in 0..global_count {
             global_rhs[global_index] += (0..latent_count)
                 .map(|latent| {
@@ -1399,7 +1515,8 @@ fn solve_structured_normal_step(
             let right_hand_side: Vec<_> = (0..latent_count)
                 .map(|latent| cross[(point * global_count + right_global) * latent_count + latent])
                 .collect();
-            let solved_cross = solve_linear_system(&local_matrix, &right_hand_side, latent_count)?;
+            let solved_cross =
+                solve_scaled_linear_system(&local_matrix, &right_hand_side, latent_count)?;
             for left_global in 0..global_count {
                 schur[left_global * global_count + right_global] -= (0..latent_count)
                     .map(|latent| {
@@ -1411,7 +1528,7 @@ fn solve_structured_normal_step(
         }
         damped_locals.push(local_matrix);
     }
-    let global_step = solve_linear_system(&schur, &global_rhs, global_count)?;
+    let global_step = solve_scaled_linear_system(&schur, &global_rhs, global_count)?;
     let mut step = vec![0.0; global_count + point_count * latent_count];
     step[..global_count].copy_from_slice(&global_step);
     for point in 0..point_count {
@@ -1426,7 +1543,8 @@ fn solve_structured_normal_step(
                         .sum::<f64>()
             })
             .collect();
-        let local_step = solve_linear_system(&damped_locals[point], &local_rhs, latent_count)?;
+        let local_step =
+            solve_scaled_linear_system(&damped_locals[point], &local_rhs, latent_count)?;
         for latent in 0..latent_count {
             step[global_count + latent * point_count + point] = local_step[latent];
         }
@@ -1549,6 +1667,46 @@ fn solve_linear_system(
     Ok(result)
 }
 
+fn solve_scaled_linear_system(
+    matrix: &[f64],
+    right_hand_side: &[f64],
+    size: usize,
+) -> Result<Vec<f64>, FitError> {
+    if matrix.len() != size * size || right_hand_side.len() != size {
+        return Err(FitError::InvalidInput(
+            "invalid scaled linear system dimensions".to_owned(),
+        ));
+    }
+    let scales = (0..size)
+        .map(|index| {
+            let diagonal = matrix[index * size + index].abs();
+            if diagonal > 0.0 {
+                diagonal.sqrt()
+            } else {
+                1.0
+            }
+        })
+        .collect::<Vec<_>>();
+    let mut scaled_matrix = vec![0.0; size * size];
+    for row in 0..size {
+        for column in 0..size {
+            scaled_matrix[row * size + column] =
+                matrix[row * size + column] / (scales[row] * scales[column]);
+        }
+    }
+    let scaled_rhs = right_hand_side
+        .iter()
+        .zip(&scales)
+        .map(|(value, scale)| value / scale)
+        .collect::<Vec<_>>();
+    let scaled_solution = solve_linear_system(&scaled_matrix, &scaled_rhs, size)?;
+    Ok(scaled_solution
+        .into_iter()
+        .zip(scales)
+        .map(|(value, scale)| value / scale)
+        .collect())
+}
+
 fn schur_complement(
     information: &[f64],
     size: usize,
@@ -1577,7 +1735,7 @@ fn schur_complement(
         let right_hand_side: Vec<_> = (0..latent_count)
             .map(|row| cross[row * parameter_count + column])
             .collect();
-        let solved = solve_linear_system(&latent, &right_hand_side, latent_count)?;
+        let solved = solve_scaled_linear_system(&latent, &right_hand_side, latent_count)?;
         for left in 0..parameter_count {
             let correction = (0..latent_count)
                 .map(|row| cross[row * parameter_count + left] * solved[row])
@@ -1588,35 +1746,116 @@ fn schur_complement(
     Ok(parameter)
 }
 
-fn regularized_inverse(matrix: &[f64], size: usize) -> Result<Vec<f64>, FitError> {
-    let scale = (0..size)
-        .map(|index| matrix[index * size + index].abs())
-        .fold(0.0, f64::max)
-        .max(1.0);
-    for regularization in [0.0, 1.0e-14, 1.0e-12, 1.0e-10, 1.0e-8] {
-        let mut candidate = matrix.to_vec();
-        for index in 0..size {
-            candidate[index * size + index] += regularization * scale;
-        }
-        let mut inverse = vec![0.0; size * size];
-        let mut valid = true;
-        for column in 0..size {
-            let mut unit = vec![0.0; size];
-            unit[column] = 1.0;
-            if let Ok(solution) = solve_linear_system(&candidate, &unit, size) {
-                for row in 0..size {
-                    inverse[row * size + column] = solution[row];
-                }
-            } else {
-                valid = false;
-                break;
-            }
-        }
-        if valid {
-            return Ok(inverse);
+#[allow(clippy::too_many_lines)]
+fn symmetric_pseudoinverse(
+    matrix: &[f64],
+    size: usize,
+    effective_dimension: usize,
+) -> Result<Vec<f64>, FitError> {
+    if size == 0 || matrix.len() != size * size || matrix.iter().any(|value| !value.is_finite()) {
+        return Err(FitError::InvalidInput(
+            "invalid symmetric matrix for pseudoinverse".to_owned(),
+        ));
+    }
+    let mut diagonalized = matrix.to_vec();
+    for row in 0..size {
+        for column in 0..row {
+            let value =
+                0.5 * (diagonalized[row * size + column] + diagonalized[column * size + row]);
+            diagonalized[row * size + column] = value;
+            diagonalized[column * size + row] = value;
         }
     }
-    Err(FitError::SingularSystem)
+    let mut eigenvectors = vec![0.0; size * size];
+    for index in 0..size {
+        eigenvectors[index * size + index] = 1.0;
+    }
+    let scale = diagonalized
+        .iter()
+        .map(|value| value.abs())
+        .fold(0.0, f64::max);
+    let convergence_tolerance =
+        f64::EPSILON * f64::from(u32::try_from(size).unwrap_or(u32::MAX)) * scale;
+    for _ in 0..(64 * size * size).max(1) {
+        let mut pivot_row = 0;
+        let mut pivot_column = 0;
+        let mut largest = 0.0;
+        for row in 0..size {
+            for column in row + 1..size {
+                let value = diagonalized[row * size + column].abs();
+                if value > largest {
+                    largest = value;
+                    pivot_row = row;
+                    pivot_column = column;
+                }
+            }
+        }
+        if largest <= convergence_tolerance {
+            break;
+        }
+        let p = pivot_row;
+        let q = pivot_column;
+        let off_diagonal = diagonalized[p * size + q];
+        let tau = (diagonalized[q * size + q] - diagonalized[p * size + p]) / (2.0 * off_diagonal);
+        let tangent = if tau >= 0.0 {
+            1.0 / (tau + (1.0 + tau * tau).sqrt())
+        } else {
+            -1.0 / (-tau + (1.0 + tau * tau).sqrt())
+        };
+        let cosine = 1.0 / (1.0 + tangent * tangent).sqrt();
+        let rotation_sine = tangent * cosine;
+        for index in 0..size {
+            if index != p && index != q {
+                let value_p = diagonalized[index * size + p];
+                let value_q = diagonalized[index * size + q];
+                let rotated_p = cosine * value_p - rotation_sine * value_q;
+                let rotated_q = rotation_sine * value_p + cosine * value_q;
+                diagonalized[index * size + p] = rotated_p;
+                diagonalized[p * size + index] = rotated_p;
+                diagonalized[index * size + q] = rotated_q;
+                diagonalized[q * size + index] = rotated_q;
+            }
+        }
+        let diagonal_p = diagonalized[p * size + p];
+        let diagonal_q = diagonalized[q * size + q];
+        diagonalized[p * size + p] = diagonal_p - tangent * off_diagonal;
+        diagonalized[q * size + q] = diagonal_q + tangent * off_diagonal;
+        diagonalized[p * size + q] = 0.0;
+        diagonalized[q * size + p] = 0.0;
+        for row in 0..size {
+            let value_p = eigenvectors[row * size + p];
+            let value_q = eigenvectors[row * size + q];
+            eigenvectors[row * size + p] = cosine * value_p - rotation_sine * value_q;
+            eigenvectors[row * size + q] = rotation_sine * value_p + cosine * value_q;
+        }
+    }
+
+    let largest_eigenvalue = (0..size)
+        .map(|index| diagonalized[index * size + index].abs())
+        .fold(0.0, f64::max);
+    let rank_tolerance = f64::EPSILON
+        * f64::from(u32::try_from(effective_dimension).unwrap_or(u32::MAX))
+        * largest_eigenvalue;
+    let mut inverse = vec![0.0; size * size];
+    for eigenvalue_index in 0..size {
+        let eigenvalue = diagonalized[eigenvalue_index * size + eigenvalue_index];
+        if eigenvalue < -rank_tolerance {
+            return Err(FitError::InvalidInput(
+                "information matrix must be positive semidefinite".to_owned(),
+            ));
+        }
+        if eigenvalue <= rank_tolerance {
+            continue;
+        }
+        for row in 0..size {
+            for column in 0..size {
+                inverse[row * size + column] += eigenvectors[row * size + eigenvalue_index]
+                    * eigenvectors[column * size + eigenvalue_index]
+                    / eigenvalue;
+            }
+        }
+    }
+    Ok(inverse)
 }
 
 #[cfg(test)]
@@ -1646,6 +1885,31 @@ mod tests {
         assert!(result.success, "{}", result.message);
         assert!((result.parameters[0] - 1.0).abs() < 1.0e-5);
         assert!((result.parameters[1] - 1.0).abs() < 1.0e-5);
+    }
+
+    #[test]
+    fn scaled_solver_handles_jacobian_columns_with_different_units() {
+        let result = least_squares(
+            &[0.0, 0.0],
+            &[-10.0, -10.0],
+            &[10.0, 10.0],
+            SolverOptions {
+                max_evaluations: Some(1_000),
+                ..SolverOptions::default()
+            },
+            |parameters| {
+                Ok(vec![
+                    1.0e-9 * (parameters[0] - 2.0),
+                    1.0e9 * (parameters[1] - 3.0),
+                ])
+            },
+        )
+        .unwrap();
+
+        assert!(result.success, "{}", result.message);
+        assert!((result.parameters[0] - 2.0).abs() < 1.0e-8, "{result:?}");
+        assert!((result.parameters[1] - 3.0).abs() < 1.0e-8, "{result:?}");
+        assert!(result.cost < 1.0e-10);
     }
 
     #[test]
@@ -1696,6 +1960,20 @@ mod tests {
         let jacobian = [1.0, 2.0, 3.0];
         let covariance = parameter_covariance(&jacobian, 3, 1, 1).unwrap();
         assert!((covariance[0] - 1.0 / 14.0).abs() < 1.0e-14);
+
+        let scaled_jacobian = [1.0e-9, 2.0e-9, 3.0e-9];
+        let scaled_covariance = parameter_covariance(&scaled_jacobian, 3, 1, 1).unwrap();
+        assert!((scaled_covariance[0] - 1.0e18 / 14.0).abs() < 1.0e4);
+    }
+
+    #[test]
+    fn covariance_uses_moore_penrose_inverse_for_rank_loss() {
+        let jacobian = [1.0, 2.0, 1.0, 2.0, 1.0, 2.0];
+        let covariance = parameter_covariance(&jacobian, 3, 2, 2).unwrap();
+        let expected = [1.0 / 75.0, 2.0 / 75.0, 2.0 / 75.0, 4.0 / 75.0];
+        for (actual, expected) in covariance.iter().zip(expected) {
+            assert!((actual - expected).abs() < 1.0e-12, "{covariance:?}");
+        }
     }
 
     #[test]
@@ -1712,6 +1990,12 @@ mod tests {
 
         assert_eq!(result.variance, vec![10.25, 3.75]);
         assert_eq!(result.covariance.unwrap(), vec![10.25, -3.75, -3.75, 3.75]);
+    }
+
+    #[test]
+    fn linear_uncertainty_rejects_invalid_variances() {
+        assert!(propagate_linear_uncertainty(&[1.0], 1, 1, &[-1.0], &[0.0], true).is_err());
+        assert!(propagate_linear_uncertainty(&[1.0], 1, 1, &[1.0], &[-1.0], true).is_err());
     }
 
     #[test]
@@ -1905,5 +2189,21 @@ mod tests {
         assert!(dense.success && structured.success);
         assert!((dense.parameters[0] - structured.parameters[0]).abs() < 1.0e-8);
         assert!(structured_calls * 5 < dense_calls);
+
+        let layout = StructuredLayout {
+            global_parameter_count: 1,
+            point_count,
+            latent_coordinate_count: 1,
+        };
+        let structured_covariance =
+            parameter_covariance_structured(&structured.jacobian, layout).unwrap();
+        let dense_covariance = parameter_covariance(
+            &structured.jacobian,
+            structured.residual_count,
+            structured.parameters.len(),
+            1,
+        )
+        .unwrap();
+        assert!((structured_covariance[0] - dense_covariance[0]).abs() < 1.0e-10);
     }
 }

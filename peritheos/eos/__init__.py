@@ -3,6 +3,7 @@ Equations of state module for Peritheos
 """
 
 import inspect
+from functools import cache
 from typing import Callable, Union
 
 import numpy as np
@@ -13,6 +14,53 @@ from peritheos import _rust as _rust
 
 # Type alias for numeric values (scalar or array)
 NumericType = Union[float, NDArray[np.float64]]
+
+
+@cache
+def _native_evaluation_types() -> tuple[type, ...]:
+    """Return classes whose inherited behavior exactly matches a Rust model."""
+    from peritheos.eos.rt import (
+        BM2,
+        BM3,
+        BM4,
+        Holzapfel,
+        ModifiedTait,
+        Murnaghan,
+        NaturalStrain2,
+        NaturalStrain3,
+        NaturalStrain4,
+        Vinet,
+    )
+    from peritheos.eos.thermal import (
+        MieGruneisenDebye,
+        MieGruneisenEinstein,
+        Sokolova2016,
+        ThermalModifiedTait,
+    )
+
+    return (
+        BM2,
+        BM3,
+        BM4,
+        Murnaghan,
+        ModifiedTait,
+        NaturalStrain2,
+        NaturalStrain3,
+        NaturalStrain4,
+        Vinet,
+        Holzapfel,
+        MieGruneisenDebye,
+        MieGruneisenEinstein,
+        ThermalModifiedTait,
+        Sokolova2016,
+    )
+
+
+def _native_for_exact_model(model):
+    """Return a native handle only when no subclass behavior can be bypassed."""
+    if type(model) not in _native_evaluation_types():
+        return None
+    return getattr(model, "_native", None)
 
 
 def _native_rt_evaluate(native, quantity: str, values: NumericType) -> NumericType:
@@ -373,7 +421,7 @@ class EosBase:
         pressures = np.asarray(P, dtype=float)
         if not np.all(np.isfinite(pressures)):
             raise ValueError("Pressure must be finite")
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None:
             return _native_rt_evaluate(native, "volume", pressures)
         if pressures.ndim == 0:
@@ -427,7 +475,7 @@ class ThermalEOS(EosBase):
         return self._scalar_or_array(result)
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None:
             volumes, temperatures = self._broadcast_state(V, T)
             return _native_thermal_evaluate(native, "pressure", volumes, temperatures)
@@ -455,7 +503,7 @@ class ThermalEOS(EosBase):
     ) -> NumericType:
         """Return the isothermal bulk modulus ``-V (dP/dV)_T`` in GPa."""
         relative_step = validate_positive_scalar(relative_step, "relative_step")
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None and relative_step == 1.0e-6:
             volumes, temperatures = self._broadcast_state(V, T)
             return _native_thermal_evaluate(
@@ -472,7 +520,7 @@ class ThermalEOS(EosBase):
 
     def isothermal_compressibility(self, V: NumericType, T: NumericType) -> NumericType:
         """Return isothermal compressibility in GPa^-1."""
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None:
             volumes, temperatures = self._broadcast_state(V, T)
             return _native_thermal_evaluate(
@@ -489,7 +537,7 @@ class ThermalEOS(EosBase):
         This uses ``alpha = (dP/dT)_V / K_T``.
         """
         relative_step = validate_positive_scalar(relative_step, "relative_step")
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None and relative_step == 1.0e-5:
             volumes, temperatures = self._broadcast_state(V, T)
             return _native_thermal_evaluate(
@@ -514,7 +562,7 @@ class ThermalEOS(EosBase):
 
     def molar_heat_capacity_p(self, V: NumericType, T: NumericType) -> NumericType:
         """Return constant-pressure molar heat capacity in J mol^-1 K^-1."""
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None:
             volumes, temperatures = self._broadcast_state(V, T)
             return _native_thermal_evaluate(
@@ -547,7 +595,7 @@ class ThermalEOS(EosBase):
 
     def adiabatic_bulk_modulus(self, V: NumericType, T: NumericType) -> NumericType:
         """Return adiabatic bulk modulus ``K_S = K_T C_P / C_V`` in GPa."""
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None:
             volumes, temperatures = self._broadcast_state(V, T)
             return _native_thermal_evaluate(
@@ -570,7 +618,7 @@ class ThermalEOS(EosBase):
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
             raise ValueError("Temperature must be finite and greater than zero")
 
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None:
             return _native_thermal_evaluate(native, "volume", pressures, temperatures)
 
@@ -625,7 +673,7 @@ class ThermalEOS(EosBase):
         except ValueError as error:
             raise ValueError("P and V must have broadcast-compatible shapes") from error
 
-        native = getattr(self, "_native", None)
+        native = _native_for_exact_model(self)
         if native is not None:
             return _native_thermal_evaluate(native, "temperature", pressures, volumes)
 

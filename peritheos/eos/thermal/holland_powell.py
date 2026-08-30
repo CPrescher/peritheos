@@ -11,6 +11,7 @@ from peritheos.eos import (
     _native_thermal_evaluate,
     validate_finite_scalar,
     validate_positive_scalar,
+    validate_volume,
 )
 from peritheos.eos.rt import ModifiedTait
 
@@ -42,11 +43,12 @@ class ThermalModifiedTait(ThermalEOS):
         self.n = validate_positive_scalar(n, "n")
         self._cv0 = float(self._einstein_heat_capacity(self.Tr))
         self._pressure_factor = self.alpha0 * self.rt_eos.K0 / self._cv0
-        from peritheos import _rust
+        if type(self) is ThermalModifiedTait and type(rt_eos) is ModifiedTait:
+            from peritheos import _rust
 
-        self._native = _rust.ThermalEos.thermal_modified_tait(
-            rt_eos._native, self.Tr, self.theta, self.alpha0, self.n
-        )
+            self._native = _rust.ThermalEos.thermal_modified_tait(
+                rt_eos._native, self.Tr, self.theta, self.alpha0, self.n
+            )
 
     def _einstein_energy(self, T: NumericType) -> NumericType:
         temperatures = np.asarray(T, dtype=float)
@@ -62,9 +64,12 @@ class ThermalModifiedTait(ThermalEOS):
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         """Return thermal pressure relative to ``Tr`` in GPa."""
         volumes, temperatures = self._broadcast_state(V, T)
-        return _native_thermal_evaluate(
-            self._native, "thermal_pressure", volumes, temperatures
-        )
+        native = getattr(self, "_native", None)
+        if native is not None:
+            return _native_thermal_evaluate(
+                native, "thermal_pressure", volumes, temperatures
+            )
+        return self._python_thermal_pressure(volumes, temperatures)
 
     def _python_thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         """Reference implementation retained for compatibility validation."""
@@ -78,19 +83,33 @@ class ThermalModifiedTait(ThermalEOS):
     def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Einstein constant-volume heat capacity in J mol^-1 K^-1."""
         volumes, temperatures = self._broadcast_state(V, T)
-        return _native_thermal_evaluate(
-            self._native, "molar_heat_capacity_v", volumes, temperatures
+        native = getattr(self, "_native", None)
+        if native is not None:
+            return _native_thermal_evaluate(
+                native, "molar_heat_capacity_v", volumes, temperatures
+            )
+        result = np.broadcast_to(
+            self._einstein_heat_capacity(temperatures), volumes.shape
         )
+        return self._scalar_or_array(np.asarray(result, dtype=float))
 
     def gruneisen_parameter(
         self, V: NumericType, T: NumericType | None = None
     ) -> NumericType:
         """Return gamma implied by the constant ``alpha K / C_V`` model."""
-        temperatures = self.Tr if T is None else T
-        volumes, temperatures = self._broadcast_state(V, temperatures)
-        return _native_thermal_evaluate(
-            self._native, "gruneisen_parameter", volumes, temperatures
-        )
+        native = getattr(self, "_native", None)
+        if native is not None:
+            temperatures = self.Tr if T is None else T
+            volumes, temperatures = self._broadcast_state(V, temperatures)
+            return _native_thermal_evaluate(
+                native, "gruneisen_parameter", volumes, temperatures
+            )
+        if T is None:
+            volumes = np.asarray(validate_volume(V), dtype=float)
+        else:
+            volumes, _ = self._broadcast_state(V, T)
+        result = volumes * self._pressure_factor * 1.0e4
+        return self._scalar_or_array(np.asarray(result, dtype=float))
 
 
 HollandPowell2011 = ThermalModifiedTait
