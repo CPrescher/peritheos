@@ -1,0 +1,20 @@
+[workspace]
+members = ["crates/peritheos-core"]
+resolver = "2"
+
+[workspace.package]
+version = "0.5.0"
+edition = "2021"
+rust-version = "1.83"
+authors = ["Clemens Prescher <clemens.prescher@gmail.com>"]
+license = "MIT"
+repository = "https://github.com/CPrescher/peritheos"
+keywords = ["equation-of-state", "high-pressure", "thermodynamics"]
+categories = ["science"]
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+all = "warn"
+pedantic = "warn"

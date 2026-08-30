@@ -1,0 +1,143 @@
+{
+  "backend": "python",
+  "benchmarks": {
+    "bm3_pressure_array": {
+      "checksum": 39427411.53704772,
+      "description": "1000000 contiguous volumes",
+      "maximum_seconds": 0.01120575000095414,
+      "median_seconds": 0.010510375002922956,
+      "minimum_seconds": 0.010304416995495558,
+      "samples_seconds": [
+        0.010989707996486686,
+        0.01120575000095414,
+        0.010510375002922956,
+        0.01043687500350643,
+        0.010304416995495558
+      ]
+    },
+    "bm3_pressure_scalar": {
+      "checksum": 2350256.856018157,
+      "description": "50000 scalar public method calls",
+      "maximum_seconds": 0.11767000000691041,
+      "median_seconds": 0.11645362500712508,
+      "minimum_seconds": 0.11367616699862992,
+      "samples_seconds": [
+        0.11367616699862992,
+        0.11767000000691041,
+        0.1156851670020842,
+        0.11703620899788802,
+        0.11645362500712508
+      ]
+    },
+    "bm3_volume_array": {
+      "checksum": 338223.61073993676,
+      "description": "10000 independently bracketed roots",
+      "maximum_seconds": 0.4711980419961037,
+      "median_seconds": 0.46208400000614347,
+      "minimum_seconds": 0.45054079099645605,
+      "samples_seconds": [
+        0.46208400000614347,
+        0.45054079099645605,
+        0.47071000000141794,
+        0.454581916994357,
+        0.4711980419961037
+      ]
+    },
+    "debye_pressure_array": {
+      "checksum": 525667.7793599019,
+      "description": "10000 volume-temperature states",
+      "maximum_seconds": 0.0681405419963994,
+      "median_seconds": 0.06773749999410938,
+      "minimum_seconds": 0.06756833299732534,
+      "samples_seconds": [
+        0.0681405419963994,
+        0.06772045799880289,
+        0.06756833299732534,
+        0.06773749999410938,
+        0.068090624998149
+      ]
+    },
+    "fit_rt_errors_in_variables": {
+      "checksum": 134.05591002371412,
+      "description": "100 observations with latent volumes",
+      "maximum_seconds": 0.0058969169986085035,
+      "median_seconds": 0.005549292000068817,
+      "minimum_seconds": 0.005492707998200785,
+      "samples_seconds": [
+        0.005549292000068817,
+        0.005513834003068041,
+        0.0058969169986085035,
+        0.005492707998200785,
+        0.00555795800028136
+      ]
+    },
+    "fit_rt_ordinary": {
+      "checksum": 134.3,
+      "description": "100 observations",
+      "maximum_seconds": 0.0004563749971566722,
+      "median_seconds": 0.00040016700222622603,
+      "minimum_seconds": 0.00039649999962421134,
+      "samples_seconds": [
+        0.0004563749971566722,
+        0.0004229589976603165,
+        0.0003987079981015995,
+        0.00040016700222622603,
+        0.00039649999962421134
+      ]
+    },
+    "sokolova_pressure_array": {
+      "checksum": 13044.902153493886,
+      "description": "100 volume-temperature states",
+      "maximum_seconds": 0.06063075000565732,
+      "median_seconds": 0.05986062499869149,
+      "minimum_seconds": 0.059427375002996996,
+      "samples_seconds": [
+        0.05985112499911338,
+        0.06000741699972423,
+        0.06063075000565732,
+        0.05986062499869149,
+        0.059427375002996996
+      ]
+    },
+    "uncertainty_linear_pressure": {
+      "checksum": 493.78858477570634,
+      "description": "1000 states and two uncertain parameters",
+      "maximum_seconds": 0.0002522080030757934,
+      "median_seconds": 0.00023220799630507827,
+      "minimum_seconds": 0.00022404199989978224,
+      "samples_seconds": [
+        0.0002522080030757934,
+        0.00023220799630507827,
+        0.00022849999368190765,
+        0.00024070799554465339,
+        0.00022404199989978224
+      ]
+    },
+    "uncertainty_monte_carlo_pressure": {
+      "checksum": 1.44804975635217,
+      "description": "2000 samples at three states",
+      "maximum_seconds": 0.038782374998845626,
+      "median_seconds": 0.03855870800180128,
+      "minimum_seconds": 0.03788341600011336,
+      "samples_seconds": [
+        0.038782374998845626,
+        0.03788341600011336,
+        0.03855870800180128,
+        0.03822258299624082,
+        0.038692249996529426
+      ]
+    }
+  },
+  "environment": {
+    "machine": "arm64",
+    "numpy": "2.5.2",
+    "peritheos": "0.5.0",
+    "platform": "macOS-26.5.2-arm64-arm-64bit-Mach-O",
+    "python": "3.13.5",
+    "python_implementation": "CPython",
+    "scipy": "1.18.1"
+  },
+  "quick": false,
+  "repeats": 5,
+  "schema_version": 1
+}
