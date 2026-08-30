@@ -5,6 +5,8 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-08-30
+
 ### Added
 
 - A comprehensive equation reference for every public isothermal and thermal
@@ -31,6 +33,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Refreshed the locked runtime, development, documentation, and release
+  dependencies to their latest versions compatible with the supported Python
+  and declared package-version ranges.
+- The minimum supported SciPy version is now 1.9.3, ensuring a stable binary
+  installation and numerical fitting path on Python 3.9 across supported
+  platforms.
 - Documentation now uses Material for MkDocs with responsive navigation,
   improved search and code presentation, and automatic light and dark themes.
 - The model overview now focuses on model selection and reference-EOS
@@ -134,7 +142,8 @@ All notable changes to Peritheos are documented here. The project follows
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/CPrescher/peritheos/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/CPrescher/peritheos/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/CPrescher/peritheos/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/CPrescher/peritheos/releases/tag/v0.2.0
