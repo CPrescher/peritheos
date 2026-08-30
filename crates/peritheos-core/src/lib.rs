@@ -5,6 +5,10 @@
 //! methods. Working units follow the public Peritheos conventions.
 
 mod error;
+mod root;
+mod validation;
+
+pub mod isothermal;
 
 pub use error::EosError;
 
@@ -38,7 +42,9 @@ pub trait IsothermalEos {
     ///
     /// Returns an error when pressure is invalid or the requested root cannot
     /// be bracketed and converged on the supported branch.
-    fn volume(&self, pressure: f64) -> EosResult<f64>;
+    fn volume(&self, pressure: f64) -> EosResult<f64> {
+        root::solve_volume(self, pressure)
+    }
 }
 
 /// Common mechanical behavior of a thermal equation of state.
