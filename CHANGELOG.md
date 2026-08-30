@@ -32,6 +32,10 @@ All notable changes to Peritheos are documented here. The project follows
 - Birch-Murnaghan kernels now use an algebraically equivalent cube-root form,
   and large independent EOS arrays use deterministic thresholded parallel
   evaluation while the Python interpreter lock is released.
+- Holzapfel bulk-modulus derivatives now execute directly in Rust, obsolete
+  Python natural-strain coefficient formulas are removed, and the historical
+  coefficient-level Holzapfel helper remains available through a Rust-backed
+  compatibility wrapper.
 
 ## [0.5.0] - 2026-08-30
 

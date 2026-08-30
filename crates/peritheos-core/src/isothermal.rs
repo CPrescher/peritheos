@@ -594,3 +594,45 @@ impl IsothermalEos for Holzapfel {
         )
     }
 }
+
+/// Evaluate the legacy Sokolova-workbook analytical Holzapfel derivative.
+///
+/// This coefficient-level function exists to preserve the historical Python
+/// helper. New code should construct [`Holzapfel`] and call
+/// [`Holzapfel::bulk_modulus_derivative`] instead.
+///
+/// # Errors
+///
+/// Returns an error for invalid inputs or a non-finite result.
+pub fn holzapfel_bulk_modulus_derivative_analytical(
+    v0: f64,
+    volume: f64,
+    bulk_modulus: f64,
+    k0: f64,
+    c0: f64,
+    c2: f64,
+) -> EosResult<f64> {
+    let v0 = positive_parameter(v0, "V0")?;
+    let volume = positive_state(volume, "volume")?;
+    let bulk_modulus = finite_parameter(bulk_modulus, "KT")?;
+    let k0 = positive_parameter(k0, "K0")?;
+    let c0 = finite_parameter(c0, "c0")?;
+    let c2 = finite_parameter(c2, "c2")?;
+    let x = (volume / v0).cbrt();
+    let correction = 1.0 + c2 * x - c2 * x * x;
+    let common = (-5.0 / x.powi(2) + 4.0 / x) * correction - (1.0 / x - 1.0) * correction * c0
+        + (1.0 / x - 1.0) * (c2 - 2.0 * c2 * x);
+    let exponential = (c0 * (1.0 - x)).exp();
+    let term_1 = 3.0 / x.powi(4) * k0 * exponential * common;
+    let term_2 = k0 * exponential * c0 * common / x.powi(3);
+    let term_3 = k0
+        * exponential
+        * ((10.0 / x.powi(3) - 4.0 / x.powi(2)) * correction
+            + (-5.0 / x.powi(2) + 4.0 / x) * (c2 - 2.0 * c2 * x)
+            + c0 / x.powi(2) * correction
+            - (1.0 / x - 1.0) * (c2 - 2.0 * c2 * x) * c0
+            - (c2 - 2.0 * c2 * x) / x.powi(2)
+            - 2.0 * c2 * (1.0 / x - 1.0))
+        / x.powi(3);
+    finite_result((term_1 + term_2 - term_3) / (-bulk_modulus / x) / 3.0)
+}

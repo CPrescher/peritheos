@@ -5,8 +5,8 @@ mod native_fit;
 use numpy::ndarray::ArrayD;
 use numpy::{IntoPyArray, PyArrayDyn, PyReadonlyArrayDyn};
 use peritheos_core::isothermal::{
-    Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
-    BM3, BM4,
+    holzapfel_bulk_modulus_derivative_analytical, Holzapfel, ModifiedTait, Murnaghan,
+    NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2, BM3, BM4,
 };
 use peritheos_core::thermal::{
     MieGruneisenDebye, MieGruneisenEinstein, Sokolova2016, SokolovaParameters, ThermalModifiedTait,
@@ -217,6 +217,17 @@ impl PyRtEos {
         self.model.bulk_modulus(volume).map_err(to_python_error)
     }
 
+    fn bulk_modulus_derivative_scalar(&self, volume: f64, epsilon: f64) -> PyResult<f64> {
+        match self.model {
+            RtModel::Holzapfel(model) => model
+                .bulk_modulus_derivative(volume, epsilon)
+                .map_err(to_python_error),
+            _ => Err(PyNotImplementedError::new_err(
+                "bulk-modulus derivative is only defined for Holzapfel",
+            )),
+        }
+    }
+
     fn volume_scalar(&self, pressure: f64) -> PyResult<f64> {
         self.model.volume(pressure).map_err(to_python_error)
     }
@@ -238,6 +249,22 @@ impl PyRtEos {
     ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
         map_array(py, volumes, PARALLEL_ELEMENTWISE_THRESHOLD, |volume| {
             self.model.bulk_modulus(volume)
+        })
+    }
+
+    fn bulk_modulus_derivative_array<'py>(
+        &self,
+        py: Python<'py>,
+        volumes: PyReadonlyArrayDyn<'py, f64>,
+        epsilon: f64,
+    ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
+        let RtModel::Holzapfel(model) = self.model else {
+            return Err(PyNotImplementedError::new_err(
+                "bulk-modulus derivative is only defined for Holzapfel",
+            ));
+        };
+        map_array(py, volumes, PARALLEL_ELEMENTWISE_THRESHOLD, |volume| {
+            model.bulk_modulus_derivative(volume, epsilon)
         })
     }
 
@@ -950,6 +977,19 @@ fn monte_carlo_summary(
     })
 }
 
+#[pyfunction]
+fn holzapfel_derivative_analytical(
+    v0: f64,
+    volume: f64,
+    bulk_modulus: f64,
+    k0: f64,
+    c0: f64,
+    c2: f64,
+) -> PyResult<f64> {
+    holzapfel_bulk_modulus_derivative_analytical(v0, volume, bulk_modulus, k0, c0, c2)
+        .map_err(to_python_error)
+}
+
 #[pymodule]
 fn _rust(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_class::<PyRtEos>()?;
@@ -965,5 +1005,6 @@ fn _rust(module: &Bound<'_, PyModule>) -> PyResult<()> {
     )?)?;
     module.add_function(wrap_pyfunction!(linear_uncertainty, module)?)?;
     module.add_function(wrap_pyfunction!(monte_carlo_summary, module)?)?;
+    module.add_function(wrap_pyfunction!(holzapfel_derivative_analytical, module)?)?;
     Ok(())
 }

@@ -8,7 +8,7 @@ compatibility-ready Rust and Python release. Work stays on
 
 | Capability | Current owner | Completion work |
 |---|---|---|
-| Built-in isothermal, thermal, and caloric equations | Rust | Audit and remove obsolete Python duplicates |
+| Built-in isothermal, thermal, and caloric equations | Rust | Duplicate built-in formulas audited and removed; keep custom-model fallbacks isolated |
 | Scalar inversion and quadrature | Rust for built-ins; Python/SciPy for custom models | Preserve the explicit custom-model fallback |
 | NumPy array evaluation | PyO3 with Rust scalar kernels and thresholded Rayon | Public dependency-free Rust batch traits complete; broaden stress coverage |
 | Named-loss built-in fitting | Rust end to end | Public joint-fitting entry point complete; broaden parity cases |
