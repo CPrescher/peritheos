@@ -282,3 +282,33 @@ def test_native_least_squares_reports_evaluation_limit():
     assert result.status == 0
     assert result.nfev == 1
     assert result.jac.shape == (1, 1)
+
+
+def test_native_linear_uncertainty_matches_dense_reference():
+    jacobian = np.array([[1.0, 2.0], [-1.0, 0.5]])
+    parameter_covariance = np.array([[4.0, 0.5], [0.5, 1.0]])
+    state_variance = np.array([0.25, 0.0])
+
+    result = _rust.linear_uncertainty(
+        jacobian,
+        parameter_covariance,
+        state_variance,
+        full_covariance=True,
+    )
+    expected = jacobian @ parameter_covariance @ jacobian.T
+    expected += np.diag(state_variance)
+
+    assert result.variance == pytest.approx(np.diag(expected))
+    assert result.covariance == pytest.approx(expected)
+
+
+def test_native_monte_carlo_summary_matches_numpy():
+    samples = np.array(
+        [[1.0, 10.0], [2.0, 20.0], [3.0, 30.0], [4.0, 40.0]], dtype=float
+    )
+    result = _rust.monte_carlo_summary(samples, confidence=0.5, full_covariance=True)
+
+    assert result.standard_error == pytest.approx(samples.std(axis=0, ddof=1))
+    assert result.lower == pytest.approx(np.quantile(samples, 0.25, axis=0))
+    assert result.upper == pytest.approx(np.quantile(samples, 0.75, axis=0))
+    assert result.covariance == pytest.approx(np.cov(samples, rowvar=False, ddof=1))

@@ -136,6 +136,190 @@ pub struct SolverResult {
     pub jacobian_evaluations: usize,
 }
 
+/// Variance and optional full output covariance from delta-method propagation.
+#[derive(Clone, Debug, PartialEq)]
+pub struct LinearPropagation {
+    pub variance: Vec<f64>,
+    pub covariance: Option<Vec<f64>>,
+}
+
+/// Summary statistics for accepted Monte Carlo output samples.
+#[derive(Clone, Debug, PartialEq)]
+pub struct MonteCarloSummary {
+    pub standard_error: Vec<f64>,
+    pub lower: Vec<f64>,
+    pub upper: Vec<f64>,
+    pub covariance: Option<Vec<f64>>,
+}
+
+/// Propagate parameter covariance through an output-by-parameter Jacobian.
+///
+/// Independent state-variable contributions are supplied as a variance per
+/// output and are added to the diagonal of the output covariance.
+///
+/// # Errors
+///
+/// Returns an error for inconsistent dimensions or non-finite inputs.
+pub fn propagate_linear_uncertainty(
+    jacobian: &[f64],
+    output_count: usize,
+    parameter_count: usize,
+    parameter_covariance: &[f64],
+    state_variance: &[f64],
+    full_covariance: bool,
+) -> Result<LinearPropagation, FitError> {
+    if output_count == 0
+        || parameter_count == 0
+        || jacobian.len() != output_count * parameter_count
+        || parameter_covariance.len() != parameter_count * parameter_count
+        || state_variance.len() != output_count
+    {
+        return Err(FitError::InvalidInput(
+            "invalid dimensions for linear uncertainty propagation".to_owned(),
+        ));
+    }
+    if jacobian
+        .iter()
+        .chain(parameter_covariance)
+        .chain(state_variance)
+        .any(|value| !value.is_finite())
+    {
+        return Err(FitError::InvalidInput(
+            "linear uncertainty inputs must be finite".to_owned(),
+        ));
+    }
+    let mut transformed = vec![0.0; output_count * parameter_count];
+    for output in 0..output_count {
+        for right in 0..parameter_count {
+            transformed[output * parameter_count + right] = (0..parameter_count)
+                .map(|left| {
+                    jacobian[output * parameter_count + left]
+                        * parameter_covariance[left * parameter_count + right]
+                })
+                .sum();
+        }
+    }
+    let mut variance = vec![0.0; output_count];
+    for output in 0..output_count {
+        let parameter_variance = (0..parameter_count)
+            .map(|parameter| {
+                transformed[output * parameter_count + parameter]
+                    * jacobian[output * parameter_count + parameter]
+            })
+            .sum::<f64>();
+        variance[output] = (parameter_variance + state_variance[output]).max(0.0);
+    }
+    let covariance = full_covariance.then(|| {
+        let mut output_covariance = vec![0.0; output_count * output_count];
+        for left in 0..output_count {
+            for right in 0..output_count {
+                output_covariance[left * output_count + right] = (0..parameter_count)
+                    .map(|parameter| {
+                        transformed[left * parameter_count + parameter]
+                            * jacobian[right * parameter_count + parameter]
+                    })
+                    .sum();
+            }
+            output_covariance[left * output_count + left] += state_variance[left];
+        }
+        output_covariance
+    });
+    Ok(LinearPropagation {
+        variance,
+        covariance,
+    })
+}
+
+/// Summarize row-major Monte Carlo samples using sample variance (`ddof=1`).
+///
+/// Quantiles use the same linear interpolation convention as `NumPy`'s default.
+///
+/// # Errors
+///
+/// Returns an error for fewer than two samples, inconsistent dimensions,
+/// non-finite samples, or a confidence level outside `(0, 1)`.
+pub fn summarize_monte_carlo(
+    samples: &[f64],
+    sample_count: usize,
+    output_count: usize,
+    confidence: f64,
+    full_covariance: bool,
+) -> Result<MonteCarloSummary, FitError> {
+    if sample_count < 2
+        || output_count == 0
+        || samples.len() != sample_count * output_count
+        || !confidence.is_finite()
+        || !(0.0..1.0).contains(&confidence)
+        || samples.iter().any(|value| !value.is_finite())
+    {
+        return Err(FitError::InvalidInput(
+            "invalid Monte Carlo samples or confidence".to_owned(),
+        ));
+    }
+    let sample_count_f64 = f64::from(u32::try_from(sample_count).unwrap_or(u32::MAX));
+    let denominator = f64::from(u32::try_from(sample_count - 1).unwrap_or(u32::MAX));
+    let means: Vec<_> = (0..output_count)
+        .map(|output| {
+            (0..sample_count)
+                .map(|sample| samples[sample * output_count + output])
+                .sum::<f64>()
+                / sample_count_f64
+        })
+        .collect();
+    let mut standard_error = vec![0.0; output_count];
+    for output in 0..output_count {
+        standard_error[output] = ((0..sample_count)
+            .map(|sample| (samples[sample * output_count + output] - means[output]).powi(2))
+            .sum::<f64>()
+            / denominator)
+            .sqrt();
+    }
+    let tail = (1.0 - confidence) / 2.0;
+    let mut lower = vec![0.0; output_count];
+    let mut upper = vec![0.0; output_count];
+    for output in 0..output_count {
+        let mut column: Vec<_> = (0..sample_count)
+            .map(|sample| samples[sample * output_count + output])
+            .collect();
+        column.sort_by(f64::total_cmp);
+        lower[output] = linear_quantile(&column, tail);
+        upper[output] = linear_quantile(&column, 1.0 - tail);
+    }
+    let covariance = full_covariance.then(|| {
+        let mut matrix = vec![0.0; output_count * output_count];
+        for left in 0..output_count {
+            for right in 0..=left {
+                let value = (0..sample_count)
+                    .map(|sample| {
+                        (samples[sample * output_count + left] - means[left])
+                            * (samples[sample * output_count + right] - means[right])
+                    })
+                    .sum::<f64>()
+                    / denominator;
+                matrix[left * output_count + right] = value;
+                matrix[right * output_count + left] = value;
+            }
+        }
+        matrix
+    });
+    Ok(MonteCarloSummary {
+        standard_error,
+        lower,
+        upper,
+        covariance,
+    })
+}
+
+fn linear_quantile(sorted: &[f64], probability: f64) -> f64 {
+    let last_index = sorted.len() - 1;
+    let location = probability * f64::from(u32::try_from(last_index).unwrap_or(u32::MAX));
+    #[allow(clippy::cast_possible_truncation, clippy::cast_sign_loss)]
+    let lower_index = location.floor() as usize;
+    let upper_index = lower_index.saturating_add(1).min(last_index);
+    let fraction = location - f64::from(u32::try_from(lower_index).unwrap_or(u32::MAX));
+    sorted[lower_index] + fraction * (sorted[upper_index] - sorted[lower_index])
+}
+
 /// Solve a bounded nonlinear least-squares problem.
 ///
 /// # Errors
@@ -817,5 +1001,43 @@ mod tests {
         let jacobian = [1.0, 2.0, 3.0];
         let covariance = parameter_covariance(&jacobian, 3, 1, 1).unwrap();
         assert!((covariance[0] - 1.0 / 14.0).abs() < 1.0e-14);
+    }
+
+    #[test]
+    fn linear_uncertainty_matches_dense_matrix_product() {
+        let result = propagate_linear_uncertainty(
+            &[1.0, 2.0, -1.0, 0.5],
+            2,
+            2,
+            &[4.0, 0.5, 0.5, 1.0],
+            &[0.25, 0.0],
+            true,
+        )
+        .unwrap();
+
+        assert_eq!(result.variance, vec![10.25, 3.75]);
+        assert_eq!(result.covariance.unwrap(), vec![10.25, -3.75, -3.75, 3.75]);
+    }
+
+    #[test]
+    fn monte_carlo_summary_uses_sample_statistics_and_linear_quantiles() {
+        let summary = summarize_monte_carlo(
+            &[1.0, 10.0, 2.0, 20.0, 3.0, 30.0, 4.0, 40.0],
+            4,
+            2,
+            0.5,
+            true,
+        )
+        .unwrap();
+
+        let expected_error = (5.0_f64 / 3.0).sqrt();
+        assert!((summary.standard_error[0] - expected_error).abs() < 1.0e-14);
+        assert!((summary.standard_error[1] - 10.0 * expected_error).abs() < 1.0e-13);
+        assert_eq!(summary.lower, vec![1.75, 17.5]);
+        assert_eq!(summary.upper, vec![3.25, 32.5]);
+        assert_eq!(
+            summary.covariance.unwrap(),
+            vec![5.0 / 3.0, 50.0 / 3.0, 50.0 / 3.0, 500.0 / 3.0]
+        );
     }
 }

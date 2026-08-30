@@ -10,7 +10,10 @@ use peritheos_core::thermal::{
     MieGruneisenDebye, MieGruneisenEinstein, Sokolova2016, SokolovaParameters, ThermalModifiedTait,
 };
 use peritheos_core::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
-use peritheos_fit::{least_squares, FitError, Loss, SolverOptions};
+use peritheos_fit::{
+    least_squares, propagate_linear_uncertainty, summarize_monte_carlo, FitError,
+    LinearPropagation, Loss, MonteCarloSummary, SolverOptions,
+};
 use pyo3::exceptions::{
     PyArithmeticError, PyNotImplementedError, PyRuntimeError, PyTypeError, PyValueError,
 };
@@ -696,11 +699,157 @@ fn to_python_fit_error(error: FitError) -> PyErr {
     }
 }
 
+/// Private result of native delta-method covariance propagation.
+#[pyclass(
+    name = "LinearPropagation",
+    frozen,
+    module = "peritheos._rust",
+    skip_from_py_object
+)]
+#[derive(Clone, Debug, PartialEq)]
+struct PyLinearPropagation {
+    result: LinearPropagation,
+    output_count: usize,
+}
+
+#[pymethods]
+impl PyLinearPropagation {
+    #[getter]
+    fn variance<'py>(&self, py: Python<'py>) -> Bound<'py, PyArrayDyn<f64>> {
+        vector_array(py, self.result.variance.clone())
+    }
+
+    #[getter]
+    fn covariance<'py>(&self, py: Python<'py>) -> PyResult<Option<Bound<'py, PyArrayDyn<f64>>>> {
+        let Some(values) = &self.result.covariance else {
+            return Ok(None);
+        };
+        let output = ArrayD::from_shape_vec(
+            numpy::ndarray::IxDyn(&[self.output_count, self.output_count]),
+            values.clone(),
+        )
+        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        Ok(Some(output.into_pyarray(py)))
+    }
+}
+
+#[pyfunction]
+#[pyo3(signature = (jacobian, covariance, state_variance, full_covariance=false))]
+fn linear_uncertainty(
+    jacobian: PyReadonlyArrayDyn<'_, f64>,
+    covariance: PyReadonlyArrayDyn<'_, f64>,
+    state_variance: PyReadonlyArrayDyn<'_, f64>,
+    full_covariance: bool,
+) -> PyResult<PyLinearPropagation> {
+    let jacobian_view = jacobian.as_array();
+    if jacobian_view.ndim() != 2 {
+        return Err(PyValueError::new_err("jacobian must be two-dimensional"));
+    }
+    let output_count = jacobian_view.shape()[0];
+    let parameter_count = jacobian_view.shape()[1];
+    let jacobian_values = jacobian_view.iter().copied().collect::<Vec<_>>();
+    let covariance_values = covariance.as_array().iter().copied().collect::<Vec<_>>();
+    let state_values = state_variance
+        .as_array()
+        .iter()
+        .copied()
+        .collect::<Vec<_>>();
+    let result = propagate_linear_uncertainty(
+        &jacobian_values,
+        output_count,
+        parameter_count,
+        &covariance_values,
+        &state_values,
+        full_covariance,
+    )
+    .map_err(to_python_fit_error)?;
+    Ok(PyLinearPropagation {
+        result,
+        output_count,
+    })
+}
+
+/// Private result of native Monte Carlo summary statistics.
+#[pyclass(
+    name = "MonteCarloSummary",
+    frozen,
+    module = "peritheos._rust",
+    skip_from_py_object
+)]
+#[derive(Clone, Debug, PartialEq)]
+struct PyMonteCarloSummary {
+    result: MonteCarloSummary,
+    output_count: usize,
+}
+
+#[pymethods]
+impl PyMonteCarloSummary {
+    #[getter]
+    fn standard_error<'py>(&self, py: Python<'py>) -> Bound<'py, PyArrayDyn<f64>> {
+        vector_array(py, self.result.standard_error.clone())
+    }
+
+    #[getter]
+    fn lower<'py>(&self, py: Python<'py>) -> Bound<'py, PyArrayDyn<f64>> {
+        vector_array(py, self.result.lower.clone())
+    }
+
+    #[getter]
+    fn upper<'py>(&self, py: Python<'py>) -> Bound<'py, PyArrayDyn<f64>> {
+        vector_array(py, self.result.upper.clone())
+    }
+
+    #[getter]
+    fn covariance<'py>(&self, py: Python<'py>) -> PyResult<Option<Bound<'py, PyArrayDyn<f64>>>> {
+        let Some(values) = &self.result.covariance else {
+            return Ok(None);
+        };
+        let output = ArrayD::from_shape_vec(
+            numpy::ndarray::IxDyn(&[self.output_count, self.output_count]),
+            values.clone(),
+        )
+        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        Ok(Some(output.into_pyarray(py)))
+    }
+}
+
+#[pyfunction]
+#[pyo3(signature = (samples, confidence, full_covariance=false))]
+fn monte_carlo_summary(
+    samples: PyReadonlyArrayDyn<'_, f64>,
+    confidence: f64,
+    full_covariance: bool,
+) -> PyResult<PyMonteCarloSummary> {
+    let view = samples.as_array();
+    if view.ndim() != 2 {
+        return Err(PyValueError::new_err("samples must be two-dimensional"));
+    }
+    let sample_count = view.shape()[0];
+    let output_count = view.shape()[1];
+    let values = view.iter().copied().collect::<Vec<_>>();
+    let result = summarize_monte_carlo(
+        &values,
+        sample_count,
+        output_count,
+        confidence,
+        full_covariance,
+    )
+    .map_err(to_python_fit_error)?;
+    Ok(PyMonteCarloSummary {
+        result,
+        output_count,
+    })
+}
+
 #[pymodule]
 fn _rust(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_class::<PyRtEos>()?;
     module.add_class::<PyThermalEos>()?;
     module.add_class::<PyLeastSquaresResult>()?;
+    module.add_class::<PyLinearPropagation>()?;
+    module.add_class::<PyMonteCarloSummary>()?;
     module.add_function(wrap_pyfunction!(fit_least_squares, module)?)?;
+    module.add_function(wrap_pyfunction!(linear_uncertainty, module)?)?;
+    module.add_function(wrap_pyfunction!(monte_carlo_summary, module)?)?;
     Ok(())
 }
