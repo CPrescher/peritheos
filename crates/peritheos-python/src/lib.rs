@@ -11,8 +11,8 @@ use peritheos_core::thermal::{
 };
 use peritheos_core::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use peritheos_fit::{
-    least_squares, propagate_linear_uncertainty, summarize_monte_carlo, FitError,
-    LinearPropagation, Loss, MonteCarloSummary, SolverOptions,
+    least_squares, least_squares_structured, propagate_linear_uncertainty, summarize_monte_carlo,
+    FitError, LinearPropagation, Loss, MonteCarloSummary, SolverOptions, StructuredLayout,
 };
 use pyo3::exceptions::{
     PyArithmeticError, PyNotImplementedError, PyRuntimeError, PyTypeError, PyValueError,
@@ -652,7 +652,11 @@ fn vector_array(py: Python<'_>, values: Vec<f64>) -> Bound<'_, PyArrayDyn<f64>> 
 }
 
 #[pyfunction]
-#[pyo3(signature = (residual_function, initial, lower, upper, loss="linear", f_scale=1.0, max_nfev=None))]
+#[pyo3(signature = (
+    residual_function, initial, lower, upper, loss="linear", f_scale=1.0,
+    max_nfev=None, global_parameter_count=None, point_count=None,
+    latent_coordinate_count=None
+))]
 #[allow(clippy::too_many_arguments)]
 fn fit_least_squares<'py>(
     py: Python<'py>,
@@ -663,6 +667,9 @@ fn fit_least_squares<'py>(
     loss: &str,
     f_scale: f64,
     max_nfev: Option<usize>,
+    global_parameter_count: Option<usize>,
+    point_count: Option<usize>,
+    latent_coordinate_count: Option<usize>,
 ) -> PyResult<PyLeastSquaresResult> {
     let initial = initial.as_array().iter().copied().collect::<Vec<_>>();
     let lower = lower.as_array().iter().copied().collect::<Vec<_>>();
@@ -673,7 +680,7 @@ fn fit_least_squares<'py>(
         max_evaluations: max_nfev,
         ..SolverOptions::default()
     };
-    let result = least_squares(&initial, &lower, &upper, options, |parameters| {
+    let evaluator = |parameters: &[f64]| {
         let argument = vector_array(py, parameters.to_vec());
         let result = residual_function
             .call1((argument,))
@@ -682,7 +689,27 @@ fn fit_least_squares<'py>(
             .extract::<PyReadonlyArrayDyn<'_, f64>>()
             .map_err(|error| FitError::Evaluation(error.to_string()))?;
         Ok(array.as_array().iter().copied().collect())
-    })
+    };
+    let layout = match (global_parameter_count, point_count, latent_coordinate_count) {
+        (None, None, None) => None,
+        (Some(global_parameter_count), Some(point_count), Some(latent_coordinate_count)) => {
+            Some(StructuredLayout {
+                global_parameter_count,
+                point_count,
+                latent_coordinate_count,
+            })
+        }
+        _ => {
+            return Err(PyValueError::new_err(
+                "all structured least-squares dimensions must be supplied together",
+            ));
+        }
+    };
+    let result = if let Some(layout) = layout {
+        least_squares_structured(&initial, &lower, &upper, options, layout, evaluator)
+    } else {
+        least_squares(&initial, &lower, &upper, options, evaluator)
+    }
     .map_err(to_python_fit_error)?;
     Ok(PyLeastSquaresResult {
         result,

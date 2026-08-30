@@ -22,6 +22,9 @@ All notable changes to Peritheos are documented here. The project follows
   now use native numerical kernels. Custom reference EOS classes, callable
   fitting losses, and NumPy-seeded Monte Carlo draws retain documented
   compatibility paths.
+- Errors-in-variables fits now use colored latent-coordinate Jacobians and a
+  block Schur-complement solve, with stress coverage for large and rank-deficient
+  datasets.
 
 ## [0.5.0] - 2026-08-30
 

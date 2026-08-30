@@ -11,7 +11,7 @@ from typing import TYPE_CHECKING, Any, Callable
 import numpy as np
 from numpy.typing import NDArray
 from scipy.optimize import least_squares
-from scipy.sparse import issparse, lil_matrix
+from scipy.sparse import csr_matrix, issparse, lil_matrix
 from scipy.sparse.linalg import spsolve
 
 from peritheos import _rust
@@ -514,6 +514,13 @@ def _fit_model(
         return np.concatenate(residual_parts)
 
     if isinstance(loss, str):
+        native_options = {}
+        if adjusted_names:
+            native_options = {
+                "global_parameter_count": len(names),
+                "point_count": observed.size,
+                "latent_coordinate_count": len(adjusted_names),
+            }
         optimization = _rust.fit_least_squares(
             residual_function,
             x0,
@@ -522,6 +529,7 @@ def _fit_model(
             loss=loss,
             f_scale=f_scale,
             max_nfev=max_nfev,
+            **native_options,
         )
     else:
         # Callable robust losses are an intentional compatibility fallback:
@@ -549,7 +557,10 @@ def _fit_model(
         chi_square / degrees_of_freedom if degrees_of_freedom > 0 else np.nan
     )
 
-    covariance = _parameter_covariance(optimization.jac, len(names))
+    covariance_jacobian = optimization.jac
+    if adjusted_names and isinstance(loss, str):
+        covariance_jacobian = csr_matrix(covariance_jacobian)
+    covariance = _parameter_covariance(covariance_jacobian, len(names))
     if scale_covariance and degrees_of_freedom > 0:
         covariance *= reduced_chi_square
     errors = np.sqrt(np.maximum(np.diag(covariance), 0.0))

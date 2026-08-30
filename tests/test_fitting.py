@@ -131,6 +131,27 @@ def test_bm2_fit_matches_closed_form_weighted_least_squares():
     assert np.isclose(result.covariance[0, 0], expected_variance, rtol=1.0e-6)
 
 
+def test_rank_deficient_fit_returns_finite_pseudoinverse_covariance():
+    expected = BM3(10.0, 120.0, 4.3)
+    volumes = np.full(12, 9.0)
+    pressures = expected.pressure(volumes)
+
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        pressures,
+        initial={"K0": 100.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+        pressure_sigma=0.1,
+        absolute_sigma=True,
+    )
+
+    assert result.success
+    assert result.model.pressure(9.0) == pytest.approx(pressures[0])
+    assert np.all(np.isfinite(result.covariance))
+    assert np.linalg.eigvalsh(result.covariance).min() >= -1.0e-12
+
+
 def test_fit_rt_eos_handles_pressure_and_volume_uncertainties():
     expected = BM3(10.0, 120.0, 4.3)
     true_volumes = np.linspace(8.0, 10.5, 20)
@@ -156,6 +177,31 @@ def test_fit_rt_eos_handles_pressure_and_volume_uncertainties():
     assert result.temperature_corrections is None
     assert result.weighted_residuals.size == 2 * pressures.size
     assert result.degrees_of_freedom == pressures.size - 2
+
+
+def test_large_latent_volume_fit_uses_structured_native_path():
+    expected = BM3(10.0, 120.0, 4.3)
+    true_volumes = np.linspace(8.0, 10.5, 1000)
+    measured_volumes = true_volumes + 0.002 * np.sin(np.arange(true_volumes.size))
+    pressures = expected.pressure(true_volumes)
+
+    result = fit_rt_eos(
+        BM3,
+        measured_volumes,
+        pressures,
+        initial={"K0": 110.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+        pressure_sigma=0.01,
+        volume_sigma=0.005,
+        absolute_sigma=True,
+        max_nfev=200,
+    )
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(expected.K0, rel=1.0e-3)
+    assert result.parameters["K0_prime"] == pytest.approx(expected.K0_prime, rel=1.0e-3)
+    assert result.weighted_residuals.size == 2000
+    assert result.covariance.shape == (2, 2)
 
 
 def test_observation_covariance_matches_independent_rt_uncertainties():

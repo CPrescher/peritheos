@@ -283,6 +283,15 @@ def test_native_least_squares_reports_evaluation_limit():
     assert result.nfev == 1
     assert result.jac.shape == (1, 1)
 
+    with pytest.raises(ValueError, match="dimensions"):
+        _rust.fit_least_squares(
+            lambda parameters: np.array([parameters[0]]),
+            np.array([0.0]),
+            np.array([-1.0]),
+            np.array([1.0]),
+            global_parameter_count=1,
+        )
+
 
 def test_native_linear_uncertainty_matches_dense_reference():
     jacobian = np.array([[1.0, 2.0], [-1.0, 0.5]])

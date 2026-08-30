@@ -212,10 +212,13 @@ only when they wrap a user-defined `EosBase` implementation.
 The public fitting functions use the `peritheos-fit` bounded solver for all
 five named loss functions. Their validation, latent-variable residual model,
 correlated-observation whitening, result construction, and JSON schema remain
-in the Python compatibility layer. Callable Python losses intentionally retain
-SciPy's solver. Delta-method matrix propagation and accepted Monte Carlo sample
-statistics are native; NumPy retains seeded random draws and Python retains
-model reconstruction and invalid-sample rejection.
+in the Python compatibility layer. Errors-in-variables fits use a structured
+native path: simultaneous finite-difference coloring evaluates all points for
+one latent coordinate together, and observation-local normal blocks are
+profiled through a Schur complement. Callable Python losses intentionally
+retain SciPy's solver. Delta-method matrix propagation and accepted Monte Carlo
+sample statistics are native; NumPy retains seeded random draws and Python
+retains model reconstruction and invalid-sample rejection.
 
 These boundaries preserve extensibility without duplicating built-in equations
 or changing a scientific convention. The branch must remain unmerged until its
