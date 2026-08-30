@@ -13,6 +13,8 @@ All notable changes to Peritheos are documented here. The project follows
   isothermal and thermal model families.
 - Multi-platform native-wheel release jobs for supported CPython versions on
   Linux x86-64/ARM64, macOS Intel/Apple Silicon, and Windows x86-64.
+- Pull-request wheel build and isolated-install smoke tests on Linux, macOS,
+  and Windows, complementing the full tagged-release wheel matrix.
 - Dependency-free public Rust batch traits, typed joint EOS fitting, and
   model-aware linear and Monte Carlo uncertainty entry points.
 - Package-contained scientific fixtures and a two-crate archive verifier that

@@ -96,6 +96,11 @@ manylinux x86-64 and ARM64, macOS Intel and Apple Silicon, and Windows x86-64.
 It builds the source distribution separately and smoke-tests an installed
 wheel outside the checkout before publication.
 
+Pull-request CI also builds and installs a real Python 3.13 wheel outside the
+checkout on Linux, macOS, and Windows. This catches artifact composition,
+platform tagging, and dynamic-library loading failures that an editable native
+test environment would not expose.
+
 ## Adding an isothermal EOS
 
 Subclass `EosBase`, validate `V0` and modulus parameters using the shared
