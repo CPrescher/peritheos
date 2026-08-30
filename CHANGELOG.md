@@ -17,6 +17,8 @@ All notable changes to Peritheos are documented here. The project follows
   model-aware linear and Monte Carlo uncertainty entry points.
 - Package-contained scientific fixtures and a two-crate archive verifier that
   tests the required core-before-fit crates.io publication sequence.
+- A pinned Rust dependency-source and SPDX-license audit covering the supported
+  Linux, macOS, and Windows target graphs.
 
 ### Changed
 
