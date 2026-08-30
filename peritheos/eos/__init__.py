@@ -9,8 +9,18 @@ import numpy as np
 from numpy.typing import NDArray
 from scipy import optimize
 
+from peritheos import _rust as _rust
+
 # Type alias for numeric values (scalar or array)
 NumericType = Union[float, NDArray[np.float64]]
+
+
+def _native_rt_evaluate(native, quantity: str, values: NumericType) -> NumericType:
+    """Evaluate a private native RT model while preserving NumPy shape semantics."""
+    array = np.asarray(values, dtype=float)
+    if array.ndim == 0:
+        return float(getattr(native, f"{quantity}_scalar")(float(array)))
+    return np.asarray(getattr(native, f"{quantity}_array")(array), dtype=float)
 
 
 def validate_finite_scalar(value: float, name: str) -> float:
@@ -348,6 +358,9 @@ class EosBase:
         pressures = np.asarray(P, dtype=float)
         if not np.all(np.isfinite(pressures)):
             raise ValueError("Pressure must be finite")
+        native = getattr(self, "_native", None)
+        if native is not None:
+            return _native_rt_evaluate(native, "volume", pressures)
         if pressures.ndim == 0:
             return solve_volume(self.pressure, float(pressures), self.V0)
         return np.array(

@@ -3,7 +3,7 @@ use crate::{EosError, EosResult, IsothermalEos};
 
 const MAX_BRACKET_ITERATIONS: usize = 160;
 const MAX_BISECTION_ITERATIONS: usize = 256;
-const RELATIVE_ROOT_TOLERANCE: f64 = 1.0e-12;
+const RELATIVE_ROOT_TOLERANCE: f64 = 1.0e-14;
 const RESIDUAL_TOLERANCE: f64 = 1.0e-8;
 
 pub(crate) fn solve_volume<E>(eos: &E, pressure: f64) -> EosResult<f64>
@@ -80,6 +80,7 @@ where
     };
 
     let absolute_tolerance = (f64::EPSILON * reference_volume).max(1.0e-14);
+    let solver_pressure_tolerance = 8.0 * f64::EPSILON * target.abs().max(1.0);
     let result = bisect_bracket(
         &mut pressure_function,
         target,
@@ -88,7 +89,7 @@ where
         upper,
         upper_residual,
         absolute_tolerance,
-        pressure_tolerance,
+        solver_pressure_tolerance,
     )?;
     check_residual(&mut pressure_function, target, result)
 }
@@ -154,6 +155,7 @@ where
     }
 
     let absolute_tolerance = f64::EPSILON * reference_temperature.max(1.0);
+    let solver_pressure_tolerance = 8.0 * f64::EPSILON * target.abs().max(1.0);
     let mut roots = Vec::with_capacity(brackets.len());
     for (bracket_lower, lower_value, bracket_upper, upper_value) in brackets {
         roots.push(bisect_bracket(
@@ -164,7 +166,7 @@ where
             bracket_upper,
             upper_value,
             absolute_tolerance,
-            pressure_tolerance,
+            solver_pressure_tolerance,
         )?);
     }
     let result = roots

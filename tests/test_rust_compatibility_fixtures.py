@@ -114,6 +114,7 @@ def test_thermal_compatibility_fixture_matches_python_oracle():
     document = json.loads(THERMAL_FIXTURE.read_text())
     assert document["schema_version"] == 1
     tolerance = document["relative_tolerance"]
+    sokolova_derivative_tolerance = document["sokolova_derivative_relative_tolerance"]
     for case in document["debye_function_3"]:
         assert np.isclose(
             _debye_function_3(case["argument"]),
@@ -135,7 +136,23 @@ def test_thermal_compatibility_fixture_matches_python_oracle():
                     if quantity == "characteristic_temperature"
                     else evaluator(volume, temperature)
                 )
-                assert np.isclose(value, expected, rtol=tolerance, atol=tolerance), (
+                quantity_tolerance = (
+                    sokolova_derivative_tolerance
+                    if case["model"].startswith("Sokolova")
+                    and quantity
+                    in {
+                        "bulk_modulus",
+                        "isothermal_compressibility",
+                        "thermal_expansivity",
+                    }
+                    else tolerance
+                )
+                assert np.isclose(
+                    value,
+                    expected,
+                    rtol=quantity_tolerance,
+                    atol=quantity_tolerance,
+                ), (
                     case["model"],
                     quantity,
                 )

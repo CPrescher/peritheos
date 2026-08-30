@@ -1,10 +1,10 @@
 """Murnaghan equation of state."""
 
-import numpy as np
-
 from peritheos.eos import (
     EosBase,
     NumericType,
+    _native_rt_evaluate,
+    _rust,
     validate_finite_scalar,
     validate_positive_scalar,
     validate_volume,
@@ -43,18 +43,14 @@ class Murnaghan(EosBase):
         self.V0 = validate_positive_scalar(V0, "V0")
         self.K0 = validate_positive_scalar(K0, "K0")
         self.K0_prime = validate_finite_scalar(K0_prime, "K0_prime")
+        self._native = _rust.RtEos.murnaghan(self.V0, self.K0, self.K0_prime)
 
     def pressure(self, V: NumericType) -> NumericType:
         """Return pressure at volume *V* in the same units as ``K0``."""
         V = validate_volume(V)
-        logarithmic_compression = np.log(self.V0 / V)
-        if self.K0_prime == 0.0:
-            return self.K0 * logarithmic_compression
-        return (
-            self.K0 * np.expm1(self.K0_prime * logarithmic_compression) / self.K0_prime
-        )
+        return _native_rt_evaluate(self._native, "pressure", V)
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """Return the isothermal bulk modulus at volume *V*."""
         V = validate_volume(V)
-        return self.K0 * np.exp(self.K0_prime * np.log(self.V0 / V))
+        return _native_rt_evaluate(self._native, "bulk_modulus", V)

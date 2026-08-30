@@ -16,6 +16,12 @@ from peritheos.eos.rt import (
     NaturalStrain4,
     Vinet,
 )
+from peritheos.eos.thermal import (
+    MieGruneisenDebye,
+    MieGruneisenEinstein,
+    Sokolova2016,
+    ThermalModifiedTait,
+)
 
 
 @pytest.mark.parametrize(
@@ -84,3 +90,141 @@ def test_native_binding_preserves_error_categories():
         model.pressure_scalar(0.0)
     with pytest.raises(ValueError):
         model.volume_scalar(-100.0)
+
+
+@pytest.mark.parametrize(
+    ("python_model", "native_model", "caloric"),
+    [
+        (
+            MieGruneisenDebye(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
+            _rust.ThermalEos.mie_gruneisen_debye(
+                _rust.RtEos.bm3(1.0, 160.0, 4.0),
+                300.0,
+                800.0,
+                1.5,
+                1.0,
+                2.0,
+            ),
+            True,
+        ),
+        (
+            MieGruneisenEinstein(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
+            _rust.ThermalEos.mie_gruneisen_einstein(
+                _rust.RtEos.bm3(1.0, 160.0, 4.0),
+                300.0,
+                800.0,
+                1.5,
+                1.0,
+                2.0,
+            ),
+            True,
+        ),
+        (
+            ThermalModifiedTait(
+                ModifiedTait(1.0, 160.0, 4.0, -0.01),
+                298.15,
+                700.0,
+                2.5e-5,
+                2.0,
+            ),
+            _rust.ThermalEos.thermal_modified_tait(
+                _rust.RtEos.modified_tait(1.0, 160.0, 4.0, -0.01),
+                298.15,
+                700.0,
+                2.5e-5,
+                2.0,
+            ),
+            True,
+        ),
+        (
+            Sokolova2016(
+                Holzapfel(0.3414, 441.5, 3.9, 1.0, 6.0),
+                298.15,
+                684.0,
+                0.564,
+                1561.0,
+                2.436,
+                -0.506,
+                1.085,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ),
+            _rust.ThermalEos.sokolova2016(
+                _rust.RtEos.holzapfel(0.3414, 441.5, 3.9, 1.0, 6.0),
+                298.15,
+                684.0,
+                0.564,
+                1561.0,
+                2.436,
+                -0.506,
+                1.085,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ),
+            False,
+        ),
+    ],
+)
+def test_native_thermal_binding_matches_python(python_model, native_model, caloric):
+    volumes, temperatures = np.broadcast_arrays(
+        python_model.rt_eos.V0 * np.array([[0.8], [0.9]]),
+        np.array([[800.0, 1800.0]]),
+    )
+    expected_pressure = python_model.pressure(volumes, temperatures)
+
+    assert np.allclose(
+        native_model.evaluate_array("thermal_pressure", volumes, temperatures),
+        python_model.thermal_pressure(volumes, temperatures),
+        rtol=3.0e-5,
+    )
+    assert np.allclose(
+        native_model.evaluate_array("pressure", volumes, temperatures),
+        expected_pressure,
+        rtol=3.0e-5,
+    )
+    recovered = native_model.evaluate_array("volume", expected_pressure, temperatures)
+    assert np.allclose(recovered, volumes, rtol=1.0e-9)
+
+    pressure = float(expected_pressure[0, 1])
+    volume = float(volumes[0, 1])
+    temperature = float(temperatures[0, 1])
+    assert np.isclose(
+        native_model.evaluate_scalar("temperature", pressure, volume),
+        temperature,
+        rtol=1.0e-9,
+    )
+    if caloric:
+        assert np.isclose(
+            native_model.evaluate_scalar("molar_heat_capacity_v", volume, temperature),
+            python_model.molar_heat_capacity_v(volume, temperature),
+            rtol=1.0e-9,
+        )
+    else:
+        with pytest.raises(NotImplementedError):
+            native_model.evaluate_scalar("molar_heat_capacity_v", volume, temperature)
+
+
+def test_native_thermal_binding_enforces_reference_model_types():
+    with pytest.raises(TypeError, match="ModifiedTait"):
+        _rust.ThermalEos.thermal_modified_tait(
+            _rust.RtEos.bm3(1.0, 160.0, 4.0), 298.15, 700.0, 2.5e-5, 2.0
+        )
+    with pytest.raises(TypeError, match="Holzapfel"):
+        _rust.ThermalEos.sokolova2016(
+            _rust.RtEos.bm3(1.0, 160.0, 4.0),
+            298.15,
+            684.0,
+            0.564,
+            1561.0,
+            2.436,
+            -0.506,
+            1.085,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+        )

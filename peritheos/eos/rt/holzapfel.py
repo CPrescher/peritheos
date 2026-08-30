@@ -3,6 +3,8 @@ import numpy as np
 from peritheos.eos import (
     EosBase,
     NumericType,
+    _native_rt_evaluate,
+    _rust,
     validate_finite_scalar,
     validate_positive_scalar,
     validate_volume,
@@ -47,6 +49,9 @@ class Holzapfel(EosBase):
         self._P_FG0 = 1003.6 * (self.Z * self.n / (self.V0 * 10)) ** (5 / 3)
         self._c0 = -np.log(3 * self.K0 / self._P_FG0)
         self._c2 = 1.5 * (self.K0_prime - 3) - self._c0
+        self._native = _rust.RtEos.holzapfel(
+            self.V0, self.K0, self.K0_prime, self.n, self.Z
+        )
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -63,14 +68,7 @@ class Holzapfel(EosBase):
             Pressure in [GPa]
         """
         V = validate_volume(V)
-        x = (V / self.V0) ** (1 / 3)
-        return (
-            3
-            * self.K0
-            * np.exp(self._c0 * (1 - x))
-            * (1 / x**5 - 1 / x**4)
-            * (1 + self._c2 * x - self._c2 * x**2)
-        )
+        return _native_rt_evaluate(self._native, "pressure", V)
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -87,14 +85,7 @@ class Holzapfel(EosBase):
             Bulk modulus in [GPa]
         """
         V = validate_volume(V)
-        x = (V / self.V0) ** (1 / 3)
-        term1 = self.K0 * x**-5 * np.exp(self._c0 * (1 - x))
-
-        bracket_1 = (5 - 4 * x) * (1 + self._c2 * x * (1 - x))
-        bracket_2 = self._c0 * x * (1 - x) * (1 + self._c2 * x * (1 - x))
-        bracket_3 = -(1 - x) * (self._c2 * x - 2 * self._c2 * x**2)
-        term2 = bracket_1 + bracket_2 + bracket_3
-        return term1 * term2
+        return _native_rt_evaluate(self._native, "bulk_modulus", V)
 
     def bulk_modulus_derivative(self, V: NumericType, eps: float = 1e-6) -> NumericType:
         """
