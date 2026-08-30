@@ -1,12 +1,14 @@
 # Peritheos benchmarks
 
-`python_baseline.py` records representative Python 0.5.x performance before
-the Rust migration. It intentionally uses only runtime dependencies and writes
-machine-readable JSON:
+`python_baseline.py` records representative end-to-end performance through the
+public Python API. The committed `backend: python` file captures Python 0.5.x
+before the Rust migration; new runs identify the active native backend and
+include conversion and FFI overhead. The script intentionally uses only
+runtime dependencies and writes machine-readable JSON:
 
 ```bash
 uv run python benchmarks/python_baseline.py \
-  --output benchmarks/baselines/python-0.5.0-macos-arm64.json
+  --output /tmp/peritheos-native-macos-arm64.json
 ```
 
 Use `--quick` for a smoke run. Full results are machine-specific evidence, not

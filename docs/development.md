@@ -9,6 +9,25 @@ uv run ruff format --check .
 uv run pytest -q -W error --cov --cov-report=term-missing
 ```
 
+The Python package contains a private PyO3 extension and therefore requires a
+Rust toolchain for editable or source installs. The workspace MSRV is Rust
+1.83; the release build uses maturin 1.15.
+
+Run the native gates directly with:
+
+```bash
+cargo fmt --all -- --check
+cargo clippy --workspace --all-targets --all-features -- -D warnings
+cargo test --workspace --all-features --locked
+```
+
+Python coverage omits `peritheos/eos/**` because those modules are facades over
+the PyO3 backend and contain retained custom-model compatibility paths. Their
+built-in numerical implementation is covered by the Rust unit, fixture,
+literature, and integration tests. Python coverage continues to enforce the
+90% branch-aware floor for fitting orchestration, uncertainty, units, and the
+rest of the Python layer.
+
 If the default uv cache is unavailable in a sandbox:
 
 ```bash
@@ -20,6 +39,33 @@ UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run pytest -q
 ```bash
 uv run --group docs mkdocs build --strict
 ```
+
+## Native architecture and compatibility paths
+
+`peritheos-core` owns all built-in isothermal, thermal, caloric, inversion, and
+quadrature calculations. `peritheos-fit` owns bounded robust least squares,
+covariance profiling, delta-method propagation, and Monte Carlo summary
+statistics. `peritheos-python` exposes these through the private
+`peritheos._rust` module; application code should continue importing the
+documented Python modules.
+
+Custom Python `EosBase` reference models retain the Python evaluation path.
+Callable fitting losses retain the SciPy solver because arbitrary Python loss
+functions cannot be represented by the native loss enum. Monte Carlo draws
+continue to use NumPy so seeded results and invalid-sample rejection remain
+compatible; accepted-sample statistics are native.
+
+## Building distributions
+
+```bash
+uv build
+uv run --group release twine check dist/*
+```
+
+Release CI builds interpreter-specific wheels for Python 3.9 through 3.14 on
+manylinux x86-64 and ARM64, macOS Intel and Apple Silicon, and Windows x86-64.
+It builds the source distribution separately and smoke-tests an installed
+wheel outside the checkout before publication.
 
 ## Adding an isothermal EOS
 

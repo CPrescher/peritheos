@@ -2,6 +2,10 @@
 
 A Python library for thermodynamic equations of state calculations for solid materials.
 
+Built-in EOS evaluation, inversion, bounded robust fitting, and uncertainty
+statistics are implemented in Rust and exposed through the unchanged Python API.
+NumPy broadcasting and user-defined `EosBase` subclasses remain supported.
+
 Full model, fitting, units, and development documentation is available at
 [peritheos.readthedocs.io](https://peritheos.readthedocs.io/).
 Release history is recorded in the [changelog](CHANGELOG.md).
@@ -26,6 +30,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Reproducible fit summaries and versioned JSON export
 - EOS prediction uncertainty from fitted covariance or published parameter errors
 - Thermoelastic derivatives, heat capacities, and vibrational potentials
+- Native wheels for supported CPython releases on Linux, macOS, and Windows
 
 ## Unit conventions
 

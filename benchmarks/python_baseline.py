@@ -1,4 +1,4 @@
-"""Record reproducible operation-level performance for the Python backend."""
+"""Record reproducible operation-level performance through the Python API."""
 
 from __future__ import annotations
 
@@ -16,6 +16,7 @@ import numpy as np
 import scipy
 
 import peritheos
+from peritheos import _rust
 from peritheos.eos.rt import BM2, BM3, Holzapfel
 from peritheos.eos.thermal import MieGruneisenDebye, Sokolova2016
 from peritheos.fitting import fit_rt_eos
@@ -204,7 +205,7 @@ def main() -> None:
 
     payload = {
         "schema_version": 1,
-        "backend": "python",
+        "backend": "rust",
         "quick": options.quick,
         "repeats": repeats,
         "environment": {
@@ -215,6 +216,7 @@ def main() -> None:
             "scipy": scipy.__version__,
             "platform": platform.platform(),
             "machine": platform.machine(),
+            "native_extension": _rust.__file__,
         },
         "benchmarks": results,
     }

@@ -200,3 +200,31 @@ format checks, builds the documentation in strict mode, and produces the
 pure-Python wheel and source distribution. Reproducible operation-level timing
 is provided by `benchmarks/python_baseline.py`; machine-specific results belong
 under `benchmarks/baselines/` and are evidence, not performance promises.
+
+## Integration-branch implementation status
+
+The `codex/rust-core` integration branch now contains all three planned crates.
+Built-in isothermal and thermal Python classes route their numerical work to
+`peritheos-core`, including inversion, derivatives, caloric properties, and
+the full Sokolova expression. Mie-Gruneisen models retain a Python fallback
+only when they wrap a user-defined `EosBase` implementation.
+
+The public fitting functions use the `peritheos-fit` bounded solver for all
+five named loss functions. Their validation, latent-variable residual model,
+correlated-observation whitening, result construction, and JSON schema remain
+in the Python compatibility layer. Callable Python losses intentionally retain
+SciPy's solver. Delta-method matrix propagation and accepted Monte Carlo sample
+statistics are native; NumPy retains seeded random draws and Python retains
+model reconstruction and invalid-sample rejection.
+
+These boundaries preserve extensibility without duplicating built-in equations
+or changing a scientific convention. The branch must remain unmerged until its
+multi-platform wheel workflow and all validation gates have completed in CI.
+
+An indicative quick run on macOS ARM64 compared with the committed pre-Rust
+baseline improved every recorded workload. Median speedups were approximately
+8x for scalar BM3 pressure, 27x for its array path, 1,741x for volume inversion,
+226x for Debye pressure, 945x for Sokolova pressure, 1.5-1.7x for fitting, 1.9x
+for linear uncertainty, and 24x for Monte Carlo uncertainty. These figures are
+machine- and environment-specific evidence, not release performance promises;
+CI and release decisions must also consider the deterministic numerical gates.

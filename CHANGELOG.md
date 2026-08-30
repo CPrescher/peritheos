@@ -5,6 +5,24 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- A Rust workspace containing native EOS, fitting, uncertainty, and private
+  PyO3 binding crates, with Rust 1.83 as the library MSRV.
+- Shared Python/Rust compatibility fixtures and migration baselines for all
+  isothermal and thermal model families.
+- Multi-platform native-wheel release jobs for supported CPython versions on
+  Linux x86-64/ARM64, macOS Intel/Apple Silicon, and Windows x86-64.
+
+### Changed
+
+- Built-in Python EOS classes now preserve their public API while delegating
+  evaluation, inversion, thermoelastic, and caloric calculations to Rust.
+- Named bounded robust fitting losses and uncertainty propagation statistics
+  now use native numerical kernels. Custom reference EOS classes, callable
+  fitting losses, and NumPy-seeded Monte Carlo draws retain documented
+  compatibility paths.
+
 ## [0.5.0] - 2026-08-30
 
 ### Added
