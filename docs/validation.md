@@ -11,7 +11,7 @@ P(V_0)=0, \qquad K(V_0)=K_0.
 \]
 
 Models parameterized by derivatives are also checked numerically for their
-supplied (K'_0) and (K''_0). Every thermal model is checked for zero thermal
+supplied $K_0'$ and $K_0''$. Every thermal model is checked for zero thermal
 pressure at its reference temperature.
 
 ## Derivative identities
@@ -23,8 +23,19 @@ Analytic isothermal bulk moduli are compared with numerical
 \gamma=-\frac{\partial\ln\Theta}{\partial\ln V}.
 \]
 
-Caloric models are checked for `C_V = dE/dT`, `F = E - TS`,
-`C_P - C_V = alpha^2 K_T V T`, and `K_S/K_T = C_P/C_V`.
+Caloric models are checked for
+
+\[
+C_V=\left(\frac{\partial E}{\partial T}\right)_V,
+\qquad F=E-TS,
+\qquad \frac{K_S}{K_T}=\frac{C_P}{C_V},
+\]
+
+and for the public-unit form
+
+\[
+C_P-C_V=10^4\alpha^2K_TVT.
+\]
 
 ## Round trips and array behavior
 
@@ -45,7 +56,11 @@ uncertainty scaling, covariance dimensions, and input errors.
 
 ## Literature regressions
 
-The Sokolova diamond model includes published-model numerical regression cases.
+The Sokolova diamond model includes numerical regression cases derived from the
+accompanying Excel calculation. These intentionally validate spreadsheet
+compatibility rather than a separate literal transcription of the journal
+article's printed equations; the distinction is documented under
+[Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
 Additional equation-level cases and their source DOIs are stored in
 `tests/data/literature_reference_cases.json`; keeping the values in a data file
 makes changes to scientific baselines visible in review.

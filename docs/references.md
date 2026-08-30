@@ -33,6 +33,9 @@
   diamond and nine metals as pressure markers in high-pressure and
   high-temperature experiments. *Computers & Geosciences*, 94, 162-169.
   doi:10.1016/j.cageo.2016.06.002.
+  Peritheos follows the accompanying workbook calculations when they differ
+  from the typeset equations; see
+  [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
 - Vinet, P. and coauthors (1986, 1987). Universal/Rydberg equation of state for
   compressed solids.
 - Yen, C. E., Williams, Q. & Kunz, M. (2020).

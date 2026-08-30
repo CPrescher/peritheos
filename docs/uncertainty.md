@@ -127,7 +127,32 @@ Linear propagation is the default. Peritheos evaluates numerical parameter
 derivatives and applies the delta method:
 
 \[
-\Sigma_{\mathrm{output}} = J\,\Sigma_{\mathrm{parameters}}\,J^{\mathsf T}.
+\Sigma_y = J_\theta\,\Sigma_\theta\,J_\theta^{\mathsf T}.
+\]
+
+Here $y=g(\boldsymbol\theta,\boldsymbol x)$, $J_\theta$ is the Jacobian
+with respect to uncertain EOS parameters, and $\Sigma_\theta$ is their
+covariance. When independent state-variable errors are supplied, the complete
+implemented approximation is
+
+\[
+\Sigma_y =
+J_\theta\Sigma_\theta J_\theta^{\mathsf T}
++\operatorname{diag}\left[
+\sum_k\left(
+\frac{\partial g}{\partial x_k}\sigma_{x_k}
+\right)^2
+\right].
+\]
+
+Parameter covariance can therefore correlate different calculated curve
+points. State errors contribute only to the diagonal because they are treated
+as independent between variables and evaluation points.
+
+For confidence level $c$, the pointwise normal interval is
+
+\[
+y\pm z_{(1+c)/2}\,\sigma_y.
 \]
 
 It is fast and normally appropriate near a well-constrained fit. A complete
@@ -162,6 +187,14 @@ prediction = eos_uncertainty.volume(
 Parameters are sampled from a multivariate normal distribution. Samples that
 violate EOS constructor constraints or calculation domains are rejected and
 resampled. `prediction.rejected_fraction` reports the fraction rejected.
+The reported confidence limits are empirical quantiles,
+
+\[
+\left[Q_{(1-c)/2},\;Q_{(1+c)/2}\right],
+\]
+
+so they can be asymmetric even though the sampled parameter distribution is
+multivariate normal.
 
 ## Errors in the requested state
 

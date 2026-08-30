@@ -7,6 +7,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- A comprehensive equation reference for every public isothermal and thermal
+  EOS, including parameter definitions, model domains, numerical inversion,
+  thermoelastic identities, fitting diagnostics, uncertainty propagation, and
+  explicit public-unit conversion factors.
+- Documentation distinguishing the equations typeset in Sokolova et al. (2016)
+  from the accompanying Excel workbook calculation implemented by
+  `Sokolova2016`, including differences in the bulk-modulus derivative,
+  characteristic-temperature multiplier, oscillator pressure contributions,
+  reference-isotherm subtraction, and working pressure units.
 - Temperature inversion from pressure and volume for all thermal EOS models,
   including NumPy broadcasting through `temperature()` and
   `calculate_temperature()`.

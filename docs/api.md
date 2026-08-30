@@ -23,6 +23,25 @@ Common methods:
 - `bulk_modulus(V)`
 - `volume(P)` and `calculate_volume(P)`
 
+Constructor signatures and special requirements are:
+
+| Class | Signature after class name | Special requirement |
+|---|---|---|
+| `BM2` | `(V0, K0)` | $K_0'=4$ is implied |
+| `BM3` | `(V0, K0, K0_prime)` | none |
+| `BM4` | `(V0, K0, K0_prime, K0_double_prime)` | `K0_double_prime` has inverse-pressure units |
+| `Murnaghan` | `(V0, K0, K0_prime)` | supports the `K0_prime=0` limit |
+| `NaturalStrain2` | `(V0, K0)` | $K_0'=2$ is implied |
+| `NaturalStrain3` | `(V0, K0, K0_prime)` | none |
+| `NaturalStrain4` | `(V0, K0, K0_prime, K0_double_prime)` | `K0_double_prime` has inverse-pressure units |
+| `ModifiedTait` | `(V0, K0, K0_prime, K0_double_prime)` | rejects singular coefficient sets and volumes outside its real domain |
+| `Vinet` | `(V0, K0, K0_prime)` | none |
+| `Holzapfel` | `(V0, K0, K0_prime, n, Z)` | molar volume in `J bar^-1 mol^-1` |
+
+`Holzapfel` additionally provides `bulk_modulus_derivative(V, eps=1e-6)`.
+See the [equation reference](equation-reference.md#isothermal-equations) for
+the mathematical definitions and coefficient domains.
+
 ## Thermal equations of state
 
 ```python
@@ -34,6 +53,21 @@ from peritheos.eos.thermal import (
     ThermalModifiedTait,
 )
 ```
+
+Thermal constructor signatures are:
+
+| Class | Parameters after `rt_eos` |
+|---|---|
+| `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n` |
+| `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
+| `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
+| `Sokolova2016` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1` |
+
+The Mie-Gruneisen classes accept any `EosBase` reference; thermal modified Tait
+requires `ModifiedTait`, and Sokolova requires `Holzapfel`. All thermal classes
+require molar volume in `J bar^-1 mol^-1`. `HollandPowell2011` is an alias for
+`ThermalModifiedTait`. Exact equations and parameter roles are documented
+under [Thermal equations](equation-reference.md#thermal-equations).
 
 Common methods:
 

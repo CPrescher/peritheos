@@ -9,6 +9,8 @@ The documentation is organized around scientific workflows:
 
 - [Getting started](getting-started.md) introduces isothermal and thermal use.
 - [EOS models](models.md) lists parameters, assumptions, and useful limits.
+- [Equation reference](equation-reference.md) defines the implemented
+  isothermal and thermal equations and their coefficients.
 - [Thermoelastic properties](thermoelastic-properties.md) defines every derived
   property and its units.
 - [Fitting data](fitting.md) covers P-V and P-V-T regression with uncertainty.

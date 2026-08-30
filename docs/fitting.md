@@ -4,6 +4,66 @@ Peritheos uses bounded nonlinear least squares and reports covariance,
 correlation, residual, and information-criterion diagnostics. Measurement
 uncertainties can be supplied for every observed state variable.
 
+## Objective and diagnostics
+
+With pressure as the only uncertain observation, the normalized residual for
+point $i$ is
+
+\[
+r_i=\frac{P_{\mathrm{model},i}-P_{\mathrm{observed},i}}{\sigma_{P,i}}.
+\]
+
+If no pressure uncertainties are supplied, Peritheos sets the divisor to one
+and the residuals retain pressure units. For a supplied within-observation
+covariance $\Sigma_i$, the pressure and adjusted-coordinate residual vector
+$\boldsymbol d_i$ is whitened using its Cholesky factor
+$\Sigma_i=L_iL_i^{\mathsf T}$:
+
+\[
+\boldsymbol r_i=L_i^{-1}\boldsymbol d_i.
+\]
+
+At the solution, the reported least-squares statistics are
+
+\[
+\chi^2=\sum_j r_j^2,
+\qquad
+\nu=N_r-N_p,
+\qquad
+\chi^2_\nu=\frac{\chi^2}{\nu}.
+\]
+
+Here $N_r$ is the total number of residual components and $N_p$ is the
+number of optimized scalar values. In an errors-in-variables fit, $N_p$
+includes the adjusted latent volume and temperature values as well as EOS
+parameters. Reduced chi-square is reported only when $\nu>0$.
+
+For a linear loss, the local free-parameter covariance is obtained from the
+Jacobian information matrix after profiling out latent observation coordinates:
+
+\[
+\Sigma_\theta\simeq
+\left(J_\theta^{\mathsf T}J_\theta-
+J_\theta^{\mathsf T}J_x
+(J_x^{\mathsf T}J_x)^{-1}
+J_x^{\mathsf T}J_\theta\right)^{-1}.
+\]
+
+Without latent coordinates, this reduces to
+$(J_\theta^{\mathsf T}J_\theta)^{-1}$. The implementation uses a pseudoinverse
+where necessary. Unless
+`absolute_sigma=True`, this covariance is multiplied by $\chi^2_\nu$. The
+reported information criteria use
+
+\[
+\mathrm{AIC}=N_r\ln\left(\frac{\chi^2}{N_r}\right)+2N_p,
+\qquad
+\mathrm{BIC}=N_r\ln\left(\frac{\chi^2}{N_r}\right)+N_p\ln N_r.
+\]
+
+These are comparative diagnostics for fits to the same observations and error
+model. They are not absolute tests that an EOS is physically adequate.
+
 ## Isothermal fitting
 
 ```python

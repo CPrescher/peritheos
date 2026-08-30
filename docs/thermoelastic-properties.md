@@ -38,12 +38,21 @@ pressure contributions.
 Caloric thermal models implement `molar_heat_capacity_v()`. Peritheos then uses
 
 \[
-C_P-C_V=\alpha^2 K_TVT,
+C_P-C_V=10^4\alpha^2 K_TVT,
 \qquad
 K_S=K_T\frac{C_P}{C_V}.
 \]
 
-The conversion from GPa and J bar^-1 mol^-1 to J mol^-1 is handled internally.
+The factor $10^4$ applies to the public units: $K_T$ in GPa and $V$ in
+`J bar^-1 mol^-1`. It converts their product to `J mol^-1`.
+With a fully coherent SI unit system, the same identity is conventionally
+written without an explicit conversion factor.
+
+The thermodynamic Gruneisen parameter is
+
+\[
+\gamma=10^4\frac{\alpha K_TV}{C_V}.
+\]
 
 ```python
 cv = eos.molar_heat_capacity_v(V, T)  # J mol^-1 K^-1
@@ -74,3 +83,22 @@ energy use the unreferenced `vibrational_pressure()`, whereas the public
 energies and zero-point offsets. They are vibrational
 contributions suitable for differences within the same reference convention;
 they are not absolute chemical potentials.
+
+For the Debye and Einstein Mie-Gruneisen models, the returned quantities obey
+
+\[
+F_{\mathrm{vib}}=E_{\mathrm{vib}}-TS_{\mathrm{vib}},
+\qquad
+P_{\mathrm{vib}}=10^{-4}\frac{\gamma E_{\mathrm{vib}}}{V},
+\]
+
+\[
+H_{\mathrm{vib}}=E_{\mathrm{vib}}+10^4P_{\mathrm{vib}}V,
+\qquad
+G_{\mathrm{vib}}=F_{\mathrm{vib}}+10^4P_{\mathrm{vib}}V.
+\]
+
+The pressure in these Legendre transforms is the unreferenced vibrational
+pressure, not the reference-subtracted thermal pressure used by `pressure()`.
+Oscillator definitions are given in the
+[equation reference](equation-reference.md#mie-gruneisen-debye-and-einstein).
