@@ -93,6 +93,36 @@ def test_native_binding_preserves_error_categories():
         model.volume_scalar(-100.0)
 
 
+def test_large_parallel_isothermal_batches_preserve_order_shape_and_strides():
+    model = _rust.RtEos.bm3(10.0, 120.0, 4.3)
+    source = np.linspace(6.0, 12.0, 80_000, dtype=float).reshape(400, 200)
+    volumes = source[:, ::2]
+    strain = 0.5 * ((10.0 / volumes) ** (2.0 / 3.0) - 1.0)
+    expected = (
+        3.0
+        * 120.0
+        * strain
+        * (1.0 + 2.0 * strain) ** 2.5
+        * (1.0 + 1.5 * (4.3 - 4.0) * strain)
+    )
+
+    actual = model.pressure_array(volumes)
+
+    assert actual.shape == volumes.shape
+    assert np.allclose(actual, expected, rtol=2.0e-11, atol=1.0e-13)
+
+
+def test_large_parallel_volume_batch_round_trips_in_input_order():
+    model = _rust.RtEos.bm3(10.0, 120.0, 4.3)
+    volumes = np.linspace(7.0, 10.5, 2_000, dtype=float).reshape(40, 50)
+    pressures = model.pressure_array(volumes)
+
+    recovered = model.volume_array(pressures)
+
+    assert recovered.shape == volumes.shape
+    assert np.allclose(recovered, volumes, rtol=1.0e-10)
+
+
 @pytest.mark.parametrize(
     ("python_model", "native_model", "caloric"),
     [
@@ -207,6 +237,30 @@ def test_native_thermal_binding_matches_python(python_model, native_model, calor
     else:
         with pytest.raises(NotImplementedError):
             native_model.evaluate_scalar("molar_heat_capacity_v", volume, temperature)
+
+
+def test_large_parallel_thermal_batch_matches_scalar_evaluation():
+    model = _rust.ThermalEos.mie_gruneisen_debye(
+        _rust.RtEos.bm3(1.0, 160.0, 4.0),
+        300.0,
+        800.0,
+        1.5,
+        1.0,
+        2.0,
+    )
+    volumes = np.linspace(0.7, 1.0, 3_000, dtype=float).reshape(60, 50)
+    temperatures = np.linspace(300.0, 3_000.0, 3_000, dtype=float).reshape(60, 50)
+
+    actual = model.evaluate_array("pressure", volumes, temperatures)
+    expected = np.array(
+        [
+            model.evaluate_scalar("pressure", float(volume), float(temperature))
+            for volume, temperature in zip(volumes.flat, temperatures.flat)
+        ]
+    ).reshape(volumes.shape)
+
+    assert actual.shape == volumes.shape
+    assert np.array_equal(actual, expected)
 
 
 def test_native_thermal_binding_enforces_reference_model_types():

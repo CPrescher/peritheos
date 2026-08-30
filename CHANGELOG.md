@@ -25,6 +25,9 @@ All notable changes to Peritheos are documented here. The project follows
 - Errors-in-variables fits now use colored latent-coordinate Jacobians and a
   block Schur-complement solve, with stress coverage for large and rank-deficient
   datasets.
+- Birch-Murnaghan kernels now use an algebraically equivalent cube-root form,
+  and large independent EOS arrays use deterministic thresholded parallel
+  evaluation while the Python interpreter lock is released.
 
 ## [0.5.0] - 2026-08-30
 

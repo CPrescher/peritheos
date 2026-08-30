@@ -61,6 +61,15 @@ be represented by the native loss enum. Monte Carlo draws continue to use
 NumPy so seeded results and invalid-sample rejection remain compatible;
 accepted-sample statistics are native.
 
+Large independent native arrays use Rayon after workload-specific size
+thresholds. The binding copies the NumPy inputs before releasing the Python
+interpreter lock, preserving NumPy memory safety even if another Python thread
+mutates the original array. Parallel results are collected in input order and
+errors are converted sequentially, so scheduling does not change output order
+or which input error is reported first. Small arrays use the serial path.
+`RAYON_NUM_THREADS` may be used by embedding applications that need to limit
+the shared Rayon worker pool.
+
 ## Building distributions
 
 ```bash

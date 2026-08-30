@@ -21,6 +21,11 @@ use pyo3::exceptions::{
 };
 use pyo3::prelude::*;
 use pyo3::types::{PyAny, PyModule};
+use rayon::prelude::*;
+
+const PARALLEL_ELEMENTWISE_THRESHOLD: usize = 65_536;
+const PARALLEL_ROOT_THRESHOLD: usize = 512;
+const PARALLEL_THERMAL_THRESHOLD: usize = 2_048;
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum RtModel {
@@ -221,7 +226,9 @@ impl PyRtEos {
         py: Python<'py>,
         volumes: PyReadonlyArrayDyn<'py, f64>,
     ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
-        map_array(py, volumes, |volume| self.model.pressure(volume))
+        map_array(py, volumes, PARALLEL_ELEMENTWISE_THRESHOLD, |volume| {
+            self.model.pressure(volume)
+        })
     }
 
     fn bulk_modulus_array<'py>(
@@ -229,7 +236,9 @@ impl PyRtEos {
         py: Python<'py>,
         volumes: PyReadonlyArrayDyn<'py, f64>,
     ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
-        map_array(py, volumes, |volume| self.model.bulk_modulus(volume))
+        map_array(py, volumes, PARALLEL_ELEMENTWISE_THRESHOLD, |volume| {
+            self.model.bulk_modulus(volume)
+        })
     }
 
     fn volume_array<'py>(
@@ -237,7 +246,9 @@ impl PyRtEos {
         py: Python<'py>,
         pressures: PyReadonlyArrayDyn<'py, f64>,
     ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
-        map_array(py, pressures, |pressure| self.model.volume(pressure))
+        map_array(py, pressures, PARALLEL_ROOT_THRESHOLD, |pressure| {
+            self.model.volume(pressure)
+        })
     }
 
     fn __repr__(&self) -> String {
@@ -423,9 +434,15 @@ impl PyThermalEos {
         first: PyReadonlyArrayDyn<'py, f64>,
         second: PyReadonlyArrayDyn<'py, f64>,
     ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
-        map_array2(py, first, second, |left, right| {
-            self.model.evaluate(quantity, left, right)
-        })
+        let model = self.model;
+        let quantity = quantity.to_owned();
+        map_array2(
+            py,
+            first,
+            second,
+            PARALLEL_THERMAL_THRESHOLD,
+            move |left, right| model.evaluate(&quantity, left, right),
+        )
     }
 
     fn __repr__(&self) -> String {
@@ -519,10 +536,11 @@ fn map_array2<'py, F>(
     py: Python<'py>,
     first: PyReadonlyArrayDyn<'py, f64>,
     second: PyReadonlyArrayDyn<'py, f64>,
-    mut evaluator: F,
+    parallel_threshold: usize,
+    evaluator: F,
 ) -> PyResult<Bound<'py, PyArrayDyn<f64>>>
 where
-    F: FnMut(f64, f64) -> PyResult<f64>,
+    F: Fn(f64, f64) -> PyResult<f64> + Send + Sync,
 {
     let first_view = first.as_array();
     let second_view = second.as_array();
@@ -531,12 +549,29 @@ where
             "native array inputs must have matching broadcasted shapes",
         ));
     }
-    let values = first_view
-        .iter()
-        .zip(second_view.iter())
-        .map(|(&left, &right)| evaluator(left, right))
-        .collect::<PyResult<Vec<_>>>()?;
-    let output = ArrayD::from_shape_vec(first_view.raw_dim(), values)
+    let shape = first_view.raw_dim();
+    let values = if first_view.len() >= parallel_threshold {
+        let inputs = first_view
+            .iter()
+            .copied()
+            .zip(second_view.iter().copied())
+            .collect::<Vec<_>>();
+        py.detach(move || {
+            inputs
+                .into_par_iter()
+                .map(|(left, right)| evaluator(left, right))
+                .collect::<Vec<_>>()
+        })
+        .into_iter()
+        .collect::<PyResult<Vec<_>>>()?
+    } else {
+        first_view
+            .iter()
+            .zip(second_view.iter())
+            .map(|(&left, &right)| evaluator(left, right))
+            .collect::<PyResult<Vec<_>>>()?
+    };
+    let output = ArrayD::from_shape_vec(shape, values)
         .map_err(|error| PyValueError::new_err(error.to_string()))?;
     Ok(output.into_pyarray(py))
 }
@@ -545,17 +580,31 @@ where
 fn map_array<'py, F>(
     py: Python<'py>,
     input: PyReadonlyArrayDyn<'py, f64>,
-    mut evaluator: F,
+    parallel_threshold: usize,
+    evaluator: F,
 ) -> PyResult<Bound<'py, PyArrayDyn<f64>>>
 where
-    F: FnMut(f64) -> EosResult<f64>,
+    F: Fn(f64) -> EosResult<f64> + Send + Sync,
 {
     let view = input.as_array();
-    let values = view
-        .iter()
-        .map(|&value| evaluator(value).map_err(to_python_error))
-        .collect::<PyResult<Vec<_>>>()?;
-    let output = ArrayD::from_shape_vec(view.raw_dim(), values)
+    let shape = view.raw_dim();
+    let values = if view.len() >= parallel_threshold {
+        let input_values = view.iter().copied().collect::<Vec<_>>();
+        py.detach(move || {
+            input_values
+                .into_par_iter()
+                .map(evaluator)
+                .collect::<Vec<_>>()
+        })
+        .into_iter()
+        .collect::<EosResult<Vec<_>>>()
+        .map_err(to_python_error)?
+    } else {
+        view.iter()
+            .map(|&value| evaluator(value).map_err(to_python_error))
+            .collect::<PyResult<Vec<_>>>()?
+    };
+    let output = ArrayD::from_shape_vec(shape, values)
         .map_err(|error| PyValueError::new_err(error.to_string()))?;
     Ok(output.into_pyarray(py))
 }

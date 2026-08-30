@@ -239,10 +239,31 @@ ordinary 100-point fit, 6.5x for the corresponding latent-volume fit, and 1.2x
 for Monte Carlo uncertainty. The same-solver boundary benchmark isolated the
 callback removal at 2.85x for the ordinary fit and 1.82x with latent volumes.
 
-The release comparison also identified regressions that remain optimization
-targets: one-million-element BM3 pressure evaluation was about 1.75x slower,
-50,000 individual Python scalar calls were about 3% slower, and linear
-uncertainty for 1,000 states was about 6% slower. The earlier migration note
-that claimed every workload improved mixed quick and full workload sizes and
-was invalid; it has been replaced by this like-for-like release measurement.
-All figures are machine-specific evidence, not release performance promises.
+The release comparison also identified regressions in one-million-element BM3
+pressure evaluation, individual Python scalar calls, and small linear
+uncertainty workloads. A subsequent optimization checkpoint replaced two
+general powers in the Birch-Murnaghan kernel with one cube root and exact
+integer products. Large independent arrays now copy their inputs at the Python
+boundary, release the interpreter lock, and use deterministic ordered Rayon
+evaluation above measured workload-specific thresholds. Small arrays remain
+serial so they do not pay scheduling and copy overhead.
+
+On the same macOS ARM64 environment, the optimized checkpoint reduced the
+one-million-element BM3 workload from 18.7 ms to about 3.5 ms, 10,000 volume
+roots from 24.3 ms to about 1.3 ms, and 10,000 Debye pressure states from
+27.9 ms to about 2.9 ms. The BM3 array is therefore also faster than the
+10.5 ms pre-Rust NumPy baseline. The 50,000-call scalar workload remained near
+120 ms because Python call overhead dominates it. Crossover measurements are
+reproducible with `benchmarks/native_array_scaling.py`.
+
+Explicit vector math was evaluated but not adopted in this checkpoint. The
+portable `wide` 1.6.1 candidate requires Rust 1.89, above the workspace's 1.83
+MSRV. Its two-lane vector cube root was also about 4.7x slower than scalar
+`f64::cbrt` in a one-million-element Apple Silicon spike and changed BM3
+results by as much as roughly `1.1e-9` relatively near the reference state.
+That trade is inappropriate without a wider cross-platform accuracy audit.
+Rayon composes with compiler scalar optimization without introducing a second
+scientific approximation. The earlier migration note that claimed every
+workload improved mixed quick and full workload sizes and was invalid; it has
+been replaced by like-for-like release measurements. All figures are
+machine-specific evidence, not release performance promises.

@@ -3,8 +3,11 @@
 use crate::validation::{finite_parameter, finite_result, positive_parameter, positive_state};
 use crate::{EosError, EosResult, IsothermalEos};
 
-fn eulerian_strain(v0: f64, volume: f64) -> f64 {
-    0.5 * ((v0 / volume).powf(2.0 / 3.0) - 1.0)
+fn eulerian_terms(v0: f64, volume: f64) -> (f64, f64, f64) {
+    let eta = (v0 / volume).cbrt();
+    let eta2 = eta * eta;
+    let eta5 = eta2 * eta2 * eta;
+    (0.5 * (eta2 - 1.0), eta5, eta5 * eta2)
 }
 
 /// Second-order Birch--Murnaghan equation of state.
@@ -37,14 +40,14 @@ impl IsothermalEos for BM2 {
 
     fn pressure(&self, volume: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
-        let strain = eulerian_strain(self.v0, volume);
-        finite_result(3.0 * self.k0 * strain * (1.0 + 2.0 * strain).powf(2.5))
+        let (strain, eta5, _) = eulerian_terms(self.v0, volume);
+        finite_result(3.0 * self.k0 * strain * eta5)
     }
 
     fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
-        let strain = eulerian_strain(self.v0, volume);
-        finite_result(self.k0 * (1.0 + 7.0 * strain) * (1.0 + 2.0 * strain).powf(2.5))
+        let (strain, eta5, _) = eulerian_terms(self.v0, volume);
+        finite_result(self.k0 * (1.0 + 7.0 * strain) * eta5)
     }
 }
 
@@ -81,23 +84,17 @@ impl IsothermalEos for BM3 {
 
     fn pressure(&self, volume: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
-        let strain = eulerian_strain(self.v0, volume);
-        finite_result(
-            3.0 * self.k0
-                * strain
-                * (1.0 + 2.0 * strain).powf(2.5)
-                * (1.0 + 1.5 * (self.k0_prime - 4.0) * strain),
-        )
+        let (strain, eta5, _) = eulerian_terms(self.v0, volume);
+        finite_result(3.0 * self.k0 * strain * eta5 * (1.0 + 1.5 * (self.k0_prime - 4.0) * strain))
     }
 
     fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
-        let strain = eulerian_strain(self.v0, volume);
+        let (strain, eta5, _) = eulerian_terms(self.v0, volume);
         finite_result(
-            (1.0 + 2.0 * strain).powf(2.5)
-                * (self.k0
-                    + (3.0 * self.k0 * self.k0_prime - 5.0 * self.k0) * strain
-                    + 13.5 * (self.k0 * self.k0_prime - 4.0 * self.k0) * strain * strain),
+            eta5 * (self.k0
+                + (3.0 * self.k0 * self.k0_prime - 5.0 * self.k0) * strain
+                + 13.5 * (self.k0 * self.k0_prime - 4.0 * self.k0) * strain * strain),
         )
     }
 }
@@ -147,26 +144,23 @@ impl IsothermalEos for BM4 {
 
     fn pressure(&self, volume: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
-        let strain = eulerian_strain(self.v0, volume);
+        let (strain, eta5, _) = eulerian_terms(self.v0, volume);
         let (zeta, xi) = self.coefficients();
         finite_result(
             3.0 * self.k0
                 * strain
-                * (1.0 + 2.0 * strain).powf(2.5)
+                * eta5
                 * (1.0 - 2.0 * zeta * strain + 4.0 * xi * strain * strain),
         )
     }
 
     fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
-        let strain = eulerian_strain(self.v0, volume);
+        let (strain, eta5, eta7) = eulerian_terms(self.v0, volume);
         let (zeta, xi) = self.coefficients();
         let correction = 1.0 - 2.0 * zeta * strain + 4.0 * xi * strain * strain;
         let derivative = 1.0 - 4.0 * zeta * strain + 12.0 * xi * strain * strain;
-        finite_result(
-            5.0 * strain * self.k0 * (1.0 + 2.0 * strain).powf(2.5) * correction
-                + self.k0 * (1.0 + 2.0 * strain).powf(3.5) * derivative,
-        )
+        finite_result(5.0 * strain * self.k0 * eta5 * correction + self.k0 * eta7 * derivative)
     }
 }
 
