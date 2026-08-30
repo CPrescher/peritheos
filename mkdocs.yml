@@ -3,7 +3,28 @@ site_description: Thermodynamic equations of state for solid materials
 site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://peritheos.readthedocs.io/en/latest/"]
 repo_url: https://github.com/CPrescher/peritheos
 theme:
-  name: readthedocs
+  name: material
+  features:
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
 extra_javascript:
   - javascripts/mathjax.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js
@@ -15,6 +36,7 @@ nav:
   - Thermoelastic properties: thermoelastic-properties.md
   - Fitting data: fitting.md
   - Calculation uncertainty: uncertainty.md
+  - Advanced DAC analysis: dac-thermal-pressure.md
   - Units and reference states: units.md
   - API reference: api.md
   - API stability: api-stability.md
@@ -29,3 +51,5 @@ markdown_extensions:
       generic: true
   - toc:
       permalink: true
+plugins:
+  - search

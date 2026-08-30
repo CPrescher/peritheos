@@ -429,4 +429,4 @@ bracketed scalar root for every broadcast point. `temperature(P, V)` solves
 
 on the positive-temperature branch nearest $T_r$. The distinct two-volume
 DAC inversion and its assumptions are documented under
-[Getting started](getting-started.md#diamond-anvil-cell-thermal-pressure-contribution).
+[Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md).

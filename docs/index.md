@@ -16,6 +16,8 @@ The documentation is organized around scientific workflows:
 - [Fitting data](fitting.md) covers P-V and P-V-T regression with uncertainty.
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
+- [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional
+  two-volume thermal-pressure boundary-condition model.
 - [Units and reference states](units.md) explains the deliberately strict
   thermal volume convention.
 - [Validation](validation.md) describes the numerical and literature checks.

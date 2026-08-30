@@ -88,7 +88,7 @@ Common methods:
 `dac_thermal_pressure()` returns only the additional confinement term
 `f_dac * thermal_pressure(V, T)`. `temperature_from_volumes()` applies the
 empirical confinement model described in
-[Getting started](getting-started.md#diamond-anvil-cell-thermal-pressure-contribution);
+[Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md);
 it requires `0 <= f_dac < 1`. In this API, `f_dac` means
 `(P_hot - P_ambient) / thermal_pressure(V_heated, T)`; it is not a fraction of
 the cold pressure.

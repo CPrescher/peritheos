@@ -23,27 +23,22 @@ bulk_modulus(V)
 volume(P)
 ```
 
-### Natural strain
-
-With positive compressive strain
-
-\[
-f = \frac{1}{3}\ln\left(\frac{V_0}{V}\right),
-\]
-
-the implemented family is
-
-\[
-P = 3K_0\frac{V_0}{V}(f + Af^2 + Bf^3).
-\]
-
-For third order, `A = 3(K0_prime - 2)/2` and `B = 0`. Fourth order
-sets `B` from `K0_double_prime`. At the reference volume the supplied values
-of `K0`, `K0_prime`, and `K0_double_prime` are recovered by differentiation.
-The complete coefficient definitions are in the
-[equation reference](equation-reference.md#natural-strain-family).
-
 ## Thermal models
+
+A thermal EOS wraps an isothermal `rt_eos`, which defines pressure on the
+reference isotherm at `Tr`. The thermal model adds the pressure change away
+from that temperature, so the combined model evaluates
+$P(V,T)=P_{ref}(V)+\Delta P_{th}(V,T)$ with
+$\Delta P_{th}(V,T_r)=0$. Pressure, volume, and temperature inversion all use
+this combined relation. The reference and thermal parameters can also be fitted
+together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
+
+The allowed reference EOS depends on the thermal formulation. The
+Mie-Gruneisen models accept any isothermal `EosBase` model;
+`ThermalModifiedTait` requires `ModifiedTait`; and `Sokolova2016` requires
+`Holzapfel`. Because thermal pressure is calculated from molar energy divided
+by molar volume, the wrapped reference EOS must use the thermal-model volume
+convention described under [Units and reference states](units.md).
 
 | Import | Reference EOS | Thermal parameters | Caloric model |
 |---|---|---|---|
@@ -67,35 +62,16 @@ from the workbook in several consequential details. Do not use the printed
 paper equations alone to reproduce Peritheos values; see
 [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
 
-### Mie-Gruneisen volume dependence
-
-\[
-\gamma(V)=\gamma_0\left(\frac{V}{V_0}\right)^q,
-\qquad
-\gamma=-\frac{\partial\ln\Theta}{\partial\ln V}.
-\]
-
-The second identity is enforced analytically, including the continuous `q=0`
-limit. Thermal pressure is referenced to `Tr`:
-
-\[
-\Delta P_{th}=10^{-4}\frac{\gamma(V)}{V}
-\left[E(V,T)-E(V,T_r)\right].
-\]
-
-The factor $10^{-4}$ converts bar to GPa for the public thermal-volume and
-energy units. See the [equation reference](equation-reference.md#thermal-equations)
-for the characteristic-temperature and oscillator-energy definitions.
-
 ### Selecting a model
 
 - Use BM3 or Vinet for a conventional three-parameter compression fit.
-- Use modified Tait or fourth-order natural strain when reliable second
+- Use modified Tait or a fourth-order natural-strain EOS when reliable second
   pressure-derivative information exists.
 - Use Mie-Gruneisen-Debye when low-temperature heat-capacity behavior matters.
 - Use Mie-Gruneisen-Einstein for an inexpensive single-frequency approximation.
 - Use thermal modified Tait with Holland-Powell-style datasets.
-- Use Sokolova2016 for its published diamond-oriented multimode formulation.
+- Use Sokolova2016 for the workbook-compatible diamond-oriented multimode
+  formulation accompanying Sokolova et al. (2016).
 
 Do not choose a higher-order model solely because it has more parameters. Check
 parameter correlations and extrapolation behavior with the fitting diagnostics.

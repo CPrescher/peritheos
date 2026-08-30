@@ -29,6 +29,14 @@ All notable changes to Peritheos are documented here. The project follows
 - Fixed-volume preparation for temperature inversion, avoiding repeated
   Sokolova volume-integral evaluations during root finding.
 
+### Changed
+
+- Documentation now uses Material for MkDocs with responsive navigation,
+  improved search and code presentation, and automatic light and dark themes.
+- The model overview now focuses on model selection and reference-EOS
+  compatibility, while advanced two-volume DAC analysis has moved out of the
+  introductory tutorial into a dedicated guide.
+
 ## [0.4.0] - 2026-08-09
 
 ### Added

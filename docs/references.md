@@ -48,7 +48,7 @@ The DAC papers use several different normalizations for reported pressure
 increases. A percentage of constant-volume thermodynamic thermal pressure is
 not interchangeable with a percentage of cold pressure. Peritheos defines
 `f_dac` using the former normalization, as described in
-[Getting started](getting-started.md#diamond-anvil-cell-thermal-pressure-contribution).
+[Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md).
 
 The source docstrings contain the model-specific reference nearest each
 implementation. Bibliographic precision should be checked against the original
