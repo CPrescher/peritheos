@@ -171,9 +171,10 @@ class MieGruneisenDebye(_MieGruneisenBase):
 
     ``Delta P = gamma(V) / V * (E_D(V, T) - E_D(V, Tr))``,
 
-    where ``E_D`` is the Debye vibrational energy, ``gamma(V) = gamma0 *
-    (V/V0)**q``, and the Debye temperature follows from
-    ``gamma = -d(log(theta))/d(log(V))``.
+    where ``E_D`` is the Debye vibrational energy and ``gamma(V) = gamma0 *
+    (V/V0)**q``. ``debye_temperature_law`` selects either the conventional
+    thermodynamically integrated relation (the default) or the direct
+    variable-exponent relation printed by Fei et al. (2007).
 
     Reference
     ---------
@@ -181,7 +182,51 @@ class MieGruneisenDebye(_MieGruneisenBase):
     on the thermoelastic properties of high-pressure minerals. Physics of the
     Earth and Planetary Interiors, 96, 85-112.
     doi:10.1016/0031-9201(96)03143-3
+
+    Fei, Y. et al. (2007). Toward an internally consistent pressure scale.
+    Proceedings of the National Academy of Sciences, 104, 9182-9186.
+    Equation (3), the definition following it, and Table 1.
+    doi:10.1073/pnas.0609013104
     """
+
+    _constructor_configuration_names = ("debye_temperature_law",)
+    _DEBYE_TEMPERATURE_LAWS = {"integrated_gruneisen", "variable_exponent"}
+
+    def __init__(
+        self,
+        rt_eos: EosBase,
+        Tr: float,
+        theta0: float,
+        gamma0: float,
+        q: float,
+        n: float,
+        debye_temperature_law: str = "integrated_gruneisen",
+    ) -> None:
+        super().__init__(rt_eos, Tr, theta0, gamma0, q, n)
+        if (
+            not isinstance(debye_temperature_law, str)
+            or debye_temperature_law not in self._DEBYE_TEMPERATURE_LAWS
+        ):
+            raise ValueError(
+                "debye_temperature_law must be 'integrated_gruneisen' or "
+                "'variable_exponent'"
+            )
+        self.debye_temperature_law = debye_temperature_law
+
+    def characteristic_temperature(self, V: NumericType) -> NumericType:
+        """Return Debye temperature using the selected volume relation."""
+        if self.debye_temperature_law == "integrated_gruneisen":
+            return super().characteristic_temperature(V)
+
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        ratio = volumes / self.rt_eos.V0
+        gamma = np.asarray(self.gruneisen_parameter(volumes), dtype=float)
+        result = self.theta0 * np.exp(-gamma * np.log(ratio))
+        if not np.all(np.isfinite(result)):
+            raise ArithmeticError("Characteristic temperature is not finite")
+        if result.ndim == 0:
+            return float(result)
+        return result
 
     def thermal_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Debye vibrational thermal energy in J mol^-1."""
@@ -209,6 +254,77 @@ class MieGruneisenDebye(_MieGruneisenBase):
         log_term = np.log(-np.expm1(-ratio))
         entropy = self.n * R * (4.0 * _debye_function_3(ratio) - 3.0 * log_term)
         return self._scalar_or_array(np.asarray(entropy, dtype=float))
+
+
+class Tange2009Debye(MieGruneisenDebye):
+    """Fit3 Mie-Gruneisen-Debye thermal model of Tange et al. (2009).
+
+    This model replaces the constant-``q`` power law with the authors'
+    volume dependence
+
+    ``gamma(V) = gamma0 * (1 + a * ((V/V0)**b - 1))``.
+
+    The characteristic temperature is the analytic integral required by
+    ``gamma = -d(log(theta))/d(log(V))``. Pressure remains relative to the
+    reference isotherm supplied as ``rt_eos``.
+
+    Reference
+    ---------
+    Tange, Y., Nishihara, Y. & Tsuchiya, T. (2009). Unified analyses for
+    P-V-T equation of state of MgO: A solution for pressure-scale problems
+    in high P-T experiments. Journal of Geophysical Research, 114, B03208.
+    Equations (4), (5), (15), and (16), and Table 4.
+    doi:10.1029/2008JB005813
+    """
+
+    _constructor_configuration_names = ()
+
+    def __init__(
+        self,
+        rt_eos: EosBase,
+        Tr: float,
+        theta0: float,
+        gamma0: float,
+        a: float,
+        b: float,
+        n: float,
+    ) -> None:
+        super().__init__(rt_eos, Tr, theta0, gamma0, q=0.0, n=n)
+        self.a = validate_finite_scalar(a, "a")
+        self.b = validate_finite_scalar(b, "b")
+        if not 0.0 <= self.a <= 1.0:
+            raise ValueError("a must lie between zero and one")
+
+    def gruneisen_parameter(
+        self, V: NumericType, T: NumericType | None = None
+    ) -> NumericType:
+        """Return the Tange et al. equation (15) Gruneisen parameter."""
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        ratio = volumes / self.rt_eos.V0
+        result = self.gamma0 * (1.0 + self.a * (ratio**self.b - 1.0))
+        if not np.all(np.isfinite(result)):
+            raise ArithmeticError("Gruneisen parameter is not finite")
+        if result.ndim == 0:
+            return float(result)
+        return result
+
+    def characteristic_temperature(self, V: NumericType) -> NumericType:
+        """Return Debye temperature from Tange et al. equation (16)."""
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        logarithmic_ratio = np.log(volumes / self.rt_eos.V0)
+        if self.b == 0.0:
+            exponent = -self.gamma0 * logarithmic_ratio
+        else:
+            power_minus_one = np.expm1(self.b * logarithmic_ratio)
+            exponent = -self.gamma0 * (
+                (1.0 - self.a) * logarithmic_ratio + self.a * power_minus_one / self.b
+            )
+        result = self.theta0 * np.exp(exponent)
+        if not np.all(np.isfinite(result)):
+            raise ArithmeticError("Characteristic temperature is not finite")
+        if result.ndim == 0:
+            return float(result)
+        return result
 
 
 class MieGruneisenEinstein(_MieGruneisenBase):

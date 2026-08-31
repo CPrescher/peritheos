@@ -1,0 +1,165 @@
+{
+ "format_version": 3,
+ "name": "Alumina",
+ "formula": "Al2O3",
+ "aliases": [
+  "Corundum"
+ ],
+ "symmetry": "HEXAGONAL",
+ "lattice": {
+  "a": 4.762813,
+  "b": null,
+  "c": 13.00314,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 6,
+ "space_group": "R-3c",
+ "space_group_number": 167,
+ "atom_sites": [
+  {
+   "element": "Al",
+   "wyckoff": "12c",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.3522,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "18e",
+   "x": 0.3061,
+   "y": 0.0,
+   "z": 0.25,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Corundum phase reference: JCPDS 0-173. The reference cell is constrained to the fitted V0 while retaining the original axial ratio.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Dewaele and Torrent (2013), Vinet",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Torrent"
+    ],
+    "year": 2013,
+    "source": "Phys. Rev. B",
+    "volume": "88",
+    "locator": "064107",
+    "doi": "10.1103/PhysRevB.88.064107"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 255.45,
+     "K0": 254.1,
+     "K0_prime": 4.0
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": 0.52,
+    "K0": 7.6,
+    "K0_prime": 0.15
+   },
+   "parameter_error_confidence": 0.95,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.56,
+    165.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Quasihydrostatic 300 K Vinet fit to corundum data from 0.56 to 165 GPa. V0=255.45+/-0.52 A^3, K0=254.1+/-7.6 GPa, and K0'=4.00+/-0.15 were all fitted; errors are 95% confidence intervals.",
+   "identifier": "alumina_dewaele_2013_vinet_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.88.064107/fulltext",
+     "locations": [
+      "section IV, page 064107-2",
+      "Table I",
+      "Figure 3",
+      "section V"
+     ],
+     "finding": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
+     "doi": "10.1103/physrevb.88.064107"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "alumina.json"
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "parameter_errors",
+     "source_value": {
+      "V0": null,
+      "K0": null,
+      "K0_prime": null
+     },
+     "value": {
+      "V0": 0.52,
+      "K0": 7.6,
+      "K0_prime": 0.15
+     },
+     "reason": "The primary paper reports 95% confidence intervals for all three fit coefficients.",
+     "primary_reference": {
+      "doi": "10.1103/physrevb.88.064107",
+      "location": "section IV, Table I, Figure 3, and section V"
+     }
+    },
+    {
+     "path": "fixed_parameters",
+     "source_value": [
+      "K0_prime"
+     ],
+     "value": [],
+     "reason": "K0'=4.00+/-0.15 was fitted, not constrained to 4.",
+     "primary_reference": {
+      "doi": "10.1103/physrevb.88.064107",
+      "location": "section IV, Table I, Figure 3, and section V"
+     }
+    },
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": [
+      0.0,
+      165.0
+     ],
+     "value": [
+      0.56,
+      165.0
+     ],
+     "reason": "Table I spans measured pressures from 0.56 to 165 GPa.",
+     "primary_reference": {
+      "doi": "10.1103/physrevb.88.064107",
+      "location": "section IV, Table I, Figure 3, and section V"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "alumina",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

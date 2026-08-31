@@ -1,0 +1,278 @@
+{
+ "format_version": 3,
+ "name": "Niobium",
+ "formula": "Nb",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.300704,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "atom_sites": [
+  {
+   "element": "Nb",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Body-centered-cubic niobium. The reference cell is calculated from the published atomic V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Takemura and Singh (2006), helium-medium BM3",
+   "reference": {
+    "authors": [
+     "Takemura",
+     "Singh"
+    ],
+    "year": 2006,
+    "source": "Phys. Rev. B",
+    "volume": "73",
+    "locator": "224119",
+    "doi": "10.1103/PhysRevB.73.224119"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 35.9599,
+     "K0": 168.0,
+     "K0_prime": 3.4
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.0098,
+    "K0": 4.0,
+    "K0_prime": 0.3
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    71.5
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=168+/-4 GPa and K0'=3.4+/-0.3. V0 is fixed from a=3.3007(3) A at atmospheric pressure; the parameter errors span the alternative fit using data through 134 GPa.",
+   "identifier": "niobium_takemura_2006_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext",
+     "locations": [
+      "Table I",
+      "Table II",
+      "section III.B, pages 224119-5 to -6"
+     ],
+     "finding": "The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.",
+     "doi": "10.1103/physrevb.73.224119"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "niobium.json"
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "parameter_errors.V0",
+     "source_value": null,
+     "value": 0.0098,
+     "reason": "Propagated from the primary paper's a=3.3007(3) A atmospheric lattice parameter.",
+     "primary_reference": {
+      "doi": "10.1103/physrevb.73.224119",
+      "location": "Table I, Table II, and section III.B"
+     }
+    },
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": [
+      0.0,
+      134.0
+     ],
+     "value": [
+      0.0,
+      71.5
+     ],
+     "reason": "The adopted fit uses the best quasihydrostatic helium subset through 71.5 GPa.",
+     "primary_reference": {
+      "doi": "10.1103/physrevb.73.224119",
+      "location": "Table I, Table II, and section III.B"
+     }
+    }
+   ]
+  },
+  {
+   "label": "Sokolova et al. (2016), Holzapfel thermal model",
+   "reference": {
+    "authors": [
+     "Sokolova",
+     "Dorogokupets",
+     "Dymshits",
+     "Danilov",
+     "Litasov"
+    ],
+    "year": 2016,
+    "source": "Comput. Geosci.",
+    "volume": "94",
+    "locator": "162-169",
+    "details": "supplementary workbook 8",
+    "doi": "10.1016/j.cageo.2016.06.002"
+   },
+   "eos": {
+    "type": "Holzapfel",
+    "parameters": {
+     "V0": 35.960629619878574,
+     "K0": 170.5,
+     "K0_prime": 3.65,
+     "n": 1.0,
+     "Z": 41.0
+    },
+    "model": "holzapfel",
+    "parameter_errors": {
+     "n": null,
+     "Z": null
+    },
+    "fixed_parameters": [
+     "n",
+     "Z"
+    ]
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "pressure_range_status": "reference_parameterization",
+   "temperature_ref": 298.15,
+   "thermal": {
+    "type": "Sokolova2016",
+    "parameters": {
+     "Tr": 298.15,
+     "QE1o": 134.0,
+     "mE1": 1.5,
+     "QE2o": 302.0,
+     "mE2": 1.5,
+     "delta": -0.326,
+     "t": -0.763,
+     "a_0": 0.0,
+     "m": 0.0,
+     "g": 0.9,
+     "e_0": 115.9,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "QE1o": null,
+     "mE1": null,
+     "QE2o": null,
+     "mE2": null,
+     "delta": null,
+     "t": null,
+     "a_0": null,
+     "m": null,
+     "g": null,
+     "e_0": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "n"
+    ],
+    "model": "multi_oscillator_gruneisen_thermal_pressure"
+   },
+   "notes": "Native Sokolova2016 parameterization transcribed from the authors' Nb Excel table. Workbook Vo=1.0828 J bar^-1 mol^-1 and Ko=1705 kbar were converted to the conventional Z=2 cell in A^3 and GPa. The source reports no parameter uncertainties.",
+   "identifier": "niobium_sokolova_2016_holzapfel_2",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+     "locations": [
+      "Equations 1-12",
+      "Table 1",
+      "Figure 2 pressure-calculation table"
+     ],
+     "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
+     "doi": "10.1016/j.cageo.2016.06.002"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "niobium.json"
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.n",
+     "source_value": null,
+     "value": 1.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    },
+    {
+     "path": "eos.parameters.Z",
+     "source_value": null,
+     "value": 41.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    },
+    {
+     "path": "thermal.parameters.n",
+     "source_value": null,
+     "value": 1.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "niobium",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

@@ -1,0 +1,127 @@
+{
+ "format_version": 3,
+ "name": "CaO",
+ "formula": "CaO",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.81059,
+  "b": 4.81059,
+  "c": 4.81059,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Ca",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/cao.jcpds, JCPDS/current user/jcpds/ver3/cao.jcpds, JCPDS/current user/jcpds/ver2/cao.jcpds",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Richet et al. (1988), CaO B1 BM3",
+   "reference": {
+    "authors": [
+     "Richet",
+     "Mao",
+     "Bell"
+    ],
+    "year": 1988,
+    "source": "J. Geophys. Res.",
+    "volume": "93",
+    "locator": "15279-15288",
+    "doi": "10.1029/JB093iB12p15279"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 111.3225,
+     "K0": 111.0,
+     "K0_prime": 4.2
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 1.0,
+    "K0_prime": 0.2
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    60.0
+   ],
+   "notes": "Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.",
+   "identifier": "cao_richet_1988_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar",
+     "locations": [
+      "Equation (5)",
+      "Tables 1-4",
+      "pages 15283-15285"
+     ],
+     "finding": "The author-uploaded primary article reports separate BM3 fits for B1 and B2 CaO; Mbar and molar-volume values are converted explicitly.",
+     "doi": "10.1029/jb093ib12p15279"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "cao.json"
+    }
+   },
+   "temperature_ref": 300.0,
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 111.3256,
+     "value": 111.3225,
+     "reason": "Converted from the primary Table 4 molar V0=16.76 cm^3/mol using Z=4.",
+     "primary_reference": {
+      "doi": "10.1029/jb093ib12p15279",
+      "location": "Equation (5), Table 4, and abstract"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "cao",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

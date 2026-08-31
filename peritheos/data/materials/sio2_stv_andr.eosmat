@@ -1,0 +1,111 @@
+{
+ "format_version": 3,
+ "name": "SiO2 stishovite",
+ "formula": "SiO2",
+ "symmetry": "TETRAGONAL",
+ "lattice": {
+  "a": 4.1772,
+  "b": 4.1772,
+  "c": 2.66505,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "P42/mnm",
+ "space_group_number": 136,
+ "atom_sites": [
+  {
+   "element": "Si",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4f",
+   "x": 0.3062,
+   "y": 0.3062,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/sio2-stv_Andr.jcpds. Ambient stishovite coordinates: Baur and Khan, Acta Crystallographica B27, 2133-2139 (1971).",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Andrault et al. (2003)",
+   "reference": {
+    "authors": [
+     "Andrault",
+     "Angel",
+     "Mosenfelder",
+     "Le Bihan"
+    ],
+    "year": 2003,
+    "source": "American Mineralogist",
+    "volume": "88",
+    "locator": "301-307",
+    "doi": "10.2138/am-2003-2-307"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 46.5025,
+     "K0": 309.9,
+     "K0_prime": 4.59
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.61,
+    "K0": 1.1,
+    "K0_prime": 0.23
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    53.0
+   ],
+   "notes": "Andrault et al. report V0 = 46.51(61) A^3, K0 = 309.9(1.1) GPa, and K0' = 4.59(23). The stored V0 retains the more precise ambient lattice product.",
+   "identifier": "sio2_stv_andr_andrault_2003_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2003-2-307",
+     "locations": [
+      "Primary abstract",
+      "combined single-crystal and powder BM3 fit"
+     ],
+     "doi": "10.2138/am-2003-2-307"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "sio2_stv_andr.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "sio2_stv_andr",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

@@ -1,0 +1,116 @@
+{
+ "format_version": 3,
+ "name": "Fe3O4",
+ "formula": "Fe3O4",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 8.3958,
+  "b": 8.3958,
+  "c": 8.3958,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 8,
+ "space_group": "Fd-3m",
+ "space_group_number": 227,
+ "atom_sites": [
+  {
+   "element": "Fe",
+   "wyckoff": "8a",
+   "x": 0.125,
+   "y": 0.125,
+   "z": 0.125,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "16d",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "32e",
+   "x": 0.2549,
+   "y": 0.2549,
+   "z": 0.2549,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/fe3o4.jcpds. Room-temperature inverse-spinel structure: Fleet, Acta Crystallographica B37, 917-920 (1981), doi:10.1107/S0567740881004597.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "GSAS, EOS from Mao 1974",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Takahashi",
+     "Bassett",
+     "Kinsland",
+     "Merrill"
+    ],
+    "year": 1974,
+    "source": "J. Geophys. Res.",
+    "volume": "79",
+    "locator": "1165-1170",
+    "doi": "10.1029/JB079i008p01165"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 591.8154,
+     "K0": 183.0,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 10.0,
+    "K0_prime": 0.4
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    25.0
+   ],
+   "notes": "Mao et al. report K0 = 183 +/- 10 GPa using K0' = 4.0 +/- 0.4 as an imposed value. V0 is retained from the cited ambient structure.",
+   "identifier": "fe3o4_mao_1974_bm3_1",
+   "scientific_validation": {
+    "status": "deferred",
+    "note": "The primary abstract establishes the magnetite K0, fixed K0', and pressure range, but an accessible full primary copy was not found for the stored reference volume and complete uncertainty provenance.",
+    "audit_date": "2026-08-31",
+    "unresolved": [
+     "complete primary equation/parameter trace",
+     "reference-state and unit provenance",
+     "published uncertainty/covariance and validity provenance"
+    ],
+    "primary_source_check": {
+     "doi": "10.1029/jb079i008p01165",
+     "access_url": "https://doi.org/10.1029/jb079i008p01165",
+     "outcome": "insufficient_primary_evidence",
+     "reason": "The primary abstract establishes the magnetite K0, fixed K0', and pressure range, but an accessible full primary copy was not found for the stored reference volume and complete uncertainty provenance."
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "fe3o4.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "fe3o4",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

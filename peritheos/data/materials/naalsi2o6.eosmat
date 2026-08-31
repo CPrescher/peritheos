@@ -1,0 +1,184 @@
+{
+ "format_version": 3,
+ "name": "NaAlSi2O6",
+ "formula": "NaAlSi2O6",
+ "symmetry": "MONOCLINIC",
+ "lattice": {
+  "a": 9.418,
+  "b": 8.562,
+  "c": 5.219,
+  "alpha": 90.0,
+  "beta": 107.97,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "C2/c",
+ "space_group_number": 15,
+ "atom_sites": [
+  {
+   "element": "Na",
+   "wyckoff": "4e",
+   "x": 0.0,
+   "y": 0.3009,
+   "z": 0.25,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Al",
+   "wyckoff": "4e",
+   "x": 0.0,
+   "y": 0.094,
+   "z": 0.75,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "8f",
+   "x": 0.2906,
+   "y": 0.0934,
+   "z": 0.2277,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "8f",
+   "x": 0.109,
+   "y": 0.0763,
+   "z": 0.1275,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "8f",
+   "x": 0.3608,
+   "y": 0.263,
+   "z": 0.2929,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "8f",
+   "x": 0.3533,
+   "y": 0.007,
+   "z": 0.0058,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/jadeite.jcpds. Ambient pure-jadeite coordinates: Prewitt and Burnham, American Mineralogist 51, 956-975 (1966); the imported EoS lattice is retained.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Zhao et al. (1997), jadeite 300 K BM3",
+   "reference": {
+    "authors": [
+     "Zhao",
+     "Von Dreele",
+     "Shankland",
+     "Weidner",
+     "Zhang",
+     "Wang",
+     "Gasparik"
+    ],
+    "year": 1997,
+    "source": "Geophys. Res. Lett.",
+    "volume": "24",
+    "locator": "5-8",
+    "doi": "10.1029/96GL03769"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 403.32,
+     "K0": 124.5,
+     "K0_prime": 5.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.08,
+    "K0": 4.0,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    8.2
+   ],
+   "notes": "The 300 K reference isotherm of Zhao et al.'s high-temperature BM3 model uses V0=403.32(8) A^3, K0=124.5(4.0) GPa, and K0'=5 assumed. This record intentionally represents only that reference isotherm, not the paper's temperature-dependent K and expansion.",
+   "identifier": "naalsi2o6_zhao_1997_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/96GL03769",
+     "locations": [
+      "Equation (1)",
+      "Table 1",
+      "Thermoelastic Equation of State, pages 6-7"
+     ],
+     "finding": "The 300 K BM3 reference isotherm uses V0=403.32(8) A^3, K0=124.5(4.0) GPa, and K0'=5 assumed. The full paper also reports the separate high-temperature coefficients, which this static record does not claim.",
+     "doi": "10.1029/96gl03769"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "naalsi2o6.json"
+    }
+   },
+   "temperature_ref": 300.0,
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 401.19,
+     "value": 403.32,
+     "reason": "Table 1 reports the ambient 300 K cell volume as 403.32(8) A^3.",
+     "primary_reference": {
+      "doi": "10.1029/96gl03769",
+      "location": "Equation (1), Table 1, and pages 6-7"
+     }
+    },
+    {
+     "path": "eos.parameters.K0",
+     "source_value": 125.0,
+     "value": 124.5,
+     "reason": "The EOS fit reports K0=124.5(4.0) GPa; 125 GPa is only its rounded abstract value.",
+     "primary_reference": {
+      "doi": "10.1029/96gl03769",
+      "location": "Equation (1), Table 1, and pages 6-7"
+     }
+    },
+    {
+     "path": "parameter_errors.V0",
+     "source_value": null,
+     "value": 0.08,
+     "reason": "Restore the Table 1 V0=403.32(8) A^3 measurement error.",
+     "primary_reference": {
+      "doi": "10.1029/96gl03769",
+      "location": "Equation (1), Table 1, and pages 6-7"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "naalsi2o6",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

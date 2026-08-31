@@ -1,8 +1,10 @@
 import numpy as np
 import pytest
 
-import peritheos.eos.thermal.sokolova2016 as sokolova_module
+import peritheos.eos.thermal.multi_oscillator as multi_oscillator_module
 from peritheos.eos.rt.holzapfel import Holzapfel
+from peritheos.eos.rt.vinet import Vinet
+from peritheos.eos.thermal import MultiOscillatorGruneisenThermalEOS
 from peritheos.eos.thermal.sokolova2016 import (
     I_gamV,
     Sokolova2016,
@@ -36,6 +38,33 @@ T = 3000  # in K
 x = V / V0
 
 
+def test_neutral_class_accepts_an_independent_reference_isotherm():
+    eos = MultiOscillatorGruneisenThermalEOS(
+        Vinet(V0, K0, K0_prime),
+        Tr,
+        Theta_1,
+        m1,
+        Theta_2,
+        m2,
+        delta,
+        t,
+        a_0,
+        m,
+        g,
+        e_0,
+        n=1.0,
+    )
+
+    assert eos.pressure(V0, Tr) == pytest.approx(0.0, abs=1.0e-12)
+    pressure = eos.pressure(0.9 * V0, 1800.0)
+    assert np.isfinite(pressure)
+    assert eos.volume(pressure, 1800.0) == pytest.approx(0.9 * V0)
+
+
+def test_paper_named_class_is_a_compatibility_alias():
+    assert Sokolova2016 is MultiOscillatorGruneisenThermalEOS
+
+
 def test_diamond_thermal_pressure_regression():
     rt_eos = Holzapfel(V0, K0, K0_prime, n, z)
     sokolova_eos = Sokolova2016(
@@ -50,7 +79,7 @@ def test_temperature_inversion_prepares_volume_integral_once(monkeypatch):
     eos = Sokolova2016(rt_eos, Tr, Theta_1, m1, Theta_2, m2, delta, t, a_0, m, g, e_0)
     expected_temperature = 2500.0
     pressure = eos.pressure(V, expected_temperature)
-    original_integral = sokolova_module.I_gamV
+    original_integral = multi_oscillator_module.I_gamV
     call_count = 0
 
     def counting_integral(*args, **kwargs):
@@ -58,7 +87,7 @@ def test_temperature_inversion_prepares_volume_integral_once(monkeypatch):
         call_count += 1
         return original_integral(*args, **kwargs)
 
-    monkeypatch.setattr(sokolova_module, "I_gamV", counting_integral)
+    monkeypatch.setattr(multi_oscillator_module, "I_gamV", counting_integral)
 
     assert np.isclose(eos.temperature(pressure, V), expected_temperature)
     assert call_count == 1

@@ -41,6 +41,7 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "jsonschema>=4.18,<5",
     "pytest>=7.4.4",
     "pytest-cov>=6.0,<8",
     "ruff>=0.12,<1",
@@ -59,6 +60,15 @@ version = {attr = "peritheos.__version__"}
 
 [tool.setuptools.packages.find]
 include = ["peritheos*"]
+
+[tool.setuptools.package-data]
+peritheos = [
+    "data/*.json",
+    "data/materials/*.eosmat",
+    "data/materials/*.json",
+    "data/materials/*.md",
+    "data/materials/*.txt",
+]
 
 [tool.ruff]
 target-version = "py39"

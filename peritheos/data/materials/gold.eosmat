@@ -1,0 +1,401 @@
+{
+ "format_version": 3,
+ "name": "Gold",
+ "formula": "Au",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.0862,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Au",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "04-0784, Anderson et al J Appl Phys 65, 1534, 1989",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Isaak",
+     "Yamamoto"
+    ],
+    "year": 1989,
+    "source": "J. Appl. Phys.",
+    "volume": "65",
+    "locator": "1534-1543",
+    "doi": "10.1063/1.342969"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 67.84742110765599,
+     "K0": 166.65,
+     "K0_prime": 5.4823
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "pressure_range_status": "reference_parameterization",
+   "notes": "Anderson et al. thermodynamic pressure-scale parameterization. The source does not tabulate statistical standard errors for this recommended parameter set.",
+   "thermal": {
+    "type": "AlphaKT",
+    "parameters": {
+     "alpha0": 4.26e-05,
+     "dK_dT": 0.0
+    },
+    "model": "thermal_reference_state"
+   },
+   "identifier": "gold_anderson_1989_bm3_1",
+   "scientific_validation": {
+    "status": "deferred",
+    "note": "The primary paper was identified, but the complete recommended parameter derivation and its reference-state conventions were not available in an accessible primary copy during this audit.",
+    "audit_date": "2026-08-31",
+    "unresolved": [
+     "complete primary equation/parameter trace",
+     "reference-state and unit provenance",
+     "published uncertainty/covariance and validity provenance"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.342969",
+     "access_url": "https://doi.org/10.1063/1.342969",
+     "outcome": "insufficient_primary_evidence",
+     "reason": "The primary paper was identified, but the complete recommended parameter derivation and its reference-state conventions were not available in an accessible primary copy during this audit."
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "gold.json"
+    }
+   }
+  },
+  {
+   "label": "04-0784, Fei et al PNAS, 2007 [Vinet]",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "default": true,
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 67.85,
+     "K0": 167.0,
+     "K0_prime": 6.0
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": 0.004,
+    "K0": null,
+    "K0_prime": 0.02
+   },
+   "fixed_parameters": [
+    "K0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    89.0
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 170.0,
+     "gamma0": 2.97,
+     "q": 0.6,
+     "n": 1
+    },
+    "debye_temperature_law": "variable_exponent",
+    "model": "mie_gruneisen_debye"
+   },
+   "notes": "Corrected against the paper (Table 1: Vinet, V0=67.850(4), K0=167, K0p=6.00(2)); the hosted database carried Anderson's BM3 values here. Thermal parameters are the paper's MGD fit (not yet used by Dioptas).",
+   "migration_corrections": [
+    {
+     "path": "thermal.debye_temperature_law",
+     "source_value": "integrated_gruneisen (implicit Dioptas default)",
+     "value": "variable_exponent",
+     "reason": "Fei et al. (2007) use theta_D = theta0*(V/V0)^(-gamma(V)), not the integrated constant-q Debye-temperature relation.",
+     "primary_reference": {
+      "doi": "10.1073/pnas.0609013104",
+      "location": "Equation 3 and the definition immediately following it"
+     }
+    }
+   ],
+   "identifier": "gold_fei_2007_vinet_2",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+     "locations": [
+      "Equations 1-3",
+      "Table 1",
+      "Ne BM3 values in main text"
+     ],
+     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law.",
+     "doi": "10.1073/pnas.0609013104"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "gold.json"
+    }
+   }
+  },
+  {
+   "label": "Shen and Smith (2026), Cu-referenced Vinet",
+   "reference": {
+    "authors": [
+     "Shen",
+     "Smith"
+    ],
+    "year": 2026,
+    "source": "Phys. Rev. B",
+    "volume": "113",
+    "locator": "144113",
+    "doi": "10.1103/fxgq-96sg"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 67.792,
+     "K0": 167.5,
+     "K0_prime": 5.85
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.3,
+    "K0_prime": 0.01
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    140.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.01. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
+   "identifier": "gold_shen_2026_vinet_3",
+   "scientific_validation": {
+    "status": "deferred",
+    "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+    "audit_date": "2026-08-31",
+    "unresolved": [
+     "complete primary equation/parameter trace",
+     "reference-state and unit provenance",
+     "published uncertainty/covariance and validity provenance"
+    ],
+    "primary_source_check": {
+     "doi": "10.1103/fxgq-96sg",
+     "access_url": "https://doi.org/10.1103/fxgq-96sg",
+     "outcome": "insufficient_primary_evidence",
+     "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "gold.json"
+    }
+   }
+  },
+  {
+   "label": "Sokolova et al. (2016), Holzapfel thermal model",
+   "reference": {
+    "authors": [
+     "Sokolova",
+     "Dorogokupets",
+     "Dymshits",
+     "Danilov",
+     "Litasov"
+    ],
+    "year": 2016,
+    "source": "Comput. Geosci.",
+    "volume": "94",
+    "locator": "162-169",
+    "details": "supplementary workbook 3",
+    "doi": "10.1016/j.cageo.2016.06.002"
+   },
+   "eos": {
+    "type": "Holzapfel",
+    "parameters": {
+     "V0": 67.84961794736972,
+     "K0": 167.0,
+     "K0_prime": 5.9,
+     "n": 1.0,
+     "Z": 79.0
+    },
+    "model": "holzapfel",
+    "parameter_errors": {
+     "n": null,
+     "Z": null
+    },
+    "fixed_parameters": [
+     "n",
+     "Z"
+    ]
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "pressure_range_status": "reference_parameterization",
+   "temperature_ref": 298.15,
+   "thermal": {
+    "type": "Sokolova2016",
+    "parameters": {
+     "Tr": 298.15,
+     "QE1o": 179.5,
+     "mE1": 1.5,
+     "QE2o": 83.0,
+     "mE2": 1.5,
+     "delta": 0.134,
+     "t": 0.087,
+     "a_0": 0.0,
+     "m": 0.0,
+     "g": 0.0,
+     "e_0": 0.0,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "QE1o": null,
+     "mE1": null,
+     "QE2o": null,
+     "mE2": null,
+     "delta": null,
+     "t": null,
+     "a_0": null,
+     "m": null,
+     "g": null,
+     "e_0": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "n"
+    ],
+    "model": "multi_oscillator_gruneisen_thermal_pressure"
+   },
+   "notes": "Native Sokolova2016 parameterization transcribed from the authors' Au Excel table. Workbook Vo=1.0215 J bar^-1 mol^-1 and Ko=1670 kbar were converted to the conventional Z=4 cell in A^3 and GPa. The source reports no parameter uncertainties.",
+   "identifier": "gold_sokolova_2016_holzapfel_4",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+     "locations": [
+      "Equations 1-12",
+      "Table 1",
+      "Figure 2 pressure-calculation table"
+     ],
+     "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
+     "doi": "10.1016/j.cageo.2016.06.002"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "gold.json"
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.n",
+     "source_value": null,
+     "value": 1.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    },
+    {
+     "path": "eos.parameters.Z",
+     "source_value": null,
+     "value": 79.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    },
+    {
+     "path": "thermal.parameters.n",
+     "source_value": null,
+     "value": 1.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "gold",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

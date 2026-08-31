@@ -1,0 +1,177 @@
+{
+ "format_version": 3,
+ "name": "Zircon",
+ "formula": "ZrSiO4",
+ "symmetry": "TETRAGONAL",
+ "lattice": {
+  "a": 6.6042,
+  "b": 6.6042,
+  "c": 5.9796,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "I41/amd",
+ "space_group_number": 141,
+ "atom_sites": [
+  {
+   "element": "Zr",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.75,
+   "z": 0.125,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4b",
+   "x": 0.0,
+   "y": 0.75,
+   "z": 0.625,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "16h",
+   "x": 0.0,
+   "y": 0.066,
+   "z": 0.195,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/ZrSiO4 (2).jcpds. Ambient coordinates are from Hazen and Finger, American Mineralogist 64, 196-201 (1979).",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Hazen and Finger (1979), K0' fixed at 6.5",
+   "reference": {
+    "authors": [
+     "Hazen",
+     "Finger"
+    ],
+    "year": 1979,
+    "source": "American Mineralogist",
+    "volume": "64",
+    "locator": "196-201"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 260.79,
+     "K0": 227.0,
+     "K0_prime": 6.5
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.04,
+    "K0": 2.0,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    4.81
+   ],
+   "notes": "Hazen and Finger report V0=260.79(4) A^3 and K0=227(2) GPa for Murnaghan and Birch-Murnaghan fits with K0'=6.5 assumed. The paper's fitted range is 0-48.1 kbar.",
+   "identifier": "zircon_hazen_1979_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf",
+     "locations": [
+      "Table 1",
+      "page 198, Zircon compressibility section"
+     ],
+     "finding": "The reported K0=227(2) GPa fit assumes K0'=6.5; the migrated BM2 representation was corrected to BM3 with K0' fixed.",
+     "doi": null
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "zircon.json"
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "identifier",
+     "source_value": "zircon_hazen_1979_bm2_1",
+     "value": "zircon_hazen_1979_bm3_1",
+     "reason": "The primary fit requires an explicit fixed K0'=6.5.",
+     "primary_reference": {
+      "location": "Hazen and Finger (1979), page 198",
+      "url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf"
+     }
+    },
+    {
+     "path": "eos",
+     "source_value": "BM2(V0=260.803, K0=227.0)",
+     "value": "BM3(V0=260.79, K0=227.0, K0_prime=6.5)",
+     "reason": "The primary paper reports V0=260.79(4) A^3 and K0=227(2) GPa with K0'=6.5 assumed.",
+     "primary_reference": {
+      "location": "Hazen and Finger (1979), page 198",
+      "url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf"
+     }
+    },
+    {
+     "path": "fixed_parameters.K0_prime",
+     "source_value": null,
+     "value": 6.5,
+     "reason": "K0'=6.5 is assumed, not fitted, in the primary paper.",
+     "primary_reference": {
+      "location": "Hazen and Finger (1979), page 198",
+      "url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf"
+     }
+    },
+    {
+     "path": "parameter_errors.V0",
+     "source_value": null,
+     "value": 0.04,
+     "reason": "The primary paper reports V0=260.79(4) A^3.",
+     "primary_reference": {
+      "location": "Hazen and Finger (1979), page 198",
+      "url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf"
+     }
+    },
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": [
+      0.0,
+      4.8
+     ],
+     "value": [
+      0.0,
+      4.81
+     ],
+     "reason": "The highest measured pressure in Table 1 is 48.1 kbar.",
+     "primary_reference": {
+      "location": "Hazen and Finger (1979), page 198",
+      "url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "zircon",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

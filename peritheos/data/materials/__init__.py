@@ -1,0 +1,1 @@
+"""Bundled `.eosmat` material library."""

@@ -180,7 +180,9 @@ Murnaghan EOS.
 
 The Holzapfel implementation requires $V_0$ and $V$ in
 `J bar^-1 mol^-1`, $K_0$ in GPa, $n$ as the number of atoms in
-the formula unit, and $Z$ as its atomic-number parameter. Define
+the formula unit, and $Z$ as its atomic-number parameter. For a compound,
+$Z$ may be the effective value specified by its source parameterization;
+Sokolova et al. equation 3 gives that value for MgO. Define
 
 \[
 x=\left(\frac{V}{V_0}\right)^{1/3},
@@ -204,7 +206,7 @@ P=3K_0\exp[c_0(1-x)]
 \]
 
 `bulk_modulus_derivative(V)` evaluates $\partial K_T/\partial P$ numerically
-and is used by `Sokolova2016`.
+and is used by `MultiOscillatorGruneisenThermalEOS`.
 
 ## Thermal equations
 
@@ -220,6 +222,26 @@ P(V,T)=P_{\mathrm{ref}}(V)+\Delta P_{\mathrm{th}}(V,T),
 Because energy divided by the public molar-volume unit produces bar, the factor
 $10^{-4}$ converts thermal pressure to GPa.
 
+### Temperature-dependent reference state
+
+`ThermalReferenceStateEOS` composes an independently selected reference
+isotherm that exposes reconstructable `V0` and `K0` parameters. At each
+temperature it evaluates that same isotherm after applying
+
+\[
+V_0(T)=V_0(T_r)\exp[\alpha_0(T-T_r)],
+\qquad
+K_0(T)=K_0(T_r)+(T-T_r)\left(\frac{\partial K}{\partial T}\right)_P.
+\]
+
+The stored parameters are `Tr`, `alpha0`, and `dK_dT`. Unlike the
+energy-based thermal models, this construction inherits the volume unit of its
+reference isotherm. The bundled ice VI and ice VII records compose it with BM2,
+following equations (1)--(3) and Table II of Bezacier et al. (2014),
+[doi:10.1063/1.4894421](https://doi.org/10.1063/1.4894421). The `.eosmat`
+interchange type remains `AlphaKT` for Dioptas compatibility, while the stable
+model identifier is `thermal_reference_state`.
+
 ### Mie-Gruneisen Debye and Einstein
 
 Both Mie-Gruneisen models use
@@ -234,7 +256,8 @@ Here `Tr` is $T_r$, `theta0` is $\Theta_0$, `gamma0` is $\gamma_0$,
 `q` controls their volume dependence, and `n` scales the number of
 vibrational degrees of freedom per formula unit.
 
-The integrated characteristic temperature is
+`MieGruneisenDebye.debye_temperature_law` selects the characteristic-temperature
+relation. If it is omitted, the default is `integrated_gruneisen`:
 
 \[
 \Theta(V)=\Theta_0\exp\left\{
@@ -277,6 +300,67 @@ Zero-point energy is omitted from these two public vibrational-energy models;
 it cancels from the referenced thermal pressure in any case. Constant-volume
 heat capacity is evaluated as $C_V=(\partial E/\partial T)_V$.
 
+### Variable-exponent Debye-temperature law
+
+`MieGruneisenDebye(..., debye_temperature_law="variable_exponent")` retains
+the Debye energy and referenced thermal-pressure expression above, but follows
+Fei et al. (2007) literally for the characteristic temperature. With
+$x=V/V_0$,
+
+\[
+\gamma(V)=\gamma_0x^q,
+\qquad
+\Theta_D(V)=\Theta_0x^{-\gamma(V)}.
+\]
+
+This differs from `integrated_gruneisen` when $q\ne0$. The law is explicit
+fixed configuration, not a fitted numerical parameter, so reconstruction and
+serialization preserve it while uncertainty propagation does not perturb it.
+Fei et al. equation 3 defines the referenced thermal pressure; Table 1 supplies
+the four catalog parameter sets.
+
+### Tange 2009 MgO thermal model
+
+`Tange2009Debye` retains the Debye energy and referenced Mie-Gruneisen
+thermal-pressure expression above, but replaces the power-law Gruneisen model
+with Tange et al. (2009), equation 15. With $x=V/V_0$,
+
+\[
+\gamma(V)=\gamma_0\left\{1+a\left[x^b-1\right]\right\}.
+\]
+
+Integrating $\gamma=-\partial\ln\Theta/\partial\ln V$ gives the paper's
+equation 16 in an explicit form:
+
+\[
+\Theta(V)=\Theta_0\exp\left[-\gamma_0\left{
+(1-a)\ln x+\frac{a}{b}(x^b-1)
+\right\}\right], \qquad b\ne0.
+\]
+
+The implementation also evaluates the continuous $b=0$ limit. This model is
+kept separate from the generic `MieGruneisenDebye` class so that the published
+functional form is not approximated by a different $q$ law. The pressure
+standard wrapper converts diffraction volumes from conventional-cell
+$\mathring{\mathrm A}^3$ to the molar volume required by thermal EOS classes.
+
+### Linear thermal pressure
+
+`LinearThermalPressure` composes any reference isotherm with
+
+\[
+P(V,T)=P_{\mathrm{ref}}(V)+\alpha K_T(T-T_r).
+\]
+
+Here `alpha_KT` is the fitted product in GPa/K, not a separately constant
+thermal expansivity and bulk modulus. Dewaele et al. (2012), equation 2 and
+Table V, use this form for B2 KCl and KBr. Walker et al. (2002), equation BE1,
+uses the same additive term for KCl; its reported B2 product
+`0.0275(9) kbar/K` is represented directly as `0.00275(9) GPa/K` so the
+published product uncertainty can be propagated without inventing independent
+errors for its correlated factors. Because the correction is independent of
+volume, it uses the same volume convention as the composed reference EOS.
+
 ### Thermal modified Tait
 
 `ThermalModifiedTait` combines a `ModifiedTait` reference EOS with a fixed
@@ -303,10 +387,16 @@ This pressure is independent of volume. Its implied Gruneisen parameter is
 
 `HollandPowell2011` is an alias for this implementation.
 
-### Sokolova2016
+### Multi-oscillator Gruneisen thermal pressure
 
-`Sokolova2016` combines a Holzapfel reference EOS, volume-dependent oscillator
-temperatures, and quadratic anharmonic and electronic pressure terms.
+`MultiOscillatorGruneisenThermalEOS` combines an independently selected
+reference isotherm, volume-dependent oscillator temperatures, and quadratic
+anharmonic and electronic pressure terms. It needs pressure, bulk modulus, and
+$dK/dP$ from the reference component. `EosBase` supplies the last quantity by
+central numerical differentiation when the selected isotherm has no specialized
+implementation. The published Sokolova et al. catalog records compose the
+thermal correction with Holzapfel; another reference isotherm is a valid API
+composition, but a new scientific model rather than the published scale.
 
 #### Paper versus spreadsheet
 
@@ -366,8 +456,9 @@ and the model Gruneisen function
 {6(3K_T-2P\widetilde t)}.
 \]
 
-Here $P$, $K_T$, and $K_T'$ come from the Holzapfel reference EOS at
-$V=xV_0$. Each characteristic temperature follows
+Here $P$, $K_T$, and $K_T'$ come from the selected reference isotherm at
+$V=xV_0$. The Sokolova catalog compositions select Holzapfel. Each
+characteristic temperature follows
 
 \[
 \Theta_i(x)=\Theta_{i0}\exp[I_\gamma(x)],

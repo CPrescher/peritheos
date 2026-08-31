@@ -72,6 +72,16 @@ def test_bulk_modulus_array(vinet_eos):
     assert np.isclose(moduli[2], K0)  # reference volume
 
 
+def test_generic_bulk_modulus_pressure_derivative(vinet_eos):
+    """The composable EOS interface supplies dK/dP for reference curves."""
+    assert vinet_eos.bulk_modulus_derivative(V0) == pytest.approx(K0_prime, rel=1.0e-8)
+    values = vinet_eos.bulk_modulus_derivative(np.array([V0, 0.9 * V0]))
+    assert values.shape == (2,)
+    assert np.all(np.isfinite(values))
+    with pytest.raises(ValueError, match="greater than zero"):
+        vinet_eos.bulk_modulus_derivative(V0, relative_step=0.0)
+
+
 def test_known_values(vinet_eos):
     """Test against pre-calculated values"""
     # These values were calculated using the equations

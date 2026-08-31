@@ -16,6 +16,10 @@ The documentation is organized around scientific workflows:
 - [Fitting data](fitting.md) covers P-V and P-V-T regression with uncertainty.
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
+- [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
+  ownership and bundled 116-material EOS library.
+- [`.eosmat` schema reference](eosmat-schema.md) documents every exchange
+  field, model discriminator, default, unit, and compatibility rule.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional
   two-volume thermal-pressure boundary-condition model.
 - [Units and reference states](units.md) explains the deliberately strict

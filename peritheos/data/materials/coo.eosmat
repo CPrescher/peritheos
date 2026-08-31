@@ -1,0 +1,100 @@
+{
+ "format_version": 3,
+ "name": "CoO",
+ "formula": "CoO",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.544,
+  "b": 4.544,
+  "c": 4.544,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Co",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/certified data base/coo.jcpds, JCPDS/current user/jcpds/ver3/coo.jcpds, JCPDS/current user/jcpds/ver2/coo.jcpds",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "JCPDS 42-1300, EOS from Clendenen and Drickamer, 66",
+   "reference": {
+    "authors": [
+     "Clendenen",
+     "Drickamer"
+    ],
+    "year": 1966,
+    "source": "J. Chem. Phys.",
+    "volume": "44",
+    "locator": "4223-4228",
+    "doi": "10.1063/1.1726610"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 93.8242,
+     "K0": 190.5,
+     "K0_prime": 3.9
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "pressure_range_status": "reported_qualitatively",
+   "notes": "Clendenen and Drickamer report the legacy compression parameters K0 = 190.5 GPa and K0' = 3.9 without parameter uncertainties. V0 is retained from the ambient diffraction card. The source describes measurements to several hundred kilobars but does not expose a recoverable CoO-specific maximum in the accessible metadata, so no exact numeric fit limit is asserted.",
+   "identifier": "coo_clendenen_1966_bm3_1",
+   "scientific_validation": {
+    "status": "deferred",
+    "note": "The accessible primary abstract does not establish all stored CoO V0, Birch-Murnaghan coefficients, errors, and validity metadata.",
+    "audit_date": "2026-08-31",
+    "unresolved": [
+     "complete primary equation/parameter trace",
+     "reference-state and unit provenance",
+     "published uncertainty/covariance and validity provenance"
+    ],
+    "primary_source_check": {
+     "doi": "10.1063/1.1726610",
+     "access_url": "https://doi.org/10.1063/1.1726610",
+     "outcome": "insufficient_primary_evidence",
+     "reason": "The accessible primary abstract does not establish all stored CoO V0, Birch-Murnaghan coefficients, errors, and validity metadata."
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "coo.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "coo",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

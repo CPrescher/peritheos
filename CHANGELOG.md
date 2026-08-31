@@ -5,6 +5,101 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Fixed
+
+- Marked the published parameter errors for 14 Al, Cu, W, Ni, Ag, diamond,
+  alpha/omega-Ti, Si-V/Si-VII/Si-X, Re, corundum, and LiF records as 95%
+  confidence half-widths. File-loaded uncertainty propagation now converts
+  these intervals to normal-equivalent standard errors instead of treating
+  them as one-standard-deviation errors.
+- Corrected the imported Dioptas Fei et al. (2007) Au and Ne records to use
+  `MieGruneisenDebye` with `debye_temperature_law="variable_exponent"` rather
+  than the implicit `integrated_gruneisen` default. The `.eosmat` records
+  preserve the original behavior and cite equation 3 in explicit
+  migration-correction metadata.
+- Corrected the Hazen--Finger (1979) zircon record from an inconsistent BM2
+  representation to BM3 with the published assumed `K0' = 6.5`, including the
+  reported `V0` uncertainty.
+- Corrected the Holmes et al. (1989) platinum record from BM3 to its published
+  universal (Vinet) isotherm, restored its model reference volume and
+  0--550 GPa static range, and represented Equation (12) with the published
+  constant thermal-pressure coefficient.
+- Restored the Ross (1997) magnesite fitted `V0` and uncertainty and normalized
+  the Haines et al. (2001) Mo2C reference volume from the primary specimen's
+  measured ambient lattice parameters.
+- Corrected primary-source values and error metadata for CaSiO3, CaO B1/B2,
+  rutile GeO2/SnO2, PbS B1, wadsleyite, jadeite, and B2 KCl; corrected the
+  migrated B2-KCl thermal component to Walker et al.'s additive BE1 form and
+  retained the published uncertainty of its directly fitted `alpha0*K0`
+  product. Published errors are retained even where the associated value was
+  fixed during a fit, as for Shim et al.'s CaSiO3 `V0`.
+
+### Added
+
+- A reproducible primary-source audit for all 147 migrated `.eosmat` EOS
+  records. One hundred sixteen records are now directly validated against original
+  publications, official supplements, or stable institutional reports; 31 are explicitly deferred with
+  record-level reasons, and no record remains in a generic pending state. The
+  bundled machine-readable ledger records source locations, the APS embargo
+  affecting Shen--Smith (2026), the B4C order inconsistency, and the restored
+  Hanfland graphite `V0` uncertainty.
+- A mechanism-oriented `ThermalReferenceStateEOS` implementation for the
+  temperature-dependent `V0(T)`/`K0(T)` formulation used by the validated ice
+  VI/VII records. The Dioptas `AlphaKT` interchange type maps to the canonical
+  `thermal_reference_state` model identifier.
+- Primary-audit corrections restore Sokolova `n`/`Z`, silica Debye `n`, and
+  ice `Tr` inputs omitted by migration; every validated migrated record is
+  constructability-tested.
+- A reproducible BurnMan/Pytheos public-API black-box comparison report,
+  deliberately separated from primary-source validation and test baselines.
+- Executable `Material` conversion through the same canonical `.eosmat`
+  format 3 used for Dioptas exchange. Optional symmetry, lattice, space-group,
+  atom-site, peak, and unknown extension fields survive a Peritheos round
+  trip; cell-to-molar volume conversion is explicit per EOS record. Loading
+  uses a fixed model registry, refuses unaudited records by default, and keeps
+  snapshot-v2 reading only for compatibility.
+- A configurable `debye_temperature_law` on `MieGruneisenDebye`, with
+  `integrated_gruneisen` as the backward-compatible default and
+  `variable_exponent` for sources that directly publish a volume-dependent
+  exponent. Also added the mechanism-named
+  `MultiOscillatorGruneisenThermalEOS` class, which accepts any
+  isothermal `EosBase` and uses a generic numerical $dK/dP$ fallback where
+  needed; the earlier paper-named imports remain compatibility aliases.
+
+- A first-class `Material`/`EOSRecord` catalog API with GPa pressure, conventional-unit-cell
+  volumes, scalar/array pressure and volume inversion, explicit material/phase
+  and unit metadata, DOI-level parameter provenance, published validity
+  envelopes, JSON-safe catalog records, and uncertainty propagation from
+  measured volume/temperature and published parameter errors.
+- A primary-source-validated catalog: Tange et al. (2009) Fit3-Vinet
+  P-V-T MgO B1 and the Dorfman et al. (2012) 300 K Vinet co-compression scales
+  for Au, Pt, Mo, NaCl B2, and Ne; Dewaele 2019 LiF and NaCl B1/B2; Dewaele
+  2012 KCl and KBr B1/B2; Datchi 2007 c-BN; and Dewaele 2008 diamond, Ag,
+  and Ni.
+- All eleven Sokolova et al. (2016) thermal pressure markers: MgO, diamond,
+  Al, Cu, Ag, Au, Pt, Nb, Ta, Mo, and W, with Table 1 provenance and the
+  corrected 2016 equations.
+- The Fei et al. (2007) internally consistent Au, Pt, NaCl-B2, and Ne thermal
+  scales and a dedicated Debye-temperature convention that preserves the
+  paper's equation rather than substituting the generic integrated form.
+- The quasi-hydrostatic 300 K hcp Re Vinet scale of Anzellini et al. (2014),
+  with Table III lattice-data regressions and its published 95% fit intervals
+  retained distinctly from one-standard-deviation errors.
+- The Tange et al. volume-dependent Gruneisen Mie-Gruneisen-Debye thermal model,
+  with printed Table 5 regression cases and analytic thermodynamic checks.
+- A reusable linear thermal-pressure EOS for the Dewaele KCl/KBr equation and
+  state-only uncertainty propagation where a source reports no parameter errors.
+- A documented catalog inventory, a versioned JSON computation record aligned
+  with Dioptas's material-oriented `.eosmat` format, and explicit deferral
+  records for Re and other entries where official primary evidence is not yet
+  independently available.
+- A Peritheos-owned flat `.eosmat` format 3, normative JSON Schema, complete
+  116-material/147-record EOS database migrated from Dioptas 0.10.0 with explicit
+  validation status and provenance, legacy Dioptas format-2 input, and tested
+  Dioptas 0.10.0 read compatibility. A dedicated schema reference documents
+  every field, discriminator pairing, default, unit, validation status, and
+  consumer compatibility rule.
+
 ## [0.5.0] - 2026-08-30
 
 ### Added

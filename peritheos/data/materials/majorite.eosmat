@@ -1,0 +1,138 @@
+{
+ "format_version": 3,
+ "name": "Majorite",
+ "formula": "",
+ "symmetry": "TETRAGONAL",
+ "lattice": {
+  "a": 11.501,
+  "b": 11.501,
+  "c": 11.48,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": null,
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/ver3/majorite.jcpds",
+ "peaks": [
+  [
+   4,
+   0,
+   0,
+   2.8752,
+   5.0
+  ],
+  [
+   2,
+   2,
+   0,
+   4.0662,
+   6.0
+  ],
+  [
+   1,
+   1,
+   2,
+   4.6895,
+   6.0
+  ],
+  [
+   0,
+   0,
+   2,
+   5.74,
+   19.0
+  ],
+  [
+   2,
+   0,
+   0,
+   5.7505,
+   14.0
+  ],
+  [
+   1,
+   0,
+   1,
+   8.125,
+   81.0
+  ],
+  [
+   1,
+   1,
+   0,
+   8.1324,
+   100.0
+  ]
+ ],
+ "eos_records": [
+  {
+   "label": "GSAS calculation, EOS from Yagi et al, 1992",
+   "reference": {
+    "authors": [
+     "Yagi",
+     "Uchiyama",
+     "Akaogi",
+     "Ito"
+    ],
+    "year": 1992,
+    "source": "Phys. Earth Planet. Inter.",
+    "volume": "74",
+    "locator": "1-7",
+    "doi": "10.1016/0031-9201(92)90063-2"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 1513.1,
+     "K0": 161.0,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 4.0,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    9.72
+   ],
+   "notes": "Yagi et al. report V0 = 1513.1 A^3 and K0 = 161 +/- 4 GPa with K0' fixed at 4.0. The ambient structural cell used for the phase lines is independently 1518.5 A^3.",
+   "identifier": "majorite_yagi_1992_bm3_1",
+   "scientific_validation": {
+    "status": "deferred",
+    "note": "The authors' institutional bibliography and primary abstract establish K0=161 GPa with K0'=4 assumed, but the full primary tables needed to verify V0=1513.1 A^3, its constraint, and the exact data range were inaccessible.",
+    "audit_date": "2026-08-31",
+    "unresolved": [
+     "complete primary equation/parameter trace",
+     "reference-state and unit provenance",
+     "published uncertainty/covariance and validity provenance"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/0031-9201(92)90063-2",
+     "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
+     "outcome": "insufficient_primary_evidence",
+     "reason": "The authors' institutional bibliography and primary abstract establish K0=161 GPa with K0'=4 assumed, but the full primary tables needed to verify V0=1513.1 A^3, its constraint, and the exact data range were inaccessible."
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "majorite.json"
+    }
+   }
+  }
+ ],
+ "atom_sites": [],
+ "format": "peritheos.material",
+ "identifier": "majorite",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

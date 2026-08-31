@@ -1,0 +1,252 @@
+{
+ "format_version": 3,
+ "name": "Potassium chloride (B2)",
+ "formula": "KCl",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.753,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "Pm-3m",
+ "space_group_number": 221,
+ "atom_sites": [
+  {
+   "element": "K",
+   "wyckoff": "1a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Cl",
+   "wyckoff": "1b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "High-pressure CsCl-type B2 KCl, stored separately from the rock-salt B1 phase.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "B2 (EOS from Campbell and Heinz, 1991)",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Heinz"
+    ],
+    "year": 1991,
+    "source": "J. Phys. Chem. Solids",
+    "volume": "52",
+    "locator": "495-499",
+    "doi": "10.1016/0022-3697(91)90181-X"
+   },
+   "eos": {
+    "type": "BM2",
+    "parameters": {
+     "V0": 52.85,
+     "K0": 28.7
+    },
+    "model": "birch_murnaghan_2"
+   },
+   "parameter_errors": {
+    "V0": 0.36,
+    "K0": 0.6
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    2.0,
+    56.0
+   ],
+   "notes": "Campbell and Heinz report V0(B2)/V0(B1) = 0.8483 +/- 0.0057 and K0 = 28.7 +/- 0.6 GPa, with K0' constrained to 4.0. This is stored as BM2; V0 and its propagated uncertainty use the ambient B1 reference volume.",
+   "identifier": "kcl_campbell_1991_bm2_1",
+   "scientific_validation": {
+    "status": "deferred",
+    "note": "The primary abstract reports the B2/B1 zero-pressure volume ratio, K0, and fixed K0'=4, but the stored absolute B2 V0 additionally depends on an ambient B1 volume that is not established by the accessible primary text.",
+    "audit_date": "2026-08-31",
+    "unresolved": [
+     "complete primary equation/parameter trace",
+     "reference-state and unit provenance",
+     "published uncertainty/covariance and validity provenance"
+    ],
+    "primary_source_check": {
+     "doi": "10.1016/0022-3697(91)90181-x",
+     "access_url": "https://doi.org/10.1016/0022-3697(91)90181-x",
+     "outcome": "insufficient_primary_evidence",
+     "reason": "The primary abstract reports the B2/B1 zero-pressure volume ratio, K0, and fixed K0'=4, but the stored absolute B2 V0 additionally depends on an ambient B1 volume that is not established by the accessible primary text."
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "kcl.json"
+    }
+   }
+  },
+  {
+   "label": "Walker et al. (2002), B2 thermal Birch",
+   "reference": {
+    "authors": [
+     "Walker",
+     "Cranswick",
+     "Verma",
+     "Clark",
+     "Buhre"
+    ],
+    "year": 2002,
+    "source": "American Mineralogist",
+    "volume": "87",
+    "locator": "805-812",
+    "doi": "10.2138/am-2002-0701"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 53.53,
+     "K0": 23.7,
+     "K0_prime": 4.4
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    3.18,
+    8.14
+   ],
+   "notes": "Walker et al.'s preferred B2-KCl BE1 fit uses fictive V0=53.53 A^3, K0=23.7 GPa, and K0'=4.4. Equation BE1 adds the directly reported alpha0*K0=0.0275+/-0.0009 kbar/K thermal pressure coefficient relative to the 23 degC isotherm. The paper states that individual V0, K0, K0', and alpha0 errors are not meaningful because of parameter correlation, so only the published error of the identifiable alpha0*K0 product is retained. The represented data span 3.18-8.14 GPa and 23-600 degC.",
+   "thermal": {
+    "type": "LinearThermalPressure",
+    "parameters": {
+     "Tr": 296.15,
+     "alpha_KT": 0.00275
+    },
+    "model": "linear_thermal_pressure",
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT": 9e-05
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "identifier": "kcl_walker_2002_bm3_2",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-08-31",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.researchgate.net/publication/231182054_Thermal_equations_of_state_for_B1_and_B2_KCl",
+     "locations": [
+      "Equation BE1",
+      "Table 2",
+      "Table 3",
+      "B2 KCl Thermal EOS, pages 807-810"
+     ],
+     "finding": "The author-uploaded primary article's preferred B2 fit is the bold Table 3 row. It explicitly declines individual parameter errors because of covariance, but reports alpha0*K0=0.0275+/-0.0009 kbar/K.",
+     "doi": "10.2138/am-2002-0701"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "kcl.json"
+    }
+   },
+   "temperature_ref": 296.15,
+   "experimental_temperature_range_k": [
+    296.15,
+    873.15
+   ],
+   "audit_corrections": [
+    {
+     "path": "thermal",
+     "source_value": {
+      "type": "AlphaKT",
+      "parameters": {
+       "alpha0": 0.00018,
+       "dK_dT": 0.0
+      },
+      "model": "thermal_reference_state"
+     },
+     "value": {
+      "type": "LinearThermalPressure",
+      "parameters": {
+       "Tr": 296.15,
+       "alpha_KT": 0.00275
+      },
+      "model": "linear_thermal_pressure",
+      "parameter_errors": {
+       "Tr": null,
+       "alpha_KT": 9e-05
+      },
+      "fixed_parameters": [
+       "Tr"
+      ]
+     },
+     "reason": "Equation BE1 is BM3 plus the additive alpha0*K0*delta-T term, not a temperature-dependent V0 and K0 reference state. Store the directly reported product and its error after converting kbar/K to GPa/K.",
+     "primary_reference": {
+      "doi": "10.2138/am-2002-0701",
+      "location": "Equation BE1, Tables 2-3, and pages 807-810"
+     }
+    },
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": [
+      2.0,
+      8.0
+     ],
+     "value": [
+      3.18,
+      8.14
+     ],
+     "reason": "Table 2 bounds the represented B2 observations at 31.8-81.4 kbar.",
+     "primary_reference": {
+      "doi": "10.2138/am-2002-0701",
+      "location": "Equation BE1, Tables 2-3, and pages 807-810"
+     }
+    },
+    {
+     "path": "experimental_temperature_range_k",
+     "source_value": null,
+     "value": [
+      296.15,
+      873.15
+     ],
+     "reason": "Tables 2-3 span 23-600 degC.",
+     "primary_reference": {
+      "doi": "10.2138/am-2002-0701",
+      "location": "Equation BE1, Tables 2-3, and pages 807-810"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "kcl",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}
