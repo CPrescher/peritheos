@@ -99,7 +99,13 @@ fn wrong_type_model_pair_is_rejected() {
 
 #[test]
 fn all_bundled_material_records_load_through_the_rust_registry() {
-    let mut paths = fs::read_dir(materials_directory())
+    let materials_directory = materials_directory();
+    if !materials_directory.is_dir() {
+        // The crates.io archive deliberately contains the reusable loader but
+        // not the Python distribution's complete material catalog.
+        return;
+    }
+    let mut paths = fs::read_dir(materials_directory)
         .unwrap()
         .map(|entry| entry.unwrap().path())
         .filter(|path| {
@@ -130,11 +136,20 @@ fn all_bundled_material_records_load_through_the_rust_registry() {
                         material.identifier, record.identifier
                     )
                 });
-            assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
+            if record.eos.thermal_model_identifier() == Some("double_debye_helmholtz") {
+                assert!(pressure.is_finite());
+                assert!(pressure > 0.0);
+                let pressure = record
+                    .pressure(8.0 * 4.654_270_411_587_497, 3000.0)
+                    .unwrap();
+                assert!((pressure - 150.0).abs() < 1.0e-7);
+            } else {
+                assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
+            }
         }
     }
 
     assert_eq!(paths.len(), 115);
-    assert_eq!(records, 146);
-    assert_eq!(thermal_records, 27);
+    assert_eq!(records, 147);
+    assert_eq!(thermal_records, 28);
 }

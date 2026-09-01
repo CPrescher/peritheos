@@ -20,10 +20,10 @@ use crate::isothermal::{
     BM3, BM4,
 };
 use crate::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, LinearThermalPressure,
-    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    ReferenceStateEos, ReferenceVolumeLaw, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DoubleDebyeHelmholtz,
+    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
+    MultiOscillatorGruneisen, ReferenceStateEos, ReferenceVolumeLaw, SokolovaParameters,
+    ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -226,6 +226,8 @@ impl ReferenceStateEos for IsothermalModel {
 pub enum ThermalModel {
     /// Tange-type asymptotic-power-law Mie--Gruneisen--Debye EOS.
     AsymptoticPowerLawMieGruneisenDebye(AsymptoticPowerLawMieGruneisenDebye<IsothermalModel>),
+    /// Vinet cold curve plus absolute double-Debye Helmholtz contribution.
+    DoubleDebyeHelmholtz(DoubleDebyeHelmholtz),
     /// Constant-slope thermal pressure.
     LinearThermalPressure(LinearThermalPressure<IsothermalModel>),
     /// Logarithmic-volume thermal pressure.
@@ -246,6 +248,7 @@ macro_rules! dispatch_thermal {
     ($self:expr, $model:ident => $expression:expr) => {
         match $self {
             ThermalModel::AsymptoticPowerLawMieGruneisenDebye($model) => $expression,
+            ThermalModel::DoubleDebyeHelmholtz($model) => $expression,
             ThermalModel::LinearThermalPressure($model) => $expression,
             ThermalModel::LogVolumeThermalPressure($model) => $expression,
             ThermalModel::MieGruneisenDebye($model) => $expression,
@@ -265,6 +268,7 @@ impl ThermalModel {
             Self::AsymptoticPowerLawMieGruneisenDebye(_) => {
                 "asymptotic_power_law_mie_gruneisen_debye"
             }
+            Self::DoubleDebyeHelmholtz(_) => "double_debye_helmholtz",
             Self::LinearThermalPressure(_) => "linear_thermal_pressure",
             Self::LogVolumeThermalPressure(_) => "log_volume_thermal_pressure",
             Self::MieGruneisenDebye(_) => "mie_gruneisen_debye",
@@ -324,6 +328,7 @@ impl LoadedEos {
                 ThermalModel::AsymptoticPowerLawMieGruneisenDebye(value) => {
                     value.rt_eos.model_identifier()
                 }
+                ThermalModel::DoubleDebyeHelmholtz(_) => "vinet",
                 ThermalModel::LinearThermalPressure(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LogVolumeThermalPressure(value) => value.rt_eos.model_identifier(),
                 ThermalModel::MieGruneisenDebye(value) => value.rt_eos.model_identifier(),
@@ -720,6 +725,7 @@ fn is_molar_volume_model(model: &str) -> bool {
         "mie_gruneisen_debye"
             | "mie_gruneisen_einstein"
             | "asymptotic_power_law_mie_gruneisen_debye"
+            | "double_debye_helmholtz"
             | "multi_oscillator_gruneisen_thermal_pressure"
             | "thermal_modified_tait"
     )
@@ -745,6 +751,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
         match model_type {
             "AlphaKT" => "thermal_reference_state",
             "AsymptoticPowerLawMieGruneisenDebye" => "asymptotic_power_law_mie_gruneisen_debye",
+            "DoubleDebyeHelmholtz" => "double_debye_helmholtz",
             "LinearThermalPressure" => "linear_thermal_pressure",
             "LogVolumeThermalPressure" => "log_volume_thermal_pressure",
             "MieGruneisenDebye" => "mie_gruneisen_debye",
@@ -858,6 +865,31 @@ fn build_thermal(
     let model = component_model_identifier(component, true)?;
     let p = |name| parameter(component, name);
     let built = match model {
+        "double_debye_helmholtz" => {
+            check_type(component, "DoubleDebyeHelmholtz")?;
+            let IsothermalModel::Vinet(reference) = reference else {
+                return Err("double_debye_helmholtz requires a Vinet reference EOS".to_owned());
+            };
+            DoubleDebyeHelmholtz::new(
+                reference,
+                p("Vp")?,
+                p("theta_a0")?,
+                p("a_a")?,
+                p("b_a")?,
+                p("theta_b0")?,
+                p("a_b")?,
+                p("b_b")?,
+                p("theta_1_0")?,
+                p("a_1")?,
+                p("b_1")?,
+                p("n")?,
+                p("alpha0")?,
+                p("Ve")?,
+                p("kappa")?,
+                p("phi0")?,
+            )
+            .map(ThermalModel::DoubleDebyeHelmholtz)
+        }
         "linear_thermal_pressure" => {
             check_type(component, "LinearThermalPressure")?;
             LinearThermalPressure::new(reference, p("Tr")?, p("alpha_KT")?)

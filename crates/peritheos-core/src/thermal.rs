@@ -922,6 +922,447 @@ impl<R: IsothermalEos> CaloricEos for AsymptoticPowerLawMieGruneisenDebye<R> {
     }
 }
 
+#[derive(Clone, Copy, Debug, PartialEq)]
+struct DoubleDebyeModeTerms {
+    theta_a: f64,
+    gamma_a: f64,
+    theta_b: f64,
+    gamma_b: f64,
+    weight_a: f64,
+    weight_a_prime: f64,
+}
+
+/// Vinet cold curve plus an absolute double-Debye Helmholtz contribution.
+///
+/// The Vinet member is a motionless-ion 0 K cold curve. Unlike the other
+/// thermal models, [`Self::thermal_pressure`] is therefore an absolute
+/// non-cold contribution that includes zero-point pressure rather than a
+/// difference from the reference temperature.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DoubleDebyeHelmholtz {
+    /// Motionless-ion Vinet cold curve.
+    pub rt_eos: Vinet,
+    /// Characteristic reference volume in J bar^-1 mol^-1.
+    pub vp: f64,
+    /// First Debye cutoff at `vp`, in kelvin.
+    pub theta_a0: f64,
+    /// Exponential volume coefficient for the first cutoff.
+    pub a_a: f64,
+    /// Power-law volume coefficient for the first cutoff.
+    pub b_a: f64,
+    /// Second Debye cutoff at `vp`, in kelvin.
+    pub theta_b0: f64,
+    /// Exponential volume coefficient for the second cutoff.
+    pub a_b: f64,
+    /// Power-law volume coefficient for the second cutoff.
+    pub b_b: f64,
+    /// First phonon moment at `vp`, in kelvin.
+    pub theta_1_0: f64,
+    /// Exponential volume coefficient for the first phonon moment.
+    pub a_1: f64,
+    /// Power-law volume coefficient for the first phonon moment.
+    pub b_1: f64,
+    /// Number of atoms per formula unit.
+    pub n: f64,
+    /// Reference anharmonic coefficient in K^-1.
+    pub alpha0: f64,
+    /// Anharmonic reference volume in J bar^-1 mol^-1.
+    pub ve: f64,
+    /// Anharmonic volume exponent.
+    pub kappa: f64,
+    /// Cold energy at the Vinet reference volume in J mol^-1.
+    pub phi0: f64,
+}
+
+impl DoubleDebyeHelmholtz {
+    /// Conventional temperature used to select the nearest inversion branch.
+    pub const REFERENCE_TEMPERATURE: f64 = 300.0;
+
+    /// Construct a Vinet/double-Debye Helmholtz model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid or non-finite parameters.
+    #[allow(clippy::too_many_arguments, clippy::similar_names)]
+    pub fn new(
+        rt_eos: Vinet,
+        vp: f64,
+        theta_a0: f64,
+        a_a: f64,
+        b_a: f64,
+        theta_b0: f64,
+        a_b: f64,
+        b_b: f64,
+        theta_1_0: f64,
+        a_1: f64,
+        b_1: f64,
+        n: f64,
+        alpha0: f64,
+        ve: f64,
+        kappa: f64,
+        phi0: f64,
+    ) -> EosResult<Self> {
+        let alpha0 = finite_parameter(alpha0, "alpha0")?;
+        if alpha0 < 0.0 {
+            return Err(EosError::InvalidParameter {
+                name: "alpha0",
+                reason: "must not be negative",
+            });
+        }
+        Ok(Self {
+            rt_eos,
+            vp: positive_parameter(vp, "Vp")?,
+            theta_a0: positive_parameter(theta_a0, "theta_a0")?,
+            a_a: finite_parameter(a_a, "a_a")?,
+            b_a: finite_parameter(b_a, "b_a")?,
+            theta_b0: positive_parameter(theta_b0, "theta_b0")?,
+            a_b: finite_parameter(a_b, "a_b")?,
+            b_b: finite_parameter(b_b, "b_b")?,
+            theta_1_0: positive_parameter(theta_1_0, "theta_1_0")?,
+            a_1: finite_parameter(a_1, "a_1")?,
+            b_1: finite_parameter(b_1, "b_1")?,
+            n: positive_parameter(n, "n")?,
+            alpha0,
+            ve: positive_parameter(ve, "Ve")?,
+            kappa: finite_parameter(kappa, "kappa")?,
+            phi0: finite_parameter(phi0, "phi0")?,
+        })
+    }
+
+    fn nonnegative_temperature(temperature: f64) -> EosResult<f64> {
+        let temperature = finite_state(temperature, "temperature")?;
+        if temperature < 0.0 {
+            Err(EosError::InvalidState {
+                name: "temperature",
+                reason: "must not be negative",
+            })
+        } else {
+            Ok(temperature)
+        }
+    }
+
+    fn temperature_law(&self, volume: f64, theta0: f64, a: f64, b: f64) -> EosResult<(f64, f64)> {
+        let volume = positive_state(volume, "volume")?;
+        let theta = theta0 * (-b * (volume / self.vp).ln() + a * (self.vp - volume)).exp();
+        if !theta.is_finite() || theta <= 0.0 {
+            return Err(EosError::NonFiniteResult);
+        }
+        Ok((theta, finite_result(a * volume + b)?))
+    }
+
+    /// Return the two Debye cutoffs and first phonon moment in kelvin.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or a non-finite result.
+    pub fn debye_temperatures(&self, volume: f64) -> EosResult<(f64, f64, f64)> {
+        Ok((
+            self.temperature_law(volume, self.theta_a0, self.a_a, self.b_a)?
+                .0,
+            self.temperature_law(volume, self.theta_b0, self.a_b, self.b_b)?
+                .0,
+            self.temperature_law(volume, self.theta_1_0, self.a_1, self.b_1)?
+                .0,
+        ))
+    }
+
+    #[allow(clippy::similar_names)]
+    fn mode_terms(&self, volume: f64) -> EosResult<DoubleDebyeModeTerms> {
+        let volume = positive_state(volume, "volume")?;
+        let (theta_a, gamma_a) = self.temperature_law(volume, self.theta_a0, self.a_a, self.b_a)?;
+        let (theta_b, gamma_b) = self.temperature_law(volume, self.theta_b0, self.a_b, self.b_b)?;
+        let (theta_1, gamma_1) =
+            self.temperature_law(volume, self.theta_1_0, self.a_1, self.b_1)?;
+        let denominator = theta_b - theta_a;
+        let numerator = theta_b - theta_1;
+        let scale = theta_a.max(theta_b).max(theta_1);
+
+        let (weight_a, weight_a_prime) = if denominator.abs() > 1.0e-10 * scale {
+            let theta_a_prime = -gamma_a * theta_a / volume;
+            let theta_b_prime = -gamma_b * theta_b / volume;
+            let theta_1_prime = -gamma_1 * theta_1 / volume;
+            (
+                numerator / denominator,
+                ((theta_b_prime - theta_1_prime) * denominator
+                    - numerator * (theta_b_prime - theta_a_prime))
+                    / denominator.powi(2),
+            )
+        } else {
+            let gamma_denominator = gamma_b - gamma_a;
+            let limiting_weight = if gamma_denominator.abs() > 1.0e-12 {
+                (gamma_b - gamma_1) / gamma_denominator
+            } else {
+                0.5
+            };
+            (limiting_weight, 0.0)
+        };
+        Ok(DoubleDebyeModeTerms {
+            theta_a,
+            gamma_a,
+            theta_b,
+            gamma_b,
+            weight_a: finite_result(weight_a)?,
+            weight_a_prime: finite_result(weight_a_prime)?,
+        })
+    }
+
+    /// Return the volume-dependent weights of Debye modes A and B.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or a non-finite result.
+    pub fn double_debye_weights(&self, volume: f64) -> EosResult<(f64, f64)> {
+        let weight_a = self.mode_terms(volume)?.weight_a;
+        Ok((weight_a, 1.0 - weight_a))
+    }
+
+    fn single_debye_free_energy(theta: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = Self::nonnegative_temperature(temperature)?;
+        let mut result = 9.0 * GAS_CONSTANT * theta / 8.0;
+        if temperature > 0.0 {
+            let ratio = theta / temperature;
+            result += GAS_CONSTANT
+                * temperature
+                * (3.0 * (-(-ratio).exp_m1()).ln() - debye_function_3(ratio)?);
+        }
+        finite_result(result)
+    }
+
+    fn single_debye_internal_energy(theta: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = Self::nonnegative_temperature(temperature)?;
+        let mut result = 9.0 * GAS_CONSTANT * theta / 8.0;
+        if temperature > 0.0 {
+            result += 3.0 * GAS_CONSTANT * temperature * debye_function_3(theta / temperature)?;
+        }
+        finite_result(result)
+    }
+
+    fn single_debye_heat_capacity(theta: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = Self::nonnegative_temperature(temperature)?;
+        if temperature == 0.0 {
+            return Ok(0.0);
+        }
+        let ratio = theta / temperature;
+        let occupation = ratio * (-ratio).exp() / (-(-ratio).exp_m1());
+        finite_result(3.0 * GAS_CONSTANT * (4.0 * debye_function_3(ratio)? - 3.0 * occupation))
+    }
+
+    /// Return the Vinet cold-curve energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or a non-finite result.
+    pub fn cold_energy(&self, volume: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let delta = self.rt_eos.k0_prime - 1.0;
+        let x = (volume / self.rt_eos.v0).cbrt();
+        let reduced = if delta.abs() < 1.0e-7 {
+            let y = x - 1.0;
+            1.125 * y.powi(2) - 1.125 * delta * y.powi(3)
+        } else {
+            let exponent = 1.5 * delta * (x - 1.0);
+            (-(-exponent).exp_m1() - exponent * (-exponent).exp()) / delta.powi(2)
+        };
+        finite_result(self.phi0 + 4.0 * self.rt_eos.v0 * self.rt_eos.k0 * 1.0e4 * reduced)
+    }
+
+    /// Return the weighted double-Debye zero-point energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or a non-finite result.
+    pub fn zero_point_energy(&self, volume: f64) -> EosResult<f64> {
+        let terms = self.mode_terms(volume)?;
+        finite_result(
+            self.n * 9.0 * GAS_CONSTANT / 8.0
+                * (terms.weight_a * terms.theta_a + (1.0 - terms.weight_a) * terms.theta_b),
+        )
+    }
+
+    /// Return the double-Debye ionic Helmholtz energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or failed Debye evaluation.
+    pub fn ion_helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let terms = self.mode_terms(volume)?;
+        let free_a = Self::single_debye_free_energy(terms.theta_a, temperature)?;
+        let free_b = Self::single_debye_free_energy(terms.theta_b, temperature)?;
+        finite_result(self.n * (terms.weight_a * free_a + (1.0 - terms.weight_a) * free_b))
+    }
+
+    /// Return the volume-dependent anharmonic coefficient in K^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or a non-finite result.
+    pub fn anharmonic_coefficient(&self, volume: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        finite_result(self.alpha0 * (volume / self.ve).powf(self.kappa))
+    }
+
+    /// Return the anharmonic Helmholtz energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or a non-finite result.
+    pub fn anharmonic_helmholtz_free_energy(
+        &self,
+        volume: f64,
+        temperature: f64,
+    ) -> EosResult<f64> {
+        let temperature = Self::nonnegative_temperature(temperature)?;
+        finite_result(
+            -0.5 * self.n
+                * GAS_CONSTANT
+                * self.anharmonic_coefficient(volume)?
+                * temperature.powi(2),
+        )
+    }
+
+    /// Return the complete Helmholtz energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or failed model evaluation.
+    pub fn helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.cold_energy(volume)?
+                + self.ion_helmholtz_free_energy(volume, temperature)?
+                + self.anharmonic_helmholtz_free_energy(volume, temperature)?,
+        )
+    }
+
+    /// Return ionic pressure, including zero-point pressure, in `GPa`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or failed Debye evaluation.
+    pub fn ion_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let terms = self.mode_terms(volume)?;
+        let free_a = Self::single_debye_free_energy(terms.theta_a, temperature)?;
+        let free_b = Self::single_debye_free_energy(terms.theta_b, temperature)?;
+        let energy_a = Self::single_debye_internal_energy(terms.theta_a, temperature)?;
+        let energy_b = Self::single_debye_internal_energy(terms.theta_b, temperature)?;
+        finite_result(
+            self.n
+                * ((terms.weight_a * terms.gamma_a * energy_a
+                    + (1.0 - terms.weight_a) * terms.gamma_b * energy_b)
+                    / volume
+                    - terms.weight_a_prime * (free_a - free_b))
+                / 1.0e4,
+        )
+    }
+
+    /// Return the anharmonic pressure in `GPa`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or a non-finite result.
+    pub fn anharmonic_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let temperature = Self::nonnegative_temperature(temperature)?;
+        finite_result(
+            0.5 * self.n
+                * GAS_CONSTANT
+                * self.kappa
+                * self.anharmonic_coefficient(volume)?
+                * temperature.powi(2)
+                / volume
+                / 1.0e4,
+        )
+    }
+}
+
+impl ThermalEos for DoubleDebyeHelmholtz {
+    type Reference = Vinet;
+
+    fn reference_eos(&self) -> &Vinet {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        Self::REFERENCE_TEMPERATURE
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.ion_pressure(volume, temperature)?
+                + self.anharmonic_pressure(volume, temperature)?,
+        )
+    }
+
+    fn dac_thermal_pressure(&self, volume: f64, temperature: f64, f_dac: f64) -> EosResult<f64> {
+        let f_dac = finite_state(f_dac, "f_dac")?;
+        if !(0.0..1.0).contains(&f_dac) {
+            return Err(EosError::InvalidState {
+                name: "f_dac",
+                reason: "must lie in [0, 1)",
+            });
+        }
+        finite_result(
+            f_dac
+                * (self.pressure(volume, temperature)?
+                    - self.pressure(volume, Self::REFERENCE_TEMPERATURE)?),
+        )
+    }
+
+    fn temperature_from_volumes(
+        &self,
+        ambient_volume: f64,
+        heated_volume: f64,
+        f_dac: f64,
+    ) -> EosResult<f64> {
+        let ambient_volume = positive_state(ambient_volume, "volume")?;
+        let heated_volume = positive_state(heated_volume, "volume")?;
+        let f_dac = finite_state(f_dac, "f_dac")?;
+        if !(0.0..1.0).contains(&f_dac) {
+            return Err(EosError::InvalidState {
+                name: "f_dac",
+                reason: "must lie in [0, 1)",
+            });
+        }
+        let reference_temperature = Self::REFERENCE_TEMPERATURE;
+        let heated_reference_pressure = self.pressure(heated_volume, reference_temperature)?;
+        let target = (self.pressure(ambient_volume, reference_temperature)?
+            - heated_reference_pressure)
+            / (1.0 - f_dac);
+        if target < 0.0 {
+            return Err(EosError::OutsideInvertibleRange);
+        }
+        let temperature = solve_temperature_function(
+            |value| {
+                self.pressure(heated_volume, value)
+                    .map(|pressure| pressure - heated_reference_pressure)
+            },
+            target,
+            reference_temperature,
+        )?;
+        let tolerance = 1.0e-10 * reference_temperature;
+        if temperature < reference_temperature - tolerance {
+            Err(EosError::OutsideInvertibleRange)
+        } else {
+            Ok(temperature)
+        }
+    }
+}
+
+impl CaloricEos for DoubleDebyeHelmholtz {
+    fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let terms = self.mode_terms(volume)?;
+        finite_result(
+            self.n
+                * (terms.weight_a * Self::single_debye_heat_capacity(terms.theta_a, temperature)?
+                    + (1.0 - terms.weight_a)
+                        * Self::single_debye_heat_capacity(terms.theta_b, temperature)?
+                    + GAS_CONSTANT
+                        * self.anharmonic_coefficient(volume)?
+                        * Self::nonnegative_temperature(temperature)?),
+        )
+    }
+}
+
 /// Parameters of the Sokolova et al. (2016) thermal-pressure model.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SokolovaParameters {

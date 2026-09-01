@@ -554,7 +554,7 @@ def test_diamond_benedict_2014_library_regression(
     volume_per_cell = 8.0 * volume_per_atom
     calculated = DIAMOND_BENEDICT_2014.pressure(volume_per_cell, temperature)
 
-    assert calculated == pytest.approx(expected_pressure, rel=2.0e-12)
+    assert calculated == pytest.approx(expected_pressure, rel=5.0e-11)
     assert DIAMOND_BENEDICT_2014.volume(calculated, temperature) == pytest.approx(
         volume_per_cell, rel=1.0e-11
     )

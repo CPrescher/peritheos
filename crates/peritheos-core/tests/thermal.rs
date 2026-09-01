@@ -1,9 +1,10 @@
-use peritheos_core::isothermal::{Holzapfel, ModifiedTait, BM3};
+use peritheos_core::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
 use peritheos_core::thermal::{
     debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw,
-    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
-    MultiOscillatorGruneisen, ReferenceVolumeLaw, Sokolova2016, SokolovaParameters,
-    ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState, GAS_CONSTANT,
+    DoubleDebyeHelmholtz, LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye,
+    MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceVolumeLaw, Sokolova2016,
+    SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState,
+    GAS_CONSTANT,
 };
 use peritheos_core::{CaloricEos, ThermalEos};
 use serde_json::Value;
@@ -14,6 +15,52 @@ fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
         (actual - expected).abs() <= relative_tolerance * scale,
         "actual {actual:.17e} differs from expected {expected:.17e}"
     );
+}
+
+#[test]
+fn double_debye_helmholtz_matches_the_benedict_diamond_regression() {
+    let model = DoubleDebyeHelmholtz::new(
+        Vinet::new(0.343_466_776_105_840_03, 432.4, 3.793).unwrap(),
+        0.335_493_461_739_6,
+        1887.8,
+        -5.247_303_452_269_356,
+        0.913,
+        1887.8,
+        2.789_705_632_852_062_4,
+        0.429,
+        1887.8,
+        1.404_816_050_829_074_1,
+        0.499,
+        1.0,
+        3.79e-5,
+        0.348_380_842_966,
+        0.0,
+        -874_736.021_029_928_6,
+    )
+    .unwrap();
+    for (atomic_volume, temperature, expected_pressure) in [
+        (5.7034, 300.0, 5.097_381_463_860_107),
+        (5.4, 1000.0, 34.724_104_556_157_07),
+        (5.0, 2000.0, 87.831_067_537_911_82),
+        (4.654_270_411_587_497, 3000.0, 150.0),
+    ] {
+        let volume = atomic_volume * 0.060_221_407_6;
+        assert_close(
+            model.pressure(volume, temperature).unwrap(),
+            expected_pressure,
+            5.0e-10,
+        );
+    }
+
+    let volume = 4.654_270_411_587_497 * 0.060_221_407_6;
+    assert_close(model.volume(150.0, 3000.0).unwrap(), volume, 1.0e-10);
+    assert_close(model.temperature(150.0, volume).unwrap(), 3000.0, 1.0e-10);
+    assert!(model.zero_point_energy(volume).unwrap() > 0.0);
+    assert!(model.molar_heat_capacity_v(volume, 3000.0).unwrap() > 0.0);
+    assert!(model
+        .helmholtz_free_energy(volume, 3000.0)
+        .unwrap()
+        .is_finite());
 }
 
 #[test]

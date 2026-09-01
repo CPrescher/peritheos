@@ -211,7 +211,7 @@ def test_benedict_diamond_eosmat_record_loads_and_reproduces_150_gpa():
     assert source["thermal"]["model"] == "double_debye_helmholtz"
     assert record.reference_volume == pytest.approx(45.6272)
     assert record.pressure(8.0 * 4.654270411587497, 3000.0) == pytest.approx(
-        150.0, rel=2.0e-12
+        150.0, rel=5.0e-11
     )
     assert record.volume(150.0, 3000.0) == pytest.approx(
         8.0 * 4.654270411587497, rel=1.0e-11

@@ -5,6 +5,8 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-09-01
+
 ### Added
 
 - Added the generic `DoubleDebyeHelmholtz` full-free-energy EOS with a Vinet
@@ -12,6 +14,8 @@ All notable changes to Peritheos are documented here. The project follows
   motion, a volume-dependent $T^2$ correction, analytic pressure, normal
   pressure/volume/temperature inversion, fitting support, and documented
   Benedict et al. diamond parameters as an example rather than model defaults.
+  The public Rust core implements the same Helmholtz, pressure, caloric, and
+  inversion equations and loads the model through native `.eosmat` dispatch.
 - Added the Benedict et al. (2014) diamond coefficients as an audited material
   record in both the curated catalog and bundled `.eosmat` library, with
   explicit per-atom/conventional-cell conversion and cold-curve caveats.
@@ -103,19 +107,19 @@ All notable changes to Peritheos are documented here. The project follows
   final journal article supplies the 147.6 GPa range and `K0`/`K0'`; their
   errors remain null because the authors do not report them.
 
-### Added
+### Added (catalog and native backend)
 
 - An executable documentation notebook using the complete printed Martinez et
   al. (1996) aragonite Table 3 dataset to demonstrate 298 K and staged-isotherm
   BM2 fitting, thermal-trend recovery, scaled joint P-V-T fitting, residual
   visualization, and uncertainty/chi-square interpretation.
 - A reproducible primary-source audit for the curated migrated `.eosmat` EOS
-  records. All 146 bundled records are now directly validated against original
+  records. All 147 bundled records are now directly validated against original
   publications, official supplements, or stable institutional reports, and no
   record remains pending or deferred. The
   bundled machine-readable ledger records source locations, the independently
-  checked Shen--Smith (2026) Vinet fits and errors, the B4C order inconsistency, and the restored
-  Hanfland graphite `V0` uncertainty.
+  checked Shen--Smith (2026) Vinet fits and errors, the B4C order inconsistency,
+  and the restored Hanfland graphite `V0` uncertainty.
 - A mechanism-oriented `ThermalReferenceStateEOS` implementation for the
   temperature-dependent `V0(T)`/`K0(T)` formulation used by the validated ice
   VI/VII records. It now supports a generic `thermal_expansion_law`, including
@@ -130,7 +134,7 @@ All notable changes to Peritheos are documented here. The project follows
   additive thermal-pressure term, fixed fictive `V0`, and explicit
   experimental-versus-computational validity provenance. It is the preferred
   `kcl.eosmat` record. After primary-source corrections and duplicate removal,
-  the catalog now contains 146 records, all validated.
+  the catalog now contains 147 records, all validated.
 - Primary-audit corrections restore Sokolova `n`/`Z`, silica Debye `n`, and
   ice `Tr` inputs omitted by migration; every validated migrated record is
   constructability-tested.
@@ -160,9 +164,9 @@ All notable changes to Peritheos are documented here. The project follows
   for Au, Pt, Mo, NaCl B2, and Ne; Dewaele 2019 LiF and NaCl B1/B2; Dewaele
   2012 KCl and KBr B1/B2; Datchi 2007 c-BN; and Dewaele 2008 diamond, Ag,
   and Ni.
-- All eleven Sokolova et al. (2016) thermal pressure markers: MgO, diamond,
-  Al, Cu, Ag, Au, Pt, Nb, Ta, Mo, and W, with Table 1 provenance and the
-  corrected 2016 equations.
+- All eleven Sokolova thermal pressure markers: MgO, diamond, Al, Cu, Ag, Au,
+  Pt, Nb, Ta, Mo, and W, with the original 2013 fit provenance and the
+  corrected 2016 workbook equations.
 - The Fei et al. (2007) internally consistent Au, Pt, NaCl-B2, and Ne thermal
   scales and a dedicated Debye-temperature convention that preserves the
   paper's equation rather than substituting the generic integrated form.
@@ -173,16 +177,12 @@ All notable changes to Peritheos are documented here. The project follows
   with printed Table 5 regression cases and analytic thermodynamic checks.
 - A reusable linear thermal-pressure EOS for the Dewaele KCl/KBr equation and
   state-only uncertainty propagation where a source reports no parameter errors.
-- A documented catalog inventory, a versioned JSON computation record aligned
-  with Dioptas's material-oriented `.eosmat` format, and explicit deferral
-  records for Re and other entries where official primary evidence is not yet
-  independently available.
 - A Peritheos-owned flat `.eosmat` format 3, normative JSON Schema, complete
-  116-material/147-record EOS database migrated from Dioptas 0.10.0 with explicit
-  validation status and provenance, legacy Dioptas format-2 input, and tested
-  Dioptas 0.10.0 read compatibility. A dedicated schema reference documents
-  every field, discriminator pairing, default, unit, validation status, and
-  consumer compatibility rule.
+  115-material/147-record EOS database migrated from Dioptas 0.10.0 with
+  explicit validation status and provenance, legacy Dioptas format-2 input,
+  and tested Dioptas 0.10.0 read compatibility. A dedicated schema reference
+  documents every field, discriminator pairing, default, unit, validation
+  status, and consumer compatibility rule.
 - A Rust workspace containing native EOS, fitting, uncertainty, and private
   PyO3 binding crates, with Rust 1.83 as the library MSRV.
 - Shared Python/Rust compatibility fixtures and migration baselines for all
@@ -375,7 +375,8 @@ All notable changes to Peritheos are documented here. The project follows
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.5.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.6.0...HEAD
+[0.6.0]: https://github.com/CPrescher/peritheos/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/CPrescher/peritheos/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/CPrescher/peritheos/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/CPrescher/peritheos/compare/v0.2.0...v0.3.0

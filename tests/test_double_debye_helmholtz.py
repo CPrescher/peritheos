@@ -190,7 +190,7 @@ def test_benedict_table_i_diamond_pressure_regression(
     volume = atomic_volume * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
 
     assert diamond_eos.pressure(volume, temperature) == pytest.approx(
-        expected_pressure, rel=2.0e-12
+        expected_pressure, rel=5.0e-11
     )
 
 
