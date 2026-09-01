@@ -76,6 +76,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- An executable documentation notebook using the complete printed Martinez et
+  al. (1996) aragonite Table 3 dataset to demonstrate 298 K and staged-isotherm
+  BM2 fitting, thermal-trend recovery, scaled joint P-V-T fitting, residual
+  visualization, and uncertainty/chi-square interpretation.
 - A reproducible primary-source audit for the curated migrated `.eosmat` EOS
   records. All 146 bundled records are now directly validated against original
   publications, official supplements, or stable institutional reports, and no

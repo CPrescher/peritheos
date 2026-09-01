@@ -4,6 +4,11 @@ Peritheos uses bounded nonlinear least squares and reports covariance,
 correlation, residual, and information-criterion diagnostics. Measurement
 uncertainties can be supplied for every observed state variable.
 
+The executable [aragonite fitting notebook](notebooks/aragonite-eos-fitting.ipynb)
+applies these concepts to all 64 P-V-T observations printed by Martinez et al.
+(1996), including isotherm fits, staged thermal regression, parameter scaling,
+and chi-square interpretation with an incomplete published error model.
+
 ## Objective and diagnostics
 
 With pressure as the only uncertain observation, the normalized residual for
