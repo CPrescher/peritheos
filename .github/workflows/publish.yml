@@ -129,6 +129,11 @@ jobs:
         run: |
           wheel="$(find dist -maxdepth 1 -name '*.whl' -print -quit)"
           test -n "${wheel}"
+          smoke_dir="${RUNNER_TEMP}/peritheos-wheel-smoke"
+          mkdir -p "${smoke_dir}"
+          cp "${wheel}" "${smoke_dir}/"
+          cd "${smoke_dir}"
+          wheel="$(find . -maxdepth 1 -name '*.whl' -print -quit)"
           uv run --isolated --no-project \
             --python "${{ matrix.python-version }}" \
             --with "${wheel}" \
