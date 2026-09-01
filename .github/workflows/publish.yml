@@ -207,10 +207,12 @@ jobs:
       - name: Smoke-test the Linux wheel
         shell: bash
         run: |
+          wheel="$(find dist -maxdepth 1 -name 'peritheos-*-cp313-cp313-manylinux*x86_64.whl' -print -quit)"
+          test -n "${wheel}"
           uv venv --python 3.13 "${RUNNER_TEMP}/peritheos-smoke"
           uv pip install \
             --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" \
-            --no-index --find-links dist peritheos
+            "${wheel}"
           cd "${RUNNER_TEMP}"
           "${RUNNER_TEMP}/peritheos-smoke/bin/python" -c \
             "from peritheos import Material, get_material_document, list_material_documents; from peritheos.eos.rt import BM3; assert BM3(10, 120, 4).pressure(9) > 0; assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 4"
