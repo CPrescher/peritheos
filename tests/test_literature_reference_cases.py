@@ -22,7 +22,14 @@ from peritheos.eos.thermal import (
     ThermalModifiedTait,
 )
 
-REFERENCE_FILE = Path(__file__).parent / "data" / "literature_reference_cases.json"
+REFERENCE_FILE = (
+    Path(__file__).parent.parent
+    / "crates"
+    / "peritheos-core"
+    / "tests"
+    / "data"
+    / "literature_reference_cases.json"
+)
 CASES = json.loads(REFERENCE_FILE.read_text())
 
 

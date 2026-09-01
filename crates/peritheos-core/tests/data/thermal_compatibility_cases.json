@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "source_commit": "12d033378418cfd6c9ece6050c550fc748ffe02a",
+  "relative_tolerance": 1e-9,
+  "sokolova_derivative_relative_tolerance": 3e-5,
+  "debye_function_3": [
+    {"argument": 1e-5, "value": 0.999996250005},
+    {"argument": 0.001, "value": 0.9996250499999996},
+    {"argument": 0.1, "value": 0.962999940487211},
+    {"argument": 1.0, "value": 0.6744155640778147},
+    {"argument": 10.0, "value": 0.019295765690345492},
+    {"argument": 150.0, "value": 5.772390579792737e-6},
+    {"argument": 200.0, "value": 2.43522727585006e-6}
+  ],
+  "cases": [
+    {
+      "model": "MieGruneisenDebye",
+      "configuration": {"reference": {"model": "BM3", "V0": 1.0, "K0": 160.0, "K0_prime": 4.0}, "Tr": 300.0, "theta0": 800.0, "gamma0": 1.5, "q": 1.0, "n": 2.0},
+      "states": [
+        {"volume": 0.9, "temperature": 1200.0, "quantities": {"thermal_pressure": 6.0295365202280475, "pressure": 26.845768830052187, "bulk_modulus": 237.6176258920282, "isothermal_compressibility": 0.0042084420137014295, "thermal_expansivity": 3.056705608881945e-5, "molar_heat_capacity_v": 48.421808655196706, "molar_heat_capacity_p": 50.81959032377309, "gruneisen_parameter": 1.35, "adiabatic_bulk_modulus": 249.38412539541673, "characteristic_temperature": 929.4673941826264, "thermal_energy": 44259.1330802017, "thermal_entropy": 80.00033671959409, "vibrational_pressure": 6.638869962030255, "thermal_helmholtz_free_energy": -51741.27098331121, "thermal_enthalpy": 104008.96273847399, "thermal_gibbs_free_energy": 8008.558674961088}},
+        {"volume": 0.75, "temperature": 2500.0, "quantities": {"thermal_pressure": 15.213234055485497, "pressure": 97.16827187186479, "bulk_modulus": 447.27481453321616, "isothermal_compressibility": 0.002235761924229106, "thermal_expansivity": 1.6550297901242302e-5, "molar_heat_capacity_v": 49.35020949400496, "molar_heat_capacity_p": 51.64734887452882, "gruneisen_parameter": 1.125, "adiabatic_bulk_modulus": 468.0944341643257, "characteristic_temperature": 1163.993131694561, "thermal_energy": 104289.82735856596, "thermal_entropy": 104.92018300642577, "vibrational_pressure": 15.643474103784897, "thermal_helmholtz_free_energy": -158010.6301574985, "thermal_enthalpy": 221615.8831369527, "thermal_gibbs_free_energy": -40684.57437911177}}
+      ]
+    },
+    {
+      "model": "MieGruneisenEinstein",
+      "configuration": {"reference": {"model": "BM3", "V0": 1.0, "K0": 160.0, "K0_prime": 4.0}, "Tr": 300.0, "theta0": 800.0, "gamma0": 1.5, "q": 1.0, "n": 2.0},
+      "states": [
+        {"volume": 0.9, "temperature": 1200.0, "quantities": {"thermal_pressure": 5.6177994074974995, "pressure": 26.43403171732164, "bulk_modulus": 236.7748894016586, "isothermal_compressibility": 0.004223420830338249, "thermal_expansivity": 3.0070186920812516e-5, "molar_heat_capacity_v": 47.46576788299232, "molar_heat_capacity_p": 49.77800119337877, "gruneisen_parameter": 1.35, "adiabatic_bulk_modulus": 248.30907099727023, "characteristic_temperature": 929.4673941826264, "thermal_energy": 39643.45397801956, "thermal_entropy": 63.85973383438629, "vibrational_pressure": 5.946518096702935, "thermal_helmholtz_free_energy": -36988.22662324399, "thermal_enthalpy": 93162.11684834598, "thermal_gibbs_free_energy": 16530.436247082427}},
+        {"volume": 0.75, "temperature": 2500.0, "quantities": {"thermal_pressure": 14.505519755578396, "pressure": 96.46055757195768, "bulk_modulus": 446.1308061323166, "isothermal_compressibility": 0.0022414950643498332, "thermal_expansivity": 1.647339253321381e-5, "molar_heat_capacity_v": 48.9952526052366, "molar_heat_capacity_p": 51.265272060131586, "gruneisen_parameter": 1.125, "adiabatic_bulk_modulus": 466.80067832397674, "characteristic_temperature": 1163.993131694561, "thermal_energy": 97927.92856653062, "thermal_entropy": 88.47011317513619, "vibrational_pressure": 14.689189284979593, "thermal_helmholtz_free_energy": -123247.35437130985, "thermal_enthalpy": 208096.84820387757, "thermal_gibbs_free_energy": -13078.434733962902}}
+      ]
+    },
+    {
+      "model": "ThermalModifiedTait",
+      "configuration": {"reference": {"model": "ModifiedTait", "V0": 1.0, "K0": 160.0, "K0_prime": 4.0, "K0_double_prime": -0.01}, "Tr": 298.15, "theta": 700.0, "alpha0": 2.5e-5, "n": 2.0},
+      "states": [
+        {"volume": 0.9, "temperature": 1200.0, "quantities": {"thermal_pressure": 5.029535604766256, "pressure": 25.926716085919153, "bulk_modulus": 241.68265851720605, "isothermal_compressibility": 0.004137657232568084, "thermal_expansivity": 2.49799425187067e-5, "molar_heat_capacity_v": 48.49590918806075, "molar_heat_capacity_p": 50.1246505086139, "gruneisen_parameter": 1.1204031673645742, "adiabatic_bulk_modulus": 249.79960155381625}},
+        {"volume": 0.75, "temperature": 2500.0, "quantities": {"thermal_pressure": 12.994180061594237, "pressure": 96.94125883249409, "bulk_modulus": 472.27534358995626, "isothermal_compressibility": 0.0021174088666128426, "thermal_expansivity": 1.3064308946512765e-5, "molar_heat_capacity_v": 49.56212244389088, "molar_heat_capacity_p": 51.0734876814444, "gruneisen_parameter": 0.9336693061371452, "adiabatic_bulk_modulus": 486.67707825464043}}
+      ]
+    },
+    {
+      "model": "Sokolova2016Reduced",
+      "configuration": {"reference": {"model": "Holzapfel", "V0": 0.3414, "K0": 441.5, "K0_prime": 3.9, "n": 1.0, "Z": 6.0}, "Tr": 298.15, "QE1o": 684.0, "mE1": 0.564, "QE2o": 1561.0, "mE2": 2.436, "delta": -0.506, "t": 1.085, "a_0": 0.0, "m": 0.0, "g": 0.0, "e_0": 0.0},
+      "states": [
+        {"volume": 0.30726, "temperature": 3000.0, "quantities": {"thermal_pressure": 14.860881778954129, "pressure": 71.88159924834446, "bulk_modulus": 644.7159422577897, "isothermal_compressibility": 0.0015510706878102138, "thermal_expansivity": 9.849106110801954e-6}},
+        {"volume": 0.27312, "temperature": 2000.0, "quantities": {"thermal_pressure": 8.185916389695949, "pressure": 159.20488481065902, "bulk_modulus": 958.2952256863565, "isothermal_compressibility": 0.0010435197559121444, "thermal_expansivity": 6.312038872036009e-6}}
+      ]
+    },
+    {
+      "model": "Sokolova2016Complete",
+      "configuration": {"base": "Sokolova2016Reduced", "a_0": 5.2, "m": 1.3, "g": 0.8, "e_0": 2.7, "beta": 0.35, "QBo": 480.0, "d": 2.4, "mb": 0.75, "QB1o": 1120.0, "d1": 1.6, "mb1": 0.4},
+      "states": [
+        {"volume": 0.24580799999999997, "temperature": 900.0, "quantities": {"thermal_pressure": 3.0979705641627624, "pressure": 273.765366492924, "bulk_modulus": 1323.9906894000344, "isothermal_compressibility": 0.000755292320411369, "thermal_expansivity": 5.450537915176048e-6}},
+        {"volume": 0.35847, "temperature": 700.0, "quantities": {"thermal_pressure": 2.622165296289313, "pressure": -16.955534137073766, "bulk_modulus": 358.591557374055, "isothermal_compressibility": 0.002788688075433068, "thermal_expansivity": 2.3141680443700745e-5}}
+      ]
+    }
+  ]
+}

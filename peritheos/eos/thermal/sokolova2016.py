@@ -5,6 +5,7 @@ from scipy.integrate import quad
 from .. import (
     NumericType,
     ThermalEOS,
+    _native_thermal_evaluate,
     validate_finite_scalar,
     validate_positive_scalar,
     validate_volume,
@@ -104,6 +105,30 @@ class Sokolova2016(ThermalEOS):
         self.mb1 = validate_finite_scalar(mb1, "mb1")
         if self.mb < 0 or self.mb1 < 0:
             raise ValueError("Bose-Einstein multiplicities must not be negative")
+        if type(self) is Sokolova2016 and type(rt_eos) is Holzapfel:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.sokolova2016(
+                rt_eos._native,
+                self.Tr,
+                self.QE1o,
+                self.mE1,
+                self.QE2o,
+                self.mE2,
+                self.delta,
+                self.t,
+                self.a_0,
+                self.m,
+                self.g,
+                self.e_0,
+                self.beta,
+                self.QBo,
+                self.d,
+                self.mb,
+                self.QB1o,
+                self.d1,
+                self.mb1,
+            )
 
     def _volume_terms(self, V: NumericType) -> tuple[np.ndarray, ...]:
         """Precompute the volume-dependent terms in the pressure expression."""
@@ -186,6 +211,10 @@ class Sokolova2016(ThermalEOS):
 
     def _thermal_pressure_function(self, V: float):
         """Prepare the costly volume integral once for temperature inversion."""
+        if hasattr(self, "_native"):
+            return lambda temperature: _native_thermal_evaluate(
+                self._native, "thermal_pressure", V, temperature
+            )
         volume_terms = self._volume_terms(V)
         return lambda temperature: self._thermal_pressure_from_volume_terms(
             volume_terms, temperature
@@ -206,7 +235,15 @@ class Sokolova2016(ThermalEOS):
         thermal_pressure : NumericType
             Thermal pressure in [GPa]
         """
-        return self._thermal_pressure_from_volume_terms(self._volume_terms(V), T)
+        volumes, temperatures = self._broadcast_state(V, T)
+        native = getattr(self, "_native", None)
+        if native is not None:
+            return _native_thermal_evaluate(
+                native, "thermal_pressure", volumes, temperatures
+            )
+        return self._thermal_pressure_from_volume_terms(
+            self._volume_terms(volumes), temperatures
+        )
 
 
 def _einstein_energy(theta, temperature):

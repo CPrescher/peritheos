@@ -10,6 +10,7 @@ import numpy as np
 from numpy.typing import NDArray
 from scipy.stats import norm
 
+from peritheos import _rust
 from peritheos.eos import EosBase, NumericType, ThermalEOS
 
 
@@ -421,9 +422,6 @@ class EOSUncertainty:
         jacobian = self._parameter_jacobian(
             quantity, arguments, quantity_kwargs, nominal, relative_step
         )
-        parameter_variance = np.einsum(
-            "ij,jk,ik->i", jacobian, self.covariance, jacobian
-        )
         state_variance = self._state_variance(
             quantity,
             arguments,
@@ -432,12 +430,15 @@ class EOSUncertainty:
             nominal,
             relative_step,
         )
-        variance = np.maximum(parameter_variance + state_variance, 0.0)
+        propagation = _rust.linear_uncertainty(
+            jacobian,
+            self.covariance,
+            state_variance,
+            full_covariance=full_covariance,
+        )
+        variance = np.asarray(propagation.variance, dtype=float)
         standard_error = np.sqrt(variance).reshape(nominal.shape)
-        output_covariance = None
-        if full_covariance:
-            output_covariance = jacobian @ self.covariance @ jacobian.T
-            output_covariance += np.diag(state_variance)
+        output_covariance = propagation.covariance
         quantile = float(norm.ppf((1.0 + confidence) / 2.0))
         assumptions = self.parameter_uncertainty.assumptions + (
             "local linear (delta-method) uncertainty propagation",
@@ -531,13 +532,13 @@ class EOSUncertainty:
             )
 
         samples = np.asarray(accepted)
-        standard_error = samples.std(axis=0, ddof=1).reshape(nominal.shape)
-        tail = (1.0 - confidence) / 2.0
-        lower = np.quantile(samples, tail, axis=0).reshape(nominal.shape)
-        upper = np.quantile(samples, 1.0 - tail, axis=0).reshape(nominal.shape)
-        output_covariance = None
-        if full_covariance:
-            output_covariance = np.atleast_2d(np.cov(samples, rowvar=False, ddof=1))
+        summary = _rust.monte_carlo_summary(
+            samples, confidence, full_covariance=full_covariance
+        )
+        standard_error = np.asarray(summary.standard_error).reshape(nominal.shape)
+        lower = np.asarray(summary.lower).reshape(nominal.shape)
+        upper = np.asarray(summary.upper).reshape(nominal.shape)
+        output_covariance = summary.covariance
         assumptions = self.parameter_uncertainty.assumptions + (
             "parameter uncertainty sampled as a multivariate normal distribution",
         )

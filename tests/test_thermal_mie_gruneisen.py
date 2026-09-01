@@ -4,6 +4,7 @@ import numpy as np
 import pytest
 from scipy.constants import R
 
+from peritheos.eos import EosBase
 from peritheos.eos.rt import BM3
 from peritheos.eos.thermal import MieGruneisenDebye, MieGruneisenEinstein
 from peritheos.eos.thermal.mie_gruneisen import _debye_function_3
@@ -143,3 +144,39 @@ def test_invalid_parameters_are_rejected(keyword, value):
 def test_non_eos_reference_is_rejected():
     with pytest.raises(TypeError, match="rt_eos"):
         MieGruneisenDebye(object(), 300.0, 800.0, 1.5, 1.0, 2.0)
+
+
+def test_user_defined_reference_eos_retains_python_fallback():
+    class CustomReference(EosBase):
+        def __init__(self):
+            self.V0 = 1.0
+
+        def pressure(self, V):
+            return 160.0 * (1.0 / np.asarray(V) - 1.0)
+
+        def bulk_modulus(self, V):
+            return 160.0 / np.asarray(V)
+
+    eos = MieGruneisenDebye(CustomReference(), 300.0, 800.0, 1.5, 1.0, 2.0)
+    expected_volume = 0.9
+    temperature = 1200.0
+
+    assert not hasattr(eos, "_native")
+    pressure = eos.pressure(expected_volume, temperature)
+    assert np.isclose(eos.volume(pressure, temperature), expected_volume)
+
+
+def test_debye_subclass_retains_debye_python_behavior():
+    class CustomDebye(MieGruneisenDebye):
+        pass
+
+    parameters = (BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0)
+    expected = MieGruneisenDebye(*parameters)
+    custom = CustomDebye(*parameters)
+
+    assert not hasattr(custom, "_native")
+    assert custom.thermal_energy(1.0, 300.0) == pytest.approx(
+        expected.thermal_energy(1.0, 300.0)
+    )
+    pressure = custom.pressure(0.9, 1200.0)
+    assert custom.volume(pressure, 1200.0) == pytest.approx(0.9)

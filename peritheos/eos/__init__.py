@@ -3,14 +3,87 @@ Equations of state module for Peritheos
 """
 
 import inspect
+from functools import cache
 from typing import Callable, Union
 
 import numpy as np
 from numpy.typing import NDArray
 from scipy import optimize
 
+from peritheos import _rust as _rust
+
 # Type alias for numeric values (scalar or array)
 NumericType = Union[float, NDArray[np.float64]]
+
+
+@cache
+def _native_evaluation_types() -> tuple[type, ...]:
+    """Return classes whose inherited behavior exactly matches a Rust model."""
+    from peritheos.eos.rt import (
+        BM2,
+        BM3,
+        BM4,
+        Holzapfel,
+        ModifiedTait,
+        Murnaghan,
+        NaturalStrain2,
+        NaturalStrain3,
+        NaturalStrain4,
+        Vinet,
+    )
+    from peritheos.eos.thermal import (
+        MieGruneisenDebye,
+        MieGruneisenEinstein,
+        Sokolova2016,
+        ThermalModifiedTait,
+    )
+
+    return (
+        BM2,
+        BM3,
+        BM4,
+        Murnaghan,
+        ModifiedTait,
+        NaturalStrain2,
+        NaturalStrain3,
+        NaturalStrain4,
+        Vinet,
+        Holzapfel,
+        MieGruneisenDebye,
+        MieGruneisenEinstein,
+        ThermalModifiedTait,
+        Sokolova2016,
+    )
+
+
+def _native_for_exact_model(model):
+    """Return a native handle only when no subclass behavior can be bypassed."""
+    if type(model) not in _native_evaluation_types():
+        return None
+    return getattr(model, "_native", None)
+
+
+def _native_rt_evaluate(native, quantity: str, values: NumericType) -> NumericType:
+    """Evaluate a private native RT model while preserving NumPy shape semantics."""
+    array = np.asarray(values, dtype=float)
+    if array.ndim == 0:
+        return float(getattr(native, f"{quantity}_scalar")(float(array)))
+    return np.asarray(getattr(native, f"{quantity}_array")(array), dtype=float)
+
+
+def _native_thermal_evaluate(
+    native, quantity: str, first: NumericType, second: NumericType
+) -> NumericType:
+    """Evaluate a private native thermal model with NumPy broadcasting."""
+    left = np.asarray(first, dtype=float)
+    right = np.asarray(second, dtype=float)
+    try:
+        left, right = np.broadcast_arrays(left, right)
+    except ValueError as error:
+        raise ValueError("V and T must have broadcast-compatible shapes") from error
+    if left.ndim == 0:
+        return float(native.evaluate_scalar(quantity, float(left), float(right)))
+    return np.asarray(native.evaluate_array(quantity, left, right), dtype=float)
 
 
 def validate_finite_scalar(value: float, name: str) -> float:
@@ -348,6 +421,9 @@ class EosBase:
         pressures = np.asarray(P, dtype=float)
         if not np.all(np.isfinite(pressures)):
             raise ValueError("Pressure must be finite")
+        native = _native_for_exact_model(self)
+        if native is not None:
+            return _native_rt_evaluate(native, "volume", pressures)
         if pressures.ndim == 0:
             return solve_volume(self.pressure, float(pressures), self.V0)
         return np.array(
@@ -399,6 +475,10 @@ class ThermalEOS(EosBase):
         return self._scalar_or_array(result)
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        native = _native_for_exact_model(self)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(native, "pressure", volumes, temperatures)
         return self.thermal_pressure(V, T) + self.rt_eos.pressure(V)
 
     @staticmethod
@@ -423,6 +503,12 @@ class ThermalEOS(EosBase):
     ) -> NumericType:
         """Return the isothermal bulk modulus ``-V (dP/dV)_T`` in GPa."""
         relative_step = validate_positive_scalar(relative_step, "relative_step")
+        native = _native_for_exact_model(self)
+        if native is not None and relative_step == 1.0e-6:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                native, "bulk_modulus", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         steps = relative_step * volumes
         derivative = (
@@ -434,6 +520,12 @@ class ThermalEOS(EosBase):
 
     def isothermal_compressibility(self, V: NumericType, T: NumericType) -> NumericType:
         """Return isothermal compressibility in GPa^-1."""
+        native = _native_for_exact_model(self)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                native, "isothermal_compressibility", volumes, temperatures
+            )
         result = 1.0 / np.asarray(self.bulk_modulus(V, T), dtype=float)
         return self._scalar_or_array(result)
 
@@ -445,6 +537,12 @@ class ThermalEOS(EosBase):
         This uses ``alpha = (dP/dT)_V / K_T``.
         """
         relative_step = validate_positive_scalar(relative_step, "relative_step")
+        native = _native_for_exact_model(self)
+        if native is not None and relative_step == 1.0e-5:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                native, "thermal_expansivity", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         steps = np.minimum(relative_step * temperatures, 0.49 * temperatures)
         pressure_derivative = (
@@ -464,6 +562,12 @@ class ThermalEOS(EosBase):
 
     def molar_heat_capacity_p(self, V: NumericType, T: NumericType) -> NumericType:
         """Return constant-pressure molar heat capacity in J mol^-1 K^-1."""
+        native = _native_for_exact_model(self)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                native, "molar_heat_capacity_p", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         cv = np.asarray(self.molar_heat_capacity_v(volumes, temperatures), dtype=float)
         alpha = np.asarray(self.thermal_expansivity(volumes, temperatures), dtype=float)
@@ -491,6 +595,12 @@ class ThermalEOS(EosBase):
 
     def adiabatic_bulk_modulus(self, V: NumericType, T: NumericType) -> NumericType:
         """Return adiabatic bulk modulus ``K_S = K_T C_P / C_V`` in GPa."""
+        native = _native_for_exact_model(self)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                native, "adiabatic_bulk_modulus", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         kt = np.asarray(self.bulk_modulus(volumes, temperatures), dtype=float)
         cv = np.asarray(self.molar_heat_capacity_v(volumes, temperatures), dtype=float)
@@ -507,6 +617,10 @@ class ThermalEOS(EosBase):
             raise ValueError("Pressure must be finite")
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
             raise ValueError("Temperature must be finite and greater than zero")
+
+        native = _native_for_exact_model(self)
+        if native is not None:
+            return _native_thermal_evaluate(native, "volume", pressures, temperatures)
 
         volumes = np.array(
             [
@@ -558,6 +672,10 @@ class ThermalEOS(EosBase):
             pressures, volumes = np.broadcast_arrays(pressures, volumes)
         except ValueError as error:
             raise ValueError("P and V must have broadcast-compatible shapes") from error
+
+        native = _native_for_exact_model(self)
+        if native is not None:
+            return _native_thermal_evaluate(native, "temperature", pressures, volumes)
 
         cold_pressures = np.asarray(self.rt_eos.pressure(volumes), dtype=float)
         target_thermal_pressures = pressures - cold_pressures

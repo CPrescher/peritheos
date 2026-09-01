@@ -44,6 +44,21 @@ def test_room_temperature_pressure_volume_round_trip(eos):
     assert np.isclose(eos.volume(pressure), expected_volume, rtol=1e-10)
 
 
+def test_subclass_volume_inversion_honors_overridden_pressure():
+    class ShiftedBM3(BM3):
+        def pressure(self, V):
+            return np.asarray(super().pressure(V)) + 2.0
+
+    eos = ShiftedBM3(10.0, 120.0, 4.0)
+    expected_volume = eos.V0
+    pressure = eos.pressure(expected_volume)
+
+    recovered = eos.volume(pressure)
+
+    assert recovered == pytest.approx(expected_volume)
+    assert eos.pressure(recovered) == pytest.approx(pressure)
+
+
 def test_volume_solver_rejects_pressure_outside_expansion_branch():
     eos = BM2(10.0, 100.0)
 

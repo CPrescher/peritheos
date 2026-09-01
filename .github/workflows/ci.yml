@@ -14,6 +14,56 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  rust:
+    name: Rust ${{ matrix.toolchain }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain: ["1.83.0", "stable"]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Install Rust toolchain
+        run: rustup toolchain install ${{ matrix.toolchain }} --profile minimal
+
+      - name: Check workspace
+        run: cargo +${{ matrix.toolchain }} check --workspace --all-targets --all-features --locked
+
+      - name: Test workspace
+        run: cargo +${{ matrix.toolchain }} test --workspace --all-features --locked
+
+      - name: Check formatting and Clippy
+        if: matrix.toolchain == 'stable'
+        run: |
+          rustup component add rustfmt clippy --toolchain stable
+          cargo +stable fmt --all -- --check
+          cargo +stable clippy --workspace --all-targets --all-features -- -D warnings
+
+      - name: Verify publishable Rust crates
+        if: matrix.toolchain == 'stable'
+        run: scripts/verify-rust-packages.sh
+
+  dependency-audit:
+    name: Rust dependency licenses and sources
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Audit licenses and dependency sources
+        uses: EmbarkStudios/cargo-deny-action@c3bbe7e4e3f7baeee1a3dd9aec0a3b2aded580fb # v2.1.1
+        with:
+          command: check licenses sources
+          arguments: --all-features
+
   quality:
     name: Lint and format
     runs-on: ubuntu-latest
@@ -21,6 +71,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -42,6 +94,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -64,6 +118,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -86,6 +142,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -97,6 +155,62 @@ jobs:
       - name: Run tests
         run: uv run --frozen pytest -q -W error
 
+  wheel-smoke:
+    name: Wheel smoke / ${{ matrix.os }} / Python 3.13
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+          python-version: "3.13"
+          version: "0.12.1"
+
+      - name: Build wheel
+        run: uv build --wheel --out-dir dist
+
+      - name: Smoke-test installed wheel outside the checkout
+        shell: bash
+        run: |
+          wheel="$(python -c 'from pathlib import Path; print(next(Path("dist").glob("*.whl")).resolve())')"
+          test -n "${wheel}"
+          cd "${RUNNER_TEMP}"
+          uv run --isolated --no-project \
+            --python 3.13 \
+            --with "${wheel}" \
+            python -c \
+            "from peritheos.eos.rt import BM3; assert BM3(10, 120, 4).pressure(9) > 0"
+
+  free-threaded:
+    name: Free-threaded Python 3.14
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Install uv and free-threaded Python
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          enable-cache: true
+          python-version: "3.14t"
+          version: "0.12.1"
+
+      - name: Run tests
+        run: uv run --python 3.14t --frozen pytest -q -W error
+
   coverage:
     name: Coverage
     runs-on: ubuntu-latest
@@ -104,6 +218,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -122,6 +238,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
@@ -151,6 +269,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
 
       - name: Install uv and Python
         uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0

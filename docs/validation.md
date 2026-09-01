@@ -62,8 +62,9 @@ compatibility rather than a separate literal transcription of the journal
 article's printed equations; the distinction is documented under
 [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
 Additional equation-level cases and their source DOIs are stored in
-`tests/data/literature_reference_cases.json`; keeping the values in a data file
-makes changes to scientific baselines visible in review.
+`crates/peritheos-core/tests/data/literature_reference_cases.json`; keeping the
+values in the packageable core crate makes changes to scientific baselines
+visible in review and lets the published crate run its own tests.
 The cases cover Birch-Murnaghan orders two through four, Vinet, Holzapfel,
 natural strain, modified Tait, Murnaghan, Debye, Einstein, and Holland-Powell
 families. Limiting forms and independent derivative identities reduce the risk
