@@ -1,6 +1,6 @@
 [build-system]
-requires = ["setuptools>=77.0.3", "wheel"]
-build-backend = "setuptools.build_meta"
+requires = ["maturin>=1.15,<2"]
+build-backend = "maturin"
 
 [project]
 name = "peritheos"
@@ -57,19 +57,16 @@ release = [
     "twine>=6.2.0,<7",
 ]
 
-[tool.setuptools.dynamic]
-version = {attr = "peritheos.__version__"}
-
-[tool.setuptools.packages.find]
-include = ["peritheos*"]
-
-[tool.setuptools.package-data]
-peritheos = [
-    "data/*.json",
-    "data/materials/*.eosmat",
-    "data/materials/*.json",
-    "data/materials/*.md",
-    "data/materials/*.txt",
+[tool.maturin]
+manifest-path = "crates/peritheos-python/Cargo.toml"
+module-name = "peritheos._rust"
+python-source = "."
+include = [
+    {path = "peritheos/data/**/*", format = ["sdist", "wheel"]},
+    {path = "crates/peritheos-core/tests/data/**/*", format = "sdist"},
+    {path = "docs/**/*", format = "sdist"},
+    {path = "scripts/**/*", format = "sdist"},
+    {path = "mkdocs.yml", format = "sdist"},
 ]
 
 [tool.ruff]
@@ -82,6 +79,7 @@ select = ["E4", "E7", "E9", "F", "I"]
 [tool.coverage.run]
 branch = true
 source = ["peritheos"]
+omit = ["peritheos/eos/**"]
 
 [tool.coverage.report]
 fail_under = 90

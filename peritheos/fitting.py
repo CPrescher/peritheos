@@ -5,15 +5,17 @@ from __future__ import annotations
 import json
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
+from functools import cache
 from pathlib import Path
 from typing import TYPE_CHECKING, Any, Callable
 
 import numpy as np
 from numpy.typing import NDArray
 from scipy.optimize import least_squares
-from scipy.sparse import issparse, lil_matrix
+from scipy.sparse import csr_matrix, issparse, lil_matrix
 from scipy.sparse.linalg import spsolve
 
+from peritheos import _rust
 from peritheos.eos import EosBase, ThermalEOS
 
 if TYPE_CHECKING:
@@ -405,6 +407,67 @@ def _parameter_covariance(jacobian, parameter_count: int) -> NDArray[np.float64]
     return np.linalg.pinv(profiled_information, hermitian=True)
 
 
+@cache
+def _native_fitting_types() -> tuple[type[EosBase], ...]:
+    """Load exact built-in classes lazily to avoid package import cycles."""
+    from peritheos.eos.rt import (
+        BM2,
+        BM3,
+        BM4,
+        Holzapfel,
+        ModifiedTait,
+        Murnaghan,
+        NaturalStrain2,
+        NaturalStrain3,
+        NaturalStrain4,
+        Vinet,
+    )
+    from peritheos.eos.thermal import (
+        LinearThermalPressure,
+        LogVolumeThermalPressure,
+        MieGruneisenDebye,
+        MieGruneisenEinstein,
+        Sokolova2016,
+        Tange2009Debye,
+        ThermalModifiedTait,
+        ThermalReferenceStateEOS,
+    )
+
+    return (
+        BM2,
+        BM3,
+        BM4,
+        Murnaghan,
+        ModifiedTait,
+        NaturalStrain2,
+        NaturalStrain3,
+        NaturalStrain4,
+        Vinet,
+        Holzapfel,
+        LinearThermalPressure,
+        LogVolumeThermalPressure,
+        MieGruneisenDebye,
+        MieGruneisenEinstein,
+        Tange2009Debye,
+        ThermalModifiedTait,
+        ThermalReferenceStateEOS,
+        Sokolova2016,
+    )
+
+
+def _native_fitting_model(model: EosBase):
+    """Return the native model only for an exact built-in Peritheos class.
+
+    User subclasses may inherit ``_native`` while overriding pressure
+    evaluation, so merely checking for that attribute would silently bypass
+    their Python behavior during fitting.
+    """
+    native = getattr(model, "_native", None)
+    if native is None or type(model) not in _native_fitting_types():
+        return None
+    return native
+
+
 def _fit_model(
     factory: Callable[[Mapping[str, float]], EosBase],
     evaluator: Callable[
@@ -512,22 +575,91 @@ def _fit_model(
             )
         return np.concatenate(residual_parts)
 
-    optimization = least_squares(
-        residual_function,
-        x0,
-        bounds=(lower, upper),
-        jac_sparsity=jacobian_sparsity,
-        x_scale="jac",
-        loss=loss,
-        f_scale=f_scale,
-        max_nfev=max_nfev,
-    )
+    prototype = factory(parameter_mapping(x0))
+    native_model = _native_fitting_model(prototype)
+    if isinstance(loss, str):
+        if native_model is not None and "temperature" not in coordinates:
+            optimization = _rust.fit_rt_eos_native(
+                native_model,
+                names,
+                parameter_x0,
+                np.asarray(parameter_lower),
+                np.asarray(parameter_upper),
+                observed.ravel(),
+                coordinates["volume"].ravel(),
+                pressure_sigma.ravel(),
+                None
+                if coordinate_sigmas["volume"] is None
+                else coordinate_sigmas["volume"].ravel(),
+                observation_cholesky,
+                loss=loss,
+                f_scale=f_scale,
+                max_nfev=max_nfev,
+            )
+        elif native_model is not None:
+            optimization = _rust.fit_thermal_eos_native(
+                native_model,
+                names,
+                parameter_x0,
+                np.asarray(parameter_lower),
+                np.asarray(parameter_upper),
+                observed.ravel(),
+                coordinates["volume"].ravel(),
+                coordinates["temperature"].ravel(),
+                pressure_sigma.ravel(),
+                None
+                if coordinate_sigmas["volume"] is None
+                else coordinate_sigmas["volume"].ravel(),
+                None
+                if coordinate_sigmas["temperature"] is None
+                else coordinate_sigmas["temperature"].ravel(),
+                observation_cholesky,
+                loss=loss,
+                f_scale=f_scale,
+                max_nfev=max_nfev,
+            )
+        else:
+            native_options = {}
+            if adjusted_names:
+                native_options = {
+                    "global_parameter_count": len(names),
+                    "point_count": observed.size,
+                    "latent_coordinate_count": len(adjusted_names),
+                }
+            optimization = _rust.fit_least_squares(
+                residual_function,
+                x0,
+                lower,
+                upper,
+                loss=loss,
+                f_scale=f_scale,
+                max_nfev=max_nfev,
+                **native_options,
+            )
+    else:
+        # Callable robust losses are an intentional compatibility fallback:
+        # arbitrary Python callables cannot be represented by the native enum.
+        optimization = least_squares(
+            residual_function,
+            x0,
+            bounds=(lower, upper),
+            jac_sparsity=jacobian_sparsity,
+            x_scale="jac",
+            loss=loss,
+            f_scale=f_scale,
+            max_nfev=max_nfev,
+        )
     parameters = parameter_mapping(optimization.x)
     model = factory(parameters)
     adjusted = adjusted_coordinates(optimization.x)
-    predicted = np.asarray(evaluator(model, adjusted), dtype=float)
+    native_prediction = getattr(optimization, "predicted_pressure", None)
+    predicted = (
+        np.asarray(evaluator(model, adjusted), dtype=float)
+        if native_prediction is None
+        else np.asarray(native_prediction, dtype=float).reshape(observed.shape)
+    )
     residuals = predicted - observed
-    weighted_residuals = residual_function(optimization.x)
+    weighted_residuals = np.asarray(optimization.fun, dtype=float)
     count = weighted_residuals.size
     degrees_of_freedom = count - optimization.x.size
     chi_square = float(np.sum(weighted_residuals**2))
@@ -535,7 +667,14 @@ def _fit_model(
         chi_square / degrees_of_freedom if degrees_of_freedom > 0 else np.nan
     )
 
-    covariance = _parameter_covariance(optimization.jac, len(names))
+    native_covariance = getattr(optimization, "parameter_covariance", None)
+    if native_covariance is not None:
+        covariance = np.asarray(native_covariance, dtype=float)
+    else:
+        covariance_jacobian = optimization.jac
+        if adjusted_names and isinstance(loss, str):
+            covariance_jacobian = csr_matrix(covariance_jacobian)
+        covariance = _parameter_covariance(covariance_jacobian, len(names))
     if scale_covariance and degrees_of_freedom > 0:
         covariance *= reduced_chi_square
     errors = np.sqrt(np.maximum(np.diag(covariance), 0.0))
@@ -664,6 +803,7 @@ def fit_thermal_eos(
     pressure: Any,
     initial: Mapping[str, float],
     *,
+    configuration: Mapping[str, Any] | None = None,
     fixed: Mapping[str, float] | None = None,
     bounds: Mapping[str, Sequence[float]] | None = None,
     pressure_sigma: Any | None = None,
@@ -678,12 +818,21 @@ def fit_thermal_eos(
 ) -> FitResult:
     """Fit a thermal EOS with optional errors in pressure, volume, and temperature.
 
-    The reference EOS remains fixed.  Supplied volume and temperature errors
+    The reference EOS remains fixed. ``configuration`` supplies fixed,
+    non-numeric constructor choices such as ``debye_temperature_law``;
+    configuration values are not fitted. Supplied volume and temperature errors
     turn their corresponding true values into latent fit variables.
     ``sigma`` is retained as a compatibility alias for ``pressure_sigma``.
     ``observation_covariance`` accepts one or per-point 3-by-3 covariance
     matrices ordered as pressure, volume, temperature.
     """
+    configuration = dict(configuration or {})
+    overlap = set(configuration) & (set(initial) | set(fixed or {}))
+    if overlap:
+        raise ValueError(
+            "Configuration choices must not also be supplied as fit parameters: "
+            f"{sorted(overlap)}"
+        )
     volumes, temperatures, observed = np.broadcast_arrays(
         np.asarray(volume, dtype=float),
         np.asarray(temperature, dtype=float),
@@ -710,7 +859,7 @@ def fit_thermal_eos(
     ) = uncertainties
     assert pressure_uncertainties is not None
     return _fit_model(
-        lambda parameters: eos_class(rt_eos=rt_eos, **parameters),
+        lambda parameters: eos_class(rt_eos=rt_eos, **parameters, **configuration),
         lambda model, coordinates: np.asarray(
             model.pressure(coordinates["volume"], coordinates["temperature"]),
             dtype=float,
@@ -741,6 +890,7 @@ def fit_joint_eos(
     pressure: Any,
     initial: Mapping[str, float],
     *,
+    configuration: Mapping[str, Any] | None = None,
     fixed: Mapping[str, float] | None = None,
     bounds: Mapping[str, Sequence[float]] | None = None,
     pressure_sigma: Any | None = None,
@@ -759,8 +909,17 @@ def fit_joint_eos(
     models, for example ``rt_eos.V0`` and ``rt_eos.K0``. Thermal parameters
     retain their constructor names. The returned covariance therefore includes
     cross-correlations between reference and thermal parameters and can be
-    passed directly to :meth:`FitResult.eos_uncertainty`.
+    passed directly to :meth:`FitResult.eos_uncertainty`. ``configuration``
+    supplies fixed, non-numeric thermal constructor choices and is not fitted.
     """
+
+    configuration = dict(configuration or {})
+    overlap = set(configuration) & (set(initial) | set(fixed or {}))
+    if overlap:
+        raise ValueError(
+            "Configuration choices must not also be supplied as fit parameters: "
+            f"{sorted(overlap)}"
+        )
 
     def factory(parameters: Mapping[str, float]) -> ThermalEOS:
         reference_parameters = {
@@ -774,7 +933,9 @@ def fit_joint_eos(
             if not name.startswith("rt_eos.")
         }
         return eos_class(
-            rt_eos=rt_eos_class(**reference_parameters), **thermal_parameters
+            rt_eos=rt_eos_class(**reference_parameters),
+            **thermal_parameters,
+            **configuration,
         )
 
     volumes, temperatures, observed = np.broadcast_arrays(

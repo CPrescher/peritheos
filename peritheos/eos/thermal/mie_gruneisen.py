@@ -12,6 +12,8 @@ from peritheos.eos import (
     EosBase,
     NumericType,
     ThermalEOS,
+    _native_for_exact_model,
+    _native_thermal_evaluate,
     validate_finite_scalar,
     validate_positive_scalar,
     validate_volume,
@@ -38,11 +40,28 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         self.gamma0 = validate_finite_scalar(gamma0, "gamma0")
         self.q = validate_finite_scalar(q, "q")
         self.n = validate_positive_scalar(n, "n")
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None and type(self) is MieGruneisenEinstein:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.mie_gruneisen_einstein(
+                reference_native, self.Tr, self.theta0, self.gamma0, self.q, self.n
+            )
+
+    def _native_evaluate(
+        self, quantity: str, first: NumericType, second: NumericType
+    ) -> NumericType:
+        return _native_thermal_evaluate(self._native, quantity, first, second)
 
     def gruneisen_parameter(
         self, V: NumericType, T: NumericType | None = None
     ) -> NumericType:
         """Return ``gamma(V) = gamma0 * (V / V0)**q``."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            temperatures = self.Tr if T is None else T
+            volumes, temperatures = self._broadcast_state(V, temperatures)
+            return self._native_evaluate("gruneisen_parameter", volumes, temperatures)
         V = validate_volume(V)
         return self.gamma0 * np.exp(self.q * np.log(V / self.rt_eos.V0))
 
@@ -52,6 +71,10 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         Its volume dependence is thermodynamically consistent with
         ``gamma = -d(log(theta)) / d(log(V))``.
         """
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes = validate_volume(V)
+            return self._native_evaluate("characteristic_temperature", volumes, self.Tr)
         V = validate_volume(V)
         logarithmic_volume = np.log(V / self.rt_eos.V0)
         if self.q == 0.0:
@@ -73,6 +96,10 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         Volumes must be molar volumes in J bar^-1 mol^-1. This is equivalent
         to cm^3 mol^-1 divided by ten.
         """
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("thermal_pressure", volumes, temperatures)
         V = validate_volume(V)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
@@ -97,6 +124,10 @@ class _MieGruneisenBase(ThermalEOS, ABC):
 
     def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
         """Return vibrational ``C_V`` in J mol^-1 K^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("molar_heat_capacity_v", volumes, temperatures)
         volumes, temperatures = self._broadcast_state(V, T)
         steps = 1.0e-5 * temperatures
         result = (
@@ -111,10 +142,20 @@ class _MieGruneisenBase(ThermalEOS, ABC):
 
     def thermal_internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return vibrational internal energy in J mol^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate(
+                "thermal_internal_energy", volumes, temperatures
+            )
         return self.thermal_energy(V, T)
 
     def vibrational_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the unreferenced vibrational pressure in GPa."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("vibrational_pressure", volumes, temperatures)
         volumes, temperatures = self._broadcast_state(V, T)
         pressure = (
             self.gruneisen_parameter(volumes)
@@ -131,6 +172,12 @@ class _MieGruneisenBase(ThermalEOS, ABC):
 
         Zero-point and static reference energies are omitted.
         """
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate(
+                "thermal_helmholtz_free_energy", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         result = np.asarray(
             self.thermal_energy(volumes, temperatures), dtype=float
@@ -141,6 +188,10 @@ class _MieGruneisenBase(ThermalEOS, ABC):
 
     def thermal_enthalpy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the vibrational enthalpy contribution in J mol^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("thermal_enthalpy", volumes, temperatures)
         volumes, temperatures = self._broadcast_state(V, T)
         result = (
             np.asarray(self.thermal_energy(volumes, temperatures), dtype=float)
@@ -152,6 +203,12 @@ class _MieGruneisenBase(ThermalEOS, ABC):
 
     def thermal_gibbs_free_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the vibrational Gibbs-energy contribution in J mol^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate(
+                "thermal_gibbs_free_energy", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         result = (
             np.asarray(
@@ -212,6 +269,19 @@ class MieGruneisenDebye(_MieGruneisenBase):
                 "'variable_exponent'"
             )
         self.debye_temperature_law = debye_temperature_law
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None and type(self) is MieGruneisenDebye:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.mie_gruneisen_debye(
+                reference_native,
+                self.Tr,
+                self.theta0,
+                self.gamma0,
+                self.q,
+                self.n,
+                self.debye_temperature_law,
+            )
 
     def characteristic_temperature(self, V: NumericType) -> NumericType:
         """Return Debye temperature using the selected volume relation."""
@@ -230,6 +300,10 @@ class MieGruneisenDebye(_MieGruneisenBase):
 
     def thermal_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Debye vibrational thermal energy in J mol^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("thermal_energy", volumes, temperatures)
         V = validate_volume(V)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
@@ -249,6 +323,10 @@ class MieGruneisenDebye(_MieGruneisenBase):
 
     def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Debye vibrational entropy in J mol^-1 K^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("thermal_entropy", volumes, temperatures)
         volumes, temperatures = self._broadcast_state(V, T)
         ratio = self.characteristic_temperature(volumes) / temperatures
         log_term = np.log(-np.expm1(-ratio))
@@ -294,11 +372,29 @@ class Tange2009Debye(MieGruneisenDebye):
         self.b = validate_finite_scalar(b, "b")
         if not 0.0 <= self.a <= 1.0:
             raise ValueError("a must lie between zero and one")
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None and type(self) is Tange2009Debye:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.asymptotic_power_law_mie_gruneisen_debye(
+                reference_native,
+                self.Tr,
+                self.theta0,
+                self.gamma0,
+                self.a,
+                self.b,
+                self.n,
+            )
 
     def gruneisen_parameter(
         self, V: NumericType, T: NumericType | None = None
     ) -> NumericType:
         """Return the Tange et al. equation (15) Gruneisen parameter."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            temperatures = self.Tr if T is None else T
+            volumes, temperatures = self._broadcast_state(V, temperatures)
+            return self._native_evaluate("gruneisen_parameter", volumes, temperatures)
         volumes = np.asarray(validate_volume(V), dtype=float)
         ratio = volumes / self.rt_eos.V0
         result = self.gamma0 * (1.0 + self.a * (ratio**self.b - 1.0))
@@ -310,6 +406,10 @@ class Tange2009Debye(MieGruneisenDebye):
 
     def characteristic_temperature(self, V: NumericType) -> NumericType:
         """Return Debye temperature from Tange et al. equation (16)."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes = validate_volume(V)
+            return self._native_evaluate("characteristic_temperature", volumes, self.Tr)
         volumes = np.asarray(validate_volume(V), dtype=float)
         logarithmic_ratio = np.log(volumes / self.rt_eos.V0)
         if self.b == 0.0:
@@ -343,6 +443,10 @@ class MieGruneisenEinstein(_MieGruneisenBase):
 
     def thermal_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Einstein vibrational thermal energy in J mol^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("thermal_energy", volumes, temperatures)
         V = validate_volume(V)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
@@ -364,6 +468,10 @@ class MieGruneisenEinstein(_MieGruneisenBase):
 
     def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return Einstein vibrational entropy in J mol^-1 K^-1."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate("thermal_entropy", volumes, temperatures)
         volumes, temperatures = self._broadcast_state(V, T)
         ratio = self.characteristic_temperature(volumes) / temperatures
         occupation = np.exp(-ratio) / (-np.expm1(-ratio))

@@ -103,55 +103,22 @@ def test_bulk_modulus_with_derivative(holzapfel_eos):
 
 
 def test_bulk_modulus_derivative_at_V(holzapfel_eos):
-    """Test bulk modulus derivative calculation"""
+    """Test the native derivative against an independent pressure derivative."""
     volumes = np.array([0.8, 0.9, 1.0, 1.1, 1.2]) * V0
-    k0_prime_analytical = bulk_modulus_derivative_analytical(
-        V0,
-        volumes,
-        holzapfel_eos.bulk_modulus(volumes),
-        K0,
-        holzapfel_eos._c0,
-        holzapfel_eos._c2,
+    expected = derivative(holzapfel_eos.bulk_modulus, volumes) / derivative(
+        holzapfel_eos.pressure, volumes
     )
-    k0_prime_numerical = holzapfel_eos.bulk_modulus_derivative(volumes)
-    assert np.allclose(k0_prime_analytical, k0_prime_numerical)
+    actual = holzapfel_eos.bulk_modulus_derivative(volumes)
+    assert np.allclose(actual, expected, rtol=1e-5, atol=1e-7)
+    assert np.isclose(holzapfel_eos.bulk_modulus_derivative(V0), K0_prime)
 
-    # time both functions:
-    analytical_time = time_function(
-        bulk_modulus_derivative_analytical,
-        1000,
-        V0,
-        volumes,
-        holzapfel_eos.bulk_modulus(volumes),
-        K0,
-        holzapfel_eos._c0,
-        holzapfel_eos._c2,
+
+def test_legacy_analytical_derivative_helper_remains_compatible(holzapfel_eos):
+    volumes = np.array([0.8, 0.9, 1.0, 1.1, 1.2]) * V0
+    fermigas_pressure = 1003.6 * (Z * n / (V0 * 10)) ** (5 / 3)
+    c0 = -np.log(3 * K0 / fermigas_pressure)
+    c2 = 1.5 * (K0_prime - 3) - c0
+    actual = bulk_modulus_derivative_analytical(
+        V0, volumes, holzapfel_eos.bulk_modulus(volumes), K0, c0, c2
     )
-    numerical_time = time_function(holzapfel_eos.bulk_modulus_derivative, 1000, volumes)
-    assert analytical_time > numerical_time
-
-
-def time_function(function, repetitions, *args):
-    """
-    Time a function
-
-    Parameters
-    ----------
-    function : function
-        The function to time
-    repetitions : int
-        The number of repetitions to run the function
-    *args : tuple
-        The arguments to pass to the function
-
-    Returns
-    -------
-    float
-        The time taken to run the function
-    """
-    import time
-
-    start_time = time.time()
-    for _ in range(repetitions):
-        function(*args)
-    return time.time() - start_time
+    assert np.allclose(actual, holzapfel_eos.bulk_modulus_derivative(volumes))

@@ -5,9 +5,320 @@ import json
 import numpy as np
 import pytest
 
-from peritheos.eos.rt import BM3
-from peritheos.eos.thermal import MieGruneisenEinstein
+import peritheos.fitting as fitting_module
+from peritheos import _rust
+from peritheos.eos.rt import (
+    BM2,
+    BM3,
+    BM4,
+    Holzapfel,
+    ModifiedTait,
+    Murnaghan,
+    NaturalStrain2,
+    NaturalStrain3,
+    NaturalStrain4,
+    Vinet,
+)
+from peritheos.eos.thermal import (
+    LinearThermalPressure,
+    LogVolumeThermalPressure,
+    MieGruneisenDebye,
+    MieGruneisenEinstein,
+    MultiOscillatorGruneisenThermalEOS,
+    Sokolova2016,
+    Tange2009Debye,
+    ThermalModifiedTait,
+    ThermalReferenceStateEOS,
+)
 from peritheos.fitting import fit_joint_eos, fit_rt_eos, fit_thermal_eos
+
+
+@pytest.mark.parametrize(
+    "expected",
+    [
+        BM2(10.0, 120.0),
+        BM3(10.0, 120.0, 4.3),
+        BM4(10.0, 120.0, 4.3, -0.02),
+        Murnaghan(10.0, 120.0, 4.3),
+        ModifiedTait(10.0, 120.0, 4.3, -0.02),
+        NaturalStrain2(10.0, 120.0),
+        NaturalStrain3(10.0, 120.0, 4.3),
+        NaturalStrain4(10.0, 120.0, 4.3, -0.02),
+        Vinet(10.0, 120.0, 4.3),
+        Holzapfel(0.3414, 441.5, 3.9, 1.0, 6.0),
+    ],
+)
+def test_every_builtin_rt_model_fits_end_to_end_natively(expected, monkeypatch):
+    parameters = expected.parameter_values(include_reference=False)
+    volumes = np.linspace(0.8 * expected.V0, expected.V0, 12)
+    pressures = expected.pressure(volumes)
+
+    def callback_solver_is_forbidden(*args, **kwargs):
+        raise AssertionError("built-in fitting must not use a Python callback")
+
+    monkeypatch.setattr(_rust, "fit_least_squares", callback_solver_is_forbidden)
+    result = fit_rt_eos(
+        type(expected),
+        volumes,
+        pressures,
+        initial={"K0": 0.9 * parameters["K0"]},
+        fixed={name: value for name, value in parameters.items() if name != "K0"},
+    )
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(parameters["K0"], rel=1.0e-7)
+
+
+@pytest.mark.parametrize(
+    ("expected", "free_name", "initial_factor", "configuration"),
+    [
+        (
+            MieGruneisenDebye(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
+            "gamma0",
+            0.8,
+            {"debye_temperature_law": "integrated_gruneisen"},
+        ),
+        (
+            MieGruneisenDebye(
+                BM3(1.0, 160.0, 4.0),
+                300.0,
+                800.0,
+                1.5,
+                1.0,
+                2.0,
+                debye_temperature_law="variable_exponent",
+            ),
+            "gamma0",
+            0.8,
+            {"debye_temperature_law": "variable_exponent"},
+        ),
+        (
+            MieGruneisenEinstein(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
+            "gamma0",
+            0.8,
+            {},
+        ),
+        (
+            Tange2009Debye(BM3(1.0, 160.0, 4.0), 300.0, 760.0, 1.5, 0.3, 2.5, 2.0),
+            "gamma0",
+            0.8,
+            {},
+        ),
+        (
+            LinearThermalPressure(BM3(1.0, 160.0, 4.0), 300.0, 0.002),
+            "alpha_KT",
+            0.8,
+            {},
+        ),
+        (
+            LogVolumeThermalPressure(BM3(1.0, 160.0, 4.0), 300.0, 0.002, -0.000_01),
+            "alpha_KT_ref",
+            0.8,
+            {},
+        ),
+        (
+            ThermalReferenceStateEOS(
+                BM3(1.0, 160.0, 4.0),
+                300.0,
+                2.0e-5,
+                -0.01,
+                1.0e-8,
+                thermal_expansion_law="linear_temperature",
+            ),
+            "alpha0",
+            0.8,
+            {
+                "thermal_expansion_law": "linear_temperature",
+                "reference_volume_law": "integrated_expansivity",
+            },
+        ),
+        (
+            ThermalModifiedTait(
+                ModifiedTait(1.0, 160.0, 4.0, -0.01),
+                298.15,
+                700.0,
+                2.5e-5,
+                2.0,
+            ),
+            "alpha0",
+            0.8,
+            {},
+        ),
+        (
+            Sokolova2016(
+                Holzapfel(0.3414, 441.5, 3.9, 1.0, 6.0),
+                298.15,
+                684.0,
+                0.564,
+                1561.0,
+                2.436,
+                -0.506,
+                1.085,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+            ),
+            "delta",
+            0.8,
+            {},
+        ),
+        (
+            MultiOscillatorGruneisenThermalEOS(
+                BM3(1.0, 160.0, 4.0),
+                298.15,
+                684.0,
+                0.564,
+                1561.0,
+                2.436,
+                -0.506,
+                1.085,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                n=2.0,
+            ),
+            "delta",
+            0.8,
+            {},
+        ),
+    ],
+)
+def test_every_builtin_thermal_model_fits_end_to_end_natively(
+    expected, free_name, initial_factor, configuration, monkeypatch
+):
+    parameters = expected.parameter_values(include_reference=False)
+    volumes = np.repeat(expected.rt_eos.V0 * np.array([0.82, 0.9, 0.98]), 4)
+    temperatures = np.tile(np.linspace(500.0, 2200.0, 4), 3)
+    pressures = expected.pressure(volumes, temperatures)
+
+    def callback_solver_is_forbidden(*args, **kwargs):
+        raise AssertionError("built-in fitting must not use a Python callback")
+
+    monkeypatch.setattr(_rust, "fit_least_squares", callback_solver_is_forbidden)
+    result = fit_thermal_eos(
+        type(expected),
+        expected.rt_eos,
+        volumes,
+        temperatures,
+        pressures,
+        initial={free_name: initial_factor * parameters[free_name]},
+        configuration=configuration,
+        fixed={name: value for name, value in parameters.items() if name != free_name},
+        max_nfev=500,
+    )
+
+    assert result.success
+    assert result.parameters[free_name] == pytest.approx(
+        parameters[free_name], rel=1.0e-6, abs=1.0e-10
+    )
+    assert result.model.configuration_values() == configuration
+
+
+def test_custom_subclass_retains_python_residual_callback(monkeypatch):
+    class ShiftedBM3(BM3):
+        def pressure(self, V):
+            return np.asarray(super().pressure(V)) + 2.0
+
+    expected = ShiftedBM3(10.0, 120.0, 4.0)
+    volumes = np.linspace(8.0, 10.0, 12)
+    native_fast_path = _rust.fit_rt_eos_native
+
+    def native_fast_path_is_forbidden(*args, **kwargs):
+        raise AssertionError("custom subclasses must retain Python evaluation")
+
+    monkeypatch.setattr(_rust, "fit_rt_eos_native", native_fast_path_is_forbidden)
+    result = fit_rt_eos(
+        ShiftedBM3,
+        volumes,
+        expected.pressure(volumes),
+        initial={"K0": 100.0},
+        fixed={"V0": 10.0, "K0_prime": 4.0},
+    )
+    monkeypatch.setattr(_rust, "fit_rt_eos_native", native_fast_path)
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(120.0)
+
+
+def test_builtin_fit_never_calls_python_pressure_during_solve(monkeypatch):
+    expected = BM3(10.0, 120.0, 4.3)
+    volumes = np.linspace(8.0, 10.0, 20)
+    pressures = expected.pressure(volumes)
+    python_evaluations = 0
+    original_pressure = BM3.pressure
+
+    def counting_pressure(self, V):
+        nonlocal python_evaluations
+        python_evaluations += 1
+        return original_pressure(self, V)
+
+    monkeypatch.setattr(BM3, "pressure", counting_pressure)
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        pressures,
+        initial={"K0": 110.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+    )
+
+    assert result.success
+    assert python_evaluations == 0
+
+
+def test_native_fit_uses_rust_parameter_covariance(monkeypatch):
+    expected = BM3(10.0, 120.0, 4.3)
+    volumes = np.linspace(8.0, 10.0, 20)
+
+    def python_covariance_is_forbidden(*args, **kwargs):
+        raise AssertionError("native fits must use the Rust covariance kernel")
+
+    monkeypatch.setattr(
+        fitting_module, "_parameter_covariance", python_covariance_is_forbidden
+    )
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        expected.pressure(volumes),
+        initial={"K0": 110.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+    )
+
+    assert result.success
+    assert result.covariance.shape == (2, 2)
+    assert np.all(np.isfinite(result.covariance))
+
+
+def test_callable_loss_retains_scipy_compatibility_path(monkeypatch):
+    expected = BM3(10.0, 120.0, 4.0)
+    volumes = np.linspace(8.0, 10.0, 12)
+
+    def linear_callable(squared_residuals):
+        return np.vstack(
+            [
+                squared_residuals,
+                np.ones_like(squared_residuals),
+                np.zeros_like(squared_residuals),
+            ]
+        )
+
+    def native_fast_path_is_forbidden(*args, **kwargs):
+        raise AssertionError("callable losses must retain SciPy compatibility")
+
+    monkeypatch.setattr(_rust, "fit_rt_eos_native", native_fast_path_is_forbidden)
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        expected.pressure(volumes),
+        initial={"K0": 100.0},
+        fixed={"V0": 10.0, "K0_prime": 4.0},
+        loss=linear_callable,
+    )
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(120.0)
+    assert result.loss.endswith("linear_callable")
 
 
 def test_fit_rt_eos_recovers_synthetic_parameters():
@@ -131,6 +442,27 @@ def test_bm2_fit_matches_closed_form_weighted_least_squares():
     assert np.isclose(result.covariance[0, 0], expected_variance, rtol=1.0e-6)
 
 
+def test_rank_deficient_fit_returns_finite_pseudoinverse_covariance():
+    expected = BM3(10.0, 120.0, 4.3)
+    volumes = np.full(12, 9.0)
+    pressures = expected.pressure(volumes)
+
+    result = fit_rt_eos(
+        BM3,
+        volumes,
+        pressures,
+        initial={"K0": 100.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+        pressure_sigma=0.1,
+        absolute_sigma=True,
+    )
+
+    assert result.success
+    assert result.model.pressure(9.0) == pytest.approx(pressures[0])
+    assert np.all(np.isfinite(result.covariance))
+    assert np.linalg.eigvalsh(result.covariance).min() >= -1.0e-12
+
+
 def test_fit_rt_eos_handles_pressure_and_volume_uncertainties():
     expected = BM3(10.0, 120.0, 4.3)
     true_volumes = np.linspace(8.0, 10.5, 20)
@@ -156,6 +488,31 @@ def test_fit_rt_eos_handles_pressure_and_volume_uncertainties():
     assert result.temperature_corrections is None
     assert result.weighted_residuals.size == 2 * pressures.size
     assert result.degrees_of_freedom == pressures.size - 2
+
+
+def test_large_latent_volume_fit_uses_structured_native_path():
+    expected = BM3(10.0, 120.0, 4.3)
+    true_volumes = np.linspace(8.0, 10.5, 1000)
+    measured_volumes = true_volumes + 0.002 * np.sin(np.arange(true_volumes.size))
+    pressures = expected.pressure(true_volumes)
+
+    result = fit_rt_eos(
+        BM3,
+        measured_volumes,
+        pressures,
+        initial={"K0": 110.0, "K0_prime": 4.0},
+        fixed={"V0": 10.0},
+        pressure_sigma=0.01,
+        volume_sigma=0.005,
+        absolute_sigma=True,
+        max_nfev=200,
+    )
+
+    assert result.success
+    assert result.parameters["K0"] == pytest.approx(expected.K0, rel=1.0e-3)
+    assert result.parameters["K0_prime"] == pytest.approx(expected.K0_prime, rel=1.0e-3)
+    assert result.weighted_residuals.size == 2000
+    assert result.covariance.shape == (2, 2)
 
 
 def test_observation_covariance_matches_independent_rt_uncertainties():
@@ -251,6 +608,60 @@ def test_joint_fit_recovers_reference_and_thermal_parameters():
     assert result.model.rt_eos.K0 == pytest.approx(160.0)
     assert result.covariance.shape == (5, 5)
     assert result.eos_uncertainty().parameter_names == result.free_parameters
+
+
+def test_joint_fit_preserves_fixed_equation_configuration():
+    reference = BM3(1.0, 160.0, 4.2)
+    expected = MieGruneisenDebye(
+        reference,
+        300.0,
+        800.0,
+        1.6,
+        1.0,
+        2.0,
+        debye_temperature_law="variable_exponent",
+    )
+    volumes = np.tile(np.array([0.8, 0.9, 1.0]), 4)
+    temperatures = np.repeat(np.linspace(500.0, 2000.0, 4), 3)
+    pressures = expected.pressure(volumes, temperatures)
+
+    result = fit_joint_eos(
+        MieGruneisenDebye,
+        BM3,
+        volumes,
+        temperatures,
+        pressures,
+        initial={"gamma0": 1.3},
+        fixed={
+            "rt_eos.V0": 1.0,
+            "rt_eos.K0": 160.0,
+            "rt_eos.K0_prime": 4.2,
+            "Tr": 300.0,
+            "theta0": 800.0,
+            "q": 1.0,
+            "n": 2.0,
+        },
+        configuration={"debye_temperature_law": "variable_exponent"},
+    )
+
+    assert result.parameters["gamma0"] == pytest.approx(1.6, rel=1.0e-6)
+    assert result.model.configuration_values() == {
+        "debye_temperature_law": "variable_exponent"
+    }
+
+
+def test_fit_configuration_cannot_also_be_a_numeric_parameter():
+    with pytest.raises(ValueError, match="must not also be supplied"):
+        fit_thermal_eos(
+            MieGruneisenDebye,
+            BM3(1.0, 160.0, 4.0),
+            [0.9],
+            [1000.0],
+            [10.0],
+            initial={"gamma0": 1.5},
+            configuration={"gamma0": "not-a-mechanism-choice"},
+            fixed={"Tr": 300.0, "theta0": 800.0, "q": 1.0, "n": 2.0},
+        )
 
 
 def test_fit_thermal_eos_handles_uncertainties_in_all_observables():

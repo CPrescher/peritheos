@@ -154,6 +154,60 @@ All notable changes to Peritheos are documented here. The project follows
   Dioptas 0.10.0 read compatibility. A dedicated schema reference documents
   every field, discriminator pairing, default, unit, validation status, and
   consumer compatibility rule.
+- A Rust workspace containing native EOS, fitting, uncertainty, and private
+  PyO3 binding crates, with Rust 1.83 as the library MSRV.
+- Shared Python/Rust compatibility fixtures and migration baselines for all
+  isothermal and thermal model families.
+- Multi-platform native-wheel release jobs for supported CPython versions on
+  Linux x86-64/ARM64, macOS Intel/Apple Silicon, and Windows x86-64.
+- Pull-request wheel build and isolated-install smoke tests on Linux, macOS,
+  and Windows, complementing the full tagged-release wheel matrix.
+- Dependency-free public Rust batch traits, typed joint EOS fitting, and
+  model-aware linear and Monte Carlo uncertainty entry points.
+- Package-contained scientific fixtures and a two-crate archive verifier that
+  tests the required core-before-fit crates.io publication sequence.
+- A pinned Rust dependency-source and SPDX-license audit covering the supported
+  Linux, macOS, and Windows target graphs.
+
+### Changed
+
+- Built-in Python EOS classes now preserve their public API while delegating
+  evaluation, inversion, thermoelastic, and caloric calculations to Rust.
+- The material catalog's linear, logarithmic-volume, configurable
+  reference-state, variable-exponent Debye, asymptotic-power-law Debye, and
+  generic multi-oscillator mechanisms now use the same native evaluation and
+  fitting architecture. Thermal fits accept fixed categorical equation choices
+  through `configuration`, and native linear uncertainty supports records with
+  measurement errors but no published parameter covariance.
+- Named bounded robust fitting losses and uncertainty propagation statistics
+  now use native numerical kernels. Custom reference EOS classes, callable
+  fitting losses, and NumPy-seeded Monte Carlo draws retain documented
+  compatibility paths.
+- Native fits now return their profiled global-parameter covariance directly;
+  Python no longer recomputes it through a separate SciPy/NumPy path.
+- Errors-in-variables fits now use colored latent-coordinate Jacobians and a
+  block Schur-complement solve, with stress coverage for large and rank-deficient
+  datasets.
+- Birch-Murnaghan kernels now use an algebraically equivalent cube-root form,
+  and large independent EOS arrays use deterministic thresholded parallel
+  evaluation while the Python interpreter lock is released.
+- Holzapfel bulk-modulus derivatives now execute directly in Rust, obsolete
+  Python natural-strain coefficient formulas are removed, and the historical
+  coefficient-level Holzapfel helper remains available through a Rust-backed
+  compatibility wrapper.
+- Native batch calls now have concurrent large-array stress coverage in
+  addition to deterministic order, shape, stride, and round-trip checks.
+- Native least squares now equilibrates differently scaled Jacobian columns,
+  reports failed steps as failures instead of false `xtol` convergence, and
+  uses a rank-aware Moore-Penrose covariance calculation.
+- Latent-coordinate covariance profiling now preserves observation-local
+  blocks, avoiding the previous dense cubic post-fit calculation.
+- Native EOS dispatch is restricted to exact built-in Python classes so
+  subclass overrides and Debye/Einstein model identity remain authoritative.
+- Linear uncertainty kernels now reject non-positive-semidefinite parameter
+  covariance and negative state variance instead of clamping invalid inputs.
+- Tagged releases now include CPython 3.14 free-threaded wheels alongside the
+  standard CPython wheel matrix.
 
 ## [0.5.0] - 2026-08-30
 

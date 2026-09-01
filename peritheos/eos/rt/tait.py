@@ -5,6 +5,8 @@ import numpy as np
 from peritheos.eos import (
     EosBase,
     NumericType,
+    _native_rt_evaluate,
+    _rust,
     validate_finite_scalar,
     validate_positive_scalar,
     validate_volume,
@@ -74,6 +76,9 @@ class ModifiedTait(EosBase):
         self._a = one_plus_prime / numerator_c
         self._b = self.K0_prime / self.K0 - self.K0_double_prime / one_plus_prime
         self._c = numerator_c / denominator_c
+        self._native = _rust.RtEos.modified_tait(
+            self.V0, self.K0, self.K0_prime, self.K0_double_prime
+        )
 
     def _compression_base(self, V: NumericType) -> tuple[NumericType, NumericType]:
         relative_volume = V / self.V0
@@ -85,11 +90,9 @@ class ModifiedTait(EosBase):
     def pressure(self, V: NumericType) -> NumericType:
         """Return pressure at volume *V* in the same units as ``K0``."""
         V = validate_volume(V)
-        _, base = self._compression_base(V)
-        return np.expm1((-1.0 / self._c) * np.log(base)) / self._b
+        return _native_rt_evaluate(self._native, "pressure", V)
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """Return the isothermal bulk modulus at volume *V*."""
         V = validate_volume(V)
-        relative_volume, base = self._compression_base(V)
-        return self.K0 * relative_volume * np.exp((-1.0 / self._c - 1.0) * np.log(base))
+        return _native_rt_evaluate(self._native, "bulk_modulus", V)

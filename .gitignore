@@ -8,6 +8,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+/target/
 build/
 develop-eggs/
 dist/
@@ -36,6 +37,7 @@ pip-delete-this-directory.txt
 
 # Unit test / coverage reports
 htmlcov/
+site/
 .tox/
 .nox/
 .coverage
@@ -93,4 +95,4 @@ dmypy.json
 # Windows specific files
 Thumbs.db
 ehthumbs.db
-Desktop.ini 
+Desktop.ini

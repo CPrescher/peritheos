@@ -8,6 +8,8 @@ from .. import (
     EosBase,
     NumericType,
     ThermalEOS,
+    _native_for_exact_model,
+    _native_thermal_evaluate,
     validate_finite_scalar,
     validate_positive_scalar,
 )
@@ -35,8 +37,20 @@ class LinearThermalPressure(ThermalEOS):
         super().__init__(rt_eos)
         self.Tr = validate_positive_scalar(Tr, "Tr")
         self.alpha_KT = validate_finite_scalar(alpha_KT, "alpha_KT")
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None and type(self) is LinearThermalPressure:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.linear_thermal_pressure(
+                reference_native, self.Tr, self.alpha_KT
+            )
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        if hasattr(self, "_native"):
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native, "thermal_pressure", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         result = self.alpha_KT * (temperatures - self.Tr)
         # Broadcast against volume even though the equation is V-independent.
@@ -76,8 +90,23 @@ class LogVolumeThermalPressure(ThermalEOS):
         if not hasattr(rt_eos, "V0"):
             raise ValueError("rt_eos must expose V0")
         validate_positive_scalar(rt_eos.V0, "rt_eos.V0")
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None and type(self) is LogVolumeThermalPressure:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.log_volume_thermal_pressure(
+                reference_native,
+                self.Tr,
+                self.alpha_KT_ref,
+                self.dK_dT_V,
+            )
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        if hasattr(self, "_native"):
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native, "thermal_pressure", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         slope = self.alpha_KT_ref + self.dK_dT_V * np.log(self.rt_eos.V0 / volumes)
         result = slope * (temperatures - self.Tr)
@@ -161,6 +190,19 @@ class ThermalReferenceStateEOS(ThermalEOS):
         parameters = rt_eos.parameter_values(include_reference=False)
         if "V0" not in parameters or "K0" not in parameters:
             raise ValueError("rt_eos must expose reconstructable V0 and K0")
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None and type(self) is ThermalReferenceStateEOS:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.thermal_reference_state(
+                reference_native,
+                self.Tr,
+                self.alpha0,
+                self.dK_dT,
+                self.alpha1,
+                self.thermal_expansion_law,
+                self.reference_volume_law,
+            )
 
     def _state_eos(self, temperature: float) -> EosBase:
         delta_temperature = temperature - self.Tr
@@ -180,6 +222,11 @@ class ThermalReferenceStateEOS(ThermalEOS):
         return self.rt_eos.with_parameters(V0=float(V0), K0=float(K0))
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        if hasattr(self, "_native"):
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native, "pressure", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         result = np.fromiter(
             (
@@ -192,6 +239,11 @@ class ThermalReferenceStateEOS(ThermalEOS):
         return self._scalar_or_array(result)
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        if hasattr(self, "_native"):
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native, "thermal_pressure", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         result = np.asarray(
             self.pressure(volumes, temperatures), dtype=float
@@ -204,6 +256,11 @@ class ThermalReferenceStateEOS(ThermalEOS):
         # Keep the common ThermalEOS method contract even though this model can
         # delegate the derivative analytically to its temperature-shifted curve.
         validate_positive_scalar(relative_step, "relative_step")
+        if hasattr(self, "_native") and relative_step == 1.0e-6:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native, "bulk_modulus", volumes, temperatures
+            )
         volumes, temperatures = self._broadcast_state(V, T)
         result = np.fromiter(
             (

@@ -129,6 +129,32 @@ def test_thermal_modified_tait_reference_properties():
     assert np.isclose(eos.volume(pressure, 1200.0), 0.9)
 
 
+def test_thermal_modified_tait_subclass_retains_python_fallback():
+    class CustomThermalModifiedTait(ThermalModifiedTait):
+        pass
+
+    parameters = (
+        ModifiedTait(1.0, 160.0, 4.0, -0.01),
+        298.15,
+        700.0,
+        2.5e-5,
+        2.0,
+    )
+    expected = ThermalModifiedTait(*parameters)
+    custom = CustomThermalModifiedTait(*parameters)
+
+    assert not hasattr(custom, "_native")
+    assert custom.thermal_pressure(0.9, 1200.0) == pytest.approx(
+        expected.thermal_pressure(0.9, 1200.0)
+    )
+    assert custom.molar_heat_capacity_v(0.9, 1200.0) == pytest.approx(
+        expected.molar_heat_capacity_v(0.9, 1200.0)
+    )
+    assert custom.gruneisen_parameter(0.9, 1200.0) == pytest.approx(
+        expected.gruneisen_parameter(0.9, 1200.0)
+    )
+
+
 def test_thermal_modified_tait_requires_modified_tait_reference():
     with pytest.raises(TypeError, match="ModifiedTait"):
         ThermalModifiedTait(BM3(1.0, 160.0, 4.0), 300.0, 700.0, 2.5e-5, 2.0)

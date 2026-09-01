@@ -8,6 +8,8 @@ from .. import (
     EosBase,
     NumericType,
     ThermalEOS,
+    _native_for_exact_model,
+    _native_thermal_evaluate,
     validate_finite_scalar,
     validate_positive_scalar,
     validate_volume,
@@ -122,6 +124,35 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
                 "n must be supplied when the reference isotherm does not expose it"
             )
         self.n = validate_positive_scalar(n, "n")
+        reference_native = _native_for_exact_model(rt_eos)
+        if (
+            reference_native is not None
+            and type(self) is MultiOscillatorGruneisenThermalEOS
+        ):
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.multi_oscillator_gruneisen(
+                reference_native,
+                self.Tr,
+                self.QE1o,
+                self.mE1,
+                self.QE2o,
+                self.mE2,
+                self.delta,
+                self.t,
+                self.a_0,
+                self.m,
+                self.g,
+                self.e_0,
+                self.beta,
+                self.QBo,
+                self.d,
+                self.mb,
+                self.QB1o,
+                self.d1,
+                self.mb1,
+                self.n,
+            )
 
     def _volume_terms(self, V: NumericType) -> tuple[np.ndarray, ...]:
         """Precompute the volume-dependent terms in the pressure expression."""
@@ -204,6 +235,10 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
 
     def _thermal_pressure_function(self, V: float):
         """Prepare the costly volume integral once for temperature inversion."""
+        if hasattr(self, "_native"):
+            return lambda temperature: _native_thermal_evaluate(
+                self._native, "thermal_pressure", V, temperature
+            )
         volume_terms = self._volume_terms(V)
         return lambda temperature: self._thermal_pressure_from_volume_terms(
             volume_terms, temperature
@@ -224,6 +259,11 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
         thermal_pressure : NumericType
             Thermal pressure in [GPa]
         """
+        if hasattr(self, "_native"):
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native, "thermal_pressure", volumes, temperatures
+            )
         return self._thermal_pressure_from_volume_terms(self._volume_terms(V), T)
 
 

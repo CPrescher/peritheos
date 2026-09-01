@@ -26,6 +26,8 @@ References:
 from peritheos.eos import (
     EosBase,
     NumericType,
+    _native_rt_evaluate,
+    _rust,
     validate_finite_scalar,
     validate_positive_scalar,
     validate_volume,
@@ -60,6 +62,7 @@ class BM2(EosBase):
         """
         self.V0 = validate_positive_scalar(V0, "V0")
         self.K0 = validate_positive_scalar(K0, "K0")
+        self._native = _rust.RtEos.bm2(self.V0, self.K0)
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -76,8 +79,7 @@ class BM2(EosBase):
             Pressure (in the same units as K0)
         """
         V = validate_volume(V)
-        f = ((self.V0 / V) ** (2 / 3) - 1) / 2
-        return 3 * self.K0 * f * (1 + 2 * f) ** (5 / 2)
+        return _native_rt_evaluate(self._native, "pressure", V)
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -94,8 +96,7 @@ class BM2(EosBase):
             Bulk modulus (in the same units as K0)
         """
         V = validate_volume(V)
-        eta = ((self.V0 / V) ** (2 / 3) - 1) / 2
-        return self.K0 * (1 + 7 * eta) * (1 + 2 * eta) ** (5 / 2)
+        return _native_rt_evaluate(self._native, "bulk_modulus", V)
 
 
 class BM3(EosBase):
@@ -130,6 +131,7 @@ class BM3(EosBase):
         self.V0 = validate_positive_scalar(V0, "V0")
         self.K0 = validate_positive_scalar(K0, "K0")
         self.K0_prime = validate_finite_scalar(K0_prime, "K0_prime")
+        self._native = _rust.RtEos.bm3(self.V0, self.K0, self.K0_prime)
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -146,14 +148,7 @@ class BM3(EosBase):
             Pressure (in the same units as K0)
         """
         V = validate_volume(V)
-        f = ((self.V0 / V) ** (2 / 3) - 1) / 2
-        return (
-            3
-            * self.K0
-            * f
-            * (1 + 2 * f) ** (5 / 2)
-            * (1 + (3 / 2) * (self.K0_prime - 4) * f)
-        )
+        return _native_rt_evaluate(self._native, "pressure", V)
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -173,12 +168,7 @@ class BM3(EosBase):
             Bulk modulus (in the same units as K0)
         """
         V = validate_volume(V)
-        f = ((self.V0 / V) ** (2 / 3) - 1) / 2
-        return (1.0 + 2.0 * f) ** (5.0 / 2.0) * (
-            self.K0
-            + (3.0 * self.K0 * self.K0_prime - 5 * self.K0) * f
-            + 27.0 / 2.0 * (self.K0 * self.K0_prime - 4.0 * self.K0) * f * f
-        )
+        return _native_rt_evaluate(self._native, "bulk_modulus", V)
 
 
 class BM4(EosBase):
@@ -221,6 +211,9 @@ class BM4(EosBase):
         self.K0_double_prime = validate_finite_scalar(
             K0_double_prime, "K0_double_prime"
         )
+        self._native = _rust.RtEos.bm4(
+            self.V0, self.K0, self.K0_prime, self.K0_double_prime
+        )
 
     def pressure(self, V: NumericType) -> NumericType:
         """
@@ -237,20 +230,7 @@ class BM4(EosBase):
             Pressure (in the same units as K0)
         """
         V = validate_volume(V)
-        f = ((self.V0 / V) ** (2 / 3) - 1) / 2
-        zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * (
-            self.K0 * self.K0_double_prime
-            + (self.K0_prime - 4) * (self.K0_prime - 3)
-            + (35 / 9)
-        )
-        return (
-            3
-            * self.K0
-            * f
-            * (1 + 2 * f) ** (5 / 2)
-            * (1 - 2 * zeta * f + 4 * xi * f**2)
-        )
+        return _native_rt_evaluate(self._native, "pressure", V)
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -273,13 +253,4 @@ class BM4(EosBase):
             Bulk modulus (in the same units as K0)
         """
         V = validate_volume(V)
-        f = ((self.V0 / V) ** (2 / 3) - 1) / 2
-        zeta = (3 / 4) * (4 - self.K0_prime)
-        xi = (3 / 8) * (
-            self.K0 * self.K0_double_prime
-            + (self.K0_prime - 4) * (self.K0_prime - 3)
-            + (35 / 9)
-        )
-        return 5 * f * self.K0 * (1 + 2 * f) ** (5 / 2) * (
-            1 - 2 * zeta * f + 4 * xi * f**2
-        ) + self.K0 * (1 + 2 * f) ** (7 / 2) * (1 - 4 * zeta * f + 12 * xi * f**2)
+        return _native_rt_evaluate(self._native, "bulk_modulus", V)

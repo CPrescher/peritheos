@@ -285,8 +285,9 @@ printed in Figure 2. Fei catalog tests verify all four Table 1 parameter sets,
 the publication-specific Debye-temperature law, reference states, and thermal
 round trips.
 Additional equation-level cases and their source DOIs are stored in
-`tests/data/literature_reference_cases.json`; keeping the values in a data file
-makes changes to scientific baselines visible in review.
+`crates/peritheos-core/tests/data/literature_reference_cases.json`; keeping the
+values in the packageable core crate makes changes to scientific baselines
+visible in review and lets the published crate run its own tests.
 The cases cover Birch-Murnaghan orders two through four, Vinet, Holzapfel,
 natural strain, modified Tait, Murnaghan, Debye, Einstein, and Holland-Powell
 families. Limiting forms and independent derivative identities reduce the risk

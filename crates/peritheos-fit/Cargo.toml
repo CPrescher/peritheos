@@ -1,0 +1,19 @@
+[package]
+name = "peritheos-fit"
+description = "Bounded nonlinear least-squares and uncertainty kernels for Peritheos"
+readme = "README.md"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+peritheos-core = { version = "0.5.0", path = "../peritheos-core" }
+rand = "0.8.5"

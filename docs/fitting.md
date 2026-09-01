@@ -9,6 +9,12 @@ applies these concepts to all 64 P-V-T observations printed by Martinez et al.
 (1996), including isotherm fits, staged thermal regression, parameter scaling,
 and chi-square interpretation with an incomplete published error model.
 
+Fits using a named loss and an exact built-in Peritheos EOS run end-to-end in
+Rust after one transfer of the input arrays. Custom Python EOS classes and
+subclasses retain callback evaluation, and callable loss functions retain the
+SciPy compatibility path. These backend choices do not change the public
+fitting functions or result schema.
+
 ## Objective and diagnostics
 
 With pressure as the only uncertain observation, the normalized residual for
@@ -56,7 +62,9 @@ J_x^{\mathsf T}J_\theta\right)^{-1}.
 
 Without latent coordinates, this reduces to
 $(J_\theta^{\mathsf T}J_\theta)^{-1}$. The implementation uses a pseudoinverse
-where necessary. Unless
+with a numerical rank tolerance where necessary. Observation-local latent
+blocks remain structured during covariance profiling rather than being
+assembled into a dense matrix. Unless
 `absolute_sigma=True`, this covariance is multiplied by $\chi^2_\nu$. The
 reported information criteria use
 
@@ -168,6 +176,29 @@ result = fit_thermal_eos(
     absolute_sigma=True,
 )
 ```
+
+Fixed equation choices belong in `configuration`, not in `initial` or
+`fixed`. This keeps categorical mechanism choices separate from fitted numeric
+parameters and preserves them in both the native solver and the returned model:
+
+```python
+from peritheos.eos.thermal import MieGruneisenDebye
+
+result = fit_thermal_eos(
+    MieGruneisenDebye,
+    rt_eos=reference_eos,
+    volume=volumes,
+    temperature=temperatures,
+    pressure=pressures,
+    initial={"gamma0": 1.5},
+    fixed={"Tr": 300.0, "theta0": 800.0, "q": 1.0, "n": 2.0},
+    configuration={"debye_temperature_law": "variable_exponent"},
+)
+```
+
+The same `configuration` keyword is accepted by `fit_joint_eos`, including
+both `thermal_expansion_law` and `reference_volume_law` for
+`ThermalReferenceStateEOS`.
 
 ## Joint reference and thermal fitting
 
