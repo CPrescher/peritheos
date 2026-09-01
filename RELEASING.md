@@ -34,7 +34,9 @@ The `Publish to PyPI` workflow checks that the tag and package version match,
 runs the tests, builds and validates the wheel and source distribution, and
 then publishes the exact uploaded artifacts from a separate OIDC-enabled job.
 After PyPI accepts the artifacts, the workflow creates a GitHub Release with
-generated notes and attaches the same source and wheel distributions.
+the matching version section from `CHANGELOG.md` and attaches the same source
+and wheel distributions. Re-running the workflow synchronizes an existing
+release description with the changelog.
 
 If an automated system pushes the tag and GitHub suppresses the push trigger,
 dispatch the same workflow manually. It still checks out and validates the

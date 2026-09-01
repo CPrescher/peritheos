@@ -22,6 +22,10 @@ All notable changes to Peritheos are documented here. The project follows
   Dioptas format-2 `.eosmat` files, with executable runtime-dispatched EOS
   records, preserved JSON extensions, and automatic conventional-cell to
   molar-volume conversion for energy-based thermal models.
+- Added eight executable notebook tutorials covering pressure calibration,
+  material-library exploration, `.eosmat` round trips, room-temperature EOS
+  and gold-scale comparisons, thermal state surfaces, DAC temperature
+  sensitivity, and fit-to-prediction uncertainty propagation.
 
 ### Fixed
 
