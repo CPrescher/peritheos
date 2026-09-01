@@ -53,17 +53,24 @@ field-by-field contract, equation tables, defaults, and a complete document.
 
 ## Bundled library
 
-The package contains 116 `.eosmat` materials and 147 EOS records migrated from
+The mechanical migration produces 116 `.eosmat` materials and 147 EOS records from
 [Dioptas 0.10.0](https://github.com/Dioptas/Dioptas/releases/tag/0.10.0), commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. The four Dioptas structure-only
 entries are not bundled because Peritheos's catalog is EOS-focused. The format
 still permits `eos_records` to be empty for Dioptas-created structure-only
-materials.
+materials. Primary review consolidates the duplicate `majorite`/`mgsio3-maj`
+material and removes the unsupported Fei-FeO and Hixson-W reductions. It also
+excludes the Martinez global HT-BM3 reduction because its fitted reference
+volume is omitted and its remaining coefficients are not reproducible from the
+printed data under the documented equations.
+Peritheos-native aragonite BM2 and B2-KCl P-V-T records bring the distributed
+catalog to 115 materials and 146 EOS records; they have primary-publication
+provenance rather than fabricated Dioptas migration sources.
 
 ```python
 from peritheos import get_material_document, list_material_documents
 
-print(len(list_material_documents()))  # 116
+print(len(list_material_documents()))  # 115
 gold = get_material_document("gold")
 print(len(gold["eos_records"]))
 ```
@@ -88,13 +95,12 @@ new or edited records so the scientific choice is visible without consulting
 the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
-marks 116 transferred records `primary_source_validated` and 31 `deferred`; no
-record remains pending. A record was promoted only after its equation, every
+marks all 146 bundled records `primary_source_validated`; no record remains
+pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.
 The complete ledger is bundled as
-`peritheos/data/primary-source-audit.json`; deferred records remain readable
-but are not executable by default.
+`peritheos/data/primary-source-audit.json`.
 
 The audit restores model inputs omitted by the flat migration when primary
 evidence supplies them (`n`/`Z` for Sokolova, formula-unit `n` for two silica
@@ -102,6 +108,10 @@ Debye records, and the ice reference temperature). It also normalizes the
 Dioptas type `AlphaKT` to the mechanism-oriented Peritheos model identifier
 `thermal_reference_state`; the application-facing type is retained for
 cross-compatible round trips.
+The corrected Anderson Au record uses the format-3 extension
+`LogVolumeThermalPressure` / `log_volume_thermal_pressure`. A consumer that
+does not implement this mechanism must preserve the component as unknown data
+and must not evaluate it as legacy `AlphaKT`.
 
 ## Reading and writing
 
@@ -131,7 +141,7 @@ shape is an additive extension of its format 2. Its
 uses Peritheos as the numerical engine and performs the conventional-cell to
 molar-volume conversion required by thermal and Holzapfel models.
 
-All 116 bundled Peritheos documents and all 147 records were loaded with the
+All 116 mechanically migrated documents and all 147 raw records were loaded with the
 Dioptas 0.10.0 `Material` implementation as an interoperability regression.
 Dioptas 0.10.0 preserves complete EOS record dictionaries but rewrites the
 top-level version as 2 and does not dispatch `debye_temperature_law`. The
@@ -142,6 +152,19 @@ rejects unknown values, and records `variable_exponent` on its Fei Au and Ne
 entries. That numerical update requires Peritheos 0.5+; the Dioptas lockfile
 must be refreshed after the Peritheos release is available. Other records that
 omit the field intentionally retain the integrated default.
+
+Format 3 also defines `thermal_expansion_law` for `AlphaKT` components.
+`constant` is the backward-compatible default; `linear_temperature` adds the
+integrated `alpha0 + alpha1*T` reference-volume law. Dioptas consumers that do
+not yet evaluate this extension must preserve it as unknown record data rather
+than replacing it with constant expansivity.
+
+The independent `reference_volume_law` configuration distinguishes that
+integrated behavior from a direct linear relation. Its
+`linear_temperature` value means
+`V0(T)=V0(Tr)*[1+alpha0*(T-Tr)]`, as used by the validated Martinez staged BM2
+record. Consumers that do not implement the option must preserve it and avoid
+evaluating the record with the exponential default.
 
 Runtime ownership remains separate. Whether a record is bundled, loaded from
 a file, read-only, duplicated, or locally edited is Dioptas application state

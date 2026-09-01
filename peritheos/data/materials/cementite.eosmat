@@ -75,32 +75,42 @@
     "K0": 3.5,
     "K0_prime": 0.3
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
-    73.0
+    73.2
    ],
    "experimental_temperature_range_k": [
     300.0,
     300.0
    ],
    "temperature_ref": 300.0,
-   "notes": "Room-temperature compression of orthorhombic Fe3C to 73 GPa; values follow the publication's third-order Birch-Murnaghan fit.",
+   "notes": "Scott et al. report a weighted third-order Birch-Murnaghan fit to 300 K compression data: V0=155.26+/-0.14 A^3 is the separately measured ambient unit-cell volume, K0T=175.4+/-3.5 GPa, and K0T'=5.1+/-0.3. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum. The paper reports no parameter covariance or confidence convention for the printed +/- values. The 73 GPa envelope is not a thermal validity claim and should not be extrapolated to core pressures.",
    "identifier": "cementite_scott_2001_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract reports the cementite BM3 K0 and K0', but an accessible full primary copy was not found to establish the stored V0, its error, and the exact represented pressure interval.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1029/2000gl012606",
-     "access_url": "https://doi.org/10.1029/2000gl012606",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract reports the cementite BM3 K0 and K0', but an accessible full primary copy was not found to establish the stored V0, its error, and the exact represented pressure interval."
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2000GL012606",
+     "locations": [
+      "page 1875, Experimental section, ambient lattice parameters and V0",
+      "page 1876, weighted least-squares EOS paragraph",
+      "Figure 3 and caption, page 1877"
+     ],
+     "finding": "The stored record is the reported 300 K third-order Birch-Murnaghan fit. V0 is the independently measured ambient reference volume; the paper reports no fit covariance or confidence convention for the printed +/- values. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum.",
+     "doi": "10.1029/2000gl012606"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -108,7 +118,8 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "cementite.json"
     }
-   }
+   },
+   "parameter_error_confidence": null
   }
  ],
  "format": "peritheos.material",

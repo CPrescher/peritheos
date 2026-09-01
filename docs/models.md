@@ -34,8 +34,10 @@ this combined relation. The reference and thermal parameters can also be fitted
 together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
 
 The allowed reference EOS depends on the thermal formulation. The
-Mie-Gruneisen, multi-oscillator, and linear thermal-pressure models accept any
-isothermal `EosBase` model; `ThermalModifiedTait` requires `ModifiedTait`.
+Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
+accept any isothermal `EosBase` model;
+`LogVolumeThermalPressure` additionally requires `V0`, and
+`ThermalModifiedTait` requires `ModifiedTait`.
 Because thermal pressure is calculated from molar energy divided
 by molar volume, energy-based models require the volume convention described
 under [Units and reference states](units.md). The volume-independent linear
@@ -47,7 +49,8 @@ correction instead inherits the reference EOS volume convention.
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
 | [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
-| [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT` | none |
+| [`LogVolumeThermalPressure`](equation-reference.md#logarithmic-volume-linear-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `alpha_KT_ref`, `dK_dT_V` | none |
+| [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `thermal_expansion_law`, `reference_volume_law` | none |
 | [`ThermalModifiedTait`](equation-reference.md#thermal-modified-tait) | `ModifiedTait` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
 | [`MultiOscillatorGruneisenThermalEOS`](equation-reference.md#multi-oscillator-gruneisen-thermal-pressure) | any `EosBase` | mode, Gruneisen, anharmonic, electronic parameters plus `n` | Multi-mode |
 

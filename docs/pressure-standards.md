@@ -58,6 +58,56 @@ volumes. Temperature is in K. Pressure is in GPa.
 | `ni_fcc_dewaele_2008` | Ni fcc, 4 atoms/cell | 300 K Vinet | 0–157 GPa | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.78.104102) |
 | `ag_fcc_dewaele_2008` | Ag fcc, 4 atoms/cell | 300 K Vinet | 0–124 GPa | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.78.104102) |
 | `re_hcp_anzellini_2014` | Re hcp, 2 atoms/cell | 300 K Vinet | 0.64–144 GPa | [Anzellini et al. (2014)](https://doi.org/10.1063/1.4863300) |
+| `aragonite_martinez_1996_bm2_2` | CaCO3 aragonite, 4 formula units/cell | staged BM2 with linear reference state | 0–8.18 GPa, 298–973 K | [Martinez et al. (1996)](https://doi.org/10.2138/am-1996-5-608) |
+
+The bundled material library additionally includes the ten independently
+validated, Cu-anchored 300 K Vinet fits from [Shen and Smith
+(2026)](https://doi.org/10.1103/fxgq-96sg):
+
+| `.eosmat` record identifier | Material and phase | Fitted pressure interval |
+|---|---|---|
+| `platinum_shen_2026_vinet_2` | Pt fcc | 0–140 GPa |
+| `gold_shen_2026_vinet_3` | Au fcc | 0–140 GPa |
+| `tantalum_shen_2026_vinet_2` | Ta bcc | 0–140 GPa |
+| `tungsten_shen_2026_vinet_3` | W bcc | 0–140 GPa |
+| `molybdenum_shen_2026_vinet_1` | Mo bcc | 0–140 GPa |
+| `mgo_shen_2026_vinet_3` | MgO B1 | 0–140 GPa |
+| `nacl_b1_shen_2026_vinet_1` | NaCl B1 | 0–31 GPa |
+| `nacl_b2_shen_2026_vinet_2` | NaCl B2 | 33–140 GPa |
+| `fe_shen_2026_vinet_1` | Fe bcc | 0–15.5 GPa |
+| `iron_shen_2026_vinet_2` | Fe hcp | 16–140 GPa |
+
+They are separate material/phase records rather than objects assigned a
+special “calibrant” role. Load one through the ordinary material interface:
+
+```python
+from peritheos import Material, get_material_document
+
+document = get_material_document("gold")
+gold = Material.from_eosmat(
+    document,
+    record_identifiers=["gold_shen_2026_vinet_3"],
+).eos_records[0]
+
+pressure = gold.pressure(volume=60.0, temperature=300.0)
+result = gold.pressure_with_uncertainty(volume=60.0, volume_sigma=0.01)
+```
+
+The paper reports fit errors for `K0` and `K0'`, but neither their confidence
+level nor covariance. Peritheos preserves the printed errors without guessing
+either quantity and states the independent-parameter assumption in propagated
+results. These are 300 K isotherms, not thermal EOS records; supplying a
+temperature other than 300 K or a temperature uncertainty is therefore
+rejected.
+
+The `gold_anderson_1989_bm3_1` material record is a thermal Au
+parameterization over the calculation grid printed in Anderson et al. Table V:
+`300-3000 K` and `0.66 <= V/V0 <= 1`. It uses the same ordinary material
+loading interface shown above. Its correction is not a constant `alpha*K_T`
+term and not a shifted reference state; the temperature slope varies as
+`alpha_KT_ref + dK_dT_V*ln(V0/V)`. The source reports only a partial numerical
+uncertainty for `dK_dT_V` and notes an additional unquantified contribution
+from `K0'`, which remains visible in the record notes.
 
 The Tange domain is the marginal envelope of several pressure-scale-free data
 sets, not a rectangular guarantee that every combination of its extrema was
@@ -92,6 +142,46 @@ Debye-temperature law rather than its `integrated_gruneisen` default, because
 the two formulas differ when $q\ne0$.
 
 ## Common DAC workflows
+
+### B2 KCl as pressure medium and marker
+
+The same primary scale is available through the compact EOS catalog and the
+cross-compatible material library. The latter also carries the ideal B2
+structure needed by Dioptas:
+
+```python
+from peritheos import Material, get_eos_record, get_material_document
+
+volume = 30.0  # A^3 for the one-formula-unit B2 conventional cell
+temperature = 2000.0  # K
+
+scale = get_eos_record("kcl_b2_dewaele_2012")
+pressure = scale.pressure(volume, temperature)
+
+document = get_material_document("kcl")
+material_scale = Material.from_eosmat(
+    document,
+    record_identifiers=["kcl_b2_dewaele_2012_vinet_3"],
+).eos_records[0]
+assert abs(material_scale.pressure(volume, temperature) - pressure) < 1e-12
+```
+
+The shared material record is the default in `kcl.eosmat`. Its 298 K Vinet
+fit is experimental to 165 GPa; Equation (2)'s linear thermal-pressure term is
+derived from molecular dynamics and is published for 300-7000 K, 0-200 GPa,
+and `0.4 <= V/V0 <= 1`. The B2 lower bound remains 2.6 GPa. Because the paper
+prints no coefficient errors or covariance, Peritheos propagates measured
+volume and temperature errors but does not invent parameter uncertainty.
+
+The same material also exposes
+`kcl_campbell_1991_bm2_1` for workflows that intentionally use the older
+Campbell--Heinz B2 isotherm. It is labeled as a composite, not as a verbatim
+single-paper parameter set: Campbell and Heinz publish
+`V0(B2)/V0(B1)=0.8483(57)`, `K0=28.7(6) GPa`, and fixed `K0'=4`; Peritheos
+combines that ratio with Dewaele et al.'s experimental B1
+`V0=62.36 angstrom^3` to obtain `V0(B2)=52.899988 angstrom^3`. The propagated
+`0.355452 angstrom^3` uncertainty covers the ratio only, because the Dewaele
+table gives no B1-`V0` error. The Dewaele P-V-T record remains the default.
 
 ### Sokolova 2016 markers
 

@@ -44,7 +44,7 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "GSAS, EOS from Mao 1974",
+   "label": "Mao et al. (1974), magnetite BM3",
    "reference": {
     "authors": [
      "Mao",
@@ -62,40 +62,49 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 591.8154,
+     "V0": 591.434826984,
      "K0": 183.0,
      "K0_prime": 4.0
     },
     "model": "birch_murnaghan_3"
    },
    "parameter_errors": {
-    "V0": null,
+    "V0": 0.634133124,
     "K0": 10.0,
     "K0_prime": 0.4
    },
    "fixed_parameters": [
+    "V0",
     "K0_prime"
    ],
    "experimental_pressure_range_gpa": [
     0.0,
-    25.0
+    32.0
    ],
-   "notes": "Mao et al. report K0 = 183 +/- 10 GPa using K0' = 4.0 +/- 0.4 as an imposed value. V0 is retained from the cited ambient structure.",
+   "notes": "Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.",
    "identifier": "fe3o4_mao_1974_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract establishes the magnetite K0, fixed K0', and pressure range, but an accessible full primary copy was not found for the stored reference volume and complete uncertainty provenance.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1029/jb079i008p01165",
-     "access_url": "https://doi.org/10.1029/jb079i008p01165",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract establishes the magnetite K0, fixed K0', and pressure range, but an accessible full primary copy was not found for the stored reference volume and complete uncertainty provenance."
+     "access_url": "https://doi.org/10.1029/JB079i008p01165",
+     "locations": [
+      "page 1165, ambient a=8.394(3) A",
+      "page 1167, Table 3 and printed Birch-Murnaghan equation",
+      "pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget"
+     ],
+     "finding": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
+     "doi": "10.1029/jb079i008p01165"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -103,6 +112,14 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "fe3o4.json"
     }
+   },
+   "temperature_ref": 296.15,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Mao et al. (1974), page 1165: a0=8.394+/-0.003 A; V0=a0^3 and sigma(V0)=3*a0^2*sigma(a0)",
+    "K0": "Mao et al. (1974), pages 1167-1168, summed error budget",
+    "K0_prime": "Mao et al. (1974), pages 1167-1168: assumed 4+/-0.4",
+    "equation": "Mao et al. (1974), page 1167, printed Birch-Murnaghan equation"
    }
   }
  ],
@@ -112,5 +129,6 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "magnetite, cubic inverse-spinel Fd-3m"
 }

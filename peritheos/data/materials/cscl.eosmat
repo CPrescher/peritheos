@@ -36,7 +36,7 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "JCPDS 5-0607, EOS from Campbell and Heinz, J Geophys. Res. 99, 11765, 1994",
+   "label": "Campbell and Heinz (1994), CsCl BM3",
    "reference": {
     "authors": [
      "Campbell",
@@ -51,7 +51,7 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 70.0874,
+     "V0": 70.087408867,
      "K0": 17.01,
      "K0_prime": 5.49
     },
@@ -62,27 +62,37 @@
     "K0": 0.29,
     "K0_prime": 0.15
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
-    30.0
+    28.7
    ],
-   "notes": "Campbell and Heinz report K0 = 17.01(29) GPa and K0' = 5.49(15). No independent uncertainty was recovered for the ambient card volume.",
+   "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' data and corrected Yagi (1978) data. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). The exact laboratory temperature and coefficient covariance are not reported.",
    "identifier": "cscl_campbell_1994_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract establishes the CsCl Eulerian finite-strain K0 and K0' errors, but the full primary density/reference-volume convention and all stored metadata were not accessible.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1029/94jb00127",
-     "access_url": "https://doi.org/10.1029/94jb00127",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract establishes the CsCl Eulerian finite-strain K0 and K0' errors, but the full primary density/reference-volume convention and all stored metadata were not accessible."
+     "access_url": "https://doi.org/10.1029/94JB00127",
+     "locations": [
+      "page 11767, accepted 4.123 A zero-pressure CsCl lattice parameter",
+      "page 11767, Table 1, room-temperature compression data",
+      "page 11767, Figure 2 and Eulerian finite-strain fit"
+     ],
+     "finding": "The third-order Birch-Murnaghan reference volume is fixed from the 4.123 A lattice parameter explicitly printed in the primary paper. No V0 error or coefficient covariance is reported.",
+     "doi": "10.1029/94jb00127"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -90,6 +100,14 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "cscl.json"
     }
+   },
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Campbell and Heinz (1994), page 11767: accepted ambient a0=4.123 A; V0=a0^3 for Pm-3m CsCl",
+    "K0": "Campbell and Heinz (1994), page 11767 and Figure 2",
+    "K0_prime": "Campbell and Heinz (1994), page 11767 and Figure 2",
+    "equation": "Campbell and Heinz (1994), page 11767: Eulerian finite-strain analysis with linear normalized stress"
    }
   }
  ],
@@ -99,5 +117,6 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "B2 (CsCl-type), cubic Pm-3m"
 }

@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-08-31",
+  "audit_date": "2026-09-01",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "BurnMan and Pytheos source code were not inspected or used. Dioptas supplied migration/file provenance only.",
@@ -9,9 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 147,
-    "deferred": 31,
-    "primary_source_validated": 116
+    "records": 146,
+    "primary_source_validated": 146
   },
   "records": [
     {
@@ -21,7 +20,7 @@
       "label": "Siersch et al. (2021), BM3",
       "doi": "10.1016/j.pepi.2021.106786",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.pepi.2021.106786",
         "locations": [
@@ -38,7 +37,7 @@
       "label": "Milani et al. (2015), BM3",
       "doi": "10.1016/j.lithos.2015.03.017",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.lithos.2015.03.017",
         "locations": [
@@ -54,7 +53,7 @@
       "label": "Angel et al. (1997), single-crystal BM3",
       "doi": "10.1107/s0021889897000861",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1107/S0021889897000861",
         "locations": [
@@ -71,7 +70,7 @@
       "label": "Dewaele and Torrent (2013), Vinet",
       "doi": "10.1103/physrevb.88.064107",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.88.064107/fulltext",
         "locations": [
@@ -91,7 +90,7 @@
       "label": "Dewaele et al. (2004), revised-ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
         "locations": [
@@ -109,7 +108,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -124,16 +123,21 @@
     {
       "material": "aragonite",
       "file": "aragonite.eosmat",
-      "record": "aragonite_martinez_1996_bm3_1",
-      "label": "Martinez et al. (1996)",
+      "record": "aragonite_martinez_1996_bm2_2",
+      "label": "Martinez et al. (1996), staged P-V-T BM2",
       "doi": "10.2138/am-1996-5-608",
-      "status": "deferred",
-      "note": "The primary paper was inspected, but the migrated AlphaKT component uses the reported mean 298-1000 K expansivity as a constant. The published global high-temperature BM3 model instead uses equations (2), (4), and (5), including alpha(T)=alpha0+alpha1*T. Peritheos does not silently treat that approximation as the published model; the record remains non-executable until the exact thermal law is represented.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.2138/am-1996-5-608",
-        "access_url": "https://doi.org/10.2138/am-1996-5-608",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary paper was inspected, but the migrated AlphaKT component uses the reported mean 298-1000 K expansivity as a constant. The published global high-temperature BM3 model instead uses equations (2), (4), and (5), including alpha(T)=alpha0+alpha1*T. Peritheos does not silently treat that approximation as the published model; the record remains non-executable until the exact thermal law is represented."
+        "access_url": "https://rruff.info/doclib/am/vol81/AM81_611.pdf",
+        "locations": [
+          "Equation (1), page 615",
+          "Table 3, page 616",
+          "Table 6 and EOS discussion, pages 618-619",
+          "Table 7, page 620"
+        ],
+        "finding": "The Table 6 isotherms are BM2 fits with K0'=4 assumed. Regressing their printed V0,T values gives a mean expansion coefficient of 6.484e-5 K^-1, reproducing the Table 7 value 6.5(1)e-5 K^-1. Unweighted and error-weighted regressions of the printed K0,T values give -0.01969 and -0.01702 GPa/K, bracketing the reported -0.018(2) GPa/K. The fit-specific 298 K K0 error is retained; the conflicting summary error printed in the prose and Table 7 is recorded explicitly.",
+        "doi": "10.2138/am-1996-5-608"
       }
     },
     {
@@ -143,7 +147,7 @@
       "label": "Wittlinger et al. (1997)",
       "doi": "10.1107/s0108768197005739",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1107/S0108768197005739",
         "locations": [
@@ -160,7 +164,7 @@
       "label": "Somayazulu et al. (2023), 300 K BM3",
       "doi": "10.1098/rsta.2022.0331",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10069115/",
         "locations": [
@@ -179,7 +183,7 @@
       "label": "Datchi et al. (2007), Vinet",
       "doi": "10.1103/physrevb.75.214104",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
         "locations": [
@@ -197,7 +201,7 @@
       "label": "Muhammad et al. (2024), helium-medium BM3",
       "doi": "10.1039/d4nr00093e",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1039/D4NR00093E",
         "locations": [
@@ -215,7 +219,7 @@
       "label": "Le Godec et al. (2014), 300 K Vinet",
       "doi": "10.3103/s1063457614010092",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://arxiv.org/abs/1407.1677",
         "locations": [
@@ -234,7 +238,7 @@
       "label": "Tange et al. (2012), mantle-range BM3-MGD",
       "doi": "10.1029/2011jb008988",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2011JB008988",
         "locations": [
@@ -251,7 +255,7 @@
       "label": "Tange et al. (2012), mantle-range Vinet-MGD",
       "doi": "10.1029/2011jb008988",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2011JB008988",
         "locations": [
@@ -268,7 +272,7 @@
       "label": "Vanpeteghem et al. (2006), low-pressure single-crystal BM2",
       "doi": "10.1029/2005gl024955",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2005GL024955",
         "locations": [
@@ -285,7 +289,7 @@
       "label": "Shim et al. (2000), cubic CaSiO3 BM3",
       "doi": "10.1016/s0031-9201(00)00154-0",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_pepi_00.pdf",
         "locations": [
@@ -304,7 +308,7 @@
       "label": "Mao et al. (1989), cubic CaSiO3 BM3",
       "doi": "10.1029/jb094ib12p17889",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://okayama.elsevierpure.com/en/publications/stability-and-equation-of-state-of-casiosub3sub-perovskite-to-134/",
         "locations": [
@@ -323,7 +327,7 @@
       "label": "Redfern and Angel (1999), single-crystal BM2",
       "doi": "10.1007/s004100050471",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1007/s004100050471",
         "locations": [
@@ -339,7 +343,7 @@
       "label": "Lv et al. (2020), 300 K BM3",
       "doi": "10.2138/am-2020-7279",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am-2020-7279",
         "locations": [
@@ -356,7 +360,7 @@
       "label": "Lv et al. (2020), BM3-MGD",
       "doi": "10.2138/am-2020-7279",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am-2020-7279",
         "locations": [
@@ -373,7 +377,7 @@
       "label": "Richet et al. (1988), CaO B1 BM3",
       "doi": "10.1029/jb093ib12p15279",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar",
         "locations": [
@@ -392,7 +396,7 @@
       "label": "Richet et al. (1988), CaO B2 BM3",
       "doi": "10.1029/jb093ib12p15279",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar",
         "locations": [
@@ -410,13 +414,17 @@
       "record": "cementite_scott_2001_bm3_1",
       "label": "Scott et al. (2001), cementite BM3",
       "doi": "10.1029/2000gl012606",
-      "status": "deferred",
-      "note": "The primary abstract reports the cementite BM3 K0 and K0', but an accessible full primary copy was not found to establish the stored V0, its error, and the exact represented pressure interval.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1029/2000gl012606",
-        "access_url": "https://doi.org/10.1029/2000gl012606",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract reports the cementite BM3 K0 and K0', but an accessible full primary copy was not found to establish the stored V0, its error, and the exact represented pressure interval."
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2000GL012606",
+        "locations": [
+          "page 1875, Experimental section, ambient lattice parameters and V0",
+          "page 1876, weighted least-squares EOS paragraph",
+          "Figure 3 and caption, page 1877"
+        ],
+        "finding": "The stored record is the reported 300 K third-order Birch-Murnaghan fit. V0 is the independently measured ambient reference volume; the paper reports no fit covariance or confidence convention for the printed +/- values. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum.",
+        "doi": "10.1029/2000gl012606"
       }
     },
     {
@@ -426,7 +434,7 @@
       "label": "Gerward et al. (2005), room-temperature BM3",
       "doi": "10.1016/j.jallcom.2005.04.008",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://people.iith.ac.in/kanchana/publications/2005/17.pdf",
         "locations": [
@@ -446,7 +454,7 @@
       "label": "Anzellini et al. (2022), BM3",
       "doi": "10.1038/s41598-022-10523-2",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s41598-022-10523-2",
         "locations": [
@@ -463,7 +471,7 @@
       "label": "Fujihisa and Takemura (1996), hcp Vinet",
       "doi": "10.1103/physrevb.54.5",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.54.5/fulltext",
         "locations": [
@@ -481,7 +489,7 @@
       "label": "data from JCPDS and Levien and Prewitt, 1981",
       "doi": null,
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
         "locations": [
@@ -496,16 +504,19 @@
     {
       "material": "coo",
       "file": "coo.eosmat",
-      "record": "coo_clendenen_1966_bm3_1",
-      "label": "JCPDS 42-1300, EOS from Clendenen and Drickamer, 66",
+      "record": "coo_clendenen_1966_murnaghan_1",
+      "label": "Clendenen and Drickamer (1966), CoO Murnaghan",
       "doi": "10.1063/1.1726610",
-      "status": "deferred",
-      "note": "The accessible primary abstract does not establish all stored CoO V0, Birch-Murnaghan coefficients, errors, and validity metadata.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1063/1.1726610",
-        "access_url": "https://doi.org/10.1063/1.1726610",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The accessible primary abstract does not establish all stored CoO V0, Birch-Murnaghan coefficients, errors, and validity metadata."
+        "access_url": "https://pubs.aip.org/aip/jcp/article/44/11/4223/209674/Lattice-Parameters-of-Nine-Oxides-and-Sulfides-as",
+        "locations": [
+          "Equation (4), journal page 4226",
+          "Tables II, III, and VI, journal pages 4224-4227"
+        ],
+        "finding": "The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions that B0 and B0' need not equal the true one-atmosphere derivatives.",
+        "doi": "10.1063/1.1726610"
       }
     },
     {
@@ -515,7 +526,7 @@
       "label": "Dewaele et al. (2004), revised-ruby-scale Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
         "locations": [
@@ -533,7 +544,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -549,15 +560,19 @@
       "material": "cscl",
       "file": "cscl.eosmat",
       "record": "cscl_campbell_1994_bm3_1",
-      "label": "JCPDS 5-0607, EOS from Campbell and Heinz, J Geophys. Res. 99, 11765, 1994",
+      "label": "Campbell and Heinz (1994), CsCl BM3",
       "doi": "10.1029/94jb00127",
-      "status": "deferred",
-      "note": "The primary abstract establishes the CsCl Eulerian finite-strain K0 and K0' errors, but the full primary density/reference-volume convention and all stored metadata were not accessible.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1029/94jb00127",
-        "access_url": "https://doi.org/10.1029/94jb00127",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract establishes the CsCl Eulerian finite-strain K0 and K0' errors, but the full primary density/reference-volume convention and all stored metadata were not accessible."
+        "access_url": "https://doi.org/10.1029/94JB00127",
+        "locations": [
+          "page 11767, accepted 4.123 A zero-pressure CsCl lattice parameter",
+          "page 11767, Table 1, room-temperature compression data",
+          "page 11767, Figure 2 and Eulerian finite-strain fit"
+        ],
+        "finding": "The third-order Birch-Murnaghan reference volume is fixed from the 4.123 A lattice parameter explicitly printed in the primary paper. No V0 error or coefficient covariance is reported.",
+        "doi": "10.1029/94jb00127"
       }
     },
     {
@@ -567,7 +582,7 @@
       "label": "Occelli data on the H2005 scale (Datchi et al. 2007)",
       "doi": "10.1103/physrevb.75.214104",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
         "locations": [
@@ -585,7 +600,7 @@
       "label": "Dewaele et al. (2008), 298 K neon-medium Vinet",
       "doi": "10.1103/physrevb.77.094106",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.77.094106",
         "locations": [
@@ -603,7 +618,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -622,7 +637,7 @@
       "label": "Gleason et al. (2008), second-order BM",
       "doi": "10.2138/am.2008.2942",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am.2008.2942",
         "locations": [
@@ -639,7 +654,7 @@
       "label": "Bejina et al. (2021), 302 K BM3",
       "doi": "10.5194/ejm-33-519-2021",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.5194/ejm-33-519-2021",
         "locations": [
@@ -655,13 +670,19 @@
       "record": "fe_shen_2026_vinet_1",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -671,7 +692,7 @@
       "label": "Schouwink et al. (2011), 300 K BM2",
       "doi": "10.2138/am.2011.3775",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am.2011.3775",
         "locations": [
@@ -685,15 +706,19 @@
       "material": "fe3o4",
       "file": "fe3o4.eosmat",
       "record": "fe3o4_mao_1974_bm3_1",
-      "label": "GSAS, EOS from Mao 1974",
+      "label": "Mao et al. (1974), magnetite BM3",
       "doi": "10.1029/jb079i008p01165",
-      "status": "deferred",
-      "note": "The primary abstract establishes the magnetite K0, fixed K0', and pressure range, but an accessible full primary copy was not found for the stored reference volume and complete uncertainty provenance.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1029/jb079i008p01165",
-        "access_url": "https://doi.org/10.1029/jb079i008p01165",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract establishes the magnetite K0, fixed K0', and pressure range, but an accessible full primary copy was not found for the stored reference volume and complete uncertainty provenance."
+        "access_url": "https://doi.org/10.1029/JB079i008p01165",
+        "locations": [
+          "page 1165, ambient a=8.394(3) A",
+          "page 1167, Table 3 and printed Birch-Murnaghan equation",
+          "pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget"
+        ],
+        "finding": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
+        "doi": "10.1029/jb079i008p01165"
       }
     },
     {
@@ -703,7 +728,7 @@
       "label": "Fei et al Am. Mineral. 85, 1830, 2000",
       "doi": "10.2138/am-2000-11-1229",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am-2000-11-1229",
         "locations": [
@@ -720,7 +745,7 @@
       "label": "Pepin et al. (2014), Vinet",
       "doi": "10.1103/physrevlett.113.265504",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext",
         "locations": [
@@ -739,7 +764,7 @@
       "label": "Pepin et al. (2014), Vinet",
       "doi": "10.1103/physrevlett.113.265504",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext",
         "locations": [
@@ -754,26 +779,11 @@
     {
       "material": "feo",
       "file": "feo.eosmat",
-      "record": "feo_fei_1995_bm3_1",
-      "label": "(Fei et al. Miner. Spectros. (5) 1996)",
-      "doi": "10.1029/rf002p0029",
-      "status": "deferred",
-      "note": "The cited DOI is a handbook chapter on thermal expansion rather than an unambiguous original source for the stored FeO static EOS parameter set. The record is deferred until its actual primary EOS source is identified.",
-      "primary_source_check": {
-        "doi": "10.1029/rf002p0029",
-        "access_url": "https://doi.org/10.1029/rf002p0029",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The cited DOI is a handbook chapter on thermal expansion rather than an unambiguous original source for the stored FeO static EOS parameter set. The record is deferred until its actual primary EOS source is identified."
-      }
-    },
-    {
-      "material": "feo",
-      "file": "feo.eosmat",
       "record": "feo_fischer_2011_bm3_2",
       "label": "B1 Fe0.94O, Fischer et al. (2011)",
       "doi": "10.1016/j.epsl.2011.02.025",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
         "locations": [
@@ -792,7 +802,7 @@
       "label": "B8 Fe0.94O, Fischer et al. (2011)",
       "doi": "10.1016/j.epsl.2011.02.025",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
         "locations": [
@@ -811,7 +821,7 @@
       "label": "(VI) Ono 2006",
       "doi": "10.2138/am.2006.2347",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am.2006.2347",
         "locations": [
@@ -828,7 +838,7 @@
       "label": "Finkelstein et al. (2014), room-temperature BM3",
       "doi": "10.2138/am.2014.4526",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am.2014.4526",
         "locations": [
@@ -845,7 +855,7 @@
       "label": "Hazen and Finger (1981), rutile GeO2 BM3",
       "doi": "10.1016/0022-3697(81)90074-3",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds",
         "locations": [
@@ -864,7 +874,7 @@
       "label": "Gleason et al. (2008)",
       "doi": "10.2138/am.2008.2942",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am.2008.2942",
         "locations": [
@@ -878,15 +888,20 @@
       "material": "gold",
       "file": "gold.eosmat",
       "record": "gold_anderson_1989_bm3_1",
-      "label": "04-0784, Anderson et al J Appl Phys 65, 1534, 1989",
+      "label": "Anderson et al. (1989), Au logarithmic-volume thermal EOS",
       "doi": "10.1063/1.342969",
-      "status": "deferred",
-      "note": "The primary paper was identified, but the complete recommended parameter derivation and its reference-state conventions were not available in an accessible primary copy during this audit.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1063/1.342969",
         "access_url": "https://doi.org/10.1063/1.342969",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary paper was identified, but the complete recommended parameter derivation and its reference-state conventions were not available in an accessible primary copy during this audit."
+        "locations": [
+          "ambient density paragraph, page 1535",
+          "Section III and Equation (8), pages 1536-1537",
+          "Equations (20)-(29), pages 1540-1541",
+          "Table V, page 1541"
+        ],
+        "finding": "The stored record reproduces Equation (29) and the top rows of Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. The partial published error on (dKT/dT)V is retained; the article also identifies an additional unquantified contribution from K0' uncertainty.",
+        "doi": "10.1063/1.342969"
       }
     },
     {
@@ -896,7 +911,7 @@
       "label": "04-0784, Fei et al PNAS, 2007 [Vinet]",
       "doi": "10.1073/pnas.0609013104",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
         "locations": [
@@ -914,13 +929,19 @@
       "record": "gold_shen_2026_vinet_3",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -930,7 +951,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -949,7 +970,7 @@
       "label": "Hanfland et al. (1989), 300 K Murnaghan",
       "doi": "10.1103/physrevb.39.12598",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.39.12598",
         "locations": [
@@ -967,7 +988,7 @@
       "label": "Bezacier et al. (2014), PVT BM2",
       "doi": "10.1063/1.4894421",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/1.4894421",
         "locations": [
@@ -985,7 +1006,7 @@
       "label": "Bezacier et al. (2014), PVT BM2",
       "doi": "10.1063/1.4894421",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/1.4894421",
         "locations": [
@@ -1003,7 +1024,7 @@
       "label": "Frank et al. (2004), 300 K BM3",
       "doi": "10.1016/j.gca.2003.12.007",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://lweb.cfa.harvard.edu/~lzeng/papers/frank_fei_hu_2004.pdf",
         "locations": [
@@ -1023,7 +1044,7 @@
       "label": "Besson et al. (1994), D2O ice VIII, 300 K BM3",
       "doi": "10.1103/physrevb.49.12540",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext",
         "locations": [
@@ -1038,16 +1059,20 @@
     {
       "material": "indium_nitride",
       "file": "indium_nitride.eosmat",
-      "record": "indium_nitride_mu_oz_1993_bm3_1",
-      "label": "(02-1450, A. Munoz and K. Kunc 1993 J. Phys: Condens. Matter 5 6015",
+      "record": "indium_nitride_munoz_1993_murnaghan_1",
+      "label": "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan",
       "doi": "10.1088/0953-8984/5/33/010",
-      "status": "deferred",
-      "note": "The primary article is an ab initio calculation. The accessible primary metadata do not establish the migrated experimental-structure V0 together with the theoretical BM3 coefficients and a defensible validity interval.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1088/0953-8984/5/33/010",
-        "access_url": "https://doi.org/10.1088/0953-8984/5/33/010",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary article is an ab initio calculation. The accessible primary metadata do not establish the migrated experimental-structure V0 together with the theoretical BM3 coefficients and a defensible validity interval."
+        "access_url": "https://iopscience.iop.org/article/10.1088/0953-8984/5/33/010/pdf",
+        "locations": [
+          "section 3, pages 6016-6018",
+          "Figure 1 caption",
+          "Table 1, wurtzite (PP) row"
+        ],
+        "finding": "The paper fits theoretical E(V) points with the Murnaghan equation. The conventional wurtzite-cell V0 is calculated from its theoretical a0=3.483 A and c0=5.7039 A. The finite-plane-wave-cutoff sensitivity is a convergence estimate, not a covariance-derived fit error.",
+        "doi": "10.1088/0953-8984/5/33/010"
       }
     },
     {
@@ -1057,7 +1082,7 @@
       "label": "Anzellini et al. (2025), BM3",
       "doi": "10.1038/s43246-025-00963-4",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s43246-025-00963-4",
         "locations": [
@@ -1075,7 +1100,7 @@
       "label": "(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90",
       "doi": "10.1029/jb095ib13p21737",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/JB095iB13p21737",
         "locations": [
@@ -1092,13 +1117,19 @@
       "record": "iron_shen_2026_vinet_2",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -1108,7 +1139,7 @@
       "label": "Prescher et al. (2015), orthorhombic Fe7C3 BM3",
       "doi": "10.1038/ngeo2370",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/ngeo2370",
         "locations": [
@@ -1125,7 +1156,7 @@
       "label": "Dewaele et al. (2012), 298 K B1 Vinet",
       "doi": "10.1103/physrevb.85.214105",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.85.214105",
         "locations": [
@@ -1142,7 +1173,7 @@
       "label": "Dewaele et al. (2012), 298 K B2 Vinet",
       "doi": "10.1103/physrevb.85.214105",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.85.214105",
         "locations": [
@@ -1156,15 +1187,18 @@
       "material": "kcl",
       "file": "kcl.eosmat",
       "record": "kcl_campbell_1991_bm2_1",
-      "label": "B2 (EOS from Campbell and Heinz, 1991)",
+      "label": "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite",
       "doi": "10.1016/0022-3697(91)90181-x",
-      "status": "deferred",
-      "note": "The primary abstract reports the B2/B1 zero-pressure volume ratio, K0, and fixed K0'=4, but the stored absolute B2 V0 additionally depends on an ambient B1 volume that is not established by the accessible primary text.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1016/0022-3697(91)90181-x",
-        "access_url": "https://doi.org/10.1016/0022-3697(91)90181-x",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract reports the B2/B1 zero-pressure volume ratio, K0, and fixed K0'=4, but the stored absolute B2 V0 additionally depends on an ambient B1 volume that is not established by the accessible primary text."
+        "access_url": "https://doi.org/10.1016/0022-3697(91)90181-X",
+        "locations": [
+          "Campbell and Heinz (1991), primary abstract: B2/B1 V0 ratio, K0, fixed K0', and 2-56 GPa range",
+          "Dewaele et al. (2012), Table III: experimental B1-KCl V0"
+        ],
+        "finding": "This is an explicit two-primary-source composite. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 fixed. Multiplication by Dewaele et al.'s B1 V0=62.36 A^3/formula unit gives V0(B2)=52.899988 A^3. Because Dewaele et al. publish no V0 error, only the Campbell ratio error is propagated.",
+        "doi": "10.1016/0022-3697(91)90181-x"
       }
     },
     {
@@ -1174,7 +1208,7 @@
       "label": "Walker et al. (2002), B2 thermal Birch",
       "doi": "10.2138/am-2002-0701",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://www.researchgate.net/publication/231182054_Thermal_equations_of_state_for_B1_and_B2_KCl",
         "locations": [
@@ -1188,13 +1222,33 @@
       }
     },
     {
+      "material": "kcl",
+      "file": "kcl.eosmat",
+      "record": "kcl_b2_dewaele_2012_vinet_3",
+      "label": "Dewaele et al. (2012), B2 P-V-T pressure calibration",
+      "doi": "10.1103/physrevb.85.214105",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext",
+        "locations": [
+          "Table I, 298 K measured P-V points",
+          "Table III, experimental B2 KCl Vinet fit and 2.6-165 GPa range",
+          "Equation (2) and Table V, P-V-T calibration",
+          "Section IV, stated 0-200 GPa and 300-7000 K calibration range"
+        ],
+        "finding": "The paper provides the complete B2-KCl P-V-T equation and parameters, explicitly recommends it for pressure calibration, and prints no fitted-parameter errors or covariance.",
+        "doi": "10.1103/physrevb.85.214105"
+      }
+    },
+    {
       "material": "kcl_b1",
       "file": "kcl_b1.eosmat",
       "record": "kcl_b1_dewaele_2012_vinet_1",
       "label": "Dewaele et al. (2012), B1 Vinet",
       "doi": "10.1103/physrevb.85.214105",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.85.214105",
         "locations": [
@@ -1211,7 +1265,7 @@
       "label": "Fortes (2019), 300 K BM4 slice",
       "doi": null,
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
         "locations": [
@@ -1226,16 +1280,20 @@
     {
       "material": "li_bcc",
       "file": "li_bcc.eosmat",
-      "record": "li_bcc_hanfland_1999_bm3_1",
-      "label": "(bcc)  (JCPDS 6-0696, EOS from Hanfland SSC )",
+      "record": "li_hanfland_1999_vinet_1",
+      "label": "Hanfland et al. (1999), combined bcc-fcc Li Vinet",
       "doi": "10.1016/s0038-1098(99)00322-1",
-      "status": "deferred",
-      "note": "The identified primary fit is Vinet over combined bcc/fcc lithium data, whereas the migrated record is BM3. The complete primary article was not accessible, so Peritheos does not change the equation or promote the record.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1016/s0038-1098(99)00322-1",
-        "access_url": "https://doi.org/10.1016/s0038-1098(99)00322-1",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The identified primary fit is Vinet over combined bcc/fcc lithium data, whereas the migrated record is BM3. The complete primary article was not accessible, so Peritheos does not change the equation or promote the record."
+        "access_url": "https://doi.org/10.1016/S0038-1098(99)00322-1",
+        "locations": [
+          "page 125, Table 1, bcc and fcc P-V observations",
+          "page 125, Table 2, experimental Vinet parameters",
+          "pages 125-126, combined bcc-fcc fit description and Figure 3"
+        ],
+        "finding": "This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.",
+        "doi": "10.1016/s0038-1098(99)00322-1"
       }
     },
     {
@@ -1245,7 +1303,7 @@
       "label": "Dewaele (2019), 300 K helium-medium Vinet",
       "doi": "10.3390/min9110684",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.3390/min9110684",
         "locations": [
@@ -1263,7 +1321,7 @@
       "label": "Ross (1997)",
       "doi": "10.2138/am-1997-7-805",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://rruff.info/doclib/am/vol82/AM82_682.pdf",
         "locations": [
@@ -1282,7 +1340,7 @@
       "label": "Stinton et al. (2014), bcc Vinet",
       "doi": "10.1103/physrevb.90.134105",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.90.134105",
         "locations": [
@@ -1299,7 +1357,7 @@
       "label": "Stinton et al. (2014), hcp Vinet",
       "doi": "10.1103/physrevb.90.134105",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.90.134105",
         "locations": [
@@ -1313,15 +1371,19 @@
       "material": "majorite",
       "file": "majorite.eosmat",
       "record": "majorite_yagi_1992_bm3_1",
-      "label": "GSAS calculation, EOS from Yagi et al, 1992",
+      "label": "Yagi et al. (1992), MgSiO3 majorite BM3",
       "doi": "10.1016/0031-9201(92)90063-2",
-      "status": "deferred",
-      "note": "The authors' institutional bibliography and primary abstract establish K0=161 GPa with K0'=4 assumed, but the full primary tables needed to verify V0=1513.1 A^3, its constraint, and the exact data range were inaccessible.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1016/0031-9201(92)90063-2",
         "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The authors' institutional bibliography and primary abstract establish K0=161 GPa with K0'=4 assumed, but the full primary tables needed to verify V0=1513.1 A^3, its constraint, and the exact data range were inaccessible."
+        "locations": [
+          "page 4, Figure 3 and Birch-Murnaghan fit paragraph",
+          "page 4, Table 1 and V0 footnote",
+          "page 5, Table 2, this-study 1 bar cell"
+        ],
+        "finding": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
+        "doi": "10.1016/0031-9201(92)90063-2"
       }
     },
     {
@@ -1331,7 +1393,7 @@
       "label": "Magad-Weiss et al. (2021), BM3",
       "doi": "10.1103/physrevb.103.014101",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.103.014101",
         "locations": [
@@ -1348,7 +1410,7 @@
       "label": "(OH)6-phase A (lattice from Horiuchi et al, Am Min 64 593, 1979; EOS from Cricht",
       "doi": "10.2138/am-2002-2-316",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am-2002-2-316",
         "locations": [
@@ -1361,16 +1423,20 @@
     {
       "material": "mgfe60o",
       "file": "mgfe60o.eosmat",
-      "record": "mgfe60o_richet_1989_bm3_1",
-      "label": "(Mg0.4Fe0.6)O (P. Richet, H.K.Mao, P.M. Bell JGR 1989)",
+      "record": "mgfe60o_richet_1989_bm2_1",
+      "label": "Richet et al. (1989), (Mg0.4Fe0.6)O BM2",
       "doi": "10.1029/jb094ib03p03037",
-      "status": "deferred",
-      "note": "The primary abstract verifies the Birch-Murnaghan framework and composition trends, but an accessible full primary copy was not found that establishes the stored Mg0.4Fe0.6O V0, fit coefficients, constraints, and their errors.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1029/jb094ib03p03037",
-        "access_url": "https://doi.org/10.1029/jb094ib03p03037",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract verifies the Birch-Murnaghan framework and composition trends, but an accessible full primary copy was not found that establishes the stored Mg0.4Fe0.6O V0, fit coefficients, constraints, and their errors."
+        "access_url": "https://doi.org/10.1029/JB094iB03p03037",
+        "locations": [
+          "page 3037, MW60 ambient a=4.2805(4) A",
+          "pages 3038-3039, Tables 1-2, MW60 BM2 fit and P-V data",
+          "page 3041, equation (1) and discussion of fixing K0'=4"
+        ],
+        "finding": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
+        "doi": "10.1029/jb094ib03p03037"
       }
     },
     {
@@ -1380,7 +1446,7 @@
       "label": "JCPDS 4-0829, EOS from Duffy et al, 95",
       "doi": "10.1103/physrevlett.74.1371",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.74.1371/fulltext",
         "locations": [
@@ -1398,7 +1464,7 @@
       "label": "Speziale et al. (2001), constrained BM3",
       "doi": "10.1029/2000jb900318",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2000JB900318",
         "locations": [
@@ -1414,13 +1480,19 @@
       "record": "mgo_shen_2026_vinet_3",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -1430,7 +1502,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -1443,28 +1515,13 @@
       }
     },
     {
-      "material": "mgsio3",
-      "file": "mgsio3.eosmat",
-      "record": "mgsio3_yagi_1992_bm3_1",
-      "label": "Majorite (GSAS calculation, EOS from Yagi et al, 1992)",
-      "doi": "10.1016/0031-9201(92)90063-2",
-      "status": "deferred",
-      "note": "The authors' institutional bibliography and primary abstract establish K0=161 GPa with K0'=4 assumed, but the full primary tables needed to verify V0=1513.1 A^3, its constraint, and the exact data range were inaccessible.",
-      "primary_source_check": {
-        "doi": "10.1016/0031-9201(92)90063-2",
-        "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The authors' institutional bibliography and primary abstract establish K0=161 GPa with K0'=4 assumed, but the full primary tables needed to verify V0=1513.1 A^3, its constraint, and the exact data range were inaccessible."
-      }
-    },
-    {
       "material": "mgsio3_post_perovskite",
       "file": "mgsio3_post_perovskite.eosmat",
       "record": "mgsio3_post_perovskite_mosenfelder_2009_bm3_1",
       "label": "Mosenfelder et al. (2009), shock-static BM3-MGD",
       "doi": "10.1029/2008jb005900",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2008JB005900",
         "locations": [
@@ -1483,7 +1540,7 @@
       "label": "Sakai et al. (2016), experimental multi-megabar BM3",
       "doi": "10.1038/srep22652",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/srep22652",
         "locations": [
@@ -1499,13 +1556,19 @@
       "record": "molybdenum_shen_2026_vinet_1",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -1515,7 +1578,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -1534,7 +1597,7 @@
       "label": "EOS from Haines et al. 2001",
       "doi": "10.1088/0953-8984/13/11/303",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
         "locations": [
@@ -1553,7 +1616,7 @@
       "label": "Zhao et al. (1997), jadeite 300 K BM3",
       "doi": "10.1029/96gl03769",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/96GL03769",
         "locations": [
@@ -1572,7 +1635,7 @@
       "label": "Dubrovinsky et al. (2002)",
       "doi": "10.1080/08957950212807",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1080/08957950212807",
         "locations": [
@@ -1589,13 +1652,19 @@
       "record": "nacl_b1_shen_2026_vinet_1",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -1605,7 +1674,7 @@
       "label": "Heinz and Jeanloz (1984), B2",
       "doi": "10.1103/physrevb.30.6045",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.30.6045/fulltext",
         "locations": [
@@ -1623,13 +1692,19 @@
       "record": "nacl_b2_shen_2026_vinet_2",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -1639,7 +1714,7 @@
       "label": "Fei et al PNAS 2007 [BM3]",
       "doi": "10.1073/pnas.0609013104",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
         "locations": [
@@ -1658,7 +1733,7 @@
       "label": "Fei et al PNAS 2007 [Vinet]",
       "doi": "10.1073/pnas.0609013104",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
         "locations": [
@@ -1677,7 +1752,7 @@
       "label": "Dewaele et al. (2008), Vinet",
       "doi": "10.1103/physrevb.78.104102",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
         "locations": [
@@ -1693,13 +1768,17 @@
       "record": "nickel_oxide_noguchi_1999_bm3_1",
       "label": "Noguchi et al. (1999), shock BM3 isotherm",
       "doi": "10.1016/s0022-3697(98)00296-0",
-      "status": "deferred",
-      "note": "The primary abstract establishes the NiO shock-derived K0 and K0' and a 147 GPa upper bound, but an accessible primary copy was not found for the stored V0, uncertainty convention, or exact static-isotherm reduction.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1016/s0022-3697(98)00296-0",
-        "access_url": "https://doi.org/10.1016/s0022-3697(98)00296-0",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract establishes the NiO shock-derived K0 and K0' and a 147 GPa upper bound, but an accessible primary copy was not found for the stored V0, uncertainty convention, or exact static-isotherm reduction."
+        "access_url": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
+        "locations": [
+          "Noguchi et al. (1998), page 832, ambient lattice parameter",
+          "Noguchi et al. (1998), pages 833-834, Mie-Gruneisen reduction and Murnaghan-Birch fit",
+          "Noguchi et al. (1999), journal abstract, final 147.6 GPa isotherm coefficients"
+        ],
+        "finding": "The official open primary conference paper documents the same team's sample reference lattice and shock-to-300 K reduction. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
+        "doi": "10.1016/s0022-3697(98)00296-0"
       }
     },
     {
@@ -1709,7 +1788,7 @@
       "label": "Takemura and Singh (2006), helium-medium BM3",
       "doi": "10.1103/physrevb.73.224119",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext",
         "locations": [
@@ -1728,7 +1807,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -1744,15 +1823,19 @@
       "material": "nis",
       "file": "nis.eosmat",
       "record": "nis_campbell_1993_bm3_1",
-      "label": "Campbell and Heintz 1993",
+      "label": "Campbell and Heinz (1993), NiAs-type NiS BM3",
       "doi": "10.1016/0022-3697(93)90106-2",
-      "status": "deferred",
-      "note": "The primary abstract establishes the NiS BM3 K0 and K0' errors, but no accessible primary copy was found that establishes the stored V0, its reference state, and the complete measured pressure range.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1016/0022-3697(93)90106-2",
         "access_url": "https://doi.org/10.1016/0022-3697(93)90106-2",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract establishes the NiS BM3 K0 and K0' errors, but no accessible primary copy was found that establishes the stored V0, its reference state, and the complete measured pressure range."
+        "locations": [
+          "page 6, ambient NiAs-type lattice parameters",
+          "page 6, Table 1, measured P-a-c data",
+          "page 6, third-order Birch-Murnaghan fit and Figure 1"
+        ],
+        "finding": "The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.",
+        "doi": "10.1016/0022-3697(93)90106-2"
       }
     },
     {
@@ -1762,7 +1845,7 @@
       "label": "Angel and Jackson (2002), BM3",
       "doi": "10.2138/am-2002-0419",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Angel_Jackson_AmMin02_87_558.pdf",
         "locations": [
@@ -1781,7 +1864,7 @@
       "label": "Takemura (2004), BM3",
       "doi": "10.1103/physrevb.70.012101",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext",
         "locations": [
@@ -1800,7 +1883,7 @@
       "label": "Baty et al. (2024), BM3",
       "doi": "10.1063/5.0179469",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0179469",
         "locations": [
@@ -1818,7 +1901,7 @@
       "label": "Knorr et al. (2003), PbS B1 BM3",
       "doi": "10.1140/epjb/e2003-00034-6",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://arxiv.org/abs/cond-mat/0210013",
         "locations": [
@@ -1837,7 +1920,7 @@
       "label": "Knittle and Jeanloz (1987), (Mg0.88Fe0.12)SiO3 BM3",
       "doi": "10.1126/science.235.4789.668",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://www.science.org/doi/epdf/10.1126/science.235.4789.668",
         "locations": [
@@ -1852,16 +1935,37 @@
     {
       "material": "phase_d",
       "file": "phase_d.eosmat",
-      "record": "phase_d_shieh_2000_bm2_1",
-      "label": "Shieh et al. (2000)",
+      "record": "phase_d_ant_a_shieh_2000_bm2_1",
+      "label": "Shieh et al. (2000), antigorite-derived phase D (AntA)",
       "doi": "10.1016/s0012-821x(00)00033-9",
-      "status": "deferred",
-      "note": "The primary abstract establishes a second-order Birch-Murnaghan K0=134(5) GPa for Fe-bearing phase D, but the full primary table needed to verify the stored V0 and represented range was not accessible.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1016/s0012-821x(00)00033-9",
-        "access_url": "https://doi.org/10.1016/s0012-821x(00)00033-9",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract establishes a second-order Birch-Murnaghan K0=134(5) GPa for Fe-bearing phase D, but the full primary table needed to verify the stored V0 and represented range was not accessible."
+        "access_url": "https://doi.org/10.1016/S0012-821X(00)00033-9",
+        "locations": [
+          "page 71, Table 2, AntA-D and AntB-D P-V data",
+          "pages 78-79, second-order Birch-Murnaghan fit and Figure 10"
+        ],
+        "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+        "doi": "10.1016/s0012-821x(00)00033-9"
+      }
+    },
+    {
+      "material": "phase_d",
+      "file": "phase_d.eosmat",
+      "record": "phase_d_ant_b_shieh_2000_bm2_1",
+      "label": "Shieh et al. (2000), antigorite-derived phase D (AntB)",
+      "doi": "10.1016/s0012-821x(00)00033-9",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/S0012-821X(00)00033-9",
+        "locations": [
+          "page 71, Table 2, AntA-D and AntB-D P-V data",
+          "pages 78-79, second-order Birch-Murnaghan fit and Figure 10"
+        ],
+        "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+        "doi": "10.1016/s0012-821x(00)00033-9"
       }
     },
     {
@@ -1871,7 +1975,7 @@
       "label": "Holmes et al. (1989), theoretical 300 K Vinet scale",
       "doi": "10.1063/1.344177",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://www.researchgate.net/profile/John-Moriarty-7/publication/224513875_The_equation_of_state_of_platinum_to_660_GPa_66_Mbar/links/0deec51d6192cc65e2000000/The-equation-of-state-of-platinum-to-660-GPa-66-Mbar.pdf",
         "locations": [
@@ -1890,13 +1994,19 @@
       "record": "platinum_shen_2026_vinet_2",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -1906,7 +2016,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -1925,7 +2035,7 @@
       "label": "Gerward et al. (2005), room-temperature BM3",
       "doi": "10.1016/j.jallcom.2005.04.008",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://people.iith.ac.in/kanchana/publications/2005/17.pdf",
         "locations": [
@@ -1945,7 +2055,7 @@
       "label": "Milani et al. (2015), BM3",
       "doi": "10.1016/j.lithos.2015.03.017",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.lithos.2015.03.017",
         "locations": [
@@ -1961,7 +2071,7 @@
       "label": "Anzellini et al. (2014), helium-medium Vinet",
       "doi": "10.1063/1.4863300",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/1.4863300",
         "locations": [
@@ -1979,7 +2089,7 @@
       "label": "Rodrigo-Ramon et al. (2024), Vinet",
       "doi": "10.1038/s41598-024-78006-0",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s41598-024-78006-0",
         "locations": [
@@ -1996,7 +2106,7 @@
       "label": "Meng et al. (1994), 300 K BM3",
       "doi": "10.1007/bf00203299",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1007/BF00203299",
         "locations": [
@@ -2012,7 +2122,7 @@
       "label": "Anzellini et al. (2019), BM3",
       "doi": "10.1038/s41598-019-51037-8",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s41598-019-51037-8",
         "locations": [
@@ -2029,7 +2139,7 @@
       "label": "Sun et al. (2019), BM2-MGD",
       "doi": "10.1029/2019jb017853",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2019JB017853",
         "locations": [
@@ -2047,7 +2157,7 @@
       "label": "Sun et al. (2019), BM2-MGD",
       "doi": "10.1029/2019jb017853",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2019JB017853",
         "locations": [
@@ -2065,7 +2175,7 @@
       "label": "Anzellini et al. (2019), constrained Vinet",
       "doi": "10.1038/s41598-019-51931-1",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
         "locations": [
@@ -2083,7 +2193,7 @@
       "label": "Miozzi et al. (2018), 300 K BM3",
       "doi": "10.1029/2018je005582",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2018JE005582",
         "locations": [
@@ -2100,7 +2210,7 @@
       "label": "Miozzi et al. (2018), 300 K BM3",
       "doi": "10.1029/2018je005582",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2018JE005582",
         "locations": [
@@ -2117,7 +2227,7 @@
       "label": "Anzellini et al. (2019), 300 K Vinet",
       "doi": "10.1038/s41598-019-51931-1",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
         "locations": [
@@ -2135,7 +2245,7 @@
       "label": "Anzellini et al. (2019), 300 K Vinet",
       "doi": "10.1038/s41598-019-51931-1",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
         "locations": [
@@ -2153,7 +2263,7 @@
       "label": "Anzellini et al. (2019), 300 K Vinet",
       "doi": "10.1038/s41598-019-51931-1",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
         "locations": [
@@ -2171,7 +2281,7 @@
       "label": "Dewaele et al. (2008), Vinet",
       "doi": "10.1103/physrevb.78.104102",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
         "locations": [
@@ -2188,7 +2298,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -2207,7 +2317,7 @@
       "label": "Andrault et al. (2003)",
       "doi": "10.2138/am-2003-2-307",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am-2003-2-307",
         "locations": [
@@ -2224,7 +2334,7 @@
       "label": "Hazen and Finger (1981), rutile SnO2 BM3",
       "doi": "10.1016/0022-3697(81)90074-3",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds",
         "locations": [
@@ -2240,60 +2350,76 @@
       "material": "sno2_cubic_27gpa",
       "file": "sno2_cubic_27gpa.eosmat",
       "record": "sno2_cubic_27gpa_ono_2000_bm3_1",
-      "label": "SnO2_Pa-3 at 26.6 GPa (by Ono et al., 2000)",
+      "label": "Ono et al. (2000), cubic Pa-3 SnO2 300 K BM3",
       "doi": "10.1007/s002690000108",
-      "status": "deferred",
-      "note": "The Ono et al. primary abstract establishes the cubic phases and fitted bulk moduli, but an accessible primary copy was not found that establishes the stored reference volumes, full fit constraints, and uncertainties.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1007/s002690000108",
         "access_url": "https://doi.org/10.1007/s002690000108",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The Ono et al. primary abstract establishes the cubic phases and fitted bulk moduli, but an accessible primary copy was not found that establishes the stored reference volumes, full fit constraints, and uncertainties."
+        "locations": [
+          "page 620, Table 2, measured cubic-phase P-V-T data",
+          "page 621, third-order Birch-Murnaghan equation and 300 K fit",
+          "page 621, Table 3 and thermal-expansion discussion"
+        ],
+        "finding": "The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.",
+        "doi": "10.1007/s002690000108"
       }
     },
     {
       "material": "sno2_pa_3_at_48gpa",
       "file": "sno2_pa_3_at_48gpa.eosmat",
       "record": "sno2_pa_3_at_48gpa_ono_2000_bm3_1",
-      "label": "lattice parameter by Haines and Leger,1997, intensity by Ono et al., 2000",
+      "label": "Ono et al. (2000), cubic Pa-3 SnO2 300 K BM3",
       "doi": "10.1007/s002690000108",
-      "status": "deferred",
-      "note": "The Ono et al. primary abstract establishes the cubic phases and fitted bulk moduli, but an accessible primary copy was not found that establishes the stored reference volumes, full fit constraints, and uncertainties.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1007/s002690000108",
         "access_url": "https://doi.org/10.1007/s002690000108",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The Ono et al. primary abstract establishes the cubic phases and fitted bulk moduli, but an accessible primary copy was not found that establishes the stored reference volumes, full fit constraints, and uncertainties."
+        "locations": [
+          "page 620, Table 2, measured cubic-phase P-V-T data",
+          "page 621, third-order Birch-Murnaghan equation and 300 K fit",
+          "page 621, Table 3 and thermal-expansion discussion"
+        ],
+        "finding": "The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.",
+        "doi": "10.1007/s002690000108"
       }
     },
     {
       "material": "sro",
       "file": "sro.eosmat",
       "record": "sro_liu_1973_bm3_1",
-      "label": "Liu and Bassett 1973",
+      "label": "Liu and Bassett (1973), SrO volumetric BM3",
       "doi": "10.1029/jb078i035p08470",
-      "status": "deferred",
-      "note": "The accessible primary abstract does not establish all stored B1-SrO reference-volume, equation-order, fit-constraint, and error metadata.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1029/jb078i035p08470",
-        "access_url": "https://doi.org/10.1029/jb078i035p08470",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The accessible primary abstract does not establish all stored B1-SrO reference-volume, equation-order, fit-constraint, and error metadata."
+        "access_url": "https://doi.org/10.1029/JB078i035p08470",
+        "locations": [
+          "page 8471, Table 2, 23+/-3 degC P-V observations",
+          "page 8472, first Birch formulation and fitted coefficients",
+          "page 8472, stated one-standard-deviation fit errors"
+        ],
+        "finding": "The first printed Birch formulation is the BM3 form represented by the record. The fixed ambient V0 error uses the paper's stated 0.3% volume accuracy. The fit spans a small reversible tetragonal distortion without a volume discontinuity.",
+        "doi": "10.1029/jb078i035p08470"
       }
     },
     {
       "material": "sro_b2",
       "file": "sro_b2.eosmat",
-      "record": "sro_b2_sato_1981_bm3_1",
-      "label": "B2 (Sato and Jeanloz1981)",
+      "record": "sro_b2_sato_1981_bm2_1",
+      "label": "Sato and Jeanloz (1981), B2 SrO BM2",
       "doi": "10.1029/jb086ib12p11773",
-      "status": "deferred",
-      "note": "The primary abstract verifies the B1-B2 transition and a 25 GPa B2 data span, but does not expose the B2 reference volume, K0, fit equation, or their uncertainty/constraint conventions; the full article was inaccessible.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1029/jb086ib12p11773",
-        "access_url": "https://doi.org/10.1029/jb086ib12p11773",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The primary abstract verifies the B1-B2 transition and a 25 GPa B2 data span, but does not expose the B2 reference volume, K0, fit equation, or their uncertainty/constraint conventions; the full article was inaccessible."
+        "access_url": "https://doi.org/10.1029/JB086iB12p11773",
+        "locations": [
+          "page 11774, Table 1, B2-SrO density observations",
+          "pages 11775-11776, equations (1)-(7), finite-strain derivation",
+          "page 11776, second-order fit and Figure 3"
+        ],
+        "finding": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
+        "doi": "10.1029/jb086ib12p11773"
       }
     },
     {
@@ -2303,7 +2429,7 @@
       "label": "Cynn and Yoo (1999)",
       "doi": "10.1103/physrevb.59.8526",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.59.8526/fulltext",
         "locations": [
@@ -2321,13 +2447,19 @@
       "record": "tantalum_shen_2026_vinet_2",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -2337,7 +2469,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -2356,7 +2488,7 @@
       "label": "Dewaele et al. (2015), alpha Vinet",
       "doi": "10.1103/physrevb.91.134108",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.91.134108",
         "locations": [
@@ -2374,7 +2506,7 @@
       "label": "Dewaele et al. (2015), omega Vinet",
       "doi": "10.1103/physrevb.91.134108",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.91.134108",
         "locations": [
@@ -2388,26 +2520,11 @@
     {
       "material": "tungsten",
       "file": "tungsten.eosmat",
-      "record": "tungsten_hixson_1992_bm3_1",
-      "label": "4-0806 EOS Hixson and Fritz",
-      "doi": "10.1063/1.351203",
-      "status": "deferred",
-      "note": "The cited Hixson-Fritz work is a shock-compression standard. An accessible primary copy was not found that justifies the migrated standalone 300 K BM3 reduction, its parameters, errors, and stated range.",
-      "primary_source_check": {
-        "doi": "10.1063/1.351203",
-        "access_url": "https://doi.org/10.1063/1.351203",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "The cited Hixson-Fritz work is a shock-compression standard. An accessible primary copy was not found that justifies the migrated standalone 300 K BM3 reduction, its parameters, errors, and stated range."
-      }
-    },
-    {
-      "material": "tungsten",
-      "file": "tungsten.eosmat",
       "record": "tungsten_dewaele_2004_vinet_2",
       "label": "Dewaele et al. (2004), Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
         "locations": [
@@ -2424,13 +2541,19 @@
       "record": "tungsten_shen_2026_vinet_3",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "deferred",
-      "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "doi": "10.1103/fxgq-96sg",
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
-        "outcome": "insufficient_primary_evidence",
-        "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+        "locations": [
+          "Equation (4), page 8",
+          "Table I and footnotes, page 4",
+          "Table II, pages 9-12",
+          "Section III.E, pages 8 and 12-14",
+          "Experimental methods, page 2"
+        ],
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+        "doi": "10.1103/fxgq-96sg"
       }
     },
     {
@@ -2440,7 +2563,7 @@
       "label": "Sokolova et al. (2016), Holzapfel thermal model",
       "doi": "10.1016/j.cageo.2016.06.002",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
         "locations": [
@@ -2459,7 +2582,7 @@
       "label": "Katsura et al. (2009), high-temperature BM3-MGD",
       "doi": "10.1029/2009gl038107",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009GL038107",
         "locations": [
@@ -2478,7 +2601,7 @@
       "label": "Hanna et al. (2011), rocksalt BM2",
       "doi": "10.1063/1.3644969",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/1.3644969",
         "locations": [
@@ -2495,7 +2618,7 @@
       "label": "Hanna et al. (2011), wurtzite BM2",
       "doi": "10.1063/1.3644969",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/1.3644969",
         "locations": [
@@ -2512,7 +2635,7 @@
       "label": "Hazen and Finger (1979), K0' fixed at 6.5",
       "doi": null,
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf",
         "locations": [
@@ -2530,7 +2653,7 @@
       "label": "McHardy et al. (2026), alpha Vinet",
       "doi": "10.1103/zp3m-kjpc",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/zp3m-kjpc",
         "locations": [
@@ -2549,7 +2672,7 @@
       "label": "McHardy et al. (2026), beta Vinet",
       "doi": "10.1103/zp3m-kjpc",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/zp3m-kjpc",
         "locations": [
@@ -2568,7 +2691,7 @@
       "label": "McHardy et al. (2026), omega Vinet",
       "doi": "10.1103/zp3m-kjpc",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/zp3m-kjpc",
         "locations": [

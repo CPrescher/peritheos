@@ -228,6 +228,7 @@
             "AlphaKT",
             "AsymptoticPowerLawMieGruneisenDebye",
             "LinearThermalPressure",
+            "LogVolumeThermalPressure",
             "MieGruneisenDebye",
             "MieGruneisenEinstein",
             "MultiOscillatorGruneisen",
@@ -240,6 +241,7 @@
             "thermal_reference_state",
             "asymptotic_power_law_mie_gruneisen_debye",
             "linear_thermal_pressure",
+            "log_volume_thermal_pressure",
             "mie_gruneisen_debye",
             "mie_gruneisen_einstein",
             "multi_oscillator_gruneisen_thermal_pressure",
@@ -250,6 +252,16 @@
           "enum": ["integrated_gruneisen", "variable_exponent"],
           "default": "integrated_gruneisen",
           "description": "Characteristic-temperature relation for MieGruneisenDebye. Omission means integrated_gruneisen; JSON Schema defaults are annotations and do not insert the field."
+        },
+        "thermal_expansion_law": {
+          "enum": ["constant", "linear_temperature"],
+          "default": "constant",
+          "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature requires alpha1."
+        },
+        "reference_volume_law": {
+          "enum": ["integrated_expansivity", "linear_temperature"],
+          "default": "integrated_expansivity",
+          "description": "Reference-volume construction for thermal_reference_state. Omission integrates the selected expansivity; linear_temperature applies V0(T)=V0(Tr)*(1+alpha0*(T-Tr))."
         },
         "parameters": {
           "type": "object",
@@ -270,6 +282,7 @@
             {"properties": {"type": {"const": "AlphaKT"}, "model": {"const": "thermal_reference_state"}}},
             {"properties": {"type": {"const": "AsymptoticPowerLawMieGruneisenDebye"}, "model": {"const": "asymptotic_power_law_mie_gruneisen_debye"}}},
             {"properties": {"type": {"const": "LinearThermalPressure"}, "model": {"const": "linear_thermal_pressure"}}},
+            {"properties": {"type": {"const": "LogVolumeThermalPressure"}, "model": {"const": "log_volume_thermal_pressure"}}},
             {"properties": {"type": {"const": "MieGruneisenDebye"}, "model": {"const": "mie_gruneisen_debye"}}},
             {"properties": {"type": {"const": "MieGruneisenEinstein"}, "model": {"const": "mie_gruneisen_einstein"}}},
             {"properties": {"type": {"const": "MultiOscillatorGruneisen"}, "model": {"const": "multi_oscillator_gruneisen_thermal_pressure"}}},
@@ -280,6 +293,39 @@
         {
           "if": {"required": ["debye_temperature_law"]},
           "then": {"properties": {"type": {"const": "MieGruneisenDebye"}}}
+        },
+        {
+          "if": {"required": ["thermal_expansion_law"]},
+          "then": {"properties": {"type": {"const": "AlphaKT"}}}
+        },
+        {
+          "if": {"required": ["reference_volume_law"]},
+          "then": {"properties": {"type": {"const": "AlphaKT"}}}
+        },
+        {
+          "if": {"properties": {"thermal_expansion_law": {"const": "linear_temperature"}}, "required": ["thermal_expansion_law"]},
+          "then": {"properties": {"parameters": {"required": ["alpha1"]}}}
+        },
+        {
+          "if": {
+            "anyOf": [
+              {"not": {"required": ["thermal_expansion_law"]}},
+              {"properties": {"thermal_expansion_law": {"const": "constant"}}, "required": ["thermal_expansion_law"]}
+            ]
+          },
+          "then": {"properties": {"parameters": {"properties": {"alpha1": {"const": 0}}}}}
+        },
+        {
+          "if": {
+            "properties": {"reference_volume_law": {"const": "linear_temperature"}},
+            "required": ["reference_volume_law"]
+          },
+          "then": {
+            "properties": {
+              "thermal_expansion_law": {"const": "constant"},
+              "parameters": {"properties": {"alpha1": {"const": 0}}}
+            }
+          }
         }
       ]
     },
@@ -380,7 +426,7 @@
         },
         "experimental_pressure_range_gpa": {"$ref": "#/$defs/range"},
         "pressure_range_status": {
-          "enum": ["theoretical", "reference_parameterization", "reported_qualitatively"]
+          "enum": ["reported_exactly", "reported_qualitatively", "theoretical", "reference_parameterization"]
         },
         "experimental_temperature_range_k": {"$ref": "#/$defs/range"},
         "thermal": {"$ref": "#/$defs/thermal"},

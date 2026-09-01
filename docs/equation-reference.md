@@ -229,18 +229,48 @@ isotherm that exposes reconstructable `V0` and `K0` parameters. At each
 temperature it evaluates that same isotherm after applying
 
 \[
-V_0(T)=V_0(T_r)\exp[\alpha_0(T-T_r)],
+V_0(T)=V_0(T_r)\exp\left[\int_{T_r}^{T}\alpha(T')\,dT'\right],
 \qquad
 K_0(T)=K_0(T_r)+(T-T_r)\left(\frac{\partial K}{\partial T}\right)_P.
 \]
 
-The stored parameters are `Tr`, `alpha0`, and `dK_dT`. Unlike the
-energy-based thermal models, this construction inherits the volume unit of its
-reference isotherm. The bundled ice VI and ice VII records compose it with BM2,
+The default `thermal_expansion_law="constant"` uses
+$\alpha(T)=\alpha_0$. The `linear_temperature` law uses
+
+\[
+\alpha(T)=\alpha_0+\alpha_1T,
+\qquad
+V_0(T)=V_0(T_r)\exp\left[
+\alpha_0(T-T_r)+\frac{\alpha_1}{2}(T^2-T_r^2)
+\right].
+\]
+
+Here $\alpha$ is the volumetric expansion coefficient; crystallographic-axis
+expansivities are separate quantities. The stored numeric parameters are
+`Tr`, `alpha0`, `dK_dT`, and `alpha1` (zero by default). Unlike the energy-based
+thermal models, this construction inherits the volume unit of its reference
+isotherm.
+
+The separate `reference_volume_law="linear_temperature"` option applies
+
+\[
+V_0(T)=V_0(T_r)[1+\alpha_0(T-T_r)].
+\]
+
+In this configuration, $\alpha_0$ is the mean expansion coefficient in the
+direct reference-volume relation, not a constant instantaneous expansivity.
+The bundled Martinez aragonite BM2 record uses this form with linear `K0(T)`,
+following equations (2)--(3) and Table 7 of Martinez, Zhang, and Reeder (1996),
+[doi:10.2138/am-1996-5-608](https://doi.org/10.2138/am-1996-5-608).
+
+The bundled ice VI and ice VII records use the integrated constant law with BM2,
 following equations (1)--(3) and Table II of Bezacier et al. (2014),
 [doi:10.1063/1.4894421](https://doi.org/10.1063/1.4894421). The `.eosmat`
 interchange type remains `AlphaKT` for Dioptas compatibility, while the stable
-model identifier is `thermal_reference_state`.
+model identifier is `thermal_reference_state`. The integrated
+linear-expansivity law follows
+Martinez, Zhang, and Reeder (1996), equations (2), (4), and (5),
+[doi:10.2138/am-1996-5-608](https://doi.org/10.2138/am-1996-5-608).
 
 ### Mie-Gruneisen Debye and Einstein
 
@@ -360,6 +390,25 @@ uses the same additive term for KCl; its reported B2 product
 published product uncertainty can be propagated without inventing independent
 errors for its correlated factors. Because the correction is independent of
 volume, it uses the same volume convention as the composed reference EOS.
+
+### Logarithmic-volume linear thermal pressure
+
+`LogVolumeThermalPressure` composes a reference isotherm exposing `V0` with
+
+\[
+P(V,T)=P_{\mathrm{ref}}(V)+
+\left[\alpha K_{T,r}+
+\left(\frac{\partial K_T}{\partial T}\right)_V
+\ln\left(\frac{V_0}{V}\right)\right](T-T_r).
+\]
+
+The stored parameters are `Tr`, `alpha_KT_ref`, and `dK_dT_V`, in K and
+GPa/K. This is Anderson, Isaak, and Yamamoto (1989), Equations (26)--(29),
+[doi:10.1063/1.342969](https://doi.org/10.1063/1.342969). Unlike
+`ThermalReferenceStateEOS`, it does not shift `V0` or `K0`; it adds a thermal
+pressure whose temperature slope changes logarithmically with compression.
+The generic class name describes that mechanism rather than the paper or its
+use as a pressure standard.
 
 ### Thermal modified Tait
 

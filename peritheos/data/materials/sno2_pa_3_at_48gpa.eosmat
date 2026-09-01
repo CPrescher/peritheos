@@ -94,7 +94,7 @@
  ],
  "eos_records": [
   {
-   "label": "lattice parameter by Haines and Leger,1997, intensity by Ono et al., 2000",
+   "label": "Ono et al. (2000), cubic Pa-3 SnO2 300 K BM3",
    "reference": {
     "authors": [
      "Ono",
@@ -122,31 +122,39 @@
     "model": "birch_murnaghan_3"
    },
    "parameter_errors": {
-    "V0": 3.0,
+    "V0": 0.3,
     "K0": 28.0,
     "K0_prime": 2.2
    },
    "fixed_parameters": [],
    "experimental_pressure_range_gpa": [
-    18.0,
-    29.0
+    16.09,
+    28.85
    ],
-   "notes": "Ono et al. report the extrapolated zero-pressure EoS values V0 = 130.6 +/- 3.0 A^3, K0 = 252 +/- 28 GPa, and K0' = 3.5 +/- 2.2. The lattice and phase lines in this file are a measured 48 GPa pattern, not the zero-pressure cell.",
+   "notes": "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.",
    "identifier": "sno2_pa_3_at_48gpa_ono_2000_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The Ono et al. primary abstract establishes the cubic phases and fitted bulk moduli, but an accessible primary copy was not found that establishes the stored reference volumes, full fit constraints, and uncertainties.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1007/s002690000108",
      "access_url": "https://doi.org/10.1007/s002690000108",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The Ono et al. primary abstract establishes the cubic phases and fitted bulk moduli, but an accessible primary copy was not found that establishes the stored reference volumes, full fit constraints, and uncertainties."
+     "locations": [
+      "page 620, Table 2, measured cubic-phase P-V-T data",
+      "page 621, third-order Birch-Murnaghan equation and 300 K fit",
+      "page 621, Table 3 and thermal-expansion discussion"
+     ],
+     "finding": "The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.",
+     "doi": "10.1007/s002690000108"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -154,6 +162,32 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "sno2_pa_3_at_48gpa.json"
     }
+   },
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    1400.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     16.09,
+     28.85
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "This executable record is only the published 300 K reference isotherm.",
+     "The paper also reports a separate 25 GPa thermal-expansion coefficient, which is not a complete thermal EOS and is not composed here."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+    "K0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+    "K0_prime": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+    "equation": "Ono et al. (2000), page 621, printed third-order BM equation"
    }
   }
  ],
@@ -164,5 +198,6 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "high-pressure cubic Pa-3 SnO2"
 }

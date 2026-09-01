@@ -12,7 +12,7 @@
   "gamma": 120.0
  },
  "formula_units_per_cell": null,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/phaseD.jcpds",
+ "notes": "Hexagonal phase-D diffraction interchange record. The crystallographic pattern was imported from Dioptas/JCPDS, while both executable EOS records use the separately printed AntA and AntB ambient volumes in Shieh et al. (2000), Table 2. Phase D is compositionally variable; the paper's antigorite starting material contained about 3.7 wt% Fe.",
  "peaks": [
   [
    4,
@@ -472,7 +472,7 @@
  ],
  "eos_records": [
   {
-   "label": "Shieh et al. (2000)",
+   "label": "Shieh et al. (2000), antigorite-derived phase D (AntA)",
    "reference": {
     "authors": [
      "Shieh",
@@ -489,36 +489,125 @@
    "eos": {
     "type": "BM2",
     "parameters": {
-     "V0": 84.7321,
+     "V0": 88.12,
      "K0": 134.0
     },
     "model": "birch_murnaghan_2"
    },
    "parameter_errors": {
-    "V0": null,
+    "V0": 0.32,
     "K0": 5.0
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
    "experimental_pressure_range_gpa": [
     0.0,
     24.6
    ],
-   "notes": "Shieh et al. report K0 = 134 +/- 5 GPa for Fe-bearing phase D using a second-order Birch-Murnaghan fit, which fixes K0' at 4. The publication does not tabulate a fitted V0 uncertainty for this phase.",
-   "identifier": "phase_d_shieh_2000_bm2_1",
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Shieh et al. (2000), Table 2, AntA-D ambient unit-cell volume",
+    "K0": "Shieh et al. (2000), pages 78-79: joint fit to the antigorite-derived phase-D volume data",
+    "equation": "Shieh et al. (2000), pages 78-79: second-order Birch-Murnaghan (K0'=4)"
+   },
+   "notes": "Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
+   "identifier": "phase_d_ant_a_shieh_2000_bm2_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract establishes a second-order Birch-Murnaghan K0=134(5) GPa for Fe-bearing phase D, but the full primary table needed to verify the stored V0 and represented range was not accessible.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1016/s0012-821x(00)00033-9",
-     "access_url": "https://doi.org/10.1016/s0012-821x(00)00033-9",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract establishes a second-order Birch-Murnaghan K0=134(5) GPa for Fe-bearing phase D, but the full primary table needed to verify the stored V0 and represented range was not accessible."
+     "access_url": "https://doi.org/10.1016/S0012-821X(00)00033-9",
+     "locations": [
+      "page 71, Table 2, AntA-D and AntB-D P-V data",
+      "pages 78-79, second-order Birch-Murnaghan fit and Figure 10"
+     ],
+     "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+     "doi": "10.1016/s0012-821x(00)00033-9"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "phase_d.json"
+    }
+   }
+  },
+  {
+   "label": "Shieh et al. (2000), antigorite-derived phase D (AntB)",
+   "reference": {
+    "authors": [
+     "Shieh",
+     "Mao",
+     "Hemley",
+     "Ming"
+    ],
+    "year": 2000,
+    "source": "Earth Planet. Sci. Lett.",
+    "volume": "177",
+    "locator": "69-80",
+    "doi": "10.1016/S0012-821X(00)00033-9"
+   },
+   "eos": {
+    "type": "BM2",
+    "parameters": {
+     "V0": 87.191,
+     "K0": 134.0
+    },
+    "model": "birch_murnaghan_2"
+   },
+   "parameter_errors": {
+    "V0": 0.097,
+    "K0": 5.0
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    22.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Shieh et al. (2000), Table 2, AntB-D ambient unit-cell volume",
+    "K0": "Shieh et al. (2000), pages 78-79: joint fit to the antigorite-derived phase-D volume data",
+    "equation": "Shieh et al. (2000), pages 78-79: second-order Birch-Murnaghan (K0'=4)"
+   },
+   "notes": "Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
+   "identifier": "phase_d_ant_b_shieh_2000_bm2_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/S0012-821X(00)00033-9",
+     "locations": [
+      "page 71, Table 2, AntA-D and AntB-D P-V data",
+      "pages 78-79, second-order Birch-Murnaghan fit and Figure 10"
+     ],
+     "finding": "The paper normalizes two antigorite-derived phase-D runs with different measured ambient volumes. Peritheos therefore exposes two explicit reference-volume variants sharing the published K0=134(5) GPa, rather than inventing one shared absolute V0.",
+     "doi": "10.1016/s0012-821x(00)00033-9"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -536,5 +625,6 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "Fe-bearing hexagonal phase D derived from antigorite"
 }

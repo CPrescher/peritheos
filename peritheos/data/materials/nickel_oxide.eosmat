@@ -83,19 +83,27 @@
    "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient.",
    "identifier": "nickel_oxide_noguchi_1999_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract establishes the NiO shock-derived K0 and K0' and a 147 GPa upper bound, but an accessible primary copy was not found for the stored V0, uncertainty convention, or exact static-isotherm reduction.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1016/s0022-3697(98)00296-0",
-     "access_url": "https://doi.org/10.1016/s0022-3697(98)00296-0",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract establishes the NiO shock-derived K0 and K0' and a 147 GPa upper bound, but an accessible primary copy was not found for the stored V0, uncertainty convention, or exact static-isotherm reduction."
+     "access_url": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
+     "locations": [
+      "Noguchi et al. (1998), page 832, ambient lattice parameter",
+      "Noguchi et al. (1998), pages 833-834, Mie-Gruneisen reduction and Murnaghan-Birch fit",
+      "Noguchi et al. (1999), journal abstract, final 147.6 GPa isotherm coefficients"
+     ],
+     "finding": "The official open primary conference paper documents the same team's sample reference lattice and shock-to-300 K reduction. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
+     "doi": "10.1016/s0022-3697(98)00296-0"
     },
     "migration_source": {
      "project": "Dioptas",

@@ -11,8 +11,20 @@
   doi:10.1063/1.4863300. Peritheos uses equation 6, the fitted values and 95%
   confidence intervals following it, Table IV's 0.64-144 GPa domain, and
   lattice-data regressions from Table III.
+- Anderson, O. L., Isaak, D. G. & Yamamoto, S. (1989). Anharmonicity and the
+  equation of state for gold. *Journal of Applied Physics*, 65, 1534--1543.
+  [doi:10.1063/1.342969](https://doi.org/10.1063/1.342969). Peritheos uses
+  Equation 29 and the top rows of Table V, including the logarithmic-volume
+  correction to the thermal-pressure slope. The ambient reference volume is
+  converted from the density and atomic mass stated on page 1535.
 - Birch, F. (1947). Finite elastic strain of cubic crystals. *Physical Review*,
   71, 809-824.
+- Clendenen, R. L. & Drickamer, H. G. (1966). Lattice parameters of nine
+  oxides and sulfides as a function of pressure. *Journal of Chemical Physics*,
+  44, 4223--4228. [doi:10.1063/1.1726610](https://doi.org/10.1063/1.1726610).
+  The CoO record uses Equation 4 and Tables II, III, and VI. The published
+  Murnaghan constants are a whole-range empirical fit; no parameter errors or
+  covariance are printed.
 - Dewaele, A., Fiquet, G. & Gillet, P. (1998). Temperature and pressure
   distribution in the laser-heated diamond-anvil cell. *Review of Scientific
   Instruments*, 69, 2421-2426. doi:10.1063/1.1148970.
@@ -34,6 +46,23 @@
   of state of KCl and KBr. *Physical Review B*, 85, 214105.
   doi:10.1103/PhysRevB.85.214105. Peritheos uses equation 2 and Tables III and
   V, with separate B1 and B2 records.
+- Campbell, A. J. & Heinz, D. L. (1991). Compression of KCl in the B2
+  structure to 56 GPa. *Journal of Physics and Chemistry of Solids*, 52,
+  495--499. doi:10.1016/0022-3697(91)90181-X. The material-library composite
+  uses the primary abstract's B2/B1 `V0` ratio, `K0`, fixed `K0'`, and range;
+  its absolute `V0` is explicitly combined with Dewaele et al.'s B1 value.
+- Campbell, A. J. & Heinz, D. L. (1993). Equation of state and high pressure
+  phase transition of NiS in the NiAs structure. *Journal of Physics and
+  Chemistry of Solids*, 54, 5--7.
+  [doi:10.1016/0022-3697(93)90106-2](https://doi.org/10.1016/0022-3697(93)90106-2).
+  Peritheos uses the ambient lattice constants, Table 1 compression data, and
+  the BM3 coefficients printed on page 6, including all reported errors.
+- Campbell, A. J. & Heinz, D. L. (1994). High-pressure acoustic wave
+  velocities and equations of state of the alkali chlorides. *Journal of
+  Geophysical Research*, 99, 11765--11774.
+  [doi:10.1029/94JB00127](https://doi.org/10.1029/94JB00127). The CsCl record
+  uses the finite-strain equation and fit on pages 11768--11770 and the
+  accepted ambient lattice parameter stated on page 11766.
 - Dewaele, A. (2019). Equations of State of Simple Solids (Including Pb, NaCl
   and LiF) Compressed in Helium or Neon in the Mbar Range. *Minerals*, 9, 684.
   doi:10.3390/min9110684. Peritheos uses equation 1, the unified
@@ -52,6 +81,18 @@
   doi:10.1073/pnas.0609013104. Peritheos uses equation 3, its stated
   Debye-temperature convention, Table 1, and the data envelopes in Figures
   1-5 for the Au, Pt, NaCl-B2, and Ne thermal scales.
+- Muñoz, A. & Kunc, K. (1993). Structure and static properties of indium
+  nitride at low and moderate pressures. *Journal of Physics: Condensed
+  Matter*, 5, 6015--6022. doi:10.1088/0953-8984/5/33/010. Peritheos uses the
+  Murnaghan energy-volume formulation in section 3 and the theoretical
+  wurtzite lattice and EOS coefficients in Table 1.
+- Shen, G. & Smith, J. S. (2026). Simultaneous x-ray diffraction measurements
+  of nine pressure calibrants to 140 GPa. *Physical Review B*, 113, 144113.
+  [doi:10.1103/fxgq-96sg](https://doi.org/10.1103/fxgq-96sg). Peritheos uses
+  the reduced-300 K Vinet form in Equation 4, the fixed reference volumes and
+  fitted parameters in Table II, and the phase/range qualifications in Table I
+  and Section III.E. The printed parameter errors are retained without an
+  inferred confidence level or covariance.
 - Frank, M. R., Fei, Y. & Hu, J. (2004). Constraining the equation of state of
   fluid H2O to 80 GPa using the melting curve, bulk modulus, and thermal
   expansivity of ice VII. *Geochimica et Cosmochimica Acta*, 68, 2781--2790.
@@ -105,8 +146,47 @@
   Peritheos uses Table 7 and the unweighted Birch--Murnaghan fit on page 328;
   the conventional-cell `V0` follows the ambient lattice parameters.
   [Primary article](https://msaweb.org/AmMin/AM66/AM66_324.pdf).
+- Liu, L.-G. & Bassett, W. A. (1973). Changes of the crystal structure and the
+  lattice parameter of SrO at high pressure. *Journal of Geophysical Research*,
+  78, 8470--8473.
+  [doi:10.1029/JB078i035p08470](https://doi.org/10.1029/JB078i035p08470).
+  Peritheos uses the printed Birch equation, reported ambient cell, coefficient
+  errors, and all B1 data through 34.05 GPa.
+- Mao, H.-K., Takahashi, T., Bassett, W. A., Kinsland, G. L. & Merrill, L.
+  (1974). Isothermal compression of magnetite to 320 kbar and pressure-induced
+  phase transformation. *Journal of Geophysical Research*, 79, 1165--1170.
+  [doi:10.1029/JB079i008p01165](https://doi.org/10.1029/JB079i008p01165).
+  Peritheos uses the ambient lattice result and third-order finite-strain fit;
+  the assumed derivative and the paper's composite error convention remain
+  explicit.
+- Martinez, I., Zhang, J. & Reeder, R. J. (1996). In situ X-ray diffraction of
+  aragonite and dolomite at high pressure and high temperature: Evidence for
+  dolomite breakdown to aragonite and magnesite. *American Mineralogist*, 81,
+  611--624. doi:10.2138/am-1996-5-608. Peritheos uses Equations 1--3 and Tables
+  6--7 for the executable staged aragonite BM2 P-V-T parameterization. The
+  separate global HT-BM3 reduction is excluded because its fitted reference
+  volume is omitted and the remaining coefficients are not reproducible from
+  the printed dataset. [Primary article](https://rruff.info/doclib/am/vol81/AM81_611.pdf).
+- Hanfland, M., Loa, I., Syassen, K., Schwarz, U. & Takemura, K. (1999).
+  Equation of state of lithium to 21 GPa. *Solid State Communications*, 112,
+  123--127.
+  [doi:10.1016/S0038-1098(99)00322-1](https://doi.org/10.1016/S0038-1098(99)00322-1).
+  The catalog retains the paper's single empirical Vinet fit across bcc and
+  fcc data and labels that cross-phase scope explicitly.
 - Murnaghan, F. D. (1944). The compressibility of media under extreme
   pressures. *Proceedings of the National Academy of Sciences*, 30, 244-247.
+- Noguchi, Y., Uchino, M., Hikosaka, H., Kusaba, K., Fukuoka, K., Mashimo, T.
+  & Syono, Y. (1998). Shock compression of NiO to 130 GPa. *The Review of
+  High Pressure Science and Technology*, 7, 832--834.
+  doi:10.4131/jshpreview.7.832. Peritheos uses the ambient pseudo-cubic lattice
+  parameter on page 832 and the shock-to-300 K Mie--Gruneisen reduction and
+  Murnaghan--Birch fit on pages 833--834.
+- Noguchi, Y., Uchino, M., Hikosaka, H., Atou, T., Kusaba, K., Fukuoka, K.,
+  Mashimo, T. & Syono, Y. (1999). Equation of state of NiO studied by shock
+  compression. *Journal of Physics and Chemistry of Solids*, 60, 509--514.
+  doi:10.1016/S0022-3697(98)00296-0. The final article extends the isotherm to
+  147.6 GPa and reports `K0 = 191 GPa` and `K0' = 3.9` without coefficient
+  errors.
 - Poirier, J.-P. & Tarantola, A. (1998). A logarithmic equation of state.
   *Physics of the Earth and Planetary Interiors*, 109, 1-8.
   doi:10.1016/S0031-9201(98)00112-5.
@@ -114,6 +194,42 @@
   magnesite. *American Mineralogist*, 82, 682--688.
   doi:10.2138/am-1997-7-805. Peritheos uses the unconstrained BM3 fit on pages
   684--685 and a measured P--V state from Table 1 as a regression case.
+- Ono, S., Ito, E., Katsura, T., Yoneda, A., Walter, M. J., Urakawa, S.,
+  Utsumi, W. & Funakoshi, K. (2000). Thermoelastic properties of the
+  high-pressure phase of SnO2 determined by in situ X-ray observations up to
+  30 GPa and 1400 K. *Physics and Chemistry of Minerals*, 27, 618--622.
+  [doi:10.1007/S002690000108](https://doi.org/10.1007/S002690000108).
+  The two cubic diffraction cards share the paper's 300 K BM3 fit. Its
+  separate 25 GPa expansivity is documented, not promoted to a full thermal
+  EOS.
+- Richet, P., Mao, H.-K. & Bell, P. M. (1989). Bulk moduli of
+  magnesiowuestites from static compression measurements. *Journal of
+  Geophysical Research*, 94, 3037--3045.
+  [doi:10.1029/JB094iB03p03037](https://doi.org/10.1029/JB094iB03p03037).
+  Peritheos uses the MW60 ambient lattice parameter and second-order Birch fit.
+- Sato, Y. & Jeanloz, R. (1981). Phase transition in SrO. *Journal of
+  Geophysical Research*, 86, 11773--11778.
+  [doi:10.1029/JB086iB12p11773](https://doi.org/10.1029/JB086iB12p11773).
+  The B2 reference volume and error are converted from the reported
+  extrapolated density; the derivative is fixed as in the source.
+- Shieh, S. R., Mao, H.-K., Hemley, R. J. & Ming, L. C. (2000). In situ X-ray
+  diffraction studies of dense hydrous magnesium silicates at mantle
+  conditions. *Earth and Planetary Science Letters*, 177, 69--80.
+  [doi:10.1016/S0012-821X(00)00033-9](https://doi.org/10.1016/S0012-821X(00)00033-9).
+  Peritheos represents the joint BM2 modulus with separate AntA and AntB
+  measured ambient volumes from Table 2.
+- Scott, H. P., Williams, Q. & Knittle, E. (2001). Stability and equation of
+  state of Fe3C to 73 GPa: Implications for carbon in the Earth's core.
+  *Geophysical Research Letters*, 28, 1875--1878.
+  doi:10.1029/2000GL012606. Peritheos uses the ambient reference volume on
+  page 1875 and the weighted third-order Birch--Murnaghan fit on page 1876;
+  Figure 3 documents the fitted 300 K compression data.
+- Yagi, T., Uchiyama, Y., Akaogi, M. & Ito, E. (1992). Isothermal compression
+  curve of MgSiO3 tetragonal garnet. *Physics of the Earth and Planetary
+  Interiors*, 74, 1--7.
+  [doi:10.1016/0031-9201(92)90063-2](https://doi.org/10.1016/0031-9201(92)90063-2).
+  Peritheos preserves the printed fixed reference volume and derivative and
+  does not manufacture parameter errors absent from the paper.
 - Sokolova, T. S., Dorogokupets, P. I. & Litasov, K. D. (2016). Microsoft
   Excel spreadsheets for calculation of
   P-V-T relations and thermodynamic properties from equations of state of MgO,

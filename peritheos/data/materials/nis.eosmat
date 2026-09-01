@@ -36,7 +36,7 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "Campbell and Heintz 1993",
+   "label": "Campbell and Heinz (1993), NiAs-type NiS BM3",
    "reference": {
     "authors": [
      "Campbell",
@@ -51,38 +51,48 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 54.8263,
+     "V0": 54.8262666013039,
      "K0": 156.0,
      "K0_prime": 4.4
     },
     "model": "birch_murnaghan_3"
    },
    "parameter_errors": {
-    "V0": null,
+    "V0": 0.009596193736601715,
     "K0": 10.0,
     "K0_prime": 1.2
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
-    45.0
+    44.9
    ],
-   "notes": "Campbell and Heinz report K0 = 156(10) GPa and K0' = 4.4(12). No independent uncertainty was recovered for the ambient card volume.",
+   "notes": "Room-temperature third-order Birch-Murnaghan fit for metastable NiAs-type (B8) NiS. V0 and its independent propagated error use the primary paper's ambient a and c values. K0=156(10) GPa and K0'=4.4(1.2). The last tabulated readable P-V point is 44.9 GPa; above 45 GPa the diffraction lines become unreadable. No fitted-parameter covariance is published.",
    "identifier": "nis_campbell_1993_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract establishes the NiS BM3 K0 and K0' errors, but no accessible primary copy was found that establishes the stored V0, its reference state, and the complete measured pressure range.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1016/0022-3697(93)90106-2",
      "access_url": "https://doi.org/10.1016/0022-3697(93)90106-2",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract establishes the NiS BM3 K0 and K0' errors, but no accessible primary copy was found that establishes the stored V0, its reference state, and the complete measured pressure range."
+     "locations": [
+      "page 6, ambient NiAs-type lattice parameters",
+      "page 6, Table 1, measured P-a-c data",
+      "page 6, third-order Birch-Murnaghan fit and Figure 1"
+     ],
+     "finding": "The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.",
+     "doi": "10.1016/0022-3697(93)90106-2"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -90,6 +100,14 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "nis.json"
     }
+   },
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Campbell and Heinz (1993), page 6: a0=3.4395(2) A and c0=5.3514(7) A; V0=sqrt(3)/2*a0^2*c0",
+    "K0": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+    "K0_prime": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+    "equation": "Campbell and Heinz (1993), page 6 and Figure 1"
    }
   }
  ],
@@ -99,5 +117,6 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "metastable NiAs-type, hexagonal P63/mmc"
 }

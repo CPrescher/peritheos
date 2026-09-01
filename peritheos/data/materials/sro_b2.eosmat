@@ -39,7 +39,7 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "B2 (Sato and Jeanloz1981)",
+   "label": "Sato and Jeanloz (1981), B2 SrO BM2",
    "reference": {
     "authors": [
      "Sato",
@@ -52,42 +52,46 @@
     "doi": "10.1029/JB086iB12p11773"
    },
    "eos": {
-    "type": "BM3",
+    "type": "BM2",
     "parameters": {
      "V0": 28.0224,
-     "K0": 160.0,
-     "K0_prime": 4.0
+     "K0": 160.0
     },
-    "model": "birch_murnaghan_3"
+    "model": "birch_murnaghan_2"
    },
    "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
+    "V0": 0.9127817589576549,
+    "K0": 19.0
    },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
+   "fixed_parameters": [],
    "experimental_pressure_range_gpa": [
-    34.0,
+    32.0,
     59.0
    ],
-   "notes": "Sato and Jeanloz report K0 = 160 GPa with K0' fixed at 4.0 for B2 SrO. The publication does not provide recoverable coefficient uncertainties.",
-   "identifier": "sro_b2_sato_1981_bm3_1",
+   "notes": "Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.",
+   "identifier": "sro_b2_sato_1981_bm2_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract verifies the B1-B2 transition and a 25 GPa B2 data span, but does not expose the B2 reference volume, K0, fit equation, or their uncertainty/constraint conventions; the full article was inaccessible.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1029/jb086ib12p11773",
-     "access_url": "https://doi.org/10.1029/jb086ib12p11773",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract verifies the B1-B2 transition and a 25 GPa B2 data span, but does not expose the B2 reference volume, K0, fit equation, or their uncertainty/constraint conventions; the full article was inaccessible."
+     "access_url": "https://doi.org/10.1029/JB086iB12p11773",
+     "locations": [
+      "page 11774, Table 1, B2-SrO density observations",
+      "pages 11775-11776, equations (1)-(7), finite-strain derivation",
+      "page 11776, second-order fit and Figure 3"
+     ],
+     "finding": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
+     "doi": "10.1029/jb086ib12p11773"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -95,6 +99,13 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "sro_b2.json"
     }
+   },
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Sato and Jeanloz (1981), page 11776: rho0=6.14+/-0.20 Mg/m^3, converted to the Z=1 Pm-3m conventional-cell volume",
+    "K0": "Sato and Jeanloz (1981), page 11776, second-order fit",
+    "equation": "Sato and Jeanloz (1981), equations (1)-(7) and page 11776: second-order Eulerian finite strain with K0'=4"
    }
   }
  ],
@@ -104,5 +115,6 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "B2 (CsCl-type), cubic Pm-3m"
 }

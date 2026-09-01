@@ -34,6 +34,7 @@ from peritheos.eos.rt import (
 )
 from peritheos.eos.thermal import (
     LinearThermalPressure,
+    LogVolumeThermalPressure,
     MieGruneisenDebye,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
@@ -76,16 +77,28 @@ class ValidityRange:
             np.asarray(temperature, dtype=float),
             np.asarray(volume_ratio, dtype=float),
         )
-        valid = (
-            (pressure >= self.pressure_gpa[0])
-            & (pressure <= self.pressure_gpa[1])
-            & (temperature >= self.temperature_k[0])
-            & (temperature <= self.temperature_k[1])
+
+        def closed_interval(values, bounds):
+            lower, upper = bounds
+            lower_tolerance = (
+                16.0 * np.finfo(float).eps * max(1.0, abs(lower))
+                if np.isfinite(lower)
+                else 0.0
+            )
+            upper_tolerance = (
+                16.0 * np.finfo(float).eps * max(1.0, abs(upper))
+                if np.isfinite(upper)
+                else 0.0
+            )
+            return (values >= lower - lower_tolerance) & (
+                values <= upper + upper_tolerance
+            )
+
+        valid = closed_interval(pressure, self.pressure_gpa) & closed_interval(
+            temperature, self.temperature_k
         )
         if self.volume_ratio is not None:
-            valid &= (volume_ratio >= self.volume_ratio[0]) & (
-                volume_ratio <= self.volume_ratio[1]
-            )
+            valid &= closed_interval(volume_ratio, self.volume_ratio)
         return valid
 
 
@@ -476,6 +489,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "NaturalStrain3": "natural_strain_3",
         "NaturalStrain4": "natural_strain_4",
         "LinearThermalPressure": "linear_thermal_pressure",
+        "LogVolumeThermalPressure": "log_volume_thermal_pressure",
         "ThermalReferenceStateEOS": "thermal_reference_state",
         "MieGruneisenDebye": "mie_gruneisen_debye",
         "MieGruneisenEinstein": "mie_gruneisen_einstein",
@@ -502,6 +516,7 @@ _MODEL_CLASSES = MappingProxyType(
             NaturalStrain4,
             Vinet,
             LinearThermalPressure,
+            LogVolumeThermalPressure,
             ThermalReferenceStateEOS,
             MieGruneisenDebye,
             MieGruneisenEinstein,
@@ -525,6 +540,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "natural_strain_3": "NaturalStrain3",
         "natural_strain_4": "NaturalStrain4",
         "linear_thermal_pressure": "LinearThermalPressure",
+        "log_volume_thermal_pressure": "LogVolumeThermalPressure",
         "thermal_reference_state": "AlphaKT",
         "mie_gruneisen_debye": "MieGruneisenDebye",
         "mie_gruneisen_einstein": "MieGruneisenEinstein",
@@ -577,8 +593,13 @@ def _eosmat_component(eos: EosBase) -> dict[str, Any]:
     if configuration:
         component["configuration"] = configuration
         # Kept at the established location for Dioptas format-3 readers.
-        if "debye_temperature_law" in configuration:
-            component["debye_temperature_law"] = configuration["debye_temperature_law"]
+        for name in (
+            "debye_temperature_law",
+            "thermal_expansion_law",
+            "reference_volume_law",
+        ):
+            if name in configuration:
+                component[name] = configuration[name]
     return component
 
 
@@ -1101,10 +1122,13 @@ def _material_from_eosmat(
             else:
                 thermal_component = _plain_data(thermal_data)
                 configuration = dict(thermal_component.get("configuration", {}))
-                if "debye_temperature_law" in thermal_component:
-                    configuration["debye_temperature_law"] = thermal_component[
-                        "debye_temperature_law"
-                    ]
+                for name in (
+                    "debye_temperature_law",
+                    "thermal_expansion_law",
+                    "reference_volume_law",
+                ):
+                    if name in thermal_component:
+                        configuration[name] = thermal_component[name]
                 thermal_component["configuration"] = configuration
                 eos = _load_component(thermal_component, rt_eos=reference_eos)
 

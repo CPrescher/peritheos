@@ -65,8 +65,8 @@
    "identifier": "tantalum_cynn_1999_bm3_1",
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-08-31",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -173,19 +173,29 @@
    "notes": "Table II Cu-referenced fit using DAC-1 data; DAC-2 was excluded and V0 was fixed. Reported uncertainties: K0 +/- 0.4 GPa and K0' +/- 0.02.",
    "identifier": "tantalum_shen_2026_vinet_2",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1103/fxgq-96sg",
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+     "locations": [
+      "Equation (4), page 8",
+      "Table I and footnotes, page 4",
+      "Table II, pages 9-12",
+      "Section III.E, pages 8 and 12-14",
+      "Experimental methods, page 2"
+     ],
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+     "doi": "10.1103/fxgq-96sg"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -278,8 +288,8 @@
    "identifier": "tantalum_sokolova_2016_holzapfel_3",
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-08-31",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",

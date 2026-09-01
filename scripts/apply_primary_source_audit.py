@@ -21,7 +21,7 @@ from collections import Counter
 from pathlib import Path
 from typing import Any
 
-AUDIT_DATE = "2026-08-31"
+AUDIT_DATE = "2026-09-01"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
 REPORT = ROOT / "peritheos" / "data" / "primary-source-audit.json"
@@ -50,6 +50,18 @@ def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
 # later reviewer to repeat the comparison without using another software
 # catalog as an authority.
 VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
+    "10.1007/s002690000108": source(
+        "https://doi.org/10.1007/s002690000108",
+        [
+            "page 620, Table 2, measured cubic-phase P-V-T data",
+            "page 621, third-order Birch-Murnaghan equation and 300 K fit",
+            "page 621, Table 3 and thermal-expansion discussion",
+        ],
+        "The stored record is only the 300 K reference isotherm. The paper's "
+        "separate 25 GPa thermal-expansion result is documented but is not "
+        "silently turned into a full thermal EOS. The notation V0=130.6(3) "
+        "means an uncertainty of 0.3 A^3, not 3 A^3.",
+    ),
     "10.1007/bf00203299": source(
         "https://doi.org/10.1007/BF00203299",
         ["300 K fit reported in the article; EOS table and P-V-T discussion"],
@@ -111,6 +123,107 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         "The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient "
         "lattice constants; no EOS-fit covariance or V0 error is published.",
     ),
+    "10.1016/0022-3697(93)90106-2": source(
+        "https://doi.org/10.1016/0022-3697(93)90106-2",
+        [
+            "page 6, ambient NiAs-type lattice parameters",
+            "page 6, Table 1, measured P-a-c data",
+            "page 6, third-order Birch-Murnaghan fit and Figure 1",
+        ],
+        "The conventional hexagonal-cell V0 and its error are independently "
+        "propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports "
+        "no parameter covariance.",
+    ),
+    "10.1016/0031-9201(92)90063-2": source(
+        "https://doi.org/10.1016/0031-9201(92)90063-2",
+        [
+            "page 4, Figure 3 and Birch-Murnaghan fit paragraph",
+            "page 4, Table 1 and V0 footnote",
+            "page 5, Table 2, this-study 1 bar cell",
+        ],
+        "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, "
+        "but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not "
+        "a fit error from this EOS and is removed.",
+    ),
+    "10.1016/s0012-821x(00)00033-9": source(
+        "https://doi.org/10.1016/S0012-821X(00)00033-9",
+        [
+            "page 71, Table 2, AntA-D and AntB-D P-V data",
+            "pages 78-79, second-order Birch-Murnaghan fit and Figure 10",
+        ],
+        "The paper normalizes two antigorite-derived phase-D runs with "
+        "different measured ambient volumes. Peritheos therefore exposes two "
+        "explicit reference-volume variants sharing the published K0=134(5) "
+        "GPa, rather than inventing one shared absolute V0.",
+    ),
+    "10.1016/s0038-1098(99)00322-1": source(
+        "https://doi.org/10.1016/S0038-1098(99)00322-1",
+        [
+            "page 125, Table 1, bcc and fcc P-V observations",
+            "page 125, Table 2, experimental Vinet parameters",
+            "pages 125-126, combined bcc-fcc fit description and Figure 3",
+        ],
+        "This is explicitly one empirical Vinet curve fitted across the small "
+        "bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention "
+        "is retained, and it is not described as a phase-specific bcc EOS.",
+    ),
+    "10.1029/94jb00127": source(
+        "https://doi.org/10.1029/94JB00127",
+        [
+            "page 11767, accepted 4.123 A zero-pressure CsCl lattice parameter",
+            "page 11767, Table 1, room-temperature compression data",
+            "page 11767, Figure 2 and Eulerian finite-strain fit",
+        ],
+        "The third-order Birch-Murnaghan reference volume is fixed from the "
+        "4.123 A lattice parameter explicitly printed in the primary paper. "
+        "No V0 error or coefficient covariance is reported.",
+    ),
+    "10.1029/jb078i035p08470": source(
+        "https://doi.org/10.1029/JB078i035p08470",
+        [
+            "page 8471, Table 2, 23+/-3 degC P-V observations",
+            "page 8472, first Birch formulation and fitted coefficients",
+            "page 8472, stated one-standard-deviation fit errors",
+        ],
+        "The first printed Birch formulation is the BM3 form represented by "
+        "the record. The fixed ambient V0 error uses the paper's stated 0.3% "
+        "volume accuracy. The fit spans a small reversible tetragonal "
+        "distortion without a volume discontinuity.",
+    ),
+    "10.1029/jb079i008p01165": source(
+        "https://doi.org/10.1029/JB079i008p01165",
+        [
+            "page 1165, ambient a=8.394(3) A",
+            "page 1167, Table 3 and printed Birch-Murnaghan equation",
+            "pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget",
+        ],
+        "V0 and its error are propagated from the paper's own ambient lattice "
+        "parameter. The +/-10 GPa K0 error is the authors' sum of independent "
+        "fit, pressure-scale, and assumed-K0' contributions, not a covariance "
+        "matrix or a uniform one-sigma statistical error.",
+    ),
+    "10.1029/jb086ib12p11773": source(
+        "https://doi.org/10.1029/JB086iB12p11773",
+        [
+            "page 11774, Table 1, B2-SrO density observations",
+            "pages 11775-11776, equations (1)-(7), finite-strain derivation",
+            "page 11776, second-order fit and Figure 3",
+        ],
+        "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with "
+        "K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-"
+        "unit B2 conventional-cell volume; no covariance is published.",
+    ),
+    "10.1029/jb094ib03p03037": source(
+        "https://doi.org/10.1029/JB094iB03p03037",
+        [
+            "page 3037, MW60 ambient a=4.2805(4) A",
+            "pages 3038-3039, Tables 1-2, MW60 BM2 fit and P-V data",
+            "page 3041, equation (1) and discussion of fixing K0'=4",
+        ],
+        "This record is the fit-specific MW60 second-order result in Table 1, "
+        "not the paper's separate global composition model. V0 error is "
+        "propagated from the primary ambient lattice measurement.",
+    ),
     "10.1016/s0031-9201(00)00154-0": source(
         "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_pepi_00.pdf",
         ["section 3", "Table 1", "Table 2, pages 334-335"],
@@ -122,6 +235,20 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
     "10.1029/2000jb900318": source(
         "https://doi.org/10.1029/2000JB900318",
         ["Primary abstract", "constrained third-order Birch-Murnaghan fit"],
+    ),
+    "10.1029/2000gl012606": source(
+        "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2000GL012606",
+        [
+            "page 1875, Experimental section, ambient lattice parameters and V0",
+            "page 1876, weighted least-squares EOS paragraph",
+            "Figure 3 and caption, page 1877",
+        ],
+        "The stored record is the reported 300 K third-order Birch-Murnaghan "
+        "fit. V0 is the independently measured ambient reference volume; the "
+        "paper reports no fit covariance or confidence convention for the "
+        "printed +/- values. The abstract and title round the compression "
+        "range to 73 GPa; Figure 1 labels the highest diffraction pattern "
+        "73.2 GPa, which is retained as the experimental maximum.",
     ),
     "10.1029/2005gl024955": source(
         "https://doi.org/10.1029/2005GL024955",
@@ -209,6 +336,19 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         "https://doi.org/10.1039/D4NR00093E",
         ["Equation 4", "Table 3", "Figure 5"],
     ),
+    "10.1063/1.1726610": source(
+        "https://pubs.aip.org/aip/jcp/article/44/11/4223/209674/"
+        "Lattice-Parameters-of-Nine-Oxides-and-Sulfides-as",
+        [
+            "Equation (4), journal page 4226",
+            "Tables II, III, and VI, journal pages 4224-4227",
+        ],
+        "The CoO record is the empirical whole-range Murnaghan fit printed in "
+        "Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II "
+        "ambient cubic lattice parameter. The paper prints no parameter errors "
+        "or covariance and cautions that B0 and B0' need not equal the true "
+        "one-atmosphere derivatives.",
+    ),
     "10.1063/1.3644969": source(
         "https://doi.org/10.1063/1.3644969",
         ["Static EOS formulation", "wurtzite and rocksalt EOS table"],
@@ -221,6 +361,19 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         "https://doi.org/10.1063/1.4894421",
         ["Primary abstract", "BM2 P-V-T fits for ice VI and ice VII"],
         "Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.",
+    ),
+    "10.1063/1.342969": source(
+        "https://doi.org/10.1063/1.342969",
+        [
+            "ambient density paragraph, page 1535",
+            "Section III and Equation (8), pages 1536-1537",
+            "Equations (20)-(29), pages 1540-1541",
+            "Table V, page 1541",
+        ],
+        "The stored record reproduces Equation (29) and the top rows of Table V: "
+        "a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. "
+        "The partial published error on (dKT/dT)V is retained; the article also "
+        "identifies an additional unquantified contribution from K0' uncertainty.",
     ),
     "10.1063/1.344177": source(
         "https://www.researchgate.net/profile/John-Moriarty-7/publication/224513875_The_equation_of_state_of_platinum_to_660_GPa_66_Mbar/links/0deec51d6192cc65e2000000/The-equation-of-state-of-platinum-to-660-GPa-66-Mbar.pdf",
@@ -265,6 +418,20 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         "The paper is internally inconsistent: the abstract says third-order "
         "Birch-Murnaghan, while the Figure 1 caption says second-order despite "
         "reporting K0'=3.3(1). Peritheos retains BM3 and records the conflict.",
+    ),
+    "10.1103/fxgq-96sg": source(
+        "https://doi.org/10.1103/fxgq-96sg",
+        [
+            "Equation (4), page 8",
+            "Table I and footnotes, page 4",
+            "Table II, pages 9-12",
+            "Section III.E, pages 8 and 12-14",
+            "Experimental methods, page 2",
+        ],
+        "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V "
+        "fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are "
+        "preserved. The article does not state a confidence level or publish "
+        "parameter covariance, so neither is inferred.",
     ),
     "10.1103/physrevb.103.014101": source(
         "https://doi.org/10.1103/PhysRevB.103.014101",
@@ -465,6 +632,23 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
 # unambiguous publisher or institutional copies.  Key these by record ID so a
 # title-only match can never promote a different migrated record.
 VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
+    "aragonite_martinez_1996_bm2_2": source(
+        "https://rruff.info/doclib/am/vol81/AM81_611.pdf",
+        [
+            "Equation (1), page 615",
+            "Table 3, page 616",
+            "Table 6 and EOS discussion, pages 618-619",
+            "Table 7, page 620",
+        ],
+        "The Table 6 isotherms are BM2 fits with K0'=4 assumed. Regressing "
+        "their printed V0,T values gives a mean expansion coefficient of "
+        "6.484e-5 K^-1, reproducing the Table 7 value 6.5(1)e-5 K^-1. "
+        "Unweighted and error-weighted regressions of the printed K0,T values "
+        "give -0.01969 and -0.01702 GPa/K, bracketing the reported "
+        "-0.018(2) GPa/K. The fit-specific 298 K K0 error is retained; the "
+        "conflicting summary error printed in the prose and Table 7 is "
+        "recorded explicitly.",
+    ),
     "coesite_levien_1981_bm3_1": source(
         "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
         [
@@ -484,6 +668,55 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         ],
         "The stored record is the 300 K isotherm of the report's temperature-dependent BM4 model.",
     ),
+    "kcl_b2_dewaele_2012_vinet_3": source(
+        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext",
+        [
+            "Table I, 298 K measured P-V points",
+            "Table III, experimental B2 KCl Vinet fit and 2.6-165 GPa range",
+            "Equation (2) and Table V, P-V-T calibration",
+            "Section IV, stated 0-200 GPa and 300-7000 K calibration range",
+        ],
+        "The paper provides the complete B2-KCl P-V-T equation and parameters, "
+        "explicitly recommends it for pressure calibration, and prints no "
+        "fitted-parameter errors or covariance.",
+    ),
+    "kcl_campbell_1991_bm2_1": source(
+        "https://doi.org/10.1016/0022-3697(91)90181-X",
+        [
+            "Campbell and Heinz (1991), primary abstract: B2/B1 V0 ratio, K0, fixed K0', and 2-56 GPa range",
+            "Dewaele et al. (2012), Table III: experimental B1-KCl V0",
+        ],
+        "This is an explicit two-primary-source composite. Campbell and Heinz "
+        "report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and "
+        "K0'=4 fixed. Multiplication by Dewaele et al.'s B1 V0=62.36 "
+        "A^3/formula unit gives V0(B2)=52.899988 A^3. Because Dewaele et al. "
+        "publish no V0 error, only the Campbell ratio error is propagated.",
+    ),
+    "indium_nitride_munoz_1993_murnaghan_1": source(
+        "https://iopscience.iop.org/article/10.1088/0953-8984/5/33/010/pdf",
+        [
+            "section 3, pages 6016-6018",
+            "Figure 1 caption",
+            "Table 1, wurtzite (PP) row",
+        ],
+        "The paper fits theoretical E(V) points with the Murnaghan equation. "
+        "The conventional wurtzite-cell V0 is calculated from its theoretical "
+        "a0=3.483 A and c0=5.7039 A. The finite-plane-wave-cutoff sensitivity "
+        "is a convergence estimate, not a covariance-derived fit error.",
+    ),
+    "nickel_oxide_noguchi_1999_bm3_1": source(
+        "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
+        [
+            "Noguchi et al. (1998), page 832, ambient lattice parameter",
+            "Noguchi et al. (1998), pages 833-834, Mie-Gruneisen reduction and Murnaghan-Birch fit",
+            "Noguchi et al. (1999), journal abstract, final 147.6 GPa isotherm coefficients",
+        ],
+        "The official open primary conference paper documents the same team's "
+        "sample reference lattice and shock-to-300 K reduction. The final journal "
+        "article extends the data and reports K0=191 GPa and K0'=3.9. The stored "
+        "Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; "
+        "the journal reports no coefficient errors for K0 or K0'.",
+    ),
     "zircon_hazen_1979_bm3_1": source(
         "https://msaweb.org/AmMin/AM64/AM64_196.pdf",
         [
@@ -496,98 +729,21 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
 }
 
 
-# A few valid DOI groups have one intentionally nonvalidated record.  This is
-# keyed by record ID so DOI-level evidence can never accidentally promote it.
-FORCED_DEFERRED: dict[str, str] = {
-    "aragonite_martinez_1996_bm3_1": (
-        "The primary paper was inspected, but the migrated AlphaKT component "
-        "uses the reported mean 298-1000 K expansivity as a constant. The "
-        "published global high-temperature BM3 model instead uses equations "
-        "(2), (4), and (5), including alpha(T)=alpha0+alpha1*T. Peritheos does "
-        "not silently treat that approximation as the published model; the "
-        "record remains non-executable until the exact thermal law is represented."
-    ),
-    "gold_anderson_1989_bm3_1": (
-        "The primary paper was identified, but the complete recommended "
-        "parameter derivation and its reference-state conventions were not "
-        "available in an accessible primary copy during this audit."
-    ),
-}
+# Valid DOI groups may still contain a specifically deferred record. This map
+# is keyed by record ID so DOI-level evidence cannot accidentally promote one.
+FORCED_DEFERRED: dict[str, str] = {}
 
 
 DEFERRED_BY_DOI: dict[str, str] = {
-    "10.1007/s002690000108": (
-        "The Ono et al. primary abstract establishes the cubic phases and fitted "
-        "bulk moduli, but an accessible primary copy was not found that establishes "
-        "the stored reference volumes, full fit constraints, and uncertainties."
-    ),
     "10.1016/0022-3697(91)90181-x": (
         "The primary abstract reports the B2/B1 zero-pressure volume ratio, K0, "
         "and fixed K0'=4, but the stored absolute B2 V0 additionally depends on an "
         "ambient B1 volume that is not established by the accessible primary text."
     ),
-    "10.1016/0022-3697(93)90106-2": (
-        "The primary abstract establishes the NiS BM3 K0 and K0' errors, but no "
-        "accessible primary copy was found that establishes the stored V0, its "
-        "reference state, and the complete measured pressure range."
-    ),
-    "10.1016/0031-9201(92)90063-2": (
-        "The authors' institutional bibliography and primary abstract establish "
-        "K0=161 GPa with K0'=4 assumed, but the full primary tables needed to "
-        "verify V0=1513.1 A^3, its constraint, and the exact data range were inaccessible."
-    ),
-    "10.1016/s0012-821x(00)00033-9": (
-        "The primary abstract establishes a second-order Birch-Murnaghan K0=134(5) "
-        "GPa for Fe-bearing phase D, but the full primary table needed to verify "
-        "the stored V0 and represented range was not accessible."
-    ),
-    "10.1016/s0022-3697(98)00296-0": (
-        "The primary abstract establishes the NiO shock-derived K0 and K0' and a "
-        "147 GPa upper bound, but an accessible primary copy was not found for the "
-        "stored V0, uncertainty convention, or exact static-isotherm reduction."
-    ),
-    "10.1016/s0038-1098(99)00322-1": (
-        "The identified primary fit is Vinet over combined bcc/fcc lithium data, "
-        "whereas the migrated record is BM3. The complete primary article was not "
-        "accessible, so Peritheos does not change the equation or promote the record."
-    ),
-    "10.1029/2000gl012606": (
-        "The primary abstract reports the cementite BM3 K0 and K0', but an "
-        "accessible full primary copy was not found to establish the stored V0, "
-        "its error, and the exact represented pressure interval."
-    ),
-    "10.1029/94jb00127": (
-        "The primary abstract establishes the CsCl Eulerian finite-strain K0 and "
-        "K0' errors, but the full primary density/reference-volume convention and "
-        "all stored metadata were not accessible."
-    ),
-    "10.1029/jb078i035p08470": (
-        "The accessible primary abstract does not establish all stored B1-SrO "
-        "reference-volume, equation-order, fit-constraint, and error metadata."
-    ),
-    "10.1029/jb079i008p01165": (
-        "The primary abstract establishes the magnetite K0, fixed K0', and pressure "
-        "range, but an accessible full primary copy was not found for the stored "
-        "reference volume and complete uncertainty provenance."
-    ),
-    "10.1029/jb086ib12p11773": (
-        "The primary abstract verifies the B1-B2 transition and a 25 GPa B2 data "
-        "span, but does not expose the B2 reference volume, K0, fit equation, or "
-        "their uncertainty/constraint conventions; the full article was inaccessible."
-    ),
-    "10.1029/jb094ib03p03037": (
-        "The primary abstract verifies the Birch-Murnaghan framework and composition "
-        "trends, but an accessible full primary copy was not found that establishes "
-        "the stored Mg0.4Fe0.6O V0, fit coefficients, constraints, and their errors."
-    ),
     "10.1029/rf002p0029": (
         "The cited DOI is a handbook chapter on thermal expansion rather than an "
         "unambiguous original source for the stored FeO static EOS parameter set. "
         "The record is deferred until its actual primary EOS source is identified."
-    ),
-    "10.1063/1.1726610": (
-        "The accessible primary abstract does not establish all stored CoO V0, "
-        "Birch-Murnaghan coefficients, errors, and validity metadata."
     ),
     "10.1063/1.351203": (
         "The cited Hixson-Fritz work is a shock-compression standard. An accessible "
@@ -598,11 +754,6 @@ DEFERRED_BY_DOI: dict[str, str] = {
         "The primary article is an ab initio calculation. The accessible primary "
         "metadata do not establish the migrated experimental-structure V0 together "
         "with the theoretical BM3 coefficients and a defensible validity interval."
-    ),
-    "10.1103/fxgq-96sg": (
-        "APS lists publication on 24 April 2026, but the accepted manuscript is "
-        "under CHORUS embargo until 24 April 2027. The primary equation and "
-        "tables could not be inspected; catalog values are therefore not executable."
     ),
 }
 
@@ -635,6 +786,137 @@ BEZACIER_ICE_RECORDS = {
     "ice_vii_bezacier_2014_bm2_1",
 }
 
+REMOVED_UNSUPPORTED_RECORDS = {
+    "aragonite_martinez_1996_bm3_1",
+    "feo_fei_1995_bm3_1",
+    "tungsten_hixson_1992_bm3_1",
+}
+
+
+def curate_migrated_catalog() -> None:
+    """Apply record removals, consolidation, and source-required record splits."""
+    majorite_path = MATERIALS / "majorite.eosmat"
+    duplicate_path = MATERIALS / "mgsio3.eosmat"
+    source_path = duplicate_path if duplicate_path.exists() else majorite_path
+    document = json.loads(source_path.read_text(encoding="utf-8"))
+    document.update(
+        {
+            "name": "Majorite (MgSiO3 tetragonal garnet)",
+            "aliases": ["MgSiO3 majorite", "tetragonal MgSiO3 garnet"],
+            "formula": "MgSiO3",
+            "formula_units_per_cell": 16,
+            "space_group": "I41/a",
+            "space_group_number": 88,
+            "phase": "tetragonal MgSiO3 garnet (majorite), I41/a",
+            "identifier": "majorite",
+            "notes": (
+                "Tetragonal MgSiO3 majorite consolidated from the duplicate "
+                "Dioptas/JCPDS majorite and mgsio3-maj entries. The richer "
+                "mgsio3-maj diffraction list is retained. Majorite has the "
+                "garnet formula Mg3(MgSi)Si3O12, equivalent to 4 MgSiO3, and "
+                "space group I41/a with 16 MgSiO3 formula units in the "
+                "conventional cell. Source file(s): JCPDS/current user/jcpds/"
+                "mgsio3-maj.jcpds, JCPDS/dac_user_jcpds/mgsio3-maj.jcpds, "
+                "JCPDS/current user/jcpds/ver3/majorite.jcpds."
+            ),
+        }
+    )
+    record = document["eos_records"][0]
+    record["identifier"] = "majorite_yagi_1992_bm3_1"
+    migration = record.get("scientific_validation", {}).get("migration_source")
+    if migration is not None:
+        migration["file"] = "mgsio3.json; majorite.json"
+    majorite_path.write_text(
+        json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
+    if duplicate_path.exists():
+        duplicate_path.unlink()
+
+    phase_d_path = MATERIALS / "phase_d.eosmat"
+    phase_d = json.loads(phase_d_path.read_text(encoding="utf-8"))
+    migrated = phase_d["eos_records"][0]
+    migration = migrated.get("scientific_validation", {}).get("migration_source")
+
+    def phase_d_variant(
+        run: str,
+        identifier: str,
+        v0: float,
+        v0_error: float,
+        maximum_pressure: float,
+    ) -> dict[str, Any]:
+        return {
+            "label": f"Shieh et al. (2000), antigorite-derived phase D ({run})",
+            "reference": dict(migrated["reference"]),
+            "eos": {
+                "type": "BM2",
+                "parameters": {"V0": v0, "K0": 134.0},
+                "model": "birch_murnaghan_2",
+            },
+            "parameter_errors": {"V0": v0_error, "K0": 5.0},
+            "fixed_parameters": ["V0"],
+            "temperature_ref": 300.0,
+            "experimental_pressure_range_gpa": [0.0, maximum_pressure],
+            "pressure_range_status": "reported_exactly",
+            "parameter_provenance": {
+                "V0": (
+                    f"Shieh et al. (2000), Table 2, {run}-D ambient unit-cell volume"
+                ),
+                "K0": (
+                    "Shieh et al. (2000), pages 78-79: joint fit to the "
+                    "antigorite-derived phase-D volume data"
+                ),
+                "equation": (
+                    "Shieh et al. (2000), pages 78-79: second-order "
+                    "Birch-Murnaghan (K0'=4)"
+                ),
+            },
+            "notes": (
+                f"Reference-volume variant for the {run} antigorite-derived "
+                f"phase-D run. Table 2 reports V0={v0}+/-{v0_error} A^3. "
+                "The paper fits the combined antigorite-derived data with "
+                "a second-order Birch-Murnaghan curve and reports K0=134+/-5 "
+                "GPa, but it does not define one shared absolute V0 because AntA "
+                "and AntB have different ambient volumes. The two Peritheos "
+                "records preserve those measured reference volumes explicitly. "
+                "No parameter covariance or confidence convention is reported."
+            ),
+            "identifier": identifier,
+            "scientific_validation": {
+                "status": "pending_primary_source_check",
+                **({"migration_source": dict(migration)} if migration else {}),
+            },
+        }
+
+    phase_d["eos_records"] = [
+        phase_d_variant(
+            "AntA",
+            "phase_d_ant_a_shieh_2000_bm2_1",
+            88.12,
+            0.32,
+            24.6,
+        ),
+        phase_d_variant(
+            "AntB",
+            "phase_d_ant_b_shieh_2000_bm2_1",
+            87.191,
+            0.097,
+            22.0,
+        ),
+    ]
+    phase_d["phase"] = "Fe-bearing hexagonal phase D derived from antigorite"
+    phase_d["notes"] = (
+        "Hexagonal phase-D diffraction interchange record. The crystallographic "
+        "pattern was imported from Dioptas/JCPDS, while both executable EOS "
+        "records use the separately printed AntA and AntB ambient volumes in "
+        "Shieh et al. (2000), Table 2. Phase D is compositionally variable; the "
+        "paper's antigorite starting material contained about 3.7 wt% Fe."
+    )
+    phase_d_path.write_text(
+        json.dumps(phase_d, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
+
 
 def set_primary_parameter(component: dict[str, Any], name: str, value: float) -> None:
     """Set one primary-sourced component parameter and its metadata."""
@@ -656,8 +938,623 @@ def append_correction(record: dict[str, Any], correction: dict[str, Any]) -> Non
 def restore_primary_model_inputs(record: dict[str, Any]) -> None:
     """Restore inputs omitted by the mechanical interchange migration."""
     identifier = record["identifier"]
+    if identifier == "kcl_campbell_1991_bm2_1":
+        old_v0 = record["eos"]["parameters"]["V0"]
+        old_v0_error = record["parameter_errors"].get("V0")
+        record["label"] = (
+            "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite"
+        )
+        record["eos"]["parameters"]["V0"] = 52.899988
+        record["parameter_errors"]["V0"] = 0.355452
+        record["fixed_parameters"] = ["V0"]
+        record["temperature_ref"] = 298.0
+        record["parameter_provenance"] = {
+            "V0": (
+                "Campbell and Heinz (1991) V0(B2)/V0(B1)=0.8483+/-0.0057 "
+                "multiplied by Dewaele et al. (2012) experimental B1-KCl "
+                "V0=62.36 A^3/formula unit"
+            ),
+            "K0": "Campbell and Heinz (1991) primary abstract: 28.7+/-0.6 GPa",
+            "K0_prime": "Campbell and Heinz (1991) primary abstract: fixed at 4.0 (BM2)",
+        }
+        record["notes"] = (
+            "Explicit composite B2-KCl reference isotherm. Campbell and Heinz "
+            "report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, "
+            "and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is "
+            "0.8483*62.36=52.899988 A^3/formula unit, using the independently "
+            "published experimental B1-KCl V0 of Dewaele et al. (2012). "
+            "Its 0.355452 A^3 uncertainty propagates the Campbell ratio error "
+            "only; Dewaele et al. report no B1 V0 error or covariance. This "
+            "composite is not presented as a single-paper Campbell parameter set."
+        )
+        for correction in (
+            {
+                "path": "eos.parameters.V0",
+                "source_value": old_v0,
+                "value": 52.899988,
+                "reason": "Derive the absolute B2 reference volume from two explicitly named primary inputs.",
+            },
+            {
+                "path": "parameter_errors.V0",
+                "source_value": old_v0_error,
+                "value": 0.355452,
+                "reason": "Propagate 62.36*0.0057; no B1-V0 error is published to include.",
+            },
+            {
+                "path": "fixed_parameters",
+                "source_value": [],
+                "value": ["V0"],
+                "reason": "The absolute V0 is constructed from published inputs rather than fitted in this record.",
+            },
+        ):
+            correction["primary_reference"] = {
+                "doi": "10.1016/0022-3697(91)90181-X + 10.1103/PhysRevB.85.214105",
+                "location": "Campbell abstract; Dewaele Table III",
+            }
+            append_correction(record, correction)
+    if identifier == "cscl_campbell_1994_bm3_1":
+        record["label"] = "Campbell and Heinz (1994), CsCl BM3"
+        record["eos"] = {
+            "type": "BM3",
+            "parameters": {
+                "V0": 70.087408867,
+                "K0": 17.01,
+                "K0_prime": 5.49,
+            },
+            "model": "birch_murnaghan_3",
+        }
+        record["parameter_errors"] = {
+            "V0": None,
+            "K0": 0.29,
+            "K0_prime": 0.15,
+        }
+        record["fixed_parameters"] = ["V0"]
+        record["temperature_ref"] = 298.0
+        record["experimental_pressure_range_gpa"] = [0.0, 28.7]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Campbell and Heinz (1994), page 11767: accepted ambient "
+                "a0=4.123 A; V0=a0^3 for Pm-3m CsCl"
+            ),
+            "K0": "Campbell and Heinz (1994), page 11767 and Figure 2",
+            "K0_prime": "Campbell and Heinz (1994), page 11767 and Figure 2",
+            "equation": (
+                "Campbell and Heinz (1994), page 11767: Eulerian finite-strain "
+                "analysis with linear normalized stress"
+            ),
+        }
+        record["notes"] = (
+            "Room-temperature third-order Birch-Murnaghan fit to the authors' "
+            "data and corrected Yagi (1978) data. The primary paper explicitly "
+            "uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-"
+            "unit Pm-3m cell; it reports no uncertainty for that fixed lattice "
+            "parameter. K0=17.01(29) GPa and K0'=5.49(15). The exact laboratory "
+            "temperature and coefficient covariance are not reported."
+        )
+    if identifier == "fe3o4_mao_1974_bm3_1":
+        record["label"] = "Mao et al. (1974), magnetite BM3"
+        record["eos"] = {
+            "type": "BM3",
+            "parameters": {
+                "V0": 591.434826984,
+                "K0": 183.0,
+                "K0_prime": 4.0,
+            },
+            "model": "birch_murnaghan_3",
+        }
+        record["parameter_errors"] = {
+            "V0": 0.634133124,
+            "K0": 10.0,
+            "K0_prime": 0.4,
+        }
+        record["fixed_parameters"] = ["V0", "K0_prime"]
+        record["temperature_ref"] = 296.15
+        record["experimental_pressure_range_gpa"] = [0.0, 32.0]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Mao et al. (1974), page 1165: a0=8.394+/-0.003 A; "
+                "V0=a0^3 and sigma(V0)=3*a0^2*sigma(a0)"
+            ),
+            "K0": "Mao et al. (1974), pages 1167-1168, summed error budget",
+            "K0_prime": ("Mao et al. (1974), pages 1167-1168: assumed 4+/-0.4"),
+            "equation": "Mao et al. (1974), page 1167, printed Birch-Murnaghan equation",
+        }
+        record["notes"] = (
+            "Room-temperature (23+/-3 degC) magnetite BM3. V0 and its "
+            "propagated error come from the paper's a0=8.394(3) A sample, not "
+            "the independent structural lattice in this file. K0'=4+/-0.4 was "
+            "assumed, and the authors formed the +/-10 GPa K0 uncertainty by "
+            "adding fit, NaCl pressure-scale, and assumed-K0' contributions; "
+            "it is not a covariance-derived one-sigma error. The low-pressure "
+            "spinel reflections persist to 32 GPa, but a high-pressure phase "
+            "begins to coexist above about 25 GPa."
+        )
+    if identifier == "majorite_yagi_1992_bm3_1":
+        record["label"] = "Yagi et al. (1992), MgSiO3 majorite BM3"
+        record["eos"] = {
+            "type": "BM3",
+            "parameters": {"V0": 1513.1, "K0": 161.2, "K0_prime": 4.0},
+            "model": "birch_murnaghan_3",
+        }
+        record["parameter_errors"] = {
+            "V0": None,
+            "K0": None,
+            "K0_prime": None,
+        }
+        record["fixed_parameters"] = ["V0", "K0_prime"]
+        record["temperature_ref"] = 298.0
+        record["experimental_pressure_range_gpa"] = [0.0, 9.72]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": "Yagi et al. (1992), Table 1 footnote and Table 2 this-study row",
+            "K0": "Yagi et al. (1992), page 4, Figure 3 fit paragraph",
+            "K0_prime": "Yagi et al. (1992), page 4: fixed at 4",
+            "equation": "Yagi et al. (1992), page 3, Birch-Murnaghan fit description",
+        }
+        record["notes"] = (
+            "Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured "
+            "one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 "
+            "GPa. The paper prints no fit error or covariance for V0 or K0, so "
+            "the migrated +/-4 GPa value is removed rather than inferred from "
+            "the separate composition-regression uncertainties. The diffraction "
+            "structure in this file is an independent 1518.5 A^3 cell."
+        )
+    if identifier == "mgfe60o_richet_1989_bm3_1":
+        record["label"] = "Richet et al. (1989), (Mg0.4Fe0.6)O BM2"
+        record["identifier"] = "mgfe60o_richet_1989_bm2_1"
+        record["eos"] = {
+            "type": "BM2",
+            "parameters": {"V0": 78.430232810125, "K0": 149.0},
+            "model": "birch_murnaghan_2",
+        }
+        record["parameter_errors"] = {"V0": 0.0219872163, "K0": 4.0}
+        record["fixed_parameters"] = ["V0"]
+        record["temperature_ref"] = 298.0
+        record["experimental_pressure_range_gpa"] = [0.0, 49.4]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Richet et al. (1989), page 3037: a0=4.2805(4) A; "
+                "V0=a0^3 for the four-formula-unit rocksalt cell"
+            ),
+            "K0": "Richet et al. (1989), Table 1, MW60 this-work static fit",
+            "equation": (
+                "Richet et al. (1989), Table 1 footnote and equation (1): "
+                "second-order Eulerian finite strain with K0'=4"
+            ),
+        }
+        record["notes"] = (
+            "Fit-specific room-temperature BM2 for MW60, the sample containing "
+            "60 mol% FeO. It is distinct from the paper's later global linear-"
+            "composition model. V0 and its error are propagated from the primary "
+            "a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. "
+            "Table 2 spans 0-49.4 GPa. No covariance or confidence convention "
+            "for the K0 error is reported."
+        )
+    if identifier == "nis_campbell_1993_bm3_1":
+        record["label"] = "Campbell and Heinz (1993), NiAs-type NiS BM3"
+        record["eos"] = {
+            "type": "BM3",
+            "parameters": {
+                "V0": 54.8262666013039,
+                "K0": 156.0,
+                "K0_prime": 4.4,
+            },
+            "model": "birch_murnaghan_3",
+        }
+        record["parameter_errors"] = {
+            "V0": 0.009596193736601715,
+            "K0": 10.0,
+            "K0_prime": 1.2,
+        }
+        record["fixed_parameters"] = ["V0"]
+        record["temperature_ref"] = 298.0
+        record["experimental_pressure_range_gpa"] = [0.0, 44.9]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Campbell and Heinz (1993), page 6: a0=3.4395(2) A and "
+                "c0=5.3514(7) A; V0=sqrt(3)/2*a0^2*c0"
+            ),
+            "K0": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+            "K0_prime": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+            "equation": "Campbell and Heinz (1993), page 6 and Figure 1",
+        }
+        record["notes"] = (
+            "Room-temperature third-order Birch-Murnaghan fit for metastable "
+            "NiAs-type (B8) NiS. V0 and its independent propagated error use "
+            "the primary paper's ambient a and c values. K0=156(10) GPa and "
+            "K0'=4.4(1.2). The last tabulated readable P-V point is 44.9 GPa; "
+            "above 45 GPa the diffraction lines become unreadable. No fitted-"
+            "parameter covariance is published."
+        )
+    if identifier in {
+        "indium_nitride_mu_oz_1993_bm3_1",
+        "indium_nitride_munoz_1993_murnaghan_1",
+    }:
+        record["identifier"] = "indium_nitride_munoz_1993_murnaghan_1"
+        record["label"] = "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan"
+        record["eos"] = {
+            "type": "Murnaghan",
+            "parameters": {
+                "V0": 59.92519880888224,
+                "K0": 166.0,
+                "K0_prime": 3.8,
+            },
+            "model": "murnaghan",
+        }
+        record["parameter_errors"] = {"V0": None, "K0": None, "K0_prime": None}
+        record["fixed_parameters"] = ["V0"]
+        record["pressure_range_status"] = "theoretical"
+        record.pop("experimental_pressure_range_gpa", None)
+        record["parameter_provenance"] = {
+            "V0": "Table 1 theoretical a0=3.483 A and c0=5.7039 A; V0=sqrt(3)/2*a0^2*c0",
+            "K0": "Table 1 wurtzite pseudopotential row: 166 GPa",
+            "K0_prime": "Table 1 wurtzite pseudopotential row: 3.8",
+            "equation": "section 3 and Figure 1 caption: Murnaghan E(V)",
+        }
+        record["notes"] = (
+            "Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. "
+            "The theoretical conventional-cell V0=59.92519880888224 A^3 is "
+            "calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa "
+            "and K0'=3.8 are from the same pseudopotential row. These are not "
+            "experimental EOS parameters. The paper estimates finite-cutoff "
+            "sensitivity from 40/70-Ryd calculations, but does not publish "
+            "statistical coefficient errors or covariance, so none are inferred."
+        )
+        for correction in (
+            {
+                "path": "identifier",
+                "source_value": "indium_nitride_mu_oz_1993_bm3_1",
+                "value": "indium_nitride_munoz_1993_murnaghan_1",
+                "reason": "Correct the author spelling and identify the primary Murnaghan model.",
+            },
+            {
+                "path": "eos",
+                "source_value": "BM3(V0=61.7988, K0=166, K0_prime=3.8)",
+                "value": "Murnaghan(V0=59.92519880888224, K0=166, K0_prime=3.8)",
+                "reason": "Use the paper's Murnaghan fit and theoretical Table 1 equilibrium cell, not an experimental card V0.",
+            },
+        ):
+            correction["primary_reference"] = {
+                "doi": "10.1088/0953-8984/5/33/010",
+                "location": "section 3, Figure 1 caption, and Table 1",
+            }
+            append_correction(record, correction)
+    if identifier in {
+        "li_bcc_hanfland_1999_bm3_1",
+        "li_hanfland_1999_vinet_1",
+    }:
+        record["identifier"] = "li_hanfland_1999_vinet_1"
+        record["label"] = "Hanfland et al. (1999), combined bcc-fcc Li Vinet"
+        record["eos"] = {
+            "type": "Vinet",
+            "parameters": {"V0": 43.245, "K0": 11.32, "K0_prime": 3.62},
+            "model": "vinet",
+        }
+        record["parameter_errors"] = {
+            "V0": None,
+            "K0": 0.10,
+            "K0_prime": 0.04,
+        }
+        record["fixed_parameters"] = ["V0"]
+        record["temperature_ref"] = 298.0
+        record["experimental_pressure_range_gpa"] = [0.0, 21.1]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Hanfland et al. (1999), Table 2: fixed atomic V0=21.6225 "
+                "A^3, multiplied by two for the bcc conventional-cell convention"
+            ),
+            "K0": "Hanfland et al. (1999), Table 2, this-work Vinet row",
+            "K0_prime": "Hanfland et al. (1999), Table 2, this-work Vinet row",
+            "equation": (
+                "Hanfland et al. (1999), page 125, combined bcc-fcc Vinet "
+                "fit description and Figure 3"
+            ),
+        }
+        record["notes"] = (
+            "Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, "
+            "exactly as defined by the primary paper. It is not a phase-specific "
+            "bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a "
+            "0.16(3)% volume discontinuity. Public volumes use twice the paper's "
+            "atomic volume so they remain compatible with this file's two-atom "
+            "bcc conventional-cell convention, including for fcc observations. "
+            "V0 was fixed; no V0 error or parameter covariance is published."
+        )
+        for correction in (
+            {
+                "path": "identifier",
+                "source_value": "li_bcc_hanfland_1999_bm3_1",
+                "value": "li_hanfland_1999_vinet_1",
+                "reason": "The cited study's combined bcc/fcc fit is Vinet, not a bcc BM3.",
+            },
+            {
+                "path": "eos.type",
+                "source_value": "BM3",
+                "value": "Vinet",
+                "reason": "Correct the migrated equation family to the primary Vinet fit.",
+            },
+        ):
+            correction["primary_reference"] = {
+                "doi": "10.1016/S0038-1098(99)00322-1",
+                "location": "page 125, Tables 1-2 and Figure 3",
+            }
+            append_correction(record, correction)
+    if identifier in {
+        "sno2_cubic_27gpa_ono_2000_bm3_1",
+        "sno2_pa_3_at_48gpa_ono_2000_bm3_1",
+    }:
+        record["label"] = "Ono et al. (2000), cubic Pa-3 SnO2 300 K BM3"
+        record["eos"] = {
+            "type": "BM3",
+            "parameters": {"V0": 130.6, "K0": 252.0, "K0_prime": 3.5},
+            "model": "birch_murnaghan_3",
+        }
+        record["parameter_errors"] = {
+            "V0": 0.3,
+            "K0": 28.0,
+            "K0_prime": 2.2,
+        }
+        record["fixed_parameters"] = []
+        record["temperature_ref"] = 300.0
+        record["experimental_pressure_range_gpa"] = [16.09, 28.85]
+        record["pressure_range_status"] = "reported_exactly"
+        record["experimental_temperature_range_k"] = [300.0, 1400.0]
+        record["validity"] = {
+            "pressure_gpa": [16.09, 28.85],
+            "temperature_k": [300.0, 300.0],
+            "notes": [
+                "This executable record is only the published 300 K reference isotherm.",
+                "The paper also reports a separate 25 GPa thermal-expansion coefficient, which is not a complete thermal EOS and is not composed here.",
+            ],
+        }
+        record["parameter_provenance"] = {
+            "V0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+            "K0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+            "K0_prime": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+            "equation": "Ono et al. (2000), page 621, printed third-order BM equation",
+        }
+        record["notes"] = (
+            "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) "
+            "A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a "
+            "decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a "
+            "fitted extrapolation because the cubic phase transforms on "
+            "decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, "
+            "but this record intentionally implements only the 300 K curve. "
+            "No fitted-parameter covariance is published."
+        )
+    if identifier == "sro_liu_1973_bm3_1":
+        record["label"] = "Liu and Bassett (1973), SrO volumetric BM3"
+        record["eos"] = {
+            "type": "BM3",
+            "parameters": {"V0": 137.388096, "K0": 91.3, "K0_prime": 4.3},
+            "model": "birch_murnaghan_3",
+        }
+        record["parameter_errors"] = {
+            "V0": 0.412164288,
+            "K0": 2.7,
+            "K0_prime": 0.3,
+        }
+        record["fixed_parameters"] = ["V0"]
+        record["temperature_ref"] = 296.15
+        record["experimental_pressure_range_gpa"] = [0.0, 34.05]
+        record["experimental_temperature_range_k"] = [293.15, 299.15]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Liu and Bassett (1973), Table 2: a0=5.160 A; V0=a0^3, "
+                "with the stated 0.3% volume accuracy"
+            ),
+            "K0": "Liu and Bassett (1973), page 8472, first Birch formulation",
+            "K0_prime": "Liu and Bassett (1973), page 8472, first Birch formulation",
+            "equation": "Liu and Bassett (1973), page 8472, first printed Birch equation",
+        }
+        record["notes"] = (
+            "Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. "
+            "K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation "
+            "fit errors. The fixed V0 error represents the paper's stated 0.3% "
+            "volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell "
+            "shows a small tetragonal distortion, but the paper reports no "
+            "volume discontinuity and deliberately fits all data together. No "
+            "parameter covariance is published."
+        )
+    if identifier in {
+        "sro_b2_sato_1981_bm3_1",
+        "sro_b2_sato_1981_bm2_1",
+    }:
+        record["identifier"] = "sro_b2_sato_1981_bm2_1"
+        record["label"] = "Sato and Jeanloz (1981), B2 SrO BM2"
+        record["eos"] = {
+            "type": "BM2",
+            "parameters": {"V0": 28.0224, "K0": 160.0},
+            "model": "birch_murnaghan_2",
+        }
+        record["parameter_errors"] = {"V0": 0.9127817589576549, "K0": 19.0}
+        record["fixed_parameters"] = []
+        record["temperature_ref"] = 300.0
+        record["experimental_pressure_range_gpa"] = [32.0, 59.0]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Sato and Jeanloz (1981), page 11776: rho0=6.14+/-0.20 "
+                "Mg/m^3, converted to the Z=1 Pm-3m conventional-cell volume"
+            ),
+            "K0": "Sato and Jeanloz (1981), page 11776, second-order fit",
+            "equation": (
+                "Sato and Jeanloz (1981), equations (1)-(7) and page 11776: "
+                "second-order Eulerian finite strain with K0'=4"
+            ),
+        }
+        record["notes"] = (
+            "Room-temperature second-order finite-strain EOS for B2 SrO. The "
+            "published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-"
+            "0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and "
+            "K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, "
+            "with B1-B2 coexistence at 32 and 37 GPa and a transition pressure "
+            "of 36+/-4 GPa. No covariance is published."
+        )
     if record.get("thermal", {}).get("type") == "AlphaKT":
         record["thermal"]["model"] = "thermal_reference_state"
+    if identifier in {
+        "coo_clendenen_1966_bm3_1",
+        "coo_clendenen_1966_murnaghan_1",
+    }:
+        record["identifier"] = "coo_clendenen_1966_murnaghan_1"
+        record["label"] = "Clendenen and Drickamer (1966), CoO Murnaghan"
+        record["eos"] = {
+            "type": "Murnaghan",
+            "parameters": {
+                "V0": 77.199941512,
+                "K0": 190.5,
+                "K0_prime": 3.9,
+            },
+            "model": "murnaghan",
+        }
+        record["parameter_errors"] = {
+            "V0": None,
+            "K0": None,
+            "K0_prime": None,
+        }
+        record["fixed_parameters"] = ["V0"]
+        record["experimental_pressure_range_gpa"] = [0.0, 30.8]
+        record["pressure_range_status"] = "reported_exactly"
+        record["parameter_provenance"] = {
+            "V0": (
+                "Table II ambient cubic a0=4.258 A; V0=a0^3 for the "
+                "four-formula-unit conventional cell"
+            ),
+            "K0": "Table VI B0=1905 kbar; converted to 190.5 GPa",
+            "K0_prime": "Table VI dimensionless B0'=3.9",
+        }
+        record["notes"] = (
+            "Room-temperature empirical Murnaghan fit from Equation (4) and "
+            "Table VI. The authors fitted B0 and B0' over the entire measured "
+            "range and explicitly caution that they need not equal the true "
+            "one-atmosphere bulk modulus and derivative. Table III gives the "
+            "smoothed CoO compression data through 308 kbar (30.8 GPa). No "
+            "parameter errors, covariance, confidence convention, or exact "
+            "measurement temperature are printed."
+        )
+        for correction in (
+            {
+                "path": "identifier",
+                "source_value": "coo_clendenen_1966_bm3_1",
+                "value": "coo_clendenen_1966_murnaghan_1",
+                "reason": "The primary paper uses the Murnaghan equation printed as Equation (4).",
+            },
+            {
+                "path": "eos",
+                "source_value": "BM3(V0=93.8242, K0=190.5, K0_prime=3.9)",
+                "value": "Murnaghan(V0=77.199941512, K0=190.5, K0_prime=3.9)",
+                "reason": (
+                    "Use Equation (4), Table VI, and V0=a0^3 from the "
+                    "Table II ambient a0=4.258 A."
+                ),
+            },
+            {
+                "path": "fixed_parameters",
+                "source_value": [],
+                "value": ["V0"],
+                "reason": (
+                    "Table VI fits B0 and B0'; V0 is the independently listed "
+                    "ambient lattice reference in Table II."
+                ),
+            },
+            {
+                "path": "experimental_pressure_range_gpa",
+                "source_value": None,
+                "value": [0.0, 30.8],
+                "reason": "Table III lists CoO compression data from 0 to 308 kbar.",
+            },
+        ):
+            correction["primary_reference"] = {
+                "doi": "10.1063/1.1726610",
+                "location": "Equation (4) and Tables II, III, and VI",
+            }
+            append_correction(record, correction)
+    if identifier == "aragonite_martinez_1996_bm2_2":
+        record["label"] = "Martinez et al. (1996), staged P-V-T BM2"
+        record["experimental_pressure_range_gpa"] = [0.0, 8.18]
+        record["experimental_temperature_range_k"] = [298.0, 973.0]
+        record["thermal"] = {
+            "type": "AlphaKT",
+            "model": "thermal_reference_state",
+            "thermal_expansion_law": "constant",
+            "reference_volume_law": "linear_temperature",
+            "parameters": {
+                "Tr": 298.0,
+                "alpha0": 6.5e-5,
+                "dK_dT": -0.018,
+            },
+            "parameter_errors": {
+                "Tr": None,
+                "alpha0": 0.1e-5,
+                "dK_dT": 0.002,
+            },
+            "fixed_parameters": ["Tr"],
+        }
+        record["parameter_error_confidence"] = None
+        record["notes"] = (
+            "Staged second-order Birch-Murnaghan P-V-T parameterization from "
+            "Martinez et al. (1996). Each Table 6 isotherm fixes K0'=4; Equation "
+            "(2) supplies the reported linear K0(T) slope, and Equation (3) uses "
+            "the reported mean expansion coefficient in the direct relation "
+            "V0(T)=V0(298 K)*[1+alpha_bar*(T-298 K)]. Table 6 reports the 298 K "
+            "V0=227.5+/-0.8 A^3 and sigma(K0)=3.48 GPa; the prose and Table 7 "
+            "instead summarize the K0 error as approximately 4.3 GPa. Table 6 "
+            "contains fitted isotherms through 973 K. The source reports no "
+            "parameter covariance or confidence convention, and the stored "
+            "pressure/temperature extrema are an experimental envelope rather "
+            "than a rectangular validity guarantee."
+        )
+    if identifier == "cementite_scott_2001_bm3_1":
+        old_fixed_parameters = list(record.get("fixed_parameters", []))
+        record["eos"] = {
+            "type": "BM3",
+            "parameters": {"V0": 155.26, "K0": 175.4, "K0_prime": 5.1},
+            "model": "birch_murnaghan_3",
+        }
+        record["parameter_errors"] = {
+            "V0": 0.14,
+            "K0": 3.5,
+            "K0_prime": 0.3,
+        }
+        record["parameter_error_confidence"] = None
+        record["fixed_parameters"] = ["V0"]
+        record["experimental_pressure_range_gpa"] = [0.0, 73.2]
+        record["experimental_temperature_range_k"] = [300.0, 300.0]
+        record["temperature_ref"] = 300.0
+        record["notes"] = (
+            "Scott et al. report a weighted third-order Birch-Murnaghan fit to "
+            "300 K compression data: V0=155.26+/-0.14 A^3 is the separately "
+            "measured ambient unit-cell volume, K0T=175.4+/-3.5 GPa, and "
+            "K0T'=5.1+/-0.3. The abstract and title round the compression "
+            "range to 73 GPa; Figure 1 labels the highest diffraction pattern "
+            "73.2 GPa, which is retained as the experimental maximum. The "
+            "paper reports no parameter covariance or confidence convention "
+            "for the printed +/- values. The 73 GPa envelope is not a thermal "
+            "validity claim and should not be extrapolated to core pressures."
+        )
+        if old_fixed_parameters != ["V0"]:
+            append_correction(
+                record,
+                {
+                    "path": "fixed_parameters",
+                    "source_value": old_fixed_parameters,
+                    "value": ["V0"],
+                    "reason": (
+                        "The paper identifies V0 as the measured ambient volume "
+                        "and reports only K0T and K0T' as EOS-fit results."
+                    ),
+                    "primary_reference": {
+                        "doi": "10.1029/2000GL012606",
+                        "location": "pages 1875-1876, Experimental and EOS paragraphs",
+                    },
+                },
+            )
     if identifier in SOKOLOVA_COMPOSITION:
         n, atomic_number = SOKOLOVA_COMPOSITION[identifier]
         for component, name, value in (
@@ -721,6 +1618,107 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
                 },
             },
         )
+
+    if identifier == "gold_anderson_1989_bm3_1":
+        old_v0 = record["eos"]["parameters"]["V0"]
+        old_thermal = dict(record["thermal"])
+        record["label"] = "Anderson et al. (1989), Au logarithmic-volume thermal EOS"
+        record["eos"]["parameters"]["V0"] = 67.79
+        record["fixed_parameters"] = ["V0", "K0", "K0_prime"]
+        record["temperature_ref"] = 300.0
+        record["thermal"] = {
+            "type": "LogVolumeThermalPressure",
+            "parameters": {
+                "Tr": 300.0,
+                "alpha_KT_ref": 0.00714,
+                "dK_dT_V": -0.0115,
+            },
+            "model": "log_volume_thermal_pressure",
+            "parameter_errors": {
+                "Tr": None,
+                "alpha_KT_ref": None,
+                "dK_dT_V": 0.001,
+            },
+            "fixed_parameters": ["Tr"],
+        }
+        record["validity"] = {
+            "pressure_gpa": [0.0, 222.44],
+            "temperature_k": [300.0, 3000.0],
+            "volume_ratio": [0.66, 1.0],
+            "notes": [
+                "Table V calculation grid; a reference parameterization, not an independent experimental envelope."
+            ],
+        }
+        record["parameter_provenance"] = {
+            "reference_isotherm": {
+                "V0": (
+                    "page 1535 ambient density 19.30 g/cm^3 and atomic mass "
+                    "196.967 g/mol; converted to the four-atom fcc cell"
+                ),
+                "K0": "Equation (29) and Table V; adopted KT0=166.65 GPa",
+                "K0_prime": ("Equation (29) and Table V; adopted (dKT/dP)T=5.4823"),
+            },
+            "thermal_correction": {
+                "Tr": "Equations (21), (27b), and (29); 300 K",
+                "alpha_KT_ref": ("Equations (20), (21), (26), and (29); 7.14e-3 GPa/K"),
+                "dK_dT_V": ("Section III and Equations (26)-(29); -11.5e-3 GPa/K"),
+            },
+        }
+        record["notes"] = (
+            "Anderson et al. Equation (29): the adopted 300 K BM3 curve "
+            "KT0=166.65 GPa and K0'=5.4823 is combined with "
+            "[0.00714-0.0115*ln(V0/V)]*(T-300) GPa. V0=67.79 A^3 is "
+            "converted from the paper's ambient density 19.30 g/cm^3 and "
+            "atomic mass 196.967 g/mol for the four-atom fcc cell. Table V "
+            "covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K "
+            "dK_dT_V error is the explicit propagated contribution reported "
+            "for the near-identical K0'=5.5 calculation; the paper notes an "
+            "additional unquantified contribution from K0' uncertainty. No "
+            "complete covariance matrix or errors for the adopted static "
+            "parameters are published."
+        )
+        for correction in (
+            {
+                "path": "eos.parameters.V0",
+                "source_value": old_v0,
+                "value": 67.79,
+                "reason": (
+                    "Convert the primary ambient density and atomic mass to the "
+                    "four-atom conventional fcc cell; do not inherit another "
+                    "catalog's reference volume."
+                ),
+            },
+            {
+                "path": "fixed_parameters",
+                "source_value": [],
+                "value": ["V0", "K0", "K0_prime"],
+                "reason": (
+                    "Equation (29) and Table V adopt these reference-isotherm "
+                    "inputs rather than fitting them in this paper."
+                ),
+            },
+            {
+                "path": "thermal",
+                "source_value": old_thermal,
+                "value": dict(record["thermal"]),
+                "reason": (
+                    "Equation (29) is an additive linear thermal pressure whose "
+                    "slope varies with ln(V0/V), not a shifted reference-state "
+                    "EOS with constant expansivity and dK_dT=0."
+                ),
+            },
+            {
+                "path": "validity",
+                "source_value": None,
+                "value": dict(record["validity"]),
+                "reason": "Use the complete calculation grid printed in Table V.",
+            },
+        ):
+            correction["primary_reference"] = {
+                "doi": "10.1063/1.342969",
+                "location": "pages 1535-1541, Equations (20)-(29), and Table V",
+            }
+            append_correction(record, correction)
 
     if identifier in {"zircon_hazen_1979_bm2_1", "zircon_hazen_1979_bm3_1"}:
         record["identifier"] = "zircon_hazen_1979_bm3_1"
@@ -1505,8 +2503,8 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation: dict[str, Any] = {
             "status": "primary_source_validated",
             "note": (
-                "Independently checked against the cited primary publication or "
-                "its official/author manuscript; no external software catalog was "
+                "Independently checked against the cited primary publication "
+                "(published article or official/author copy); no external software catalog was "
                 "used as scientific authority."
             ),
             "audit_date": AUDIT_DATE,
@@ -1565,13 +2563,46 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             }
         ]
 
+    if result["identifier"] == "aragonite_martinez_1996_bm2_2":
+        result["scientific_validation"]["reported_inconsistencies"] = [
+            {
+                "field": "parameter_errors.K0",
+                "table_6": "3.48 GPa",
+                "text_and_table_7": "approximately 4.3 GPa",
+                "resolution": (
+                    "Retain 3.48 GPa because it is the fit-specific sigma K0,T "
+                    "printed in Table 6 alongside V0=227.5(8) A^3."
+                ),
+            }
+        ]
+
     return result
 
 
 def main() -> None:
+    curate_migrated_catalog()
     entries: list[dict[str, Any]] = []
     for path in sorted(MATERIALS.glob("*.eosmat")):
         document = json.loads(path.read_text(encoding="utf-8"))
+        primary_phase_labels = {
+            "cscl": "B2 (CsCl-type), cubic Pm-3m",
+            "fe3o4": "magnetite, cubic inverse-spinel Fd-3m",
+            "nis": "metastable NiAs-type, hexagonal P63/mmc",
+            "sno2_cubic_27gpa": "high-pressure cubic Pa-3 SnO2",
+            "sno2_pa_3_at_48gpa": "high-pressure cubic Pa-3 SnO2",
+            "sro": "B1 (NaCl-type), cubic Fm-3m",
+            "sro_b2": "B2 (CsCl-type), cubic Pm-3m",
+        }
+        if document["identifier"] in primary_phase_labels:
+            document["phase"] = primary_phase_labels[document["identifier"]]
+        if document["identifier"] == "coo":
+            document["lattice"].update({"a": 4.258, "b": 4.258, "c": 4.258})
+            document["notes"] = (
+                "Rocksalt CoO structure. The ambient cubic lattice parameter "
+                "a0=4.258 A is from Clendenen and Drickamer (1966), Table II; "
+                "the atom sites and space-group metadata are retained from the "
+                "Dioptas/JCPDS interchange record."
+            )
         if document["identifier"] == "iceviii":
             document["name"] = "Ice VIII (D2O)"
             document["formula"] = "D2O"
@@ -1582,8 +2613,65 @@ def main() -> None:
                 "The legacy powder lines are retained for interchange because a "
                 "publication-verified ordered atomic-site model has not yet been curated."
             )
+        if document["identifier"] == "feo":
+            document["notes"] = (
+                "Consolidated B1 FeO entry from equivalent cubic beamline JCPDS "
+                "cards. The executable EOS is composition-specific to Fe0.94O. "
+                "The legacy 'Fei 1995' static record was removed because its "
+                "cited DOI is a thermal-expansion chapter and does not establish "
+                "that EOS."
+            )
+        if document["identifier"] == "aragonite":
+            document["notes"] = (
+                "Aragonite structure with the reproducible staged BM2 P-V-T "
+                "parameterization of Martinez et al. (1996). The paper's "
+                "separate global HT-BM3 reduction is intentionally excluded: "
+                "its fitted V0(298 K) is omitted, and its remaining coefficients "
+                "cannot be reproduced from the printed 64-point table with the "
+                "documented equations under pressure- or volume-residual least "
+                "squares. Ambient coordinates are from Ye et al., American "
+                "Mineralogist 97, 707-712 (2012)."
+            )
+        if document["identifier"] == "mgfe60o":
+            document["name"] = "(Mg0.4Fe0.6)O (MW60)"
+            document["formula"] = "Mg0.4Fe0.6O"
+            document["phase"] = "rocksalt magnesiowustite, cubic Fm-3m"
+            document["formula_units_per_cell"] = 4
+            document["space_group"] = "Fm-3m"
+            document["space_group_number"] = 225
+            document["cell_contents"] = (
+                "4 (Mg0.4Fe0.6)O formula units per conventional rocksalt cell"
+            )
+            document["notes"] = (
+                "MW60 magnesiowustite containing 60 mol% FeO. The EOS volume "
+                "uses the four-cation/four-anion conventional rocksalt cell. "
+                "The legacy diffraction peaks are retained for interchange."
+            )
+        if document["identifier"] == "li_bcc":
+            document["phase"] = "bcc structure; EOS fit spans bcc and fcc Li"
+            document["cell_contents"] = (
+                "2 Li atoms per bcc conventional cell; fcc observations in the "
+                "combined EOS are expressed as equivalent two-atom volumes"
+            )
+            document["notes"] = (
+                "Ambient bcc lithium crystallography. The bundled literature "
+                "EOS is the primary paper's empirical bcc-fcc combined fit, not "
+                "a single-phase bcc curve; its volume convention is documented "
+                "at record level."
+            )
+        if document["identifier"] == "tungsten":
+            document["notes"] = (
+                "Tungsten pressure calibrant; the static-DAC Dewaele et al. "
+                "(2004) Vinet fit is the default, with Cu-referenced Shen and "
+                "Smith and Sokolova et al. fits as alternatives. The legacy "
+                "Hixson-Fritz BM3 record was removed because the cited shock "
+                "paper publishes Hugoniot-derived tabular isotherms, not the "
+                "migrated standalone BM3 reduction."
+            )
         records = []
         for record in document["eos_records"]:
+            if record["identifier"] in REMOVED_UNSUPPORTED_RECORDS:
+                continue
             audited = audit_record(record, path.name)
             records.append(audited)
             check = audited["scientific_validation"]
@@ -1606,8 +2694,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 147:
-        raise ValueError(f"Expected 147 EOS records, found {len(entries)}")
+    if len(entries) != 146:
+        raise ValueError(f"Expected 146 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
@@ -1638,6 +2726,8 @@ def main() -> None:
 
     manifest_path = MATERIALS / "manifest.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["materials"] = len(list(MATERIALS.glob("*.eosmat")))
+    manifest["eos_records"] = len(entries)
     manifest["scientific_validation"] = {
         "audit_date": AUDIT_DATE,
         "report": "../primary-source-audit.json",

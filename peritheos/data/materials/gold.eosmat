@@ -28,7 +28,7 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "04-0784, Anderson et al J Appl Phys 65, 1534, 1989",
+   "label": "Anderson et al. (1989), Au logarithmic-volume thermal EOS",
    "reference": {
     "authors": [
      "Anderson",
@@ -44,7 +44,7 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 67.84742110765599,
+     "V0": 67.79,
      "K0": 166.65,
      "K0_prime": 5.4823
     },
@@ -55,32 +55,54 @@
     "K0": null,
     "K0_prime": null
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
    "pressure_range_status": "reference_parameterization",
-   "notes": "Anderson et al. thermodynamic pressure-scale parameterization. The source does not tabulate statistical standard errors for this recommended parameter set.",
+   "notes": "Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0'=5.4823 is combined with [0.00714-0.0115*ln(V0/V)]*(T-300) GPa. V0=67.79 A^3 is converted from the paper's ambient density 19.30 g/cm^3 and atomic mass 196.967 g/mol for the four-atom fcc cell. Table V covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K dK_dT_V error is the explicit propagated contribution reported for the near-identical K0'=5.5 calculation; the paper notes an additional unquantified contribution from K0' uncertainty. No complete covariance matrix or errors for the adopted static parameters are published.",
    "thermal": {
-    "type": "AlphaKT",
+    "type": "LogVolumeThermalPressure",
     "parameters": {
-     "alpha0": 4.26e-05,
-     "dK_dT": 0.0
+     "Tr": 300.0,
+     "alpha_KT_ref": 0.00714,
+     "dK_dT_V": -0.0115
     },
-    "model": "thermal_reference_state"
+    "model": "log_volume_thermal_pressure",
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT_ref": null,
+     "dK_dT_V": 0.001
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
    },
    "identifier": "gold_anderson_1989_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary paper was identified, but the complete recommended parameter derivation and its reference-state conventions were not available in an accessible primary copy during this audit.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1063/1.342969",
      "access_url": "https://doi.org/10.1063/1.342969",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary paper was identified, but the complete recommended parameter derivation and its reference-state conventions were not available in an accessible primary copy during this audit."
+     "locations": [
+      "ambient density paragraph, page 1535",
+      "Section III and Equation (8), pages 1536-1537",
+      "Equations (20)-(29), pages 1540-1541",
+      "Table V, page 1541"
+     ],
+     "finding": "The stored record reproduces Equation (29) and the top rows of Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. The partial published error on (dKT/dT)V is retained; the article also identifies an additional unquantified contribution from K0' uncertainty.",
+     "doi": "10.1063/1.342969"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -88,7 +110,131 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "gold.json"
     }
-   }
+   },
+   "temperature_ref": 300.0,
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     222.44
+    ],
+    "temperature_k": [
+     300.0,
+     3000.0
+    ],
+    "volume_ratio": [
+     0.66,
+     1.0
+    ],
+    "notes": [
+     "Table V calculation grid; a reference parameterization, not an independent experimental envelope."
+    ]
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "page 1535 ambient density 19.30 g/cm^3 and atomic mass 196.967 g/mol; converted to the four-atom fcc cell",
+     "K0": "Equation (29) and Table V; adopted KT0=166.65 GPa",
+     "K0_prime": "Equation (29) and Table V; adopted (dKT/dP)T=5.4823"
+    },
+    "thermal_correction": {
+     "Tr": "Equations (21), (27b), and (29); 300 K",
+     "alpha_KT_ref": "Equations (20), (21), (26), and (29); 7.14e-3 GPa/K",
+     "dK_dT_V": "Section III and Equations (26)-(29); -11.5e-3 GPa/K"
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 67.79,
+     "value": 67.79,
+     "reason": "Convert the primary ambient density and atomic mass to the four-atom conventional fcc cell; do not inherit another catalog's reference volume.",
+     "primary_reference": {
+      "doi": "10.1063/1.342969",
+      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+     }
+    },
+    {
+     "path": "fixed_parameters",
+     "source_value": [],
+     "value": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "reason": "Equation (29) and Table V adopt these reference-isotherm inputs rather than fitting them in this paper.",
+     "primary_reference": {
+      "doi": "10.1063/1.342969",
+      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+     }
+    },
+    {
+     "path": "thermal",
+     "source_value": {
+      "type": "LogVolumeThermalPressure",
+      "parameters": {
+       "Tr": 300.0,
+       "alpha_KT_ref": 0.00714,
+       "dK_dT_V": -0.0115
+      },
+      "model": "log_volume_thermal_pressure",
+      "parameter_errors": {
+       "Tr": null,
+       "alpha_KT_ref": null,
+       "dK_dT_V": 0.001
+      },
+      "fixed_parameters": [
+       "Tr"
+      ]
+     },
+     "value": {
+      "type": "LogVolumeThermalPressure",
+      "parameters": {
+       "Tr": 300.0,
+       "alpha_KT_ref": 0.00714,
+       "dK_dT_V": -0.0115
+      },
+      "model": "log_volume_thermal_pressure",
+      "parameter_errors": {
+       "Tr": null,
+       "alpha_KT_ref": null,
+       "dK_dT_V": 0.001
+      },
+      "fixed_parameters": [
+       "Tr"
+      ]
+     },
+     "reason": "Equation (29) is an additive linear thermal pressure whose slope varies with ln(V0/V), not a shifted reference-state EOS with constant expansivity and dK_dT=0.",
+     "primary_reference": {
+      "doi": "10.1063/1.342969",
+      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+     }
+    },
+    {
+     "path": "validity",
+     "source_value": null,
+     "value": {
+      "pressure_gpa": [
+       0.0,
+       222.44
+      ],
+      "temperature_k": [
+       300.0,
+       3000.0
+      ],
+      "volume_ratio": [
+       0.66,
+       1.0
+      ],
+      "notes": [
+       "Table V calculation grid; a reference parameterization, not an independent experimental envelope."
+      ]
+     },
+     "reason": "Use the complete calculation grid printed in Table V.",
+     "primary_reference": {
+      "doi": "10.1063/1.342969",
+      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+     }
+    }
+   ]
   },
   {
    "label": "04-0784, Fei et al PNAS, 2007 [Vinet]",
@@ -157,8 +303,8 @@
    "identifier": "gold_fei_2007_vinet_2",
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-08-31",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -224,19 +370,29 @@
    "notes": "Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.01. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
    "identifier": "gold_shen_2026_vinet_3",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1103/fxgq-96sg",
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+     "locations": [
+      "Equation (4), page 8",
+      "Table I and footnotes, page 4",
+      "Table II, pages 9-12",
+      "Section III.E, pages 8 and 12-14",
+      "Experimental methods, page 2"
+     ],
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+     "doi": "10.1103/fxgq-96sg"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -329,8 +485,8 @@
    "identifier": "gold_sokolova_2016_holzapfel_4",
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-08-31",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",

@@ -5,6 +5,7 @@ import re
 from importlib import resources
 from pathlib import Path
 
+import numpy as np
 import pytest
 from jsonschema import Draft202012Validator
 
@@ -39,14 +40,55 @@ NINETY_FIVE_PERCENT_INTERVAL_RECORDS = (
     ("tungsten", "tungsten_dewaele_2004_vinet_2"),
 )
 
+SHEN_SMITH_2026_RECORDS = (
+    ("fe", "fe_shen_2026_vinet_1", 23.506, 116.15919903947005, 2.5, 0.5),
+    ("gold", "gold_shen_2026_vinet_3", 67.792, 128.41042483384334, 0.3, 0.01),
+    ("iron", "iron_shen_2026_vinet_2", 22.352, 123.15954992657934, 0.6, 0.03),
+    ("mgo", "mgo_shen_2026_vinet_3", 74.636, 95.1759313304533, 0.7, 0.03),
+    (
+        "molybdenum",
+        "molybdenum_shen_2026_vinet_1",
+        31.14,
+        152.7396582018993,
+        0.5,
+        0.02,
+    ),
+    ("nacl_b1", "nacl_b1_shen_2026_vinet_1", 179.41, 16.415871613452587, 0.3, 0.06),
+    ("nacl_b2", "nacl_b2_shen_2026_vinet_2", 41.35, 18.484248202987555, 0.11, 0.02),
+    (
+        "platinum",
+        "platinum_shen_2026_vinet_2",
+        60.364,
+        197.26236099266487,
+        0.5,
+        0.02,
+    ),
+    (
+        "tantalum",
+        "tantalum_shen_2026_vinet_2",
+        36.14,
+        107.10106281373046,
+        0.4,
+        0.02,
+    ),
+    (
+        "tungsten",
+        "tungsten_shen_2026_vinet_3",
+        31.704,
+        178.85867602216723,
+        0.8,
+        0.03,
+    ),
+)
+
 
 def test_complete_migrated_dioptas_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 116
-    assert len(set(identifiers)) == 116
-    assert sum(len(document["eos_records"]) for document in documents) == 147
+    assert len(identifiers) == 115
+    assert len(set(identifiers)) == 115
+    assert sum(len(document["eos_records"]) for document in documents) == 146
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -72,13 +114,12 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 147
+    assert len({record["identifier"] for record in records}) == 146
     statuses = [record["scientific_validation"]["status"] for record in records]
-    assert set(statuses) == {"primary_source_validated", "deferred"}
-    assert statuses.count("primary_source_validated") == 116
-    assert statuses.count("deferred") == 31
+    assert set(statuses) == {"primary_source_validated"}
+    assert statuses.count("primary_source_validated") == 146
     assert all(
-        record["scientific_validation"]["audit_date"] == "2026-08-31"
+        record["scientific_validation"]["audit_date"] == "2026-09-01"
         for record in records
     )
     assert all(
@@ -89,13 +130,27 @@ def test_migrated_records_have_completed_primary_source_audit():
         == len(record.get("audit_corrections", []))
         for record in records
     )
+    migrated_records = [
+        record
+        for record in records
+        if "migration_source" in record["scientific_validation"]
+    ]
+    native_records = [
+        record
+        for record in records
+        if "migration_source" not in record["scientific_validation"]
+    ]
+    assert {record["identifier"] for record in native_records} == {
+        "aragonite_martinez_1996_bm2_2",
+        "kcl_b2_dewaele_2012_vinet_3",
+    }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
-        for record in records
+        for record in migrated_records
     } == {"0.10.0"}
     assert {
         record["scientific_validation"]["migration_source"]["commit"]
-        for record in records
+        for record in migrated_records
     } == {"5a8bfd81d10bfab3499039603380aae34576d60a"}
     assert all(record["eos"]["model"] for record in records)
     assert all(
@@ -116,9 +171,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 147,
-        "deferred": 31,
-        "primary_source_validated": 116,
+        "records": 146,
+        "primary_source_validated": 146,
     }
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
@@ -140,7 +194,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 116
+    assert checked == 146
     assert failures == []
 
 
@@ -176,8 +230,14 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     assert zircon["parameter_errors"]["V0"] == pytest.approx(0.04)
     assert zircon["fixed_parameters"] == ["K0_prime"]
     assert zircon["scientific_validation"]["status"] == "primary_source_validated"
-    assert shen["scientific_validation"]["status"] == "deferred"
-    assert "24 April 2027" in shen["scientific_validation"]["note"]
+    assert shen["scientific_validation"]["status"] == "primary_source_validated"
+    assert shen["scientific_validation"]["primary_source_check"]["locations"] == [
+        "Equation (4), page 8",
+        "Table I and footnotes, page 4",
+        "Table II, pages 9-12",
+        "Section III.E, pages 8 and 12-14",
+        "Experimental methods, page 2",
+    ]
 
     magnesite = get_material_document("magnesite")["eos_records"][0]
     molybdenum_carbide = get_material_document("molybenum_carbide_mo2c")["eos_records"][
@@ -287,6 +347,74 @@ def test_newly_validated_primary_records_retain_published_errors():
 
 
 @pytest.mark.parametrize(
+    (
+        "material_identifier",
+        "record_identifier",
+        "reference_volume",
+        "expected_pressure",
+        "bulk_modulus_error",
+        "derivative_error",
+    ),
+    SHEN_SMITH_2026_RECORDS,
+)
+def test_shen_smith_2026_table_ii_vinet_regression_and_errors(
+    material_identifier,
+    record_identifier,
+    reference_volume,
+    expected_pressure,
+    bulk_modulus_error,
+    derivative_error,
+):
+    document = get_material_document(material_identifier)
+    source_record = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == record_identifier
+    )
+    loaded_record = Material.from_eosmat(
+        document, record_identifiers=[record_identifier]
+    ).eos_records[0]
+
+    # Equation (4) and Table II are independently reproduced at X=0.9,
+    # where X=(V/V0)^(1/3). Some phases are outside their fitted interval at
+    # this common compression, so validity checking is disabled for this
+    # equation/parameter regression only.
+    assert loaded_record.pressure(
+        reference_volume * 0.9**3, 300.0, check_validity=False
+    ) == pytest.approx(expected_pressure)
+    assert source_record["eos"]["parameters"]["V0"] == pytest.approx(reference_volume)
+    assert source_record["fixed_parameters"] == ["V0"]
+    assert source_record["parameter_errors"] == {
+        "V0": None,
+        "K0": pytest.approx(bulk_modulus_error),
+        "K0_prime": pytest.approx(derivative_error),
+    }
+    assert "parameter_error_confidence" not in source_record
+
+    # The article gives no confidence level or covariance. Peritheos therefore
+    # treats the printed +/- values as standard errors and records the
+    # independent-parameter assumption rather than fabricating covariance.
+    uncertainty = loaded_record._uncertainty().parameter_uncertainty
+    assert uncertainty.standard_errors["K0"] == pytest.approx(bulk_modulus_error)
+    assert uncertainty.standard_errors["K0_prime"] == pytest.approx(derivative_error)
+    prediction = loaded_record.pressure_with_uncertainty(
+        reference_volume * 0.95**3,
+        300.0,
+        volume_sigma=0.01,
+        check_validity=False,
+    )
+    assert prediction.standard_error > 0.0
+    assert "parameter errors treated as mutually independent" in prediction.assumptions
+    with pytest.raises(ValueError, match="isothermal EOS record"):
+        loaded_record.pressure_with_uncertainty(
+            reference_volume * 0.95**3,
+            300.0,
+            temperature_sigma=0.5,
+            check_validity=False,
+        )
+
+
+@pytest.mark.parametrize(
     ("material_identifier", "record_identifier"),
     NINETY_FIVE_PERCENT_INTERVAL_RECORDS,
 )
@@ -316,6 +444,208 @@ def test_published_95_percent_intervals_are_normalized_when_loaded(
         )
 
 
+def test_campbell_kcl_composite_has_explicit_primary_inputs_and_errors():
+    document = get_material_document("kcl")
+    identifier = "kcl_campbell_1991_bm2_1"
+    source = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == identifier
+    )
+    record = Material.from_eosmat(
+        document, record_identifiers=[identifier]
+    ).eos_records[0]
+
+    assert source["scientific_validation"]["status"] == "primary_source_validated"
+    assert source["eos"]["parameters"] == {
+        "V0": pytest.approx(0.8483 * 62.36),
+        "K0": pytest.approx(28.7),
+    }
+    assert source["parameter_errors"] == {
+        "V0": pytest.approx(0.0057 * 62.36),
+        "K0": pytest.approx(0.6),
+    }
+    assert source["fixed_parameters"] == ["V0"]
+    assert "Dewaele et al. (2012)" in source["parameter_provenance"]["V0"]
+    assert record.pressure(
+        record.reference_volume, 298.0, check_validity=False
+    ) == pytest.approx(0.0, abs=1e-14)
+    assert record._uncertainty().parameter_uncertainty.standard_errors == {
+        "V0": pytest.approx(0.0057 * 62.36),
+        "K0": pytest.approx(0.6),
+    }
+
+
+def test_munoz_1993_inn_uses_theoretical_murnaghan_cell():
+    document = get_material_document("indium_nitride")
+    source = document["eos_records"][0]
+    record = Material.from_eosmat(document).eos_records[0]
+    expected_volume = math.sqrt(3.0) / 2.0 * 3.483**2 * 5.7039
+
+    assert source["identifier"] == "indium_nitride_munoz_1993_murnaghan_1"
+    assert source["scientific_validation"]["status"] == "primary_source_validated"
+    assert source["eos"] == {
+        "type": "Murnaghan",
+        "model": "murnaghan",
+        "parameters": {
+            "V0": pytest.approx(expected_volume),
+            "K0": pytest.approx(166.0),
+            "K0_prime": pytest.approx(3.8),
+        },
+    }
+    assert source["parameter_errors"] == {
+        "V0": None,
+        "K0": None,
+        "K0_prime": None,
+    }
+    assert source["pressure_range_status"] == "theoretical"
+    assert record.pressure(expected_volume) == pytest.approx(0.0, abs=1e-14)
+    pressure = record.pressure(expected_volume * 0.9)
+    assert record.volume(pressure) == pytest.approx(expected_volume * 0.9)
+
+
+def test_formerly_unverified_migrated_reductions_are_corrected_or_removed():
+    record_ids = {
+        record["identifier"]
+        for material_id in list_material_documents()
+        for record in get_material_document(material_id)["eos_records"]
+    }
+    lithium = get_material_document("li_bcc")["eos_records"][0]
+    majorite = get_material_document("majorite")
+    phase_d = get_material_document("phase_d")["eos_records"]
+
+    assert lithium["identifier"] == "li_hanfland_1999_vinet_1"
+    assert lithium["eos"]["type"] == "Vinet"
+    assert lithium["scientific_validation"]["status"] == "primary_source_validated"
+    assert lithium["experimental_pressure_range_gpa"] == [0.0, 21.1]
+    assert "feo_fei_1995_bm3_1" not in record_ids
+    assert "tungsten_hixson_1992_bm3_1" not in record_ids
+    assert "mgsio3" not in list_material_documents()
+    assert majorite["formula_units_per_cell"] == 16
+    assert majorite["space_group_number"] == 88
+    assert majorite["eos_records"][0]["identifier"] == "majorite_yagi_1992_bm3_1"
+    assert majorite["eos_records"][0]["eos"]["parameters"]["K0"] == 161.2
+    assert [record["identifier"] for record in phase_d] == [
+        "phase_d_ant_a_shieh_2000_bm2_1",
+        "phase_d_ant_b_shieh_2000_bm2_1",
+    ]
+    assert [record["eos"]["parameters"]["V0"] for record in phase_d] == [
+        88.12,
+        87.191,
+    ]
+    assert all(
+        record["scientific_validation"]["status"] == "primary_source_validated"
+        for record in phase_d
+    )
+
+
+@pytest.mark.parametrize(
+    ("material_id", "record_id", "volume", "published_pressure", "absolute_error"),
+    [
+        ("cscl", "cscl_campbell_1994_bm3_1", 3.5308**3, 28.7, 1.5),
+        (
+            "fe3o4",
+            "fe3o4_mao_1974_bm3_1",
+            591.434826984 * 0.923,
+            20.0,
+            3.0,
+        ),
+        ("li_bcc", "li_hanfland_1999_vinet_1", 2.0 * 11.4371, 21.1, 0.1),
+        ("majorite", "majorite_yagi_1992_bm3_1", 1435.7, 9.72, 0.4),
+        (
+            "mgfe60o",
+            "mgfe60o_richet_1989_bm2_1",
+            3.986**3,
+            49.4,
+            1.8,
+        ),
+        (
+            "nis",
+            "nis_campbell_1993_bm3_1",
+            math.sqrt(3.0) / 2.0 * 3.2520**2 * 4.871,
+            44.9,
+            6.0,
+        ),
+        ("phase_d", "phase_d_ant_a_shieh_2000_bm2_1", 77.62, 24.6, 3.0),
+        ("phase_d", "phase_d_ant_b_shieh_2000_bm2_1", 77.90, 22.0, 3.2),
+        (
+            "sno2_cubic_27gpa",
+            "sno2_cubic_27gpa_ono_2000_bm3_1",
+            119.85,
+            25.64,
+            0.6,
+        ),
+        ("sro", "sro_liu_1973_bm3_1", 137.388096 * 0.797, 34.05, 0.5),
+        (
+            "sro_b2",
+            "sro_b2_sato_1981_bm2_1",
+            28.0224 * 6.14 / 7.767,
+            59.0,
+            4.0,
+        ),
+    ],
+)
+def test_newly_validated_primary_table_regressions(
+    material_id, record_id, volume, published_pressure, absolute_error
+):
+    document = get_material_document(material_id)
+    record = Material.from_eosmat(document, record_identifiers=[record_id]).eos_records[
+        0
+    ]
+
+    assert record.pressure(volume, check_validity=False) == pytest.approx(
+        published_pressure, abs=absolute_error
+    )
+    calculated_pressure = record.pressure(volume, check_validity=False)
+    assert record.volume(calculated_pressure, check_validity=False) == pytest.approx(
+        volume
+    )
+
+
+def test_newly_validated_primary_errors_and_single_remaining_deferral():
+    ono = get_material_document("sno2_cubic_27gpa")["eos_records"][0]
+    magnetite = get_material_document("fe3o4")["eos_records"][0]
+    mw60 = get_material_document("mgfe60o")["eos_records"][0]
+    nis = get_material_document("nis")["eos_records"][0]
+    sro_b2 = get_material_document("sro_b2")["eos_records"][0]
+    deferred = [
+        record["identifier"]
+        for material_id in list_material_documents()
+        for record in get_material_document(material_id)["eos_records"]
+        if record["scientific_validation"]["status"] == "deferred"
+    ]
+
+    assert get_material_document("cscl")["phase"] == "B2 (CsCl-type), cubic Pm-3m"
+    assert get_material_document("fe3o4")["phase"] == (
+        "magnetite, cubic inverse-spinel Fd-3m"
+    )
+    assert get_material_document("nis")["phase"] == (
+        "metastable NiAs-type, hexagonal P63/mmc"
+    )
+    assert get_material_document("sro")["phase"] == ("B1 (NaCl-type), cubic Fm-3m")
+    assert get_material_document("sro_b2")["phase"] == ("B2 (CsCl-type), cubic Pm-3m")
+
+    assert ono["parameter_errors"]["V0"] == pytest.approx(0.3)
+    assert magnetite["parameter_errors"]["V0"] == pytest.approx(0.634133124)
+    assert mw60["parameter_errors"]["V0"] == pytest.approx(0.0219872163)
+    assert nis["parameter_errors"]["V0"] == pytest.approx(0.009596193736601715)
+    assert sro_b2["parameter_errors"] == {
+        "V0": pytest.approx(0.9127817589576549),
+        "K0": pytest.approx(19.0),
+    }
+    assert deferred == []
+
+    executable = Material.from_eosmat(
+        get_material_document("sno2_cubic_27gpa")
+    ).eos_records[0]
+    prediction = executable.pressure_with_uncertainty(
+        119.85,
+        volume_sigma=0.02,
+        check_validity=False,
+    )
+    assert prediction.standard_error > 0.0
+
+
 def test_walker_2002_kcl_be1_and_reported_product_error_regression():
     document = get_material_document("kcl")
     record = Material.from_eosmat(
@@ -332,6 +662,105 @@ def test_walker_2002_kcl_be1_and_reported_product_error_regression():
     assert pressure_600_c - pressure_ambient == pytest.approx(0.00275 * 577.0)
     prediction = record.pressure_with_uncertainty(47.57, 873.15)
     assert prediction.standard_error == pytest.approx(0.00009 * 577.0)
+
+
+@pytest.mark.parametrize(
+    ("volume", "table_pressure_gpa"),
+    [(48.145, 3.14), (29.827, 53.8), (22.065, 165.0)],
+)
+def test_dewaele_2012_kcl_b2_table_i_and_equation_2_regression(
+    volume, table_pressure_gpa
+):
+    document = get_material_document("kcl")
+    source = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == "kcl_b2_dewaele_2012_vinet_3"
+    )
+    record = Material.from_eosmat(
+        document, record_identifiers=[source["identifier"]]
+    ).eos_records[0]
+
+    assert source["default"] is True
+    assert source["fixed_parameters"] == ["V0"]
+    assert source["parameter_errors"] == {
+        "V0": None,
+        "K0": None,
+        "K0_prime": None,
+    }
+    # Table I observations have pressure uncertainties below 2%; the fit is
+    # not expected to pass through every measured point exactly.
+    assert record.pressure(volume, 300.0) == pytest.approx(
+        table_pressure_gpa, rel=0.02, abs=0.1
+    )
+
+    # Equation (2) and Table V specify the exact additive thermal term.
+    assert record.pressure(volume, 2000.0) - record.pressure(
+        volume, 300.0
+    ) == pytest.approx(0.00224 * 1700.0)
+
+
+def test_dewaele_2012_kcl_b2_round_trip_validity_arrays_and_measurement_errors():
+    record = Material.from_eosmat(
+        get_material_document("kcl"),
+        record_identifiers=["kcl_b2_dewaele_2012_vinet_3"],
+    ).eos_records[0]
+
+    volume = record.volume(100.0, 2000.0)
+    assert record.pressure(volume, 2000.0) == pytest.approx(100.0)
+    assert record.pressure([volume, volume], [2000.0, 2100.0]).shape == (2,)
+    assert record.within_validity(volume, 2000.0)
+    with pytest.raises(ValueError, match="outside the published validity envelope"):
+        record.pressure(volume, 7200.0)
+
+    prediction = record.pressure_with_uncertainty(
+        40.0,
+        2000.0,
+        volume_sigma=0.01,
+        temperature_sigma=100.0,
+        check_validity=False,
+    )
+    assert prediction.standard_error > 0.224
+    assert "published parameter uncertainty not available" in prediction.assumptions
+
+
+@pytest.mark.parametrize(
+    ("lattice_ratio", "table_pressure_gpa"),
+    [
+        (0.995, 3.0),
+        (0.980, 12.8),
+        (0.970, 20.0),
+        (0.960, 30.8),
+    ],
+)
+def test_clendenen_1966_coo_table_iii_murnaghan_regression(
+    lattice_ratio, table_pressure_gpa
+):
+    document = get_material_document("coo")
+    source = document["eos_records"][0]
+    record = Material.from_eosmat(document).eos_records[0]
+
+    assert source["identifier"] == "coo_clendenen_1966_murnaghan_1"
+    assert source["eos"] == {
+        "type": "Murnaghan",
+        "parameters": {
+            "V0": pytest.approx(4.258**3),
+            "K0": pytest.approx(190.5),
+            "K0_prime": pytest.approx(3.9),
+        },
+        "model": "murnaghan",
+    }
+    assert source["parameter_errors"] == {
+        "V0": None,
+        "K0": None,
+        "K0_prime": None,
+    }
+    assert source["fixed_parameters"] == ["V0"]
+
+    # Table III is a smoothed experimental table, not values generated exactly
+    # by Equation (4). The paper says the residual is of experimental-error size.
+    volume = source["eos"]["parameters"]["V0"] * lattice_ratio**3
+    assert record.pressure(volume) == pytest.approx(table_pressure_gpa, abs=1.0)
 
 
 def test_shim_2000_casio3_table_i_pressure_regression():
@@ -360,6 +789,182 @@ def test_holmes_1989_platinum_equations_11_and_12_regression():
     assert record.pressure(volume, 300.0) == pytest.approx(pressure_300)
     assert record.pressure(volume, 1000.0) == pytest.approx(
         pressure_300 + 0.0069426 * 700.0
+    )
+
+
+@pytest.mark.parametrize(
+    ("compression", "temperature", "table_pressure"),
+    [
+        (0.00, 3000.0, 19.28),
+        (0.02, 500.0, 4.94),
+        (0.10, 1000.0, 27.59),
+        (0.20, 3000.0, 80.88),
+        (0.34, 3000.0, 222.44),
+    ],
+)
+def test_anderson_1989_gold_equation_29_table_v_regression(
+    compression, temperature, table_pressure
+):
+    document = get_material_document("gold")
+    identifier = "gold_anderson_1989_bm3_1"
+    record = Material.from_eosmat(
+        document, record_identifiers=[identifier]
+    ).eos_records[0]
+    volume = record.reference_volume * (1.0 - compression)
+
+    # Top rows in Table V are Anderson et al.'s Equation (29), rounded to
+    # 0.01 GPa. Bottom rows are the separate Heinz-Jeanloz comparison.
+    assert record.pressure(volume, temperature) == pytest.approx(
+        table_pressure, abs=0.005
+    )
+
+
+def test_anderson_1989_gold_partial_published_error_is_propagated():
+    document = get_material_document("gold")
+    identifier = "gold_anderson_1989_bm3_1"
+    source_record = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == identifier
+    )
+    record = Material.from_eosmat(
+        document, record_identifiers=[identifier]
+    ).eos_records[0]
+    volume = record.reference_volume * 0.8
+    prediction = record.pressure_with_uncertainty(volume, 3000.0)
+
+    assert source_record["thermal"]["model"] == "log_volume_thermal_pressure"
+    assert source_record["thermal"]["parameter_errors"] == {
+        "Tr": None,
+        "alpha_KT_ref": None,
+        "dK_dT_V": pytest.approx(0.001),
+    }
+    assert prediction.standard_error == pytest.approx(
+        math.log(1.0 / 0.8) * 2700.0 * 0.001
+    )
+    assert "parameter errors treated as mutually independent" in prediction.assumptions
+
+
+def test_martinez_1996_aragonite_staged_bm2_thermal_metadata():
+    document = get_material_document("aragonite")
+    assert len(document["eos_records"]) == 1
+    bm2_source = document["eos_records"][0]
+    material = Material.from_eosmat(
+        document, record_identifiers=["aragonite_martinez_1996_bm2_2"]
+    )
+    bm2 = material.eos_records[0]
+
+    assert bm2_source["scientific_validation"]["status"] == ("primary_source_validated")
+    assert bm2.reference_volume == pytest.approx(227.5)
+    assert bm2.pressure(227.5) == pytest.approx(0.0, abs=1e-14)
+    assert bm2.pressure(206.81, check_validity=False) == pytest.approx(7.14, abs=0.4)
+    assert bm2.volume(bm2.pressure(213.08)) == pytest.approx(213.08)
+    assert bm2._uncertainty().parameter_uncertainty.standard_errors == {
+        "rt_eos.V0": pytest.approx(0.8),
+        "rt_eos.K0": pytest.approx(3.48),
+        "alpha0": pytest.approx(0.1e-5),
+        "dK_dT": pytest.approx(0.002),
+    }
+
+    assert bm2_source["thermal"]["thermal_expansion_law"] == "constant"
+    assert bm2_source["thermal"]["reference_volume_law"] == "linear_temperature"
+    assert bm2_source["thermal"]["parameter_errors"] == {
+        "Tr": None,
+        "alpha0": pytest.approx(0.1e-5),
+        "dK_dT": pytest.approx(0.002),
+    }
+
+    exported_thermal = material.to_eosmat()["eos_records"][0]["thermal"]
+    assert exported_thermal["configuration"] == {
+        "thermal_expansion_law": "constant",
+        "reference_volume_law": "linear_temperature",
+    }
+    temperature = 873.0
+    reference_volume = 227.5 * (1.0 + 6.5e-5 * (temperature - 298.0))
+    assert bm2.pressure(
+        reference_volume, temperature, check_validity=False
+    ) == pytest.approx(0.0, abs=1e-13)
+    prediction = bm2.pressure_with_uncertainty(
+        216.88, temperature, check_validity=False
+    )
+    assert math.isfinite(prediction.standard_error)
+    assert prediction.standard_error > 0.0
+
+    # Table 6 printed isotherm fits independently reproduce the Table 7
+    # temperature trends. The K0 slope depends mildly on use of its printed
+    # fit errors, and the published -0.018(2) GPa/K lies between both results.
+    table_temperatures = np.array([298, 373, 473, 573, 673, 773, 873, 973])
+    table_volumes = np.array([227.5, 228.0, 229.6, 231.2, 232.9, 234.3, 235.6, 237.1])
+    table_moduli = np.array([64.81, 68.09, 62.8, 60.7, 55.45, 54.8, 55.7, 54.8])
+    modulus_errors = np.array([3.48, 4.6, 3.8, 4.7, 3.16, 4.09, 1.8, 2.51])
+    delta_temperature = table_temperatures - 298.0
+    volume_slope, volume_intercept = np.polyfit(delta_temperature, table_volumes, 1)
+    unweighted_modulus_slope = np.polyfit(delta_temperature, table_moduli, 1)[0]
+    weighted_modulus_slope = np.polyfit(
+        delta_temperature, table_moduli, 1, w=1.0 / modulus_errors
+    )[0]
+
+    assert volume_slope / volume_intercept == pytest.approx(6.4835049e-5)
+    assert unweighted_modulus_slope == pytest.approx(-0.0196859081)
+    assert weighted_modulus_slope == pytest.approx(-0.0170213524)
+    assert weighted_modulus_slope > -0.018 > unweighted_modulus_slope
+
+
+def test_scott_2001_cementite_primary_bm3_parameters_and_errors():
+    document = get_material_document("cementite")
+    source = document["eos_records"][0]
+    record = Material.from_eosmat(document).eos_records[0]
+
+    assert source["scientific_validation"]["status"] == "primary_source_validated"
+    assert source["eos"]["parameters"] == {
+        "V0": pytest.approx(155.26),
+        "K0": pytest.approx(175.4),
+        "K0_prime": pytest.approx(5.1),
+    }
+    assert source["parameter_errors"] == {
+        "V0": pytest.approx(0.14),
+        "K0": pytest.approx(3.5),
+        "K0_prime": pytest.approx(0.3),
+    }
+    assert source["parameter_error_confidence"] is None
+    assert source["fixed_parameters"] == ["V0"]
+    assert source["experimental_pressure_range_gpa"] == [0.0, 73.2]
+    assert source["experimental_temperature_range_k"] == [300.0, 300.0]
+    assert record.pressure(155.26, 300.0) == pytest.approx(0.0, abs=1e-14)
+    pressure = record.pressure(130.0, 300.0)
+    assert record.volume(pressure, 300.0) == pytest.approx(130.0)
+    assert record._uncertainty().parameter_uncertainty.standard_errors == {
+        "V0": pytest.approx(0.14),
+        "K0": pytest.approx(3.5),
+        "K0_prime": pytest.approx(0.3),
+    }
+
+
+def test_noguchi_1999_nio_primary_bm3_reference_volume_and_errors():
+    document = get_material_document("nickel_oxide")
+    source = document["eos_records"][0]
+    record = Material.from_eosmat(document).eos_records[0]
+
+    expected_volume = 0.75 * 4.177**3
+    expected_error = 0.75 * 3.0 * 4.177**2 * 0.001
+
+    assert source["scientific_validation"]["status"] == "primary_source_validated"
+    assert source["eos"]["model"] == "birch_murnaghan_3"
+    assert source["eos"]["parameters"] == {
+        "V0": pytest.approx(expected_volume),
+        "K0": pytest.approx(191.0),
+        "K0_prime": pytest.approx(3.9),
+    }
+    assert source["parameter_errors"] == {
+        "V0": pytest.approx(expected_error),
+        "K0": None,
+        "K0_prime": None,
+    }
+    assert source["fixed_parameters"] == ["V0"]
+    assert source["experimental_pressure_range_gpa"] == [0.0, 147.6]
+    assert source["temperature_ref"] == pytest.approx(300.0)
+    assert record.pressure(record.reference_volume, 300.0) == pytest.approx(
+        0.0, abs=1e-14
     )
 
 
@@ -533,7 +1138,7 @@ def test_normative_schema_is_bundled():
         "variable_exponent",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 10
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 8
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 9
 
 
 def test_normative_schema_validates_every_bundled_document():
@@ -683,6 +1288,37 @@ def test_eosmat_debye_temperature_law_defaults_and_validation():
         validate_eosmat_document(document)
 
 
+def test_eosmat_thermal_expansion_law_defaults_and_validation():
+    document = get_material_document("aragonite")
+    thermal = document["eos_records"][0]["thermal"]
+    thermal.pop("reference_volume_law")
+    thermal.pop("thermal_expansion_law")
+    validate_eosmat_document(document)
+
+    thermal["thermal_expansion_law"] = "unknown"
+    with pytest.raises(ValueError, match="thermal_expansion_law is invalid"):
+        validate_eosmat_document(document)
+
+    thermal["thermal_expansion_law"] = "linear_temperature"
+    with pytest.raises(ValueError, match="requires alpha1"):
+        validate_eosmat_document(document)
+
+    thermal["parameters"]["alpha1"] = 3.1e-9
+    thermal["reference_volume_law"] = "linear_temperature"
+    with pytest.raises(ValueError, match="requires constant thermal expansion"):
+        validate_eosmat_document(document)
+
+    thermal["reference_volume_law"] = "unknown"
+    with pytest.raises(ValueError, match="reference_volume_law is invalid"):
+        validate_eosmat_document(document)
+
+    thermal["reference_volume_law"] = "integrated_expansivity"
+    thermal["type"] = "MieGruneisenDebye"
+    thermal["model"] = "mie_gruneisen_debye"
+    with pytest.raises(ValueError, match="requires AlphaKT"):
+        validate_eosmat_document(document)
+
+
 def test_migration_manifest_and_dioptas_license_are_bundled():
     root = resources.files("peritheos.data.materials")
     manifest = json.loads(root.joinpath("manifest.json").read_text(encoding="utf-8"))
@@ -690,8 +1326,8 @@ def test_migration_manifest_and_dioptas_license_are_bundled():
 
     assert manifest["source"]["project"] == "Dioptas"
     assert manifest["source"]["version"] == "0.10.0"
-    assert manifest["materials"] == 116
-    assert manifest["eos_records"] == 147
+    assert manifest["materials"] == 115
+    assert manifest["eos_records"] == 146
     assert "Copyright (c) 2021-2026 Clemens Prescher" in license_text
 
 

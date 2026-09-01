@@ -48,11 +48,11 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Users data/caco3_arag.jcpds. Ambient aragonite coordinates: Ye et al., American Mineralogist 97, 707-712 (2012).",
+ "notes": "Aragonite structure with the reproducible staged BM2 P-V-T parameterization of Martinez et al. (1996). The paper's separate global HT-BM3 reduction is intentionally excluded: its fitted V0(298 K) is omitted, and its remaining coefficients cannot be reproduced from the printed 64-point table with the documented equations under pressure- or volume-residual least squares. Ambient coordinates are from Ye et al., American Mineralogist 97, 707-712 (2012).",
  "peaks": [],
  "eos_records": [
   {
-   "label": "Martinez et al. (1996)",
+   "label": "Martinez et al. (1996), staged P-V-T BM2",
    "reference": {
     "authors": [
      "Martinez",
@@ -65,57 +65,83 @@
     "locator": "611-624",
     "doi": "10.2138/am-1996-5-608"
    },
+   "default": true,
    "eos": {
-    "type": "BM3",
+    "type": "BM2",
     "parameters": {
-     "V0": 227.14,
-     "K0": 65.4,
-     "K0_prime": 2.7
+     "V0": 227.5,
+     "K0": 64.81
     },
-    "model": "birch_murnaghan_3"
+    "model": "birch_murnaghan_2"
    },
    "parameter_errors": {
-    "V0": null,
-    "K0": 0.5,
-    "K0_prime": 0.7
+    "V0": 0.8,
+    "K0": 3.48
    },
+   "parameter_error_confidence": null,
    "fixed_parameters": [],
    "experimental_pressure_range_gpa": [
     0.0,
-    7.0
+    8.18
    ],
-   "notes": "Martinez et al. report K0 = 65.4(5) GPa and K0' = 2.7(7) for the global high-temperature BM3 fit. The measured 298 K ambient volume is retained without a separately tabulated fit uncertainty; replaces two conflicting JCPDS-derived V0 entries.",
-   "thermal": {
-    "type": "AlphaKT",
-    "parameters": {
-     "alpha0": 6.7e-05,
-     "dK_dT": -0.013
-    },
-    "model": "thermal_reference_state"
-   },
+   "experimental_temperature_range_k": [
+    298.0,
+    973.0
+   ],
    "temperature_ref": 298.0,
-   "identifier": "aragonite_martinez_1996_bm3_1",
+   "notes": "Staged second-order Birch-Murnaghan P-V-T parameterization from Martinez et al. (1996). Each Table 6 isotherm fixes K0'=4; Equation (2) supplies the reported linear K0(T) slope, and Equation (3) uses the reported mean expansion coefficient in the direct relation V0(T)=V0(298 K)*[1+alpha_bar*(T-298 K)]. Table 6 reports the 298 K V0=227.5+/-0.8 A^3 and sigma(K0)=3.48 GPa; the prose and Table 7 instead summarize the K0 error as approximately 4.3 GPa. Table 6 contains fitted isotherms through 973 K. The source reports no parameter covariance or confidence convention, and the stored pressure/temperature extrema are an experimental envelope rather than a rectangular validity guarantee.",
+   "identifier": "aragonite_martinez_1996_bm2_2",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary paper was inspected, but the migrated AlphaKT component uses the reported mean 298-1000 K expansivity as a constant. The published global high-temperature BM3 model instead uses equations (2), (4), and (5), including alpha(T)=alpha0+alpha1*T. Peritheos does not silently treat that approximation as the published model; the record remains non-executable until the exact thermal law is represented.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.2138/am-1996-5-608",
-     "access_url": "https://doi.org/10.2138/am-1996-5-608",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary paper was inspected, but the migrated AlphaKT component uses the reported mean 298-1000 K expansivity as a constant. The published global high-temperature BM3 model instead uses equations (2), (4), and (5), including alpha(T)=alpha0+alpha1*T. Peritheos does not silently treat that approximation as the published model; the record remains non-executable until the exact thermal law is represented."
+     "access_url": "https://rruff.info/doclib/am/vol81/AM81_611.pdf",
+     "locations": [
+      "Equation (1), page 615",
+      "Table 3, page 616",
+      "Table 6 and EOS discussion, pages 618-619",
+      "Table 7, page 620"
+     ],
+     "finding": "The Table 6 isotherms are BM2 fits with K0'=4 assumed. Regressing their printed V0,T values gives a mean expansion coefficient of 6.484e-5 K^-1, reproducing the Table 7 value 6.5(1)e-5 K^-1. Unweighted and error-weighted regressions of the printed K0,T values give -0.01969 and -0.01702 GPa/K, bracketing the reported -0.018(2) GPa/K. The fit-specific 298 K K0 error is retained; the conflicting summary error printed in the prose and Table 7 is recorded explicitly.",
+     "doi": "10.2138/am-1996-5-608"
     },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "aragonite.json"
-    }
+    "reported_inconsistencies": [
+     {
+      "field": "parameter_errors.K0",
+      "table_6": "3.48 GPa",
+      "text_and_table_7": "approximately 4.3 GPa",
+      "resolution": "Retain 3.48 GPa because it is the fit-specific sigma K0,T printed in Table 6 alongside V0=227.5(8) A^3."
+     }
+    ]
+   },
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "constant",
+    "reference_volume_law": "linear_temperature",
+    "parameters": {
+     "Tr": 298.0,
+     "alpha0": 6.5e-05,
+     "dK_dT": -0.018
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 1e-06,
+     "dK_dT": 0.002
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
    }
   }
  ],

@@ -7,6 +7,21 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- Replaced the migrated InN BM3/experimental-volume hybrid with Muñoz and
+  Kunc's published theoretical wurtzite Murnaghan fit, including a reference
+  volume reconstructed from their Table 1 theoretical lattice constants.
+- Made the Campbell--Heinz B2-KCl entry an explicit two-primary-source
+  composite: its absolute `V0` and propagated error now follow from the
+  published B2/B1 volume ratio and Dewaele et al.'s B1 reference volume.
+- Consolidated duplicate `majorite`/`mgsio3-maj` materials, corrected the
+  Hanfland lithium equation family from BM3 to its combined-phase Vinet form,
+  and removed the unsupported Fei-FeO and Hixson-W standalone BM3 records.
+- Resolved the remaining primary-source blockers for CsCl, magnetite, Li,
+  majorite, MW60 magnesiowuestite, NiS, phase D, cubic SnO2, and SrO B1/B2.
+  Corrected equation orders, cell conventions, phases, fitted-versus-fixed
+  flags, ranges, and all printed parameter errors. Phase D now has distinct
+  AntA and AntB reference-volume records, and the inherited unsupported
+  majorite error and tenfold SnO2 volume-error transcription are removed.
 - Marked the published parameter errors for 14 Al, Cu, W, Ni, Ag, diamond,
   alpha/omega-Ti, Si-V/Si-VII/Si-X, Re, corundum, and LiF records as 95%
   confidence half-widths. File-loaded uncertainty propagation now converts
@@ -33,20 +48,56 @@ All notable changes to Peritheos are documented here. The project follows
   retained the published uncertainty of its directly fitted `alpha0*K0`
   product. Published errors are retained even where the associated value was
   fixed during a fit, as for Shim et al.'s CaSiO3 `V0`.
+- Replaced the migrated Anderson et al. Au `AlphaKT` approximation with the
+  exact Equation (29) logarithmic-volume linear thermal pressure, restored its
+  density-derived reference volume, Table V domain, and partial published
+  `(dKT/dT)V` uncertainty, and promoted the record after primary-source review.
+- Removed the Martinez et al. aragonite global HT-BM3 record: Table 7 omits
+  its fitted `V0(298 K)`, and the remaining coefficients do not reproduce the
+  printed 64-point table under documented pressure- or volume-residual least
+  squares. The independently reproducible staged BM2 result is retained and
+  extended with its published Equation (2) `K0(T)` slope and Equation (3)
+  direct-linear reference-volume law.
+- Promoted the Scott et al. (2001) cementite BM3 record after checking the
+  complete primary article: the ambient `V0`, weighted-fit coefficients, all
+  printed errors, 300 K reference state, and compression interval are now
+  traced to pages 1875--1877. The measured `V0` is explicitly fixed in the
+  fit metadata, and the unreported covariance/confidence convention remains
+  documented rather than inferred.
+- Corrected the Clendenen and Drickamer (1966) CoO record from an inherited
+  BM3 representation to the published Murnaghan Equation 4, restored the
+  Table II ambient cell and Table III 30.8 GPa range, and retained null errors
+  because the primary paper reports no parameter uncertainty or covariance.
+- Promoted the Noguchi et al. (1999) NiO shock-derived 300 K BM3 isotherm after
+  checking the official 1998 primary conference paper for the sample reference
+  lattice, its propagated uncertainty, and the Mie--Gruneisen reduction. The
+  final journal article supplies the 147.6 GPa range and `K0`/`K0'`; their
+  errors remain null because the authors do not report them.
 
 ### Added
 
-- A reproducible primary-source audit for all 147 migrated `.eosmat` EOS
-  records. One hundred sixteen records are now directly validated against original
-  publications, official supplements, or stable institutional reports; 31 are explicitly deferred with
-  record-level reasons, and no record remains in a generic pending state. The
-  bundled machine-readable ledger records source locations, the APS embargo
-  affecting Shen--Smith (2026), the B4C order inconsistency, and the restored
+- A reproducible primary-source audit for the curated migrated `.eosmat` EOS
+  records. All 146 bundled records are now directly validated against original
+  publications, official supplements, or stable institutional reports, and no
+  record remains pending or deferred. The
+  bundled machine-readable ledger records source locations, the independently
+  checked Shen--Smith (2026) Vinet fits and errors, the B4C order inconsistency, and the restored
   Hanfland graphite `V0` uncertainty.
 - A mechanism-oriented `ThermalReferenceStateEOS` implementation for the
   temperature-dependent `V0(T)`/`K0(T)` formulation used by the validated ice
-  VI/VII records. The Dioptas `AlphaKT` interchange type maps to the canonical
-  `thermal_reference_state` model identifier.
+  VI/VII records. It now supports a generic `thermal_expansion_law`, including
+  exact analytical integration of `alpha0+alpha1*T`; the constant law remains
+  backward compatible. A separate `reference_volume_law="linear_temperature"`
+  represents a directly linear mean-expansion relation without conflating it
+  with integrated instantaneous expansivity. The Dioptas `AlphaKT` interchange
+  type maps to the canonical `thermal_reference_state` model identifier.
+- Primary-source-validated native material records for the Martinez et al.
+  (1996) staged aragonite BM2 P-V-T parameterization and the Dewaele et al. (2012) B2-KCl
+  P-V-T pressure calibration. KCl uses the paper's Vinet reference isotherm,
+  additive thermal-pressure term, fixed fictive `V0`, and explicit
+  experimental-versus-computational validity provenance. It is the preferred
+  `kcl.eosmat` record. After primary-source corrections and duplicate removal,
+  the catalog now contains 146 records, all validated.
 - Primary-audit corrections restore Sokolova `n`/`Z`, silica Debye `n`, and
   ice `Tr` inputs omitted by migration; every validated migrated record is
   constructability-tested.

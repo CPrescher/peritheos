@@ -33,6 +33,7 @@ _THERMAL_TYPES = {
     "AlphaKT",
     "AsymptoticPowerLawMieGruneisenDebye",
     "LinearThermalPressure",
+    "LogVolumeThermalPressure",
     "MieGruneisenDebye",
     "MieGruneisenEinstein",
     "MultiOscillatorGruneisen",
@@ -55,6 +56,7 @@ _THERMAL_MODELS = {
     "AlphaKT": "thermal_reference_state",
     "AsymptoticPowerLawMieGruneisenDebye": ("asymptotic_power_law_mie_gruneisen_debye"),
     "LinearThermalPressure": "linear_thermal_pressure",
+    "LogVolumeThermalPressure": "log_volume_thermal_pressure",
     "MieGruneisenDebye": "mie_gruneisen_debye",
     "MieGruneisenEinstein": "mie_gruneisen_einstein",
     "MultiOscillatorGruneisen": ("multi_oscillator_gruneisen_thermal_pressure"),
@@ -280,11 +282,60 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     f"{location}.thermal.debye_temperature_law requires "
                     "MieGruneisenDebye"
                 )
+            thermal_expansion_law = thermal.get("thermal_expansion_law")
+            reference_volume_law = thermal.get("reference_volume_law")
+            if thermal_type == "AlphaKT":
+                if thermal_expansion_law is not None and (
+                    not isinstance(thermal_expansion_law, str)
+                    or thermal_expansion_law not in {"constant", "linear_temperature"}
+                ):
+                    raise ValueError(
+                        f"{location}.thermal.thermal_expansion_law is invalid"
+                    )
+                if reference_volume_law is not None and (
+                    not isinstance(reference_volume_law, str)
+                    or reference_volume_law
+                    not in {"integrated_expansivity", "linear_temperature"}
+                ):
+                    raise ValueError(
+                        f"{location}.thermal.reference_volume_law is invalid"
+                    )
+            elif thermal_expansion_law is not None:
+                raise ValueError(
+                    f"{location}.thermal.thermal_expansion_law requires AlphaKT"
+                )
+            elif reference_volume_law is not None:
+                raise ValueError(
+                    f"{location}.thermal.reference_volume_law requires AlphaKT"
+                )
             thermal_parameters = _require_mapping(
                 thermal.get("parameters"), f"{location}.thermal.parameters"
             )
             for name, value in thermal_parameters.items():
                 _finite_number(value, f"{location}.thermal.parameters.{name}")
+            if thermal_expansion_law == "linear_temperature" and (
+                "alpha1" not in thermal_parameters
+            ):
+                raise ValueError(
+                    f"{location}.thermal.parameters requires alpha1 for "
+                    "linear_temperature thermal expansion"
+                )
+            if (
+                thermal_expansion_law in {None, "constant"}
+                and thermal_parameters.get("alpha1", 0.0) != 0.0
+            ):
+                raise ValueError(
+                    f"{location}.thermal.parameters.alpha1 must be zero for "
+                    "constant thermal expansion"
+                )
+            if reference_volume_law == "linear_temperature" and (
+                thermal_expansion_law not in {None, "constant"}
+                or thermal_parameters.get("alpha1", 0.0) != 0.0
+            ):
+                raise ValueError(
+                    f"{location}.thermal linear_temperature reference volume "
+                    "requires constant thermal expansion and alpha1=0"
+                )
             thermal_errors = _require_mapping(
                 thermal.get("parameter_errors", {}),
                 f"{location}.thermal.parameter_errors",

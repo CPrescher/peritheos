@@ -77,6 +77,7 @@ Each item in `eos_records` describes one source parameterization.
 | `parameter_error_confidence` | no | Two-sided confidence level when the reported errors are interval half-widths rather than standard errors. |
 | `fixed_parameters` | yes | Reference-isotherm parameters fixed during the reported fit. |
 | `experimental_pressure_range_gpa` | no | Two-element marginal pressure envelope. |
+| `pressure_range_status` | no | Provenance of the pressure envelope: `reported_exactly`, `reported_qualitatively`, `theoretical`, or `reference_parameterization`. |
 | `experimental_temperature_range_k` | no | Two-element marginal temperature envelope. |
 | `temperature_ref` | no | Reference-isotherm temperature in K. |
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
@@ -86,7 +87,33 @@ Each item in `eos_records` describes one source parameterization.
 
 An experimental range records data or fit coverage, not an assertion of phase
 stability and not permission to extrapolate over every combination of its
-marginal bounds.
+marginal bounds. `reported_exactly` means the numerical endpoints occur in the
+primary source; it does not imply a recommended extrapolation limit or exact
+phase-stability boundary.
+
+### Material identity versus EOS reference state
+
+The top level describes the material and may contain crystallography used by a
+diffraction application. Each EOS record independently defines a published
+parameterization and its reference-volume convention. Consequently:
+
+- `lattice` is structural metadata and need not numerically reproduce an EOS
+  record's `V0`; the record-level `parameter_provenance` states which value is
+  used by the equation;
+- one material may have several literature records, and may also have several
+  records that differ only in a scientifically meaningful reference state;
+- a record spanning more than one phase is permitted only when the primary
+  source itself publishes such a fit and the scope is explicit in its label,
+  phase description, notes, and validity information;
+- cell contents and volume convention belong to the material/record contract,
+  not to the equation family name.
+
+For example, the phase-D file has one crystallographic interchange card but
+two BM2 records because Shieh et al. report distinct AntA and AntB ambient
+volumes. The lithium record preserves Hanfland et al.'s single empirical Vinet
+fit across bcc and fcc observations while recording `V0` in the conventional
+two-atom bcc-cell convention. Neither case is flattened into a fictitious
+universal reference volume.
 
 ## Reference-isotherm equations
 
@@ -116,8 +143,9 @@ Thermal `type` and `model` must likewise match:
 
 | `type` | `model` | Main parameters |
 |---|---|---|
-| `AlphaKT` | `thermal_reference_state` | `Tr`, `alpha0`, `dK_dT` |
+| `AlphaKT` | `thermal_reference_state` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1` |
 | `LinearThermalPressure` | `linear_thermal_pressure` | `Tr`, `alpha_KT` |
+| `LogVolumeThermalPressure` | `log_volume_thermal_pressure` | `Tr`, `alpha_KT_ref`, `dK_dT_V` |
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
@@ -133,6 +161,37 @@ model identifier is the mechanism-oriented `thermal_reference_state`, and the
 corresponding Peritheos class is `ThermalReferenceStateEOS`. It evaluates a
 temperature-dependent reference volume and bulk modulus; it is not the
 constant-`alpha_KT` pressure increment represented by `LinearThermalPressure`.
+
+### Thermal-expansion law
+
+An `AlphaKT` component may select the integrated volumetric expansion law:
+
+```json
+"thermal_expansion_law": "linear_temperature"
+```
+
+Allowed values are `constant` and `linear_temperature`. Omission means
+`constant` for backward compatibility. The linear law requires `alpha1` and
+represents $\alpha(T)=\alpha_0+\alpha_1T$; the implementation analytically
+integrates this expression when constructing $V_0(T)$. Writers should store
+the field explicitly for new or edited linear-temperature records. The field
+is valid only for `AlphaKT` / `thermal_reference_state` components.
+
+The independent `reference_volume_law` configuration controls how expansion
+information constructs the reference volume. Omission means
+`integrated_expansivity`, which uses the exponential integral above. The
+alternative
+
+```json
+"reference_volume_law": "linear_temperature"
+```
+
+applies the direct relation
+$V_0(T)=V_0(T_r)[1+\alpha_0(T-T_r)]$. Here `alpha0` is a mean expansion
+coefficient over the represented interval, not a constant instantaneous
+expansivity. This option requires `thermal_expansion_law="constant"` (or its
+omission) and `alpha1=0`. It represents Martinez et al. (1996), Equation 3,
+without replacing the paper's linear relation by an exponential approximation.
 
 Thermal records may contain their own `parameter_errors` and
 `fixed_parameters`. A missing error and an explicitly fixed parameter are
@@ -183,9 +242,8 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. As of the 2026-08-31 audit, the 147
-bundled records comprise 116 validated and 31 deferred records, with no pending
-record.
+`peritheos/data/primary-source-audit.json`. As of the 2026-09-01 audit, all 146
+bundled records are validated, with no deferred or pending record.
 
 ## Complete EOS-only example
 

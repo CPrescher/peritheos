@@ -24,66 +24,9 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is the default. The shock-derived Hixson and Fritz and Cu-referenced Shen and Smith fits remain available as alternatives.",
+ "notes": "Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is the default, with Cu-referenced Shen and Smith and Sokolova et al. fits as alternatives. The legacy Hixson-Fritz BM3 record was removed because the cited shock paper publishes Hugoniot-derived tabular isotherms, not the migrated standalone BM3 reduction.",
  "peaks": [],
  "eos_records": [
-  {
-   "label": "4-0806 EOS Hixson and Fritz",
-   "reference": {
-    "authors": [
-     "Hixson",
-     "Fritz"
-    ],
-    "year": 1992,
-    "source": "J. Appl. Phys.",
-    "volume": "71",
-    "locator": "1721-1728",
-    "doi": "10.1063/1.351203"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 31.698507169792002,
-     "K0": 311.22,
-     "K0_prime": 3.9
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    380.0
-   ],
-   "notes": "Hixson and Fritz shock-derived reference parameterization. No independent coefficient standard errors are tabulated for this legacy parameter set.",
-   "identifier": "tungsten_hixson_1992_bm3_1",
-   "scientific_validation": {
-    "status": "deferred",
-    "note": "The cited Hixson-Fritz work is a shock-compression standard. An accessible primary copy was not found that justifies the migrated standalone 300 K BM3 reduction, its parameters, errors, and stated range.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
-    ],
-    "primary_source_check": {
-     "doi": "10.1063/1.351203",
-     "access_url": "https://doi.org/10.1063/1.351203",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The cited Hixson-Fritz work is a shock-compression standard. An accessible primary copy was not found that justifies the migrated standalone 300 K BM3 reduction, its parameters, errors, and stated range."
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "tungsten.json"
-    }
-   }
-  },
   {
    "label": "Dewaele et al. (2004), Vinet",
    "reference": {
@@ -125,8 +68,8 @@
    "identifier": "tungsten_dewaele_2004_vinet_2",
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-08-31",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -191,19 +134,29 @@
    "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.8 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
    "identifier": "tungsten_shen_2026_vinet_3",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1103/fxgq-96sg",
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "APS lists publication on 24 April 2026, but the accepted manuscript is under CHORUS embargo until 24 April 2027. The primary equation and tables could not be inspected; catalog values are therefore not executable."
+     "locations": [
+      "Equation (4), page 8",
+      "Table I and footnotes, page 4",
+      "Table II, pages 9-12",
+      "Section III.E, pages 8 and 12-14",
+      "Experimental methods, page 2"
+     ],
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+     "doi": "10.1103/fxgq-96sg"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -296,8 +249,8 @@
    "identifier": "tungsten_sokolova_2016_holzapfel_4",
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-08-31",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",

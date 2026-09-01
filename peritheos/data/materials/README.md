@@ -1,17 +1,42 @@
 # Bundled material library
 
-This directory contains all 116 materials with EOS records from the
+This directory contains 115 curated materials with EOS records from the
 120-material, 147-EOS-record Dioptas 0.10.0 database, tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Dioptas is distributed under the
 MIT License. Its project source is <https://github.com/Dioptas/Dioptas>.
 
-The migration preserves the Dioptas crystallographic and EOS data and adds
+The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-08-31 classifies all 147 records: 116 are
-`primary_source_validated`, while 31 are `deferred` with a concrete missing or
-ambiguous evidence reason. No bundled record remains pending. The complete
+dated 2026-09-01 classifies all 146 bundled records as
+`primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
+
+The two additional records are native to Peritheos and therefore have no
+invented Dioptas migration provenance: the primary-sourced staged aragonite BM2
+P-V-T parameterization from Martinez et al. (1996), and the Dewaele et al. (2012) B2-KCl P-V-T
+pressure calibration. The latter is the preferred `kcl.eosmat` record and
+keeps its measured 298 K range distinct from its molecular-dynamics thermal
+extension. The Martinez staged result uses its exact Equation (3) direct-linear
+reference-volume law. The paper's separate global thermal BM3 entry is excluded
+because its fitted reference volume is omitted and the remaining coefficients
+do not reproduce the printed dataset under the documented equations.
+
+The final full-text audit resolved the earlier CsCl, magnetite, Li, majorite,
+MW60, NiS, phase-D, cubic-SnO2, and SrO blockers. Phase D is intentionally two
+EOS records because the primary paper reports distinct AntA and AntB ambient
+volumes. The lithium fit is explicitly labeled as one empirical Vinet curve
+spanning bcc and fcc observations. The cubic SnO2 records expose only the
+published 300 K reference isotherm; a separate single-pressure expansivity is
+not silently promoted to a complete thermal EOS.
+
+Primary review also consolidated duplicate majorite cards and removed two
+records whose cited sources do not define the migrated EOS: the Fei-labeled
+FeO static BM3 and the Hixson--Fritz tungsten BM3 reduction. The corrected
+InN entry follows Muñoz and Kunc's theoretical Murnaghan fit. The Campbell
+B2-KCl entry is explicitly labeled as a Campbell-ratio/Dewaele-B1-volume
+composite, including the limited uncertainty propagation that combination
+permits.
 
 Only validated records are executable by default. Deferred records remain in
 the files so Dioptas and other consumers can preserve the catalog without
@@ -30,11 +55,20 @@ from BM2 to its published BM3 parameters with fixed `K0' = 6.5`. It also
 restores model-required `n`/`Z` values
 for Sokolova records, `n` for the Sun silica Debye records, and `Tr` for the
 Bezacier ice records, each with field-level `audit_corrections` provenance.
+The ten Shen--Smith (2026) Cu-anchored 300 K Vinet fits are validated directly
+against Equation (4), Tables I--II, and the phase-specific range discussion in
+the supplied version of record. Their printed `K0` and `K0'` errors are stored,
+but no confidence level or covariance is inferred because the paper states
+neither.
 
 The Dioptas-facing thermal type `AlphaKT` is preserved for interchange, while
 its canonical mechanism identifier is `thermal_reference_state`. Peritheos
 evaluates validated instances with `ThermalReferenceStateEOS` rather than
 making the source/application label part of the public equation name.
+The corrected Anderson Au record instead uses the format-3 extension
+`LogVolumeThermalPressure` / `log_volume_thermal_pressure`. Older consumers
+must preserve this unknown component rather than evaluating it as `AlphaKT`;
+the latter is a different equation.
 
 Four Dioptas structure-only entries (`fe_fcc`, `fes_iii`, `nitrogen_epsilon`,
 and `o8`) are intentionally not bundled because they contain no EOS record.
@@ -48,3 +82,8 @@ Dioptas writer must preserve the version-3 top-level fields for a lossless
 round trip and honor the variable-exponent law before numerically
 evaluating the corrected Fei records. In the shared schema, an omitted
 `debye_temperature_law` means `integrated_gruneisen`.
+An omitted `thermal_expansion_law` means `constant`; the explicit
+`linear_temperature` value requires `alpha1` and integrates
+`alpha(T)=alpha0+alpha1*T`. An omitted `reference_volume_law` means
+`integrated_expansivity`; `linear_temperature` instead applies the direct
+relation `V0(T)=V0(Tr)*[1+alpha0*(T-Tr)]` used by the staged aragonite record.

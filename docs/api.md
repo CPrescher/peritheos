@@ -36,7 +36,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 116 bundled
+`list_material_documents()` returns the identifiers of all 115 bundled
 materials. `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
@@ -45,12 +45,37 @@ returns the bundled normative JSON Schema.
 The [`.eosmat` schema reference](eosmat-schema.md) documents the complete
 field contract and consumer defaults.
 
-Transferred Dioptas records have completed a primary-source classification:
-116 are `primary_source_validated` and 31 are `deferred`. No bundled record
-remains pending. `Material.from_eosmat()` constructs validated records and
-refuses deferred ones by default; callers can inspect legacy values with
+Transferred Dioptas records have completed a primary-source classification,
+and native primary-sourced records have been added for aragonite BM2 and the
+B2-KCl P-V-T pressure calibration. All 146 bundled records are
+`primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
+validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with
 `record_identifiers=(...)`. This opt-in never changes the stored status.
+
+For example, the independently reproducible staged aragonite BM2 record can be
+used at its 298 K reference state or at the represented high temperatures:
+
+```python
+from peritheos import Material, get_material_document
+
+document = get_material_document("aragonite")
+aragonite = Material.from_eosmat(
+    document,
+    record_identifiers=["aragonite_martinez_1996_bm2_2"],
+).eos_records[0]
+
+pressure = aragonite.pressure(volume=215.0)  # GPa at 298 K
+hot_pressure = aragonite.pressure(volume=215.0, temperature=873.0)
+result = aragonite.pressure_with_uncertainty(
+    volume=215.0,
+    volume_sigma=0.05,
+)
+```
+
+The separate Martinez global thermal BM3 reduction is intentionally absent:
+its published fitted reference volume is missing, and its remaining coefficients
+do not reproduce the printed dataset under the documented equations.
 
 `get_eos_record(identifier)` and `list_eos_records(formula=...)` are convenient
 catalog-wide lookups. Each `EOSRecord` provides:
@@ -115,6 +140,7 @@ the mathematical definitions and coefficient domains.
 from peritheos.eos.thermal import (
     HollandPowell2011,
     LinearThermalPressure,
+    LogVolumeThermalPressure,
     MieGruneisenDebye,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
@@ -129,15 +155,17 @@ Thermal constructor signatures are:
 | Class | Parameters after `rt_eos` |
 |---|---|
 | `LinearThermalPressure` | `Tr, alpha_KT` |
-| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT` |
+| `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
+| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen"` |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
 | `MultiOscillatorGruneisenThermalEOS` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1, n` |
 | `Tange2009Debye` | `Tr, theta0, gamma0, a, b, n` |
 
-The Mie-Gruneisen, multi-oscillator, and linear thermal-pressure classes accept
-any `EosBase` reference; thermal modified Tait requires `ModifiedTait`, and
+The Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure
+classes accept any `EosBase` reference. `LogVolumeThermalPressure` requires
+`V0`; thermal modified Tait requires `ModifiedTait`; and
 `ThermalReferenceStateEOS` requires a reference that reconstructs through
 `V0` and `K0`. Energy-based thermal classes require molar volume in
 `J bar^-1 mol^-1`; `LinearThermalPressure` and `ThermalReferenceStateEOS`

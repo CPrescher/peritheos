@@ -2,8 +2,12 @@ import numpy as np
 import pytest
 
 from peritheos.eos import EosBase
-from peritheos.eos.rt import BM2, Vinet
-from peritheos.eos.thermal import LinearThermalPressure, ThermalReferenceStateEOS
+from peritheos.eos.rt import BM2, BM3, Vinet
+from peritheos.eos.thermal import (
+    LinearThermalPressure,
+    LogVolumeThermalPressure,
+    ThermalReferenceStateEOS,
+)
 
 
 def test_linear_thermal_pressure_reference_identity_and_arrays():
@@ -26,6 +30,53 @@ def test_linear_thermal_pressure_requires_broadcast_compatible_states():
     eos = LinearThermalPressure(Vinet(50.0, 20.0, 5.0), 300.0, 0.002)
     with pytest.raises(ValueError, match="broadcast-compatible"):
         eos.thermal_pressure(np.ones(2), np.ones(3) * 300.0)
+
+
+def test_log_volume_thermal_pressure_matches_anderson_equation_and_arrays():
+    reference = BM2(V0=67.79, K0=166.65)
+    eos = LogVolumeThermalPressure(
+        reference,
+        Tr=300.0,
+        alpha_KT_ref=0.00714,
+        dK_dT_V=-0.0115,
+    )
+    volumes = reference.V0 * np.array([1.0, 0.8, 0.66])
+    temperatures = np.array([3000.0, 1000.0, 300.0])
+    expected = (0.00714 - 0.0115 * np.log(reference.V0 / volumes)) * (
+        temperatures - 300.0
+    )
+
+    assert eos.thermal_pressure(reference.V0, 300.0) == pytest.approx(0.0)
+    assert np.allclose(eos.thermal_pressure(volumes, temperatures), expected)
+    assert np.allclose(
+        eos.pressure(volumes, temperatures), reference.pressure(volumes) + expected
+    )
+
+
+def test_log_volume_thermal_pressure_round_trips_and_requires_reference_volume():
+    eos = LogVolumeThermalPressure(
+        BM2(V0=67.79, K0=166.65),
+        Tr=300.0,
+        alpha_KT_ref=0.00714,
+        dK_dT_V=-0.0115,
+    )
+    volumes = np.array([60.0, 50.0])
+    temperatures = np.array([1000.0, 2000.0])
+    pressures = eos.pressure(volumes, temperatures)
+
+    assert np.allclose(eos.volume(pressures, temperatures), volumes)
+    assert np.allclose(eos.temperature(pressures, volumes), temperatures)
+
+    class MissingReferenceVolume(EosBase):
+        pass
+
+    with pytest.raises(ValueError, match="expose V0"):
+        LogVolumeThermalPressure(
+            MissingReferenceVolume(),
+            Tr=300.0,
+            alpha_KT_ref=0.00714,
+            dK_dT_V=-0.0115,
+        )
 
 
 def _bm2_pressure(volume, reference_volume, bulk_modulus):
@@ -55,6 +106,73 @@ def test_thermal_reference_state_matches_bezacier_equations_and_arrays():
         eos.thermal_pressure(volumes, temperatures),
         expected - eos.rt_eos.pressure(volumes),
     )
+
+
+def test_thermal_reference_state_integrates_linear_temperature_expansivity():
+    eos = ThermalReferenceStateEOS(
+        BM3(V0=227.14, K0=65.4, K0_prime=2.7),
+        Tr=298.0,
+        alpha0=6.5e-5,
+        alpha1=3.1e-9,
+        dK_dT=-0.013,
+        thermal_expansion_law="linear_temperature",
+    )
+    temperatures = np.array([298.0, 673.0, 1273.0])
+    exponent = 6.5e-5 * (temperatures - 298.0) + 0.5 * 3.1e-9 * (
+        temperatures**2 - 298.0**2
+    )
+    shifted_volumes = 227.14 * np.exp(exponent)
+    shifted_moduli = 65.4 - 0.013 * (temperatures - 298.0)
+    expected = np.array(
+        [
+            BM3(volume, modulus, 2.7).pressure(220.0)
+            for volume, modulus in zip(shifted_volumes, shifted_moduli)
+        ]
+    )
+
+    assert eos.configuration_values() == {
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity",
+    }
+    assert eos.parameter_values(include_reference=False)["alpha1"] == pytest.approx(
+        3.1e-9
+    )
+    assert np.allclose(eos.pressure(220.0, temperatures), expected)
+    assert np.allclose(eos.pressure(shifted_volumes, temperatures), 0.0, atol=1e-13)
+
+    reconstructed = eos.with_parameters(alpha1=3.0e-9)
+    assert reconstructed.alpha1 == pytest.approx(3.0e-9)
+    assert reconstructed.thermal_expansion_law == "linear_temperature"
+
+
+def test_thermal_reference_state_supports_direct_linear_reference_volume():
+    eos = ThermalReferenceStateEOS(
+        BM2(V0=227.5, K0=64.81),
+        Tr=298.0,
+        alpha0=6.5e-5,
+        dK_dT=-0.018,
+        reference_volume_law="linear_temperature",
+    )
+    temperatures = np.array([298.0, 673.0, 973.0])
+    shifted_volumes = 227.5 * (1.0 + 6.5e-5 * (temperatures - 298.0))
+    shifted_moduli = 64.81 - 0.018 * (temperatures - 298.0)
+    expected = np.array(
+        [
+            BM2(volume, modulus).pressure(220.0)
+            for volume, modulus in zip(shifted_volumes, shifted_moduli)
+        ]
+    )
+
+    assert eos.configuration_values() == {
+        "thermal_expansion_law": "constant",
+        "reference_volume_law": "linear_temperature",
+    }
+    assert np.allclose(eos.pressure(220.0, temperatures), expected)
+    assert np.allclose(eos.pressure(shifted_volumes, temperatures), 0.0, atol=1e-13)
+
+    reconstructed = eos.with_parameters(alpha0=6.4e-5)
+    assert reconstructed.alpha0 == pytest.approx(6.4e-5)
+    assert reconstructed.reference_volume_law == "linear_temperature"
 
 
 def test_thermal_reference_state_volume_and_temperature_round_trips():
@@ -110,3 +228,34 @@ def test_thermal_reference_state_rejects_nonfinite_shifted_volume():
     eos = ThermalReferenceStateEOS(BM2(10.0, 20.0), 300.0, 1.0, 0.0)
     with pytest.raises(ValueError, match="non-positive reference volume"):
         eos.pressure(9.0, 1.0e4)
+
+
+def test_thermal_reference_state_validates_expansion_law_configuration():
+    with pytest.raises(ValueError, match="thermal_expansion_law"):
+        ThermalReferenceStateEOS(
+            BM2(10.0, 20.0),
+            300.0,
+            1e-5,
+            0.0,
+            thermal_expansion_law="quadratic",
+        )
+    with pytest.raises(ValueError, match="alpha1 must be zero"):
+        ThermalReferenceStateEOS(BM2(10.0, 20.0), 300.0, 1e-5, 0.0, 1e-9)
+    with pytest.raises(ValueError, match="reference_volume_law"):
+        ThermalReferenceStateEOS(
+            BM2(10.0, 20.0),
+            300.0,
+            1e-5,
+            0.0,
+            reference_volume_law="quadratic",
+        )
+    with pytest.raises(ValueError, match="requires constant thermal expansion"):
+        ThermalReferenceStateEOS(
+            BM2(10.0, 20.0),
+            300.0,
+            1e-5,
+            0.0,
+            alpha1=1e-9,
+            thermal_expansion_law="linear_temperature",
+            reference_volume_law="linear_temperature",
+        )

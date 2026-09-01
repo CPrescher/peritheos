@@ -4,7 +4,7 @@
  "formula": "KCl",
  "symmetry": "CUBIC",
  "lattice": {
-  "a": 3.753,
+  "a": 3.7913932634,
   "b": null,
   "c": null,
   "alpha": 90.0,
@@ -32,11 +32,11 @@
    "occupancy": 1.0
   }
  ],
- "notes": "High-pressure CsCl-type B2 KCl, stored separately from the rock-salt B1 phase.",
+ "notes": "High-pressure CsCl-type B2 KCl, stored separately from the rock-salt B1 phase. The lattice is normalized to the fictive zero-pressure V0 of the default Dewaele et al. (2012) pressure calibration; B2 KCl is not stable at zero pressure.",
  "peaks": [],
  "eos_records": [
   {
-   "label": "B2 (EOS from Campbell and Heinz, 1991)",
+   "label": "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite",
    "reference": {
     "authors": [
      "Campbell",
@@ -51,36 +51,45 @@
    "eos": {
     "type": "BM2",
     "parameters": {
-     "V0": 52.85,
+     "V0": 52.899988,
      "K0": 28.7
     },
     "model": "birch_murnaghan_2"
    },
    "parameter_errors": {
-    "V0": 0.36,
+    "V0": 0.355452,
     "K0": 0.6
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     2.0,
     56.0
    ],
-   "notes": "Campbell and Heinz report V0(B2)/V0(B1) = 0.8483 +/- 0.0057 and K0 = 28.7 +/- 0.6 GPa, with K0' constrained to 4.0. This is stored as BM2; V0 and its propagated uncertainty use the ambient B1 reference volume.",
+   "notes": "Explicit composite B2-KCl reference isotherm. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is 0.8483*62.36=52.899988 A^3/formula unit, using the independently published experimental B1-KCl V0 of Dewaele et al. (2012). Its 0.355452 A^3 uncertainty propagates the Campbell ratio error only; Dewaele et al. report no B1 V0 error or covariance. This composite is not presented as a single-paper Campbell parameter set.",
    "identifier": "kcl_campbell_1991_bm2_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The primary abstract reports the B2/B1 zero-pressure volume ratio, K0, and fixed K0'=4, but the stored absolute B2 V0 additionally depends on an ambient B1 volume that is not established by the accessible primary text.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1016/0022-3697(91)90181-x",
-     "access_url": "https://doi.org/10.1016/0022-3697(91)90181-x",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The primary abstract reports the B2/B1 zero-pressure volume ratio, K0, and fixed K0'=4, but the stored absolute B2 V0 additionally depends on an ambient B1 volume that is not established by the accessible primary text."
+     "access_url": "https://doi.org/10.1016/0022-3697(91)90181-X",
+     "locations": [
+      "Campbell and Heinz (1991), primary abstract: B2/B1 V0 ratio, K0, fixed K0', and 2-56 GPa range",
+      "Dewaele et al. (2012), Table III: experimental B1-KCl V0"
+     ],
+     "finding": "This is an explicit two-primary-source composite. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 fixed. Multiplication by Dewaele et al.'s B1 V0=62.36 A^3/formula unit gives V0(B2)=52.899988 A^3. Because Dewaele et al. publish no V0 error, only the Campbell ratio error is propagated.",
+     "doi": "10.1016/0022-3697(91)90181-x"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -88,7 +97,47 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "kcl.json"
     }
-   }
+   },
+   "temperature_ref": 298.0,
+   "parameter_provenance": {
+    "V0": "Campbell and Heinz (1991) V0(B2)/V0(B1)=0.8483+/-0.0057 multiplied by Dewaele et al. (2012) experimental B1-KCl V0=62.36 A^3/formula unit",
+    "K0": "Campbell and Heinz (1991) primary abstract: 28.7+/-0.6 GPa",
+    "K0_prime": "Campbell and Heinz (1991) primary abstract: fixed at 4.0 (BM2)"
+   },
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 52.899988,
+     "value": 52.899988,
+     "reason": "Derive the absolute B2 reference volume from two explicitly named primary inputs.",
+     "primary_reference": {
+      "doi": "10.1016/0022-3697(91)90181-X + 10.1103/PhysRevB.85.214105",
+      "location": "Campbell abstract; Dewaele Table III"
+     }
+    },
+    {
+     "path": "parameter_errors.V0",
+     "source_value": 0.355452,
+     "value": 0.355452,
+     "reason": "Propagate 62.36*0.0057; no B1-V0 error is published to include.",
+     "primary_reference": {
+      "doi": "10.1016/0022-3697(91)90181-X + 10.1103/PhysRevB.85.214105",
+      "location": "Campbell abstract; Dewaele Table III"
+     }
+    },
+    {
+     "path": "fixed_parameters",
+     "source_value": [],
+     "value": [
+      "V0"
+     ],
+     "reason": "The absolute V0 is constructed from published inputs rather than fitted in this record.",
+     "primary_reference": {
+      "doi": "10.1016/0022-3697(91)90181-X + 10.1103/PhysRevB.85.214105",
+      "location": "Campbell abstract; Dewaele Table III"
+     }
+    }
+   ]
   },
   {
    "label": "Walker et al. (2002), B2 thermal Birch",
@@ -144,8 +193,8 @@
    "identifier": "kcl_walker_2002_bm3_2",
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication or its official/author manuscript; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-08-31",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -240,6 +289,123 @@
      }
     }
    ]
+  },
+  {
+   "label": "Dewaele et al. (2012), B2 P-V-T pressure calibration",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Belonoshko",
+     "Garbarino",
+     "Occelli",
+     "Bouvier",
+     "Hanfland",
+     "Mezouar"
+    ],
+    "year": 2012,
+    "source": "Phys. Rev. B",
+    "volume": "85",
+    "locator": "214105",
+    "doi": "10.1103/PhysRevB.85.214105"
+   },
+   "default": true,
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 54.5,
+     "K0": 17.2,
+     "K0_prime": 5.89
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    2.6,
+    165.0
+   ],
+   "experimental_temperature_range_k": [
+    298.0,
+    298.0
+   ],
+   "temperature_ref": 300.0,
+   "validity": {
+    "pressure_gpa": [
+     2.6,
+     200.0
+    ],
+    "temperature_k": [
+     300.0,
+     7000.0
+    ],
+    "volume_ratio": [
+     0.4,
+     1.0
+    ],
+    "notes": [
+     "The 298 K experimental compression data extend from the B1-B2 transition at 2.6 GPa to 165 GPa.",
+     "Equation (2) and Table V extend the calibration to 200 GPa and 7000 K using molecular-dynamics thermal pressures over V/V0=0.4-1.0; states above 165 GPa or 298 K are not direct static-compression measurements."
+    ]
+   },
+   "notes": "Preferred broadly useful B2-KCl pressure calibration. The reference isotherm is the Rydberg-Vinet fit to helium-medium 298 K measurements; the paper writes it as a 300 K term in Equation (2). V0 is a fictive zero-pressure B2 value fixed from the 2-6 GPa observations. The additive alpha*K_T term comes from ab initio molecular dynamics. The paper tabulates neither individual coefficient errors nor covariance, so they remain unavailable rather than being set to zero.",
+   "thermal": {
+    "type": "LinearThermalPressure",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha_KT": 0.00224
+    },
+    "model": "linear_thermal_pressure",
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT": null
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "identifier": "kcl_b2_dewaele_2012_vinet_3",
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Table III and Table V; 54.5 A^3/formula unit, fixed from the lowest-pressure 2-6 GPa observations",
+     "K0": "Table III and Table V; 17.2 GPa",
+     "K0_prime": "Table III and Table V; 5.89"
+    },
+    "thermal_correction": {
+     "Tr": "Equation (2); the fitted 298 K measurements are represented by the paper's 300 K reference term",
+     "alpha_KT": "Equation (2) and Table V; 0.00224 GPa/K from the molecular-dynamics thermal-pressure fit"
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext",
+     "locations": [
+      "Table I, 298 K measured P-V points",
+      "Table III, experimental B2 KCl Vinet fit and 2.6-165 GPa range",
+      "Equation (2) and Table V, P-V-T calibration",
+      "Section IV, stated 0-200 GPa and 300-7000 K calibration range"
+     ],
+     "finding": "The paper provides the complete B2-KCl P-V-T equation and parameters, explicitly recommends it for pressure calibration, and prints no fitted-parameter errors or covariance.",
+     "doi": "10.1103/physrevb.85.214105"
+    }
+   }
   }
  ],
  "format": "peritheos.material",

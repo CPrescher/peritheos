@@ -4,9 +4,9 @@
  "formula": "CoO",
  "symmetry": "CUBIC",
  "lattice": {
-  "a": 4.544,
-  "b": 4.544,
-  "c": 4.544,
+  "a": 4.258,
+  "b": 4.258,
+  "c": 4.258,
   "alpha": 90.0,
   "beta": 90.0,
   "gamma": 90.0
@@ -32,11 +32,11 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/certified data base/coo.jcpds, JCPDS/current user/jcpds/ver3/coo.jcpds, JCPDS/current user/jcpds/ver2/coo.jcpds",
+ "notes": "Rocksalt CoO structure. The ambient cubic lattice parameter a0=4.258 A is from Clendenen and Drickamer (1966), Table II; the atom sites and space-group metadata are retained from the Dioptas/JCPDS interchange record.",
  "peaks": [],
  "eos_records": [
   {
-   "label": "JCPDS 42-1300, EOS from Clendenen and Drickamer, 66",
+   "label": "Clendenen and Drickamer (1966), CoO Murnaghan",
    "reference": {
     "authors": [
      "Clendenen",
@@ -49,37 +49,46 @@
     "doi": "10.1063/1.1726610"
    },
    "eos": {
-    "type": "BM3",
+    "type": "Murnaghan",
     "parameters": {
-     "V0": 93.8242,
+     "V0": 77.199941512,
      "K0": 190.5,
      "K0_prime": 3.9
     },
-    "model": "birch_murnaghan_3"
+    "model": "murnaghan"
    },
    "parameter_errors": {
     "V0": null,
     "K0": null,
     "K0_prime": null
    },
-   "fixed_parameters": [],
-   "pressure_range_status": "reported_qualitatively",
-   "notes": "Clendenen and Drickamer report the legacy compression parameters K0 = 190.5 GPa and K0' = 3.9 without parameter uncertainties. V0 is retained from the ambient diffraction card. The source describes measurements to several hundred kilobars but does not expose a recoverable CoO-specific maximum in the accessible metadata, so no exact numeric fit limit is asserted.",
-   "identifier": "coo_clendenen_1966_bm3_1",
+   "fixed_parameters": [
+    "V0"
+   ],
+   "pressure_range_status": "reported_exactly",
+   "notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
+   "identifier": "coo_clendenen_1966_murnaghan_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The accessible primary abstract does not establish all stored CoO V0, Birch-Murnaghan coefficients, errors, and validity metadata.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1063/1.1726610",
-     "access_url": "https://doi.org/10.1063/1.1726610",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The accessible primary abstract does not establish all stored CoO V0, Birch-Murnaghan coefficients, errors, and validity metadata."
+     "access_url": "https://pubs.aip.org/aip/jcp/article/44/11/4223/209674/Lattice-Parameters-of-Nine-Oxides-and-Sulfides-as",
+     "locations": [
+      "Equation (4), journal page 4226",
+      "Tables II, III, and VI, journal pages 4224-4227"
+     ],
+     "finding": "The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions that B0 and B0' need not equal the true one-atmosphere derivatives.",
+     "doi": "10.1063/1.1726610"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -87,7 +96,63 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "coo.json"
     }
-   }
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    30.8
+   ],
+   "parameter_provenance": {
+    "V0": "Table II ambient cubic a0=4.258 A; V0=a0^3 for the four-formula-unit conventional cell",
+    "K0": "Table VI B0=1905 kbar; converted to 190.5 GPa",
+    "K0_prime": "Table VI dimensionless B0'=3.9"
+   },
+   "audit_corrections": [
+    {
+     "path": "identifier",
+     "source_value": "coo_clendenen_1966_bm3_1",
+     "value": "coo_clendenen_1966_murnaghan_1",
+     "reason": "The primary paper uses the Murnaghan equation printed as Equation (4).",
+     "primary_reference": {
+      "doi": "10.1063/1.1726610",
+      "location": "Equation (4) and Tables II, III, and VI"
+     }
+    },
+    {
+     "path": "eos",
+     "source_value": "BM3(V0=93.8242, K0=190.5, K0_prime=3.9)",
+     "value": "Murnaghan(V0=77.199941512, K0=190.5, K0_prime=3.9)",
+     "reason": "Use Equation (4), Table VI, and V0=a0^3 from the Table II ambient a0=4.258 A.",
+     "primary_reference": {
+      "doi": "10.1063/1.1726610",
+      "location": "Equation (4) and Tables II, III, and VI"
+     }
+    },
+    {
+     "path": "fixed_parameters",
+     "source_value": [],
+     "value": [
+      "V0"
+     ],
+     "reason": "Table VI fits B0 and B0'; V0 is the independently listed ambient lattice reference in Table II.",
+     "primary_reference": {
+      "doi": "10.1063/1.1726610",
+      "location": "Equation (4) and Tables II, III, and VI"
+     }
+    },
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": null,
+     "value": [
+      0.0,
+      30.8
+     ],
+     "reason": "Table III lists CoO compression data from 0 to 308 kbar.",
+     "primary_reference": {
+      "doi": "10.1063/1.1726610",
+      "location": "Equation (4) and Tables II, III, and VI"
+     }
+    }
+   ]
   }
  ],
  "format": "peritheos.material",

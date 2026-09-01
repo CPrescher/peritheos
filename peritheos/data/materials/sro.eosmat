@@ -39,7 +39,7 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "Liu and Bassett 1973",
+   "label": "Liu and Bassett (1973), SrO volumetric BM3",
    "reference": {
     "authors": [
      "Liu",
@@ -54,14 +54,14 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 137.3881,
+     "V0": 137.388096,
      "K0": 91.3,
      "K0_prime": 4.3
     },
     "model": "birch_murnaghan_3"
    },
    "parameter_errors": {
-    "V0": null,
+    "V0": 0.412164288,
     "K0": 2.7,
     "K0_prime": 0.3
    },
@@ -70,24 +70,32 @@
    ],
    "experimental_pressure_range_gpa": [
     0.0,
-    34.0
+    34.05
    ],
-   "notes": "Liu and Bassett report K0 = 913 +/- 27 kbar (91.3 +/- 2.7 GPa) and K0' = 4.3 +/- 0.3. The ambient card volume is treated as fixed.",
+   "notes": "Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation fit errors. The fixed V0 error represents the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell shows a small tetragonal distortion, but the paper reports no volume discontinuity and deliberately fits all data together. No parameter covariance is published.",
    "identifier": "sro_liu_1973_bm3_1",
    "scientific_validation": {
-    "status": "deferred",
-    "note": "The accessible primary abstract does not establish all stored B1-SrO reference-volume, equation-order, fit-constraint, and error metadata.",
-    "audit_date": "2026-08-31",
-    "unresolved": [
-     "complete primary equation/parameter trace",
-     "reference-state and unit provenance",
-     "published uncertainty/covariance and validity provenance"
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
-     "doi": "10.1029/jb078i035p08470",
-     "access_url": "https://doi.org/10.1029/jb078i035p08470",
-     "outcome": "insufficient_primary_evidence",
-     "reason": "The accessible primary abstract does not establish all stored B1-SrO reference-volume, equation-order, fit-constraint, and error metadata."
+     "access_url": "https://doi.org/10.1029/JB078i035p08470",
+     "locations": [
+      "page 8471, Table 2, 23+/-3 degC P-V observations",
+      "page 8472, first Birch formulation and fitted coefficients",
+      "page 8472, stated one-standard-deviation fit errors"
+     ],
+     "finding": "The first printed Birch formulation is the BM3 form represented by the record. The fixed ambient V0 error uses the paper's stated 0.3% volume accuracy. The fit spans a small reversible tetragonal distortion without a volume discontinuity.",
+     "doi": "10.1029/jb078i035p08470"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -95,6 +103,18 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "sro.json"
     }
+   },
+   "temperature_ref": 296.15,
+   "experimental_temperature_range_k": [
+    293.15,
+    299.15
+   ],
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Liu and Bassett (1973), Table 2: a0=5.160 A; V0=a0^3, with the stated 0.3% volume accuracy",
+    "K0": "Liu and Bassett (1973), page 8472, first Birch formulation",
+    "K0_prime": "Liu and Bassett (1973), page 8472, first Birch formulation",
+    "equation": "Liu and Bassett (1973), page 8472, first printed Birch equation"
    }
   }
  ],
@@ -104,5 +124,6 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "B1 (NaCl-type), cubic Fm-3m"
 }
