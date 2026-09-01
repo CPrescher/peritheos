@@ -1,5 +1,99 @@
 # API reference
 
+## Materials and EOS records
+
+```python
+from peritheos import (
+    EOSRecord,
+    Material,
+    get_eos_record,
+    get_material,
+    list_eos_records,
+    list_materials,
+)
+from peritheos.materials import DEFERRED_EOS_RECORDS
+```
+
+`get_material(identifier)` returns a material phase and
+`list_materials(formula=...)` lists or filters the curated pressure-scale
+convenience catalog. This compact executable catalog is distinct from the full
+115-document shared material library described below. Each
+`Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
+provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
+canonical executable format-3 material document. Optional crystallographic
+fields are preserved but not interpreted. Loading uses a fixed model registry
+and never imports an implementation path. The legacy executable snapshot-v2
+reader and `to_snapshot_dict()` remain compatibility-only APIs.
+
+## Shared `.eosmat` material library
+
+```python
+from peritheos import (
+    eosmat_schema,
+    get_material_document,
+    list_material_documents,
+    load_eosmat,
+    save_eosmat,
+    validate_eosmat_document,
+)
+```
+
+`list_material_documents()` returns the identifiers of all 115 bundled
+materials. `get_material_document(identifier)` returns a defensive copy of one
+flat format-3 `.eosmat` document, including optional structure and its raw EOS
+records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
+`save_eosmat()` validates and preserves optional fields. `eosmat_schema()`
+returns the bundled normative JSON Schema.
+The [`.eosmat` schema reference](eosmat-schema.md) documents the complete
+field contract and consumer defaults.
+
+Transferred Dioptas records have completed a primary-source classification,
+and native primary-sourced records have been added for aragonite BM2 and the
+B2-KCl P-V-T pressure calibration. All 146 bundled records are
+`primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
+validated records and refuses deferred ones by default; callers can inspect legacy values with
+`require_primary_validation=False` and select records with
+`record_identifiers=(...)`. This opt-in never changes the stored status.
+
+For example, the independently reproducible staged aragonite BM2 record can be
+used at its 298 K reference state or at the represented high temperatures:
+
+```python
+from peritheos import Material, get_material_document
+
+document = get_material_document("aragonite")
+aragonite = Material.from_eosmat(
+    document,
+    record_identifiers=["aragonite_martinez_1996_bm2_2"],
+).eos_records[0]
+
+pressure = aragonite.pressure(volume=215.0)  # GPa at 298 K
+hot_pressure = aragonite.pressure(volume=215.0, temperature=873.0)
+result = aragonite.pressure_with_uncertainty(
+    volume=215.0,
+    volume_sigma=0.05,
+)
+```
+
+The separate Martinez global thermal BM3 reduction is intentionally absent:
+its published fitted reference volume is missing, and its remaining coefficients
+do not reproduce the printed dataset under the documented equations.
+
+`get_eos_record(identifier)` and `list_eos_records(formula=...)` are convenient
+lookups within that curated pressure-scale set. Use
+`list_material_documents()` and `Material.from_eosmat()` for the complete
+shared library. Each `EOSRecord` provides:
+
+- `pressure(volume, temperature=None, check_validity=True)` in GPa;
+- `volume(pressure, temperature=None, check_validity=True)` in
+  angstrom^3/conventional unit cell;
+- `pressure_with_uncertainty(...)` and `volume_with_uncertainty(...)`;
+- `within_validity(volume, temperature=None)`;
+- `reference`, `validity`, `parameter_provenance`, `notes`, and volume metadata.
+
+See [Pressure standards](pressure-standards.md) for the subset and workflows
+commonly used for pressure calibration.
+
 ## Isothermal equations of state
 
 ```python
@@ -21,6 +115,7 @@ Common methods:
 
 - `pressure(V)`
 - `bulk_modulus(V)`
+- `bulk_modulus_derivative(V)` for $dK/dP$; the base implementation is numerical
 - `volume(P)` and `calculate_volume(P)`
 
 Constructor signatures and special requirements are:
@@ -38,7 +133,8 @@ Constructor signatures and special requirements are:
 | `Vinet` | `(V0, K0, K0_prime)` | none |
 | `Holzapfel` | `(V0, K0, K0_prime, n, Z)` | molar volume in `J bar^-1 mol^-1` |
 
-`Holzapfel` additionally provides `bulk_modulus_derivative(V, eps=1e-6)`.
+`Holzapfel` overrides `bulk_modulus_derivative(V, eps=1e-6)` with its existing
+specialized numerical form.
 See the [equation reference](equation-reference.md#isothermal-equations) for
 the mathematical definitions and coefficient domains.
 
@@ -47,10 +143,14 @@ the mathematical definitions and coefficient domains.
 ```python
 from peritheos.eos.thermal import (
     HollandPowell2011,
+    LinearThermalPressure,
+    LogVolumeThermalPressure,
     MieGruneisenDebye,
     MieGruneisenEinstein,
-    Sokolova2016,
+    MultiOscillatorGruneisenThermalEOS,
+    Tange2009Debye,
     ThermalModifiedTait,
+    ThermalReferenceStateEOS,
 )
 ```
 
@@ -58,16 +158,32 @@ Thermal constructor signatures are:
 
 | Class | Parameters after `rt_eos` |
 |---|---|
-| `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n` |
+| `LinearThermalPressure` | `Tr, alpha_KT` |
+| `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
+| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"` |
+| `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen"` |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
-| `Sokolova2016` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1` |
+| `MultiOscillatorGruneisenThermalEOS` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1, n` |
+| `Tange2009Debye` | `Tr, theta0, gamma0, a, b, n` |
 
-The Mie-Gruneisen classes accept any `EosBase` reference; thermal modified Tait
-requires `ModifiedTait`, and Sokolova requires `Holzapfel`. All thermal classes
-require molar volume in `J bar^-1 mol^-1`. `HollandPowell2011` is an alias for
+The Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure
+classes accept any `EosBase` reference. `LogVolumeThermalPressure` requires
+`V0`; thermal modified Tait requires `ModifiedTait`; and
+`ThermalReferenceStateEOS` requires a reference that reconstructs through
+`V0` and `K0`. Energy-based thermal classes require molar volume in
+`J bar^-1 mol^-1`; `LinearThermalPressure` and `ThermalReferenceStateEOS`
+inherit any volume unit consistent with their reference EOS.
+`HollandPowell2011` is an alias for
 `ThermalModifiedTait`. Exact equations and parameter roles are documented
 under [Thermal equations](equation-reference.md#thermal-equations).
+`Sokolova2016` is a compatibility alias for
+`MultiOscillatorGruneisenThermalEOS`.
+
+`parameter_values()` contains only numeric parameters that fitting and
+uncertainty propagation may vary. `configuration_values()` reports fixed
+non-numeric constructor choices such as `debye_temperature_law`;
+`with_parameters()` preserves those choices when reconstructing an EOS.
 
 Common methods:
 

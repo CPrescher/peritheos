@@ -1,7 +1,9 @@
 use peritheos_core::isothermal::{Holzapfel, ModifiedTait, BM3};
 use peritheos_core::thermal::{
-    debye_function_3, MieGruneisenDebye, MieGruneisenEinstein, Sokolova2016, SokolovaParameters,
-    ThermalModifiedTait, GAS_CONSTANT,
+    debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw,
+    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
+    MultiOscillatorGruneisen, ReferenceVolumeLaw, Sokolova2016, SokolovaParameters,
+    ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState, GAS_CONSTANT,
 };
 use peritheos_core::{CaloricEos, ThermalEos};
 use serde_json::Value;
@@ -30,6 +32,137 @@ fn shared_mie_gruneisen_literature_cases_match() {
         9.961_068_596_665_895,
         1.0e-10,
     );
+}
+
+#[test]
+fn debye_temperature_laws_are_explicit_and_distinct() {
+    let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
+    let integrated = MieGruneisenDebye::new(reference, 300.0, 800.0, 1.5, 1.2, 2.0).unwrap();
+    let variable = MieGruneisenDebye::new_with_temperature_law(
+        reference,
+        300.0,
+        800.0,
+        1.5,
+        1.2,
+        2.0,
+        DebyeTemperatureLaw::VariableExponent,
+    )
+    .unwrap();
+    let volume = 0.8;
+    let ratio = volume / reference.v0;
+    let gamma = 1.5 * ratio.powf(1.2);
+    assert_close(
+        variable.characteristic_temperature(volume).unwrap(),
+        800.0 * ratio.powf(-gamma),
+        1.0e-14,
+    );
+    assert!(
+        (variable.characteristic_temperature(volume).unwrap()
+            - integrated.characteristic_temperature(volume).unwrap())
+        .abs()
+            > 1.0
+    );
+}
+
+#[test]
+fn simple_thermal_pressure_models_preserve_reference_state() {
+    let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
+    let linear = LinearThermalPressure::new(reference, 300.0, 0.002).unwrap();
+    let logarithmic = LogVolumeThermalPressure::new(reference, 300.0, 0.002, -0.000_01).unwrap();
+
+    for model_pressure in [
+        linear.thermal_pressure(0.8, 300.0).unwrap(),
+        logarithmic.thermal_pressure(0.8, 300.0).unwrap(),
+    ] {
+        assert_close(model_pressure, 0.0, 1.0e-15);
+    }
+    assert_close(linear.thermal_pressure(0.8, 800.0).unwrap(), 1.0, 1.0e-14);
+    assert_close(
+        logarithmic.thermal_pressure(0.8, 800.0).unwrap(),
+        (0.002 - 0.000_01 * (1.0_f64 / 0.8).ln()) * 500.0,
+        1.0e-14,
+    );
+}
+
+#[test]
+fn thermal_reference_state_supports_both_volume_laws_and_domains() {
+    let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
+    let integrated = ThermalReferenceState::new(
+        reference,
+        300.0,
+        2.0e-5,
+        -0.01,
+        1.0e-8,
+        ThermalExpansionLaw::LinearTemperature,
+        ReferenceVolumeLaw::IntegratedExpansivity,
+    )
+    .unwrap();
+    let linear = ThermalReferenceState::new(
+        reference,
+        300.0,
+        2.0e-5,
+        -0.01,
+        0.0,
+        ThermalExpansionLaw::Constant,
+        ReferenceVolumeLaw::LinearTemperature,
+    )
+    .unwrap();
+
+    assert_close(
+        integrated.thermal_pressure(0.9, 300.0).unwrap(),
+        0.0,
+        1.0e-14,
+    );
+    assert_close(linear.thermal_pressure(0.9, 300.0).unwrap(), 0.0, 1.0e-14);
+    assert!(integrated.pressure(0.9, 1200.0).unwrap().is_finite());
+    assert!(linear.pressure(0.9, 1200.0).unwrap().is_finite());
+
+    let invalid_modulus = ThermalReferenceState::new(
+        reference,
+        300.0,
+        0.0,
+        -1.0,
+        0.0,
+        ThermalExpansionLaw::Constant,
+        ReferenceVolumeLaw::IntegratedExpansivity,
+    )
+    .unwrap();
+    assert!(invalid_modulus.pressure(0.9, 500.0).is_err());
+}
+
+#[test]
+fn asymptotic_power_law_model_round_trips_and_preserves_reference_state() {
+    let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
+    let model =
+        AsymptoticPowerLawMieGruneisenDebye::new(reference, 300.0, 760.0, 1.5, 0.3, 2.5, 2.0)
+            .unwrap();
+    let volume = 0.83;
+    let temperature = 1800.0;
+    let pressure = model.pressure(volume, temperature).unwrap();
+
+    assert_close(model.thermal_pressure(volume, 300.0).unwrap(), 0.0, 1.0e-14);
+    assert_close(
+        model.volume(pressure, temperature).unwrap(),
+        volume,
+        1.0e-10,
+    );
+    assert_close(
+        model.temperature(pressure, volume).unwrap(),
+        temperature,
+        1.0e-9,
+    );
+}
+
+#[test]
+fn multi_oscillator_model_accepts_a_generic_reference_isotherm() {
+    let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
+    let parameters = SokolovaParameters::reduced(
+        298.15, 684.0, 0.564, 1561.0, 2.436, -0.506, 1.085, 0.0, 0.0, 0.0, 0.0,
+    );
+    let model = MultiOscillatorGruneisen::new_with_atom_count(reference, parameters, 2.0).unwrap();
+
+    assert_close(model.thermal_pressure(0.9, 298.15).unwrap(), 0.0, 1.0e-14);
+    assert!(model.pressure(0.9, 1800.0).unwrap().is_finite());
 }
 
 #[test]

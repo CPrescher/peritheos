@@ -41,12 +41,15 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "jsonschema>=4.18,<5",
     "pytest>=7.4.4",
     "pytest-cov>=6.0,<8",
     "ruff>=0.12,<1",
 ]
 docs = [
+    "matplotlib>=3.7,<4",
     "mkdocs>=1.6,<2",
+    "mkdocs-jupyter>=0.25,<1",
     "mkdocs-material>=9,<10",
     "pymdown-extensions>=10,<11",
 ]
@@ -58,7 +61,13 @@ release = [
 manifest-path = "crates/peritheos-python/Cargo.toml"
 module-name = "peritheos._rust"
 python-source = "."
-include = [{path = "crates/peritheos-core/tests/data/**/*", format = "sdist"}]
+include = [
+    {path = "peritheos/data/**/*", format = ["sdist", "wheel"]},
+    {path = "crates/peritheos-core/tests/data/**/*", format = "sdist"},
+    {path = "docs/**/*", format = "sdist"},
+    {path = "scripts/**/*", format = "sdist"},
+    {path = "mkdocs.yml", format = "sdist"},
+]
 
 [tool.ruff]
 target-version = "py39"

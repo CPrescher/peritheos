@@ -4,6 +4,11 @@ Peritheos uses bounded nonlinear least squares and reports covariance,
 correlation, residual, and information-criterion diagnostics. Measurement
 uncertainties can be supplied for every observed state variable.
 
+The executable [aragonite fitting notebook](notebooks/aragonite-eos-fitting.ipynb)
+applies these concepts to all 64 P-V-T observations printed by Martinez et al.
+(1996), including isotherm fits, staged thermal regression, parameter scaling,
+and chi-square interpretation with an incomplete published error model.
+
 Fits using a named loss and an exact built-in Peritheos EOS run end-to-end in
 Rust after one transfer of the input arrays. Custom Python EOS classes and
 subclasses retain callback evaluation, and callable loss functions retain the
@@ -116,9 +121,10 @@ json_text = result.to_json()
 result.to_json("bm3-fit.json")
 ```
 
-The export contains the model's module, class, and reconstructable parameter
-values; free-parameter ordering; covariance and correlation matrices; raw and
-weighted residuals; adjusted observations; diagnostics; and solver metadata.
+The export contains the model's module, class, reconstructable parameter
+values, and fixed equation configuration; free-parameter ordering; covariance
+and correlation matrices; raw and weighted residuals; adjusted observations;
+diagnostics; and solver metadata.
 Non-finite diagnostics, such as reduced chi-square for a fit with no degrees of
 freedom, are represented as JSON `null`. The export is intended as a durable
 analysis record; it does not dynamically import and execute model classes.
@@ -171,6 +177,29 @@ result = fit_thermal_eos(
     absolute_sigma=True,
 )
 ```
+
+Fixed equation choices belong in `configuration`, not in `initial` or
+`fixed`. This keeps categorical mechanism choices separate from fitted numeric
+parameters and preserves them in both the native solver and the returned model:
+
+```python
+from peritheos.eos.thermal import MieGruneisenDebye
+
+result = fit_thermal_eos(
+    MieGruneisenDebye,
+    rt_eos=reference_eos,
+    volume=volumes,
+    temperature=temperatures,
+    pressure=pressures,
+    initial={"gamma0": 1.5},
+    fixed={"Tr": 300.0, "theta0": 800.0, "q": 1.0, "n": 2.0},
+    configuration={"debye_temperature_law": "variable_exponent"},
+)
+```
+
+The same `configuration` keyword is accepted by `fit_joint_eos`, including
+both `thermal_expansion_law` and `reference_volume_law` for
+`ThermalReferenceStateEOS`.
 
 ## Joint reference and thermal fitting
 

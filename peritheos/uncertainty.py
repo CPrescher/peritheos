@@ -127,6 +127,17 @@ class ParameterUncertainty:
         self.assumptions = tuple(dict.fromkeys(inferred_assumptions))
 
     @classmethod
+    def _empty(cls, assumptions: Sequence[str] = ()) -> ParameterUncertainty:
+        """Construct the internal empty block used for state-only propagation."""
+        result = cls.__new__(cls)
+        result.parameter_names = ()
+        result.covariance = np.zeros((0, 0), dtype=float)
+        result.standard_errors = {}
+        result.correlation = np.zeros((0, 0), dtype=float)
+        result.assumptions = tuple(dict.fromkeys(assumptions))
+        return result
+
+    @classmethod
     def _from_matrix(
         cls,
         parameter_names: Sequence[str],
@@ -206,6 +217,16 @@ class EOSUncertainty:
         result = cls.__new__(cls)
         result._initialize(eos, parameter_uncertainty)
         return result
+
+    @classmethod
+    def state_only(cls, eos: EosBase) -> EOSUncertainty:
+        """Create propagation with measured-state errors but no parameter block."""
+        if not isinstance(eos, EosBase):
+            raise TypeError("eos must be an equation of state")
+        uncertainty = ParameterUncertainty._empty(
+            ("published parameter uncertainty not available",)
+        )
+        return cls._from_parameter_uncertainty(eos, uncertainty)
 
     @classmethod
     def from_fit(
@@ -337,6 +358,8 @@ class EOSUncertainty:
             if derivative.shape != nominal.shape:
                 raise ArithmeticError("Perturbed EOS output shape changed")
             derivatives.append(derivative.ravel())
+        if not derivatives:
+            return np.empty((nominal.size, 0), dtype=float)
         return np.column_stack(derivatives)
 
     def _state_variance(

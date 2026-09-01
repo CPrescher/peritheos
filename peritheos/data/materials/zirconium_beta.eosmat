@@ -1,0 +1,117 @@
+{
+ "format_version": 3,
+ "name": "Zirconium (beta)",
+ "aliases": [
+  "beta-Zr",
+  "bcc zirconium"
+ ],
+ "formula": "Zr",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.5621549886,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "atom_sites": [
+  {
+   "element": "Zr",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Ideal beta-Zr structure; the cubic lattice is calculated from the constrained conventional-cell V0.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "McHardy et al. (2026), beta Vinet",
+   "reference": {
+    "authors": [
+     "McHardy",
+     "Storm",
+     "Lonsdale",
+     "Roy",
+     "McMahon"
+    ],
+    "year": 2026,
+    "source": "Phys. Rev. B",
+    "volume": "113",
+    "locator": "174115",
+    "doi": "10.1103/zp3m-kjpc"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 45.2,
+     "K0": 83.0,
+     "K0_prime": 3.91
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.5,
+    "K0_prime": 0.02
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    35.0,
+    240.0
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "The beta-phase fit used the selected constrained value V0 = 22.6 A^3/atom. The paper cautions that this far-extrapolated reference volume has no direct physical significance; it is doubled here for the conventional bcc cell.",
+   "identifier": "zirconium_beta_mchardy_2026_vinet_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/zp3m-kjpc",
+     "locations": [
+      "Vinet formulation",
+      "Table I, beta row",
+      "Table II, alpha and omega rows"
+     ],
+     "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
+     "doi": "10.1103/zp3m-kjpc"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "zirconium_beta.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "zirconium_beta",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

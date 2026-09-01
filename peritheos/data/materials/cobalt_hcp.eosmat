@@ -1,0 +1,105 @@
+{
+ "format_version": 3,
+ "name": "Cobalt",
+ "formula": "Co",
+ "symmetry": "HEXAGONAL",
+ "lattice": {
+  "a": 2.514,
+  "b": 2.514,
+  "c": 4.105,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "P63/mmc",
+ "space_group_number": 194,
+ "atom_sites": [
+  {
+   "element": "Co",
+   "wyckoff": "2c",
+   "x": 0.3333333333,
+   "y": 0.6666666667,
+   "z": 0.25,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Co-hcp.jcpds",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Fujihisa and Takemura (1996), hcp Vinet",
+   "reference": {
+    "authors": [
+     "Fujihisa",
+     "Takemura"
+    ],
+    "year": 1996,
+    "source": "Phys. Rev. B",
+    "volume": "54",
+    "locator": "5-7",
+    "doi": "10.1103/PhysRevB.54.5"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 22.4685,
+     "K0": 199.0,
+     "K0_prime": 3.6
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 6.0,
+    "K0_prime": 0.2
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    79.0
+   ],
+   "notes": "Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.",
+   "identifier": "cobalt_hcp_fujihisa_1996_vinet_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.54.5/fulltext",
+     "locations": [
+      "page 6, hcp-volume paragraph",
+      "Figure 3"
+     ],
+     "finding": "The primary paper fits hcp cobalt with the Vinet EOS; the migrated BM3 model label was corrected.",
+     "doi": "10.1103/physrevb.54.5"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "cobalt_hcp.json"
+    }
+   },
+   "temperature_ref": 300.0
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "cobalt_hcp",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

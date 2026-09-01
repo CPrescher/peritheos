@@ -1,0 +1,122 @@
+{
+ "format_version": 3,
+ "name": "CsCl",
+ "formula": "CsCl",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.123,
+  "b": 4.123,
+  "c": 4.123,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "Pm-3m",
+ "space_group_number": 221,
+ "atom_sites": [
+  {
+   "element": "Cs",
+   "wyckoff": "1a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Cl",
+   "wyckoff": "1b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/cscl.jcpds",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Campbell and Heinz (1994), CsCl BM3",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Heinz"
+    ],
+    "year": 1994,
+    "source": "J. Geophys. Res.",
+    "volume": "99",
+    "locator": "11765-11774",
+    "doi": "10.1029/94JB00127"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 70.087408867,
+     "K0": 17.01,
+     "K0_prime": 5.49
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.29,
+    "K0_prime": 0.15
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    28.7
+   ],
+   "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' data and corrected Yagi (1978) data. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). The exact laboratory temperature and coefficient covariance are not reported.",
+   "identifier": "cscl_campbell_1994_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/94JB00127",
+     "locations": [
+      "page 11767, accepted 4.123 A zero-pressure CsCl lattice parameter",
+      "page 11767, Table 1, room-temperature compression data",
+      "page 11767, Figure 2 and Eulerian finite-strain fit"
+     ],
+     "finding": "The third-order Birch-Murnaghan reference volume is fixed from the 4.123 A lattice parameter explicitly printed in the primary paper. No V0 error or coefficient covariance is reported.",
+     "doi": "10.1029/94jb00127"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "cscl.json"
+    }
+   },
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Campbell and Heinz (1994), page 11767: accepted ambient a0=4.123 A; V0=a0^3 for Pm-3m CsCl",
+    "K0": "Campbell and Heinz (1994), page 11767 and Figure 2",
+    "K0_prime": "Campbell and Heinz (1994), page 11767 and Figure 2",
+    "equation": "Campbell and Heinz (1994), page 11767: Eulerian finite-strain analysis with linear normalized stress"
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "cscl",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "phase": "B2 (CsCl-type), cubic Pm-3m"
+}

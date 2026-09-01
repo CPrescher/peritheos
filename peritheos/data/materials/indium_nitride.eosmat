@@ -1,0 +1,138 @@
+{
+ "format_version": 3,
+ "name": "Indium Nitride",
+ "formula": "InN",
+ "symmetry": "HEXAGONAL",
+ "lattice": {
+  "a": 3.537,
+  "b": 3.537,
+  "c": 5.704,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "P63mc",
+ "space_group_number": 186,
+ "atom_sites": [
+  {
+   "element": "In",
+   "wyckoff": "2b",
+   "x": 0.3333333333333333,
+   "y": 0.6666666666666666,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "N",
+   "wyckoff": "2b",
+   "x": 0.3333333333333333,
+   "y": 0.6666666666666666,
+   "z": 0.3769,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/InN_hex.jcpds. Structure coordinates: Paszkowicz et al., Powder Diffraction 18, 114-121 (2003), doi:10.1154/1.1566957.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan",
+   "reference": {
+    "authors": [
+     "Muñoz",
+     "Kunc"
+    ],
+    "year": 1993,
+    "source": "J. Phys.: Condens. Matter",
+    "volume": "5",
+    "locator": "6015-6022",
+    "doi": "10.1088/0953-8984/5/33/010"
+   },
+   "eos": {
+    "type": "Murnaghan",
+    "parameters": {
+     "V0": 59.92519880888224,
+     "K0": 166.0,
+     "K0_prime": 3.8
+    },
+    "model": "murnaghan"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "pressure_range_status": "theoretical",
+   "notes": "Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. The theoretical conventional-cell V0=59.92519880888224 A^3 is calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa and K0'=3.8 are from the same pseudopotential row. These are not experimental EOS parameters. The paper estimates finite-cutoff sensitivity from 40/70-Ryd calculations, but does not publish statistical coefficient errors or covariance, so none are inferred.",
+   "identifier": "indium_nitride_munoz_1993_murnaghan_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://iopscience.iop.org/article/10.1088/0953-8984/5/33/010/pdf",
+     "locations": [
+      "section 3, pages 6016-6018",
+      "Figure 1 caption",
+      "Table 1, wurtzite (PP) row"
+     ],
+     "finding": "The paper fits theoretical E(V) points with the Murnaghan equation. The conventional wurtzite-cell V0 is calculated from its theoretical a0=3.483 A and c0=5.7039 A. The finite-plane-wave-cutoff sensitivity is a convergence estimate, not a covariance-derived fit error.",
+     "doi": "10.1088/0953-8984/5/33/010"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "indium_nitride.json"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Table 1 theoretical a0=3.483 A and c0=5.7039 A; V0=sqrt(3)/2*a0^2*c0",
+    "K0": "Table 1 wurtzite pseudopotential row: 166 GPa",
+    "K0_prime": "Table 1 wurtzite pseudopotential row: 3.8",
+    "equation": "section 3 and Figure 1 caption: Murnaghan E(V)"
+   },
+   "audit_corrections": [
+    {
+     "path": "identifier",
+     "source_value": "indium_nitride_mu_oz_1993_bm3_1",
+     "value": "indium_nitride_munoz_1993_murnaghan_1",
+     "reason": "Correct the author spelling and identify the primary Murnaghan model.",
+     "primary_reference": {
+      "doi": "10.1088/0953-8984/5/33/010",
+      "location": "section 3, Figure 1 caption, and Table 1"
+     }
+    },
+    {
+     "path": "eos",
+     "source_value": "BM3(V0=61.7988, K0=166, K0_prime=3.8)",
+     "value": "Murnaghan(V0=59.92519880888224, K0=166, K0_prime=3.8)",
+     "reason": "Use the paper's Murnaghan fit and theoretical Table 1 equilibrium cell, not an experimental card V0.",
+     "primary_reference": {
+      "doi": "10.1088/0953-8984/5/33/010",
+      "location": "section 3, Figure 1 caption, and Table 1"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "indium_nitride",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

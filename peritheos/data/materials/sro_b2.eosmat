@@ -1,0 +1,120 @@
+{
+ "format_version": 3,
+ "name": "SrO (B2)",
+ "aliases": [
+  "cesium-chloride-type SrO"
+ ],
+ "formula": "SrO",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.0374,
+  "b": 3.0374,
+  "c": 3.0374,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "Pm-3m",
+ "space_group_number": 221,
+ "atom_sites": [
+  {
+   "element": "Sr",
+   "wyckoff": "1a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "1b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/SrO-b2.jcpds",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Sato and Jeanloz (1981), B2 SrO BM2",
+   "reference": {
+    "authors": [
+     "Sato",
+     "Jeanloz"
+    ],
+    "year": 1981,
+    "source": "J. Geophys. Res.",
+    "volume": "86",
+    "locator": "11773-11778",
+    "doi": "10.1029/JB086iB12p11773"
+   },
+   "eos": {
+    "type": "BM2",
+    "parameters": {
+     "V0": 28.0224,
+     "K0": 160.0
+    },
+    "model": "birch_murnaghan_2"
+   },
+   "parameter_errors": {
+    "V0": 0.9127817589576549,
+    "K0": 19.0
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    32.0,
+    59.0
+   ],
+   "notes": "Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.",
+   "identifier": "sro_b2_sato_1981_bm2_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/JB086iB12p11773",
+     "locations": [
+      "page 11774, Table 1, B2-SrO density observations",
+      "pages 11775-11776, equations (1)-(7), finite-strain derivation",
+      "page 11776, second-order fit and Figure 3"
+     ],
+     "finding": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
+     "doi": "10.1029/jb086ib12p11773"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "sro_b2.json"
+    }
+   },
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Sato and Jeanloz (1981), page 11776: rho0=6.14+/-0.20 Mg/m^3, converted to the Z=1 Pm-3m conventional-cell volume",
+    "K0": "Sato and Jeanloz (1981), page 11776, second-order fit",
+    "equation": "Sato and Jeanloz (1981), equations (1)-(7) and page 11776: second-order Eulerian finite strain with K0'=4"
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "sro_b2",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "phase": "B2 (CsCl-type), cubic Pm-3m"
+}

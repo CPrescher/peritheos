@@ -1,0 +1,122 @@
+{
+ "format_version": 3,
+ "name": "NiS",
+ "formula": "NiS",
+ "symmetry": "HEXAGONAL",
+ "lattice": {
+  "a": 3.4395,
+  "b": 3.4395,
+  "c": 5.3514,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "P63/mmc",
+ "space_group_number": 194,
+ "atom_sites": [
+  {
+   "element": "Ni",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "S",
+   "wyckoff": "2c",
+   "x": 0.3333333333,
+   "y": 0.6666666667,
+   "z": 0.25,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/NiS_alpha.jcpds",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Campbell and Heinz (1993), NiAs-type NiS BM3",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Heinz"
+    ],
+    "year": 1993,
+    "source": "J. Phys. Chem. Solids",
+    "volume": "54",
+    "locator": "5-7",
+    "doi": "10.1016/0022-3697(93)90106-2"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 54.8262666013039,
+     "K0": 156.0,
+     "K0_prime": 4.4
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.009596193736601715,
+    "K0": 10.0,
+    "K0_prime": 1.2
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    44.9
+   ],
+   "notes": "Room-temperature third-order Birch-Murnaghan fit for metastable NiAs-type (B8) NiS. V0 and its independent propagated error use the primary paper's ambient a and c values. K0=156(10) GPa and K0'=4.4(1.2). The last tabulated readable P-V point is 44.9 GPa; above 45 GPa the diffraction lines become unreadable. No fitted-parameter covariance is published.",
+   "identifier": "nis_campbell_1993_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/0022-3697(93)90106-2",
+     "locations": [
+      "page 6, ambient NiAs-type lattice parameters",
+      "page 6, Table 1, measured P-a-c data",
+      "page 6, third-order Birch-Murnaghan fit and Figure 1"
+     ],
+     "finding": "The conventional hexagonal-cell V0 and its error are independently propagated from a=3.4395(2) A and c=5.3514(7) A. The paper reports no parameter covariance.",
+     "doi": "10.1016/0022-3697(93)90106-2"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "nis.json"
+    }
+   },
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Campbell and Heinz (1993), page 6: a0=3.4395(2) A and c0=5.3514(7) A; V0=sqrt(3)/2*a0^2*c0",
+    "K0": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+    "K0_prime": "Campbell and Heinz (1993), page 6, BM3 fit paragraph",
+    "equation": "Campbell and Heinz (1993), page 6 and Figure 1"
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "nis",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "phase": "metastable NiAs-type, hexagonal P63/mmc"
+}

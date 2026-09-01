@@ -1,0 +1,180 @@
+{
+ "format_version": 3,
+ "name": "(Mg0.4Fe0.6)O (MW60)",
+ "formula": "Mg0.4Fe0.6O",
+ "aliases": [
+  "Ferropericlase",
+  "Magnesiowüstite",
+  "Magnesiowustite"
+ ],
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.2805,
+  "b": 4.2805,
+  "c": 4.2805,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "notes": "MW60 magnesiowustite containing 60 mol% FeO. The EOS volume uses the four-cation/four-anion conventional rocksalt cell. The legacy diffraction peaks are retained for interchange.",
+ "peaks": [
+  [
+   5,
+   1,
+   1,
+   0.8238,
+   3.0
+  ],
+  [
+   4,
+   2,
+   2,
+   0.8738,
+   15.0
+  ],
+  [
+   4,
+   2,
+   0,
+   0.9571,
+   17.0
+  ],
+  [
+   3,
+   3,
+   1,
+   0.982,
+   2.0
+  ],
+  [
+   4,
+   0,
+   0,
+   1.0701,
+   5.0
+  ],
+  [
+   2,
+   2,
+   2,
+   1.2357,
+   12.0
+  ],
+  [
+   3,
+   1,
+   1,
+   1.2906,
+   4.0
+  ],
+  [
+   2,
+   2,
+   0,
+   1.5134,
+   52.0
+  ],
+  [
+   2,
+   0,
+   0,
+   2.1402,
+   100.0
+  ],
+  [
+   1,
+   1,
+   1,
+   2.4713,
+   10.0
+  ]
+ ],
+ "eos_records": [
+  {
+   "label": "Richet et al. (1989), (Mg0.4Fe0.6)O BM2",
+   "reference": {
+    "authors": [
+     "Richet",
+     "Mao",
+     "Bell"
+    ],
+    "year": 1989,
+    "source": "J. Geophys. Res.",
+    "volume": "94",
+    "locator": "3037-3045",
+    "doi": "10.1029/JB094iB03p03037"
+   },
+   "eos": {
+    "type": "BM2",
+    "parameters": {
+     "V0": 78.430232810125,
+     "K0": 149.0
+    },
+    "model": "birch_murnaghan_2"
+   },
+   "parameter_errors": {
+    "V0": 0.0219872163,
+    "K0": 4.0
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    49.4
+   ],
+   "notes": "Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.",
+   "identifier": "mgfe60o_richet_1989_bm2_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/JB094iB03p03037",
+     "locations": [
+      "page 3037, MW60 ambient a=4.2805(4) A",
+      "pages 3038-3039, Tables 1-2, MW60 BM2 fit and P-V data",
+      "page 3041, equation (1) and discussion of fixing K0'=4"
+     ],
+     "finding": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
+     "doi": "10.1029/jb094ib03p03037"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "mgfe60o.json"
+    }
+   },
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Richet et al. (1989), page 3037: a0=4.2805(4) A; V0=a0^3 for the four-formula-unit rocksalt cell",
+    "K0": "Richet et al. (1989), Table 1, MW60 this-work static fit",
+    "equation": "Richet et al. (1989), Table 1 footnote and equation (1): second-order Eulerian finite strain with K0'=4"
+   }
+  }
+ ],
+ "atom_sites": [],
+ "format": "peritheos.material",
+ "identifier": "mgfe60o",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "phase": "rocksalt magnesiowustite, cubic Fm-3m",
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "cell_contents": "4 (Mg0.4Fe0.6)O formula units per conventional rocksalt cell"
+}

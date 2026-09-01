@@ -5,10 +5,11 @@ Peritheos's built-in numerical implementation to Rust. It is an engineering
 contract, not a change to the scientific conventions documented in the
 [equation reference](equation-reference.md).
 
-The migration is developed on an integration branch. The Python implementation
-remains authoritative until every applicable compatibility gate below passes.
-Built-in equations must have one implementation after the migration: the Rust
-core. Python remains the user-facing compatibility and convenience layer.
+The base migration landed in PR 8. Built-in equations have one numerical
+implementation: the Rust core. Python remains the user-facing compatibility
+and convenience layer, while exact built-in models route evaluation, inversion,
+fitting, and uncertainty kernels to Rust. Custom Python subclasses retain an
+explicit compatibility path.
 
 ## Objectives
 
@@ -63,11 +64,16 @@ available:
 
 | Model | Reference EOS constraint | Own parameters |
 |---|---|---|
-| `MieGruneisenDebye` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n` |
+| `LinearThermalPressure` | any built-in isothermal EOS | `Tr, alpha_KT` |
+| `LogVolumeThermalPressure` | any built-in isothermal EOS | `Tr, alpha_KT_ref, dK_dT_V` |
+| `ThermalReferenceStateEOS` | any reconstructable built-in isothermal EOS | `Tr, alpha0, dK_dT, alpha1`; expansion and reference-volume laws are fixed configuration |
+| `MieGruneisenDebye` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n`; Debye-temperature law is fixed configuration |
 | `MieGruneisenEinstein` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n` |
+| `Tange2009Debye` | any built-in isothermal EOS | `Tr, theta0, gamma0, a, b, n` |
 | `ThermalModifiedTait` | `ModifiedTait` | `Tr, theta, alpha0, n` |
 | `HollandPowell2011` | alias of `ThermalModifiedTait` | unchanged |
-| `Sokolova2016` | `Holzapfel` | all required and optional parameters documented in the API reference |
+| `MultiOscillatorGruneisenThermalEOS` | any built-in isothermal EOS | oscillator, electronic, anharmonic, and explicit atom-count parameters documented in the API reference |
+| `Sokolova2016` | compatibility alias of `MultiOscillatorGruneisenThermalEOS` | unchanged |
 
 Every thermal model must preserve total and thermal pressure, P-T to V
 inversion, P-V to T inversion, DAC two-volume inversion, isothermal bulk
@@ -203,11 +209,14 @@ under `benchmarks/baselines/` and are evidence, not performance promises.
 
 ## Integration-branch implementation status
 
-The `codex/rust-core` integration branch now contains all three planned crates.
-Built-in isothermal and thermal Python classes route their numerical work to
-`peritheos-core`, including inversion, derivatives, caloric properties, and
-the full Sokolova expression. Mie-Gruneisen models retain a Python fallback
-only when they wrap a user-defined `EosBase` implementation.
+The workspace contains all three planned crates. Built-in isothermal and
+thermal Python classes route their numerical work to `peritheos-core`,
+including inversion, derivatives, caloric properties, and the full
+multi-oscillator expression. This includes the material catalog's linear and
+log-volume thermal-pressure corrections, configurable thermal reference-state
+model, both Debye-temperature conventions, and Tange asymptotic-power-law
+model. Mie-Gruneisen models retain a Python fallback only when they wrap a
+user-defined `EosBase` implementation.
 
 The public fitting functions use the `peritheos-fit` bounded solver for all
 five named loss functions. For exact built-in models, the Python layer passes
@@ -228,8 +237,8 @@ statistics are native; NumPy retains seeded random draws and Python retains
 uncertainty model reconstruction and invalid-sample rejection.
 
 These boundaries preserve extensibility without duplicating built-in equations
-or changing a scientific convention. The branch must remain unmerged until its
-multi-platform wheel workflow and all validation gates have completed in CI.
+or changing a scientific convention. Multi-platform wheel and validation gates
+remain mandatory for every release.
 
 An optimized release-wheel run on macOS ARM64 was compared with the committed
 pre-Rust baseline using identical full-size workloads, CPython 3.13.5, NumPy

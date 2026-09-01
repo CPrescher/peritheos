@@ -6,7 +6,7 @@ import numpy as np
 import pytest
 from scipy.optimize import least_squares
 
-from peritheos import _rust
+from peritheos import Material, _rust, get_material_document, list_material_documents
 from peritheos.eos.rt import (
     BM2,
     BM3,
@@ -202,7 +202,7 @@ def test_concurrent_parallel_batches_are_deterministic_and_thread_safe():
                 0.0,
                 0.0,
             ),
-            _rust.ThermalEos.sokolova2016(
+            _rust.ThermalEos.multi_oscillator_gruneisen(
                 _rust.RtEos.holzapfel(0.3414, 441.5, 3.9, 1.0, 6.0),
                 298.15,
                 684.0,
@@ -288,8 +288,8 @@ def test_native_thermal_binding_enforces_reference_model_types():
         _rust.ThermalEos.thermal_modified_tait(
             _rust.RtEos.bm3(1.0, 160.0, 4.0), 298.15, 700.0, 2.5e-5, 2.0
         )
-    with pytest.raises(TypeError, match="Holzapfel"):
-        _rust.ThermalEos.sokolova2016(
+    with pytest.raises(ValueError, match="n is required"):
+        _rust.ThermalEos.multi_oscillator_gruneisen(
             _rust.RtEos.bm3(1.0, 160.0, 4.0),
             298.15,
             684.0,
@@ -303,6 +303,37 @@ def test_native_thermal_binding_enforces_reference_model_types():
             0.0,
             0.0,
         )
+
+
+def test_native_multi_oscillator_accepts_a_generic_reference_isotherm():
+    model = _rust.ThermalEos.multi_oscillator_gruneisen(
+        _rust.RtEos.bm3(1.0, 160.0, 4.0),
+        298.15,
+        684.0,
+        0.564,
+        1561.0,
+        2.436,
+        -0.506,
+        1.085,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        n=2.0,
+    )
+
+    assert model.evaluate_scalar("thermal_pressure", 0.9, 298.15) == pytest.approx(0.0)
+
+
+def test_every_bundled_material_record_has_an_exact_native_model():
+    for identifier in list_material_documents():
+        material = Material.from_eosmat(get_material_document(identifier))
+        for record in material.eos_records:
+            assert hasattr(record.eos, "_native"), (
+                identifier,
+                record.identifier,
+                type(record.eos).__name__,
+            )
 
 
 @pytest.mark.parametrize("loss", ["linear", "soft_l1", "huber", "cauchy", "arctan"])

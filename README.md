@@ -22,14 +22,20 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Thermal equations of state (EOS) implementations
   - Mie-Gruneisen-Debye
   - Mie-Gruneisen-Einstein
+  - Linear thermal pressure
   - Holland-Powell thermal modified Tait
-  - Sokolova 2016, including its complete thermal-pressure parameter set
+  - Multi-oscillator Gruneisen thermal pressure
 - P-V and P-V-T parameter fitting with covariance and diagnostics
 - Joint reference-isotherm and thermal fitting with cross-covariance
 - Correlated observation errors and robust least-squares losses
 - Reproducible fit summaries and versioned JSON export
 - EOS prediction uncertainty from fitted covariance or published parameter errors
 - Thermoelastic derivatives, heat capacities, and vibrational potentials
+- Versioned material and EOS-record catalog with explicit literature provenance,
+  validity envelopes, inversion, and measurement/parameter uncertainty
+- A Peritheos-owned `.eosmat` schema and 115-material/146-record EOS library with optional
+  diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
+  compatibility
 - Native wheels for supported CPython releases on Linux, macOS, and Windows
 
 ## Unit conventions
@@ -38,8 +44,10 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Temperatures are in K.
 - Birch-Murnaghan, Murnaghan, modified Tait, and Vinet accept any consistent
   volume unit.
-- Holzapfel and all thermal EOS implementations require molar volume in
+- Holzapfel and energy-based thermal EOS implementations require molar volume in
   J bar^-1 mol^-1, which is equivalent to cm^3/mol divided by 10.
+- The volume-independent linear thermal-pressure correction uses the same
+  volume convention as its reference isotherm.
 
 ## Installation
 
@@ -54,6 +62,40 @@ pip install git+https://github.com/CPrescher/peritheos.git
 ```
 
 ## Usage
+
+### Materials and EOS records
+
+Materials group one or more literature-specific EOS records. The calculation
+API uses GPa, K, and conventional unit-cell volumes in angstrom cubed. Each EOS
+record carries its primary reference, parameter provenance, validity range, and
+uncertainty assumptions.
+
+```python
+from peritheos import get_material
+
+mgo = get_material("mgo_b1")
+tange = mgo.get_eos_record("mgo_b1_tange_2009_vinet")
+pressure = tange.pressure(volume=60.0, temperature=2000.0)
+recovered_volume = tange.volume(pressure, temperature=2000.0)
+
+prediction = tange.pressure_with_uncertainty(
+    volume=60.0,
+    temperature=2000.0,
+    volume_sigma=0.02,
+    temperature_sigma=20.0,
+)
+
+# Sokolova markers use the same cell-volume API although their composed EOS
+# works internally with molar volume.
+gold = get_material("au_fcc").get_eos_record("au_fcc_sokolova_2016")
+hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
+```
+
+See [Pressure standards](docs/pressure-standards.md) for EOS records commonly
+used in that application, and [Dioptas and `.eosmat`](docs/dioptas-integration.md)
+for the shared material library. The [`.eosmat` schema reference](docs/eosmat-schema.md)
+defines its fields, equation discriminators, defaults, units, and compatibility
+rules.
 
 ### Room-temperature equations of state
 
@@ -119,11 +161,11 @@ The two-volume method uses the empirical `f_dac * thermal_pressure` confinement
 increment and requires `0 <= f_dac < 1`; report and sensitivity-test the assumed
 fraction.
 
-Diamond thermal equation of state from sokolova et al. 2016
+Multi-oscillator thermal EOS with a freely chosen reference isotherm
 
 ```python
 from peritheos.eos.rt.holzapfel import Holzapfel
-from peritheos.eos.thermal.sokolova2016 import Sokolova2016
+from peritheos.eos.thermal import MultiOscillatorGruneisenThermalEOS
 
 # Diamond parameters from Sokolova et al. 2016.
 # The thermal model requires molar volume in J bar^-1 (= [cm^3/mol] / 10),
@@ -131,10 +173,10 @@ from peritheos.eos.thermal.sokolova2016 import Sokolova2016
 V0 = 0.3414
 K0 = 441.5
 K0_prime = 3.9  # pressure derivative of bulk modulus at reference volume
-QE1o = 684  # first Einstein characteristic temperature
-mE1 = 0.564  # first Einstein number
-QE2o = 1561  # second Einstein characteristic temperature
-mE2 = 2.436  # second Einstein number
+QE1o = 1561  # first Einstein characteristic temperature
+mE1 = 2.436  # first Einstein number
+QE2o = 684  # second Einstein characteristic temperature
+mE2 = 0.564  # second Einstein number
 delta = -0.506  # additive normalizing constant for the Gruneisen parameter
 t = 1.085  # generalized Gruneisen parameter
 a_0 = 0  # intrinsic anharmonicity parameter
@@ -149,8 +191,8 @@ Tr = 298.15  # in K - Reference temperature
 # Initialize the Holzapfel EOS
 holzapfel = Holzapfel(V0=V0, K0=K0, K0_prime=K0_prime, n=n, Z=z)
 
-# Initialize the Sokolova 2016 EOS
-sokolova = Sokolova2016(
+# Compose the thermal correction with the source's Holzapfel isotherm.
+eos = MultiOscillatorGruneisenThermalEOS(
     rt_eos=holzapfel,
     Tr=Tr,
     QE1o=QE1o,
@@ -163,16 +205,17 @@ sokolova = Sokolova2016(
     m=m,
     g=g,
     e_0=e_0,
+    n=n,
 )
 
 # Calculate the thermal pressure at a given volume and temperature
 V = V0 * 0.8
 T = 3000  # in K
-thermal_pressure = sokolova.thermal_pressure(V, T)
+thermal_pressure = eos.thermal_pressure(V, T)
 rt_pressure = holzapfel.pressure(V)
-pressure = sokolova.pressure(V, T)
-recovered_volume = sokolova.volume(pressure, T)
-recovered_temperature = sokolova.temperature(pressure, V)
+pressure = eos.pressure(V, T)
+recovered_volume = eos.volume(pressure, T)
+recovered_temperature = eos.temperature(pressure, V)
 
 print(f"Thermal pressure: {thermal_pressure} GPa")
 print(f"RT pressure: {rt_pressure} GPa")
@@ -180,6 +223,11 @@ print(f"Total pressure: {pressure} GPa")
 print(f"Recovered volume: {recovered_volume} J bar^-1")
 print(f"Recovered temperature: {recovered_temperature} K")
 ```
+
+The equation class is named for its mechanism, not a paper. The validated
+Sokolova et al. parameterizations remain available through author/year catalog
+identifiers such as `diamond_sokolova_2016`; replacing the reference isotherm
+creates a new user-composed model and does not inherit that validation claim.
 
 ## Citation and support
 

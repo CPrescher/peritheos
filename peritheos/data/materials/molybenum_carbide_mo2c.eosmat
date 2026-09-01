@@ -1,0 +1,152 @@
+{
+ "format_version": 3,
+ "name": "Molybdenum carbide Mo2C",
+ "formula": "Mo2C",
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 4.724,
+  "b": 6.004,
+  "c": 5.199,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Pbcn",
+ "space_group_number": 60,
+ "atom_sites": [
+  {
+   "element": "Mo",
+   "wyckoff": "8d",
+   "x": 0.24617,
+   "y": 0.12796,
+   "z": 0.07926,
+   "occupancy": 1.0
+  },
+  {
+   "element": "C",
+   "wyckoff": "4c",
+   "x": 0.0,
+   "y": 0.38546,
+   "z": 0.25,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Mo2C-Haines.jcpds. Orthorhombic Mo2C coordinates from the Rietveld refinement of Chasvin et al., Molecular Catalysis 439, 163-170 (2017), doi:10.1016/j.mcat.2017.07.003.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "EOS from Haines et al. 2001",
+   "reference": {
+    "authors": [
+     "Haines",
+     "Léger",
+     "Chateau",
+     "Lowther"
+    ],
+    "year": 2001,
+    "source": "J. Phys.: Condens. Matter",
+    "volume": "13",
+    "locator": "2447-2454",
+    "doi": "10.1088/0953-8984/13/11/303"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 148.9071,
+     "K0": 307.0,
+     "K0_prime": 6.2
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.049,
+    "K0": 5.0,
+    "K0_prime": 0.3
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    46.0
+   ],
+   "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. V0 is calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors.",
+   "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
+     "locations": [
+      "section 2, ambient lattice constants and pressure methods",
+      "section 4.1, pages 2449-2450",
+      "Figure 2, Birch-Murnaghan fit through 46 GPa"
+     ],
+     "finding": "The experimental EOS is fitted to relative volume. The measured ambient hexagonal subcell was converted to the equivalent four-formula-unit orthorhombic conventional-cell volume used by the record.",
+     "doi": "10.1088/0953-8984/13/11/303"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "molybenum_carbide_mo2c.json"
+    }
+   },
+   "temperature_ref": 300.0,
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 147.4587,
+     "value": 148.9071,
+     "reason": "Use the measured ambient volume of the sample normalized in the primary relative-volume EOS, not unrelated literature orthorhombic lattice constants.",
+     "primary_reference": {
+      "doi": "10.1088/0953-8984/13/11/303",
+      "location": "section 2, section 4.1, and Figure 2"
+     }
+    },
+    {
+     "path": "parameter_errors.V0",
+     "source_value": null,
+     "value": 0.049,
+     "reason": "Propagated from a=3.0128(4) A and c=4.7357(9) A for V=4*(sqrt(3)/2)*a^2*c.",
+     "primary_reference": {
+      "doi": "10.1088/0953-8984/13/11/303",
+      "location": "section 2, section 4.1, and Figure 2"
+     }
+    },
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": [
+      0.0,
+      50.0
+     ],
+     "value": [
+      0.0,
+      46.0
+     ],
+     "reason": "Section 2 states that the second experimental run reached 46 GPa.",
+     "primary_reference": {
+      "doi": "10.1088/0953-8984/13/11/303",
+      "location": "section 2, section 4.1, and Figure 2"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "molybenum_carbide_mo2c",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

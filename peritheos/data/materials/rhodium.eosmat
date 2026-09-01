@@ -1,0 +1,110 @@
+{
+ "format_version": 3,
+ "name": "Rhodium",
+ "formula": "Rh",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.804012,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Rh",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "The lattice parameter is calculated from the fitted 300 K reference volume. PhaseSmith calculates powder reflections and intensities from the ideal fcc structure.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Rodrigo-Ramon et al. (2024), Vinet",
+   "reference": {
+    "authors": [
+     "Rodrigo-Ramon",
+     "Anzellini",
+     "Cazorla",
+     "Botella",
+     "Garcia-Beamud",
+     "Sanchez-Martin",
+     "Garbarino",
+     "Rosa",
+     "Gallego-Parra",
+     "Errandonea"
+    ],
+    "year": 2024,
+    "source": "Sci. Rep.",
+    "volume": "14",
+    "locator": "26634",
+    "doi": "10.1038/s41598-024-78006-0"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 55.046,
+     "K0": 251.0,
+     "K0_prime": 5.7
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": 0.016,
+    "K0": 3.0,
+    "K0_prime": 0.2
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    55.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Experimental helium-medium Vinet fit over 0-55 GPa; fcc Rh remains stable throughout the measured range.",
+   "identifier": "rhodium_rodrigo_ramon_2024_vinet_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1038/s41598-024-78006-0",
+     "locations": [
+      "Equation-of-state results",
+      "Table 3"
+     ],
+     "doi": "10.1038/s41598-024-78006-0"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "rhodium.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "rhodium",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

@@ -61,7 +61,7 @@ ks = eos.adiabatic_bulk_modulus(V, T)  # GPa
 gamma = eos.gruneisen_parameter(V, T)  # dimensionless
 ```
 
-`Sokolova2016` does not yet expose a complete caloric potential and therefore
+`MultiOscillatorGruneisenThermalEOS` does not yet expose a complete caloric potential and therefore
 raises `NotImplementedError` for heat capacity and adiabatic modulus. Its
 mechanical derivatives remain available.
 

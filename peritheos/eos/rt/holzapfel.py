@@ -17,7 +17,9 @@ class Holzapfel(EosBase):
     Sokolova et al. 2016.
     """
 
-    def __init__(self, V0: float, K0: float, K0_prime: float, n: float, Z: int) -> None:
+    def __init__(
+        self, V0: float, K0: float, K0_prime: float, n: float, Z: float
+    ) -> None:
         """
         Initialize the Holzapfel equation of state.
 
@@ -36,8 +38,9 @@ class Holzapfel(EosBase):
             Pressure derivative of bulk modulus at reference volume
         n : float
             Number of atoms in a chemical formula
-        Z : int
-            Atomic number of the forumala unit
+        Z : float
+            Atomic number for an element or effective atomic number for a
+            compound, as defined by the selected Holzapfel parameterization
         """
         super().__init__()
         self.V0 = validate_positive_scalar(V0, "V0")

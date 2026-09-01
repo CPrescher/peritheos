@@ -6,7 +6,9 @@ use peritheos_core::isothermal::{
     BM3, BM4,
 };
 use peritheos_core::thermal::{
-    MieGruneisenDebye, MieGruneisenEinstein, Sokolova2016, SokolovaParameters, ThermalModifiedTait,
+    AsymptoticPowerLawMieGruneisenDebye, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, SokolovaParameters,
+    ThermalModifiedTait, ThermalReferenceState,
 };
 use peritheos_core::{EosResult, ThermalEos};
 use peritheos_fit::{
@@ -186,10 +188,14 @@ fn reference_updates(names: &[String], values: &[f64]) -> (Vec<String>, Vec<f64>
 impl ThermalModel {
     fn pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         match self {
+            Self::AsymptoticPowerLawMieGruneisenDebye(model) => model.pressure(volume, temperature),
+            Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
+            Self::LogVolumeThermalPressure(model) => model.pressure(volume, temperature),
             Self::MieGruneisenDebye(model) => model.pressure(volume, temperature),
             Self::MieGruneisenEinstein(model) => model.pressure(volume, temperature),
             Self::ThermalModifiedTait(model) => model.pressure(volume, temperature),
             Self::Sokolova2016(model) => model.pressure(volume, temperature),
+            Self::ThermalReferenceState(model) => model.pressure(volume, temperature),
         }
     }
 
@@ -202,19 +208,67 @@ impl ThermalModel {
         }
         let (reference_names, reference_values) = reference_updates(names, values);
         let model = match self {
+            Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
+                ensure_names(names, &["Tr", "theta0", "gamma0", "a", "b", "n"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::AsymptoticPowerLawMieGruneisenDebye(
+                    AsymptoticPowerLawMieGruneisenDebye::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "theta0", model.theta0),
+                        value(names, values, "gamma0", model.gamma0),
+                        value(names, values, "a", model.a),
+                        value(names, values, "b", model.b),
+                        value(names, values, "n", model.n),
+                    )
+                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                )
+            }
+            Self::LinearThermalPressure(model) => {
+                ensure_names(names, &["Tr", "alpha_KT"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::LinearThermalPressure(
+                    LinearThermalPressure::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "alpha_KT", model.alpha_kt),
+                    )
+                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                )
+            }
+            Self::LogVolumeThermalPressure(model) => {
+                ensure_names(names, &["Tr", "alpha_KT_ref", "dK_dT_V"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::LogVolumeThermalPressure(
+                    LogVolumeThermalPressure::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "alpha_KT_ref", model.alpha_kt_ref),
+                        value(names, values, "dK_dT_V", model.dk_dt_v),
+                    )
+                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                )
+            }
             Self::MieGruneisenDebye(model) => {
                 ensure_names(names, &["Tr", "theta0", "gamma0", "q", "n"], true)?;
                 let reference = model
                     .rt_eos
                     .with_parameters(&reference_names, &reference_values)?;
                 Self::MieGruneisenDebye(
-                    MieGruneisenDebye::new(
+                    MieGruneisenDebye::new_with_temperature_law(
                         reference,
                         value(names, values, "Tr", model.tr),
                         value(names, values, "theta0", model.theta0),
                         value(names, values, "gamma0", model.gamma0),
                         value(names, values, "q", model.q),
                         value(names, values, "n", model.n),
+                        model.debye_temperature_law,
                     )
                     .map_err(|error| FitError::Evaluation(error.to_string()))?,
                 )
@@ -259,15 +313,13 @@ impl ThermalModel {
                     names,
                     &[
                         "Tr", "QE1o", "mE1", "QE2o", "mE2", "delta", "t", "a_0", "m", "g", "e_0",
-                        "beta", "QBo", "d", "mb", "QB1o", "d1", "mb1",
+                        "beta", "QBo", "d", "mb", "QB1o", "d1", "mb1", "n",
                     ],
                     true,
                 )?;
-                let reference = RtModel::Holzapfel(model.rt_eos)
+                let reference = model
+                    .rt_eos
                     .with_parameters(&reference_names, &reference_values)?;
-                let RtModel::Holzapfel(reference) = reference else {
-                    unreachable!("the reference EOS variant cannot change")
-                };
                 let current = model.parameters;
                 let parameters = SokolovaParameters {
                     tr: value(names, values, "Tr", current.tr),
@@ -290,8 +342,30 @@ impl ThermalModel {
                     mb1: value(names, values, "mb1", current.mb1),
                 };
                 Self::Sokolova2016(
-                    Sokolova2016::new(reference, parameters)
-                        .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    MultiOscillatorGruneisen::new_with_atom_count(
+                        reference,
+                        parameters,
+                        value(names, values, "n", model.n),
+                    )
+                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                )
+            }
+            Self::ThermalReferenceState(model) => {
+                ensure_names(names, &["Tr", "alpha0", "dK_dT", "alpha1"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::ThermalReferenceState(
+                    ThermalReferenceState::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "alpha0", model.alpha0),
+                        value(names, values, "dK_dT", model.dk_dt),
+                        value(names, values, "alpha1", model.alpha1),
+                        model.thermal_expansion_law,
+                        model.reference_volume_law,
+                    )
+                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
                 )
             }
         };
@@ -538,12 +612,19 @@ mod tests {
         let current = SokolovaParameters::reduced(
             298.15, 684.0, 0.564, 1561.0, 2.436, -0.506, 1.085, 0.0, 0.0, 0.0, 0.0,
         );
-        let model = ThermalModel::Sokolova2016(Sokolova2016::new(reference, current).unwrap())
-            .with_parameters(
-                &names(&["QE1o", "mE1", "QBo", "QB1o", "mb1"]),
-                &[700.0, 0.6, 500.0, 1200.0, 0.4],
+        let model = ThermalModel::Sokolova2016(
+            MultiOscillatorGruneisen::new_with_atom_count(
+                RtModel::Holzapfel(reference),
+                current,
+                1.0,
             )
-            .unwrap();
+            .unwrap(),
+        )
+        .with_parameters(
+            &names(&["QE1o", "mE1", "QBo", "QB1o", "mb1"]),
+            &[700.0, 0.6, 500.0, 1200.0, 0.4],
+        )
+        .unwrap();
         let ThermalModel::Sokolova2016(model) = model else {
             panic!("model variant changed")
         };

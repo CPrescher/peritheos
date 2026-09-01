@@ -18,6 +18,26 @@ The supported public API consists of:
 Names beginning with an underscore, implementation details not documented in
 the API reference, and exact optimizer messages are private.
 
+## `.eosmat` compatibility
+
+The canonical `.eosmat` format version 3 is a public exchange contract.
+Readers must preserve unknown optional fields, and additive optional fields do
+not require a format-version increment. Removing a field, changing its unit or
+meaning, or making an optional field mandatory requires a new format version
+and a documented migration. Native Dioptas 0.10.0 format-2 material documents
+remain supported as legacy input.
+
+Stable material and record identifiers are not reused for a different phase or
+parameterization. A scientific correction creates an auditable data change;
+saved project reproducibility must not depend on silently resolving an old
+identifier to altered parameters.
+
+An equation discriminator is part of a record's scientific meaning. Readers
+must reject an unknown discriminator rather than substituting a related model.
+In particular, `MieGruneisenDebye` with `debye_temperature_law:
+variable_exponent` cannot fall back to its `integrated_gruneisen` default: the
+characteristic-temperature laws differ for nonzero `q`.
+
 ## Compatibility commitments
 
 `volume()` is the preferred pressure-to-volume method. `calculate_volume()` is

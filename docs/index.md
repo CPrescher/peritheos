@@ -14,8 +14,14 @@ The documentation is organized around scientific workflows:
 - [Thermoelastic properties](thermoelastic-properties.md) defines every derived
   property and its units.
 - [Fitting data](fitting.md) covers P-V and P-V-T regression with uncertainty.
+- [Aragonite fitting example](notebooks/aragonite-eos-fitting.ipynb) works
+  through a published 64-point P-V-T dataset in an executable notebook.
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
+- [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
+  ownership and bundled 115-material EOS library.
+- [`.eosmat` schema reference](eosmat-schema.md) documents every exchange
+  field, model discriminator, default, unit, and compatibility rule.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional
   two-volume thermal-pressure boundary-condition model.
 - [Units and reference states](units.md) explains the deliberately strict
@@ -38,7 +44,8 @@ python -m pip install -r docs/requirements.txt
 mkdocs serve
 ```
 
-The site can be built without executing notebook code or downloading data:
+The site executes its bundled fitting notebook against the local CSV dataset;
+it does not download scientific data during the build:
 
 ```bash
 mkdocs build --strict

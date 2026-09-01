@@ -1,0 +1,116 @@
+{
+ "format_version": 3,
+ "name": "Alpha quartz",
+ "formula": "SiO2",
+ "symmetry": "TRIGONAL",
+ "lattice": {
+  "a": 4.913,
+  "b": 4.913,
+  "c": 5.40482,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 3,
+ "space_group": "P3221",
+ "space_group_number": 154,
+ "atom_sites": [
+  {
+   "element": "Si",
+   "wyckoff": "3a",
+   "x": 0.4697,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "6c",
+   "x": 0.4133,
+   "y": 0.2672,
+   "z": 0.1188,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Ambient cell and compression are from Angel et al., Journal of Applied Crystallography 30, 461-466 (1997), doi:10.1107/S0021889897000861. Fractional coordinates are the 298 K refinement of Kihara, European Journal of Mineralogy 2, 63-77 (1990), doi:10.1127/ejm/2/1/0063, COD 9005017. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Angel et al. (1997), single-crystal BM3",
+   "reference": {
+    "authors": [
+     "Angel",
+     "Allan",
+     "Miletich",
+     "Finger"
+    ],
+    "year": 1997,
+    "source": "Journal of Applied Crystallography",
+    "volume": "30",
+    "locator": "461-466",
+    "doi": "10.1107/S0021889897000861"
+   },
+   "temperature_ref": 298.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    8.9
+   ],
+   "experimental_temperature_range_k": [
+    298.0,
+    298.0
+   ],
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 112.981,
+     "K0": 37.12,
+     "K0_prime": 5.99
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.002,
+    "K0": 0.09,
+    "K0_prime": 0.04
+   },
+   "fixed_parameters": [],
+   "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
+   "identifier": "alpha_quartz_angel_1997_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1107/S0021889897000861",
+     "locations": [
+      "Primary abstract",
+      "third-order Birch-Murnaghan fit"
+     ],
+     "doi": "10.1107/s0021889897000861"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "alpha_quartz.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "alpha_quartz",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

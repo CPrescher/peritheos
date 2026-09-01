@@ -1,0 +1,155 @@
+{
+ "format_version": 3,
+ "name": "Aragonite",
+ "formula": "CaCO3",
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 4.9611,
+  "b": 7.9672,
+  "c": 5.7404,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Pmcn",
+ "space_group_number": 62,
+ "atom_sites": [
+  {
+   "element": "Ca",
+   "wyckoff": "4c",
+   "x": 0.25,
+   "y": 0.41498,
+   "z": 0.75936,
+   "occupancy": 1.0
+  },
+  {
+   "element": "C",
+   "wyckoff": "4c",
+   "x": 0.25,
+   "y": 0.7622,
+   "z": 0.9149,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.25,
+   "y": 0.922,
+   "z": 0.9044,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "8d",
+   "x": 0.4737,
+   "y": 0.6807,
+   "z": 0.9128,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Aragonite structure with the reproducible staged BM2 P-V-T parameterization of Martinez et al. (1996). The paper's separate global HT-BM3 reduction is intentionally excluded: its fitted V0(298 K) is omitted, and its remaining coefficients cannot be reproduced from the printed 64-point table with the documented equations under pressure- or volume-residual least squares. Ambient coordinates are from Ye et al., American Mineralogist 97, 707-712 (2012).",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Martinez et al. (1996), staged P-V-T BM2",
+   "reference": {
+    "authors": [
+     "Martinez",
+     "Zhang",
+     "Reeder"
+    ],
+    "year": 1996,
+    "source": "American Mineralogist",
+    "volume": "81",
+    "locator": "611-624",
+    "doi": "10.2138/am-1996-5-608"
+   },
+   "default": true,
+   "eos": {
+    "type": "BM2",
+    "parameters": {
+     "V0": 227.5,
+     "K0": 64.81
+    },
+    "model": "birch_murnaghan_2"
+   },
+   "parameter_errors": {
+    "V0": 0.8,
+    "K0": 3.48
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    8.18
+   ],
+   "experimental_temperature_range_k": [
+    298.0,
+    973.0
+   ],
+   "temperature_ref": 298.0,
+   "notes": "Staged second-order Birch-Murnaghan P-V-T parameterization from Martinez et al. (1996). Each Table 6 isotherm fixes K0'=4; Equation (2) supplies the reported linear K0(T) slope, and Equation (3) uses the reported mean expansion coefficient in the direct relation V0(T)=V0(298 K)*[1+alpha_bar*(T-298 K)]. Table 6 reports the 298 K V0=227.5+/-0.8 A^3 and sigma(K0)=3.48 GPa; the prose and Table 7 instead summarize the K0 error as approximately 4.3 GPa. Table 6 contains fitted isotherms through 973 K. The source reports no parameter covariance or confidence convention, and the stored pressure/temperature extrema are an experimental envelope rather than a rectangular validity guarantee.",
+   "identifier": "aragonite_martinez_1996_bm2_2",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://rruff.info/doclib/am/vol81/AM81_611.pdf",
+     "locations": [
+      "Equation (1), page 615",
+      "Table 3, page 616",
+      "Table 6 and EOS discussion, pages 618-619",
+      "Table 7, page 620"
+     ],
+     "finding": "The Table 6 isotherms are BM2 fits with K0'=4 assumed. Regressing their printed V0,T values gives a mean expansion coefficient of 6.484e-5 K^-1, reproducing the Table 7 value 6.5(1)e-5 K^-1. Unweighted and error-weighted regressions of the printed K0,T values give -0.01969 and -0.01702 GPa/K, bracketing the reported -0.018(2) GPa/K. The fit-specific 298 K K0 error is retained; the conflicting summary error printed in the prose and Table 7 is recorded explicitly.",
+     "doi": "10.2138/am-1996-5-608"
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "parameter_errors.K0",
+      "table_6": "3.48 GPa",
+      "text_and_table_7": "approximately 4.3 GPa",
+      "resolution": "Retain 3.48 GPa because it is the fit-specific sigma K0,T printed in Table 6 alongside V0=227.5(8) A^3."
+     }
+    ]
+   },
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "constant",
+    "reference_volume_law": "linear_temperature",
+    "parameters": {
+     "Tr": 298.0,
+     "alpha0": 6.5e-05,
+     "dK_dT": -0.018
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 1e-06,
+     "dK_dT": 0.002
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "aragonite",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

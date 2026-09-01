@@ -1,0 +1,147 @@
+{
+ "format_version": 3,
+ "name": "PbS_B1",
+ "formula": "PbS",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 5.936,
+  "b": 5.936,
+  "c": 5.936,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Pb",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "S",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/PbS_B1.jcpds",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Knorr et al. (2003), PbS B1 BM3",
+   "reference": {
+    "authors": [
+     "Knorr",
+     "Ehm",
+     "Hytha",
+     "Winkler",
+     "Depmeier"
+    ],
+    "year": 2003,
+    "source": "Eur. Phys. J. B",
+    "volume": "31",
+    "locator": "297-303",
+    "doi": "10.1140/epjb/e2003-00034-6"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 207.8955,
+     "K0": 51.0,
+     "K0_prime": 4.3
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.0421,
+    "K0": 1.2,
+    "K0_prime": 0.9
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    6.0
+   ],
+   "notes": "Room-temperature B1-PbS Birch-Murnaghan fit: K0=51.0+/-1.2 GPa and K0'=4.3+/-0.9. V0=207.8955+/-0.0421 A^3 is calculated from the reported cubic a=5.9240(4) A. The B1/B16 coexistence interval ends near 6 GPa.",
+   "identifier": "pbs_b1_knorr_2003_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://arxiv.org/abs/cond-mat/0210013",
+     "locations": [
+      "ambient-structure paragraph",
+      "Table of BM EOS parameters",
+      "EOS discussion"
+     ],
+     "finding": "The authors' preprint reports a=5.9240(4) A and the B1-PbS BM3 fit K0=51.0(1.2) GPa, K0'=4.3(9). V0 and its uncertainty are propagated from the published cubic lattice parameter.",
+     "doi": "10.1140/epjb/e2003-00034-6"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "pbs_b1.json"
+    }
+   },
+   "temperature_ref": 300.0,
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 209.2,
+     "value": 207.8955,
+     "reason": "Use a^3 from the primary paper's B1-PbS a=5.9240(4) A.",
+     "primary_reference": {
+      "doi": "10.1140/epjb/e2003-00034-6",
+      "location": "ambient-structure paragraph, EOS table, and EOS discussion"
+     }
+    },
+    {
+     "path": "parameter_errors.V0",
+     "source_value": 0.1,
+     "value": 0.0421,
+     "reason": "First-order propagation of the published lattice-parameter error through V=a^3.",
+     "primary_reference": {
+      "doi": "10.1140/epjb/e2003-00034-6",
+      "location": "ambient-structure paragraph, EOS table, and EOS discussion"
+     }
+    },
+    {
+     "path": "parameter_errors.K0",
+     "source_value": 1.0,
+     "value": 1.2,
+     "reason": "The primary EOS table reports K0=51.0(1.2) GPa.",
+     "primary_reference": {
+      "doi": "10.1140/epjb/e2003-00034-6",
+      "location": "ambient-structure paragraph, EOS table, and EOS discussion"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "pbs_b1",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

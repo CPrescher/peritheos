@@ -9,7 +9,10 @@ use peritheos_core::isothermal::{
     NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2, BM3, BM4,
 };
 use peritheos_core::thermal::{
-    MieGruneisenDebye, MieGruneisenEinstein, Sokolova2016, SokolovaParameters, ThermalModifiedTait,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, LinearThermalPressure,
+    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    ReferenceStateEos, ReferenceVolumeLaw, SokolovaParameters, ThermalExpansionLaw,
+    ThermalModifiedTait, ThermalReferenceState,
 };
 use peritheos_core::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use peritheos_fit::{
@@ -102,6 +105,55 @@ impl IsothermalEos for RtModel {
             Self::NaturalStrain4(model) => model.bulk_modulus(volume),
             Self::Vinet(model) => model.bulk_modulus(volume),
             Self::Holzapfel(model) => model.bulk_modulus(volume),
+        }
+    }
+}
+
+impl ReferenceStateEos for RtModel {
+    fn reference_bulk_modulus(&self) -> f64 {
+        match self {
+            Self::BM2(model) => model.k0,
+            Self::BM3(model) => model.k0,
+            Self::BM4(model) => model.k0,
+            Self::Murnaghan(model) => model.k0,
+            Self::ModifiedTait(model) => model.k0,
+            Self::NaturalStrain2(model) => model.k0,
+            Self::NaturalStrain3(model) => model.k0,
+            Self::NaturalStrain4(model) => model.k0,
+            Self::Vinet(model) => model.k0,
+            Self::Holzapfel(model) => model.k0,
+        }
+    }
+
+    fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+        match self {
+            Self::BM2(_) => BM2::new(volume, bulk_modulus).map(Self::BM2),
+            Self::BM3(model) => BM3::new(volume, bulk_modulus, model.k0_prime).map(Self::BM3),
+            Self::BM4(model) => {
+                BM4::new(volume, bulk_modulus, model.k0_prime, model.k0_double_prime).map(Self::BM4)
+            }
+            Self::Murnaghan(model) => {
+                Murnaghan::new(volume, bulk_modulus, model.k0_prime).map(Self::Murnaghan)
+            }
+            Self::ModifiedTait(model) => {
+                ModifiedTait::new(volume, bulk_modulus, model.k0_prime, model.k0_double_prime)
+                    .map(Self::ModifiedTait)
+            }
+            Self::NaturalStrain2(_) => {
+                NaturalStrain2::new(volume, bulk_modulus).map(Self::NaturalStrain2)
+            }
+            Self::NaturalStrain3(model) => {
+                NaturalStrain3::new(volume, bulk_modulus, model.k0_prime).map(Self::NaturalStrain3)
+            }
+            Self::NaturalStrain4(model) => {
+                NaturalStrain4::new(volume, bulk_modulus, model.k0_prime, model.k0_double_prime)
+                    .map(Self::NaturalStrain4)
+            }
+            Self::Vinet(model) => Vinet::new(volume, bulk_modulus, model.k0_prime).map(Self::Vinet),
+            Self::Holzapfel(model) => {
+                Holzapfel::new(volume, bulk_modulus, model.k0_prime, model.n, model.z)
+                    .map(Self::Holzapfel)
+            }
         }
     }
 }
@@ -286,24 +338,41 @@ impl PyRtEos {
 
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum ThermalModel {
+    AsymptoticPowerLawMieGruneisenDebye(AsymptoticPowerLawMieGruneisenDebye<RtModel>),
+    LinearThermalPressure(LinearThermalPressure<RtModel>),
+    LogVolumeThermalPressure(LogVolumeThermalPressure<RtModel>),
     MieGruneisenDebye(MieGruneisenDebye<RtModel>),
     MieGruneisenEinstein(MieGruneisenEinstein<RtModel>),
     ThermalModifiedTait(ThermalModifiedTait),
-    Sokolova2016(Sokolova2016),
+    Sokolova2016(MultiOscillatorGruneisen<RtModel>),
+    ThermalReferenceState(ThermalReferenceState<RtModel>),
 }
 
 impl ThermalModel {
     fn name(self) -> &'static str {
         match self {
+            Self::AsymptoticPowerLawMieGruneisenDebye(_) => "AsymptoticPowerLawMieGruneisenDebye",
+            Self::LinearThermalPressure(_) => "LinearThermalPressure",
+            Self::LogVolumeThermalPressure(_) => "LogVolumeThermalPressure",
             Self::MieGruneisenDebye(_) => "MieGruneisenDebye",
             Self::MieGruneisenEinstein(_) => "MieGruneisenEinstein",
             Self::ThermalModifiedTait(_) => "ThermalModifiedTait",
-            Self::Sokolova2016(_) => "Sokolova2016",
+            Self::Sokolova2016(_) => "MultiOscillatorGruneisenThermalEOS",
+            Self::ThermalReferenceState(_) => "ThermalReferenceStateEOS",
         }
     }
 
     fn evaluate(self, quantity: &str, first: f64, second: f64) -> PyResult<f64> {
         match self {
+            Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
+                evaluate_asymptotic_mie_quantity(&model, quantity, first, second)
+            }
+            Self::LinearThermalPressure(model) => {
+                evaluate_thermal_quantity(&model, quantity, first, second)
+            }
+            Self::LogVolumeThermalPressure(model) => {
+                evaluate_thermal_quantity(&model, quantity, first, second)
+            }
             Self::MieGruneisenDebye(model) => {
                 evaluate_mie_quantity(&model, quantity, first, second)
             }
@@ -314,6 +383,9 @@ impl ThermalModel {
                 evaluate_caloric_quantity(&model, quantity, first, second)
             }
             Self::Sokolova2016(model) => evaluate_thermal_quantity(&model, quantity, first, second),
+            Self::ThermalReferenceState(model) => {
+                evaluate_thermal_quantity(&model, quantity, first, second)
+            }
         }
     }
 }
@@ -333,6 +405,10 @@ struct PyThermalEos {
 #[pymethods]
 impl PyThermalEos {
     #[staticmethod]
+    #[pyo3(signature = (
+        rt_eos, tr, theta0, gamma0, q, n,
+        debye_temperature_law="integrated_gruneisen"
+    ))]
     fn mie_gruneisen_debye(
         rt_eos: PyRef<'_, PyRtEos>,
         tr: f64,
@@ -340,11 +416,29 @@ impl PyThermalEos {
         gamma0: f64,
         q: f64,
         n: f64,
+        debye_temperature_law: &str,
     ) -> PyResult<Self> {
+        let law = match debye_temperature_law {
+            "integrated_gruneisen" => DebyeTemperatureLaw::IntegratedGruneisen,
+            "variable_exponent" => DebyeTemperatureLaw::VariableExponent,
+            _ => {
+                return Err(PyValueError::new_err(
+                    "debye_temperature_law must be 'integrated_gruneisen' or 'variable_exponent'",
+                ));
+            }
+        };
         Ok(Self {
             model: ThermalModel::MieGruneisenDebye(
-                MieGruneisenDebye::new(rt_eos.model, tr, theta0, gamma0, q, n)
-                    .map_err(to_python_error)?,
+                MieGruneisenDebye::new_with_temperature_law(
+                    rt_eos.model,
+                    tr,
+                    theta0,
+                    gamma0,
+                    q,
+                    n,
+                    law,
+                )
+                .map_err(to_python_error)?,
             ),
         })
     }
@@ -362,6 +456,103 @@ impl PyThermalEos {
             model: ThermalModel::MieGruneisenEinstein(
                 MieGruneisenEinstein::new(rt_eos.model, tr, theta0, gamma0, q, n)
                     .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    fn asymptotic_power_law_mie_gruneisen_debye(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        a: f64,
+        b: f64,
+        n: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::AsymptoticPowerLawMieGruneisenDebye(
+                AsymptoticPowerLawMieGruneisenDebye::new(rt_eos.model, tr, theta0, gamma0, a, b, n)
+                    .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    fn linear_thermal_pressure(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        alpha_kt: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::LinearThermalPressure(
+                LinearThermalPressure::new(rt_eos.model, tr, alpha_kt).map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    fn log_volume_thermal_pressure(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        alpha_kt_ref: f64,
+        dk_dt_v: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::LogVolumeThermalPressure(
+                LogVolumeThermalPressure::new(rt_eos.model, tr, alpha_kt_ref, dk_dt_v)
+                    .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    #[pyo3(signature = (
+        rt_eos, tr, alpha0, dk_dt, alpha1=0.0,
+        thermal_expansion_law="constant",
+        reference_volume_law="integrated_expansivity"
+    ))]
+    #[allow(clippy::too_many_arguments)]
+    fn thermal_reference_state(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        alpha0: f64,
+        dk_dt: f64,
+        alpha1: f64,
+        thermal_expansion_law: &str,
+        reference_volume_law: &str,
+    ) -> PyResult<Self> {
+        let expansion_law = match thermal_expansion_law {
+            "constant" => ThermalExpansionLaw::Constant,
+            "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
+            _ => {
+                return Err(PyValueError::new_err(
+                    "thermal_expansion_law must be 'constant' or 'linear_temperature'",
+                ));
+            }
+        };
+        let volume_law = match reference_volume_law {
+            "integrated_expansivity" => ReferenceVolumeLaw::IntegratedExpansivity,
+            "linear_temperature" => ReferenceVolumeLaw::LinearTemperature,
+            _ => {
+                return Err(PyValueError::new_err(
+                    "reference_volume_law must be 'integrated_expansivity' or 'linear_temperature'",
+                ));
+            }
+        };
+        Ok(Self {
+            model: ThermalModel::ThermalReferenceState(
+                ThermalReferenceState::new(
+                    rt_eos.model,
+                    tr,
+                    alpha0,
+                    dk_dt,
+                    alpha1,
+                    expansion_law,
+                    volume_law,
+                )
+                .map_err(to_python_error)?,
             ),
         })
     }
@@ -389,9 +580,81 @@ impl PyThermalEos {
 
     #[staticmethod]
     #[allow(clippy::too_many_arguments)]
+    #[allow(clippy::many_single_char_names)]
     #[pyo3(signature = (
         rt_eos, tr, qe1o, me1, qe2o, me2, delta, t, a_0, m, g, e_0,
-        beta=0.0, qbo=1.0, d=1.0, mb=0.0, qb1o=1.0, d1=1.0, mb1=0.0
+        beta=0.0, qbo=1.0, d=1.0, mb=0.0, qb1o=1.0, d1=1.0, mb1=0.0,
+        n=None
+    ))]
+    fn multi_oscillator_gruneisen(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        qe1o: f64,
+        me1: f64,
+        qe2o: f64,
+        me2: f64,
+        delta: f64,
+        t: f64,
+        a_0: f64,
+        m: f64,
+        g: f64,
+        e_0: f64,
+        beta: f64,
+        qbo: f64,
+        d: f64,
+        mb: f64,
+        qb1o: f64,
+        d1: f64,
+        mb1: f64,
+        n: Option<f64>,
+    ) -> PyResult<Self> {
+        let parameters = SokolovaParameters {
+            tr,
+            qe1o,
+            me1,
+            qe2o,
+            me2,
+            delta,
+            t,
+            a_0,
+            m,
+            g,
+            e_0,
+            beta,
+            qbo,
+            d,
+            mb,
+            qb1o,
+            d1,
+            mb1,
+        };
+        let atom_count = n.or_else(|| match rt_eos.model {
+            RtModel::Holzapfel(reference) => Some(reference.n),
+            _ => None,
+        });
+        Ok(Self {
+            model: ThermalModel::Sokolova2016(
+                MultiOscillatorGruneisen::new_with_atom_count(
+                    rt_eos.model,
+                    parameters,
+                    atom_count.ok_or_else(|| {
+                        PyValueError::new_err(
+                            "n is required for the generic multi-oscillator model",
+                        )
+                    })?,
+                )
+                .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    #[allow(clippy::many_single_char_names)]
+    #[pyo3(signature = (
+        rt_eos, tr, qe1o, me1, qe2o, me2, delta, t, a_0, m, g, e_0,
+        beta=0.0, qbo=1.0, d=1.0, mb=0.0, qb1o=1.0, d1=1.0, mb1=0.0,
+        n=None
     ))]
     fn sokolova2016(
         rt_eos: PyRef<'_, PyRtEos>,
@@ -413,37 +676,12 @@ impl PyThermalEos {
         qb1o: f64,
         d1: f64,
         mb1: f64,
+        n: Option<f64>,
     ) -> PyResult<Self> {
-        let RtModel::Holzapfel(reference) = rt_eos.model else {
-            return Err(PyTypeError::new_err(
-                "Sokolova2016 requires a Holzapfel room-temperature EOS",
-            ));
-        };
-        let parameters = SokolovaParameters {
-            tr,
-            qe1o,
-            me1,
-            qe2o,
-            me2,
-            delta,
-            t,
-            a_0,
-            m,
-            g,
-            e_0,
-            beta,
-            qbo,
-            d,
-            mb,
-            qb1o,
-            d1,
-            mb1,
-        };
-        Ok(Self {
-            model: ThermalModel::Sokolova2016(
-                Sokolova2016::new(reference, parameters).map_err(to_python_error)?,
-            ),
-        })
+        Self::multi_oscillator_gruneisen(
+            rt_eos, tr, qe1o, me1, qe2o, me2, delta, t, a_0, m, g, e_0, beta, qbo, d, mb, qb1o, d1,
+            mb1, n,
+        )
     }
 
     #[getter]
@@ -533,6 +771,38 @@ fn evaluate_mie_quantity<R, const DEBYE: bool>(
 where
     R: IsothermalEos,
 {
+    match quantity {
+        "characteristic_temperature" => model
+            .characteristic_temperature(first)
+            .map_err(to_python_error),
+        "thermal_energy" | "thermal_internal_energy" => {
+            model.thermal_energy(first, second).map_err(to_python_error)
+        }
+        "thermal_entropy" => model
+            .thermal_entropy(first, second)
+            .map_err(to_python_error),
+        "vibrational_pressure" => model
+            .vibrational_pressure(first, second)
+            .map_err(to_python_error),
+        "thermal_helmholtz_free_energy" => model
+            .thermal_helmholtz_free_energy(first, second)
+            .map_err(to_python_error),
+        "thermal_enthalpy" => model
+            .thermal_enthalpy(first, second)
+            .map_err(to_python_error),
+        "thermal_gibbs_free_energy" => model
+            .thermal_gibbs_free_energy(first, second)
+            .map_err(to_python_error),
+        _ => evaluate_caloric_quantity(model, quantity, first, second),
+    }
+}
+
+fn evaluate_asymptotic_mie_quantity<R: IsothermalEos>(
+    model: &AsymptoticPowerLawMieGruneisenDebye<R>,
+    quantity: &str,
+    first: f64,
+    second: f64,
+) -> PyResult<f64> {
     match quantity {
         "characteristic_temperature" => model
             .characteristic_temperature(first)

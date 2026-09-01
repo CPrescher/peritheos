@@ -1,0 +1,444 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peritheos.readthedocs.io/schemas/eosmat-v3.schema.json",
+  "title": "Peritheos material (.eosmat) format 3",
+  "description": "A material with optional crystallographic data and zero or more literature EOS records. Its storage shape is an additive evolution of Dioptas 0.10.0 format 2; consumers must still recognize every selected equation option before numerical evaluation.",
+  "type": "object",
+  "required": [
+    "format",
+    "format_version",
+    "identifier",
+    "name",
+    "formula",
+    "units",
+    "eos_records"
+  ],
+  "properties": {
+    "format": {
+      "enum": ["peritheos.material"],
+      "description": "Canonical format discriminator."
+    },
+    "format_version": {
+      "const": 3
+    },
+    "identifier": {
+      "$ref": "#/$defs/identifier",
+      "description": "Stable lower-snake-case material identifier."
+    },
+    "name": {
+      "type": "string"
+    },
+    "formula": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "cell_contents": {
+      "type": "string",
+      "description": "Human-readable definition of the conventional cell used by all record volumes."
+    },
+    "units": {
+      "type": "object",
+      "required": ["pressure", "temperature", "volume"],
+      "properties": {
+        "pressure": {"const": "GPa"},
+        "temperature": {"const": "K"},
+        "volume": {"const": "angstrom^3/conventional_unit_cell"}
+      },
+      "additionalProperties": false
+    },
+    "aliases": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "symmetry": {
+      "type": "string"
+    },
+    "lattice": {
+      "$ref": "#/$defs/lattice"
+    },
+    "formula_units_per_cell": {
+      "type": ["number", "null"],
+      "exclusiveMinimum": 0,
+      "description": "Crystallographic Z used to convert conventional-cell volume to formula-molar volume."
+    },
+    "space_group": {
+      "type": "string"
+    },
+    "space_group_number": {
+      "type": ["integer", "null"],
+      "minimum": 1,
+      "maximum": 230
+    },
+    "atom_sites": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/atom_site"}
+    },
+    "source": {
+      "type": "object"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "peaks": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/peak"}
+    },
+    "eos_records": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/eos_record"},
+      "description": "Literature EOS parameterizations for this material and phase; may be empty for a structure-only exchange document."
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "identifier": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:_[a-z0-9]+)*$"
+    },
+    "nullable_number": {
+      "type": ["number", "null"]
+    },
+    "lattice": {
+      "type": "object",
+      "required": ["a", "b", "c", "alpha", "beta", "gamma"],
+      "properties": {
+        "a": {"type": "number"},
+        "b": {"$ref": "#/$defs/nullable_number"},
+        "c": {"$ref": "#/$defs/nullable_number"},
+        "alpha": {"type": "number"},
+        "beta": {"type": "number"},
+        "gamma": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "atom_site": {
+      "type": "object",
+      "required": ["element", "x", "y", "z", "occupancy"],
+      "properties": {
+        "element": {"type": "string"},
+        "x": {"type": "number"},
+        "y": {"type": "number"},
+        "z": {"type": "number"},
+        "occupancy": {"type": "number"},
+        "wyckoff": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "peak": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "number"},
+        {"type": "number"},
+        {"type": "number"},
+        {"type": "number"},
+        {"type": "number"}
+      ],
+      "minItems": 5,
+      "maxItems": 5
+    },
+    "reference": {
+      "oneOf": [
+        {"type": "string"},
+        {
+          "type": "object",
+          "required": ["authors", "year", "source"],
+          "properties": {
+            "authors": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"type": "string"}
+            },
+            "authors_truncated": {"type": "boolean"},
+            "year": {"type": "integer"},
+            "title": {"type": "string"},
+            "source": {"type": "string"},
+            "volume": {"type": "string"},
+            "locator": {"type": "string"},
+            "details": {"type": "string"},
+            "doi": {"type": "string"}
+          },
+          "additionalProperties": true
+        }
+      ]
+    },
+    "equation": {
+      "type": "object",
+      "required": ["type", "model", "parameters"],
+      "properties": {
+        "type": {
+          "enum": [
+            "BM2",
+            "BM3",
+            "BM4",
+            "Holzapfel",
+            "ModifiedTait",
+            "Murnaghan",
+            "NaturalStrain2",
+            "NaturalStrain3",
+            "NaturalStrain4",
+            "Vinet"
+          ]
+        },
+        "model": {
+          "enum": [
+            "birch_murnaghan_2",
+            "birch_murnaghan_3",
+            "birch_murnaghan_4",
+            "holzapfel",
+            "modified_tait",
+            "murnaghan",
+            "natural_strain_2",
+            "natural_strain_3",
+            "natural_strain_4",
+            "vinet"
+          ]
+        },
+        "parameters": {
+          "type": "object",
+          "required": ["V0"],
+          "additionalProperties": {"type": "number"}
+        }
+      },
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "oneOf": [
+            {"properties": {"type": {"const": "BM2"}, "model": {"const": "birch_murnaghan_2"}}},
+            {"properties": {"type": {"const": "BM3"}, "model": {"const": "birch_murnaghan_3"}}},
+            {"properties": {"type": {"const": "BM4"}, "model": {"const": "birch_murnaghan_4"}}},
+            {"properties": {"type": {"const": "Holzapfel"}, "model": {"const": "holzapfel"}}},
+            {"properties": {"type": {"const": "ModifiedTait"}, "model": {"const": "modified_tait"}}},
+            {"properties": {"type": {"const": "Murnaghan"}, "model": {"const": "murnaghan"}}},
+            {"properties": {"type": {"const": "NaturalStrain2"}, "model": {"const": "natural_strain_2"}}},
+            {"properties": {"type": {"const": "NaturalStrain3"}, "model": {"const": "natural_strain_3"}}},
+            {"properties": {"type": {"const": "NaturalStrain4"}, "model": {"const": "natural_strain_4"}}},
+            {"properties": {"type": {"const": "Vinet"}, "model": {"const": "vinet"}}}
+          ]
+        }
+      ]
+    },
+    "thermal": {
+      "type": "object",
+      "required": ["type", "model", "parameters"],
+      "properties": {
+        "type": {
+          "enum": [
+            "AlphaKT",
+            "AsymptoticPowerLawMieGruneisenDebye",
+            "LinearThermalPressure",
+            "LogVolumeThermalPressure",
+            "MieGruneisenDebye",
+            "MieGruneisenEinstein",
+            "MultiOscillatorGruneisen",
+            "Sokolova2016",
+            "ThermalModifiedTait"
+          ]
+        },
+        "model": {
+          "enum": [
+            "thermal_reference_state",
+            "asymptotic_power_law_mie_gruneisen_debye",
+            "linear_thermal_pressure",
+            "log_volume_thermal_pressure",
+            "mie_gruneisen_debye",
+            "mie_gruneisen_einstein",
+            "multi_oscillator_gruneisen_thermal_pressure",
+            "thermal_modified_tait"
+          ]
+        },
+        "debye_temperature_law": {
+          "enum": ["integrated_gruneisen", "variable_exponent"],
+          "default": "integrated_gruneisen",
+          "description": "Characteristic-temperature relation for MieGruneisenDebye. Omission means integrated_gruneisen; JSON Schema defaults are annotations and do not insert the field."
+        },
+        "thermal_expansion_law": {
+          "enum": ["constant", "linear_temperature"],
+          "default": "constant",
+          "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature requires alpha1."
+        },
+        "reference_volume_law": {
+          "enum": ["integrated_expansivity", "linear_temperature"],
+          "default": "integrated_expansivity",
+          "description": "Reference-volume construction for thermal_reference_state. Omission integrates the selected expansivity; linear_temperature applies V0(T)=V0(Tr)*(1+alpha0*(T-Tr))."
+        },
+        "parameters": {
+          "type": "object",
+          "additionalProperties": {"type": "number"}
+        },
+        "parameter_errors": {
+          "$ref": "#/$defs/parameter_errors"
+        },
+        "fixed_parameters": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      },
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "oneOf": [
+            {"properties": {"type": {"const": "AlphaKT"}, "model": {"const": "thermal_reference_state"}}},
+            {"properties": {"type": {"const": "AsymptoticPowerLawMieGruneisenDebye"}, "model": {"const": "asymptotic_power_law_mie_gruneisen_debye"}}},
+            {"properties": {"type": {"const": "LinearThermalPressure"}, "model": {"const": "linear_thermal_pressure"}}},
+            {"properties": {"type": {"const": "LogVolumeThermalPressure"}, "model": {"const": "log_volume_thermal_pressure"}}},
+            {"properties": {"type": {"const": "MieGruneisenDebye"}, "model": {"const": "mie_gruneisen_debye"}}},
+            {"properties": {"type": {"const": "MieGruneisenEinstein"}, "model": {"const": "mie_gruneisen_einstein"}}},
+            {"properties": {"type": {"const": "MultiOscillatorGruneisen"}, "model": {"const": "multi_oscillator_gruneisen_thermal_pressure"}}},
+            {"properties": {"type": {"const": "Sokolova2016"}, "model": {"const": "multi_oscillator_gruneisen_thermal_pressure"}}},
+            {"properties": {"type": {"const": "ThermalModifiedTait"}, "model": {"const": "thermal_modified_tait"}}}
+          ]
+        },
+        {
+          "if": {"required": ["debye_temperature_law"]},
+          "then": {"properties": {"type": {"const": "MieGruneisenDebye"}}}
+        },
+        {
+          "if": {"required": ["thermal_expansion_law"]},
+          "then": {"properties": {"type": {"const": "AlphaKT"}}}
+        },
+        {
+          "if": {"required": ["reference_volume_law"]},
+          "then": {"properties": {"type": {"const": "AlphaKT"}}}
+        },
+        {
+          "if": {"properties": {"thermal_expansion_law": {"const": "linear_temperature"}}, "required": ["thermal_expansion_law"]},
+          "then": {"properties": {"parameters": {"required": ["alpha1"]}}}
+        },
+        {
+          "if": {
+            "anyOf": [
+              {"not": {"required": ["thermal_expansion_law"]}},
+              {"properties": {"thermal_expansion_law": {"const": "constant"}}, "required": ["thermal_expansion_law"]}
+            ]
+          },
+          "then": {"properties": {"parameters": {"properties": {"alpha1": {"const": 0}}}}}
+        },
+        {
+          "if": {
+            "properties": {"reference_volume_law": {"const": "linear_temperature"}},
+            "required": ["reference_volume_law"]
+          },
+          "then": {
+            "properties": {
+              "thermal_expansion_law": {"const": "constant"},
+              "parameters": {"properties": {"alpha1": {"const": 0}}}
+            }
+          }
+        }
+      ]
+    },
+    "parameter_errors": {
+      "type": "object",
+      "additionalProperties": {"$ref": "#/$defs/nullable_number"}
+    },
+    "range": {
+      "type": "array",
+      "prefixItems": [{"type": "number"}, {"type": "number"}],
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "validity": {
+      "type": "object",
+      "properties": {
+        "pressure_gpa": {"$ref": "#/$defs/range"},
+        "temperature_k": {"$ref": "#/$defs/range"},
+        "volume_ratio": {"$ref": "#/$defs/range"},
+        "notes": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    },
+    "volume_metadata": {
+      "type": "object",
+      "properties": {
+        "reference_value": {"type": "number", "exclusiveMinimum": 0},
+        "public_to_model_scale": {"type": "number", "exclusiveMinimum": 0},
+        "model_unit": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "parameter_covariance": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "required": ["matrix", "parameter_order"],
+          "properties": {
+            "matrix": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "array",
+                "minItems": 1,
+                "items": {"type": "number"}
+              }
+            },
+            "parameter_order": {
+              "type": "array",
+              "minItems": 1,
+              "items": {"type": "string", "minLength": 1}
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "scientific_validation": {
+      "type": "object",
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": ["primary_source_validated", "pending_primary_source_check", "deferred"]
+        },
+        "note": {"type": "string"},
+        "migration_source": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "eos_record": {
+      "type": "object",
+      "required": [
+        "label",
+        "identifier",
+        "reference",
+        "eos",
+        "parameter_errors",
+        "fixed_parameters",
+        "scientific_validation"
+      ],
+      "properties": {
+        "identifier": {"$ref": "#/$defs/identifier"},
+        "label": {"type": "string"},
+        "reference": {"$ref": "#/$defs/reference"},
+        "default": {"type": "boolean"},
+        "eos": {"$ref": "#/$defs/equation"},
+        "parameter_errors": {"$ref": "#/$defs/parameter_errors"},
+        "parameter_error_confidence": {
+          "type": ["number", "null"],
+          "exclusiveMinimum": 0,
+          "exclusiveMaximum": 1,
+          "description": "Two-sided confidence level of reported parameter-error half-widths. Null means the values are standard errors or the source convention is otherwise recorded in notes."
+        },
+        "fixed_parameters": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "experimental_pressure_range_gpa": {"$ref": "#/$defs/range"},
+        "pressure_range_status": {
+          "enum": ["reported_exactly", "reported_qualitatively", "theoretical", "reference_parameterization"]
+        },
+        "experimental_temperature_range_k": {"$ref": "#/$defs/range"},
+        "thermal": {"$ref": "#/$defs/thermal"},
+        "temperature_ref": {"type": "number"},
+        "volume": {"$ref": "#/$defs/volume_metadata"},
+        "validity": {"$ref": "#/$defs/validity"},
+        "parameter_provenance": {"type": "object"},
+        "parameter_covariance": {"$ref": "#/$defs/parameter_covariance"},
+        "scientific_validation": {"$ref": "#/$defs/scientific_validation"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

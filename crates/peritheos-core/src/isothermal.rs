@@ -593,6 +593,10 @@ impl IsothermalEos for Holzapfel {
                 * (bracket_1 + bracket_2 + bracket_3),
         )
     }
+
+    fn bulk_modulus_derivative(&self, volume: f64, relative_step: f64) -> EosResult<f64> {
+        Holzapfel::bulk_modulus_derivative(self, volume, relative_step)
+    }
 }
 
 /// Evaluate the legacy Sokolova-workbook analytical Holzapfel derivative.

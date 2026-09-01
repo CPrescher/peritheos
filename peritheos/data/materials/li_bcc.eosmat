@@ -1,0 +1,140 @@
+{
+ "format_version": 3,
+ "name": "Li",
+ "formula": "Li",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.51,
+  "b": 3.51,
+  "c": 3.51,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "atom_sites": [
+  {
+   "element": "Li",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Ambient bcc lithium crystallography. The bundled literature EOS is the primary paper's empirical bcc-fcc combined fit, not a single-phase bcc curve; its volume convention is documented at record level.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Hanfland et al. (1999), combined bcc-fcc Li Vinet",
+   "reference": {
+    "authors": [
+     "Hanfland",
+     "Loa",
+     "Syassen",
+     "Schwarz",
+     "Takemura"
+    ],
+    "year": 1999,
+    "source": "Solid State Commun.",
+    "volume": "112",
+    "locator": "123-127",
+    "doi": "10.1016/S0038-1098(99)00322-1"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 43.245,
+     "K0": 11.32,
+     "K0_prime": 3.62
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.1,
+    "K0_prime": 0.04
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    21.1
+   ],
+   "notes": "Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, exactly as defined by the primary paper. It is not a phase-specific bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a 0.16(3)% volume discontinuity. Public volumes use twice the paper's atomic volume so they remain compatible with this file's two-atom bcc conventional-cell convention, including for fcc observations. V0 was fixed; no V0 error or parameter covariance is published.",
+   "identifier": "li_hanfland_1999_vinet_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/S0038-1098(99)00322-1",
+     "locations": [
+      "page 125, Table 1, bcc and fcc P-V observations",
+      "page 125, Table 2, experimental Vinet parameters",
+      "pages 125-126, combined bcc-fcc fit description and Figure 3"
+     ],
+     "finding": "This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.",
+     "doi": "10.1016/s0038-1098(99)00322-1"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "li_bcc.json"
+    }
+   },
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Hanfland et al. (1999), Table 2: fixed atomic V0=21.6225 A^3, multiplied by two for the bcc conventional-cell convention",
+    "K0": "Hanfland et al. (1999), Table 2, this-work Vinet row",
+    "K0_prime": "Hanfland et al. (1999), Table 2, this-work Vinet row",
+    "equation": "Hanfland et al. (1999), page 125, combined bcc-fcc Vinet fit description and Figure 3"
+   },
+   "audit_corrections": [
+    {
+     "path": "identifier",
+     "source_value": "li_bcc_hanfland_1999_bm3_1",
+     "value": "li_hanfland_1999_vinet_1",
+     "reason": "The cited study's combined bcc/fcc fit is Vinet, not a bcc BM3.",
+     "primary_reference": {
+      "doi": "10.1016/S0038-1098(99)00322-1",
+      "location": "page 125, Tables 1-2 and Figure 3"
+     }
+    },
+    {
+     "path": "eos.type",
+     "source_value": "BM3",
+     "value": "Vinet",
+     "reason": "Correct the migrated equation family to the primary Vinet fit.",
+     "primary_reference": {
+      "doi": "10.1016/S0038-1098(99)00322-1",
+      "location": "page 125, Tables 1-2 and Figure 3"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "li_bcc",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "phase": "bcc structure; EOS fit spans bcc and fcc Li",
+ "cell_contents": "2 Li atoms per bcc conventional cell; fcc observations in the combined EOS are expressed as equivalent two-atom volumes"
+}

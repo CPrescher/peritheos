@@ -1,0 +1,141 @@
+{
+ "format_version": 3,
+ "name": "Magnesite",
+ "formula": "MgCO3",
+ "symmetry": "HEXAGONAL",
+ "lattice": {
+  "a": 4.6339,
+  "b": 4.6339,
+  "c": 15.0177,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 6,
+ "space_group": "R-3c",
+ "space_group_number": 167,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "6b",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "C",
+   "wyckoff": "6a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.25,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "18e",
+   "x": 0.2778,
+   "y": 0.0,
+   "z": 0.25,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/mgco3.jcpds. Ambient structure coordinates: Markgraf and Reeder, American Mineralogist 70, 590-600 (1985).",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Ross (1997)",
+   "reference": {
+    "authors": [
+     "Ross"
+    ],
+    "year": 1997,
+    "source": "American Mineralogist",
+    "volume": "82",
+    "locator": "682-688",
+    "doi": "10.2138/am-1997-7-805"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 279.41,
+     "K0": 117.0,
+     "K0_prime": 2.3
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.08,
+    "K0": 3.0,
+    "K0_prime": 0.7
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    7.0
+   ],
+   "notes": "Room-temperature unconstrained BM3 fit to single-crystal data from 0 to 7 GPa: V0=279.41+/-0.08 A^3, K0=117+/-3 GPa, and K0'=2.3+/-0.7. The paper also reports an alternative BM2 fit with K0=111+/-1 GPa; this record represents the BM3 result.",
+   "identifier": "magnesite_ross_1997_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://rruff.info/doclib/am/vol82/AM82_682.pdf",
+     "locations": [
+      "Abstract",
+      "Table 1, measured P-V data",
+      "Unit-cell parameters and equation of state, pages 684-685"
+     ],
+     "finding": "The unconstrained BM3 fit is represented. The alternative fit with K0'=4 fixed is not stored in this record.",
+     "doi": "10.2138/am-1997-7-805"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "magnesite.json"
+    }
+   },
+   "temperature_ref": 298.0,
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.V0",
+     "source_value": 279.28,
+     "value": 279.41,
+     "reason": "Use the V0 fitted jointly with the stored unconstrained BM3 parameters.",
+     "primary_reference": {
+      "doi": "10.2138/am-1997-7-805",
+      "location": "abstract and Unit-cell parameters and equation of state, pages 684-685"
+     }
+    },
+    {
+     "path": "parameter_errors.V0",
+     "source_value": 0.03,
+     "value": 0.08,
+     "reason": "The primary unconstrained BM3 fit reports V0=279.41(8) A^3.",
+     "primary_reference": {
+      "doi": "10.2138/am-1997-7-805",
+      "location": "abstract and Unit-cell parameters and equation of state, pages 684-685"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "magnesite",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

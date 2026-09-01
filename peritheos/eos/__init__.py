@@ -4,7 +4,7 @@ Equations of state module for Peritheos
 
 import inspect
 from functools import cache
-from typing import Callable, Union
+from typing import Any, Callable, Union
 
 import numpy as np
 from numpy.typing import NDArray
@@ -32,10 +32,14 @@ def _native_evaluation_types() -> tuple[type, ...]:
         Vinet,
     )
     from peritheos.eos.thermal import (
+        LinearThermalPressure,
+        LogVolumeThermalPressure,
         MieGruneisenDebye,
         MieGruneisenEinstein,
         Sokolova2016,
+        Tange2009Debye,
         ThermalModifiedTait,
+        ThermalReferenceStateEOS,
     )
 
     return (
@@ -49,9 +53,13 @@ def _native_evaluation_types() -> tuple[type, ...]:
         NaturalStrain4,
         Vinet,
         Holzapfel,
+        LinearThermalPressure,
+        LogVolumeThermalPressure,
         MieGruneisenDebye,
         MieGruneisenEinstein,
+        Tange2009Debye,
         ThermalModifiedTait,
+        ThermalReferenceStateEOS,
         Sokolova2016,
     )
 
@@ -303,8 +311,10 @@ class EosBase:
     implementations should follow.
     """
 
+    _constructor_configuration_names: tuple[str, ...] = ()
+
     def _own_parameter_names(self) -> tuple[str, ...]:
-        """Return constructor parameters represented by public attributes."""
+        """Return numeric constructor parameters represented by public attributes."""
         signature = inspect.signature(type(self).__init__)
         names = []
         for name, parameter in signature.parameters.items():
@@ -313,12 +323,26 @@ class EosBase:
                 inspect.Parameter.VAR_KEYWORD,
             }:
                 continue
+            if name in self._constructor_configuration_names:
+                continue
             if not hasattr(self, name):
                 raise NotImplementedError(
                     f"{type(self).__name__} does not expose constructor parameter {name!r}"
                 )
             names.append(name)
         return tuple(names)
+
+    def configuration_values(self) -> dict[str, Any]:
+        """Return fixed non-numeric constructor choices needed for reconstruction."""
+        values = {}
+        for name in self._constructor_configuration_names:
+            if not hasattr(self, name):
+                raise NotImplementedError(
+                    f"{type(self).__name__} does not expose constructor configuration "
+                    f"{name!r}"
+                )
+            values[name] = getattr(self, name)
+        return values
 
     def parameter_values(self, *, include_reference: bool = True) -> dict[str, float]:
         """Return reconstructable EOS parameters in constructor order.
@@ -355,6 +379,7 @@ class EosBase:
             )
 
         own_values = self.parameter_values(include_reference=False)
+        own_values.update(self.configuration_values())
         own_values.update(
             {
                 name: float(value)
@@ -403,6 +428,35 @@ class EosBase:
             Bulk modulus (in the same units as K0)
         """
         raise NotImplementedError("Subclasses must implement the bulk_modulus method.")
+
+    def bulk_modulus_derivative(
+        self, V: NumericType, relative_step: float = 1.0e-6
+    ) -> NumericType:
+        """Return the pressure derivative of bulk modulus, ``dK/dP``.
+
+        The default implementation differentiates ``K(V)`` and ``P(V)`` with
+        the same central volume step. Individual EOS classes may override this
+        with an analytical expression or a more efficient equivalent.
+        """
+        relative_step = validate_positive_scalar(relative_step, "relative_step")
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        steps = relative_step * volumes
+        lower_volumes = volumes - steps
+        upper_volumes = volumes + steps
+        pressure_difference = np.asarray(
+            self.pressure(upper_volumes), dtype=float
+        ) - np.asarray(self.pressure(lower_volumes), dtype=float)
+        if np.any(pressure_difference == 0.0):
+            raise ArithmeticError("Cannot evaluate dK/dP where dP/dV is zero")
+        result = (
+            np.asarray(self.bulk_modulus(upper_volumes), dtype=float)
+            - np.asarray(self.bulk_modulus(lower_volumes), dtype=float)
+        ) / pressure_difference
+        if not np.all(np.isfinite(result)):
+            raise ArithmeticError("Bulk-modulus pressure derivative is not finite")
+        if result.ndim == 0:
+            return float(result)
+        return result
 
     def calculate_volume(self, P: NumericType) -> NumericType:
         """

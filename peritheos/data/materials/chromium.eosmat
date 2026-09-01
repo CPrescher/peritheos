@@ -1,0 +1,106 @@
+{
+ "format_version": 3,
+ "name": "Chromium",
+ "formula": "Cr",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 2.887701,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "Im-3m",
+ "space_group_number": 229,
+ "atom_sites": [
+  {
+   "element": "Cr",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "The lattice parameter is calculated from the fitted 300 K reference volume. PhaseSmith calculates powder reflections and intensities from the ideal bcc structure.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Anzellini et al. (2022), BM3",
+   "reference": {
+    "authors": [
+     "Anzellini",
+     "Errandonea",
+     "Burakovsky",
+     "Proctor",
+     "Turnbull",
+     "Beavers"
+    ],
+    "year": 2022,
+    "source": "Sci. Rep.",
+    "volume": "12",
+    "locator": "6727",
+    "doi": "10.1038/s41598-022-10523-2"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 24.08,
+     "K0": 185.0,
+     "K0_prime": 4.74
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.02,
+    "K0": 1.0,
+    "K0_prime": 0.03
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    131.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Table 3 experimental helium-medium BM3 fit. The bcc phase remains observed to 131 GPa at room temperature.",
+   "identifier": "chromium_anzellini_2022_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1038/s41598-022-10523-2",
+     "locations": [
+      "Equation-of-state results",
+      "EOS parameter table"
+     ],
+     "doi": "10.1038/s41598-022-10523-2"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "chromium.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "chromium",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

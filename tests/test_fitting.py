@@ -20,10 +20,15 @@ from peritheos.eos.rt import (
     Vinet,
 )
 from peritheos.eos.thermal import (
+    LinearThermalPressure,
+    LogVolumeThermalPressure,
     MieGruneisenDebye,
     MieGruneisenEinstein,
+    MultiOscillatorGruneisenThermalEOS,
     Sokolova2016,
+    Tange2009Debye,
     ThermalModifiedTait,
+    ThermalReferenceStateEOS,
 )
 from peritheos.fitting import fit_joint_eos, fit_rt_eos, fit_thermal_eos
 
@@ -65,17 +70,67 @@ def test_every_builtin_rt_model_fits_end_to_end_natively(expected, monkeypatch):
 
 
 @pytest.mark.parametrize(
-    ("expected", "free_name", "initial_factor"),
+    ("expected", "free_name", "initial_factor", "configuration"),
     [
         (
             MieGruneisenDebye(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
             "gamma0",
             0.8,
+            {"debye_temperature_law": "integrated_gruneisen"},
+        ),
+        (
+            MieGruneisenDebye(
+                BM3(1.0, 160.0, 4.0),
+                300.0,
+                800.0,
+                1.5,
+                1.0,
+                2.0,
+                debye_temperature_law="variable_exponent",
+            ),
+            "gamma0",
+            0.8,
+            {"debye_temperature_law": "variable_exponent"},
         ),
         (
             MieGruneisenEinstein(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
             "gamma0",
             0.8,
+            {},
+        ),
+        (
+            Tange2009Debye(BM3(1.0, 160.0, 4.0), 300.0, 760.0, 1.5, 0.3, 2.5, 2.0),
+            "gamma0",
+            0.8,
+            {},
+        ),
+        (
+            LinearThermalPressure(BM3(1.0, 160.0, 4.0), 300.0, 0.002),
+            "alpha_KT",
+            0.8,
+            {},
+        ),
+        (
+            LogVolumeThermalPressure(BM3(1.0, 160.0, 4.0), 300.0, 0.002, -0.000_01),
+            "alpha_KT_ref",
+            0.8,
+            {},
+        ),
+        (
+            ThermalReferenceStateEOS(
+                BM3(1.0, 160.0, 4.0),
+                300.0,
+                2.0e-5,
+                -0.01,
+                1.0e-8,
+                thermal_expansion_law="linear_temperature",
+            ),
+            "alpha0",
+            0.8,
+            {
+                "thermal_expansion_law": "linear_temperature",
+                "reference_volume_law": "integrated_expansivity",
+            },
         ),
         (
             ThermalModifiedTait(
@@ -87,6 +142,7 @@ def test_every_builtin_rt_model_fits_end_to_end_natively(expected, monkeypatch):
             ),
             "alpha0",
             0.8,
+            {},
         ),
         (
             Sokolova2016(
@@ -105,11 +161,32 @@ def test_every_builtin_rt_model_fits_end_to_end_natively(expected, monkeypatch):
             ),
             "delta",
             0.8,
+            {},
+        ),
+        (
+            MultiOscillatorGruneisenThermalEOS(
+                BM3(1.0, 160.0, 4.0),
+                298.15,
+                684.0,
+                0.564,
+                1561.0,
+                2.436,
+                -0.506,
+                1.085,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                n=2.0,
+            ),
+            "delta",
+            0.8,
+            {},
         ),
     ],
 )
 def test_every_builtin_thermal_model_fits_end_to_end_natively(
-    expected, free_name, initial_factor, monkeypatch
+    expected, free_name, initial_factor, configuration, monkeypatch
 ):
     parameters = expected.parameter_values(include_reference=False)
     volumes = np.repeat(expected.rt_eos.V0 * np.array([0.82, 0.9, 0.98]), 4)
@@ -127,6 +204,7 @@ def test_every_builtin_thermal_model_fits_end_to_end_natively(
         temperatures,
         pressures,
         initial={free_name: initial_factor * parameters[free_name]},
+        configuration=configuration,
         fixed={name: value for name, value in parameters.items() if name != free_name},
         max_nfev=500,
     )
@@ -135,6 +213,7 @@ def test_every_builtin_thermal_model_fits_end_to_end_natively(
     assert result.parameters[free_name] == pytest.approx(
         parameters[free_name], rel=1.0e-6, abs=1.0e-10
     )
+    assert result.model.configuration_values() == configuration
 
 
 def test_custom_subclass_retains_python_residual_callback(monkeypatch):
@@ -529,6 +608,63 @@ def test_joint_fit_recovers_reference_and_thermal_parameters():
     assert result.model.rt_eos.K0 == pytest.approx(160.0)
     assert result.covariance.shape == (5, 5)
     assert result.eos_uncertainty().parameter_names == result.free_parameters
+
+
+def test_joint_fit_preserves_fixed_equation_configuration():
+    reference = BM3(1.0, 160.0, 4.2)
+    expected = MieGruneisenDebye(
+        reference,
+        300.0,
+        800.0,
+        1.6,
+        1.0,
+        2.0,
+        debye_temperature_law="variable_exponent",
+    )
+    volumes = np.tile(np.array([0.8, 0.9, 1.0]), 4)
+    temperatures = np.repeat(np.linspace(500.0, 2000.0, 4), 3)
+    pressures = expected.pressure(volumes, temperatures)
+
+    result = fit_joint_eos(
+        MieGruneisenDebye,
+        BM3,
+        volumes,
+        temperatures,
+        pressures,
+        initial={"gamma0": 1.3},
+        fixed={
+            "rt_eos.V0": 1.0,
+            "rt_eos.K0": 160.0,
+            "rt_eos.K0_prime": 4.2,
+            "Tr": 300.0,
+            "theta0": 800.0,
+            "q": 1.0,
+            "n": 2.0,
+        },
+        configuration={"debye_temperature_law": "variable_exponent"},
+    )
+
+    assert result.parameters["gamma0"] == pytest.approx(1.6, rel=1.0e-6)
+    assert result.model.configuration_values() == {
+        "debye_temperature_law": "variable_exponent"
+    }
+    assert result.to_dict()["model"]["configuration"] == {
+        "debye_temperature_law": "variable_exponent"
+    }
+
+
+def test_fit_configuration_cannot_also_be_a_numeric_parameter():
+    with pytest.raises(ValueError, match="must not also be supplied"):
+        fit_thermal_eos(
+            MieGruneisenDebye,
+            BM3(1.0, 160.0, 4.0),
+            [0.9],
+            [1000.0],
+            [10.0],
+            initial={"gamma0": 1.5},
+            configuration={"gamma0": "not-a-mechanism-choice"},
+            fixed={"Tr": 300.0, "theta0": 800.0, "q": 1.0, "n": 2.0},
+        )
 
 
 def test_fit_thermal_eos_handles_uncertainties_in_all_observables():

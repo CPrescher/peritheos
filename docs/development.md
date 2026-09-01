@@ -91,6 +91,14 @@ uv build
 uv run --group release twine check dist/*
 ```
 
+Maturin is the sole distribution backend. Its include rules explicitly place
+the normative schema and complete `peritheos/data/materials` library in both
+wheels and source distributions. Documentation sources, including executable
+notebooks and their local datasets, are source-distribution inputs; building
+the documentation from an sdist therefore has the same content as a checkout.
+The inactive setuptools package-data table was removed when the native backend
+became authoritative.
+
 Release CI builds interpreter-specific wheels for Python 3.9 through 3.14,
 including the separate CPython 3.14 free-threaded ABI, on manylinux x86-64 and
 ARM64, macOS Intel and Apple Silicon, and Windows x86-64. It builds the source

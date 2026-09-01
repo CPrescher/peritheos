@@ -1,6 +1,9 @@
 //! Built-in thermal equations of state and caloric models.
 
-use crate::isothermal::{Holzapfel, ModifiedTait};
+use crate::isothermal::{
+    Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
+    BM3, BM4,
+};
 use crate::quadrature::integrate;
 use crate::root::solve_temperature_function;
 use crate::validation::{
@@ -39,6 +42,16 @@ pub fn debye_function_3(argument: f64) -> EosResult<f64> {
     finite_result(3.0 * integral / argument.powi(3))
 }
 
+/// Supported volume laws for the Debye characteristic temperature.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum DebyeTemperatureLaw {
+    /// Integrate `gamma = -d ln(theta) / d ln(V)` for the power-law gamma.
+    #[default]
+    IntegratedGruneisen,
+    /// Apply `theta = theta0 (V/V0)^(-gamma(V))` directly.
+    VariableExponent,
+}
+
 /// Shared representation underlying the public Debye and Einstein aliases.
 #[doc(hidden)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -55,6 +68,8 @@ pub struct MieGruneisen<R, const DEBYE: bool> {
     pub q: f64,
     /// Number of atoms in the formula unit.
     pub n: f64,
+    /// Debye-temperature convention; Einstein models use the integrated law.
+    pub debye_temperature_law: DebyeTemperatureLaw,
 }
 
 /// Mie--Gruneisen--Debye thermal equation of state.
@@ -70,6 +85,7 @@ fn new_mie_gruneisen<R, const DEBYE: bool>(
     gamma0: f64,
     q: f64,
     n: f64,
+    debye_temperature_law: DebyeTemperatureLaw,
 ) -> EosResult<MieGruneisen<R, DEBYE>> {
     Ok(MieGruneisen {
         rt_eos,
@@ -78,6 +94,7 @@ fn new_mie_gruneisen<R, const DEBYE: bool>(
         gamma0: finite_parameter(gamma0, "gamma0")?,
         q: finite_parameter(q, "q")?,
         n: positive_parameter(n, "n")?,
+        debye_temperature_law,
     })
 }
 
@@ -91,7 +108,32 @@ where
     ///
     /// Returns an error for invalid or non-finite thermal parameters.
     pub fn new(rt_eos: R, tr: f64, theta0: f64, gamma0: f64, q: f64, n: f64) -> EosResult<Self> {
-        new_mie_gruneisen(rt_eos, tr, theta0, gamma0, q, n)
+        new_mie_gruneisen(
+            rt_eos,
+            tr,
+            theta0,
+            gamma0,
+            q,
+            n,
+            DebyeTemperatureLaw::IntegratedGruneisen,
+        )
+    }
+
+    /// Construct a model with an explicit Debye-temperature convention.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid or non-finite thermal parameters.
+    pub fn new_with_temperature_law(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q: f64,
+        n: f64,
+        debye_temperature_law: DebyeTemperatureLaw,
+    ) -> EosResult<Self> {
+        new_mie_gruneisen(rt_eos, tr, theta0, gamma0, q, n, debye_temperature_law)
     }
 }
 
@@ -105,7 +147,15 @@ where
     ///
     /// Returns an error for invalid or non-finite thermal parameters.
     pub fn new(rt_eos: R, tr: f64, theta0: f64, gamma0: f64, q: f64, n: f64) -> EosResult<Self> {
-        new_mie_gruneisen(rt_eos, tr, theta0, gamma0, q, n)
+        new_mie_gruneisen(
+            rt_eos,
+            tr,
+            theta0,
+            gamma0,
+            q,
+            n,
+            DebyeTemperatureLaw::IntegratedGruneisen,
+        )
     }
 }
 
@@ -132,11 +182,14 @@ where
     pub fn characteristic_temperature(&self, volume: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
         let logarithmic_volume = (volume / self.rt_eos.reference_volume()).ln();
-        let exponent = if self.q == 0.0 {
-            -self.gamma0 * logarithmic_volume
-        } else {
-            -self.gamma0 * (self.q * logarithmic_volume).exp_m1() / self.q
-        };
+        let exponent =
+            if DEBYE && self.debye_temperature_law == DebyeTemperatureLaw::VariableExponent {
+                -self.volume_gruneisen_parameter(volume)? * logarithmic_volume
+            } else if self.q == 0.0 {
+                -self.gamma0 * logarithmic_volume
+            } else {
+                -self.gamma0 * (self.q * logarithmic_volume).exp_m1() / self.q
+            };
         finite_result(self.theta0 * exponent.exp())
     }
 
@@ -372,6 +425,503 @@ fn einstein_heat_capacity(theta: f64, n: f64, temperature: f64) -> EosResult<f64
     finite_result(3.0 * n * GAS_CONSTANT * ratio * ratio * decay / (1.0 - decay).powi(2))
 }
 
+/// An isothermal EOS that can be reconstructed at a new `V0` and `K0`.
+pub trait ReferenceStateEos: IsothermalEos + Copy {
+    /// Reference bulk modulus in `GPa`.
+    fn reference_bulk_modulus(&self) -> f64;
+
+    /// Reconstruct the same equation family with new reference values.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error when either reference value is invalid.
+    fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self>;
+}
+
+macro_rules! impl_two_parameter_reference_state {
+    ($model:ty, $constructor:path) => {
+        impl ReferenceStateEos for $model {
+            fn reference_bulk_modulus(&self) -> f64 {
+                self.k0
+            }
+
+            fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+                $constructor(volume, bulk_modulus)
+            }
+        }
+    };
+}
+
+macro_rules! impl_three_parameter_reference_state {
+    ($model:ty, $constructor:path) => {
+        impl ReferenceStateEos for $model {
+            fn reference_bulk_modulus(&self) -> f64 {
+                self.k0
+            }
+
+            fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+                $constructor(volume, bulk_modulus, self.k0_prime)
+            }
+        }
+    };
+}
+
+macro_rules! impl_four_parameter_reference_state {
+    ($model:ty, $constructor:path) => {
+        impl ReferenceStateEos for $model {
+            fn reference_bulk_modulus(&self) -> f64 {
+                self.k0
+            }
+
+            fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+                $constructor(volume, bulk_modulus, self.k0_prime, self.k0_double_prime)
+            }
+        }
+    };
+}
+
+impl_two_parameter_reference_state!(BM2, BM2::new);
+impl_two_parameter_reference_state!(NaturalStrain2, NaturalStrain2::new);
+impl_three_parameter_reference_state!(BM3, BM3::new);
+impl_three_parameter_reference_state!(Murnaghan, Murnaghan::new);
+impl_three_parameter_reference_state!(NaturalStrain3, NaturalStrain3::new);
+impl_three_parameter_reference_state!(Vinet, Vinet::new);
+impl_four_parameter_reference_state!(BM4, BM4::new);
+impl_four_parameter_reference_state!(ModifiedTait, ModifiedTait::new);
+impl_four_parameter_reference_state!(NaturalStrain4, NaturalStrain4::new);
+
+impl ReferenceStateEos for Holzapfel {
+    fn reference_bulk_modulus(&self) -> f64 {
+        self.k0
+    }
+
+    fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+        Self::new(volume, bulk_modulus, self.k0_prime, self.n, self.z)
+    }
+}
+
+/// Constant `alpha K_T` thermal-pressure correction.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LinearThermalPressure<R> {
+    /// Reference isotherm.
+    pub rt_eos: R,
+    /// Reference temperature in kelvin.
+    pub tr: f64,
+    /// Constant thermal-pressure slope in `GPa K^-1`.
+    pub alpha_kt: f64,
+}
+
+impl<R: IsothermalEos> LinearThermalPressure<R> {
+    /// Construct a constant-slope thermal-pressure model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid thermal parameters.
+    pub fn new(rt_eos: R, tr: f64, alpha_kt: f64) -> EosResult<Self> {
+        Ok(Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            alpha_kt: finite_parameter(alpha_kt, "alpha_KT")?,
+        })
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for LinearThermalPressure<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        finite_result(self.alpha_kt * (temperature - self.tr))
+    }
+}
+
+/// Linear-in-temperature thermal pressure with a logarithmic volume slope.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct LogVolumeThermalPressure<R> {
+    /// Reference isotherm.
+    pub rt_eos: R,
+    /// Reference temperature in kelvin.
+    pub tr: f64,
+    /// Thermal-pressure slope at the reference volume in `GPa K^-1`.
+    pub alpha_kt_ref: f64,
+    /// Constant-volume derivative of bulk modulus in `GPa K^-1`.
+    pub dk_dt_v: f64,
+}
+
+impl<R: IsothermalEos> LogVolumeThermalPressure<R> {
+    /// Construct a logarithmic-volume thermal-pressure model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid thermal parameters.
+    pub fn new(rt_eos: R, tr: f64, alpha_kt_ref: f64, dk_dt_v: f64) -> EosResult<Self> {
+        Ok(Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            alpha_kt_ref: finite_parameter(alpha_kt_ref, "alpha_KT_ref")?,
+            dk_dt_v: finite_parameter(dk_dt_v, "dK_dT_V")?,
+        })
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for LogVolumeThermalPressure<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        let slope =
+            self.alpha_kt_ref + self.dk_dt_v * (self.rt_eos.reference_volume() / volume).ln();
+        finite_result(slope * (temperature - self.tr))
+    }
+}
+
+/// Temperature dependence of instantaneous volumetric expansivity.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum ThermalExpansionLaw {
+    /// `alpha(T) = alpha0`.
+    #[default]
+    Constant,
+    /// `alpha(T) = alpha0 + alpha1 T`.
+    LinearTemperature,
+}
+
+/// Relationship used to construct the temperature-dependent reference volume.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum ReferenceVolumeLaw {
+    /// Exponentially integrate the instantaneous expansivity.
+    #[default]
+    IntegratedExpansivity,
+    /// Apply `V0(T)=V0(Tr)[1+alpha0(T-Tr)]` directly.
+    LinearTemperature,
+}
+
+/// EOS with temperature-dependent reference volume and bulk modulus.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct ThermalReferenceState<R> {
+    /// Reference-temperature EOS.
+    pub rt_eos: R,
+    /// Reference temperature in kelvin.
+    pub tr: f64,
+    /// Constant or intercept expansivity in K^-1.
+    pub alpha0: f64,
+    /// Temperature derivative of the reference bulk modulus in `GPa K^-1`.
+    pub dk_dt: f64,
+    /// Linear temperature coefficient of expansivity in K^-2.
+    pub alpha1: f64,
+    /// Instantaneous expansivity law.
+    pub thermal_expansion_law: ThermalExpansionLaw,
+    /// Reference-volume construction law.
+    pub reference_volume_law: ReferenceVolumeLaw,
+}
+
+impl<R: ReferenceStateEos> ThermalReferenceState<R> {
+    /// Construct a temperature-dependent reference-state EOS.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid parameters or an inconsistent law pair.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new(
+        rt_eos: R,
+        tr: f64,
+        alpha0: f64,
+        dk_dt: f64,
+        alpha1: f64,
+        thermal_expansion_law: ThermalExpansionLaw,
+        reference_volume_law: ReferenceVolumeLaw,
+    ) -> EosResult<Self> {
+        let model = Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            alpha0: finite_parameter(alpha0, "alpha0")?,
+            dk_dt: finite_parameter(dk_dt, "dK_dT")?,
+            alpha1: finite_parameter(alpha1, "alpha1")?,
+            thermal_expansion_law,
+            reference_volume_law,
+        };
+        if model.thermal_expansion_law == ThermalExpansionLaw::Constant && model.alpha1 != 0.0 {
+            return Err(EosError::InvalidParameter {
+                name: "alpha1",
+                reason: "must be zero for constant thermal expansion",
+            });
+        }
+        if model.reference_volume_law == ReferenceVolumeLaw::LinearTemperature
+            && (model.thermal_expansion_law != ThermalExpansionLaw::Constant || model.alpha1 != 0.0)
+        {
+            return Err(EosError::InvalidParameter {
+                name: "reference_volume_law",
+                reason: "linear temperature volume requires constant expansivity configuration",
+            });
+        }
+        Ok(model)
+    }
+
+    fn state_eos(&self, temperature: f64) -> EosResult<R> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let delta = temperature - self.tr;
+        let reference_volume = match self.reference_volume_law {
+            ReferenceVolumeLaw::LinearTemperature => {
+                self.rt_eos.reference_volume() * (1.0 + self.alpha0 * delta)
+            }
+            ReferenceVolumeLaw::IntegratedExpansivity => {
+                let mut exponent = self.alpha0 * delta;
+                if self.thermal_expansion_law == ThermalExpansionLaw::LinearTemperature {
+                    exponent += 0.5 * self.alpha1 * (temperature * temperature - self.tr * self.tr);
+                }
+                self.rt_eos.reference_volume() * exponent.exp()
+            }
+        };
+        let bulk_modulus = self.rt_eos.reference_bulk_modulus() + self.dk_dt * delta;
+        if !reference_volume.is_finite() || reference_volume <= 0.0 {
+            return Err(EosError::InvalidState {
+                name: "temperature",
+                reason: "produces a non-positive reference volume",
+            });
+        }
+        if !bulk_modulus.is_finite() || bulk_modulus <= 0.0 {
+            return Err(EosError::InvalidState {
+                name: "temperature",
+                reason: "produces a non-positive bulk modulus",
+            });
+        }
+        self.rt_eos
+            .with_reference_state(reference_volume, bulk_modulus)
+    }
+}
+
+impl<R: ReferenceStateEos> ThermalEos for ThermalReferenceState<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        finite_result(
+            self.state_eos(temperature)?.pressure(volume)? - self.rt_eos.pressure(volume)?,
+        )
+    }
+
+    fn bulk_modulus(&self, volume: f64, temperature: f64, relative_step: f64) -> EosResult<f64> {
+        positive_state(relative_step, "relative_step")?;
+        self.state_eos(temperature)?.bulk_modulus(volume)
+    }
+}
+
+/// Tange-type asymptotic-power-law Mie--Gruneisen--Debye EOS.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct AsymptoticPowerLawMieGruneisenDebye<R> {
+    /// Reference isotherm.
+    pub rt_eos: R,
+    /// Reference temperature in kelvin.
+    pub tr: f64,
+    /// Reference Debye temperature in kelvin.
+    pub theta0: f64,
+    /// Reference Gruneisen parameter.
+    pub gamma0: f64,
+    /// Fractional asymptotic coefficient.
+    pub a: f64,
+    /// Volume exponent.
+    pub b: f64,
+    /// Number of atoms per formula.
+    pub n: f64,
+}
+
+impl<R: IsothermalEos> AsymptoticPowerLawMieGruneisenDebye<R> {
+    /// Construct the asymptotic-power-law model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid thermal parameters.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        a: f64,
+        b: f64,
+        n: f64,
+    ) -> EosResult<Self> {
+        let a = finite_parameter(a, "a")?;
+        if !(0.0..=1.0).contains(&a) {
+            return Err(EosError::InvalidParameter {
+                name: "a",
+                reason: "must lie between zero and one",
+            });
+        }
+        Ok(Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            theta0: positive_parameter(theta0, "theta0")?,
+            gamma0: finite_parameter(gamma0, "gamma0")?,
+            a,
+            b: finite_parameter(b, "b")?,
+            n: positive_parameter(n, "n")?,
+        })
+    }
+
+    /// Volume-dependent Gruneisen parameter.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or non-finite result.
+    pub fn volume_gruneisen_parameter(&self, volume: f64) -> EosResult<f64> {
+        let ratio = positive_state(volume, "volume")? / self.rt_eos.reference_volume();
+        finite_result(self.gamma0 * (1.0 + self.a * (ratio.powf(self.b) - 1.0)))
+    }
+
+    /// Volume-dependent Debye temperature.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or non-finite result.
+    #[allow(clippy::float_cmp)]
+    pub fn characteristic_temperature(&self, volume: f64) -> EosResult<f64> {
+        let ratio = positive_state(volume, "volume")? / self.rt_eos.reference_volume();
+        let logarithmic_ratio = ratio.ln();
+        let exponent = if self.b == 0.0 {
+            -self.gamma0 * logarithmic_ratio
+        } else {
+            -self.gamma0
+                * ((1.0 - self.a) * logarithmic_ratio
+                    + self.a * (self.b * logarithmic_ratio).exp_m1() / self.b)
+        };
+        finite_result(self.theta0 * exponent.exp())
+    }
+
+    /// Debye vibrational energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or failed Debye evaluation.
+    pub fn thermal_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let theta = self.characteristic_temperature(volume)?;
+        finite_result(
+            3.0 * self.n * GAS_CONSTANT * temperature * debye_function_3(theta / temperature)?,
+        )
+    }
+
+    /// Debye vibrational entropy in J mol^-1 K^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or failed Debye evaluation.
+    pub fn thermal_entropy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let ratio = self.characteristic_temperature(volume)? / temperature;
+        let log_term = (-(-ratio).exp_m1()).ln();
+        finite_result(self.n * GAS_CONSTANT * (4.0 * debye_function_3(ratio)? - 3.0 * log_term))
+    }
+
+    /// Unreferenced vibrational pressure in `GPa`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn vibrational_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.volume_gruneisen_parameter(volume)? * self.thermal_energy(volume, temperature)?
+                / volume
+                / 1.0e4,
+        )
+    }
+
+    /// Vibrational Helmholtz free energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_energy(volume, temperature)?
+                - temperature * self.thermal_entropy(volume, temperature)?,
+        )
+    }
+
+    /// Vibrational enthalpy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_enthalpy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_energy(volume, temperature)?
+                + self.vibrational_pressure(volume, temperature)? * volume * 1.0e4,
+        )
+    }
+
+    /// Vibrational Gibbs free energy in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_gibbs_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_helmholtz_free_energy(volume, temperature)?
+                + self.vibrational_pressure(volume, temperature)? * volume * 1.0e4,
+        )
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for AsymptoticPowerLawMieGruneisenDebye<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let energy_difference =
+            self.thermal_energy(volume, temperature)? - self.thermal_energy(volume, self.tr)?;
+        finite_result(self.volume_gruneisen_parameter(volume)? * energy_difference / volume / 1.0e4)
+    }
+}
+
+impl<R: IsothermalEos> CaloricEos for AsymptoticPowerLawMieGruneisenDebye<R> {
+    fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let step = 1.0e-5 * temperature;
+        finite_result(
+            (self.thermal_energy(volume, temperature + step)?
+                - self.thermal_energy(volume, temperature - step)?)
+                / (2.0 * step),
+        )
+    }
+
+    fn gruneisen_parameter(&self, volume: f64, _temperature: f64) -> EosResult<f64> {
+        self.volume_gruneisen_parameter(volume)
+    }
+}
+
 /// Parameters of the Sokolova et al. (2016) thermal-pressure model.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SokolovaParameters {
@@ -453,14 +1003,19 @@ impl SokolovaParameters {
     }
 }
 
-/// Sokolova et al. (2016) thermal-pressure equation with a Holzapfel reference.
+/// Generic multi-oscillator Gruneisen thermal-pressure equation.
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct Sokolova2016 {
-    /// Holzapfel reference isotherm.
-    pub rt_eos: Holzapfel,
+pub struct MultiOscillatorGruneisen<R> {
+    /// Freely chosen reference isotherm.
+    pub rt_eos: R,
     /// Validated thermal parameters.
     pub parameters: SokolovaParameters,
+    /// Number of atoms per chemical formula.
+    pub n: f64,
 }
+
+/// Compatibility alias for the historical Holzapfel-based public Rust type.
+pub type Sokolova2016 = MultiOscillatorGruneisen<Holzapfel>;
 
 #[derive(Clone, Copy, Debug)]
 struct SokolovaVolumeTerms {
@@ -474,7 +1029,7 @@ struct SokolovaVolumeTerms {
     squared_temperature_coefficient: f64,
 }
 
-impl Sokolova2016 {
+impl MultiOscillatorGruneisen<Holzapfel> {
     /// Construct the Sokolova thermal-pressure model.
     ///
     /// # Errors
@@ -482,6 +1037,23 @@ impl Sokolova2016 {
     /// Returns an error for invalid characteristic temperatures,
     /// dispersions, multiplicities, or other non-finite parameters.
     pub fn new(rt_eos: Holzapfel, parameters: SokolovaParameters) -> EosResult<Self> {
+        let n = rt_eos.n;
+        Self::new_with_atom_count(rt_eos, parameters, n)
+    }
+}
+
+impl<R: IsothermalEos> MultiOscillatorGruneisen<R> {
+    /// Construct the model with an explicit formula atom count.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid characteristic temperatures,
+    /// dispersions, multiplicities, atom count, or other non-finite parameters.
+    pub fn new_with_atom_count(
+        rt_eos: R,
+        parameters: SokolovaParameters,
+        n: f64,
+    ) -> EosResult<Self> {
         let parameters = SokolovaParameters {
             tr: positive_parameter(parameters.tr, "Tr")?,
             qe1o: positive_parameter(parameters.qe1o, "QE1o")?,
@@ -502,7 +1074,11 @@ impl Sokolova2016 {
             d1: positive_parameter(parameters.d1, "d1")?,
             mb1: nonnegative_parameter(parameters.mb1, "mb1")?,
         };
-        Ok(Self { rt_eos, parameters })
+        Ok(Self {
+            rt_eos,
+            parameters,
+            n: positive_parameter(n, "n")?,
+        })
     }
 
     /// Integrate the model Gruneisen parameter from `x` to the reference ratio.
@@ -515,7 +1091,7 @@ impl Sokolova2016 {
         let x = positive_state(x, "volume ratio")?;
         integrate(
             |ratio| {
-                let volume = ratio * self.rt_eos.v0;
+                let volume = ratio * self.rt_eos.reference_volume();
                 let pressure = self.rt_eos.pressure(volume)?;
                 let bulk_modulus = self.rt_eos.bulk_modulus(volume)?;
                 let derivative = self.rt_eos.bulk_modulus_derivative(volume, 1.0e-6)?;
@@ -536,7 +1112,7 @@ impl Sokolova2016 {
 
     fn volume_terms(&self, volume: f64) -> EosResult<SokolovaVolumeTerms> {
         let volume = positive_state(volume, "volume")?;
-        let x = volume / self.rt_eos.v0;
+        let x = volume / self.rt_eos.reference_volume();
         let pressure = self.rt_eos.pressure(volume)?;
         let bulk_modulus = self.rt_eos.bulk_modulus(volume)?;
         let derivative = self.rt_eos.bulk_modulus_derivative(volume, 1.0e-6)?;
@@ -572,10 +1148,9 @@ impl Sokolova2016 {
                 * sokolova_einstein_energy(qe2, self.parameters.tr)?
                 * gamma
                 / volume;
-        let squared_temperature_coefficient =
-            1.5 * self.rt_eos.n * GAS_CONSTANT / 1_000_000.0 / volume
-                * (self.parameters.a_0 * x.powf(self.parameters.m) * self.parameters.m
-                    + self.parameters.e_0 * x.powf(self.parameters.g) * self.parameters.g);
+        let squared_temperature_coefficient = 1.5 * self.n * GAS_CONSTANT / 1_000_000.0 / volume
+            * (self.parameters.a_0 * x.powf(self.parameters.m) * self.parameters.m
+                + self.parameters.e_0 * x.powf(self.parameters.g) * self.parameters.g);
         finite_result(gamma)?;
         finite_result(scale)?;
         finite_result(reference_oscillator_pressure)?;
@@ -627,8 +1202,8 @@ impl Sokolova2016 {
     }
 }
 
-impl ThermalEos for Sokolova2016 {
-    type Reference = Holzapfel;
+impl<R: IsothermalEos> ThermalEos for MultiOscillatorGruneisen<R> {
+    type Reference = R;
 
     fn reference_eos(&self) -> &Self::Reference {
         &self.rt_eos

@@ -513,7 +513,6 @@ pub fn propagate_linear_uncertainty(
     full_covariance: bool,
 ) -> Result<LinearPropagation, FitError> {
     if output_count == 0
-        || parameter_count == 0
         || jacobian.len() != output_count * parameter_count
         || parameter_covariance.len() != parameter_count * parameter_count
         || state_variance.len() != output_count
@@ -1990,6 +1989,14 @@ mod tests {
 
         assert_eq!(result.variance, vec![10.25, 3.75]);
         assert_eq!(result.covariance.unwrap(), vec![10.25, -3.75, -3.75, 3.75]);
+    }
+
+    #[test]
+    fn linear_uncertainty_supports_state_only_propagation() {
+        let result = propagate_linear_uncertainty(&[], 2, 0, &[], &[0.25, 1.0], true).unwrap();
+
+        assert_eq!(result.variance, vec![0.25, 1.0]);
+        assert_eq!(result.covariance.unwrap(), vec![0.25, 0.0, 0.0, 1.0]);
     }
 
     #[test]

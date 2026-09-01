@@ -1,0 +1,401 @@
+{
+ "format_version": 3,
+ "name": "Platinum",
+ "formula": "Pt",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.9231,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Pt",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Platinum (JCPDS 4-0802, EOS from Holmes)",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Holmes et al. (1989), theoretical 300 K Vinet scale",
+   "reference": {
+    "authors": [
+     "Holmes",
+     "Moriarty",
+     "Gathers",
+     "Nellis"
+    ],
+    "year": 1989,
+    "source": "J. Appl. Phys.",
+    "volume": "66",
+    "locator": "2962-2967",
+    "doi": "10.1063/1.344177"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 60.4000884,
+     "K0": 266.0,
+     "K0_prime": 5.81
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    550.0
+   ],
+   "notes": "The 300 K pressure scale is Holmes et al.'s theoretical universal (Vinet) EOS, qualified against shock data to at least 10% in pressure: V0=101.9 bohr^3/atom (converted to the four-atom fcc cell), K0=266 GPa, and K0'=5.81. Their approximate finite-temperature extension adds alpha*K_T*(T-300 K), with alpha=0.261e-4 K^-1 and K_T=266 GPa, and is stated to be adequate below 2000 K. The 300 K isotherm itself is represented through 550 GPa; 32-660 GPa is the shock-Hugoniot range, not the static-isotherm validity range.",
+   "thermal": {
+    "type": "LinearThermalPressure",
+    "model": "linear_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha_KT": 0.0069426
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT": null
+    },
+    "fixed_parameters": []
+   },
+   "identifier": "platinum_holmes_1989_vinet_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.researchgate.net/profile/John-Moriarty-7/publication/224513875_The_equation_of_state_of_platinum_to_660_GPa_66_Mbar/links/0deec51d6192cc65e2000000/The-equation-of-state-of-platinum-to-660-GPa-66-Mbar.pdf",
+     "locations": [
+      "Equations (7)-(12)",
+      "Table IV",
+      "Figures 4 and 5",
+      "summary, page 2966"
+     ],
+     "finding": "The stored pressure scale is the theoretical 300 K universal (Vinet) isotherm qualified against shock data, plus the paper's approximate constant thermal-pressure extension below 2000 K.",
+     "doi": "10.1063/1.344177"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "platinum.json"
+    }
+   },
+   "temperature_ref": 300.0,
+   "experimental_temperature_range_k": [
+    300.0,
+    2000.0
+   ],
+   "audit_corrections": [
+    {
+     "path": "identifier",
+     "source_value": "platinum_holmes_1989_bm3_1",
+     "value": "platinum_holmes_1989_vinet_1",
+     "reason": "Equation (11) is explicitly the universal (Vinet) EOS, not BM3.",
+     "primary_reference": {
+      "doi": "10.1063/1.344177",
+      "location": "Equations (7)-(12), Table IV, and summary"
+     }
+    },
+    {
+     "path": "eos",
+     "source_value": "BM3(V0=60.3793086, K0=266, K0_prime=5.81)",
+     "value": "Vinet(V0=60.4000884, K0=266, K0_prime=5.81)",
+     "reason": "Use Equation (11) and convert its V0=101.9 bohr^3/atom to the four-atom fcc conventional cell.",
+     "primary_reference": {
+      "doi": "10.1063/1.344177",
+      "location": "Equations (7)-(12), Table IV, and summary"
+     }
+    },
+    {
+     "path": "thermal",
+     "source_value": "AlphaKT(alpha0=1.35e-5, dK_dT=0)",
+     "value": "LinearThermalPressure(Tr=300, alpha_KT=0.0069426)",
+     "reason": "Equation (12) is the constant thermal-pressure increment obtained from Table IV alpha=0.261e-4 K^-1 and K_T=266 GPa.",
+     "primary_reference": {
+      "doi": "10.1063/1.344177",
+      "location": "Equations (7)-(12), Table IV, and summary"
+     }
+    },
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": [
+      32.0,
+      660.0
+     ],
+     "value": [
+      0.0,
+      550.0
+     ],
+     "reason": "The previous range describes the experimental Hugoniot; the represented theoretical 300 K isotherm is stated for 0-550 GPa.",
+     "primary_reference": {
+      "doi": "10.1063/1.344177",
+      "location": "Equations (7)-(12), Table IV, and summary"
+     }
+    },
+    {
+     "path": "experimental_temperature_range_k",
+     "source_value": null,
+     "value": [
+      300.0,
+      2000.0
+     ],
+     "reason": "The paper states that Equation (12) is adequate below 2000 K.",
+     "primary_reference": {
+      "doi": "10.1063/1.344177",
+      "location": "Equations (7)-(12), Table IV, and summary"
+     }
+    }
+   ]
+  },
+  {
+   "label": "Shen and Smith (2026), Cu-referenced Vinet",
+   "reference": {
+    "authors": [
+     "Shen",
+     "Smith"
+    ],
+    "year": 2026,
+    "source": "Phys. Rev. B",
+    "volume": "113",
+    "locator": "144113",
+    "doi": "10.1103/fxgq-96sg"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 60.364,
+     "K0": 261.2,
+     "K0_prime": 5.75
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.5,
+    "K0_prime": 0.02
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    140.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.5 GPa and K0' +/- 0.02. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
+   "identifier": "platinum_shen_2026_vinet_2",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/fxgq-96sg",
+     "locations": [
+      "Equation (4), page 8",
+      "Table I and footnotes, page 4",
+      "Table II, pages 9-12",
+      "Section III.E, pages 8 and 12-14",
+      "Experimental methods, page 2"
+     ],
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+     "doi": "10.1103/fxgq-96sg"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "platinum.json"
+    }
+   }
+  },
+  {
+   "label": "Sokolova et al. (2016), Holzapfel thermal model",
+   "reference": {
+    "authors": [
+     "Sokolova",
+     "Dorogokupets",
+     "Dymshits",
+     "Danilov",
+     "Litasov"
+    ],
+    "year": 2016,
+    "source": "Comput. Geosci.",
+    "volume": "94",
+    "locator": "162-169",
+    "details": "supplementary workbook 9",
+    "doi": "10.1016/j.cageo.2016.06.002"
+   },
+   "eos": {
+    "type": "Holzapfel",
+    "parameters": {
+     "V0": 60.383835218750676,
+     "K0": 275.0,
+     "K0_prime": 5.35,
+     "n": 1.0,
+     "Z": 78.0
+    },
+    "model": "holzapfel",
+    "parameter_errors": {
+     "n": null,
+     "Z": null
+    },
+    "fixed_parameters": [
+     "n",
+     "Z"
+    ]
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "pressure_range_status": "reference_parameterization",
+   "temperature_ref": 298.15,
+   "thermal": {
+    "type": "Sokolova2016",
+    "parameters": {
+     "Tr": 298.15,
+     "QE1o": 177.0,
+     "mE1": 1.5,
+     "QE2o": 143.0,
+     "mE2": 1.5,
+     "delta": 0.167,
+     "t": -0.343,
+     "a_0": 0.0,
+     "m": 0.0,
+     "g": 0.06,
+     "e_0": 80.6,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "QE1o": null,
+     "mE1": null,
+     "QE2o": null,
+     "mE2": null,
+     "delta": null,
+     "t": null,
+     "a_0": null,
+     "m": null,
+     "g": null,
+     "e_0": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "n"
+    ],
+    "model": "multi_oscillator_gruneisen_thermal_pressure"
+   },
+   "notes": "Native Sokolova2016 parameterization transcribed from the authors' Pt Excel table. Workbook Vo=0.9091 J bar^-1 mol^-1 and Ko=2750 kbar were converted to the conventional Z=4 cell in A^3 and GPa. The source reports no parameter uncertainties.",
+   "identifier": "platinum_sokolova_2016_holzapfel_3",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+     "locations": [
+      "Equations 1-12",
+      "Table 1",
+      "Figure 2 pressure-calculation table"
+     ],
+     "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
+     "doi": "10.1016/j.cageo.2016.06.002"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "platinum.json"
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "eos.parameters.n",
+     "source_value": null,
+     "value": 1.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    },
+    {
+     "path": "eos.parameters.Z",
+     "source_value": null,
+     "value": 78.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    },
+    {
+     "path": "thermal.parameters.n",
+     "source_value": null,
+     "value": 1.0,
+     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "primary_reference": {
+      "doi": "10.1016/j.cageo.2016.06.002",
+      "location": "Equation (1) and Table 1"
+     }
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "platinum",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

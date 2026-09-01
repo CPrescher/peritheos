@@ -40,6 +40,35 @@ pub trait IsothermalEos {
     /// or produces a non-finite result.
     fn bulk_modulus(&self, volume: f64) -> EosResult<f64>;
 
+    /// Pressure derivative of the bulk modulus, `dK/dP`.
+    ///
+    /// The default uses the same centered relative-volume convention as the
+    /// public Python fallback. Models with a stable analytical expression may
+    /// override it.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid states, step sizes, or derivatives.
+    fn bulk_modulus_derivative(&self, volume: f64, relative_step: f64) -> EosResult<f64> {
+        let volume = validation::positive_state(volume, "volume")?;
+        let relative_step = validation::positive_state(relative_step, "relative_step")?;
+        if relative_step >= 1.0 {
+            return Err(EosError::InvalidState {
+                name: "relative_step",
+                reason: "must be smaller than one",
+            });
+        }
+        let step = relative_step * volume;
+        let pressure_difference = self.pressure(volume + step)? - self.pressure(volume - step)?;
+        if pressure_difference == 0.0 {
+            return Err(EosError::OutsideInvertibleRange);
+        }
+        validation::finite_result(
+            (self.bulk_modulus(volume + step)? - self.bulk_modulus(volume - step)?)
+                / pressure_difference,
+        )
+    }
+
     /// Volume on the invertible branch nearest the reference volume.
     ///
     /// # Errors

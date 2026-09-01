@@ -1,0 +1,134 @@
+{
+ "format_version": 3,
+ "name": "Fe3O4",
+ "formula": "Fe3O4",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 8.3958,
+  "b": 8.3958,
+  "c": 8.3958,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 8,
+ "space_group": "Fd-3m",
+ "space_group_number": 227,
+ "atom_sites": [
+  {
+   "element": "Fe",
+   "wyckoff": "8a",
+   "x": 0.125,
+   "y": 0.125,
+   "z": 0.125,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "16d",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "32e",
+   "x": 0.2549,
+   "y": 0.2549,
+   "z": 0.2549,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/fe3o4.jcpds. Room-temperature inverse-spinel structure: Fleet, Acta Crystallographica B37, 917-920 (1981), doi:10.1107/S0567740881004597.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Mao et al. (1974), magnetite BM3",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Takahashi",
+     "Bassett",
+     "Kinsland",
+     "Merrill"
+    ],
+    "year": 1974,
+    "source": "J. Geophys. Res.",
+    "volume": "79",
+    "locator": "1165-1170",
+    "doi": "10.1029/JB079i008p01165"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 591.434826984,
+     "K0": 183.0,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.634133124,
+    "K0": 10.0,
+    "K0_prime": 0.4
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    32.0
+   ],
+   "notes": "Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.",
+   "identifier": "fe3o4_mao_1974_bm3_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/JB079i008p01165",
+     "locations": [
+      "page 1165, ambient a=8.394(3) A",
+      "page 1167, Table 3 and printed Birch-Murnaghan equation",
+      "pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget"
+     ],
+     "finding": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
+     "doi": "10.1029/jb079i008p01165"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "fe3o4.json"
+    }
+   },
+   "temperature_ref": 296.15,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Mao et al. (1974), page 1165: a0=8.394+/-0.003 A; V0=a0^3 and sigma(V0)=3*a0^2*sigma(a0)",
+    "K0": "Mao et al. (1974), pages 1167-1168, summed error budget",
+    "K0_prime": "Mao et al. (1974), pages 1167-1168: assumed 4+/-0.4",
+    "equation": "Mao et al. (1974), page 1167, printed Birch-Murnaghan equation"
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "fe3o4",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "phase": "magnetite, cubic inverse-spinel Fd-3m"
+}

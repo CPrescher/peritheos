@@ -148,6 +148,7 @@ class FitResult:
                 "module": type(self.model).__module__,
                 "class": type(self.model).__name__,
                 "parameters": self.model.parameter_values(include_reference=True),
+                "configuration": self.model.configuration_values(),
             },
             "parameters": self.parameters,
             "standard_errors": self.standard_errors,
@@ -423,10 +424,14 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
         Vinet,
     )
     from peritheos.eos.thermal import (
+        LinearThermalPressure,
+        LogVolumeThermalPressure,
         MieGruneisenDebye,
         MieGruneisenEinstein,
         Sokolova2016,
+        Tange2009Debye,
         ThermalModifiedTait,
+        ThermalReferenceStateEOS,
     )
 
     return (
@@ -440,9 +445,13 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
         NaturalStrain4,
         Vinet,
         Holzapfel,
+        LinearThermalPressure,
+        LogVolumeThermalPressure,
         MieGruneisenDebye,
         MieGruneisenEinstein,
+        Tange2009Debye,
         ThermalModifiedTait,
+        ThermalReferenceStateEOS,
         Sokolova2016,
     )
 
@@ -795,6 +804,7 @@ def fit_thermal_eos(
     pressure: Any,
     initial: Mapping[str, float],
     *,
+    configuration: Mapping[str, Any] | None = None,
     fixed: Mapping[str, float] | None = None,
     bounds: Mapping[str, Sequence[float]] | None = None,
     pressure_sigma: Any | None = None,
@@ -809,12 +819,21 @@ def fit_thermal_eos(
 ) -> FitResult:
     """Fit a thermal EOS with optional errors in pressure, volume, and temperature.
 
-    The reference EOS remains fixed.  Supplied volume and temperature errors
+    The reference EOS remains fixed. ``configuration`` supplies fixed,
+    non-numeric constructor choices such as ``debye_temperature_law``;
+    configuration values are not fitted. Supplied volume and temperature errors
     turn their corresponding true values into latent fit variables.
     ``sigma`` is retained as a compatibility alias for ``pressure_sigma``.
     ``observation_covariance`` accepts one or per-point 3-by-3 covariance
     matrices ordered as pressure, volume, temperature.
     """
+    configuration = dict(configuration or {})
+    overlap = set(configuration) & (set(initial) | set(fixed or {}))
+    if overlap:
+        raise ValueError(
+            "Configuration choices must not also be supplied as fit parameters: "
+            f"{sorted(overlap)}"
+        )
     volumes, temperatures, observed = np.broadcast_arrays(
         np.asarray(volume, dtype=float),
         np.asarray(temperature, dtype=float),
@@ -841,7 +860,7 @@ def fit_thermal_eos(
     ) = uncertainties
     assert pressure_uncertainties is not None
     return _fit_model(
-        lambda parameters: eos_class(rt_eos=rt_eos, **parameters),
+        lambda parameters: eos_class(rt_eos=rt_eos, **parameters, **configuration),
         lambda model, coordinates: np.asarray(
             model.pressure(coordinates["volume"], coordinates["temperature"]),
             dtype=float,
@@ -872,6 +891,7 @@ def fit_joint_eos(
     pressure: Any,
     initial: Mapping[str, float],
     *,
+    configuration: Mapping[str, Any] | None = None,
     fixed: Mapping[str, float] | None = None,
     bounds: Mapping[str, Sequence[float]] | None = None,
     pressure_sigma: Any | None = None,
@@ -890,8 +910,17 @@ def fit_joint_eos(
     models, for example ``rt_eos.V0`` and ``rt_eos.K0``. Thermal parameters
     retain their constructor names. The returned covariance therefore includes
     cross-correlations between reference and thermal parameters and can be
-    passed directly to :meth:`FitResult.eos_uncertainty`.
+    passed directly to :meth:`FitResult.eos_uncertainty`. ``configuration``
+    supplies fixed, non-numeric thermal constructor choices and is not fitted.
     """
+
+    configuration = dict(configuration or {})
+    overlap = set(configuration) & (set(initial) | set(fixed or {}))
+    if overlap:
+        raise ValueError(
+            "Configuration choices must not also be supplied as fit parameters: "
+            f"{sorted(overlap)}"
+        )
 
     def factory(parameters: Mapping[str, float]) -> ThermalEOS:
         reference_parameters = {
@@ -905,7 +934,9 @@ def fit_joint_eos(
             if not name.startswith("rt_eos.")
         }
         return eos_class(
-            rt_eos=rt_eos_class(**reference_parameters), **thermal_parameters
+            rt_eos=rt_eos_class(**reference_parameters),
+            **thermal_parameters,
+            **configuration,
         )
 
     volumes, temperatures, observed = np.broadcast_arrays(

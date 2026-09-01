@@ -1,0 +1,108 @@
+{
+ "format_version": 3,
+ "name": "Silicon (Si-V, simple hexagonal)",
+ "formula": "Si",
+ "symmetry": "HEXAGONAL",
+ "lattice": {
+  "a": 2.664021,
+  "b": null,
+  "c": 2.489348,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "P6/mmm",
+ "space_group_number": 191,
+ "atom_sites": [
+  {
+   "element": "Si",
+   "wyckoff": "1a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Simple-hexagonal Si-V. Because the high-pressure phase cannot be recovered, the reference cell is constructed from the extrapolated EoS V0 and the axial ratio measured at 17.9 GPa. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Anzellini et al. (2019), 300 K Vinet",
+   "reference": {
+    "authors": [
+     "Anzellini",
+     "Wharmby",
+     "Miozzi",
+     "Kleppe",
+     "Daisenberger",
+     "Wilhelm"
+    ],
+    "year": 2019,
+    "source": "Sci. Rep.",
+    "volume": "9",
+    "locator": "15537",
+    "doi": "10.1038/s41598-019-51931-1"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 15.3,
+     "K0": 95.0,
+     "K0_prime": 4.6
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": 0.1,
+    "K0": 10.0,
+    "K0_prime": 0.5
+   },
+   "parameter_error_confidence": 0.95,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    15.8,
+    40.9
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Table 8 room-temperature fit. Si-V was observed from 15.8 to 40.9 GPa; V0 is an extrapolated atomic and one-atom cell volume.",
+   "identifier": "silicon_v_anzellini_2019_vinet_1",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
+     "locations": [
+      "Equation-of-state discussion",
+      "Table 8"
+     ],
+     "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
+     "doi": "10.1038/s41598-019-51931-1"
+    },
+    "migration_source": {
+     "project": "Dioptas",
+     "version": "0.10.0",
+     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+     "file": "silicon_v.json"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "silicon_v",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}
