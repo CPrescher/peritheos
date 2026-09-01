@@ -14,8 +14,27 @@ The documentation is organized around scientific workflows:
 - [Thermoelastic properties](thermoelastic-properties.md) defines every derived
   property and its units.
 - [Fitting data](fitting.md) covers P-V and P-V-T regression with uncertainty.
-- [Aragonite fitting example](notebooks/aragonite-eos-fitting.ipynb) works
-  through a published 64-point P-V-T dataset in an executable notebook.
+- Executable tutorial notebooks provide complete workflows:
+  - [Pressure calibration quickstart](notebooks/pressure-calibration-quickstart.ipynb)
+    calculates, inverts, validates, and propagates uncertainty for a hot MgO
+    pressure marker.
+  - [Comparing room-temperature EOS](notebooks/compare-room-temperature-eos.ipynb)
+    contrasts fit diagnostics, parameter correlation, and extrapolation for
+    four common equations.
+  - [Comparing gold pressure scales](notebooks/compare-gold-pressure-scales.ipynb)
+    evaluates named literature records only on their common validity domains.
+  - [Thermal EOS state surfaces](notebooks/thermal-eos-state-surfaces.ipynb)
+    uses broadcasting, inversion, and thermoelastic properties on a P-V-T grid.
+  - [Fit to prediction uncertainty](notebooks/fit-to-prediction-uncertainty.ipynb)
+    carries fitted covariance into correlated linear and Monte Carlo intervals.
+  - [Exploring the material library](notebooks/exploring-material-library.ipynb)
+    searches the complete bundled catalog and constructs executable records.
+  - [EOSMAT round-trip](notebooks/eosmat-roundtrip.ipynb) validates, writes,
+    reloads, and safely handles provisional material records.
+  - [DAC temperature sensitivity](notebooks/dac-temperature-sensitivity.ipynb)
+    studies the two-volume thermal-confinement boundary condition.
+  - [Aragonite P-V-T fitting](notebooks/aragonite-eos-fitting.ipynb) reproduces
+    a published 64-point staged thermal analysis.
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
 - [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
