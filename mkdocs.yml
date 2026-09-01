@@ -35,7 +35,16 @@ nav:
   - Equation reference: equation-reference.md
   - Thermoelastic properties: thermoelastic-properties.md
   - Fitting data: fitting.md
-  - Aragonite fitting example: notebooks/aragonite-eos-fitting.ipynb
+  - Tutorial notebooks:
+      - Pressure calibration quickstart: notebooks/pressure-calibration-quickstart.ipynb
+      - Compare room-temperature EOS: notebooks/compare-room-temperature-eos.ipynb
+      - Compare gold pressure scales: notebooks/compare-gold-pressure-scales.ipynb
+      - Thermal EOS state surfaces: notebooks/thermal-eos-state-surfaces.ipynb
+      - Fit to prediction uncertainty: notebooks/fit-to-prediction-uncertainty.ipynb
+      - Explore the material library: notebooks/exploring-material-library.ipynb
+      - EOSMAT round-trip: notebooks/eosmat-roundtrip.ipynb
+      - DAC temperature sensitivity: notebooks/dac-temperature-sensitivity.ipynb
+      - Aragonite P-V-T fitting: notebooks/aragonite-eos-fitting.ipynb
   - Calculation uncertainty: uncertainty.md
   - Pressure standards: pressure-standards.md
   - Dioptas integration: dioptas-integration.md
