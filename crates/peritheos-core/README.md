@@ -24,3 +24,16 @@ let pressures = eos.pressures(&[8.0, 9.0, 10.0])?;
 The batch API deliberately does not choose a threading or array framework.
 Embedders can parallelize at their own boundary; the Python bindings use
 thresholded Rayon evaluation for large NumPy arrays.
+
+Canonical Peritheos format-3 and legacy Dioptas format-2 `.eosmat` files can
+also be loaded directly. Records are constructed through the fixed built-in
+model registry and retain their original JSON extension fields:
+
+```rust,no_run
+use peritheos_core::load_eosmat;
+
+let material = load_eosmat("gold.eosmat")?;
+let record = material.default_record().expect("an EOS record");
+let pressure = record.pressure(60.0, 300.0)?;
+# Ok::<(), Box<dyn std::error::Error>>(())
+```

@@ -10,10 +10,15 @@ mod root;
 mod validation;
 
 pub mod batch;
+pub mod eosmat;
 pub mod isothermal;
 pub mod thermal;
 
 pub use batch::{CaloricEosBatch, IsothermalEosBatch, ThermalEosBatch};
+pub use eosmat::{
+    load_eosmat, load_eosmat_reader, load_eosmat_str, material_from_value, EosRecord, EosmatError,
+    IsothermalModel, LoadedEos, Material, ThermalModel,
+};
 pub use error::EosError;
 
 /// Convenient result alias for EOS construction and evaluation.

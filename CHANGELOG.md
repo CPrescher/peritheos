@@ -5,6 +5,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Added native Rust loading for canonical Peritheos format-3 and legacy
+  Dioptas format-2 `.eosmat` files, with executable runtime-dispatched EOS
+  records, preserved JSON extensions, and automatic conventional-cell to
+  molar-volume conversion for energy-based thermal models.
+
 ### Fixed
 
 - Replaced the migrated InN BM3/experimental-volume hybrid with Muñoz and
