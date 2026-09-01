@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 146,
-    "primary_source_validated": 146
+    "records": 148,
+    "primary_source_validated": 148
   },
   "records": [
     {
@@ -318,6 +318,46 @@
         ],
         "finding": "The authors report V0=45.37(8) A^3 and K0=281(4) GPa with K0'=4 assumed.",
         "doi": "10.1029/jb094ib12p17889"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_sun_2016_bm3_3",
+      "label": "Sun et al. (2016), cubic CaSiO3 BM3-MGD",
+      "doi": "10.1002/2016jb013062",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
+        "locations": [
+          "experimental phase and range, pages 4878-4879",
+          "equations (1)-(6), pages 4879-4880",
+          "Table 1, pages 4880-4881",
+          "Table 2 model 1, page 4882"
+        ],
+        "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, and experimental P-T envelope were checked directly. The 300 K cubic isotherm is retained only as the model reference state.",
+        "doi": "10.1002/2016jb013062"
+      }
+    },
+    {
+      "material": "ca_perovskite_tetragonal",
+      "file": "ca_perovskite_tetragonal.eosmat",
+      "record": "ca_perovskite_tetragonal_sun_2022_bm3_1",
+      "label": "Sun et al. (2022), 300 K tetragonal CaSiO3 BM3 (K0' fixed)",
+      "doi": "10.2138/am-2021-7913",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+        "locations": [
+          "Birch-Murnaghan equation and Z normalization, pages 111-112",
+          "Table 1, page 112",
+          "Table 2, page 112",
+          "phase assignment and temperature discussion, pages 110-113"
+        ],
+        "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell; the fitted modulus, direct data range, 300 K phase, and lack of published covariance are retained.",
+        "doi": "10.2138/am-2021-7913"
       }
     },
     {

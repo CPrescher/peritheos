@@ -25,7 +25,7 @@ volumes. Temperature is in K. Pressure is in GPa.
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 115 material documents and 146 independently
+library is broader: it contains 116 material documents and 148 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 
@@ -65,6 +65,23 @@ audited EOS records, accessed with `list_material_documents()` and
 | `ag_fcc_dewaele_2008` | Ag fcc, 4 atoms/cell | 300 K Vinet | 0–124 GPa | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.78.104102) |
 | `re_hcp_anzellini_2014` | Re hcp, 2 atoms/cell | 300 K Vinet | 0.64–144 GPa | [Anzellini et al. (2014)](https://doi.org/10.1063/1.4863300) |
 | `aragonite_martinez_1996_bm2_2` | CaCO3 aragonite, 4 formula units/cell | staged BM2 with linear reference state | 0–8.18 GPa, 298–973 K | [Martinez et al. (1996)](https://doi.org/10.2138/am-1996-5-608) |
+
+## CaSiO3 perovskite phase-specific records
+
+The broad material library includes two primary-source Sun et al. records that
+must be selected by phase and temperature:
+
+| `.eosmat` record identifier | Phase and volume basis | Model | Executable validity |
+|---|---|---|---|
+| `ca_perovskite_tetragonal_sun_2022_bm3_1` | tetragonal I4/mcm, conventional Z=4 cell | 300 K BM3, `K0'=4` fixed | 30–150 GPa at 300 K; direct P-V data span 21.5–199.2 GPa |
+| `ca_perovskite_sun_2016_bm3_3` | cubic Pm-3m, Z=1 cell | BM3 + Mie-Gruneisen-Debye | 21.2–156 GPa and 1200–2600 K |
+
+Sun et al. (2022) publish tetragonal volumes normalized to Z=1; the material
+card multiplies `V0=45.6(2) angstrom^3` by four, giving the conventional-cell
+`V0=182.4(8) angstrom^3` used by the public API. The 2016 cubic record already
+uses a one-formula-unit Pm-3m cell. Its `T0=300 K` is only the BM3-MGD reference
+isotherm: cubic CaSiO3 was measured at high temperature and is not a stable,
+quenchable 300 K phase, so default range checking rejects 300 K evaluation.
 
 The bundled material library additionally includes the ten independently
 validated, Cu-anchored 300 K Vinet fits from [Shen and Smith

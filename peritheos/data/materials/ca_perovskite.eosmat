@@ -40,7 +40,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by both literature EoS records.",
+ "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by all three literature EOS records; the Sun et al. thermal record applies only to the high-temperature cubic phase.",
  "peaks": [],
  "eos_records": [
   {
@@ -201,6 +201,133 @@
     }
    },
    "temperature_ref": 300.0
+  },
+  {
+   "label": "Sun et al. (2016), cubic CaSiO3 BM3-MGD",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Mao",
+     "Yan",
+     "Wu",
+     "Prakapenka",
+     "Lin"
+    ],
+    "year": 2016,
+    "title": "Confirming a pyrolitic lower mantle using self-consistent pressure scales and new constraints on CaSiO3 perovskite",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "121",
+    "locator": "4876-4894",
+    "doi": "10.1002/2016JB013062"
+   },
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    21.2,
+    156.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    1200.0,
+    2600.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     21.2,
+     156.0
+    ],
+    "temperature_k": [
+     1200.0,
+     2600.0
+    ],
+    "notes": [
+     "The marginal experimental envelope is not a claim that every pressure-temperature combination was measured.",
+     "Cubic Pm-3m CaSiO3 was observed at high temperature; the 300 K reference isotherm is an extrapolated, metastable model reference and is outside this executable validity envelope."
+    ]
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 45.4,
+     "K0": 249.0,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.1,
+    "K0": 4.0,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1000.0,
+     "gamma0": 1.8,
+     "q": 1.1,
+     "n": 5.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.2,
+     "q": 0.4,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ],
+    "model": "mie_gruneisen_debye"
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Sun et al. (2016), Table 2 model 1: 45.4(1) A^3 per formula unit (the Pm-3m conventional cell has Z=1)",
+     "K0": "Sun et al. (2016), Table 2 model 1: 249(4) GPa",
+     "K0_prime": "Sun et al. (2016), Table 2 model 1: fixed at 4"
+    },
+    "thermal_correction": {
+     "Tr": "Sun et al. (2016), equations (1)-(6) use a 300 K reference isotherm",
+     "theta0": "Sun et al. (2016), Table 2 model 1: 1000 K fixed",
+     "gamma0": "Sun et al. (2016), Table 2 model 1: 1.8(2)",
+     "q": "Sun et al. (2016), Table 2 model 1: 1.1(4)",
+     "n": "Sun et al. (2016), equation (4): number of atoms in the mineral formula; n=5 for CaSiO3"
+    },
+    "additional": {
+     "volume_basis": "one-formula-unit Pm-3m conventional cell; Peritheos converts this internally to molar volume for the Debye energy"
+    }
+   },
+   "notes": "Joint BM3-Mie-Gruneisen-Debye fit for pure cubic Pm-3m CaSiO3 using model 1 in Table 2. The fitted data cover approximately 21-156 GPa and 1200-2600 K (the lowest Table 1 state is 21.2 GPa; the study reports measurements up to 156 GPa). The 300 K V0, K0, and K0' define an extrapolated reference isotherm: cubic CaSiO3 is not quenchable and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.",
+   "identifier": "ca_perovskite_sun_2016_bm3_3",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
+     "locations": [
+      "experimental phase and range, pages 4878-4879",
+      "equations (1)-(6), pages 4879-4880",
+      "Table 1, pages 4880-4881",
+      "Table 2 model 1, page 4882"
+     ],
+     "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, and experimental P-T envelope were checked directly. The 300 K cubic isotherm is retained only as the model reference state.",
+     "doi": "10.1002/2016jb013062"
+    }
+   }
   }
  ],
  "format": "peritheos.material",

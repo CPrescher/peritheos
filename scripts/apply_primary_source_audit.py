@@ -649,6 +649,32 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         "conflicting summary error printed in the prose and Table 7 is "
         "recorded explicitly.",
     ),
+    "ca_perovskite_sun_2016_bm3_3": source(
+        "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
+        [
+            "experimental phase and range, pages 4878-4879",
+            "equations (1)-(6), pages 4879-4880",
+            "Table 1, pages 4880-4881",
+            "Table 2 model 1, page 4882",
+        ],
+        "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye "
+        "energy, one-formula-unit volume basis, high-temperature cubic phase, "
+        "and experimental P-T envelope were checked directly. The 300 K "
+        "cubic isotherm is retained only as the model reference state.",
+    ),
+    "ca_perovskite_tetragonal_sun_2022_bm3_1": source(
+        "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+        [
+            "Birch-Murnaghan equation and Z normalization, pages 111-112",
+            "Table 1, page 112",
+            "Table 2, page 112",
+            "phase assignment and temperature discussion, pages 110-113",
+        ],
+        "Table 2's fixed-derivative fit is used. Its V0 and error are converted "
+        "from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 "
+        "cell; the fitted modulus, direct data range, 300 K phase, and lack of "
+        "published covariance are retained.",
+    ),
     "coesite_levien_1981_bm3_1": source(
         "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
         [
@@ -2694,8 +2720,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 146:
-        raise ValueError(f"Expected 146 EOS records, found {len(entries)}")
+    if len(entries) != 148:
+        raise ValueError(f"Expected 148 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added primary-source-validated Sun et al. (2016, 2022) CaSiO3-perovskite
+  material records: a 300 K tetragonal I4/mcm BM3 isotherm with the published
+  Z=1 volume converted to the conventional Z=4 cell, and a high-temperature
+  cubic Pm-3m BM3-Mie-Gruneisen-Debye EOS with explicit metastable 300 K
+  reference-state and phase-validity metadata.
 - Added native Rust loading for canonical Peritheos format-3 and legacy
   Dioptas format-2 `.eosmat` files, with executable runtime-dispatched EOS
   records, preserved JSON extensions, and automatic conventional-cell to
@@ -88,7 +93,7 @@ All notable changes to Peritheos are documented here. The project follows
   BM2 fitting, thermal-trend recovery, scaled joint P-V-T fitting, residual
   visualization, and uncertainty/chi-square interpretation.
 - A reproducible primary-source audit for the curated migrated `.eosmat` EOS
-  records. All 146 bundled records are now directly validated against original
+  records. All 148 bundled records are now directly validated against original
   publications, official supplements, or stable institutional reports, and no
   record remains pending or deferred. The
   bundled machine-readable ledger records source locations, the independently
@@ -108,7 +113,7 @@ All notable changes to Peritheos are documented here. The project follows
   additive thermal-pressure term, fixed fictive `V0`, and explicit
   experimental-versus-computational validity provenance. It is the preferred
   `kcl.eosmat` record. After primary-source corrections and duplicate removal,
-  the catalog now contains 146 records, all validated.
+  the catalog now contains 148 records, all validated.
 - Primary-audit corrections restore Sokolova `n`/`Z`, silica Debye `n`, and
   ice `Tr` inputs omitted by migration; every validated migrated record is
   constructability-tested.
@@ -156,7 +161,7 @@ All notable changes to Peritheos are documented here. The project follows
   records for Re and other entries where official primary evidence is not yet
   independently available.
 - A Peritheos-owned flat `.eosmat` format 3, normative JSON Schema, complete
-  116-material/147-record EOS database migrated from Dioptas 0.10.0 with explicit
+  116-material/148-record EOS database based on Dioptas 0.10.0 with explicit
   validation status and provenance, legacy Dioptas format-2 input, and tested
   Dioptas 0.10.0 read compatibility. A dedicated schema reference documents
   every field, discriminator pairing, default, unit, validation status, and

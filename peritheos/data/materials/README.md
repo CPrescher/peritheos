@@ -1,26 +1,31 @@
 # Bundled material library
 
-This directory contains 115 curated materials with EOS records from the
-120-material, 147-EOS-record Dioptas 0.10.0 database, tag commit
-`5a8bfd81d10bfab3499039603380aae34576d60a`. Dioptas is distributed under the
-MIT License. Its project source is <https://github.com/Dioptas/Dioptas>.
+This directory contains 116 curated material documents and 148 EOS records.
+Its migration foundation is the 120-material, 147-EOS-record Dioptas 0.10.0
+database, tag commit `5a8bfd81d10bfab3499039603380aae34576d60a`.
+Dioptas is distributed under the MIT License. Its project source is
+<https://github.com/Dioptas/Dioptas>.
 
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-01 classifies all 146 bundled records as
+dated 2026-09-01 classifies all 148 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
-The two additional records are native to Peritheos and therefore have no
-invented Dioptas migration provenance: the primary-sourced staged aragonite BM2
-P-V-T parameterization from Martinez et al. (1996), and the Dewaele et al. (2012) B2-KCl P-V-T
-pressure calibration. The latter is the preferred `kcl.eosmat` record and
-keeps its measured 298 K range distinct from its molecular-dynamics thermal
-extension. The Martinez staged result uses its exact Equation (3) direct-linear
-reference-volume law. The paper's separate global thermal BM3 entry is excluded
-because its fitted reference volume is omitted and the remaining coefficients
-do not reproduce the printed dataset under the documented equations.
+Four records are native to Peritheos and therefore have no invented Dioptas
+migration provenance: the primary-sourced staged aragonite BM2 P-V-T
+parameterization from Martinez et al. (1996), the Dewaele et al. (2012) B2-KCl
+P-V-T pressure calibration, and the Sun et al. (2016, 2022) cubic and
+tetragonal CaSiO3-perovskite EOS records. The KCl record keeps its measured
+298 K range distinct from its molecular-dynamics thermal extension. The
+Martinez staged result uses its exact Equation (3) direct-linear
+reference-volume law. The paper's separate global thermal BM3 entry is
+excluded because its fitted reference volume is omitted and the remaining
+coefficients do not reproduce the printed dataset under the documented
+equations. The Sun records keep the stable 300 K tetragonal I4/mcm phase
+separate from the high-temperature cubic Pm-3m phase and its metastable,
+extrapolated 300 K reference isotherm.
 
 The final full-text audit resolved the earlier CsCl, magnetite, Li, majorite,
 MW60, NiS, phase-D, cubic-SnO2, and SrO blockers. Phase D is intentionally two

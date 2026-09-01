@@ -86,9 +86,9 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 115
-    assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 146
+    assert len(identifiers) == 116
+    assert len(set(identifiers)) == 116
+    assert sum(len(document["eos_records"]) for document in documents) == 148
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -114,10 +114,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 146
+    assert len({record["identifier"] for record in records}) == 148
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 146
+    assert statuses.count("primary_source_validated") == 148
     assert all(
         record["scientific_validation"]["audit_date"] == "2026-09-01"
         for record in records
@@ -142,6 +142,8 @@ def test_migrated_records_have_completed_primary_source_audit():
     ]
     assert {record["identifier"] for record in native_records} == {
         "aragonite_martinez_1996_bm2_2",
+        "ca_perovskite_sun_2016_bm3_3",
+        "ca_perovskite_tetragonal_sun_2022_bm3_1",
         "kcl_b2_dewaele_2012_vinet_3",
     }
     assert {
@@ -171,8 +173,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 146,
-        "primary_source_validated": 146,
+        "records": 148,
+        "primary_source_validated": 148,
     }
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
@@ -194,7 +196,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 146
+    assert checked == 148
     assert failures == []
 
 
@@ -266,7 +268,7 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
 
 
 def test_newly_validated_primary_records_retain_published_errors():
-    shim, mao = get_material_document("ca_perovskite")["eos_records"]
+    shim, mao, sun = get_material_document("ca_perovskite")["eos_records"]
     cao_b1 = get_material_document("cao")["eos_records"][0]
     cao_b2 = get_material_document("cao_b2")["eos_records"][0]
     geo2 = get_material_document("geo2_rutile")["eos_records"][0]
@@ -292,6 +294,18 @@ def test_newly_validated_primary_records_retain_published_errors():
         "V0": pytest.approx(0.08),
         "K0": pytest.approx(4.0),
         "K0_prime": None,
+    }
+    assert sun["parameter_errors"] == {
+        "V0": pytest.approx(0.1),
+        "K0": pytest.approx(4.0),
+        "K0_prime": None,
+    }
+    assert sun["thermal"]["parameter_errors"] == {
+        "Tr": None,
+        "theta0": None,
+        "gamma0": pytest.approx(0.2),
+        "q": pytest.approx(0.4),
+        "n": None,
     }
     assert cao_b1["parameter_errors"] == {
         "V0": None,
@@ -344,6 +358,73 @@ def test_newly_validated_primary_records_retain_published_errors():
         "Tr": None,
         "alpha_KT": pytest.approx(0.00009),
     }
+
+
+def test_sun_casio3_phase_volume_conventions_and_primary_regressions():
+    tetragonal_document = get_material_document("ca_perovskite_tetragonal")
+    tetragonal_source = tetragonal_document["eos_records"][0]
+    tetragonal = Material.from_eosmat(tetragonal_document).eos_records[0]
+
+    assert tetragonal_document["formula_units_per_cell"] == 4
+    assert tetragonal_document["space_group"] == "I4/mcm"
+    assert tetragonal_source["eos"]["parameters"] == {
+        "V0": pytest.approx(4.0 * 45.6),
+        "K0": pytest.approx(229.0),
+        "K0_prime": pytest.approx(4.0),
+    }
+    assert tetragonal_source["parameter_errors"] == {
+        "V0": pytest.approx(4.0 * 0.2),
+        "K0": pytest.approx(4.0),
+        "K0_prime": None,
+    }
+    assert tetragonal_source["fixed_parameters"] == ["K0_prime"]
+    assert tetragonal_source["experimental_pressure_range_gpa"] == [21.5, 199.2]
+    assert tetragonal.validity.pressure_gpa == (30.0, 150.0)
+
+    # Direct substitution in the fixed-K0'=4 Birch-Murnaghan equation gives
+    # 100.4396514506 GPa at the Table 1 conventional-cell volume 140.6 A^3.
+    # This agrees with the measured 98.1(2.6) GPa state within its uncertainty.
+    assert tetragonal.pressure(140.6, 300.0) == pytest.approx(100.4396514506)
+    with pytest.raises(ValueError, match="outside the published validity envelope"):
+        tetragonal.volume(21.5, 300.0)
+
+    cubic_document = get_material_document("ca_perovskite")
+    cubic_source = next(
+        record
+        for record in cubic_document["eos_records"]
+        if record["identifier"] == "ca_perovskite_sun_2016_bm3_3"
+    )
+    cubic = Material.from_eosmat(
+        cubic_document,
+        record_identifiers=["ca_perovskite_sun_2016_bm3_3"],
+    ).eos_records[0]
+
+    assert cubic_document["formula_units_per_cell"] == 1
+    assert cubic.reference_volume == pytest.approx(45.4)
+    assert cubic_source["eos"]["parameters"] == {
+        "V0": pytest.approx(45.4),
+        "K0": pytest.approx(249.0),
+        "K0_prime": pytest.approx(4.0),
+    }
+    assert cubic_source["fixed_parameters"] == ["K0_prime"]
+    assert cubic_source["thermal"]["parameters"] == {
+        "Tr": pytest.approx(300.0),
+        "theta0": pytest.approx(1000.0),
+        "gamma0": pytest.approx(1.8),
+        "q": pytest.approx(1.1),
+        "n": pytest.approx(5.0),
+    }
+    assert cubic.volume_scale == pytest.approx(0.0602214076)
+    assert cubic.validity.temperature_k == (1200.0, 2600.0)
+
+    # Independent evaluation of equations (1)-(6) gives 94.9028891889 GPa
+    # for the Table 1 state V=36.68 A^3 and T=2200 K, consistent with the
+    # reported experimental pressure 95.3(1.0) GPa.
+    pressure = cubic.pressure(36.68, 2200.0)
+    assert pressure == pytest.approx(94.9028891889)
+    assert cubic.volume(pressure, 2200.0) == pytest.approx(36.68)
+    with pytest.raises(ValueError, match="outside the published validity envelope"):
+        cubic.pressure(36.68, 300.0)
 
 
 @pytest.mark.parametrize(
@@ -1326,8 +1407,8 @@ def test_migration_manifest_and_dioptas_license_are_bundled():
 
     assert manifest["source"]["project"] == "Dioptas"
     assert manifest["source"]["version"] == "0.10.0"
-    assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 146
+    assert manifest["materials"] == 116
+    assert manifest["eos_records"] == 148
     assert "Copyright (c) 2021-2026 Clemens Prescher" in license_text
 
 

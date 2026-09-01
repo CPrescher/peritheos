@@ -17,7 +17,7 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters the curated pressure-scale
 convenience catalog. This compact executable catalog is distinct from the full
-115-document shared material library described below. Each
+116-document shared material library described below. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
 canonical executable format-3 material document. Optional crystallographic
@@ -38,7 +38,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 115 bundled
+`list_material_documents()` returns the identifiers of all 116 bundled
 materials. `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
@@ -48,8 +48,9 @@ The [`.eosmat` schema reference](eosmat-schema.md) documents the complete
 field contract and consumer defaults.
 
 Transferred Dioptas records have completed a primary-source classification,
-and native primary-sourced records have been added for aragonite BM2 and the
-B2-KCl P-V-T pressure calibration. All 146 bundled records are
+and native primary-sourced records have been added for aragonite BM2, the
+B2-KCl P-V-T pressure calibration, and phase-specific cubic and tetragonal
+CaSiO3 perovskite. All 148 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with
