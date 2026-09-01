@@ -124,7 +124,7 @@ jobs:
             --python "${{ matrix.python-version }}" \
             --with "${wheel}" \
             python -c \
-            "from peritheos.eos.rt import BM3; assert BM3(10, 120, 4).pressure(9) > 0"
+            "from peritheos import Material, get_material_document, list_material_documents; from peritheos.eos.rt import BM3; assert BM3(10, 120, 4).pressure(9) > 0; assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 4"
 
       - name: Upload wheel
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
@@ -199,7 +199,7 @@ jobs:
             --no-index --find-links dist peritheos
           cd "${RUNNER_TEMP}"
           "${RUNNER_TEMP}/peritheos-smoke/bin/python" -c \
-            "from peritheos.eos.rt import BM3; assert BM3(10, 120, 4).pressure(9) > 0"
+            "from peritheos import Material, get_material_document, list_material_documents; from peritheos.eos.rt import BM3; assert BM3(10, 120, 4).pressure(9) > 0; assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 4"
 
   publish:
     name: Publish release distributions to PyPI

@@ -1,5 +1,7 @@
 """Composable multi-oscillator Gruneisen thermal-pressure equation."""
 
+from __future__ import annotations
+
 import numpy as np
 from scipy.constants import R
 from scipy.integrate import quad

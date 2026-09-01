@@ -221,6 +221,44 @@ def test_eosmat_crystallography_is_preserved_while_selected_eos_is_executable():
     assert np.isfinite(pressure)
 
 
+def test_eosmat_record_provenance_and_extensions_survive_executable_round_trip():
+    source = get_material_document("gold")
+    identifier = "gold_fei_2007_vinet_2"
+    source_record = next(
+        record for record in source["eos_records"] if record["identifier"] == identifier
+    )
+    source_record["record_extension"] = {"reviewer": "laboratory"}
+    source_record["eos"]["equation_extension"] = {"convention": "published"}
+    source_record["thermal"]["thermal_extension"] = {"energy_zero": "Tr"}
+    source_record.setdefault("validity", {})["validity_extension"] = (
+        "joint P-T envelope"
+    )
+    source_record["parameter_provenance"] = {
+        "reference_isotherm": {"K0": "Table 1"},
+        "thermal_correction": {"gamma0": "Table 1"},
+        "additional": {"volume_basis": "conventional cell"},
+    }
+
+    output = Material.from_eosmat(source, record_identifiers=(identifier,)).to_eosmat()[
+        "eos_records"
+    ][0]
+
+    for key in (
+        "default",
+        "reference",
+        "fixed_parameters",
+        "parameter_errors",
+        "parameter_provenance",
+        "scientific_validation",
+        "record_extension",
+    ):
+        assert output[key] == source_record[key]
+    assert output["eos"]["equation_extension"] == {"convention": "published"}
+    assert output["thermal"]["thermal_extension"] == {"energy_zero": "Tr"}
+    assert output["validity"]["validity_extension"] == "joint P-T envelope"
+    assert output["thermal"]["type"] == source_record["thermal"]["type"]
+
+
 def test_legacy_snapshot_without_debye_law_uses_integrated_default():
     payload = get_material("diamond").to_snapshot_dict()
     thermal = payload["eos_records"][1]["equation"]["thermal_correction"]

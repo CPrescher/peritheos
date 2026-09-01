@@ -15,7 +15,9 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 ```
 
 `get_material(identifier)` returns a material phase and
-`list_materials(formula=...)` lists or filters the material catalog. Each
+`list_materials(formula=...)` lists or filters the curated pressure-scale
+convenience catalog. This compact executable catalog is distinct from the full
+115-document shared material library described below. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
 canonical executable format-3 material document. Optional crystallographic
@@ -78,7 +80,9 @@ its published fitted reference volume is missing, and its remaining coefficients
 do not reproduce the printed dataset under the documented equations.
 
 `get_eos_record(identifier)` and `list_eos_records(formula=...)` are convenient
-catalog-wide lookups. Each `EOSRecord` provides:
+lookups within that curated pressure-scale set. Use
+`list_material_documents()` and `Material.from_eosmat()` for the complete
+shared library. Each `EOSRecord` provides:
 
 - `pressure(volume, temperature=None, check_validity=True)` in GPa;
 - `volume(pressure, temperature=None, check_validity=True)` in

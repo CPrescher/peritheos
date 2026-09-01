@@ -285,6 +285,10 @@ class MieGruneisenDebye(_MieGruneisenBase):
 
     def characteristic_temperature(self, V: NumericType) -> NumericType:
         """Return Debye temperature using the selected volume relation."""
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes = validate_volume(V)
+            return self._native_evaluate("characteristic_temperature", volumes, self.Tr)
         if self.debye_temperature_law == "integrated_gruneisen":
             return super().characteristic_temperature(V)
 

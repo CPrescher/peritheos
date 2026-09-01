@@ -140,6 +140,9 @@ class EOSRecord:
     volume_scale: float = 1.0
     scientific_validation_status: str = "primary_source_validated"
     scientific_validation_note: str = ""
+    eosmat_metadata: Mapping[str, Any] = field(
+        default_factory=dict, compare=False, repr=False
+    )
 
     def __post_init__(self) -> None:
         allowed = {
@@ -155,6 +158,11 @@ class EOSRecord:
             0.0 < self.parameter_error_confidence < 1.0
         ):
             raise ValueError("parameter_error_confidence must lie between zero and one")
+        object.__setattr__(
+            self,
+            "eosmat_metadata",
+            MappingProxyType(copy.deepcopy(dict(self.eosmat_metadata))),
+        )
 
     @property
     def reference_volume(self) -> float:
@@ -615,6 +623,29 @@ def _reference_to_eosmat(reference: LiteratureReference) -> dict[str, Any]:
     }
 
 
+def _merge_eosmat_component(
+    metadata: Any, component: Mapping[str, Any]
+) -> dict[str, Any]:
+    """Update executable fields while retaining component extensions."""
+    result = _plain_data(metadata) if isinstance(metadata, Mapping) else {}
+    existing_parameters = result.get("parameters")
+    parameters = (
+        _plain_data(existing_parameters)
+        if isinstance(existing_parameters, Mapping)
+        else {}
+    )
+    parameters.update(_plain_data(component["parameters"]))
+    for key, value in component.items():
+        if key == "parameters":
+            continue
+        if key in {"type", "model"}:
+            result.setdefault(key, _plain_data(value))
+        else:
+            result[key] = _plain_data(value)
+    result["parameters"] = parameters
+    return result
+
+
 def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
     reference_eos = (
         record.eos.rt_eos if isinstance(record.eos, ThermalEOS) else record.eos
@@ -626,60 +657,98 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
     component_provenance = _component_parameter_mapping(
         record, record.parameter_provenance
     )
-    reference_component = _eosmat_component(reference_eos)
+    result: dict[str, Any] = _plain_data(record.eosmat_metadata)
+    reference_component = _merge_eosmat_component(
+        result.get("eos"), _eosmat_component(reference_eos)
+    )
     reference_component["parameters"]["V0"] = record.reference_volume
-    result: dict[str, Any] = {
-        "identifier": record.identifier,
-        "label": record.name,
-        "reference": _reference_to_eosmat(record.reference),
-        "eos": reference_component,
-        "parameter_errors": reference_errors,
-        "parameter_error_confidence": record.parameter_error_confidence,
-        "fixed_parameters": [],
-        "temperature_ref": record.reference_temperature,
-        "volume": {
+    stored_errors = result.get("parameter_errors")
+    merged_errors = (
+        _plain_data(stored_errors) if isinstance(stored_errors, Mapping) else {}
+    )
+    merged_errors.update(reference_errors)
+    stored_volume = result.get("volume")
+    volume = _plain_data(stored_volume) if isinstance(stored_volume, Mapping) else {}
+    volume.update(
+        {
             "reference_value": record.reference_volume,
             "public_to_model_scale": record.volume_scale,
             "model_unit": (
                 record.volume_unit if record.volume_scale == 1.0 else "J bar^-1 mol^-1"
             ),
-        },
-        "parameter_provenance": {
+        }
+    )
+    stored_validation = result.get("scientific_validation")
+    validation = (
+        _plain_data(stored_validation) if isinstance(stored_validation, Mapping) else {}
+    )
+    validation.update(
+        {
+            "status": record.scientific_validation_status,
+            "note": record.scientific_validation_note,
+        }
+    )
+    result.update(
+        {
+            "identifier": record.identifier,
+            "label": record.name,
+            "eos": reference_component,
+            "parameter_errors": merged_errors,
+            "parameter_error_confidence": record.parameter_error_confidence,
+            "temperature_ref": record.reference_temperature,
+            "volume": volume,
+            "scientific_validation": validation,
+        }
+    )
+    result.setdefault("reference", _reference_to_eosmat(record.reference))
+    result.setdefault("fixed_parameters", [])
+    result.setdefault(
+        "parameter_provenance",
+        {
             "reference_isotherm": component_provenance[0],
             "thermal_correction": component_provenance[1],
             "additional": component_provenance[2],
         },
-        "parameter_covariance": (
-            None
-            if record.parameter_covariance is None
-            else {
-                "matrix": [list(row) for row in record.parameter_covariance],
-                "parameter_order": list(record.covariance_parameters or ()),
-            }
-        ),
-        "scientific_validation": {
-            "status": record.scientific_validation_status,
-            "note": record.scientific_validation_note,
-        },
-        "notes": "\n".join(record.notes),
-    }
-    validity: dict[str, Any] = {"notes": list(record.validity.notes)}
+    )
+    result.setdefault("notes", "\n".join(record.notes))
+    if record.parameter_covariance is not None:
+        result["parameter_covariance"] = {
+            "matrix": [list(row) for row in record.parameter_covariance],
+            "parameter_order": list(record.covariance_parameters or ()),
+        }
+    else:
+        result.setdefault("parameter_covariance", None)
+    stored_validity = result.get("validity")
+    validity = (
+        _plain_data(stored_validity) if isinstance(stored_validity, Mapping) else {}
+    )
+    validity["notes"] = list(record.validity.notes)
     if np.all(np.isfinite(record.validity.pressure_gpa)):
         pressure_range = list(record.validity.pressure_gpa)
-        result["experimental_pressure_range_gpa"] = pressure_range
+        result.setdefault("experimental_pressure_range_gpa", pressure_range)
         validity["pressure_gpa"] = pressure_range
     if np.all(np.isfinite(record.validity.temperature_k)):
         temperature_range = list(record.validity.temperature_k)
-        result["experimental_temperature_range_k"] = temperature_range
+        result.setdefault("experimental_temperature_range_k", temperature_range)
         validity["temperature_k"] = temperature_range
     if record.validity.volume_ratio is not None:
         validity["volume_ratio"] = list(record.validity.volume_ratio)
     if len(validity) > 1 or validity["notes"]:
         result["validity"] = validity
     if thermal_eos is not None:
-        result["thermal"] = _eosmat_component(thermal_eos)
-        result["thermal"]["parameter_errors"] = thermal_errors
-        result["thermal"]["fixed_parameters"] = []
+        thermal = _merge_eosmat_component(
+            result.get("thermal"), _eosmat_component(thermal_eos)
+        )
+        stored_thermal_errors = thermal.get("parameter_errors")
+        merged_thermal_errors = (
+            _plain_data(stored_thermal_errors)
+            if isinstance(stored_thermal_errors, Mapping)
+            else {}
+        )
+        merged_thermal_errors.update(thermal_errors)
+        thermal["parameter_errors"] = merged_thermal_errors
+        thermal.setdefault("fixed_parameters", [])
+        result["thermal"] = thermal
     return result
 
 
@@ -1203,6 +1272,7 @@ def _material_from_eosmat(
                     volume_scale=volume_scale,
                     scientific_validation_status=validation_status,
                     scientific_validation_note=str(validation.get("note", "")),
+                    eosmat_metadata=_plain_data(raw_record),
                 )
             )
         except (KeyError, TypeError, ValueError) as error:

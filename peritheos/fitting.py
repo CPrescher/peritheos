@@ -148,6 +148,7 @@ class FitResult:
                 "module": type(self.model).__module__,
                 "class": type(self.model).__name__,
                 "parameters": self.model.parameter_values(include_reference=True),
+                "configuration": self.model.configuration_values(),
             },
             "parameters": self.parameters,
             "standard_errors": self.standard_errors,

@@ -21,7 +21,13 @@ part of the enclosing `Material`; this avoids the common factor-of-$Z$ ambiguity
 between atomic, formula-unit, primitive-cell, conventional-cell, and molar
 volumes. Temperature is in K. Pressure is in GPa.
 
-## Validated catalog
+## Curated pressure-scale convenience catalog
+
+The table below documents the compact set exposed directly by
+`get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
+library is broader: it contains 115 material documents and 146 independently
+audited EOS records, accessed with `list_material_documents()` and
+`Material.from_eosmat()`.
 
 | EOS record identifier | Material and phase | Model | Published envelope | Primary source |
 |---|---|---|---|---|

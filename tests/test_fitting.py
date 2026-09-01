@@ -648,6 +648,9 @@ def test_joint_fit_preserves_fixed_equation_configuration():
     assert result.model.configuration_values() == {
         "debye_temperature_law": "variable_exponent"
     }
+    assert result.to_dict()["model"]["configuration"] == {
+        "debye_temperature_law": "variable_exponent"
+    }
 
 
 def test_fit_configuration_cannot_also_be_a_numeric_parameter():

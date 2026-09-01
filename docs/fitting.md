@@ -121,9 +121,10 @@ json_text = result.to_json()
 result.to_json("bm3-fit.json")
 ```
 
-The export contains the model's module, class, and reconstructable parameter
-values; free-parameter ordering; covariance and correlation matrices; raw and
-weighted residuals; adjusted observations; diagnostics; and solver metadata.
+The export contains the model's module, class, reconstructable parameter
+values, and fixed equation configuration; free-parameter ordering; covariance
+and correlation matrices; raw and weighted residuals; adjusted observations;
+diagnostics; and solver metadata.
 Non-finite diagnostics, such as reduced chi-square for a fit with no degrees of
 freedom, are represented as JSON `null`. The export is intended as a durable
 analysis record; it does not dynamically import and execute model classes.
