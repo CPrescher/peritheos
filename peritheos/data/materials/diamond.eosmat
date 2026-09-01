@@ -168,22 +168,67 @@
    }
   },
   {
-   "label": "Sokolova et al. (2016), Holzapfel thermal model",
+   "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
    "reference": {
     "authors": [
      "Sokolova",
      "Dorogokupets",
-     "Dymshits",
-     "Danilov",
      "Litasov"
     ],
-    "year": 2016,
-    "source": "Comput. Geosci.",
-    "volume": "94",
-    "locator": "162-169",
-    "details": "supplementary workbook 4",
-    "doi": "10.1016/j.cageo.2016.06.002"
+    "year": 2013,
+    "source": "Russian Geology and Geophysics",
+    "volume": "54",
+    "locator": "181-199",
+    "details": "Tables 1 and 4",
+    "doi": "10.1016/j.rgg.2013.01.005"
    },
+   "source_lineage": [
+    {
+     "role": "reference volume, composition, and shock inputs",
+     "citation": "Sokolova et al. (2013), Table 1",
+     "doi": "10.1016/j.rgg.2013.01.005"
+    },
+    {
+     "role": "final cross-calibrated Holzapfel and thermal coefficients",
+     "citation": "Sokolova et al. (2013), Table 4",
+     "doi": "10.1016/j.rgg.2013.01.005"
+    },
+    {
+     "role": "preceding simultaneous-optimization fit",
+     "citation": "Dorogokupets et al. (2012), Table 4",
+     "doi": "10.5800/GT-2012-3-2-0067"
+    },
+    {
+     "role": "spreadsheet implementation, conventions, and corrections",
+     "citation": "Sokolova et al. (2016), equations 1-12, Tables 1-3, and Appendix A",
+     "doi": "10.1016/j.cageo.2016.06.002"
+    },
+    {
+     "role": "principal room-temperature compression constraint",
+     "citation": "Occelli, Loubeyre, and LeToullec (2003)",
+     "doi": "10.1038/nmat831"
+    },
+    {
+     "role": "moderate-temperature diamond P-V-T context",
+     "citation": "Dewaele et al. (2008)",
+     "doi": "10.1103/PhysRevB.77.094106"
+    },
+    {
+     "role": "ambient heat-capacity constraint",
+     "citation": "Victor (1962)",
+     "doi": "10.1063/1.1701288"
+    },
+    {
+     "role": "ambient thermophysical-property constraint",
+     "citation": "Reeber and Wang (1996)",
+     "doi": "10.1007/BF02666175"
+    },
+    {
+     "role": "elastic-modulus constraint",
+     "citation": "Zouboulis et al. (1998)",
+     "doi": "10.1103/PhysRevB.57.2889"
+    }
+   ],
    "eos": {
     "type": "Holzapfel",
     "parameters": {
@@ -246,8 +291,8 @@
     ],
     "model": "multi_oscillator_gruneisen_thermal_pressure"
    },
-   "notes": "Native Sokolova2016 parameterization transcribed from the authors' diamond Excel table. Workbook Vo=0.34141 J bar^-1 mol^-1 and Ko=4415 kbar were converted to the conventional Z=8 cell in A^3 and GPa. The source reports no parameter uncertainties.",
-   "identifier": "diamond_sokolova_2016_holzapfel_3",
+   "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+   "identifier": "diamond_sokolova_2013_holzapfel_3",
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -262,14 +307,15 @@
      "validity"
     ],
     "primary_source_check": {
-     "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+     "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
      "locations": [
-      "Equations 1-12",
-      "Table 1",
-      "Figure 2 pressure-calculation table"
+      "Equations 1-15",
+      "Table 1 input reference values",
+      "Table 4 optimized parameters for all eleven markers",
+      "Figures 3-11 cross-calibration tests"
      ],
-     "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-     "doi": "10.1016/j.cageo.2016.06.002"
+     "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+     "doi": "10.1016/j.rgg.2013.01.005"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -283,33 +329,165 @@
      "path": "eos.parameters.n",
      "source_value": null,
      "value": 1.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
      "primary_reference": {
       "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equation (1) and Table 1"
+      "location": "Equations (1)-(3) and Table 2"
      }
     },
     {
      "path": "eos.parameters.Z",
      "source_value": null,
      "value": 6.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
      "primary_reference": {
       "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equation (1) and Table 1"
+      "location": "Equations (1)-(3) and Table 2"
      }
     },
     {
      "path": "thermal.parameters.n",
      "source_value": null,
      "value": 1.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from Sokolova et al. (2016) Table 1.",
+     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
      "primary_reference": {
       "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equation (1) and Table 1"
+      "location": "Equations (1)-(3) and Table 2"
      }
     }
    ]
+  },
+  {
+   "label": "Benedict et al. (2014), Vinet double-Debye Helmholtz",
+   "reference": {
+    "authors": [
+     "Benedict",
+     "Driver",
+     "Hamel",
+     "Militzer",
+     "Qi",
+     "Correa",
+     "Schwegler"
+    ],
+    "year": 2014,
+    "title": "A multiphase equation of state for carbon addressing high pressures and temperatures",
+    "source": "Phys. Rev. B",
+    "volume": "89",
+    "locator": "224109",
+    "details": "Equations 3-7 and Table I, diamond column",
+    "doi": "10.1103/PhysRevB.89.224109",
+    "locations": [
+     "Equations 3-7",
+     "Table I, diamond column",
+     "Section III.A",
+     "Figure 6"
+    ]
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 45.6272,
+     "K0": 432.4,
+     "K0_prime": 3.793
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "volume": {
+    "reference_value": 45.6272,
+    "public_to_model_scale": 0.00752767595,
+    "model_unit": "J bar^-1 mol^-1"
+   },
+   "thermal": {
+    "type": "DoubleDebyeHelmholtz",
+    "model": "double_debye_helmholtz",
+    "parameters": {
+     "Vp": 0.3354934617396,
+     "theta_a0": 1887.8,
+     "a_a": -5.247303452269356,
+     "b_a": 0.913,
+     "theta_b0": 1887.8,
+     "a_b": 2.7897056328520624,
+     "b_b": 0.429,
+     "theta_1_0": 1887.8,
+     "a_1": 1.4048160508290741,
+     "b_1": 0.499,
+     "n": 1.0,
+     "alpha0": 3.79e-05,
+     "Ve": 0.348380842966,
+     "kappa": 0.0,
+     "phi0": -874736.0210299286
+    },
+    "parameter_errors": {
+     "Vp": null,
+     "theta_a0": null,
+     "a_a": null,
+     "b_a": null,
+     "theta_b0": null,
+     "a_b": null,
+     "b_b": null,
+     "theta_1_0": null,
+     "a_1": null,
+     "b_1": null,
+     "n": null,
+     "alpha0": null,
+     "Ve": null,
+     "kappa": null,
+     "phi0": null
+    },
+    "fixed_parameters": []
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     1000.0
+    ],
+    "temperature_k": [
+     300.0,
+     9000.0
+    ],
+    "volume_ratio": [
+     0.4383350282287758,
+     1.2273380790405721
+    ],
+    "notes": [
+     "The paper constructs the diamond free-energy branch over 2.5-7.0 A^3/atom; Figure 6 directly checks DFT-MD states only over 3.0-5.6 A^3/atom and 2000-9000 K.",
+     "These are marginal model bounds, not a phase-stability surface; check the diamond-BC8 boundary and melting separately, especially near 1 TPa."
+    ]
+   },
+   "notes": "Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction. Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet curve is the motionless-ion 0 K cold curve, so V0=5.7034 A^3/atom is not a 300 K zero-total-pressure reference volume. The source reports no coefficient uncertainties or covariance.",
+   "identifier": "diamond_benedict_2014_double_debye_4",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://arxiv.org/pdf/1311.4577",
+     "locations": [
+      "Equations 3-7",
+      "Table I, diamond column",
+      "Section III.A",
+      "Figure 6"
+     ],
+     "finding": "The record implements the complete diamond Helmholtz branch, including the motionless-ion Vinet cold curve, volume-dependent double-Debye weights and zero-point energy, and the T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
+     "doi": "10.1103/physrevb.89.224109"
+    }
+   }
   }
  ],
  "format": "peritheos.material",

@@ -8,14 +8,15 @@ Structural `.eosmat` validation and scientific EOS validation are deliberately
 separate. All 115 bundled material documents pass the format-3 validator. The
 147 raw records transferred from Dioptas 0.10.0 were loaded with its material
 implementation and construct through Dioptas's Peritheos-backed EOS wrapper.
-Peritheos additionally supplies native, primary-sourced aragonite BM2 and
-B2-KCl P-V-T records. Primary review consolidates one duplicate material,
+Peritheos additionally supplies native, primary-sourced aragonite BM2,
+B2-KCl P-V-T, and Benedict diamond Helmholtz records. Primary review consolidates one duplicate material,
 removes two EOS reductions that their citations do not define, and excludes the
 unreproducible Martinez global HT-BM3 reduction. Splitting the two distinct
-phase-D reference volumes produces 146 bundled records in total. These checks establish file and software
+phase-D reference volumes and adding the Benedict record produces 147 bundled
+records in total. These checks establish file and software
 interoperability only.
 
-The 2026-09-01 primary-source audit completed the classification of all 146
+The 2026-09-01 primary-source audit completed the classification of all 147
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -33,7 +34,7 @@ the ledger after a mechanical Dioptas migration.
 ### Audit outcome
 
 The validated set includes the eleven Sokolova material parameterizations;
-Fei Au and Ne; the Datchi and Dewaele diamond, c-BN, metal, and alkali-halide
+Fei Au and Ne; the Benedict, Datchi, and Dewaele diamond, c-BN, metal, and alkali-halide
 fits; and
 primary EOS results for graphite, FeO B1/B8, Fe7C3, B4C, hBN, Ru, Rh, Ir, Cr,
 Zr, Pd, MgO, bridgmanite/post-perovskite, SiC, high-pressure silica phases,
@@ -279,9 +280,10 @@ accompanying Excel calculation. These intentionally validate spreadsheet
 compatibility rather than a separate literal transcription of the journal
 article's printed equations; the distinction is documented under
 [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
-The catalog additionally checks all eleven Sokolova Table 1 parameter sets and
-regresses MgO at eight compressions against the pressure-calculation values
-printed in Figure 2. Fei catalog tests verify all four Table 1 parameter sets,
+The catalog additionally checks all eleven Sokolova records against the 2013
+Tables 1 and 4 and regresses MgO at eight compressions against the 2016
+pressure-calculation values printed in Figure 2. Fei catalog tests verify all
+four Table 1 parameter sets,
 the publication-specific Debye-temperature law, reference states, and thermal
 round trips.
 Additional equation-level cases and their source DOIs are stored in

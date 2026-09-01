@@ -227,6 +227,7 @@
           "enum": [
             "AlphaKT",
             "AsymptoticPowerLawMieGruneisenDebye",
+            "DoubleDebyeHelmholtz",
             "LinearThermalPressure",
             "LogVolumeThermalPressure",
             "MieGruneisenDebye",
@@ -240,6 +241,7 @@
           "enum": [
             "thermal_reference_state",
             "asymptotic_power_law_mie_gruneisen_debye",
+            "double_debye_helmholtz",
             "linear_thermal_pressure",
             "log_volume_thermal_pressure",
             "mie_gruneisen_debye",
@@ -281,6 +283,7 @@
           "oneOf": [
             {"properties": {"type": {"const": "AlphaKT"}, "model": {"const": "thermal_reference_state"}}},
             {"properties": {"type": {"const": "AsymptoticPowerLawMieGruneisenDebye"}, "model": {"const": "asymptotic_power_law_mie_gruneisen_debye"}}},
+            {"properties": {"type": {"const": "DoubleDebyeHelmholtz"}, "model": {"const": "double_debye_helmholtz"}}},
             {"properties": {"type": {"const": "LinearThermalPressure"}, "model": {"const": "linear_thermal_pressure"}}},
             {"properties": {"type": {"const": "LogVolumeThermalPressure"}, "model": {"const": "log_volume_thermal_pressure"}}},
             {"properties": {"type": {"const": "MieGruneisenDebye"}, "model": {"const": "mie_gruneisen_debye"}}},
@@ -434,6 +437,20 @@
         "volume": {"$ref": "#/$defs/volume_metadata"},
         "validity": {"$ref": "#/$defs/validity"},
         "parameter_provenance": {"type": "object"},
+        "source_lineage": {
+          "type": "array",
+          "description": "Ordered scientific-fit, parameter-table, implementation, correction, and experimental-context sources contributing to a composite record.",
+          "items": {
+            "type": "object",
+            "required": ["role", "citation"],
+            "properties": {
+              "role": {"type": "string"},
+              "citation": {"type": "string"},
+              "doi": {"type": "string"}
+            },
+            "additionalProperties": true
+          }
+        },
         "parameter_covariance": {"$ref": "#/$defs/parameter_covariance"},
         "scientific_validation": {"$ref": "#/$defs/scientific_validation"},
         "notes": {"type": "string"}

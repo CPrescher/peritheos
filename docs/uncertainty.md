@@ -232,8 +232,9 @@ heat_capacity = eos_uncertainty.evaluate(
 
 For `temperature_from_volumes`, both measured volumes contribute uncertainty,
 and `f_dac` is an experimental assumption rather than an EOS parameter. The
-reduced equation divides the cold-pressure difference by `1 - f_dac`, so the
-result becomes especially sensitive as `f_dac` approaches one. Propagate the two
+reduced equation divides the reference-isotherm pressure difference by
+`1 - f_dac`, so the result becomes especially sensitive as `f_dac` approaches
+one. Propagate the two
 volume errors with
 `evaluate("temperature_from_volumes", V_ambient, V_heated, f_dac=f_dac,
 argument_sigmas={0: ambient_sigma, 1: heated_sigma})` and report a sensitivity

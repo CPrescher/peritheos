@@ -8,14 +8,16 @@ MIT License. Its project source is <https://github.com/Dioptas/Dioptas>.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-01 classifies all 146 bundled records as
+dated 2026-09-01 classifies all 147 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
-The two additional records are native to Peritheos and therefore have no
+The three additional records are native to Peritheos and therefore have no
 invented Dioptas migration provenance: the primary-sourced staged aragonite BM2
-P-V-T parameterization from Martinez et al. (1996), and the Dewaele et al. (2012) B2-KCl P-V-T
-pressure calibration. The latter is the preferred `kcl.eosmat` record and
+P-V-T parameterization from Martinez et al. (1996), the Dewaele et al. (2012)
+B2-KCl P-V-T pressure calibration, and the complete Benedict et al. (2014)
+diamond double-Debye Helmholtz model. The KCl record is the preferred
+`kcl.eosmat` record and
 keeps its measured 298 K range distinct from its molecular-dynamics thermal
 extension. The Martinez staged result uses its exact Equation (3) direct-linear
 reference-volume law. The paper's separate global thermal BM3 entry is excluded
@@ -37,6 +39,16 @@ InN entry follows Muñoz and Kunc's theoretical Murnaghan fit. The Campbell
 B2-KCl entry is explicitly labeled as a Campbell-ratio/Dewaele-B1-volume
 composite, including the limited uncertainty propagation that combination
 permits.
+
+All eleven Sokolova marker records distinguish scientific-fit provenance from
+software lineage. Sokolova et al. (2013), Tables 1 and 4, supply the reference
+inputs and final cross-calibrated coefficients. Dorogokupets et al. (2012) is
+the preceding fit source for diamond and the nine metals; Dorogokupets (2010)
+is the earlier MgO source. Sokolova et al. (2016) supplies the Excel/VBA
+implementation, conventions, corrected equations, and the implemented MgO
+anharmonic-coefficient correction. Each `.eosmat` record stores these roles in
+`source_lineage`. Its identifier uses `_sokolova_2013` for the scientific fit
+year; the former workbook-year `_sokolova_2016` identifier is not retained.
 
 Only validated records are executable by default. Deferred records remain in
 the files so Dioptas and other consumers can preserve the catalog without

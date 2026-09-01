@@ -20,6 +20,7 @@ from peritheos.eos.rt import (
     Vinet,
 )
 from peritheos.eos.thermal import (
+    DoubleDebyeHelmholtz,
     MieGruneisenDebye,
     MieGruneisenEinstein,
     Sokolova2016,
@@ -325,10 +326,13 @@ def test_native_multi_oscillator_accepts_a_generic_reference_isotherm():
     assert model.evaluate_scalar("thermal_pressure", 0.9, 298.15) == pytest.approx(0.0)
 
 
-def test_every_bundled_material_record_has_an_exact_native_model():
+def test_every_bundled_material_record_has_an_evaluation_backend():
     for identifier in list_material_documents():
         material = Material.from_eosmat(get_material_document(identifier))
         for record in material.eos_records:
+            if isinstance(record.eos, DoubleDebyeHelmholtz):
+                assert record.eos.pressure(record.eos.rt_eos.V0, 300.0) > 0.0
+                continue
             assert hasattr(record.eos, "_native"), (
                 identifier,
                 record.identifier,

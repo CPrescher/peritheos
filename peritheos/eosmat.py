@@ -32,6 +32,7 @@ _RT_TYPES = {
 _THERMAL_TYPES = {
     "AlphaKT",
     "AsymptoticPowerLawMieGruneisenDebye",
+    "DoubleDebyeHelmholtz",
     "LinearThermalPressure",
     "LogVolumeThermalPressure",
     "MieGruneisenDebye",
@@ -55,6 +56,7 @@ _RT_MODELS = {
 _THERMAL_MODELS = {
     "AlphaKT": "thermal_reference_state",
     "AsymptoticPowerLawMieGruneisenDebye": ("asymptotic_power_law_mie_gruneisen_debye"),
+    "DoubleDebyeHelmholtz": "double_debye_helmholtz",
     "LinearThermalPressure": "linear_thermal_pressure",
     "LogVolumeThermalPressure": "log_volume_thermal_pressure",
     "MieGruneisenDebye": "mie_gruneisen_debye",

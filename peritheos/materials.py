@@ -16,7 +16,7 @@ from types import MappingProxyType
 from typing import Any, Mapping
 
 import numpy as np
-from scipy.constants import Avogadro
+from scipy.constants import Avogadro, electron_volt
 from scipy.special import ndtri
 
 from peritheos.eos import EosBase, NumericType, ThermalEOS
@@ -33,6 +33,7 @@ from peritheos.eos.rt import (
     Vinet,
 )
 from peritheos.eos.thermal import (
+    DoubleDebyeHelmholtz,
     LinearThermalPressure,
     LogVolumeThermalPressure,
     MieGruneisenDebye,
@@ -239,6 +240,37 @@ class EOSRecord:
             self._validate_range(pressure, temperatures, result)
         if result.ndim == 0:
             return float(result)
+        return result
+
+    def temperature_from_volumes(
+        self,
+        ambient_volume: NumericType,
+        heated_volume: NumericType,
+        *,
+        f_dac: float,
+        check_validity: bool = True,
+    ) -> NumericType:
+        """Infer DAC temperature from two public unit-cell volumes.
+
+        The volumes use this record's public ``volume_unit``. ``f_dac`` is the
+        fraction of the EOS thermal-pressure increment retained as an increase
+        above the reference-temperature pressure. See the underlying thermal
+        EOS :meth:`temperature_from_volumes` method for model-specific details.
+        """
+        if not self.is_thermal:
+            raise ValueError(
+                f"{self.identifier} is isothermal and cannot invert temperature"
+            )
+        ambient_internal = np.asarray(ambient_volume, dtype=float) * self.volume_scale
+        heated_internal = np.asarray(heated_volume, dtype=float) * self.volume_scale
+        result = self.eos.temperature_from_volumes(
+            ambient_internal,
+            heated_internal,
+            f_dac=f_dac,
+        )
+        if check_validity:
+            hot_pressure = self.eos.pressure(heated_internal, result)
+            self._validate_range(hot_pressure, result, heated_volume)
         return result
 
     def within_validity(
@@ -496,6 +528,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "NaturalStrain2": "natural_strain_2",
         "NaturalStrain3": "natural_strain_3",
         "NaturalStrain4": "natural_strain_4",
+        "DoubleDebyeHelmholtz": "double_debye_helmholtz",
         "LinearThermalPressure": "linear_thermal_pressure",
         "LogVolumeThermalPressure": "log_volume_thermal_pressure",
         "ThermalReferenceStateEOS": "thermal_reference_state",
@@ -523,6 +556,7 @@ _MODEL_CLASSES = MappingProxyType(
             NaturalStrain3,
             NaturalStrain4,
             Vinet,
+            DoubleDebyeHelmholtz,
             LinearThermalPressure,
             LogVolumeThermalPressure,
             ThermalReferenceStateEOS,
@@ -547,6 +581,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "natural_strain_2": "NaturalStrain2",
         "natural_strain_3": "NaturalStrain3",
         "natural_strain_4": "NaturalStrain4",
+        "double_debye_helmholtz": "DoubleDebyeHelmholtz",
         "linear_thermal_pressure": "LinearThermalPressure",
         "log_volume_thermal_pressure": "LogVolumeThermalPressure",
         "thermal_reference_state": "AlphaKT",
@@ -563,6 +598,7 @@ _EOSMAT_TYPES = MappingProxyType(
 _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
     {
         "mie_gruneisen_debye",
+        "double_debye_helmholtz",
         "mie_gruneisen_einstein",
         "asymptotic_power_law_mie_gruneisen_debye",
         "multi_oscillator_gruneisen_thermal_pressure",
@@ -1543,6 +1579,25 @@ _DEWAELE_DIAMOND_REFERENCE = LiteratureReference(
     locations=("equations 2, 3, and 6", "Tables I and III", "sections IV and V"),
 )
 
+_BENEDICT_DIAMOND_REFERENCE = LiteratureReference(
+    authors=(
+        "L. X. Benedict, K. P. Driver, S. Hamel, B. Militzer, T. Qi, "
+        "A. A. Correa, and E. Schwegler"
+    ),
+    year=2014,
+    title=(
+        "A multiphase equation of state for carbon addressing high pressures "
+        "and temperatures"
+    ),
+    doi="10.1103/PhysRevB.89.224109",
+    locations=(
+        "equations 3-7",
+        "Table I, diamond column",
+        "section III.A",
+        "Figure 6",
+    ),
+)
+
 _DEWAELE_METALS_REFERENCE = LiteratureReference(
     authors="A. Dewaele, M. Torrent, P. Loubeyre, and M. Mezouar",
     year=2008,
@@ -1554,8 +1609,11 @@ _DEWAELE_METALS_REFERENCE = LiteratureReference(
     locations=("equation 1", "Tables I, II, and IV", "Figure 1 caption"),
 )
 
-_SOKOLOVA_REFERENCE = LiteratureReference(
-    authors="T. S. Sokolova, P. I. Dorogokupets, and K. D. Litasov",
+_SOKOLOVA_2016_IMPLEMENTATION_REFERENCE = LiteratureReference(
+    authors=(
+        "T. S. Sokolova, P. I. Dorogokupets, A. M. Dymshits, "
+        "B. S. Danilov, and K. D. Litasov"
+    ),
     year=2016,
     title=(
         "Microsoft Excel spreadsheets for calculation of P-V-T relations and "
@@ -1570,6 +1628,24 @@ _SOKOLOVA_REFERENCE = LiteratureReference(
         "Tables 2 and 3",
         "sections 3 and 4",
         "Appendix A",
+    ),
+)
+
+_SOKOLOVA_2013_REFERENCE = LiteratureReference(
+    authors="T. S. Sokolova, P. I. Dorogokupets, and K. D. Litasov",
+    year=2013,
+    title=(
+        "Self-consistent pressure scales based on the equations of state for "
+        "ruby, diamond, MgO, B2-NaCl, as well as Au, Pt, and other metals to "
+        "4 Mbar and 3000 K"
+    ),
+    doi="10.1016/j.rgg.2013.01.005",
+    locations=(
+        "equations 1-15",
+        "Table 1 input reference values",
+        "Table 4 optimized Holzapfel parameters",
+        "optimized equations of state under quasi-hydrostatic conditions",
+        "Figure 3",
     ),
 )
 
@@ -1684,6 +1760,18 @@ def _sokolova_eos_record(
     n: float,
     Z: float,
     z_provenance: str,
+    *,
+    scientific_reference: LiteratureReference = _SOKOLOVA_2013_REFERENCE,
+    source_short_name: str = "Sokolova 2013; 2016 workbook",
+    reference_value_table: str = "Sokolova et al. (2013), Table 1",
+    optimized_parameter_table: str = "Sokolova et al. (2013), Table 4",
+    earlier_fit_note: str = (
+        "Dorogokupets et al. (2012), doi:10.5800/GT-2012-3-2-0067, "
+        "publishes the preceding simultaneous optimization for diamond and "
+        "the nine metals."
+    ),
+    a0_provenance: str | None = None,
+    lineage_notes: tuple[str, ...] = (),
 ) -> EOSRecord:
     scale = _molar_scale(cell_formula_units)
     anharmonicity = 0.0 if a_0 is None else a_0
@@ -1708,42 +1796,42 @@ def _sokolova_eos_record(
 
     def table_value(value: float | None, unit: str = "") -> str:
         if value is None:
-            return "Table 1 dash; inactive term encoded as zero"
+            return f"{optimized_parameter_table} dash; inactive term encoded as zero"
         suffix = f" {unit}" if unit else ""
-        return f"Table 1; {value:g}{suffix}"
+        return f"{optimized_parameter_table}; {value:g}{suffix}"
 
     return EOSRecord(
         identifier=identifier,
-        name=f"{material} ({phase}; Sokolova 2016)",
+        name=f"{material} ({phase}; {source_short_name})",
         material=material,
         phase=phase,
         cell_contents=cell_contents,
         eos=eos,
         reference_temperature=298.15,
-        reference=_SOKOLOVA_REFERENCE,
+        reference=scientific_reference,
         validity=ValidityRange(
             pressure_gpa=(0.0, 400.0),
             temperature_k=(298.15, 3000.0),
             notes=(
-                "Section 4 states the calculation range is at least 0-400 GPa and 298.15-3000 K; this is not a uniform experimental-data rectangle.",
+                "Sokolova et al. (2016), section 4, states the calculator range is at least 0-400 GPa and 298.15-3000 K; this is not a uniform experimental-data rectangle.",
                 "Equation 11 is discussed through compression V/V0 = 0.6, but no joint per-material volume limit is published.",
             ),
         ),
         parameter_provenance=MappingProxyType(
             {
-                "rt_eos.V0": f"Table 1; {V0:g} J bar^-1 mol^-1",
-                "rt_eos.K0": f"Table 1; {10.0 * K0:g} kbar, converted to {K0:g} GPa",
-                "rt_eos.K0_prime": f"Table 1; {K0_prime:g}",
-                "rt_eos.n": f"Table 2 definition; {n:g} atoms per chemical formula",
-                "rt_eos.Z": z_provenance,
-                "Tr": "Table 2 and section 2.1; T0 = 298.15 K",
-                "QE1o": f"Table 1 theta_01; {theta1:g} K",
-                "mE1": f"Table 1 m1; {multiplicity1:g}",
-                "QE2o": f"Table 1 theta_02; {theta2:g} K",
-                "mE2": f"Table 1 m2; {multiplicity2:g}",
-                "delta": f"Table 1; {delta:g}",
-                "t": f"Table 1; {t:g}",
-                "a_0": table_value(a_0, "10^-6 K^-1"),
+                "rt_eos.V0": f"{reference_value_table}; {V0:g} J bar^-1 mol^-1",
+                "rt_eos.K0": f"{optimized_parameter_table}; {10.0 * K0:g} kbar, converted to {K0:g} GPa",
+                "rt_eos.K0_prime": f"{optimized_parameter_table}; {K0_prime:g}",
+                "rt_eos.n": f"2013 Table 1 and 2016 Table 2 definition; {n:g} atoms per chemical formula",
+                "rt_eos.Z": f"Sokolova et al. (2016), {z_provenance}",
+                "Tr": "Sokolova et al. (2016), Table 2 and section 2.1; T0 = 298.15 K",
+                "QE1o": f"{optimized_parameter_table} theta_01; {theta1:g} K",
+                "mE1": f"{optimized_parameter_table} m1; {multiplicity1:g}",
+                "QE2o": f"{optimized_parameter_table} theta_02; {theta2:g} K",
+                "mE2": f"{optimized_parameter_table} m2; {multiplicity2:g}",
+                "delta": f"{optimized_parameter_table}; {delta:g}",
+                "t": f"{optimized_parameter_table}; {t:g}",
+                "a_0": a0_provenance or table_value(a_0, "10^-6 K^-1"),
                 "m": table_value(m),
                 "e_0": table_value(e_0, "10^-6 K^-1"),
                 "g": table_value(g),
@@ -1758,18 +1846,21 @@ def _sokolova_eos_record(
             }
         ),
         notes=(
-            "This is the modified Dorogokupets-Oganov equation family parameterized by Sokolova et al. (2016); it is a distinct pressure scale, not an alias for a 2007 Dorogokupets scale.",
-            "Table 1 supplies no individual parameter errors or covariance, so only measurement-state uncertainty can be propagated.",
-            "Section 4 estimates marker uncertainty at no more than 3-4% above 200 GPa and near 3000 K, without a confidence convention; it is recorded here but not treated as one-sigma parameter uncertainty.",
-            "The paper corrects typographical errors in equations 10 and 11 and the earlier MgO a0 value; the 2016 equations and Table 1 values are used.",
-            "The individual Appendix A workbook files were not present beside the supplied primary PDF in this audit; no missing values were filled from a secondary library.",
+            "The scientific coefficient source is Sokolova et al. (2013): Table 1 gives the reference volume and composition inputs, and Table 4 gives the final cross-calibrated Holzapfel and thermal parameters.",
+            "The 2013 optimization combines shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is a self-consistent pressure-scale fit, not one experimental dataset.",
+            earlier_fit_note,
+            "Sokolova et al. (2016) republishes the coefficients and supplies the executable Excel/VBA calculator, reference-temperature convention, and corrected implementation equations; it is an implementation source rather than a new fit dataset.",
+            "The source tables supply no individual parameter errors or covariance, and the complete point-by-point fit inputs and weights are not published; only measurement-state uncertainty can be propagated.",
+            "Sokolova et al. (2016), section 4, estimates marker uncertainty at no more than 3-4% above 200 GPa and near 3000 K, without a confidence convention; it is recorded here but not treated as one-sigma parameter uncertainty.",
+            "The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in the implementation lineage.",
+            *lineage_notes,
         ),
         volume_scale=scale,
     )
 
 
-MGO_SOKOLOVA_2016 = _sokolova_eos_record(
-    "mgo_b1_sokolova_2016",
+MGO_SOKOLOVA_2013 = _sokolova_eos_record(
+    "mgo_b1_sokolova_2013",
     "MgO",
     "B1 (periclase/rock-salt), cubic Fm-3m",
     "4 MgO formula units per conventional cubic cell",
@@ -1790,10 +1881,20 @@ MGO_SOKOLOVA_2016 = _sokolova_eos_record(
     2.0,
     10.34,
     "Equation 3 and Figure 1 spreadsheet input; effective atomic number 10.34 for MgO",
+    earlier_fit_note=(
+        "The MgO lineage runs through Dorogokupets (2010), "
+        "doi:10.1007/s00269-010-0367-2, and the earlier Dorogokupets-Oganov "
+        "formalism before its joint cross-calibration in 2013."
+    ),
+    a0_provenance=(
+        "Sokolova et al. (2016), Table 1; -17.4 10^-6 K^-1. The 2016 paper "
+        "corrects the earlier printed MgO a0 value, so this coefficient has "
+        "explicit dual 2013/2016 provenance."
+    ),
 )
 
-DIAMOND_SOKOLOVA_2016 = _sokolova_eos_record(
-    "diamond_sokolova_2016",
+DIAMOND_SOKOLOVA_2013 = _sokolova_eos_record(
+    "diamond_sokolova_2013",
     "C",
     "diamond, cubic Fd-3m",
     "8 C atoms per conventional cubic cell",
@@ -1814,10 +1915,13 @@ DIAMOND_SOKOLOVA_2016 = _sokolova_eos_record(
     1.0,
     6.0,
     "Table 2 definition; atomic number Z = 6",
+    lineage_notes=(
+        "Temperatures above 3000 K, including 6000 K DAC calculations, are extrapolations beyond the source's stated calculation range.",
+    ),
 )
 
-AL_SOKOLOVA_2016 = _sokolova_eos_record(
-    "al_fcc_sokolova_2016",
+AL_SOKOLOVA_2013 = _sokolova_eos_record(
+    "al_fcc_sokolova_2013",
     "Al",
     "fcc, cubic Fm-3m",
     "4 Al atoms per conventional cubic cell",
@@ -1839,8 +1943,8 @@ AL_SOKOLOVA_2016 = _sokolova_eos_record(
     13.0,
     "Table 2 definition; atomic number Z = 13",
 )
-CU_SOKOLOVA_2016 = _sokolova_eos_record(
-    "cu_fcc_sokolova_2016",
+CU_SOKOLOVA_2013 = _sokolova_eos_record(
+    "cu_fcc_sokolova_2013",
     "Cu",
     "fcc, cubic Fm-3m",
     "4 Cu atoms per conventional cubic cell",
@@ -1862,8 +1966,8 @@ CU_SOKOLOVA_2016 = _sokolova_eos_record(
     29.0,
     "Table 2 definition; atomic number Z = 29",
 )
-AG_SOKOLOVA_2016 = _sokolova_eos_record(
-    "ag_fcc_sokolova_2016",
+AG_SOKOLOVA_2013 = _sokolova_eos_record(
+    "ag_fcc_sokolova_2013",
     "Ag",
     "fcc, cubic Fm-3m",
     "4 Ag atoms per conventional cubic cell",
@@ -1885,8 +1989,8 @@ AG_SOKOLOVA_2016 = _sokolova_eos_record(
     47.0,
     "Table 2 definition; atomic number Z = 47",
 )
-AU_SOKOLOVA_2016 = _sokolova_eos_record(
-    "au_fcc_sokolova_2016",
+AU_SOKOLOVA_2013 = _sokolova_eos_record(
+    "au_fcc_sokolova_2013",
     "Au",
     "fcc, cubic Fm-3m",
     "4 Au atoms per conventional cubic cell",
@@ -1908,8 +2012,8 @@ AU_SOKOLOVA_2016 = _sokolova_eos_record(
     79.0,
     "Table 2 definition; atomic number Z = 79",
 )
-PT_SOKOLOVA_2016 = _sokolova_eos_record(
-    "pt_fcc_sokolova_2016",
+PT_SOKOLOVA_2013 = _sokolova_eos_record(
+    "pt_fcc_sokolova_2013",
     "Pt",
     "fcc, cubic Fm-3m",
     "4 Pt atoms per conventional cubic cell",
@@ -1931,8 +2035,8 @@ PT_SOKOLOVA_2016 = _sokolova_eos_record(
     78.0,
     "Table 2 definition; atomic number Z = 78",
 )
-NB_SOKOLOVA_2016 = _sokolova_eos_record(
-    "nb_bcc_sokolova_2016",
+NB_SOKOLOVA_2013 = _sokolova_eos_record(
+    "nb_bcc_sokolova_2013",
     "Nb",
     "bcc, cubic Im-3m",
     "2 Nb atoms per conventional cubic cell",
@@ -1954,8 +2058,8 @@ NB_SOKOLOVA_2016 = _sokolova_eos_record(
     41.0,
     "Table 2 definition; atomic number Z = 41",
 )
-TA_SOKOLOVA_2016 = _sokolova_eos_record(
-    "ta_bcc_sokolova_2016",
+TA_SOKOLOVA_2013 = _sokolova_eos_record(
+    "ta_bcc_sokolova_2013",
     "Ta",
     "bcc, cubic Im-3m",
     "2 Ta atoms per conventional cubic cell",
@@ -1977,8 +2081,8 @@ TA_SOKOLOVA_2016 = _sokolova_eos_record(
     73.0,
     "Table 2 definition; atomic number Z = 73",
 )
-MO_SOKOLOVA_2016 = _sokolova_eos_record(
-    "mo_bcc_sokolova_2016",
+MO_SOKOLOVA_2013 = _sokolova_eos_record(
+    "mo_bcc_sokolova_2013",
     "Mo",
     "bcc, cubic Im-3m",
     "2 Mo atoms per conventional cubic cell",
@@ -2000,8 +2104,8 @@ MO_SOKOLOVA_2016 = _sokolova_eos_record(
     42.0,
     "Table 2 definition; atomic number Z = 42",
 )
-W_SOKOLOVA_2016 = _sokolova_eos_record(
-    "w_bcc_sokolova_2016",
+W_SOKOLOVA_2013 = _sokolova_eos_record(
+    "w_bcc_sokolova_2013",
     "W",
     "bcc, cubic Im-3m",
     "2 W atoms per conventional cubic cell",
@@ -2024,18 +2128,18 @@ W_SOKOLOVA_2016 = _sokolova_eos_record(
     "Table 2 definition; atomic number Z = 74",
 )
 
-SOKOLOVA_2016_EOS_RECORDS = (
-    MGO_SOKOLOVA_2016,
-    DIAMOND_SOKOLOVA_2016,
-    AL_SOKOLOVA_2016,
-    CU_SOKOLOVA_2016,
-    AG_SOKOLOVA_2016,
-    AU_SOKOLOVA_2016,
-    PT_SOKOLOVA_2016,
-    NB_SOKOLOVA_2016,
-    TA_SOKOLOVA_2016,
-    MO_SOKOLOVA_2016,
-    W_SOKOLOVA_2016,
+SOKOLOVA_2013_EOS_RECORDS = (
+    MGO_SOKOLOVA_2013,
+    DIAMOND_SOKOLOVA_2013,
+    AL_SOKOLOVA_2013,
+    CU_SOKOLOVA_2013,
+    AG_SOKOLOVA_2013,
+    AU_SOKOLOVA_2013,
+    PT_SOKOLOVA_2013,
+    NB_SOKOLOVA_2013,
+    TA_SOKOLOVA_2013,
+    MO_SOKOLOVA_2013,
+    W_SOKOLOVA_2013,
 )
 
 
@@ -2589,6 +2693,79 @@ CBN_DATCHI_2007 = EOSRecord(
 
 
 _DIAMOND_SCALE = _molar_scale(8)
+_ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR = _molar_scale(1)
+_EV_PER_ATOM_TO_J_PER_MOL = electron_volt * Avogadro
+
+DIAMOND_BENEDICT_2014 = EOSRecord(
+    identifier="diamond_benedict_2014",
+    name="Diamond (Benedict 2014 double-Debye Helmholtz)",
+    material="C",
+    phase="diamond, cubic Fd-3m",
+    cell_contents="8 C atoms per conventional cubic cell",
+    eos=DoubleDebyeHelmholtz(
+        Vinet(
+            5.7034 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+            432.4,
+            3.793,
+        ),
+        Vp=5.571 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        theta_a0=1887.8,
+        a_a=-0.316 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_a=0.913,
+        theta_b0=1887.8,
+        a_b=0.168 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_b=0.429,
+        theta_1_0=1887.8,
+        a_1=0.0846 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_1=0.499,
+        n=1.0,
+        alpha0=3.79e-5,
+        Ve=5.785 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        kappa=0.0,
+        phi0=-9.066 * _EV_PER_ATOM_TO_J_PER_MOL,
+    ),
+    reference_temperature=300.0,
+    reference=_BENEDICT_DIAMOND_REFERENCE,
+    validity=ValidityRange(
+        pressure_gpa=(0.0, 1000.0),
+        temperature_k=(300.0, 9000.0),
+        volume_ratio=(2.5 / 5.7034, 7.0 / 5.7034),
+        notes=(
+            "The paper constructs the diamond free-energy branch over 2.5-7.0 A^3/atom; Figure 6 directly checks DFT-MD states only over 3.0-5.6 A^3/atom and 2000-9000 K.",
+            "These are marginal model bounds, not a phase-stability surface; check the diamond-BC8 boundary and melting separately, especially near 1 TPa.",
+        ),
+    ),
+    parameter_provenance=MappingProxyType(
+        {
+            "rt_eos.V0": "Table I; 5.7034 A^3/atom",
+            "rt_eos.K0": "Table I; 432.4 GPa",
+            "rt_eos.K0_prime": "Table I; 3.793",
+            "Vp": "Table I; 5.571 A^3/atom",
+            "theta_a0": "Table I; 1887.8 K",
+            "a_a": "Table I; -0.316 A^-3",
+            "b_a": "Table I; 0.913",
+            "theta_b0": "Table I; 1887.8 K",
+            "a_b": "Table I; 0.168 A^-3",
+            "b_b": "Table I; 0.429",
+            "theta_1_0": "Table I; 1887.8 K",
+            "a_1": "Table I; 0.0846 A^-3",
+            "b_1": "Table I; 0.499",
+            "n": "one atom per elemental-carbon formula unit",
+            "alpha0": "Table I; 3.79e-5 K^-1",
+            "Ve": "Table I; 5.785 A^3/atom",
+            "kappa": "Table I; 0.0",
+            "phi0": "Table I; -9.066 eV/atom",
+        }
+    ),
+    notes=(
+        "This is the complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction.",
+        "Table I volumes are per atom. The public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms.",
+        "The Vinet parameters describe the motionless-ion 0 K cold curve. V0=5.7034 A^3/atom is therefore not a 300 K, zero-total-pressure reference volume; zero-point and thermal pressure remain present.",
+        "The source reports fitted coefficients without parameter uncertainties or covariance, so uncertainty propagation is unavailable for this record.",
+    ),
+    volume_scale=_DIAMOND_SCALE,
+)
+
 DIAMOND_DEWAELE_2008 = EOSRecord(
     identifier="diamond_datchi_dewaele_2008",
     name="Diamond (Dewaele 2008 MGD-Vinet)",
@@ -2750,7 +2927,7 @@ _EOS_RECORD_CATALOG = MappingProxyType(
         record.identifier: record
         for record in (
             MGO_TANGE_2009,
-            *SOKOLOVA_2016_EOS_RECORDS,
+            *SOKOLOVA_2013_EOS_RECORDS,
             *FEI_2007_EOS_RECORDS,
             AU_DORFMAN_2012,
             PT_DORFMAN_2012,
@@ -2765,6 +2942,7 @@ _EOS_RECORD_CATALOG = MappingProxyType(
             KBR_B1_DEWAELE_2012,
             KBR_B2_DEWAELE_2012,
             CBN_DATCHI_2007,
+            DIAMOND_BENEDICT_2014,
             DIAMOND_DEWAELE_2008,
             NI_DEWAELE_2008,
             AG_DEWAELE_2008,
@@ -2868,16 +3046,17 @@ def list_eos_records(*, formula: str | None = None) -> tuple[EOSRecord, ...]:
 
 __all__ = [
     "AG_DEWAELE_2008",
-    "AG_SOKOLOVA_2016",
-    "AL_SOKOLOVA_2016",
+    "AG_SOKOLOVA_2013",
+    "AL_SOKOLOVA_2013",
     "AU_DORFMAN_2012",
     "AU_FEI_2007",
-    "AU_SOKOLOVA_2016",
+    "AU_SOKOLOVA_2013",
     "CBN_DATCHI_2007",
     "DEFERRED_EOS_RECORDS",
     "DeferredEOSRecord",
+    "DIAMOND_BENEDICT_2014",
     "DIAMOND_DEWAELE_2008",
-    "DIAMOND_SOKOLOVA_2016",
+    "DIAMOND_SOKOLOVA_2013",
     "FEI_2007_EOS_RECORDS",
     "KBR_B1_DEWAELE_2012",
     "KBR_B2_DEWAELE_2012",
@@ -2887,27 +3066,27 @@ __all__ = [
     "LiteratureReference",
     "Material",
     "MGO_TANGE_2009",
-    "MGO_SOKOLOVA_2016",
+    "MGO_SOKOLOVA_2013",
     "MO_DORFMAN_2012",
-    "MO_SOKOLOVA_2016",
+    "MO_SOKOLOVA_2013",
     "NACL_B2_FEI_2007",
     "NACL_B1_DEWAELE_2019",
     "NACL_B2_DORFMAN_2012",
     "NACL_B2_DEWAELE_2019",
     "NE_DORFMAN_2012",
     "NE_FEI_2007",
-    "NB_SOKOLOVA_2016",
+    "NB_SOKOLOVA_2013",
     "NI_DEWAELE_2008",
     "PT_DORFMAN_2012",
     "PT_FEI_2007",
-    "PT_SOKOLOVA_2016",
+    "PT_SOKOLOVA_2013",
     "RE_HCP_ANZELLINI_2014",
     "EOSRecord",
-    "SOKOLOVA_2016_EOS_RECORDS",
-    "TA_SOKOLOVA_2016",
+    "SOKOLOVA_2013_EOS_RECORDS",
+    "TA_SOKOLOVA_2013",
     "ValidityRange",
-    "W_SOKOLOVA_2016",
-    "CU_SOKOLOVA_2016",
+    "W_SOKOLOVA_2013",
+    "CU_SOKOLOVA_2013",
     "get_eos_record",
     "get_material",
     "list_eos_records",

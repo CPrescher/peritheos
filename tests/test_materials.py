@@ -4,44 +4,46 @@ from dataclasses import replace
 import numpy as np
 import pytest
 
+import peritheos.materials as materials_module
 from peritheos import get_material_document
 from peritheos.materials import (
     AG_DEWAELE_2008,
-    AG_SOKOLOVA_2016,
-    AL_SOKOLOVA_2016,
+    AG_SOKOLOVA_2013,
+    AL_SOKOLOVA_2013,
     AU_DORFMAN_2012,
     AU_FEI_2007,
-    AU_SOKOLOVA_2016,
+    AU_SOKOLOVA_2013,
     CBN_DATCHI_2007,
-    CU_SOKOLOVA_2016,
+    CU_SOKOLOVA_2013,
     DEFERRED_EOS_RECORDS,
+    DIAMOND_BENEDICT_2014,
     DIAMOND_DEWAELE_2008,
-    DIAMOND_SOKOLOVA_2016,
+    DIAMOND_SOKOLOVA_2013,
     FEI_2007_EOS_RECORDS,
     KBR_B1_DEWAELE_2012,
     KBR_B2_DEWAELE_2012,
     KCL_B1_DEWAELE_2012,
     KCL_B2_DEWAELE_2012,
     LIF_B1_DEWAELE_2019,
-    MGO_SOKOLOVA_2016,
+    MGO_SOKOLOVA_2013,
     MGO_TANGE_2009,
     MO_DORFMAN_2012,
-    MO_SOKOLOVA_2016,
+    MO_SOKOLOVA_2013,
     NACL_B1_DEWAELE_2019,
     NACL_B2_DEWAELE_2019,
     NACL_B2_DORFMAN_2012,
     NACL_B2_FEI_2007,
-    NB_SOKOLOVA_2016,
+    NB_SOKOLOVA_2013,
     NE_DORFMAN_2012,
     NE_FEI_2007,
     NI_DEWAELE_2008,
     PT_DORFMAN_2012,
     PT_FEI_2007,
-    PT_SOKOLOVA_2016,
+    PT_SOKOLOVA_2013,
     RE_HCP_ANZELLINI_2014,
-    SOKOLOVA_2016_EOS_RECORDS,
-    TA_SOKOLOVA_2016,
-    W_SOKOLOVA_2016,
+    SOKOLOVA_2013_EOS_RECORDS,
+    TA_SOKOLOVA_2013,
+    W_SOKOLOVA_2013,
     EOSRecord,
     Material,
     get_eos_record,
@@ -63,12 +65,12 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 33
+    assert len(records) == 34
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
     assert get_eos_record("mgo_b1_tange_2009_vinet") is MGO_TANGE_2009
     assert list_eos_records(formula="au") == (
-        AU_SOKOLOVA_2016,
+        AU_SOKOLOVA_2013,
         AU_FEI_2007,
         AU_DORFMAN_2012,
     )
@@ -80,8 +82,9 @@ def test_catalog_listing_lookup_and_material_filter():
     )
     assert get_material("mgo_b1").eos_records == (
         MGO_TANGE_2009,
-        MGO_SOKOLOVA_2016,
+        MGO_SOKOLOVA_2013,
     )
+    assert DIAMOND_BENEDICT_2014 in get_material("diamond").eos_records
     assert get_material("au_fcc").get_eos_record("au_fcc_fei_2007") is AU_FEI_2007
     assert list_materials(formula="Au") == (get_material("au_fcc"),)
     assert list_eos_records(formula="missing") == ()
@@ -261,12 +264,19 @@ def test_eosmat_record_provenance_and_extensions_survive_executable_round_trip()
 
 def test_legacy_snapshot_without_debye_law_uses_integrated_default():
     payload = get_material("diamond").to_snapshot_dict()
-    thermal = payload["eos_records"][1]["equation"]["thermal_correction"]
+    record = next(
+        item
+        for item in payload["eos_records"]
+        if item["identifier"] == DIAMOND_DEWAELE_2008.identifier
+    )
+    thermal = record["equation"]["thermal_correction"]
     assert thermal.pop("configuration") == {
         "debye_temperature_law": "integrated_gruneisen"
     }
 
-    loaded = Material.from_dict(payload).eos_records[1].eos
+    loaded = (
+        Material.from_dict(payload).get_eos_record(DIAMOND_DEWAELE_2008.identifier).eos
+    )
 
     assert loaded.debye_temperature_law == "integrated_gruneisen"
 
@@ -345,7 +355,7 @@ def test_tange_reference_state_identity_and_array_round_trip():
     assert np.allclose(recovered, volumes, rtol=1.0e-10)
 
 
-@pytest.mark.parametrize("record", SOKOLOVA_2016_EOS_RECORDS)
+@pytest.mark.parametrize("record", SOKOLOVA_2013_EOS_RECORDS)
 def test_sokolova_reference_state_identity_and_round_trip(record):
     assert record.pressure(record.reference_volume, 298.15) == pytest.approx(
         0.0, abs=1.0e-12
@@ -368,7 +378,7 @@ def test_fei_reference_state_identity_and_round_trip(record):
     assert record.pressure(volume, temperature) == pytest.approx(pressure, rel=1.0e-10)
 
 
-@pytest.mark.parametrize("standard", [AU_SOKOLOVA_2016, AU_FEI_2007])
+@pytest.mark.parametrize("standard", [AU_SOKOLOVA_2013, AU_FEI_2007])
 def test_added_thermal_families_broadcast_arrays(standard):
     pressures = np.array([20.0, 50.0, 80.0])
     temperatures = np.array([500.0, 1000.0, 1800.0])
@@ -381,7 +391,7 @@ def test_added_thermal_families_broadcast_arrays(standard):
 
 def test_added_thermal_family_validity_guards():
     with pytest.raises(ValueError, match="outside the published validity"):
-        MGO_SOKOLOVA_2016.volume(401.0, 2000.0)
+        MGO_SOKOLOVA_2013.volume(401.0, 2000.0)
     with pytest.raises(ValueError, match="outside the published validity"):
         NE_FEI_2007.volume(50.0, 1100.0)
 
@@ -389,20 +399,20 @@ def test_added_thermal_family_validity_guards():
 @pytest.mark.parametrize(
     ("standard", "V0", "K0", "K0_prime", "theta1", "theta2", "delta", "t"),
     [
-        (MGO_SOKOLOVA_2016, 1.1248, 160.3, 4.10, 748.0, 401.0, -0.235, 0.301),
-        (DIAMOND_SOKOLOVA_2016, 0.3414, 441.5, 3.90, 1561.0, 684.0, -0.506, 1.085),
-        (AL_SOKOLOVA_2016, 0.998, 72.8, 4.51, 381.0, 202.0, -0.242, -0.958),
-        (CU_SOKOLOVA_2016, 0.7112, 133.5, 5.32, 296.0, 169.0, -0.07, 1.401),
-        (AG_SOKOLOVA_2016, 1.025, 100.0, 6.15, 199.0, 115.0, 0.178, 2.210),
-        (AU_SOKOLOVA_2016, 1.0215, 167.0, 5.90, 179.5, 83.0, 0.134, 0.087),
-        (PT_SOKOLOVA_2016, 0.9091, 275.0, 5.35, 177.0, 143.0, 0.167, -0.343),
-        (NB_SOKOLOVA_2016, 1.0828, 170.5, 3.65, 302.0, 134.0, -0.326, -0.763),
-        (TA_SOKOLOVA_2016, 1.0861, 191.0, 3.83, 254.0, 101.0, -0.101, -0.148),
-        (MO_SOKOLOVA_2016, 0.9369, 260.0, 4.20, 353.0, 222.0, -0.802, -0.791),
-        (W_SOKOLOVA_2016, 0.9552, 308.0, 4.12, 309.0, 172.0, -0.686, -0.591),
+        (MGO_SOKOLOVA_2013, 1.1248, 160.3, 4.10, 748.0, 401.0, -0.235, 0.301),
+        (DIAMOND_SOKOLOVA_2013, 0.3414, 441.5, 3.90, 1561.0, 684.0, -0.506, 1.085),
+        (AL_SOKOLOVA_2013, 0.998, 72.8, 4.51, 381.0, 202.0, -0.242, -0.958),
+        (CU_SOKOLOVA_2013, 0.7112, 133.5, 5.32, 296.0, 169.0, -0.07, 1.401),
+        (AG_SOKOLOVA_2013, 1.025, 100.0, 6.15, 199.0, 115.0, 0.178, 2.210),
+        (AU_SOKOLOVA_2013, 1.0215, 167.0, 5.90, 179.5, 83.0, 0.134, 0.087),
+        (PT_SOKOLOVA_2013, 0.9091, 275.0, 5.35, 177.0, 143.0, 0.167, -0.343),
+        (NB_SOKOLOVA_2013, 1.0828, 170.5, 3.65, 302.0, 134.0, -0.326, -0.763),
+        (TA_SOKOLOVA_2013, 1.0861, 191.0, 3.83, 254.0, 101.0, -0.101, -0.148),
+        (MO_SOKOLOVA_2013, 0.9369, 260.0, 4.20, 353.0, 222.0, -0.802, -0.791),
+        (W_SOKOLOVA_2013, 0.9552, 308.0, 4.12, 309.0, 172.0, -0.686, -0.591),
     ],
 )
-def test_sokolova_table1_parameters(
+def test_sokolova_published_parameters(
     standard, V0, K0, K0_prime, theta1, theta2, delta, t
 ):
     eos = standard.eos
@@ -414,6 +424,27 @@ def test_sokolova_table1_parameters(
     assert eos.delta == delta
     assert eos.t == t
     assert "Table 1" in standard.parameter_provenance["rt_eos.V0"]
+    assert "Table 4" in standard.parameter_provenance["rt_eos.K0"]
+
+
+@pytest.mark.parametrize("standard", SOKOLOVA_2013_EOS_RECORDS)
+def test_sokolova_records_use_scientific_fit_year_and_cite_2013(standard):
+    assert standard.identifier.endswith("_sokolova_2013")
+    assert standard.reference.year == 2013
+    assert standard.reference.doi == "10.1016/j.rgg.2013.01.005"
+    assert any("Table 1" in note and "Table 4" in note for note in standard.notes)
+    assert any("Sokolova et al. (2016)" in note for note in standard.notes)
+
+
+def test_sokolova_2016_material_aliases_are_removed():
+    with pytest.raises(KeyError, match="available"):
+        get_eos_record("diamond_sokolova_2016")
+    assert not hasattr(materials_module, "DIAMOND_SOKOLOVA_2016")
+
+
+def test_sokolova_mgo_records_2016_anharmonic_correction():
+    assert "2016" in MGO_SOKOLOVA_2013.parameter_provenance["a_0"]
+    assert "corrects" in MGO_SOKOLOVA_2013.parameter_provenance["a_0"]
 
 
 @pytest.mark.parametrize(
@@ -430,8 +461,8 @@ def test_sokolova_table1_parameters(
     ],
 )
 def test_sokolova_mgo_figure2_spreadsheet_regression(ratio, expected):
-    pressure = MGO_SOKOLOVA_2016.pressure(
-        MGO_SOKOLOVA_2016.reference_volume * ratio,
+    pressure = MGO_SOKOLOVA_2013.pressure(
+        MGO_SOKOLOVA_2013.reference_volume * ratio,
         300.0,
         check_validity=False,
     )
@@ -439,9 +470,9 @@ def test_sokolova_mgo_figure2_spreadsheet_regression(ratio, expected):
 
 
 def test_sokolova_mgo_effective_atomic_number_and_inactive_terms():
-    assert MGO_SOKOLOVA_2016.eos.rt_eos.Z == pytest.approx(10.34)
-    assert MGO_SOKOLOVA_2016.eos.e_0 == 0.0
-    assert "inactive" in MGO_SOKOLOVA_2016.parameter_provenance["e_0"]
+    assert MGO_SOKOLOVA_2013.eos.rt_eos.Z == pytest.approx(10.34)
+    assert MGO_SOKOLOVA_2013.eos.e_0 == 0.0
+    assert "inactive" in MGO_SOKOLOVA_2013.parameter_provenance["e_0"]
 
 
 def test_fei_table1_parameters_and_published_errors():
@@ -507,6 +538,59 @@ def test_diamond_dewaele_2008_table1_regression(
         lattice_parameter**3, temperature, check_validity=False
     )
     assert calculated == pytest.approx(pressure, abs=0.5)
+
+
+@pytest.mark.parametrize(
+    ("volume_per_atom", "temperature", "expected_pressure"),
+    [
+        (5.7034, 300.0, 5.097381463860107),
+        (5.4, 1000.0, 34.72410455615707),
+        (4.654270411587497, 3000.0, 150.0),
+    ],
+)
+def test_diamond_benedict_2014_library_regression(
+    volume_per_atom, temperature, expected_pressure
+):
+    volume_per_cell = 8.0 * volume_per_atom
+    calculated = DIAMOND_BENEDICT_2014.pressure(volume_per_cell, temperature)
+
+    assert calculated == pytest.approx(expected_pressure, rel=2.0e-12)
+    assert DIAMOND_BENEDICT_2014.volume(calculated, temperature) == pytest.approx(
+        volume_per_cell, rel=1.0e-11
+    )
+
+
+def test_diamond_benedict_cold_reference_is_not_zero_total_pressure():
+    record = DIAMOND_BENEDICT_2014
+
+    assert record.reference_volume == pytest.approx(8.0 * 5.7034)
+    assert record.pressure(record.reference_volume, 300.0) == pytest.approx(
+        5.097381463860107
+    )
+    assert "motionless-ion 0 K cold curve" in " ".join(record.notes)
+
+
+def test_diamond_benedict_record_dac_volume_pair_uses_cell_volumes():
+    record = DIAMOND_BENEDICT_2014
+    expected_temperature = 2000.0
+    f_dac = 0.25
+    heated_volume = 8.0 * 5.0
+    reference_pressure = record.pressure(heated_volume, 300.0)
+    thermal_increment = (
+        record.pressure(heated_volume, expected_temperature) - reference_pressure
+    )
+    ambient_pressure = (
+        record.pressure(heated_volume, expected_temperature) - f_dac * thermal_increment
+    )
+    ambient_volume = record.volume(ambient_pressure, 300.0)
+
+    recovered = record.temperature_from_volumes(
+        ambient_volume,
+        heated_volume,
+        f_dac=f_dac,
+    )
+
+    assert recovered == pytest.approx(expected_temperature, rel=1.0e-11)
 
 
 @pytest.mark.parametrize(
@@ -624,8 +708,8 @@ def test_measurement_uncertainty_works_when_publication_has_no_parameter_errors(
 
 
 def test_sokolova_measurement_uncertainty_is_state_only():
-    volume = MGO_SOKOLOVA_2016.volume(100.0, 1500.0)
-    prediction = MGO_SOKOLOVA_2016.pressure_with_uncertainty(
+    volume = MGO_SOKOLOVA_2013.volume(100.0, 1500.0)
+    prediction = MGO_SOKOLOVA_2013.pressure_with_uncertainty(
         volume,
         1500.0,
         volume_sigma=0.01,

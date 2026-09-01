@@ -50,6 +50,20 @@ def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
 # later reviewer to repeat the comparison without using another software
 # catalog as an authority.
 VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
+    "10.1103/physrevb.89.224109": source(
+        "https://arxiv.org/pdf/1311.4577",
+        [
+            "Equations 3-7",
+            "Table I, diamond column",
+            "Section III.A",
+            "Figure 6",
+        ],
+        "The record implements the complete diamond Helmholtz branch, including "
+        "the motionless-ion Vinet cold curve, volume-dependent double-Debye "
+        "weights and zero-point energy, and the T^2 anharmonic term. Per-atom "
+        "volumes and energies were converted to Peritheos molar working units; "
+        "public volumes remain eight-atom conventional-cell values.",
+    ),
     "10.1007/s002690000108": source(
         "https://doi.org/10.1007/s002690000108",
         [
@@ -76,6 +90,19 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         "Table 1 parameters and the Figure 2 calculations were recomputed "
         "independently; the record names the generic cold curve and "
         "multi-oscillator thermal model rather than the paper.",
+    ),
+    "10.1016/j.rgg.2013.01.005": source(
+        "https://doi.org/10.1016/j.rgg.2013.01.005",
+        [
+            "Equations 1-15",
+            "Table 1 input reference values",
+            "Table 4 optimized parameters for all eleven markers",
+            "Figures 3-11 cross-calibration tests",
+        ],
+        "The stored Sokolova marker coefficients reproduce the corresponding "
+        "columns of Tables 1 and 4. Sokolova et al. (2016) is recorded "
+        "separately as the spreadsheet implementation and correction source, "
+        "not represented as a new experimental fit.",
     ),
     "10.1016/j.epsl.2011.02.025": source(
         "https://doi.org/10.1016/j.epsl.2011.02.025",
@@ -763,17 +790,33 @@ DEFERRED_BY_DOI: dict[str, str] = {
 # not carry all of these model inputs, so the audit restores them directly
 # from the primary table rather than treating a software catalog as authority.
 SOKOLOVA_COMPOSITION: dict[str, tuple[float, float]] = {
-    "aluminum_sokolova_2016_holzapfel_2": (1.0, 13.0),
-    "copper_sokolova_2016_holzapfel_2": (1.0, 29.0),
-    "diamond_sokolova_2016_holzapfel_3": (1.0, 6.0),
-    "gold_sokolova_2016_holzapfel_4": (1.0, 79.0),
-    "mgo_sokolova_2016_holzapfel_4": (2.0, 10.34),
-    "molybdenum_sokolova_2016_holzapfel_2": (1.0, 42.0),
-    "niobium_sokolova_2016_holzapfel_2": (1.0, 41.0),
-    "platinum_sokolova_2016_holzapfel_3": (1.0, 78.0),
-    "silver_sokolova_2016_holzapfel_2": (1.0, 47.0),
-    "tantalum_sokolova_2016_holzapfel_3": (1.0, 73.0),
-    "tungsten_sokolova_2016_holzapfel_4": (1.0, 74.0),
+    "aluminum_sokolova_2013_holzapfel_2": (1.0, 13.0),
+    "copper_sokolova_2013_holzapfel_2": (1.0, 29.0),
+    "diamond_sokolova_2013_holzapfel_3": (1.0, 6.0),
+    "gold_sokolova_2013_holzapfel_4": (1.0, 79.0),
+    "mgo_sokolova_2013_holzapfel_4": (2.0, 10.34),
+    "molybdenum_sokolova_2013_holzapfel_2": (1.0, 42.0),
+    "niobium_sokolova_2013_holzapfel_2": (1.0, 41.0),
+    "platinum_sokolova_2013_holzapfel_3": (1.0, 78.0),
+    "silver_sokolova_2013_holzapfel_2": (1.0, 47.0),
+    "tantalum_sokolova_2013_holzapfel_3": (1.0, 73.0),
+    "tungsten_sokolova_2013_holzapfel_4": (1.0, 74.0),
+}
+
+SOKOLOVA_2013_REFERENCE = {
+    "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+    "year": 2013,
+    "source": "Russian Geology and Geophysics",
+    "volume": "54",
+    "locator": "181-199",
+    "details": "Tables 1 and 4",
+    "doi": "10.1016/j.rgg.2013.01.005",
+}
+
+SOKOLOVA_2016_IMPLEMENTATION = {
+    "role": "spreadsheet implementation, conventions, and corrections",
+    "citation": "Sokolova et al. (2016), equations 1-12, Tables 1-3, and Appendix A",
+    "doi": "10.1016/j.cageo.2016.06.002",
 }
 
 SUN_SILICA_RECORDS = {
@@ -1557,6 +1600,98 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             )
     if identifier in SOKOLOVA_COMPOSITION:
         n, atomic_number = SOKOLOVA_COMPOSITION[identifier]
+        is_mgo = identifier == "mgo_sokolova_2013_holzapfel_4"
+        record["label"] = (
+            "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)"
+        )
+        record["reference"] = dict(SOKOLOVA_2013_REFERENCE)
+        earlier_source = (
+            {
+                "role": "prior MgO thermodynamic EOS lineage",
+                "citation": "Dorogokupets (2010)",
+                "doi": "10.1007/s00269-010-0367-2",
+            }
+            if is_mgo
+            else {
+                "role": "preceding simultaneous-optimization fit",
+                "citation": "Dorogokupets et al. (2012), Table 4",
+                "doi": "10.5800/GT-2012-3-2-0067",
+            }
+        )
+        record["source_lineage"] = [
+            {
+                "role": "reference volume, composition, and shock inputs",
+                "citation": "Sokolova et al. (2013), Table 1",
+                "doi": "10.1016/j.rgg.2013.01.005",
+            },
+            {
+                "role": "final cross-calibrated Holzapfel and thermal coefficients",
+                "citation": "Sokolova et al. (2013), Table 4",
+                "doi": "10.1016/j.rgg.2013.01.005",
+            },
+            earlier_source,
+            dict(SOKOLOVA_2016_IMPLEMENTATION),
+        ]
+        if is_mgo:
+            record["source_lineage"].append(
+                {
+                    "role": "implemented MgO anharmonic-coefficient correction",
+                    "citation": "Sokolova et al. (2016), Table 1 and correction discussion",
+                    "doi": "10.1016/j.cageo.2016.06.002",
+                }
+            )
+        if identifier == "diamond_sokolova_2013_holzapfel_3":
+            record["source_lineage"].extend(
+                [
+                    {
+                        "role": "principal room-temperature compression constraint",
+                        "citation": "Occelli, Loubeyre, and LeToullec (2003)",
+                        "doi": "10.1038/nmat831",
+                    },
+                    {
+                        "role": "moderate-temperature diamond P-V-T context",
+                        "citation": "Dewaele et al. (2008)",
+                        "doi": "10.1103/PhysRevB.77.094106",
+                    },
+                    {
+                        "role": "ambient heat-capacity constraint",
+                        "citation": "Victor (1962)",
+                        "doi": "10.1063/1.1701288",
+                    },
+                    {
+                        "role": "ambient thermophysical-property constraint",
+                        "citation": "Reeber and Wang (1996)",
+                        "doi": "10.1007/BF02666175",
+                    },
+                    {
+                        "role": "elastic-modulus constraint",
+                        "citation": "Zouboulis et al. (1998)",
+                        "doi": "10.1103/PhysRevB.57.2889",
+                    },
+                ]
+            )
+        record["notes"] = (
+            "This record uses the self-consistent Sokolova et al. (2013) "
+            "pressure-scale fit: Table 1 supplies reference volume/composition "
+            "inputs and Table 4 supplies the final Holzapfel and thermal "
+            "coefficients. The fit jointly considers shock-wave, ultrasonic, "
+            "X-ray diffraction, dilatometric, and thermochemical measurements; "
+            "it is not derived from one experimental dataset. Sokolova et al. "
+            "(2016) republishes the parameters and supplies the executable "
+            "Excel/VBA implementation, reference-temperature convention, and "
+            "corrected equations, rather than a new fit dataset. "
+            + (
+                "The implemented MgO a0 coefficient follows the explicit 2016 "
+                "correction, so that term has dual 2013/2016 provenance. "
+                if is_mgo
+                else ""
+            )
+            + "The publications do not provide individual parameter errors, "
+            "parameter covariance, or a complete machine-readable list of fit "
+            "points and weights. The *_sokolova_2013 identifier names the "
+            "scientific fit year; the 2016 workbook remains explicit in "
+            "source_lineage as the implementation and correction source."
+        )
         for component, name, value in (
             ("eos", "n", n),
             ("eos", "Z", atomic_number),
@@ -1572,11 +1707,12 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
                     "value": value,
                     "reason": (
                         "Required model input omitted by the Dioptas migration; "
-                        "restored from Sokolova et al. (2016) Table 1."
+                        "restored from the Sokolova et al. (2016) model "
+                        "definitions."
                     ),
                     "primary_reference": {
                         "doi": "10.1016/j.cageo.2016.06.002",
-                        "location": "Equation (1) and Table 1",
+                        "location": "Equations (1)-(3) and Table 2",
                     },
                 },
             )
@@ -2694,8 +2830,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 146:
-        raise ValueError(f"Expected 146 EOS records, found {len(entries)}")
+    if len(entries) != 147:
+        raise ValueError(f"Expected 147 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

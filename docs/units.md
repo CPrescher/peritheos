@@ -33,6 +33,20 @@ $K_TV$ is multiplied by $10^4$ when used in an energy or heat-capacity
 identity. These factors are explicit in the
 [equation reference](equation-reference.md#thermal-equations).
 
+Published atom-normalized Helmholtz parameter sets require one further
+conversion. For a monatomic model,
+
+\[
+1\ \mathrm{\AA^3/atom}
+=N_A10^{-25}\ \mathrm{J\,bar^{-1}\,mol^{-1}}
+=0.0602214076\ \mathrm{J\,bar^{-1}\,mol^{-1}},
+\]
+
+and $1\ \mathrm{eV/atom}=96485.3321\ \mathrm{J/mol}$. An inverse-volume
+coefficient printed in $\mathrm{\AA^{-3}}$ is divided by `0.0602214076` for
+use with a molar volume. For a formula unit containing `n` atoms, use its
+molar formula-unit volume and set `n` accordingly.
+
 ## Conversion helpers
 
 ```python
@@ -63,3 +77,8 @@ difference relative to `Tr`, so
 for every valid volume. Consequently, `rt_eos` must represent the same
 reference temperature supplied as `Tr`. Peritheos does not silently translate
 an isotherm between reference temperatures.
+
+`DoubleDebyeHelmholtz` is the explicit exception: it consumes a 0 K
+motionless-ion Vinet cold curve and adds absolute ionic (including zero-point)
+and anharmonic free energies. Its cold-curve `V0` therefore must not be
+interpreted as an ambient-temperature zero-pressure volume.

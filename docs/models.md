@@ -25,13 +25,14 @@ volume(P)
 
 ## Thermal models
 
-A thermal EOS wraps an isothermal `rt_eos`, which defines pressure on the
+Most thermal EOS classes wrap an isothermal `rt_eos`, which defines pressure on the
 reference isotherm at `Tr`. The thermal model adds the pressure change away
 from that temperature, so the combined model evaluates
 $P(V,T)=P_{ref}(V)+\Delta P_{th}(V,T)$ with
 $\Delta P_{th}(V,T_r)=0$. Pressure, volume, and temperature inversion all use
 this combined relation. The reference and thermal parameters can also be fitted
 together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
+`DoubleDebyeHelmholtz` is the full-free-energy exception described below.
 
 The allowed reference EOS depends on the thermal formulation. The
 Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
@@ -45,6 +46,7 @@ correction instead inherits the reference EOS volume convention.
 
 | Import | Reference EOS | Thermal parameters | Caloric model |
 |---|---|---|---|
+| [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet` **0 K cold curve** | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0` | double Debye + $T^2$ |
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
@@ -86,6 +88,10 @@ paper equations alone to reproduce Peritheos values; see
 - Use `MultiOscillatorGruneisenThermalEOS` for the multimode formulation; pass
   `n` explicitly and select the reference isotherm independently. Catalog
   entries pin the exact source-validated combinations.
+- Use `DoubleDebyeHelmholtz` when the source supplies one thermodynamically
+  complete Vinet cold curve plus volume-dependent double-Debye and $T^2$
+  free-energy terms. Its `rt_eos` argument is a motionless-ion 0 K cold curve,
+  not a room-temperature reference isotherm.
 
 Do not choose a higher-order model solely because it has more parameters. Check
 parameter correlations and extrapolation behavior with the fitting diagnostics.

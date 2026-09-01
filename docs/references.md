@@ -1,5 +1,13 @@
 # References
 
+- Benedict, L. X., Driver, K. P., Hamel, S., Militzer, B., Qi, T., Correa,
+  A. A., Saul, A. & Schwegler, E. (2014). A multiphase equation of state for
+  carbon addressing high pressures and temperatures. *Physical Review B*,
+  89, 224109. [doi:10.1103/PhysRevB.89.224109](https://doi.org/10.1103/PhysRevB.89.224109).
+  `DoubleDebyeHelmholtz` implements equations 3--7 for the double-Debye solid,
+  including the Vinet cold energy, zero point, and the Table I diamond
+  anharmonic coefficient.
+
 - Bezacier, L., Journaux, B., Perrillat, J.-P., Cardon, H., Hanfland, M. &
   Daniel, I. (2014). Equations of state of ice VI and ice VII at high pressure
   and high temperature. *Journal of Chemical Physics*, 141, 104505.
@@ -70,6 +78,13 @@
 - Dorogokupets, P. I. (2010). P-V-T equations of state of MgO and
   thermodynamics. *Physics and Chemistry of Minerals*, 37, 677-684.
   doi:10.1007/s00269-010-0367-2.
+- Dorogokupets, P. I., Sokolova, T. S., Danilov, B. S. & Litasov, K. D.
+  (2012). Near-absolute equations of state of diamond, Ag, Al, Au, Cu, Mo, Nb,
+  Pt, Ta, and W for quasi-hydrostatic conditions. *Geodynamics &
+  Tectonophysics*, 3, 129--166.
+  [doi:10.5800/GT-2012-3-2-0067](https://doi.org/10.5800/GT-2012-3-2-0067).
+  This paper documents the simultaneous-optimization methodology that precedes
+  the final Sokolova et al. diamond pressure scale.
 - Dorfman, S. M., Prakapenka, V. B., Meng, Y. & Duffy, T. S. (2012).
   Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to
   2.5 Mbar. *Journal of Geophysical Research: Solid Earth*, 117, B08210.
@@ -187,6 +202,11 @@
   doi:10.1016/S0022-3697(98)00296-0. The final article extends the isotherm to
   147.6 GPa and reports `K0 = 191 GPa` and `K0' = 3.9` without coefficient
   errors.
+- Occelli, F., Loubeyre, P. & LeToullec, R. (2003). Properties of diamond
+  under hydrostatic pressures up to 140 GPa. *Nature Materials*, 2, 151--154.
+  [doi:10.1038/nmat831](https://doi.org/10.1038/nmat831). The 300 K
+  compression data are a principal experimental constraint behind the later
+  Sokolova diamond pressure scale.
 - Poirier, J.-P. & Tarantola, A. (1998). A logarithmic equation of state.
   *Physics of the Earth and Planetary Interiors*, 109, 1-8.
   doi:10.1016/S0031-9201(98)00112-5.
@@ -230,15 +250,28 @@
   [doi:10.1016/0031-9201(92)90063-2](https://doi.org/10.1016/0031-9201(92)90063-2).
   Peritheos preserves the printed fixed reference volume and derivative and
   does not manufacture parameter errors absent from the paper.
-- Sokolova, T. S., Dorogokupets, P. I. & Litasov, K. D. (2016). Microsoft
+- Reeber, R. R. & Wang, K. (1996). Thermal expansion, molar volume and specific
+  heat of diamond from 0 to 3000 K. *Journal of Electronic Materials*, 25,
+  63--67. [doi:10.1007/BF02666175](https://doi.org/10.1007/BF02666175).
+- Sokolova, T. S., Dorogokupets, P. I. & Litasov, K. D. (2013).
+  Self-consistent pressure scales based on the equations of state for ruby,
+  diamond, MgO, B2-NaCl, as well as Au, Pt, and other metals to 4 Mbar and
+  3000 K. *Russian Geology and Geophysics*, 54, 181--199.
+  [doi:10.1016/j.rgg.2013.01.005](https://doi.org/10.1016/j.rgg.2013.01.005).
+  Tables 1 and 4 are the shared scientific source of Peritheos' eleven
+  Sokolova marker coefficient sets.
+- Sokolova, T. S., Dorogokupets, P. I., Dymshits, A. M., Danilov, B. S. &
+  Litasov, K. D. (2016). Microsoft
   Excel spreadsheets for calculation of
   P-V-T relations and thermodynamic properties from equations of state of MgO,
   diamond and nine metals as pressure markers in high-pressure and
   high-temperature experiments. *Computers & Geosciences*, 94, 162-169.
   doi:10.1016/j.cageo.2016.06.002.
-  The eleven catalog records use equations 1-12 and every parameter in Table
-  1. Peritheos follows the accompanying workbook calculation path when it
-  differs from the typeset equations; see
+  The article and workbooks are the executable implementation source for the
+  eleven catalog records; it is not represented as a new experimental fit.
+  The exact MgO implementation also uses the 2016 correction to its earlier
+  anharmonic coefficient. Peritheos follows the accompanying workbook
+  calculation path when it differs from the typeset equations; see
   [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
 - Tange, Y., Nishihara, Y. & Tsuchiya, T. (2009). Unified analyses for P-V-T
   equation of state of MgO: A solution for pressure-scale problems in high
@@ -251,6 +284,9 @@
   Earth*, 115, B12203. doi:10.1029/2010JB007959. The correction changes Figure
   11 only and does not alter the EOS equations, parameters, or regression table
   used by Peritheos.
+- Victor, A. C. (1962). Heat capacity of diamond at high temperatures.
+  *Journal of Chemical Physics*, 36, 1903--1911.
+  [doi:10.1063/1.1701288](https://doi.org/10.1063/1.1701288).
 - Vinet, P. and coauthors (1986, 1987). Universal/Rydberg equation of state for
   compressed solids.
 - Yen, C. E., Williams, Q. & Kunz, M. (2020).
@@ -258,6 +294,10 @@
   and implications for the density versus mineralogy correlation of the mantle.
   *Journal of Geophysical Research: Solid Earth*, 125, e2020JB020006.
   doi:10.1029/2020JB020006.
+- Zouboulis, E. S., Grimsditch, M., Ramdas, A. K. & Rodriguez, S. (1998).
+  Temperature dependence of the elastic moduli of diamond: A
+  Brillouin-scattering study. *Physical Review B*, 57, 2889--2896.
+  [doi:10.1103/PhysRevB.57.2889](https://doi.org/10.1103/PhysRevB.57.2889).
 
 The DAC papers use several different normalizations for reported pressure
 increases. A percentage of constant-volume thermodynamic thermal pressure is

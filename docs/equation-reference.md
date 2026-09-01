@@ -219,8 +219,157 @@ P(V,T)=P_{\mathrm{ref}}(V)+\Delta P_{\mathrm{th}}(V,T),
 \Delta P_{\mathrm{th}}(V,T_r)=0.
 \]
 
+This reference-isotherm form applies except to the complete
+`DoubleDebyeHelmholtz` free-energy model defined first below.
+
 Because energy divided by the public molar-volume unit produces bar, the factor
 $10^{-4}$ converts thermal pressure to GPa.
+
+### Double-Debye Helmholtz
+
+`DoubleDebyeHelmholtz` is a complete free-energy EOS, not a thermal-pressure
+wrapper around a measured reference isotherm. Its `rt_eos` is specifically a
+Vinet cold curve for a motionless lattice at 0 K. Define
+
+\[
+x=(V/V_0)^{1/3},\qquad X=\frac32(K_0'-1)(x-1).
+\]
+
+The molar cold energy is
+
+\[
+E_{\rm cold}=\phi_0+
+\frac{4V_0K_0\,10^4}{(K_0'-1)^2}
+\left[1-(1+X)e^{-X}\right],
+\]
+
+where $10^4$ converts GPa times J bar$^{-1}$ mol$^{-1}$ to J mol$^{-1}$.
+The implementation evaluates the continuous $K_0'\to1$ limit without the
+apparent singularity.
+
+Each of $\theta_A$, $\theta_B$, and $\theta_1$ has its own parameter triple:
+
+\[
+\theta_i(V)=\theta_{i0}(V/V_p)^{-b_i}
+\exp[a_i(V_p-V)],\qquad \gamma_i=a_iV+b_i.
+\]
+
+Let $F_D(\theta,T)$ and $U_D(\theta,T)$ be the one-mole-of-atoms Debye
+Helmholtz energy and internal energy, including zero point:
+
+\[
+F_D=R\left[\frac98\theta+3T\ln(1-e^{-\theta/T})
+-TD_3(\theta/T)\right],
+\]
+
+\[
+U_D=R\left[\frac98\theta+3T D_3(\theta/T)\right].
+\]
+
+The volume-dependent weights and ionic free energy are
+
+\[
+w_A=\frac{\theta_B-\theta_1}{\theta_B-\theta_A},\qquad
+w_B=1-w_A,
+\]
+
+\[
+F_{\rm ion}=n(w_AF_D(\theta_A,T)+w_BF_D(\theta_B,T)).
+\]
+
+Coincident characteristic temperatures are evaluated by their analytic
+limiting weights, avoiding a $0/0$ at a shared reference point. The optional
+$T^2$ contribution is
+
+\[
+\alpha(V)=\alpha_0(V/V_e)^\kappa,\qquad
+F_{\rm anh}=-\frac12nR\alpha(V)T^2.
+\]
+
+The complete energy returned by `helmholtz_free_energy()` is
+
+\[
+F=E_{\rm cold}+F_{\rm ion}+F_{\rm anh}.
+\]
+
+Thermodynamic differentiation gives
+
+\[
+P_{\rm ion}=\frac{n}{10^4}\left[
+\frac{w_A\gamma_AU_A+w_B\gamma_BU_B}{V}
+-\frac{dw_A}{dV}(F_A-F_B)\right],
+\]
+
+\[
+P_{\rm anh}=\frac{nR\kappa\alpha(V)T^2}{2V\,10^4},\qquad
+P=P_{\rm Vinet}+P_{\rm ion}+P_{\rm anh}.
+\]
+
+The $dw_A/dV$ term is essential when the double-Debye weights vary with
+volume. `thermal_pressure()` returns $P_{\rm ion}+P_{\rm anh}$, including
+zero-point pressure. `volume(P,T)` and `temperature(P,V)` use the normal
+bracketed inversions. For DAC volume-pair inversion, the thermal increment is
+defined relative to the model's 300 K isotherm,
+$\Delta P_{\rm th}(V,T)=P(V,T)-P(V,300\ {\rm K})$. This retains zero-point and
+300 K ionic pressure in both total-pressure states while allowing
+`temperature_from_volumes()` to use the same empirical confinement equation as
+the other thermal models. Use `temperature(P,V)` instead whenever total hot
+pressure and volume are known independently.
+
+#### Benedict et al. diamond example
+
+The following is the diamond column of Benedict et al. (2014), Table I,
+converted from per-atom to Peritheos molar units. The coefficients remain an
+example rather than class defaults:
+
+```python
+from scipy.constants import Avogadro, electron_volt
+
+from peritheos.eos.rt import Vinet
+from peritheos.eos.thermal import DoubleDebyeHelmholtz
+
+v_atom = Avogadro * 1e-25  # A^3/atom -> J/bar/mol
+e_atom = electron_volt * Avogadro  # eV/atom -> J/mol
+
+diamond = DoubleDebyeHelmholtz(
+    rt_eos=Vinet(5.7034 * v_atom, 432.4, 3.793),
+    Vp=5.571 * v_atom,
+    theta_a0=1887.8,
+    a_a=-0.316 / v_atom,
+    b_a=0.913,
+    theta_b0=1887.8,
+    a_b=0.168 / v_atom,
+    b_b=0.429,
+    theta_1_0=1887.8,
+    a_1=0.0846 / v_atom,
+    b_1=0.499,
+    n=1,
+    alpha0=3.79e-5,
+    Ve=5.785 * v_atom,
+    kappa=0,
+    phi0=-9.066 * e_atom,
+)
+
+pressure = diamond.pressure(4.6542704116 * v_atom, 3000.0)  # about 150 GPa
+volume = diamond.volume(150.0, 3000.0)
+temperature = diamond.temperature(150.0, volume)
+```
+
+For diamond, the paper identifies the $T^2$ coefficient as an anharmonic ionic
+correction rather than an electronic excitation. Because its published
+$\kappa=0$, that term changes free energy and heat capacity but not pressure.
+The Vinet parameters describe the classical 0 K PBE-DFT lattice; they are not
+a 300 K static-compression fit. The paper compares the diamond model directly
+with DFT-MD over roughly 3.0--5.6 $\mathrm{\AA^3/atom}$ and 2000--9000 K.
+Use outside the diamond stability field, and especially extrapolation of the
+quadratic term above its low-temperature purpose, requires an independent
+phase/validity assessment.
+
+The ordinary thermal fitting API can fit pressure-sensitive coefficients while
+holding the 0 K Vinet curve fixed. `phi0` is an additive energy zero and cannot
+be inferred from pressure-only observations; fix it unless the objective also
+contains absolute free-energy data. Likewise, when `kappa=0`, `alpha0` does not
+contribute to pressure and must not be treated as pressure-identifiable.
 
 ### Temperature-dependent reference state
 

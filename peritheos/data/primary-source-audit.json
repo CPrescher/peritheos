@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 146,
-    "primary_source_validated": 146
+    "records": 147,
+    "primary_source_validated": 147
   },
   "records": [
     {
@@ -104,20 +104,21 @@
     {
       "material": "aluminum",
       "file": "aluminum.eosmat",
-      "record": "aluminum_sokolova_2016_holzapfel_2",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "aluminum_sokolova_2013_holzapfel_2",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -540,20 +541,21 @@
     {
       "material": "copper",
       "file": "copper.eosmat",
-      "record": "copper_sokolova_2016_holzapfel_2",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "copper_sokolova_2013_holzapfel_2",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -614,20 +616,41 @@
     {
       "material": "diamond",
       "file": "diamond.eosmat",
-      "record": "diamond_sokolova_2016_holzapfel_3",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "diamond_sokolova_2013_holzapfel_3",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
+      }
+    },
+    {
+      "material": "diamond",
+      "file": "diamond.eosmat",
+      "record": "diamond_benedict_2014_double_debye_4",
+      "label": "Benedict et al. (2014), Vinet double-Debye Helmholtz",
+      "doi": "10.1103/physrevb.89.224109",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/1311.4577",
+        "locations": [
+          "Equations 3-7",
+          "Table I, diamond column",
+          "Section III.A",
+          "Figure 6"
+        ],
+        "finding": "The record implements the complete diamond Helmholtz branch, including the motionless-ion Vinet cold curve, volume-dependent double-Debye weights and zero-point energy, and the T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
+        "doi": "10.1103/physrevb.89.224109"
       }
     },
     {
@@ -947,20 +970,21 @@
     {
       "material": "gold",
       "file": "gold.eosmat",
-      "record": "gold_sokolova_2016_holzapfel_4",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "gold_sokolova_2013_holzapfel_4",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -1498,20 +1522,21 @@
     {
       "material": "mgo",
       "file": "mgo.eosmat",
-      "record": "mgo_sokolova_2016_holzapfel_4",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "mgo_sokolova_2013_holzapfel_4",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -1574,20 +1599,21 @@
     {
       "material": "molybdenum",
       "file": "molybdenum.eosmat",
-      "record": "molybdenum_sokolova_2016_holzapfel_2",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "molybdenum_sokolova_2013_holzapfel_2",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -1803,20 +1829,21 @@
     {
       "material": "niobium",
       "file": "niobium.eosmat",
-      "record": "niobium_sokolova_2016_holzapfel_2",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "niobium_sokolova_2013_holzapfel_2",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -2012,20 +2039,21 @@
     {
       "material": "platinum",
       "file": "platinum.eosmat",
-      "record": "platinum_sokolova_2016_holzapfel_3",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "platinum_sokolova_2013_holzapfel_3",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -2294,20 +2322,21 @@
     {
       "material": "silver",
       "file": "silver.eosmat",
-      "record": "silver_sokolova_2016_holzapfel_2",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "silver_sokolova_2013_holzapfel_2",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -2465,20 +2494,21 @@
     {
       "material": "tantalum",
       "file": "tantalum.eosmat",
-      "record": "tantalum_sokolova_2016_holzapfel_3",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "tantalum_sokolova_2013_holzapfel_3",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {
@@ -2559,20 +2589,21 @@
     {
       "material": "tungsten",
       "file": "tungsten.eosmat",
-      "record": "tungsten_sokolova_2016_holzapfel_4",
-      "label": "Sokolova et al. (2016), Holzapfel thermal model",
-      "doi": "10.1016/j.cageo.2016.06.002",
+      "record": "tungsten_sokolova_2013_holzapfel_4",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "doi": "10.1016/j.rgg.2013.01.005",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.cageo.2016.06.002",
+        "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
         "locations": [
-          "Equations 1-12",
-          "Table 1",
-          "Figure 2 pressure-calculation table"
+          "Equations 1-15",
+          "Table 1 input reference values",
+          "Table 4 optimized parameters for all eleven markers",
+          "Figures 3-11 cross-calibration tests"
         ],
-        "finding": "Table 1 parameters and the Figure 2 calculations were recomputed independently; the record names the generic cold curve and multi-oscillator thermal model rather than the paper.",
-        "doi": "10.1016/j.cageo.2016.06.002"
+        "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+        "doi": "10.1016/j.rgg.2013.01.005"
       }
     },
     {

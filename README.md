@@ -87,7 +87,7 @@ prediction = tange.pressure_with_uncertainty(
 
 # Sokolova markers use the same cell-volume API although their composed EOS
 # works internally with molar volume.
-gold = get_material("au_fcc").get_eos_record("au_fcc_sokolova_2016")
+gold = get_material("au_fcc").get_eos_record("au_fcc_sokolova_2013")
 hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
 ```
 
@@ -226,7 +226,7 @@ print(f"Recovered temperature: {recovered_temperature} K")
 
 The equation class is named for its mechanism, not a paper. The validated
 Sokolova et al. parameterizations remain available through author/year catalog
-identifiers such as `diamond_sokolova_2016`; replacing the reference isotherm
+identifiers such as `diamond_sokolova_2013`; replacing the reference isotherm
 creates a new user-composed model and does not inherit that validation claim.
 
 ## Citation and support

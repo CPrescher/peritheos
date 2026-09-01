@@ -25,24 +25,25 @@ volumes. Temperature is in K. Pressure is in GPa.
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 115 material documents and 146 independently
+library is broader: it contains 115 material documents and 147 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 
 | EOS record identifier | Material and phase | Model | Published envelope | Primary source |
 |---|---|---|---|---|
 | `mgo_b1_tange_2009_vinet` | MgO B1, 4 formula units/cell | Fit3-Vinet + Mie-Gruneisen-Debye | 0–196 GPa, 300–3700 K, $0.652 \leq V/V_0 \leq 1.150$ | [Tange et al. (2009)](https://doi.org/10.1029/2008JB005813) |
-| `mgo_b1_sokolova_2016` | MgO B1, 4 formula units/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `diamond_sokolova_2016` | diamond, 8 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `al_fcc_sokolova_2016` | Al fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `cu_fcc_sokolova_2016` | Cu fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `ag_fcc_sokolova_2016` | Ag fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `au_fcc_sokolova_2016` | Au fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `pt_fcc_sokolova_2016` | Pt fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `nb_bcc_sokolova_2016` | Nb bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `ta_bcc_sokolova_2016` | Ta bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `mo_bcc_sokolova_2016` | Mo bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
-| `w_bcc_sokolova_2016` | W bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2016)](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `mgo_b1_sokolova_2013` | MgO B1, 4 formula units/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 correction/workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `diamond_sokolova_2013` | diamond, 8 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `diamond_benedict_2014` | diamond, 8 atoms/cell | Vinet + double-Debye Helmholtz | 0–1000 GPa, 300–9000 K; phase boundary must be checked separately | [Benedict et al. (2014)](https://doi.org/10.1103/PhysRevB.89.224109) |
+| `al_fcc_sokolova_2013` | Al fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `cu_fcc_sokolova_2013` | Cu fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `ag_fcc_sokolova_2013` | Ag fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `au_fcc_sokolova_2013` | Au fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `pt_fcc_sokolova_2013` | Pt fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `nb_bcc_sokolova_2013` | Nb bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `ta_bcc_sokolova_2013` | Ta bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `mo_bcc_sokolova_2013` | Mo bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `w_bcc_sokolova_2013` | W bcc, 2 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `au_fcc_fei_2007` | Au fcc, 4 atoms/cell | Vinet + Fei Mie-Gruneisen-Debye | 0–125 GPa, 300–2330 K | [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) |
 | `pt_fcc_fei_2007` | Pt fcc, 4 atoms/cell | Vinet + Fei Mie-Gruneisen-Debye | 0–94 GPa, 300–1873 K | [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) |
 | `nacl_b2_fei_2007` | NaCl B2, 1 formula unit/cell | Vinet + Fei Mie-Gruneisen-Debye | 34–107 GPa, 300–1000 K | [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) |
@@ -128,18 +129,16 @@ an independent absolute pressure scale. The paper reports internal agreement to
 The per-entry ranges above follow the experimental run envelope in Table 1 and
 cap the common claim at 250 GPa.
 
-The eleven Sokolova records use every material column in Table 1. Dashes in
-the anharmonic/electronic rows mean that the corresponding term is inactive;
-the catalog encodes the disabled coefficient as zero and preserves that fact
-in parameter provenance. The paper states a calculation range of at least
-400 GPa and 3000 K, but that is not a claim that every point in the resulting
-rectangle was measured. Its stated no-more-than-3–4% high-P-T marker
-uncertainty has no confidence convention and is therefore recorded, not
-silently converted into a one-sigma parameter covariance.
-The individual Appendix A workbook files were not present beside the supplied
-PDF during this audit. Table 1 and the calculation output printed in Figure 2
-therefore provide the catalog's primary numerical provenance; no gaps were
-filled from another pressure-standard library.
+The eleven Sokolova records use every material column in the 2013 Tables 1 and
+4. Dashes in the anharmonic/electronic rows mean that the corresponding term
+is inactive; the catalog encodes the disabled coefficient as zero and preserves
+that fact in parameter provenance. The 2016 paper supplies the executable
+implementation, corrected equations, and the exact MgO anharmonic correction.
+Its stated calculation range of at least 400 GPa and 3000 K is not a claim that
+every point in the resulting rectangle was measured. The no-more-than-3–4%
+high-P-T marker uncertainty has no confidence convention and is therefore
+recorded, not silently converted into a one-sigma parameter covariance. No
+gaps were filled from another pressure-standard library.
 
 Fei et al. publish four thermal scales: Au, Pt, NaCl-B2, and Ne. MgO is a
 consistency anchor in that paper, not a new Fei MgO parameter set. The Fei
@@ -189,12 +188,12 @@ combines that ratio with Dewaele et al.'s experimental B1
 `0.355452 angstrom^3` uncertainty covers the ratio only, because the Dewaele
 table gives no B1-`V0` error. The Dewaele P-V-T record remains the default.
 
-### Sokolova 2016 markers
+### Sokolova markers and the diamond source lineage
 
 ```python
 from peritheos import get_eos_record
 
-gold = get_eos_record("au_fcc_sokolova_2016")
+gold = get_eos_record("au_fcc_sokolova_2013")
 pressure = gold.pressure(volume=55.0, temperature=2000.0)
 recovered = gold.volume(pressure, temperature=2000.0)
 
@@ -205,12 +204,22 @@ print(gold.parameter_provenance["QE1o"])
 
 The public input is the conventional fcc cell volume in
 $\mathring{\mathrm{A}}^3$, not the Table 1 molar volume. Peritheos performs the conversion at the
-catalog boundary. Use `mgo_b1_sokolova_2016`, `diamond_sokolova_2016`,
-`al_fcc_sokolova_2016`, `cu_fcc_sokolova_2016`,
-`ag_fcc_sokolova_2016`, `au_fcc_sokolova_2016`,
-`pt_fcc_sokolova_2016`, `nb_bcc_sokolova_2016`,
-`ta_bcc_sokolova_2016`, `mo_bcc_sokolova_2016`, or
-`w_bcc_sokolova_2016` to select the material explicitly.
+catalog boundary. Use `mgo_b1_sokolova_2013`, `diamond_sokolova_2013`,
+`al_fcc_sokolova_2013`, `cu_fcc_sokolova_2013`,
+`ag_fcc_sokolova_2013`, `au_fcc_sokolova_2013`,
+`pt_fcc_sokolova_2013`, `nb_bcc_sokolova_2013`,
+`ta_bcc_sokolova_2013`, `mo_bcc_sokolova_2013`, or
+`w_bcc_sokolova_2013` to select the material explicitly.
+
+The eleven coefficient sets did **not** originate in the 2016 spreadsheet
+paper. Sokolova, Dorogokupets, and Litasov (2013), Tables 1 and 4, are the
+shared scientific source. Dorogokupets et al. (2012) is the preceding fit for
+diamond and the nine metals; MgO instead has an earlier Dorogokupets (2010)
+lineage. The 2016 *Computers & Geosciences* article republishes the scale,
+supplies its spreadsheet implementation, and corrects the implemented MgO
+anharmonic coefficient and thermal equations. Record identifiers use
+`_sokolova_2013` to name the scientific fit year; the former workbook-year
+`_sokolova_2016` identifiers are not retained as aliases.
 
 ### Compare named Au scales without conflating them
 
@@ -220,7 +229,7 @@ from peritheos import get_eos_record
 volume = 55.0
 temperature = 1800.0
 
-p_sokolova = get_eos_record("au_fcc_sokolova_2016").pressure(volume, temperature)
+p_sokolova = get_eos_record("au_fcc_sokolova_2013").pressure(volume, temperature)
 p_fei = get_eos_record("au_fcc_fei_2007").pressure(volume, temperature)
 p_dorfman_300k = get_eos_record("au_fcc_dorfman_2012").pressure(volume, 300.0)
 ```
@@ -276,7 +285,7 @@ separate 2–3% non-hydrostatic-stress estimate.
 Fei Table 1 gives parenthetical or plus-minus uncertainties but does not state
 their confidence convention or publish covariance. The catalog propagates
 them as independent one-standard-deviation errors and reports that assumption.
-Sokolova Table 1 gives no individual parameter errors, so those entries
+The Sokolova 2013/2016 tables give no individual parameter errors, so those entries
 propagate measured volume and temperature uncertainty only; the paper's
 aggregate 3–4% high-P-T estimate remains a separately reported scale caveat.
 
@@ -384,16 +393,17 @@ independent P–V–T analysis, errors, a data envelope, and a printed numerical
 table. Dorfman then adds five high-value, phase-explicit 300 K standards in one
 primary co-compression framework. Direct primary-source additions cover LiF,
 both NaCl phases, both KCl and KBr phases, c-BN, diamond, Ag, and Ni. The
-complete Sokolova Table 1 contributes eleven thermal markers, and Fei et al.
-contribute four internally consistent thermal scales.
+complete Sokolova 2013 parameter matrix contributes eleven thermal markers,
+and Fei et al. contribute four internally consistent thermal scales.
 
 The Dorogokupets and Sokolova names require special care.
 `MultiOscillatorGruneisenThermalEOS` is the reusable equation implementation
-used for the 2016 spreadsheet model, which is based on a *modified*
+used for the 2016 spreadsheet implementation, which is based on a *modified*
 Dorogokupets–Oganov formalism. Author/year remains in material record IDs such
-as `au_fcc_sokolova_2016`, not in the equation model name. A 2007 and a 2016
-pressure scale may share an equation family but must retain separate scale
-identifiers, parameters, citations, and provenance; they are not blind aliases.
+as `au_fcc_sokolova_2013`, not in the equation model name. A 2007 scale and the
+2013 fit/2016 implementation may share an equation family but must retain
+separate scale identifiers, parameters, citations, and provenance; they are not
+blind aliases.
 
 ## Deferred entries
 
@@ -426,11 +436,12 @@ and LiF whose tables also define their quoted errors as 95% intervals. A
 catalog-wide regression loads every such `.eosmat` record and checks the
 conversion rather than relying only on the raw JSON value.
 
-All eleven Sokolova records are checked against the parameters printed in
-Table 1. MgO is additionally regressed at eight compressions against the
-pressure-calculation output printed in Figure 2, including the 300 K versus
-298.15 K reference-temperature difference. Existing diamond cases reproduce
-the accompanying workbook calculation. The Fei tests verify all four Table 1
+All eleven Sokolova records are checked against the input values and optimized
+parameters printed in the 2013 Tables 1 and 4. MgO is additionally regressed at
+eight compressions against the 2016 pressure-calculation output printed in
+Figure 2, including the 300 K versus 298.15 K reference-temperature difference.
+Existing diamond cases reproduce the accompanying workbook calculation. The
+Fei tests verify all four Table 1
 parameter sets and equation 3's publication-specific Debye-temperature
 convention, then exercise reference states and P-V-T round trips.
 

@@ -81,6 +81,7 @@ Each item in `eos_records` describes one source parameterization.
 | `experimental_temperature_range_k` | no | Two-element marginal temperature envelope. |
 | `temperature_ref` | no | Reference-isotherm temperature in K. |
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
+| `source_lineage` | no | Ordered sources and their roles when a record combines an earlier fit, final parameter table, implementation, correction, or experimental context. |
 | `parameter_covariance` | no | Published covariance metadata when available. |
 | `scientific_validation` | yes | Validation boundary described below. |
 | `notes` | no | Scientific qualifications that do not fit another field. |
@@ -242,7 +243,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. As of the 2026-09-01 audit, all 146
+`peritheos/data/primary-source-audit.json`. As of the 2026-09-01 audit, all 147
 bundled records are validated, with no deferred or pending record.
 
 ## Complete EOS-only example

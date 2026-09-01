@@ -88,7 +88,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 115
     assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 146
+    assert sum(len(document["eos_records"]) for document in documents) == 147
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -114,10 +114,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 146
+    assert len({record["identifier"] for record in records}) == 147
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 146
+    assert statuses.count("primary_source_validated") == 147
     assert all(
         record["scientific_validation"]["audit_date"] == "2026-09-01"
         for record in records
@@ -142,6 +142,7 @@ def test_migrated_records_have_completed_primary_source_audit():
     ]
     assert {record["identifier"] for record in native_records} == {
         "aragonite_martinez_1996_bm2_2",
+        "diamond_benedict_2014_double_debye_4",
         "kcl_b2_dewaele_2012_vinet_3",
     }
     assert {
@@ -171,8 +172,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 146,
-        "primary_source_validated": 146,
+        "records": 147,
+        "primary_source_validated": 147,
     }
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
@@ -194,8 +195,62 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 146
+    assert checked == 147
     assert failures == []
+
+
+def test_benedict_diamond_eosmat_record_loads_and_reproduces_150_gpa():
+    document = get_material_document("diamond")
+    identifier = "diamond_benedict_2014_double_debye_4"
+    material = Material.from_eosmat(document, record_identifiers=[identifier])
+    record = material.get_eos_record(identifier)
+    source = next(
+        item for item in document["eos_records"] if item["identifier"] == identifier
+    )
+
+    assert source["thermal"]["model"] == "double_debye_helmholtz"
+    assert record.reference_volume == pytest.approx(45.6272)
+    assert record.pressure(8.0 * 4.654270411587497, 3000.0) == pytest.approx(
+        150.0, rel=2.0e-12
+    )
+    assert record.volume(150.0, 3000.0) == pytest.approx(
+        8.0 * 4.654270411587497, rel=1.0e-11
+    )
+
+
+def test_all_sokolova_eosmat_records_explain_fit_and_workbook_lineage():
+    sources = [
+        record
+        for identifier in list_material_documents()
+        for record in get_material_document(identifier)["eos_records"]
+        if (record.get("thermal") or {}).get("type") == "Sokolova2016"
+    ]
+
+    assert len(sources) == 11
+    for source in sources:
+        assert source["reference"]["year"] == 2013
+        assert source["reference"]["doi"] == "10.1016/j.rgg.2013.01.005"
+        assert source["scientific_validation"]["primary_source_check"]["doi"] == (
+            "10.1016/j.rgg.2013.01.005"
+        )
+        lineage = {item["role"]: item["doi"] for item in source["source_lineage"]}
+        assert lineage["reference volume, composition, and shock inputs"] == (
+            "10.1016/j.rgg.2013.01.005"
+        )
+        assert (
+            lineage["final cross-calibrated Holzapfel and thermal coefficients"]
+            == "10.1016/j.rgg.2013.01.005"
+        )
+        assert lineage["spreadsheet implementation, conventions, and corrections"] == (
+            "10.1016/j.cageo.2016.06.002"
+        )
+        assert "not derived from one experimental dataset" in source["notes"]
+
+    mgo = next(source for source in sources if source["identifier"].startswith("mgo_"))
+    assert any(
+        item["role"] == "implemented MgO anharmonic-coefficient correction"
+        for item in mgo["source_lineage"]
+    )
 
 
 def test_primary_audit_records_corrections_and_known_source_limitations():
@@ -1131,6 +1186,9 @@ def test_normative_schema_is_bundled():
     assert schema["properties"]["format_version"]["const"] == 3
     assert schema["properties"]["eos_records"]["type"] == "array"
     assert schema["additionalProperties"] is True
+    assert (
+        schema["$defs"]["eos_record"]["properties"]["source_lineage"]["type"] == "array"
+    )
     thermal = schema["$defs"]["thermal"]["properties"]
     assert thermal["debye_temperature_law"]["default"] == "integrated_gruneisen"
     assert thermal["debye_temperature_law"]["enum"] == [
@@ -1138,7 +1196,7 @@ def test_normative_schema_is_bundled():
         "variable_exponent",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 10
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 9
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 10
 
 
 def test_normative_schema_validates_every_bundled_document():
@@ -1327,7 +1385,7 @@ def test_migration_manifest_and_dioptas_license_are_bundled():
     assert manifest["source"]["project"] == "Dioptas"
     assert manifest["source"]["version"] == "0.10.0"
     assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 146
+    assert manifest["eos_records"] == 147
     assert "Copyright (c) 2021-2026 Clemens Prescher" in license_text
 
 

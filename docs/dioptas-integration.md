@@ -63,8 +63,8 @@ material and removes the unsupported Fei-FeO and Hixson-W reductions. It also
 excludes the Martinez global HT-BM3 reduction because its fitted reference
 volume is omitted and its remaining coefficients are not reproducible from the
 printed data under the documented equations.
-Peritheos-native aragonite BM2 and B2-KCl P-V-T records bring the distributed
-catalog to 115 materials and 146 EOS records; they have primary-publication
+Peritheos-native aragonite BM2, B2-KCl P-V-T, and Benedict diamond Helmholtz
+records bring the distributed catalog to 115 materials and 147 EOS records; they have primary-publication
 provenance rather than fabricated Dioptas migration sources.
 
 ```python
@@ -95,7 +95,7 @@ new or edited records so the scientific choice is visible without consulting
 the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
-marks all 146 bundled records `primary_source_validated`; no record remains
+marks all 147 bundled records `primary_source_validated`; no record remains
 pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.

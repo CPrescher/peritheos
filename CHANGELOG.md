@@ -7,6 +7,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the generic `DoubleDebyeHelmholtz` full-free-energy EOS with a Vinet
+  0 K cold curve, volume-dependent double-Debye modes and weights, zero-point
+  motion, a volume-dependent $T^2$ correction, analytic pressure, normal
+  pressure/volume/temperature inversion, fitting support, and documented
+  Benedict et al. diamond parameters as an example rather than model defaults.
+- Added the Benedict et al. (2014) diamond coefficients as an audited material
+  record in both the curated catalog and bundled `.eosmat` library, with
+  explicit per-atom/conventional-cell conversion and cold-curve caveats.
+- Added DAC two-volume temperature inversion for absolute Helmholtz models by
+  defining the confined thermal pressure relative to the 300 K isotherm; the
+  material-record wrapper accepts conventional-cell volumes directly.
 - Added native Rust loading for canonical Peritheos format-3 and legacy
   Dioptas format-2 `.eosmat` files, with executable runtime-dispatched EOS
   records, preserved JSON extensions, and automatic conventional-cell to
@@ -14,6 +25,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- Corrected the scientific provenance of all eleven Sokolova pressure scales:
+  their reference inputs and final coefficients originate in Sokolova et al.
+  (2013), Tables 1 and 4, while the 2016 paper is the spreadsheet
+  implementation/correction source. Each material record now carries structured
+  source lineage and fitting-data caveats. The misleading `_sokolova_2016`
+  record identifiers and public constants were removed in favor of
+  `_sokolova_2013`; `Sokolova2016` remains the corrected calculator formalism.
 - Replaced the migrated InN BM3/experimental-volume hybrid with Muñoz and
   Kunc's published theoretical wurtzite Murnaghan fit, including a reference
   volume reconstructed from their Table 1 theoretical lattice constants.

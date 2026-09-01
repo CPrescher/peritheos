@@ -15,26 +15,35 @@ temperature inversion solves
 
 \[
 \begin{aligned}
-P_{\mathrm{ambient}} &= P_{\mathrm{cold}}(V_{\mathrm{ambient}}), \\
+P_{\mathrm{ambient}} &= P_{\mathrm{ref}}(V_{\mathrm{ambient}}), \\
 P_{\mathrm{EOS}}(V_{\mathrm{heated}}, T)
 &= P_{\mathrm{ambient}}
    + f_{\mathrm{DAC}}\,\Delta P_{\mathrm{thermal}}(V_{\mathrm{heated}}, T).
 \end{aligned}
 \]
 
-Because `P_EOS = P_cold + Delta P_thermal`, this reduces exactly to
+Here
+
+\[
+P_{\mathrm{ref}}(V)=P_{\mathrm{EOS}}(V,T_r),\qquad
+\Delta P_{\mathrm{thermal}}(V,T)=P_{\mathrm{EOS}}(V,T)-P_{\mathrm{ref}}(V).
+\]
+
+The volume-pair equation therefore reduces exactly to
 
 \[
 \Delta P_{\mathrm{thermal}}(V_{\mathrm{heated}}, T)
-= \frac{P_{\mathrm{cold}}(V_{\mathrm{ambient}})
-       - P_{\mathrm{cold}}(V_{\mathrm{heated}})}
+= \frac{P_{\mathrm{ref}}(V_{\mathrm{ambient}})
+       - P_{\mathrm{ref}}(V_{\mathrm{heated}})}
       {1-f_{\mathrm{DAC}}}.
 \]
 
-The implementation solves this reduced equation directly. This avoids
-re-evaluating both sides of the original expression and makes the domain clear:
-for the usual positive, monotonic thermal-pressure models, a heated state needs
-the heated volume to have the larger cold-compression pressure.
+For the usual thermal models, `P_ref` is the stored cold/reference isotherm and
+their existing `thermal_pressure` already vanishes at $T_r$. For
+`DoubleDebyeHelmholtz`, `P_ref` is its complete 300 K isotherm and subtraction
+removes the zero-point and 300 K thermal baseline only from the heating
+increment—not from either total pressure. This makes the volume-pair method
+compatible with its absolute Helmholtz formulation.
 
 Here `f_dac` is defined specifically as the fraction of the EOS thermal pressure
 that appears as an increase above the reference-temperature pressure:
@@ -62,9 +71,11 @@ corrected_temperature = eos.temperature_from_volumes(
     heated_volume,
     f_dac=f_dac,
 )
-ambient_pressure = eos.rt_eos.pressure(ambient_volume)
-thermal_pressure = eos.thermal_pressure(heated_volume, corrected_temperature)
-high_temperature_pressure = ambient_pressure + f_dac * thermal_pressure
+ambient_pressure = eos.pressure(ambient_volume, eos.Tr)
+confinement_pressure = eos.dac_thermal_pressure(
+    heated_volume, corrected_temperature, f_dac
+)
+high_temperature_pressure = ambient_pressure + confinement_pressure
 ```
 
 If total high-temperature pressure is measured independently, use
