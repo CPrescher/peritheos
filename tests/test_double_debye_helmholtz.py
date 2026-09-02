@@ -5,7 +5,10 @@ import pytest
 from scipy.constants import Avogadro, R, electron_volt
 
 from peritheos.eos.rt import BM3, Vinet
-from peritheos.eos.thermal import DoubleDebyeHelmholtz
+from peritheos.eos.thermal import (
+    DoubleDebyeHelmholtz,
+    DoubleDebyeLogMomentHelmholtz,
+)
 from peritheos.fitting import fit_thermal_eos
 
 # One A^3/atom expressed as Peritheos' J bar^-1 mol^-1 thermal volume.
@@ -39,6 +42,32 @@ def diamond_eos():
         Ve=5.785 * volume_factor,
         kappa=0.0,
         phi0=-9.066 * EV_PER_ATOM_TO_J_PER_MOL,
+    )
+
+
+@pytest.fixture
+def correa_diamond_eos():
+    """Correa et al. (2008) Table I diamond parameter set."""
+    volume_factor = ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
+    return DoubleDebyeLogMomentHelmholtz(
+        rt_eos=Vinet(
+            V0=5.785 * volume_factor,
+            K0=368.2,
+            K0_prime=4.038,
+        ),
+        Vp=5.571 * volume_factor,
+        theta_a0=1887.8,
+        a_a=-0.316 / volume_factor,
+        b_a=0.913,
+        theta_b0=1887.8,
+        a_b=0.168 / volume_factor,
+        b_b=0.429,
+        theta_0_0=1887.8,
+        a_0=0.131 / volume_factor,
+        b_0=0.202,
+        n=1.0,
+        anharmonic_a=3.8e-5,
+        phi0=-155.059 * EV_PER_ATOM_TO_J_PER_MOL,
     )
 
 
@@ -316,3 +345,100 @@ def test_non_vinet_cold_curve_is_rejected():
             0.0,
             1.0,
         )
+
+
+def test_correa_logarithmic_moment_weights_follow_equation_13(
+    correa_diamond_eos,
+):
+    volume = 4.0 * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
+    theta_a, theta_b, theta_0 = correa_diamond_eos.debye_temperatures(volume)
+    weight_a, weight_b = correa_diamond_eos.double_debye_weights(volume)
+
+    assert weight_a == pytest.approx(
+        np.log(theta_b / theta_0) / np.log(theta_b / theta_a)
+    )
+    assert weight_a + weight_b == pytest.approx(1.0)
+    assert (weight_a * np.log(theta_a) + weight_b * np.log(theta_b)) == pytest.approx(
+        np.log(theta_0)
+    )
+
+
+def test_correa_degenerate_reference_weight_has_finite_limit(correa_diamond_eos):
+    weight_a, weight_b = correa_diamond_eos.double_debye_weights(correa_diamond_eos.Vp)
+
+    gamma_a = -0.316 * 5.571 + 0.913
+    gamma_b = 0.168 * 5.571 + 0.429
+    gamma_0 = 0.131 * 5.571 + 0.202
+    assert weight_a == pytest.approx((gamma_b - gamma_0) / (gamma_b - gamma_a))
+    assert weight_a + weight_b == pytest.approx(1.0)
+    assert np.isfinite(correa_diamond_eos.pressure(correa_diamond_eos.Vp, 300.0))
+
+
+@pytest.mark.parametrize(
+    "atomic_volume,temperature",
+    [(5.785, 0.0), (5.571, 300.0), (4.43, 5000.0), (3.21, 9000.0)],
+)
+def test_correa_pressure_is_negative_free_energy_volume_derivative(
+    correa_diamond_eos, atomic_volume, temperature
+):
+    volume = atomic_volume * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
+    step = 1.0e-6 * volume
+    numerical_pressure = -(
+        (
+            correa_diamond_eos.helmholtz_free_energy(volume + step, temperature)
+            - correa_diamond_eos.phi0
+        )
+        - (
+            correa_diamond_eos.helmholtz_free_energy(volume - step, temperature)
+            - correa_diamond_eos.phi0
+        )
+    ) / (2.0 * step * 1.0e4)
+
+    assert correa_diamond_eos.pressure(volume, temperature) == pytest.approx(
+        numerical_pressure, rel=1.0e-8, abs=5.0e-8
+    )
+
+
+def test_correa_anharmonic_term_changes_caloric_but_not_pressure(
+    correa_diamond_eos,
+):
+    volume = 4.0 * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
+    temperature = 5000.0
+    harmonic = correa_diamond_eos.with_parameters(anharmonic_a=0.0)
+
+    assert correa_diamond_eos.pressure(volume, temperature) == pytest.approx(
+        harmonic.pressure(volume, temperature)
+    )
+    assert correa_diamond_eos.anharmonic_helmholtz_free_energy(
+        volume, temperature
+    ) == pytest.approx(-R * 3.8e-5 * temperature**2)
+    assert (
+        correa_diamond_eos.molar_heat_capacity_v(volume, temperature)
+        - harmonic.molar_heat_capacity_v(volume, temperature)
+    ) == pytest.approx(2.0 * R * 3.8e-5 * temperature)
+
+
+def test_published_correa_benedict_anharmonic_factor_of_two_is_explicit(
+    correa_diamond_eos, diamond_eos
+):
+    """The records reproduce the two papers' inconsistent normalizations."""
+    volume = 4.0 * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
+    temperature = 5000.0
+
+    correa_coefficient = -correa_diamond_eos.anharmonic_helmholtz_free_energy(
+        volume, temperature
+    ) / (R * temperature**2)
+    benedict_coefficient = -diamond_eos.anharmonic_helmholtz_free_energy(
+        volume, temperature
+    ) / (R * temperature**2)
+
+    assert correa_coefficient == pytest.approx(3.8e-5)
+    assert benedict_coefficient == pytest.approx(3.79e-5 / 2.0)
+
+
+def test_correa_parameter_reconstruction(correa_diamond_eos):
+    rebuilt = correa_diamond_eos.with_parameters(theta_0_0=1900.0)
+
+    assert rebuilt.theta_0_0 == 1900.0
+    assert rebuilt.theta_a0 == correa_diamond_eos.theta_a0
+    assert rebuilt.rt_eos.K0 == correa_diamond_eos.rt_eos.K0

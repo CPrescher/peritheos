@@ -3,7 +3,7 @@
 Any cataloged material EOS can turn a measured crystallographic unit-cell
 volume and temperature into pressure in GPa. The EOS records also invert pressure to volume,
 preserve scalar or NumPy array shapes, carry the primary-source provenance and
-validity envelope with the calculation, and propagate measurement and published
+calibration/data envelope with the calculation, and propagate measurement and published
 parameter uncertainty.
 
 ```python
@@ -25,7 +25,7 @@ volumes. Temperature is in K. Pressure is in GPa.
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 115 material documents and 147 independently
+library is broader: it contains 115 material documents and 148 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 
@@ -34,6 +34,7 @@ audited EOS records, accessed with `list_material_documents()` and
 | `mgo_b1_tange_2009_vinet` | MgO B1, 4 formula units/cell | Fit3-Vinet + Mie-Gruneisen-Debye | 0–196 GPa, 300–3700 K, $0.652 \leq V/V_0 \leq 1.150$ | [Tange et al. (2009)](https://doi.org/10.1029/2008JB005813) |
 | `mgo_b1_sokolova_2013` | MgO B1, 4 formula units/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 correction/workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `diamond_sokolova_2013` | diamond, 8 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
+| `diamond_correa_2008` | diamond, 8 atoms/cell | Vinet + logarithmic-moment double-Debye Helmholtz | 0–1075 GPa, 1–10000 K; DFT-GGA ambient-volume caveat applies | [Correa et al. (2008)](https://doi.org/10.1103/PhysRevB.78.024101) |
 | `diamond_benedict_2014` | diamond, 8 atoms/cell | Vinet + double-Debye Helmholtz | 0–1000 GPa, 300–9000 K; phase boundary must be checked separately | [Benedict et al. (2014)](https://doi.org/10.1103/PhysRevB.89.224109) |
 | `al_fcc_sokolova_2013` | Al fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `cu_fcc_sokolova_2013` | Cu fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
@@ -116,11 +117,11 @@ term and not a shifted reference state; the temperature slope varies as
 uncertainty for `dK_dT_V` and notes an additional unquantified contribution
 from `K0'`, which remains visible in the record notes.
 
-The Tange domain is the marginal envelope of several pressure-scale-free data
+The Tange calibration domain is the marginal envelope of several pressure-scale-free data
 sets, not a rectangular guarantee that every combination of its extrema was
 measured. Table 5 in that paper prints calculations to 4000 K, but values beyond
-the 3700 K data limit are flagged as extrapolations and are not admitted by the
-default range check.
+the 3700 K data limit are extrapolations. Peritheos evaluates them by default;
+users can request an explicit calibration-range check.
 
 The five Dorfman entries are one internally consistent, relative 300 K scale.
 They are anchored to the Tange MgO scale; co-compression by itself does not make
@@ -235,7 +236,7 @@ p_dorfman_300k = get_eos_record("au_fcc_dorfman_2012").pressure(volume, 300.0)
 ```
 
 These are separate literature scales with different reference isotherms,
-thermal terms, fit inputs, and validity envelopes. The 300 K-only Dorfman
+thermal terms, fit inputs, and calibration/data envelopes. The 300 K-only Dorfman
 entry cannot be evaluated at 1800 K.
 
 ### Hot MgO marker
@@ -297,22 +298,23 @@ When a paper supplies no parameter errors (the KCl/KBr fits), Peritheos still
 propagates measured volume and temperature uncertainty and explicitly labels
 the missing parameter-uncertainty block. It never substitutes zero errors.
 
-### Explicit extrapolation
+### Calibration coverage and extrapolation
 
-Catalog methods check their published envelope by default:
+Catalog methods evaluate the EOS beyond its published calibration/data envelope
+by default:
 
 ```python
 gold = get_eos_record("au_fcc_dorfman_2012")
-gold.pressure(gold.reference_volume)  # raises: below the calibrated range
+gold.pressure(gold.reference_volume)  # evaluates an extrapolation
 
-# The underlying equation can still be evaluated for a deliberate diagnostic.
-p0 = gold.pressure(gold.reference_volume, check_validity=False)
-assert p0 == 0.0
+# Optional guard for workflows that require calibration-range coverage.
+gold.pressure(gold.reference_volume, check_validity=True)  # raises
 ```
 
-`within_validity(volume, temperature)` checks states without raising. Disabling
-the check does not expand the scientific validation, stabilize an absent phase,
-or create a thermal correction.
+`within_calibration_range(volume, temperature)` checks coverage without raising;
+`within_validity(...)` remains as a compatibility alias. Extrapolation does not
+stabilize an absent phase or create a thermal correction, but being outside the
+data range does not by itself make an EOS invalid.
 
 ## Executable `.eosmat` materials
 
@@ -347,7 +349,7 @@ keeps:
   public-to-model conversion factor;
 - primary reference, DOI, equation/table/page or supplement locations;
 - component-specific parameter provenance, standard errors, and covariance;
-- the published validity envelope, assumptions, ambiguities, and caveats.
+- the published calibration/data envelope, assumptions, ambiguities, and caveats.
 
 The loader accepts only model identifiers in Peritheos's fixed registry. It
 does not dynamically import an implementation path. `Material.from_eosmat()`

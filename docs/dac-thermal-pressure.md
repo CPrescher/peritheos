@@ -40,10 +40,10 @@ The volume-pair equation therefore reduces exactly to
 
 For the usual thermal models, `P_ref` is the stored cold/reference isotherm and
 their existing `thermal_pressure` already vanishes at $T_r$. For
-`DoubleDebyeHelmholtz`, `P_ref` is its complete 300 K isotherm and subtraction
+the double-Debye Helmholtz classes, `P_ref` is their complete 300 K isotherm and subtraction
 removes the zero-point and 300 K thermal baseline only from the heating
 increment—not from either total pressure. This makes the volume-pair method
-compatible with its absolute Helmholtz formulation.
+compatible with their absolute Helmholtz formulation.
 
 Here `f_dac` is defined specifically as the fraction of the EOS thermal pressure
 that appears as an increase above the reference-temperature pressure:

@@ -17,6 +17,7 @@ from peritheos.materials import (
     CU_SOKOLOVA_2013,
     DEFERRED_EOS_RECORDS,
     DIAMOND_BENEDICT_2014,
+    DIAMOND_CORREA_2008,
     DIAMOND_DEWAELE_2008,
     DIAMOND_SOKOLOVA_2013,
     FEI_2007_EOS_RECORDS,
@@ -65,7 +66,7 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 34
+    assert len(records) == 35
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
     assert get_eos_record("mgo_b1_tange_2009_vinet") is MGO_TANGE_2009
@@ -85,6 +86,7 @@ def test_catalog_listing_lookup_and_material_filter():
         MGO_SOKOLOVA_2013,
     )
     assert DIAMOND_BENEDICT_2014 in get_material("diamond").eos_records
+    assert DIAMOND_CORREA_2008 in get_material("diamond").eos_records
     assert get_material("au_fcc").get_eos_record("au_fcc_fei_2007") is AU_FEI_2007
     assert list_materials(formula="Au") == (get_material("au_fcc"),)
     assert list_eos_records(formula="missing") == ()
@@ -389,11 +391,13 @@ def test_added_thermal_families_broadcast_arrays(standard):
     assert np.allclose(recovered, pressures, rtol=1.0e-10)
 
 
-def test_added_thermal_family_validity_guards():
-    with pytest.raises(ValueError, match="outside the published validity"):
-        MGO_SOKOLOVA_2013.volume(401.0, 2000.0)
-    with pytest.raises(ValueError, match="outside the published validity"):
-        NE_FEI_2007.volume(50.0, 1100.0)
+def test_added_thermal_family_calibration_range_guards_are_opt_in():
+    assert np.isfinite(MGO_SOKOLOVA_2013.volume(401.0, 2000.0))
+    assert np.isfinite(NE_FEI_2007.volume(50.0, 1100.0))
+    with pytest.raises(ValueError, match="outside the published calibration"):
+        MGO_SOKOLOVA_2013.volume(401.0, 2000.0, check_validity=True)
+    with pytest.raises(ValueError, match="outside the published calibration"):
+        NE_FEI_2007.volume(50.0, 1100.0, check_validity=True)
 
 
 @pytest.mark.parametrize(
@@ -560,6 +564,27 @@ def test_diamond_benedict_2014_library_regression(
     )
 
 
+@pytest.mark.parametrize(
+    ("volume_per_atom", "temperature", "expected_pressure"),
+    [
+        (5.785, 300.0, 4.710783105788316),
+        (5.571, 300.0, 20.018830109151665),
+        (4.43, 5000.0, 202.62811519774186),
+        (3.21, 9000.0, 729.9463078775337),
+    ],
+)
+def test_diamond_correa_2008_library_regression(
+    volume_per_atom, temperature, expected_pressure
+):
+    volume_per_cell = 8.0 * volume_per_atom
+    calculated = DIAMOND_CORREA_2008.pressure(volume_per_cell, temperature)
+
+    assert calculated == pytest.approx(expected_pressure, rel=5.0e-11)
+    assert DIAMOND_CORREA_2008.volume(calculated, temperature) == pytest.approx(
+        volume_per_cell, rel=1.0e-11
+    )
+
+
 def test_diamond_benedict_cold_reference_is_not_zero_total_pressure():
     record = DIAMOND_BENEDICT_2014
 
@@ -647,15 +672,16 @@ def test_tange_table5_printed_pressure_regression(ratio, temperature, expected):
 
 def test_validity_checks_distinguish_extrapolation_from_evaluation():
     assert AU_DORFMAN_2012.within_validity(50.0, 300.0)
+    assert AU_DORFMAN_2012.within_calibration_range(50.0, 300.0)
     assert not AU_DORFMAN_2012.within_validity(AU_DORFMAN_2012.reference_volume, 300.0)
     validity = AU_DORFMAN_2012.within_validity(np.array([50.0, 67.85]), 300.0)
     assert np.array_equal(validity, [True, False])
 
-    with pytest.raises(ValueError, match="outside the published validity"):
-        AU_DORFMAN_2012.pressure(AU_DORFMAN_2012.reference_volume)
-    assert AU_DORFMAN_2012.pressure(
-        AU_DORFMAN_2012.reference_volume, check_validity=False
-    ) == pytest.approx(0.0)
+    with pytest.raises(ValueError, match="outside the published calibration"):
+        AU_DORFMAN_2012.pressure(AU_DORFMAN_2012.reference_volume, check_validity=True)
+    assert AU_DORFMAN_2012.pressure(AU_DORFMAN_2012.reference_volume) == pytest.approx(
+        0.0
+    )
 
 
 @pytest.mark.parametrize("volume", [0.0, -1.0, np.nan, np.inf])

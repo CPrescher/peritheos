@@ -48,6 +48,12 @@ class DoubleDebyeHelmholtz(ThermalEOS):
 
     ``F_anh = -n*R*alpha0*(V/Ve)**kappa*T**2/2``.
 
+    Here ``alpha0`` uses the Benedict normalization, for which the associated
+    heat-capacity term is ``n*R*alpha(V)*T``.  The factor ``1/2`` is therefore
+    a coefficient convention, not additional physics: a free-energy
+    coefficient defined directly by ``F_anh = -n*R*a(V)*T**2`` satisfies
+    ``alpha(V) = 2*a(V)``.
+
     Parameters use Peritheos thermal units: ``V``, ``Vp``, and ``Ve`` are in
     J bar^-1 mol^-1, ``a_*`` in (J bar^-1 mol^-1)^-1, temperatures in K,
     energy in J mol^-1, and pressure in GPa.  ``phi0`` is the cold energy at
@@ -456,3 +462,156 @@ class DoubleDebyeHelmholtz(ThermalEOS):
                 "temperature, not a heated state"
             )
         return self._result(temperatures)
+
+
+class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
+    """Vinet/double-Debye Helmholtz EOS constrained by ``theta_0``.
+
+    The two Debye-mode weights satisfy the logarithmic phonon-moment
+    constraint
+
+    ``xi_a = log(theta_b / theta_0) / log(theta_b / theta_a)``.
+
+    Each characteristic temperature follows
+
+    ``theta(V) = theta_ref * (V / Vp)**(-b) * exp(a * (Vp - V))``.
+
+    The volume derivative of the weights is included in the pressure.  The
+    optional Correa anharmonic term is volume independent and has the form
+    ``F_anh = -n*R*anharmonic_a*T**2``; it therefore changes energy and heat
+    capacity but not pressure.  Correa's coefficient is the direct
+    free-energy coefficient; in the later Benedict ``-alpha*T**2/2``
+    normalization, the equivalent value is ``alpha = 2*anharmonic_a``.
+
+    Parameters use the same molar units as :class:`DoubleDebyeHelmholtz`.
+
+    Reference
+    ---------
+    Correa, A. A. et al. (2008), Physical Review B 78, 024101, equations
+    (2)--(7) and (13)--(18), and Table I.
+    doi:10.1103/PhysRevB.78.024101
+    """
+
+    def __init__(
+        self,
+        rt_eos: Vinet,
+        Vp: float,
+        theta_a0: float,
+        a_a: float,
+        b_a: float,
+        theta_b0: float,
+        a_b: float,
+        b_b: float,
+        theta_0_0: float,
+        a_0: float,
+        b_0: float,
+        n: float = 1.0,
+        anharmonic_a: float = 0.0,
+        phi0: float = 0.0,
+    ) -> None:
+        if not isinstance(rt_eos, Vinet):
+            raise ConfigurationError("rt_eos must be a Vinet cold curve")
+        ThermalEOS.__init__(self, rt_eos)
+        self.Vp = validate_positive_scalar(Vp, "Vp")
+        self.theta_a0 = validate_positive_scalar(theta_a0, "theta_a0")
+        self.a_a = validate_finite_scalar(a_a, "a_a")
+        self.b_a = validate_finite_scalar(b_a, "b_a")
+        self.theta_b0 = validate_positive_scalar(theta_b0, "theta_b0")
+        self.a_b = validate_finite_scalar(a_b, "a_b")
+        self.b_b = validate_finite_scalar(b_b, "b_b")
+        self.theta_0_0 = validate_positive_scalar(theta_0_0, "theta_0_0")
+        self.a_0 = validate_finite_scalar(a_0, "a_0")
+        self.b_0 = validate_finite_scalar(b_0, "b_0")
+        self.n = validate_positive_scalar(n, "n")
+        self.anharmonic_a = validate_finite_scalar(anharmonic_a, "anharmonic_a")
+        if self.anharmonic_a < 0.0:
+            raise EosValidationError("anharmonic_a must not be negative")
+        self.phi0 = validate_finite_scalar(phi0, "phi0")
+
+    def debye_temperatures(
+        self, V: NumericType
+    ) -> tuple[NumericType, NumericType, NumericType]:
+        """Return ``(theta_a, theta_b, theta_0)`` in K."""
+        theta_a, _ = self._temperature_law(V, self.theta_a0, self.a_a, self.b_a)
+        theta_b, _ = self._temperature_law(V, self.theta_b0, self.a_b, self.b_b)
+        theta_0, _ = self._temperature_law(V, self.theta_0_0, self.a_0, self.b_0)
+        return (
+            self._result(theta_a),
+            self._result(theta_b),
+            self._result(theta_0),
+        )
+
+    def _mode_terms(self, V: NumericType) -> tuple[np.ndarray, ...]:
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        theta_a, gamma_a = self._temperature_law(
+            volumes, self.theta_a0, self.a_a, self.b_a
+        )
+        theta_b, gamma_b = self._temperature_law(
+            volumes, self.theta_b0, self.a_b, self.b_b
+        )
+        theta_0, gamma_0 = self._temperature_law(
+            volumes, self.theta_0_0, self.a_0, self.b_0
+        )
+
+        denominator = np.log(theta_b / theta_a)
+        numerator = np.log(theta_b / theta_0)
+        regular = np.abs(denominator) > 1.0e-10
+        safe_denominator = np.where(regular, denominator, 1.0)
+        weight_a = numerator / safe_denominator
+
+        numerator_prime = (gamma_0 - gamma_b) / volumes
+        denominator_prime = (gamma_a - gamma_b) / volumes
+        weight_a_prime = (
+            numerator_prime * safe_denominator - numerator * denominator_prime
+        ) / safe_denominator**2
+
+        gamma_denominator = gamma_b - gamma_a
+        gamma_regular = np.abs(gamma_denominator) > 1.0e-12
+        limiting_weight = np.divide(
+            gamma_b - gamma_0,
+            gamma_denominator,
+            out=np.full_like(gamma_denominator, 0.5),
+            where=gamma_regular,
+        )
+        weight_a = np.where(regular, weight_a, limiting_weight)
+        weight_a_prime = np.where(regular, weight_a_prime, 0.0)
+        return (
+            volumes,
+            theta_a,
+            gamma_a,
+            theta_b,
+            gamma_b,
+            theta_0,
+            weight_a,
+            weight_a_prime,
+        )
+
+    def anharmonic_coefficient(self, V: NumericType) -> NumericType:
+        """Return Correa's volume-independent ``a`` coefficient in K^-1."""
+        volumes = np.asarray(validate_volume(V), dtype=float)
+        result = np.full_like(volumes, self.anharmonic_a, dtype=float)
+        return self._result(result)
+
+    def anharmonic_helmholtz_free_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return ``-n*R*a*T^2`` in J mol^-1."""
+        _, temperatures = self._state(V, T)
+        return self._result(-self.n * R * self.anharmonic_a * temperatures**2)
+
+    def anharmonic_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return zero because Correa's anharmonic coefficient is constant."""
+        volumes, _ = self._state(V, T)
+        return self._result(np.zeros_like(volumes))
+
+    def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return non-cold constant-volume heat capacity in J mol^-1 K^-1."""
+        volumes, temperatures = self._state(V, T)
+        terms = self._mode_terms(volumes)
+        theta_a, theta_b, weight_a = terms[1], terms[3], terms[6]
+        result = self.n * (
+            weight_a * self._single_debye_heat_capacity(theta_a, temperatures)
+            + (1.0 - weight_a) * self._single_debye_heat_capacity(theta_b, temperatures)
+            + 2.0 * R * self.anharmonic_a * temperatures
+        )
+        return self._result(result)

@@ -64,8 +64,8 @@ field contract and consumer defaults.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records have been added for aragonite BM2, the
-B2-KCl P-V-T pressure calibration, and the Benedict et al. diamond Helmholtz
-model. All 147 bundled records are
+B2-KCl P-V-T pressure calibration, and the Correa and Benedict diamond
+Helmholtz models. All 148 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with
@@ -92,6 +92,18 @@ temperature = DIAMOND_BENEDICT_2014.temperature_from_volumes(
 The record's `reference_volume` is the Table I **0 K motionless-ion cold-curve**
 volume, not a 300 K zero-total-pressure state. The record also carries the
 source's narrower DFT-MD comparison domain and diamond phase-stability caveat.
+
+The earlier Correa logarithmic-moment branch is a separate convenience record:
+
+```python
+from peritheos.materials import DIAMOND_CORREA_2008
+
+pressure = DIAMOND_CORREA_2008.pressure(8.0 * 4.43, 5000.0)
+# 202.628115 GPa
+```
+
+It preserves the published DFT-GGA cold-curve volume and records the authors'
+approximately 3% ambient-volume caveat rather than applying an implicit shift.
 
 For example, the independently reproducible staged aragonite BM2 record can be
 used at its 298 K reference state or at the represented high temperatures:
@@ -122,11 +134,12 @@ lookups within that curated pressure-scale set. Use
 `list_material_documents()` and `Material.from_eosmat()` for the complete
 shared library. Each `EOSRecord` provides:
 
-- `pressure(volume, temperature=None, check_validity=True)` in GPa;
-- `volume(pressure, temperature=None, check_validity=True)` in
+- `pressure(volume, temperature=None, check_validity=False)` in GPa;
+- `volume(pressure, temperature=None, check_validity=False)` in
   angstrom^3/conventional unit cell;
 - `pressure_with_uncertainty(...)` and `volume_with_uncertainty(...)`;
-- `within_validity(volume, temperature=None)`;
+- `within_calibration_range(volume, temperature=None)` (preferred) and the
+  compatibility alias `within_validity(...)`;
 - `reference`, `validity`, `parameter_provenance`, `notes`, and volume metadata.
 
 See [Pressure standards](pressure-standards.md) for the subset and workflows
@@ -181,6 +194,7 @@ the mathematical definitions and coefficient domains.
 ```python
 from peritheos.eos.thermal import (
     DoubleDebyeHelmholtz,
+    DoubleDebyeLogMomentHelmholtz,
     HollandPowell2011,
     LinearThermalPressure,
     LogVolumeThermalPressure,
@@ -198,6 +212,7 @@ Thermal constructor signatures are:
 | Class | Parameters after `rt_eos` |
 |---|---|
 | `DoubleDebyeHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_1_0, a_1, b_1`, followed by optional `n, alpha0, Ve, kappa, phi0` |
+| `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0` |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"` |
@@ -214,16 +229,16 @@ classes accept any `EosBase` reference. `LogVolumeThermalPressure` requires
 `V0` and `K0`. Energy-based thermal classes require molar volume in
 `J bar^-1 mol^-1`; `LinearThermalPressure` and `ThermalReferenceStateEOS`
 inherit any volume unit consistent with their reference EOS.
-`DoubleDebyeHelmholtz` instead requires a `Vinet` object representing the
-classical 0 K cold curve. Its `thermal_pressure()` is the absolute non-cold
-contribution, including zero-point pressure, rather than a difference from a
-reference temperature. It additionally exposes `cold_energy()`,
+The double-Debye Helmholtz classes instead require a `Vinet` object representing
+the classical 0 K cold curve. Their `thermal_pressure()` is the absolute
+non-cold contribution, including zero-point pressure, rather than a difference
+from a reference temperature. Each additionally exposes `cold_energy()`,
 `zero_point_energy()`, `ion_helmholtz_free_energy()`,
 `anharmonic_helmholtz_free_energy()`, `helmholtz_free_energy()`,
 `ion_pressure()`, and `anharmonic_pressure()`.
-Its ordinary `temperature(P,V)` inversion and DAC
+Their ordinary `temperature(P,V)` inversion and DAC
 `temperature_from_volumes()` inversion are supported. For the latter,
-`DoubleDebyeHelmholtz` subtracts its pressure on the 300 K isotherm so the
+both classes subtract their pressure on the 300 K isotherm so the
 confinement term excludes zero-point and baseline thermal pressure.
 `HollandPowell2011` is an alias for
 `ThermalModifiedTait`. Exact equations and parameter roles are documented
@@ -254,7 +269,7 @@ Common methods:
 
 `dac_thermal_pressure()` returns only the additional confinement term. For
 reference-relative thermal models this is `f_dac * thermal_pressure(V, T)`;
-for `DoubleDebyeHelmholtz` it is
+for either double-Debye Helmholtz class it is
 `f_dac * (pressure(V, T) - pressure(V, Tr))`. `temperature_from_volumes()` applies the
 empirical confinement model described in
 [Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md);

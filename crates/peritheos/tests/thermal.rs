@@ -1,10 +1,10 @@
 use peritheos::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
 use peritheos::thermal::{
     debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw,
-    DoubleDebyeHelmholtz, LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye,
-    MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceVolumeLaw, Sokolova2016,
-    SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState,
-    GAS_CONSTANT,
+    DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz, LinearThermalPressure,
+    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    ReferenceVolumeLaw, Sokolova2016, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
+    ThermalReferenceState, GAS_CONSTANT,
 };
 use peritheos::{CaloricEos, EosError, ThermalEos};
 use serde_json::Value;
@@ -61,6 +61,53 @@ fn double_debye_helmholtz_matches_the_benedict_diamond_regression() {
         .helmholtz_free_energy(volume, 3000.0)
         .unwrap()
         .is_finite());
+}
+
+#[test]
+fn log_moment_double_debye_matches_the_correa_diamond_regression() {
+    let model = DoubleDebyeLogMomentHelmholtz::new(
+        Vinet::new(0.348_380_842_966, 368.2, 4.038).unwrap(),
+        0.335_493_461_739_6,
+        1887.8,
+        -5.247_303_452_269_356,
+        0.913,
+        1887.8,
+        2.789_705_632_852_062_4,
+        0.429,
+        1887.8,
+        2.175_306_177_997_739,
+        0.202,
+        1.0,
+        3.8e-5,
+        -14_960_919.113_708_327,
+    )
+    .unwrap();
+    for (atomic_volume, temperature, expected_pressure) in [
+        (5.785, 300.0, 4.710_783_105_788_316),
+        (5.571, 300.0, 20.018_830_109_151_665),
+        (4.43, 5000.0, 202.628_115_197_741_86),
+        (3.21, 9000.0, 729.946_307_877_533_7),
+    ] {
+        let volume = atomic_volume * 0.060_221_407_6;
+        assert_close(
+            model.pressure(volume, temperature).unwrap(),
+            expected_pressure,
+            5.0e-10,
+        );
+    }
+
+    let (weight_a, weight_b) = model.double_debye_weights(4.0 * 0.060_221_407_6).unwrap();
+    assert_close(weight_a + weight_b, 1.0, 1.0e-14);
+    assert!(model
+        .helmholtz_free_energy(4.0 * 0.060_221_407_6, 5000.0)
+        .unwrap()
+        .is_finite());
+    assert!(
+        model
+            .molar_heat_capacity_v(4.0 * 0.060_221_407_6, 5000.0)
+            .unwrap()
+            > 0.0
+    );
 }
 
 #[test]

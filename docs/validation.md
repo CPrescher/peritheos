@@ -9,14 +9,14 @@ separate. All 115 bundled material documents pass the format-3 validator. The
 147 raw records transferred from Dioptas 0.10.0 were loaded with its material
 implementation and construct through Dioptas's Peritheos-backed EOS wrapper.
 Peritheos additionally supplies native, primary-sourced aragonite BM2,
-B2-KCl P-V-T, and Benedict diamond Helmholtz records. Primary review consolidates one duplicate material,
+B2-KCl P-V-T, and Correa and Benedict diamond Helmholtz records. Primary review consolidates one duplicate material,
 removes two EOS reductions that their citations do not define, and excludes the
 unreproducible Martinez global HT-BM3 reduction. Splitting the two distinct
 phase-D reference volumes and adding the Benedict record produces 147 bundled
-records in total. These checks establish file and software
+records; adding the Correa diamond branch produces 148 in total. These checks establish file and software
 interoperability only.
 
-The 2026-09-01 primary-source audit completed the classification of all 147
+The 2026-09-01 primary-source audit completed the classification of all 148
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,

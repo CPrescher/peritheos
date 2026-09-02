@@ -88,7 +88,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 115
     assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 147
+    assert sum(len(document["eos_records"]) for document in documents) == 148
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -114,10 +114,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 147
+    assert len({record["identifier"] for record in records}) == 148
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 147
+    assert statuses.count("primary_source_validated") == 148
     assert all(
         record["scientific_validation"]["audit_date"] == "2026-09-01"
         for record in records
@@ -143,6 +143,7 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert {record["identifier"] for record in native_records} == {
         "aragonite_martinez_1996_bm2_2",
         "diamond_benedict_2014_double_debye_4",
+        "diamond_correa_2008_double_debye_log_moment_5",
         "kcl_b2_dewaele_2012_vinet_3",
     }
     assert {
@@ -172,8 +173,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 147,
-        "primary_source_validated": 147,
+        "records": 148,
+        "primary_source_validated": 148,
     }
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
@@ -195,7 +196,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 147
+    assert checked == 148
     assert failures == []
 
 
@@ -215,6 +216,25 @@ def test_benedict_diamond_eosmat_record_loads_and_reproduces_150_gpa():
     )
     assert record.volume(150.0, 3000.0) == pytest.approx(
         8.0 * 4.654270411587497, rel=1.0e-11
+    )
+
+
+def test_correa_diamond_eosmat_record_loads_and_reproduces_library_regression():
+    document = get_material_document("diamond")
+    identifier = "diamond_correa_2008_double_debye_log_moment_5"
+    material = Material.from_eosmat(document, record_identifiers=[identifier])
+    record = material.get_eos_record(identifier)
+    source = next(
+        item for item in document["eos_records"] if item["identifier"] == identifier
+    )
+
+    assert source["thermal"]["model"] == "double_debye_log_moment_helmholtz"
+    assert record.reference_volume == pytest.approx(46.28)
+    assert record.pressure(8.0 * 4.43, 5000.0) == pytest.approx(
+        202.62811519774186, rel=5.0e-11
+    )
+    assert record.volume(202.62811519774186, 5000.0) == pytest.approx(
+        8.0 * 4.43, rel=1.0e-11
     )
 
 
@@ -765,8 +785,9 @@ def test_dewaele_2012_kcl_b2_round_trip_validity_arrays_and_measurement_errors()
     assert record.pressure(volume, 2000.0) == pytest.approx(100.0)
     assert record.pressure([volume, volume], [2000.0, 2100.0]).shape == (2,)
     assert record.within_validity(volume, 2000.0)
-    with pytest.raises(ValueError, match="outside the published validity envelope"):
-        record.pressure(volume, 7200.0)
+    assert np.isfinite(record.pressure(volume, 7200.0))
+    with pytest.raises(ValueError, match="outside the published calibration"):
+        record.pressure(volume, 7200.0, check_validity=True)
 
     prediction = record.pressure_with_uncertainty(
         40.0,
@@ -1196,7 +1217,7 @@ def test_normative_schema_is_bundled():
         "variable_exponent",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 10
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 10
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 11
 
 
 def test_normative_schema_validates_every_bundled_document():
@@ -1385,7 +1406,7 @@ def test_migration_manifest_and_dioptas_license_are_bundled():
     assert manifest["source"]["project"] == "Dioptas"
     assert manifest["source"]["version"] == "0.10.0"
     assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 147
+    assert manifest["eos_records"] == 148
     assert "Copyright (c) 2021-2026 Clemens Prescher" in license_text
 
 

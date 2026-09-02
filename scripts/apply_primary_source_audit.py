@@ -50,6 +50,20 @@ def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
 # later reviewer to repeat the comparison without using another software
 # catalog as an authority.
 VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
+    "10.1103/physrevb.78.024101": source(
+        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext",
+        [
+            "Equations 2-7 and 13-18",
+            "Table I, diamond row",
+            "Figures 3 and 5-8",
+            "Section II.A",
+        ],
+        "The record implements the complete published diamond Helmholtz branch: "
+        "the DFT-GGA Vinet cold curve, logarithmic-moment double-Debye weights "
+        "and zero-point energy, and the volume-independent T^2 anharmonic term. "
+        "Per-atom volumes and energies were converted to Peritheos molar working "
+        "units; public volumes remain eight-atom conventional-cell values.",
+    ),
     "10.1103/physrevb.89.224109": source(
         "https://arxiv.org/pdf/1311.4577",
         [
@@ -2830,8 +2844,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 147:
-        raise ValueError(f"Expected 147 EOS records, found {len(entries)}")
+    if len(entries) != 148:
+        raise ValueError(f"Expected 148 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

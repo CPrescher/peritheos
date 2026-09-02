@@ -358,6 +358,132 @@
    ]
   },
   {
+   "label": "Correa et al. (2008), logarithmic-moment double-Debye Helmholtz",
+   "reference": {
+    "authors": [
+     "Correa",
+     "Benedict",
+     "Young",
+     "Schwegler",
+     "Bonev"
+    ],
+    "year": 2008,
+    "title": "First-principles multiphase equation of state of carbon under extreme conditions",
+    "source": "Phys. Rev. B",
+    "volume": "78",
+    "locator": "024101",
+    "details": "Equations 2-7 and 13-18; Table I, diamond row",
+    "doi": "10.1103/PhysRevB.78.024101",
+    "locations": [
+     "Equations 2-7 and 13-18",
+     "Table I, diamond row",
+     "Figures 3 and 5-8",
+     "Section II.A"
+    ]
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 46.28,
+     "K0": 368.2,
+     "K0_prime": 4.038
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "volume": {
+    "reference_value": 46.28,
+    "public_to_model_scale": 0.00752767595,
+    "model_unit": "J bar^-1 mol^-1"
+   },
+   "thermal": {
+    "type": "DoubleDebyeLogMomentHelmholtz",
+    "model": "double_debye_log_moment_helmholtz",
+    "parameters": {
+     "Vp": 0.3354934617396,
+     "theta_a0": 1887.8,
+     "a_a": -5.247303452269356,
+     "b_a": 0.913,
+     "theta_b0": 1887.8,
+     "a_b": 2.7897056328520624,
+     "b_b": 0.429,
+     "theta_0_0": 1887.8,
+     "a_0": 2.175306177997739,
+     "b_0": 0.202,
+     "n": 1.0,
+     "anharmonic_a": 3.8e-05,
+     "phi0": -14960919.113708327
+    },
+    "parameter_errors": {
+     "Vp": null,
+     "theta_a0": null,
+     "a_a": null,
+     "b_a": null,
+     "theta_b0": null,
+     "a_b": null,
+     "b_b": null,
+     "theta_0_0": null,
+     "a_0": null,
+     "b_0": null,
+     "n": null,
+     "anharmonic_a": null,
+     "phi0": null
+    },
+    "fixed_parameters": []
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     1075.0
+    ],
+    "temperature_k": [
+     1.0,
+     10000.0
+    ],
+    "volume_ratio": [
+     0.40103716508210885,
+     1.0
+    ],
+    "notes": [
+     "The lower volume is the compressed diamond phonon-DOS state in Figure 3; the cold curve itself was fitted over approximately 1-9 A^3/atom.",
+     "The upper pressure is the calculated 0 K diamond-BC8 crossing. These are marginal model bounds, not a phase-stability surface at finite temperature."
+    ]
+   },
+   "notes": "Complete diamond free-energy branch from equations 2-18; the double-Debye weights conserve the logarithmic phonon moment theta_0 (equation 13). Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet term is a motionless-ion DFT-GGA cold curve. The authors state that its theoretical V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift; Peritheos preserves the published value. The constant anharmonic coefficient changes caloric properties but contributes no pressure. Electronic excitations are neglected for insulating diamond as in the source. Factor-of-two source ambiguity: Correa equation 18 defines F_anh=-a*T^2 with a=3.8e-5 K^-1, whereas Benedict 2014 says it carries over the same correction but writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1. This record follows Correa literally; in Benedict's normalization the equivalent coefficient would be alpha=2*a. The source reports no coefficient uncertainties or covariance.",
+   "identifier": "diamond_correa_2008_double_debye_log_moment_5",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext",
+     "locations": [
+      "Equations 2-7 and 13-18",
+      "Table I, diamond row",
+      "Figures 3 and 5-8",
+      "Section II.A"
+     ],
+     "finding": "The record implements the complete published diamond Helmholtz branch: the DFT-GGA Vinet cold curve, logarithmic-moment double-Debye weights and zero-point energy, and the volume-independent T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
+     "doi": "10.1103/physrevb.78.024101"
+    }
+   }
+  },
+  {
    "label": "Benedict et al. (2014), Vinet double-Debye Helmholtz",
    "reference": {
     "authors": [
@@ -461,7 +587,7 @@
      "These are marginal model bounds, not a phase-stability surface; check the diamond-BC8 boundary and melting separately, especially near 1 TPa."
     ]
    },
-   "notes": "Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction. Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet curve is the motionless-ion 0 K cold curve, so V0=5.7034 A^3/atom is not a 300 K zero-total-pressure reference volume. The source reports no coefficient uncertainties or covariance.",
+   "notes": "Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction. Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet curve is the motionless-ion 0 K cold curve, so V0=5.7034 A^3/atom is not a 300 K zero-total-pressure reference volume. Factor-of-two source ambiguity: Benedict writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1, while the Correa 2008 correction it claims to retain is F_anh=-a*T^2 with a=3.8e-5 K^-1. This record follows Benedict literally; matching Correa's anharmonic energy would require alpha approximately 2*a. The source reports no coefficient uncertainties or covariance.",
    "identifier": "diamond_benedict_2014_double_debye_4",
    "scientific_validation": {
     "status": "primary_source_validated",

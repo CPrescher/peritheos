@@ -1,5 +1,13 @@
 # References
 
+- Correa, A. A., Benedict, L. X., Young, D. A., Schwegler, E. & Bonev, S. A.
+  (2008). First-principles multiphase
+  equation of state of carbon under extreme conditions. *Physical Review B*,
+  78, 024101. [doi:10.1103/PhysRevB.78.024101](https://doi.org/10.1103/PhysRevB.78.024101).
+  `DoubleDebyeLogMomentHelmholtz` implements equations 2--7 and 13--18 for the
+  diamond branch, including logarithmic-moment weights and the constant
+  anharmonic coefficient from Table I.
+
 - Benedict, L. X., Driver, K. P., Hamel, S., Militzer, B., Qi, T., Correa,
   A. A., Saul, A. & Schwegler, E. (2014). A multiphase equation of state for
   carbon addressing high pressures and temperatures. *Physical Review B*,

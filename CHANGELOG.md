@@ -7,6 +7,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added `DoubleDebyeLogMomentHelmholtz` in Python and Rust together with the
+  primary-source-validated Correa et al. (2008) diamond record. The complete
+  Helmholtz model implements the Vinet cold curve, logarithmic-moment
+  double-Debye weights, zero-point motion, and the published $T^2$
+  anharmonic contribution, with pressure, volume, energy, entropy, and heat
+  capacity evaluation.
 - Added a shared Python/Rust error contract with domain-specific Python
   exceptions, stable machine-readable codes and context, Rust error-kind
   accessors, preserved fitting source chains, and native-extension parity.
@@ -24,6 +30,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- EOS records now evaluate extrapolated states by default. Published ranges are
+  treated as calibration/data coverage, with opt-in enforcement through
+  `check_validity=True`; `within_calibration_range()` is the preferred coverage
+  query and `within_validity()` remains a compatibility alias.
+- Documented the factor-of-two normalization conflict between the Correa (2008)
+  and Benedict (2014) diamond anharmonic terms while preserving each published
+  equation and coefficient literally. For the published diamond parameters the
+  coefficient is volume independent, so this discrepancy affects caloric
+  quantities but not direct $P(V,T)$ or $V(P,T)$ evaluation.
 - Expanded Python fallback, Rust batch, error-category, thermal-domain, and
   `.eosmat` validation tests; raised the branch-aware Python coverage floor to
   90% and the Rust line-coverage floor to 85%.

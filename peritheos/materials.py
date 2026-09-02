@@ -1,4 +1,4 @@
-"""Materials and EOS records with explicit scientific provenance and validity.
+"""Materials and EOS records with provenance and calibration coverage.
 
 The public pressure unit is GPa. Catalog volumes are conventional unit-cell
 volumes in angstrom^3/cell because that is the directly measured quantity in
@@ -34,6 +34,7 @@ from peritheos.eos.rt import (
 )
 from peritheos.eos.thermal import (
     DoubleDebyeHelmholtz,
+    DoubleDebyeLogMomentHelmholtz,
     LinearThermalPressure,
     LogVolumeThermalPressure,
     MieGruneisenDebye,
@@ -64,7 +65,12 @@ class LiteratureReference:
 
 @dataclass(frozen=True)
 class ValidityRange:
-    """Published calibration/data envelope, not a phase-stability model."""
+    """Published calibration/data envelope, not an extrapolation limit.
+
+    The historical public name is retained for compatibility.  These bounds
+    describe the states used to fit or assess a parameterization; they do not
+    delimit where its equations may be evaluated or model phase stability.
+    """
 
     pressure_gpa: tuple[float, float]
     temperature_k: tuple[float, float]
@@ -206,9 +212,9 @@ class EOSRecord:
         ratio = np.asarray(public_volume, dtype=float) / self.reference_volume
         if not np.all(self.validity.contains(pressure, temperature, ratio)):
             raise MaterialError(
-                f"State is outside the published validity envelope for "
-                f"{self.identifier}; pass check_validity=False only for an "
-                "explicit extrapolation"
+                f"State is outside the published calibration/data envelope for "
+                f"{self.identifier}; the EOS can still be evaluated by leaving "
+                "check_validity=False"
             )
 
     def pressure(
@@ -216,7 +222,7 @@ class EOSRecord:
         volume: NumericType,
         temperature: Any | None = None,
         *,
-        check_validity: bool = True,
+        check_validity: bool = False,
     ) -> NumericType:
         """Calculate pressure in GPa from unit-cell volume and temperature."""
         temperatures = self._temperature(temperature)
@@ -234,7 +240,7 @@ class EOSRecord:
         pressure: NumericType,
         temperature: Any | None = None,
         *,
-        check_validity: bool = True,
+        check_validity: bool = False,
     ) -> NumericType:
         """Invert unit-cell volume from pressure in GPa and temperature."""
         temperatures = self._temperature(temperature)
@@ -255,7 +261,7 @@ class EOSRecord:
         heated_volume: NumericType,
         *,
         f_dac: float,
-        check_validity: bool = True,
+        check_validity: bool = False,
     ) -> NumericType:
         """Infer DAC temperature from two public unit-cell volumes.
 
@@ -283,7 +289,13 @@ class EOSRecord:
     def within_validity(
         self, volume: NumericType, temperature: Any | None = None
     ) -> bool | np.ndarray:
-        """Test a measured state without raising for range extrapolation."""
+        """Compatibility alias for :meth:`within_calibration_range`."""
+        return self.within_calibration_range(volume, temperature)
+
+    def within_calibration_range(
+        self, volume: NumericType, temperature: Any | None = None
+    ) -> bool | np.ndarray:
+        """Test whether states lie in the published calibration/data envelope."""
         temperatures = self._temperature(temperature)
         pressure = self.pressure(volume, temperatures, check_validity=False)
         ratio = np.asarray(volume, dtype=float) / self.reference_volume
@@ -317,7 +329,7 @@ class EOSRecord:
         *,
         volume_sigma: Any | None = None,
         temperature_sigma: Any | None = None,
-        check_validity: bool = True,
+        check_validity: bool = False,
         **options: Any,
     ) -> PredictionUncertainty:
         """Propagate published parameter and measured V/T uncertainty."""
@@ -355,7 +367,7 @@ class EOSRecord:
         *,
         pressure_sigma: Any | None = None,
         temperature_sigma: Any | None = None,
-        check_validity: bool = True,
+        check_validity: bool = False,
         **options: Any,
     ) -> PredictionUncertainty:
         """Propagate uncertainty into an inverted unit-cell volume."""
@@ -540,6 +552,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "NaturalStrain3": "natural_strain_3",
         "NaturalStrain4": "natural_strain_4",
         "DoubleDebyeHelmholtz": "double_debye_helmholtz",
+        "DoubleDebyeLogMomentHelmholtz": ("double_debye_log_moment_helmholtz"),
         "LinearThermalPressure": "linear_thermal_pressure",
         "LogVolumeThermalPressure": "log_volume_thermal_pressure",
         "ThermalReferenceStateEOS": "thermal_reference_state",
@@ -568,6 +581,7 @@ _MODEL_CLASSES = MappingProxyType(
             NaturalStrain4,
             Vinet,
             DoubleDebyeHelmholtz,
+            DoubleDebyeLogMomentHelmholtz,
             LinearThermalPressure,
             LogVolumeThermalPressure,
             ThermalReferenceStateEOS,
@@ -593,6 +607,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "natural_strain_3": "NaturalStrain3",
         "natural_strain_4": "NaturalStrain4",
         "double_debye_helmholtz": "DoubleDebyeHelmholtz",
+        "double_debye_log_moment_helmholtz": ("DoubleDebyeLogMomentHelmholtz"),
         "linear_thermal_pressure": "LinearThermalPressure",
         "log_volume_thermal_pressure": "LogVolumeThermalPressure",
         "thermal_reference_state": "AlphaKT",
@@ -610,6 +625,7 @@ _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
     {
         "mie_gruneisen_debye",
         "double_debye_helmholtz",
+        "double_debye_log_moment_helmholtz",
         "mie_gruneisen_einstein",
         "asymptotic_power_law_mie_gruneisen_debye",
         "multi_oscillator_gruneisen_thermal_pressure",
@@ -1594,6 +1610,24 @@ _DEWAELE_DIAMOND_REFERENCE = LiteratureReference(
     title="High pressure-high temperature equations of state of neon and diamond",
     doi="10.1103/PhysRevB.77.094106",
     locations=("equations 2, 3, and 6", "Tables I and III", "sections IV and V"),
+)
+
+_CORREA_DIAMOND_REFERENCE = LiteratureReference(
+    authors=(
+        "A. A. Correa, L. X. Benedict, D. A. Young, E. Schwegler, and S. A. Bonev"
+    ),
+    year=2008,
+    title=(
+        "First-principles multiphase equation of state of carbon under "
+        "extreme conditions"
+    ),
+    doi="10.1103/PhysRevB.78.024101",
+    locations=(
+        "equations 2-7 and 13-18",
+        "Table I, diamond row",
+        "Figures 3 and 5-8",
+        "section II.A",
+    ),
 )
 
 _BENEDICT_DIAMOND_REFERENCE = LiteratureReference(
@@ -2713,6 +2747,74 @@ _DIAMOND_SCALE = _molar_scale(8)
 _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR = _molar_scale(1)
 _EV_PER_ATOM_TO_J_PER_MOL = electron_volt * Avogadro
 
+DIAMOND_CORREA_2008 = EOSRecord(
+    identifier="diamond_correa_2008",
+    name="Diamond (Correa 2008 logarithmic-moment double-Debye Helmholtz)",
+    material="C",
+    phase="diamond, cubic Fd-3m",
+    cell_contents="8 C atoms per conventional cubic cell",
+    eos=DoubleDebyeLogMomentHelmholtz(
+        Vinet(
+            5.785 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+            368.2,
+            4.038,
+        ),
+        Vp=5.571 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        theta_a0=1887.8,
+        a_a=-0.316 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_a=0.913,
+        theta_b0=1887.8,
+        a_b=0.168 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_b=0.429,
+        theta_0_0=1887.8,
+        a_0=0.131 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_0=0.202,
+        n=1.0,
+        anharmonic_a=3.8e-5,
+        phi0=-155.059 * _EV_PER_ATOM_TO_J_PER_MOL,
+    ),
+    reference_temperature=300.0,
+    reference=_CORREA_DIAMOND_REFERENCE,
+    validity=ValidityRange(
+        pressure_gpa=(0.0, 1075.0),
+        temperature_k=(1.0, 10000.0),
+        volume_ratio=(2.32 / 5.785, 1.0),
+        notes=(
+            "The lower volume is the compressed diamond phonon-DOS state in Figure 3; the cold curve itself was fitted over approximately 1-9 A^3/atom.",
+            "The upper pressure is the calculated 0 K diamond-BC8 crossing. These are marginal model bounds, not a phase-stability surface at finite temperature.",
+        ),
+    ),
+    parameter_provenance=MappingProxyType(
+        {
+            "rt_eos.V0": "Table I; 5.785 A^3/atom",
+            "rt_eos.K0": "Table I; 368.2 GPa",
+            "rt_eos.K0_prime": "Table I; 4.038",
+            "Vp": "Table I caption; Vref(diamond)=5.571 A^3/atom",
+            "theta_a0": "Table I; theta_A^(0)=1887.8 K",
+            "a_a": "Table I; beta_A=-0.316 A^-3",
+            "b_a": "Table I; alpha_A=0.913",
+            "theta_b0": "Table I; theta_B^(0)=1887.8 K",
+            "a_b": "Table I; beta_B=0.168 A^-3",
+            "b_b": "Table I; alpha_B=0.429",
+            "theta_0_0": "Table I; theta_0^(0)=1887.8 K",
+            "a_0": "Table I; beta_0=0.131 A^-3",
+            "b_0": "Table I; alpha_0=0.202",
+            "n": "one atom per elemental-carbon formula unit",
+            "anharmonic_a": "Equation 18 and Table I; 3.8e-5 K^-1/atom",
+            "phi0": "Table I; -155.059 eV/atom",
+        }
+    ),
+    notes=(
+        "Complete diamond free-energy branch from equations 2-18; the double-Debye weights conserve the logarithmic phonon moment theta_0 (equation 13).",
+        "Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms.",
+        "The Vinet term is a motionless-ion DFT-GGA cold curve. The authors state that its theoretical V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift; Peritheos preserves the published value.",
+        "The constant anharmonic coefficient changes free energy, internal energy, and heat capacity but contributes no pressure. Electronic excitations are neglected for insulating diamond as in the source.",
+        "Factor-of-two source ambiguity: Correa equation 18 defines F_anh=-a*T^2 with a=3.8e-5 K^-1, whereas Benedict 2014 says it carries over the same correction but writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1. This record follows Correa literally; in Benedict's normalization the equivalent coefficient would be alpha=2*a.",
+        "The source reports no coefficient uncertainties or covariance.",
+    ),
+    volume_scale=_DIAMOND_SCALE,
+)
+
 DIAMOND_BENEDICT_2014 = EOSRecord(
     identifier="diamond_benedict_2014",
     name="Diamond (Benedict 2014 double-Debye Helmholtz)",
@@ -2778,6 +2880,7 @@ DIAMOND_BENEDICT_2014 = EOSRecord(
         "This is the complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction.",
         "Table I volumes are per atom. The public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms.",
         "The Vinet parameters describe the motionless-ion 0 K cold curve. V0=5.7034 A^3/atom is therefore not a 300 K, zero-total-pressure reference volume; zero-point and thermal pressure remain present.",
+        "Factor-of-two source ambiguity: Benedict writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1, while the Correa 2008 correction it claims to retain is F_anh=-a*T^2 with a=3.8e-5 K^-1. This record follows Benedict literally; matching Correa's anharmonic energy would require alpha approximately 2*a.",
         "The source reports fitted coefficients without parameter uncertainties or covariance, so uncertainty propagation is unavailable for this record.",
     ),
     volume_scale=_DIAMOND_SCALE,
@@ -2959,6 +3062,7 @@ _EOS_RECORD_CATALOG = MappingProxyType(
             KBR_B1_DEWAELE_2012,
             KBR_B2_DEWAELE_2012,
             CBN_DATCHI_2007,
+            DIAMOND_CORREA_2008,
             DIAMOND_BENEDICT_2014,
             DIAMOND_DEWAELE_2008,
             NI_DEWAELE_2008,
@@ -3074,6 +3178,7 @@ __all__ = [
     "DEFERRED_EOS_RECORDS",
     "DeferredEOSRecord",
     "DIAMOND_BENEDICT_2014",
+    "DIAMOND_CORREA_2008",
     "DIAMOND_DEWAELE_2008",
     "DIAMOND_SOKOLOVA_2013",
     "FEI_2007_EOS_RECORDS",

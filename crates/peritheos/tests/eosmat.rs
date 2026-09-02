@@ -345,20 +345,29 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                         material.identifier, record.identifier
                     )
                 });
-            if record.eos.thermal_model_identifier() == Some("double_debye_helmholtz") {
-                assert!(pressure.is_finite());
-                assert!(pressure > 0.0);
-                let pressure = record
-                    .pressure(8.0 * 4.654_270_411_587_497, 3000.0)
-                    .unwrap();
-                assert!((pressure - 150.0).abs() < 1.0e-7);
-            } else {
-                assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
+            match record.eos.thermal_model_identifier() {
+                Some("double_debye_helmholtz") => {
+                    assert!(pressure.is_finite());
+                    assert!(pressure > 0.0);
+                    let pressure = record
+                        .pressure(8.0 * 4.654_270_411_587_497, 3000.0)
+                        .unwrap();
+                    assert!((pressure - 150.0).abs() < 1.0e-7);
+                }
+                Some("double_debye_log_moment_helmholtz") => {
+                    assert!(pressure.is_finite());
+                    assert!(pressure > 0.0);
+                    let pressure = record.pressure(8.0 * 4.43, 5000.0).unwrap();
+                    assert!((pressure - 202.628_115_197_741_86).abs() < 1.0e-7);
+                }
+                _ => {
+                    assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
+                }
             }
         }
     }
 
     assert_eq!(paths.len(), 115);
-    assert_eq!(records, 147);
-    assert_eq!(thermal_records, 28);
+    assert_eq!(records, 148);
+    assert_eq!(thermal_records, 29);
 }

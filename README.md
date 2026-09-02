@@ -35,8 +35,9 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - EOS prediction uncertainty from fitted covariance or published parameter errors
 - Thermoelastic derivatives, heat capacities, and vibrational potentials
 - Versioned material and EOS-record catalog with explicit literature provenance,
-  validity envelopes, inversion, and measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 115-material/147-record EOS library with optional
+  calibration/data envelopes, extrapolation enabled by default, inversion, and
+  measurement/parameter uncertainty
+- A Peritheos-owned `.eosmat` schema and 115-material/148-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Native wheels for supported CPython releases on Linux, macOS, and Windows

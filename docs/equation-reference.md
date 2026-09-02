@@ -220,7 +220,8 @@ P(V,T)=P_{\mathrm{ref}}(V)+\Delta P_{\mathrm{th}}(V,T),
 \]
 
 This reference-isotherm form applies except to the complete
-`DoubleDebyeHelmholtz` free-energy model defined first below.
+`DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` free-energy models
+defined first below.
 
 Because energy divided by the public molar-volume unit produces bar, the factor
 $10^{-4}$ converts thermal pressure to GPa.
@@ -363,7 +364,44 @@ a 300 K static-compression fit. The paper compares the diamond model directly
 with DFT-MD over roughly 3.0--5.6 $\mathrm{\AA^3/atom}$ and 2000--9000 K.
 Use outside the diamond stability field, and especially extrapolation of the
 quadratic term above its low-temperature purpose, requires an independent
-phase/validity assessment.
+phase-stability and high-temperature plausibility assessment.
+
+There is a factor-of-two inconsistency between the two carbon publications.
+Correa et al. (2008), equation 18, use $F_{\rm anh}=-aT^2$ and tabulate
+$a=3.8\times10^{-5}\ \mathrm{K^{-1}}$ for diamond. Benedict et al. (2014)
+state that they retain that correction, but write
+$F_{\rm anh}=-\alpha T^2/2$ and tabulate the essentially unchanged value
+$\alpha=3.79\times10^{-5}\ \mathrm{K^{-1}}$. The conventions are equivalent
+only when $\alpha=2a$. Peritheos preserves each publication literally rather
+than silently choosing one interpretation; this affects caloric properties and
+free-energy differences, but not diamond pressure because both coefficients
+are volume independent.
+
+#### Logarithmic-moment double-Debye variant
+
+`DoubleDebyeLogMomentHelmholtz` implements the earlier Correa et al. (2008)
+diamond branch. It shares the Vinet cold energy, Debye functions, absolute
+zero-point pressure, and 300 K DAC-increment convention above, but conserves
+the logarithmic phonon moment $\theta_0$ rather than the arithmetic moment
+$\theta_1$:
+
+\[
+w_A=\frac{\ln(\theta_B/\theta_0)}{\ln(\theta_B/\theta_A)},\qquad
+w_B=1-w_A.
+\]
+
+The three characteristic temperatures use independent parameter triples for
+$A$, $B$, and $0$. Correa's volume-independent anharmonic term is
+
+\[
+F_{\rm anh}=-nR aT^2,
+\]
+
+so $P_{\rm anh}=0$ and its heat-capacity contribution is $2nRaT$. The bundled
+`DIAMOND_CORREA_2008` record preserves the paper's DFT-GGA value
+$V_0=5.785\ \mathrm{\AA^3/atom}$. The authors note that this is about 3% too
+large after zero-point and thermal effects; Peritheos does not silently apply
+their suggested application-dependent density shift.
 
 The ordinary thermal fitting API can fit pressure-sensitive coefficients while
 holding the 0 K Vinet curve fixed. `phi0` is an additive energy zero and cannot

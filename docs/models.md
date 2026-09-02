@@ -32,7 +32,8 @@ $P(V,T)=P_{ref}(V)+\Delta P_{th}(V,T)$ with
 $\Delta P_{th}(V,T_r)=0$. Pressure, volume, and temperature inversion all use
 this combined relation. The reference and thermal parameters can also be fitted
 together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
-`DoubleDebyeHelmholtz` is the full-free-energy exception described below.
+`DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` are the
+full-free-energy exceptions described below.
 
 The allowed reference EOS depends on the thermal formulation. The
 Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
@@ -47,6 +48,7 @@ correction instead inherits the reference EOS volume convention.
 | Import | Reference EOS | Thermal parameters | Caloric model |
 |---|---|---|---|
 | [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet` **0 K cold curve** | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0` | double Debye + $T^2$ |
+| [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet` **0 K cold curve** | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0` | logarithmic-moment double Debye + $T^2$ |
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
@@ -92,6 +94,10 @@ paper equations alone to reproduce Peritheos values; see
   complete Vinet cold curve plus volume-dependent double-Debye and $T^2$
   free-energy terms. Its `rt_eos` argument is a motionless-ion 0 K cold curve,
   not a room-temperature reference isotherm.
+- Use `DoubleDebyeLogMomentHelmholtz` when the source constrains the two Debye
+  weights with the logarithmic phonon moment $\theta_0$, as in Correa et al.
+  (2008). It is intentionally distinct from the arithmetic-$\theta_1$
+  constraint in `DoubleDebyeHelmholtz`.
 
 Do not choose a higher-order model solely because it has more parameters. Check
 parameter correlations and extrapolation behavior with the fitting diagnostics.
