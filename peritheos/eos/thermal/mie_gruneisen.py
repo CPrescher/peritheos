@@ -114,7 +114,9 @@ class _MieGruneisenBase(ThermalEOS, ABC):
                 np.asarray(V, dtype=float), temperatures
             )
         except ValueError as error:
-            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError(
+                "V and T must have broadcast-compatible shapes"
+            ) from error
 
         energy_difference = self.thermal_energy(
             volumes, temperatures
@@ -322,7 +324,9 @@ class MieGruneisenDebye(_MieGruneisenBase):
                 np.asarray(V, dtype=float), temperatures
             )
         except ValueError as error:
-            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError(
+                "V and T must have broadcast-compatible shapes"
+            ) from error
 
         ratio = self.characteristic_temperature(volumes) / temperatures
         energy = 3.0 * self.n * R * temperatures * _debye_function_3(ratio)
@@ -465,7 +469,9 @@ class MieGruneisenEinstein(_MieGruneisenBase):
                 np.asarray(V, dtype=float), temperatures
             )
         except ValueError as error:
-            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError(
+                "V and T must have broadcast-compatible shapes"
+            ) from error
 
         theta = self.characteristic_temperature(volumes)
         ratio = theta / temperatures

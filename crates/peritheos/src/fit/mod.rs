@@ -2027,6 +2027,29 @@ mod tests {
             error.source().and_then(|value| value.downcast_ref()),
             Some(&source)
         );
+
+        for (error, kind, code) in [
+            (
+                FitError::InvalidInput("bad bounds".to_owned()),
+                FitErrorKind::InvalidInput,
+                "fit.invalid_input",
+            ),
+            (
+                FitError::Evaluation("callback failed".to_owned()),
+                FitErrorKind::Evaluation,
+                "fit.evaluation_failed",
+            ),
+            (
+                FitError::SingularSystem,
+                FitErrorKind::SingularSystem,
+                "fit.singular_system",
+            ),
+        ] {
+            assert_eq!(error.kind(), kind);
+            assert_eq!(error.code(), code);
+            assert!(error.source().is_none());
+            assert!(!error.to_string().is_empty());
+        }
     }
     #[test]
     fn bounded_solver_recovers_rosenbrock_minimum() {

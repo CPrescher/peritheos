@@ -121,7 +121,9 @@ class DoubleDebyeHelmholtz(ThermalEOS):
             )
             return broadcast_volumes, broadcast_temperatures
         except ValueError as error:
-            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError(
+                "V and T must have broadcast-compatible shapes"
+            ) from error
 
     @staticmethod
     def _result(values: NumericType) -> NumericType:

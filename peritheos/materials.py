@@ -163,7 +163,9 @@ class EOSRecord:
         if self.parameter_error_confidence is not None and not (
             0.0 < self.parameter_error_confidence < 1.0
         ):
-            raise MaterialError("parameter_error_confidence must lie between zero and one")
+            raise MaterialError(
+                "parameter_error_confidence must lie between zero and one"
+            )
         object.__setattr__(
             self,
             "eosmat_metadata",
@@ -431,7 +433,9 @@ class Material:
             raise MaterialError("A material requires at least one EOS record")
         identifiers = [record.identifier for record in self.eos_records]
         if len(identifiers) != len(set(identifiers)):
-            raise MaterialError("EOS record identifiers must be unique within a material")
+            raise MaterialError(
+                "EOS record identifiers must be unique within a material"
+            )
         expected = (self.formula, self.phase, self.cell_contents, self.volume_unit)
         for record in self.eos_records:
             actual = (
@@ -449,7 +453,9 @@ class Material:
                 not np.isfinite(self.formula_units_per_cell)
                 or self.formula_units_per_cell <= 0.0
             ):
-                raise MaterialError("formula_units_per_cell must be positive and finite")
+                raise MaterialError(
+                    "formula_units_per_cell must be positive and finite"
+                )
         if self.space_group_number is not None and not (
             1 <= self.space_group_number <= 230
         ):
@@ -1174,7 +1180,9 @@ def _material_from_eosmat(
             if str(record.get("identifier")) in selected
         ]
         if not records_data:
-            raise MaterialError("record_identifiers must select at least one EOS record")
+            raise MaterialError(
+                "record_identifiers must select at least one EOS record"
+            )
     units = document.get("units", {})
     volume_unit = str(units.get("volume", "angstrom^3/conventional_unit_cell"))
     formula = str(document["formula"])
@@ -1322,7 +1330,9 @@ def _material_from_eosmat(
                 if isinstance(raw_record, Mapping)
                 else "<unknown>"
             )
-            raise MaterialError(f"Invalid EOS record {identifier!r}: {error}") from error
+            raise MaterialError(
+                f"Invalid EOS record {identifier!r}: {error}"
+            ) from error
 
     known_keys = {
         "format",
@@ -1509,7 +1519,9 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
                 rtol=1.0e-12,
                 atol=0.0,
             ):
-                raise MaterialError("Reference volume is inconsistent with EOS parameters")
+                raise MaterialError(
+                    "Reference volume is inconsistent with EOS parameters"
+                )
         except (KeyError, TypeError, ValueError) as error:
             identifier = (
                 record.get("identifier", "<unknown>")

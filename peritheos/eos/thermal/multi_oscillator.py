@@ -120,7 +120,9 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
         self.d1 = validate_positive_scalar(d1, "d1")
         self.mb1 = validate_finite_scalar(mb1, "mb1")
         if self.mb < 0 or self.mb1 < 0:
-            raise EosValidationError("Bose-Einstein multiplicities must not be negative")
+            raise EosValidationError(
+                "Bose-Einstein multiplicities must not be negative"
+            )
         if n is None:
             n = getattr(rt_eos, "n", None)
         if n is None:
@@ -218,7 +220,9 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
                 np.broadcast_arrays(*volume_terms, temperatures)
             )
         except ValueError as error:
-            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError(
+                "V and T must have broadcast-compatible shapes"
+            ) from error
 
         # Equation (12) for the different oscillator contributions at T and Tr.
         PB = self.mb * R * (_bose_energy(QB, T, self.d) * gamV / V)

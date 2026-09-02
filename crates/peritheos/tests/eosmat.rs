@@ -1,3 +1,4 @@
+use std::error::Error;
 use std::fs;
 use std::path::{Path, PathBuf};
 
@@ -68,6 +69,26 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
 }
 
 #[test]
+fn decoding_and_io_errors_retain_kinds_codes_and_sources() {
+    let json_error = load_eosmat_str("{").unwrap_err();
+    assert_eq!(json_error.kind(), EosmatErrorKind::Json);
+    assert_eq!(json_error.code(), "eosmat.json");
+    assert!(json_error.source().is_some());
+    assert_eq!(json_error.record_identifier(), None);
+    assert!(json_error.to_string().contains("invalid eosmat JSON"));
+
+    let missing = std::env::temp_dir().join(format!(
+        "peritheos-missing-{}-never-created.eosmat",
+        std::process::id()
+    ));
+    let io_error = load_eosmat(missing).unwrap_err();
+    assert_eq!(io_error.kind(), EosmatErrorKind::Io);
+    assert_eq!(io_error.code(), "eosmat.io");
+    assert!(io_error.source().is_some());
+    assert_eq!(io_error.record_identifier(), None);
+}
+
+#[test]
 fn public_validation_rejects_ambiguous_defaults_and_covariance_shapes() {
     let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
     let duplicate = document["eos_records"][0].clone();
@@ -89,6 +110,134 @@ fn public_validation_rejects_ambiguous_defaults_and_covariance_shapes() {
     });
     let error = validate_eosmat_document(&document).unwrap_err();
     assert!(error.to_string().contains("square matrix"));
+}
+
+#[test]
+fn public_validation_reports_each_document_section_with_context() {
+    let base: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    let mut invalid_documents = Vec::new();
+
+    for (pointer, replacement, expected) in [
+        ("/format", serde_json::json!("unknown"), "supported formats"),
+        ("/name", serde_json::Value::Null, "name must be a string"),
+        ("/identifier", serde_json::json!(""), "non-empty identifier"),
+        (
+            "/eos_records",
+            serde_json::json!({}),
+            "eos_records must be a JSON array",
+        ),
+        (
+            "/eos_records/0/label",
+            serde_json::Value::Null,
+            "label must be a string",
+        ),
+        (
+            "/eos_records/0/identifier",
+            serde_json::json!(""),
+            "identifier must be a non-empty string",
+        ),
+        (
+            "/eos_records/0/reference",
+            serde_json::json!(7),
+            "reference must be a string or object",
+        ),
+        (
+            "/eos_records/0/parameter_errors",
+            serde_json::json!([]),
+            "parameter_errors must be a JSON object",
+        ),
+        (
+            "/eos_records/0/fixed_parameters",
+            serde_json::json!({}),
+            "fixed_parameters must be a JSON array",
+        ),
+        (
+            "/eos_records/0/scientific_validation/status",
+            serde_json::json!("unknown"),
+            "scientific_validation.status is invalid",
+        ),
+    ] {
+        let mut document = base.clone();
+        *document.pointer_mut(pointer).unwrap() = replacement;
+        invalid_documents.push((document, expected));
+    }
+
+    assert!(matches!(
+        validate_eosmat_document(&serde_json::Value::Null),
+        Err(EosmatError::InvalidDocument(_))
+    ));
+    for (document, expected) in invalid_documents {
+        let error = validate_eosmat_document(&document).unwrap_err();
+        assert!(
+            error.to_string().contains(expected),
+            "expected {expected:?} in {error}"
+        );
+    }
+}
+
+#[test]
+fn public_validation_reports_optional_material_and_record_sections() {
+    let base: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    let mut invalid_documents = Vec::new();
+
+    for (field, replacement, expected) in [
+        (
+            "formula_units_per_cell",
+            serde_json::json!(0.0),
+            "must be greater than zero",
+        ),
+        ("aliases", serde_json::json!({}), "must be a JSON array"),
+        ("lattice", serde_json::json!({}), "lattice.a is required"),
+    ] {
+        let mut document = base.clone();
+        document[field] = replacement;
+        invalid_documents.push((document, expected));
+    }
+
+    for (field, replacement, expected) in [
+        (
+            "parameter_error_confidence",
+            serde_json::json!(1.0),
+            "must lie between zero and one",
+        ),
+        (
+            "volume",
+            serde_json::json!([]),
+            "volume must be a JSON object",
+        ),
+        (
+            "parameter_covariance",
+            serde_json::json!({"parameter_order": ["K0"]}),
+            "matrix is required",
+        ),
+        (
+            "thermal",
+            serde_json::json!([]),
+            "thermal must be a JSON object",
+        ),
+        (
+            "experimental_pressure_range_gpa",
+            serde_json::json!([2.0, 1.0]),
+            "must be ordered",
+        ),
+        (
+            "validity",
+            serde_json::json!([]),
+            "validity must be a JSON object",
+        ),
+    ] {
+        let mut document = base.clone();
+        document["eos_records"][0][field] = replacement;
+        invalid_documents.push((document, expected));
+    }
+
+    for (document, expected) in invalid_documents {
+        let error = validate_eosmat_document(&document).unwrap_err();
+        assert!(
+            error.to_string().contains(expected),
+            "expected {expected:?} in {error}"
+        );
+    }
 }
 
 #[test]

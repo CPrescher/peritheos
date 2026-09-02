@@ -6,7 +6,7 @@ use peritheos::thermal::{
     SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState,
     GAS_CONSTANT,
 };
-use peritheos::{CaloricEos, ThermalEos};
+use peritheos::{CaloricEos, EosError, ThermalEos};
 use serde_json::Value;
 
 fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
@@ -175,6 +175,100 @@ fn thermal_reference_state_supports_both_volume_laws_and_domains() {
     )
     .unwrap();
     assert!(invalid_modulus.pressure(0.9, 500.0).is_err());
+}
+
+#[test]
+fn thermal_configuration_and_state_errors_are_typed() {
+    let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
+    assert!(matches!(
+        ThermalReferenceState::new(
+            reference,
+            300.0,
+            2.0e-5,
+            -0.01,
+            1.0e-8,
+            ThermalExpansionLaw::Constant,
+            ReferenceVolumeLaw::IntegratedExpansivity,
+        ),
+        Err(EosError::InvalidParameter { name: "alpha1", .. })
+    ));
+    assert!(matches!(
+        ThermalReferenceState::new(
+            reference,
+            300.0,
+            2.0e-5,
+            -0.01,
+            1.0e-8,
+            ThermalExpansionLaw::LinearTemperature,
+            ReferenceVolumeLaw::LinearTemperature,
+        ),
+        Err(EosError::InvalidParameter {
+            name: "reference_volume_law",
+            ..
+        })
+    ));
+    assert!(matches!(
+        AsymptoticPowerLawMieGruneisenDebye::new(reference, 300.0, 760.0, 1.5, 1.1, 2.5, 2.0,),
+        Err(EosError::InvalidParameter { name: "a", .. })
+    ));
+
+    let double_debye = DoubleDebyeHelmholtz::new(
+        Vinet::new(1.0, 160.0, 4.0).unwrap(),
+        1.0,
+        1000.0,
+        0.0,
+        1.0,
+        1000.0,
+        0.0,
+        1.0,
+        1000.0,
+        0.0,
+        1.0,
+        1.0,
+        -1.0,
+        1.0,
+        0.0,
+        0.0,
+    );
+    assert!(matches!(
+        double_debye,
+        Err(EosError::InvalidParameter { name: "alpha0", .. })
+    ));
+
+    let model = DoubleDebyeHelmholtz::new(
+        Vinet::new(1.0, 160.0, 4.0).unwrap(),
+        1.0,
+        1000.0,
+        0.0,
+        1.0,
+        1000.0,
+        0.0,
+        1.0,
+        1000.0,
+        0.0,
+        1.0,
+        1.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+    )
+    .unwrap();
+    assert!(matches!(
+        model.dac_thermal_pressure(1.0, 300.0, 1.0),
+        Err(EosError::InvalidState { name: "f_dac", .. })
+    ));
+    assert!(matches!(
+        model.ion_helmholtz_free_energy(1.0, -1.0),
+        Err(EosError::InvalidState {
+            name: "temperature",
+            ..
+        })
+    ));
+    assert!(matches!(
+        debye_function_3(0.0),
+        Err(EosError::InvalidState { .. })
+    ));
 }
 
 #[test]

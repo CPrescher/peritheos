@@ -24,6 +24,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Expanded Python fallback, Rust batch, error-category, thermal-domain, and
+  `.eosmat` validation tests; raised the branch-aware Python coverage floor to
+  90% and the Rust line-coverage floor to 85%.
 - Consolidated the public `peritheos-core` and `peritheos-fit` Rust crates into
   one `peritheos` crate. Fitting and uncertainty APIs now live under
   `peritheos::fit`; the Python API is unchanged.

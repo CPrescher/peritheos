@@ -149,7 +149,9 @@ def cell_volume_to_molar_volume(
     if not np.all(np.isfinite(cell_values)) or np.any(cell_values <= 0.0):
         raise ValidationError("Cell volume must be finite and greater than zero")
     if not np.all(np.isfinite(formula_units)) or np.any(formula_units <= 0.0):
-        raise ValidationError("Formula units per cell must be finite and greater than zero")
+        raise ValidationError(
+            "Formula units per cell must be finite and greater than zero"
+        )
     molar_volume_m3 = cell_values * _ANGSTROM_CUBED_TO_M3 * _AVOGADRO / formula_units
     return convert_molar_volume(molar_volume_m3, "m3/mol", to_unit)
 
@@ -176,7 +178,9 @@ def molar_volume_to_cell_volume(
     if np.any(molar_volume_m3 <= 0.0):
         raise ValidationError("Molar volume must be greater than zero")
     if not np.all(np.isfinite(formula_units)) or np.any(formula_units <= 0.0):
-        raise ValidationError("Formula units per cell must be finite and greater than zero")
+        raise ValidationError(
+            "Formula units per cell must be finite and greater than zero"
+        )
     result = molar_volume_m3 * formula_units / (_ANGSTROM_CUBED_TO_M3 * _AVOGADRO)
     if result.ndim == 0:
         return float(result)

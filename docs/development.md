@@ -20,7 +20,7 @@ Run the native gates directly with:
 cargo fmt --all -- --check
 cargo clippy --workspace --all-targets --all-features -- -D warnings
 cargo test --workspace --all-features --locked
-cargo llvm-cov --workspace --exclude peritheos-python --all-features --fail-under-lines 80
+cargo llvm-cov --workspace --exclude peritheos-python --all-features --fail-under-lines 85
 scripts/verify-rust-packages.sh
 ```
 
@@ -36,13 +36,13 @@ and Windows targets.
 
 Python coverage includes the complete package, including the EOS facades and
 the custom-model compatibility paths that do not use the native evaluator. The
-branch-aware floor is 89%; this broader denominator replaces the former 90%
-figure that excluded the complete `peritheos/eos/**` tree. Deterministic
+branch-aware floor is 90%; this broader denominator includes the complete
+`peritheos/eos/**` tree. Deterministic
 property-oriented tests compare native and compatibility implementations over
 state grids and exercise round-trip and thermodynamic identities.
 
 Rust line coverage covers the unified `peritheos` crate and must remain at
-least 80%. `peritheos-python` is excluded from that number because its PyO3
+least 85%. `peritheos-python` is excluded from that number because its PyO3
 entry points are exercised by the Python suite rather than Rust's test
 harness.
 

@@ -94,7 +94,9 @@ def _native_thermal_evaluate(
     try:
         left, right = np.broadcast_arrays(left, right)
     except ValueError as error:
-        raise EosValidationError("V and T must have broadcast-compatible shapes") from error
+        raise EosValidationError(
+            "V and T must have broadcast-compatible shapes"
+        ) from error
     if left.ndim == 0:
         return float(native.evaluate_scalar(quantity, float(left), float(right)))
     return np.asarray(native.evaluate_array(quantity, left, right), dtype=float)
@@ -417,7 +419,9 @@ class EosBase:
         float or numpy.ndarray
             Pressure (in the same units as K0)
         """
-        raise UnsupportedOperationError("Subclasses must implement the pressure method.")
+        raise UnsupportedOperationError(
+            "Subclasses must implement the pressure method."
+        )
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -433,7 +437,9 @@ class EosBase:
         float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
-        raise UnsupportedOperationError("Subclasses must implement the bulk_modulus method.")
+        raise UnsupportedOperationError(
+            "Subclasses must implement the bulk_modulus method."
+        )
 
     def bulk_modulus_derivative(
         self, V: NumericType, relative_step: float = 1.0e-6
@@ -506,7 +512,9 @@ class ThermalEOS(EosBase):
         self.rt_eos = rt_eos
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
-        raise UnsupportedOperationError("This method should be implemented by the subclass")
+        raise UnsupportedOperationError(
+            "This method should be implemented by the subclass"
+        )
 
     def _thermal_pressure_function(self, V: float) -> Callable[[float], NumericType]:
         """Return a temperature-only thermal-pressure function at fixed volume."""
@@ -550,7 +558,9 @@ class ThermalEOS(EosBase):
         try:
             return np.broadcast_arrays(volumes, temperatures)
         except ValueError as error:
-            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError(
+                "V and T must have broadcast-compatible shapes"
+            ) from error
 
     @staticmethod
     def _scalar_or_array(values: NDArray[np.float64]) -> NumericType:
@@ -731,7 +741,9 @@ class ThermalEOS(EosBase):
         try:
             pressures, volumes = np.broadcast_arrays(pressures, volumes)
         except ValueError as error:
-            raise EosValidationError("P and V must have broadcast-compatible shapes") from error
+            raise EosValidationError(
+                "P and V must have broadcast-compatible shapes"
+            ) from error
 
         native = _native_for_exact_model(self)
         if native is not None:

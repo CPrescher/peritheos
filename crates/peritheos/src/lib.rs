@@ -422,5 +422,53 @@ mod tests {
         assert_eq!(error.code(), "eos.invalid_parameter");
         assert_eq!(error.field(), Some("V0"));
         assert!(error.is_validation());
+
+        let cases = [
+            (
+                EosError::InvalidState {
+                    name: "temperature",
+                    reason: "must be positive and finite",
+                },
+                EosErrorKind::InvalidState,
+                "eos.invalid_state",
+                Some("temperature"),
+                true,
+            ),
+            (
+                EosError::OutsideInvertibleRange,
+                EosErrorKind::OutsideInvertibleRange,
+                "eos.outside_invertible_range",
+                None,
+                true,
+            ),
+            (
+                EosError::BracketingFailed,
+                EosErrorKind::BracketingFailed,
+                "eos.bracketing_failed",
+                None,
+                true,
+            ),
+            (
+                EosError::ConvergenceFailed,
+                EosErrorKind::ConvergenceFailed,
+                "eos.convergence_failed",
+                None,
+                false,
+            ),
+            (
+                EosError::NonFiniteResult,
+                EosErrorKind::NonFiniteResult,
+                "eos.non_finite_result",
+                None,
+                false,
+            ),
+        ];
+        for (error, kind, code, field, validation) in cases {
+            assert_eq!(error.kind(), kind);
+            assert_eq!(error.code(), code);
+            assert_eq!(error.field(), field);
+            assert_eq!(error.is_validation(), validation);
+            assert!(!error.to_string().is_empty());
+        }
     }
 }

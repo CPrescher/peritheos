@@ -1,7 +1,14 @@
 import numpy as np
 import pytest
 
+from peritheos import (
+    ConfigurationError,
+    EosNumericalError,
+    EosValidationError,
+    UnsupportedOperationError,
+)
 from peritheos.constants import R
+from peritheos.eos import EosBase, ThermalEOS, _scalar_pressure, solve_temperature
 from peritheos.eos.rt import (
     BM2,
     BM3,
@@ -123,3 +130,41 @@ def test_legacy_unit_imports_warn_and_delegate():
         assert utils.convert_pressure(1.0, "GPa", "kbar") == 10.0
     with pytest.deprecated_call(match="peritheos.units"):
         assert utils.convert_temperature(273.15, "K", "C") == 0.0
+
+
+def test_scalar_pressure_and_temperature_solver_report_model_contract_failures():
+    with pytest.raises(ConfigurationError, match="must return a scalar"):
+        _scalar_pressure(lambda _: np.array([1.0, 2.0]), 1.0)
+    with pytest.raises(EosNumericalError, match="non-finite pressure"):
+        _scalar_pressure(lambda _: np.nan, 1.0)
+    with pytest.raises(EosValidationError, match="temperature range"):
+        solve_temperature(lambda _: 0.0, pressure=1.0, reference_temperature=300.0)
+
+
+def test_base_class_errors_and_numerical_derivative_guard_are_specific():
+    base = EosBase()
+    with pytest.raises(UnsupportedOperationError, match="pressure method"):
+        base.pressure(1.0)
+    with pytest.raises(UnsupportedOperationError, match="bulk_modulus method"):
+        base.bulk_modulus(1.0)
+
+    class ConstantEOS(EosBase):
+        V0 = 1.0
+
+        def pressure(self, V):
+            return np.zeros_like(np.asarray(V, dtype=float))
+
+        def bulk_modulus(self, V):
+            return np.ones_like(np.asarray(V, dtype=float))
+
+    constant = ConstantEOS()
+    with pytest.raises(EosNumericalError, match="dP/dV is zero"):
+        constant.bulk_modulus_derivative(1.0)
+    with pytest.raises(EosValidationError, match="Pressure must be finite"):
+        constant.calculate_volume(np.nan)
+
+    thermal = ThermalEOS(constant)
+    with pytest.raises(UnsupportedOperationError, match="implemented"):
+        thermal.thermal_pressure(1.0, 300.0)
+    with pytest.raises(UnsupportedOperationError, match="caloric model"):
+        thermal.molar_heat_capacity_v(1.0, 300.0)

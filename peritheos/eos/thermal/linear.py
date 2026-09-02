@@ -181,7 +181,9 @@ class ThermalReferenceStateEOS(ThermalEOS):
             )
         self.reference_volume_law = reference_volume_law
         if thermal_expansion_law == "constant" and self.alpha1 != 0.0:
-            raise EosValidationError("alpha1 must be zero for constant thermal expansion")
+            raise EosValidationError(
+                "alpha1 must be zero for constant thermal expansion"
+            )
         if reference_volume_law == "linear_temperature" and (
             thermal_expansion_law != "constant" or self.alpha1 != 0.0
         ):
@@ -218,7 +220,9 @@ class ThermalReferenceStateEOS(ThermalEOS):
                 V0 = self.rt_eos.V0 * np.exp(exponent)
         K0 = self.rt_eos.K0 + self.dK_dT * delta_temperature
         if not np.isfinite(V0) or V0 <= 0.0:
-            raise EosValidationError("Temperature produces a non-positive reference volume")
+            raise EosValidationError(
+                "Temperature produces a non-positive reference volume"
+            )
         if not np.isfinite(K0) or K0 <= 0.0:
             raise EosValidationError("Temperature produces a non-positive bulk modulus")
         return self.rt_eos.with_parameters(V0=float(V0), K0=float(K0))

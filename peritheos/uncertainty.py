@@ -111,7 +111,9 @@ class ParameterUncertainty:
                 ):
                     raise ValidationError("correlation must have ones on its diagonal")
                 if np.any(np.abs(correlation_matrix) > 1.0 + 1.0e-10):
-                    raise ValidationError("correlation coefficients must lie in [-1, 1]")
+                    raise ValidationError(
+                        "correlation coefficients must lie in [-1, 1]"
+                    )
             matrix = errors[:, None] * correlation_matrix * errors[None, :]
         else:
             raise ValidationError("Provide covariance or parameter_errors")
@@ -250,7 +252,9 @@ class EOSUncertainty:
                 "Set assume_blocks_independent=True to combine separate fits"
             )
         if not isinstance(fit_result.model, ThermalEOS):
-            raise ConfigurationError("additional uncertainty requires a thermal fitted EOS")
+            raise ConfigurationError(
+                "additional uncertainty requires a thermal fitted EOS"
+            )
         reference_values = fit_result.model.rt_eos.parameter_values(
             include_reference=True
         )
@@ -260,7 +264,9 @@ class EOSUncertainty:
                 include_reference=True
             ).items()
         ):
-            raise ValidationError("additional uncertainty must describe the reference EOS")
+            raise ValidationError(
+                "additional uncertainty must describe the reference EOS"
+            )
 
         first_size = len(uncertainty.parameter_names)
         second_size = len(additional.parameter_uncertainty.parameter_names)
@@ -600,7 +606,9 @@ class EOSUncertainty:
         state_sigmas = dict(argument_sigmas or {})
         invalid_indices = set(state_sigmas) - set(range(len(arguments)))
         if invalid_indices:
-            raise ValidationError(f"Invalid argument uncertainty indices: {invalid_indices}")
+            raise ValidationError(
+                f"Invalid argument uncertainty indices: {invalid_indices}"
+            )
         if method == "linear":
             return self._linear_evaluate(
                 quantity,

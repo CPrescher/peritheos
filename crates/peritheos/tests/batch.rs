@@ -16,9 +16,15 @@ fn isothermal_batches_match_ordered_scalar_evaluation_and_round_trip() {
 
     assert_eq!(pressures, expected);
     assert_eq!(model.bulk_moduli(&volumes).unwrap().len(), volumes.len());
+    assert!(IsothermalEosBatch::pressures(&model, &[])
+        .unwrap()
+        .is_empty());
     for (recovered, expected) in model.volumes(&pressures).unwrap().iter().zip(volumes) {
         assert!((recovered - expected).abs() < 1.0e-9);
     }
+
+    let error = IsothermalEosBatch::pressures(&model, &[10.0, 0.0, 9.0]).unwrap_err();
+    assert!(error.to_string().contains("volume"));
 }
 
 #[test]
@@ -60,6 +66,93 @@ fn thermal_and_caloric_batches_match_scalar_methods() {
     let recovered = model.volumes(&pressures, &temperatures).unwrap();
     for (actual, expected) in recovered.iter().zip(volumes) {
         assert!((actual - expected).abs() < 1.0e-9);
+    }
+}
+
+#[test]
+fn remaining_thermal_and_caloric_batches_match_scalar_methods() {
+    let model = MieGruneisenDebye::new(
+        BM3::new(1.0, 160.0, 4.0).unwrap(),
+        300.0,
+        800.0,
+        1.5,
+        1.0,
+        2.0,
+    )
+    .unwrap();
+    let volumes = [0.75, 0.85, 0.95];
+    let temperatures = [500.0, 1_500.0, 2_500.0];
+    let pressures = model.pressures(&volumes, &temperatures).unwrap();
+    let thermal_pressures = model.thermal_pressures(&volumes, &temperatures).unwrap();
+    let recovered_temperatures = model.temperatures(&pressures, &volumes).unwrap();
+    let bulk_moduli = model.bulk_moduli(&volumes, &temperatures, 1.0e-6).unwrap();
+    let compressibilities = model
+        .isothermal_compressibilities(&volumes, &temperatures)
+        .unwrap();
+    let expansivities = model
+        .thermal_expansivities(&volumes, &temperatures, 1.0e-5)
+        .unwrap();
+    let heat_capacities_p = model
+        .molar_heat_capacities_p(&volumes, &temperatures)
+        .unwrap();
+    let gruneisen = model.gruneisen_parameters(&volumes, &temperatures).unwrap();
+    let adiabatic_moduli = model
+        .adiabatic_bulk_moduli(&volumes, &temperatures)
+        .unwrap();
+
+    for index in 0..volumes.len() {
+        let volume = volumes[index];
+        let temperature = temperatures[index];
+        assert_eq!(
+            thermal_pressures[index].to_bits(),
+            model
+                .thermal_pressure(volume, temperature)
+                .unwrap()
+                .to_bits()
+        );
+        assert!((recovered_temperatures[index] - temperature).abs() < 1.0e-8);
+        assert_eq!(
+            bulk_moduli[index].to_bits(),
+            model
+                .bulk_modulus(volume, temperature, 1.0e-6)
+                .unwrap()
+                .to_bits()
+        );
+        assert_eq!(
+            compressibilities[index].to_bits(),
+            model
+                .isothermal_compressibility(volume, temperature)
+                .unwrap()
+                .to_bits()
+        );
+        assert_eq!(
+            expansivities[index].to_bits(),
+            model
+                .thermal_expansivity(volume, temperature, 1.0e-5)
+                .unwrap()
+                .to_bits()
+        );
+        assert_eq!(
+            heat_capacities_p[index].to_bits(),
+            model
+                .molar_heat_capacity_p(volume, temperature)
+                .unwrap()
+                .to_bits()
+        );
+        assert_eq!(
+            gruneisen[index].to_bits(),
+            model
+                .gruneisen_parameter(volume, temperature)
+                .unwrap()
+                .to_bits()
+        );
+        assert_eq!(
+            adiabatic_moduli[index].to_bits(),
+            model
+                .adiabatic_bulk_modulus(volume, temperature)
+                .unwrap()
+                .to_bits()
+        );
     }
 }
 

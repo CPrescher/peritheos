@@ -216,7 +216,9 @@ def _validated_uncertainty(
     try:
         values = np.broadcast_to(np.asarray(uncertainty, dtype=float), shape).copy()
     except ValueError as error:
-        raise FitValidationError(f"{name} must broadcast to the pressure shape") from error
+        raise FitValidationError(
+            f"{name} must broadcast to the pressure shape"
+        ) from error
     if not np.all(np.isfinite(values)) or np.any(values <= 0.0):
         raise FitValidationError(f"{name} must be finite and greater than zero")
     return values
@@ -267,7 +269,9 @@ def _validated_observation_covariance(
     try:
         factors = np.linalg.cholesky(matrices)
     except np.linalg.LinAlgError as error:
-        raise FitValidationError("observation_covariance must be positive definite") from error
+        raise FitValidationError(
+            "observation_covariance must be positive definite"
+        ) from error
     return factors.reshape(-1, component_count, component_count)
 
 
@@ -278,7 +282,9 @@ def _validated_solver_options(
 ) -> tuple[str | Callable[..., Any], float, int | None]:
     allowed_losses = {"linear", "soft_l1", "huber", "cauchy", "arctan"}
     if not callable(loss) and loss not in allowed_losses:
-        raise FitValidationError(f"loss must be one of {sorted(allowed_losses)} or callable")
+        raise FitValidationError(
+            f"loss must be one of {sorted(allowed_losses)} or callable"
+        )
     f_scale = float(f_scale)
     if not np.isfinite(f_scale) or f_scale <= 0.0:
         raise FitValidationError("f_scale must be finite and greater than zero")
