@@ -114,7 +114,7 @@ let fit = fit_isothermal_eos(
     &[300.0, 10.0],
     SolverOptions::default(),
     |p| BM3::new(10.0, p[0], p[1])
-        .map_err(|error| FitError::Evaluation(error.to_string())),
+        .map_err(FitError::from),
 )?;
 println!("K0 = {:.3} ± {:.3} GPa", fit.parameters[0], fit.standard_errors[0]);
 println!("chi-square = {:.3}", fit.chi_square);
@@ -145,8 +145,12 @@ matrices and return output uncertainty in the evaluator's output order.
 - Energy-based thermal equations require molar volume in
   `J bar^-1 mol^-1` and return molar SI energies and heat capacities.
 - Model construction and evaluation return `EosError`; fitting returns
-  `FitError`. Do not unwrap user-provided parameters or states.
+  `FitError`. Both provide stable `kind()` and `code()` accessors. Mapping an
+  `EosError` with `FitError::from` retains it as the error source.
 - Inversion follows the supported branch nearest the model reference state.
+
+See [Error handling](error-handling.md) for the full taxonomy, source chains,
+and matching examples.
 
 ## Run the examples and build rustdoc
 

@@ -35,6 +35,20 @@ pub const EOSMAT_FORMAT_VERSION: u64 = 3;
 const LEGACY_FORMAT_VERSION: u64 = 2;
 const CELL_ANGSTROM3_TO_FORMULA_MOLAR_J_PER_BAR: f64 = 0.060_221_407_6;
 
+/// Machine-readable category for an [`EosmatError`].
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum EosmatErrorKind {
+    /// The underlying filesystem operation failed.
+    Io,
+    /// JSON decoding or typed deserialization failed.
+    Json,
+    /// The document structure, format, or units are invalid.
+    InvalidDocument,
+    /// An individual EOS record cannot be constructed.
+    InvalidRecord,
+}
+
 /// Errors encountered while decoding or constructing an `.eosmat` material.
 #[derive(Debug)]
 #[non_exhaustive]
@@ -52,6 +66,39 @@ pub enum EosmatError {
         /// Human-readable validation or construction failure.
         reason: String,
     },
+}
+
+impl EosmatError {
+    /// Return the machine-readable error category.
+    #[must_use]
+    pub const fn kind(&self) -> EosmatErrorKind {
+        match self {
+            Self::Io(_) => EosmatErrorKind::Io,
+            Self::Json(_) => EosmatErrorKind::Json,
+            Self::InvalidDocument(_) => EosmatErrorKind::InvalidDocument,
+            Self::InvalidRecord { .. } => EosmatErrorKind::InvalidRecord,
+        }
+    }
+
+    /// Return a stable, language-independent error code.
+    #[must_use]
+    pub const fn code(&self) -> &'static str {
+        match self {
+            Self::Io(_) => "eosmat.io",
+            Self::Json(_) => "eosmat.json",
+            Self::InvalidDocument(_) => "eosmat.invalid_document",
+            Self::InvalidRecord { .. } => "eosmat.invalid_record",
+        }
+    }
+
+    /// Return the invalid EOS record identifier, when the error is record-local.
+    #[must_use]
+    pub fn record_identifier(&self) -> Option<&str> {
+        match self {
+            Self::InvalidRecord { identifier, .. } => Some(identifier),
+            Self::Io(_) | Self::Json(_) | Self::InvalidDocument(_) => None,
+        }
+    }
 }
 
 impl Display for EosmatError {

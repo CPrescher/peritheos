@@ -7,6 +7,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added a shared Python/Rust error contract with domain-specific Python
+  exceptions, stable machine-readable codes and context, Rust error-kind
+  accessors, preserved fitting source chains, and native-extension parity.
 - Added interpreted Rust `EosFitResult` parameters, latent states, profiled
   covariance, standard errors, correlation, and fit statistics.
 - Added public Rust `.eosmat` validation, serialization, and save APIs with

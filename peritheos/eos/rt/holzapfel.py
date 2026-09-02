@@ -9,6 +9,7 @@ from peritheos.eos import (
     validate_positive_scalar,
     validate_volume,
 )
+from peritheos.errors import EosValidationError
 
 
 class Holzapfel(EosBase):
@@ -109,7 +110,7 @@ class Holzapfel(EosBase):
         V = validate_volume(V)
         eps = validate_positive_scalar(eps, "eps")
         if eps >= 1:
-            raise ValueError("eps must be smaller than one")
+            raise EosValidationError("eps must be smaller than one")
         array = np.asarray(V, dtype=float)
         if array.ndim == 0:
             return float(self._native.bulk_modulus_derivative_scalar(float(array), eps))

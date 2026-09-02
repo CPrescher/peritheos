@@ -14,6 +14,8 @@ from importlib import resources
 from pathlib import Path
 from typing import Any
 
+from peritheos.errors import EosmatError, MaterialLookupError
+
 EOSMAT_FORMAT = "peritheos.material"
 EOSMAT_FORMAT_VERSION = 3
 _MATERIAL_PACKAGE = "peritheos.data.materials"
@@ -69,18 +71,18 @@ _THERMAL_MODELS = {
 
 def _require_mapping(value: Any, location: str) -> Mapping[str, Any]:
     if not isinstance(value, Mapping):
-        raise ValueError(f"{location} must be a JSON object")
+        raise EosmatError(f"{location} must be a JSON object")
     return value
 
 
 def _finite_number(value: Any, location: str, *, positive: bool = False) -> float:
     if isinstance(value, bool) or not isinstance(value, (int, float)):
-        raise ValueError(f"{location} must be a number")
+        raise EosmatError(f"{location} must be a number")
     number = float(value)
     if not (-float("inf") < number < float("inf")):
-        raise ValueError(f"{location} must be finite")
+        raise EosmatError(f"{location} must be finite")
     if positive and number <= 0.0:
-        raise ValueError(f"{location} must be greater than zero")
+        raise EosmatError(f"{location} must be greater than zero")
     return number
 
 
@@ -98,34 +100,34 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
     is_canonical = format_name == EOSMAT_FORMAT and version == EOSMAT_FORMAT_VERSION
     if not (is_legacy_dioptas or is_canonical):
         if format_name not in (None, EOSMAT_FORMAT):
-            raise ValueError(f"Unsupported material format {format_name!r}")
-        raise ValueError(
+            raise EosmatError(f"Unsupported material format {format_name!r}")
+        raise EosmatError(
             "Supported eosmat documents are Peritheos format 3 or legacy "
             "Dioptas format 2"
         )
 
     for key in ("name", "formula"):
         if not isinstance(document.get(key), str):
-            raise ValueError(f"{key} must be a string")
+            raise EosmatError(f"{key} must be a string")
     for key in ("phase", "symmetry", "notes"):
         if key in document and not isinstance(document[key], str):
-            raise ValueError(f"{key} must be a string")
+            raise EosmatError(f"{key} must be a string")
     if document.get("cell_contents") is not None and not isinstance(
         document["cell_contents"], str
     ):
-        raise ValueError("cell_contents must be a string")
+        raise EosmatError("cell_contents must be a string")
     if "identifier" in document and not isinstance(document["identifier"], str):
-        raise ValueError("identifier must be a string")
+        raise EosmatError("identifier must be a string")
     if is_canonical:
         if not document.get("identifier"):
-            raise ValueError("Canonical eosmat requires a material identifier")
+            raise EosmatError("Canonical eosmat requires a material identifier")
         units = _require_mapping(document.get("units"), "units")
         if units != {
             "pressure": "GPa",
             "temperature": "K",
             "volume": "angstrom^3/conventional_unit_cell",
         }:
-            raise ValueError("Canonical eosmat units must be GPa, K, and cell Å³")
+            raise EosmatError("Canonical eosmat units must be GPa, K, and cell Å³")
 
     if "lattice" in document:
         lattice = _require_mapping(document["lattice"], "lattice")
@@ -140,7 +142,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         _finite_number(formula_units, "formula_units_per_cell", positive=True)
     for key in ("aliases", "atom_sites", "peaks", "eos_records"):
         if not isinstance(document.get(key, []), list):
-            raise ValueError(f"{key} must be a JSON array")
+            raise EosmatError(f"{key} must be a JSON array")
 
     record_identifiers: set[str] = set()
     default_count = 0
@@ -148,42 +150,42 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         location = f"eos_records[{index}]"
         record = _require_mapping(raw_record, location)
         if not isinstance(record.get("label"), str):
-            raise ValueError(f"{location}.label must be a string")
+            raise EosmatError(f"{location}.label must be a string")
         identifier = record.get("identifier")
         if is_canonical and identifier is None:
-            raise ValueError(f"{location} requires an identifier")
+            raise EosmatError(f"{location} requires an identifier")
         if identifier is not None:
             if not isinstance(identifier, str) or not identifier:
-                raise ValueError(f"{location}.identifier must be a non-empty string")
+                raise EosmatError(f"{location}.identifier must be a non-empty string")
             if identifier in record_identifiers:
-                raise ValueError(f"Duplicate EOS record identifier {identifier!r}")
+                raise EosmatError(f"Duplicate EOS record identifier {identifier!r}")
             record_identifiers.add(identifier)
         default_count += record.get("default") is True
 
         reference = record.get("reference")
         if not isinstance(reference, (str, Mapping)):
-            raise ValueError(f"{location}.reference must be a string or object")
+            raise EosmatError(f"{location}.reference must be a string or object")
         if isinstance(reference, Mapping):
             if not isinstance(reference.get("authors"), list):
-                raise ValueError(f"{location}.reference.authors must be an array")
+                raise EosmatError(f"{location}.reference.authors must be an array")
             if isinstance(reference.get("year"), bool) or not isinstance(
                 reference.get("year"), int
             ):
-                raise ValueError(f"{location}.reference.year must be an integer")
+                raise EosmatError(f"{location}.reference.year must be an integer")
 
         eos = _require_mapping(record.get("eos"), f"{location}.eos")
         eos_type = eos.get("type")
         if eos_type not in _RT_TYPES:
-            raise ValueError(f"{location}.eos.type {eos_type!r} is unsupported")
+            raise EosmatError(f"{location}.eos.type {eos_type!r} is unsupported")
         if is_canonical and eos.get("model") != _RT_MODELS[eos_type]:
-            raise ValueError(f"{location}.eos.model does not match eos.type")
+            raise EosmatError(f"{location}.eos.model does not match eos.type")
         parameters = _require_mapping(
             eos.get("parameters"), f"{location}.eos.parameters"
         )
         for name, value in parameters.items():
             _finite_number(value, f"{location}.eos.parameters.{name}")
         if "V0" not in parameters:
-            raise ValueError(f"{location}.eos.parameters requires V0")
+            raise EosmatError(f"{location}.eos.parameters requires V0")
 
         errors = _require_mapping(
             record.get("parameter_errors"), f"{location}.parameter_errors"
@@ -197,12 +199,12 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 error_confidence, f"{location}.parameter_error_confidence"
             )
             if not 0.0 < error_confidence < 1.0:
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.parameter_error_confidence must lie between zero "
                     "and one"
                 )
         if not isinstance(record.get("fixed_parameters"), list):
-            raise ValueError(f"{location}.fixed_parameters must be an array")
+            raise EosmatError(f"{location}.fixed_parameters must be an array")
 
         volume = record.get("volume")
         if volume is not None:
@@ -222,7 +224,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if volume.get("model_unit") is not None and not isinstance(
                 volume["model_unit"], str
             ):
-                raise ValueError(f"{location}.volume.model_unit must be a string")
+                raise EosmatError(f"{location}.volume.model_unit must be a string")
 
         covariance = record.get("parameter_covariance")
         if covariance is not None:
@@ -232,20 +234,20 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             matrix = covariance.get("matrix")
             order = covariance.get("parameter_order")
             if not isinstance(matrix, list) or not matrix:
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.parameter_covariance.matrix must be a non-empty array"
                 )
             if not isinstance(order, list) or not all(
                 isinstance(name, str) and name for name in order
             ):
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.parameter_covariance.parameter_order must be "
                     "an array of non-empty strings"
                 )
             if len(matrix) != len(order) or any(
                 not isinstance(row, list) or len(row) != len(order) for row in matrix
             ):
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.parameter_covariance matrix must be square and "
                     "match parameter_order"
                 )
@@ -262,11 +264,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             thermal = _require_mapping(thermal, f"{location}.thermal")
             thermal_type = thermal.get("type")
             if thermal_type not in _THERMAL_TYPES:
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.type {thermal_type!r} is unsupported"
                 )
             if is_canonical and thermal.get("model") != _THERMAL_MODELS[thermal_type]:
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.model does not match thermal.type"
                 )
             debye_temperature_law = thermal.get("debye_temperature_law")
@@ -276,11 +278,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     or debye_temperature_law
                     not in {"integrated_gruneisen", "variable_exponent"}
                 ):
-                    raise ValueError(
+                    raise EosmatError(
                         f"{location}.thermal.debye_temperature_law is invalid"
                     )
             elif debye_temperature_law is not None:
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.debye_temperature_law requires "
                     "MieGruneisenDebye"
                 )
@@ -291,7 +293,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     not isinstance(thermal_expansion_law, str)
                     or thermal_expansion_law not in {"constant", "linear_temperature"}
                 ):
-                    raise ValueError(
+                    raise EosmatError(
                         f"{location}.thermal.thermal_expansion_law is invalid"
                     )
                 if reference_volume_law is not None and (
@@ -299,15 +301,15 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     or reference_volume_law
                     not in {"integrated_expansivity", "linear_temperature"}
                 ):
-                    raise ValueError(
+                    raise EosmatError(
                         f"{location}.thermal.reference_volume_law is invalid"
                     )
             elif thermal_expansion_law is not None:
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.thermal_expansion_law requires AlphaKT"
                 )
             elif reference_volume_law is not None:
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.reference_volume_law requires AlphaKT"
                 )
             thermal_parameters = _require_mapping(
@@ -318,7 +320,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if thermal_expansion_law == "linear_temperature" and (
                 "alpha1" not in thermal_parameters
             ):
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.parameters requires alpha1 for "
                     "linear_temperature thermal expansion"
                 )
@@ -326,7 +328,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 thermal_expansion_law in {None, "constant"}
                 and thermal_parameters.get("alpha1", 0.0) != 0.0
             ):
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.parameters.alpha1 must be zero for "
                     "constant thermal expansion"
                 )
@@ -334,7 +336,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 thermal_expansion_law not in {None, "constant"}
                 or thermal_parameters.get("alpha1", 0.0) != 0.0
             ):
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal linear_temperature reference volume "
                     "requires constant thermal expansion and alpha1=0"
                 )
@@ -346,7 +348,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 if value is not None:
                     _finite_number(value, f"{location}.thermal.parameter_errors.{name}")
             if not isinstance(thermal.get("fixed_parameters", []), list):
-                raise ValueError(
+                raise EosmatError(
                     f"{location}.thermal.fixed_parameters must be an array"
                 )
 
@@ -357,11 +359,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             values = record.get(range_name)
             if values is not None:
                 if not isinstance(values, list) or len(values) != 2:
-                    raise ValueError(f"{location}.{range_name} must have two values")
+                    raise EosmatError(f"{location}.{range_name} must have two values")
                 low = _finite_number(values[0], f"{location}.{range_name}[0]")
                 high = _finite_number(values[1], f"{location}.{range_name}[1]")
                 if low > high:
-                    raise ValueError(f"{location}.{range_name} must be ordered")
+                    raise EosmatError(f"{location}.{range_name} must be ordered")
 
         validity = record.get("validity")
         if validity is not None:
@@ -371,17 +373,17 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 if values is None:
                     continue
                 if not isinstance(values, list) or len(values) != 2:
-                    raise ValueError(
+                    raise EosmatError(
                         f"{location}.validity.{range_name} must have two values"
                     )
                 low = _finite_number(values[0], f"{location}.validity.{range_name}[0]")
                 high = _finite_number(values[1], f"{location}.validity.{range_name}[1]")
                 if low > high:
-                    raise ValueError(
+                    raise EosmatError(
                         f"{location}.validity.{range_name} must be ordered"
                     )
             if not isinstance(validity.get("notes", []), list):
-                raise ValueError(f"{location}.validity.notes must be an array")
+                raise EosmatError(f"{location}.validity.notes must be an array")
 
         validation = record.get("scientific_validation")
         if is_canonical:
@@ -393,16 +395,30 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 "pending_primary_source_check",
                 "deferred",
             }:
-                raise ValueError(f"{location}.scientific_validation.status is invalid")
+                raise EosmatError(f"{location}.scientific_validation.status is invalid")
 
     if default_count > 1:
-        raise ValueError("A material may have at most one default EOS record")
+        raise EosmatError("A material may have at most one default EOS record")
 
 
 def load_eosmat(path: str | Path) -> dict[str, Any]:
     """Load and structurally validate a Peritheos or Dioptas `.eosmat` file."""
-    with Path(path).open(encoding="utf-8") as stream:
-        document = json.load(stream)
+    source = Path(path)
+    with source.open(encoding="utf-8") as stream:
+        try:
+            document = json.load(stream)
+        except json.JSONDecodeError as error:
+            raise EosmatError(
+                f"Invalid eosmat JSON at line {error.lineno}, column {error.colno}: "
+                f"{error.msg}",
+                code="eosmat.json",
+                operation="load",
+                context={
+                    "path": str(source),
+                    "line": error.lineno,
+                    "column": error.colno,
+                },
+            ) from error
     validate_eosmat_document(document)
     return document
 
@@ -430,7 +446,7 @@ def list_material_documents() -> tuple[str, ...]:
 def get_material_document(identifier: str) -> dict[str, Any]:
     """Return a defensive copy of one bundled `.eosmat` document."""
     if identifier not in list_material_documents():
-        raise KeyError(
+        raise MaterialLookupError(
             f"Unknown material document {identifier!r}; available: "
             f"{list_material_documents()}"
         )

@@ -1,5 +1,20 @@
 # API reference
 
+## Errors
+
+All deliberate Python errors derive from `PeritheosError`; domain classes such
+as `EosError` and `FitError` support precise handling, while compatibility with
+the previous built-in `ValueError`, `ArithmeticError`, `TypeError`, and related
+categories is retained. Instances expose `code`, `operation`, `field`, and
+read-only `context` attributes. The native extension raises the same classes.
+
+```python
+from peritheos import EosError, EosValidationError, PeritheosError
+```
+
+See [Error handling](error-handling.md) for the complete hierarchy, stable
+codes, Rust error kinds, and source-chain examples.
+
 ## Materials and EOS records
 
 ```python

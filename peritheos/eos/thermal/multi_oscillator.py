@@ -6,6 +6,8 @@ import numpy as np
 from scipy.constants import R
 from scipy.integrate import quad
 
+from peritheos.errors import EosValidationError
+
 from .. import (
     EosBase,
     NumericType,
@@ -103,7 +105,7 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
         self.QE2o = validate_positive_scalar(QE2o, "QE2o")
         self.mE2 = validate_finite_scalar(mE2, "mE2")
         if self.mE1 < 0 or self.mE2 < 0:
-            raise ValueError("Einstein multiplicities must not be negative")
+            raise EosValidationError("Einstein multiplicities must not be negative")
         self.delta = validate_finite_scalar(delta, "delta")
         self.t = validate_finite_scalar(t, "t")
         self.a_0 = validate_finite_scalar(a_0, "a_0")
@@ -118,11 +120,11 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
         self.d1 = validate_positive_scalar(d1, "d1")
         self.mb1 = validate_finite_scalar(mb1, "mb1")
         if self.mb < 0 or self.mb1 < 0:
-            raise ValueError("Bose-Einstein multiplicities must not be negative")
+            raise EosValidationError("Bose-Einstein multiplicities must not be negative")
         if n is None:
             n = getattr(rt_eos, "n", None)
         if n is None:
-            raise ValueError(
+            raise EosValidationError(
                 "n must be supplied when the reference isotherm does not expose it"
             )
         self.n = validate_positive_scalar(n, "n")
@@ -210,13 +212,13 @@ class MultiOscillatorGruneisenThermalEOS(ThermalEOS):
         """Evaluate thermal pressure using prepared fixed-volume terms."""
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
-            raise ValueError("Temperature must be finite and greater than zero")
+            raise EosValidationError("Temperature must be finite and greater than zero")
         try:
             V, gamV, QB, QB1, QE1, QE2, reference_pressure, t2_coefficient, T = (
                 np.broadcast_arrays(*volume_terms, temperatures)
             )
         except ValueError as error:
-            raise ValueError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
 
         # Equation (12) for the different oscillator contributions at T and Tr.
         PB = self.mb * R * (_bose_energy(QB, T, self.d) * gamV / V)
@@ -326,7 +328,7 @@ def I_gamV(x, delta, t, rt_eos, beta=0.0):
 
     x_values = np.asarray(x, dtype=float)
     if not np.all(np.isfinite(x_values)) or np.any(x_values <= 0):
-        raise ValueError("Volume ratio must be finite and greater than zero")
+        raise EosValidationError("Volume ratio must be finite and greater than zero")
     integrals = np.array(
         [
             0.0

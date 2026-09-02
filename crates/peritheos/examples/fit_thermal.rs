@@ -30,10 +30,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         &[300.0, 10.0, 0.02],
         SolverOptions::default(),
         |parameters| {
-            let reference = BM3::new(10.0, parameters[0], parameters[1])
-                .map_err(|error| FitError::Evaluation(error.to_string()))?;
-            LinearThermalPressure::new(reference, 300.0, parameters[2])
-                .map_err(|error| FitError::Evaluation(error.to_string()))
+            let reference = BM3::new(10.0, parameters[0], parameters[1]).map_err(FitError::from)?;
+            LinearThermalPressure::new(reference, 300.0, parameters[2]).map_err(FitError::from)
         },
     )?;
 

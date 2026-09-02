@@ -14,14 +14,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         1.0e-5,
         true,
         |parameters| {
-            let eos = BM3::new(10.0, parameters[0], parameters[1])
-                .map_err(|error| FitError::Evaluation(error.to_string()))?;
+            let eos = BM3::new(10.0, parameters[0], parameters[1]).map_err(FitError::from)?;
             volumes
                 .iter()
-                .map(|&volume| {
-                    eos.pressure(volume)
-                        .map_err(|error| FitError::Evaluation(error.to_string()))
-                })
+                .map(|&volume| eos.pressure(volume).map_err(FitError::from))
                 .collect()
         },
     )?;

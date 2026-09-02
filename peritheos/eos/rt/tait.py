@@ -11,6 +11,7 @@ from peritheos.eos import (
     validate_positive_scalar,
     validate_volume,
 )
+from peritheos.errors import EosValidationError
 
 
 class ModifiedTait(EosBase):
@@ -69,7 +70,7 @@ class ModifiedTait(EosBase):
             self.K0_prime**2 + self.K0_prime - self.K0 * self.K0_double_prime
         )
         if one_plus_prime == 0.0 or numerator_c == 0.0 or denominator_c == 0.0:
-            raise ValueError(
+            raise EosValidationError(
                 "K0_prime and K0_double_prime produce a singular modified Tait EOS"
             )
 
@@ -84,7 +85,7 @@ class ModifiedTait(EosBase):
         relative_volume = V / self.V0
         base = (relative_volume + self._a - 1.0) / self._a
         if np.any(base <= 0.0):
-            raise ValueError("Volume is outside the modified Tait EOS domain")
+            raise EosValidationError("Volume is outside the modified Tait EOS domain")
         return relative_volume, base
 
     def pressure(self, V: NumericType) -> NumericType:

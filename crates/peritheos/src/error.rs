@@ -1,6 +1,21 @@
 use std::error::Error;
 use std::fmt::{self, Display, Formatter};
 
+/// Machine-readable category for an [`EosError`].
+///
+/// Variant names and [`EosError::code`] are stable API; display strings are
+/// diagnostic text and may become more detailed.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum EosErrorKind {
+    InvalidParameter,
+    InvalidState,
+    OutsideInvertibleRange,
+    BracketingFailed,
+    ConvergenceFailed,
+    NonFiniteResult,
+}
+
 /// Errors produced by equation-of-state construction and evaluation.
 #[derive(Clone, Debug, PartialEq)]
 #[non_exhaustive]
@@ -27,6 +42,58 @@ pub enum EosError {
     ConvergenceFailed,
     /// Model evaluation produced a non-finite value.
     NonFiniteResult,
+}
+
+impl EosError {
+    /// Return the machine-readable error category.
+    #[must_use]
+    pub const fn kind(&self) -> EosErrorKind {
+        match self {
+            Self::InvalidParameter { .. } => EosErrorKind::InvalidParameter,
+            Self::InvalidState { .. } => EosErrorKind::InvalidState,
+            Self::OutsideInvertibleRange => EosErrorKind::OutsideInvertibleRange,
+            Self::BracketingFailed => EosErrorKind::BracketingFailed,
+            Self::ConvergenceFailed => EosErrorKind::ConvergenceFailed,
+            Self::NonFiniteResult => EosErrorKind::NonFiniteResult,
+        }
+    }
+
+    /// Return a stable, language-independent error code.
+    #[must_use]
+    pub const fn code(&self) -> &'static str {
+        match self {
+            Self::InvalidParameter { .. } => "eos.invalid_parameter",
+            Self::InvalidState { .. } => "eos.invalid_state",
+            Self::OutsideInvertibleRange => "eos.outside_invertible_range",
+            Self::BracketingFailed => "eos.bracketing_failed",
+            Self::ConvergenceFailed => "eos.convergence_failed",
+            Self::NonFiniteResult => "eos.non_finite_result",
+        }
+    }
+
+    /// Return the invalid public parameter or state-variable name, if known.
+    #[must_use]
+    pub const fn field(&self) -> Option<&'static str> {
+        match self {
+            Self::InvalidParameter { name, .. } | Self::InvalidState { name, .. } => Some(name),
+            Self::OutsideInvertibleRange
+            | Self::BracketingFailed
+            | Self::ConvergenceFailed
+            | Self::NonFiniteResult => None,
+        }
+    }
+
+    /// Whether this error represents invalid input rather than numerical failure.
+    #[must_use]
+    pub const fn is_validation(&self) -> bool {
+        matches!(
+            self,
+            Self::InvalidParameter { .. }
+                | Self::InvalidState { .. }
+                | Self::OutsideInvertibleRange
+                | Self::BracketingFailed
+        )
+    }
 }
 
 impl Display for EosError {

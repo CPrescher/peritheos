@@ -18,6 +18,11 @@ from peritheos.eos import (
     validate_positive_scalar,
     validate_volume,
 )
+from peritheos.errors import (
+    ConfigurationError,
+    EosNumericalError,
+    EosValidationError,
+)
 
 
 class _MieGruneisenBase(ThermalEOS, ABC):
@@ -33,7 +38,7 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         n: float,
     ) -> None:
         if not isinstance(rt_eos, EosBase):
-            raise TypeError("rt_eos must be an equation of state")
+            raise ConfigurationError("rt_eos must be an equation of state")
         super().__init__(rt_eos)
         self.Tr = validate_positive_scalar(Tr, "Tr")
         self.theta0 = validate_positive_scalar(theta0, "theta0")
@@ -83,7 +88,7 @@ class _MieGruneisenBase(ThermalEOS, ABC):
             exponent = -self.gamma0 * np.expm1(self.q * logarithmic_volume) / self.q
         theta = self.theta0 * np.exp(exponent)
         if not np.all(np.isfinite(theta)):
-            raise ArithmeticError("Characteristic temperature is not finite")
+            raise EosNumericalError("Characteristic temperature is not finite")
         return theta
 
     @abstractmethod
@@ -103,13 +108,13 @@ class _MieGruneisenBase(ThermalEOS, ABC):
         V = validate_volume(V)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
-            raise ValueError("Temperature must be finite and greater than zero")
+            raise EosValidationError("Temperature must be finite and greater than zero")
         try:
             volumes, temperatures = np.broadcast_arrays(
                 np.asarray(V, dtype=float), temperatures
             )
         except ValueError as error:
-            raise ValueError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
 
         energy_difference = self.thermal_energy(
             volumes, temperatures
@@ -264,7 +269,7 @@ class MieGruneisenDebye(_MieGruneisenBase):
             not isinstance(debye_temperature_law, str)
             or debye_temperature_law not in self._DEBYE_TEMPERATURE_LAWS
         ):
-            raise ValueError(
+            raise EosValidationError(
                 "debye_temperature_law must be 'integrated_gruneisen' or "
                 "'variable_exponent'"
             )
@@ -297,7 +302,7 @@ class MieGruneisenDebye(_MieGruneisenBase):
         gamma = np.asarray(self.gruneisen_parameter(volumes), dtype=float)
         result = self.theta0 * np.exp(-gamma * np.log(ratio))
         if not np.all(np.isfinite(result)):
-            raise ArithmeticError("Characteristic temperature is not finite")
+            raise EosNumericalError("Characteristic temperature is not finite")
         if result.ndim == 0:
             return float(result)
         return result
@@ -311,13 +316,13 @@ class MieGruneisenDebye(_MieGruneisenBase):
         V = validate_volume(V)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
-            raise ValueError("Temperature must be finite and greater than zero")
+            raise EosValidationError("Temperature must be finite and greater than zero")
         try:
             volumes, temperatures = np.broadcast_arrays(
                 np.asarray(V, dtype=float), temperatures
             )
         except ValueError as error:
-            raise ValueError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
 
         ratio = self.characteristic_temperature(volumes) / temperatures
         energy = 3.0 * self.n * R * temperatures * _debye_function_3(ratio)
@@ -375,7 +380,7 @@ class Tange2009Debye(MieGruneisenDebye):
         self.a = validate_finite_scalar(a, "a")
         self.b = validate_finite_scalar(b, "b")
         if not 0.0 <= self.a <= 1.0:
-            raise ValueError("a must lie between zero and one")
+            raise EosValidationError("a must lie between zero and one")
         reference_native = _native_for_exact_model(rt_eos)
         if reference_native is not None and type(self) is Tange2009Debye:
             from peritheos import _rust
@@ -403,7 +408,7 @@ class Tange2009Debye(MieGruneisenDebye):
         ratio = volumes / self.rt_eos.V0
         result = self.gamma0 * (1.0 + self.a * (ratio**self.b - 1.0))
         if not np.all(np.isfinite(result)):
-            raise ArithmeticError("Gruneisen parameter is not finite")
+            raise EosNumericalError("Gruneisen parameter is not finite")
         if result.ndim == 0:
             return float(result)
         return result
@@ -425,7 +430,7 @@ class Tange2009Debye(MieGruneisenDebye):
             )
         result = self.theta0 * np.exp(exponent)
         if not np.all(np.isfinite(result)):
-            raise ArithmeticError("Characteristic temperature is not finite")
+            raise EosNumericalError("Characteristic temperature is not finite")
         if result.ndim == 0:
             return float(result)
         return result
@@ -454,13 +459,13 @@ class MieGruneisenEinstein(_MieGruneisenBase):
         V = validate_volume(V)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
-            raise ValueError("Temperature must be finite and greater than zero")
+            raise EosValidationError("Temperature must be finite and greater than zero")
         try:
             volumes, temperatures = np.broadcast_arrays(
                 np.asarray(V, dtype=float), temperatures
             )
         except ValueError as error:
-            raise ValueError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
 
         theta = self.characteristic_temperature(volumes)
         ratio = theta / temperatures
@@ -487,7 +492,7 @@ def _debye_function_3(x: NumericType) -> NumericType:
     """Return the third-order Debye function with stable limiting forms."""
     values = np.asarray(x, dtype=float)
     if not np.all(np.isfinite(values)) or np.any(values <= 0):
-        raise ValueError("Debye-function arguments must be finite and positive")
+        raise EosValidationError("Debye-function arguments must be finite and positive")
 
     def evaluate(value: float) -> float:
         if value < 1.0e-3:

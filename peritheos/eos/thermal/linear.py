@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import numpy as np
 
+from peritheos.errors import EosValidationError
+
 from .. import (
     EosBase,
     NumericType,
@@ -88,7 +90,7 @@ class LogVolumeThermalPressure(ThermalEOS):
         self.alpha_KT_ref = validate_finite_scalar(alpha_KT_ref, "alpha_KT_ref")
         self.dK_dT_V = validate_finite_scalar(dK_dT_V, "dK_dT_V")
         if not hasattr(rt_eos, "V0"):
-            raise ValueError("rt_eos must expose V0")
+            raise EosValidationError("rt_eos must expose V0")
         validate_positive_scalar(rt_eos.V0, "rt_eos.V0")
         reference_native = _native_for_exact_model(rt_eos)
         if reference_native is not None and type(self) is LogVolumeThermalPressure:
@@ -165,7 +167,7 @@ class ThermalReferenceStateEOS(ThermalEOS):
         self.dK_dT = validate_finite_scalar(dK_dT, "dK_dT")
         self.alpha1 = validate_finite_scalar(alpha1, "alpha1")
         if thermal_expansion_law not in {"constant", "linear_temperature"}:
-            raise ValueError(
+            raise EosValidationError(
                 "thermal_expansion_law must be 'constant' or 'linear_temperature'"
             )
         self.thermal_expansion_law = thermal_expansion_law
@@ -173,23 +175,23 @@ class ThermalReferenceStateEOS(ThermalEOS):
             "integrated_expansivity",
             "linear_temperature",
         }:
-            raise ValueError(
+            raise EosValidationError(
                 "reference_volume_law must be 'integrated_expansivity' or "
                 "'linear_temperature'"
             )
         self.reference_volume_law = reference_volume_law
         if thermal_expansion_law == "constant" and self.alpha1 != 0.0:
-            raise ValueError("alpha1 must be zero for constant thermal expansion")
+            raise EosValidationError("alpha1 must be zero for constant thermal expansion")
         if reference_volume_law == "linear_temperature" and (
             thermal_expansion_law != "constant" or self.alpha1 != 0.0
         ):
-            raise ValueError(
+            raise EosValidationError(
                 "linear_temperature reference volume requires constant thermal "
                 "expansion configuration and alpha1=0"
             )
         parameters = rt_eos.parameter_values(include_reference=False)
         if "V0" not in parameters or "K0" not in parameters:
-            raise ValueError("rt_eos must expose reconstructable V0 and K0")
+            raise EosValidationError("rt_eos must expose reconstructable V0 and K0")
         reference_native = _native_for_exact_model(rt_eos)
         if reference_native is not None and type(self) is ThermalReferenceStateEOS:
             from peritheos import _rust
@@ -216,9 +218,9 @@ class ThermalReferenceStateEOS(ThermalEOS):
                 V0 = self.rt_eos.V0 * np.exp(exponent)
         K0 = self.rt_eos.K0 + self.dK_dT * delta_temperature
         if not np.isfinite(V0) or V0 <= 0.0:
-            raise ValueError("Temperature produces a non-positive reference volume")
+            raise EosValidationError("Temperature produces a non-positive reference volume")
         if not np.isfinite(K0) or K0 <= 0.0:
-            raise ValueError("Temperature produces a non-positive bulk modulus")
+            raise EosValidationError("Temperature produces a non-positive bulk modulus")
         return self.rt_eos.with_parameters(V0=float(V0), K0=float(K0))
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:

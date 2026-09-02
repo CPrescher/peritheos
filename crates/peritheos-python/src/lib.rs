@@ -20,11 +20,9 @@ use peritheos::thermal::{
     ThermalModifiedTait, ThermalReferenceState,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
-use pyo3::exceptions::{
-    PyArithmeticError, PyNotImplementedError, PyRuntimeError, PyTypeError, PyValueError,
-};
+use pyo3::exceptions::PyRuntimeError;
 use pyo3::prelude::*;
-use pyo3::types::{PyAny, PyModule};
+use pyo3::types::{PyAny, PyDict, PyModule};
 use rayon::prelude::*;
 
 const PARALLEL_ELEMENTWISE_THRESHOLD: usize = 65_536;
@@ -275,7 +273,7 @@ impl PyRtEos {
             RtModel::Holzapfel(model) => model
                 .bulk_modulus_derivative(volume, epsilon)
                 .map_err(to_python_error),
-            _ => Err(PyNotImplementedError::new_err(
+            _ => Err(python_unsupported_error(
                 "bulk-modulus derivative is only defined for Holzapfel",
             )),
         }
@@ -312,7 +310,7 @@ impl PyRtEos {
         epsilon: f64,
     ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
         let RtModel::Holzapfel(model) = self.model else {
-            return Err(PyNotImplementedError::new_err(
+            return Err(python_unsupported_error(
                 "bulk-modulus derivative is only defined for Holzapfel",
             ));
         };
@@ -422,7 +420,7 @@ impl PyThermalEos {
             "integrated_gruneisen" => DebyeTemperatureLaw::IntegratedGruneisen,
             "variable_exponent" => DebyeTemperatureLaw::VariableExponent,
             _ => {
-                return Err(PyValueError::new_err(
+                return Err(python_validation_error(
                     "debye_temperature_law must be 'integrated_gruneisen' or 'variable_exponent'",
                 ));
             }
@@ -527,7 +525,7 @@ impl PyThermalEos {
             "constant" => ThermalExpansionLaw::Constant,
             "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
             _ => {
-                return Err(PyValueError::new_err(
+                return Err(python_validation_error(
                     "thermal_expansion_law must be 'constant' or 'linear_temperature'",
                 ));
             }
@@ -536,7 +534,7 @@ impl PyThermalEos {
             "integrated_expansivity" => ReferenceVolumeLaw::IntegratedExpansivity,
             "linear_temperature" => ReferenceVolumeLaw::LinearTemperature,
             _ => {
-                return Err(PyValueError::new_err(
+                return Err(python_validation_error(
                     "reference_volume_law must be 'integrated_expansivity' or 'linear_temperature'",
                 ));
             }
@@ -566,7 +564,7 @@ impl PyThermalEos {
         n: f64,
     ) -> PyResult<Self> {
         let RtModel::ModifiedTait(reference) = rt_eos.model else {
-            return Err(PyTypeError::new_err(
+            return Err(python_configuration_error(
                 "ThermalModifiedTait requires a ModifiedTait EOS",
             ));
         };
@@ -638,7 +636,7 @@ impl PyThermalEos {
                     rt_eos.model,
                     parameters,
                     atom_count.ok_or_else(|| {
-                        PyValueError::new_err(
+                        python_validation_error(
                             "n is required for the generic multi-oscillator model",
                         )
                     })?,
@@ -731,7 +729,7 @@ fn evaluate_thermal_quantity<T: ThermalEos>(
         "isothermal_compressibility" => model.isothermal_compressibility(first, second),
         "thermal_expansivity" => model.thermal_expansivity(first, second, 1.0e-5),
         _ => {
-            return Err(PyNotImplementedError::new_err(format!(
+            return Err(python_unsupported_error(format!(
                 "quantity '{quantity}' is unavailable for this thermal model"
             )));
         }
@@ -843,7 +841,7 @@ where
     let first_view = first.as_array();
     let second_view = second.as_array();
     if first_view.shape() != second_view.shape() {
-        return Err(PyValueError::new_err(
+        return Err(python_validation_error(
             "native array inputs must have matching broadcasted shapes",
         ));
     }
@@ -870,7 +868,7 @@ where
             .collect::<PyResult<Vec<_>>>()?
     };
     let output = ArrayD::from_shape_vec(shape, values)
-        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        .map_err(|error| python_validation_error(error.to_string()))?;
     Ok(output.into_pyarray(py))
 }
 
@@ -903,24 +901,98 @@ where
             .collect::<PyResult<Vec<_>>>()?
     };
     let output = ArrayD::from_shape_vec(shape, values)
-        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        .map_err(|error| python_validation_error(error.to_string()))?;
     Ok(output.into_pyarray(py))
 }
 
 #[allow(clippy::needless_pass_by_value)]
 fn to_python_error(error: EosError) -> PyErr {
-    match error {
-        EosError::OutsideInvertibleRange => {
-            PyValueError::new_err("pressure is outside the invertible expansion range")
-        }
-        EosError::InvalidParameter { .. }
-        | EosError::InvalidState { .. }
-        | EosError::BracketingFailed => PyValueError::new_err(error.to_string()),
-        EosError::ConvergenceFailed | EosError::NonFiniteResult => {
-            PyArithmeticError::new_err(error.to_string())
-        }
-        _ => PyRuntimeError::new_err(error.to_string()),
-    }
+    let class_name = if error.is_validation() {
+        "EosValidationError"
+    } else {
+        "EosNumericalError"
+    };
+    let message = if matches!(error, EosError::OutsideInvertibleRange) {
+        "pressure is outside the invertible expansion range".to_owned()
+    } else {
+        error.to_string()
+    };
+    peritheos_python_error(
+        class_name,
+        message,
+        error.code(),
+        Some("eos"),
+        error.field(),
+    )
+}
+
+fn peritheos_python_error(
+    class_name: &str,
+    message: String,
+    code: &str,
+    operation: Option<&str>,
+    field: Option<&str>,
+) -> PyErr {
+    Python::attach(|py| {
+        let converted = (|| -> PyResult<PyErr> {
+            let exception_class = py.import("peritheos.errors")?.getattr(class_name)?;
+            let keyword_arguments = PyDict::new(py);
+            keyword_arguments.set_item("code", code)?;
+            if let Some(operation) = operation {
+                keyword_arguments.set_item("operation", operation)?;
+            }
+            if let Some(field) = field {
+                keyword_arguments.set_item("field", field)?;
+            }
+            let instance = exception_class.call((message.as_str(),), Some(&keyword_arguments))?;
+            Ok(PyErr::from_value(instance))
+        })();
+        converted.unwrap_or_else(|conversion_error| {
+            PyRuntimeError::new_err(format!(
+                "{message} (could not construct peritheos.errors.{class_name}: {conversion_error})"
+            ))
+        })
+    })
+}
+
+fn python_validation_error(message: impl ToString) -> PyErr {
+    peritheos_python_error(
+        "ValidationError",
+        message.to_string(),
+        "validation.invalid_input",
+        None,
+        None,
+    )
+}
+
+fn python_configuration_error(message: impl ToString) -> PyErr {
+    peritheos_python_error(
+        "ConfigurationError",
+        message.to_string(),
+        "configuration.invalid",
+        None,
+        None,
+    )
+}
+
+fn python_fit_validation_error(message: impl ToString) -> PyErr {
+    peritheos_python_error(
+        "FitValidationError",
+        message.to_string(),
+        "fit.invalid_input",
+        Some("fit"),
+        None,
+    )
+}
+
+fn python_unsupported_error(message: impl ToString) -> PyErr {
+    peritheos_python_error(
+        "UnsupportedOperationError",
+        message.to_string(),
+        "operation.unsupported",
+        None,
+        None,
+    )
 }
 
 /// Private SciPy-compatible view of a native least-squares result.
@@ -966,7 +1038,7 @@ impl PyLeastSquaresResult {
             numpy::ndarray::IxDyn(&[self.result.residual_count, column_count]),
             self.result.jacobian.clone(),
         )
-        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        .map_err(|error| python_validation_error(error.to_string()))?;
         Ok(output.into_pyarray(py))
     }
 
@@ -993,7 +1065,7 @@ impl PyLeastSquaresResult {
             numpy::ndarray::IxDyn(&[self.global_parameter_count, self.global_parameter_count]),
             covariance,
         )
-        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        .map_err(|error| python_validation_error(error.to_string()))?;
         Ok(output.into_pyarray(py))
     }
 
@@ -1088,7 +1160,7 @@ fn fit_least_squares<'py>(
             })
         }
         _ => {
-            return Err(PyValueError::new_err(
+            return Err(python_fit_validation_error(
                 "all structured least-squares dimensions must be supplied together",
             ));
         }
@@ -1111,10 +1183,48 @@ fn fit_least_squares<'py>(
 
 fn to_python_fit_error(error: FitError) -> PyErr {
     match error {
-        FitError::InvalidInput(_) => PyValueError::new_err(error.to_string()),
-        FitError::Evaluation(_) | FitError::SingularSystem => {
-            PyRuntimeError::new_err(error.to_string())
+        FitError::EosEvaluation(error) => {
+            let class_name = if error.is_validation() {
+                "FitEosValidationError"
+            } else {
+                "FitEosNumericalError"
+            };
+            peritheos_python_error(
+                class_name,
+                error.to_string(),
+                error.code(),
+                Some("fit"),
+                error.field(),
+            )
         }
+        FitError::InvalidInput(message) => peritheos_python_error(
+            "FitValidationError",
+            message,
+            "fit.invalid_input",
+            Some("fit"),
+            None,
+        ),
+        FitError::Evaluation(message) => peritheos_python_error(
+            "FitError",
+            message,
+            "fit.evaluation_failed",
+            Some("fit"),
+            None,
+        ),
+        FitError::SingularSystem => peritheos_python_error(
+            "FitNumericalError",
+            "linear system is singular".to_owned(),
+            "fit.singular_system",
+            Some("fit"),
+            None,
+        ),
+        other => peritheos_python_error(
+            "FitError",
+            other.to_string(),
+            other.code(),
+            Some("fit"),
+            None,
+        ),
     }
 }
 
@@ -1147,7 +1257,7 @@ impl PyLinearPropagation {
             numpy::ndarray::IxDyn(&[self.output_count, self.output_count]),
             values.clone(),
         )
-        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        .map_err(|error| python_validation_error(error.to_string()))?;
         Ok(Some(output.into_pyarray(py)))
     }
 }
@@ -1162,7 +1272,7 @@ fn linear_uncertainty(
 ) -> PyResult<PyLinearPropagation> {
     let jacobian_view = jacobian.as_array();
     if jacobian_view.ndim() != 2 {
-        return Err(PyValueError::new_err("jacobian must be two-dimensional"));
+        return Err(python_validation_error("jacobian must be two-dimensional"));
     }
     let output_count = jacobian_view.shape()[0];
     let parameter_count = jacobian_view.shape()[1];
@@ -1227,7 +1337,7 @@ impl PyMonteCarloSummary {
             numpy::ndarray::IxDyn(&[self.output_count, self.output_count]),
             values.clone(),
         )
-        .map_err(|error| PyValueError::new_err(error.to_string()))?;
+        .map_err(|error| python_validation_error(error.to_string()))?;
         Ok(Some(output.into_pyarray(py)))
     }
 }
@@ -1241,7 +1351,7 @@ fn monte_carlo_summary(
 ) -> PyResult<PyMonteCarloSummary> {
     let view = samples.as_array();
     if view.ndim() != 2 {
-        return Err(PyValueError::new_err("samples must be two-dimensional"));
+        return Err(python_validation_error("samples must be two-dimensional"));
     }
     let sample_count = view.shape()[0];
     let output_count = view.shape()[1];

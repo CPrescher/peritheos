@@ -63,7 +63,7 @@ impl RtModel {
                         value(names, values, "V0", model.v0),
                         value(names, values, "K0", model.k0),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::BM3(model) => {
@@ -74,7 +74,7 @@ impl RtModel {
                         value(names, values, "K0", model.k0),
                         value(names, values, "K0_prime", model.k0_prime),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::BM4(model) => {
@@ -86,7 +86,7 @@ impl RtModel {
                         value(names, values, "K0_prime", model.k0_prime),
                         value(names, values, "K0_double_prime", model.k0_double_prime),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::Murnaghan(model) => {
@@ -97,7 +97,7 @@ impl RtModel {
                         value(names, values, "K0", model.k0),
                         value(names, values, "K0_prime", model.k0_prime),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::ModifiedTait(model) => {
@@ -109,7 +109,7 @@ impl RtModel {
                         value(names, values, "K0_prime", model.k0_prime),
                         value(names, values, "K0_double_prime", model.k0_double_prime),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::NaturalStrain2(model) => {
@@ -119,7 +119,7 @@ impl RtModel {
                         value(names, values, "V0", model.v0),
                         value(names, values, "K0", model.k0),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::NaturalStrain3(model) => {
@@ -130,7 +130,7 @@ impl RtModel {
                         value(names, values, "K0", model.k0),
                         value(names, values, "K0_prime", model.k0_prime),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::NaturalStrain4(model) => {
@@ -142,7 +142,7 @@ impl RtModel {
                         value(names, values, "K0_prime", model.k0_prime),
                         value(names, values, "K0_double_prime", model.k0_double_prime),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::Vinet(model) => {
@@ -153,7 +153,7 @@ impl RtModel {
                         value(names, values, "K0", model.k0),
                         value(names, values, "K0_prime", model.k0_prime),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::Holzapfel(model) => {
@@ -166,7 +166,7 @@ impl RtModel {
                         value(names, values, "n", model.n),
                         value(names, values, "Z", model.z),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
         };
@@ -223,7 +223,7 @@ impl ThermalModel {
                         value(names, values, "b", model.b),
                         value(names, values, "n", model.n),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::LinearThermalPressure(model) => {
@@ -237,7 +237,7 @@ impl ThermalModel {
                         value(names, values, "Tr", model.tr),
                         value(names, values, "alpha_KT", model.alpha_kt),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::LogVolumeThermalPressure(model) => {
@@ -252,7 +252,7 @@ impl ThermalModel {
                         value(names, values, "alpha_KT_ref", model.alpha_kt_ref),
                         value(names, values, "dK_dT_V", model.dk_dt_v),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::MieGruneisenDebye(model) => {
@@ -270,7 +270,7 @@ impl ThermalModel {
                         value(names, values, "n", model.n),
                         model.debye_temperature_law,
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::MieGruneisenEinstein(model) => {
@@ -287,7 +287,7 @@ impl ThermalModel {
                         value(names, values, "q", model.q),
                         value(names, values, "n", model.n),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::ThermalModifiedTait(model) => {
@@ -305,7 +305,7 @@ impl ThermalModel {
                         value(names, values, "alpha0", model.alpha0),
                         value(names, values, "n", model.n),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::Sokolova2016(model) => {
@@ -347,7 +347,7 @@ impl ThermalModel {
                         parameters,
                         value(names, values, "n", model.n),
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
             Self::ThermalReferenceState(model) => {
@@ -365,7 +365,7 @@ impl ThermalModel {
                         model.thermal_expansion_law,
                         model.reference_volume_law,
                     )
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?,
+                    .map_err(FitError::from)?,
                 )
             }
         };
@@ -512,9 +512,7 @@ pub(super) fn fit_thermal_eos_native(
                 options,
                 |parameters| model.with_parameters(&parameter_names, parameters),
                 |model, volume, temperature| {
-                    model
-                        .pressure(volume, temperature)
-                        .map_err(|error| FitError::Evaluation(error.to_string()))
+                    model.pressure(volume, temperature).map_err(FitError::from)
                 },
             )
         })

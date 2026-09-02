@@ -413,11 +413,7 @@ where
         );
         let predicted = volume
             .iter()
-            .map(|value| {
-                model
-                    .pressure(*value)
-                    .map_err(|error| FitError::Evaluation(error.to_string()))
-            })
+            .map(|value| model.pressure(*value).map_err(FitError::from))
             .collect::<Result<Vec<_>, _>>()?;
         let pressure_residual = predicted
             .iter()
@@ -470,11 +466,7 @@ where
     };
     let predicted_pressure = volume
         .iter()
-        .map(|value| {
-            model
-                .pressure(*value)
-                .map_err(|error| FitError::Evaluation(error.to_string()))
-        })
+        .map(|value| model.pressure(*value).map_err(FitError::from))
         .collect::<Result<Vec<_>, _>>()?;
     let adjusted_volume = volume.to_vec();
     interpret_result(
@@ -517,11 +509,7 @@ where
         upper,
         options,
         factory,
-        |model, volume, temperature| {
-            model
-                .pressure(volume, temperature)
-                .map_err(|error| FitError::Evaluation(error.to_string()))
-        },
+        |model, volume, temperature| model.pressure(volume, temperature).map_err(FitError::from),
     )
 }
 
@@ -753,10 +741,7 @@ mod tests {
             &[50.0, f64::NEG_INFINITY],
             &[200.0, f64::INFINITY],
             SolverOptions::default(),
-            |parameters| {
-                BM3::new(10.0, parameters[0], parameters[1])
-                    .map_err(|error| FitError::Evaluation(error.to_string()))
-            },
+            |parameters| BM3::new(10.0, parameters[0], parameters[1]).map_err(FitError::from),
         )
         .unwrap();
 
@@ -803,10 +788,7 @@ mod tests {
             &[50.0, 1.0],
             &[200.0, 10.0],
             SolverOptions::default(),
-            |parameters| {
-                BM3::new(10.0, parameters[0], parameters[1])
-                    .map_err(|error| FitError::Evaluation(error.to_string()))
-            },
+            |parameters| BM3::new(10.0, parameters[0], parameters[1]).map_err(FitError::from),
         )
         .unwrap();
 
@@ -860,10 +842,9 @@ mod tests {
             &[220.0, 3.0],
             SolverOptions::default(),
             |parameters| {
-                let reference = BM3::new(1.0, parameters[0], 4.0)
-                    .map_err(|error| FitError::Evaluation(error.to_string()))?;
+                let reference = BM3::new(1.0, parameters[0], 4.0).map_err(FitError::from)?;
                 MieGruneisenDebye::new(reference, 300.0, 800.0, parameters[1], 1.0, 2.0)
-                    .map_err(|error| FitError::Evaluation(error.to_string()))
+                    .map_err(FitError::from)
             },
         )
         .unwrap();

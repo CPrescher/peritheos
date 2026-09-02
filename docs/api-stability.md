@@ -18,6 +18,11 @@ The supported public API consists of:
 Names beginning with an underscore, implementation details not documented in
 the API reference, and exact optimizer messages are private.
 
+The exception hierarchy and documented machine-readable error codes are
+public. Existing built-in exception compatibility is retained; exact message
+text is diagnostic and is not a compatibility surface. See
+[Error handling](error-handling.md) for the hierarchy and source-chain rules.
+
 The Python distribution includes a `py.typed` marker. Public inline type
 annotations are therefore part of the supported developer experience, although
 improvements that make an annotation more precise are not runtime API changes.

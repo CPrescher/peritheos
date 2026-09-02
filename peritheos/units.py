@@ -11,6 +11,8 @@ from typing import Union
 import numpy as np
 from numpy.typing import NDArray
 
+from peritheos.errors import ValidationError
+
 Numeric = Union[float, NDArray[np.float64]]
 
 
@@ -64,12 +66,12 @@ def _convert(
     source_key = _normalize(source)
     target_key = _normalize(target)
     if source_key not in factors:
-        raise ValueError(f"Unsupported unit: {source}")
+        raise ValidationError(f"Unsupported unit: {source}")
     if target_key not in factors:
-        raise ValueError(f"Unsupported unit: {target}")
+        raise ValidationError(f"Unsupported unit: {target}")
     result = np.asarray(value, dtype=float) * factors[source_key] / factors[target_key]
     if not np.all(np.isfinite(result)):
-        raise ValueError("Values must be finite")
+        raise ValidationError("Values must be finite")
     if result.ndim == 0:
         return float(result)
     return result
@@ -88,9 +90,9 @@ def convert_density(value: Numeric, from_unit: str, to_unit: str) -> Numeric:
 def convert_pressure(value: Numeric, from_unit: str, to_unit: str) -> Numeric:
     """Convert pressure among Pa, MPa, GPa, bar, kbar, atm, torr, and psi."""
     if _normalize(from_unit) not in _PRESSURE_TO_PA:
-        raise ValueError(f"Unsupported pressure unit: {from_unit}")
+        raise ValidationError(f"Unsupported pressure unit: {from_unit}")
     if _normalize(to_unit) not in _PRESSURE_TO_PA:
-        raise ValueError(f"Unsupported pressure unit: {to_unit}")
+        raise ValidationError(f"Unsupported pressure unit: {to_unit}")
     return _convert(value, from_unit, to_unit, _PRESSURE_TO_PA)
 
 
@@ -100,7 +102,7 @@ def convert_temperature(value: Numeric, from_unit: str, to_unit: str) -> Numeric
     target = to_unit.lower().replace("°", "")
     values = np.asarray(value, dtype=float)
     if not np.all(np.isfinite(values)):
-        raise ValueError("Values must be finite")
+        raise ValidationError("Values must be finite")
 
     if source == "k":
         kelvin = values
@@ -109,7 +111,7 @@ def convert_temperature(value: Numeric, from_unit: str, to_unit: str) -> Numeric
     elif source == "f":
         kelvin = (values - 32.0) * 5.0 / 9.0 + 273.15
     else:
-        raise ValueError(f"Unsupported temperature unit: {from_unit}")
+        raise ValidationError(f"Unsupported temperature unit: {from_unit}")
 
     if target == "k":
         result = kelvin
@@ -118,7 +120,7 @@ def convert_temperature(value: Numeric, from_unit: str, to_unit: str) -> Numeric
     elif target == "f":
         result = (kelvin - 273.15) * 9.0 / 5.0 + 32.0
     else:
-        raise ValueError(f"Unsupported temperature unit: {to_unit}")
+        raise ValidationError(f"Unsupported temperature unit: {to_unit}")
     if result.ndim == 0:
         return float(result)
     return result
@@ -141,13 +143,13 @@ def cell_volume_to_molar_volume(
     try:
         cell_values, formula_units = np.broadcast_arrays(cell_values, formula_units)
     except ValueError as error:
-        raise ValueError(
+        raise ValidationError(
             "cell_volume and formula_units_per_cell must have broadcast-compatible shapes"
         ) from error
     if not np.all(np.isfinite(cell_values)) or np.any(cell_values <= 0.0):
-        raise ValueError("Cell volume must be finite and greater than zero")
+        raise ValidationError("Cell volume must be finite and greater than zero")
     if not np.all(np.isfinite(formula_units)) or np.any(formula_units <= 0.0):
-        raise ValueError("Formula units per cell must be finite and greater than zero")
+        raise ValidationError("Formula units per cell must be finite and greater than zero")
     molar_volume_m3 = cell_values * _ANGSTROM_CUBED_TO_M3 * _AVOGADRO / formula_units
     return convert_molar_volume(molar_volume_m3, "m3/mol", to_unit)
 
@@ -168,13 +170,13 @@ def molar_volume_to_cell_volume(
             molar_volume_m3, formula_units
         )
     except ValueError as error:
-        raise ValueError(
+        raise ValidationError(
             "molar_volume and formula_units_per_cell must have broadcast-compatible shapes"
         ) from error
     if np.any(molar_volume_m3 <= 0.0):
-        raise ValueError("Molar volume must be greater than zero")
+        raise ValidationError("Molar volume must be greater than zero")
     if not np.all(np.isfinite(formula_units)) or np.any(formula_units <= 0.0):
-        raise ValueError("Formula units per cell must be finite and greater than zero")
+        raise ValidationError("Formula units per cell must be finite and greater than zero")
     result = molar_volume_m3 * formula_units / (_ANGSTROM_CUBED_TO_M3 * _AVOGADRO)
     if result.ndim == 0:
         return float(result)
@@ -193,9 +195,9 @@ def density_from_molar_volume(
     mass = _convert(molar_mass, molar_mass_unit, "kg/mol", _MOLAR_MASS_TO_KG_MOL)
     volume = convert_molar_volume(molar_volume, volume_unit, "m3/mol")
     if np.any(np.asarray(mass) <= 0.0):
-        raise ValueError("Molar mass must be greater than zero")
+        raise ValidationError("Molar mass must be greater than zero")
     if np.any(np.asarray(volume) <= 0.0):
-        raise ValueError("Molar volume must be greater than zero")
+        raise ValidationError("Molar volume must be greater than zero")
     density = np.asarray(mass, dtype=float) / np.asarray(volume, dtype=float)
     return convert_density(density, "kg/m3", density_unit)
 
@@ -212,8 +214,8 @@ def molar_volume_from_density(
     mass = _convert(molar_mass, molar_mass_unit, "kg/mol", _MOLAR_MASS_TO_KG_MOL)
     density_si = convert_density(density, density_unit, "kg/m3")
     if np.any(np.asarray(mass) <= 0.0):
-        raise ValueError("Molar mass must be greater than zero")
+        raise ValidationError("Molar mass must be greater than zero")
     if np.any(np.asarray(density_si) <= 0.0):
-        raise ValueError("Density must be greater than zero")
+        raise ValidationError("Density must be greater than zero")
     volume = np.asarray(mass, dtype=float) / np.asarray(density_si, dtype=float)
     return convert_molar_volume(volume, "m3/mol", volume_unit)

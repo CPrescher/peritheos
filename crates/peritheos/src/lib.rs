@@ -114,10 +114,10 @@ pub mod thermal;
 pub use batch::{CaloricEosBatch, IsothermalEosBatch, ThermalEosBatch};
 pub use eosmat::{
     load_eosmat, load_eosmat_reader, load_eosmat_str, material_from_value, save_eosmat,
-    serialize_eosmat, validate_eosmat_document, EosRecord, EosmatError, IsothermalModel, LoadedEos,
-    Material, ThermalModel, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
+    serialize_eosmat, validate_eosmat_document, EosRecord, EosmatError, EosmatErrorKind,
+    IsothermalModel, LoadedEos, Material, ThermalModel, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
 };
-pub use error::EosError;
+pub use error::{EosError, EosErrorKind};
 
 /// Convenient result alias for EOS construction and evaluation.
 pub type EosResult<T> = Result<T, EosError>;
@@ -406,7 +406,7 @@ pub trait CaloricEos: ThermalEos {
 
 #[cfg(test)]
 mod tests {
-    use super::EosError;
+    use super::{EosError, EosErrorKind};
 
     #[test]
     fn errors_have_descriptive_categories() {
@@ -418,5 +418,9 @@ mod tests {
             error.to_string(),
             "invalid parameter V0: must be positive and finite"
         );
+        assert_eq!(error.kind(), EosErrorKind::InvalidParameter);
+        assert_eq!(error.code(), "eos.invalid_parameter");
+        assert_eq!(error.field(), Some("V0"));
+        assert!(error.is_validation());
     }
 }

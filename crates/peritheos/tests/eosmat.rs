@@ -3,7 +3,7 @@ use std::path::{Path, PathBuf};
 
 use peritheos::{
     load_eosmat, load_eosmat_str, save_eosmat, serialize_eosmat, validate_eosmat_document,
-    EosmatError,
+    EosmatError, EosmatErrorKind,
 };
 
 fn materials_directory() -> PathBuf {
@@ -76,6 +76,8 @@ fn public_validation_rejects_ambiguous_defaults_and_covariance_shapes() {
         .unwrap()
         .push(duplicate);
     let error = validate_eosmat_document(&document).unwrap_err();
+    assert_eq!(error.kind(), EosmatErrorKind::InvalidDocument);
+    assert_eq!(error.code(), "eosmat.invalid_document");
     assert!(error
         .to_string()
         .contains("duplicate EOS record identifier"));

@@ -25,10 +25,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             loss: Loss::SoftL1,
             ..SolverOptions::default()
         },
-        |parameters| {
-            BM3::new(10.0, parameters[0], parameters[1])
-                .map_err(|error| FitError::Evaluation(error.to_string()))
-        },
+        |parameters| BM3::new(10.0, parameters[0], parameters[1]).map_err(FitError::from),
     )?;
 
     println!("success: {}", result.solver.message);

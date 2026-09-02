@@ -14,6 +14,7 @@ from peritheos.eos import (
     validate_volume,
 )
 from peritheos.eos.rt import ModifiedTait
+from peritheos.errors import ConfigurationError
 
 
 class ThermalModifiedTait(ThermalEOS):
@@ -35,7 +36,7 @@ class ThermalModifiedTait(ThermalEOS):
         n: float,
     ) -> None:
         if not isinstance(rt_eos, ModifiedTait):
-            raise TypeError("ThermalModifiedTait requires a ModifiedTait EOS")
+            raise ConfigurationError("ThermalModifiedTait requires a ModifiedTait EOS")
         super().__init__(rt_eos)
         self.Tr = validate_positive_scalar(Tr, "Tr")
         self.theta = validate_positive_scalar(theta, "theta")

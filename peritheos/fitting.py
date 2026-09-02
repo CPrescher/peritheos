@@ -18,6 +18,7 @@ from scipy.sparse.linalg import spsolve
 
 from peritheos import _rust
 from peritheos.eos import EosBase, ThermalEOS
+from peritheos.errors import FitValidationError
 
 if TYPE_CHECKING:
     from peritheos.uncertainty import EOSUncertainty
@@ -93,9 +94,9 @@ class FitResult:
     def summary(self, *, precision: int = 6) -> str:
         """Return a compact, human-readable fit report."""
         if isinstance(precision, bool) or not isinstance(precision, (int, np.integer)):
-            raise ValueError("precision must be a positive integer")
+            raise FitValidationError("precision must be a positive integer")
         if precision <= 0:
-            raise ValueError("precision must be a positive integer")
+            raise FitValidationError("precision must be a positive integer")
         precision = int(precision)
 
         def formatted(value: float) -> str:
@@ -197,7 +198,7 @@ class FitResult:
 def _validated_observations(pressure: Any) -> NDArray[np.float64]:
     observed = np.asarray(pressure, dtype=float)
     if observed.size == 0 or not np.all(np.isfinite(observed)):
-        raise ValueError("Observed pressure must contain finite values")
+        raise FitValidationError("Observed pressure must contain finite values")
     return observed
 
 
@@ -215,9 +216,9 @@ def _validated_uncertainty(
     try:
         values = np.broadcast_to(np.asarray(uncertainty, dtype=float), shape).copy()
     except ValueError as error:
-        raise ValueError(f"{name} must broadcast to the pressure shape") from error
+        raise FitValidationError(f"{name} must broadcast to the pressure shape") from error
     if not np.all(np.isfinite(values)) or np.any(values <= 0.0):
-        raise ValueError(f"{name} must be finite and greater than zero")
+        raise FitValidationError(f"{name} must be finite and greater than zero")
     return values
 
 
@@ -227,7 +228,7 @@ def _pressure_uncertainty(
     shape: tuple[int, ...],
 ) -> tuple[NDArray[np.float64], bool]:
     if pressure_sigma is not None and sigma is not None:
-        raise ValueError("Use either pressure_sigma or sigma, not both")
+        raise FitValidationError("Use either pressure_sigma or sigma, not both")
     supplied = pressure_sigma is not None or sigma is not None
     values = _validated_uncertainty(
         pressure_sigma if pressure_sigma is not None else sigma,
@@ -252,21 +253,21 @@ def _validated_observation_covariance(
             np.asarray(covariance, dtype=float), target_shape
         ).copy()
     except ValueError as error:
-        raise ValueError(
+        raise FitValidationError(
             "observation_covariance must broadcast to the pressure shape plus "
             f"({component_count}, {component_count}) for "
             f"{tuple(component_names)}"
         ) from error
     if not np.all(np.isfinite(matrices)):
-        raise ValueError("observation_covariance must contain finite values")
+        raise FitValidationError("observation_covariance must contain finite values")
     if not np.allclose(
         matrices, np.swapaxes(matrices, -1, -2), rtol=1.0e-12, atol=1.0e-15
     ):
-        raise ValueError("observation_covariance must be symmetric")
+        raise FitValidationError("observation_covariance must be symmetric")
     try:
         factors = np.linalg.cholesky(matrices)
     except np.linalg.LinAlgError as error:
-        raise ValueError("observation_covariance must be positive definite") from error
+        raise FitValidationError("observation_covariance must be positive definite") from error
     return factors.reshape(-1, component_count, component_count)
 
 
@@ -277,15 +278,15 @@ def _validated_solver_options(
 ) -> tuple[str | Callable[..., Any], float, int | None]:
     allowed_losses = {"linear", "soft_l1", "huber", "cauchy", "arctan"}
     if not callable(loss) and loss not in allowed_losses:
-        raise ValueError(f"loss must be one of {sorted(allowed_losses)} or callable")
+        raise FitValidationError(f"loss must be one of {sorted(allowed_losses)} or callable")
     f_scale = float(f_scale)
     if not np.isfinite(f_scale) or f_scale <= 0.0:
-        raise ValueError("f_scale must be finite and greater than zero")
+        raise FitValidationError("f_scale must be finite and greater than zero")
     if max_nfev is not None:
         if isinstance(max_nfev, bool) or not isinstance(max_nfev, (int, np.integer)):
-            raise ValueError("max_nfev must be a positive integer or None")
+            raise FitValidationError("max_nfev must be a positive integer or None")
         if max_nfev <= 0:
-            raise ValueError("max_nfev must be a positive integer or None")
+            raise FitValidationError("max_nfev must be a positive integer or None")
         max_nfev = int(max_nfev)
     return loss, f_scale, max_nfev
 
@@ -319,7 +320,7 @@ def _observation_error_model(
         if sigma_alias is not None or any(
             value is not None for value in component_sigmas
         ):
-            raise ValueError(
+            raise FitValidationError(
                 "observation_covariance cannot be combined with individual "
                 "sigma arguments"
             )
@@ -492,15 +493,15 @@ def _fit_model(
     fixed_values = {name: float(value) for name, value in (fixed or {}).items()}
     overlap = set(initial) & set(fixed_values)
     if overlap:
-        raise ValueError(
+        raise FitValidationError(
             f"Parameters cannot be both initial and fixed: {sorted(overlap)}"
         )
     names = tuple(initial)
     if not names:
-        raise ValueError("At least one free parameter is required")
+        raise FitValidationError("At least one free parameter is required")
     parameter_x0 = np.array([float(initial[name]) for name in names], dtype=float)
     if not np.all(np.isfinite(parameter_x0)):
-        raise ValueError("Initial parameters must be finite")
+        raise FitValidationError("Initial parameters must be finite")
 
     configured_bounds = bounds or {}
     parameter_lower = []
@@ -508,7 +509,7 @@ def _fit_model(
     for name in names:
         interval = configured_bounds.get(name, (-np.inf, np.inf))
         if len(interval) != 2 or interval[0] >= interval[1]:
-            raise ValueError(f"Invalid bounds for {name}")
+            raise FitValidationError(f"Invalid bounds for {name}")
         parameter_lower.append(float(interval[0]))
         parameter_upper.append(float(interval[1]))
 
@@ -555,7 +556,7 @@ def _fit_model(
         adjusted = adjusted_coordinates(values)
         predicted = np.asarray(evaluator(model, adjusted), dtype=float)
         if predicted.shape != observed.shape:
-            raise ValueError("Model predictions must match the pressure shape")
+            raise FitValidationError("Model predictions must match the pressure shape")
         pressure_residual = predicted - observed
         if observation_cholesky is not None:
             raw_components = [pressure_residual.ravel()]
@@ -764,7 +765,7 @@ def fit_rt_eos(
         np.asarray(volume, dtype=float), np.asarray(pressure, dtype=float)
     )
     if not np.all(np.isfinite(volumes)) or np.any(volumes <= 0.0):
-        raise ValueError("Volume must be finite and greater than zero")
+        raise FitValidationError("Volume must be finite and greater than zero")
     observed = _validated_observations(observed)
     uncertainties, observation_cholesky, uncertainty_supplied = (
         _observation_error_model(
@@ -831,7 +832,7 @@ def fit_thermal_eos(
     configuration = dict(configuration or {})
     overlap = set(configuration) & (set(initial) | set(fixed or {}))
     if overlap:
-        raise ValueError(
+        raise FitValidationError(
             "Configuration choices must not also be supplied as fit parameters: "
             f"{sorted(overlap)}"
         )
@@ -841,9 +842,9 @@ def fit_thermal_eos(
         np.asarray(pressure, dtype=float),
     )
     if not np.all(np.isfinite(volumes)) or np.any(volumes <= 0.0):
-        raise ValueError("Volume must be finite and greater than zero")
+        raise FitValidationError("Volume must be finite and greater than zero")
     if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0.0):
-        raise ValueError("Temperature must be finite and greater than zero")
+        raise FitValidationError("Temperature must be finite and greater than zero")
     observed = _validated_observations(observed)
     uncertainties, observation_cholesky, uncertainty_supplied = (
         _observation_error_model(
@@ -920,7 +921,7 @@ def fit_joint_eos(
     configuration = dict(configuration or {})
     overlap = set(configuration) & (set(initial) | set(fixed or {}))
     if overlap:
-        raise ValueError(
+        raise FitValidationError(
             "Configuration choices must not also be supplied as fit parameters: "
             f"{sorted(overlap)}"
         )
@@ -948,14 +949,14 @@ def fit_joint_eos(
         np.asarray(pressure, dtype=float),
     )
     if not np.all(np.isfinite(volumes)) or np.any(volumes <= 0.0):
-        raise ValueError("Volume must be finite and greater than zero")
+        raise FitValidationError("Volume must be finite and greater than zero")
     if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0.0):
-        raise ValueError("Temperature must be finite and greater than zero")
+        raise FitValidationError("Temperature must be finite and greater than zero")
     observed = _validated_observations(observed)
 
     all_parameter_names = set(initial) | set(fixed or {})
     if not any(name.startswith("rt_eos.") for name in all_parameter_names):
-        raise ValueError("Joint fitting requires rt_eos.* reference parameters")
+        raise FitValidationError("Joint fitting requires rt_eos.* reference parameters")
 
     uncertainties, observation_cholesky, uncertainty_supplied = (
         _observation_error_model(

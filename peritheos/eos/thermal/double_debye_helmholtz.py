@@ -14,6 +14,11 @@ from peritheos.eos import (
     validate_volume,
 )
 from peritheos.eos.rt import Vinet
+from peritheos.errors import (
+    ConfigurationError,
+    EosNumericalError,
+    EosValidationError,
+)
 
 from .mie_gruneisen import _debye_function_3
 
@@ -84,7 +89,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         phi0: float = 0.0,
     ) -> None:
         if not isinstance(rt_eos, Vinet):
-            raise TypeError("rt_eos must be a Vinet cold curve")
+            raise ConfigurationError("rt_eos must be a Vinet cold curve")
         super().__init__(rt_eos)
         self.Vp = validate_positive_scalar(Vp, "Vp")
         self.theta_a0 = validate_positive_scalar(theta_a0, "theta_a0")
@@ -99,7 +104,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         self.n = validate_positive_scalar(n, "n")
         self.alpha0 = validate_finite_scalar(alpha0, "alpha0")
         if self.alpha0 < 0.0:
-            raise ValueError("alpha0 must not be negative")
+            raise EosValidationError("alpha0 must not be negative")
         self.Ve = validate_positive_scalar(Ve, "Ve")
         self.kappa = validate_finite_scalar(kappa, "kappa")
         self.phi0 = validate_finite_scalar(phi0, "phi0")
@@ -109,14 +114,14 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         volumes = np.asarray(validate_volume(V), dtype=float)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures < 0.0):
-            raise ValueError("Temperature must be finite and non-negative")
+            raise EosValidationError("Temperature must be finite and non-negative")
         try:
             broadcast_volumes, broadcast_temperatures = np.broadcast_arrays(
                 volumes, temperatures
             )
             return broadcast_volumes, broadcast_temperatures
         except ValueError as error:
-            raise ValueError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
 
     @staticmethod
     def _result(values: NumericType) -> NumericType:
@@ -133,7 +138,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         theta = theta0 * np.exp(-b * logarithmic_ratio + a * (self.Vp - volumes))
         gamma = a * volumes + b
         if not np.all(np.isfinite(theta)) or np.any(theta <= 0.0):
-            raise ArithmeticError("Debye temperature is not finite and positive")
+            raise EosNumericalError("Debye temperature is not finite and positive")
         return theta, gamma
 
     def debye_temperatures(
@@ -408,7 +413,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
                 ambient_volumes, heated_volumes
             )
         except ValueError as error:
-            raise ValueError(
+            raise EosValidationError(
                 "V_ambient and V_heated must have broadcast-compatible shapes"
             ) from error
 
@@ -422,7 +427,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
             ambient_reference_pressures - heated_reference_pressures
         ) / (1.0 - f_dac)
         if np.any(target_increments < 0.0):
-            raise ValueError(
+            raise EosValidationError(
                 "The volume pair implies a temperature below the reference "
                 "temperature, not a heated state"
             )
@@ -444,7 +449,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         ).reshape(target_increments.shape)
         temperature_tolerance = 1.0e-10 * max(1.0, self.Tr)
         if np.any(temperatures < self.Tr - temperature_tolerance):
-            raise ValueError(
+            raise EosValidationError(
                 "The volume pair implies a temperature below the reference "
                 "temperature, not a heated state"
             )

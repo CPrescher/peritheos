@@ -43,6 +43,11 @@ from peritheos.eos.thermal import (
     ThermalModifiedTait,
     ThermalReferenceStateEOS,
 )
+from peritheos.errors import (
+    ConfigurationError,
+    MaterialError,
+    MaterialLookupError,
+)
 from peritheos.uncertainty import EOSUncertainty, PredictionUncertainty
 
 
@@ -152,13 +157,13 @@ class EOSRecord:
             "deferred",
         }
         if self.scientific_validation_status not in allowed:
-            raise ValueError(
+            raise MaterialError(
                 f"scientific_validation_status must be one of {sorted(allowed)}"
             )
         if self.parameter_error_confidence is not None and not (
             0.0 < self.parameter_error_confidence < 1.0
         ):
-            raise ValueError("parameter_error_confidence must lie between zero and one")
+            raise MaterialError("parameter_error_confidence must lie between zero and one")
         object.__setattr__(
             self,
             "eosmat_metadata",
@@ -183,11 +188,11 @@ class EOSRecord:
             temperature = self.reference_temperature
         values = np.asarray(temperature, dtype=float)
         if not np.all(np.isfinite(values)) or np.any(values <= 0.0):
-            raise ValueError("Temperature must be finite and greater than zero")
+            raise MaterialError("Temperature must be finite and greater than zero")
         if not self.is_thermal and not np.allclose(
             values, self.reference_temperature, rtol=0.0, atol=1.0e-8
         ):
-            raise ValueError(
+            raise MaterialError(
                 f"{self.identifier} is an isothermal {self.reference_temperature:g} K "
                 "EOS record and has no thermal correction"
             )
@@ -198,7 +203,7 @@ class EOSRecord:
     ) -> None:
         ratio = np.asarray(public_volume, dtype=float) / self.reference_volume
         if not np.all(self.validity.contains(pressure, temperature, ratio)):
-            raise ValueError(
+            raise MaterialError(
                 f"State is outside the published validity envelope for "
                 f"{self.identifier}; pass check_validity=False only for an "
                 "explicit extrapolation"
@@ -258,7 +263,7 @@ class EOSRecord:
         EOS :meth:`temperature_from_volumes` method for model-specific details.
         """
         if not isinstance(self.eos, ThermalEOS):
-            raise ValueError(
+            raise MaterialError(
                 f"{self.identifier} is isothermal and cannot invert temperature"
             )
         ambient_internal = np.asarray(ambient_volume, dtype=float) * self.volume_scale
@@ -333,7 +338,7 @@ class EOSRecord:
                 **options,
             )
         if temperature_sigma is not None:
-            raise ValueError(
+            raise MaterialError(
                 "Temperature uncertainty cannot be propagated through an "
                 "isothermal EOS record without a published thermal model"
             )
@@ -366,7 +371,7 @@ class EOSRecord:
             )
         else:
             if temperature_sigma is not None:
-                raise ValueError(
+                raise MaterialError(
                     "Temperature uncertainty cannot be propagated through an "
                     "isothermal EOS record without a published thermal model"
                 )
@@ -421,12 +426,12 @@ class Material:
 
     def __post_init__(self) -> None:
         if not self.identifier:
-            raise ValueError("Material identifier must not be empty")
+            raise MaterialError("Material identifier must not be empty")
         if not self.eos_records:
-            raise ValueError("A material requires at least one EOS record")
+            raise MaterialError("A material requires at least one EOS record")
         identifiers = [record.identifier for record in self.eos_records]
         if len(identifiers) != len(set(identifiers)):
-            raise ValueError("EOS record identifiers must be unique within a material")
+            raise MaterialError("EOS record identifiers must be unique within a material")
         expected = (self.formula, self.phase, self.cell_contents, self.volume_unit)
         for record in self.eos_records:
             actual = (
@@ -436,7 +441,7 @@ class Material:
                 record.volume_unit,
             )
             if actual != expected:
-                raise ValueError(
+                raise MaterialError(
                     "Every EOS record must match its material identity and volume unit"
                 )
         if self.formula_units_per_cell is not None:
@@ -444,11 +449,11 @@ class Material:
                 not np.isfinite(self.formula_units_per_cell)
                 or self.formula_units_per_cell <= 0.0
             ):
-                raise ValueError("formula_units_per_cell must be positive and finite")
+                raise MaterialError("formula_units_per_cell must be positive and finite")
         if self.space_group_number is not None and not (
             1 <= self.space_group_number <= 230
         ):
-            raise ValueError("space_group_number must be between 1 and 230")
+            raise MaterialError("space_group_number must be between 1 and 230")
         if self.lattice is not None:
             object.__setattr__(
                 self,
@@ -473,7 +478,7 @@ class Material:
         for record in self.eos_records:
             if record.identifier == identifier:
                 return record
-        raise KeyError(
+        raise MaterialLookupError(
             f"Unknown EOS record {identifier!r} for {self.identifier!r}; "
             f"available: {[record.identifier for record in self.eos_records]}"
         )
@@ -612,7 +617,7 @@ def _model_identifier(eos: EosBase) -> str:
     try:
         return _MODEL_IDENTIFIERS[type(eos).__name__]
     except KeyError as error:
-        raise ValueError(
+        raise MaterialError(
             f"EOS class {type(eos).__name__!r} is not registered for catalog export"
         ) from error
 
@@ -975,9 +980,9 @@ def _eos_records_to_document(
     """
     records = tuple(records)
     if not records:
-        raise ValueError("At least one EOS record is required")
+        raise MaterialError("At least one EOS record is required")
     if not all(isinstance(record, EOSRecord) for record in records):
-        raise TypeError("records must contain only EOSRecord objects")
+        raise ConfigurationError("records must contain only EOSRecord objects")
     first = records[0]
     material_key = (
         first.material,
@@ -992,7 +997,7 @@ def _eos_records_to_document(
             record.cell_contents,
             record.volume_unit,
         ) != material_key:
-            raise ValueError(
+            raise MaterialError(
                 "All records in one material document must use the same material, "
                 "phase, cell contents, and public volume unit"
             )
@@ -1023,18 +1028,18 @@ def _load_component(
         parameters = dict(component["parameters"])
         configuration = dict(component.get("configuration", {}))
     except (KeyError, TypeError, ValueError) as error:
-        raise ValueError("Invalid equation component") from error
+        raise MaterialError("Invalid equation component") from error
     try:
         model_class = _MODEL_CLASSES[model_identifier]
     except KeyError as error:
-        raise ValueError(f"Unknown equation model {model_identifier!r}") from error
+        raise MaterialError(f"Unknown equation model {model_identifier!r}") from error
     if rt_eos is not None:
         parameters["rt_eos"] = rt_eos
     parameters.update(configuration)
     try:
         return model_class(**parameters)
     except (TypeError, ValueError) as error:
-        raise ValueError(
+        raise MaterialError(
             f"Invalid parameters for equation model {model_identifier!r}"
         ) from error
 
@@ -1048,7 +1053,7 @@ def _flatten_component_mapping(
         thermal_values = dict(values.get("thermal_correction", {}))
         additional = dict(values.get("additional", {}))
     except (TypeError, ValueError) as error:
-        raise ValueError("Invalid component parameter metadata") from error
+        raise MaterialError("Invalid component parameter metadata") from error
     flattened = {
         (f"rt_eos.{name}" if thermal else name): value
         for name, value in reference.items()
@@ -1067,7 +1072,7 @@ def _unqualify_parameter_name(name: str, *, thermal: bool) -> str:
         return f"rt_eos.{parameter}" if thermal else parameter
     if thermal and name.startswith(thermal_prefix):
         return name.removeprefix(thermal_prefix)
-    raise ValueError(f"Invalid covariance parameter path {name!r}")
+    raise MaterialError(f"Invalid covariance parameter path {name!r}")
 
 
 def _eosmat_reference(value: Any) -> LiteratureReference:
@@ -1080,10 +1085,10 @@ def _eosmat_reference(value: Any) -> LiteratureReference:
             locations=("legacy eosmat reference string",),
         )
     if not isinstance(value, Mapping):
-        raise ValueError("reference must be a string or object")
+        raise MaterialError("reference must be a string or object")
     authors_value = value.get("authors", ())
     if not isinstance(authors_value, list):
-        raise ValueError("reference.authors must be an array")
+        raise MaterialError("reference.authors must be an array")
     locations_value = value.get("locations")
     if locations_value is None:
         locations_value = tuple(
@@ -1153,13 +1158,13 @@ def _material_from_eosmat(
     validate_eosmat_document(document)
     records_data = document.get("eos_records")
     if not isinstance(records_data, list) or not records_data:
-        raise ValueError("An executable Material requires at least one EOS record")
+        raise MaterialError("An executable Material requires at least one EOS record")
     if record_identifiers is not None:
         selected = frozenset(str(identifier) for identifier in record_identifiers)
         available = {str(record.get("identifier")) for record in records_data}
         missing = selected - available
         if missing:
-            raise KeyError(
+            raise MaterialLookupError(
                 f"Unknown EOS record identifiers {sorted(missing)}; available: "
                 f"{sorted(available)}"
             )
@@ -1169,7 +1174,7 @@ def _material_from_eosmat(
             if str(record.get("identifier")) in selected
         ]
         if not records_data:
-            raise ValueError("record_identifiers must select at least one EOS record")
+            raise MaterialError("record_identifiers must select at least one EOS record")
     units = document.get("units", {})
     volume_unit = str(units.get("volume", "angstrom^3/conventional_unit_cell"))
     formula = str(document["formula"])
@@ -1193,7 +1198,7 @@ def _material_from_eosmat(
                 require_primary_validation
                 and validation_status != "primary_source_validated"
             ):
-                raise ValueError(
+                raise MaterialError(
                     f"record {raw_record.get('identifier')!r} is "
                     f"{validation_status!r}; pass require_primary_validation=False "
                     "only to accept unaudited parameters explicitly"
@@ -1210,7 +1215,7 @@ def _material_from_eosmat(
                 volume_scale = float(volume_data["public_to_model_scale"])
             elif thermal_model in _MOLAR_VOLUME_THERMAL_MODELS:
                 if formula_units is None:
-                    raise ValueError(
+                    raise MaterialError(
                         "formula_units_per_cell or volume.public_to_model_scale is "
                         "required for molar-energy thermal EOS"
                     )
@@ -1317,7 +1322,7 @@ def _material_from_eosmat(
                 if isinstance(raw_record, Mapping)
                 else "<unknown>"
             )
-            raise ValueError(f"Invalid EOS record {identifier!r}: {error}") from error
+            raise MaterialError(f"Invalid EOS record {identifier!r}: {error}") from error
 
     known_keys = {
         "format",
@@ -1387,9 +1392,9 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
             require_primary_validation=True,
         )
     if document.get("format") != "peritheos.material-snapshot":
-        raise ValueError("Not a Peritheos executable material snapshot")
+        raise MaterialError("Not a Peritheos executable material snapshot")
     if document.get("format_version") != 2:
-        raise ValueError("Only material format version 2 is supported")
+        raise MaterialError("Only material format version 2 is supported")
     try:
         material = document["material"]
         units = document["units"]
@@ -1400,11 +1405,11 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
         cell_contents = str(material["cell_contents"])
         volume_unit = str(units["volume"])
     except (KeyError, TypeError) as error:
-        raise ValueError("Invalid material document header") from error
+        raise MaterialError("Invalid material document header") from error
     if units.get("pressure") != "GPa" or units.get("temperature") != "K":
-        raise ValueError("Pressure and temperature units must be GPa and K")
+        raise MaterialError("Pressure and temperature units must be GPa and K")
     if not isinstance(records, list) or not records:
-        raise ValueError("eos_records must be a non-empty list")
+        raise MaterialError("eos_records must be a non-empty list")
 
     eos_records = []
     for record in records:
@@ -1415,7 +1420,7 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
                 combination.get("status") != "source_parameterization"
                 or combination.get("validated_as_composed") is not True
             ):
-                raise ValueError(
+                raise MaterialError(
                     "EOSRecord loading requires a validated source composition"
                 )
             reference_eos = _load_component(equation["reference_isotherm"])
@@ -1469,12 +1474,12 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
             )
             volume_data = record["volume"]
             if volume_data["public_unit"] != volume_unit:
-                raise ValueError("Record and document volume units differ")
+                raise MaterialError("Record and document volume units differ")
             if record["reference_temperature"].get("unit") != "K":
-                raise ValueError("Reference temperature unit must be K")
+                raise MaterialError("Reference temperature unit must be K")
             volume_scale = float(volume_data["public_to_model_scale"])
             if not np.isfinite(volume_scale) or volume_scale <= 0.0:
-                raise ValueError("Volume scale must be finite and greater than zero")
+                raise MaterialError("Volume scale must be finite and greater than zero")
             eos_record = EOSRecord(
                 identifier=str(record["identifier"]),
                 name=str(record["name"]),
@@ -1504,14 +1509,14 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
                 rtol=1.0e-12,
                 atol=0.0,
             ):
-                raise ValueError("Reference volume is inconsistent with EOS parameters")
+                raise MaterialError("Reference volume is inconsistent with EOS parameters")
         except (KeyError, TypeError, ValueError) as error:
             identifier = (
                 record.get("identifier", "<unknown>")
                 if isinstance(record, Mapping)
                 else "<unknown>"
             )
-            raise ValueError(f"Invalid EOS record {identifier!r}") from error
+            raise MaterialError(f"Invalid EOS record {identifier!r}") from error
         eos_records.append(eos_record)
     return Material(
         identifier=material_identifier,
@@ -2975,8 +2980,10 @@ def _build_material_catalog() -> Mapping[str, Material]:
         first = records[0]
         identifier = _material_identifier(first)
         if identifier in materials:
-            raise RuntimeError(
-                f"Duplicate generated material identifier {identifier!r}"
+            raise MaterialError(
+                f"Duplicate generated material identifier {identifier!r}",
+                code="material.duplicate_identifier",
+                field="identifier",
             )
         materials[identifier] = Material(
             identifier=identifier,
@@ -3010,7 +3017,7 @@ def get_material(identifier: str) -> Material:
     try:
         return _MATERIAL_CATALOG[identifier]
     except KeyError as error:
-        raise KeyError(
+        raise MaterialLookupError(
             f"Unknown material {identifier!r}; available: {sorted(_MATERIAL_CATALOG)}"
         ) from error
 
@@ -3028,7 +3035,7 @@ def get_eos_record(identifier: str) -> EOSRecord:
     try:
         return _EOS_RECORD_CATALOG[identifier]
     except KeyError as error:
-        raise KeyError(
+        raise MaterialLookupError(
             f"Unknown EOS record {identifier!r}; "
             f"available: {sorted(_EOS_RECORD_CATALOG)}"
         ) from error

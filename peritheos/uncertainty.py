@@ -12,6 +12,7 @@ from scipy.stats import norm
 
 from peritheos import _rust
 from peritheos.eos import EosBase, NumericType, ThermalEOS
+from peritheos.errors import ConfigurationError, NumericalError, ValidationError
 
 
 def _scalar_or_array(values: NDArray[np.float64]) -> NumericType:
@@ -25,17 +26,17 @@ def _validate_covariance(
 ) -> NDArray[np.float64]:
     matrix = np.asarray(covariance, dtype=float)
     if matrix.shape != (size, size):
-        raise ValueError(f"{name} must have shape ({size}, {size})")
+        raise ValidationError(f"{name} must have shape ({size}, {size})")
     if not np.all(np.isfinite(matrix)):
-        raise ValueError(f"{name} must contain only finite values")
+        raise ValidationError(f"{name} must contain only finite values")
     scale = max(1.0, float(np.max(np.abs(matrix))))
     tolerance = 1.0e-12 * scale
     if not np.allclose(matrix, matrix.T, rtol=1.0e-10, atol=tolerance):
-        raise ValueError(f"{name} must be symmetric")
+        raise ValidationError(f"{name} must be symmetric")
     matrix = (matrix + matrix.T) / 2.0
     eigenvalues = np.linalg.eigvalsh(matrix)
     if eigenvalues[0] < -tolerance:
-        raise ValueError(f"{name} must be positive semidefinite")
+        raise ValidationError(f"{name} must be positive semidefinite")
     return matrix
 
 
@@ -69,31 +70,31 @@ class ParameterUncertainty:
         if covariance is not None and (
             parameter_errors is not None or correlation is not None
         ):
-            raise ValueError(
+            raise ValidationError(
                 "covariance cannot be combined with parameter_errors or correlation"
             )
         if correlation is not None and parameter_errors is None:
-            raise ValueError("correlation requires parameter_errors")
+            raise ValidationError("correlation requires parameter_errors")
 
         inferred_assumptions = list(assumptions)
         if covariance is not None:
             if parameter_names is None:
-                raise ValueError("parameter_names are required with covariance")
+                raise ValidationError("parameter_names are required with covariance")
             names = tuple(parameter_names)
             if not names:
-                raise ValueError("At least one uncertain parameter is required")
+                raise ValidationError("At least one uncertain parameter is required")
             matrix = _validate_covariance(covariance, len(names))
         elif parameter_errors is not None:
             names = tuple(parameter_errors)
             if not names:
-                raise ValueError("At least one uncertain parameter is required")
+                raise ValidationError("At least one uncertain parameter is required")
             if parameter_names is not None and tuple(parameter_names) != names:
-                raise ValueError(
+                raise ValidationError(
                     "parameter_names must match the order of parameter_errors"
                 )
             errors = np.array([float(parameter_errors[name]) for name in names])
             if not np.all(np.isfinite(errors)) or np.any(errors <= 0.0):
-                raise ValueError(
+                raise ValidationError(
                     "parameter_errors must be finite and greater than zero"
                 )
             if correlation is None:
@@ -108,15 +109,15 @@ class ParameterUncertainty:
                 if not np.allclose(
                     np.diag(correlation_matrix), 1.0, rtol=0.0, atol=1.0e-10
                 ):
-                    raise ValueError("correlation must have ones on its diagonal")
+                    raise ValidationError("correlation must have ones on its diagonal")
                 if np.any(np.abs(correlation_matrix) > 1.0 + 1.0e-10):
-                    raise ValueError("correlation coefficients must lie in [-1, 1]")
+                    raise ValidationError("correlation coefficients must lie in [-1, 1]")
             matrix = errors[:, None] * correlation_matrix * errors[None, :]
         else:
-            raise ValueError("Provide covariance or parameter_errors")
+            raise ValidationError("Provide covariance or parameter_errors")
 
         if len(set(names)) != len(names):
-            raise ValueError("parameter names must be unique")
+            raise ValidationError("parameter names must be unique")
         errors = np.sqrt(np.maximum(np.diag(matrix), 0.0))
         self.parameter_names = names
         self.covariance = matrix
@@ -179,14 +180,14 @@ class EOSUncertainty:
         parameter_names: Sequence[str] | None = None,
     ) -> None:
         if not isinstance(eos, EosBase):
-            raise TypeError("eos must be an equation of state")
+            raise ConfigurationError("eos must be an equation of state")
         if covariance is not None and parameter_names is None:
             all_names = tuple(eos.parameter_values(include_reference=True))
             covariance_shape = np.asarray(covariance).shape
             if covariance_shape == (len(all_names), len(all_names)):
                 parameter_names = all_names
             else:
-                raise ValueError(
+                raise ValidationError(
                     "parameter_names are required when covariance does not cover "
                     "all EOS parameters"
                 )
@@ -204,7 +205,7 @@ class EOSUncertainty:
         available = eos.parameter_values(include_reference=True)
         unknown = set(parameter_uncertainty.parameter_names) - set(available)
         if unknown:
-            raise ValueError(
+            raise ValidationError(
                 f"Unknown parameters for {type(eos).__name__}: {sorted(unknown)}"
             )
         self.eos = eos
@@ -222,7 +223,7 @@ class EOSUncertainty:
     def state_only(cls, eos: EosBase) -> EOSUncertainty:
         """Create propagation with measured-state errors but no parameter block."""
         if not isinstance(eos, EosBase):
-            raise TypeError("eos must be an equation of state")
+            raise ConfigurationError("eos must be an equation of state")
         uncertainty = ParameterUncertainty._empty(
             ("published parameter uncertainty not available",)
         )
@@ -245,11 +246,11 @@ class EOSUncertainty:
         if additional is None:
             return cls._from_parameter_uncertainty(fit_result.model, uncertainty)
         if not assume_blocks_independent:
-            raise ValueError(
+            raise ValidationError(
                 "Set assume_blocks_independent=True to combine separate fits"
             )
         if not isinstance(fit_result.model, ThermalEOS):
-            raise TypeError("additional uncertainty requires a thermal fitted EOS")
+            raise ConfigurationError("additional uncertainty requires a thermal fitted EOS")
         reference_values = fit_result.model.rt_eos.parameter_values(
             include_reference=True
         )
@@ -259,7 +260,7 @@ class EOSUncertainty:
                 include_reference=True
             ).items()
         ):
-            raise ValueError("additional uncertainty must describe the reference EOS")
+            raise ValidationError("additional uncertainty must describe the reference EOS")
 
         first_size = len(uncertainty.parameter_names)
         second_size = len(additional.parameter_uncertainty.parameter_names)
@@ -304,12 +305,12 @@ class EOSUncertainty:
         quantity_kwargs: Mapping[str, Any],
     ) -> NDArray[np.float64]:
         if not hasattr(eos, quantity) or quantity.startswith("_"):
-            raise ValueError(f"Unknown public EOS quantity: {quantity}")
+            raise ValidationError(f"Unknown public EOS quantity: {quantity}")
         values = np.asarray(
             getattr(eos, quantity)(*arguments, **quantity_kwargs), dtype=float
         )
         if not np.all(np.isfinite(values)):
-            raise ArithmeticError(f"{quantity} returned non-finite values")
+            raise NumericalError(f"{quantity} returned non-finite values")
         return values
 
     def _parameter_jacobian(
@@ -352,11 +353,11 @@ class EOSUncertainty:
             elif minus is not None:
                 derivative = (nominal - minus) / step
             else:
-                raise ArithmeticError(
+                raise NumericalError(
                     f"Could not perturb parameter {name!r} for {quantity}"
                 )
             if derivative.shape != nominal.shape:
-                raise ArithmeticError("Perturbed EOS output shape changed")
+                raise NumericalError("Perturbed EOS output shape changed")
             derivatives.append(derivative.ravel())
         if not derivatives:
             return np.empty((nominal.size, 0), dtype=float)
@@ -379,11 +380,11 @@ class EOSUncertainty:
                     np.asarray(raw_sigma, dtype=float), nominal.shape
                 )
             except ValueError as error:
-                raise ValueError(
+                raise ValidationError(
                     "state uncertainty must broadcast to the calculated shape"
                 ) from error
             if not np.all(np.isfinite(sigma)) or np.any(sigma <= 0.0):
-                raise ValueError(
+                raise ValidationError(
                     "state uncertainties must be finite and greater than zero"
                 )
             step = relative_step * np.maximum(np.abs(argument), 1.0)
@@ -411,7 +412,7 @@ class EOSUncertainty:
             elif minus is not None:
                 derivative = (nominal - minus) / step
             else:
-                raise ArithmeticError(
+                raise NumericalError(
                     f"Could not perturb argument {index} for {quantity}"
                 )
             variance += (
@@ -426,9 +427,9 @@ class EOSUncertainty:
         confidence = float(confidence)
         relative_step = float(relative_step)
         if not np.isfinite(confidence) or not 0.0 < confidence < 1.0:
-            raise ValueError("confidence must lie between zero and one")
+            raise ValidationError("confidence must lie between zero and one")
         if not np.isfinite(relative_step) or relative_step <= 0.0:
-            raise ValueError("relative_step must be finite and greater than zero")
+            raise ValidationError("relative_step must be finite and greater than zero")
         return confidence, relative_step
 
     def _linear_evaluate(
@@ -491,10 +492,10 @@ class EOSUncertainty:
         random_state: Any,
     ) -> PredictionUncertainty:
         if isinstance(sample_count, bool) or int(sample_count) != sample_count:
-            raise ValueError("sample_count must be an integer")
+            raise ValidationError("sample_count must be an integer")
         sample_count = int(sample_count)
         if sample_count < 2:
-            raise ValueError("sample_count must be at least two")
+            raise ValidationError("sample_count must be at least two")
         nominal = self._evaluate_model(self.eos, quantity, arguments, quantity_kwargs)
         rng = np.random.default_rng(random_state)
         parameter_values = self.eos.parameter_values(include_reference=True)
@@ -507,11 +508,11 @@ class EOSUncertainty:
                     np.asarray(raw_sigma, dtype=float), argument.shape
                 )
             except ValueError as error:
-                raise ValueError(
+                raise ValidationError(
                     "state uncertainty must broadcast to its state argument"
                 ) from error
             if not np.all(np.isfinite(sigma)) or np.any(sigma <= 0.0):
-                raise ValueError(
+                raise ValidationError(
                     "state uncertainties must be finite and greater than zero"
                 )
             prepared_sigmas[index] = sigma
@@ -541,7 +542,7 @@ class EOSUncertainty:
                         quantity_kwargs,
                     )
                     if result.shape != nominal.shape:
-                        raise ArithmeticError("Sampled EOS output shape changed")
+                        raise NumericalError("Sampled EOS output shape changed")
                 except (ArithmeticError, FloatingPointError, TypeError, ValueError):
                     if attempted >= maximum_attempts:
                         break
@@ -550,7 +551,7 @@ class EOSUncertainty:
                 if len(accepted) == sample_count:
                     break
         if len(accepted) < sample_count:
-            raise ArithmeticError(
+            raise NumericalError(
                 "Could not obtain enough valid Monte Carlo EOS samples"
             )
 
@@ -599,7 +600,7 @@ class EOSUncertainty:
         state_sigmas = dict(argument_sigmas or {})
         invalid_indices = set(state_sigmas) - set(range(len(arguments)))
         if invalid_indices:
-            raise ValueError(f"Invalid argument uncertainty indices: {invalid_indices}")
+            raise ValidationError(f"Invalid argument uncertainty indices: {invalid_indices}")
         if method == "linear":
             return self._linear_evaluate(
                 quantity,
@@ -621,7 +622,7 @@ class EOSUncertainty:
                 sample_count,
                 random_state,
             )
-        raise ValueError("method must be 'linear' or 'monte_carlo'")
+        raise ValidationError("method must be 'linear' or 'monte_carlo'")
 
     def pressure(
         self,
@@ -635,7 +636,7 @@ class EOSUncertainty:
         """Return pressure and propagated uncertainty."""
         if isinstance(self.eos, ThermalEOS):
             if T is None:
-                raise ValueError("Temperature is required for a thermal EOS")
+                raise ValidationError("Temperature is required for a thermal EOS")
             volumes, temperatures = np.broadcast_arrays(
                 np.asarray(V, dtype=float), np.asarray(T, dtype=float)
             )
@@ -648,7 +649,7 @@ class EOSUncertainty:
                 "pressure", volumes, temperatures, argument_sigmas=sigmas, **options
             )
         if T is not None or temperature_sigma is not None:
-            raise ValueError("Temperature is only valid for a thermal EOS")
+            raise ValidationError("Temperature is only valid for a thermal EOS")
         sigmas = {} if volume_sigma is None else {0: volume_sigma}
         return self.evaluate("pressure", V, argument_sigmas=sigmas, **options)
 
@@ -664,7 +665,7 @@ class EOSUncertainty:
         """Return volume and propagated uncertainty."""
         if isinstance(self.eos, ThermalEOS):
             if T is None:
-                raise ValueError("Temperature is required for a thermal EOS")
+                raise ValidationError("Temperature is required for a thermal EOS")
             pressures, temperatures = np.broadcast_arrays(
                 np.asarray(P, dtype=float), np.asarray(T, dtype=float)
             )
@@ -677,7 +678,7 @@ class EOSUncertainty:
                 "volume", pressures, temperatures, argument_sigmas=sigmas, **options
             )
         if T is not None or temperature_sigma is not None:
-            raise ValueError("Temperature is only valid for a thermal EOS")
+            raise ValidationError("Temperature is only valid for a thermal EOS")
         sigmas = {} if pressure_sigma is None else {0: pressure_sigma}
         return self.evaluate("volume", P, argument_sigmas=sigmas, **options)
 
@@ -693,7 +694,7 @@ class EOSUncertainty:
         """Return bulk modulus and propagated uncertainty."""
         if isinstance(self.eos, ThermalEOS):
             if T is None:
-                raise ValueError("Temperature is required for a thermal EOS")
+                raise ValidationError("Temperature is required for a thermal EOS")
             volumes, temperatures = np.broadcast_arrays(
                 np.asarray(V, dtype=float), np.asarray(T, dtype=float)
             )
@@ -710,7 +711,7 @@ class EOSUncertainty:
                 **options,
             )
         if T is not None or temperature_sigma is not None:
-            raise ValueError("Temperature is only valid for a thermal EOS")
+            raise ValidationError("Temperature is only valid for a thermal EOS")
         sigmas = {} if volume_sigma is None else {0: volume_sigma}
         return self.evaluate("bulk_modulus", V, argument_sigmas=sigmas, **options)
 

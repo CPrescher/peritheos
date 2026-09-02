@@ -11,6 +11,12 @@ from numpy.typing import NDArray
 from scipy import optimize
 
 from peritheos import _rust as _rust
+from peritheos.errors import (
+    ConfigurationError,
+    EosNumericalError,
+    EosValidationError,
+    UnsupportedOperationError,
+)
 
 # Type alias for numeric values (scalar or array)
 NumericType = Union[float, NDArray[np.float64]]
@@ -88,7 +94,7 @@ def _native_thermal_evaluate(
     try:
         left, right = np.broadcast_arrays(left, right)
     except ValueError as error:
-        raise ValueError("V and T must have broadcast-compatible shapes") from error
+        raise EosValidationError("V and T must have broadcast-compatible shapes") from error
     if left.ndim == 0:
         return float(native.evaluate_scalar(quantity, float(left), float(right)))
     return np.asarray(native.evaluate_array(quantity, left, right), dtype=float)
@@ -98,7 +104,7 @@ def validate_finite_scalar(value: float, name: str) -> float:
     """Return *value* as a finite float or raise a descriptive error."""
     value = float(value)
     if not np.isfinite(value):
-        raise ValueError(f"{name} must be finite")
+        raise EosValidationError(f"{name} must be finite")
     return value
 
 
@@ -106,7 +112,7 @@ def validate_positive_scalar(value: float, name: str) -> float:
     """Return *value* as a positive finite float."""
     value = validate_finite_scalar(value, name)
     if value <= 0:
-        raise ValueError(f"{name} must be greater than zero")
+        raise EosValidationError(f"{name} must be greater than zero")
     return value
 
 
@@ -114,9 +120,9 @@ def validate_volume(V: NumericType) -> NumericType:
     """Validate volume input while preserving scalar or array behaviour."""
     values = np.asarray(V, dtype=float)
     if not np.all(np.isfinite(values)):
-        raise ValueError("Volume must be finite")
+        raise EosValidationError("Volume must be finite")
     if np.any(values <= 0):
-        raise ValueError("Volume must be greater than zero")
+        raise EosValidationError("Volume must be greater than zero")
     if values.ndim == 0:
         return float(values)
     return values
@@ -131,12 +137,12 @@ def _scalar_pressure(
     """Evaluate a pressure callable and require a finite scalar result."""
     pressure = np.asarray(pressure_function(value), dtype=float)
     if pressure.ndim != 0:
-        raise TypeError(
+        raise ConfigurationError(
             f"The pressure function must return a scalar for scalar {variable_name}"
         )
     result = float(pressure)
     if not np.isfinite(result):
-        raise ArithmeticError(
+        raise EosNumericalError(
             f"EOS returned a non-finite pressure at {variable_name}={value}"
         )
     return result
@@ -180,7 +186,7 @@ def solve_volume(
         else:
             f_lower = np.nan
         if not np.isfinite(f_lower) or f_lower < 0:
-            raise ValueError(
+            raise EosValidationError(
                 f"Could not bracket a positive volume for pressure {target}"
             )
     else:
@@ -198,7 +204,7 @@ def solve_volume(
         else:
             f_upper = np.nan
         if not np.isfinite(f_upper) or f_upper > 0:
-            raise ValueError(
+            raise EosValidationError(
                 f"Pressure {target} is outside the invertible expansion range"
             )
 
@@ -211,7 +217,7 @@ def solve_volume(
     )
     residual = abs(_scalar_pressure(pressure_function, result) - target)
     if residual > 1e-8 * max(1.0, abs(target)):
-        raise ArithmeticError(
+        raise EosNumericalError(
             f"Volume inversion did not converge to the requested pressure; residual={residual}"
         )
     return float(result)
@@ -274,7 +280,7 @@ def solve_temperature(
             break
 
     if not brackets:
-        raise ValueError(
+        raise EosValidationError(
             f"Pressure {target} is outside the invertible temperature range"
         )
 
@@ -296,7 +302,7 @@ def solve_temperature(
         _scalar_pressure(pressure_function, result, variable_name="T") - target
     )
     if residual > 1e-8 * max(1.0, abs(target)):
-        raise ArithmeticError(
+        raise EosNumericalError(
             "Temperature inversion did not converge to the requested pressure; "
             f"residual={residual}"
         )
@@ -326,7 +332,7 @@ class EosBase:
             if name in self._constructor_configuration_names:
                 continue
             if not hasattr(self, name):
-                raise NotImplementedError(
+                raise UnsupportedOperationError(
                     f"{type(self).__name__} does not expose constructor parameter {name!r}"
                 )
             names.append(name)
@@ -337,7 +343,7 @@ class EosBase:
         values = {}
         for name in self._constructor_configuration_names:
             if not hasattr(self, name):
-                raise NotImplementedError(
+                raise UnsupportedOperationError(
                     f"{type(self).__name__} does not expose constructor configuration "
                     f"{name!r}"
                 )
@@ -374,7 +380,7 @@ class EosBase:
         available = self.parameter_values(include_reference=True)
         unknown = set(updates) - set(available)
         if unknown:
-            raise ValueError(
+            raise EosValidationError(
                 f"Unknown parameters for {type(self).__name__}: {sorted(unknown)}"
             )
 
@@ -411,7 +417,7 @@ class EosBase:
         float or numpy.ndarray
             Pressure (in the same units as K0)
         """
-        raise NotImplementedError("Subclasses must implement the pressure method.")
+        raise UnsupportedOperationError("Subclasses must implement the pressure method.")
 
     def bulk_modulus(self, V: NumericType) -> NumericType:
         """
@@ -427,7 +433,7 @@ class EosBase:
         float or numpy.ndarray
             Bulk modulus (in the same units as K0)
         """
-        raise NotImplementedError("Subclasses must implement the bulk_modulus method.")
+        raise UnsupportedOperationError("Subclasses must implement the bulk_modulus method.")
 
     def bulk_modulus_derivative(
         self, V: NumericType, relative_step: float = 1.0e-6
@@ -447,13 +453,13 @@ class EosBase:
             self.pressure(upper_volumes), dtype=float
         ) - np.asarray(self.pressure(lower_volumes), dtype=float)
         if np.any(pressure_difference == 0.0):
-            raise ArithmeticError("Cannot evaluate dK/dP where dP/dV is zero")
+            raise EosNumericalError("Cannot evaluate dK/dP where dP/dV is zero")
         result = (
             np.asarray(self.bulk_modulus(upper_volumes), dtype=float)
             - np.asarray(self.bulk_modulus(lower_volumes), dtype=float)
         ) / pressure_difference
         if not np.all(np.isfinite(result)):
-            raise ArithmeticError("Bulk-modulus pressure derivative is not finite")
+            raise EosNumericalError("Bulk-modulus pressure derivative is not finite")
         if result.ndim == 0:
             return float(result)
         return result
@@ -474,7 +480,7 @@ class EosBase:
         """
         pressures = np.asarray(P, dtype=float)
         if not np.all(np.isfinite(pressures)):
-            raise ValueError("Pressure must be finite")
+            raise EosValidationError("Pressure must be finite")
         native = _native_for_exact_model(self)
         if native is not None:
             return _native_rt_evaluate(native, "volume", pressures)
@@ -500,7 +506,7 @@ class ThermalEOS(EosBase):
         self.rt_eos = rt_eos
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
-        raise NotImplementedError("This method should be implemented by the subclass")
+        raise UnsupportedOperationError("This method should be implemented by the subclass")
 
     def _thermal_pressure_function(self, V: float) -> Callable[[float], NumericType]:
         """Return a temperature-only thermal-pressure function at fixed volume."""
@@ -510,7 +516,7 @@ class ThermalEOS(EosBase):
     def _validate_f_dac(f_dac: float) -> float:
         f_dac = validate_finite_scalar(f_dac, "f_dac")
         if f_dac < 0.0 or f_dac >= 1.0:
-            raise ValueError(
+            raise EosValidationError(
                 "f_dac must be greater than or equal to zero and less than one"
             )
         return f_dac
@@ -540,11 +546,11 @@ class ThermalEOS(EosBase):
         volumes = np.asarray(validate_volume(V), dtype=float)
         temperatures = np.asarray(T, dtype=float)
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
-            raise ValueError("Temperature must be finite and greater than zero")
+            raise EosValidationError("Temperature must be finite and greater than zero")
         try:
             return np.broadcast_arrays(volumes, temperatures)
         except ValueError as error:
-            raise ValueError("V and T must have broadcast-compatible shapes") from error
+            raise EosValidationError("V and T must have broadcast-compatible shapes") from error
 
     @staticmethod
     def _scalar_or_array(values: NDArray[np.float64]) -> NumericType:
@@ -610,7 +616,7 @@ class ThermalEOS(EosBase):
 
     def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
         """Return constant-volume molar heat capacity in J mol^-1 K^-1."""
-        raise NotImplementedError(
+        raise UnsupportedOperationError(
             f"{type(self).__name__} does not provide a caloric model"
         )
 
@@ -668,9 +674,9 @@ class ThermalEOS(EosBase):
             np.asarray(P, dtype=float), np.asarray(T, dtype=float)
         )
         if not np.all(np.isfinite(pressures)):
-            raise ValueError("Pressure must be finite")
+            raise EosValidationError("Pressure must be finite")
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
-            raise ValueError("Temperature must be finite and greater than zero")
+            raise EosValidationError("Temperature must be finite and greater than zero")
 
         native = _native_for_exact_model(self)
         if native is not None:
@@ -721,11 +727,11 @@ class ThermalEOS(EosBase):
         volumes = np.asarray(validate_volume(V), dtype=float)
         pressures = np.asarray(P, dtype=float)
         if not np.all(np.isfinite(pressures)):
-            raise ValueError("Pressure must be finite")
+            raise EosValidationError("Pressure must be finite")
         try:
             pressures, volumes = np.broadcast_arrays(pressures, volumes)
         except ValueError as error:
-            raise ValueError("P and V must have broadcast-compatible shapes") from error
+            raise EosValidationError("P and V must have broadcast-compatible shapes") from error
 
         native = _native_for_exact_model(self)
         if native is not None:
@@ -797,7 +803,7 @@ class ThermalEOS(EosBase):
                 ambient_volumes, heated_volumes
             )
         except ValueError as error:
-            raise ValueError(
+            raise EosValidationError(
                 "V_ambient and V_heated must have broadcast-compatible shapes"
             ) from error
 
@@ -811,7 +817,7 @@ class ThermalEOS(EosBase):
             1.0 - f_dac
         )
         if np.any(target_thermal_pressures < 0.0):
-            raise ValueError(
+            raise EosValidationError(
                 "The volume pair implies a temperature below the reference "
                 "temperature, not a heated state"
             )
@@ -829,7 +835,7 @@ class ThermalEOS(EosBase):
         ).reshape(target_thermal_pressures.shape)
         temperature_tolerance = 1.0e-10 * max(1.0, self.Tr)
         if np.any(temperatures < self.Tr - temperature_tolerance):
-            raise ValueError(
+            raise EosValidationError(
                 "The volume pair implies a temperature below the reference "
                 "temperature, not a heated state"
             )

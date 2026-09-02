@@ -66,7 +66,7 @@ let result = fit_isothermal_eos(
     SolverOptions::default(),
     |parameters| {
         BM3::new(10.0, parameters[0], parameters[1])
-            .map_err(|error| FitError::Evaluation(error.to_string()))
+            .map_err(FitError::from)
     },
 )?;
 assert_eq!(result.parameters.len(), 2);

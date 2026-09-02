@@ -34,7 +34,7 @@
 //!     SolverOptions::default(),
 //!     |parameters| {
 //!         BM3::new(10.0, parameters[0], parameters[1])
-//!             .map_err(|error| FitError::Evaluation(error.to_string()))
+//!             .map_err(FitError::from)
 //!     },
 //! )?;
 //!
@@ -73,12 +73,12 @@
 //!     true,
 //!     |parameters| {
 //!         let eos = BM3::new(10.0, parameters[0], parameters[1])
-//!             .map_err(|error| FitError::Evaluation(error.to_string()))?;
+//!             .map_err(FitError::from)?;
 //!         volumes
 //!             .iter()
 //!             .map(|&volume| {
 //!                 eos.pressure(volume)
-//!                     .map_err(|error| FitError::Evaluation(error.to_string()))
+//!                     .map_err(FitError::from)
 //!             })
 //!             .collect()
 //!     },
@@ -90,8 +90,8 @@
 //! ```
 //!
 //! Robust losses are selected with [`Loss`] through [`SolverOptions`]. All
-//! errors are reported as [`FitError`], so factories should map construction
-//! and EOS evaluation errors into [`FitError::Evaluation`].
+//! errors are reported as [`FitError`], so factories can use
+//! [`FitError::from`] to retain the original EOS error as a source.
 
 mod eos;
 
@@ -105,27 +105,87 @@ use rand::{Rng, SeedableRng};
 use std::error::Error;
 use std::fmt::{Display, Formatter};
 
+use crate::EosError;
+
 const EPSILON_SQRT: f64 = 1.490_116_119_384_765_6e-8;
 const DEFAULT_TOLERANCE: f64 = 1.0e-8;
 
+/// Machine-readable category for a [`FitError`].
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+#[non_exhaustive]
+pub enum FitErrorKind {
+    /// Observations, dimensions, bounds, or solver options are invalid.
+    InvalidInput,
+    /// The model or user callback failed during evaluation.
+    Evaluation,
+    /// An EOS failed during model construction or evaluation.
+    EosEvaluation,
+    /// A required linear system is singular.
+    SingularSystem,
+}
+
 /// Error returned by fitting and covariance kernels.
 #[derive(Clone, Debug, PartialEq)]
+#[non_exhaustive]
 pub enum FitError {
+    /// Observations, dimensions, bounds, or solver options are invalid.
     InvalidInput(String),
+    /// A user-supplied model or callback failed and supplied diagnostic text.
     Evaluation(String),
+    /// An EOS failed during model construction or evaluation.
+    EosEvaluation(EosError),
+    /// A required linear system is singular.
     SingularSystem,
+}
+
+impl FitError {
+    /// Return the machine-readable error category.
+    #[must_use]
+    pub const fn kind(&self) -> FitErrorKind {
+        match self {
+            Self::InvalidInput(_) => FitErrorKind::InvalidInput,
+            Self::Evaluation(_) => FitErrorKind::Evaluation,
+            Self::EosEvaluation(_) => FitErrorKind::EosEvaluation,
+            Self::SingularSystem => FitErrorKind::SingularSystem,
+        }
+    }
+
+    /// Return a stable, language-independent error code.
+    #[must_use]
+    pub const fn code(&self) -> &'static str {
+        match self {
+            Self::InvalidInput(_) => "fit.invalid_input",
+            Self::Evaluation(_) => "fit.evaluation_failed",
+            Self::EosEvaluation(error) => error.code(),
+            Self::SingularSystem => "fit.singular_system",
+        }
+    }
 }
 
 impl Display for FitError {
     fn fmt(&self, formatter: &mut Formatter<'_>) -> std::fmt::Result {
         match self {
             Self::InvalidInput(message) | Self::Evaluation(message) => formatter.write_str(message),
+            Self::EosEvaluation(error) => write!(formatter, "EOS evaluation failed: {error}"),
             Self::SingularSystem => formatter.write_str("linear system is singular"),
         }
     }
 }
 
-impl Error for FitError {}
+impl Error for FitError {
+    fn source(&self) -> Option<&(dyn Error + 'static)> {
+        match self {
+            Self::EosEvaluation(error) => Some(error),
+            Self::InvalidInput(_) | Self::Evaluation(_) | Self::SingularSystem => None,
+        }
+    }
+}
+
+impl From<EosError> for FitError {
+    fn from(error: EosError) -> Self {
+        Self::EosEvaluation(error)
+    }
+}
 
 /// Robust loss applied to squared, scaled residuals.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
@@ -1946,9 +2006,28 @@ fn symmetric_pseudoinverse(
 
 #[cfg(test)]
 mod tests {
-    use super::*;
     use std::cell::Cell;
+    use std::error::Error;
 
+    use crate::EosError;
+
+    use super::*;
+
+    #[test]
+    fn eos_failures_retain_their_code_and_source() {
+        let source = EosError::InvalidState {
+            name: "volume",
+            reason: "must be positive and finite",
+        };
+        let error = FitError::from(source.clone());
+
+        assert_eq!(error.kind(), FitErrorKind::EosEvaluation);
+        assert_eq!(error.code(), "eos.invalid_state");
+        assert_eq!(
+            error.source().and_then(|value| value.downcast_ref()),
+            Some(&source)
+        );
+    }
     #[test]
     fn bounded_solver_recovers_rosenbrock_minimum() {
         let result = least_squares(
