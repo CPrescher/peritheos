@@ -348,12 +348,29 @@ impl ThermalModel {
         dispatch_thermal!(self, model => model.pressure(volume, temperature))
     }
 
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        dispatch_thermal!(self, model => model.thermal_pressure_increment(volume, temperature))
+    }
+
+    fn dac_thermal_pressure(&self, volume: f64, temperature: f64, f_dac: f64) -> EosResult<f64> {
+        dispatch_thermal!(self, model => model.dac_thermal_pressure(volume, temperature, f_dac))
+    }
+
     fn bulk_modulus(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         dispatch_thermal!(self, model => model.bulk_modulus(volume, temperature, 1.0e-6))
     }
 
     fn volume(&self, pressure: f64, temperature: f64) -> EosResult<f64> {
         dispatch_thermal!(self, model => model.volume(pressure, temperature))
+    }
+
+    fn volume_with_dac_confinement(
+        &self,
+        cold_pressure: f64,
+        temperature: f64,
+        f_dac: f64,
+    ) -> EosResult<f64> {
+        dispatch_thermal!(self, model => model.volume_with_dac_confinement(cold_pressure, temperature, f_dac))
     }
 }
 
@@ -472,6 +489,73 @@ impl EosRecord {
         let model_volume = match self.eos {
             LoadedEos::Isothermal(model) => model.volume(pressure)?,
             LoadedEos::Thermal(model) => model.volume(pressure, temperature)?,
+        };
+        Ok(model_volume / self.volume_scale)
+    }
+
+    /// Thermal-pressure increase above the reference-temperature isotherm.
+    ///
+    /// The input volume uses the file's conventional-cell unit and the result
+    /// is in `GPa`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an isothermal record or invalid state.
+    pub fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = volume * self.volume_scale;
+        match self.eos {
+            LoadedEos::Thermal(model) => model.thermal_pressure_increment(volume, temperature),
+            LoadedEos::Isothermal(_) => Err(EosError::InvalidState {
+                name: "eos",
+                reason: "must be thermal",
+            }),
+        }
+    }
+
+    /// Retained DAC pressure increment in `GPa` at a heated state.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an isothermal record, invalid state, or invalid
+    /// confinement fraction.
+    pub fn dac_thermal_pressure(
+        &self,
+        volume: f64,
+        temperature: f64,
+        f_dac: f64,
+    ) -> EosResult<f64> {
+        let volume = volume * self.volume_scale;
+        match self.eos {
+            LoadedEos::Thermal(model) => model.dac_thermal_pressure(volume, temperature, f_dac),
+            LoadedEos::Isothermal(_) => Err(EosError::InvalidState {
+                name: "eos",
+                reason: "must be thermal",
+            }),
+        }
+    }
+
+    /// Heated conventional-cell volume from cold pressure and DAC confinement.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an isothermal record, invalid state, invalid
+    /// confinement fraction, or failed volume inversion.
+    pub fn volume_with_dac_confinement(
+        &self,
+        cold_pressure: f64,
+        temperature: f64,
+        f_dac: f64,
+    ) -> EosResult<f64> {
+        let model_volume = match self.eos {
+            LoadedEos::Thermal(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)?
+            }
+            LoadedEos::Isothermal(_) => {
+                return Err(EosError::InvalidState {
+                    name: "eos",
+                    reason: "must be thermal",
+                });
+            }
         };
         Ok(model_volume / self.volume_scale)
     }

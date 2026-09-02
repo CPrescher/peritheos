@@ -286,6 +286,29 @@ def test_dac_volume_pair_inversion_broadcasts(diamond_eos):
     assert np.allclose(recovered, expected_temperatures, rtol=1.0e-11)
 
 
+def test_dac_forward_volume_uses_reference_relative_pressure(diamond_eos):
+    cold_pressure = 60.0
+    temperature = 2000.0
+    f_dac = 0.25
+
+    confined_volume = diamond_eos.volume_with_dac_confinement(
+        cold_pressure,
+        temperature,
+        f_dac=f_dac,
+    )
+    thermal_increment = diamond_eos.pressure(
+        confined_volume, temperature
+    ) - diamond_eos.pressure(confined_volume, diamond_eos.Tr)
+
+    assert diamond_eos.thermal_pressure_increment(
+        confined_volume, temperature
+    ) == pytest.approx(thermal_increment, rel=1.0e-12)
+    assert diamond_eos.pressure(confined_volume, temperature) == pytest.approx(
+        cold_pressure + f_dac * thermal_increment,
+        rel=1.0e-11,
+    )
+
+
 def test_dac_volume_pair_rejects_nonheated_state(diamond_eos):
     with pytest.raises(ValueError, match="below the reference temperature"):
         diamond_eos.temperature_from_volumes(

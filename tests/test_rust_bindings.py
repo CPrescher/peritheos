@@ -234,12 +234,38 @@ def test_native_thermal_binding_matches_python(python_model, native_model, calor
         rtol=3.0e-5,
     )
     assert np.allclose(
+        native_model.evaluate_array(
+            "thermal_pressure_increment", volumes, temperatures
+        ),
+        python_model.thermal_pressure_increment(volumes, temperatures),
+        rtol=3.0e-5,
+    )
+    assert np.allclose(
         native_model.evaluate_array("pressure", volumes, temperatures),
         expected_pressure,
         rtol=3.0e-5,
     )
     recovered = native_model.evaluate_array("volume", expected_pressure, temperatures)
     assert np.allclose(recovered, volumes, rtol=1.0e-9)
+
+    cold_pressures = np.full_like(volumes, 30.0)
+    confined = native_model.volume_with_dac_confinement_array(
+        cold_pressures, temperatures, 0.25
+    )
+    assert np.allclose(
+        confined,
+        python_model.volume_with_dac_confinement(
+            cold_pressures, temperatures, f_dac=0.25
+        ),
+        rtol=1.0e-9,
+    )
+    scalar_temperature = float(temperatures[0, 1])
+    assert native_model.volume_with_dac_confinement_scalar(
+        30.0, scalar_temperature, 0.25
+    ) == pytest.approx(
+        python_model.volume_with_dac_confinement(30.0, scalar_temperature, f_dac=0.25),
+        rel=1.0e-9,
+    )
 
     pressure = float(expected_pressure[0, 1])
     volume = float(volumes[0, 1])

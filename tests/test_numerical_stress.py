@@ -179,6 +179,82 @@ def test_thermal_temperature_inversion_with_dac_pressure(thermal_eos):
     assert temperature_at_larger_fraction > corrected_temperature
 
 
+def test_dac_confined_volume_closes_forward_boundary_condition(thermal_eos):
+    cold_pressure = 40.0
+    temperature = 2500.0
+    f_dac = 0.25
+
+    cold_volume = thermal_eos.volume(cold_pressure, thermal_eos.Tr)
+    isobaric_volume = thermal_eos.volume(cold_pressure, temperature)
+    confined_volume = thermal_eos.volume_with_dac_confinement(
+        cold_pressure,
+        temperature,
+        f_dac=f_dac,
+    )
+    thermal_increment = thermal_eos.thermal_pressure_increment(
+        confined_volume, temperature
+    )
+    confinement_pressure = thermal_eos.dac_thermal_pressure(
+        confined_volume, temperature, f_dac
+    )
+    total_pressure = thermal_eos.pressure(confined_volume, temperature)
+
+    assert isobaric_volume > confined_volume > cold_volume
+    assert np.isclose(confinement_pressure, f_dac * thermal_increment)
+    assert np.isclose(total_pressure, cold_pressure + confinement_pressure)
+    assert np.isclose(
+        thermal_eos.temperature_from_volumes(
+            cold_volume,
+            confined_volume,
+            f_dac=f_dac,
+        ),
+        temperature,
+    )
+
+
+def test_dac_confined_volume_zero_fraction_matches_normal_volume(thermal_eos):
+    cold_pressures = np.array([[20.0], [40.0]])
+    temperatures = np.array([[1000.0, 2000.0, 3000.0]])
+
+    confined = thermal_eos.volume_with_dac_confinement(
+        cold_pressures,
+        temperatures,
+        f_dac=0.0,
+    )
+
+    assert confined.shape == (2, 3)
+    assert np.allclose(
+        confined,
+        thermal_eos.volume(cold_pressures, temperatures),
+        rtol=1.0e-10,
+    )
+
+
+@pytest.mark.parametrize("f_dac", [-0.1, 1.0, 1.1, np.nan, np.inf])
+def test_dac_confined_volume_rejects_invalid_fraction(thermal_eos, f_dac):
+    with pytest.raises(ValueError, match="f_dac"):
+        thermal_eos.volume_with_dac_confinement(40.0, 2000.0, f_dac=f_dac)
+
+
+def test_dac_confined_volume_rejects_incompatible_shapes(thermal_eos):
+    with pytest.raises(ValueError, match="broadcast-compatible"):
+        thermal_eos.volume_with_dac_confinement(np.ones(2), np.ones(3), f_dac=0.25)
+
+
+@pytest.mark.parametrize("cold_pressure", [np.nan, np.inf, -np.inf])
+def test_dac_confined_volume_rejects_nonfinite_cold_pressure(
+    thermal_eos, cold_pressure
+):
+    with pytest.raises(ValueError, match="Cold pressure"):
+        thermal_eos.volume_with_dac_confinement(cold_pressure, 2000.0, f_dac=0.25)
+
+
+@pytest.mark.parametrize("temperature", [0.0, -1.0, np.nan, np.inf])
+def test_dac_confined_volume_rejects_invalid_temperature(thermal_eos, temperature):
+    with pytest.raises(ValueError, match="Temperature"):
+        thermal_eos.volume_with_dac_confinement(40.0, temperature, f_dac=0.25)
+
+
 @pytest.mark.parametrize("f_dac", [-0.1, 1.0, 1.1, np.nan, np.inf])
 def test_thermal_temperature_inversion_rejects_invalid_dac_fraction(thermal_eos, f_dac):
     with pytest.raises(ValueError, match="f_dac"):

@@ -308,14 +308,14 @@ P=P_{\rm Vinet}+P_{\rm ion}+P_{\rm anh}.
 
 The $dw_A/dV$ term is essential when the double-Debye weights vary with
 volume. `thermal_pressure()` returns $P_{\rm ion}+P_{\rm anh}$, including
-zero-point pressure. `volume(P,T)` and `temperature(P,V)` use the normal
-bracketed inversions. For DAC volume-pair inversion, the thermal increment is
-defined relative to the model's 300 K isotherm,
+zero-point pressure. `thermal_pressure_increment()` instead returns the
+pressure above the model's 300 K isotherm,
 $\Delta P_{\rm th}(V,T)=P(V,T)-P(V,300\ {\rm K})$. This retains zero-point and
-300 K ionic pressure in both total-pressure states while allowing
-`temperature_from_volumes()` to use the same empirical confinement equation as
-the other thermal models. Use `temperature(P,V)` instead whenever total hot
-pressure and volume are known independently.
+300 K ionic pressure in both total-pressure states. It lets
+`volume_with_dac_confinement()` and `temperature_from_volumes()` use the same
+empirical confinement equation as the other thermal models. Use the ordinary
+`volume(P,T)` or `temperature(P,V)` whenever total hot pressure is known
+independently.
 
 #### Benedict et al. diamond example
 
@@ -755,5 +755,6 @@ bracketed scalar root for every broadcast point. `temperature(P, V)` solves
 \]
 
 on the positive-temperature branch nearest $T_r$. The distinct two-volume
-DAC inversion and its assumptions are documented under
+DAC inversion and forward `volume_with_dac_confinement(P_cold,T,f_dac)` solve
+are documented under
 [Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md).

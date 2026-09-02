@@ -129,6 +129,62 @@ fn shared_mie_gruneisen_literature_cases_match() {
 }
 
 #[test]
+fn dac_confined_volume_closes_forward_boundary_condition() {
+    let model = MieGruneisenDebye::new(
+        BM3::new(1.0, 160.0, 4.0).unwrap(),
+        300.0,
+        800.0,
+        1.5,
+        1.0,
+        2.0,
+    )
+    .unwrap();
+    let cold_pressure = 40.0;
+    let temperature = 2500.0;
+    let f_dac = 0.25;
+
+    let cold_volume = model.volume(cold_pressure, 300.0).unwrap();
+    let isobaric_volume = model.volume(cold_pressure, temperature).unwrap();
+    let confined_volume = model
+        .volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+        .unwrap();
+    let thermal_increment = model
+        .thermal_pressure_increment(confined_volume, temperature)
+        .unwrap();
+    let confinement_pressure = model
+        .dac_thermal_pressure(confined_volume, temperature, f_dac)
+        .unwrap();
+    let total_pressure = model.pressure(confined_volume, temperature).unwrap();
+
+    assert!(isobaric_volume > confined_volume);
+    assert!(confined_volume > cold_volume);
+    assert_close(confinement_pressure, f_dac * thermal_increment, 1.0e-12);
+    assert_close(
+        total_pressure,
+        cold_pressure + confinement_pressure,
+        1.0e-11,
+    );
+    assert_close(
+        model
+            .temperature_from_volumes(cold_volume, confined_volume, f_dac)
+            .unwrap(),
+        temperature,
+        1.0e-10,
+    );
+}
+
+#[test]
+fn dac_confined_volume_rejects_invalid_fraction() {
+    let model =
+        LinearThermalPressure::new(BM3::new(1.0, 160.0, 4.0).unwrap(), 300.0, 0.005).unwrap();
+
+    assert!(matches!(
+        model.volume_with_dac_confinement(40.0, 2000.0, 1.0),
+        Err(EosError::InvalidState { name: "f_dac", .. })
+    ));
+}
+
+#[test]
 fn debye_temperature_laws_are_explicit_and_distinct() {
     let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
     let integrated = MieGruneisenDebye::new(reference, 300.0, 800.0, 1.5, 1.2, 2.0).unwrap();

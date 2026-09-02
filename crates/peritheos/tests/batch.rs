@@ -184,6 +184,43 @@ fn temperature_from_volumes_batch_preserves_scalar_convention() {
 }
 
 #[test]
+fn dac_confined_volume_batch_preserves_scalar_convention() {
+    let model = ThermalModifiedTait::new(
+        ModifiedTait::new(1.0, 160.0, 4.0, -0.01).unwrap(),
+        298.15,
+        700.0,
+        2.5e-5,
+        2.0,
+    )
+    .unwrap();
+    let cold_pressures = [20.0, 40.0];
+    let temperatures = [1000.0, 2000.0];
+    let batch = model
+        .volumes_with_dac_confinement(&cold_pressures, &temperatures, 0.2)
+        .unwrap();
+    let increments = model
+        .thermal_pressure_increments(&batch, &temperatures)
+        .unwrap();
+
+    for index in 0..cold_pressures.len() {
+        assert_eq!(
+            batch[index].to_bits(),
+            model
+                .volume_with_dac_confinement(cold_pressures[index], temperatures[index], 0.2,)
+                .unwrap()
+                .to_bits()
+        );
+        assert_eq!(
+            increments[index].to_bits(),
+            model
+                .thermal_pressure_increment(batch[index], temperatures[index])
+                .unwrap()
+                .to_bits()
+        );
+    }
+}
+
+#[test]
 fn paired_batches_reject_mismatched_lengths_before_evaluation() {
     let model = MieGruneisenDebye::new(
         BM3::new(1.0, 160.0, 4.0).unwrap(),

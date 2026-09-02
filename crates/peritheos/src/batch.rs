@@ -77,6 +77,22 @@ pub trait ThermalEosBatch: ThermalEos {
         })
     }
 
+    /// Evaluate reference-relative thermal-pressure increments for paired states.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for mismatched slice lengths or the first scalar model
+    /// error in input order.
+    fn thermal_pressure_increments(
+        &self,
+        volumes: &[f64],
+        temperatures: &[f64],
+    ) -> EosResult<Vec<f64>> {
+        map_pairs(volumes, temperatures, |volume, temperature| {
+            self.thermal_pressure_increment(volume, temperature)
+        })
+    }
+
     /// Evaluate total pressure for paired volume-temperature states.
     ///
     /// # Errors
@@ -99,6 +115,27 @@ pub trait ThermalEosBatch: ThermalEos {
         map_pairs(pressures, temperatures, |pressure, temperature| {
             self.volume(pressure, temperature)
         })
+    }
+
+    /// Predict heated volumes from paired cold pressures and temperatures.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid confinement fraction, mismatched slice
+    /// lengths, or the first scalar inversion error in input order.
+    fn volumes_with_dac_confinement(
+        &self,
+        cold_pressures: &[f64],
+        temperatures: &[f64],
+        f_dac: f64,
+    ) -> EosResult<Vec<f64>> {
+        map_pairs(
+            cold_pressures,
+            temperatures,
+            |cold_pressure, temperature| {
+                self.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            },
+        )
     }
 
     /// Invert paired pressure-volume states to temperature.

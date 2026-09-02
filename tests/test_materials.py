@@ -618,6 +618,43 @@ def test_diamond_benedict_record_dac_volume_pair_uses_cell_volumes():
     assert recovered == pytest.approx(expected_temperature, rel=1.0e-11)
 
 
+def test_diamond_benedict_record_dac_forward_state_uses_cell_volume():
+    record = DIAMOND_BENEDICT_2014
+    cold_pressure = 60.0
+    temperature = 2000.0
+    f_dac = 0.25
+
+    heated_volume = record.volume_with_dac_confinement(
+        cold_pressure,
+        temperature,
+        f_dac=f_dac,
+        check_validity=True,
+    )
+    thermal_increment = record.thermal_pressure_increment(
+        heated_volume, temperature, check_validity=True
+    )
+    confinement_pressure = record.dac_thermal_pressure(
+        heated_volume,
+        temperature,
+        f_dac=f_dac,
+        check_validity=True,
+    )
+
+    assert heated_volume > 8.0 * 4.0
+    assert confinement_pressure == pytest.approx(f_dac * thermal_increment, rel=1.0e-12)
+    assert record.pressure(heated_volume, temperature) == pytest.approx(
+        cold_pressure + confinement_pressure,
+        rel=1.0e-11,
+    )
+
+
+def test_isothermal_record_rejects_dac_forward_methods():
+    with pytest.raises(ValueError, match="isothermal"):
+        CBN_DATCHI_2007.volume_with_dac_confinement(60.0, 2000.0, f_dac=0.25)
+    with pytest.raises(ValueError, match="isothermal"):
+        CBN_DATCHI_2007.thermal_pressure_increment(40.0, 2000.0)
+
+
 @pytest.mark.parametrize(
     ("standard", "pressure", "volume_per_atom", "tolerance"),
     [

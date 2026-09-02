@@ -202,6 +202,20 @@ pub trait ThermalEos {
     /// non-finite results.
     fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64>;
 
+    /// Thermal-pressure increase above the reference-temperature isotherm.
+    ///
+    /// For reference-isotherm models this is identical to
+    /// [`Self::thermal_pressure`]. Absolute free-energy models override it to
+    /// remove their non-zero reference-temperature pressure contribution.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid states, model-domain failures, or
+    /// non-finite results.
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.thermal_pressure(volume, temperature)
+    }
+
     /// Total pressure at a volume and temperature.
     ///
     /// # Errors
@@ -283,6 +297,40 @@ pub trait ThermalEos {
         )
     }
 
+    /// Heated volume for a cold pressure and retained DAC thermal pressure.
+    ///
+    /// Solves `P(V,T) = P_cold + f_dac * Delta P_thermal(V,T)` on the
+    /// invertible branch nearest the reference volume. The total hot pressure
+    /// is available by evaluating [`Self::pressure`] at the returned state.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid pressure, temperature, or confinement
+    /// fraction, or when the volume root cannot be bracketed and converged.
+    fn volume_with_dac_confinement(
+        &self,
+        cold_pressure: f64,
+        temperature: f64,
+        f_dac: f64,
+    ) -> EosResult<f64> {
+        let temperature = validation::positive_state(temperature, "temperature")?;
+        let f_dac = validation::finite_state(f_dac, "f_dac")?;
+        if !(0.0..1.0).contains(&f_dac) {
+            return Err(EosError::InvalidState {
+                name: "f_dac",
+                reason: "must lie in [0, 1)",
+            });
+        }
+        root::solve_volume_function(
+            |volume| {
+                Ok(self.pressure(volume, temperature)?
+                    - self.dac_thermal_pressure(volume, temperature, f_dac)?)
+            },
+            cold_pressure,
+            self.reference_eos().reference_volume(),
+        )
+    }
+
     /// Positive-temperature root nearest the reference temperature.
     ///
     /// # Errors
@@ -313,7 +361,7 @@ pub trait ThermalEos {
                 reason: "must lie in [0, 1)",
             });
         }
-        validation::finite_result(f_dac * self.thermal_pressure(volume, temperature)?)
+        validation::finite_result(f_dac * self.thermal_pressure_increment(volume, temperature)?)
     }
 
     /// Infer a heated-state temperature from ambient and heated volumes.

@@ -151,6 +151,20 @@ pressure = eos.pressure(V=0.9, T=2000.0)
 volume = eos.volume(P=pressure, T=2000.0)
 temperature = eos.temperature(P=pressure, V=0.9)
 
+# Predict the hot volume and total pressure when a DAC retains 25% of the
+# reference-relative thermal pressure above a 40 GPa cold pressure.
+cold_pressure = 40.0
+hot_temperature = 2000.0
+heated_volume = eos.volume_with_dac_confinement(
+    cold_pressure,
+    hot_temperature,
+    f_dac=0.25,
+)
+thermal_increment = eos.thermal_pressure_increment(
+    heated_volume, hot_temperature
+)
+heated_pressure = cold_pressure + 0.25 * thermal_increment
+
 # Infer temperature from volumes measured before and during DAC heating.
 ambient_volume = 0.80000
 heated_volume = 0.80001
@@ -160,14 +174,16 @@ temperature_with_dac = eos.temperature_from_volumes(
     f_dac=0.25,
 )
 ambient_pressure = eos.rt_eos.pressure(ambient_volume)
-heated_pressure = ambient_pressure + 0.25 * eos.thermal_pressure(
-    heated_volume, temperature_with_dac
+heated_pressure_from_pair = ambient_pressure + eos.dac_thermal_pressure(
+    heated_volume,
+    temperature_with_dac,
+    0.25,
 )
 ```
 
-The two-volume method uses the empirical `f_dac * thermal_pressure` confinement
-increment and requires `0 <= f_dac < 1`; report and sensitivity-test the assumed
-fraction.
+Both DAC methods use the empirical `f_dac * thermal_pressure_increment`
+confinement term and require `0 <= f_dac < 1`; report and sensitivity-test the
+assumed fraction.
 
 Multi-oscillator thermal EOS with a freely chosen reference isotherm
 

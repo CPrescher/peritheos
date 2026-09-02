@@ -255,6 +255,84 @@ class EOSRecord:
             return float(result)
         return result
 
+    def thermal_pressure_increment(
+        self,
+        volume: NumericType,
+        temperature: Any,
+        *,
+        check_validity: bool = False,
+    ) -> NumericType:
+        """Thermal pressure above the reference isotherm in GPa.
+
+        ``volume`` uses this record's public conventional-cell volume unit.
+        Unlike an absolute free-energy model's raw thermal contribution, this
+        increment is zero at the record's reference temperature.
+        """
+        if not isinstance(self.eos, ThermalEOS):
+            raise MaterialError(
+                f"{self.identifier} is isothermal and has no thermal pressure"
+            )
+        temperatures = self._temperature(temperature)
+        internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
+        result = self.eos.thermal_pressure_increment(internal_volume, temperatures)
+        if check_validity:
+            hot_pressure = self.eos.pressure(internal_volume, temperatures)
+            self._validate_range(hot_pressure, temperatures, volume)
+        return result
+
+    def dac_thermal_pressure(
+        self,
+        volume: NumericType,
+        temperature: Any,
+        *,
+        f_dac: float,
+        check_validity: bool = False,
+    ) -> NumericType:
+        """Retained DAC pressure increment in GPa at a heated state."""
+        if not isinstance(self.eos, ThermalEOS):
+            raise MaterialError(
+                f"{self.identifier} is isothermal and has no thermal pressure"
+            )
+        temperatures = self._temperature(temperature)
+        internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
+        result = self.eos.dac_thermal_pressure(internal_volume, temperatures, f_dac)
+        if check_validity:
+            hot_pressure = self.eos.pressure(internal_volume, temperatures)
+            self._validate_range(hot_pressure, temperatures, volume)
+        return result
+
+    def volume_with_dac_confinement(
+        self,
+        cold_pressure: NumericType,
+        temperature: Any,
+        *,
+        f_dac: float,
+        check_validity: bool = False,
+    ) -> NumericType:
+        """Predict heated cell volume from cold pressure and confinement.
+
+        ``cold_pressure`` is the GPa pressure established at the record's
+        reference temperature. The returned volume uses the record's public
+        conventional-cell volume unit.
+        """
+        if not isinstance(self.eos, ThermalEOS):
+            raise MaterialError(
+                f"{self.identifier} is isothermal and cannot apply DAC confinement"
+            )
+        temperatures = self._temperature(temperature)
+        internal_volume = self.eos.volume_with_dac_confinement(
+            cold_pressure,
+            temperatures,
+            f_dac=f_dac,
+        )
+        result = np.asarray(internal_volume, dtype=float) / self.volume_scale
+        if check_validity:
+            hot_pressure = self.eos.pressure(internal_volume, temperatures)
+            self._validate_range(hot_pressure, temperatures, result)
+        if result.ndim == 0:
+            return float(result)
+        return result
+
     def temperature_from_volumes(
         self,
         ambient_volume: NumericType,

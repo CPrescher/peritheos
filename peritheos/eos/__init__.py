@@ -516,6 +516,22 @@ class ThermalEOS(EosBase):
             "This method should be implemented by the subclass"
         )
 
+    def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return thermal pressure above the reference-temperature isotherm.
+
+        For the usual reference-isotherm thermal EOS this is identical to
+        :meth:`thermal_pressure`. Absolute free-energy models whose thermal
+        pressure includes a non-zero reference-temperature contribution
+        override this method to subtract that baseline.
+        """
+        native = _native_for_exact_model(self)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                native, "thermal_pressure_increment", volumes, temperatures
+            )
+        return self.thermal_pressure(V, T)
+
     def _thermal_pressure_function(self, V: float) -> Callable[[float], NumericType]:
         """Return a temperature-only thermal-pressure function at fixed volume."""
         return lambda temperature: self.thermal_pressure(V, temperature)
@@ -534,13 +550,81 @@ class ThermalEOS(EosBase):
     ) -> NumericType:
         """Return the effective DAC pressure contribution in GPa.
 
-        The contribution is ``f_dac * thermal_pressure(V, T)``. It models
-        the portion of the EOS thermal pressure retained by confinement in a
-        diamond-anvil cell.
+        The contribution is ``f_dac * thermal_pressure_increment(V, T)``. It
+        models the portion of the reference-relative thermal pressure retained
+        by confinement in a diamond-anvil cell.
         """
         f_dac = self._validate_f_dac(f_dac)
-        result = f_dac * np.asarray(self.thermal_pressure(V, T), dtype=float)
+        result = f_dac * np.asarray(self.thermal_pressure_increment(V, T), dtype=float)
         return self._scalar_or_array(result)
+
+    def volume_with_dac_confinement(
+        self,
+        P_cold: NumericType,
+        T: NumericType,
+        *,
+        f_dac: float,
+    ) -> NumericType:
+        """Predict heated volume from cold pressure and DAC confinement.
+
+        This solves the self-consistent boundary condition
+
+        ``pressure(V, T) = P_cold + dac_thermal_pressure(V, T, f_dac)``.
+
+        ``P_cold`` is the pressure established on the reference-temperature
+        isotherm before heating. The resulting total hot pressure is
+        ``pressure(V, T)``; the full reference-relative thermal pressure for
+        display or reporting is :meth:`thermal_pressure_increment`.
+        """
+        f_dac = self._validate_f_dac(f_dac)
+        cold_pressures = np.asarray(P_cold, dtype=float)
+        temperatures = np.asarray(T, dtype=float)
+        if not np.all(np.isfinite(cold_pressures)):
+            raise EosValidationError("Cold pressure must be finite")
+        if not np.all(np.isfinite(temperatures)) or np.any(temperatures <= 0):
+            raise EosValidationError("Temperature must be finite and greater than zero")
+        try:
+            cold_pressures, temperatures = np.broadcast_arrays(
+                cold_pressures, temperatures
+            )
+        except ValueError as error:
+            raise EosValidationError(
+                "P_cold and T must have broadcast-compatible shapes"
+            ) from error
+
+        native = _native_for_exact_model(self)
+        if native is not None:
+            if cold_pressures.ndim == 0:
+                return float(
+                    native.volume_with_dac_confinement_scalar(
+                        float(cold_pressures), float(temperatures), f_dac
+                    )
+                )
+            return np.asarray(
+                native.volume_with_dac_confinement_array(
+                    cold_pressures, temperatures, f_dac
+                ),
+                dtype=float,
+            )
+
+        volumes = np.array(
+            [
+                solve_volume(
+                    lambda volume, temperature=float(temperature): (
+                        self.pressure(volume, temperature)
+                        - self.dac_thermal_pressure(volume, temperature, f_dac)
+                    ),
+                    float(cold_pressure),
+                    self.rt_eos.V0,
+                )
+                for cold_pressure, temperature in zip(
+                    cold_pressures.flat, temperatures.flat
+                )
+            ]
+        ).reshape(cold_pressures.shape)
+        if volumes.ndim == 0:
+            return float(volumes)
+        return volumes
 
     def pressure(self, V: NumericType, T: NumericType) -> NumericType:
         native = _native_for_exact_model(self)

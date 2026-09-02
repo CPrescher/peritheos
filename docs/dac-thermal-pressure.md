@@ -1,11 +1,56 @@
 # Diamond-anvil-cell thermal-pressure contribution
 
-This advanced workflow estimates temperature from separate volumes measured at
-the reference temperature and during laser heating. It introduces an
-experiment-specific boundary-condition parameter and should only be used when
-the total high-temperature pressure is not measured independently. Review the
-[thermal model](models.md#thermal-models), [unit](units.md), and
-[uncertainty](uncertainty.md) conventions before applying it.
+These advanced workflows predict a confined hot state from a measured cold
+pressure or estimate temperature from separate cold and hot volumes. They
+introduce an experiment-specific boundary-condition parameter and should only
+be used when the total high-temperature pressure is not measured independently.
+Review the [thermal model](models.md#thermal-models), [unit](units.md), and
+[uncertainty](uncertainty.md) conventions before applying them.
+
+## Forward prediction from a cold pressure
+
+For phase-line prediction, first establish the pressure on the
+reference-temperature isotherm and then choose the hot temperature and retained
+fraction. Peritheos solves
+
+\[
+P_{\mathrm{EOS}}(V_{\mathrm{hot}},T)
+=P_{\mathrm{cold}}
++f_{\mathrm{DAC}}\,\Delta P_{\mathrm{thermal}}(V_{\mathrm{hot}},T).
+\]
+
+The thermal increment depends on the unknown hot volume, so evaluating it once
+at either the cold or isobaric volume is not self-consistent. The forward API
+solves for that volume directly:
+
+```python
+cold_pressure = 40.0  # GPa at the reference temperature
+hot_temperature = 2000.0  # K
+f_dac = 0.25
+
+heated_volume = eos.volume_with_dac_confinement(
+    cold_pressure,
+    hot_temperature,
+    f_dac=f_dac,
+)
+thermal_pressure = eos.thermal_pressure_increment(
+    heated_volume, hot_temperature
+)
+confinement_pressure = eos.dac_thermal_pressure(
+    heated_volume, hot_temperature, f_dac
+)
+total_hot_pressure = cold_pressure + confinement_pressure
+```
+
+`thermal_pressure` is the full EOS heating increment, while
+`confinement_pressure` is only the fraction retained by the DAC. The latter is
+what raises the experimental pressure. An `EOSRecord` exposes the same three
+methods and accepts conventional-cell volumes, which lets diffraction
+applications predict line positions without performing molar-volume conversion.
+
+At `f_dac=0`, the result is the ordinary isobaric `volume(cold_pressure, T)`.
+Increasing the fraction reduces the predicted thermal expansion and moves the
+volume towards its cold value.
 
 ## Two-volume temperature inversion
 

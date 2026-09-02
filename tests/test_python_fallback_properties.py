@@ -121,6 +121,19 @@ def test_python_compatibility_path_matches_native_on_deterministic_state_grid(
         rtol=2.0e-9,
         atol=1.0e-7,
     )
+    cold_pressures = np.linspace(10.0, 60.0, volumes.size)
+    assert np.allclose(
+        python.volume_with_dac_confinement(cold_pressures, temperatures, f_dac=0.25),
+        native.volume_with_dac_confinement(cold_pressures, temperatures, f_dac=0.25),
+        rtol=2.0e-9,
+        atol=1.0e-11,
+    )
+    assert np.allclose(
+        python.thermal_pressure_increment(volumes, temperatures),
+        native.thermal_pressure_increment(volumes, temperatures),
+        rtol=2.0e-10,
+        atol=1.0e-11,
+    )
     assert np.allclose(
         python.bulk_modulus(volumes, temperatures),
         native.bulk_modulus(volumes, temperatures),

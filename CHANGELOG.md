@@ -7,6 +7,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added forward DAC-confinement prediction through
+  `volume_with_dac_confinement(P_cold, T, f_dac=...)`, together with an explicit
+  reference-relative `thermal_pressure_increment()` for displaying the full
+  thermal increment, retained confinement pressure, and total hot pressure.
+  Python material records and the Rust scalar, batch, and `.eosmat` APIs expose
+  the same workflow in their public volume conventions.
 - Added `DoubleDebyeLogMomentHelmholtz` in Python and Rust together with the
   primary-source-validated Correa et al. (2008) diamond record. The complete
   Helmholtz model implements the Vinet cold curve, logarithmic-moment

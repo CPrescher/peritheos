@@ -1293,6 +1293,13 @@ impl ThermalEos for DoubleDebyeHelmholtz {
         )
     }
 
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.pressure(volume, temperature)?
+                - self.pressure(volume, Self::REFERENCE_TEMPERATURE)?,
+        )
+    }
+
     fn dac_thermal_pressure(&self, volume: f64, temperature: f64, f_dac: f64) -> EosResult<f64> {
         let f_dac = finite_state(f_dac, "f_dac")?;
         if !(0.0..1.0).contains(&f_dac) {
@@ -1656,6 +1663,13 @@ impl ThermalEos for DoubleDebyeLogMomentHelmholtz {
         finite_result(
             self.ion_pressure(volume, temperature)?
                 + self.anharmonic_pressure(volume, temperature)?,
+        )
+    }
+
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.pressure(volume, temperature)?
+                - self.pressure(volume, Self::REFERENCE_TEMPERATURE)?,
         )
     }
 

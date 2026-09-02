@@ -364,6 +364,13 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         )
         return self._result(result)
 
+    def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return pressure gained above the complete ``Tr`` isotherm."""
+        increment = np.asarray(self.pressure(V, T), dtype=float) - np.asarray(
+            self.pressure(V, self.Tr), dtype=float
+        )
+        return self._result(increment)
+
     def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
         """Return total non-cold constant-volume heat capacity in J mol^-1 K^-1."""
         volumes, temperatures = self._state(V, T)
@@ -383,9 +390,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
     ) -> NumericType:
         """Return the confined pressure increment above the ``Tr`` isotherm."""
         f_dac = self._validate_f_dac(f_dac)
-        increment = np.asarray(self.pressure(V, T), dtype=float) - np.asarray(
-            self.pressure(V, self.Tr), dtype=float
-        )
+        increment = np.asarray(self.thermal_pressure_increment(V, T), dtype=float)
         return self._result(f_dac * increment)
 
     def temperature_from_volumes(

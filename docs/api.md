@@ -81,6 +81,21 @@ from peritheos.materials import DIAMOND_BENEDICT_2014
 volume = 8.0 * 4.6542704116  # A^3/conventional cell
 pressure = DIAMOND_BENEDICT_2014.pressure(volume, 3000.0)  # about 150 GPa
 
+# Forward phase-line state from a cold pressure, hot temperature, and
+# experimentally assumed retained thermal-pressure fraction.
+heated_volume = DIAMOND_BENEDICT_2014.volume_with_dac_confinement(
+    60.0,
+    2000.0,
+    f_dac=0.25,
+)
+thermal_increment = DIAMOND_BENEDICT_2014.thermal_pressure_increment(
+    heated_volume, 2000.0
+)
+confinement_increment = DIAMOND_BENEDICT_2014.dac_thermal_pressure(
+    heated_volume, 2000.0, f_dac=0.25
+)
+total_hot_pressure = 60.0 + confinement_increment
+
 # Both inputs remain public eight-atom conventional-cell volumes.
 temperature = DIAMOND_BENEDICT_2014.temperature_from_volumes(
     ambient_volume=39.61987225,
@@ -254,9 +269,11 @@ non-numeric constructor choices such as `debye_temperature_law`;
 Common methods:
 
 - `thermal_pressure(V, T)`
+- `thermal_pressure_increment(V, T)`
 - `dac_thermal_pressure(V, T, f_dac)`
 - `pressure(V, T)`
 - `volume(P, T)`
+- `volume_with_dac_confinement(P_cold, T, f_dac=...)`
 - `temperature(P, V)` and `calculate_temperature(P, V)`
 - `temperature_from_volumes(V_ambient, V_heated, f_dac=...)`
 - `bulk_modulus(V, T)`
@@ -267,13 +284,15 @@ Common methods:
 - `adiabatic_bulk_modulus(V, T)` when a caloric model exists
 - `gruneisen_parameter(V, T)` when a caloric model exists
 
-`dac_thermal_pressure()` returns only the additional confinement term. For
-reference-relative thermal models this is `f_dac * thermal_pressure(V, T)`;
-for either double-Debye Helmholtz class it is
-`f_dac * (pressure(V, T) - pressure(V, Tr))`. `temperature_from_volumes()` applies the
-empirical confinement model described in
+`thermal_pressure_increment()` is the heating pressure above the reference
+isotherm. It equals `thermal_pressure()` for reference-relative models and
+`pressure(V, T) - pressure(V, Tr)` for either absolute double-Debye Helmholtz
+class. `dac_thermal_pressure()` returns only `f_dac` times that increment.
+`volume_with_dac_confinement()` solves the forward hot-volume problem from a
+cold pressure and temperature; `temperature_from_volumes()` solves its
+two-volume inverse. Both follow the empirical confinement model described in
 [Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md);
-it requires `0 <= f_dac < 1`. In this API, `f_dac` means
+they require `0 <= f_dac < 1`. In this API, `f_dac` means
 `(P_hot - P_ambient) / Delta_P_thermal(V_heated, T)`, where the denominator is
 the pressure increment above the reference-temperature isotherm. It is not a
 fraction of the cold pressure.

@@ -133,7 +133,11 @@ derivative, array, invalid-input, and round-trip tests.
 
 Subclass `ThermalEOS` and implement `thermal_pressure(V, T)`. The base class
 provides total pressure, inversion, isothermal bulk modulus, compressibility,
-and expansivity. Both volume and temperature inversion are array-aware.
+expansivity, and forward DAC-confined volume prediction. Both volume and
+temperature inversion are array-aware. If `thermal_pressure()` is an absolute
+free-energy contribution that does not vanish at the reference temperature,
+also override `thermal_pressure_increment(V, T)` with the pressure difference
+above the complete reference-temperature isotherm.
 Implement `molar_heat_capacity_v()` only when the model has a defined caloric
 potential; the base class then provides `C_P` and `K_S`.
 

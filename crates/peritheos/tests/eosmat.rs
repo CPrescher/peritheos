@@ -69,6 +69,52 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
 }
 
 #[test]
+fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
+    let material = load_eosmat(materials_directory().join("diamond.eosmat")).unwrap();
+    let record = material
+        .record("diamond_benedict_2014_double_debye_4")
+        .unwrap();
+    let cold_pressure = 60.0;
+    let temperature = 2000.0;
+    let f_dac = 0.25;
+
+    let heated_volume = record
+        .volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+        .unwrap();
+    let thermal_increment = record
+        .thermal_pressure_increment(heated_volume, temperature)
+        .unwrap();
+    let confinement_pressure = record
+        .dac_thermal_pressure(heated_volume, temperature, f_dac)
+        .unwrap();
+
+    assert_close(confinement_pressure, f_dac * thermal_increment, 1.0e-12);
+    assert_close(
+        record.pressure(heated_volume, temperature).unwrap(),
+        cold_pressure + confinement_pressure,
+        1.0e-10,
+    );
+
+    let isothermal = material.record("diamond_dewaele_2008_vinet_2").unwrap();
+    assert!(isothermal
+        .thermal_pressure_increment(40.0, temperature)
+        .is_err());
+    assert!(isothermal
+        .dac_thermal_pressure(40.0, temperature, f_dac)
+        .is_err());
+    assert!(isothermal
+        .volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+        .is_err());
+}
+
+fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
+    assert!(
+        (actual - expected).abs() <= relative_tolerance * expected.abs().max(1.0),
+        "actual {actual:.17e} differs from expected {expected:.17e}"
+    );
+}
+
+#[test]
 fn decoding_and_io_errors_retain_kinds_codes_and_sources() {
     let json_error = load_eosmat_str("{").unwrap_err();
     assert_eq!(json_error.kind(), EosmatErrorKind::Json);

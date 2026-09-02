@@ -386,6 +386,41 @@ impl ThermalModel {
             }
         }
     }
+
+    fn volume_with_dac_confinement(
+        self,
+        cold_pressure: f64,
+        temperature: f64,
+        f_dac: f64,
+    ) -> PyResult<f64> {
+        let result = match self {
+            Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::LinearThermalPressure(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::LogVolumeThermalPressure(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::MieGruneisenDebye(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::MieGruneisenEinstein(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::ThermalModifiedTait(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::Sokolova2016(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::ThermalReferenceState(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+        };
+        result.map_err(to_python_error)
+    }
 }
 
 /// Private native representation of a built-in thermal EOS.
@@ -709,6 +744,35 @@ impl PyThermalEos {
         )
     }
 
+    fn volume_with_dac_confinement_scalar(
+        &self,
+        cold_pressure: f64,
+        temperature: f64,
+        f_dac: f64,
+    ) -> PyResult<f64> {
+        self.model
+            .volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+    }
+
+    fn volume_with_dac_confinement_array<'py>(
+        &self,
+        py: Python<'py>,
+        cold_pressures: PyReadonlyArrayDyn<'py, f64>,
+        temperatures: PyReadonlyArrayDyn<'py, f64>,
+        f_dac: f64,
+    ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
+        let model = self.model;
+        map_array2(
+            py,
+            cold_pressures,
+            temperatures,
+            PARALLEL_THERMAL_THRESHOLD,
+            move |cold_pressure, temperature| {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            },
+        )
+    }
+
     fn __repr__(&self) -> String {
         format!("ThermalEos(model_name='{}')", self.model.name())
     }
@@ -722,6 +786,7 @@ fn evaluate_thermal_quantity<T: ThermalEos>(
 ) -> PyResult<f64> {
     let result = match quantity {
         "thermal_pressure" => model.thermal_pressure(first, second),
+        "thermal_pressure_increment" => model.thermal_pressure_increment(first, second),
         "pressure" => model.pressure(first, second),
         "volume" => model.volume(first, second),
         "temperature" => model.temperature(first, second),
