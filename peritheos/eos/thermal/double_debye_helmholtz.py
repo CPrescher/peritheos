@@ -111,7 +111,10 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         if not np.all(np.isfinite(temperatures)) or np.any(temperatures < 0.0):
             raise ValueError("Temperature must be finite and non-negative")
         try:
-            return np.broadcast_arrays(volumes, temperatures)
+            broadcast_volumes, broadcast_temperatures = np.broadcast_arrays(
+                volumes, temperatures
+            )
+            return broadcast_volumes, broadcast_temperatures
         except ValueError as error:
             raise ValueError("V and T must have broadcast-compatible shapes") from error
 
@@ -140,7 +143,11 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         theta_a, _ = self._temperature_law(V, self.theta_a0, self.a_a, self.b_a)
         theta_b, _ = self._temperature_law(V, self.theta_b0, self.a_b, self.b_b)
         theta_1, _ = self._temperature_law(V, self.theta_1_0, self.a_1, self.b_1)
-        return tuple(self._result(value) for value in (theta_a, theta_b, theta_1))
+        return (
+            self._result(theta_a),
+            self._result(theta_b),
+            self._result(theta_1),
+        )
 
     def _mode_terms(self, V: NumericType) -> tuple[np.ndarray, ...]:
         volumes = np.asarray(validate_volume(V), dtype=float)

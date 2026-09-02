@@ -280,12 +280,22 @@ compatible with `FitResult.eos_uncertainty()`.
 
 ```python
 from peritheos.units import (
+    cell_volume_to_molar_volume,
     convert_density,
     convert_molar_volume,
+    convert_pressure,
+    convert_temperature,
     density_from_molar_volume,
+    molar_volume_to_cell_volume,
     molar_volume_from_density,
 )
 ```
+
+Every conversion accepts scalars or NumPy arrays. Cell-volume conversion uses
+angstrom cubed per conventional cell and requires the crystallographic number
+of formula units per cell; its molar result is per mole of formula units.
+Pressure and temperature conversion imports from `peritheos.utils` are
+deprecated compatibility aliases.
 
 ## Uncertainty propagation
 

@@ -51,19 +51,39 @@ molar formula-unit volume and set `n` accordingly.
 
 ```python
 from peritheos.units import (
+    cell_volume_to_molar_volume,
     convert_molar_volume,
+    convert_pressure,
+    convert_temperature,
     density_from_molar_volume,
+    molar_volume_to_cell_volume,
     molar_volume_from_density,
 )
 
 thermal_volume = convert_molar_volume(11.25, "cm3/mol", "J/bar/mol")
 density = density_from_molar_volume(40.304, 11.25)  # g/cm3
 volume = molar_volume_from_density(40.304, density)  # cm3/mol
+pressure = convert_pressure(100.0, "kbar", "GPa")
+temperature = convert_temperature(25.0, "C", "K")
+
+# MgO B1 has four formula units in its conventional cubic cell.
+mgo_molar_volume = cell_volume_to_molar_volume(74.698, 4)
+mgo_cell_volume = molar_volume_to_cell_volume(mgo_molar_volume, 4)
 ```
 
 Supported molar-volume units are m3/mol, cm3/mol, L/mol, and J/bar/mol.
 Supported density units are kg/m3 and g/cm3. Exponent spellings such as
 `cm^3/mol` and `J bar^-1 mol^-1` are accepted.
+
+`cell_volume_to_molar_volume()` and its inverse use conventional-cell volume
+in angstrom cubed and return or consume molar volume per mole of formula units.
+The required `formula_units_per_cell` argument is the crystallographic `Z`,
+not the number of atoms in the cell. Scalars and NumPy arrays are accepted by
+all conversion helpers.
+
+Pressure and temperature conversions formerly imported from
+`peritheos.utils` now live in `peritheos.units`. The old imports remain as
+deprecated compatibility wrappers.
 
 ## Reference states
 

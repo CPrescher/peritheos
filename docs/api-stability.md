@@ -18,6 +18,10 @@ The supported public API consists of:
 Names beginning with an underscore, implementation details not documented in
 the API reference, and exact optimizer messages are private.
 
+The Python distribution includes a `py.typed` marker. Public inline type
+annotations are therefore part of the supported developer experience, although
+improvements that make an annotation more precise are not runtime API changes.
+
 ## `.eosmat` compatibility
 
 The canonical `.eosmat` format version 3 is a public exchange contract.

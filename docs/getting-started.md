@@ -1,6 +1,51 @@
 # Getting started
 
-## Room-temperature pressure and volume
+## Installation
+
+Install a published wheel from PyPI:
+
+```bash
+python -m pip install peritheos
+```
+
+Wheels do not require a Rust installation. Editable installs and direct source
+installs build the private native extension and require Rust 1.83 or newer.
+
+## Start with a validated material record
+
+For published calculations, the record API is the safest starting point. It
+fixes the pressure, temperature, and conventional-cell volume units; carries
+the primary reference and uncertainty metadata; and rejects extrapolation by
+default.
+
+```python
+from peritheos import get_material
+
+mgo = get_material("mgo_b1")
+record = mgo.get_eos_record("mgo_b1_tange_2009_vinet")
+
+pressure = record.pressure(volume=60.0, temperature=2000.0)
+recovered_volume = record.volume(pressure, temperature=2000.0)
+assert record.within_validity(volume=60.0, temperature=2000.0)
+
+prediction = record.pressure_with_uncertainty(
+    volume=60.0,
+    temperature=2000.0,
+    volume_sigma=0.02,
+    temperature_sigma=20.0,
+)
+```
+
+Here volume is in angstrom cubed per conventional unit cell, pressure is in
+GPa, and temperature is in K. See [Pressure standards](pressure-standards.md)
+for the curated calculation catalog and [Exploring the material
+library](notebooks/exploring-material-library.ipynb) for the complete bundled
+115-material/147-record collection.
+
+## Construct a room-temperature model
+
+Use the equation classes directly when fitting a new dataset or reproducing a
+parameterization that is not represented by a catalog record.
 
 ```python
 from peritheos.eos.rt import Vinet

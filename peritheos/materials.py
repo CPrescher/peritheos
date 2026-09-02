@@ -214,7 +214,7 @@ class EOSRecord:
         """Calculate pressure in GPa from unit-cell volume and temperature."""
         temperatures = self._temperature(temperature)
         internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
-        if self.is_thermal:
+        if isinstance(self.eos, ThermalEOS):
             result = self.eos.pressure(internal_volume, temperatures)
         else:
             result = self.eos.pressure(internal_volume)
@@ -231,7 +231,7 @@ class EOSRecord:
     ) -> NumericType:
         """Invert unit-cell volume from pressure in GPa and temperature."""
         temperatures = self._temperature(temperature)
-        if self.is_thermal:
+        if isinstance(self.eos, ThermalEOS):
             internal_volume = self.eos.volume(pressure, temperatures)
         else:
             internal_volume = self.eos.volume(pressure)
@@ -257,7 +257,7 @@ class EOSRecord:
         above the reference-temperature pressure. See the underlying thermal
         EOS :meth:`temperature_from_volumes` method for model-specific details.
         """
-        if not self.is_thermal:
+        if not isinstance(self.eos, ThermalEOS):
             raise ValueError(
                 f"{self.identifier} is isothermal and cannot invert temperature"
             )

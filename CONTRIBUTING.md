@@ -17,6 +17,7 @@ Run the same checks used by continuous integration:
 ```bash
 uv run ruff check .
 uv run ruff format --check .
+uv run --python 3.9 mypy
 uv run pytest -q -W error --cov --cov-report=term-missing
 uv run --group docs mkdocs build --strict
 ```

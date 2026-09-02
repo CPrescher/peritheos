@@ -14,10 +14,9 @@ from peritheos.eos.rt import (
     NaturalStrain4,
     Vinet,
 )
+from peritheos.units import convert_pressure, convert_temperature
 from peritheos.utils import (
     compressibility_factor,
-    convert_pressure,
-    convert_temperature,
     derivative,
 )
 
@@ -115,3 +114,12 @@ def test_temperature_conversion_rejects_unknown_units():
 def test_general_thermodynamic_utilities():
     assert np.isclose(compressibility_factor(2.0 * R * 300.0, 1.0, 300.0, 2.0), 1.0)
     assert np.isclose(derivative(lambda value: value**2, 3.0), 6.0)
+
+
+def test_legacy_unit_imports_warn_and_delegate():
+    from peritheos import utils
+
+    with pytest.deprecated_call(match="peritheos.units"):
+        assert utils.convert_pressure(1.0, "GPa", "kbar") == 10.0
+    with pytest.deprecated_call(match="peritheos.units"):
+        assert utils.convert_temperature(273.15, "K", "C") == 0.0

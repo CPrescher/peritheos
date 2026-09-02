@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
+import math
 from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 from functools import cache
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Callable
+from typing import TYPE_CHECKING, Any, Callable, cast
 
 import numpy as np
 from numpy.typing import NDArray
@@ -661,7 +662,7 @@ def _fit_model(
     )
     residuals = predicted - observed
     weighted_residuals = np.asarray(optimization.fun, dtype=float)
-    count = weighted_residuals.size
+    count = int(weighted_residuals.size)
     degrees_of_freedom = count - optimization.x.size
     chi_square = float(np.sum(weighted_residuals**2))
     reduced_chi_square = (
@@ -689,10 +690,10 @@ def _fit_model(
     standard_errors = {name: float(error) for name, error in zip(names, errors)}
     standard_errors.update({name: 0.0 for name in fixed_values})
 
-    log_variance = np.log(max(chi_square / count, np.finfo(float).tiny))
+    log_variance = math.log(max(chi_square / count, float(np.finfo(float).tiny)))
     fitted_count = optimization.x.size
     aic = count * log_variance + 2.0 * fitted_count
-    bic = count * log_variance + fitted_count * np.log(count)
+    bic = count * log_variance + fitted_count * math.log(count)
     adjusted_volume = adjusted["volume"]
     adjusted_temperature = adjusted.get("temperature")
     return FitResult(
@@ -862,7 +863,9 @@ def fit_thermal_eos(
     return _fit_model(
         lambda parameters: eos_class(rt_eos=rt_eos, **parameters, **configuration),
         lambda model, coordinates: np.asarray(
-            model.pressure(coordinates["volume"], coordinates["temperature"]),
+            cast(ThermalEOS, model).pressure(
+                coordinates["volume"], coordinates["temperature"]
+            ),
             dtype=float,
         ),
         observed,
@@ -973,7 +976,9 @@ def fit_joint_eos(
     return _fit_model(
         factory,
         lambda model, coordinates: np.asarray(
-            model.pressure(coordinates["volume"], coordinates["temperature"]),
+            cast(ThermalEOS, model).pressure(
+                coordinates["volume"], coordinates["temperature"]
+            ),
             dtype=float,
         ),
         observed,

@@ -48,6 +48,26 @@ jobs:
         if: matrix.toolchain == 'stable'
         run: scripts/verify-rust-packages.sh
 
+  rust-coverage:
+    name: Rust core and fitting coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install Rust toolchain
+        run: |
+          rustup toolchain install stable --profile minimal --component llvm-tools-preview
+          cargo install cargo-llvm-cov --version 0.9.0 --locked
+
+      - name: Enforce native core coverage floor
+        run: >-
+          cargo +stable llvm-cov --workspace --exclude peritheos-python
+          --all-features --fail-under-lines 80
+
   dependency-audit:
     name: Rust dependency licenses and sources
     runs-on: ubuntu-latest
@@ -86,6 +106,26 @@ jobs:
 
       - name: Check formatting
         run: uv run --frozen ruff format --check .
+
+  typing:
+    name: Python typing / minimum Python
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          enable-cache: true
+          python-version: "3.9"
+          version: "0.12.1"
+
+      - name: Check Python typing
+        run: uv run --frozen mypy
 
   docs:
     name: Build documentation
@@ -189,7 +229,7 @@ jobs:
             --python 3.13 \
             --with "${wheel}" \
             python -c \
-            "from peritheos import Material, get_material_document, list_material_documents; from peritheos.eos.rt import BM3; assert BM3(10, 120, 4).pressure(9) > 0; assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 4"
+            "from importlib import resources; from peritheos import Material, get_material_document, list_material_documents; from peritheos.eos.rt import BM3; assert resources.files('peritheos').joinpath('py.typed').is_file(); assert BM3(10, 120, 4).pressure(9) > 0; assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 4"
 
   free-threaded:
     name: Free-threaded Python 3.14
@@ -212,7 +252,7 @@ jobs:
         run: uv run --python 3.14t --frozen pytest -q -W error
 
   coverage:
-    name: Coverage
+    name: Complete Python package coverage
     runs-on: ubuntu-latest
 
     steps:
@@ -228,7 +268,7 @@ jobs:
           python-version: "3.13"
           version: "0.12.1"
 
-      - name: Enforce coverage floor
+      - name: Enforce coverage floor, including EOS compatibility paths
         run: uv run --frozen pytest -q -W error --cov --cov-report=term-missing
 
   minimum-dependencies:
@@ -292,4 +332,4 @@ jobs:
           uv venv --python 3.13 "${RUNNER_TEMP}/peritheos-smoke"
           uv pip install --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" dist/*.whl
           cd "${RUNNER_TEMP}"
-          "${RUNNER_TEMP}/peritheos-smoke/bin/python" -c "from peritheos import Material, get_material_document, list_material_documents; assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 4"
+          "${RUNNER_TEMP}/peritheos-smoke/bin/python" -c "from importlib import resources; from peritheos import Material, get_material_document, list_material_documents; assert resources.files('peritheos').joinpath('py.typed').is_file(); assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 4"

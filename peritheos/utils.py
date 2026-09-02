@@ -1,97 +1,42 @@
-"""
-Utility functions for thermodynamic calculations
-"""
+"""General numerical helpers and compatibility unit-conversion imports."""
+
+from __future__ import annotations
+
+import warnings
+from collections.abc import Callable
+
+import peritheos.units as _units
+from peritheos.units import Numeric
 
 from .constants import R
 
 
-def convert_pressure(value, from_unit, to_unit):
-    """
-    Convert pressure between different units
-
-    Parameters
-    ----------
-    value : float
-        Pressure value to convert
-    from_unit : str
-        Original unit ('pa', 'mpa', 'gpa', 'bar', 'kbar', 'atm', 'torr', 'psi')
-    to_unit : str
-        Target unit ('pa', 'mpa', 'gpa', 'bar', 'kbar', 'atm', 'torr', 'psi')
-
-    Returns
-    -------
-    float
-        Converted pressure value
-    """
-    # Conversion factors to Pa
-    to_pa = {
-        "pa": 1.0,
-        "mpa": 1e6,
-        "gpa": 1e9,
-        "bar": 1e5,
-        "kbar": 1e8,
-        "atm": 101325.0,
-        "torr": 133.322,
-        "psi": 6894.76,
-    }
-
-    from_unit = from_unit.lower()
-    to_unit = to_unit.lower()
-    if from_unit not in to_pa:
-        raise ValueError(f"Unsupported pressure unit: {from_unit}")
-    if to_unit not in to_pa:
-        raise ValueError(f"Unsupported pressure unit: {to_unit}")
-
-    # Convert to Pa first
-    pa_value = value * to_pa[from_unit]
-
-    # Convert from Pa to target unit
-    return pa_value / to_pa[to_unit]
+def _warn_unit_move(name: str) -> None:
+    warnings.warn(
+        f"peritheos.utils.{name} is deprecated; import it from peritheos.units",
+        DeprecationWarning,
+        stacklevel=2,
+    )
 
 
-def convert_temperature(value, from_unit, to_unit):
-    """
-    Convert temperature between different units
-
-    Parameters
-    ----------
-    value : float
-        Temperature value to convert
-    from_unit : str
-        Original unit ('k', 'c', 'f')
-    to_unit : str
-        Target unit ('k', 'c', 'f')
-
-    Returns
-    -------
-    float
-        Converted temperature value
-    """
-    from_unit = from_unit.lower()
-    to_unit = to_unit.lower()
-
-    # Convert to Kelvin first
-    if from_unit == "k":
-        kelvin = value
-    elif from_unit == "c":
-        kelvin = value + 273.15
-    elif from_unit == "f":
-        kelvin = (value - 32) * 5 / 9 + 273.15
-    else:
-        raise ValueError(f"Unsupported temperature unit: {from_unit}")
-
-    # Convert from Kelvin to target unit
-    if to_unit == "k":
-        return kelvin
-    elif to_unit == "c":
-        return kelvin - 273.15
-    elif to_unit == "f":
-        return (kelvin - 273.15) * 9 / 5 + 32
-    else:
-        raise ValueError(f"Unsupported temperature unit: {to_unit}")
+def convert_pressure(value: Numeric, from_unit: str, to_unit: str) -> Numeric:
+    """Deprecated compatibility wrapper for :func:`peritheos.units.convert_pressure`."""
+    _warn_unit_move("convert_pressure")
+    return _units.convert_pressure(value, from_unit, to_unit)
 
 
-def compressibility_factor(pressure, volume, temperature, moles):
+def convert_temperature(value: Numeric, from_unit: str, to_unit: str) -> Numeric:
+    """Deprecated compatibility wrapper for :func:`peritheos.units.convert_temperature`."""
+    _warn_unit_move("convert_temperature")
+    return _units.convert_temperature(value, from_unit, to_unit)
+
+
+def compressibility_factor(
+    pressure: Numeric,
+    volume: Numeric,
+    temperature: Numeric,
+    moles: Numeric,
+) -> Numeric:
     """
     Calculate the compressibility factor Z = PV/nRT
 
@@ -114,6 +59,10 @@ def compressibility_factor(pressure, volume, temperature, moles):
     return pressure * volume / (moles * R * temperature)
 
 
-def derivative(f, x, dx=1e-6):
+def derivative(
+    f: Callable[[Numeric], Numeric],
+    x: Numeric,
+    dx: float = 1e-6,
+) -> Numeric:
     """Compute the derivative of f at x using finite differences"""
     return (f(x + dx) - f(x - dx)) / (2 * dx)

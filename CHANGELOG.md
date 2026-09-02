@@ -5,6 +5,22 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Added PEP 561 typing metadata and a repository-wide `mypy` CI gate.
+- Added array-aware pressure and temperature conversions to `peritheos.units`,
+  plus conventional-cell to formula-molar-volume conversion in both directions.
+- Added separate complete-Python and native Rust coverage gates and
+  property-oriented native-versus-compatibility tests.
+
+### Changed
+
+- Deprecated the old `peritheos.utils` pressure and temperature conversion
+  imports in favor of the consolidated `peritheos.units` API.
+- Reworked the getting-started documentation around validated material records,
+  clarified source-build requirements, and grouped contributor-only design
+  documents outside the main user navigation.
+
 ## [0.6.0] - 2026-09-01
 
 ### Added

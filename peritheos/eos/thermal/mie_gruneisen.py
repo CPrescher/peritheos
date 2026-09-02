@@ -246,7 +246,7 @@ class MieGruneisenDebye(_MieGruneisenBase):
     doi:10.1073/pnas.0609013104
     """
 
-    _constructor_configuration_names = ("debye_temperature_law",)
+    _constructor_configuration_names: tuple[str, ...] = ("debye_temperature_law",)
     _DEBYE_TEMPERATURE_LAWS = {"integrated_gruneisen", "variable_exponent"}
 
     def __init__(
@@ -359,7 +359,7 @@ class Tange2009Debye(MieGruneisenDebye):
     doi:10.1029/2008JB005813
     """
 
-    _constructor_configuration_names = ()
+    _constructor_configuration_names: tuple[str, ...] = ()
 
     def __init__(
         self,

@@ -378,7 +378,7 @@ class EosBase:
                 f"Unknown parameters for {type(self).__name__}: {sorted(unknown)}"
             )
 
-        own_values = self.parameter_values(include_reference=False)
+        own_values: dict[str, Any] = self.parameter_values(include_reference=False)
         own_values.update(self.configuration_values())
         own_values.update(
             {

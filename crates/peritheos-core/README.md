@@ -1,8 +1,9 @@
 # peritheos-core
 
 `peritheos-core` is the dependency-light native numerical core of Peritheos.
-It is under active migration and is not yet published as a compatibility-ready
-crate.
+It is currently an unpublished Rust API and is not part of the Python package's
+public compatibility contract. Its packages are verified in CI so a future
+Rust release can be made from the same tested source.
 
 The crate owns built-in equations, validation, thermodynamic properties, and
 inversion. It does not depend on Python, NumPy, PyO3, or a fitting framework.

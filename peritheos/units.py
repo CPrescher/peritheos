@@ -1,4 +1,10 @@
-"""Explicit unit conversions used by Peritheos EOS workflows."""
+"""Explicit unit conversions used by Peritheos EOS workflows.
+
+All helpers accept either scalars or NumPy arrays and preserve that distinction
+in their return value.  EOS calculations themselves continue to use the
+documented GPa, K, and volume conventions; this module is the single public
+location for converting inputs into those conventions.
+"""
 
 from typing import Union
 
@@ -37,8 +43,24 @@ _MOLAR_MASS_TO_KG_MOL = {
     "g/mol": 1.0e-3,
 }
 
+_PRESSURE_TO_PA = {
+    "pa": 1.0,
+    "mpa": 1.0e6,
+    "gpa": 1.0e9,
+    "bar": 1.0e5,
+    "kbar": 1.0e8,
+    "atm": 101325.0,
+    "torr": 133.322,
+    "psi": 6894.76,
+}
 
-def _convert(value: Numeric, source: str, target: str, factors: dict[str, float]):
+_ANGSTROM_CUBED_TO_M3 = 1.0e-30
+_AVOGADRO = 6.02214076e23
+
+
+def _convert(
+    value: Numeric, source: str, target: str, factors: dict[str, float]
+) -> Numeric:
     source_key = _normalize(source)
     target_key = _normalize(target)
     if source_key not in factors:
@@ -61,6 +83,102 @@ def convert_molar_volume(value: Numeric, from_unit: str, to_unit: str) -> Numeri
 def convert_density(value: Numeric, from_unit: str, to_unit: str) -> Numeric:
     """Convert density between kg/m3 and g/cm3."""
     return _convert(value, from_unit, to_unit, _DENSITY_TO_KG_M3)
+
+
+def convert_pressure(value: Numeric, from_unit: str, to_unit: str) -> Numeric:
+    """Convert pressure among Pa, MPa, GPa, bar, kbar, atm, torr, and psi."""
+    if _normalize(from_unit) not in _PRESSURE_TO_PA:
+        raise ValueError(f"Unsupported pressure unit: {from_unit}")
+    if _normalize(to_unit) not in _PRESSURE_TO_PA:
+        raise ValueError(f"Unsupported pressure unit: {to_unit}")
+    return _convert(value, from_unit, to_unit, _PRESSURE_TO_PA)
+
+
+def convert_temperature(value: Numeric, from_unit: str, to_unit: str) -> Numeric:
+    """Convert temperature among kelvin, degrees Celsius, and Fahrenheit."""
+    source = from_unit.lower().replace("°", "")
+    target = to_unit.lower().replace("°", "")
+    values = np.asarray(value, dtype=float)
+    if not np.all(np.isfinite(values)):
+        raise ValueError("Values must be finite")
+
+    if source == "k":
+        kelvin = values
+    elif source == "c":
+        kelvin = values + 273.15
+    elif source == "f":
+        kelvin = (values - 32.0) * 5.0 / 9.0 + 273.15
+    else:
+        raise ValueError(f"Unsupported temperature unit: {from_unit}")
+
+    if target == "k":
+        result = kelvin
+    elif target == "c":
+        result = kelvin - 273.15
+    elif target == "f":
+        result = (kelvin - 273.15) * 9.0 / 5.0 + 32.0
+    else:
+        raise ValueError(f"Unsupported temperature unit: {to_unit}")
+    if result.ndim == 0:
+        return float(result)
+    return result
+
+
+def cell_volume_to_molar_volume(
+    cell_volume: Numeric,
+    formula_units_per_cell: Numeric,
+    *,
+    to_unit: str = "J/bar/mol",
+) -> Numeric:
+    """Convert conventional-cell volume in angstrom^3 to formula molar volume.
+
+    ``formula_units_per_cell`` is the crystallographic number of formula units
+    in the conventional cell (often written ``Z``).  The result is per mole of
+    formula units, not per mole of atoms.
+    """
+    cell_values = np.asarray(cell_volume, dtype=float)
+    formula_units = np.asarray(formula_units_per_cell, dtype=float)
+    try:
+        cell_values, formula_units = np.broadcast_arrays(cell_values, formula_units)
+    except ValueError as error:
+        raise ValueError(
+            "cell_volume and formula_units_per_cell must have broadcast-compatible shapes"
+        ) from error
+    if not np.all(np.isfinite(cell_values)) or np.any(cell_values <= 0.0):
+        raise ValueError("Cell volume must be finite and greater than zero")
+    if not np.all(np.isfinite(formula_units)) or np.any(formula_units <= 0.0):
+        raise ValueError("Formula units per cell must be finite and greater than zero")
+    molar_volume_m3 = cell_values * _ANGSTROM_CUBED_TO_M3 * _AVOGADRO / formula_units
+    return convert_molar_volume(molar_volume_m3, "m3/mol", to_unit)
+
+
+def molar_volume_to_cell_volume(
+    molar_volume: Numeric,
+    formula_units_per_cell: Numeric,
+    *,
+    from_unit: str = "J/bar/mol",
+) -> Numeric:
+    """Convert formula molar volume to conventional-cell volume in angstrom^3."""
+    molar_volume_m3 = np.asarray(
+        convert_molar_volume(molar_volume, from_unit, "m3/mol"), dtype=float
+    )
+    formula_units = np.asarray(formula_units_per_cell, dtype=float)
+    try:
+        molar_volume_m3, formula_units = np.broadcast_arrays(
+            molar_volume_m3, formula_units
+        )
+    except ValueError as error:
+        raise ValueError(
+            "molar_volume and formula_units_per_cell must have broadcast-compatible shapes"
+        ) from error
+    if np.any(molar_volume_m3 <= 0.0):
+        raise ValueError("Molar volume must be greater than zero")
+    if not np.all(np.isfinite(formula_units)) or np.any(formula_units <= 0.0):
+        raise ValueError("Formula units per cell must be finite and greater than zero")
+    result = molar_volume_m3 * formula_units / (_ANGSTROM_CUBED_TO_M3 * _AVOGADRO)
+    if result.ndim == 0:
+        return float(result)
+    return result
 
 
 def density_from_molar_volume(

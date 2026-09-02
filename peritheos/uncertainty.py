@@ -516,7 +516,7 @@ class EOSUncertainty:
                 )
             prepared_sigmas[index] = sigma
 
-        accepted = []
+        accepted: list[NDArray[np.float64]] = []
         attempted = 0
         maximum_attempts = 20 * sample_count
         while len(accepted) < sample_count and attempted < maximum_attempts:

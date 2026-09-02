@@ -6,6 +6,7 @@
 uv sync --all-groups
 uv run ruff check .
 uv run ruff format --check .
+uv run --python 3.9 mypy
 uv run pytest -q -W error --cov --cov-report=term-missing
 ```
 
@@ -19,6 +20,7 @@ Run the native gates directly with:
 cargo fmt --all -- --check
 cargo clippy --workspace --all-targets --all-features -- -D warnings
 cargo test --workspace --all-features --locked
+cargo llvm-cov --workspace --exclude peritheos-python --all-features --fail-under-lines 80
 scripts/verify-rust-packages.sh
 ```
 
@@ -33,12 +35,22 @@ crates.io and an explicit permissive-license allowlist. The pinned
 `cargo-deny` CI action evaluates the complete feature graph on Linux, macOS,
 and Windows targets.
 
-Python coverage omits `peritheos/eos/**` because those modules are facades over
-the PyO3 backend and contain retained custom-model compatibility paths. Their
-built-in numerical implementation is covered by the Rust unit, fixture,
-literature, and integration tests. Python coverage continues to enforce the
-90% branch-aware floor for fitting orchestration, uncertainty, units, and the
-rest of the Python layer.
+Python coverage includes the complete package, including the EOS facades and
+the custom-model compatibility paths that do not use the native evaluator. The
+branch-aware floor is 89%; this broader denominator replaces the former 90%
+figure that excluded the complete `peritheos/eos/**` tree. Deterministic
+property-oriented tests compare native and compatibility implementations over
+state grids and exercise round-trip and thermodynamic identities.
+
+Rust line coverage is reported separately for `peritheos-core` and
+`peritheos-fit` and must remain at least 80%. `peritheos-python` is excluded
+from that number because its PyO3 entry points are exercised by the Python
+suite rather than Rust's test harness.
+
+The installed package contains `py.typed`; `mypy` checks the inline annotations
+on every change. Private native-extension attributes and the intentional
+isothermal/thermal override signatures are excluded from internal diagnostics,
+while the concrete public classes retain their precise signatures for users.
 
 If the default uv cache is unavailable in a sandbox:
 
