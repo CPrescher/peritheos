@@ -1,10 +1,95 @@
-//! Numerical fitting primitives used by Peritheos.
+//! Fit Peritheos models and propagate parameter uncertainty in pure Rust.
 //!
-//! The solver deliberately owns its numerical conventions instead of adapting
-//! a partial third-party API. It supports box constraints, the robust losses
-//! exposed by the Python API, deterministic finite-difference Jacobians, and
-//! the diagnostics needed to preserve `scipy.optimize.least_squares`-style
-//! results.
+//! The highest-level entry points accept physical observations plus a model
+//! factory. They assemble weighted residuals, bounds, and optional latent
+//! state variables internally. Lower-level least-squares and covariance
+//! routines remain available for custom models.
+//!
+//! # Fit an isothermal EOS
+//!
+//! This complete example estimates `K0` and `K0_prime` while keeping `V0`
+//! fixed. The factory's parameter order is the order used by the initial
+//! values, bounds, result, and covariance matrix.
+//!
+//! ```
+//! use peritheos_core::isothermal::BM3;
+//! use peritheos_fit::{
+//!     fit_isothermal_eos, FitError, IsothermalObservations, SolverOptions,
+//! };
+//!
+//! let pressure = [39.1, 25.3, 15.2, 7.7, 2.2];
+//! let volume = [8.2, 8.6, 9.0, 9.4, 9.8];
+//! let pressure_sigma = [0.2; 5];
+//! let result = fit_isothermal_eos(
+//!     IsothermalObservations {
+//!         pressure: &pressure,
+//!         volume: &volume,
+//!         pressure_sigma: &pressure_sigma,
+//!         volume_sigma: None,
+//!         observation_cholesky: None,
+//!     },
+//!     &[140.0, 4.0],
+//!     &[50.0, 1.0],
+//!     &[300.0, 10.0],
+//!     SolverOptions::default(),
+//!     |parameters| {
+//!         BM3::new(10.0, parameters[0], parameters[1])
+//!             .map_err(|error| FitError::Evaluation(error.to_string()))
+//!     },
+//! )?;
+//!
+//! assert_eq!(result.solver.parameters.len(), 2);
+//! assert_eq!(result.predicted_pressure.len(), pressure.len());
+//! # Ok::<(), FitError>(())
+//! ```
+//!
+//! Set [`IsothermalObservations::volume_sigma`] to fit adjusted (latent)
+//! volumes. For P-V-T data use [`fit_thermal_eos`] and
+//! [`ThermalObservations`]; [`fit_joint_eos`] uses one ordered parameter slice
+//! to reconstruct both the reference and thermal components.
+//!
+//! # Propagate fitted uncertainty
+//!
+//! [`parameter_covariance`] converts a final residual Jacobian to parameter
+//! covariance. [`propagate_model_uncertainty`] then evaluates a model
+//! Jacobian and applies the delta method. Use
+//! [`monte_carlo_model_uncertainty`] when nonlinearity or invalid sampled
+//! states matter.
+//!
+//! ```
+//! use peritheos_core::{isothermal::BM3, IsothermalEos};
+//! use peritheos_fit::{propagate_model_uncertainty, FitError};
+//!
+//! let parameters = [160.0, 4.0];
+//! let covariance = [4.0, -0.05, -0.05, 0.04];
+//! let volumes = [9.5, 9.0];
+//! let propagated = propagate_model_uncertainty(
+//!     &parameters,
+//!     &covariance,
+//!     &[0.0; 2],
+//!     1.0e-5,
+//!     true,
+//!     |parameters| {
+//!         let eos = BM3::new(10.0, parameters[0], parameters[1])
+//!             .map_err(|error| FitError::Evaluation(error.to_string()))?;
+//!         volumes
+//!             .iter()
+//!             .map(|&volume| {
+//!                 eos.pressure(volume)
+//!                     .map_err(|error| FitError::Evaluation(error.to_string()))
+//!             })
+//!             .collect()
+//!     },
+//! )?;
+//!
+//! assert_eq!(propagated.model.nominal.len(), 2);
+//! assert!(propagated.propagation.variance.iter().all(|value| *value >= 0.0));
+//! # Ok::<(), FitError>(())
+//! ```
+//!
+//! Robust losses are selected with [`Loss`] through [`SolverOptions`]. All
+//! errors are reported as [`FitError`], so factories should map construction
+//! and EOS evaluation errors into [`FitError::Evaluation`].
 
 mod eos;
 

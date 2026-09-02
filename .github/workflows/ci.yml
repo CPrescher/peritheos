@@ -35,7 +35,15 @@ jobs:
         run: cargo +${{ matrix.toolchain }} check --workspace --all-targets --all-features --locked
 
       - name: Test workspace
-        run: cargo +${{ matrix.toolchain }} test --workspace --all-features --locked
+        run: cargo +${{ matrix.toolchain }} test --workspace --all-targets --all-features --locked
+
+      - name: Test Rust documentation
+        run: cargo +${{ matrix.toolchain }} test --workspace --doc --all-features --locked
+
+      - name: Build warning-free Rust documentation
+        env:
+          RUSTDOCFLAGS: -D warnings
+        run: cargo +${{ matrix.toolchain }} doc --workspace --all-features --no-deps --locked
 
       - name: Check formatting and Clippy
         if: matrix.toolchain == 'stable'

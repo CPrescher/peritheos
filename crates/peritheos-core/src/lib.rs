@@ -1,8 +1,96 @@
-//! Native numerical core for Peritheos.
+//! Equations of state, thermodynamic properties, inversion, and material files.
 //!
-//! The core API is scalar-first so it can be used without an array framework.
-//! Batch and language-binding layers build on the same checked scalar model
-//! methods. Working units follow the public Peritheos conventions.
+//! `peritheos-core` is the dependency-light Rust API behind Peritheos. Use it
+//! directly when you want checked scalar calculations, ordered batch
+//! evaluation, or executable models loaded from `.eosmat` files without a
+//! Python runtime.
+//!
+//! # Quick start: construct, evaluate, and invert
+//!
+//! Model constructors validate their parameters. Evaluation and inversion use
+//! the common [`IsothermalEos`] trait, so changing equation families does not
+//! change the calling pattern.
+//!
+//! ```
+//! use peritheos_core::{isothermal::BM3, IsothermalEos};
+//!
+//! let eos = BM3::new(10.0, 160.0, 4.0)?;
+//! let pressure = eos.pressure(9.0)?;
+//! let recovered_volume = eos.volume(pressure)?;
+//!
+//! assert!(pressure > 0.0);
+//! assert!((recovered_volume - 9.0).abs() < 1.0e-10);
+//! # Ok::<(), peritheos_core::EosError>(())
+//! ```
+//!
+//! # Thermal and caloric calculations
+//!
+//! Thermal models wrap a reference isotherm. The [`ThermalEos`] trait provides
+//! total pressure and both P-T-to-V and P-V-to-T inversion; [`CaloricEos`]
+//! adds heat capacities and related quantities when the model defines them.
+//!
+//! ```
+//! use peritheos_core::{
+//!     isothermal::BM3,
+//!     thermal::MieGruneisenDebye,
+//!     CaloricEos, ThermalEos,
+//! };
+//!
+//! let reference = BM3::new(1.02, 165.0, 5.0)?;
+//! let eos = MieGruneisenDebye::new(reference, 300.0, 170.0, 2.9, 1.0, 1.0)?;
+//! let pressure = eos.pressure(0.95, 1_500.0)?;
+//! let recovered_volume = eos.volume(pressure, 1_500.0)?;
+//! let heat_capacity = eos.molar_heat_capacity_v(0.95, 1_500.0)?;
+//!
+//! assert!((recovered_volume - 0.95).abs() < 1.0e-9);
+//! assert!(heat_capacity > 0.0);
+//! # Ok::<(), peritheos_core::EosError>(())
+//! ```
+//!
+//! # Material records instead of handwritten parameters
+//!
+//! [`load_eosmat`] and [`load_eosmat_str`] parse canonical Peritheos format-3
+//! and legacy Dioptas format-2 files. A loaded [`EosRecord`] is runtime
+//! dispatched but exposes the same pressure and inversion workflow:
+//!
+//! ```no_run
+//! use peritheos_core::load_eosmat;
+//!
+//! let material = load_eosmat("gold.eosmat")?;
+//! let record = material.default_record().expect("material has a default EOS");
+//! let pressure = record.pressure(60.0, 300.0)?;
+//! println!("{}: {pressure:.3} GPa", material.name);
+//! # Ok::<(), Box<dyn std::error::Error>>(())
+//! ```
+//!
+//! # Ordered batch evaluation
+//!
+//! Import the extension traits from [`batch`] when inputs already live in
+//! slices. Batch methods preserve input order and return the first scalar
+//! error; they intentionally do not impose an array or threading framework.
+//!
+//! ```
+//! use peritheos_core::{batch::IsothermalEosBatch, isothermal::Vinet};
+//!
+//! let eos = Vinet::new(10.0, 160.0, 4.0)?;
+//! let pressures = eos.pressures(&[10.0, 9.5, 9.0])?;
+//! assert_eq!(pressures.len(), 3);
+//! assert!(pressures.windows(2).all(|pair| pair[0] < pair[1]));
+//! # Ok::<(), peritheos_core::EosError>(())
+//! ```
+//!
+//! # Units and conventions
+//!
+//! - Pressure and bulk modulus use `GPa`.
+//! - Temperature uses kelvin and must be positive.
+//! - Volumes must be positive. Isothermal models accept any volume unit that
+//!   is used consistently with `V0`.
+//! - Thermal energy models use molar volume in `J bar^-1 mol^-1`; heat
+//!   capacities and energies use molar SI units.
+//! - Inversion returns the supported branch nearest the reference state.
+//!
+//! Browse [`isothermal`] and [`thermal`] for the built-in model families, or
+//! start with the complete examples shipped with the crate.
 
 mod error;
 mod quadrature;

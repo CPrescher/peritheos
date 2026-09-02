@@ -12,6 +12,8 @@ All notable changes to Peritheos are documented here. The project follows
   plus conventional-cell to formula-molar-volume conversion in both directions.
 - Added separate complete-Python and native Rust coverage gates and
   property-oriented native-versus-compatibility tests.
+- Added workflow-oriented Rust API documentation, six executable core and
+  fitting examples, docs.rs metadata, and warning-free rustdoc/doctest CI.
 
 ### Changed
 
