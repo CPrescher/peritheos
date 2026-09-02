@@ -155,19 +155,12 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50"
 
 [[package]]
-name = "peritheos-core"
+name = "peritheos"
 version = "0.6.0"
 dependencies = [
+ "rand",
  "serde",
  "serde_json",
-]
-
-[[package]]
-name = "peritheos-fit"
-version = "0.6.0"
-dependencies = [
- "peritheos-core",
- "rand",
 ]
 
 [[package]]
@@ -175,8 +168,7 @@ name = "peritheos-python"
 version = "0.6.0"
 dependencies = [
  "numpy",
- "peritheos-core",
- "peritheos-fit",
+ "peritheos",
  "pyo3",
  "rayon",
 ]

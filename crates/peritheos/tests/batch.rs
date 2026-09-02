@@ -1,6 +1,6 @@
-use peritheos_core::isothermal::{ModifiedTait, BM3};
-use peritheos_core::thermal::{MieGruneisenDebye, ThermalModifiedTait};
-use peritheos_core::{
+use peritheos::isothermal::{ModifiedTait, BM3};
+use peritheos::thermal::{MieGruneisenDebye, ThermalModifiedTait};
+use peritheos::{
     CaloricEos, CaloricEosBatch, IsothermalEos, IsothermalEosBatch, ThermalEos, ThermalEosBatch,
 };
 

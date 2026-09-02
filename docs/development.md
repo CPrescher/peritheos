@@ -24,11 +24,10 @@ cargo llvm-cov --workspace --exclude peritheos-python --all-features --fail-unde
 scripts/verify-rust-packages.sh
 ```
 
-The package verifier reflects the required crates.io publication order:
-`peritheos-core` first, then `peritheos-fit`. Before the core version exists in
-the registry, it prepares the fitting archive with a local resolution patch,
-checks that the normalized archive still contains a versioned registry
-dependency, and runs both extracted packages' tests.
+The package verifier builds the public `peritheos` archive and runs the tests
+from its extracted, normalized package. Set `PERITHEOS_ALLOW_DIRTY=1` when
+checking an intentional uncommitted change; release verification remains
+strict by default.
 
 `deny.toml` restricts normal and platform-specific Rust dependencies to
 crates.io and an explicit permissive-license allowlist. The pinned
@@ -42,10 +41,10 @@ figure that excluded the complete `peritheos/eos/**` tree. Deterministic
 property-oriented tests compare native and compatibility implementations over
 state grids and exercise round-trip and thermodynamic identities.
 
-Rust line coverage is reported separately for `peritheos-core` and
-`peritheos-fit` and must remain at least 80%. `peritheos-python` is excluded
-from that number because its PyO3 entry points are exercised by the Python
-suite rather than Rust's test harness.
+Rust line coverage covers the unified `peritheos` crate and must remain at
+least 80%. `peritheos-python` is excluded from that number because its PyO3
+entry points are exercised by the Python suite rather than Rust's test
+harness.
 
 The installed package contains `py.typed`; `mypy` checks the inline annotations
 on every change. Private native-extension attributes and the intentional
@@ -66,11 +65,12 @@ uv run --group docs mkdocs build --strict
 
 ## Native architecture and compatibility paths
 
-`peritheos-core` owns all built-in isothermal, thermal, caloric, inversion, and
-quadrature calculations. `peritheos-fit` owns bounded robust least squares,
-typed EOS residual construction, structured latent-coordinate solving,
-covariance profiling, model-aware delta-method propagation, and deterministic
-Monte Carlo sampling and summary statistics. `peritheos-python` exposes these through the private
+The public `peritheos` crate owns all built-in isothermal, thermal, caloric,
+inversion, quadrature, fitting, and uncertainty calculations. Its `fit` module
+contains bounded robust least squares, typed EOS residual construction,
+structured latent-coordinate solving, covariance profiling, model-aware
+delta-method propagation, and deterministic Monte Carlo sampling and summary
+statistics. `peritheos-python` exposes these through the private
 `peritheos._rust` module; application code should continue importing the
 documented Python modules.
 

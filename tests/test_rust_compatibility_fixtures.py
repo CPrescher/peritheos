@@ -26,7 +26,7 @@ from peritheos.eos.thermal import (
 from peritheos.eos.thermal.mie_gruneisen import _debye_function_3
 
 FIXTURE_DIRECTORY = (
-    Path(__file__).parent.parent / "crates" / "peritheos-core" / "tests" / "data"
+    Path(__file__).parent.parent / "crates" / "peritheos" / "tests" / "data"
 )
 FIXTURE = FIXTURE_DIRECTORY / "isothermal_compatibility_cases.json"
 THERMAL_FIXTURE = FIXTURE_DIRECTORY / "thermal_compatibility_cases.json"

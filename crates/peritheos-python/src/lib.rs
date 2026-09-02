@@ -4,22 +4,22 @@ mod native_fit;
 
 use numpy::ndarray::ArrayD;
 use numpy::{IntoPyArray, PyArrayDyn, PyReadonlyArrayDyn};
-use peritheos_core::isothermal::{
+use peritheos::fit::{
+    least_squares, least_squares_structured, parameter_covariance_structured,
+    propagate_linear_uncertainty, summarize_monte_carlo, FitError, LinearPropagation, Loss,
+    MonteCarloSummary, SolverOptions, StructuredLayout,
+};
+use peritheos::isothermal::{
     holzapfel_bulk_modulus_derivative_analytical, Holzapfel, ModifiedTait, Murnaghan,
     NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2, BM3, BM4,
 };
-use peritheos_core::thermal::{
+use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, LinearThermalPressure,
     LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
     ReferenceStateEos, ReferenceVolumeLaw, SokolovaParameters, ThermalExpansionLaw,
     ThermalModifiedTait, ThermalReferenceState,
 };
-use peritheos_core::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
-use peritheos_fit::{
-    least_squares, least_squares_structured, parameter_covariance_structured,
-    propagate_linear_uncertainty, summarize_monte_carlo, FitError, LinearPropagation, Loss,
-    MonteCarloSummary, SolverOptions, StructuredLayout,
-};
+use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use pyo3::exceptions::{
     PyArithmeticError, PyNotImplementedError, PyRuntimeError, PyTypeError, PyValueError,
 };
@@ -763,7 +763,7 @@ fn evaluate_caloric_quantity<T: CaloricEos>(
 }
 
 fn evaluate_mie_quantity<R, const DEBYE: bool>(
-    model: &peritheos_core::thermal::MieGruneisen<R, DEBYE>,
+    model: &peritheos::thermal::MieGruneisen<R, DEBYE>,
     quantity: &str,
     first: f64,
     second: f64,
@@ -932,7 +932,7 @@ fn to_python_error(error: EosError) -> PyErr {
 )]
 #[derive(Clone, Debug, PartialEq)]
 struct PyLeastSquaresResult {
-    result: peritheos_fit::SolverResult,
+    result: peritheos::fit::SolverResult,
     global_parameter_count: usize,
     structured_layout: Option<StructuredLayout>,
     predicted_pressure: Option<Vec<f64>>,
@@ -976,7 +976,7 @@ impl PyLeastSquaresResult {
         let covariance = if let Some(layout) = self.structured_layout {
             parameter_covariance_structured(&self.result.jacobian, layout)
         } else {
-            peritheos_fit::parameter_covariance(
+            peritheos::fit::parameter_covariance(
                 &self.result.jacobian,
                 self.result.residual_count,
                 column_count,

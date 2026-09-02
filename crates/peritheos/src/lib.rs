@@ -1,9 +1,8 @@
 //! Equations of state, thermodynamic properties, inversion, and material files.
 //!
-//! `peritheos-core` is the dependency-light Rust API behind Peritheos. Use it
-//! directly when you want checked scalar calculations, ordered batch
-//! evaluation, or executable models loaded from `.eosmat` files without a
-//! Python runtime.
+//! `peritheos` is the Rust API behind Peritheos. It combines checked EOS
+//! calculations, ordered batch evaluation, executable `.eosmat` models,
+//! fitting, and uncertainty propagation without a Python runtime.
 //!
 //! # Quick start: construct, evaluate, and invert
 //!
@@ -12,7 +11,7 @@
 //! change the calling pattern.
 //!
 //! ```
-//! use peritheos_core::{isothermal::BM3, IsothermalEos};
+//! use peritheos::{isothermal::BM3, IsothermalEos};
 //!
 //! let eos = BM3::new(10.0, 160.0, 4.0)?;
 //! let pressure = eos.pressure(9.0)?;
@@ -20,7 +19,7 @@
 //!
 //! assert!(pressure > 0.0);
 //! assert!((recovered_volume - 9.0).abs() < 1.0e-10);
-//! # Ok::<(), peritheos_core::EosError>(())
+//! # Ok::<(), peritheos::EosError>(())
 //! ```
 //!
 //! # Thermal and caloric calculations
@@ -30,7 +29,7 @@
 //! adds heat capacities and related quantities when the model defines them.
 //!
 //! ```
-//! use peritheos_core::{
+//! use peritheos::{
 //!     isothermal::BM3,
 //!     thermal::MieGruneisenDebye,
 //!     CaloricEos, ThermalEos,
@@ -44,7 +43,7 @@
 //!
 //! assert!((recovered_volume - 0.95).abs() < 1.0e-9);
 //! assert!(heat_capacity > 0.0);
-//! # Ok::<(), peritheos_core::EosError>(())
+//! # Ok::<(), peritheos::EosError>(())
 //! ```
 //!
 //! # Material records instead of handwritten parameters
@@ -54,7 +53,7 @@
 //! dispatched but exposes the same pressure and inversion workflow:
 //!
 //! ```no_run
-//! use peritheos_core::load_eosmat;
+//! use peritheos::load_eosmat;
 //!
 //! let material = load_eosmat("gold.eosmat")?;
 //! let record = material.default_record().expect("material has a default EOS");
@@ -70,14 +69,22 @@
 //! error; they intentionally do not impose an array or threading framework.
 //!
 //! ```
-//! use peritheos_core::{batch::IsothermalEosBatch, isothermal::Vinet};
+//! use peritheos::{batch::IsothermalEosBatch, isothermal::Vinet};
 //!
 //! let eos = Vinet::new(10.0, 160.0, 4.0)?;
 //! let pressures = eos.pressures(&[10.0, 9.5, 9.0])?;
 //! assert_eq!(pressures.len(), 3);
 //! assert!(pressures.windows(2).all(|pair| pair[0] < pair[1]));
-//! # Ok::<(), peritheos_core::EosError>(())
+//! # Ok::<(), peritheos::EosError>(())
 //! ```
+//!
+//! # Fitting and uncertainty
+//!
+//! The [`fit`] module provides bounded robust least squares, EOS-specific
+//! observation types, covariance estimation, and local or Monte Carlo
+//! uncertainty propagation. Its high-level routines accept model factories,
+//! so the same fitting workflow works with any model implementing these
+//! traits. See [`fit`] for complete examples.
 //!
 //! # Units and conventions
 //!
@@ -89,8 +96,8 @@
 //!   capacities and energies use molar SI units.
 //! - Inversion returns the supported branch nearest the reference state.
 //!
-//! Browse [`isothermal`] and [`thermal`] for the built-in model families, or
-//! start with the complete examples shipped with the crate.
+//! Browse [`isothermal`], [`thermal`], and [`fit`] for the main API families,
+//! or start with the complete examples shipped with the crate.
 
 mod error;
 mod quadrature;
@@ -99,6 +106,7 @@ mod validation;
 
 pub mod batch;
 pub mod eosmat;
+pub mod fit;
 pub mod isothermal;
 pub mod thermal;
 

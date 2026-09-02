@@ -1,48 +1,46 @@
 # Rust API guide
 
-Peritheos provides two reusable Rust crates: `peritheos-core` for equations of
-state and `peritheos-fit` for fitting and uncertainty. This guide focuses on
-complete user workflows; the generated rustdoc remains the source for exact
-types and signatures.
+Peritheos provides one reusable Rust crate. EOS models and thermodynamic
+traits live at the crate root, while fitting and uncertainty live in the
+`peritheos::fit` module. This guide focuses on complete user workflows; the
+generated rustdoc remains the source for exact types and signatures.
 
 !!! note "Release status"
-    The crates are tested as publishable packages but are not yet released on
-    crates.io. Depend on them by Git revision or workspace path and pin the
+    The crate is tested as a publishable package but is not yet released on
+    crates.io. Depend on it by Git revision or workspace path and pin the
     revision. The Python API's stability contract does not yet cover the Rust
     API.
 
-## Add the crates
+## Add the crate
 
 From a checkout next to your application:
 
 ```toml
 [dependencies]
-peritheos-core = { path = "../peritheos/crates/peritheos-core" }
-peritheos-fit = { path = "../peritheos/crates/peritheos-fit" }
+peritheos = { path = "../peritheos/crates/peritheos" }
 ```
 
-The minimum supported Rust version is 1.83. Applications that only evaluate
-models need `peritheos-core`; add `peritheos-fit` only for estimation or
-uncertainty work.
+The minimum supported Rust version is 1.83. No feature flag is needed for
+fitting or uncertainty work.
 
 ## Decide how to represent an EOS
 
 Use a concrete model when its type and parameters are part of your program:
 
 ```rust
-use peritheos_core::{isothermal::BM3, IsothermalEos};
+use peritheos::{isothermal::BM3, IsothermalEos};
 
 let eos = BM3::new(10.0, 160.0, 4.0)?;
 let pressure = eos.pressure(9.0)?;
 let volume = eos.volume(pressure)?;
-# Ok::<(), peritheos_core::EosError>(())
+# Ok::<(), peritheos::EosError>(())
 ```
 
 Use an `.eosmat` record when model choice, parameters, reference state,
 provenance, and extension metadata should be data:
 
 ```rust,no_run
-use peritheos_core::load_eosmat;
+use peritheos::load_eosmat;
 
 let material = load_eosmat("gold.eosmat")?;
 let record = material.default_record().expect("a default EOS record");
@@ -67,7 +65,7 @@ Rust trait methods must be brought into scope:
 Thermal models own their reference isotherm:
 
 ```rust
-use peritheos_core::{
+use peritheos::{
     isothermal::BM3,
     thermal::MieGruneisenDebye,
     CaloricEos, ThermalEos,
@@ -77,7 +75,7 @@ let reference = BM3::new(1.02, 165.0, 5.0)?;
 let eos = MieGruneisenDebye::new(reference, 300.0, 170.0, 2.9, 1.0, 1.0)?;
 let pressure = eos.pressure(0.95, 1_500.0)?;
 let cv = eos.molar_heat_capacity_v(0.95, 1_500.0)?;
-# Ok::<(), peritheos_core::EosError>(())
+# Ok::<(), peritheos::EosError>(())
 ```
 
 ## Fit P-V observations
@@ -86,8 +84,8 @@ Fitting uses a closure that reconstructs the model from an ordered parameter
 slice. This example fixes `V0` and estimates `K0` and `K0_prime`:
 
 ```rust
-use peritheos_core::isothermal::BM3;
-use peritheos_fit::{fit_isothermal_eos, FitError, IsothermalObservations, SolverOptions};
+use peritheos::fit::{fit_isothermal_eos, FitError, IsothermalObservations, SolverOptions};
+use peritheos::isothermal::BM3;
 
 let pressure = [39.1, 25.3, 15.2, 7.7, 2.2];
 let volume = [8.2, 8.6, 9.0, 9.4, 9.8];
@@ -140,14 +138,14 @@ matrices and return output uncertainty in the evaluator's output order.
 The examples are executable specifications and are compiled in CI:
 
 ```console
-cargo run -p peritheos-core --example isothermal_workflow
-cargo run -p peritheos-core --example thermal_workflow
-cargo run -p peritheos-core --example material_record
-cargo run -p peritheos-fit --example fit_isothermal
-cargo run -p peritheos-fit --example fit_thermal
-cargo run -p peritheos-fit --example propagate_uncertainty
+cargo run -p peritheos --example isothermal_workflow
+cargo run -p peritheos --example thermal_workflow
+cargo run -p peritheos --example material_record
+cargo run -p peritheos --example fit_isothermal
+cargo run -p peritheos --example fit_thermal
+cargo run -p peritheos --example propagate_uncertainty
 cargo doc --workspace --all-features --no-deps --open
 ```
 
-Start in each crate's landing page in the generated documentation. It contains
-runnable quick starts and links to every built-in model family.
+Start on the `peritheos` landing page in the generated documentation. It
+contains runnable quick starts and links to the model and fitting modules.

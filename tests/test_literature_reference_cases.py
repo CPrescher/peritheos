@@ -25,7 +25,7 @@ from peritheos.eos.thermal import (
 REFERENCE_FILE = (
     Path(__file__).parent.parent
     / "crates"
-    / "peritheos-core"
+    / "peritheos"
     / "tests"
     / "data"
     / "literature_reference_cases.json"

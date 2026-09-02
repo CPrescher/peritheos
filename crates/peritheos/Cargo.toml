@@ -1,6 +1,6 @@
 [package]
-name = "peritheos-core"
-description = "Native equation-of-state and thermodynamic core for Peritheos"
+name = "peritheos"
+description = "Equations of state, thermodynamics, fitting, and uncertainty propagation"
 readme = "README.md"
 version.workspace = true
 edition.workspace = true
@@ -15,6 +15,7 @@ categories.workspace = true
 all-features = true
 
 [dependencies]
+rand = "0.8.5"
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
 

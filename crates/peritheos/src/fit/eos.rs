@@ -1,8 +1,8 @@
 //! End-to-end native EOS fitting built on the least-squares kernel.
 
-use peritheos_core::{IsothermalEos, ThermalEos};
+use crate::{IsothermalEos, ThermalEos};
 
-use crate::{
+use super::{
     least_squares, least_squares_structured, FitError, SolverOptions, SolverResult,
     StructuredLayout,
 };
@@ -596,8 +596,8 @@ where
 #[cfg(test)]
 mod tests {
     use super::*;
-    use peritheos_core::isothermal::BM3;
-    use peritheos_core::thermal::MieGruneisenDebye;
+    use crate::isothermal::BM3;
+    use crate::thermal::MieGruneisenDebye;
 
     #[test]
     fn isothermal_fit_recovers_model_without_callback_runtime() {

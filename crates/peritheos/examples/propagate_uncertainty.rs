@@ -1,5 +1,5 @@
-use peritheos_core::{isothermal::BM3, IsothermalEos};
-use peritheos_fit::{propagate_model_uncertainty, FitError};
+use peritheos::fit::{propagate_model_uncertainty, FitError};
+use peritheos::{isothermal::BM3, IsothermalEos};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let parameters = [160.0, 4.0];

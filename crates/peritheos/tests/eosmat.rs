@@ -1,7 +1,7 @@
 use std::fs;
 use std::path::{Path, PathBuf};
 
-use peritheos_core::{load_eosmat, load_eosmat_str, EosmatError};
+use peritheos::{load_eosmat, load_eosmat_str, EosmatError};
 
 fn materials_directory() -> PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR")).join("../../peritheos/data/materials")

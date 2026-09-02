@@ -1,12 +1,12 @@
-use peritheos_core::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
-use peritheos_core::thermal::{
+use peritheos::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
+use peritheos::thermal::{
     debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw,
     DoubleDebyeHelmholtz, LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye,
     MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceVolumeLaw, Sokolova2016,
     SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState,
     GAS_CONSTANT,
 };
-use peritheos_core::{CaloricEos, ThermalEos};
+use peritheos::{CaloricEos, ThermalEos};
 use serde_json::Value;
 
 fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
@@ -463,7 +463,7 @@ fn assert_common_caloric<T: CaloricEos>(model: &T, state: &Value, tolerance: f64
 }
 
 fn assert_mie<const DEBYE: bool>(
-    model: &peritheos_core::thermal::MieGruneisen<BM3, DEBYE>,
+    model: &peritheos::thermal::MieGruneisen<BM3, DEBYE>,
     state: &Value,
     tolerance: f64,
 ) {

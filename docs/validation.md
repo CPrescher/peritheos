@@ -287,7 +287,7 @@ four Table 1 parameter sets,
 the publication-specific Debye-temperature law, reference states, and thermal
 round trips.
 Additional equation-level cases and their source DOIs are stored in
-`crates/peritheos-core/tests/data/literature_reference_cases.json`; keeping the
+`crates/peritheos/tests/data/literature_reference_cases.json`; keeping the
 values in the packageable core crate makes changes to scientific baselines
 visible in review and lets the published crate run its own tests.
 The cases cover Birch-Murnaghan orders two through four, Vinet, Holzapfel,

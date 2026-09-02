@@ -29,12 +29,11 @@ separate, explicitly documented change with an independent reference case.
 
 ## Crate and binding boundaries
 
-The intended workspace contains three crates:
+The workspace contains one public library crate and one private binding crate:
 
 | Crate | Responsibility | Dependency policy |
 |---|---|---|
-| `peritheos-core` | EOS models, validation, thermodynamic properties, scalar and batch evaluation, inversion, and required quadrature | No Python dependency; numerical dependencies kept small |
-| `peritheos-fit` | Fitting, covariance, and uncertainty kernels | Optional; solver and linear-algebra dependencies remain private implementation details |
+| `peritheos` | EOS models, validation, thermodynamic properties, scalar and batch evaluation, inversion, fitting, covariance, uncertainty, and required quadrature | No Python dependency; fitting is organized under `peritheos::fit`, and numerical implementation types remain private |
 | `peritheos-python` | Private PyO3 module used by the existing Python package | May depend on PyO3 and NumPy; not a public Python API |
 
 The public Rust API must not expose SciRS2-specific result, array, error, or
@@ -209,8 +208,8 @@ under `benchmarks/baselines/` and are evidence, not performance promises.
 
 ## Integration-branch implementation status
 
-The workspace contains all three planned crates. Built-in isothermal and
-thermal Python classes route their numerical work to `peritheos-core`,
+The workspace contains the public library and private binding crates. Built-in
+isothermal and thermal Python classes route their numerical work to `peritheos`,
 including inversion, derivatives, caloric properties, and the full
 multi-oscillator expression. This includes the material catalog's linear and
 log-volume thermal-pressure corrections, configurable thermal reference-state
@@ -218,7 +217,7 @@ model, both Debye-temperature conventions, and Tange asymptotic-power-law
 model. Mie-Gruneisen models retain a Python fallback only when they wrap a
 user-defined `EosBase` implementation.
 
-The public fitting functions use the `peritheos-fit` bounded solver for all
+The public fitting functions use the `peritheos::fit` bounded solver for all
 five named loss functions. For exact built-in models, the Python layer passes
 the native model, parameter names, observations, uncertainty arrays, bounds,
 and solver options once. Rust then owns model reconstruction, EOS evaluation,

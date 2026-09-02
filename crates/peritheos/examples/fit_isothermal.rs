@@ -1,7 +1,7 @@
-use peritheos_core::{isothermal::BM3, IsothermalEos};
-use peritheos_fit::{
+use peritheos::fit::{
     fit_isothermal_eos, parameter_covariance, FitError, IsothermalObservations, Loss, SolverOptions,
 };
+use peritheos::{isothermal::BM3, IsothermalEos};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let truth = BM3::new(10.0, 160.0, 4.2)?;

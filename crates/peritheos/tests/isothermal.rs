@@ -1,10 +1,10 @@
 use std::collections::HashMap;
 
-use peritheos_core::isothermal::{
+use peritheos::isothermal::{
     Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
     BM3, BM4,
 };
-use peritheos_core::{EosError, IsothermalEos};
+use peritheos::{EosError, IsothermalEos};
 use serde::Deserialize;
 
 fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {

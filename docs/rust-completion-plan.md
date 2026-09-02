@@ -22,7 +22,7 @@ compatibility-ready Rust and Python release. Work stays on
 ## Checkpoint sequence
 
 1. **Rust batch API.** Add ordered scalar-equivalent batch methods without an
-   array-framework or threading dependency in `peritheos-core`.
+   array-framework or threading dependency in `peritheos`.
 2. **Rust fitting and uncertainty ergonomics.** Add explicit joint fitting,
    model-aware finite differences, covariance, and Monte Carlo entry points.
 3. **Python integration.** Use Rust covariance and uncertainty kernels for

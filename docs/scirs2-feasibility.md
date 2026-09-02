@@ -145,7 +145,7 @@ focused dependencies once the RNG reproducibility policy is fixed.
 
 | Capability | SciRS2 0.6.5 assessment | Migration decision |
 |---|---|---|
-| Analytical EOS formulas | Not needed | Implement directly in `peritheos-core` |
+| Analytical EOS formulas | Not needed | Implement directly in `peritheos` |
 | Physical bracketed roots | Partial, wrong public control surface | Implement behind a private core interface |
 | One-dimensional quadrature | Candidate only | Benchmark and validate focused alternatives first |
 | Bounded robust least squares | Separate non-composable APIs | Do not use as the fitting backend |
@@ -159,10 +159,10 @@ focused dependencies once the RNG reproducibility policy is fixed.
 
 The migration keeps numerical ownership inside Peritheos:
 
-1. `peritheos-core` will contain formulas, state validation, explicit branch
+1. `peritheos` will contain formulas, state validation, explicit branch
    selection, a private bracketed root solver, and only the quadrature needed
    by thermal models.
-2. `peritheos-fit` will define its own residual, bounds, robust-loss,
+2. `peritheos::fit` will define its own residual, bounds, robust-loss,
    convergence, diagnostics, and covariance interfaces. Dense and sparse
    matrix backends remain replaceable implementation details.
 3. The initial Python binding will port deterministic EOS evaluation before

@@ -64,7 +64,7 @@ python-source = "."
 include = [
     {path = "peritheos/py.typed", format = ["sdist", "wheel"]},
     {path = "peritheos/data/**/*", format = ["sdist", "wheel"]},
-    {path = "crates/peritheos-core/tests/data/**/*", format = "sdist"},
+    {path = "crates/peritheos/tests/data/**/*", format = "sdist"},
     {path = "docs/**/*", format = "sdist"},
     {path = "scripts/**/*", format = "sdist"},
     {path = "mkdocs.yml", format = "sdist"},

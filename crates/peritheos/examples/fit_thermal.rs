@@ -1,5 +1,5 @@
-use peritheos_core::{isothermal::BM3, thermal::LinearThermalPressure, ThermalEos};
-use peritheos_fit::{fit_joint_eos, FitError, SolverOptions, ThermalObservations};
+use peritheos::fit::{fit_joint_eos, FitError, SolverOptions, ThermalObservations};
+use peritheos::{isothermal::BM3, thermal::LinearThermalPressure, ThermalEos};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let truth = LinearThermalPressure::new(BM3::new(10.0, 160.0, 4.2)?, 300.0, 0.005)?;

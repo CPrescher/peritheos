@@ -13,20 +13,15 @@ if [[ -z "${workspace_version}" ]]; then
   exit 1
 fi
 
-# Cargo requires a registry dependency to exist before packaging a dependent
-# crate. Prepare peritheos-fit with a local resolution patch, while leaving the
-# generated archive's normalized dependency as a versioned registry dependency.
-cargo package -p peritheos-core --locked
-cargo package -p peritheos-fit --locked --no-verify \
-  --config "patch.crates-io.peritheos-core.path=\"${repository_dir}/crates/peritheos-core\""
+package_options=(--locked)
+if [[ "${PERITHEOS_ALLOW_DIRTY:-0}" == "1" ]]; then
+  package_options+=(--allow-dirty)
+fi
 
-core_archive="${repository_dir}/target/package/peritheos-core-${workspace_version}.crate"
-fit_archive="${repository_dir}/target/package/peritheos-fit-${workspace_version}.crate"
-tar -xf "${core_archive}" -C "${verification_dir}"
-tar -xf "${fit_archive}" -C "${verification_dir}"
+cargo package -p peritheos "${package_options[@]}"
 
-packaged_core="${verification_dir}/peritheos-core-${workspace_version}"
-packaged_fit="${verification_dir}/peritheos-fit-${workspace_version}"
-cargo test --manifest-path "${packaged_core}/Cargo.toml" --locked
-cargo test --manifest-path "${packaged_fit}/Cargo.toml" --locked \
-  --config "patch.crates-io.peritheos-core.path=\"${packaged_core}\""
+archive="${repository_dir}/target/package/peritheos-${workspace_version}.crate"
+tar -xf "${archive}" -C "${verification_dir}"
+
+packaged_crate="${verification_dir}/peritheos-${workspace_version}"
+cargo test --manifest-path "${packaged_crate}/Cargo.toml" --locked

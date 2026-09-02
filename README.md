@@ -10,7 +10,7 @@ The package includes PEP 561 typing metadata for type checkers and IDEs.
 Full model, fitting, units, and development documentation is available at
 [peritheos.readthedocs.io](https://peritheos.readthedocs.io/).
 Rust users can start with the workflow-oriented [Rust API guide](docs/rust-api.md)
-and the runnable examples in the two crate directories.
+and the runnable examples in the unified Rust crate.
 Release history is recorded in the [changelog](CHANGELOG.md).
 
 ## Features

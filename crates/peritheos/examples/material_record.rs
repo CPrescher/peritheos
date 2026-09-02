@@ -1,4 +1,4 @@
-use peritheos_core::load_eosmat_str;
+use peritheos::load_eosmat_str;
 
 const MATERIAL: &str = r#"{
   "format": "peritheos.material",

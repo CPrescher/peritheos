@@ -1,20 +1,20 @@
 //! Thin `PyO3` adapters for end-to-end native EOS fitting.
 
 use numpy::PyReadonlyArrayDyn;
-use peritheos_core::isothermal::{
+use peritheos::fit::{
+    fit_isothermal_eos, fit_thermal_eos_by, FitError, IsothermalObservations, Loss, SolverOptions,
+    StructuredLayout, ThermalObservations,
+};
+use peritheos::isothermal::{
     Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
     BM3, BM4,
 };
-use peritheos_core::thermal::{
+use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, SokolovaParameters,
     ThermalModifiedTait, ThermalReferenceState,
 };
-use peritheos_core::{EosResult, ThermalEos};
-use peritheos_fit::{
-    fit_isothermal_eos, fit_thermal_eos_by, FitError, IsothermalObservations, Loss, SolverOptions,
-    StructuredLayout, ThermalObservations,
-};
+use peritheos::{EosResult, ThermalEos};
 use pyo3::prelude::*;
 
 use super::{

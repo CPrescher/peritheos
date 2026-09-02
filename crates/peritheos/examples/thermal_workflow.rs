@@ -1,4 +1,4 @@
-use peritheos_core::{isothermal::BM3, thermal::MieGruneisenDebye, CaloricEos, ThermalEos};
+use peritheos::{isothermal::BM3, thermal::MieGruneisenDebye, CaloricEos, ThermalEos};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // Energy-based thermal models use molar volume in J bar^-1 mol^-1.

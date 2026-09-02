@@ -2,8 +2,8 @@
 
 Python releases are built by GitHub Actions and published to PyPI through
 Trusted Publishing. No PyPI API token is stored in GitHub. The public
-`peritheos-core` and `peritheos-fit` Rust crates are published separately to
-crates.io; the private `peritheos-python` extension crate is never published.
+The public `peritheos` Rust crate is published to crates.io; the private
+`peritheos-python` extension crate is never published.
 
 ## One-time setup
 
@@ -20,15 +20,14 @@ crates.io; the private `peritheos-python` extension crate is never published.
 4. Before the first Rust release, sign in to crates.io with GitHub, verify the
    account email, create a scoped API token, and authenticate `cargo`. The
    first publication claims the crate names and must be performed manually.
-   Trusted Publishing can be configured for later Rust releases after each
+   Trusted Publishing can be configured for later Rust releases after the
    crate exists.
 
 ## Publish a release
 
 1. Move the `Unreleased` changelog entries into a dated version section.
-2. Update `peritheos.__version__`, the Cargo workspace version,
-   `peritheos-fit`'s `peritheos-core` dependency, `Cargo.lock`, and
-   `CITATION.cff` to the same version and release date.
+2. Update `peritheos.__version__`, the Cargo workspace version, `Cargo.lock`,
+   and `CITATION.cff` to the same version and release date.
 3. Run the Python, Rust, documentation, wheel, source-distribution, and crate
    archive release gates. Merge the release change into `main` and ensure every
    CI job succeeds.
@@ -39,13 +38,10 @@ crates.io; the private `peritheos-python` extension crate is never published.
    git tag -a v0.6.0 -m "Release 0.6.0"
    ```
 
-6. From the clean tagged commit, publish the public Rust crates in dependency
-   order. Wait until `peritheos-core` is visible in the crates.io index before
-   publishing `peritheos-fit`:
+6. From the clean tagged commit, publish the public Rust crate:
 
    ```bash
-   cargo publish -p peritheos-core --locked
-   cargo publish -p peritheos-fit --locked
+   cargo publish -p peritheos --locked
    ```
 
    crates.io versions are permanent and cannot be overwritten. Do not publish

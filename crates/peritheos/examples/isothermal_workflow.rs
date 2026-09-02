@@ -1,4 +1,4 @@
-use peritheos_core::{batch::IsothermalEosBatch, isothermal::BM3, IsothermalEos};
+use peritheos::{batch::IsothermalEosBatch, isothermal::BM3, IsothermalEos};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     // V0 and every evaluated volume share a unit; K0 and pressure use GPa.

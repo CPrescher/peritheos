@@ -12,8 +12,8 @@
 //! values, bounds, result, and covariance matrix.
 //!
 //! ```
-//! use peritheos_core::isothermal::BM3;
-//! use peritheos_fit::{
+//! use peritheos::isothermal::BM3;
+//! use peritheos::fit::{
 //!     fit_isothermal_eos, FitError, IsothermalObservations, SolverOptions,
 //! };
 //!
@@ -57,8 +57,8 @@
 //! states matter.
 //!
 //! ```
-//! use peritheos_core::{isothermal::BM3, IsothermalEos};
-//! use peritheos_fit::{propagate_model_uncertainty, FitError};
+//! use peritheos::{isothermal::BM3, IsothermalEos};
+//! use peritheos::fit::{propagate_model_uncertainty, FitError};
 //!
 //! let parameters = [160.0, 4.0];
 //! let covariance = [4.0, -0.05, -0.05, 0.04];

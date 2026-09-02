@@ -17,6 +17,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Consolidated the public `peritheos-core` and `peritheos-fit` Rust crates into
+  one `peritheos` crate. Fitting and uncertainty APIs now live under
+  `peritheos::fit`; the Python API is unchanged.
 - Deprecated the old `peritheos.utils` pressure and temperature conversion
   imports in favor of the consolidated `peritheos.units` API.
 - Reworked the getting-started documentation around validated material records,
