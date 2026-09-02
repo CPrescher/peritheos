@@ -21,7 +21,7 @@ peritheos = { path = "../peritheos/crates/peritheos" }
 | Several states in input order | extension traits in `batch` |
 | Fit P-V or P-V-T observations | high-level routines in `fit` |
 | Covariance or prediction uncertainty | propagation routines in `fit` |
-| A curated or external material record | `load_eosmat` and `EosRecord` |
+| A curated or external material record | `load_eosmat`, `Material`, and `EosRecord` |
 
 ## Construct and evaluate a model
 
@@ -69,14 +69,26 @@ let result = fit_isothermal_eos(
             .map_err(|error| FitError::Evaluation(error.to_string()))
     },
 )?;
-assert_eq!(result.solver.parameters.len(), 2);
+assert_eq!(result.parameters.len(), 2);
+assert_eq!(result.covariance.len(), 4);
+assert_eq!(result.standard_errors.len(), 2);
 # Ok::<(), FitError>(())
 ```
 
 `fit` also provides joint thermal fitting, robust losses, covariance
 estimation, delta-method propagation, and deterministic Monte Carlo sampling.
-Its module documentation explains the expected matrix layouts and result
-types.
+`EosFitResult` separates model parameters from latent states and directly
+contains profiled covariance, standard errors, correlation, and fit
+statistics. Its module documentation explains the expected matrix layouts.
+
+## Round-trip `.eosmat` documents
+
+`load_eosmat` validates and constructs every built-in EOS while retaining the
+original JSON document, including unknown extension fields. After editing
+`material.document`, call `material.validate()`, `material.to_json()`, or
+`material.save(path)`. The free functions `validate_eosmat_document`,
+`serialize_eosmat`, and `save_eosmat` provide the same workflow for a decoded
+`serde_json::Value`.
 
 ## Run complete examples
 

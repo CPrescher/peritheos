@@ -7,6 +7,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added interpreted Rust `EosFitResult` parameters, latent states, profiled
+  covariance, standard errors, correlation, and fit statistics.
+- Added public Rust `.eosmat` validation, serialization, and save APIs with
+  extension-preserving canonical and legacy round trips.
 - Added PEP 561 typing metadata and a repository-wide `mypy` CI gate.
 - Added array-aware pressure and temperature conversions to `peritheos.units`,
   plus conventional-cell to formula-molar-volume conversion in both directions.

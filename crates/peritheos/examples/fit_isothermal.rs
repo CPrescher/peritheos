@@ -1,6 +1,4 @@
-use peritheos::fit::{
-    fit_isothermal_eos, parameter_covariance, FitError, IsothermalObservations, Loss, SolverOptions,
-};
+use peritheos::fit::{fit_isothermal_eos, FitError, IsothermalObservations, Loss, SolverOptions};
 use peritheos::{isothermal::BM3, IsothermalEos};
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -33,21 +31,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         },
     )?;
 
-    let parameter_count = 2;
-    let covariance = parameter_covariance(
-        &result.solver.jacobian,
-        result.solver.residual_count,
-        result.solver.parameters.len(),
-        parameter_count,
-    )?;
-
     println!("success: {}", result.solver.message);
-    println!("K0 = {:.3} GPa", result.solver.parameters[0]);
-    println!("K0' = {:.3}", result.solver.parameters[1]);
+    println!("K0 = {:.3} GPa", result.parameters[0]);
+    println!("K0' = {:.3}", result.parameters[1]);
     println!(
         "standard errors: {:.3}, {:.3}",
-        covariance[0].sqrt(),
-        covariance[3].sqrt()
+        result.standard_errors[0], result.standard_errors[1]
     );
+    println!("chi-square: {:.3}", result.chi_square);
     Ok(())
 }

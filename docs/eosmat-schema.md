@@ -315,7 +315,7 @@ EOS record semantics.
 
 ## Validation and I/O
 
-Peritheos exposes the bundled schema and a stricter structural validator:
+The Python API exposes the bundled schema and a stricter structural validator:
 
 ```python
 from peritheos import Material, eosmat_schema, load_eosmat, validate_eosmat_document
@@ -330,9 +330,26 @@ material = Material.from_eosmat(document)
 document. Consumers constructing an EOS apply `integrated_gruneisen` when the
 Debye-temperature field is absent.
 
-The Python validator additionally checks ordered ranges, unique record
-identifiers, at most one default record, exact `type`/`model` pairing, and that
-`debye_temperature_law` appears only on `MieGruneisenDebye`.
+Rust validates the same document-level invariants and additionally constructs
+every built-in model before accepting or writing a document:
+
+```rust,no_run
+use peritheos::{load_eosmat, load_eosmat_str};
+
+let mut material = load_eosmat("gold.eosmat")?;
+material.document["application_note"] = "calibration copy".into();
+material.validate()?;
+
+let json = material.to_json()?;
+let round_tripped = load_eosmat_str(&json)?;
+round_tripped.save("gold-copy.eosmat")?;
+# Ok::<(), Box<dyn std::error::Error>>(())
+```
+
+For a decoded `serde_json::Value`, the equivalent free functions are
+`validate_eosmat_document`, `serialize_eosmat`, and `save_eosmat`. Both Rust
+and Python check ordered ranges, unique record identifiers, at most one
+default record, exact `type`/`model` pairing, and equation-specific choices.
 
 ## Compatibility rules
 

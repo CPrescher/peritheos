@@ -1,4 +1,5 @@
-//! Loading and executable evaluation of Peritheos `.eosmat` material files.
+//! Validation, round-trip serialization, and executable evaluation of
+//! Peritheos `.eosmat` material files.
 //!
 //! The loader accepts canonical Peritheos format 3 and legacy Dioptas format
 //! 2 documents. JSON extensions are retained in [`Material::document`] and
@@ -9,7 +10,7 @@ use std::collections::HashMap;
 use std::error::Error;
 use std::fmt::{self, Display, Formatter};
 use std::fs::File;
-use std::io::{BufReader, Read};
+use std::io::{BufReader, Read, Write};
 use std::path::Path;
 
 use serde::Deserialize;
@@ -27,8 +28,10 @@ use crate::thermal::{
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
-const FORMAT: &str = "peritheos.material";
-const FORMAT_VERSION: u64 = 3;
+/// Canonical `.eosmat` format discriminator.
+pub const EOSMAT_FORMAT: &str = "peritheos.material";
+/// Current canonical `.eosmat` format version.
+pub const EOSMAT_FORMAT_VERSION: u64 = 3;
 const LEGACY_FORMAT_VERSION: u64 = 2;
 const CELL_ANGSTROM3_TO_FORMULA_MOLAR_J_PER_BAR: f64 = 0.060_221_407_6;
 
@@ -36,7 +39,7 @@ const CELL_ANGSTROM3_TO_FORMULA_MOLAR_J_PER_BAR: f64 = 0.060_221_407_6;
 #[derive(Debug)]
 #[non_exhaustive]
 pub enum EosmatError {
-    /// The file could not be opened or read.
+    /// The file could not be opened, read, or written.
     Io(std::io::Error),
     /// The file is not valid JSON or does not match the expected JSON types.
     Json(serde_json::Error),
@@ -54,7 +57,7 @@ pub enum EosmatError {
 impl Display for EosmatError {
     fn fmt(&self, formatter: &mut Formatter<'_>) -> fmt::Result {
         match self {
-            Self::Io(error) => write!(formatter, "could not read eosmat file: {error}"),
+            Self::Io(error) => write!(formatter, "could not access eosmat file: {error}"),
             Self::Json(error) => write!(formatter, "invalid eosmat JSON: {error}"),
             Self::InvalidDocument(reason) => write!(formatter, "invalid eosmat document: {reason}"),
             Self::InvalidRecord { identifier, reason } => {
@@ -453,6 +456,37 @@ impl Material {
             .find(|record| record.is_default)
             .or_else(|| self.eos_records.first())
     }
+
+    /// Validate the retained document, including every executable EOS record.
+    ///
+    /// This is useful after editing [`Self::document`] directly.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid structure, metadata, or model parameters.
+    pub fn validate(&self) -> Result<(), EosmatError> {
+        validate_eosmat_document(&self.document)
+    }
+
+    /// Serialize the retained document as validated, pretty UTF-8 JSON.
+    ///
+    /// The output ends with a newline and preserves unknown extension fields.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error when the retained document is no longer valid.
+    pub fn to_json(&self) -> Result<String, EosmatError> {
+        serialize_eosmat(&self.document)
+    }
+
+    /// Validate and save the retained document to an `.eosmat` file.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid content or file-writing failures.
+    pub fn save(&self, path: impl AsRef<Path>) -> Result<(), EosmatError> {
+        save_eosmat(path, &self.document)
+    }
 }
 
 #[derive(Debug, Deserialize)]
@@ -537,21 +571,72 @@ pub fn load_eosmat_str(source: &str) -> Result<Material, EosmatError> {
     material_from_value(document)
 }
 
+/// Validate a decoded `.eosmat` document without retaining an executable model.
+///
+/// Validation covers the canonical or legacy envelope, metadata used by the
+/// Python API, unique record identifiers, covariance dimensions, ranges, and
+/// construction of every referenced built-in EOS. Unknown extension fields
+/// are accepted and preserved by subsequent serialization.
+///
+/// # Errors
+///
+/// Returns an error for invalid structure, unsupported models, or invalid
+/// model parameters.
+pub fn validate_eosmat_document(document: &Value) -> Result<(), EosmatError> {
+    validate_document_structure(document)?;
+    construct_material(document.clone()).map(|_| ())
+}
+
+/// Serialize a decoded `.eosmat` document as validated, pretty UTF-8 JSON.
+///
+/// The output ends with a newline. Unknown JSON extension fields are retained.
+///
+/// # Errors
+///
+/// Returns an error when the document is invalid or cannot be serialized.
+pub fn serialize_eosmat(document: &Value) -> Result<String, EosmatError> {
+    validate_eosmat_document(document)?;
+    let mut serialized = serde_json::to_string_pretty(document)?;
+    serialized.push('\n');
+    Ok(serialized)
+}
+
+/// Validate and save a decoded `.eosmat` document.
+///
+/// Serialization completes before the destination is created, so an invalid
+/// document cannot truncate an existing file.
+///
+/// # Errors
+///
+/// Returns an error for invalid content or file-writing failures.
+pub fn save_eosmat(path: impl AsRef<Path>, document: &Value) -> Result<(), EosmatError> {
+    let serialized = serialize_eosmat(document)?;
+    let mut file = File::create(path)?;
+    file.write_all(serialized.as_bytes())?;
+    Ok(())
+}
+
 /// Construct an executable material from a decoded JSON value.
 ///
 /// # Errors
 ///
 /// Returns an error for an unsupported format or an invalid EOS record.
 pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
+    validate_document_structure(&document)?;
+    construct_material(document)
+}
+
+fn construct_material(document: Value) -> Result<Material, EosmatError> {
     let raw: RawMaterial = serde_json::from_value(document.clone())?;
     let version = raw
         .format_version
         .ok_or_else(|| EosmatError::InvalidDocument("missing format_version".to_owned()))?;
-    let canonical = raw.format.as_deref() == Some(FORMAT) && version == FORMAT_VERSION;
+    let canonical =
+        raw.format.as_deref() == Some(EOSMAT_FORMAT) && version == EOSMAT_FORMAT_VERSION;
     let legacy = raw.format.is_none() && version == LEGACY_FORMAT_VERSION;
     if !canonical && !legacy {
         return Err(EosmatError::InvalidDocument(format!(
-            "supported formats are {FORMAT} version {FORMAT_VERSION} and legacy Dioptas version {LEGACY_FORMAT_VERSION}"
+            "supported formats are {EOSMAT_FORMAT} version {EOSMAT_FORMAT_VERSION} and legacy Dioptas version {LEGACY_FORMAT_VERSION}"
         )));
     }
 
@@ -591,6 +676,360 @@ pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
         eos_records,
         document,
     })
+}
+
+fn invalid_document(reason: impl Into<String>) -> EosmatError {
+    EosmatError::InvalidDocument(reason.into())
+}
+
+fn object_at<'a>(
+    value: &'a Value,
+    location: &str,
+) -> Result<&'a serde_json::Map<String, Value>, EosmatError> {
+    value
+        .as_object()
+        .ok_or_else(|| invalid_document(format!("{location} must be a JSON object")))
+}
+
+fn array_at<'a>(value: &'a Value, location: &str) -> Result<&'a [Value], EosmatError> {
+    value
+        .as_array()
+        .map(Vec::as_slice)
+        .ok_or_else(|| invalid_document(format!("{location} must be a JSON array")))
+}
+
+fn finite_at(value: &Value, location: &str, positive: bool) -> Result<f64, EosmatError> {
+    let number = value
+        .as_f64()
+        .filter(|number| number.is_finite())
+        .ok_or_else(|| invalid_document(format!("{location} must be a finite number")))?;
+    if positive && number <= 0.0 {
+        return Err(invalid_document(format!(
+            "{location} must be greater than zero"
+        )));
+    }
+    Ok(number)
+}
+
+fn validate_optional_string(
+    document: &serde_json::Map<String, Value>,
+    key: &str,
+) -> Result<(), EosmatError> {
+    if document.get(key).is_some_and(|value| !value.is_string()) {
+        return Err(invalid_document(format!("{key} must be a string")));
+    }
+    Ok(())
+}
+
+fn validate_range(value: &Value, location: &str) -> Result<(), EosmatError> {
+    let range = array_at(value, location)?;
+    if range.len() != 2 {
+        return Err(invalid_document(format!(
+            "{location} must contain two values"
+        )));
+    }
+    let low = finite_at(&range[0], &format!("{location}[0]"), false)?;
+    let high = finite_at(&range[1], &format!("{location}[1]"), false)?;
+    if low > high {
+        return Err(invalid_document(format!("{location} must be ordered")));
+    }
+    Ok(())
+}
+
+fn validate_parameter_metadata(
+    record: &serde_json::Map<String, Value>,
+    location: &str,
+    canonical: bool,
+) -> Result<(), EosmatError> {
+    match record.get("parameter_errors") {
+        Some(value) => {
+            for (name, error) in object_at(value, &format!("{location}.parameter_errors"))? {
+                if !error.is_null() {
+                    finite_at(error, &format!("{location}.parameter_errors.{name}"), false)?;
+                }
+            }
+        }
+        None if canonical => {
+            return Err(invalid_document(format!(
+                "{location}.parameter_errors is required"
+            )));
+        }
+        None => {}
+    }
+    match record.get("fixed_parameters") {
+        Some(value) => {
+            if array_at(value, &format!("{location}.fixed_parameters"))?
+                .iter()
+                .any(|name| !name.is_string())
+            {
+                return Err(invalid_document(format!(
+                    "{location}.fixed_parameters must contain strings"
+                )));
+            }
+        }
+        None if canonical => {
+            return Err(invalid_document(format!(
+                "{location}.fixed_parameters is required"
+            )));
+        }
+        None => {}
+    }
+    if let Some(value) = record
+        .get("parameter_error_confidence")
+        .filter(|value| !value.is_null())
+    {
+        let confidence = finite_at(
+            value,
+            &format!("{location}.parameter_error_confidence"),
+            false,
+        )?;
+        if !(0.0..1.0).contains(&confidence) || confidence == 0.0 {
+            return Err(invalid_document(format!(
+                "{location}.parameter_error_confidence must lie between zero and one"
+            )));
+        }
+    }
+    Ok(())
+}
+
+fn validate_covariance(value: &Value, location: &str) -> Result<(), EosmatError> {
+    let covariance = object_at(value, location)?;
+    let matrix = array_at(
+        covariance
+            .get("matrix")
+            .ok_or_else(|| invalid_document(format!("{location}.matrix is required")))?,
+        &format!("{location}.matrix"),
+    )?;
+    let order = array_at(
+        covariance
+            .get("parameter_order")
+            .ok_or_else(|| invalid_document(format!("{location}.parameter_order is required")))?,
+        &format!("{location}.parameter_order"),
+    )?;
+    if order.is_empty()
+        || order
+            .iter()
+            .any(|name| name.as_str().is_none_or(str::is_empty))
+        || matrix.len() != order.len()
+    {
+        return Err(invalid_document(format!(
+            "{location} must contain a non-empty square matrix matching parameter_order"
+        )));
+    }
+    for (row_index, row) in matrix.iter().enumerate() {
+        let row = array_at(row, &format!("{location}.matrix[{row_index}]"))?;
+        if row.len() != order.len() {
+            return Err(invalid_document(format!(
+                "{location}.matrix must be square and match parameter_order"
+            )));
+        }
+        for (column_index, value) in row.iter().enumerate() {
+            finite_at(
+                value,
+                &format!("{location}.matrix[{row_index}][{column_index}]"),
+                false,
+            )?;
+        }
+    }
+    Ok(())
+}
+
+#[allow(clippy::too_many_lines)]
+fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
+    let document = object_at(document, "document")?;
+    let format = document.get("format").and_then(Value::as_str);
+    let version = document.get("format_version").and_then(Value::as_u64);
+    let canonical = format == Some(EOSMAT_FORMAT) && version == Some(EOSMAT_FORMAT_VERSION);
+    let legacy = document.get("format").is_none() && version == Some(LEGACY_FORMAT_VERSION);
+    if !canonical && !legacy {
+        return Err(invalid_document(format!(
+            "supported formats are {EOSMAT_FORMAT} version {EOSMAT_FORMAT_VERSION} and legacy Dioptas version {LEGACY_FORMAT_VERSION}"
+        )));
+    }
+
+    for key in ["name", "formula"] {
+        if document.get(key).and_then(Value::as_str).is_none() {
+            return Err(invalid_document(format!("{key} must be a string")));
+        }
+    }
+    for key in ["identifier", "phase", "symmetry", "notes"] {
+        validate_optional_string(document, key)?;
+    }
+    if document
+        .get("cell_contents")
+        .is_some_and(|value| !value.is_null() && !value.is_string())
+    {
+        return Err(invalid_document("cell_contents must be a string"));
+    }
+    if canonical
+        && document
+            .get("identifier")
+            .and_then(Value::as_str)
+            .is_none_or(str::is_empty)
+    {
+        return Err(invalid_document(
+            "canonical format 3 requires a non-empty identifier",
+        ));
+    }
+    if let Some(value) = document
+        .get("formula_units_per_cell")
+        .filter(|value| !value.is_null())
+    {
+        finite_at(value, "formula_units_per_cell", true)?;
+    }
+    for key in ["aliases", "atom_sites", "peaks"] {
+        if let Some(value) = document.get(key) {
+            array_at(value, key)?;
+        }
+    }
+    if let Some(value) = document.get("lattice") {
+        let lattice = object_at(value, "lattice")?;
+        for key in ["a", "alpha", "beta", "gamma"] {
+            finite_at(
+                lattice
+                    .get(key)
+                    .ok_or_else(|| invalid_document(format!("lattice.{key} is required")))?,
+                &format!("lattice.{key}"),
+                false,
+            )?;
+        }
+        for key in ["b", "c"] {
+            if let Some(value) = lattice.get(key).filter(|value| !value.is_null()) {
+                finite_at(value, &format!("lattice.{key}"), false)?;
+            }
+        }
+    }
+
+    let empty_records = Vec::new();
+    let records = match document.get("eos_records") {
+        Some(value) => array_at(value, "eos_records")?,
+        None => empty_records.as_slice(),
+    };
+    let mut identifiers = std::collections::HashSet::new();
+    let mut default_count = 0;
+    for (index, value) in records.iter().enumerate() {
+        let location = format!("eos_records[{index}]");
+        let record = object_at(value, &location)?;
+        if canonical && record.get("label").and_then(Value::as_str).is_none() {
+            return Err(invalid_document(format!(
+                "{location}.label must be a string"
+            )));
+        }
+        if let Some(identifier) = record.get("identifier") {
+            let identifier = identifier
+                .as_str()
+                .filter(|value| !value.is_empty())
+                .ok_or_else(|| {
+                    invalid_document(format!("{location}.identifier must be a non-empty string"))
+                })?;
+            if !identifiers.insert(identifier) {
+                return Err(invalid_document(format!(
+                    "duplicate EOS record identifier {identifier:?}"
+                )));
+            }
+        } else if canonical {
+            return Err(invalid_document(format!(
+                "{location}.identifier is required"
+            )));
+        }
+        if record.get("default") == Some(&Value::Bool(true)) {
+            default_count += 1;
+        }
+
+        if let Some(reference) = record.get("reference") {
+            if let Some(reference) = reference.as_object() {
+                if !reference.get("authors").is_some_and(Value::is_array)
+                    || !reference.get("year").is_some_and(Value::is_i64)
+                {
+                    return Err(invalid_document(format!(
+                        "{location}.reference requires authors and an integer year"
+                    )));
+                }
+            } else if !reference.is_string() {
+                return Err(invalid_document(format!(
+                    "{location}.reference must be a string or object"
+                )));
+            }
+        } else if canonical {
+            return Err(invalid_document(format!(
+                "{location}.reference is required"
+            )));
+        }
+
+        validate_parameter_metadata(record, &location, canonical)?;
+        if let Some(value) = record.get("volume").filter(|value| !value.is_null()) {
+            let volume = object_at(value, &format!("{location}.volume"))?;
+            for key in ["reference_value", "public_to_model_scale"] {
+                if let Some(value) = volume.get(key).filter(|value| !value.is_null()) {
+                    finite_at(value, &format!("{location}.volume.{key}"), true)?;
+                }
+            }
+            if volume
+                .get("model_unit")
+                .is_some_and(|value| !value.is_null() && !value.is_string())
+            {
+                return Err(invalid_document(format!(
+                    "{location}.volume.model_unit must be a string"
+                )));
+            }
+        }
+        if let Some(value) = record
+            .get("parameter_covariance")
+            .filter(|value| !value.is_null())
+        {
+            validate_covariance(value, &format!("{location}.parameter_covariance"))?;
+        }
+        if let Some(thermal) = record.get("thermal").filter(|value| !value.is_null()) {
+            validate_parameter_metadata(
+                object_at(thermal, &format!("{location}.thermal"))?,
+                &format!("{location}.thermal"),
+                false,
+            )?;
+        }
+        for key in [
+            "experimental_pressure_range_gpa",
+            "experimental_temperature_range_k",
+        ] {
+            if let Some(value) = record.get(key).filter(|value| !value.is_null()) {
+                validate_range(value, &format!("{location}.{key}"))?;
+            }
+        }
+        if let Some(value) = record.get("validity").filter(|value| !value.is_null()) {
+            let validity = object_at(value, &format!("{location}.validity"))?;
+            for key in ["pressure_gpa", "temperature_k", "volume_ratio"] {
+                if let Some(value) = validity.get(key) {
+                    validate_range(value, &format!("{location}.validity.{key}"))?;
+                }
+            }
+            if validity.get("notes").is_some_and(|value| !value.is_array()) {
+                return Err(invalid_document(format!(
+                    "{location}.validity.notes must be an array"
+                )));
+            }
+        }
+        if canonical {
+            let validation = object_at(
+                record.get("scientific_validation").ok_or_else(|| {
+                    invalid_document(format!("{location}.scientific_validation is required"))
+                })?,
+                &format!("{location}.scientific_validation"),
+            )?;
+            if !matches!(
+                validation.get("status").and_then(Value::as_str),
+                Some("primary_source_validated" | "pending_primary_source_check" | "deferred")
+            ) {
+                return Err(invalid_document(format!(
+                    "{location}.scientific_validation.status is invalid"
+                )));
+            }
+        }
+    }
+    if default_count > 1 {
+        return Err(invalid_document(
+            "a material may have at most one default EOS record",
+        ));
+    }
+    Ok(())
 }
 
 fn required_string(value: Option<String>, field: &str) -> Result<String, EosmatError> {

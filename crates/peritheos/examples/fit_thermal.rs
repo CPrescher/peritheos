@@ -37,8 +37,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         },
     )?;
 
-    println!("K0 = {:.3} GPa", result.solver.parameters[0]);
-    println!("K0' = {:.3}", result.solver.parameters[1]);
-    println!("alpha_KT = {:.6} GPa K^-1", result.solver.parameters[2]);
+    println!("K0 = {:.3} GPa", result.parameters[0]);
+    println!("K0' = {:.3}", result.parameters[1]);
+    println!("alpha_KT = {:.6} GPa K^-1", result.parameters[2]);
     Ok(())
 }

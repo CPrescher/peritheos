@@ -15,6 +15,7 @@ const MATERIAL: &str = r#"{
     "identifier": "example_bm3",
     "label": "Example BM3",
     "default": true,
+    "reference": "Synthetic documentation example",
     "eos": {
       "type": "BM3",
       "model": "birch_murnaghan_3",
@@ -22,7 +23,7 @@ const MATERIAL: &str = r#"{
     },
     "parameter_errors": {},
     "fixed_parameters": [],
-    "scientific_validation": {"status": "example_only"}
+    "scientific_validation": {"status": "deferred"}
   }]
 }"#;
 
@@ -36,5 +37,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     println!("{} / {}: {pressure:.3} GPa", material.name, record.label);
     assert!((recovered - 9.0).abs() < 1.0e-9);
+
+    // Serialization validates the retained document and preserves extensions.
+    let serialized = material.to_json()?;
+    let round_tripped = load_eosmat_str(&serialized)?;
+    assert_eq!(round_tripped.document, material.document);
     Ok(())
 }

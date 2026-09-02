@@ -3,8 +3,8 @@
 use crate::{IsothermalEos, ThermalEos};
 
 use super::{
-    least_squares, least_squares_structured, FitError, SolverOptions, SolverResult,
-    StructuredLayout,
+    least_squares, least_squares_structured, parameter_covariance, parameter_covariance_structured,
+    FitError, SolverOptions, SolverResult, StructuredLayout,
 };
 
 /// Isothermal pressure-volume observations and their error model.
@@ -48,13 +48,134 @@ pub struct ThermalObservations<'a> {
     pub observation_cholesky: Option<&'a [f64]>,
 }
 
-/// Native EOS fit result with final model predictions.
+#[derive(Clone, Copy, Debug, PartialEq)]
+struct FitStatistics {
+    chi_square: f64,
+    reduced_chi_square: Option<f64>,
+    degrees_of_freedom: i64,
+    aic: f64,
+    bic: f64,
+}
+
+/// Interpreted EOS fit result with parameter uncertainty and adjusted states.
+///
+/// Matrix fields use row-major model-parameter order. [`Self::solver`] retains
+/// the complete optimizer vector and Jacobian for advanced diagnostics, while
+/// [`Self::parameters`] contains only the parameters passed to the model
+/// factory.
 #[derive(Clone, Debug, PartialEq)]
 pub struct EosFitResult {
-    /// Least-squares parameters and diagnostics.
-    pub solver: SolverResult,
+    /// Final model parameters in factory order, excluding latent states.
+    pub parameters: Vec<f64>,
+    /// Profiled, unscaled covariance of the model parameters.
+    pub covariance: Vec<f64>,
+    /// Parameter standard errors derived from the covariance diagonal.
+    pub standard_errors: Vec<f64>,
+    /// Parameter correlation matrix.
+    pub correlation: Vec<f64>,
+    /// Final volumes used for prediction; measured values when not latent.
+    pub adjusted_volume: Vec<f64>,
+    /// Final temperatures used for prediction; absent for isothermal fits.
+    pub adjusted_temperature: Option<Vec<f64>>,
     /// Pressure predicted at the final adjusted coordinates.
     pub predicted_pressure: Vec<f64>,
+    /// Sum of squared weighted residuals.
+    pub chi_square: f64,
+    /// Chi-square divided by the degrees of freedom, when positive.
+    pub reduced_chi_square: Option<f64>,
+    /// Residual count minus all fitted variables, including latent states.
+    pub degrees_of_freedom: i64,
+    /// Akaike information criterion using all fitted variables.
+    pub aic: f64,
+    /// Bayesian information criterion using all fitted variables.
+    pub bic: f64,
+    /// Complete least-squares variables and solver diagnostics.
+    pub solver: SolverResult,
+}
+
+fn fit_statistics(solver: &SolverResult) -> Result<FitStatistics, FitError> {
+    let residual_count = u32::try_from(solver.residual_count).map_err(|_| {
+        FitError::InvalidInput("residual count exceeds the statistics limit".to_owned())
+    })?;
+    let variable_count = u32::try_from(solver.parameters.len()).map_err(|_| {
+        FitError::InvalidInput("variable count exceeds the statistics limit".to_owned())
+    })?;
+    let positive_degrees_of_freedom = residual_count
+        .checked_sub(variable_count)
+        .filter(|value| *value > 0);
+    let degrees_of_freedom = i64::from(residual_count) - i64::from(variable_count);
+    let chi_square: f64 = solver.residuals.iter().map(|value| value * value).sum();
+    let reduced_chi_square = positive_degrees_of_freedom.map(|value| chi_square / f64::from(value));
+    let residual_count = f64::from(residual_count);
+    let variable_count = f64::from(variable_count);
+    let log_variance = (chi_square / residual_count).max(f64::MIN_POSITIVE).ln();
+    let aic = residual_count * log_variance + 2.0 * variable_count;
+    let bic = residual_count * log_variance + variable_count * residual_count.ln();
+    Ok(FitStatistics {
+        chi_square,
+        reduced_chi_square,
+        degrees_of_freedom,
+        aic,
+        bic,
+    })
+}
+
+fn interpret_result(
+    solver: SolverResult,
+    predicted_pressure: Vec<f64>,
+    adjusted_volume: Vec<f64>,
+    adjusted_temperature: Option<Vec<f64>>,
+    parameter_count: usize,
+    point_count: usize,
+    latent_coordinate_count: usize,
+) -> Result<EosFitResult, FitError> {
+    let column_count = solver.parameters.len();
+    let covariance = if latent_coordinate_count == 0 {
+        parameter_covariance(
+            &solver.jacobian,
+            solver.residual_count,
+            column_count,
+            parameter_count,
+        )
+    } else {
+        parameter_covariance_structured(
+            &solver.jacobian,
+            StructuredLayout {
+                global_parameter_count: parameter_count,
+                point_count,
+                latent_coordinate_count,
+            },
+        )
+    }?;
+    let standard_errors = (0..parameter_count)
+        .map(|index| covariance[index * parameter_count + index].max(0.0).sqrt())
+        .collect::<Vec<_>>();
+    let mut correlation = vec![0.0; parameter_count * parameter_count];
+    for row in 0..parameter_count {
+        for column in 0..parameter_count {
+            let denominator = standard_errors[row] * standard_errors[column];
+            if denominator > 0.0 {
+                correlation[row * parameter_count + column] =
+                    covariance[row * parameter_count + column] / denominator;
+            }
+        }
+    }
+    let statistics = fit_statistics(&solver)?;
+    Ok(EosFitResult {
+        parameters: solver.parameters[..parameter_count].to_vec(),
+        covariance,
+        standard_errors,
+        correlation,
+        adjusted_volume,
+        adjusted_temperature,
+        predicted_pressure,
+        chi_square: statistics.chi_square,
+        reduced_chi_square: statistics.reduced_chi_square,
+        degrees_of_freedom: statistics.degrees_of_freedom,
+        aic: statistics.aic,
+        bic: statistics.bic,
+        solver,
+    })
 }
 
 fn validate_common(
@@ -247,6 +368,7 @@ fn optimizer_vectors(
 ///
 /// Returns [`FitError`] for inconsistent inputs, model construction or
 /// evaluation failures, and solver failures.
+#[allow(clippy::too_many_lines)]
 pub fn fit_isothermal_eos<M, F>(
     observations: IsothermalObservations<'_>,
     initial: &[f64],
@@ -354,10 +476,16 @@ where
                 .map_err(|error| FitError::Evaluation(error.to_string()))
         })
         .collect::<Result<Vec<_>, _>>()?;
-    Ok(EosFitResult {
+    let adjusted_volume = volume.to_vec();
+    interpret_result(
         solver,
         predicted_pressure,
-    })
+        adjusted_volume,
+        None,
+        parameter_count,
+        point_count,
+        latent_count,
+    )
 }
 
 /// Fit a thermal EOS without leaving Rust during residual evaluation.
@@ -584,13 +712,18 @@ where
     );
     let predicted_pressure = volume
         .iter()
-        .zip(temperature)
-        .map(|(volume, temperature)| pressure(&model, *volume, temperature))
+        .zip(&temperature)
+        .map(|(volume, temperature)| pressure(&model, *volume, *temperature))
         .collect::<Result<Vec<_>, _>>()?;
-    Ok(EosFitResult {
+    interpret_result(
         solver,
         predicted_pressure,
-    })
+        volume,
+        Some(temperature),
+        parameter_count,
+        point_count,
+        latent_count,
+    )
 }
 
 #[cfg(test)]
@@ -628,9 +761,60 @@ mod tests {
         .unwrap();
 
         assert!(result.solver.success, "{}", result.solver.message);
-        assert!((result.solver.parameters[0] - 120.0).abs() < 1.0e-7);
-        assert!((result.solver.parameters[1] - 4.3).abs() < 1.0e-7);
+        assert!((result.parameters[0] - 120.0).abs() < 1.0e-7);
+        assert!((result.parameters[1] - 4.3).abs() < 1.0e-7);
+        assert_eq!(result.parameters.len(), 2);
+        assert_eq!(result.adjusted_volume, volume);
+        assert_eq!(result.adjusted_temperature, None);
+        assert_eq!(result.covariance.len(), 4);
+        assert_eq!(result.standard_errors.len(), 2);
+        assert_eq!(result.correlation.len(), 4);
+        assert!((result.standard_errors[0].powi(2) - result.covariance[0]).abs() < 1.0e-12);
+        assert!((result.standard_errors[1].powi(2) - result.covariance[3]).abs() < 1.0e-12);
+        assert!((result.correlation[0] - 1.0).abs() < 1.0e-12);
+        assert!((result.correlation[3] - 1.0).abs() < 1.0e-12);
+        assert_eq!(result.degrees_of_freedom, 3);
+        assert!(result.chi_square < 1.0e-10);
+        assert!(result.reduced_chi_square.unwrap() < 1.0e-10);
+        assert!(result.aic.is_finite());
+        assert!(result.bic.is_finite());
         assert_eq!(result.predicted_pressure.len(), volume.len());
+    }
+
+    #[test]
+    fn isothermal_fit_separates_latent_volumes_from_model_parameters() {
+        let expected = BM3::new(10.0, 120.0, 4.3).unwrap();
+        let volume = [8.0, 8.5, 9.0, 9.5, 10.0];
+        let pressure = volume
+            .iter()
+            .map(|value| expected.pressure(*value).unwrap())
+            .collect::<Vec<_>>();
+        let pressure_sigma = [0.1; 5];
+        let volume_sigma = [0.01; 5];
+        let result = fit_isothermal_eos(
+            IsothermalObservations {
+                pressure: &pressure,
+                volume: &volume,
+                pressure_sigma: &pressure_sigma,
+                volume_sigma: Some(&volume_sigma),
+                observation_cholesky: None,
+            },
+            &[120.0, 4.3],
+            &[50.0, 1.0],
+            &[200.0, 10.0],
+            SolverOptions::default(),
+            |parameters| {
+                BM3::new(10.0, parameters[0], parameters[1])
+                    .map_err(|error| FitError::Evaluation(error.to_string()))
+            },
+        )
+        .unwrap();
+
+        assert_eq!(result.parameters.len(), 2);
+        assert_eq!(result.solver.parameters.len(), 7);
+        assert_eq!(result.adjusted_volume.len(), volume.len());
+        assert_eq!(result.degrees_of_freedom, 3);
+        assert_eq!(result.covariance.len(), 4);
     }
 
     #[test]
@@ -685,7 +869,10 @@ mod tests {
         .unwrap();
 
         assert!(result.solver.success, "{}", result.solver.message);
-        assert!((result.solver.parameters[0] - 160.0).abs() < 1.0e-6);
-        assert!((result.solver.parameters[1] - 1.5).abs() < 1.0e-6);
+        assert!((result.parameters[0] - 160.0).abs() < 1.0e-6);
+        assert!((result.parameters[1] - 1.5).abs() < 1.0e-6);
+        assert_eq!(result.adjusted_volume, volume);
+        assert_eq!(result.adjusted_temperature, Some(temperature.to_vec()));
+        assert_eq!(result.degrees_of_freedom, 4);
     }
 }

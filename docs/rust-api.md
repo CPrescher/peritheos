@@ -40,16 +40,27 @@ Use an `.eosmat` record when model choice, parameters, reference state,
 provenance, and extension metadata should be data:
 
 ```rust,no_run
-use peritheos::load_eosmat;
+use peritheos::{load_eosmat, load_eosmat_str};
 
-let material = load_eosmat("gold.eosmat")?;
+let mut material = load_eosmat("gold.eosmat")?;
 let record = material.default_record().expect("a default EOS record");
 let pressure = record.pressure(60.0, 300.0)?;
+
+// Unknown extension fields survive document edits and serialization.
+material.document["application_note"] = "calibration copy".into();
+material.validate()?;
+let serialized = material.to_json()?;
+let round_tripped = load_eosmat_str(&serialized)?;
+round_tripped.save("gold-copy.eosmat")?;
 # Ok::<(), Box<dyn std::error::Error>>(())
 ```
 
 `EosRecord` uses runtime dispatch over the built-in registry. A concrete model
-uses static dispatch and gives access to model-specific methods.
+uses static dispatch and gives access to model-specific methods. For decoded
+`serde_json::Value` documents, use `validate_eosmat_document`,
+`serialize_eosmat`, and `save_eosmat` directly. Serialization validates every
+record before writing and retains fields that the Rust model registry does not
+interpret.
 
 ## Work with the common traits
 
@@ -105,20 +116,24 @@ let fit = fit_isothermal_eos(
     |p| BM3::new(10.0, p[0], p[1])
         .map_err(|error| FitError::Evaluation(error.to_string())),
 )?;
-println!("K0 = {:.3} GPa", fit.solver.parameters[0]);
+println!("K0 = {:.3} ± {:.3} GPa", fit.parameters[0], fit.standard_errors[0]);
+println!("chi-square = {:.3}", fit.chi_square);
 # Ok::<(), FitError>(())
 ```
 
 Provide `volume_sigma` to use latent adjusted volumes. For P-V-T data,
 `ThermalObservations` also supports `temperature_sigma`. Lower-triangular
 per-observation Cholesky factors replace independent standard deviations for
-correlated measurements.
+correlated measurements. `adjusted_volume` and `adjusted_temperature` expose
+the fitted latent states without requiring slices into the solver vector.
 
 ## Carry a fit into predictions
 
-The final residual Jacobian can be converted to a parameter covariance with
-`parameter_covariance`. Use that matrix with
-`propagate_model_uncertainty` for local linear propagation, or
+`EosFitResult` directly contains the profiled parameter covariance, standard
+errors, correlation matrix, and chi-square/AIC/BIC statistics. Its covariance
+is unscaled `(J^T J)^+` in flat row-major order; multiply by the reduced
+chi-square when estimating variance from residual scatter. Use that matrix
+with `propagate_model_uncertainty` for local linear propagation, or
 `monte_carlo_model_uncertainty` when invalid sampled states and nonlinear
 outputs need to be represented. Both APIs use flat row-major covariance
 matrices and return output uncertainty in the evaluator's output order.

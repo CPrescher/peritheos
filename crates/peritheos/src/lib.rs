@@ -48,9 +48,9 @@
 //!
 //! # Material records instead of handwritten parameters
 //!
-//! [`load_eosmat`] and [`load_eosmat_str`] parse canonical Peritheos format-3
-//! and legacy Dioptas format-2 files. A loaded [`EosRecord`] is runtime
-//! dispatched but exposes the same pressure and inversion workflow:
+//! [`load_eosmat`] and [`load_eosmat_str`] parse and validate canonical
+//! Peritheos format-3 and legacy Dioptas format-2 files. A loaded [`EosRecord`]
+//! is runtime dispatched but exposes the same pressure and inversion workflow:
 //!
 //! ```no_run
 //! use peritheos::load_eosmat;
@@ -58,6 +58,7 @@
 //! let material = load_eosmat("gold.eosmat")?;
 //! let record = material.default_record().expect("material has a default EOS");
 //! let pressure = record.pressure(60.0, 300.0)?;
+//! material.save("gold-copy.eosmat")?;
 //! println!("{}: {pressure:.3} GPa", material.name);
 //! # Ok::<(), Box<dyn std::error::Error>>(())
 //! ```
@@ -112,8 +113,9 @@ pub mod thermal;
 
 pub use batch::{CaloricEosBatch, IsothermalEosBatch, ThermalEosBatch};
 pub use eosmat::{
-    load_eosmat, load_eosmat_reader, load_eosmat_str, material_from_value, EosRecord, EosmatError,
-    IsothermalModel, LoadedEos, Material, ThermalModel,
+    load_eosmat, load_eosmat_reader, load_eosmat_str, material_from_value, save_eosmat,
+    serialize_eosmat, validate_eosmat_document, EosRecord, EosmatError, IsothermalModel, LoadedEos,
+    Material, ThermalModel, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
 };
 pub use error::EosError;
 

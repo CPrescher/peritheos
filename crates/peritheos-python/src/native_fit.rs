@@ -439,6 +439,7 @@ pub(super) fn fit_rt_eos_native(
         global_parameter_count,
         structured_layout,
         predicted_pressure: Some(result.predicted_pressure),
+        parameter_covariance: Some(result.covariance),
         result: result.solver,
     })
 }
@@ -522,6 +523,7 @@ pub(super) fn fit_thermal_eos_native(
         global_parameter_count,
         structured_layout,
         predicted_pressure: Some(result.predicted_pressure),
+        parameter_covariance: Some(result.covariance),
         result: result.solver,
     })
 }

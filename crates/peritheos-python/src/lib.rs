@@ -936,6 +936,7 @@ struct PyLeastSquaresResult {
     global_parameter_count: usize,
     structured_layout: Option<StructuredLayout>,
     predicted_pressure: Option<Vec<f64>>,
+    parameter_covariance: Option<Vec<f64>>,
 }
 
 #[pymethods]
@@ -972,18 +973,22 @@ impl PyLeastSquaresResult {
     /// Leading model-parameter covariance after profiling latent coordinates.
     #[getter]
     fn parameter_covariance<'py>(&self, py: Python<'py>) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
-        let column_count = self.result.parameters.len();
-        let covariance = if let Some(layout) = self.structured_layout {
-            parameter_covariance_structured(&self.result.jacobian, layout)
+        let covariance = if let Some(covariance) = &self.parameter_covariance {
+            covariance.clone()
         } else {
-            peritheos::fit::parameter_covariance(
-                &self.result.jacobian,
-                self.result.residual_count,
-                column_count,
-                self.global_parameter_count,
-            )
-        }
-        .map_err(to_python_fit_error)?;
+            let column_count = self.result.parameters.len();
+            if let Some(layout) = self.structured_layout {
+                parameter_covariance_structured(&self.result.jacobian, layout)
+            } else {
+                peritheos::fit::parameter_covariance(
+                    &self.result.jacobian,
+                    self.result.residual_count,
+                    column_count,
+                    self.global_parameter_count,
+                )
+            }
+            .map_err(to_python_fit_error)?
+        };
         let output = ArrayD::from_shape_vec(
             numpy::ndarray::IxDyn(&[self.global_parameter_count, self.global_parameter_count]),
             covariance,
@@ -1100,6 +1105,7 @@ fn fit_least_squares<'py>(
         global_parameter_count,
         structured_layout: layout,
         predicted_pressure: None,
+        parameter_covariance: None,
     })
 }
 

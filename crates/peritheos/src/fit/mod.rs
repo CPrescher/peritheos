@@ -38,7 +38,9 @@
 //!     },
 //! )?;
 //!
-//! assert_eq!(result.solver.parameters.len(), 2);
+//! assert_eq!(result.parameters.len(), 2);
+//! assert_eq!(result.covariance.len(), 4);
+//! assert_eq!(result.standard_errors.len(), 2);
 //! assert_eq!(result.predicted_pressure.len(), pressure.len());
 //! # Ok::<(), FitError>(())
 //! ```

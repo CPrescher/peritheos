@@ -1,7 +1,10 @@
 use std::fs;
 use std::path::{Path, PathBuf};
 
-use peritheos::{load_eosmat, load_eosmat_str, EosmatError};
+use peritheos::{
+    load_eosmat, load_eosmat_str, save_eosmat, serialize_eosmat, validate_eosmat_document,
+    EosmatError,
+};
 
 fn materials_directory() -> PathBuf {
     Path::new(env!("CARGO_MANIFEST_DIR")).join("../../peritheos/data/materials")
@@ -24,6 +27,7 @@ fn simple_document() -> &'static str {
             "identifier": "test_bm3",
             "label": "Test BM3",
             "default": true,
+            "reference": "Synthetic test record",
             "eos": {
                 "type": "BM3",
                 "model": "birch_murnaghan_3",
@@ -35,6 +39,54 @@ fn simple_document() -> &'static str {
             "record_extension": 42
         }]
     }"#
+}
+
+#[test]
+fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensions() {
+    let document = serde_json::from_str(simple_document()).unwrap();
+    validate_eosmat_document(&document).unwrap();
+
+    let serialized = serialize_eosmat(&document).unwrap();
+    assert!(serialized.ends_with('\n'));
+    let reloaded = load_eosmat_str(&serialized).unwrap();
+    assert_eq!(reloaded.document, document);
+    assert_eq!(reloaded.document["extension"]["preserved"], true);
+    assert_eq!(reloaded.eos_records[0].document["record_extension"], 42);
+
+    let unique = std::time::SystemTime::now()
+        .duration_since(std::time::UNIX_EPOCH)
+        .unwrap()
+        .as_nanos();
+    let path = std::env::temp_dir().join(format!(
+        "peritheos-eosmat-roundtrip-{}-{unique}.eosmat",
+        std::process::id()
+    ));
+    save_eosmat(&path, &document).unwrap();
+    let saved = load_eosmat(&path).unwrap();
+    fs::remove_file(path).unwrap();
+    assert_eq!(saved.document, document);
+}
+
+#[test]
+fn public_validation_rejects_ambiguous_defaults_and_covariance_shapes() {
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    let duplicate = document["eos_records"][0].clone();
+    document["eos_records"]
+        .as_array_mut()
+        .unwrap()
+        .push(duplicate);
+    let error = validate_eosmat_document(&document).unwrap_err();
+    assert!(error
+        .to_string()
+        .contains("duplicate EOS record identifier"));
+
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["eos_records"][0]["parameter_covariance"] = serde_json::json!({
+        "parameter_order": ["K0", "K0_prime"],
+        "matrix": [[1.0, 0.0]]
+    });
+    let error = validate_eosmat_document(&document).unwrap_err();
+    assert!(error.to_string().contains("square matrix"));
 }
 
 #[test]
@@ -98,7 +150,7 @@ fn wrong_type_model_pair_is_rejected() {
 }
 
 #[test]
-fn all_bundled_material_records_load_through_the_rust_registry() {
+fn all_bundled_material_records_load_and_round_trip_through_rust() {
     let materials_directory = materials_directory();
     if !materials_directory.is_dir() {
         // The crates.io archive deliberately contains the reusable loader but
@@ -120,6 +172,12 @@ fn all_bundled_material_records_load_through_the_rust_registry() {
     for path in &paths {
         let material = load_eosmat(path)
             .unwrap_or_else(|error| panic!("{} failed to load: {error}", path.display()));
+        let serialized = material
+            .to_json()
+            .unwrap_or_else(|error| panic!("{} failed to serialize: {error}", path.display()));
+        let round_tripped = load_eosmat_str(&serialized)
+            .unwrap_or_else(|error| panic!("{} failed to round trip: {error}", path.display()));
+        assert_eq!(round_tripped.document, material.document);
         records += material.eos_records.len();
         thermal_records += material
             .eos_records

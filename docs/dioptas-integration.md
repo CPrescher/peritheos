@@ -132,6 +132,11 @@ The writer emits the document supplied to it after structural validation and
 does not discard unknown optional fields. This preservation rule is important
 for applications that use only one part of the document.
 
+The Rust API provides the same round trip through `Material::validate`,
+`Material::to_json`, and `Material::save`. Applications working directly with
+`serde_json::Value` can instead call `validate_eosmat_document`,
+`serialize_eosmat`, and `save_eosmat`.
+
 ## Dioptas compatibility
 
 [Dioptas 0.10.0's material loader](https://github.com/Dioptas/Dioptas/blob/0.10.0/dioptas/model/eos/material.py)
