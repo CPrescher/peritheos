@@ -2,8 +2,16 @@
 
 This directory contains 115 curated materials with EOS records from the
 120-material, 147-EOS-record Dioptas 0.10.0 database, tag commit
-`5a8bfd81d10bfab3499039603380aae34576d60a`. Dioptas is distributed under the
-MIT License. Its project source is <https://github.com/Dioptas/Dioptas>.
+`5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
+<https://github.com/Dioptas/Dioptas>.
+
+Dioptas is migration provenance, not a licensor of the underlying scientific
+data. Many entries were assembled earlier in legacy JCPDS collections used in
+GSECARS and related beamline workflows. Dioptas provenance does not establish
+copyright ownership of, or relicense, numerical observations and EOS parameters
+taken from beamline files and cited publications. Dataset-specific licenses are
+recorded where known. Otherwise, a source citation records scientific provenance
+rather than a copyright license.
 
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
@@ -25,6 +33,30 @@ extension. The Martinez staged result uses its exact Equation (3) direct-linear
 reference-volume law. The paper's separate global thermal BM3 entry is excluded
 because its fitted reference volume is omitted and the remaining coefficients
 do not reproduce the printed dataset under the documented equations.
+
+## Primary observation tables
+
+When a reviewed primary paper prints a recoverable observation table, the
+material document links that table through its top-level `datasets` array.
+The current bundle contains 30 distinct primary datasets with 4,713 distinct
+observation rows, represented by 40 material-document links to 43 EOS records.
+The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
+entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
+and phase entries while retaining the simultaneously measured Cu reference
+volumes even though the library has no separate Shen--Smith Cu EOS record.
+Small tables may remain inline; larger tables are stored as
+SHA-256-checksummed CSV resources under `../datasets/`. Quantities and
+uncertainties retain the paper's reported conventions and units, including
+formula-unit volumes, molar volumes, densities, lattice parameters, and
+pressure-calibrant readings.
+
+Dataset links describe the observations associated with a record; they do not
+assert that every row entered the published regression. Row-selection details
+are kept in dataset notes, for example for the stressed niobium run and the
+full thermal ice-VII table. Conversely, the absence of a dataset is not a claim
+that no underlying measurements ever existed: plots, unavailable supplements,
+and papers that report only fitted parameters are not reconstructed into
+invented point tables.
 
 The sibling `../pressure-calibrations.json` registry contains executable,
 versioned ruby R1 calibration records. Ruby-based EOS entries link to these

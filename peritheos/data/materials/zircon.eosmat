@@ -183,5 +183,99 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "zircon_hazen_1979_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 11 zircon unit-cell observations from the two pressure experiments.",
+   "reference": {
+    "authors": [
+     "Hazen",
+     "Finger"
+    ],
+    "year": 1979,
+    "source": "American Mineralogist",
+    "volume": "64",
+    "locator": "196-201"
+   },
+   "source_location": "Table 1, page 197",
+   "columns": [
+    {
+     "name": "crystal",
+     "quantity": "sample_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "sequence",
+     "quantity": "measurement_sequence",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "bound",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_sigma_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "a_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_sigma_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "c_a"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/zircon-hazen-1979-table1-compression.csv",
+    "sha256": "718c1e4729e3faf9f6f68e914cf443d3652e33163c50dfc652aac7eb2984d572",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "zircon_hazen_1979_bm3_1"
+   ],
+   "notes": "Parenthesized crystallographic figures are estimated standard deviations in the least units cited. The two separate 42 kbar measurements and both ambient measurements are retained; 1 atm is represented as 0.00101325 kbar.",
+   "source_url": "https://msaweb.org/AmMin/AM64/AM64_196.pdf"
+  }
+ ]
 }

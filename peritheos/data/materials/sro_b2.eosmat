@@ -126,5 +126,68 @@
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
  },
- "phase": "B2 (CsCl-type), cubic Pm-3m"
+ "phase": "B2 (CsCl-type), cubic Pm-3m",
+ "datasets": [
+  {
+   "identifier": "sro_b2_sato_1981_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 13 B2-SrO density observations, including the two B1/B2 coexistence measurements.",
+   "reference": {
+    "authors": [
+     "Sato",
+     "Jeanloz"
+    ],
+    "year": 1981,
+    "source": "J. Geophys. Res.",
+    "volume": "86",
+    "locator": "11773-11778",
+    "doi": "10.1029/JB086iB12p11773"
+   },
+   "source_location": "Table 1, page 11774",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "density_mg_m3",
+     "quantity": "density",
+     "unit": "Mg/m^3",
+     "role": "value"
+    },
+    {
+     "name": "density_uncertainty_mg_m3",
+     "quantity": "density",
+     "unit": "Mg/m^3",
+     "role": "bound",
+     "of": "density_mg_m3"
+    },
+    {
+     "name": "run",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/sro-b2-sato-1981-table1-compression.csv",
+    "sha256": "c943aede33e9884d2481d4a1351173c333f783b265bd343a34690282458df38f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "sro_b2_sato_1981_bm2_1"
+   ],
+   "notes": "The source's row-wise pressure and density uncertainties are retained.",
+   "source_url": "https://doi.org/10.1029/JB086iB12p11773"
+  }
+ ]
 }

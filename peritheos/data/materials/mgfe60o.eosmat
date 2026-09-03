@@ -211,5 +211,75 @@
  "phase": "rocksalt magnesiowustite, cubic Fm-3m",
  "space_group": "Fm-3m",
  "space_group_number": 225,
- "cell_contents": "4 (Mg0.4Fe0.6)O formula units per conventional rocksalt cell"
+ "cell_contents": "4 (Mg0.4Fe0.6)O formula units per conventional rocksalt cell",
+ "datasets": [
+  {
+   "identifier": "mgfe60o_richet_1989_table2_compression",
+   "kind": "pressure_volume",
+   "description": "All 17 MW60 lattice observations printed in Table 2.",
+   "reference": {
+    "authors": [
+     "Richet",
+     "Mao",
+     "Bell"
+    ],
+    "year": 1989,
+    "source": "J. Geophys. Res.",
+    "volume": "94",
+    "locator": "3037-3045",
+    "doi": "10.1029/JB094iB03p03037"
+   },
+   "source_location": "Table 2, page 3039",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "bound",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "lattice_parameter_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_parameter_a_uncertainty",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "lattice_parameter_a"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgfe60o-richet-1989-table2-compression.csv",
+    "sha256": "5bf461c81546f76ec029c013fdeb04d08ef4963c0f7ca540188d6cbeb1ffea29",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgfe60o_richet_1989_bm2_1"
+   ],
+   "notes": "The source gives row-wise pressure errors and selected lattice-parameter errors; omitted values remain blank rather than being inferred.",
+   "source_url": "https://doi.org/10.1029/JB094iB03p03037"
+  }
+ ]
 }

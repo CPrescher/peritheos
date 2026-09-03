@@ -1,4 +1,7 @@
 import copy
+import csv
+import hashlib
+import io
 import json
 import math
 import re
@@ -91,7 +94,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 115
     assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 155
+    assert sum(len(document["eos_records"]) for document in documents) == 159
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -117,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 155
+    assert len({record["identifier"] for record in records}) == 159
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 155
+    assert statuses.count("primary_source_validated") == 159
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -132,8 +135,12 @@ def test_migrated_records_have_completed_primary_source_audit():
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
         "gold_dewaele_2004_vinet_5",
+        "gold_fratanduono_2021_vinet_7",
         "gold_takemura_2008_vinet_6",
+        "kcl_b2_chidester_2021_bm3_5",
+        "kcl_b2_tateno_2019_vinet_4",
         "mgo_b1_tange_2009_vinet",
+        "platinum_dorogokupets_oganov_2007_vinet_4",
     }
     assert {audit_dates[identifier] for identifier in current_audit_identifiers} == {
         "2026-09-03"
@@ -171,8 +178,12 @@ def test_migrated_records_have_completed_primary_source_audit():
         "diamond_correa_2008_dewaele_anchored",
         "kcl_b2_dewaele_2012_vinet_3",
         "gold_dewaele_2004_vinet_5",
+        "gold_fratanduono_2021_vinet_7",
         "gold_takemura_2008_vinet_6",
+        "kcl_b2_chidester_2021_bm3_5",
         "mgo_b1_tange_2009_vinet",
+        "kcl_b2_tateno_2019_vinet_4",
+        "platinum_dorogokupets_oganov_2007_vinet_4",
     }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -201,12 +212,220 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 155,
-        "primary_source_validated": 155,
+        "records": 159,
+        "primary_source_validated": 159,
     }
     assert report["audit_date"] == "2026-09-03"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
+
+
+def test_bundled_primary_dataset_resources_match_metadata():
+    data_root = resources.files("peritheos.data")
+    checked = 0
+
+    for material_identifier in list_material_documents():
+        document = get_material_document(material_identifier)
+        for dataset in document.get("datasets", []):
+            resource = dataset.get("resource")
+            if resource is None:
+                continue
+
+            payload = data_root.joinpath(resource["path"]).read_bytes()
+            assert hashlib.sha256(payload).hexdigest() == resource["sha256"]
+
+            rows = list(csv.reader(io.StringIO(payload.decode("utf-8"))))
+            assert len(rows[0]) == len(dataset["columns"])
+            assert len(rows) > 1
+            assert all(len(row) == len(dataset["columns"]) for row in rows[1:])
+            checked += 1
+
+    assert checked >= 39
+
+
+def test_ono_cubic_sno2_primary_data_transcription_is_complete():
+    documents = [
+        get_material_document("sno2_cubic_27gpa"),
+        get_material_document("sno2_pa_3_at_48gpa"),
+    ]
+    datasets = [
+        next(
+            item
+            for item in document["datasets"]
+            if item["identifier"] == "sno2_ono_2000_table2_pvt"
+        )
+        for document in documents
+    ]
+
+    assert datasets[0]["resource"] == datasets[1]["resource"]
+    assert datasets[0]["used_by_eos_records"] == ["sno2_cubic_27gpa_ono_2000_bm3_1"]
+    assert datasets[1]["used_by_eos_records"] == ["sno2_pa_3_at_48gpa_ono_2000_bm3_1"]
+
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(datasets[0]["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    assert len(rows) == 40
+    assert sum(row["experiment"] == "S145" for row in rows) == 34
+    assert sum(row["experiment"] == "S192" for row in rows) == 6
+    assert min(float(row["pressure_gpa"]) for row in rows) == pytest.approx(16.09)
+    assert max(float(row["pressure_gpa"]) for row in rows) == pytest.approx(28.85)
+    representative = next(
+        row
+        for row in rows
+        if row["temperature_k"] == "1400" and row["pressure_gpa"] == "28.09"
+    )
+    assert float(representative["unit_cell_volume_a3"]) == pytest.approx(121.16)
+    assert float(representative["pressure_uncertainty_gpa"]) == pytest.approx(0.03)
+
+
+def test_shen_smith_simultaneous_volume_dataset_is_complete():
+    record_by_material = {
+        "fe": "fe_shen_2026_vinet_1",
+        "gold": "gold_shen_2026_vinet_3",
+        "iron": "iron_shen_2026_vinet_2",
+        "mgo": "mgo_shen_2026_vinet_3",
+        "molybdenum": "molybdenum_shen_2026_vinet_1",
+        "nacl_b1": "nacl_b1_shen_2026_vinet_1",
+        "nacl_b2": "nacl_b2_shen_2026_vinet_2",
+        "platinum": "platinum_shen_2026_vinet_2",
+        "tantalum": "tantalum_shen_2026_vinet_2",
+        "tungsten": "tungsten_shen_2026_vinet_3",
+    }
+    datasets = []
+    for material, record in record_by_material.items():
+        document = get_material_document(material)
+        dataset = next(
+            item
+            for item in document["datasets"]
+            if item["identifier"]
+            == "shen_smith_2026_table_s1_simultaneous_volumes"
+        )
+        assert dataset["used_by_eos_records"] == [record]
+        datasets.append(dataset)
+
+    assert all(dataset["resource"] == datasets[0]["resource"] for dataset in datasets)
+
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(datasets[0]["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    assert len(rows) == 3511
+    assert {
+        int(row["run_number"]) for row in rows if row["experiment"] == "DAC-1"
+    } == set(range(1, 229))
+    assert {
+        int(row["run_number"]) for row in rows if row["experiment"] == "DAC-2"
+    } == set(range(1, 195))
+    assert sum(row["phase"] == "Cu" for row in rows) == 422
+    assert sum(row["phase"] == "NaCl-B1" for row in rows) == 67
+    assert sum(row["phase"] == "NaCl-B2" for row in rows) == 131
+    assert sum(
+        row["phase"] == "Pt" and row["measurement_sequence"] == "first"
+        for row in rows
+    ) == 421
+    assert sum(
+        row["phase"] == "Pt" and row["measurement_sequence"] == "last"
+        for row in rows
+    ) == 422
+
+    first = rows[0]
+    assert first == {
+        "experiment": "DAC-1",
+        "run_number": "1",
+        "phase": "Pt",
+        "measurement_sequence": "first",
+        "unit_cell_volume_a3": "59.54115",
+        "unit_cell_volume_standard_error_a3": "0.01721",
+    }
+    last = rows[-1]
+    assert last == {
+        "experiment": "DAC-2",
+        "run_number": "194",
+        "phase": "Pt",
+        "measurement_sequence": "last",
+        "unit_cell_volume_a3": "48.23100",
+        "unit_cell_volume_standard_error_a3": "0.03486",
+    }
+
+
+def test_chidester_kcl_dataset_and_new_pressure_markers_match_primary_values():
+    document = get_material_document("kcl")
+    dataset = next(
+        item
+        for item in document["datasets"]
+        if item["identifier"] == "kcl_chidester_2021_supplemental_pvt"
+    )
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(dataset["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    assert len(rows) == 155
+    assert rows[0]["Sample/pattern number"] == "B1_578"
+    assert rows[-1]["Sample/pattern number"] == "B86_382"
+    assert dataset["notes"].endswith("Pt-derived rather than as a raw Pt-volume pair.")
+
+    records = {record["identifier"]: record for record in document["eos_records"]}
+    tateno = records["kcl_b2_tateno_2019_vinet_4"]
+    assert tateno["eos"]["parameters"] == {
+        "V0": 54.5,
+        "K0": 18.3,
+        "K0_prime": 5.6,
+    }
+    assert tateno["thermal"]["parameters"] == {
+        "Tr": 300.0,
+        "theta0": 235.0,
+        "gamma0": 0.58,
+        "q": 0.9,
+        "n": 2,
+    }
+    assert (
+        tateno["pressure_calibration"]["methods"][0]["reference_eos_record"]
+        == "platinum_sokolova_2013_holzapfel_3"
+    )
+
+    chidester = records["kcl_b2_chidester_2021_bm3_5"]
+    assert chidester["eos"]["parameters"] == {
+        "V0": pytest.approx(53.137250149563094),
+        "K0": 24.0,
+        "K0_prime": 4.56,
+    }
+    assert chidester["thermal"]["parameters"] == {
+        "Tr": 300.0,
+        "theta0": 235.0,
+        "gamma0": 2.9,
+        "q": 1.0,
+        "n": 2,
+    }
+    assert chidester["experimental_configuration"] == {
+        "geometry": "laser-heated diamond-anvil cell",
+        "sample_and_laser_absorber": "approximately 5 micrometer Pt foil",
+        "pressure_reference": "simultaneously diffracting Pt foil",
+        "pressure_medium": "KCl",
+        "thermal_insulator": "KCl",
+        "arrangement": (
+            "Pt foil secured between two approximately 10 micrometer layers of "
+            "dried KCl"
+        ),
+        "temperature_convention": (
+            "KCl diffraction samples a thermal gradient between the hot Pt surface "
+            "and the approximately 295 K diamond anvils; the EOS uses the authors' "
+            "estimated average KCl temperature"
+        ),
+    }
+
+    gold = get_eos_record_document("gold_fratanduono_2021_vinet_7")
+    assert gold["eos"]["parameters"] == {
+        "V0": pytest.approx(4.0 * 16.929),
+        "K0": 170.9,
+        "K0_prime": 5.88,
+    }
 
 
 def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
@@ -216,7 +435,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 155
+    assert len(records) == 159
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -282,7 +501,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 155
+    assert checked == 159
     assert failures == []
 
 
@@ -449,6 +668,7 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
         "Table II, pages 9-12",
         "Section III.E, pages 8 and 12-14",
         "Experimental methods, page 2",
+        "Supplemental Table S1, official Excel workbook",
     ]
 
     magnesite = get_material_document("magnesite")["eos_records"][0]
@@ -571,12 +791,8 @@ def test_b4c_thermal_record_is_source_reproduced_and_diffraction_ready():
         "alpha1": pytest.approx(5.73e-10),
         "dK_dT": pytest.approx(-0.01311),
     }
-    refit_executable = material.get_eos_record(
-        "b4c_somayazulu_2023_berman_refit"
-    )
-    assert refit_executable.pressure(289.1, 2023.0) == pytest.approx(
-        40.84280383878691
-    )
+    refit_executable = material.get_eos_record("b4c_somayazulu_2023_berman_refit")
+    assert refit_executable.pressure(289.1, 2023.0) == pytest.approx(40.84280383878691)
     assert refit_executable.eosmat_metadata["record_kind"] == "refit"
 
 
@@ -1512,6 +1728,7 @@ def test_dioptas_010_shape_remains_accepted_without_peritheos_extensions():
     document = get_material_document("gold")
     document.pop("format")
     document.pop("identifier")
+    document.pop("datasets", None)
     document["format_version"] = 2
     for record in document["eos_records"]:
         record.pop("identifier")
@@ -1581,7 +1798,7 @@ def test_normative_schema_is_bundled():
         "berman",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 10
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 11
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 12
 
 
 def test_normative_schema_validates_every_bundled_document():
@@ -1772,17 +1989,17 @@ def test_eosmat_thermal_expansion_law_defaults_and_validation():
         validate_eosmat_document(document)
 
 
-def test_migration_manifest_and_dioptas_license_are_bundled():
+def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     root = resources.files("peritheos.data.materials")
     manifest = json.loads(root.joinpath("manifest.json").read_text(encoding="utf-8"))
-    license_text = root.joinpath("DIOPTAS_LICENSE.txt").read_text(encoding="utf-8")
 
     assert manifest["source"]["project"] == "Dioptas"
     assert manifest["source"]["version"] == "0.10.0"
+    assert "license" not in manifest["source"]
+    assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 155
+    assert manifest["eos_records"] == 159
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-03"
-    assert "Copyright (c) 2021-2026 Clemens Prescher" in license_text
 
 
 @pytest.mark.parametrize(

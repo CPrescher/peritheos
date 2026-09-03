@@ -1,9 +1,10 @@
 {
   "format": "peritheos.pressure-calibration-library",
-  "format_version": 1,
+  "format_version": 2,
   "units": {
     "pressure": "GPa",
-    "wavelength": "nm"
+    "wavelength": "nm",
+    "wavenumber": "cm^-1"
   },
   "calibrations": [
     {
@@ -126,6 +127,197 @@
         "temperature_k": [298.0, 298.0],
         "notes": "The publication recommends this quadratic-shift form after comparing alternative forms."
       }
+    },
+    {
+      "identifier": "ruby_shen_2020",
+      "label": "IPPS-Ruby2020 (Shen et al., 2020)",
+      "kind": "ruby_fluorescence",
+      "model": "quadratic_shift",
+      "parameters": {
+        "A_gpa": 1870.0,
+        "m": 5.63,
+        "reference_wavelength_nm": 694.25
+      },
+      "parameter_errors": {
+        "A_gpa": 10.0,
+        "m": 0.03,
+        "reference_wavelength_nm": null
+      },
+      "equation": "P = A * (delta_lambda/lambda0) * (1 + m * delta_lambda/lambda0)",
+      "reference": {
+        "authors": ["Shen", "Wang", "Dewaele", "Wu", "Fratanduono", "Eggert", "Klotz", "Dziubek", "Loubeyre", "Fat'yanov", "Asimow", "Mashimo", "Wentzcovitch"],
+        "year": 2020,
+        "title": "Toward an international practical pressure scale: A proposal for an IPPS ruby gauge (IPPS-Ruby2020)",
+        "source": "High Pressure Research",
+        "doi": "10.1080/08957959.2020.1791107"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [298.0, 298.0],
+        "notes": "AIRAPT-endorsed room-temperature scale. The fit has a reported 0.7 GPa RMS through 150 GPa; lambda0 is the ambient R1 wavelength near 694.25 nm."
+      }
+    },
+    {
+      "identifier": "diamond_raman_akahama_2006",
+      "label": "Akahama and Kawamura (2006) diamond-anvil Raman-edge scale",
+      "kind": "diamond_raman",
+      "model": "akahama_quadratic",
+      "parameters": {
+        "K0_gpa": 547.0,
+        "K0_prime": 3.75,
+        "reference_wavenumber_cm1": 1334.0
+      },
+      "parameter_errors": {
+        "K0_gpa": 11.0,
+        "K0_prime": 0.20,
+        "reference_wavenumber_cm1": null
+      },
+      "equation": "P = K0 * (delta_omega/omega0) * (1 + 0.5 * (K0_prime - 1) * delta_omega/omega0)",
+      "reference": {
+        "authors": ["Akahama", "Kawamura"],
+        "year": 2006,
+        "title": "Pressure calibration of diamond anvil Raman gauge to 310 GPa",
+        "source": "J. Appl. Phys.",
+        "doi": "10.1063/1.2335683"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 310.0],
+        "temperature_k": [298.0, 298.0],
+        "notes": "High-frequency edge of the stressed diamond anvil; calibrated against the Holmes et al. (1989) Pt pressure scale."
+      }
+    },
+    {
+      "identifier": "diamond_raman_eremets_2023",
+      "label": "Eremets et al. (2023) universal diamond-edge Raman scale",
+      "kind": "diamond_raman",
+      "model": "normalized_quadratic",
+      "parameters": {
+        "A_gpa": 517.0,
+        "B_gpa": 764.0,
+        "reference_wavenumber_cm1": 1332.5
+      },
+      "parameter_errors": {
+        "A_gpa": 5.0,
+        "B_gpa": 14.0,
+        "reference_wavenumber_cm1": null
+      },
+      "equation": "P = A * (delta_omega/omega0) + B * (delta_omega/omega0)^2",
+      "reference": {
+        "authors": ["Eremets", "Minkov", "Kong", "Drozdov", "Chariton", "Prakapenka"],
+        "year": 2023,
+        "title": "Universal diamond edge Raman scale to 0.5 terapascal and implications for the metallization of hydrogen",
+        "source": "Nature Communications",
+        "doi": "10.1038/s41467-023-36429-9"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 500.0],
+        "temperature_k": [298.0, 298.0],
+        "notes": "High-frequency edge midpoint; fit to simultaneous Au XRD/Raman measurements using the Fratanduono et al. (2021) ramp-derived 298 K Au isotherm."
+      }
+    }
+  ],
+  "pressure_standard_records": [
+    "gold_fratanduono_2021_vinet_7",
+    "gold_sokolova_2013_holzapfel_4",
+    "kcl_b2_chidester_2021_bm3_5",
+    "kcl_b2_dewaele_2012_vinet_3",
+    "kcl_b2_tateno_2019_vinet_4",
+    "platinum_dorogokupets_oganov_2007_vinet_4",
+    "platinum_sokolova_2013_holzapfel_3"
+  ],
+  "cross_calibration_edges": [
+    {
+      "identifier": "kcl_tateno_2019_to_platinum_sokolova_2013",
+      "kind": "simultaneous_xrd_calibration",
+      "source_node": "kcl_b2_tateno_2019_vinet_4",
+      "target_node": "platinum_sokolova_2013_holzapfel_3",
+      "transformation": "pressure_identity",
+      "bidirectional": true,
+      "executable": true,
+      "reference": {
+        "authors": ["Tateno", "Hirose", "Ohishi"],
+        "year": 2019,
+        "source": "American Mineralogist",
+        "doi": "10.2138/am-2019-6779"
+      },
+      "source_location": "Table 1 and room-temperature/thermal EOS fits; simultaneous Pt and B2-KCl diffraction",
+      "notes": "The KCl fit was reduced with the Sokolova et al. (2016 implementation of the 2013 family) Pt pressure scale."
+    },
+    {
+      "identifier": "kcl_chidester_2021_to_platinum_dorogokupets_2007",
+      "kind": "simultaneous_xrd_calibration",
+      "source_node": "kcl_b2_chidester_2021_bm3_5",
+      "target_node": "platinum_dorogokupets_oganov_2007_vinet_4",
+      "transformation": "pressure_identity",
+      "temperature_transformation": {
+        "kind": "affine",
+        "source_quantity": "kcl_effective_temperature",
+        "target_quantity": "pt_foil_average_temperature",
+        "scale": 1.2933333333333332,
+        "offset_k": -95.38333333333334,
+        "equation": "T_Pt,avg = 0.97*(4*T_KCl - 295 K)/3",
+        "surface_temperature_equation": "T_surface = (4*T_KCl - 295 K)/3",
+        "reported_kcl_uncertainty_equation": "sigma(T_KCl) = (T_surface - 295 K)/4"
+      },
+      "bidirectional": true,
+      "executable": true,
+      "reference": {
+        "authors": ["Chidester", "Thompson", "Fischer", "Heinz", "Prakapenka", "Meng", "Campbell"],
+        "year": 2021,
+        "source": "Phys. Rev. B",
+        "doi": "10.1103/PhysRevB.104.094107"
+      },
+      "source_location": "Methods, Table I, and Supplemental Table A1",
+      "notes": "The pressure identity is the published Pt-reduced pressure basis. The nominal temperature mapping first recovers the measured Pt surface temperature and then applies the paper's 3% axial-gradient correction to obtain the average Pt-foil temperature used with the Dorogokupets-Oganov EOS. The large reported KCl temperature uncertainty is metadata and is not propagated by the deterministic path API. Raw Pt volumes are absent, so this enables derived EOS normalization but not an exact observation-level refit."
+    },
+    {
+      "identifier": "diamond_akahama_2006_to_platinum_holmes_1989",
+      "kind": "simultaneous_xrd_optical_calibration",
+      "source_node": "diamond_raman_akahama_2006",
+      "target_node": "platinum_holmes_1989_vinet_1",
+      "transformation": "pressure_identity",
+      "bidirectional": true,
+      "executable": true,
+      "reference": {
+        "authors": ["Akahama", "Kawamura"],
+        "year": 2006,
+        "source": "J. Appl. Phys.",
+        "doi": "10.1063/1.2335683"
+      },
+      "source_location": "diamond-edge calibration against Pt diffraction"
+    },
+    {
+      "identifier": "diamond_eremets_2023_to_gold_fratanduono_2021",
+      "kind": "simultaneous_xrd_optical_calibration",
+      "source_node": "diamond_raman_eremets_2023",
+      "target_node": "gold_fratanduono_2021_vinet_7",
+      "transformation": "pressure_identity",
+      "bidirectional": true,
+      "executable": true,
+      "reference": {
+        "authors": ["Eremets", "Minkov", "Kong", "Drozdov", "Chariton", "Prakapenka"],
+        "year": 2023,
+        "source": "Nature Communications",
+        "doi": "10.1038/s41467-023-36429-9"
+      },
+      "source_location": "Figure 2 and Methods; simultaneous Au XRD and diamond-edge Raman at the same sample position"
+    },
+    {
+      "identifier": "sokolova_2013_gold_platinum_family",
+      "kind": "jointly_optimized_pressure_family",
+      "source_node": "platinum_sokolova_2013_holzapfel_3",
+      "target_node": "gold_sokolova_2013_holzapfel_4",
+      "transformation": "pressure_identity",
+      "bidirectional": true,
+      "executable": true,
+      "reference": {
+        "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+        "year": 2013,
+        "source": "Russian Geology and Geophysics",
+        "doi": "10.1016/j.rgg.2013.01.005"
+      },
+      "source_location": "Equations 1-15, Tables 1 and 4, and simultaneous optimization of pressure markers",
+      "notes": "Pressure identity is the shared pressure coordinate of the jointly optimized EOS family; it is not equality of Au and Pt volumes."
     }
   ],
   "measurement_notes": [

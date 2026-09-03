@@ -37,9 +37,11 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Versioned material and EOS-record catalog with explicit literature provenance,
   calibration/data envelopes, extrapolation enabled by default, inversion, and
   measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 115-material/155-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 115-material/159-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
+- Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and
+  diamond Raman standards with source-documented cross-calibration edges
 - Native wheels for supported CPython releases on Linux, macOS, and Windows
 
 ## Unit conventions

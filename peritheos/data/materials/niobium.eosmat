@@ -345,5 +345,139 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "niobium_takemura_2006_table1_compression",
+   "kind": "pressure_volume",
+   "description": "Complete 43-row niobium structural dataset from all five experimental runs.",
+   "reference": {
+    "authors": [
+     "Takemura",
+     "Singh"
+    ],
+    "year": 2006,
+    "source": "Phys. Rev. B",
+    "volume": "73",
+    "locator": "224119",
+    "doi": "10.1103/PhysRevB.73.224119"
+   },
+   "source_location": "Table I, pages 224119-2 to 224119-3",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "wavelength_a",
+     "quantity": "xray_wavelength",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio_sigma",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "volume_ratio"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_sigma_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "a_a"
+    },
+    {
+     "name": "d110_a",
+     "quantity": "d_spacing_110",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "d110_sigma_a",
+     "quantity": "d_spacing_110",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "d110_a"
+    },
+    {
+     "name": "d200_a",
+     "quantity": "d_spacing_200",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "d200_sigma_a",
+     "quantity": "d_spacing_200",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "d200_a"
+    },
+    {
+     "name": "d211_a",
+     "quantity": "d_spacing_211",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "d211_sigma_a",
+     "quantity": "d_spacing_211",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "d211_a"
+    },
+    {
+     "name": "differential_stress_gpa",
+     "quantity": "differential_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "differential_stress_sigma_gpa",
+     "quantity": "differential_stress",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "differential_stress_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/niobium-takemura-2006-table1-compression.csv",
+    "sha256": "66c97de01cc792471e989a151b1dada233f7b3fa93f261d5776d37cee8667742",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "niobium_takemura_2006_bm3_1"
+   ],
+   "notes": "Run 1 used methanol-ethanol-water; the other runs used helium. The paper excludes run 11 from bulk-modulus refinement because of large differential stress and adopts the best quasihydrostatic subset through 71.5 GPa.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.73.224119"
+  }
+ ]
 }

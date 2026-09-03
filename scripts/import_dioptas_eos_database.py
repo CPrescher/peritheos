@@ -181,7 +181,6 @@ def main() -> None:
             "url": DIOPTAS_URL,
             "version": DIOPTAS_VERSION,
             "commit": DIOPTAS_COMMIT,
-            "license": "MIT",
         },
         "materials": material_count,
         "eos_records": record_count,

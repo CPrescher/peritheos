@@ -156,5 +156,112 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "coesite_levien_1981_table7_pv",
+   "kind": "pressure_volume",
+   "description": "All nine coesite unit-cell observations used in the unweighted BM3 fit.",
+   "reference": {
+    "authors": [
+     "Levien",
+     "Prewitt"
+    ],
+    "year": 1981,
+    "source": "American Mineralogist",
+    "volume": "66",
+    "locator": "324-333"
+   },
+   "source_location": "Table 7, page 330",
+   "columns": [
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "standard_deviation",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_sigma_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "a_a"
+    },
+    {
+     "name": "b_a",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "b_sigma_a",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "b_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_sigma_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "c_a"
+    },
+    {
+     "name": "beta_deg",
+     "quantity": "lattice_angle_beta",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "beta_sigma_deg",
+     "quantity": "lattice_angle_beta",
+     "unit": "degree",
+     "role": "standard_deviation",
+     "of": "beta_deg"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/coesite-levien-1981-table7-pv.csv",
+    "sha256": "ba8c7fcdd377eeb28f24a3ba0586884120159b6ecbf9eb6d87caa2c59e75f1cc",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "coesite_levien_1981_bm3_1"
+   ],
+   "notes": "The ambient row is encoded as 0.001 kbar (1 atm) and has no pressure sigma. Parenthesized figures are the source's estimated standard deviations."
+  }
+ ]
 }

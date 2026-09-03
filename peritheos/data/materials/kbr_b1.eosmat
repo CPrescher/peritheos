@@ -141,5 +141,59 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "kbr_b1_dewaele_2012_table2_compression",
+   "kind": "pressure_volume",
+   "description": "Complete 30-row 298 K KBR B1 compression table.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Belonoshko",
+     "Garbarino",
+     "Occelli",
+     "Bouvier",
+     "Hanfland",
+     "Mezouar"
+    ],
+    "year": 2012,
+    "source": "Phys. Rev. B",
+    "volume": "85",
+    "locator": "214105",
+    "doi": "10.1103/PhysRevB.85.214105"
+   },
+   "source_location": "Table II, page 214105-3",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_per_formula_unit",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kbr-b1-dewaele-2012-table2-compression.csv",
+    "sha256": "9afa685b8cc7828fa705db4762078e2d7061f0259eda9d39ffb9d0dbfafc1419",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kbr_b1_dewaele_2012_vinet_1"
+   ],
+   "notes": "The paper reports pressure uncertainty below 2% and relative volume uncertainty below 0.001 in this pressure range; row-wise values are not printed.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.85.214105"
+  }
+ ]
 }

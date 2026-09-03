@@ -127,5 +127,106 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "osmium_takemura_2004_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 28 quasihydrostatic osmium compression observations.",
+   "reference": {
+    "authors": [
+     "Takemura"
+    ],
+    "year": 2004,
+    "source": "Phys. Rev. B",
+    "volume": "70",
+    "locator": "012101",
+    "doi": "10.1103/PhysRevB.70.012101"
+   },
+   "source_location": "Table I, page 012101-2",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_sigma_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "a_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_sigma_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "c_a"
+    },
+    {
+     "name": "c_a_ratio",
+     "quantity": "axial_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "c_a_ratio_sigma",
+     "quantity": "axial_ratio",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "c_a_ratio"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio_sigma",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "volume_ratio"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/osmium-takemura-2004-table1-compression.csv",
+    "sha256": "d87a183751ee6adcc8543ca8a24c3c9d9550aa4805fe432676a9aa58c749fcc5",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "osmium_takemura_2004_bm3_1"
+   ],
+   "notes": "run=1 is run A, run=2 is decreasing-pressure run AD, and run=3 is run B. Parenthesized errors are least-squares standard deviations.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.70.012101"
+  }
+ ]
 }

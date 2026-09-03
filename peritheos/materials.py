@@ -33,6 +33,7 @@ from peritheos.eos.rt import (
     Vinet,
 )
 from peritheos.eos.thermal import (
+    DorogokupetsOganov2007,
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
     LinearThermalPressure,
@@ -646,6 +647,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "NaturalStrain4": "natural_strain_4",
         "DoubleDebyeHelmholtz": "double_debye_helmholtz",
         "DoubleDebyeLogMomentHelmholtz": ("double_debye_log_moment_helmholtz"),
+        "DorogokupetsOganov2007": "dorogokupets_oganov_2007",
         "LinearThermalPressure": "linear_thermal_pressure",
         "LogVolumeThermalPressure": "log_volume_thermal_pressure",
         "ThermalReferenceStateEOS": "thermal_reference_state",
@@ -675,6 +677,7 @@ _MODEL_CLASSES = MappingProxyType(
             Vinet,
             DoubleDebyeHelmholtz,
             DoubleDebyeLogMomentHelmholtz,
+            DorogokupetsOganov2007,
             LinearThermalPressure,
             LogVolumeThermalPressure,
             ThermalReferenceStateEOS,
@@ -701,6 +704,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "natural_strain_4": "NaturalStrain4",
         "double_debye_helmholtz": "DoubleDebyeHelmholtz",
         "double_debye_log_moment_helmholtz": ("DoubleDebyeLogMomentHelmholtz"),
+        "dorogokupets_oganov_2007": "DorogokupetsOganov2007",
         "linear_thermal_pressure": "LinearThermalPressure",
         "log_volume_thermal_pressure": "LogVolumeThermalPressure",
         "thermal_reference_state": "AlphaKT",
@@ -719,6 +723,7 @@ _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
         "mie_gruneisen_debye",
         "double_debye_helmholtz",
         "double_debye_log_moment_helmholtz",
+        "dorogokupets_oganov_2007",
         "mie_gruneisen_einstein",
         "asymptotic_power_law_mie_gruneisen_debye",
         "multi_oscillator_gruneisen_thermal_pressure",
@@ -1483,6 +1488,19 @@ def _material_from_eosmat(
         "datasets",
         "eos_records",
     }
+    selected_record_identifiers = {record.identifier for record in eos_records}
+    selected_datasets = []
+    for raw_dataset in document.get("datasets", ()):
+        dataset = _plain_data(raw_dataset)
+        used_by = [
+            identifier
+            for identifier in dataset.get("used_by_eos_records", ())
+            if identifier in selected_record_identifiers
+        ]
+        if used_by:
+            dataset["used_by_eos_records"] = used_by
+            selected_datasets.append(dataset)
+
     return Material(
         identifier=str(document["identifier"]),
         formula=formula,
@@ -1510,7 +1528,7 @@ def _material_from_eosmat(
         ),
         atom_sites=tuple(document.get("atom_sites", ())),
         peaks=tuple(tuple(peak) for peak in document.get("peaks", ())),
-        datasets=tuple(document.get("datasets", ())),
+        datasets=tuple(selected_datasets),
         eosmat_metadata={
             key: _plain_data(value)
             for key, value in document.items()

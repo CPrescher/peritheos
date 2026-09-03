@@ -110,7 +110,7 @@ impl RubyFluorescenceCalibration {
 }
 
 /// Bundled executable ruby calibrations, in chronological order.
-pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 5] = [
+pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 6] = [
     RubyFluorescenceCalibration {
         identifier: "ruby_mao_1978",
         label: "Mao et al. (1978) ruby scale",
@@ -162,6 +162,16 @@ pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 5] = [
             m: 5.5,
         },
     },
+    RubyFluorescenceCalibration {
+        identifier: "ruby_shen_2020",
+        label: "IPPS-Ruby2020 (Shen et al., 2020)",
+        doi: "10.1080/08957959.2020.1791107",
+        reference_wavelength_nm: 694.25,
+        model: RubyCalibrationModel::QuadraticShift {
+            a_gpa: 1870.0,
+            m: 5.63,
+        },
+    },
 ];
 
 /// Find a bundled ruby calibration by stable identifier.
@@ -185,4 +195,144 @@ pub fn recalculate_ruby_pressure(
     target: RubyFluorescenceCalibration,
 ) -> EosResult<f64> {
     target.pressure_from_ratio(source.wavelength_ratio(pressure_gpa)?)
+}
+
+/// Functional form of a diamond-anvil high-frequency Raman-edge calibration.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub enum DiamondRamanCalibrationModel {
+    /// `P = A*x + B*x^2`, where `x = omega/omega0 - 1`.
+    NormalizedQuadratic { a_gpa: f64, b_gpa: f64 },
+    /// `P = K0*x*(1 + 0.5*(K0' - 1)*x)`.
+    AkahamaQuadratic { k0_gpa: f64, k0_prime: f64 },
+}
+
+/// A published room-temperature diamond-anvil Raman-edge pressure scale.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DiamondRamanCalibration {
+    pub identifier: &'static str,
+    pub label: &'static str,
+    pub doi: &'static str,
+    pub reference_wavenumber_cm1: f64,
+    pub model: DiamondRamanCalibrationModel,
+}
+
+impl DiamondRamanCalibration {
+    /// Calculate pressure in `GPa` from the edge ratio `omega/omega0`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for a non-finite ratio, a ratio below one, or a
+    /// non-finite result.
+    pub fn pressure_from_ratio(self, wavenumber_ratio: f64) -> EosResult<f64> {
+        let ratio = validation::finite_state(wavenumber_ratio, "wavenumber_ratio")?;
+        if ratio < 1.0 {
+            return Err(EosError::InvalidState {
+                name: "wavenumber_ratio",
+                reason: "must be at least one for non-negative pressure",
+            });
+        }
+        let shift = ratio - 1.0;
+        let pressure = match self.model {
+            DiamondRamanCalibrationModel::NormalizedQuadratic { a_gpa, b_gpa } => {
+                shift.mul_add(b_gpa * shift, a_gpa * shift)
+            }
+            DiamondRamanCalibrationModel::AkahamaQuadratic { k0_gpa, k0_prime } => {
+                k0_gpa * shift * (0.5 * (k0_prime - 1.0) * shift + 1.0)
+            }
+        };
+        validation::finite_result(pressure)
+    }
+
+    /// Invert pressure in `GPa` to the edge ratio `omega/omega0`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for negative or non-finite pressure, or a non-finite
+    /// result.
+    pub fn wavenumber_ratio(self, pressure_gpa: f64) -> EosResult<f64> {
+        let pressure = validation::finite_state(pressure_gpa, "pressure_gpa")?;
+        if pressure < 0.0 {
+            return Err(EosError::InvalidState {
+                name: "pressure_gpa",
+                reason: "must be non-negative",
+            });
+        }
+        let (linear, quadratic) = match self.model {
+            DiamondRamanCalibrationModel::NormalizedQuadratic { a_gpa, b_gpa } => (a_gpa, b_gpa),
+            DiamondRamanCalibrationModel::AkahamaQuadratic { k0_gpa, k0_prime } => {
+                (k0_gpa, 0.5 * k0_gpa * (k0_prime - 1.0))
+            }
+        };
+        let shift =
+            ((linear * linear + 4.0 * quadratic * pressure).sqrt() - linear) / (2.0 * quadratic);
+        validation::finite_result(1.0 + shift)
+    }
+
+    /// Calculate pressure from the diamond-edge wavenumber in `cm^-1`.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for a non-positive wavenumber or invalid ratio.
+    pub fn pressure_from_wavenumber(self, wavenumber_cm1: f64) -> EosResult<f64> {
+        let wavenumber = validation::positive_state(wavenumber_cm1, "wavenumber_cm1")?;
+        self.pressure_from_ratio(wavenumber / self.reference_wavenumber_cm1)
+    }
+
+    /// Calculate the diamond-edge wavenumber in `cm^-1` implied by pressure.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid pressure or a non-finite result.
+    pub fn wavenumber_from_pressure(self, pressure_gpa: f64) -> EosResult<f64> {
+        validation::finite_result(
+            self.wavenumber_ratio(pressure_gpa)? * self.reference_wavenumber_cm1,
+        )
+    }
+}
+
+/// Bundled executable diamond Raman calibrations, in chronological order.
+pub const DIAMOND_RAMAN_CALIBRATIONS: [DiamondRamanCalibration; 2] = [
+    DiamondRamanCalibration {
+        identifier: "diamond_raman_akahama_2006",
+        label: "Akahama and Kawamura (2006) diamond-anvil Raman-edge scale",
+        doi: "10.1063/1.2335683",
+        reference_wavenumber_cm1: 1334.0,
+        model: DiamondRamanCalibrationModel::AkahamaQuadratic {
+            k0_gpa: 547.0,
+            k0_prime: 3.75,
+        },
+    },
+    DiamondRamanCalibration {
+        identifier: "diamond_raman_eremets_2023",
+        label: "Eremets et al. (2023) universal diamond-edge Raman scale",
+        doi: "10.1038/s41467-023-36429-9",
+        reference_wavenumber_cm1: 1332.5,
+        model: DiamondRamanCalibrationModel::NormalizedQuadratic {
+            a_gpa: 517.0,
+            b_gpa: 764.0,
+        },
+    },
+];
+
+/// Find a bundled diamond Raman calibration by stable identifier.
+#[must_use]
+pub fn diamond_raman_calibration(identifier: &str) -> Option<DiamondRamanCalibration> {
+    DIAMOND_RAMAN_CALIBRATIONS
+        .iter()
+        .copied()
+        .find(|calibration| calibration.identifier == identifier)
+}
+
+/// Convert diamond-edge pressure between scales through `omega/omega0`.
+///
+/// # Errors
+///
+/// Returns an error when source-scale inversion or target-scale evaluation
+/// rejects the state.
+pub fn recalculate_diamond_raman_pressure(
+    pressure_gpa: f64,
+    source: DiamondRamanCalibration,
+    target: DiamondRamanCalibration,
+) -> EosResult<f64> {
+    target.pressure_from_ratio(source.wavenumber_ratio(pressure_gpa)?)
 }

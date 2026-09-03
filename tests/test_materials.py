@@ -230,6 +230,25 @@ def test_eosmat_crystallography_is_preserved_while_selected_eos_is_executable():
     assert np.isfinite(pressure)
 
 
+def test_eosmat_datasets_follow_selected_eos_records():
+    source = get_material_document("gold")
+
+    without_data = Material.from_eosmat(
+        source, record_identifiers=("gold_fei_2007_vinet_2",)
+    ).to_eosmat()
+    assert "datasets" not in without_data
+
+    with_data = Material.from_eosmat(
+        source, record_identifiers=("gold_dewaele_2004_vinet_5",)
+    ).to_eosmat()
+    assert [dataset["identifier"] for dataset in with_data["datasets"]] == [
+        "gold_dewaele_2004_table1_compression"
+    ]
+    assert with_data["datasets"][0]["used_by_eos_records"] == [
+        "gold_dewaele_2004_vinet_5"
+    ]
+
+
 def test_eosmat_record_provenance_and_extensions_survive_executable_round_trip():
     source = get_material_document("gold")
     identifier = "gold_fei_2007_vinet_2"

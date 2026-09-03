@@ -251,5 +251,107 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "ice_vii_frank_2004_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "Complete 71-row H2O ice-VII pressure-volume-temperature table, including five explicit no-ice observations.",
+   "reference": {
+    "authors": [
+     "Frank",
+     "Fei",
+     "Hu"
+    ],
+    "year": 2004,
+    "source": "Geochimica et Cosmochimica Acta",
+    "volume": "68",
+    "locator": "2781-2790",
+    "doi": "10.1016/j.gca.2003.12.007"
+   },
+   "source_location": "Table 1, pages 2783-2784",
+   "columns": [
+    {
+     "name": "experiment",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_2sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "gold_lattice_parameter_a",
+     "quantity": "calibrant_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "gold_lattice_parameter_a_2sigma",
+     "quantity": "calibrant_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "gold_lattice_parameter_a"
+    },
+    {
+     "name": "ice_lattice_parameter_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "ice_lattice_parameter_a_2sigma",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "ice_lattice_parameter_a"
+    },
+    {
+     "name": "ice_molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "ice_molar_volume_2sigma_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "bound",
+     "of": "ice_molar_volume_cm3_mol"
+    },
+    {
+     "name": "ice_observed",
+     "quantity": "phase_observed",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ice-vii-frank-2004-table1-pvt.csv",
+    "sha256": "5b542319b55e9eef34374455e820261d3c259bc8aa205c82d7979913e6030e23",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ice_vii_frank_2004_bm3_2"
+   ],
+   "notes": "The source describes the tabulated uncertainties as 2-sigma standard deviations from the mean. Gold lattice parameters used for the internal Anderson et al. (1989) pressure calibration are retained.",
+   "source_url": "https://doi.org/10.1016/j.gca.2003.12.007"
+  }
+ ]
 }

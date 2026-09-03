@@ -2,6 +2,7 @@
 This module contains the thermal equations of state (EOS) implementations.
 """
 
+from .dorogokupets_oganov import DorogokupetsOganov2007
 from .double_debye_helmholtz import (
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
@@ -23,6 +24,7 @@ from .sokolova2016 import Sokolova2016
 __all__ = [
     "DoubleDebyeHelmholtz",
     "DoubleDebyeLogMomentHelmholtz",
+    "DorogokupetsOganov2007",
     "HollandPowell2011",
     "LinearThermalPressure",
     "LogVolumeThermalPressure",

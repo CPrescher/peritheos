@@ -245,5 +245,69 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "ca_perovskite_shim_2000_table1_pv",
+   "kind": "pressure_volume",
+   "description": "The ten low-differential-stress CaSiO3 perovskite points selected for EOS fitting.",
+   "reference": {
+    "authors": [
+     "Shim",
+     "Duffy",
+     "Shen"
+    ],
+    "year": 2000,
+    "source": "Phys. Earth Planet. Inter.",
+    "volume": "120",
+    "locator": "327-338",
+    "doi": "10.1016/S0031-9201(00)00154-0"
+   },
+   "source_location": "Table 1, page 334",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "pressure_medium",
+     "quantity": "pressure_medium",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-shim-2000-table1-pv.csv",
+    "sha256": "184f8f6fb2da4454f661e157cc90f222cf26ab8576dc89259f3668e3f2f8ca1d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_shim_2000_bm3_1"
+   ],
+   "notes": "pressure_medium=1 denotes Ar and pressure_medium=2 denotes NaCl. Errors are the reported 1-sigma estimates. The published fit also incorporates low-pressure Wang et al. (1996) data, which are not reproduced here because they are not observations from this paper.",
+   "source_url": "https://doi.org/10.1016/S0031-9201(00)00154-0"
+  }
+ ]
 }

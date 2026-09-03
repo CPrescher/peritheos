@@ -66,28 +66,50 @@ field contract and consumer defaults.
 
 ```python
 from peritheos import (
+    find_pressure_calibration_path,
+    get_cross_calibration_edge,
     get_pressure_calibration,
+    list_cross_calibration_edges,
+    list_diamond_raman_calibrations,
     list_pressure_calibrations,
+    list_ruby_pressure_calibrations,
+    list_ruby_xrd_bridges,
     list_xrd_pressure_standards,
+    recalculate_diamond_raman_pressure,
+    recalculate_eos_pressure_scale,
+    recalculate_pressure_calibration_path,
     recalculate_ruby_pressure,
     recalculate_ruby_to_xrd_pressure,
+    recalculate_xrd_pressure_scale,
     xrd_standard_pressure,
 )
 ```
 
-Five published ruby R1 calibrations are bundled with their equations,
-coefficients, provenance, and validity metadata. They support pressure from
-wavelength, wavelength shift, or normalized wavelength ratio; analytical
-inversion; and scale-to-scale conversion. XRD pressure uses any linked
-executable EOS record and its conventional-cell volume convention. Paired
-ruby-to-XRD recalculation returns source pressure, inferred R1 ratio, target
-pressure, and pressure difference. See [Pressure standards](pressure-standards.md#ruby-and-xrd-pressure-scale-conversion).
+Six published ruby R1 calibrations and two diamond-anvil Raman-edge
+calibrations are bundled with their equations, coefficients, provenance, and
+validity metadata. Ruby supports wavelength, wavelength shift, and normalized
+wavelength ratio; diamond Raman supports wavenumber and normalized wavenumber
+ratio. Both provide analytical inversion and scale-to-scale conversion. The
+explicit cross-calibration edge
+registry records simultaneous experiments and jointly optimized families.
+XRD-to-XRD conversion inverts the
+source EOS to a virtual volume of the common standard and evaluates the target
+EOS at that coordinate. Ruby-to-XRD conversion uses a ruby-linked standard EOS
+as the first edge. The high-level sample-EOS API recursively discovers a path
+from recorded provenance and returns every node and edge used. An edge may
+also transform its temperature coordinate; the Chidester KCl-to-Dorogokupets
+Pt edge converts the lower KCl effective temperature to the nominal average
+Pt-foil temperature and records both edge-end values in `intermediate_states`. See
+[Pressure-scale normalization](pressure-scale-normalization.md) for the valid
+graph edges, complete examples, cross-calibration literature, and the
+difference between a derived transformation and observation-level
+re-reduction.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records have been added for aragonite BM2, the
 B2-KCl P-V-T pressure calibration, and the Correa and Benedict diamond
 Helmholtz models, including derived variants anchored to the experimental
-Dewaele 298 K Vinet isotherm. All 155 bundled records are
+Dewaele 298 K Vinet isotherm. All 159 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with

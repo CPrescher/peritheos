@@ -287,7 +287,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -296,9 +297,10 @@
       "Table I and footnotes, page 4",
       "Table II, pages 9-12",
       "Section III.E, pages 8 and 12-14",
-      "Experimental methods, page 2"
+      "Experimental methods, page 2",
+      "Supplemental Table S1, official Excel workbook"
      ],
-     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
      "doi": "10.1103/fxgq-96sg"
     },
     "migration_source": {
@@ -306,6 +308,196 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "platinum.json"
+    }
+   }
+  },
+  {
+   "label": "Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale",
+   "reference": {
+    "authors": [
+     "Dorogokupets",
+     "Oganov"
+    ],
+    "year": 2007,
+    "source": "Phys. Rev. B",
+    "volume": "75",
+    "locator": "024115",
+    "doi": "10.1103/PhysRevB.75.024115"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 60.38384263870976,
+     "K0": 276.07,
+     "K0_prime": 5.3
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 298.15,
+   "thermal": {
+    "type": "DorogokupetsOganov2007",
+    "model": "dorogokupets_oganov_2007",
+    "parameters": {
+     "Tr": 298.15,
+     "theta_B1": 95.2,
+     "d_B1": 8.199,
+     "m_B1": 0.329,
+     "theta_B2": 148.4,
+     "d_B2": 4.005,
+     "m_B2": 0.383,
+     "theta_E1": 214.6,
+     "m_E1": 1.211,
+     "theta_E2": 140.8,
+     "m_E2": 1.077,
+     "gamma0": 2.802,
+     "gamma_inf": 1.538,
+     "beta": 5.55,
+     "anharmonic_a": 160.9,
+     "anharmonic_m": 4.06,
+     "electronic_e": 260.0,
+     "electronic_g": 2.4,
+     "defect_H": 32572.0,
+     "defect_S": 0.631,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta_B1": null,
+     "d_B1": null,
+     "m_B1": null,
+     "theta_B2": null,
+     "d_B2": null,
+     "m_B2": null,
+     "theta_E1": null,
+     "m_E1": null,
+     "theta_E2": null,
+     "m_E2": null,
+     "gamma0": null,
+     "gamma_inf": null,
+     "beta": null,
+     "anharmonic_a": null,
+     "anharmonic_m": null,
+     "electronic_e": null,
+     "electronic_g": null,
+     "defect_H": null,
+     "defect_S": null,
+     "n": null
+    },
+    "fixed_parameters": []
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    262.523
+   ],
+   "experimental_temperature_range_k": [
+    298.15,
+    3000.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     262.523
+    ],
+    "temperature_k": [
+     298.15,
+     3000.0
+    ],
+    "volume_ratio": [
+     0.7,
+     1.0
+    ],
+    "notes": [
+     "The conservative executable domain follows the Pt isochors printed in Table VI; the general formulation is discussed over wider compression and temperature ranges.",
+     "Table I coefficients are rounded as published, so recalculated Table VI pressures agree within about 0.02 GPa rather than at every final printed digit."
+    ]
+   },
+   "notes": "Complete equations (6)-(14) Pt pressure scale. The published molar V0=9.091 cm^3/mol is converted to the four-atom fcc conventional cell using the exact Avogadro constant. The implementation includes the two generalized-Bose and two Einstein oscillator terms, volume-dependent Gruneisen law, intrinsic anharmonicity, electronic excitation, and vacancy contribution, all referenced to 298.15 K.",
+   "identifier": "platinum_dorogokupets_oganov_2007_vinet_4",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Equations 6-14, Table I, and Table VI; semiempirical multiphase pressure-scale optimization"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This is the bundled pressure-scale model itself rather than an EOS reduced against a separate external marker."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Table I; 9.091 cm^3/mol",
+     "K0": "Table I; 276.07 GPa",
+     "K0_prime": "Table I; 5.30"
+    },
+    "thermal_correction": {
+     "Tr": "Equations 6-14; 298.15 K reference isotherm",
+     "theta_B1": "Table I",
+     "d_B1": "Table I",
+     "m_B1": "Table I",
+     "theta_B2": "Table I",
+     "d_B2": "Table I",
+     "m_B2": "Table I",
+     "theta_E1": "Table I",
+     "m_E1": "Table I",
+     "theta_E2": "Table I",
+     "m_E2": "Table I",
+     "gamma0": "Table I",
+     "gamma_inf": "Table I",
+     "beta": "Table I",
+     "anharmonic_a": "Table I",
+     "anharmonic_m": "Table I",
+     "electronic_e": "Table I and reference 31",
+     "electronic_g": "Table I and reference 31",
+     "defect_H": "Table I",
+     "defect_S": "Table I",
+     "n": "Pt chemical formula"
+    },
+    "additional": {
+     "printed_validation_values": "Table VI Pt isochors"
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, all Pt coefficients, units, reference state, oscillator multiplicity, and printed isochors were checked against the primary paper.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf",
+     "locations": [
+      "Equations 6-14",
+      "Table I, Pt column",
+      "Table VI, Pt isochors"
+     ],
+     "finding": "The paper supplies a complete, directly implementable Pt Vinet plus four-oscillator Helmholtz EOS. Evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
+     "doi": "10.1103/PhysRevB.75.024115"
     }
    }
   },
@@ -505,5 +697,73 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
+   "kind": "simultaneous_unit_cell_volumes",
+   "description": "All 3,511 non-missing unit-cell volume measurements and standard errors from the two Supplemental Table S1 worksheets.",
+   "reference": {
+    "authors": [
+     "Shen",
+     "Smith"
+    ],
+    "year": 2026,
+    "source": "Phys. Rev. B",
+    "volume": "113",
+    "locator": "144113",
+    "doi": "10.1103/fxgq-96sg"
+   },
+   "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
+   "columns": [
+    {
+     "name": "experiment",
+     "quantity": "experiment_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "run_number",
+     "quantity": "run_number",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "measurement_sequence",
+     "quantity": "measurement_sequence",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_error_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/shen-smith-2026-table-s1-volumes.csv",
+    "sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "platinum_shen_2026_vinet_2"
+   ],
+   "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
+   "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  }
+ ]
 }

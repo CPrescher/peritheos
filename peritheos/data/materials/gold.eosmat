@@ -617,7 +617,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -626,9 +627,10 @@
       "Table I and footnotes, page 4",
       "Table II, pages 9-12",
       "Section III.E, pages 8 and 12-14",
-      "Experimental methods, page 2"
+      "Experimental methods, page 2",
+      "Supplemental Table S1, official Excel workbook"
      ],
-     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
      "doi": "10.1103/fxgq-96sg"
     },
     "migration_source": {
@@ -827,6 +829,129 @@
      }
     }
    ]
+  },
+  {
+   "label": "Fratanduono et al. (2021), ramp-derived 298 K Vinet",
+   "reference": {
+    "authors": [
+     "Fratanduono",
+     "Millot",
+     "Braun",
+     "Ali",
+     "Fernandez-Panella",
+     "Seagle",
+     "Davis",
+     "Brown",
+     "Akahama",
+     "Kraus",
+     "Marshall",
+     "Smith",
+     "O'Bannon",
+     "McNaney",
+     "Eggert"
+    ],
+    "year": 2021,
+    "source": "Science",
+    "volume": "372",
+    "locator": "1063-1068",
+    "doi": "10.1126/science.abh0364"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 67.716,
+     "K0": 170.9,
+     "K0_prime": 5.88
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.24,
+    "K0_prime": 0.005
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    1000.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     1000.0
+    ],
+    "temperature_k": [
+     298.0,
+     298.0
+    ],
+    "volume_ratio": [
+     0.45,
+     1.0
+    ],
+    "notes": [
+     "Use only within the ramp-compression measurement range; the authors explicitly warn against extrapolating the Vinet fit beyond the data."
+    ]
+   },
+   "notes": "Quasi-absolute 298 K reference isotherm reduced from shockless ramp compression. Table 1 reports atomic V0=16.929 A^3, converted here to the four-atom fcc conventional cell. This is the Au pressure basis used by the Eremets et al. (2023) diamond-edge scale.",
+   "identifier": "gold_fratanduono_2021_vinet_7",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Fratanduono",
+        "Millot",
+        "Braun"
+       ],
+       "year": 2021,
+       "source": "Science",
+       "doi": "10.1126/science.abh0364"
+      },
+      "source_location": "Figures 2-4, Table 1, and supplementary methods; quasi-absolute shockless ramp-compression reduction",
+      "scope": "298 K isotherm"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This is a quasi-absolute primary standard rather than an EOS reduced with another static pressure marker."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, conventional-cell conversion, parameters, reference temperature, uncertainties, and experimental scope checked against the primary publication.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1126/science.abh0364",
+     "locations": [
+      "Figures 2-4",
+      "Table 1",
+      "supplementary methods"
+     ],
+     "finding": "The primary paper reports the 298 K Au Vinet parameters V0=16.929 A^3/atom, K0=170.9(24) GPa, and K0'=5.880(5), constrained by shockless ramp compression to approximately 1 TPa.",
+     "doi": "10.1126/science.abh0364"
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Table 1; 16.929 A^3/atom multiplied by four atoms in the fcc conventional cell",
+    "K0": "Table 1; 170.9 +/- 0.24 GPa",
+    "K0_prime": "Table 1; 5.880 +/- 0.005"
+   }
   }
  ],
  "format": "peritheos.material",
@@ -835,5 +960,128 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "gold_dewaele_2004_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 37 Table I gold atomic-volume observations.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "source": "Phys. Rev. B",
+    "volume": "70",
+    "locator": "094112",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "source_location": "Table I, pages 094112-3 to 094112-4",
+   "columns": [
+    {
+     "name": "ruby_pressure_classical_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_pressure_revised_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_uncertainty_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "bound",
+     "of": "atomic_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-dewaele-2004-table1-compression.csv",
+    "sha256": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_dewaele_2004_vinet_5"
+   ],
+   "notes": "PR is the classical Mao et al. ruby pressure and PR' is the paper's revised calibration used by the stored fit. The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa; no row-wise pressure errors are printed.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.70.094112"
+  },
+  {
+   "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
+   "kind": "simultaneous_unit_cell_volumes",
+   "description": "All 3,511 non-missing unit-cell volume measurements and standard errors from the two Supplemental Table S1 worksheets.",
+   "reference": {
+    "authors": [
+     "Shen",
+     "Smith"
+    ],
+    "year": 2026,
+    "source": "Phys. Rev. B",
+    "volume": "113",
+    "locator": "144113",
+    "doi": "10.1103/fxgq-96sg"
+   },
+   "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
+   "columns": [
+    {
+     "name": "experiment",
+     "quantity": "experiment_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "run_number",
+     "quantity": "run_number",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "measurement_sequence",
+     "quantity": "measurement_sequence",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_error_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/shen-smith-2026-table-s1-volumes.csv",
+    "sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_shen_2026_vinet_3"
+   ],
+   "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
+   "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  }
+ ]
 }

@@ -6,6 +6,6 @@ include CONTRIBUTING.md
 include SECURITY.md
 include SUPPORT.md
 recursive-include docs *.csv *.ipynb *.md *.txt
-recursive-include peritheos/data *.json *.eosmat *.md *.txt
+recursive-include peritheos/data *.json *.eosmat *.md *.txt *.csv
 recursive-include scripts *.py
 recursive-include tests/data *.json

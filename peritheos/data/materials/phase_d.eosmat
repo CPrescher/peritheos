@@ -689,5 +689,90 @@
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
  },
- "phase": "Fe-bearing hexagonal phase D derived from antigorite"
+ "phase": "Fe-bearing hexagonal phase D derived from antigorite",
+ "datasets": [
+  {
+   "identifier": "phase_d_shieh_2000_table2_pv",
+   "kind": "pressure_volume",
+   "description": "AntA-D and AntB-D observations used for the two phase-D BM2 reference-volume variants.",
+   "reference": {
+    "authors": [
+     "Shieh",
+     "Mao",
+     "Hemley",
+     "Ming"
+    ],
+    "year": 2000,
+    "source": "Earth Planet. Sci. Lett.",
+    "volume": "177",
+    "locator": "69-80",
+    "doi": "10.1016/S0012-821X(00)00033-9"
+   },
+   "source_location": "Table 2, page 71",
+   "columns": [
+    {
+     "name": "sample",
+     "quantity": "sample",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_sigma_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "a_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_sigma_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "c_a"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/phase-d-shieh-2000-table2-pv.csv",
+    "sha256": "accf299e1a085b458be4267fead306cd2424007f2115192921f05922809cf889",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "phase_d_ant_a_shieh_2000_bm2_1",
+    "phase_d_ant_b_shieh_2000_bm2_1"
+   ],
+   "notes": "sample=1 is AntA-D and sample=2 is AntB-D. Parenthesized lattice and volume errors are transcribed as standard deviations of the last digits.",
+   "source_url": "https://doi.org/10.1016/S0012-821X(00)00033-9"
+  }
+ ]
 }

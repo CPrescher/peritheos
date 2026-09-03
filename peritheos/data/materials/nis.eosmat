@@ -128,5 +128,75 @@
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
  },
- "phase": "metastable NiAs-type, hexagonal P63/mmc"
+ "phase": "metastable NiAs-type, hexagonal P63/mmc",
+ "datasets": [
+  {
+   "identifier": "nis_campbell_1993_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 16 NiAs-type NiS pressure-lattice observations used for the BM3 fit.",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Heinz"
+    ],
+    "year": 1993,
+    "source": "J. Phys. Chem. Solids",
+    "volume": "54",
+    "locator": "5-7",
+    "doi": "10.1016/0022-3697(93)90106-2"
+   },
+   "source_location": "Table 1, page 6",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_uncertainty_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "a_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_uncertainty_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "c_a"
+    }
+   ],
+   "resource": {
+    "path": "datasets/nis-campbell-1993-table1-compression.csv",
+    "sha256": "6e60c9578e9f2c23c5b9338b4ce160e985b0f278f3b2c5fda268b56b20a79537",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "nis_campbell_1993_bm3_1"
+   ],
+   "notes": "Parenthesized last-digit uncertainties are expanded explicitly.",
+   "source_url": "https://doi.org/10.1016/0022-3697(93)90106-2"
+  }
+ ]
 }

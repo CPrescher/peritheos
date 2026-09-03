@@ -106,7 +106,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -115,9 +116,10 @@
       "Table I and footnotes, page 4",
       "Table II, pages 9-12",
       "Section III.E, pages 8 and 12-14",
-      "Experimental methods, page 2"
+      "Experimental methods, page 2",
+      "Supplemental Table S1, official Excel workbook"
      ],
-     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred.",
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
      "doi": "10.1103/fxgq-96sg"
     },
     "migration_source": {
@@ -135,5 +137,73 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
+   "kind": "simultaneous_unit_cell_volumes",
+   "description": "All 3,511 non-missing unit-cell volume measurements and standard errors from the two Supplemental Table S1 worksheets.",
+   "reference": {
+    "authors": [
+     "Shen",
+     "Smith"
+    ],
+    "year": 2026,
+    "source": "Phys. Rev. B",
+    "volume": "113",
+    "locator": "144113",
+    "doi": "10.1103/fxgq-96sg"
+   },
+   "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
+   "columns": [
+    {
+     "name": "experiment",
+     "quantity": "experiment_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "run_number",
+     "quantity": "run_number",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "measurement_sequence",
+     "quantity": "measurement_sequence",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_error_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/shen-smith-2026-table-s1-volumes.csv",
+    "sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "nacl_b1_shen_2026_vinet_1"
+   ],
+   "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
+   "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  }
+ ]
 }

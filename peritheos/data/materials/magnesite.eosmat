@@ -162,5 +162,82 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "magnesite_ross_1997_table1_pv",
+   "kind": "pressure_volume",
+   "description": "All 19 unit-cell measurements used for the magnesite BM3 fit.",
+   "reference": {
+    "authors": [
+     "Ross"
+    ],
+    "year": 1997,
+    "source": "American Mineralogist",
+    "volume": "82",
+    "locator": "682-688",
+    "doi": "10.2138/am-1997-7-805"
+   },
+   "source_location": "Table 1, page 683",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_sigma_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "a_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_sigma_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "c_a"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/magnesite-ross-1997-table1-pv.csv",
+    "sha256": "5cf00855cafe237f5c2b006a267b778a68d4f1ef941aeb3f531c49bf7ebe111e",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "magnesite_ross_1997_bm3_1"
+   ],
+   "uncertainty": {
+    "pressure": "Precision estimated by the author to be better than +/-0.03 GPa; not encoded as a standard deviation."
+   },
+   "source_url": "https://doi.org/10.2138/am-1997-7-805"
+  }
+ ]
 }

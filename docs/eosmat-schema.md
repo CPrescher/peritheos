@@ -170,7 +170,9 @@ pressure = refit.pressure(volume=289.1, temperature=2023.0)
 `pressure_calibration` records how the pressures underlying a published fit
 were obtained. This is separate from `reference`, which cites the publication
 that reports the fitted material EOS, and from `eos`, which is the material EOS
-itself.
+itself. See [Pressure-scale normalization](pressure-scale-normalization.md) for
+how these links may be composed into valid same-standard, ruby, and
+cross-material conversion paths.
 
 The object has a `status`, a list of `methods`, and a `recalculation` status.
 Each method identifies its `kind`, the exact location where the material source
@@ -178,7 +180,10 @@ describes it, and the primary citation for the calibration. When the method is
 an X-ray pressure standard and the exact calibration is bundled, it also has a
 `reference_eos_record` containing a globally unique EOS-record identifier.
 Ruby methods instead use `reference_calibration_record` to identify an
-executable R1 wavelength calibration in the bundled calibration library:
+executable R1 wavelength calibration in the bundled calibration library.
+Diamond-anvil Raman-edge calibrations and literature cross-calibration edges
+are stored in the same registry and can participate in recursive conversion
+paths:
 
 ```json
 "pressure_calibration": {
@@ -213,15 +218,22 @@ published in that paper, whereas `ruby_holzapfel_2005` executes the modified
 Freund--Ingalls form and its distinct three coefficients.
 
 The recalculation status is deliberately independent of reference resolution.
-Ruby-to-ruby conversion needs the reported source pressures because the source
-scale can be inverted to the common R1 wavelength ratio. Replacing ruby with
-an XRD scale requires the paired calibrant volume (and temperature for a
-thermal standard), while refitting also requires the sample's row-wise volume.
-`ready` means those observables are present in the material's `datasets`;
+It describes exact observation-level re-reduction and reproduction of the
+published fit. That operation requires row-wise sample data and, for a measured
+XRD marker, its paired volume and temperature. `ready` means those observables
+are present in the material's `datasets`;
 `missing_calibrant_observations` means the scale is known but the required
 row-wise readings are unavailable. Other statuses identify an
 unbundled reference, an unsupported reference model, a non-applicable primary
 measurement, or a source from which recalculation is impossible.
+
+A derived pressure-scale transformation has different requirements. The
+published sample EOS can be evaluated on a volume grid, and its pressure axis
+can be mapped through documented standard EOSs. XRD-to-XRD transformations use
+the same virtual standard volume on source and target EOSs; ruby-to-XRD paths
+use an XRD-standard EOS calibrated on the ruby scale as a bridge. This supports
+comparable normalized EOS curves without pretending to reproduce the original
+observation-level fit or its uncertainty.
 
 ### Material identity versus EOS reference state
 
@@ -281,6 +293,7 @@ Thermal `type` and `model` must likewise match:
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
+| `DorogokupetsOganov2007` | `dorogokupets_oganov_2007` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect terms |
 | `MultiOscillatorGruneisen` | `multi_oscillator_gruneisen_thermal_pressure` | Oscillator, Grüneisen, anharmonic, and electronic parameters |
 | `ThermalModifiedTait` | `thermal_modified_tait` | `Tr`, `theta`, `alpha0`, `n` |
 | `DoubleDebyeHelmholtz` | `double_debye_helmholtz` | Double-Debye coefficients; optional `Tr` |
@@ -396,7 +409,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 155
+`peritheos/data/primary-source-audit.json`. All 159
 bundled records are validated, with no deferred or pending record.
 
 ## Complete EOS-only example

@@ -173,5 +173,62 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "aragonite_martinez_1996_table3_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 64 published aragonite P-V-T observations used in the EOS analysis.",
+   "reference": {
+    "authors": [
+     "Martinez",
+     "Zhang",
+     "Reeder"
+    ],
+    "year": 1996,
+    "source": "American Mineralogist",
+    "volume": "81",
+    "locator": "611-624",
+    "doi": "10.2138/am-1996-5-608"
+   },
+   "source_location": "Table 3, pages 616-617",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/aragonite-martinez-1996-table3-pvt.csv",
+    "sha256": "a1dc6ac89b411f989847e128d263de5191007e2d2e66d975b9c97976794d7e6b",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "aragonite_martinez_1996_bm2_2"
+   ],
+   "notes": "Rows are transcribed at printed precision. The 1073-1273 K rows are part of the published table but do not define separate isotherms in Table 6.",
+   "source_url": "https://doi.org/10.2138/am-1996-5-608"
+  }
+ ]
 }

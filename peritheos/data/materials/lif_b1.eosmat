@@ -116,9 +116,11 @@
      "access_url": "https://doi.org/10.3390/min9110684",
      "locations": [
       "Vinet formulation",
-      "Table 2",
-      "Figure 3"
+      "Table 1, experimental Vinet parameters",
+      "Table 4, measured LiF P-V observations",
+      "Figure 4"
      ],
+     "finding": "Table 4 reports 60 LiF P-V observations in three experimental runs; all are bundled without converting their per-formula-unit volume convention.",
      "doi": "10.3390/min9110684"
     },
     "migration_source": {
@@ -136,5 +138,57 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "lif_dewaele_2019_table4_pv",
+   "kind": "pressure_volume",
+   "description": "All 60 LiF P-V observations from the three published experimental runs.",
+   "reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "source": "Minerals",
+    "volume": "9",
+    "locator": "684",
+    "doi": "10.3390/min9110684"
+   },
+   "source_location": "Table 4, pages 6-7",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_per_formula_unit",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/lif-dewaele-2019-table4-pv.csv",
+    "sha256": "21a75642b1c8e965a224905f568c7db92fd71c7b297d03d6770f99136f0b90e4",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "lif_b1_dewaele_2019_vinet_1"
+   ],
+   "uncertainty": {
+    "volume": "Methods report relative precision approximately 5e-4.",
+    "pressure": "Pressure drift was below 0.5 GPa; pointwise standard deviations are not tabulated."
+   },
+   "notes": "The source reports formula-unit volumes. Multiply by four for the B1 conventional-cell convention used by this material document.",
+   "source_url": "https://doi.org/10.3390/min9110684"
+  }
+ ]
 }

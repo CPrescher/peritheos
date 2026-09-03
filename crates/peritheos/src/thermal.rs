@@ -1803,6 +1803,213 @@ impl CaloricEos for DoubleDebyeLogMomentHelmholtz {
     }
 }
 
+/// Thermal parameters of the Dorogokupets--Oganov (2007) Helmholtz model.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DorogokupetsOganov2007Parameters {
+    pub tr: f64,
+    pub theta_b1: f64,
+    pub d_b1: f64,
+    pub m_b1: f64,
+    pub theta_b2: f64,
+    pub d_b2: f64,
+    pub m_b2: f64,
+    pub theta_e1: f64,
+    pub m_e1: f64,
+    pub theta_e2: f64,
+    pub m_e2: f64,
+    pub gamma0: f64,
+    pub gamma_inf: f64,
+    pub beta: f64,
+    /// Table-I intrinsic-anharmonicity coefficient in `10^-6 K^-1`.
+    pub anharmonic_a: f64,
+    pub anharmonic_m: f64,
+    /// Table-I electronic coefficient in `10^-6 K^-1`.
+    pub electronic_e: f64,
+    pub electronic_g: f64,
+    /// Vacancy formation enthalpy divided by the gas constant, in kelvin.
+    pub defect_h: f64,
+    pub defect_s: f64,
+}
+
+/// Dorogokupets--Oganov (2007) four-oscillator thermal equation of state.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct DorogokupetsOganov2007<R> {
+    pub rt_eos: R,
+    pub parameters: DorogokupetsOganov2007Parameters,
+    /// Number of atoms per chemical formula.
+    pub n: f64,
+}
+
+impl<R: IsothermalEos> DorogokupetsOganov2007<R> {
+    /// Construct the complete equations (7)--(14) model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid temperatures, dispersions,
+    /// multiplicities, Gruneisen coefficients, or atom count.
+    pub fn new(rt_eos: R, parameters: DorogokupetsOganov2007Parameters, n: f64) -> EosResult<Self> {
+        let parameters = DorogokupetsOganov2007Parameters {
+            tr: positive_parameter(parameters.tr, "Tr")?,
+            theta_b1: positive_parameter(parameters.theta_b1, "theta_B1")?,
+            d_b1: positive_parameter(parameters.d_b1, "d_B1")?,
+            m_b1: positive_parameter(parameters.m_b1, "m_B1")?,
+            theta_b2: positive_parameter(parameters.theta_b2, "theta_B2")?,
+            d_b2: positive_parameter(parameters.d_b2, "d_B2")?,
+            m_b2: positive_parameter(parameters.m_b2, "m_B2")?,
+            theta_e1: positive_parameter(parameters.theta_e1, "theta_E1")?,
+            m_e1: positive_parameter(parameters.m_e1, "m_E1")?,
+            theta_e2: positive_parameter(parameters.theta_e2, "theta_E2")?,
+            m_e2: positive_parameter(parameters.m_e2, "m_E2")?,
+            gamma0: positive_parameter(parameters.gamma0, "gamma0")?,
+            gamma_inf: positive_parameter(parameters.gamma_inf, "gamma_inf")?,
+            beta: positive_parameter(parameters.beta, "beta")?,
+            anharmonic_a: finite_parameter(parameters.anharmonic_a, "anharmonic_a")?,
+            anharmonic_m: finite_parameter(parameters.anharmonic_m, "anharmonic_m")?,
+            electronic_e: finite_parameter(parameters.electronic_e, "electronic_e")?,
+            electronic_g: finite_parameter(parameters.electronic_g, "electronic_g")?,
+            defect_h: positive_parameter(parameters.defect_h, "defect_H")?,
+            defect_s: finite_parameter(parameters.defect_s, "defect_S")?,
+        };
+        let n = positive_parameter(n, "n")?;
+        let multiplicity = parameters.m_b1 + parameters.m_b2 + parameters.m_e1 + parameters.m_e2;
+        if (multiplicity - 3.0 * n).abs() > 5.0e-3 {
+            return Err(EosError::InvalidParameter {
+                name: "oscillator multiplicities",
+                reason: "must sum to three times the atom count",
+            });
+        }
+        Ok(Self {
+            rt_eos,
+            parameters,
+            n,
+        })
+    }
+
+    fn gamma(&self, ratio: f64) -> f64 {
+        self.parameters.gamma_inf
+            + (self.parameters.gamma0 - self.parameters.gamma_inf)
+                * ratio.powf(self.parameters.beta)
+    }
+
+    fn theta(&self, theta0: f64, ratio: f64) -> f64 {
+        theta0
+            * ratio.powf(-self.parameters.gamma_inf)
+            * (((self.parameters.gamma0 - self.parameters.gamma_inf) / self.parameters.beta)
+                * (1.0 - ratio.powf(self.parameters.beta)))
+            .exp()
+    }
+
+    fn anharmonic_bracket(theta: f64, temperature: f64) -> (f64, f64) {
+        let exponent = theta / temperature;
+        let decay = (-exponent).exp();
+        let occupation = decay / (-(-exponent).exp_m1());
+        let fluctuation = occupation * (occupation + 1.0);
+        let energy = theta * (0.5 + occupation);
+        let energy_derivative = 0.5 + occupation - theta / temperature * fluctuation;
+        let bracket = energy * energy + 2.0 * theta * theta * fluctuation;
+        let derivative = 2.0 * energy * energy_derivative + 4.0 * theta * fluctuation
+            - 2.0 * theta * theta / temperature * fluctuation * (2.0 * occupation + 1.0);
+        (bracket, derivative)
+    }
+
+    fn mode_pressure(
+        &self,
+        mode: (f64, f64, Option<f64>),
+        ratio: f64,
+        gamma: f64,
+        volume: f64,
+        temperature: f64,
+    ) -> EosResult<(f64, f64)> {
+        let (theta0, multiplicity, dispersion) = mode;
+        let theta = self.theta(theta0, ratio);
+        let energy = match dispersion {
+            Some(value) => bose_mode_energy(theta, temperature, value)?,
+            None => sokolova_einstein_energy(theta, temperature)?,
+        };
+        let quasiharmonic = multiplicity * GAS_CONSTANT * energy * gamma / volume;
+        let (bracket, bracket_derivative) = Self::anharmonic_bracket(theta, temperature);
+        let anharmonic_derivative = multiplicity
+            * GAS_CONSTANT
+            * self.parameters.anharmonic_a
+            * 1.0e-6
+            * ratio.powf(self.parameters.anharmonic_m)
+            / (6.0 * volume)
+            * (self.parameters.anharmonic_m * bracket - gamma * theta * bracket_derivative);
+        Ok((quasiharmonic, anharmonic_derivative))
+    }
+
+    fn absolute_nonreference_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        let ratio = volume / self.rt_eos.reference_volume();
+        let gamma = self.gamma(ratio);
+        let modes = [
+            (
+                self.parameters.theta_b1,
+                self.parameters.m_b1,
+                Some(self.parameters.d_b1),
+            ),
+            (
+                self.parameters.theta_b2,
+                self.parameters.m_b2,
+                Some(self.parameters.d_b2),
+            ),
+            (self.parameters.theta_e1, self.parameters.m_e1, None),
+            (self.parameters.theta_e2, self.parameters.m_e2, None),
+        ];
+        let mut quasiharmonic = 0.0;
+        let mut anharmonic_derivative = 0.0;
+        for (theta0, multiplicity, dispersion) in modes {
+            let (mode_quasiharmonic, mode_anharmonic) = self.mode_pressure(
+                (theta0, multiplicity, dispersion),
+                ratio,
+                gamma,
+                volume,
+                temperature,
+            )?;
+            quasiharmonic += mode_quasiharmonic;
+            anharmonic_derivative += mode_anharmonic;
+        }
+        let electronic = 1.5
+            * self.n
+            * GAS_CONSTANT
+            * self.parameters.electronic_e
+            * 1.0e-6
+            * self.parameters.electronic_g
+            * ratio.powf(self.parameters.electronic_g)
+            * temperature
+            * temperature
+            / volume;
+        let defect_exponent = self.parameters.defect_s / ratio
+            - self.parameters.defect_h / (temperature * ratio * ratio);
+        let defect_derivative = -self.parameters.defect_s / ratio
+            + 2.0 * self.parameters.defect_h / (temperature * ratio * ratio);
+        let defect =
+            1.5 * self.n * GAS_CONSTANT * temperature * defect_exponent.exp() * defect_derivative
+                / volume;
+        finite_result((quasiharmonic - anharmonic_derivative + electronic + defect) / 1.0e4)
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for DorogokupetsOganov2007<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &Self::Reference {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.parameters.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.absolute_nonreference_pressure(volume, temperature)?
+                - self.absolute_nonreference_pressure(volume, self.parameters.tr)?,
+        )
+    }
+}
+
 /// Parameters of the Sokolova et al. (2016) thermal-pressure model.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SokolovaParameters {

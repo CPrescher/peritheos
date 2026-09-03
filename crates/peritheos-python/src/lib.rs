@@ -14,10 +14,11 @@ use peritheos::isothermal::{
     NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, LinearThermalPressure,
-    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    ReferenceStateEos, ReferenceVolumeLaw, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
+    DorogokupetsOganov2007Parameters, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
+    ReferenceVolumeLaw, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
+    ThermalReferenceState,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use pyo3::exceptions::PyRuntimeError;
@@ -337,6 +338,7 @@ impl PyRtEos {
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum ThermalModel {
     AsymptoticPowerLawMieGruneisenDebye(AsymptoticPowerLawMieGruneisenDebye<RtModel>),
+    DorogokupetsOganov2007(DorogokupetsOganov2007<RtModel>),
     LinearThermalPressure(LinearThermalPressure<RtModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<RtModel>),
     MieGruneisenDebye(MieGruneisenDebye<RtModel>),
@@ -350,6 +352,7 @@ impl ThermalModel {
     fn name(self) -> &'static str {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(_) => "AsymptoticPowerLawMieGruneisenDebye",
+            Self::DorogokupetsOganov2007(_) => "DorogokupetsOganov2007",
             Self::LinearThermalPressure(_) => "LinearThermalPressure",
             Self::LogVolumeThermalPressure(_) => "LogVolumeThermalPressure",
             Self::MieGruneisenDebye(_) => "MieGruneisenDebye",
@@ -364,6 +367,9 @@ impl ThermalModel {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
                 evaluate_asymptotic_mie_quantity(&model, quantity, first, second)
+            }
+            Self::DorogokupetsOganov2007(model) => {
+                evaluate_thermal_quantity(&model, quantity, first, second)
             }
             Self::LinearThermalPressure(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
@@ -395,6 +401,9 @@ impl ThermalModel {
     ) -> PyResult<f64> {
         let result = match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::DorogokupetsOganov2007(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::LinearThermalPressure(model) => {
@@ -607,6 +616,62 @@ impl PyThermalEos {
         Ok(Self {
             model: ThermalModel::ThermalModifiedTait(
                 ThermalModifiedTait::new(reference, tr, theta, alpha0, n)
+                    .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    fn dorogokupets_oganov_2007(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta_b1: f64,
+        d_b1: f64,
+        m_b1: f64,
+        theta_b2: f64,
+        d_b2: f64,
+        m_b2: f64,
+        theta_e1: f64,
+        m_e1: f64,
+        theta_e2: f64,
+        m_e2: f64,
+        gamma0: f64,
+        gamma_inf: f64,
+        beta: f64,
+        anharmonic_a: f64,
+        anharmonic_m: f64,
+        electronic_e: f64,
+        electronic_g: f64,
+        defect_h: f64,
+        defect_s: f64,
+        n: f64,
+    ) -> PyResult<Self> {
+        let parameters = DorogokupetsOganov2007Parameters {
+            tr,
+            theta_b1,
+            d_b1,
+            m_b1,
+            theta_b2,
+            d_b2,
+            m_b2,
+            theta_e1,
+            m_e1,
+            theta_e2,
+            m_e2,
+            gamma0,
+            gamma_inf,
+            beta,
+            anharmonic_a,
+            anharmonic_m,
+            electronic_e,
+            electronic_g,
+            defect_h,
+            defect_s,
+        };
+        Ok(Self {
+            model: ThermalModel::DorogokupetsOganov2007(
+                DorogokupetsOganov2007::new(rt_eos.model, parameters, n)
                     .map_err(to_python_error)?,
             ),
         })

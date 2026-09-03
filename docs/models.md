@@ -54,6 +54,7 @@ correction instead inherits the reference EOS volume convention.
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
+| [`DorogokupetsOganov2007`](equation-reference.md#dorogokupets-oganov-2007-four-oscillator-model) | any `EosBase` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect parameters | generalized Bose + Einstein |
 | [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
 | [`LogVolumeThermalPressure`](equation-reference.md#logarithmic-volume-linear-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `alpha_KT_ref`, `dK_dT_V` | none |
 | [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `thermal_expansion_law`, `reference_volume_law` | none |
@@ -86,6 +87,9 @@ paper equations alone to reproduce Peritheos values; see
   $\Theta_D=\Theta_0(V/V_0)^{-\gamma(V)}$.
 - Use Mie-Gruneisen-Einstein for an inexpensive single-frequency approximation.
 - Use `Tange2009Debye` for the publication-specific Tange MgO Gruneisen law.
+- Use `DorogokupetsOganov2007` only for the paper's complete four-oscillator
+  Helmholtz formulation. It is distinct from the later Sokolova workbook
+  model even though the authors and physical terms overlap.
 - Use linear thermal pressure only when the primary calibration reports a
   constant fitted $\alpha K_T$ product over the intended range.
 - Use thermal modified Tait with Holland-Powell-style datasets.

@@ -38,19 +38,67 @@ from peritheos import (
 
 validate_pressure_calibration_references()
 sample = get_material_document("b4c")["eos_records"][0]
-reference_id = sample["pressure_calibration"]["methods"][0][
-    "reference_eos_record"
-]
+reference_id = sample["pressure_calibration"]["methods"][0]["reference_eos_record"]
 reference = get_eos_record_document(reference_id)
 assert reference_id == "mgo_b1_tange_2009_vinet"
 ```
 
 The audit also distinguishes ruby and other optical gauges, shock-wave and
 ultrasonic measurements, ab initio curves, and self-consistent fits. Identified
-ruby methods use `reference_calibration_record` to link to one of the five
-executable R1 scales bundled in `pressure-calibrations.json`.
+ruby methods use `reference_calibration_record` to link to one of six
+executable R1 scales bundled in `pressure-calibrations.json`, including
+IPPS-Ruby2020. Two diamond-anvil Raman-edge scales are stored in the same
+registry.
 
-## Ruby and XRD pressure-scale conversion
+## Normalizing EOS records to one pressure scale
+
+The complete workflow, admissible cross-calibration evidence, literature
+shortlist, validity rules, and provenance requirements are documented in
+[Pressure-scale normalization](pressure-scale-normalization.md). The summary
+below introduces the executable APIs.
+
+Pressure-scale normalization is a graph problem. A sample EOS is linked to
+the standard used to assign its published pressures. A documented
+cross-calibration supplies an edge to another scale. Different samples may
+follow different physical edges as long as they finish on members of the same
+internally consistent target scale.
+
+For example, suppose one sample used Au standard A, a second used Pt standard
+B, and a third used ruby scale C. They can be put on the Fei et al. (2007)
+scale by the following paths, provided the corresponding bridge records are
+available:
+
+```text
+sample 1 pressure --invert Au-A--> virtual Au volume --Fei Au--> Fei pressure
+sample 2 pressure --invert Pt-B--> virtual Pt volume --Fei Pt--> Fei pressure
+sample 3 pressure --ruby-C-linked Au EOS--> virtual Au volume --Fei Au--> Fei pressure
+```
+
+The intermediate standard volumes are mathematical coordinates defined by
+published EOSs. They are not claimed to have been measured in the sample
+experiment.
+
+For two EOSs of the same XRD standard, use the source EOS to infer that
+coordinate and the target EOS to evaluate it:
+
+```python
+from peritheos import recalculate_xrd_pressure_scale
+
+result = recalculate_xrd_pressure_scale(
+    source_pressure_gpa=[10.0, 50.0, 100.0],
+    source_standard_eos_record="gold_dewaele_2004_vinet_5",
+    target_standard_eos_record="gold_fei_2007_vinet_2",
+)
+print(result.target_pressure_gpa)
+```
+
+The source and target records must describe the same physical standard and
+conventional cell: Au-A maps to Au on the target family, Pt-B maps to Pt on
+that family, and so on. A cross-calibration study that publishes an internally
+consistent family of several standards establishes that its Au, Pt, or other
+member EOSs represent the same target pressure scale.
+
+### Ruby edges
 
 Ruby-to-ruby conversion can be performed from reported source pressures. The
 source calibration is inverted to the corrected R1 wavelength ratio and the
@@ -66,39 +114,55 @@ p_do2007 = recalculate_ruby_pressure(
 )
 ```
 
-Use `list_pressure_calibrations()` to discover the ruby records. Individual
-scales expose forward and inverse R1 wavelength, shift, and ratio methods
-through `get_pressure_calibration()`.
-
-Replacing ruby pressure with Au, Pt, MgO, or another XRD pressure standard
-requires the diffraction standard's measured unit-cell volume at each paired
-experimental state. It cannot be reconstructed from ruby pressure alone:
+Use `list_ruby_pressure_calibrations()` to discover the ruby records;
+`list_pressure_calibrations()` includes both ruby and diamond Raman records. A ruby scale
+can reach an XRD target when the library contains an EOS for the same XRD
+standard on both sides: one calibrated against the ruby scale and one
+belonging to the target scale. For example, a Dewaele-ruby pressure can be
+mapped through the Dewaele Au EOS to the Fei Au EOS:
 
 ```python
 from peritheos import recalculate_ruby_to_xrd_pressure
 
 result = recalculate_ruby_to_xrd_pressure(
     source_pressure_gpa=[10.0, 50.0, 100.0],
-    source_calibration_record="ruby_mao_1986",
-    target_eos_record="gold_dewaele_2004_vinet_5",
-    target_volume=[63.0, 55.0, 49.0],  # A^3/conventional Au cell
-    target_temperature_k=300.0,
+    source_calibration_record="ruby_dewaele_2004",
+    bridge_eos_record="gold_dewaele_2004_vinet_5",
+    target_eos_record="gold_fei_2007_vinet_2",
 )
 print(result.target_pressure_gpa)
-print(result.pressure_difference_gpa)
 ```
 
-`xrd_standard_pressure()` evaluates a target EOS directly, and
-`list_xrd_pressure_standards()` lists EOS records that the material audit
-already identifies as pressure references. A known reference model does not
-by itself make an EOS refit possible: the row-wise sample volumes and the
-paired calibrant observations must also be available.
+No measured Au volume is supplied. The bridge inversion creates
+`result.implied_standard_volume` internally. If the sample used a different
+ruby calibration, the function first converts its pressure to the bridge's
+ruby calibration through the common R1 ratio. For the Fei Au target,
+`list_ruby_xrd_bridges("gold_fei_2007_vinet_2")` currently returns the Dewaele
+(2004) and Takemura (2008) Au bridge records.
+
+`recalculate_eos_pressure_scale()` performs the complete operation from sample
+volume: it evaluates the published sample EOS, reads its recorded calibration,
+and recursively follows XRD, ruby, diamond-Raman, and explicit family edges.
+`find_pressure_calibration_path()` previews the route, while
+`recalculate_pressure_calibration_path()` starts from an already calculated
+pressure. Arrays of sample volumes therefore
+produce a normalized P-V curve that can be compared directly or fitted to
+produce a derived parameterization on the target scale.
+
+This derived curve is distinct from an exact re-reduction of the original
+experiment. Reproducing the authors' observation-level fit and uncertainty
+still requires their row-wise sample and calibrant measurements. When such
+paired XRD observations do exist,
+`recalculate_ruby_with_measured_xrd_standard()` provides that separate
+workflow. `xrd_standard_pressure()` evaluates a measured standard volume
+directly, and `list_xrd_pressure_standards()` lists EOS records explicitly
+identified as references by the audit.
 
 ## Curated pressure-scale convenience catalog
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 115 material documents and 155 independently
+library is broader: it contains 115 material documents and 159 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 
@@ -263,6 +327,25 @@ combines that ratio with Dewaele et al.'s experimental B1
 `V0=62.36 angstrom^3` to obtain `V0(B2)=52.899988 angstrom^3`. The propagated
 `0.355452 angstrom^3` uncertainty covers the ratio only, because the Dewaele
 table gives no B1-`V0` error. The Dewaele P-V-T record remains the default.
+
+Two newer shared records provide explicit metal lineage:
+
+- `kcl_b2_tateno_2019_vinet_4` is a Vinet+MGD EOS based on simultaneous
+  B2-KCl/Pt diffraction and the Sokolova Pt scale. Its preferred parameters
+  are `V0=54.5 A^3`, `K0=18.3 GPa`, `K0'=5.60`, `gamma0=0.58`, and `q=0.9`.
+- `kcl_b2_chidester_2021_bm3_5` is a BM3+MGD EOS on the
+  Dorogokupets--Oganov Pt scale. The complete 155-row author table is bundled
+  at `peritheos/data/datasets/chidester_2021_kcl_pvt.csv`. It contains KCl
+  volume and Pt-derived pressure, not raw Pt cell volume.
+
+These records let the recursive graph normalize a KCl-based sample to Au,
+Pt, or another connected XRD target without treating a KCl volume as a metal
+volume. See [Pressure-scale normalization](pressure-scale-normalization.md)
+for the exact paths. The Chidester edge uses
+`platinum_dorogokupets_oganov_2007_vinet_4` and converts the reported KCl
+effective temperature with `T_surface=(4*T_KCl-295 K)/3`, then applies the
+reported 3% axial-gradient correction to obtain the average Pt-foil EOS
+temperature before continuing through another Pt scale.
 
 ### Sokolova markers and the diamond source lineage
 

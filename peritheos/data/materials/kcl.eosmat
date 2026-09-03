@@ -34,6 +34,141 @@
  ],
  "notes": "High-pressure CsCl-type B2 KCl, stored separately from the rock-salt B1 phase. The lattice is normalized to the fictive zero-pressure V0 of the default Dewaele et al. (2012) pressure calibration; B2 KCl is not stable at zero pressure.",
  "peaks": [],
+ "datasets": [
+  {
+   "identifier": "kcl_chidester_2021_supplemental_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "Complete author-deposited high-P-T B2-KCl table: KCl volume paired with pressure calculated from simultaneously measured Pt and the Dorogokupets-Oganov (2007) Pt EOS.",
+   "reference": {
+    "authors": [
+     "Chidester",
+     "Thompson",
+     "Fischer",
+     "Heinz",
+     "Prakapenka",
+     "Meng",
+     "Campbell"
+    ],
+    "year": 2021,
+    "source": "Phys. Rev. B Supplemental Material",
+    "doi": "10.1103/PhysRevB.104.094107"
+   },
+   "source_location": "Supplemental Table A1; author-deposited SuppTable_KCl.csv",
+   "source_url": "https://knowledge.uchicago.edu/records/6t4wc-w2146/files/SuppTable_KCl.csv?download=1",
+   "columns": [
+    {
+     "name": "sample_pattern_number",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "kcl_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "kcl_temperature_sigma_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "standard_deviation",
+     "of": "kcl_temperature_k"
+    },
+    {
+     "name": "kcl_molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "kcl_molar_volume_sigma_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "standard_deviation",
+     "of": "kcl_molar_volume_cm3_mol"
+    },
+    {
+     "name": "pt_derived_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pt_derived_pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pt_derived_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/chidester_2021_kcl_pvt.csv",
+    "sha256": "cffc22b187d2ba4acfc38470dc02fce24bbec43409794ccdd631b2135174f215",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kcl_b2_chidester_2021_bm3_5"
+   ],
+   "uncertainty": {
+    "reported_as": "row-wise uncertainty",
+    "covariance": "not_reported"
+   },
+   "notes": "The deposited CSV contains 155 high-temperature rows. It does not publish the raw Pt cell volume, so the pressure column is accurately described as Pt-derived rather than as a raw Pt-volume pair."
+  },
+  {
+   "identifier": "kcl_dewaele_2012_table1_compression",
+   "kind": "pressure_volume",
+   "description": "Complete 123-row 298 K KCL compression table from five runs.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Belonoshko",
+     "Garbarino",
+     "Occelli",
+     "Bouvier",
+     "Hanfland",
+     "Mezouar"
+    ],
+    "year": 2012,
+    "source": "Phys. Rev. B",
+    "volume": "85",
+    "locator": "214105",
+    "doi": "10.1103/PhysRevB.85.214105"
+   },
+   "source_location": "Table I, page 214105-2",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_per_formula_unit",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-dewaele-2012-table1-compression.csv",
+    "sha256": "65690cf558f2f60f743de0b9135388cb779e7e9f09667d683eb8eb6b22ffbcc8",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kcl_b2_dewaele_2012_vinet_3"
+   ],
+   "notes": "The paper reports pressure uncertainty below 2% through 162 GPa and relative volume uncertainty below 0.001 under 50 GPa and below 0.005 above 50 GPa; row-wise values are not printed. The KCl value at 3.45 GPa is transcribed as 47.783 angstrom^3 rather than the text extractor's dropped leading 4.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.85.214105"
+  }
+ ],
  "eos_records": [
   {
    "label": "Campbell and Heinz (1991) + Dewaele et al. (2012), B2 BM2 composite",
@@ -448,6 +583,291 @@
      ],
      "finding": "The paper provides the complete B2-KCl P-V-T equation and parameters, explicitly recommends it for pressure calibration, and prints no fitted-parameter errors or covariance.",
      "doi": "10.1103/physrevb.85.214105"
+    }
+   }
+  },
+  {
+   "label": "Tateno et al. (2019), B2 Vinet + MGD on Sokolova Pt",
+   "reference": {
+    "authors": [
+     "Tateno",
+     "Hirose",
+     "Ohishi"
+    ],
+    "year": 2019,
+    "source": "American Mineralogist",
+    "volume": "104",
+    "locator": "718-723",
+    "doi": "10.2138/am-2019-6779"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 54.5,
+     "K0": 18.3,
+     "K0_prime": 5.6
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.3,
+    "K0_prime": 0.03
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 235.0,
+     "gamma0": 0.58,
+     "q": 0.9,
+     "n": 2
+    },
+    "debye_temperature_law": "variable_exponent",
+    "model": "mie_gruneisen_debye",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.05,
+     "q": 0.2,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    4.2,
+    228.6
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2560.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     4.2,
+     228.6
+    ],
+    "temperature_k": [
+     300.0,
+     2560.0
+    ],
+    "volume_ratio": [
+     0.36,
+     1.0
+    ],
+    "notes": [
+     "Room-temperature compression reaches 228.6 GPa; the heated observations reach 60.7 GPa and 2560 K.",
+     "The B2 phase has a fictive zero-pressure reference state."
+    ]
+   },
+   "notes": "Preferred Tateno fit on the Sokolova Pt scale. Table 2 also gives a Holmes-Pt alternative, which is not represented by this record. The MGD fit gives gamma0=0.58, not the ambient acoustic gamma values used in some older KCl parameterizations.",
+   "identifier": "kcl_b2_tateno_2019_vinet_4",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sokolova",
+        "Dorogokupets",
+        "Dymshits",
+        "Danilov",
+        "Litasov"
+       ],
+       "year": 2016,
+       "source": "Computers & Geosciences",
+       "doi": "10.1016/j.cageo.2016.06.002"
+      },
+      "source_location": "Methods and Table 1; simultaneous Pt and B2-KCl diffraction, pressure calculated with Sokolova et al. (2016)",
+      "reference_eos_record": "platinum_sokolova_2013_holzapfel_3"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The Sokolova Pt reference EOS is executable and the simultaneous Pt-KCl cross-calibration edge is registered."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, fixed quantities, uncertainties, P-T range, and Pt pressure basis checked against the accepted primary manuscript.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2019-6779",
+     "locations": [
+      "Equations 1-6",
+      "Tables 1-2",
+      "pages 8-10 of the accepted manuscript"
+     ],
+     "finding": "The preferred Sokolova-Pt fit fixes V0=54.5 A^3 and theta0=235 K and reports K0=18.3(3) GPa, K0'=5.60(3), gamma0=0.58(5), and q=0.9(2).",
+     "doi": "10.2138/am-2019-6779"
+    }
+   }
+  },
+  {
+   "label": "Chidester et al. (2021), B2 BM3 + MGD on Dorogokupets-Oganov Pt",
+   "reference": {
+    "authors": [
+     "Chidester",
+     "Thompson",
+     "Fischer",
+     "Heinz",
+     "Prakapenka",
+     "Meng",
+     "Campbell"
+    ],
+    "year": 2021,
+    "source": "Phys. Rev. B",
+    "volume": "104",
+    "locator": "094107",
+    "doi": "10.1103/PhysRevB.104.094107"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 53.137250149563094,
+     "K0": 24.0,
+     "K0_prime": 4.56
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.49816172015215404,
+    "K0": 1.0,
+    "K0_prime": 0.05
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 235.0,
+     "gamma0": 2.9,
+     "q": 1.0,
+     "n": 2
+    },
+    "debye_temperature_law": "variable_exponent",
+    "model": "mie_gruneisen_debye",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.4,
+     "q": 0.1,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    2.6,
+    167.52
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2377.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     2.6,
+     167.52
+    ],
+    "temperature_k": [
+     300.0,
+     2377.0
+    ],
+    "volume_ratio": [
+     0.25,
+     1.0
+    ],
+    "notes": [
+     "The fit combines Dewaele et al. (2012) room-temperature data with four new laser-heating experiments.",
+     "The KCl temperature is a modeled effective temperature below the measured Pt surface temperature; the bundled table stores the authors' KCl temperature.",
+     "The high-temperature calibration is experimental in pressure and volume but geometry-conditioned in temperature: it should not be interpreted as a homogeneous-temperature KCl thermodynamic dataset."
+    ]
+   },
+   "notes": "The preferred Birch-Murnaghan reference EOS from Table I. Published molar V0=32.0(3) cm^3/mol is converted to one B2 formula unit per conventional cell with the exact Avogadro constant. Pressures in the author-deposited high-temperature table were calculated from the Dorogokupets-Oganov (2007) Pt EOS. This is an experimental, effective-temperature-calibrated P-V-T pressure scale: KCl volumes and Pt-derived pressures are measured constraints, while the KCl temperature coordinate comes from the authors' gradient model for this laser-heated DAC geometry.",
+   "identifier": "kcl_b2_chidester_2021_bm3_5",
+   "experimental_configuration": {
+    "geometry": "laser-heated diamond-anvil cell",
+    "sample_and_laser_absorber": "approximately 5 micrometer Pt foil",
+    "pressure_reference": "simultaneously diffracting Pt foil",
+    "pressure_medium": "KCl",
+    "thermal_insulator": "KCl",
+    "arrangement": "Pt foil secured between two approximately 10 micrometer layers of dried KCl",
+    "temperature_convention": "KCl diffraction samples a thermal gradient between the hot Pt surface and the approximately 295 K diamond anvils; the EOS uses the authors' estimated average KCl temperature"
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Methods; Pt EOS of reference 15",
+      "reference_eos_record": "platinum_dorogokupets_oganov_2007_vinet_4",
+      "notes": "The reported KCl temperature is (3*T_surface+295 K)/4. The cross-calibration edge restores T_surface and applies the paper's 3% axial-gradient correction to obtain the average Pt-foil temperature used with the reference EOS."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Derived pressure-scale normalization is executable through the bundled Dorogokupets-Oganov Pt EOS. Exact observation-level re-reduction and refitting is not possible from the deposited table because it reports Pt-derived pressure rather than raw Pt unit-cell volume."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, units, molar-to-cell conversion, P-T range, temperature convention, and Pt pressure basis checked against the primary paper and author-deposited table.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevB.104.094107",
+     "locations": [
+      "Methods",
+      "Equations 1-4",
+      "Table I",
+      "Supplemental Table A1"
+     ],
+     "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K; the high-P-T pressures use Dorogokupets-Oganov Pt.",
+     "doi": "10.1103/PhysRevB.104.094107"
     }
    }
   }

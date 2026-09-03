@@ -120,8 +120,9 @@ pub use eosmat::{
 };
 pub use error::{EosError, EosErrorKind};
 pub use pressure_calibration::{
-    recalculate_ruby_pressure, ruby_calibration, RubyCalibrationModel, RubyFluorescenceCalibration,
-    RUBY_CALIBRATIONS,
+    diamond_raman_calibration, recalculate_diamond_raman_pressure, recalculate_ruby_pressure,
+    ruby_calibration, DiamondRamanCalibration, DiamondRamanCalibrationModel, RubyCalibrationModel,
+    RubyFluorescenceCalibration, DIAMOND_RAMAN_CALIBRATIONS, RUBY_CALIBRATIONS,
 };
 
 /// Convenient result alias for EOS construction and evaluation.

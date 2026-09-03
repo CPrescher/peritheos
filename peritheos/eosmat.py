@@ -9,13 +9,17 @@ from __future__ import annotations
 
 import copy
 import json
+import math
 from collections.abc import Mapping
 from importlib import resources
 from pathlib import Path
 from typing import Any
 
 from peritheos.errors import EosmatError, MaterialLookupError
-from peritheos.pressure_calibrations import list_pressure_calibrations
+from peritheos.pressure_calibrations import (
+    list_pressure_calibrations,
+    pressure_calibration_library,
+)
 
 EOSMAT_FORMAT = "peritheos.material"
 EOSMAT_FORMAT_VERSION = 3
@@ -37,6 +41,7 @@ _THERMAL_TYPES = {
     "AsymptoticPowerLawMieGruneisenDebye",
     "DoubleDebyeHelmholtz",
     "DoubleDebyeLogMomentHelmholtz",
+    "DorogokupetsOganov2007",
     "LinearThermalPressure",
     "LogVolumeThermalPressure",
     "MieGruneisenDebye",
@@ -62,6 +67,7 @@ _THERMAL_MODELS = {
     "AsymptoticPowerLawMieGruneisenDebye": ("asymptotic_power_law_mie_gruneisen_debye"),
     "DoubleDebyeHelmholtz": "double_debye_helmholtz",
     "DoubleDebyeLogMomentHelmholtz": "double_debye_log_moment_helmholtz",
+    "DorogokupetsOganov2007": "dorogokupets_oganov_2007",
     "LinearThermalPressure": "linear_thermal_pressure",
     "LogVolumeThermalPressure": "log_volume_thermal_pressure",
     "MieGruneisenDebye": "mie_gruneisen_debye",
@@ -792,7 +798,10 @@ def validate_pressure_calibration_references() -> None:
     if len(identifiers) != len(set(identifiers)):
         raise EosmatError("Bundled EOS record identifiers must be globally unique")
     available = set(identifiers)
+    calibration_documents = pressure_calibration_library()["calibrations"]
     available_calibrations = set(list_pressure_calibrations())
+    if len(available_calibrations) != len(list_pressure_calibrations()):
+        raise EosmatError("Bundled pressure-calibration identifiers must be unique")
     for material_identifier in list_material_documents():
         for record in get_material_document(material_identifier)["eos_records"]:
             for method in record["pressure_calibration"]["methods"]:
@@ -815,6 +824,84 @@ def validate_pressure_calibration_references() -> None:
                     raise EosmatError(
                         f"EOS record {record['identifier']!r} references missing "
                         f"pressure calibration {calibration_identifier!r}"
+                    )
+                if calibration_identifier is not None:
+                    calibration_kind = next(
+                        calibration["kind"]
+                        for calibration in calibration_documents
+                        if calibration["identifier"] == calibration_identifier
+                    )
+                    if (
+                        method["kind"] == "ruby_fluorescence"
+                        and calibration_kind != "ruby_fluorescence"
+                    ):
+                        raise EosmatError(
+                            f"EOS record {record['identifier']!r} links a ruby "
+                            f"method to {calibration_kind!r} calibration "
+                            f"{calibration_identifier!r}"
+                        )
+    graph_nodes = available | available_calibrations
+    edge_identifiers: set[str] = set()
+    allowed_transformations = {
+        "pressure_identity",
+        "same_marker_volume",
+        "ruby_wavelength_ratio",
+        "diamond_wavenumber_ratio",
+    }
+    for edge in pressure_calibration_library().get(
+        "cross_calibration_edges", []
+    ):
+        edge_identifier = edge.get("identifier")
+        if not isinstance(edge_identifier, str) or not edge_identifier:
+            raise EosmatError("Cross-calibration edges require an identifier")
+        if edge_identifier in edge_identifiers:
+            raise EosmatError(
+                f"Duplicate cross-calibration edge {edge_identifier!r}"
+            )
+        edge_identifiers.add(edge_identifier)
+        if edge.get("transformation") not in allowed_transformations:
+            raise EosmatError(
+                f"Cross-calibration edge {edge_identifier!r} has an unsupported "
+                "transformation"
+            )
+        temperature_transformation = edge.get("temperature_transformation")
+        if temperature_transformation is not None:
+            if not isinstance(temperature_transformation, dict):
+                raise EosmatError(
+                    f"Cross-calibration edge {edge_identifier!r} has an invalid "
+                    "temperature transformation"
+                )
+            if temperature_transformation.get("kind") != "affine":
+                raise EosmatError(
+                    f"Cross-calibration edge {edge_identifier!r} has an unsupported "
+                    "temperature transformation"
+                )
+            for key in ("source_quantity", "target_quantity", "equation"):
+                if not isinstance(temperature_transformation.get(key), str) or not (
+                    temperature_transformation[key]
+                ):
+                    raise EosmatError(
+                        f"Cross-calibration edge {edge_identifier!r} requires a "
+                        f"non-empty temperature {key}"
+                    )
+            for key in ("scale", "offset_k"):
+                value = temperature_transformation.get(key)
+                if not isinstance(value, (int, float)) or not math.isfinite(value):
+                    raise EosmatError(
+                        f"Cross-calibration edge {edge_identifier!r} requires a "
+                        f"finite temperature {key}"
+                    )
+            if temperature_transformation["scale"] == 0.0:
+                raise EosmatError(
+                    f"Cross-calibration edge {edge_identifier!r} requires a nonzero "
+                    "temperature scale"
+                )
+        if edge.get("executable", True):
+            for key in ("source_node", "target_node"):
+                if edge.get(key) not in graph_nodes:
+                    raise EosmatError(
+                        f"Executable cross-calibration edge {edge_identifier!r} "
+                        f"references missing node {edge.get(key)!r}"
                     )
 
 

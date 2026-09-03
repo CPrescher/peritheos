@@ -1,10 +1,12 @@
 use peritheos::{
-    recalculate_ruby_pressure, ruby_calibration, RubyCalibrationModel, RUBY_CALIBRATIONS,
+    diamond_raman_calibration, recalculate_diamond_raman_pressure, recalculate_ruby_pressure,
+    ruby_calibration, DiamondRamanCalibrationModel, RubyCalibrationModel,
+    DIAMOND_RAMAN_CALIBRATIONS, RUBY_CALIBRATIONS,
 };
 
 #[test]
 fn bundled_ruby_scales_have_stable_identifiers_and_models() {
-    assert_eq!(RUBY_CALIBRATIONS.len(), 5);
+    assert_eq!(RUBY_CALIBRATIONS.len(), 6);
     assert_eq!(RUBY_CALIBRATIONS[0].identifier, "ruby_mao_1978");
     assert!(matches!(
         ruby_calibration("ruby_dorogokupets_oganov_2007")
@@ -13,6 +15,42 @@ fn bundled_ruby_scales_have_stable_identifiers_and_models() {
         RubyCalibrationModel::QuadraticShift { .. }
     ));
     assert!(ruby_calibration("unknown").is_none());
+    assert!(matches!(
+        ruby_calibration("ruby_shen_2020")
+            .expect("bundled scale")
+            .model,
+        RubyCalibrationModel::QuadraticShift { .. }
+    ));
+}
+
+#[test]
+fn bundled_diamond_raman_scales_are_executable_and_reversible() {
+    assert_eq!(DIAMOND_RAMAN_CALIBRATIONS.len(), 2);
+    assert!(matches!(
+        diamond_raman_calibration("diamond_raman_akahama_2006")
+            .expect("bundled scale")
+            .model,
+        DiamondRamanCalibrationModel::AkahamaQuadratic { .. }
+    ));
+    assert!(diamond_raman_calibration("unknown").is_none());
+
+    for scale in DIAMOND_RAMAN_CALIBRATIONS {
+        for pressure in [0.0, 50.0, 150.0, 300.0] {
+            let ratio = scale.wavenumber_ratio(pressure).expect("valid ratio");
+            let recovered = scale.pressure_from_ratio(ratio).expect("valid pressure");
+            assert!(
+                (recovered - pressure).abs() < 1.0e-9,
+                "{}",
+                scale.identifier
+            );
+        }
+    }
+
+    let source = diamond_raman_calibration("diamond_raman_akahama_2006").unwrap();
+    let target = diamond_raman_calibration("diamond_raman_eremets_2023").unwrap();
+    let converted = recalculate_diamond_raman_pressure(150.0, source, target).unwrap();
+    let recovered = recalculate_diamond_raman_pressure(converted, target, source).unwrap();
+    assert!((recovered - 150.0).abs() < 1.0e-9);
 }
 
 #[test]

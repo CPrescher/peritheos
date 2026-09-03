@@ -10,9 +10,9 @@ use peritheos::isothermal::{
     BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, SokolovaParameters,
-    ThermalModifiedTait, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
+    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
+    MultiOscillatorGruneisen, SokolovaParameters, ThermalModifiedTait, ThermalReferenceState,
 };
 use peritheos::{EosResult, ThermalEos};
 use pyo3::prelude::*;
@@ -189,6 +189,7 @@ impl ThermalModel {
     fn pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => model.pressure(volume, temperature),
+            Self::DorogokupetsOganov2007(model) => model.pressure(volume, temperature),
             Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
             Self::LogVolumeThermalPressure(model) => model.pressure(volume, temperature),
             Self::MieGruneisenDebye(model) => model.pressure(volume, temperature),
@@ -221,6 +222,69 @@ impl ThermalModel {
                         value(names, values, "gamma0", model.gamma0),
                         value(names, values, "a", model.a),
                         value(names, values, "b", model.b),
+                        value(names, values, "n", model.n),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::DorogokupetsOganov2007(model) => {
+                ensure_names(
+                    names,
+                    &[
+                        "Tr",
+                        "theta_B1",
+                        "d_B1",
+                        "m_B1",
+                        "theta_B2",
+                        "d_B2",
+                        "m_B2",
+                        "theta_E1",
+                        "m_E1",
+                        "theta_E2",
+                        "m_E2",
+                        "gamma0",
+                        "gamma_inf",
+                        "beta",
+                        "anharmonic_a",
+                        "anharmonic_m",
+                        "electronic_e",
+                        "electronic_g",
+                        "defect_H",
+                        "defect_S",
+                        "n",
+                    ],
+                    true,
+                )?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                let current = model.parameters;
+                let parameters = DorogokupetsOganov2007Parameters {
+                    tr: value(names, values, "Tr", current.tr),
+                    theta_b1: value(names, values, "theta_B1", current.theta_b1),
+                    d_b1: value(names, values, "d_B1", current.d_b1),
+                    m_b1: value(names, values, "m_B1", current.m_b1),
+                    theta_b2: value(names, values, "theta_B2", current.theta_b2),
+                    d_b2: value(names, values, "d_B2", current.d_b2),
+                    m_b2: value(names, values, "m_B2", current.m_b2),
+                    theta_e1: value(names, values, "theta_E1", current.theta_e1),
+                    m_e1: value(names, values, "m_E1", current.m_e1),
+                    theta_e2: value(names, values, "theta_E2", current.theta_e2),
+                    m_e2: value(names, values, "m_E2", current.m_e2),
+                    gamma0: value(names, values, "gamma0", current.gamma0),
+                    gamma_inf: value(names, values, "gamma_inf", current.gamma_inf),
+                    beta: value(names, values, "beta", current.beta),
+                    anharmonic_a: value(names, values, "anharmonic_a", current.anharmonic_a),
+                    anharmonic_m: value(names, values, "anharmonic_m", current.anharmonic_m),
+                    electronic_e: value(names, values, "electronic_e", current.electronic_e),
+                    electronic_g: value(names, values, "electronic_g", current.electronic_g),
+                    defect_h: value(names, values, "defect_H", current.defect_h),
+                    defect_s: value(names, values, "defect_S", current.defect_s),
+                };
+                Self::DorogokupetsOganov2007(
+                    DorogokupetsOganov2007::new(
+                        reference,
+                        parameters,
                         value(names, values, "n", model.n),
                     )
                     .map_err(FitError::from)?,

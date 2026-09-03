@@ -320,5 +320,62 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "aluminum_dewaele_2004_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All Table I aluminum atomic-volume observations.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "source": "Phys. Rev. B",
+    "volume": "70",
+    "locator": "094112",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "source_location": "Table I, pages 094112-3 to 094112-4",
+   "columns": [
+    {
+     "name": "ruby_pressure_classical_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_pressure_revised_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_uncertainty_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "bound",
+     "of": "atomic_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/aluminum-dewaele-2004-table1-compression.csv",
+    "sha256": "61fa04908b3a4827fb6566e4ceea29706ac52cbaae1cee5bb0590d1af44423b7",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "aluminum_dewaele_2004_vinet_1"
+   ],
+   "notes": "PR is the classical Mao et al. ruby pressure and PR' is the paper's revised calibration used by the stored fit. The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa; no row-wise pressure errors are printed.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.70.094112"
+  }
+ ]
 }

@@ -9,11 +9,27 @@ All notable changes to Peritheos are documented here. The project follows
 
 - Added a bundled executable pressure-calibration library for the Mao (1978),
   Mao--Xu--Bell (1986), Dewaele (2004), Holzapfel (2005), and
-  Dorogokupets--Oganov (2007) ruby R1 scales in Python and Rust. All 33
+  Dorogokupets--Oganov (2007), and IPPS-Ruby2020 ruby R1 scales in Python and
+  Rust, together with the Akahama--Kawamura (2006) and Eremets et al. (2023)
+  diamond-anvil Raman-edge scales. All 33
   identified ruby-calibrated material records now link to an exact calibration
-  identifier. Public APIs convert ruby scales through the R1 wavelength ratio
-  and replace ruby pressures with paired Au, Pt, MgO, or other linked XRD
-  standard observations.
+  identifier. Public APIs convert ruby scales through the R1 wavelength ratio,
+  diamond scales through the Raman wavenumber ratio, transform XRD pressure
+  scales through virtual same-standard volumes, and recursively normalize a
+  material EOS through its recorded calibration graph. An explicit edge
+  registry preserves the sources and transformations for simultaneous and
+  jointly optimized cross-calibrations. New records add the Fratanduono (2021)
+  Au anchor and the Tateno (2019) and Chidester (2021) B2-KCl thermal EOSs; the
+  complete 155-row Chidester KCl/Pt-derived-pressure table is bundled. The
+  complete Dorogokupets--Oganov (2007) Pt four-oscillator thermal EOS is now
+  implemented in Python and Rust and makes the Chidester KCl-to-Pt edge
+  executable, including the published KCl-effective-to-Pt-surface temperature
+  transformation.
+  Observation-level re-reduction from paired measured calibrant volumes remains
+  available as a separate operation. A dedicated pressure-scale normalization
+  guide documents valid same-standard, ruby, and cross-material paths, the
+  qualifying literature, validity and uncertainty rules, and current library
+  coverage.
 - Added the complete 51-row Somayazulu et al. (2023) B4C P-V-T table as a
   provenance-bearing `.eosmat` dataset, linked it to new MGD and Berman thermal
   records, and added a reproducible comparison of published, effective-

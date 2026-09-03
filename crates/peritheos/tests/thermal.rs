@@ -1,9 +1,10 @@
 use peritheos::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
 use peritheos::thermal::{
     debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw,
-    DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz, LinearThermalPressure,
-    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
-    ReferenceVolumeLaw, Sokolova2016, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
+    DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
+    DoubleDebyeLogMomentHelmholtz, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceVolumeLaw,
+    Sokolova2016, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
     ThermalReferenceState, GAS_CONSTANT,
 };
 use peritheos::{CaloricEos, EosError, IsothermalEos, ThermalEos};
@@ -15,6 +16,56 @@ fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
         (actual - expected).abs() <= relative_tolerance * scale,
         "actual {actual:.17e} differs from expected {expected:.17e}"
     );
+}
+
+#[test]
+fn dorogokupets_oganov_pt_reproduces_table_vi_isochors() {
+    let model = DorogokupetsOganov2007::new(
+        Vinet::new(0.9091, 276.07, 5.30).unwrap(),
+        DorogokupetsOganov2007Parameters {
+            tr: 298.15,
+            theta_b1: 95.2,
+            d_b1: 8.199,
+            m_b1: 0.329,
+            theta_b2: 148.4,
+            d_b2: 4.005,
+            m_b2: 0.383,
+            theta_e1: 214.6,
+            m_e1: 1.211,
+            theta_e2: 140.8,
+            m_e2: 1.077,
+            gamma0: 2.802,
+            gamma_inf: 1.538,
+            beta: 5.550,
+            anharmonic_a: 160.9,
+            anharmonic_m: 4.06,
+            electronic_e: 260.0,
+            electronic_g: 2.4,
+            defect_h: 32572.0,
+            defect_s: 0.631,
+        },
+        1.0,
+    )
+    .unwrap();
+    let temperatures = [298.15, 1000.0, 2000.0, 3000.0];
+    let rows = [
+        (1.00, [0.0, 5.309, 12.864, 20.349]),
+        (0.95, [16.207, 21.219, 28.485, 35.822]),
+        (0.90, [38.307, 43.111, 50.199, 57.476]),
+        (0.85, [68.389, 73.069, 80.079, 87.376]),
+        (0.80, [109.388, 114.016, 121.043, 128.434]),
+        (0.75, [165.473, 170.119, 177.253, 184.808]),
+        (0.70, [242.676, 247.403, 254.730, 262.523]),
+    ];
+    for (ratio, expected_pressures) in rows {
+        for (temperature, expected_pressure) in temperatures.into_iter().zip(expected_pressures) {
+            let actual = model.pressure(ratio * 0.9091, temperature).unwrap();
+            assert!(
+                (actual - expected_pressure).abs() <= 0.02,
+                "x={ratio}, T={temperature}: actual {actual}, expected {expected_pressure}"
+            );
+        }
+    }
 }
 
 #[test]

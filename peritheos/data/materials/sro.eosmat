@@ -135,5 +135,60 @@
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
  },
- "phase": "B1 (NaCl-type), cubic Fm-3m"
+ "phase": "B1 (NaCl-type), cubic Fm-3m",
+ "datasets": [
+  {
+   "identifier": "sro_liu_1973_table2_compression",
+   "kind": "pressure_volume",
+   "description": "All 11 SrO B1/tetragonal compression observations in Table 2.",
+   "reference": {
+    "authors": [
+     "Liu",
+     "Bassett"
+    ],
+    "year": 1973,
+    "source": "J. Geophys. Res.",
+    "volume": "78",
+    "locator": "8470-8473",
+    "doi": "10.1029/JB078i035p08470"
+   },
+   "source_location": "Table 2, page 8471",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "lattice_parameter_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/sro-liu-1973-table2-compression.csv",
+    "sha256": "f9696dcfe32368184c6fbaa38decbf8a272abaecf0c00d67ed140827600bd1bd",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "sro_liu_1973_bm3_1"
+   ],
+   "notes": "Rows marked with split diffraction lines in the source are retained using the authors' cubic treatment. The source estimates 0.3% accuracy in volume but does not give row-wise errors.",
+   "source_url": "https://doi.org/10.1029/JB078i035p08470"
+  }
+ ]
 }

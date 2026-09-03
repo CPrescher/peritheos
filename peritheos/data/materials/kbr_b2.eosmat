@@ -141,5 +141,59 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "kbr_b2_dewaele_2012_table1_compression",
+   "kind": "pressure_volume",
+   "description": "Complete 121-row 298 K KBR B2 compression table from five runs.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Belonoshko",
+     "Garbarino",
+     "Occelli",
+     "Bouvier",
+     "Hanfland",
+     "Mezouar"
+    ],
+    "year": 2012,
+    "source": "Phys. Rev. B",
+    "volume": "85",
+    "locator": "214105",
+    "doi": "10.1103/PhysRevB.85.214105"
+   },
+   "source_location": "Table I, page 214105-2",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_per_formula_unit",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kbr-b2-dewaele-2012-table1-compression.csv",
+    "sha256": "49584a8c80e8e4fbca26e976486c9c448d2c1d451215ca2ff658fc4991e0ffe3",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "kbr_b2_dewaele_2012_vinet_1"
+   ],
+   "notes": "The paper reports pressure uncertainty below 2% through 162 GPa and relative volume uncertainty below 0.001 under 50 GPa and below 0.005 above 50 GPa; row-wise values are not printed. The KCl value at 3.45 GPa is transcribed as 47.783 angstrom^3 rather than the text extractor's dropped leading 4.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.85.214105"
+  }
+ ]
 }

@@ -16,10 +16,10 @@ phase-D reference volumes and adding the Benedict record produces 147 bundled
 records; adding the Correa diamond branch produces 148. Two derived records
 combine the Correa and Benedict thermal increments with the experimental
 Dewaele 298 K Vinet isotherm, and adding the independently reproducible B4C
-Berman public-data refit produces 155 records in total. These checks
+Berman public-data refit produces 159 records in total. These checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 155
+The primary-source audit covers all 159
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
