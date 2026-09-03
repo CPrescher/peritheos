@@ -1002,6 +1002,17 @@
      ],
      "finding": "The primary paper reports the 298 K Au Vinet parameters V0=16.929 A^3/atom, K0=170.9(24) GPa, and K0'=5.880(5), constrained by shockless ramp compression to approximately 1 TPa.",
      "doi": "10.1126/science.abh0364"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "gold_fratanduono_2021_table_s3_compression"
+     ],
+     "source_locations": [
+      "Supplementary Table S3"
+     ],
+     "finding": "All 119 uniformly tabulated Au states in supplementary Table S3, including measured longitudinal stress, reduced isentrope, and reduced 298 K isotherm with their published pointwise uncertainties."
     }
    },
    "parameter_provenance": {
@@ -1191,6 +1202,99 @@
    },
    "used_by_eos_records": [
     "gold_takemura_2008_vinet_6"
+   ]
+  },
+  {
+   "identifier": "gold_fratanduono_2021_table_s3_compression",
+   "kind": "density_volume_pressure",
+   "description": "All 119 uniformly tabulated Au states in supplementary Table S3, including measured longitudinal stress, reduced isentrope, and reduced 298 K isotherm with their published pointwise uncertainties.",
+   "source_location": "Supplementary Table S3",
+   "source_url": "https://www.science.org/doi/suppl/10.1126/science.abh0364/suppl_file/abh0364-fratanduono-sm.pdf",
+   "columns": [
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "longitudinal_stress_gpa",
+     "quantity": "longitudinal_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "longitudinal_stress_uncertainty_gpa",
+     "quantity": "longitudinal_stress",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "longitudinal_stress_gpa"
+    },
+    {
+     "name": "isentrope_pressure_gpa",
+     "quantity": "isentrope_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "isentrope_pressure_uncertainty_gpa",
+     "quantity": "isentrope_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "isentrope_pressure_gpa"
+    },
+    {
+     "name": "isotherm_298k_pressure_gpa",
+     "quantity": "isotherm_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "isotherm_298k_pressure_uncertainty_gpa",
+     "quantity": "isotherm_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "isotherm_298k_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-fratanduono-2021-table-s3-compression.csv",
+    "sha256": "f9c62bfb79bbc6d21634f186dd235755f6a068e095e5b192a322b8968aea10f3",
+    "media_type": "text/csv"
+   },
+   "notes": "The source tabulates values at uniform 0.2 g/cm^3 density increments and labels the parenthesized plus/minus values generically, so they are encoded with the uncertainty role. The malformed typesetting of the 35.12 g/cm^3 isotherm entry, '518(.0 +/- 23.2)', is normalized to 518.0 +/- 23.2.",
+   "reference": {
+    "authors": [
+     "Fratanduono",
+     "Millot",
+     "Braun",
+     "Ali",
+     "Fernandez-Panella",
+     "Seagle",
+     "Davis",
+     "Brown",
+     "Akahama",
+     "Kraus",
+     "Marshall",
+     "Smith",
+     "O'Bannon",
+     "McNaney",
+     "Eggert"
+    ],
+    "year": 2021,
+    "source": "Science",
+    "volume": "372",
+    "locator": "1063-1068",
+    "doi": "10.1126/science.abh0364"
+   },
+   "used_by_eos_records": [
+    "gold_fratanduono_2021_vinet_7"
    ]
   }
  ]
