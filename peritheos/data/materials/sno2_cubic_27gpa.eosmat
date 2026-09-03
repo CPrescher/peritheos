@@ -11,8 +11,10 @@
   "beta": 90.0,
   "gamma": 90.0
  },
- "formula_units_per_cell": null,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Users data/sno2_cubic_27GPa.jcpds",
+ "formula_units_per_cell": 4,
+ "space_group": "Pa-3",
+ "space_group_number": 205,
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Users data/sno2_cubic_27GPa.jcpds. The cubic PdF2/pyrite-type model uses Sn 4a and O 8c with u=0.346, as reported for high-pressure cubic SnO2 by Smith et al., J. Synchrotron Rad. 26, 858-867 (2019), doi:10.1107/S1600577519005579. The legacy 26.6 GPa peaks are retained.",
  "peaks": [
   [
    4,
@@ -191,7 +193,24 @@
    }
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "Sn",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "8c",
+   "x": 0.346,
+   "y": 0.346,
+   "z": 0.346,
+   "occupancy": 1.0
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "sno2_cubic_27gpa",
  "units": {

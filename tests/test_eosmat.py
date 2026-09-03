@@ -406,6 +406,46 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     assert tantalum["fixed_parameters"] == ["V0"]
 
 
+def test_former_peak_only_materials_have_source_backed_crystal_models():
+    expected_cell_counts = {
+        "feh2": {"Fe": 4.0, "H": 8.0},
+        "iceviii": {"D": 16.0, "O": 8.0},
+        "majorite": {"Mg": 32.0, "Si": 32.0, "O": 96.0},
+        "mg7si2o8": {"Mg": 14.0, "Si": 4.0, "O": 28.0, "H": 12.0},
+        "mgfe60o": {"Mg": 1.6, "Fe": 2.4, "O": 4.0},
+        "perovskite_orthorhombic": {
+            "Mg": 3.52,
+            "Fe": 0.48,
+            "Si": 4.0,
+            "O": 12.0,
+        },
+        "phase_d": {"Mg": 1.11, "Si": 1.89, "O": 6.0, "H": 2.22},
+        "sno2_cubic_27gpa": {"Sn": 4.0, "O": 8.0},
+        "sno2_pa_3_at_48gpa": {"Sn": 4.0, "O": 8.0},
+    }
+
+    for material_id, expected in expected_cell_counts.items():
+        document = get_material_document(material_id)
+        assert document["space_group_number"]
+        assert document["peaks"]
+        assert document["atom_sites"]
+        assert all(site.get("wyckoff") for site in document["atom_sites"])
+
+        actual: dict[str, float] = {}
+        for site in document["atom_sites"]:
+            multiplicity = int(re.match(r"\d+", site["wyckoff"]).group())
+            actual[site["element"]] = actual.get(site["element"], 0.0) + (
+                multiplicity * site["occupancy"]
+            )
+        assert actual == pytest.approx(expected)
+
+    fe3s = get_material_document("fe3s")
+    assert fe3s["space_group"] == "I-4"
+    assert fe3s["space_group_number"] == 82
+    assert fe3s["formula_units_per_cell"] == 8
+    assert fe3s["atom_sites"] == []
+
+
 def test_newly_validated_primary_records_retain_published_errors():
     shim, mao = get_material_document("ca_perovskite")["eos_records"]
     cao_b1 = get_material_document("cao")["eos_records"][0]
@@ -662,7 +702,7 @@ def test_formerly_unverified_migrated_reductions_are_corrected_or_removed():
     assert "feo_fei_1995_bm3_1" not in record_ids
     assert "tungsten_hixson_1992_bm3_1" not in record_ids
     assert "mgsio3" not in list_material_documents()
-    assert majorite["formula_units_per_cell"] == 16
+    assert majorite["formula_units_per_cell"] == 32
     assert majorite["space_group_number"] == 88
     assert majorite["eos_records"][0]["identifier"] == "majorite_yagi_1992_bm3_1"
     assert majorite["eos_records"][0]["eos"]["parameters"]["K0"] == 161.2

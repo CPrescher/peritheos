@@ -1,7 +1,7 @@
 {
  "format_version": 3,
  "name": "(Mg0.88Fe0.12)SiO3 perovskite",
- "formula": "Mg22Fe3Si25O75",
+ "formula": "Mg0.88Fe0.12SiO3",
  "symmetry": "ORTHORHOMBIC",
  "lattice": {
   "a": 4.7963,
@@ -11,8 +11,10 @@
   "beta": 90.0,
   "gamma": 90.0
  },
- "formula_units_per_cell": null,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/mg0.8fe0.2sio3-opv.jcpds",
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/mg0.8fe0.2sio3-opv.jcpds. Knittle and Jeanloz, Science 235, 668-670 (1987), doi:10.1126/science.235.4789.668, establish orthorhombic (Mg0.88Fe0.12)SiO3 perovskite but do not report a positional refinement. The representative Pbnm coordinates are the ambient MgSiO3 refinement of Yagi et al., Phys. Chem. Miner. 3, 97-110 (1978), doi:10.1007/BF00308114, with Mg/Fe mixed on the A site at the EOS composition. This proxy enables extended-range reflection calculations but is not an exact refinement of the EOS specimen; the legacy peaks are retained.",
  "peaks": [
   [
    1,
@@ -1175,7 +1177,48 @@
    "temperature_ref": 300.0
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4c",
+   "x": 0.974,
+   "y": 0.063,
+   "z": 0.25,
+   "occupancy": 0.88
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4c",
+   "x": 0.974,
+   "y": 0.063,
+   "z": 0.25,
+   "occupancy": 0.12
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4b",
+   "x": 0.0,
+   "y": 0.5,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.096,
+   "y": 0.477,
+   "z": 0.25,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "8d",
+   "x": 0.696,
+   "y": 0.291,
+   "z": 0.056,
+   "occupancy": 1.0
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "perovskite_orthorhombic",
  "units": {

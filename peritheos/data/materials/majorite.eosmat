@@ -15,10 +15,10 @@
   "beta": 90.0,
   "gamma": 90.0
  },
- "formula_units_per_cell": 16,
+ "formula_units_per_cell": 32,
  "space_group": "I41/a",
  "space_group_number": 88,
- "notes": "Tetragonal MgSiO3 majorite consolidated from the duplicate Dioptas/JCPDS majorite and mgsio3-maj entries. The richer mgsio3-maj diffraction list is retained. Majorite has the garnet formula Mg3(MgSi)Si3O12, equivalent to 4 MgSiO3, and space group I41/a with 16 MgSiO3 formula units in the conventional cell. Source file(s): JCPDS/current user/jcpds/mgsio3-maj.jcpds, JCPDS/dac_user_jcpds/mgsio3-maj.jcpds, JCPDS/current user/jcpds/ver3/majorite.jcpds.",
+ "notes": "Tetragonal MgSiO3 majorite consolidated from the duplicate Dioptas/JCPDS majorite and mgsio3-maj entries. The richer mgsio3-maj diffraction list is retained. The full I41/a structure, including partial Mg-Si octahedral disorder, is from Angel et al., American Mineralogist 74, 509-512 (1989), COD 9010029. The published coordinates were shifted by +1/2 along x to restore the standard I41/a origin specified in the paper's Table 2 note. Their conventional cell contains eight Mg4Si4O12 garnet units, equivalent to 32 MgSiO3 units; this corrects the earlier Z=16 metadata. Source file(s): JCPDS/current user/jcpds/mgsio3-maj.jcpds, JCPDS/dac_user_jcpds/mgsio3-maj.jcpds, JCPDS/current user/jcpds/ver3/majorite.jcpds.",
  "peaks": [
   [
    9,
@@ -822,7 +822,128 @@
    }
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "16f",
+   "x": 0.6253,
+   "y": 0.0112,
+   "z": 0.2587,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "8e",
+   "x": 0.5,
+   "y": 0.25,
+   "z": 0.6258,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "8d",
+   "x": 0.5,
+   "y": 0.0,
+   "z": 0.5,
+   "occupancy": 0.8
+  },
+  {
+   "element": "Si",
+   "wyckoff": "8d",
+   "x": 0.5,
+   "y": 0.0,
+   "z": 0.5,
+   "occupancy": 0.2
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "8c",
+   "x": 0.5,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.2
+  },
+  {
+   "element": "Si",
+   "wyckoff": "8c",
+   "x": 0.5,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.8
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.25,
+   "z": 0.375,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4a",
+   "x": 0.5,
+   "y": 0.25,
+   "z": 0.875,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "16f",
+   "x": 0.6249,
+   "y": 0.0065,
+   "z": 0.7544,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "16f",
+   "x": 0.5282,
+   "y": 0.055,
+   "z": 0.6633,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "16f",
+   "x": 0.538,
+   "y": -0.0471,
+   "z": 0.8562,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "16f",
+   "x": 0.7195,
+   "y": 0.1023,
+   "z": 0.8021,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "16f",
+   "x": 0.715,
+   "y": -0.0894,
+   "z": 0.7,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "16f",
+   "x": 0.4412,
+   "y": 0.1617,
+   "z": 0.468,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "16f",
+   "x": 0.396,
+   "y": 0.208,
+   "z": 0.7851,
+   "occupancy": 1.0
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "majorite",
  "units": {

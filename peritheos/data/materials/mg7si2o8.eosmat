@@ -11,8 +11,10 @@
   "beta": 90.0,
   "gamma": 120.0
  },
- "formula_units_per_cell": null,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Mg7Si2O8(OH)6-phaseA.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_1.jcpds",
+ "formula_units_per_cell": 2,
+ "space_group": "P63",
+ "space_group_number": 173,
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Mg7Si2O8(OH)6-phaseA.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_.jcpds, JCPDS/dac_user_jcpds/Users data/Mg7Si2O8(OH)6-phaseA_1.jcpds. Mg, Si, and O coordinates are from Horiuchi et al., American Mineralogist 64, 593-598 (1979), COD 9000724. The two ambient-pressure H sites are from the deuterated neutron refinement of Kagi et al., Phys. Chem. Miner. 27, 225-233 (2000), doi:10.1007/s002690050251. The legacy peaks are retained.",
  "peaks": [
   [
    2,
@@ -325,7 +327,112 @@
    }
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "6c",
+   "x": 0.3722,
+   "y": 0.4547,
+   "z": 0.3857,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "6c",
+   "x": 0.2252,
+   "y": 0.2438,
+   "z": 0.1127,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "2b",
+   "x": 0.33333,
+   "y": 0.66667,
+   "z": 0.1029,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "2b",
+   "x": 0.66667,
+   "y": 0.33333,
+   "z": 0.1741,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.4018,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "6c",
+   "x": 0.2001,
+   "y": 0.0274,
+   "z": -0.024,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "6c",
+   "x": 0.4766,
+   "y": 0.0988,
+   "z": 0.4844,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "6c",
+   "x": 0.4538,
+   "y": 0.2947,
+   "z": 0.232,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "6c",
+   "x": 0.1704,
+   "y": 0.4367,
+   "z": 0.2398,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "2b",
+   "x": 0.66667,
+   "y": 0.33333,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.2323,
+   "occupancy": 1.0
+  },
+  {
+   "element": "H",
+   "wyckoff": "6c",
+   "x": 0.455,
+   "y": 0.161,
+   "z": 0.405,
+   "occupancy": 1.0
+  },
+  {
+   "element": "H",
+   "wyckoff": "6c",
+   "x": 0.038,
+   "y": 0.361,
+   "z": 0.24,
+   "occupancy": 1.0
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "mg7si2o8",
  "units": {

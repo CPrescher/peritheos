@@ -12,7 +12,9 @@
   "gamma": 90.0
  },
  "formula_units_per_cell": 8,
- "notes": "Deuterated tetragonal ice VIII. The isotope identity is part of the EOS provenance: Besson et al. (1994) measured D2O, not H2O. The legacy powder lines are retained for interchange because a publication-verified ordered atomic-site model has not yet been curated.",
+ "space_group": "I41/amd",
+ "space_group_number": 141,
+ "notes": "Deuterated tetragonal ice VIII. The isotope identity is part of the EOS provenance: Besson et al. (1994) measured D2O, not H2O. The ordered O and D coordinates are from the same neutron-diffraction study, doi:10.1103/PhysRevB.49.12540, as transcribed in COD 1566661. The legacy powder lines are retained for interchange.",
  "peaks": [
   [
    4,
@@ -333,7 +335,24 @@
    ]
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "O",
+   "wyckoff": "8e",
+   "x": 0.0,
+   "y": 0.25,
+   "z": 0.1106,
+   "occupancy": 1.0
+  },
+  {
+   "element": "D",
+   "wyckoff": "16h",
+   "x": 0.0,
+   "y": 0.4256,
+   "z": 0.2011,
+   "occupancy": 1.0
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "iceviii",
  "units": {

@@ -11,8 +11,10 @@
   "beta": 90.0,
   "gamma": 90.0
  },
- "formula_units_per_cell": null,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Fe3S-Fei.jcpds, JCPDS/dac_user_jcpds/Fe3S_calc.jcpds",
+ "formula_units_per_cell": 8,
+ "space_group": "I-4",
+ "space_group_number": 82,
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Fe3S-Fei.jcpds, JCPDS/dac_user_jcpds/Fe3S_calc.jcpds. Fei et al., American Mineralogist 85, 1830-1833 (2000), doi:10.2138/am-2000-11-1229, identify the phase as Fe3P-type I-4; the reported cell and density imply Z=8. The paper does not provide a complete positional refinement, so atom_sites remain empty and the legacy peaks remain authoritative for intensities.",
  "peaks": [
   [
    0,

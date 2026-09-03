@@ -12,7 +12,9 @@
   "gamma": 90.0
  },
  "formula_units_per_cell": 4,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/FeH2_tetragonal.jcpds",
+ "space_group": "I4/mmm",
+ "space_group_number": 139,
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/FeH2_tetragonal.jcpds. The I4/mmm structure is from Pepin et al., Phys. Rev. Lett. 113, 265504 (2014), doi:10.1103/PhysRevLett.113.265504. Fe was experimentally refined at 67 GPa; the two H sites were obtained by DFT because hydrogen positions could not be determined from the X-ray data. Fractional coordinates are paired here with the legacy reference lattice to enable full-range reflection generation; the legacy peaks are retained.",
  "peaks": [
   [
    2,
@@ -157,7 +159,32 @@
    }
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "Fe",
+   "wyckoff": "4e",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.853,
+   "occupancy": 1.0
+  },
+  {
+   "element": "H",
+   "wyckoff": "4c",
+   "x": 0.0,
+   "y": 0.5,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "H",
+   "wyckoff": "4d",
+   "x": 0.0,
+   "y": 0.5,
+   "z": 0.25,
+   "occupancy": 1.0
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "feh2",
  "units": {

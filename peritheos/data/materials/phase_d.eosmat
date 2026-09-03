@@ -1,7 +1,7 @@
 {
  "format_version": 3,
  "name": "PHASE D",
- "formula": "",
+ "formula": "Mg1.11Si1.89H2.22O6",
  "symmetry": "HEXAGONAL",
  "lattice": {
   "a": 4.7453,
@@ -11,8 +11,10 @@
   "beta": 90.0,
   "gamma": 120.0
  },
- "formula_units_per_cell": null,
- "notes": "Hexagonal phase-D diffraction interchange record. The crystallographic pattern was imported from Dioptas/JCPDS, while both executable EOS records use the separately printed AntA and AntB ambient volumes in Shieh et al. (2000), Table 2. Phase D is compositionally variable; the paper's antigorite starting material contained about 3.7 wt% Fe.",
+ "formula_units_per_cell": 1,
+ "space_group": "P-31m",
+ "space_group_number": 162,
+ "notes": "Hexagonal phase-D diffraction interchange record. The crystallographic pattern was imported from Dioptas/JCPDS, while both executable EOS records use the separately printed AntA and AntB ambient volumes in Shieh et al. (2000), Table 2. The atom sites are the composition Mg1.11Si1.89H2.22O6 single-crystal refinement of Yang et al., American Mineralogist 82, 651-654 (1997), doi:10.2138/AM-1997-5-627; its lattice is the one stored here. H is the refined split/disordered site and Mg substitutes at 5.5% on the nominal Si site. Phase D is compositionally variable, and this structure is a representative model rather than an exact refinement of the Fe-bearing AntA/AntB EOS specimens. The legacy peaks are retained.",
  "peaks": [
   [
    4,
@@ -618,7 +620,48 @@
    }
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "1a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "2d",
+   "x": 0.6666667,
+   "y": 0.3333333,
+   "z": 0.5,
+   "occupancy": 0.945
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "2d",
+   "x": 0.6666667,
+   "y": 0.3333333,
+   "z": 0.5,
+   "occupancy": 0.055
+  },
+  {
+   "element": "O",
+   "wyckoff": "6k",
+   "x": 0.6327,
+   "y": 0.0,
+   "z": 0.2716,
+   "occupancy": 1.0
+  },
+  {
+   "element": "H",
+   "wyckoff": "6k",
+   "x": 0.536,
+   "y": 0.0,
+   "z": 0.091,
+   "occupancy": 0.37
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "phase_d",
  "units": {
