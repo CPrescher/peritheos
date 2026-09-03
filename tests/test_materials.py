@@ -68,36 +68,35 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 37
+    assert len(records) == 150
+    assert len(materials) == 115
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
+    assert [item.identifier for item in records] == sorted(
+        item.identifier for item in records
+    )
+    assert [item.identifier for item in materials] == sorted(
+        item.identifier for item in materials
+    )
     assert get_eos_record("mgo_b1_tange_2009_vinet") is MGO_TANGE_2009
-    assert list_eos_records(formula="au") == (
-        AU_SOKOLOVA_2013,
-        AU_FEI_2007,
-        AU_DORFMAN_2012,
-    )
-    assert list_eos_records(formula="NaCl") == (
-        NACL_B2_FEI_2007,
-        NACL_B2_DORFMAN_2012,
-        NACL_B1_DEWAELE_2019,
-        NACL_B2_DEWAELE_2019,
-    )
+    assert {item.identifier for item in list_eos_records(formula="au")} == {
+        "gold_anderson_1989_bm3_1",
+        "gold_fei_2007_vinet_2",
+        "gold_shen_2026_vinet_3",
+        "gold_sokolova_2013_holzapfel_4",
+    }
     assert get_material("mgo_b1").eos_records == (
         MGO_TANGE_2009,
         MGO_SOKOLOVA_2013,
     )
-    assert DIAMOND_BENEDICT_2014 in get_material("diamond").eos_records
-    assert DIAMOND_CORREA_2008 in get_material("diamond").eos_records
-    assert DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED in get_material("diamond").eos_records
-    assert DIAMOND_CORREA_2008_DEWAELE_ANCHORED in get_material("diamond").eos_records
+    assert len(get_material("diamond").eos_records) == 7
     assert get_material("au_fcc").get_eos_record("au_fcc_fei_2007") is AU_FEI_2007
-    assert list_materials(formula="Au") == (get_material("au_fcc"),)
+    assert list_materials(formula="Au") == (get_material("gold"),)
     assert list_eos_records(formula="missing") == ()
     assert list_materials(formula="missing") == ()
-    with pytest.raises(KeyError, match="available"):
+    with pytest.raises(KeyError, match="Unknown EOS record"):
         get_eos_record("missing")
-    with pytest.raises(KeyError, match="available"):
+    with pytest.raises(KeyError, match="Unknown material"):
         get_material("missing")
     with pytest.raises(KeyError, match="available"):
         get_material("au_fcc").get_eos_record("missing")
@@ -269,7 +268,14 @@ def test_eosmat_record_provenance_and_extensions_survive_executable_round_trip()
 
 
 def test_legacy_snapshot_without_debye_law_uses_integrated_default():
-    payload = get_material("diamond").to_snapshot_dict()
+    legacy_material = Material(
+        identifier="diamond",
+        formula=DIAMOND_DEWAELE_2008.material,
+        phase=DIAMOND_DEWAELE_2008.phase,
+        cell_contents=DIAMOND_DEWAELE_2008.cell_contents,
+        eos_records=(DIAMOND_DEWAELE_2008,),
+    )
+    payload = legacy_material.to_snapshot_dict()
     record = next(
         item
         for item in payload["eos_records"]
@@ -445,7 +451,7 @@ def test_sokolova_records_use_scientific_fit_year_and_cite_2013(standard):
 
 
 def test_sokolova_2016_material_aliases_are_removed():
-    with pytest.raises(KeyError, match="available"):
+    with pytest.raises(KeyError, match="Did you mean"):
         get_eos_record("diamond_sokolova_2016")
     assert not hasattr(materials_module, "DIAMOND_SOKOLOVA_2016")
 

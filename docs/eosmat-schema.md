@@ -69,6 +69,7 @@ Each item in `eos_records` describes one source parameterization.
 |---|---:|---|
 | `identifier` | yes | Stable lower-snake-case record identifier. |
 | `label` | yes | Human-readable source/model label. |
+| `aliases` | no | Unique, non-empty historical or alternate record names accepted by executable lookup. An alias cannot collide with another record identifier or alias in the material. |
 | `reference` | yes | Citation string or structured citation with authors, year, source, and optional DOI. |
 | `default` | no | Preferred record for this material; at most one may be true. |
 | `eos` | yes | Reference-isotherm equation and parameters. |

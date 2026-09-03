@@ -1495,6 +1495,10 @@ def test_migration_manifest_and_dioptas_license_are_bundled():
         ),
         (lambda d: d.update(peaks={}), "peaks must be a JSON array"),
         (
+            lambda d: d["eos_records"][0].update(aliases=[" "]),
+            "array of non-empty strings",
+        ),
+        (
             lambda d: d["eos_records"][0].update(label=None),
             "label must be a string",
         ),
@@ -1533,6 +1537,11 @@ def test_validator_rejects_duplicate_record_id_and_multiple_defaults():
     document = get_material_document("gold")
     document["eos_records"][1]["identifier"] = document["eos_records"][0]["identifier"]
     with pytest.raises(ValueError, match="Duplicate EOS record identifier"):
+        validate_eosmat_document(document)
+
+    document = get_material_document("gold")
+    document["eos_records"][0]["aliases"] = [document["eos_records"][1]["identifier"]]
+    with pytest.raises(ValueError, match="identifier or alias"):
         validate_eosmat_document(document)
 
     document = get_material_document("gold")

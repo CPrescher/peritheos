@@ -1,5 +1,16 @@
 """Peritheos: thermodynamic equations of state calculations."""
 
+from peritheos.catalog import (
+    RangeQuery,
+    RangeSemantics,
+    ValidationStatus,
+    get_eos_record,
+    get_material,
+    list_eos_records,
+    list_materials,
+    search_eos_records,
+    search_materials,
+)
 from peritheos.eosmat import (
     EOSMAT_FORMAT,
     EOSMAT_FORMAT_VERSION,
@@ -31,10 +42,6 @@ from peritheos.errors import (
 from peritheos.materials import (
     EOSRecord,
     Material,
-    get_eos_record,
-    get_material,
-    list_eos_records,
-    list_materials,
     material_from_dict,
 )
 from peritheos.uncertainty import (
@@ -66,9 +73,12 @@ __all__ = [
     "EOSRecord",
     "Material",
     "PredictionUncertainty",
+    "RangeQuery",
+    "RangeSemantics",
     "PeritheosError",
     "UnsupportedOperationError",
     "ValidationError",
+    "ValidationStatus",
     "__version__",
     "eosmat_schema",
     "get_eos_record",
@@ -80,5 +90,7 @@ __all__ = [
     "load_eosmat",
     "material_from_dict",
     "save_eosmat",
+    "search_eos_records",
+    "search_materials",
     "validate_eosmat_document",
 ]

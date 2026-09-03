@@ -21,13 +21,14 @@ part of the enclosing `Material`; this avoids the common factor-of-$Z$ ambiguity
 between atomic, formula-unit, primitive-cell, conventional-cell, and molar
 volumes. Temperature is in K. Pressure is in GPa.
 
-## Curated pressure-scale convenience catalog
+## Historical pressure-scale compatibility API
 
-The table below documents the compact set exposed directly by
-`get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 115 material documents and 150 independently
-audited EOS records, accessed with `list_material_documents()` and
-`Material.from_eosmat()`.
+The table below documents the historical pressure-scale identifiers and
+constants. They remain executable compatibility objects, including their
+published numerical behavior. `list_eos_records()` now returns the broader
+canonical catalog: 150 independently audited records loaded from 115 bundled
+`.eosmat` documents. Use `search_eos_records()` to select canonical records by
+capability, source, or calibration range.
 
 | EOS record identifier | Material and phase | Model | Published envelope | Primary source |
 |---|---|---|---|---|
@@ -153,9 +154,9 @@ the two formulas differ when $q\ne0$.
 
 ### B2 KCl as pressure medium and marker
 
-The same primary scale is available through the compact EOS catalog and the
-cross-compatible material library. The latter also carries the ideal B2
-structure needed by Dioptas:
+The same primary scale is available through its historical convenience alias
+and canonical catalog identifier. The canonical material also carries the
+ideal B2 structure needed by Dioptas:
 
 ```python
 from peritheos import Material, get_eos_record, get_material_document

@@ -425,6 +425,11 @@
       "properties": {
         "identifier": {"$ref": "#/$defs/identifier"},
         "label": {"type": "string"},
+        "aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1, "pattern": "^\\S(?:.*\\S)?$"}
+        },
         "reference": {"$ref": "#/$defs/reference"},
         "default": {"type": "boolean"},
         "eos": {"$ref": "#/$defs/equation"},

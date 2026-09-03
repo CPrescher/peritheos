@@ -7,6 +7,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added typed `search_materials()` and `search_eos_records()` discovery across
+  identity and aliases, formula and phase, equation family, DOI and reference,
+  thermal/caloric capability, uncertainty, scientific-validation status, and
+  closed calibration ranges with explicit `contains` or `overlaps` semantics.
+- Failed material, record, and raw-document identifier lookups now suggest
+  close stable identifiers.
+- Calibration discovery treats missing bounds as unknown rather than unbounded,
+  and material searches require all record-level criteria to match one record.
+
 - Added forward DAC-confinement prediction through
   `volume_with_dac_confinement(P_cold, T, f_dac=...)`, together with an explicit
   reference-relative `thermal_pressure_increment()` for displaying the full
@@ -41,6 +50,13 @@ All notable changes to Peritheos are documented here. The project follows
   fitting examples, docs.rs metadata, and warning-free rustdoc/doctest CI.
 
 ### Changed
+
+- Unified the normal Python material API with the bundled `.eosmat` library.
+  `list_materials()` and `list_eos_records()` now return all 115 materials and
+  150 directly executable records in deterministic identifier order. Historical
+  pressure-scale identifiers and constants remain numerically stable
+  compatibility lookups after a record-by-record audit, while
+  `get_material_document()` remains the advanced raw-document API.
 
 - EOS records now evaluate extrapolated states by default. Published ranges are
   treated as calibration/data coverage, with opt-in enforcement through

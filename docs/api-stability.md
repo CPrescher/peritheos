@@ -41,6 +41,31 @@ parameterization. A scientific correction creates an auditable data change;
 saved project reproducibility must not depend on silently resolving an old
 identifier to altered parameters.
 
+The bundled `.eosmat` identifiers are canonical for the executable catalog.
+Historical pressure-scale identifiers and module-level convenience constants
+remain supported as explicit compatibility lookups, preserving their prior
+parameters and numerical results when a primary-source audit found that the
+new canonical record is not identical. They are intentionally omitted from
+`list_materials()`, `list_eos_records()`, and search results, whose deterministic
+contents are exactly the bundled 115-material/150-record collection.
+
+The migration audit covered all 37 historical convenience records: 9 have an
+equation-identical canonical counterpart, 17 have a counterpart whose audited
+parameters, reference state, or equation composition differs, and 11 have no
+record in the fixed 150-record collection. Consequently, the old names are not
+blindly redirected to scientifically different records. Their compatibility
+objects remain numerically stable; all new discovery and canonical-identifier
+lookups use document-built objects. An exhaustive internal manifest is tested
+against both catalogs so no historical record can be added, removed, or
+redirected without an explicit audited disposition.
+
+Canonical identifiers take precedence on collision. The only material-level
+collision is `diamond`, which therefore resolves to the complete seven-record
+document-built material instead of the former five-record convenience grouping.
+The historical diamond records remain available individually through their
+constants and record identifiers. The two record-level identifier collisions
+are equation-identical anchored variants and retain the same numerical results.
+
 An equation discriminator is part of a record's scientific meaning. Readers
 must reject an unknown discriminator rather than substituting a related model.
 In particular, `MieGruneisenDebye` with `debye_temperature_law:

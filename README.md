@@ -79,14 +79,14 @@ record carries its primary reference, parameter provenance, validity range, and
 uncertainty assumptions.
 
 ```python
-from peritheos import get_material
+from peritheos import get_material, search_eos_records
 
-mgo = get_material("mgo_b1")
-tange = mgo.get_eos_record("mgo_b1_tange_2009_vinet")
-pressure = tange.pressure(volume=60.0, temperature=2000.0)
-recovered_volume = tange.volume(pressure, temperature=2000.0)
+mgo = get_material("mgo")
+scale = mgo.get_eos_record("mgo_sokolova_2013_holzapfel_4")
+pressure = scale.pressure(volume=60.0, temperature=2000.0)
+recovered_volume = scale.volume(pressure, temperature=2000.0)
 
-prediction = tange.pressure_with_uncertainty(
+prediction = scale.pressure_with_uncertainty(
     volume=60.0,
     temperature=2000.0,
     volume_sigma=0.02,
@@ -95,12 +95,15 @@ prediction = tange.pressure_with_uncertainty(
 
 # Sokolova markers use the same cell-volume API although their composed EOS
 # works internally with molar volume.
-gold = get_material("au_fcc").get_eos_record("au_fcc_sokolova_2013")
+gold = search_eos_records(formula="Au", thermal=True, pressure_gpa=200.0)[0]
 hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
 ```
 
-See [Pressure standards](docs/pressure-standards.md) for EOS records commonly
-used in that application, and [Dioptas and `.eosmat`](docs/dioptas-integration.md)
+The normal catalog API constructs all 115 materials and 150 records directly
+from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
+typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
+EOS records commonly used in that application, and
+[Dioptas and `.eosmat`](docs/dioptas-integration.md)
 for the shared material library. The [`.eosmat` schema reference](docs/eosmat-schema.md)
 defines its fields, equation discriminators, defaults, units, and compatibility
 rules.
