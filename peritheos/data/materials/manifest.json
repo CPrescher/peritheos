@@ -20,20 +20,21 @@
   "pressure_calibration": {
     "audit_date": "2026-09-03",
     "status_counts": {
-      "resolved": 58,
-      "partially_resolved": 6,
+      "resolved": 65,
+      "partially_resolved": 9,
       "not_applicable": 23,
-      "unresolved": 72
+      "unresolved": 62
     },
     "recalculation_counts": {
-      "missing_calibrant_observations": 48,
-      "reference_model_not_supported": 15,
+      "missing_calibrant_observations": 50,
+      "reference_model_not_supported": 16,
       "not_applicable": 23,
-      "not_possible": 72,
-      "ready": 1
+      "not_possible": 63,
+      "ready": 6,
+      "reference_eos_not_bundled": 1
     },
-    "resolvable_reference_eos_uses": 19,
-    "resolvable_reference_calibration_uses": 33,
+    "resolvable_reference_eos_uses": 25,
+    "resolvable_reference_calibration_uses": 35,
     "policy": "Exact EOS and ruby-scale links resolve to executable bundled records. Unsupported or ambiguous calibrations are recorded explicitly and are never replaced by an approximate pressure scale."
   }
 }

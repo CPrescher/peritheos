@@ -65,14 +65,26 @@
    "notes": "Mao et al. report V0 = 22.35(3) A^3, K0 = 165(4) GPa, and K0' = 5.33(9) for the two-atom hcp cell. The legacy volume was also corrected for the hexagonal sin(120 degree) factor.",
    "identifier": "iron_mao_1990_bm3_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": ["Holmes", "Moriarty", "Gathers", "Nellis"],
+       "year": 1989,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Experimental section; platinum (111) diffraction volumes",
+      "scope": "Table 1 pressures",
+      "reference_eos_record": "platinum_holmes_1989_vinet_1"
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "ready",
+     "notes": "Table 1 supplies the sample volumes and source-scale pressures. The monotonic Holmes platinum EOS can be inverted to reconstruct the corresponding calibrant volumes for pressure-scale conversion."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-03"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -85,15 +97,17 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/JB095iB13p21737",
      "locations": [
-      "Primary abstract",
-      "combined hcp-Fe BM3 fit to 300 GPa"
+      "Table 1, journal page 21738",
+      "Table 3 and EOS discussion, journal pages 21739-21740"
      ],
-     "finding": "The molar volume was converted to the conventional two-atom hcp cell.",
+     "finding": "All 32 new hcp-iron observations in Table 1 are bundled with their printed pressure, volume, c/a, and relative-volume uncertainties. Published molar volumes are retained and also converted to the conventional two-atom hcp cell. The published BM3 fit additionally used earlier hcp-Fe data identified in the Table 3 footnote.",
      "doi": "10.1029/jb095ib13p21737"
     },
     "migration_source": {
@@ -103,12 +117,15 @@
      "file": "iron.json"
     },
     "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Pressure-volume and axial-ratio figures; EOS fit discussion"
+     "status": "bundled",
+   "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "iron_mao_1990_table1_compression"
      ],
-     "finding": "The new iron and iron-nickel observations and the combined iron compression set are presented graphically. The article reports fitted EOS results but supplies no numerical row-level table or supplemental dataset."
+     "source_locations": [
+      "Table 1, journal page 21738"
+     ],
+     "finding": "The paper tabulates all 32 new hcp-iron measurements in Table 1. The earlier literature observations included in the combined fit are not reprinted row by row in this paper."
     }
    }
   },
@@ -292,6 +309,48 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "iron_mao_1990_table1_compression",
+   "kind": "pressure_volume_lattice_ratio",
+   "description": "All 32 new hcp-iron observations printed in Table 1, preserving the reported molar volumes, c/a ratios, V/V01 ratios, and their uncertainties. Conventional two-atom hcp-cell volumes are included as derived values for compatibility with this material record.",
+   "reference": {
+    "authors": ["Mao", "Wu", "Chen", "Shu", "Jephcoat"],
+    "year": 1990,
+    "source": "J. Geophys. Res.",
+    "volume": "95",
+    "locator": "21737-21742",
+    "doi": "10.1029/JB095iB13p21737"
+   },
+   "source_location": "Table 1, journal page 21738",
+   "source_url": "https://doi.org/10.1029/JB095iB13p21737",
+   "columns": [
+    {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "molar_volume_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+    {"name": "molar_volume_uncertainty_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_per_mol"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "volume_uncertainty_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
+    {"name": "axial_ratio_c_over_a", "quantity": "c_over_a", "unit": "1", "role": "value"},
+    {"name": "axial_ratio_uncertainty", "quantity": "c_over_a", "unit": "1", "role": "uncertainty", "of": "axial_ratio_c_over_a"},
+    {"name": "relative_volume_v_over_v01", "quantity": "relative_volume", "unit": "1", "role": "value"},
+    {"name": "relative_volume_uncertainty", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "relative_volume_v_over_v01"}
+   ],
+   "resource": {
+    "path": "datasets/iron-mao-1990-table1-compression.csv",
+    "sha256": "3d1565ed9e5373d10dc6952749296232a2d35076b99732b8fa39226737ea3a74",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": ["iron_mao_1990_bm3_1"],
+   "notes": "The table defines V01 = 7.093(8) cm^3/mol and pressure uncertainty as 3% of measured pressure. Blank c/a entries are retained as missing. The EOS in Table 3 is a combined fit to these data plus earlier hcp-Fe measurements from Jephcoat et al. (1986a,b) and Mao et al. (1967).",
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Transcribed Table 1 verbatim. Conventional-cell volumes and uncertainties were calculated from molar values using two Fe atoms per hcp cell and the exact Avogadro constant.",
+    "source_pdf_sha256": "d1fa0a81c365e02e412526d576797731bf00714d6875888708fd3bf20957ea94",
+    "quality_control": {"published_combined_bm3_rms_pressure_residual_gpa": 5.8459, "published_combined_bm3_max_abs_pressure_residual_gpa": 16.1292},
+    "transcribed_on": "2026-09-04"
+   }
   }
  ]
 }

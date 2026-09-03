@@ -119,6 +119,9 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "cobalt_hcp_fujihisa_1996_figure3_digitized"
+     ],
      "source_locations": [
       "Figure 3; journal page 6"
      ],
@@ -126,6 +129,38 @@
     }
    },
    "temperature_ref": 300.0
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "cobalt_hcp_fujihisa_1996_figure3_digitized",
+   "kind": "pressure_volume_ratio_digitized",
+   "description": "Eight clearly separable high-pressure hcp-Co closed-circle markers digitized from Figure 3. Low-pressure hcp markers overlap the open-circle fcc series at the published figure resolution and were not guessed.",
+   "reference": {
+    "authors": ["Fujihisa", "Takemura"],
+    "year": 1996,
+    "source": "Phys. Rev. B",
+    "volume": "54",
+    "locator": "5-7",
+    "doi": "10.1103/PhysRevB.54.5"
+   },
+   "source_location": "Figure 3, closed-circle hcp series",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "dimensionless", "role": "uncertainty", "of": "volume_ratio"}
+   ],
+   "resource": {"path": "datasets/cobalt-hcp-fujihisa-1996-figure3-digitized.csv", "sha256": "0c0494679be81cbc94c7b8fea0b084b7a085fa9d810b413b871f98919730356d", "media_type": "text/csv"},
+   "used_by_eos_records": ["cobalt_hcp_fujihisa_1996_vinet_1"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Extracted the 300 dpi one-bit Figure 3 stencil from the locally archived PDF; located the clearly separable filled-circle centers by distance-transform maxima; calibrated against the printed axes.",
+    "source_pdf_sha256": "0996855ec2ff5e6f10083fb1803f8b5724ca61711f303ad8c95d5481d3a0547b",
+    "axis_calibration_pixels_300dpi": {"pressure": [[139.0, 0.0], [726.0, 100.0]], "volume_ratio": [[111.0, 1.0], [281.0, 0.9]]},
+    "quality_control": {"published_vinet_rms_pressure_residual_gpa": 1.3905, "published_vinet_max_abs_pressure_residual_gpa": 2.4678},
+    "digitized_on": "2026-09-03"
+   }
   }
  ],
  "format": "peritheos.material",

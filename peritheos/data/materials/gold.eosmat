@@ -577,10 +577,13 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "gold_fei_2007_figure1_digitized"
+     ],
      "source_locations": [
       "Figures 1 and 5; Table 1"
      ],
-     "finding": "The paper's new Au and solid-Ne compression observations are shown graphically in Figures 1 and 5. Table 1 contains optimized EOS parameters, not row-level measurements, and the article provides no numerical primary-data table or supporting dataset."
+     "finding": "The paper's new Au compression observations are shown graphically as open circles in Figure 1. Six visible 300 K observations were digitized from the source-resolution PMC figure; no experimental error bars are plotted. Table 1 contains optimized EOS parameters, not row-level measurements."
     }
    }
   },
@@ -1030,6 +1033,37 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "gold_fei_2007_figure1_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "Six new 300 K Au observations shown as open circles in Figure 1. No experimental error bars are plotted; digitization uncertainty is recorded separately.",
+   "reference": {
+    "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+    "year": 2007,
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "source_location": "Figure 1, open circles labeled This study",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {"path": "datasets/gold-fei-2007-figure1-digitized.csv", "sha256": "a60e32e20bdc32de732c26d628628ef333817be97e571dfc209c516c3fc3f111", "media_type": "text/csv"},
+   "used_by_eos_records": ["gold_fei_2007_vinet_2"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Reconstructed the source-resolution Figure 1 from PMC image tiles, calibrated the printed axes, and digitized the centers of the blue open-circle markers.",
+    "source_figure_sha256": "5a23506778c0c2c2f669026ecf38841d69b20b89d2e8772a3227283fe1c20dcc",
+    "axis_calibration_pixels_source_figure": {"pressure": [[213.0, 0.0], [1600.0, 125.0]], "volume": [[87.0, 68.0], [1197.0, 50.0]]},
+    "quality_control": {"published_vinet_rms_pressure_residual_gpa": 1.4975, "published_vinet_max_abs_pressure_residual_gpa": 2.9209},
+    "digitized_on": "2026-09-03"
+   },
+   "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/"
+  },
   {
    "identifier": "gold_dewaele_2004_table1_compression",
    "kind": "pressure_volume",

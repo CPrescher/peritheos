@@ -124,10 +124,13 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "neon_fei_2007_figure5_digitized"
+     ],
      "source_locations": [
       "Figures 1 and 5; Table 1"
      ],
-     "finding": "The paper's new Au and solid-Ne compression observations are shown graphically in Figures 1 and 5. Table 1 contains optimized EOS parameters, not row-level measurements, and the article provides no numerical primary-data table or supporting dataset."
+     "finding": "The paper's new solid-Ne compression observations are shown graphically in Figure 5. Thirteen separable 300 K observations from this study (seven on the Pt scale and six on the Au scale) were digitized from the source-resolution PMC figure. No experimental error bars are plotted; Table 1 contains optimized EOS parameters, not row-level measurements."
     }
    }
   },
@@ -253,12 +256,54 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "neon_fei_2007_figure5_digitized"
+     ],
      "source_locations": [
       "Figures 1 and 5; Table 1"
      ],
-     "finding": "The paper's new Au and solid-Ne compression observations are shown graphically in Figures 1 and 5. Table 1 contains optimized EOS parameters, not row-level measurements, and the article provides no numerical primary-data table or supporting dataset."
+     "finding": "The paper's new solid-Ne compression observations are shown graphically in Figure 5. Thirteen separable 300 K observations from this study (seven on the Pt scale and six on the Au scale) were digitized from the source-resolution PMC figure. No experimental error bars are plotted; Table 1 contains optimized EOS parameters, not row-level measurements."
     }
    }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "neon_fei_2007_figure5_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "Thirteen separable 300 K solid-Ne observations from this study in Figure 5: seven open circles using the Pt scale and six crosses using the Au scale. No experimental error bars are plotted; digitization uncertainty is recorded separately.",
+   "reference": {
+    "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+    "year": 2007,
+    "source": "Proc. Natl. Acad. Sci. USA",
+    "volume": "104",
+    "locator": "9182-9186",
+    "doi": "10.1073/pnas.0609013104"
+   },
+   "source_location": "Figure 5, open circles (Pt scale) and crosses (Au scale) at 300 K",
+   "columns": [
+    {"name": "pressure_scale", "quantity": "pressure_calibration_series", "unit": "1", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {"path": "datasets/neon-fei-2007-figure5-digitized.csv", "sha256": "1d9db20d5cf8bf50cb5d429c3af7009e69fc147afee932b25df441274bdb29d0", "media_type": "text/csv"},
+   "used_by_eos_records": ["neon_fcc_fei_2007_bm3_1", "neon_fcc_fei_2007_vinet_2"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Reconstructed the source-resolution Figure 5 from PMC image tiles, calibrated the printed axes, and digitized the centers of the new blue open-circle and cross markers. Overlapping comparison-series symbols were excluded where the new marker center was not separable.",
+    "source_figure_sha256": "17da58d25f39408130b9cb06e1626b038f3f5451989ec11a9bf1adb4495c7629",
+    "axis_calibration_pixels_source_figure": {"pressure": [[401.5, 25.0], [1430.0, 125.0]], "volume": [[31.0, 50.0], [1103.0, 24.0]]},
+    "quality_control": {
+     "published_vinet_rms_pressure_residual_gpa": 1.4616,
+     "published_vinet_max_abs_pressure_residual_gpa": 2.4838,
+     "published_bm3_rms_pressure_residual_gpa": 1.5296,
+     "published_bm3_max_abs_pressure_residual_gpa": 2.6807
+    },
+    "digitized_on": "2026-09-03"
+   },
+   "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/"
   }
  ],
  "format": "peritheos.material",

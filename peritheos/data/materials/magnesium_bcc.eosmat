@@ -114,11 +114,57 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "magnesium_stinton_2014_figure1_bcc_digitized"
+     ],
      "source_locations": [
       "Figure 1; Table I"
      ],
      "finding": "The room-temperature hcp- and bcc-Mg pressure-volume observations used for the EOS fits are plotted in Figure 1 but not tabulated. Table I contains only fitted EOS parameters, and the article provides no supplemental-data pointer."
     }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "magnesium_stinton_2014_figure1_bcc_digitized",
+   "kind": "pressure_atomic_volume_digitized",
+   "description": "Fifty-seven plotted 300 K bcc-Mg observations from cells 1 and 2 digitized from Figure 1. The comparison data of Nishimura et al. and the duplicated inset markers were excluded.",
+   "reference": {
+    "authors": ["Stinton", "MacLeod", "Cynn", "Errandonea", "Evans", "Proctor", "Meng", "McMahon"],
+    "year": 2014,
+    "source": "Phys. Rev. B",
+    "volume": "90",
+    "locator": "134105",
+    "doi": "10.1103/PhysRevB.90.134105"
+   },
+   "source_location": "Figure 1, main panel, open-square and open-diamond bcc series",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "atomic_volume_angstrom3", "quantity": "volume", "unit": "angstrom^3/atom", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "atomic_volume_digitization_uncertainty_angstrom3", "quantity": "volume", "unit": "angstrom^3/atom", "role": "uncertainty", "of": "atomic_volume_angstrom3"},
+    {"name": "experimental_series", "quantity": "experimental_series", "unit": "dimensionless", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/magnesium-stinton-2014-figure1-bcc-digitized.csv",
+    "sha256": "3ff2a2330fe64b290ae3ef0bb3e5c6480ed6b9201970eb9251a1b5847c694951",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": ["magnesium_bcc_stinton_2014_vinet_1"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Direct extraction of the open square and diamond vector marker centers from the locally archived publication PDF, followed by affine axis calibration.",
+    "source_pdf_sha256": "bd75da140d8514eccf8316aaacfff0fca09468a1f61eba372f21d135e85302b6",
+    "axis_calibration_pdf_points": {
+     "pressure": [[71.441, 0.0], [119.916, 50.0]],
+     "atomic_volume": [[583.700, 8.0], [621.625, 12.0]]
+    },
+    "quality_control": {
+     "published_vinet_rms_pressure_residual_gpa": 1.9576,
+     "published_vinet_max_abs_pressure_residual_gpa": 7.1173
+    },
+    "digitized_on": "2026-09-03"
    }
   }
  ],

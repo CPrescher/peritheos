@@ -76,14 +76,25 @@
    "notes": "Hanna et al. report V0 = 19.61(10) A^3 per ZnO and K0 = 172(21) GPa with K0' fixed at 4; values are converted to the conventional Z=4 cell. B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.",
    "identifier": "zinc_oxide_rocksalt_hanna_2011_bm2_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": ["Mao", "Xu", "Bell"],
+       "year": 1986,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Experimental methods; ruby R1 and R2 shifts using the Mao scale",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "ready",
+     "notes": "The exact ruby scale is executable and the digitized pressure-volume observations are bundled. Raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-03"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -115,11 +126,51 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "zinc_oxide_rocksalt_hanna_2011_figure4_bulk_digitized"
+     ],
      "source_locations": [
       "Figure 4; Table II"
      ],
-     "finding": "The pure-ZnO rocksalt pressure-volume observations are plotted in Figure 4. Table II contains fitted Birch-Murnaghan parameters and transition pressures rather than row-level measurements; the cited supplement contains Mg0.2Zn0.8O alloy data, not the pure-ZnO series."
+     "finding": "The pure-ZnO rocksalt pressure-volume observations are plotted in Figure 4. Twenty separable bulk-sample crosses were digitized; open circles are the distinct nanocrystal series and were excluded. Table II contains fitted parameters and transition pressures rather than row-level measurements."
     }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "zinc_oxide_rocksalt_hanna_2011_figure4_bulk_digitized",
+   "kind": "pressure_specific_volume_digitized",
+   "description": "Twenty bulk-ZnO rocksalt observations digitized from Figure 4. The paper's 0.1 GPa pressure precision is retained separately from digitization uncertainty; experimental volume error bars are not plotted.",
+   "reference": {
+    "authors": ["Hanna", "Teklemichael", "McCluskey", "Bergman", "Huso"],
+    "year": 2011,
+    "source": "J. Appl. Phys.",
+    "volume": "110",
+    "locator": "073511",
+    "doi": "10.1063/1.3644969"
+   },
+   "source_location": "Figure 4, crosses labeled bulk ZnO",
+   "source_url": "https://doi.org/10.1063/1.3644969",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "specific_volume_a3_per_formula_unit", "quantity": "specific_volume", "unit": "angstrom^3/formula_unit", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "pressure_precision_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "specific_volume_digitization_uncertainty_a3", "quantity": "specific_volume", "unit": "angstrom^3/formula_unit", "role": "uncertainty", "of": "specific_volume_a3_per_formula_unit"},
+    {"name": "volume_digitization_uncertainty_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {"path": "datasets/zinc-oxide-rocksalt-hanna-2011-figure4-bulk-digitized.csv", "sha256": "cd5b8389d9b4435d8c7f74e9ddd2aa60709d128c3e655a67ada42ee7613b6fb9", "media_type": "text/csv"},
+   "used_by_eos_records": ["zinc_oxide_rocksalt_hanna_2011_bm2_1"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Extracted the source-resolution Figure 4 raster from the author-provided PDF, calibrated the printed axes, and digitized the centers of the cross markers assigned to bulk ZnO. Open-circle nanocrystal observations were excluded.",
+    "source_pdf_sha256": "786199c6d2e93633245bf850f6e4b6a6f9316ee54a5a3736bfbd05a8716a1382",
+    "source_figure_sha256": "9eb77f3e308ddc77faf98c4939fe4bb15b134c13b570015a5efe7b710056e0a5",
+    "axis_calibration_pixels_source_figure": {"pressure": [[117.0, 0.0], [999.0, 12.0]], "specific_volume": [[10.0, 20.0], [162.5, 19.5]]},
+    "quality_control": {"published_bm2_rms_pressure_residual_gpa": 0.8026, "published_bm2_max_abs_pressure_residual_gpa": 2.5206},
+    "digitized_on": "2026-09-03"
    }
   }
  ],

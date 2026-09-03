@@ -237,6 +237,9 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "mgo_duffy_1995_figure2_digitized"
+     ],
      "source_locations": [
       "Figure 2; journal page 1372"
      ],
@@ -789,6 +792,39 @@
    "used_by_eos_records": [
     "mgo_speziale_2001_bm3_2"
    ]
+  },
+  {
+   "identifier": "mgo_duffy_1995_figure2_digitized",
+   "kind": "pressure_molar_volume_digitized",
+   "description": "Seventeen clearly distinguishable markers from the filled-circle current-study MgO series in Figure 2, including the ambient reference point. Filled triangles and all open shock-compression symbols were excluded. Experimental error bars are included only where their stems and caps are separable; blank error fields do not mean zero error.",
+   "reference": {
+    "authors": ["Duffy", "Hemley", "Mao"],
+    "year": 1995,
+    "source": "Phys. Rev. Lett.",
+    "volume": "74",
+    "locator": "1371-1374",
+    "doi": "10.1103/PhysRevLett.74.1371"
+   },
+   "source_location": "Figure 2, filled-circle present static-compression series",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "molar_volume_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
+    {"name": "pressure_error_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "molar_volume_error_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_per_mol"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "molar_volume_digitization_uncertainty_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_per_mol"}
+   ],
+   "resource": {"path": "datasets/mgo-duffy-1995-figure2-digitized.csv", "sha256": "9f4191e950481361efec4d855036b00216a98fe318cede2857e052920d7ce11c", "media_type": "text/csv"},
+   "used_by_eos_records": ["mgo_duffy_1995_bm3_1"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Extracted the 600 dpi one-bit journal page image from the locally archived PDF; separated visually identifiable filled circles from filled triangles and open shock symbols; calibrated marker centers against the printed axes. Experimental error bars were measured only where stems and terminal caps were unambiguous.",
+    "source_pdf_sha256": "a2c33151213f983fddee09b98824d6ba93b53ae8a6dcd974bad8bc51d4372bb7",
+    "axis_calibration_pixels_600dpi": {"molar_volume": [[970.0, 11.0], [1305.0, 10.0]], "pressure": [[2146.0, 0.0], [1864.0, 50.0]]},
+    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 5.2032, "published_bm3_max_abs_pressure_residual_gpa": 10.7702},
+    "digitized_on": "2026-09-03"
+   }
   }
  ]
 }

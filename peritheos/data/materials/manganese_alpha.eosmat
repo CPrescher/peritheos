@@ -136,12 +136,49 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "manganese_alpha_magad_weiss_2021_figure2_digitized"
+     ],
      "source_locations": [
       "Figure 2; EOS discussion on journal page 014101-2"
      ],
-     "finding": "The new alpha-Mn pressure-volume observations and their BM3 fit are published graphically in Figure 2. The six-page article contains no numerical experimental-data table or supplemental-data pointer."
+     "finding": "The new alpha-Mn pressure-volume observations and their BM3 fit are published graphically in Figure 2. The six-page article contains no numerical experimental-data table or supplemental-data pointer. Nineteen visible red markers, including the ambient reference point, were digitized; plotted uncertainty bars could not be separated reliably from the marker size."
     }
    }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "manganese_alpha_magad_weiss_2021_figure2_digitized",
+   "kind": "pressure_volume_ratio_digitized",
+   "description": "Nineteen plotted alpha-Mn observations digitized from Figure 2, including the ambient reference point. Experimental error-bar endpoints are not separately tabulated because they cannot be resolved reliably from the rasterized markers; digitization uncertainty is retained explicitly.",
+   "reference": {
+    "authors": ["Magad-Weiss", "Adeleke", "Greenberg", "Prakapenka", "Yao", "Stavrou"],
+    "year": 2021,
+    "source": "Phys. Rev. B",
+    "volume": "103",
+    "locator": "014101",
+    "doi": "10.1103/PhysRevB.103.014101"
+   },
+   "source_location": "Figure 2, red circles labeled This study",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"}
+   ],
+   "resource": {"path": "datasets/manganese-alpha-magad-weiss-2021-figure2-digitized.csv", "sha256": "a9d8f60b6661a3be4b9d522e5af31ffff6fa002bd708f572ba6b3f2e5cd88ce2", "media_type": "text/csv"},
+   "used_by_eos_records": ["manganese_alpha_magad_weiss_2021_bm3_1"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Extracted the raster Figure 2 image from the official APS PDF, calibrated the printed axes, and digitized the centers of the red filled-circle markers. Relative volumes were converted using the record's fixed conventional-cell V0.",
+    "source_pdf_sha256": "dfb5fc202a4d195ab7624a7f056c9e18a642647fe5410d68daf075e8b40dbd07",
+    "axis_calibration_pixels_embedded_figure": {"pressure": [[180.0, 0.0], [978.0, 225.0]], "volume_ratio": [[22.0, 1.0], [849.0, 0.6]]},
+    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 2.5763, "published_bm3_max_abs_pressure_residual_gpa": 5.5740},
+    "digitized_on": "2026-09-03"
+   },
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.103.014101/fulltext"
   }
  ],
  "format": "peritheos.material",

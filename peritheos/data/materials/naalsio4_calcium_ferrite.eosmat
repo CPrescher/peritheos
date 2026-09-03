@@ -128,14 +128,28 @@
    "notes": "Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.",
    "identifier": "naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": ["Holmes", "Moriarty", "Gathers", "Nellis"],
+       "year": 1989,
+       "source": "J. Appl. Phys.",
+       "volume": "66",
+       "locator": "2962-2967",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Experimental section; platinum powder pressure standard",
+      "scope": "all observations",
+      "reference_eos_record": "platinum_holmes_1989_vinet_1"
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "ready",
+     "notes": "The Holmes platinum EOS is executable. Figure 2 supplies approximate source-scale pressures that can be inverted for approximate recalibration; raw platinum volumes were not tabulated."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-03"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -148,15 +162,17 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1080/08957950212807",
      "locations": [
-      "Primary abstract",
-      "BM3 fit and zero-pressure molar volume"
+      "Experimental section, journal page 496",
+      "Figure 2 and EOS discussion, journal page 498"
      ],
-     "finding": "The molar volume was converted to the conventional unit cell.",
+     "finding": "The paper states that 23 observations were collected but publishes them only in Figure 2. Nineteen distinct marker centers are visually separable and bundled; four measurements overlap too closely to recover independently. The molar V0 was converted to the Z=4 conventional cell for the EOS record.",
      "doi": "10.1080/08957950212807"
     },
     "migration_source": {
@@ -167,12 +183,57 @@
     },
     "primary_data_check": {
      "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Pressure-volume plot; EOS fit discussion"
+   "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "naalsio4_dubrovinsky_2002_figure2_digitized"
      ],
-     "finding": "The calcium-ferrite-type NaAlSiO4 pressure-volume observations are presented graphically and summarized by fitted EOS parameters. The publisher record provides no numerical row-level table or supplemental dataset."
+     "source_locations": [
+      "Figure 2, journal page 498"
+     ],
+     "finding": "The compression series is published only in Figure 2. Nineteen distinct marker centers are separable and bundled with digitization uncertainty; the paper states that 23 total observations were collected, so four overlapping observations cannot be recovered independently from the plot. No experimental error bars are plotted."
     }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "naalsio4_dubrovinsky_2002_figure2_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "Nineteen distinct calcium-ferrite-type NaAlSiO4 pressure-volume marker centers digitized from Figure 2. Four of the 23 reported measurements overlap too closely in the figure to recover as separate observations.",
+   "reference": {
+    "authors": ["Dubrovinsky", "Dubrovinskaia", "Prokopenko", "Le Bihan"],
+    "year": 2002,
+    "source": "High Pressure Res.",
+    "volume": "22",
+    "locator": "495-499",
+    "doi": "10.1080/08957950212807"
+   },
+   "source_location": "Figure 2, journal page 498",
+   "source_url": "https://doi.org/10.1080/08957950212807",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {
+    "path": "datasets/naalsio4-dubrovinsky-2002-figure2-digitized.csv",
+    "sha256": "41e50d79a084509b9a1ba779ec8b15633dcbfe4eac00c3365d2d8e182a1b0557",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": ["naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"],
+   "uncertainty": {
+    "published_error_bars": "none plotted",
+    "scope": "The paper does not publish row-wise pressure or volume errors for Figure 2. Digitization uncertainty is therefore kept distinct from the EOS-parameter fit uncertainties."
+   },
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Rendered the supplied primary PDF at 400 dpi, calibrated the linear pressure and conventional-cell-volume axes from major ticks, and digitized distinct filled-circle marker centers without sampling the BM3 curve.",
+    "source_pdf_sha256": "6d3edbc5523f393e0c0036f5470c441fc800df40b4985568ce276a69d754484f",
+    "source_figure_sha256": "d6a43eaddaa85b57327c002c2bb24de8dff1824b0c36ba96e90233cbd77de166",
+    "axis_calibration_pixels_source_figure": {"pressure": [[930.0, 0.0], [1984.0, 40.0]], "volume": [[391.5, 240.0], [1118.5, 210.0]]},
+    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.1829, "published_bm3_max_abs_pressure_residual_gpa": 0.4526},
+    "digitized_on": "2026-09-04"
    }
   }
  ],

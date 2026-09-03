@@ -66,14 +66,29 @@
    "notes": "Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.",
    "identifier": "palladium_baty_2024_bm3_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Experimental methods; tungsten pressure marker, reference 28",
+      "reference_eos_record": "tungsten_dewaele_2004_vinet_2"
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "missing_calibrant_observations",
+     "notes": "The exact tungsten reference EOS is executable in the bundled library, but recalculation also requires the row-wise tungsten volume observations."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-03"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -92,10 +107,11 @@
      "access_url": "https://doi.org/10.1063/5.0179469",
      "locations": [
       "Equation 1",
-      "Figure 3, own 300 K P-V data (not tabulated)",
+      "Figure 3, own 300 K P-V data",
+      "Supplementary Table S1",
       "Figure 4"
      ],
-     "finding": "The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3; Table II instead contains calculated fcc-Pd melting points, so no observation table is bundled.",
+     "finding": "The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.",
      "doi": "10.1063/5.0179469"
     },
     "migration_source": {
@@ -105,14 +121,55 @@
      "file": "palladium.json"
     },
     "primary_data_check": {
-     "status": "plot_only",
+     "status": "bundled",
      "audit_date": "2026-09-03",
-     "source_locations": [
-      "Figure 3; Table II"
+     "dataset_identifiers": [
+      "palladium_baty_2024_table_s1_compression"
      ],
-     "finding": "The paper's own 300 K palladium P-V observations are plotted in Figure 3 but not tabulated. Table II contains calculated melting points rather than the EOS observations."
+     "source_locations": [
+      "Supplementary Table S1"
+     ],
+     "finding": "All 78 pressure and atomic-volume observations from supplementary Table S1 are bundled. Conventional-cell volumes are four times the published fcc atomic volumes."
     }
    }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "palladium_baty_2024_table_s1_compression",
+   "kind": "pressure_volume",
+   "description": "All 78 palladium compression observations transcribed from supplementary Table S1. The published atomic volumes are retained and converted to the four-atom conventional fcc cell used by the EOS record.",
+   "reference": {
+    "authors": ["Baty", "Burakovsky", "Luscher", "Anzellini", "Errandonea"],
+    "year": 2024,
+    "source": "J. Appl. Phys.",
+    "volume": "135",
+    "locator": "075103",
+    "doi": "10.1063/5.0179469"
+   },
+   "source_location": "Supplementary Table S1",
+   "source_url": "https://doi.org/10.60893/figshare.jap.c.7021680",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"}
+   ],
+   "resource": {"path": "datasets/palladium-baty-2024-table-s1-compression.csv", "sha256": "513835bba914f6fa1f02646901e0453edda808c6da7bc425fbb71c8cf1c99829", "media_type": "text/csv"},
+   "used_by_eos_records": ["palladium_baty_2024_bm3_1"],
+   "uncertainty": {
+    "lattice_parameter_error_upper_bound_angstrom": 0.003,
+    "atomic_volume_error_upper_bound_a3": 0.01,
+    "pressure_error_range_gpa": [0.06, 0.12],
+    "scope": "Global limits reported for the dataset; the supplement does not assign row-wise uncertainty values.",
+    "source_location": "Supplementary methods immediately before Table S1"
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Transcribed the pressure and atomic-volume columns from official supplementary Table S1; multiplied atomic volume by four for the conventional fcc cell.",
+    "source_pdf_sha256": "cf2e4ba7cbcef2e9c4e437752f22a8092fa2af4db0af641a36c82995232ad35a",
+    "transcribed_on": "2026-09-03"
+   },
+   "notes": "The pressure uncertainty grows from 0.06 GPa near ambient pressure to 0.12 GPa near 80 GPa; no row-wise interpolation was invented."
   }
  ],
  "format": "peritheos.material",

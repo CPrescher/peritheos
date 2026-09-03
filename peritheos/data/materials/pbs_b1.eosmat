@@ -114,6 +114,9 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "lead_sulfide_knorr_2003_figure2_digitized"
+     ],
      "source_locations": [
       "Figure 2; Table 1"
      ],
@@ -153,6 +156,84 @@
      }
     }
    ]
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "lead_sulfide_knorr_2003_figure2_digitized",
+   "kind": "pressure_volume_ratio_digitized",
+   "description": "Thirty-three plotted room-temperature B1-PbS observations digitized from the lower panel of Figure 2. The beta-PbS points were excluded because this material record describes the B1 phase.",
+   "reference": {
+    "authors": [
+     "Knorr",
+     "Ehm",
+     "Hytha",
+     "Winkler",
+     "Depmeier"
+    ],
+    "year": 2003,
+    "source": "Eur. Phys. J. B",
+    "volume": "31",
+    "locator": "297-303",
+    "doi": "10.1140/epjb/e2003-00034-6"
+   },
+   "source_location": "Figure 2, lower panel, open-circle B1-PbS series",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    }
+   ],
+   "resource": {
+    "path": "datasets/lead-sulfide-knorr-2003-figure2-digitized.csv",
+    "sha256": "61b7fb3d55f5113413c48fdbfd347a28b64485df0c8204347cfb92b7a9b47e3c",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "pbs_b1_knorr_2003_bm3_1"
+   ],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Direct extraction of vector marker centers from the locally archived publication PDF, followed by affine calibration to the printed axes.",
+    "source_pdf_sha256": "595e2ea2556ee78a828edabaf95b3ee8ecca04cec8d71e592714725596a9a812",
+    "axis_calibration_pdf_points": {
+     "pressure": [
+      [88.267, 0.0],
+      [264.164, 8.0]
+     ],
+     "volume_ratio": [
+      [305.591, 0.84],
+      [492.482, 1.0]
+     ]
+    },
+    "quality_control": {
+     "published_bm3_rms_pressure_residual_gpa": 0.0264,
+     "published_bm3_max_abs_pressure_residual_gpa": 0.0748
+    },
+    "digitized_on": "2026-09-03"
+   }
   }
  ],
  "format": "peritheos.material",

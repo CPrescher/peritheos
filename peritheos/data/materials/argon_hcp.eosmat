@@ -4,9 +4,9 @@
  "formula": "Ar",
  "symmetry": "HEXAGONAL",
  "lattice": {
-  "a": 3.8065,
-  "b": 3.8065,
-  "c": 3.8065,
+  "a": 3.8,
+  "b": null,
+  "c": 6.2,
   "alpha": 90.0,
   "beta": 90.0,
   "gamma": 120.0
@@ -24,7 +24,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/ar2.jcpds",
+ "notes": "The ambient hcp lattice parameters are the fitted values a=3.8(3) A and c=6.2(5) A reported by Wittlinger et al.; ambient hcp argon could not be measured directly.",
  "peaks": [],
  "eos_records": [
   {
@@ -46,13 +46,13 @@
    "eos": {
     "type": "BM2",
     "parameters": {
-     "V0": 47.7648,
+     "V0": 78.0,
      "K0": 6.5
     },
     "model": "birch_murnaghan_2"
    },
    "parameter_errors": {
-    "V0": null,
+    "V0": 3.0,
     "K0": 1.3
    },
    "fixed_parameters": [],
@@ -60,17 +60,23 @@
     1.2,
     8.5
    ],
-   "notes": "The publication reports K0=6.5(1.3) GPa; K0_prime is fixed at 4 by BM2.",
+   "notes": "The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly.",
    "identifier": "argon_hcp_wittlinger_1997_bm2_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.1; ruby pieces in the sample chamber used for pressure measurement",
+      "notes": "The article does not identify the exact ruby calibration equation."
+     }
+    ],
     "recalculation": {
      "status": "not_possible",
      "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
     },
     "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "notes": "Ruby fluorescence is identified explicitly, but the exact scale is not."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -102,11 +108,52 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "argon_hcp_wittlinger_1997_figure3_digitized"
+     ],
      "source_locations": [
       "Figure 3; Section 3.2; journal pages 747-748"
      ],
-     "finding": "The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. The five-page article contains no numerical pressure-volume table; it reports only the fitted V0 and K values and calculated ambient lattice constants."
+     "finding": "The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. Nine experimental markers and their asymmetric vertical error bars were digitized. The plotted fitted reference point at P=0 and V/V0=1 was excluded because the paper explicitly states that ambient hcp volume was not measured."
     }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "argon_hcp_wittlinger_1997_figure3_digitized",
+   "kind": "pressure_volume_ratio_digitized",
+   "description": "Nine experimental hcp-argon observations digitized from Figure 3 with the plotted asymmetric volume error bars. Digitization uncertainty is retained separately; the non-experimental fitted reference marker at P=0 and V/V0=1 is excluded.",
+   "reference": {
+    "authors": ["Wittlinger", "Fischer", "Werner", "Schneider", "Schulz"],
+    "year": 1997,
+    "source": "Acta Crystallogr. B",
+    "volume": "53",
+    "locator": "745-749",
+    "doi": "10.1107/S0108768197005739"
+   },
+   "source_location": "Figure 3",
+   "source_url": "https://onlinelibrary.wiley.com/doi/epdf/10.1107/S0108768197005739",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "volume_ratio_error_minus", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"},
+    {"name": "volume_ratio_error_plus", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"},
+    {"name": "volume_error_minus_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
+    {"name": "volume_error_plus_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"}
+   ],
+   "resource": {"path": "datasets/argon-hcp-wittlinger-1997-figure3-digitized.csv", "sha256": "904297ff79c1bda82820341c87856216395e2daf3d70216209a2185c55efd0c6", "media_type": "text/csv"},
+   "used_by_eos_records": ["argon_hcp_wittlinger_1997_bm2_1"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Captured the institutionally accessible Wiley ePDF at enlarged scale, calibrated the printed axes, digitized marker centers, and digitized the upper and lower caps of each visible vertical error bar. Volumes use the paper's fitted V0=78 A^3.",
+    "source_figure_sha256": "04eeb8e0bff25533d3358e3904ad6444ba09c244336dbbe27f3014d8bd496481",
+    "axis_calibration_pixels_source_figure": {"pressure": [[826.0, 0.0], [1163.0, 10.0]], "volume_ratio": [[79.0, 1.0], [412.0, 0.5]]},
+    "quality_control": {"published_bm2_rms_pressure_residual_gpa": 0.7723, "published_bm2_max_abs_pressure_residual_gpa": 1.3077},
+    "digitized_on": "2026-09-03"
    }
   }
  ],

@@ -113,6 +113,9 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "molybdenum_carbide_haines_2001_figure2_digitized"
+     ],
      "source_locations": [
       "Figure 2; Table 1"
      ],
@@ -158,6 +161,90 @@
      }
     }
    ]
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "molybdenum_carbide_haines_2001_figure2_digitized",
+   "kind": "pressure_volume_ratio_digitized",
+   "description": "Sixteen plotted room-temperature Mo2C compression observations digitized from Figure 2, retaining the pressure-medium regimes encoded by the marker shapes.",
+   "reference": {
+    "authors": [
+     "Haines",
+     "Léger",
+     "Chateau",
+     "Lowther"
+    ],
+    "year": 2001,
+    "source": "J. Phys.: Condens. Matter",
+    "volume": "13",
+    "locator": "2447-2454",
+    "doi": "10.1088/0953-8984/13/11/303"
+   },
+   "source_location": "Figure 2",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    },
+    {
+     "name": "pressure_medium",
+     "quantity": "pressure_medium",
+     "unit": "dimensionless",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/molybdenum-carbide-haines-2001-figure2-digitized.csv",
+    "sha256": "ae5e74920b526b0e3bc94bca6e1e3abd908088ce6caa077efa7d243981c4a218",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "molybenum_carbide_mo2c_haines_2001_bm3_1"
+   ],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Direct extraction of vector circle and square marker centers from the publisher PDF, followed by affine calibration to the printed axes.",
+    "source_pdf_sha256": "b0aeabeee53267a80e9c77f3fd2399fc783c69c0bbc31b43215f89ee7ced143f",
+    "axis_calibration_pdf_points": {
+     "pressure": [
+      [192.414, 0.0],
+      [354.244, 50.0]
+     ],
+     "volume_ratio": [
+      [508.185, 0.89],
+      [745.542, 1.01]
+     ]
+    },
+    "quality_control": {
+     "published_bm3_rms_pressure_residual_gpa": 0.7040,
+     "published_bm3_max_abs_pressure_residual_gpa": 1.6335
+    },
+    "digitized_on": "2026-09-03"
+   },
+   "source_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf"
   }
  ],
  "format": "peritheos.material",

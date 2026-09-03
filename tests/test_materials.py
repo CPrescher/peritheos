@@ -233,10 +233,12 @@ def test_eosmat_crystallography_is_preserved_while_selected_eos_is_executable():
 def test_eosmat_datasets_follow_selected_eos_records():
     source = get_material_document("gold")
 
-    without_data = Material.from_eosmat(
+    with_digitized_data = Material.from_eosmat(
         source, record_identifiers=("gold_fei_2007_vinet_2",)
     ).to_eosmat()
-    assert "datasets" not in without_data
+    assert [
+        dataset["identifier"] for dataset in with_digitized_data["datasets"]
+    ] == ["gold_fei_2007_figure1_digitized"]
 
     with_data = Material.from_eosmat(
         source, record_identifiers=("gold_dewaele_2004_vinet_5",)

@@ -123,12 +123,98 @@
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-03",
+     "digitized_dataset_identifiers": [
+      "boron_phosphide_le_godec_2014_figure2_digitized"
+     ],
      "source_locations": [
       "Figure 2; EOS parameter table"
      ],
      "finding": "The single-crystal boron-phosphide pressure-volume observations are plotted in Figure 2 but not tabulated. The article's sole table contains fitted Vinet, Birch-Murnaghan, and Murnaghan parameters rather than the row-level measurements, and no supplemental dataset is cited."
     }
    }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "boron_phosphide_le_godec_2014_figure2_digitized",
+   "kind": "pressure_volume_ratio_digitized",
+   "description": "Seventeen plotted 300 K single-crystal BP observations digitized from Figure 2.",
+   "reference": {
+    "authors": [
+     "Le Godec",
+     "Mezouar",
+     "Kurakevych",
+     "Munsch",
+     "Nwagwu",
+     "Edgar",
+     "Solozhenko"
+    ],
+    "year": 2014,
+    "source": "J. Superhard Mater.",
+    "volume": "36",
+    "locator": "61-64",
+    "doi": "10.3103/S1063457614010092"
+   },
+   "source_location": "Figure 2",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    }
+   ],
+   "resource": {
+    "path": "datasets/boron-phosphide-le-godec-2014-figure2-digitized.csv",
+    "sha256": "6233ba562f3b13f280f23fc6e2d2369e5da7b1022b01de56ed4a4c71feaa5f80",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "boron_phosphide_le_godec_2014_vinet_1"
+   ],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Direct extraction of vector marker centers from the author PDF, followed by affine calibration to the printed axes.",
+    "source_pdf_sha256": "17d57975e81a2d14c430c31ce3b758ac76cef2e39930c8a8c0cc4bf094597840",
+    "axis_calibration_pdf_points": {
+     "pressure": [
+      [251.82, 0.0],
+      [428.76, 60.0]
+     ],
+     "volume_ratio": [
+      [277.94, 0.78],
+      [443.18, 1.0]
+     ]
+    },
+    "quality_control": {
+     "published_vinet_rms_pressure_residual_gpa": 0.2594,
+     "published_vinet_max_abs_pressure_residual_gpa": 0.5304,
+     "independent_refit_K0_gpa": 178.9003,
+     "independent_refit_K0_prime": 3.2418
+    },
+    "digitized_on": "2026-09-03"
+   },
+   "source_url": "https://arxiv.org/pdf/1407.1677"
   }
  ],
  "format": "peritheos.material",
