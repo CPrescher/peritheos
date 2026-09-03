@@ -127,6 +127,16 @@
    },
    "notes": "Joint PVT fit for pure H2O ice VI. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VI measurements tabulated in the paper.",
    "identifier": "ice_vi_bezacier_2014_bm2_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

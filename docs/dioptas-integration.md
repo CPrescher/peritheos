@@ -65,7 +65,7 @@ volume is omitted and its remaining coefficients are not reproducible from the
 printed data under the documented equations.
 Peritheos-native aragonite BM2, B2-KCl P-V-T, and Correa and Benedict diamond
 Helmholtz records, plus two explicitly derived Dewaele-anchored diamond
-compositions, bring the distributed catalog to 115 materials and 150 EOS
+compositions, bring the distributed catalog to 115 materials and 155 EOS
 records; they have primary-publication provenance rather than fabricated
 Dioptas migration sources.
 
@@ -97,7 +97,7 @@ new or edited records so the scientific choice is visible without consulting
 the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
-marks all 150 bundled records `primary_source_validated`; no record remains
+marks all 155 bundled records `primary_source_validated`; no record remains
 pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.
@@ -172,6 +172,10 @@ integrated behavior from a direct linear relation. Its
 `V0(T)=V0(Tr)*[1+alpha0*(T-Tr)]`, as used by the validated Martinez staged BM2
 record. Consumers that do not implement the option must preserve it and avoid
 evaluating the record with the exponential default.
+
+The `berman` value applies the EosFit7 truncated-quadratic volume relation and
+is used by the B4C thermal-reference record. Consumers that do not implement it
+must preserve the field and must not evaluate it as integrated expansivity.
 
 Runtime ownership remains separate. Whether a record is bundled, loaded from
 a file, read-only, duplicated, or locally edited is Dioptas application state

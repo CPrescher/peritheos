@@ -516,6 +516,16 @@
    },
    "notes": "Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
    "identifier": "phase_d_ant_a_shieh_2000_bm2_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -589,6 +599,16 @@
    },
    "notes": "Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
    "identifier": "phase_d_ant_b_shieh_2000_bm2_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

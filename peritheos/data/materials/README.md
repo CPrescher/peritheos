@@ -12,17 +12,24 @@ dated 2026-09-01 classifies all 147 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
-The three additional records are native to Peritheos and therefore have no
-invented Dioptas migration provenance: the primary-sourced staged aragonite BM2
-P-V-T parameterization from Martinez et al. (1996), the Dewaele et al. (2012)
-B2-KCl P-V-T pressure calibration, and the complete Benedict et al. (2014)
-diamond double-Debye Helmholtz model. The KCl record is the preferred
+Additional records native to Peritheos have no invented Dioptas migration
+provenance. They include the primary-sourced staged aragonite BM2 P-V-T
+parameterization from Martinez et al. (1996), the Dewaele et al. (2012) B2-KCl
+P-V-T pressure calibration, the complete Correa and Benedict diamond Helmholtz
+models and experimental anchors, and the Tange (2009), Dewaele (2004), and
+Takemura-Dewaele (2008) reference standards added for pressure-calibration
+lineage. The KCl record is the preferred
 `kcl.eosmat` record and
 keeps its measured 298 K range distinct from its molecular-dynamics thermal
 extension. The Martinez staged result uses its exact Equation (3) direct-linear
 reference-volume law. The paper's separate global thermal BM3 entry is excluded
 because its fitted reference volume is omitted and the remaining coefficients
 do not reproduce the printed dataset under the documented equations.
+
+The sibling `../pressure-calibrations.json` registry contains executable,
+versioned ruby R1 calibration records. Ruby-based EOS entries link to these
+with `reference_calibration_record`; XRD-based entries use
+`reference_eos_record` to link to the exact material EOS.
 
 The final full-text audit resolved the earlier CsCl, magnetite, Li, majorite,
 MW60, NiS, phase-D, cubic-SnO2, and SrO blockers. Phase D is intentionally two
@@ -99,3 +106,5 @@ An omitted `thermal_expansion_law` means `constant`; the explicit
 `alpha(T)=alpha0+alpha1*T`. An omitted `reference_volume_law` means
 `integrated_expansivity`; `linear_temperature` instead applies the direct
 relation `V0(T)=V0(Tr)*[1+alpha0*(T-Tr)]` used by the staged aragonite record.
+`berman` applies EosFit7's truncated quadratic
+`V0(T)=V0(Tr)*[1+alpha0*(T-Tr)+0.5*alpha1*(T-Tr)^2]`.

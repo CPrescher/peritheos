@@ -135,6 +135,16 @@
    ],
    "notes": "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.",
    "identifier": "sno2_cubic_27gpa_ono_2000_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -14,12 +14,15 @@ from peritheos import (
     EOSMAT_FORMAT_VERSION,
     Material,
     eosmat_schema,
+    get_eos_record_document,
     get_material_document,
+    list_eos_record_documents,
     list_material_documents,
     list_materials,
     load_eosmat,
     save_eosmat,
     validate_eosmat_document,
+    validate_pressure_calibration_references,
 )
 from scripts.import_dioptas_eos_database import migrate_document
 
@@ -88,7 +91,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 115
     assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 150
+    assert sum(len(document["eos_records"]) for document in documents) == 155
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -114,25 +117,31 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 150
+    assert len({record["identifier"] for record in records}) == 155
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 150
+    assert statuses.count("primary_source_validated") == 155
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
     }
-    anchored_identifiers = {
+    current_audit_identifiers = {
+        "b4c_somayazulu_2023_berman_2",
+        "b4c_somayazulu_2023_berman_refit",
+        "b4c_somayazulu_2023_bm3_1",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
+        "gold_dewaele_2004_vinet_5",
+        "gold_takemura_2008_vinet_6",
+        "mgo_b1_tange_2009_vinet",
     }
-    assert {audit_dates[identifier] for identifier in anchored_identifiers} == {
+    assert {audit_dates[identifier] for identifier in current_audit_identifiers} == {
         "2026-09-03"
     }
     assert {
         date
         for identifier, date in audit_dates.items()
-        if identifier not in anchored_identifiers
+        if identifier not in current_audit_identifiers
     } == {"2026-09-01"}
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -154,11 +163,16 @@ def test_migrated_records_have_completed_primary_source_audit():
     ]
     assert {record["identifier"] for record in native_records} == {
         "aragonite_martinez_1996_bm2_2",
+        "b4c_somayazulu_2023_berman_2",
+        "b4c_somayazulu_2023_berman_refit",
         "diamond_benedict_2014_double_debye_4",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_double_debye_log_moment_5",
         "diamond_correa_2008_dewaele_anchored",
         "kcl_b2_dewaele_2012_vinet_3",
+        "gold_dewaele_2004_vinet_5",
+        "gold_takemura_2008_vinet_6",
+        "mgo_b1_tange_2009_vinet",
     }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -187,12 +201,69 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 150,
-        "primary_source_validated": 150,
+        "records": 155,
+        "primary_source_validated": 155,
     }
     assert report["audit_date"] == "2026-09-03"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
+
+
+def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
+    records = [
+        record
+        for material_identifier in list_material_documents()
+        for record in get_material_document(material_identifier)["eos_records"]
+    ]
+
+    assert len(records) == 155
+    assert set(list_eos_record_documents()) == {
+        record["identifier"] for record in records
+    }
+    assert all("pressure_calibration" in record for record in records)
+    assert all(
+        record["pressure_calibration"]["audit_date"] == "2026-09-03"
+        for record in records
+    )
+    manifest = json.loads(
+        resources.files("peritheos.data.materials")
+        .joinpath("manifest.json")
+        .read_text(encoding="utf-8")
+    )
+    summary = manifest["pressure_calibration"]
+    assert summary["status_counts"] == {
+        status: sum(
+            record["pressure_calibration"]["status"] == status for record in records
+        )
+        for status in ("resolved", "partially_resolved", "not_applicable", "unresolved")
+    }
+    assert summary["resolvable_reference_eos_uses"] == sum(
+        "reference_eos_record" in method
+        for record in records
+        for method in record["pressure_calibration"]["methods"]
+    )
+    assert summary["resolvable_reference_calibration_uses"] == sum(
+        "reference_calibration_record" in method
+        for record in records
+        for method in record["pressure_calibration"]["methods"]
+    )
+    validate_pressure_calibration_references()
+
+    b4c = get_eos_record_document("b4c_somayazulu_2023_bm3_1")
+    method = b4c["pressure_calibration"]["methods"][0]
+    assert method["reference_eos_record"] == "mgo_b1_tange_2009_vinet"
+    reference = get_eos_record_document(method["reference_eos_record"])
+    assert reference["eos"]["model"] == "vinet"
+    assert reference["thermal"]["model"] == ("asymptotic_power_law_mie_gruneisen_debye")
+
+
+def test_pressure_calibration_round_trips_through_material_api():
+    document = get_material_document("forsterite")
+    source = document["eos_records"][0]["pressure_calibration"]
+    material = Material.from_eosmat(document)
+
+    assert material.eos_records[0].pressure_calibration == source
+    assert material.to_eosmat()["eos_records"][0]["pressure_calibration"] == source
 
 
 def test_every_primary_validated_migrated_record_is_executable():
@@ -211,7 +282,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 150
+    assert checked == 155
     assert failures == []
 
 
@@ -341,7 +412,7 @@ def test_all_sokolova_eosmat_records_explain_fit_and_workbook_lineage():
 
 def test_primary_audit_records_corrections_and_known_source_limitations():
     graphite = get_material_document("graphite")["eos_records"][0]
-    b4c = get_material_document("b4c")["eos_records"][0]
+    b4c = get_eos_record_document("b4c_somayazulu_2023_bm3_1")
     zircon = get_material_document("zircon")["eos_records"][0]
     shen = next(
         record
@@ -406,6 +477,109 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     assert tantalum["fixed_parameters"] == ["V0"]
 
 
+def test_b4c_thermal_record_is_source_reproduced_and_diffraction_ready():
+    document = get_material_document("b4c")
+    records = {item["identifier"]: item for item in document["eos_records"]}
+    record = records["b4c_somayazulu_2023_bm3_1"]
+    berman = records["b4c_somayazulu_2023_berman_2"]
+    refit = records["b4c_somayazulu_2023_berman_refit"]
+
+    assert document["phase"] == "rhombohedral B4C"
+    assert document["space_group"] == "R-3m"
+    assert document["space_group_number"] == 166
+    assert document["formula_units_per_cell"] == 9
+    assert len(document["atom_sites"]) == 5
+    assert all(site.get("wyckoff") for site in document["atom_sites"])
+
+    # The asymmetric-site multiplicities and split occupancies must expand to
+    # B36C9, i.e. nine B4C formula units in the conventional hexagonal cell.
+    atom_counts = {"B": 0.0, "C": 0.0}
+    for site in document["atom_sites"]:
+        multiplicity = int(re.match(r"\d+", site["wyckoff"]).group())
+        atom_counts[site["element"]] += multiplicity * site["occupancy"]
+    assert atom_counts == pytest.approx({"B": 36.0, "C": 9.0})
+
+    lattice = document["lattice"]
+    cell_volume = math.sqrt(3.0) * lattice["a"] ** 2 * lattice["c"] / 2.0
+    assert cell_volume == pytest.approx(328.38272251888424)
+    assert cell_volume == pytest.approx(record["eos"]["parameters"]["V0"], abs=0.02)
+
+    assert record["fixed_parameters"] == ["V0", "K0", "K0_prime"]
+    assert record["experimental_temperature_range_k"] == [300.0, 2500.0]
+    assert record["thermal"] == {
+        "type": "MieGruneisenDebye",
+        "model": "mie_gruneisen_debye",
+        "debye_temperature_law": "integrated_gruneisen",
+        "parameters": {
+            "Tr": 298.0,
+            "theta0": 1425.0,
+            "gamma0": 0.8,
+            "q": 2.1,
+            "n": 5,
+        },
+        "parameter_errors": {
+            "Tr": None,
+            "theta0": None,
+            "gamma0": None,
+            "q": None,
+            "n": None,
+        },
+        "fixed_parameters": ["Tr", "theta0", "gamma0", "n"],
+    }
+
+    material = Material.from_eosmat(document)
+    executable = material.get_eos_record("b4c_somayazulu_2023_bm3_1")
+    calculated_pressure = executable.pressure(289.1, 2023.0)
+    assert calculated_pressure == pytest.approx(40.45288082692554)
+    assert abs(calculated_pressure - 40.4) < 2.3
+
+    assert berman["identifier"] == "b4c_somayazulu_2023_berman_2"
+    assert berman["fixed_parameters"] == ["V0", "K0", "K0_prime"]
+    assert berman["thermal"] == {
+        "type": "AlphaKT",
+        "model": "thermal_reference_state",
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "berman",
+        "parameters": {
+            "Tr": 298.0,
+            "alpha0": 1.94e-5,
+            "alpha1": 5.73e-10,
+            "dK_dT": -0.008,
+        },
+        "parameter_errors": {
+            "Tr": None,
+            "alpha0": 1.6e-6,
+            "alpha1": None,
+            "dK_dT": 0.003,
+        },
+        "fixed_parameters": ["Tr", "alpha1"],
+    }
+    berman_executable = material.get_eos_record("b4c_somayazulu_2023_berman_2")
+    assert berman_executable.pressure(289.1, 2023.0) == pytest.approx(43.38255199961772)
+
+    assert refit["record_kind"] == "refit"
+    assert refit["derived_from_record"] == "b4c_somayazulu_2023_berman_2"
+    assert refit["fit_provenance"]["software"] == {
+        "name": "EosFit7c",
+        "version": "7.60",
+        "version_date": "2021-05-13",
+    }
+    assert refit["fit_provenance"]["selection"]["included_rows"] == 41
+    assert refit["thermal"]["parameters"] == {
+        "Tr": 298.0,
+        "alpha0": pytest.approx(1.81120e-5),
+        "alpha1": pytest.approx(5.73e-10),
+        "dK_dT": pytest.approx(-0.01311),
+    }
+    refit_executable = material.get_eos_record(
+        "b4c_somayazulu_2023_berman_refit"
+    )
+    assert refit_executable.pressure(289.1, 2023.0) == pytest.approx(
+        40.84280383878691
+    )
+    assert refit_executable.eosmat_metadata["record_kind"] == "refit"
+
+
 def test_former_peak_only_materials_have_source_backed_crystal_models():
     expected_cell_counts = {
         "feh2": {"Fe": 4.0, "H": 8.0},
@@ -444,6 +618,80 @@ def test_former_peak_only_materials_have_source_backed_crystal_models():
     assert fe3s["space_group_number"] == 82
     assert fe3s["formula_units_per_cell"] == 8
     assert fe3s["atom_sites"] == []
+
+
+def test_b4c_primary_data_transcription_is_complete():
+    document = get_material_document("b4c")
+    assert len(document["datasets"]) == 1
+    dataset = document["datasets"][0]
+    assert dataset["identifier"] == "b4c_somayazulu_2023_table4_pvt"
+    assert dataset["used_by_eos_records"] == [
+        "b4c_somayazulu_2023_bm3_1",
+        "b4c_somayazulu_2023_berman_2",
+        "b4c_somayazulu_2023_berman_refit",
+    ]
+    names = [column["name"] for column in dataset["columns"]]
+    data = np.array(
+        [tuple(row) for row in dataset["rows"]],
+        dtype=[(name, float) for name in names],
+    )
+
+    assert len(data) == 51
+    assert np.count_nonzero(data["temperature_k"] > 300.0) == 41
+    assert np.count_nonzero(data["temperature_k"] == 300.0) == 10
+    representative = data[
+        (data["volume_a3"] == 289.1) & (data["temperature_k"] == 2023.0)
+    ]
+    assert len(representative) == 1
+    assert representative["pressure_gpa"][0] == pytest.approx(40.4)
+    assert representative["pressure_sigma_gpa"][0] == pytest.approx(2.3)
+    material = Material.from_eosmat(document)
+    assert len(material.datasets) == 1
+    assert material.to_eosmat()["datasets"] == document["datasets"]
+
+
+def test_eosmat_dataset_validation_rejects_ragged_and_dangling_data():
+    document = get_material_document("b4c")
+    document["datasets"][0]["rows"][0].pop()
+    with pytest.raises(ValueError, match="must match the column count"):
+        validate_eosmat_document(document)
+
+    document = get_material_document("b4c")
+    document["datasets"][0]["used_by_eos_records"] = ["missing_record"]
+    with pytest.raises(ValueError, match="references unknown EOS record"):
+        validate_eosmat_document(document)
+
+
+def test_eosmat_refit_validation_requires_resolvable_lineage_and_dataset():
+    document = get_material_document("b4c")
+    refit = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == "b4c_somayazulu_2023_berman_refit"
+    )
+    refit["derived_from_record"] = "missing_record"
+    with pytest.raises(ValueError, match="derives from unknown EOS record"):
+        validate_eosmat_document(document)
+
+    document = get_material_document("b4c")
+    refit = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == "b4c_somayazulu_2023_berman_refit"
+    )
+    refit["fit_provenance"]["dataset"] = "missing_dataset"
+    with pytest.raises(ValueError, match="references unknown dataset"):
+        validate_eosmat_document(document)
+
+    document = get_material_document("b4c")
+    refit = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == "b4c_somayazulu_2023_berman_refit"
+    )
+    del refit["fit_provenance"]
+    with pytest.raises(ValueError, match="refit records require"):
+        validate_eosmat_document(document)
 
 
 def test_newly_validated_primary_records_retain_published_errors():
@@ -1312,6 +1560,11 @@ def test_normative_schema_is_bundled():
     assert schema["$schema"].endswith("2020-12/schema")
     assert schema["properties"]["format_version"]["const"] == 3
     assert schema["properties"]["eos_records"]["type"] == "array"
+    assert schema["properties"]["datasets"]["type"] == "array"
+    assert schema["$defs"]["dataset"]["oneOf"] == [
+        {"required": ["rows"]},
+        {"required": ["resource"]},
+    ]
     assert schema["additionalProperties"] is True
     assert (
         schema["$defs"]["eos_record"]["properties"]["source_lineage"]["type"] == "array"
@@ -1321,6 +1574,11 @@ def test_normative_schema_is_bundled():
     assert thermal["debye_temperature_law"]["enum"] == [
         "integrated_gruneisen",
         "variable_exponent",
+    ]
+    assert thermal["reference_volume_law"]["enum"] == [
+        "integrated_expansivity",
+        "linear_temperature",
+        "berman",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 10
     assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 11
@@ -1458,7 +1716,11 @@ def test_importer_corrects_only_primary_identified_fei_thermal_records(
 
 def test_eosmat_debye_temperature_law_defaults_and_validation():
     document = get_material_document("gold")
-    fei = document["eos_records"][1]["thermal"]
+    fei = next(
+        record["thermal"]
+        for record in document["eos_records"]
+        if record["identifier"] == "gold_fei_2007_vinet_2"
+    )
     fei.pop("debye_temperature_law")
     validate_eosmat_document(document)
 
@@ -1497,6 +1759,12 @@ def test_eosmat_thermal_expansion_law_defaults_and_validation():
     with pytest.raises(ValueError, match="reference_volume_law is invalid"):
         validate_eosmat_document(document)
 
+    thermal["reference_volume_law"] = "berman"
+    thermal["thermal_expansion_law"] = "constant"
+    thermal["parameters"]["alpha1"] = 0.0
+    with pytest.raises(ValueError, match="berman reference volume requires"):
+        validate_eosmat_document(document)
+
     thermal["reference_volume_law"] = "integrated_expansivity"
     thermal["type"] = "MieGruneisenDebye"
     thermal["model"] = "mie_gruneisen_debye"
@@ -1512,7 +1780,7 @@ def test_migration_manifest_and_dioptas_license_are_bundled():
     assert manifest["source"]["project"] == "Dioptas"
     assert manifest["source"]["version"] == "0.10.0"
     assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 150
+    assert manifest["eos_records"] == 155
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-03"
     assert "Copyright (c) 2021-2026 Clemens Prescher" in license_text
 

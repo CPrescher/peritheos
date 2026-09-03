@@ -73,6 +73,43 @@
    ],
    "notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell; the unsupported K0=500 record was removed.",
    "identifier": "boron_nitride_datchi_2007_vinet_1",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Holzapfel"
+       ],
+       "year": 2005,
+       "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+       "source": "High Pressure Research",
+       "doi": "10.1080/09511920500147501"
+      },
+      "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale",
+      "reference_calibration_record": "ruby_holzapfel_2005"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele et al."
+       ],
+       "year": 2003,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.67.094112"
+      },
+      "source_location": "High-pressure cross-check; He EOS",
+      "scope": "highest-pressure points"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

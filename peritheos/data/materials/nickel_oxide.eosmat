@@ -82,6 +82,35 @@
    "temperature_ref": 300.0,
    "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient.",
    "identifier": "nickel_oxide_noguchi_1999_bm3_1",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Noguchi",
+        "Uchino",
+        "Hikosaka",
+        "Atou",
+        "Kusaba",
+        "Fukuoka",
+        "Mashimo",
+        "Syono"
+       ],
+       "year": 1999,
+       "source": "J. Phys. Chem. Solids",
+       "doi": "10.1016/S0022-3697(98)00296-0"
+      },
+      "source_location": "Shock-compression experiment and Rankine-Hugoniot reduction"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Shock pressure is obtained from measured shock and particle velocities, not from an external reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

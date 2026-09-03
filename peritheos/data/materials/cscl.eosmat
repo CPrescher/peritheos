@@ -71,6 +71,16 @@
    ],
    "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' data and corrected Yagi (1978) data. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). The exact laboratory temperature and coefficient covariance are not reported.",
    "identifier": "cscl_campbell_1994_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

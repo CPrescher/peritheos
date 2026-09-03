@@ -71,6 +71,16 @@
    ],
    "notes": "20 degC BM3 representation with K0' fixed at 7: K0=218+/-2 GPa. V0=71.4957 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.",
    "identifier": "sno2_hazen_1981_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

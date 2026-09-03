@@ -68,6 +68,28 @@
    "pressure_range_status": "theoretical",
    "notes": "Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. The theoretical conventional-cell V0=59.92519880888224 A^3 is calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa and K0'=3.8 are from the same pseudopotential row. These are not experimental EOS parameters. The paper estimates finite-cutoff sensitivity from 40/70-Ryd calculations, but does not publish statistical coefficient errors or covariance, so none are inferred.",
    "identifier": "indium_nitride_munoz_1993_murnaghan_1",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Primary-source authors"
+       ],
+       "year": 1993,
+       "source": "Primary publication",
+       "doi": "10.1088/0953-8984/5/33/010"
+      },
+      "source_location": "Electronic-structure calculation and theoretical energy-volume fit"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This theoretical EOS has no experimental pressure-reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

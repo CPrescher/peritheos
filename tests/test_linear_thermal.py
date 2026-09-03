@@ -175,6 +175,26 @@ def test_thermal_reference_state_supports_direct_linear_reference_volume():
     assert reconstructed.reference_volume_law == "linear_temperature"
 
 
+def test_thermal_reference_state_supports_berman_reference_volume():
+    eos = ThermalReferenceStateEOS(
+        BM3(V0=328.4, K0=221.0, K0_prime=3.3),
+        Tr=298.0,
+        alpha0=1.94e-5,
+        alpha1=5.73e-10,
+        dK_dT=-0.008,
+        thermal_expansion_law="linear_temperature",
+        reference_volume_law="berman",
+    )
+    temperature = 2023.0
+    delta = temperature - 298.0
+    shifted_volume = 328.4 * (1.0 + 1.94e-5 * delta + 0.5 * 5.73e-10 * delta**2)
+    shifted_modulus = 221.0 - 0.008 * delta
+    expected = BM3(shifted_volume, shifted_modulus, 3.3).pressure(289.1)
+
+    assert eos.pressure(289.1, temperature) == pytest.approx(expected)
+    assert eos.pressure(shifted_volume, temperature) == pytest.approx(0.0, abs=1e-13)
+
+
 def test_thermal_reference_state_volume_and_temperature_round_trips():
     eos = ThermalReferenceStateEOS(
         BM2(V0=235.2983858185, K0=14.05),
@@ -258,4 +278,12 @@ def test_thermal_reference_state_validates_expansion_law_configuration():
             alpha1=1e-9,
             thermal_expansion_law="linear_temperature",
             reference_volume_law="linear_temperature",
+        )
+    with pytest.raises(ValueError, match="berman reference volume requires"):
+        ThermalReferenceStateEOS(
+            BM2(10.0, 20.0),
+            300.0,
+            1e-5,
+            0.0,
+            reference_volume_law="berman",
         )

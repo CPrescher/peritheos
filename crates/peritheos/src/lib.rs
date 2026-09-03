@@ -109,6 +109,7 @@ pub mod batch;
 pub mod eosmat;
 pub mod fit;
 pub mod isothermal;
+pub mod pressure_calibration;
 pub mod thermal;
 
 pub use batch::{CaloricEosBatch, IsothermalEosBatch, ThermalEosBatch};
@@ -118,6 +119,10 @@ pub use eosmat::{
     IsothermalModel, LoadedEos, Material, ThermalModel, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
 };
 pub use error::{EosError, EosErrorKind};
+pub use pressure_calibration::{
+    recalculate_ruby_pressure, ruby_calibration, RubyCalibrationModel, RubyFluorescenceCalibration,
+    RUBY_CALIBRATIONS,
+};
 
 /// Convenient result alias for EOS construction and evaluation.
 pub type EosResult<T> = Result<T, EosError>;

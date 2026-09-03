@@ -66,6 +66,31 @@
    ],
    "notes": "Publication Vinet fit on the revised ruby scale; atomic V0=15.862 A^3 multiplied by 2 atoms per bcc cell.",
    "identifier": "tungsten_dewaele_2004_vinet_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Equation 1 and Table II; revised P'_R scale",
+      "reference_calibration_record": "ruby_dewaele_2004"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -133,6 +158,29 @@
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.8 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
    "identifier": "tungsten_shen_2026_vinet_3",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fratanduono et al."
+       ],
+       "year": 2020,
+       "source": "Phys. Rev. Lett.",
+       "doi": "10.1103/PhysRevLett.124.015701"
+      },
+      "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
+      "scope": "all fitted observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -245,6 +293,30 @@
    },
    "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
    "identifier": "tungsten_sokolova_2013_holzapfel_4",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Sokolova",
+        "Dorogokupets",
+        "Litasov"
+       ],
+       "year": 2013,
+       "source": "Russian Geology and Geophysics",
+       "doi": "10.1016/j.rgg.2013.01.005"
+      },
+      "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

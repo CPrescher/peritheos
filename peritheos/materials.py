@@ -143,6 +143,7 @@ class EOSRecord:
     reference: LiteratureReference
     validity: ValidityRange
     parameter_provenance: Mapping[str, str]
+    pressure_calibration: Mapping[str, Any] = field(default_factory=dict)
     parameter_errors: Mapping[str, float] | None = None
     parameter_error_confidence: float | None = None
     parameter_covariance: tuple[tuple[float, ...], ...] | None = None
@@ -172,6 +173,11 @@ class EOSRecord:
             raise MaterialError(
                 "parameter_error_confidence must lie between zero and one"
             )
+        object.__setattr__(
+            self,
+            "pressure_calibration",
+            MappingProxyType(copy.deepcopy(dict(self.pressure_calibration))),
+        )
         object.__setattr__(
             self,
             "eosmat_metadata",
@@ -512,6 +518,7 @@ class Material:
     space_group_number: int | None = None
     atom_sites: tuple[Mapping[str, Any], ...] = ()
     peaks: tuple[tuple[float, ...], ...] = ()
+    datasets: tuple[Mapping[str, Any], ...] = ()
     eosmat_metadata: Mapping[str, Any] = field(
         default_factory=dict, compare=False, repr=False
     )
@@ -561,6 +568,14 @@ class Material:
             "atom_sites",
             tuple(
                 MappingProxyType(copy.deepcopy(dict(site))) for site in self.atom_sites
+            ),
+        )
+        object.__setattr__(
+            self,
+            "datasets",
+            tuple(
+                MappingProxyType(copy.deepcopy(dict(dataset)))
+                for dataset in self.datasets
             ),
         )
         object.__setattr__(
@@ -852,6 +867,10 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
         }
     )
     result.setdefault("reference", _reference_to_eosmat(record.reference))
+    if record.pressure_calibration:
+        result["pressure_calibration"] = _plain_data(record.pressure_calibration)
+    else:
+        result.pop("pressure_calibration", None)
     result.setdefault("fixed_parameters", [])
     result.setdefault(
         "parameter_provenance",
@@ -944,6 +963,10 @@ def _material_to_eosmat(material: Material) -> dict[str, Any]:
         document["peaks"] = _plain_data(material.peaks)
     else:
         document.pop("peaks", None)
+    if material.datasets:
+        document["datasets"] = _plain_data(material.datasets)
+    else:
+        document.pop("datasets", None)
     from peritheos.eosmat import validate_eosmat_document
 
     validate_eosmat_document(document)
@@ -1412,6 +1435,9 @@ def _material_from_eosmat(
                         raw_record.get("parameter_provenance", {}),
                         thermal=is_thermal,
                     ),
+                    pressure_calibration=_plain_data(
+                        raw_record.get("pressure_calibration", {})
+                    ),
                     parameter_errors=(None if not errors else MappingProxyType(errors)),
                     parameter_error_confidence=(
                         None
@@ -1454,6 +1480,7 @@ def _material_from_eosmat(
         "space_group_number",
         "atom_sites",
         "peaks",
+        "datasets",
         "eos_records",
     }
     return Material(
@@ -1483,6 +1510,7 @@ def _material_from_eosmat(
         ),
         atom_sites=tuple(document.get("atom_sites", ())),
         peaks=tuple(tuple(peak) for peak in document.get("peaks", ())),
+        datasets=tuple(document.get("datasets", ())),
         eosmat_metadata={
             key: _plain_data(value)
             for key, value in document.items()

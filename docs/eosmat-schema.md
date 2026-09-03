@@ -28,6 +28,7 @@ be conveyed by shape validation alone.
 | `formula_units_per_cell` | no | Crystallographic $Z$ for cell-to-molar conversion. |
 | `space_group`, `space_group_number` | no | Optional space-group metadata. |
 | `atom_sites`, `peaks`, `source` | no | Optional diffraction structure, fallback peaks, and source metadata. |
+| `datasets` | no | Primary experimental tables used by one or more EOS records. |
 
 `eos_records` may be empty in a structure-only exchange file. Peritheos's
 bundled catalog intentionally contains only materials with at least one EOS
@@ -61,6 +62,52 @@ where `formula_units_per_cell` is $Z$. A consumer must reject a thermal record
 that requires molar volume when $Z$ is unavailable; guessing $Z$ from the
 formula is not valid.
 
+## Primary experimental datasets
+
+`datasets` makes the observations behind a fitted EOS part of the material's
+scientific provenance. Small tables should be embedded in `rows`, making a
+standalone `.eosmat` self-contained. A large table may instead use a relative,
+checksummed `resource`. Exactly one storage form is allowed.
+
+Each dataset declares a stable `identifier`, `kind`, primary `reference`, exact
+`source_location`, typed `columns`, and the `used_by_eos_records` identifiers.
+Uncertainty columns explicitly identify the value column to which they apply.
+The record should state whether the source reports standard deviations,
+standard errors, bounds, and covariance information; absence of covariance
+must not be interpreted as statistical independence.
+
+```json
+"datasets": [
+  {
+    "identifier": "example_2026_table2_pvt",
+    "kind": "pressure_volume_temperature",
+    "reference": {
+      "authors": ["Example"],
+      "year": 2026,
+      "source": "Journal supplement",
+      "doi": "10.example/data"
+    },
+    "source_location": "official supplement, Table 2",
+    "columns": [
+      {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+      {"name": "pressure_sigma_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
+      {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+      {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"}
+    ],
+    "rows": [[10.0, 0.2, 101.4, 300.0]],
+    "used_by_eos_records": ["example_2026_bm3_1"],
+    "uncertainty": {
+      "reported_as": "standard_deviation",
+      "covariance": "not_reported"
+    }
+  }
+]
+```
+
+Dataset identifiers and column names use lower snake case. Every row must have
+the declared number of columns, every value must be finite or JSON `null`, and
+every `used_by_eos_records` entry must resolve within the same material.
+
 ## EOS record
 
 Each item in `eos_records` describes one source parameterization.
@@ -71,6 +118,9 @@ Each item in `eos_records` describes one source parameterization.
 | `label` | yes | Human-readable source/model label. |
 | `reference` | yes | Citation string or structured citation with authors, year, source, and optional DOI. |
 | `default` | no | Preferred record for this material; at most one may be true. |
+| `record_kind` | no | `published`, `refit`, or `diagnostic`; omission means `published` for backward compatibility. |
+| `derived_from_record` | for refits | Identifier of the published or prior record supplying the model choices and fixed parameters. |
+| `fit_provenance` | for refits | Software/version, dataset, row selection, objective, weights, varied/fixed parameters, and fit statistics. |
 | `eos` | yes | Reference-isotherm equation and parameters. |
 | `thermal` | no | Thermal-pressure equation, parameters, and fixed equation choices. |
 | `parameter_errors` | yes | Reported reference-isotherm parameter errors; JSON `null` means unavailable, not zero. |
@@ -82,7 +132,8 @@ Each item in `eos_records` describes one source parameterization.
 | `temperature_ref` | no | Reference-isotherm temperature in K. |
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
 | `source_lineage` | no | Ordered sources and their roles when a record combines an earlier fit, final parameter table, implementation, correction, or experimental context. |
-| `parameter_covariance` | no | Published covariance metadata when available. |
+| `pressure_calibration` | no | Audited pressure basis of the observations used for the fit, including resolvable links to reference EOS and optical-calibration records. |
+| `parameter_covariance` | no | Published or reproducibly derived covariance metadata when available; its origin must be documented. |
 | `scientific_validation` | yes | Validation boundary described below. |
 | `notes` | no | Scientific qualifications that do not fit another field. |
 
@@ -91,6 +142,86 @@ stability and not permission to extrapolate over every combination of its
 marginal bounds. `reported_exactly` means the numerical endpoints occur in the
 primary source; it does not imply a recommended extrapolation limit or exact
 phase-stability boundary.
+
+### Published records and refits
+
+A refit is stored as a separate, opt-in EOS record. It never silently replaces
+the source-reported parameters. Its identifier should use a `_refit` suffix,
+`record_kind` must be `refit`, and `derived_from_record` must resolve within the
+same material. `fit_provenance.dataset` must likewise resolve to an embedded or
+checksummed primary dataset in that material. The fit metadata records enough
+of the numerical experiment to distinguish software, objective, weighting,
+row selection, varied parameters, and fixed assumptions.
+
+For example, B4C retains the source-reported
+`b4c_somayazulu_2023_berman_2` record and offers the independently reproduced
+`b4c_somayazulu_2023_berman_refit` record explicitly:
+
+```python
+from peritheos import get_material
+
+b4c = get_material("b4c")
+refit = b4c.get_eos_record("b4c_somayazulu_2023_berman_refit")
+pressure = refit.pressure(volume=289.1, temperature=2023.0)
+```
+
+### Pressure calibration and reference EOS records
+
+`pressure_calibration` records how the pressures underlying a published fit
+were obtained. This is separate from `reference`, which cites the publication
+that reports the fitted material EOS, and from `eos`, which is the material EOS
+itself.
+
+The object has a `status`, a list of `methods`, and a `recalculation` status.
+Each method identifies its `kind`, the exact location where the material source
+describes it, and the primary citation for the calibration. When the method is
+an X-ray pressure standard and the exact calibration is bundled, it also has a
+`reference_eos_record` containing a globally unique EOS-record identifier.
+Ruby methods instead use `reference_calibration_record` to identify an
+executable R1 wavelength calibration in the bundled calibration library:
+
+```json
+"pressure_calibration": {
+  "status": "resolved",
+  "methods": [
+    {
+      "kind": "equation_of_state",
+      "reference_eos_record": "gold_fei_2007_vinet_2",
+      "reference": {
+        "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+        "year": 2007,
+        "source": "Proc. Natl. Acad. Sci. USA",
+        "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental methods, pressure determination"
+    }
+  ],
+  "recalculation": {
+    "status": "missing_calibrant_observations",
+    "notes": "The reference EOS is executable, but the source does not tabulate the simultaneously measured calibrant volumes."
+  },
+  "audit_date": "2026-09-03"
+}
+```
+
+Allowed method kinds distinguish `equation_of_state` from optical ruby or
+other fluorescence gauges, shock-wave and ultrasonic measurements, ab initio
+calculations, simultaneous self-consistent reductions, and ambient-pressure
+anchors. A ruby scale is not mislabeled as a material EOS. For example,
+`ruby_dorogokupets_oganov_2007` executes the quadratic normalized-shift form
+published in that paper, whereas `ruby_holzapfel_2005` executes the modified
+Freund--Ingalls form and its distinct three coefficients.
+
+The recalculation status is deliberately independent of reference resolution.
+Ruby-to-ruby conversion needs the reported source pressures because the source
+scale can be inverted to the common R1 wavelength ratio. Replacing ruby with
+an XRD scale requires the paired calibrant volume (and temperature for a
+thermal standard), while refitting also requires the sample's row-wise volume.
+`ready` means those observables are present in the material's `datasets`;
+`missing_calibrant_observations` means the scale is known but the required
+row-wise readings are unavailable. Other statuses identify an
+unbundled reference, an unsupported reference model, a non-applicable primary
+measurement, or a source from which recalculation is impossible.
 
 ### Material identity versus EOS reference state
 
@@ -204,6 +335,18 @@ expansivity. This option requires `thermal_expansion_law="constant"` (or its
 omission) and `alpha1=0`. It represents Martinez et al. (1996), Equation 3,
 without replacing the paper's linear relation by an exponential approximation.
 
+The third option,
+
+```json
+"thermal_expansion_law": "linear_temperature",
+"reference_volume_law": "berman"
+```
+
+applies EosFit7's Berman (1988) truncated polynomial
+$V_0(T)=V_0(T_r)[1+\alpha_0(T-T_r)+\tfrac12\alpha_1(T-T_r)^2]$.
+Here `alpha0` is the expansion coefficient at `Tr`; this is distinct from
+EosFit's exact exponential-integral Fei form.
+
 Thermal records may contain their own `parameter_errors` and
 `fixed_parameters`. A missing error and an explicitly fixed parameter are
 different facts and must remain distinguishable.
@@ -253,7 +396,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 150
+`peritheos/data/primary-source-audit.json`. All 155
 bundled records are validated, with no deferred or pending record.
 
 ## Complete EOS-only example

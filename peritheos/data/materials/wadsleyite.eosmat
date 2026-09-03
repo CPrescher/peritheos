@@ -155,6 +155,16 @@
    },
    "notes": "Katsura et al. fit 11-20 GPa and 300-2100 K data with a BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure. Their measured V0=538.49(2) A^3 and K0=169.2(9) GPa are fixed during the fit; K0'=4.1(1), gamma0=1.64(2), and q=1.5(1) are fitted, while theta0=814 K is fixed. Fixed source parameters retain their published uncertainties.",
    "identifier": "wadsleyite_katsura_2009_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

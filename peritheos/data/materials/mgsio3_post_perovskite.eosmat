@@ -102,6 +102,32 @@
    },
    "notes": "Global inversion of Guignot et al. static P-V-T data and six shock experiments at substantially higher pressures. V0=162.2 A^3 was fixed; theta0=990(146) K, gamma0=2.61(67), and q=2.1(8). The paper defines the cold curve as a BM3 isentrope; this is retained because it is the engine-supported form published with the MGD thermal model.",
    "identifier": "mgsio3_post_perovskite_mosenfelder_2009_bm3_1",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Mosenfelder",
+        "Asimow",
+        "Frost",
+        "Rubie",
+        "Ahrens"
+       ],
+       "year": 2009,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/2008JB005900"
+      },
+      "source_location": "Global inversion of shock and static constraints"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The record is a global inversion and has no single external pressure-reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -169,6 +195,31 @@
    "fixed_parameters": [],
    "notes": "Experimental BM3 fit 1 to laser-heated DAC data from this study plus Guignot et al., reaching 265 GPa. Stored as a room-temperature cold curve only because the published thermal fit uses an Al'tshuler gamma(V) function not implemented by Dioptas. Sakai et al. prefer their Keane fit for multi-megabar extrapolation; the BM3 parameters are strongly correlated and should be used within the experimental range rather than extrapolated.",
    "identifier": "mgsio3_post_perovskite_sakai_2016_bm3_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Dekura",
+        "Hirao"
+       ],
+       "year": 2016,
+       "source": "Scientific Reports",
+       "doi": "10.1038/srep22652"
+      },
+      "source_location": "Methods and supplementary unified MgO analysis",
+      "notes": "The paper derives a scale-free MgO Keane EOS for this reduction."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

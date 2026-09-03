@@ -28,6 +28,183 @@
  "peaks": [],
  "eos_records": [
   {
+   "label": "Dewaele et al. (2004), revised-ruby Vinet",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "source": "Phys. Rev. B",
+    "volume": "70",
+    "locator": "094112",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 67.848,
+     "K0": 167.0,
+     "K0_prime": 6.0
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": 0.02
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    154.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Table II revised-ruby-scale Vinet fit. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.",
+   "identifier": "gold_dewaele_2004_vinet_5",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Equation 1 and Table II, revised P'_R ruby scale",
+      "reference_calibration_record": "ruby_dewaele_2004"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "locations": [
+      "Equation 1",
+      "Tables I and II"
+     ],
+     "finding": "The stored record is the revised-ruby-scale Vinet fit with V0 and K0 fixed.",
+     "doi": "10.1103/physrevb.70.094112"
+    }
+   }
+  },
+  {
+   "label": "Takemura and Dewaele (2008), Dorogokupets-ruby Vinet",
+   "reference": {
+    "authors": [
+     "Takemura",
+     "Dewaele"
+    ],
+    "year": 2008,
+    "source": "Phys. Rev. B",
+    "volume": "78",
+    "locator": "104119",
+    "doi": "10.1103/PhysRevB.78.104119"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 67.848,
+     "K0": 167.0,
+     "K0_prime": 5.9
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": 0.1
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    123.0
+   ],
+   "temperature_ref": 300.0,
+   "notes": "Vinet fit for the Dorogokupets-Oganov ruby calibration. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.",
+   "identifier": "gold_takemura_2008_vinet_6",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Abstract and EOS analysis; alternative Dorogokupets-Oganov ruby calibration",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.104119/fulltext",
+     "locations": [
+      "Abstract",
+      "Vinet EOS analysis",
+      "Table I"
+     ],
+     "finding": "The stored record is the B0=167 GPa constrained fit on the Dorogokupets-Oganov ruby scale.",
+     "doi": "10.1103/physrevb.78.104119"
+    }
+   }
+  },
+  {
    "label": "Anderson et al. (1989), Au logarithmic-volume thermal EOS",
    "reference": {
     "authors": [
@@ -80,6 +257,16 @@
     ]
    },
    "identifier": "gold_anderson_1989_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -301,6 +488,33 @@
     }
    ],
    "identifier": "gold_fei_2007_vinet_2",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Equations 2-3, Table 1, and pressure-scale-free comparison"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This record belongs to the internally consistent Fei et al. pressure-scale solution rather than depending on one external reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -369,6 +583,29 @@
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.01. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
    "identifier": "gold_shen_2026_vinet_3",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fratanduono et al."
+       ],
+       "year": 2020,
+       "source": "Phys. Rev. Lett.",
+       "doi": "10.1103/PhysRevLett.124.015701"
+      },
+      "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
+      "scope": "all fitted observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -481,6 +718,30 @@
    },
    "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
    "identifier": "gold_sokolova_2013_holzapfel_4",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Sokolova",
+        "Dorogokupets",
+        "Litasov"
+       ],
+       "year": 2013,
+       "source": "Russian Geology and Geophysics",
+       "doi": "10.1016/j.rgg.2013.01.005"
+      },
+      "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

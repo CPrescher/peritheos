@@ -66,6 +66,59 @@
    "temperature_ref": 300.0,
    "notes": "Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.",
    "identifier": "rhenium_anzellini_2014_vinet_1",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Section II and Table I",
+      "scope": "ruby-gauge run",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Section II and Table I",
+      "scope": "W-gauge run",
+      "notes": "Dorogokupets-Oganov W EOS"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele et al."
+       ],
+       "year": 2003,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.67.094112"
+      },
+      "source_location": "Section II and Table I",
+      "scope": "He-gauge run"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

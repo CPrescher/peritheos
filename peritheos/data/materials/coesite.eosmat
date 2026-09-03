@@ -108,6 +108,16 @@
    ],
    "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
    "identifier": "coesite_levien_1981_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

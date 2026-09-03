@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 150,
-    "primary_source_validated": 150
+    "records": 155,
+    "primary_source_validated": 155
   },
   "records": [
     {
@@ -162,18 +162,63 @@
       "material": "b4c",
       "file": "b4c.eosmat",
       "record": "b4c_somayazulu_2023_bm3_1",
-      "label": "Somayazulu et al. (2023), 300 K BM3",
+      "label": "Somayazulu et al. (2023), BM3 + MGD",
       "doi": "10.1098/rsta.2022.0331",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10069115/",
+        "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
         "locations": [
           "Abstract",
           "Figure 1 caption",
-          "Table 1"
+          "Equations 3.1-3.7",
+          "Figure 4 caption",
+          "Table 1",
+          "official supplementary material, equations 1-9 and Tables 3-4"
         ],
-        "finding": "The paper is internally inconsistent: the abstract says third-order Birch-Murnaghan, while the Figure 1 caption says second-order despite reporting K0'=3.3(1). Peritheos retains BM3 and records the conflict.",
+        "finding": "The article and supplement define an integrated constant-q MGD model that Peritheos represents exactly. The article's final gamma0=0.8, q=2.1 parameterization gives a 1.39 GPa pressure RMSE on the 41 heated supplementary points. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), rather than independently recovering q=2.1. Source contradictions in EOS order, theta0, gamma0/q, and nominal reference temperature are retained explicitly with evidence-based resolutions.",
+        "doi": "10.1098/rsta.2022.0331"
+      }
+    },
+    {
+      "material": "b4c",
+      "file": "b4c.eosmat",
+      "record": "b4c_somayazulu_2023_berman_2",
+      "label": "Somayazulu et al. (2023), BM3 + Berman thermal reference state",
+      "doi": "10.1098/rsta.2022.0331",
+      "status": "primary_source_validated",
+      "note": "Equation, parameters, fixed quantities, EosFit7c fitting method, primary P-V-T table, and diffraction structure were checked against the article and official supplement.",
+      "primary_source_check": {
+        "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
+        "locations": [
+          "Equations 3.8-3.9",
+          "Table 2",
+          "Figure 5 caption",
+          "official supplementary material, Table 4"
+        ],
+        "finding": "The open-source CrysFML engine used by EosFit7 shows that its Berman model uses a truncated quadratic reference volume, not the exponential integral printed in the article. EosFit7 also uses iteratively updated effective-variance pressure weights, whereas Peritheos normally performs a latent-coordinate errors-in-variables fit. A direct run with the authors' EosFit7c 7.60 executable on the 41 heated supplementary rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, and weighted chi-square 1.0412. Peritheos's matched emulation gives 1.81113e-5, -0.0131165, and 1.0397, respectively. A literal all-51-row EosFit run gives 1.79681e-5, -0.01305, and chi-square 17.9673. Neither selection recovers the published 1.94e-5 and -0.008; the exact published fit is therefore not reproducible from the rounded public table and disclosed settings.",
+        "doi": "10.1098/rsta.2022.0331"
+      }
+    },
+    {
+      "material": "b4c",
+      "file": "b4c.eosmat",
+      "record": "b4c_somayazulu_2023_berman_refit",
+      "label": "Somayazulu et al. (2023), BM3 + Berman public-data refit",
+      "doi": "10.1098/rsta.2022.0331",
+      "status": "primary_source_validated",
+      "note": "Primary dataset, equation choices, fixed quantities, and pressure calibration were checked against the article and official supplement; refitted values were independently reproduced with EosFit7c and Peritheos.",
+      "primary_source_check": {
+        "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
+        "locations": [
+          "Equations 3.8-3.9",
+          "Table 2",
+          "Figure 5 caption",
+          "official supplementary material, Table 4",
+          "direct EosFit7c 7.60 reproduction",
+          "docs/literature-reproductions.md"
+        ],
+        "finding": "A direct EosFit7c 7.60 run on the 41 heated public-data rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, reduced weighted chi-square 1.0412, and correlation -0.958. Peritheos's matched effective-variance emulation reproduces these values within printed precision. These are derived public-data parameters rather than the coefficients published in Table 2.",
         "doi": "10.1098/rsta.2022.0331"
       }
     },
@@ -2788,6 +2833,61 @@
         ],
         "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
         "doi": "10.1103/zp3m-kjpc"
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2004_vinet_5",
+      "label": "Dewaele et al. (2004), revised-ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "locations": [
+          "Equation 1",
+          "Tables I and II"
+        ],
+        "finding": "The stored record is the revised-ruby-scale Vinet fit with V0 and K0 fixed.",
+        "doi": "10.1103/physrevb.70.094112"
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_takemura_2008_vinet_6",
+      "label": "Takemura and Dewaele (2008), Dorogokupets-ruby Vinet",
+      "doi": "10.1103/physrevb.78.104119",
+      "status": "primary_source_validated",
+      "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.104119/fulltext",
+        "locations": [
+          "Abstract",
+          "Vinet EOS analysis",
+          "Table I"
+        ],
+        "finding": "The stored record is the B0=167 GPa constrained fit on the Dorogokupets-Oganov ruby scale.",
+        "doi": "10.1103/physrevb.78.104119"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_b1_tange_2009_vinet",
+      "label": "Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD",
+      "doi": "10.1029/2008jb005813",
+      "status": "primary_source_validated",
+      "note": "Equation, parameters, reference state, uncertainties, and data envelope checked against the primary publication.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2008JB005813",
+        "locations": [
+          "Equations 2, 4, 5, 15, and 16",
+          "Tables 1, 2, 4, and 5"
+        ],
+        "finding": "The stored record is the pressure-scale-free Fit3 Vinet-MGD parameterization.",
+        "doi": "10.1029/2008jb005813"
       }
     }
   ]

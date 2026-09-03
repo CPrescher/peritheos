@@ -611,6 +611,8 @@ pub enum ReferenceVolumeLaw {
     IntegratedExpansivity,
     /// Apply `V0(T)=V0(Tr)[1+alpha0(T-Tr)]` directly.
     LinearTemperature,
+    /// Apply the Berman (1988) truncated quadratic reference-volume law.
+    Berman,
 }
 
 /// EOS with temperature-dependent reference volume and bulk modulus.
@@ -671,6 +673,14 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
                 reason: "linear temperature volume requires constant expansivity configuration",
             });
         }
+        if model.reference_volume_law == ReferenceVolumeLaw::Berman
+            && model.thermal_expansion_law != ThermalExpansionLaw::LinearTemperature
+        {
+            return Err(EosError::InvalidParameter {
+                name: "reference_volume_law",
+                reason: "Berman volume requires linear-temperature expansivity configuration",
+            });
+        }
         Ok(model)
     }
 
@@ -680,6 +690,10 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
         let reference_volume = match self.reference_volume_law {
             ReferenceVolumeLaw::LinearTemperature => {
                 self.rt_eos.reference_volume() * (1.0 + self.alpha0 * delta)
+            }
+            ReferenceVolumeLaw::Berman => {
+                self.rt_eos.reference_volume()
+                    * (1.0 + self.alpha0 * delta + 0.5 * self.alpha1 * delta * delta)
             }
             ReferenceVolumeLaw::IntegratedExpansivity => {
                 let mut exponent = self.alpha0 * delta;

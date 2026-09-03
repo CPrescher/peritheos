@@ -69,6 +69,16 @@
    ],
    "notes": "Explicit composite B2-KCl reference isotherm. Campbell and Heinz report V0(B2)/V0(B1)=0.8483+/-0.0057, K0=28.7+/-0.6 GPa, and K0'=4 constrained over 2-56 GPa. The absolute B2 V0 is 0.8483*62.36=52.899988 A^3/formula unit, using the independently published experimental B1-KCl V0 of Dewaele et al. (2012). Its 0.355452 A^3 uncertainty propagates the Campbell ratio error only; Dewaele et al. report no B1 V0 error or covariance. This composite is not presented as a single-paper Campbell parameter set.",
    "identifier": "kcl_campbell_1991_bm2_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -191,6 +201,16 @@
     ]
    },
    "identifier": "kcl_walker_2002_bm3_2",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -370,6 +390,30 @@
     ]
    },
    "identifier": "kcl_b2_dewaele_2012_vinet_3",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Experimental methods and Table I; ruby luminescence gauge",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "parameter_provenance": {
     "reference_isotherm": {
      "V0": "Table III and Table V; 54.5 A^3/formula unit, fixed from the lowest-pressure 2-6 GPa observations",

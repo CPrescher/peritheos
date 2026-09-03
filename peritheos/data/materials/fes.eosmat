@@ -74,6 +74,28 @@
    ],
    "notes": "Ono and Kikegawa report V0 = 99.5(7) A^3 and K0 = 156(6) GPa with K0' fixed at 4.0.",
    "identifier": "fes_ono_2006_bm3_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Brown"
+       ],
+       "year": 1999,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/1.371596"
+      },
+      "source_location": "Experimental pressure determination; NaCl standard"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

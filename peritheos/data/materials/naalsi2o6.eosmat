@@ -109,6 +109,16 @@
    ],
    "notes": "The 300 K reference isotherm of Zhao et al.'s high-temperature BM3 model uses V0=403.32(8) A^3, K0=124.5(4.0) GPa, and K0'=5 assumed. This record intentionally represents only that reference isotherm, not the paper's temperature-dependent K and expansion.",
    "identifier": "naalsi2o6_zhao_1997_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

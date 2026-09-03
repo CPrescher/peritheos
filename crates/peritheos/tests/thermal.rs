@@ -302,7 +302,7 @@ fn simple_thermal_pressure_models_preserve_reference_state() {
 }
 
 #[test]
-fn thermal_reference_state_supports_both_volume_laws_and_domains() {
+fn thermal_reference_state_supports_all_volume_laws_and_domains() {
     let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
     let integrated = ThermalReferenceState::new(
         reference,
@@ -324,6 +324,16 @@ fn thermal_reference_state_supports_both_volume_laws_and_domains() {
         ReferenceVolumeLaw::LinearTemperature,
     )
     .unwrap();
+    let berman = ThermalReferenceState::new(
+        reference,
+        298.0,
+        1.94e-5,
+        -0.008,
+        5.73e-10,
+        ThermalExpansionLaw::LinearTemperature,
+        ReferenceVolumeLaw::Berman,
+    )
+    .unwrap();
 
     assert_close(
         integrated.thermal_pressure(0.9, 300.0).unwrap(),
@@ -333,6 +343,7 @@ fn thermal_reference_state_supports_both_volume_laws_and_domains() {
     assert_close(linear.thermal_pressure(0.9, 300.0).unwrap(), 0.0, 1.0e-14);
     assert!(integrated.pressure(0.9, 1200.0).unwrap().is_finite());
     assert!(linear.pressure(0.9, 1200.0).unwrap().is_finite());
+    assert!(berman.pressure(0.9, 1200.0).unwrap().is_finite());
 
     let invalid_modulus = ThermalReferenceState::new(
         reference,

@@ -67,6 +67,16 @@
    ],
    "notes": "Heinz and Jeanloz report V0(B2)/V0(B1) = 0.929 +/- 0.071 and K0 = 36.2 +/- 4.2 GPa from a second-order finite-strain fit, which fixes K0' at 4. The V0 uncertainty is propagated using the ambient B1 volume. The uncitable Sata/Shen fit was removed.",
    "identifier": "nacl_b2_heinz_1984_bm2_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -135,6 +145,29 @@
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa.",
    "identifier": "nacl_b2_shen_2026_vinet_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fratanduono et al."
+       ],
+       "year": 2020,
+       "source": "Phys. Rev. Lett.",
+       "doi": "10.1103/PhysRevLett.124.015701"
+      },
+      "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
+      "scope": "all fitted observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

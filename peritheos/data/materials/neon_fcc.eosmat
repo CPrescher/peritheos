@@ -65,6 +65,33 @@
    ],
    "notes": "From the paper's text: BM3 fit to the same data as the Vinet fit, K0=1.43(14) GPa, K0p=8.02(31).",
    "identifier": "neon_fcc_fei_2007_bm3_1",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Equations 2-3, Table 1, and pressure-scale-free comparison"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This record belongs to the internally consistent Fei et al. pressure-scale solution rather than depending on one external reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -159,6 +186,33 @@
     }
    ],
    "identifier": "neon_fcc_fei_2007_vinet_2",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Equations 2-3, Table 1, and pressure-scale-free comparison"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This record belongs to the internally consistent Fei et al. pressure-scale solution rather than depending on one external reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

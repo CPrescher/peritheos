@@ -91,6 +91,28 @@
    "temperature_ref": 298.0,
    "notes": "Staged second-order Birch-Murnaghan P-V-T parameterization from Martinez et al. (1996). Each Table 6 isotherm fixes K0'=4; Equation (2) supplies the reported linear K0(T) slope, and Equation (3) uses the reported mean expansion coefficient in the direct relation V0(T)=V0(298 K)*[1+alpha_bar*(T-298 K)]. Table 6 reports the 298 K V0=227.5+/-0.8 A^3 and sigma(K0)=3.48 GPa; the prose and Table 7 instead summarize the K0 error as approximately 4.3 GPa. Table 6 contains fitted isotherms through 973 K. The source reports no parameter covariance or confidence convention, and the stored pressure/temperature extrema are an experimental envelope rather than a rectangular validity guarantee.",
    "identifier": "aragonite_martinez_1996_bm2_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Decker"
+       ],
+       "year": 1971,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/1.1660714"
+      },
+      "source_location": "Experimental methods; NaCl pressure standard at temperature"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

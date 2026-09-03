@@ -76,6 +76,16 @@
    "fixed_parameters": [],
    "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
    "identifier": "alpha_quartz_angel_1997_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

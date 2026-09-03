@@ -74,6 +74,16 @@
    ],
    "notes": "Volumetric BM3 fit to all 23+/-3 degC SrO data through 34.05 GPa. K0=91.3+/-2.7 GPa and K0'=4.3+/-0.3 are one-standard-deviation fit errors. The fixed V0 error represents the paper's stated 0.3% volume accuracy. Between about 7 and 30.7 GPa the nominal B1 cell shows a small tetragonal distortion, but the paper reports no volume discontinuity and deliberately fits all data together. No parameter covariance is published.",
    "identifier": "sro_liu_1973_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

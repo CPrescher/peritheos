@@ -100,6 +100,35 @@
    "temperature_ref": 300.0,
    "notes": "Room-temperature BM3 fit with V0 fixed at 97.76 A^3.",
    "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental methods; Au thermal EOS of Fei et al. (2007)",
+      "reference_eos_record": "gold_fei_2007_vinet_2"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "Earlier comparison data were recalculated on a Pt scale; the link identifies the Au calibration used for the present fitted measurements."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -196,6 +225,35 @@
    },
    "notes": "Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.",
    "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental methods; Au thermal EOS of Fei et al. (2007)",
+      "reference_eos_record": "gold_fei_2007_vinet_2"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "Earlier comparison data were recalculated on a Pt scale; the link identifies the Au calibration used for the present fitted measurements."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

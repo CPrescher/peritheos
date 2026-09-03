@@ -15,6 +15,7 @@ from pathlib import Path
 from typing import Any
 
 from peritheos.errors import EosmatError, MaterialLookupError
+from peritheos.pressure_calibrations import list_pressure_calibrations
 
 EOSMAT_FORMAT = "peritheos.material"
 EOSMAT_FORMAT_VERSION = 3
@@ -68,6 +69,31 @@ _THERMAL_MODELS = {
     "MultiOscillatorGruneisen": ("multi_oscillator_gruneisen_thermal_pressure"),
     "Sokolova2016": "multi_oscillator_gruneisen_thermal_pressure",
     "ThermalModifiedTait": "thermal_modified_tait",
+}
+_PRESSURE_CALIBRATION_STATUSES = {
+    "resolved",
+    "partially_resolved",
+    "not_applicable",
+    "unresolved",
+}
+_PRESSURE_CALIBRATION_METHODS = {
+    "equation_of_state",
+    "ruby_fluorescence",
+    "other_optical_gauge",
+    "shock_wave",
+    "ultrasonic",
+    "ab_initio",
+    "self_consistent",
+    "ambient_pressure",
+    "other",
+}
+_PRESSURE_RECALCULATION_STATUSES = {
+    "ready",
+    "missing_calibrant_observations",
+    "reference_eos_not_bundled",
+    "reference_model_not_supported",
+    "not_applicable",
+    "not_possible",
 }
 
 
@@ -142,11 +168,114 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
     formula_units = document.get("formula_units_per_cell")
     if formula_units is not None:
         _finite_number(formula_units, "formula_units_per_cell", positive=True)
-    for key in ("aliases", "atom_sites", "peaks", "eos_records"):
+    for key in ("aliases", "atom_sites", "peaks", "datasets", "eos_records"):
         if not isinstance(document.get(key, []), list):
             raise EosmatError(f"{key} must be a JSON array")
 
+    dataset_identifiers: set[str] = set()
+    dataset_record_links: list[tuple[str, str]] = []
+    for index, raw_dataset in enumerate(document.get("datasets", [])):
+        location = f"datasets[{index}]"
+        dataset = _require_mapping(raw_dataset, location)
+        identifier = dataset.get("identifier")
+        if not isinstance(identifier, str) or not identifier:
+            raise EosmatError(f"{location}.identifier must be a non-empty string")
+        if identifier in dataset_identifiers:
+            raise EosmatError(f"Duplicate dataset identifier {identifier!r}")
+        dataset_identifiers.add(identifier)
+        for key in ("kind", "source_location"):
+            if not isinstance(dataset.get(key), str) or not dataset[key]:
+                raise EosmatError(f"{location}.{key} must be a non-empty string")
+        if not isinstance(dataset.get("reference"), (str, Mapping)):
+            raise EosmatError(f"{location}.reference must be a string or object")
+
+        columns = dataset.get("columns")
+        if not isinstance(columns, list) or not columns:
+            raise EosmatError(f"{location}.columns must be a non-empty array")
+        column_names: set[str] = set()
+        for column_index, raw_column in enumerate(columns):
+            column_location = f"{location}.columns[{column_index}]"
+            column = _require_mapping(raw_column, column_location)
+            name = column.get("name")
+            if not isinstance(name, str) or not name:
+                raise EosmatError(f"{column_location}.name must be a non-empty string")
+            if name in column_names:
+                raise EosmatError(f"Duplicate column name {name!r} in {location}")
+            column_names.add(name)
+            for key in ("quantity", "unit", "role"):
+                if not isinstance(column.get(key), str) or not column[key]:
+                    raise EosmatError(
+                        f"{column_location}.{key} must be a non-empty string"
+                    )
+            if column["role"] not in {
+                "value",
+                "standard_deviation",
+                "standard_error",
+                "bound",
+                "flag",
+            }:
+                raise EosmatError(f"{column_location}.role is invalid")
+            if column.get("of") is not None and column["of"] not in column_names:
+                raise EosmatError(
+                    f"{column_location}.of must reference an earlier column"
+                )
+
+        has_rows = "rows" in dataset
+        has_resource = "resource" in dataset
+        if has_rows == has_resource:
+            raise EosmatError(
+                f"{location} must contain exactly one of rows or resource"
+            )
+        if has_rows:
+            rows = dataset["rows"]
+            if not isinstance(rows, list):
+                raise EosmatError(f"{location}.rows must be an array")
+            for row_index, row in enumerate(rows):
+                if not isinstance(row, list) or len(row) != len(columns):
+                    raise EosmatError(
+                        f"{location}.rows[{row_index}] must match the column count"
+                    )
+                for column_index, value in enumerate(row):
+                    if value is not None:
+                        _finite_number(
+                            value,
+                            f"{location}.rows[{row_index}][{column_index}]",
+                        )
+        else:
+            resource = _require_mapping(dataset["resource"], f"{location}.resource")
+            for key in ("path", "sha256", "media_type"):
+                if not isinstance(resource.get(key), str) or not resource[key]:
+                    raise EosmatError(
+                        f"{location}.resource.{key} must be a non-empty string"
+                    )
+            path = Path(resource["path"])
+            if path.is_absolute() or ".." in path.parts:
+                raise EosmatError(
+                    f"{location}.resource.path must be relative and local"
+                )
+            sha256 = resource["sha256"]
+            if len(sha256) != 64 or any(
+                character not in "0123456789abcdef" for character in sha256
+            ):
+                raise EosmatError(
+                    f"{location}.resource.sha256 must be 64 lowercase hex characters"
+                )
+
+        used_by = dataset.get("used_by_eos_records")
+        if not isinstance(used_by, list) or not used_by:
+            raise EosmatError(
+                f"{location}.used_by_eos_records must be a non-empty array"
+            )
+        for record_identifier in used_by:
+            if not isinstance(record_identifier, str) or not record_identifier:
+                raise EosmatError(
+                    f"{location}.used_by_eos_records must contain non-empty strings"
+                )
+            dataset_record_links.append((identifier, record_identifier))
+
     record_identifiers: set[str] = set()
+    derived_record_links: list[tuple[str, str]] = []
+    fit_dataset_links: list[tuple[str, str]] = []
     default_count = 0
     for index, raw_record in enumerate(document.get("eos_records", [])):
         location = f"eos_records[{index}]"
@@ -163,6 +292,37 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 raise EosmatError(f"Duplicate EOS record identifier {identifier!r}")
             record_identifiers.add(identifier)
         default_count += record.get("default") is True
+
+        record_kind = record.get("record_kind", "published")
+        if record_kind not in {"published", "refit", "diagnostic"}:
+            raise EosmatError(f"{location}.record_kind is invalid")
+        derived_from = record.get("derived_from_record")
+        if derived_from is not None:
+            if not isinstance(derived_from, str) or not derived_from:
+                raise EosmatError(
+                    f"{location}.derived_from_record must be a non-empty string"
+                )
+            if identifier is not None:
+                derived_record_links.append((identifier, derived_from))
+        fit_provenance = record.get("fit_provenance")
+        if record_kind == "refit" and (
+            derived_from is None or not isinstance(fit_provenance, Mapping)
+        ):
+            raise EosmatError(
+                f"{location} refit records require derived_from_record and "
+                "fit_provenance"
+            )
+        if fit_provenance is not None:
+            fit_provenance = _require_mapping(
+                fit_provenance, f"{location}.fit_provenance"
+            )
+            dataset_identifier = fit_provenance.get("dataset")
+            if not isinstance(dataset_identifier, str) or not dataset_identifier:
+                raise EosmatError(
+                    f"{location}.fit_provenance.dataset must be a non-empty string"
+                )
+            if identifier is not None:
+                fit_dataset_links.append((identifier, dataset_identifier))
 
         reference = record.get("reference")
         if not isinstance(reference, (str, Mapping)):
@@ -301,7 +461,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 if reference_volume_law is not None and (
                     not isinstance(reference_volume_law, str)
                     or reference_volume_law
-                    not in {"integrated_expansivity", "linear_temperature"}
+                    not in {
+                        "integrated_expansivity",
+                        "linear_temperature",
+                        "berman",
+                    }
                 ):
                     raise EosmatError(
                         f"{location}.thermal.reference_volume_law is invalid"
@@ -354,6 +518,13 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     f"{location}.thermal linear_temperature reference volume "
                     "requires constant thermal expansion and alpha1=0"
                 )
+            if reference_volume_law == "berman" and (
+                thermal_expansion_law != "linear_temperature"
+            ):
+                raise EosmatError(
+                    f"{location}.thermal berman reference volume requires "
+                    "linear_temperature thermal expansion"
+                )
             thermal_errors = _require_mapping(
                 thermal.get("parameter_errors", {}),
                 f"{location}.thermal.parameter_errors",
@@ -399,6 +570,100 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if not isinstance(validity.get("notes", []), list):
                 raise EosmatError(f"{location}.validity.notes must be an array")
 
+        calibration = record.get("pressure_calibration")
+        if calibration is not None:
+            calibration = _require_mapping(
+                calibration, f"{location}.pressure_calibration"
+            )
+            if calibration.get("status") not in _PRESSURE_CALIBRATION_STATUSES:
+                raise EosmatError(f"{location}.pressure_calibration.status is invalid")
+            methods = calibration.get("methods")
+            if not isinstance(methods, list):
+                raise EosmatError(
+                    f"{location}.pressure_calibration.methods must be an array"
+                )
+            if (
+                calibration["status"]
+                in {
+                    "resolved",
+                    "partially_resolved",
+                    "not_applicable",
+                }
+                and not methods
+            ):
+                raise EosmatError(
+                    f"{location}.pressure_calibration.methods must not be empty "
+                    f"for status {calibration['status']!r}"
+                )
+            for method_index, raw_method in enumerate(methods):
+                method_location = (
+                    f"{location}.pressure_calibration.methods[{method_index}]"
+                )
+                method = _require_mapping(raw_method, method_location)
+                if method.get("kind") not in _PRESSURE_CALIBRATION_METHODS:
+                    raise EosmatError(f"{method_location}.kind is invalid")
+                if (
+                    not isinstance(method.get("source_location"), str)
+                    or not method["source_location"]
+                ):
+                    raise EosmatError(
+                        f"{method_location}.source_location must be a non-empty string"
+                    )
+                method_reference = method.get("reference")
+                if method_reference is not None and not isinstance(
+                    method_reference, (str, Mapping)
+                ):
+                    raise EosmatError(
+                        f"{method_location}.reference must be a string or object"
+                    )
+                reference_record = method.get("reference_eos_record")
+                if reference_record is not None and (
+                    not isinstance(reference_record, str) or not reference_record
+                ):
+                    raise EosmatError(
+                        f"{method_location}.reference_eos_record must be a "
+                        "non-empty string"
+                    )
+                if (
+                    reference_record is not None
+                    and method["kind"] != "equation_of_state"
+                ):
+                    raise EosmatError(
+                        f"{method_location}.reference_eos_record requires an "
+                        "equation_of_state method"
+                    )
+                reference_calibration = method.get(
+                    "reference_calibration_record"
+                )
+                if reference_calibration is not None and (
+                    not isinstance(reference_calibration, str)
+                    or not reference_calibration
+                ):
+                    raise EosmatError(
+                        f"{method_location}.reference_calibration_record must be a "
+                        "non-empty string"
+                    )
+                if (
+                    reference_calibration is not None
+                    and method["kind"] != "ruby_fluorescence"
+                ):
+                    raise EosmatError(
+                        f"{method_location}.reference_calibration_record requires a "
+                        "ruby_fluorescence method"
+                    )
+                if method["kind"] == "equation_of_state" and method_reference is None:
+                    raise EosmatError(
+                        f"{method_location}.reference is required for an EOS method"
+                    )
+            recalculation = _require_mapping(
+                calibration.get("recalculation"),
+                f"{location}.pressure_calibration.recalculation",
+            )
+            if recalculation.get("status") not in _PRESSURE_RECALCULATION_STATUSES:
+                raise EosmatError(
+                    f"{location}.pressure_calibration.recalculation.status is invalid"
+                )
+
         validation = record.get("scientific_validation")
         if is_canonical:
             validation = _require_mapping(
@@ -413,6 +678,28 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
 
     if default_count > 1:
         raise EosmatError("A material may have at most one default EOS record")
+    for dataset_identifier, record_identifier in dataset_record_links:
+        if record_identifier not in record_identifiers:
+            raise EosmatError(
+                f"Dataset {dataset_identifier!r} references unknown EOS record "
+                f"{record_identifier!r}"
+            )
+    for record_identifier, parent_identifier in derived_record_links:
+        if parent_identifier == record_identifier:
+            raise EosmatError(
+                f"EOS record {record_identifier!r} cannot derive from itself"
+            )
+        if parent_identifier not in record_identifiers:
+            raise EosmatError(
+                f"EOS record {record_identifier!r} derives from unknown EOS record "
+                f"{parent_identifier!r}"
+            )
+    for record_identifier, dataset_identifier in fit_dataset_links:
+        if dataset_identifier not in dataset_identifiers:
+            raise EosmatError(
+                f"EOS record {record_identifier!r} fit provenance references unknown "
+                f"dataset {dataset_identifier!r}"
+            )
 
 
 def load_eosmat(path: str | Path) -> dict[str, Any]:
@@ -470,6 +757,67 @@ def get_material_document(identifier: str) -> dict[str, Any]:
     return copy.deepcopy(document)
 
 
+def list_eos_record_documents() -> tuple[str, ...]:
+    """Return all globally unique EOS-record identifiers in the library."""
+    return tuple(
+        sorted(
+            record["identifier"]
+            for material_identifier in list_material_documents()
+            for record in get_material_document(material_identifier)["eos_records"]
+        )
+    )
+
+
+def get_eos_record_document(identifier: str) -> dict[str, Any]:
+    """Return one executable EOS record from the shared material library."""
+    matches = [
+        record
+        for material_identifier in list_material_documents()
+        for record in get_material_document(material_identifier)["eos_records"]
+        if record["identifier"] == identifier
+    ]
+    if len(matches) != 1:
+        if not matches:
+            raise MaterialLookupError(
+                f"Unknown EOS record document {identifier!r}; available: "
+                f"{list_eos_record_documents()}"
+            )
+        raise EosmatError(f"Duplicate EOS record identifier {identifier!r}")
+    return copy.deepcopy(matches[0])
+
+
+def validate_pressure_calibration_references() -> None:
+    """Verify that every bundled EOS and calibration link resolves uniquely."""
+    identifiers = list_eos_record_documents()
+    if len(identifiers) != len(set(identifiers)):
+        raise EosmatError("Bundled EOS record identifiers must be globally unique")
+    available = set(identifiers)
+    available_calibrations = set(list_pressure_calibrations())
+    for material_identifier in list_material_documents():
+        for record in get_material_document(material_identifier)["eos_records"]:
+            for method in record["pressure_calibration"]["methods"]:
+                reference_identifier = method.get("reference_eos_record")
+                if (
+                    reference_identifier is not None
+                    and reference_identifier not in available
+                ):
+                    raise EosmatError(
+                        f"EOS record {record['identifier']!r} references missing "
+                        f"pressure EOS {reference_identifier!r}"
+                    )
+                calibration_identifier = method.get(
+                    "reference_calibration_record"
+                )
+                if (
+                    calibration_identifier is not None
+                    and calibration_identifier not in available_calibrations
+                ):
+                    raise EosmatError(
+                        f"EOS record {record['identifier']!r} references missing "
+                        f"pressure calibration {calibration_identifier!r}"
+                    )
+
+
 def eosmat_schema() -> dict[str, Any]:
     """Return the bundled normative JSON Schema document."""
     resource = resources.files("peritheos.data").joinpath("eosmat-v3.schema.json")
@@ -480,9 +828,12 @@ __all__ = [
     "EOSMAT_FORMAT",
     "EOSMAT_FORMAT_VERSION",
     "eosmat_schema",
+    "get_eos_record_document",
     "get_material_document",
+    "list_eos_record_documents",
     "list_material_documents",
     "load_eosmat",
     "save_eosmat",
     "validate_eosmat_document",
+    "validate_pressure_calibration_references",
 ]

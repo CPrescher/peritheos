@@ -7,6 +7,22 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added a bundled executable pressure-calibration library for the Mao (1978),
+  Mao--Xu--Bell (1986), Dewaele (2004), Holzapfel (2005), and
+  Dorogokupets--Oganov (2007) ruby R1 scales in Python and Rust. All 33
+  identified ruby-calibrated material records now link to an exact calibration
+  identifier. Public APIs convert ruby scales through the R1 wavelength ratio
+  and replace ruby pressures with paired Au, Pt, MgO, or other linked XRD
+  standard observations.
+- Added the complete 51-row Somayazulu et al. (2023) B4C P-V-T table as a
+  provenance-bearing `.eosmat` dataset, linked it to new MGD and Berman thermal
+  records, and added a reproducible comparison of published, effective-
+  variance, and latent-coordinate fits. The open-source EosFit engine audit
+  also adds an explicit truncated-quadratic `berman` reference-volume law in
+  Python, Rust, and the interchange schema. An opt-in
+  `b4c_somayazulu_2023_berman_refit` record carries the EosFit7c public-data
+  refit alongside, without replacing, the published parameterization; generic
+  refit lineage and fit-provenance fields make that distinction machine-readable.
 - Added forward DAC-confinement prediction through
   `volume_with_dac_confinement(P_cold, T, f_dac=...)`, together with an explicit
   reference-relative `thermal_pressure_increment()` for displaying the full

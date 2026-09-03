@@ -62,11 +62,32 @@ returns the bundled normative JSON Schema.
 The [`.eosmat` schema reference](eosmat-schema.md) documents the complete
 field contract and consumer defaults.
 
+## Pressure-calibration records
+
+```python
+from peritheos import (
+    get_pressure_calibration,
+    list_pressure_calibrations,
+    list_xrd_pressure_standards,
+    recalculate_ruby_pressure,
+    recalculate_ruby_to_xrd_pressure,
+    xrd_standard_pressure,
+)
+```
+
+Five published ruby R1 calibrations are bundled with their equations,
+coefficients, provenance, and validity metadata. They support pressure from
+wavelength, wavelength shift, or normalized wavelength ratio; analytical
+inversion; and scale-to-scale conversion. XRD pressure uses any linked
+executable EOS record and its conventional-cell volume convention. Paired
+ruby-to-XRD recalculation returns source pressure, inferred R1 ratio, target
+pressure, and pressure difference. See [Pressure standards](pressure-standards.md#ruby-and-xrd-pressure-scale-conversion).
+
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records have been added for aragonite BM2, the
 B2-KCl P-V-T pressure calibration, and the Correa and Benedict diamond
 Helmholtz models, including derived variants anchored to the experimental
-Dewaele 298 K Vinet isotherm. All 150 bundled records are
+Dewaele 298 K Vinet isotherm. All 155 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with
@@ -231,7 +252,7 @@ Thermal constructor signatures are:
 | `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0` |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
-| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"` |
+| `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen"` |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |

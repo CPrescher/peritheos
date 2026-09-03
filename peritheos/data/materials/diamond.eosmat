@@ -67,6 +67,43 @@
    "temperature_ref": 298.0,
    "notes": "Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Replaces the dummy record and removes the unsupported K0=800 record.",
    "identifier": "diamond_datchi_2007_vinet_1",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Holzapfel"
+       ],
+       "year": 2005,
+       "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+       "source": "High Pressure Research",
+       "doi": "10.1080/09511920500147501"
+      },
+      "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale",
+      "reference_calibration_record": "ruby_holzapfel_2005"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele et al."
+       ],
+       "year": 2003,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.67.094112"
+      },
+      "source_location": "High-pressure cross-check; He EOS",
+      "scope": "highest-pressure points"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -137,6 +174,30 @@
    "temperature_ref": 298.0,
    "notes": "Independent single-crystal XRD fit in neon to 80 GPa; K0 was fixed to the isothermal ultrasonic value. Published atomic V0=5.6693 A^3 is multiplied by eight atoms in the conventional diamond cell.",
    "identifier": "diamond_dewaele_2008_vinet_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Experimental pressure determination; revised ruby scale",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -293,6 +354,30 @@
    },
    "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
    "identifier": "diamond_sokolova_2013_holzapfel_3",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Sokolova",
+        "Dorogokupets",
+        "Litasov"
+       ],
+       "year": 2013,
+       "source": "Russian Geology and Geophysics",
+       "doi": "10.1016/j.rgg.2013.01.005"
+      },
+      "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -459,6 +544,28 @@
    },
    "notes": "Complete diamond free-energy branch from equations 2-18; the double-Debye weights conserve the logarithmic phonon moment theta_0 (equation 13). Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet term is a motionless-ion DFT-GGA cold curve. The authors state that its theoretical V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift; Peritheos preserves the published value. The constant anharmonic coefficient changes caloric properties but contributes no pressure. Electronic excitations are neglected for insulating diamond as in the source. Factor-of-two source ambiguity: Correa equation 18 defines F_anh=-a*T^2 with a=3.8e-5 K^-1, whereas Benedict 2014 says it carries over the same correction but writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1. This record follows Correa literally; in Benedict's normalization the equivalent coefficient would be alpha=2*a. The source reports no coefficient uncertainties or covariance.",
    "identifier": "diamond_correa_2008_double_debye_log_moment_5",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Primary-source authors"
+       ],
+       "year": 2008,
+       "source": "Primary publication",
+       "doi": "10.1103/physrevb.78.024101"
+      },
+      "source_location": "Electronic-structure calculation and theoretical energy-volume fit"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This theoretical EOS has no experimental pressure-reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -593,6 +700,28 @@
    },
    "notes": "Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction. Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet curve is the motionless-ion 0 K cold curve, so V0=5.7034 A^3/atom is not a 300 K zero-total-pressure reference volume. Factor-of-two source ambiguity: Benedict writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1, while the Correa 2008 correction it claims to retain is F_anh=-a*T^2 with a=3.8e-5 K^-1. This record follows Benedict literally; matching Correa's anharmonic energy would require alpha approximately 2*a. The source reports no coefficient uncertainties or covariance.",
    "identifier": "diamond_benedict_2014_double_debye_4",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Primary-source authors"
+       ],
+       "year": 2014,
+       "source": "Primary publication",
+       "doi": "10.1103/physrevb.89.224109"
+      },
+      "source_location": "Electronic-structure calculation and theoretical energy-volume fit"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This theoretical EOS has no experimental pressure-reference EOS."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -742,6 +871,30 @@
    },
    "notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Correa(V,T)-P_Correa(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
    "identifier": "diamond_correa_2008_dewaele_anchored",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Experimental pressure determination; revised ruby scale",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",
@@ -895,6 +1048,30 @@
    },
    "notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Benedict(V,T)-P_Benedict(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
    "identifier": "diamond_benedict_2014_dewaele_anchored",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Experimental pressure determination; revised ruby scale",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",

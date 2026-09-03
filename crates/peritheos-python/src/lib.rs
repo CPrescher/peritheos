@@ -568,9 +568,10 @@ impl PyThermalEos {
         let volume_law = match reference_volume_law {
             "integrated_expansivity" => ReferenceVolumeLaw::IntegratedExpansivity,
             "linear_temperature" => ReferenceVolumeLaw::LinearTemperature,
+            "berman" => ReferenceVolumeLaw::Berman,
             _ => {
                 return Err(python_validation_error(
-                    "reference_volume_law must be 'integrated_expansivity' or 'linear_temperature'",
+                    "reference_volume_law must be 'integrated_expansivity', 'linear_temperature', or 'berman'",
                 ));
             }
         };

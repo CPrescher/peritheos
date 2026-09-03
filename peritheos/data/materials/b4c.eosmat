@@ -5,11 +5,13 @@
  "aliases": [
   "Boron carbide"
  ],
+ "phase": "rhombohedral B4C",
+ "cell_contents": "B36C9 (9 B4C formula units) in the conventional hexagonal R-3m cell",
  "symmetry": "HEXAGONAL",
  "lattice": {
-  "a": 5.607296,
+  "a": 5.601,
   "b": null,
-  "c": 12.064181,
+  "c": 12.087,
   "alpha": 90.0,
   "beta": 90.0,
   "gamma": 120.0
@@ -59,11 +61,497 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Phase reference: Clark and Hoard, J. Am. Chem. Soc. 65, 2115-2119 (1943), doi:10.1021/ja01251a026; JCPDS/PDF 6-0555. Average R-3m B4C model: the polar icosahedral site is represented by split B/C occupancy; the reference cell is constrained to the EoS V0 while retaining the measured axial ratio.",
+ "notes": "Diffraction-ready average R-3m B4C model in the conventional hexagonal setting. The atomic coordinates follow the Clark-Hoard/JCPDS average structure; split B/C occupancy on the polar icosahedral site gives exactly B36C9 in the cell. The lattice parameters a=5.601(1) A and c=12.087(5) A are the ambient sample values reported by Somayazulu et al. in the official supplement and give V=328.383 A^3, consistent with the fixed 328.4 A^3 EOS reference volume. Structure references: Clark and Hoard, J. Am. Chem. Soc. 65, 2115-2119 (1943), doi:10.1021/ja01251a026; Somayazulu et al. (2023), doi:10.1098/rsta.2022.0331; JCPDS/PDF 6-0555. PhaseSmith can expand the five asymmetric sites to calculate powder reflections and intensities.",
  "peaks": [],
+ "datasets": [
+  {
+   "identifier": "b4c_somayazulu_2023_table4_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "Full B4C P-V-T dataset and reported coordinate uncertainties used for the MGD and Berman fits.",
+   "reference": {
+    "authors": [
+     "Somayazulu",
+     "Ahart",
+     "Meng",
+     "Ciezak",
+     "Velisavlevic",
+     "Hemley"
+    ],
+    "year": 2023,
+    "source": "Philos. Trans. R. Soc. A supplementary material",
+    "doi": "10.6084/m9.figshare.c.6751752"
+   },
+   "source_location": "official supplementary material, Table 4",
+   "source_url": "https://rs.figshare.com/articles/journal_contribution/Figure_data_for_P-V-T_Equation_of_State_of_Boron_Carbide_from_High_P-T_conditions_in_boron_carbide/23716434",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_sigma_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "standard_deviation",
+     "of": "temperature_k"
+    }
+   ],
+   "rows": [
+    [
+     10.1,
+     0.1,
+     314.0,
+     0.2,
+     300,
+     1
+    ],
+    [
+     11.9,
+     1.0,
+     314.7,
+     0.1,
+     1027,
+     50
+    ],
+    [
+     9.0,
+     1.2,
+     317.0,
+     0.1,
+     1063,
+     50
+    ],
+    [
+     9.1,
+     1.1,
+     318.6,
+     0.1,
+     1102,
+     50
+    ],
+    [
+     12.8,
+     1.2,
+     317.6,
+     0.1,
+     1536,
+     70
+    ],
+    [
+     14.0,
+     2.0,
+     317.2,
+     0.1,
+     1822,
+     150
+    ],
+    [
+     14.1,
+     2.0,
+     319.4,
+     0.1,
+     1988,
+     25
+    ],
+    [
+     12.6,
+     2.0,
+     320.0,
+     0.1,
+     2088,
+     85
+    ],
+    [
+     13.5,
+     0.9,
+     317.0,
+     0.1,
+     1403,
+     50
+    ],
+    [
+     12.2,
+     1.0,
+     316.4,
+     0.1,
+     1231,
+     25
+    ],
+    [
+     13.9,
+     1.1,
+     315.0,
+     0.1,
+     1420,
+     150
+    ],
+    [
+     11.0,
+     0.1,
+     313.0,
+     0.1,
+     300,
+     1
+    ],
+    [
+     18.4,
+     0.1,
+     303.9,
+     0.2,
+     300,
+     1
+    ],
+    [
+     22.5,
+     0.8,
+     304.0,
+     0.1,
+     1344,
+     50
+    ],
+    [
+     22.4,
+     0.9,
+     305.2,
+     0.1,
+     1402,
+     100
+    ],
+    [
+     22.5,
+     1.3,
+     307.3,
+     0.1,
+     2020,
+     200
+    ],
+    [
+     23.9,
+     1.0,
+     304.4,
+     0.1,
+     1429,
+     150
+    ],
+    [
+     24.0,
+     1.1,
+     304.3,
+     0.1,
+     1427,
+     50
+    ],
+    [
+     23.8,
+     0.8,
+     305.5,
+     0.1,
+     1534,
+     25
+    ],
+    [
+     24.5,
+     1.0,
+     305.8,
+     0.1,
+     1908,
+     100
+    ],
+    [
+     28.0,
+     1.8,
+     305.4,
+     0.1,
+     2120,
+     50
+    ],
+    [
+     22.8,
+     1.2,
+     304.0,
+     0.1,
+     1395,
+     25
+    ],
+    [
+     21.9,
+     0.1,
+     300.5,
+     0.1,
+     300,
+     1
+    ],
+    [
+     24.4,
+     0.1,
+     297.1,
+     0.2,
+     300,
+     1
+    ],
+    [
+     25.0,
+     1.0,
+     299.0,
+     0.1,
+     1136,
+     50
+    ],
+    [
+     29.0,
+     1.2,
+     296.4,
+     0.1,
+     1185,
+     50
+    ],
+    [
+     30.2,
+     1.5,
+     296.0,
+     0.1,
+     1456,
+     25
+    ],
+    [
+     33.1,
+     1.3,
+     296.9,
+     0.1,
+     1712,
+     70
+    ],
+    [
+     33.2,
+     1.2,
+     300.2,
+     0.1,
+     2308,
+     250
+    ],
+    [
+     35.8,
+     2.2,
+     298.1,
+     0.1,
+     2315,
+     200
+    ],
+    [
+     34.6,
+     1.9,
+     296.2,
+     0.1,
+     1912,
+     150
+    ],
+    [
+     36.2,
+     0.1,
+     286.5,
+     0.2,
+     300,
+     1
+    ],
+    [
+     37.8,
+     1.2,
+     287.8,
+     0.1,
+     1130,
+     50
+    ],
+    [
+     37.5,
+     1.2,
+     289.1,
+     0.1,
+     1268,
+     50
+    ],
+    [
+     37.3,
+     0.1,
+     285.2,
+     0.1,
+     300,
+     1
+    ],
+    [
+     39.5,
+     1.4,
+     287.5,
+     0.1,
+     1392,
+     50
+    ],
+    [
+     40.4,
+     2.3,
+     289.1,
+     0.1,
+     2023,
+     100
+    ],
+    [
+     42.1,
+     2.3,
+     289.5,
+     0.1,
+     2139,
+     50
+    ],
+    [
+     41.1,
+     2.5,
+     286.6,
+     0.1,
+     1570,
+     150
+    ],
+    [
+     40.6,
+     1.2,
+     287.7,
+     0.1,
+     1377,
+     100
+    ],
+    [
+     40.4,
+     1.2,
+     285.8,
+     0.1,
+     1272,
+     250
+    ],
+    [
+     37.8,
+     0.1,
+     284.3,
+     0.2,
+     300,
+     1
+    ],
+    [
+     39.9,
+     0.1,
+     282.6,
+     0.1,
+     300,
+     1
+    ],
+    [
+     44.5,
+     1.2,
+     282.0,
+     0.1,
+     1300,
+     50
+    ],
+    [
+     46.4,
+     2.5,
+     282.3,
+     0.1,
+     1500,
+     100
+    ],
+    [
+     47.7,
+     1.3,
+     282.3,
+     0.1,
+     1700,
+     250
+    ],
+    [
+     46.5,
+     2.3,
+     282.1,
+     0.1,
+     1900,
+     200
+    ],
+    [
+     48.6,
+     2.5,
+     283.8,
+     0.1,
+     2275,
+     175
+    ],
+    [
+     49.4,
+     2.5,
+     284.1,
+     0.1,
+     2500,
+     200
+    ],
+    [
+     43.5,
+     2.2,
+     282.4,
+     0.1,
+     1350,
+     50
+    ],
+    [
+     41.3,
+     0.1,
+     281.7,
+     0.1,
+     300,
+     1
+    ]
+   ],
+   "used_by_eos_records": [
+    "b4c_somayazulu_2023_bm3_1",
+    "b4c_somayazulu_2023_berman_2",
+    "b4c_somayazulu_2023_berman_refit"
+   ],
+   "uncertainty": {
+    "reported_as": "standard_deviation",
+    "coverage_factor": 1.0,
+    "covariance": "not_reported"
+   },
+   "notes": "Pressure was derived from the common MgO P-V-T scale; the reported row-wise sigmas do not include an inter-point covariance matrix. Ten rows are at 300 K and 41 are heated."
+  }
+ ],
  "eos_records": [
   {
-   "label": "Somayazulu et al. (2023), 300 K BM3",
+   "label": "Somayazulu et al. (2023), BM3 + MGD",
+   "default": true,
    "reference": {
     "authors": [
      "Somayazulu",
@@ -82,7 +570,7 @@
    "eos": {
     "type": "BM3",
     "parameters": {
-     "V0": 328.5,
+     "V0": 328.4,
      "K0": 221.0,
      "K0_prime": 3.3
     },
@@ -93,35 +581,100 @@
     "K0": 2.0,
     "K0_prime": 0.1
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
     50.0
    ],
-   "temperature_ref": 300.0,
-   "notes": "Quasi-hydrostatic room-temperature fit to 50 GPa. The average disordered R-3m structure follows the ideal B4C model confirmed to 74 GPa by Dera et al., J. Solid State Chem. 215, 85-93 (2014), doi:10.1016/j.jssc.2014.03.018.",
+   "temperature_ref": 298.0,
+   "experimental_temperature_range_k": [
+    300.0,
+    2500.0
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 298.0,
+     "theta0": 1425.0,
+     "gamma0": 0.8,
+     "q": 2.1,
+     "n": 5
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "n"
+    ]
+   },
+   "fit_datasets": [
+    "b4c_somayazulu_2023_table4_pvt"
+   ],
+   "notes": "Third-order Birch-Murnaghan reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The room-temperature quench-data fit gives K0=221(2) GPa and K0'=3.3(1) with V0=328.4 A^3 fixed; those three reference parameters were then fixed in the P-V-T fit. The official supplement defines T0=298 K, theta0=1425 K, n=5 atoms per B4C formula unit, gamma(V)=gamma0*(V/V0)^q, and theta(V)=theta0*exp[(gamma0-gamma(V))/q]. With a=1, the paper's generalized Tange relation reduces exactly to this integrated constant-q MGD model. The final article reports gamma0=0.8 fixed and q=2.1 varied. At the 41 heated supplementary points' printed V and T, the published parameterization gives a pressure RMSE of 1.39 GPa and chi-squared per observation of 0.961. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), so it does not independently recover q=2.1; details and the primary-data transcription are in docs/literature-reproductions.md. The average disordered R-3m structure is diffraction-ready and is reported stable over the experimental range.",
    "identifier": "b4c_somayazulu_2023_bm3_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/2008JB005813"
+      },
+      "source_location": "Experimental pressure determination and EOS analysis",
+      "reference_eos_record": "mgo_b1_tange_2009_vinet"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "crystal_structure",
      "published_uncertainties",
      "validity"
     ],
     "primary_source_check": {
-     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10069115/",
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
      "locations": [
       "Abstract",
       "Figure 1 caption",
-      "Table 1"
+      "Equations 3.1-3.7",
+      "Figure 4 caption",
+      "Table 1",
+      "official supplementary material, equations 1-9 and Tables 3-4"
      ],
-     "finding": "The paper is internally inconsistent: the abstract says third-order Birch-Murnaghan, while the Figure 1 caption says second-order despite reporting K0'=3.3(1). Peritheos retains BM3 and records the conflict.",
+     "finding": "The article and supplement define an integrated constant-q MGD model that Peritheos represents exactly. The article's final gamma0=0.8, q=2.1 parameterization gives a 1.39 GPa pressure RMSE on the 41 heated supplementary points. A Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), rather than independently recovering q=2.1. Source contradictions in EOS order, theta0, gamma0/q, and nominal reference temperature are retained explicitly with evidence-based resolutions.",
      "doi": "10.1098/rsta.2022.0331"
     },
     "migration_source": {
@@ -136,8 +689,379 @@
       "abstract": "third-order Birch-Murnaghan",
       "figure_1_caption": "second-order Birch-Murnaghan",
       "resolution": "Retain BM3 because K0'=3.3(1), which is incompatible with a conventional BM2 fit where K0'=4 is fixed."
+     },
+     {
+      "field": "thermal.parameters.theta0",
+      "figure_4_caption": "1425 K (fixed)",
+      "main_table_1": "1450 K (fixed)",
+      "supplement": "1425 K (fixed, repeated in the fit description and Figure 1 caption)",
+      "resolution": "Use 1425 K because it is repeated in the main figure caption and official supplement; treat the single 1450 K table entry as a typographical inconsistency."
+     },
+     {
+      "field": "thermal.parameters.gamma0_and_q",
+      "main_article": "gamma0=0.8 fixed; q=2.1 varied",
+      "supplement_figure_1": "gamma0=0.95(5), q=2.1 described as best; gamma0=0.8 is plotted with q=2.8",
+      "resolution": "Use the final peer-reviewed article pair gamma0=0.8 and q=2.1. At the official heated data's printed V and T, this pair gives a pressure RMSE of 1.39 GPa and chi-squared per observation of 0.961. A full Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), so the refit is documented as a diagnostic rather than promoted over the published pair."
+     },
+     {
+      "field": "thermal.parameters.Tr",
+      "main_article": "300 K reference isotherm",
+      "supplement": "T0=298 K",
+      "resolution": "Use the supplement's explicit 298 K calculation reference; 300 K is retained as the nominal lower experimental temperature."
      }
     ]
+   }
+  },
+  {
+   "label": "Somayazulu et al. (2023), BM3 + Berman thermal reference state",
+   "reference": {
+    "authors": [
+     "Somayazulu",
+     "Ahart",
+     "Meng",
+     "Ciezak",
+     "Velisavlevic",
+     "Hemley"
+    ],
+    "year": 2023,
+    "source": "Philos. Trans. R. Soc. A",
+    "volume": "381",
+    "locator": "20220331",
+    "doi": "10.1098/rsta.2022.0331"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 328.4,
+     "K0": 221.0,
+     "K0_prime": 3.3
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.0,
+    "K0_prime": 0.1
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    50.0
+   ],
+   "temperature_ref": 298.0,
+   "experimental_temperature_range_k": [
+    300.0,
+    2500.0
+   ],
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "reference_volume_law": "berman",
+    "parameters": {
+     "Tr": 298.0,
+     "alpha0": 1.94e-05,
+     "alpha1": 5.73e-10,
+     "dK_dT": -0.008
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 1.6e-06,
+     "alpha1": null,
+     "dK_dT": 0.003
+    },
+    "fixed_parameters": [
+     "Tr",
+     "alpha1"
+    ]
+   },
+   "fit_datasets": [
+    "b4c_somayazulu_2023_table4_pvt"
+   ],
+   "notes": "The paper calls this the Berman P-V-T fit. EosFit7 implements the Berman reference volume as the truncated quadratic V0(T)=V0*[1+alpha0*(T-Tr)+0.5*alpha1*(T-Tr)^2], with K0(T)=K0+dK0/dT*(T-Tr). EosFit7c varied alpha0=1.94(16)e-5 K^-1 and dK0/dT=-0.008(3) GPa/K while alpha1=0.0573e-8 K^-2 and the 300 K BM3 parameters were fixed. The article's displayed exponential-integral equation instead describes EosFit's Fei-style exact integration and is inconsistent with its Berman label. The implied BM3 K0''=-0.0166 GPa^-1 is derived rather than an independent parameter. Reproduction diagnostics compare both EosFit effective-variance and Peritheos errors-in-variables objectives.",
+   "identifier": "b4c_somayazulu_2023_berman_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/2008JB005813"
+      },
+      "source_location": "Experimental pressure determination and EOS analysis",
+      "reference_eos_record": "mgo_b1_tange_2009_vinet"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, fixed quantities, EosFit7c fitting method, primary P-V-T table, and diffraction structure were checked against the article and official supplement.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "crystal_structure",
+     "published_uncertainties",
+     "primary_dataset",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
+     "locations": [
+      "Equations 3.8-3.9",
+      "Table 2",
+      "Figure 5 caption",
+      "official supplementary material, Table 4"
+     ],
+     "finding": "Source inspection shows that EosFit7's Berman implementation uses a truncated quadratic reference-volume law and effective-variance pressure weights. The article displays an exponential-integral formula that instead matches EosFit's Fei-style law. Peritheos stores the actual EosFit Berman curve and documents both fitting objectives.",
+     "doi": "10.1098/rsta.2022.0331"
+    }
+   }
+  },
+  {
+   "label": "Somayazulu et al. (2023), BM3 + Berman public-data refit",
+   "reference": {
+    "authors": [
+     "Somayazulu",
+     "Ahart",
+     "Meng",
+     "Ciezak",
+     "Velisavlevic",
+     "Hemley"
+    ],
+    "year": 2023,
+    "source": "Philos. Trans. R. Soc. A",
+    "volume": "381",
+    "locator": "20220331",
+    "doi": "10.1098/rsta.2022.0331"
+   },
+   "record_kind": "refit",
+   "derived_from_record": "b4c_somayazulu_2023_berman_2",
+   "fit_provenance": {
+    "software": {
+     "name": "EosFit7c",
+     "version": "7.60",
+     "version_date": "2021-05-13"
+    },
+    "dataset": "b4c_somayazulu_2023_table4_pvt",
+    "selection": {
+     "predicate": "temperature_k > 300",
+     "included_rows": 41,
+     "excluded_source_rows_1_based": [
+      1,
+      12,
+      13,
+      23,
+      24,
+      32,
+      35,
+      42,
+      43,
+      51
+     ]
+    },
+    "objective": "pressure_residuals_with_iteratively_updated_effective_variance",
+    "weights": [
+     "pressure_sigma_gpa",
+     "volume_sigma_a3",
+     "temperature_sigma_k"
+    ],
+    "refined_parameters": [
+     "alpha0",
+     "dK_dT"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "K0",
+     "K0_prime",
+     "Tr",
+     "alpha1"
+    ],
+    "covariance_scaling": "EosFit W-CHI^2 rescaling",
+    "statistics": {
+     "observations": 41,
+     "free_parameters": 2,
+     "reduced_weighted_chi_square": 1.0412,
+     "max_absolute_pressure_residual_gpa": 3.436,
+     "parameter_correlation": {
+      "parameter_order": [
+       "alpha0",
+       "dK_dT"
+      ],
+      "matrix": [
+       [
+        1.0,
+        -0.958
+       ],
+       [
+        -0.958,
+        1.0
+       ]
+      ]
+     },
+     "convergence_cycles": 3
+    },
+    "reproduction": {
+     "implementation": "Peritheos effective-variance emulation",
+     "alpha0_per_k": 1.8111263e-05,
+     "dK_dT_gpa_per_k": -0.013116513,
+     "reduced_weighted_chi_square": 1.03967,
+     "script": "scripts/reproduce_somayazulu_2023_b4c.py"
+    }
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 328.4,
+     "K0": 221.0,
+     "K0_prime": 3.3
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    9.0,
+    49.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "temperature_ref": 298.0,
+   "experimental_temperature_range_k": [
+    1027.0,
+    2500.0
+   ],
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "reference_volume_law": "berman",
+    "parameters": {
+     "Tr": 298.0,
+     "alpha0": 1.8112e-05,
+     "alpha1": 5.73e-10,
+     "dK_dT": -0.01311
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 2.1554e-06,
+     "alpha1": null,
+     "dK_dT": 0.00419
+    },
+    "fixed_parameters": [
+     "Tr",
+     "alpha1"
+    ]
+   },
+   "parameter_covariance": {
+    "parameter_order": [
+     "alpha0",
+     "dK_dT"
+    ],
+    "matrix": [
+     [
+      4.64574916e-12,
+      -8.651818708e-09
+     ],
+     [
+      -8.651818708e-09,
+      1.75561e-05
+     ]
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
+    "K0": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
+    "K0_prime": "Fixed to the Somayazulu et al. (2023) 300 K BM3 value.",
+    "Tr": "EosFit7 Berman default reference temperature.",
+    "alpha0": "Refitted with EosFit7c 7.60 to the 41 heated rows of supplementary Table 4.",
+    "alpha1": "Fixed to the value reported for the published Berman fit.",
+    "dK_dT": "Refitted with EosFit7c 7.60 to the 41 heated rows of supplementary Table 4."
+   },
+   "fit_datasets": [
+    "b4c_somayazulu_2023_table4_pvt"
+   ],
+   "notes": "Opt-in refit of the public rounded dataset, not a parameter set published by Somayazulu et al. The official EosFit7c 7.60 executable refined alpha0 and dK0/dT against the 41 heated rows using all reported P, V, and T sigmas; reference-isotherm parameters, Tr, and alpha1 were fixed. The covariance matrix is reconstructed from EosFit's rounded standard errors and -95.8% printed correlation after its W-CHI^2 rescaling. Uncertainty in the fixed reference-isotherm parameters was not propagated. The unchanged published record b4c_somayazulu_2023_berman_2 remains the literature parameterization.",
+   "identifier": "b4c_somayazulu_2023_berman_refit",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/2008JB005813"
+      },
+      "source_location": "Experimental pressure determination and EOS analysis",
+      "reference_eos_record": "mgo_b1_tange_2009_vinet"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Primary dataset, equation choices, fixed quantities, and pressure calibration were checked against the article and official supplement; refitted values were independently reproduced with EosFit7c and Peritheos.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "units",
+     "reference_state",
+     "phase",
+     "crystal_structure",
+     "primary_dataset",
+     "fit_configuration",
+     "refitted_parameters",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
+     "locations": [
+      "Equations 3.8-3.9",
+      "Table 2",
+      "Figure 5 caption",
+      "official supplementary material, Table 4",
+      "direct EosFit7c 7.60 reproduction",
+      "docs/literature-reproductions.md"
+     ],
+     "finding": "A direct EosFit7c 7.60 run on the 41 heated public-data rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, reduced weighted chi-square 1.0412, and correlation -0.958. Peritheos's matched effective-variance emulation reproduces these values within printed precision.",
+     "doi": "10.1098/rsta.2022.0331"
+    }
    }
   }
  ],

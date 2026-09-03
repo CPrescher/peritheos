@@ -78,6 +78,15 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
     let saved = load_eosmat(&path).unwrap();
     fs::remove_file(path).unwrap();
     assert_eq!(saved.document, document);
+
+    saved.validate().unwrap();
+    assert!(saved.to_json().unwrap().ends_with('\n'));
+    let path = std::env::temp_dir().join(format!(
+        "peritheos-eosmat-method-save-{}-{unique}.eosmat",
+        std::process::id()
+    ));
+    saved.save(&path).unwrap();
+    fs::remove_file(path).unwrap();
 }
 
 #[test]
@@ -209,6 +218,11 @@ fn public_validation_rejects_ambiguous_defaults_and_covariance_shapes() {
     });
     let error = validate_eosmat_document(&document).unwrap_err();
     assert!(error.to_string().contains("square matrix"));
+
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["eos_records"][0]["record_kind"] = serde_json::json!("refit");
+    let error = validate_eosmat_document(&document).unwrap_err();
+    assert!(error.to_string().contains("refit records require"));
 }
 
 #[test]
@@ -331,6 +345,142 @@ fn public_validation_reports_optional_material_and_record_sections() {
     }
 
     for (document, expected) in invalid_documents {
+        let error = validate_eosmat_document(&document).unwrap_err();
+        assert!(
+            error.to_string().contains(expected),
+            "expected {expected:?} in {error}"
+        );
+    }
+
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["phase"] = serde_json::json!(7);
+    assert!(validate_eosmat_document(&document)
+        .unwrap_err()
+        .to_string()
+        .contains("phase must be a string"));
+
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["eos_records"][0]["validity"] = serde_json::json!({
+        "pressure_gpa": [0.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": []
+    });
+    assert!(validate_eosmat_document(&document)
+        .unwrap_err()
+        .to_string()
+        .contains("must contain two values"));
+
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["eos_records"][0]
+        .as_object_mut()
+        .unwrap()
+        .remove("parameter_errors");
+    assert!(validate_eosmat_document(&document)
+        .unwrap_err()
+        .to_string()
+        .contains("parameter_errors is required"));
+
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["eos_records"][0]["fixed_parameters"] = serde_json::json!([7]);
+    assert!(validate_eosmat_document(&document)
+        .unwrap_err()
+        .to_string()
+        .contains("fixed_parameters must contain strings"));
+}
+
+#[test]
+fn public_validation_reports_pressure_calibration_errors() {
+    let mut base: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    base["eos_records"][0]["pressure_calibration"] = serde_json::json!({
+        "status": "resolved",
+        "methods": [{
+            "kind": "ruby_fluorescence",
+            "reference": "Synthetic ruby calibration",
+            "reference_calibration_record": "ruby_mao_1986",
+            "source_location": "Methods"
+        }],
+        "recalculation": {"status": "missing_calibrant_observations"}
+    });
+    validate_eosmat_document(&base).unwrap();
+
+    let mut cases = Vec::new();
+    for (pointer, replacement, expected) in [
+        (
+            "/eos_records/0/pressure_calibration/status",
+            serde_json::json!("invalid"),
+            "status is invalid",
+        ),
+        (
+            "/eos_records/0/pressure_calibration/methods",
+            serde_json::json!({}),
+            "methods must be a JSON array",
+        ),
+        (
+            "/eos_records/0/pressure_calibration/methods/0/kind",
+            serde_json::json!("invalid"),
+            "kind is invalid",
+        ),
+        (
+            "/eos_records/0/pressure_calibration/methods/0/source_location",
+            serde_json::json!(""),
+            "source_location must be a non-empty string",
+        ),
+        (
+            "/eos_records/0/pressure_calibration/methods/0/reference",
+            serde_json::json!([]),
+            "reference must be a string or object",
+        ),
+        (
+            "/eos_records/0/pressure_calibration/methods/0/reference_calibration_record",
+            serde_json::json!(""),
+            "reference_calibration_record must be a non-empty string",
+        ),
+        (
+            "/eos_records/0/pressure_calibration/recalculation",
+            serde_json::json!([]),
+            "recalculation must be a JSON object",
+        ),
+        (
+            "/eos_records/0/pressure_calibration/recalculation/status",
+            serde_json::json!("invalid"),
+            "recalculation.status is invalid",
+        ),
+    ] {
+        let mut document = base.clone();
+        *document.pointer_mut(pointer).unwrap() = replacement;
+        cases.push((document, expected));
+    }
+
+    let mut document = base.clone();
+    document["eos_records"][0]["pressure_calibration"]["methods"] = serde_json::json!([]);
+    cases.push((document, "methods must not be empty"));
+
+    let mut document = base.clone();
+    let method = &mut document["eos_records"][0]["pressure_calibration"]["methods"][0];
+    method["reference_eos_record"] = serde_json::json!("");
+    cases.push((document, "reference_eos_record must be a non-empty string"));
+
+    let mut document = base.clone();
+    let method = &mut document["eos_records"][0]["pressure_calibration"]["methods"][0];
+    method["reference_eos_record"] = serde_json::json!("test_bm3");
+    cases.push((document, "requires an equation_of_state method"));
+
+    let mut document = base.clone();
+    let method = &mut document["eos_records"][0]["pressure_calibration"]["methods"][0];
+    method["kind"] = serde_json::json!("ambient_pressure");
+    cases.push((document, "requires a ruby_fluorescence method"));
+
+    let mut document = base.clone();
+    let method = &mut document["eos_records"][0]["pressure_calibration"]["methods"][0];
+    method["kind"] = serde_json::json!("equation_of_state");
+    method.as_object_mut().unwrap().remove("reference");
+    method
+        .as_object_mut()
+        .unwrap()
+        .remove("reference_calibration_record");
+    cases.push((document, "reference is required for an EOS method"));
+
+    for (document, expected) in cases {
         let error = validate_eosmat_document(&document).unwrap_err();
         assert!(
             error.to_string().contains(expected),
@@ -473,6 +623,6 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
     }
 
     assert_eq!(paths.len(), 115);
-    assert_eq!(records, 150);
-    assert_eq!(thermal_records, 31);
+    assert_eq!(records, 155);
+    assert_eq!(thermal_records, 35);
 }

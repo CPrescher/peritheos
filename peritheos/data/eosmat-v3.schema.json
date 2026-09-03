@@ -85,6 +85,11 @@
       "type": "array",
       "items": {"$ref": "#/$defs/peak"}
     },
+    "datasets": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/dataset"},
+      "description": "Primary experimental datasets used to derive one or more EOS records. Small tables may be embedded as rows; larger tables may use a checksummed relative resource."
+    },
     "eos_records": {
       "type": "array",
       "items": {"$ref": "#/$defs/eos_record"},
@@ -137,6 +142,66 @@
       ],
       "minItems": 5,
       "maxItems": 5
+    },
+    "dataset_column": {
+      "type": "object",
+      "required": ["name", "quantity", "unit", "role"],
+      "properties": {
+        "name": {"$ref": "#/$defs/identifier"},
+        "quantity": {"type": "string", "minLength": 1},
+        "unit": {"type": "string", "minLength": 1},
+        "role": {"enum": ["value", "standard_deviation", "standard_error", "bound", "flag"]},
+        "of": {"$ref": "#/$defs/identifier"}
+      },
+      "additionalProperties": true
+    },
+    "dataset_resource": {
+      "type": "object",
+      "required": ["path", "sha256", "media_type"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "media_type": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "dataset": {
+      "type": "object",
+      "required": ["identifier", "kind", "reference", "source_location", "columns", "used_by_eos_records"],
+      "properties": {
+        "identifier": {"$ref": "#/$defs/identifier"},
+        "kind": {"type": "string", "minLength": 1},
+        "description": {"type": "string"},
+        "reference": {"$ref": "#/$defs/reference"},
+        "source_location": {"type": "string", "minLength": 1},
+        "source_url": {"type": "string", "format": "uri"},
+        "license": {"type": "string"},
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/dataset_column"}
+        },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {"type": ["number", "null"]}
+          }
+        },
+        "resource": {"$ref": "#/$defs/dataset_resource"},
+        "used_by_eos_records": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/identifier"}
+        },
+        "uncertainty": {"type": "object"},
+        "notes": {"type": "string"}
+      },
+      "oneOf": [
+        {"required": ["rows"]},
+        {"required": ["resource"]}
+      ],
+      "additionalProperties": true
     },
     "reference": {
       "oneOf": [
@@ -263,9 +328,9 @@
           "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature requires alpha1."
         },
         "reference_volume_law": {
-          "enum": ["integrated_expansivity", "linear_temperature"],
+          "enum": ["integrated_expansivity", "linear_temperature", "berman"],
           "default": "integrated_expansivity",
-          "description": "Reference-volume construction for thermal_reference_state. Omission integrates the selected expansivity; linear_temperature applies V0(T)=V0(Tr)*(1+alpha0*(T-Tr))."
+          "description": "Reference-volume construction for thermal_reference_state. Omission integrates the selected expansivity; linear_temperature applies V0(T)=V0(Tr)*(1+alpha0*(T-Tr)); berman applies V0(T)=V0(Tr)*(1+alpha0*(T-Tr)+0.5*alpha1*(T-Tr)^2)."
         },
         "parameters": {
           "type": "object",
@@ -341,6 +406,18 @@
               "parameters": {"properties": {"alpha1": {"const": 0}}}
             }
           }
+        },
+        {
+          "if": {
+            "properties": {"reference_volume_law": {"const": "berman"}},
+            "required": ["reference_volume_law"]
+          },
+          "then": {
+            "properties": {
+              "thermal_expansion_law": {"const": "linear_temperature"},
+              "parameters": {"required": ["alpha1"]}
+            }
+          }
         }
       ]
     },
@@ -399,6 +476,50 @@
         }
       ]
     },
+    "fit_provenance": {
+      "type": "object",
+      "required": [
+        "software",
+        "dataset",
+        "selection",
+        "objective",
+        "refined_parameters",
+        "fixed_parameters",
+        "statistics"
+      ],
+      "properties": {
+        "software": {
+          "type": "object",
+          "required": ["name", "version"],
+          "properties": {
+            "name": {"type": "string", "minLength": 1},
+            "version": {"type": "string", "minLength": 1},
+            "version_date": {"type": "string", "format": "date"}
+          },
+          "additionalProperties": true
+        },
+        "dataset": {"$ref": "#/$defs/identifier"},
+        "selection": {"type": "object"},
+        "objective": {"type": "string", "minLength": 1},
+        "weights": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/identifier"}
+        },
+        "refined_parameters": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "fixed_parameters": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "covariance_scaling": {"type": "string"},
+        "statistics": {"type": "object"},
+        "reproduction": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
     "scientific_validation": {
       "type": "object",
       "required": ["status"],
@@ -408,6 +529,81 @@
         },
         "note": {"type": "string"},
         "migration_source": {"type": "object"}
+      },
+      "additionalProperties": true
+    },
+    "pressure_calibration_method": {
+      "type": "object",
+      "required": ["kind", "source_location"],
+      "properties": {
+        "kind": {
+          "enum": [
+            "equation_of_state",
+            "ruby_fluorescence",
+            "other_optical_gauge",
+            "shock_wave",
+            "ultrasonic",
+            "ab_initio",
+            "self_consistent",
+            "ambient_pressure",
+            "other"
+          ]
+        },
+        "reference_eos_record": {
+          "$ref": "#/$defs/identifier",
+          "description": "Globally unique identifier of the exact reference EOS when that executable record is bundled in the Peritheos material library."
+        },
+        "reference_calibration_record": {
+          "$ref": "#/$defs/identifier",
+          "description": "Globally unique identifier of an executable non-EOS pressure calibration, such as a ruby R1 scale, bundled in the Peritheos calibration library."
+        },
+        "reference": {"$ref": "#/$defs/reference"},
+        "source_location": {"type": "string", "minLength": 1},
+        "scope": {"type": "string"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": true,
+      "allOf": [
+        {
+          "if": {
+            "properties": {"kind": {"const": "equation_of_state"}},
+            "required": ["kind"]
+          },
+          "then": {"required": ["reference"]}
+        }
+      ]
+    },
+    "pressure_calibration": {
+      "type": "object",
+      "required": ["status", "methods", "recalculation"],
+      "properties": {
+        "status": {
+          "enum": ["resolved", "partially_resolved", "not_applicable", "unresolved"]
+        },
+        "methods": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/pressure_calibration_method"}
+        },
+        "recalculation": {
+          "type": "object",
+          "required": ["status"],
+          "properties": {
+            "status": {
+              "enum": [
+                "ready",
+                "missing_calibrant_observations",
+                "reference_eos_not_bundled",
+                "reference_model_not_supported",
+                "not_applicable",
+                "not_possible"
+              ]
+            },
+            "notes": {"type": "string"}
+          },
+          "additionalProperties": true
+        },
+        "audit_date": {"type": "string", "format": "date"},
+        "notes": {"type": "string"}
       },
       "additionalProperties": true
     },
@@ -427,6 +623,15 @@
         "label": {"type": "string"},
         "reference": {"$ref": "#/$defs/reference"},
         "default": {"type": "boolean"},
+        "record_kind": {
+          "enum": ["published", "refit", "diagnostic"],
+          "description": "Scientific status of the parameter set. Omission means published for backward compatibility."
+        },
+        "derived_from_record": {
+          "$ref": "#/$defs/identifier",
+          "description": "EOS record whose equation choices or published fixed parameters form the basis of this derived record."
+        },
+        "fit_provenance": {"$ref": "#/$defs/fit_provenance"},
         "eos": {"$ref": "#/$defs/equation"},
         "parameter_errors": {"$ref": "#/$defs/parameter_errors"},
         "parameter_error_confidence": {
@@ -463,10 +668,20 @@
             "additionalProperties": true
           }
         },
+        "pressure_calibration": {"$ref": "#/$defs/pressure_calibration"},
         "parameter_covariance": {"$ref": "#/$defs/parameter_covariance"},
         "scientific_validation": {"$ref": "#/$defs/scientific_validation"},
         "notes": {"type": "string"}
       },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"record_kind": {"const": "refit"}},
+            "required": ["record_kind"]
+          },
+          "then": {"required": ["derived_from_record", "fit_provenance"]}
+        }
+      ],
       "additionalProperties": true
     }
   }

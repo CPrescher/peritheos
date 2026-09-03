@@ -75,6 +75,16 @@
    "temperature_ref": 300.0,
    "notes": "Hanna et al. report V0 = 19.61(10) A^3 per ZnO and K0 = 172(21) GPa with K0' fixed at 4; values are converted to the conventional Z=4 cell. B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.",
    "identifier": "zinc_oxide_rocksalt_hanna_2011_bm2_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -65,6 +65,31 @@
    "temperature_ref": 300.0,
    "notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=10.954 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 157 GPa.",
    "identifier": "nickel_dewaele_2008_vinet_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Experimental pressure determination and Table IV; revised P'_R scale",
+      "reference_calibration_record": "ruby_dewaele_2004"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

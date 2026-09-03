@@ -9,13 +9,31 @@
     "license": "MIT"
   },
   "materials": 115,
-  "eos_records": 150,
+  "eos_records": 155,
   "scientific_validation": {
     "audit_date": "2026-09-03",
     "report": "../primary-source-audit.json",
     "counts": {
-      "primary_source_validated": 150
+      "primary_source_validated": 155
     },
     "policy": "Only primary_source_validated records are executable; deferred records remain available for lossless catalog interchange."
+  },
+  "pressure_calibration": {
+    "audit_date": "2026-09-03",
+    "status_counts": {
+      "resolved": 56,
+      "partially_resolved": 6,
+      "not_applicable": 21,
+      "unresolved": 72
+    },
+    "recalculation_counts": {
+      "missing_calibrant_observations": 47,
+      "reference_model_not_supported": 15,
+      "not_applicable": 21,
+      "not_possible": 72
+    },
+    "resolvable_reference_eos_uses": 17,
+    "resolvable_reference_calibration_uses": 33,
+    "policy": "Exact EOS and ruby-scale links resolve to executable bundled records. Unsupported or ambiguous calibrations are recorded explicitly and are never replaced by an approximate pressure scale."
   }
 }

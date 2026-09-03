@@ -290,6 +290,16 @@
    ],
    "notes": "Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.",
    "identifier": "iceviii_besson_1994_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

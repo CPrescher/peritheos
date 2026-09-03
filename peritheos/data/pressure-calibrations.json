@@ -1,0 +1,136 @@
+{
+  "format": "peritheos.pressure-calibration-library",
+  "format_version": 1,
+  "units": {
+    "pressure": "GPa",
+    "wavelength": "nm"
+  },
+  "calibrations": [
+    {
+      "identifier": "ruby_mao_1978",
+      "label": "Mao et al. (1978) ruby scale",
+      "kind": "ruby_fluorescence",
+      "model": "power_law",
+      "parameters": {
+        "A_gpa": 1904.0,
+        "B": 5.0,
+        "reference_wavelength_nm": 694.2
+      },
+      "equation": "P = (A/B) * ((lambda/lambda0)^B - 1)",
+      "reference": {
+        "authors": ["Mao", "Bell", "Shaner", "Steinberg"],
+        "year": 1978,
+        "title": "Specific volume measurements of Cu, Mo, Pd, and Ag and calibration of the ruby R1 fluorescence pressure gauge from 0.06 to 1 Mbar",
+        "source": "J. Appl. Phys.",
+        "doi": "10.1063/1.325277"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 100.0],
+        "temperature_k": [298.0, 298.0],
+        "pressure_medium": "4:1 methanol-ethanol; nonhydrostatic calibration"
+      }
+    },
+    {
+      "identifier": "ruby_mao_1986",
+      "label": "Mao, Xu, and Bell (1986) quasihydrostatic ruby scale",
+      "kind": "ruby_fluorescence",
+      "model": "power_law",
+      "parameters": {
+        "A_gpa": 1904.0,
+        "B": 7.665,
+        "reference_wavelength_nm": 694.24
+      },
+      "equation": "P = (A/B) * ((lambda/lambda0)^B - 1)",
+      "reference": {
+        "authors": ["Mao", "Xu", "Bell"],
+        "year": 1986,
+        "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+        "source": "J. Geophys. Res.",
+        "doi": "10.1029/JB091iB05p04673"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 80.0],
+        "temperature_k": [298.0, 298.0],
+        "pressure_medium": "argon; quasihydrostatic"
+      }
+    },
+    {
+      "identifier": "ruby_dewaele_2004",
+      "label": "Dewaele, Loubeyre, and Mezouar (2004) revised ruby scale",
+      "kind": "ruby_fluorescence",
+      "model": "power_law",
+      "parameters": {
+        "A_gpa": 1904.0,
+        "B": 9.5,
+        "reference_wavelength_nm": 694.24
+      },
+      "equation": "P = (A/B) * ((lambda/lambda0)^B - 1)",
+      "reference": {
+        "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Phys. Rev. B",
+        "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 153.0],
+        "temperature_k": [298.0, 298.0],
+        "pressure_medium": "helium; quasihydrostatic"
+      }
+    },
+    {
+      "identifier": "ruby_holzapfel_2005",
+      "label": "Holzapfel (2005) practical ruby scale",
+      "kind": "ruby_fluorescence",
+      "model": "holzapfel_freund_ingalls",
+      "parameters": {
+        "A_gpa": 1845.0,
+        "B": 14.7,
+        "C": 7.5,
+        "reference_wavelength_nm": 694.24
+      },
+      "equation": "P = A/(B+C) * (exp((B+C)/C * (1 - (lambda0/lambda)^C)) - 1)",
+      "reference": {
+        "authors": ["Holzapfel"],
+        "year": 2005,
+        "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+        "source": "High Pressure Research",
+        "doi": "10.1080/09511920500147501"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 300.0],
+        "temperature_k": [298.0, 298.0],
+        "notes": "Best-fit Freund-Ingalls form using the 2005 coefficients A=1845 GPa, B=14.7, and C=7.5."
+      }
+    },
+    {
+      "identifier": "ruby_dorogokupets_oganov_2007",
+      "label": "Dorogokupets and Oganov (2007) ruby scale",
+      "kind": "ruby_fluorescence",
+      "model": "quadratic_shift",
+      "parameters": {
+        "A_gpa": 1884.0,
+        "m": 5.5,
+        "reference_wavelength_nm": 694.24
+      },
+      "equation": "P = A * (delta_lambda/lambda0) * (1 + m * delta_lambda/lambda0)",
+      "reference": {
+        "authors": ["Dorogokupets", "Oganov"],
+        "year": 2007,
+        "title": "Ruby, metals, and MgO as alternative pressure scales: A semiempirical description of shock-wave, ultrasonic, x-ray, and thermochemical data at high temperatures and pressures",
+        "source": "Phys. Rev. B",
+        "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 300.0],
+        "temperature_k": [298.0, 298.0],
+        "notes": "The publication recommends this quadratic-shift form after comparing alternative forms."
+      }
+    }
+  ],
+  "measurement_notes": [
+    "lambda is the ruby R1 wavelength after correction for temperature-induced shift.",
+    "lambda0 is the R1 wavelength at ambient pressure under the same wavelength convention.",
+    "Pressure-scale conversion preserves lambda/lambda0; it does not correct nonhydrostatic stress, temperature, composition, peak fitting, or spatial pressure gradients."
+  ]
+}

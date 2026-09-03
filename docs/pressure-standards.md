@@ -21,11 +21,84 @@ part of the enclosing `Material`; this avoids the common factor-of-$Z$ ambiguity
 between atomic, formula-unit, primitive-cell, conventional-cell, and molar
 volumes. Temperature is in K. Pressure is in GPa.
 
+## Reproducing a source pressure calibration
+
+Every EOS record in the bundled `.eosmat` library has a
+`pressure_calibration` audit. When a source used an X-ray calibrant and the
+exact calibration is executable, `reference_eos_record` points to another
+globally unique record in the same library. Resolve it directly without
+guessing from a material name:
+
+```python
+from peritheos import (
+    get_eos_record_document,
+    get_material_document,
+    validate_pressure_calibration_references,
+)
+
+validate_pressure_calibration_references()
+sample = get_material_document("b4c")["eos_records"][0]
+reference_id = sample["pressure_calibration"]["methods"][0][
+    "reference_eos_record"
+]
+reference = get_eos_record_document(reference_id)
+assert reference_id == "mgo_b1_tange_2009_vinet"
+```
+
+The audit also distinguishes ruby and other optical gauges, shock-wave and
+ultrasonic measurements, ab initio curves, and self-consistent fits. Identified
+ruby methods use `reference_calibration_record` to link to one of the five
+executable R1 scales bundled in `pressure-calibrations.json`.
+
+## Ruby and XRD pressure-scale conversion
+
+Ruby-to-ruby conversion can be performed from reported source pressures. The
+source calibration is inverted to the corrected R1 wavelength ratio and the
+target calibration is then evaluated at the same ratio:
+
+```python
+from peritheos import recalculate_ruby_pressure
+
+p_do2007 = recalculate_ruby_pressure(
+    [10.0, 50.0, 100.0],
+    "ruby_mao_1986",
+    "ruby_dorogokupets_oganov_2007",
+)
+```
+
+Use `list_pressure_calibrations()` to discover the ruby records. Individual
+scales expose forward and inverse R1 wavelength, shift, and ratio methods
+through `get_pressure_calibration()`.
+
+Replacing ruby pressure with Au, Pt, MgO, or another XRD pressure standard
+requires the diffraction standard's measured unit-cell volume at each paired
+experimental state. It cannot be reconstructed from ruby pressure alone:
+
+```python
+from peritheos import recalculate_ruby_to_xrd_pressure
+
+result = recalculate_ruby_to_xrd_pressure(
+    source_pressure_gpa=[10.0, 50.0, 100.0],
+    source_calibration_record="ruby_mao_1986",
+    target_eos_record="gold_dewaele_2004_vinet_5",
+    target_volume=[63.0, 55.0, 49.0],  # A^3/conventional Au cell
+    target_temperature_k=300.0,
+)
+print(result.target_pressure_gpa)
+print(result.pressure_difference_gpa)
+```
+
+`xrd_standard_pressure()` evaluates a target EOS directly, and
+`list_xrd_pressure_standards()` lists EOS records that the material audit
+already identifies as pressure references. A known reference model does not
+by itself make an EOS refit possible: the row-wise sample volumes and the
+paired calibrant observations must also be available.
+
 ## Curated pressure-scale convenience catalog
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 115 material documents and 150 independently
+library is broader: it contains 115 material documents and 155 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 

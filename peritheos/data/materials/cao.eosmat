@@ -72,6 +72,16 @@
    ],
    "notes": "Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.",
    "identifier": "cao_richet_1988_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

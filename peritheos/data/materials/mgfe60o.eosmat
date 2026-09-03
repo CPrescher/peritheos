@@ -126,6 +126,16 @@
    ],
    "notes": "Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.",
    "identifier": "mgfe60o_richet_1989_bm2_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

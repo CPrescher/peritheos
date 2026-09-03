@@ -70,6 +70,30 @@
    "temperature_ref": 300.0,
    "notes": "Experimental helium-medium Vinet fit over 0-55 GPa; fcc Rh remains stable throughout the measured range.",
    "identifier": "rhodium_rodrigo_ramon_2024_vinet_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Takemura",
+        "Dewaele"
+       ],
+       "year": 2008,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.78.104119"
+      },
+      "source_location": "Methods; Au volumetric compression in the cold-compression run",
+      "reference_eos_record": "gold_takemura_2008_vinet_6"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

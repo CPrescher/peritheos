@@ -127,6 +127,16 @@
    ],
    "notes": "Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.",
    "identifier": "naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

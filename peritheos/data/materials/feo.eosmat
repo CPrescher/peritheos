@@ -79,6 +79,16 @@
    ],
    "notes": "Fischer et al. fit Fe0.94O with molar V0 = 12.256 cm^3/mol fixed, K0 = 149.4 +/- 1.0 GPa, and K0' = 3.60 +/- 0.04. V0 was converted to the conventional Z=4 B1 cell.",
    "identifier": "feo_fischer_2011_bm3_2",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

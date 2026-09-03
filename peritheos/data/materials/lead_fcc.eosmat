@@ -67,6 +67,16 @@
    "temperature_ref": 300.0,
    "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. V0(T) and K0(T) were constrained first from thermal-expansion and elastic data; K0_prime and K0_double_prime were then fitted to compression data spanning 295-788 K. The polynomial temperature dependence is intentionally not stored because the current thermal schema cannot represent it. Primary report: https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
    "identifier": "lead_fcc_fortes_2019_bm4_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

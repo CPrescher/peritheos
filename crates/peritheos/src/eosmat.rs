@@ -971,6 +971,130 @@ fn validate_covariance(value: &Value, location: &str) -> Result<(), EosmatError>
     Ok(())
 }
 
+fn validate_pressure_reference_links(
+    method: &serde_json::Map<String, Value>,
+    kind: Option<&str>,
+    location: &str,
+) -> Result<(), EosmatError> {
+    if let Some(identifier) = method.get("reference_eos_record") {
+        if identifier.as_str().is_none_or(str::is_empty) {
+            return Err(invalid_document(format!(
+                "{location}.reference_eos_record must be a non-empty string"
+            )));
+        }
+        if kind != Some("equation_of_state") {
+            return Err(invalid_document(format!(
+                "{location}.reference_eos_record requires an equation_of_state method"
+            )));
+        }
+    }
+    if let Some(identifier) = method.get("reference_calibration_record") {
+        if identifier.as_str().is_none_or(str::is_empty) {
+            return Err(invalid_document(format!(
+                "{location}.reference_calibration_record must be a non-empty string"
+            )));
+        }
+        if kind != Some("ruby_fluorescence") {
+            return Err(invalid_document(format!(
+                "{location}.reference_calibration_record requires a ruby_fluorescence method"
+            )));
+        }
+    }
+    Ok(())
+}
+
+fn validate_pressure_calibration(value: &Value, location: &str) -> Result<(), EosmatError> {
+    let calibration = object_at(value, location)?;
+    let status = calibration.get("status").and_then(Value::as_str);
+    if !matches!(
+        status,
+        Some("resolved" | "partially_resolved" | "not_applicable" | "unresolved")
+    ) {
+        return Err(invalid_document(format!("{location}.status is invalid")));
+    }
+    let methods = array_at(
+        calibration
+            .get("methods")
+            .ok_or_else(|| invalid_document(format!("{location}.methods is required")))?,
+        &format!("{location}.methods"),
+    )?;
+    if matches!(
+        status,
+        Some("resolved" | "partially_resolved" | "not_applicable")
+    ) && methods.is_empty()
+    {
+        return Err(invalid_document(format!(
+            "{location}.methods must not be empty for status {status:?}"
+        )));
+    }
+    for (index, value) in methods.iter().enumerate() {
+        let method_location = format!("{location}.methods[{index}]");
+        let method = object_at(value, &method_location)?;
+        let kind = method.get("kind").and_then(Value::as_str);
+        if !matches!(
+            kind,
+            Some(
+                "equation_of_state"
+                    | "ruby_fluorescence"
+                    | "other_optical_gauge"
+                    | "shock_wave"
+                    | "ultrasonic"
+                    | "ab_initio"
+                    | "self_consistent"
+                    | "ambient_pressure"
+                    | "other"
+            )
+        ) {
+            return Err(invalid_document(format!(
+                "{method_location}.kind is invalid"
+            )));
+        }
+        if method
+            .get("source_location")
+            .and_then(Value::as_str)
+            .is_none_or(str::is_empty)
+        {
+            return Err(invalid_document(format!(
+                "{method_location}.source_location must be a non-empty string"
+            )));
+        }
+        if let Some(reference) = method.get("reference") {
+            if !reference.is_string() && !reference.is_object() {
+                return Err(invalid_document(format!(
+                    "{method_location}.reference must be a string or object"
+                )));
+            }
+        } else if kind == Some("equation_of_state") {
+            return Err(invalid_document(format!(
+                "{method_location}.reference is required for an EOS method"
+            )));
+        }
+        validate_pressure_reference_links(method, kind, &method_location)?;
+    }
+    let recalculation = object_at(
+        calibration
+            .get("recalculation")
+            .ok_or_else(|| invalid_document(format!("{location}.recalculation is required")))?,
+        &format!("{location}.recalculation"),
+    )?;
+    if !matches!(
+        recalculation.get("status").and_then(Value::as_str),
+        Some(
+            "ready"
+                | "missing_calibrant_observations"
+                | "reference_eos_not_bundled"
+                | "reference_model_not_supported"
+                | "not_applicable"
+                | "not_possible"
+        )
+    ) {
+        return Err(invalid_document(format!(
+            "{location}.recalculation.status is invalid"
+        )));
+    }
+    Ok(())
+}
+
 #[allow(clippy::too_many_lines)]
 fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
     let document = object_at(document, "document")?;
@@ -1019,6 +1143,188 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             array_at(value, key)?;
         }
     }
+    let mut dataset_identifiers = std::collections::HashSet::new();
+    let mut dataset_record_links = Vec::new();
+    if let Some(value) = document.get("datasets") {
+        for (index, value) in array_at(value, "datasets")?.iter().enumerate() {
+            let location = format!("datasets[{index}]");
+            let dataset = object_at(value, &location)?;
+            let identifier = dataset
+                .get("identifier")
+                .and_then(Value::as_str)
+                .filter(|value| !value.is_empty())
+                .ok_or_else(|| {
+                    invalid_document(format!("{location}.identifier must be a non-empty string"))
+                })?;
+            if !dataset_identifiers.insert(identifier) {
+                return Err(invalid_document(format!(
+                    "duplicate dataset identifier {identifier:?}"
+                )));
+            }
+            for key in ["kind", "source_location"] {
+                if dataset
+                    .get(key)
+                    .and_then(Value::as_str)
+                    .is_none_or(str::is_empty)
+                {
+                    return Err(invalid_document(format!(
+                        "{location}.{key} must be a non-empty string"
+                    )));
+                }
+            }
+            if !dataset
+                .get("reference")
+                .is_some_and(|value| value.is_string() || value.is_object())
+            {
+                return Err(invalid_document(format!(
+                    "{location}.reference must be a string or object"
+                )));
+            }
+            let columns = array_at(
+                dataset
+                    .get("columns")
+                    .ok_or_else(|| invalid_document(format!("{location}.columns is required")))?,
+                &format!("{location}.columns"),
+            )?;
+            if columns.is_empty() {
+                return Err(invalid_document(format!(
+                    "{location}.columns must be non-empty"
+                )));
+            }
+            let mut column_names = std::collections::HashSet::new();
+            for (column_index, value) in columns.iter().enumerate() {
+                let column_location = format!("{location}.columns[{column_index}]");
+                let column = object_at(value, &column_location)?;
+                let name = column
+                    .get("name")
+                    .and_then(Value::as_str)
+                    .filter(|value| !value.is_empty())
+                    .ok_or_else(|| {
+                        invalid_document(format!(
+                            "{column_location}.name must be a non-empty string"
+                        ))
+                    })?;
+                if !column_names.insert(name) {
+                    return Err(invalid_document(format!(
+                        "duplicate column name {name:?} in {location}"
+                    )));
+                }
+                for key in ["quantity", "unit", "role"] {
+                    if column
+                        .get(key)
+                        .and_then(Value::as_str)
+                        .is_none_or(str::is_empty)
+                    {
+                        return Err(invalid_document(format!(
+                            "{column_location}.{key} must be a non-empty string"
+                        )));
+                    }
+                }
+                if !matches!(
+                    column.get("role").and_then(Value::as_str),
+                    Some("value" | "standard_deviation" | "standard_error" | "bound" | "flag")
+                ) {
+                    return Err(invalid_document(format!(
+                        "{column_location}.role is invalid"
+                    )));
+                }
+                if column
+                    .get("of")
+                    .and_then(Value::as_str)
+                    .is_some_and(|name| !column_names.contains(name))
+                {
+                    return Err(invalid_document(format!(
+                        "{column_location}.of must reference an earlier column"
+                    )));
+                }
+            }
+            match (dataset.get("rows"), dataset.get("resource")) {
+                (Some(rows), None) => {
+                    for (row_index, row) in array_at(rows, &format!("{location}.rows"))?
+                        .iter()
+                        .enumerate()
+                    {
+                        let row = array_at(row, &format!("{location}.rows[{row_index}]"))?;
+                        if row.len() != columns.len() {
+                            return Err(invalid_document(format!(
+                                "{location}.rows[{row_index}] must match the column count"
+                            )));
+                        }
+                        for (column_index, value) in row.iter().enumerate() {
+                            if !value.is_null() {
+                                finite_at(
+                                    value,
+                                    &format!("{location}.rows[{row_index}][{column_index}]"),
+                                    false,
+                                )?;
+                            }
+                        }
+                    }
+                }
+                (None, Some(resource)) => {
+                    let resource = object_at(resource, &format!("{location}.resource"))?;
+                    for key in ["path", "sha256", "media_type"] {
+                        if resource
+                            .get(key)
+                            .and_then(Value::as_str)
+                            .is_none_or(str::is_empty)
+                        {
+                            return Err(invalid_document(format!(
+                                "{location}.resource.{key} must be a non-empty string"
+                            )));
+                        }
+                    }
+                    let path = resource["path"].as_str().unwrap();
+                    if Path::new(path).is_absolute()
+                        || Path::new(path)
+                            .components()
+                            .any(|component| matches!(component, std::path::Component::ParentDir))
+                    {
+                        return Err(invalid_document(format!(
+                            "{location}.resource.path must be relative and local"
+                        )));
+                    }
+                    let sha256 = resource["sha256"].as_str().unwrap();
+                    if sha256.len() != 64
+                        || !sha256
+                            .bytes()
+                            .all(|byte| byte.is_ascii_digit() || (b'a'..=b'f').contains(&byte))
+                    {
+                        return Err(invalid_document(format!(
+                            "{location}.resource.sha256 must be 64 lowercase hex characters"
+                        )));
+                    }
+                }
+                _ => {
+                    return Err(invalid_document(format!(
+                        "{location} must contain exactly one of rows or resource"
+                    )));
+                }
+            }
+            let used_by = array_at(
+                dataset.get("used_by_eos_records").ok_or_else(|| {
+                    invalid_document(format!("{location}.used_by_eos_records is required"))
+                })?,
+                &format!("{location}.used_by_eos_records"),
+            )?;
+            if used_by.is_empty() {
+                return Err(invalid_document(format!(
+                    "{location}.used_by_eos_records must be non-empty"
+                )));
+            }
+            for value in used_by {
+                let record_identifier = value
+                    .as_str()
+                    .filter(|value| !value.is_empty())
+                    .ok_or_else(|| {
+                        invalid_document(format!(
+                            "{location}.used_by_eos_records must contain non-empty strings"
+                        ))
+                    })?;
+                dataset_record_links.push((identifier, record_identifier));
+            }
+        }
+    }
     if let Some(value) = document.get("lattice") {
         let lattice = object_at(value, "lattice")?;
         for key in ["a", "alpha", "beta", "gamma"] {
@@ -1043,6 +1349,8 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
         None => empty_records.as_slice(),
     };
     let mut identifiers = std::collections::HashSet::new();
+    let mut derived_record_links = Vec::new();
+    let mut fit_dataset_links = Vec::new();
     let mut default_count = 0;
     for (index, value) in records.iter().enumerate() {
         let location = format!("eos_records[{index}]");
@@ -1071,6 +1379,54 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
         }
         if record.get("default") == Some(&Value::Bool(true)) {
             default_count += 1;
+        }
+
+        let record_identifier = record.get("identifier").and_then(Value::as_str);
+        let record_kind = record
+            .get("record_kind")
+            .and_then(Value::as_str)
+            .unwrap_or("published");
+        if !matches!(record_kind, "published" | "refit" | "diagnostic") {
+            return Err(invalid_document(format!(
+                "{location}.record_kind is invalid"
+            )));
+        }
+        let derived_from = record.get("derived_from_record");
+        if let Some(value) = derived_from {
+            let parent_identifier = value
+                .as_str()
+                .filter(|value| !value.is_empty())
+                .ok_or_else(|| {
+                    invalid_document(format!(
+                        "{location}.derived_from_record must be a non-empty string"
+                    ))
+                })?;
+            if let Some(record_identifier) = record_identifier {
+                derived_record_links.push((record_identifier, parent_identifier));
+            }
+        }
+        let fit_provenance = record.get("fit_provenance");
+        if record_kind == "refit"
+            && (derived_from.is_none() || !fit_provenance.is_some_and(Value::is_object))
+        {
+            return Err(invalid_document(format!(
+                "{location} refit records require derived_from_record and fit_provenance"
+            )));
+        }
+        if let Some(value) = fit_provenance {
+            let provenance = object_at(value, &format!("{location}.fit_provenance"))?;
+            let dataset_identifier = provenance
+                .get("dataset")
+                .and_then(Value::as_str)
+                .filter(|value| !value.is_empty())
+                .ok_or_else(|| {
+                    invalid_document(format!(
+                        "{location}.fit_provenance.dataset must be a non-empty string"
+                    ))
+                })?;
+            if let Some(record_identifier) = record_identifier {
+                fit_dataset_links.push((record_identifier, dataset_identifier));
+            }
         }
 
         if let Some(reference) = record.get("reference") {
@@ -1144,6 +1500,12 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
                 )));
             }
         }
+        if let Some(value) = record
+            .get("pressure_calibration")
+            .filter(|value| !value.is_null())
+        {
+            validate_pressure_calibration(value, &format!("{location}.pressure_calibration"))?;
+        }
         if canonical {
             let validation = object_at(
                 record.get("scientific_validation").ok_or_else(|| {
@@ -1165,6 +1527,32 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
         return Err(invalid_document(
             "a material may have at most one default EOS record",
         ));
+    }
+    for (dataset_identifier, record_identifier) in dataset_record_links {
+        if !identifiers.contains(record_identifier) {
+            return Err(invalid_document(format!(
+                "dataset {dataset_identifier:?} references unknown EOS record {record_identifier:?}"
+            )));
+        }
+    }
+    for (record_identifier, parent_identifier) in derived_record_links {
+        if parent_identifier == record_identifier {
+            return Err(invalid_document(format!(
+                "EOS record {record_identifier:?} cannot derive from itself"
+            )));
+        }
+        if !identifiers.contains(parent_identifier) {
+            return Err(invalid_document(format!(
+                "EOS record {record_identifier:?} derives from unknown EOS record {parent_identifier:?}"
+            )));
+        }
+    }
+    for (record_identifier, dataset_identifier) in fit_dataset_links {
+        if !dataset_identifiers.contains(dataset_identifier) {
+            return Err(invalid_document(format!(
+                "EOS record {record_identifier:?} fit provenance references unknown dataset {dataset_identifier:?}"
+            )));
+        }
     }
     Ok(())
 }
@@ -1539,6 +1927,7 @@ fn build_thermal(
             {
                 "integrated_expansivity" => ReferenceVolumeLaw::IntegratedExpansivity,
                 "linear_temperature" => ReferenceVolumeLaw::LinearTemperature,
+                "berman" => ReferenceVolumeLaw::Berman,
                 value => return Err(format!("unknown reference_volume_law {value:?}")),
             };
             ThermalReferenceState::new(

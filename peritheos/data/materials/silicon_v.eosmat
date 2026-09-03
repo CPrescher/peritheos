@@ -67,6 +67,60 @@
    "temperature_ref": 300.0,
    "notes": "Table 8 room-temperature fit. Si-V was observed from 15.8 to 40.9 GPa; V0 is an extrapolated atomic and one-atom cell volume.",
    "identifier": "silicon_v_anzellini_2019_vinet_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Methods and Table 1",
+      "scope": "all runs",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Methods; W volume gauge",
+      "scope": "runs ST1-ST3"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Methods; Au volume gauge",
+      "scope": "runs ST1-ST3",
+      "notes": "The same Dorogokupets-Oganov internally consistent calibration supplied the Au and W gauges."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

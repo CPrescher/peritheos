@@ -20,6 +20,7 @@ from peritheos.eos.thermal import (
     MieGruneisenDebye,
     MieGruneisenEinstein,
     ThermalModifiedTait,
+    ThermalReferenceStateEOS,
 )
 
 REFERENCE_FILE = (
@@ -57,6 +58,13 @@ def test_literature_equation_reference_case(case):
             "MieGruneisenEinstein": MieGruneisenEinstein,
         }
         model = thermal_models[case["model"]](reference, **case["parameters"])
+    elif case["model"] == "ThermalReferenceStateEOS":
+        reference = BM3(**case["reference_parameters"])
+        model = ThermalReferenceStateEOS(
+            reference,
+            **case["parameters"],
+            **case["configuration"],
+        )
     else:
         raise AssertionError(f"Unknown reference-case model: {case['model']}")
 

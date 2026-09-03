@@ -479,6 +479,18 @@ The bundled Martinez aragonite BM2 record uses this form with linear `K0(T)`,
 following equations (2)--(3) and Table 7 of Martinez, Zhang, and Reeder (1996),
 [doi:10.2138/am-1996-5-608](https://doi.org/10.2138/am-1996-5-608).
 
+The `reference_volume_law="berman"` option applies
+
+\[
+V_0(T)=V_0(T_r)\left[1+\alpha_0(T-T_r)
++\frac{\alpha_1}{2}(T-T_r)^2\right].
+\]
+
+This is the truncated Berman (1988) thermal-expansion equation implemented by
+EosFit7; `alpha0` is defined at `Tr`. The B4C record from Somayazulu et al.
+(2023) uses this form. It must not be replaced by the exponential integral,
+which EosFit identifies as the Fei model.
+
 The bundled ice VI and ice VII records use the integrated constant law with BM2,
 following equations (1)--(3) and Table II of Bezacier et al. (2014),
 [doi:10.1063/1.4894421](https://doi.org/10.1063/1.4894421). The `.eosmat`

@@ -74,6 +74,30 @@
    "temperature_ref": 300.0,
    "notes": "Quasihydrostatic 300 K Vinet fit to corundum data from 0.56 to 165 GPa. V0=255.45+/-0.52 A^3, K0=254.1+/-7.6 GPa, and K0'=4.00+/-0.15 were all fitted; errors are 95% confidence intervals.",
    "identifier": "alumina_dewaele_2013_vinet_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Section II and Table I; ruby luminescence",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -116,6 +116,59 @@
     "doi": "10.1016/0031-9201(96)03143-3"
   },
   {
+    "id": "somayazulu-2023-b4c-mgd-pressure",
+    "model": "MieGruneisenDebye",
+    "reference_model": "BM3",
+    "reference_parameters": {
+      "V0": 2.197412250648889,
+      "K0": 221.0,
+      "K0_prime": 3.3
+    },
+    "parameters": {
+      "Tr": 298.0,
+      "theta0": 1425.0,
+      "gamma0": 0.8,
+      "q": 2.1,
+      "n": 5.0
+    },
+    "volume": 1.9344454374622222,
+    "temperature": 2023.0,
+    "quantity": "pressure",
+    "expected": 40.45288082692554,
+    "observed": 40.4,
+    "observed_standard_deviation": 2.3,
+    "source_location": "official supplement, Table 4",
+    "doi": "10.1098/rsta.2022.0331"
+  },
+  {
+    "id": "somayazulu-2023-b4c-berman-pressure",
+    "model": "ThermalReferenceStateEOS",
+    "reference_model": "BM3",
+    "reference_parameters": {
+      "V0": 2.197412250648889,
+      "K0": 221.0,
+      "K0_prime": 3.3
+    },
+    "parameters": {
+      "Tr": 298.0,
+      "alpha0": 1.94e-5,
+      "alpha1": 5.73e-10,
+      "dK_dT": -0.008
+    },
+    "configuration": {
+      "thermal_expansion_law": "linear_temperature",
+      "reference_volume_law": "berman"
+    },
+    "volume": 1.9344454374622222,
+    "temperature": 2023.0,
+    "quantity": "pressure",
+    "expected": 43.38255199961772,
+    "observed": 40.4,
+    "observed_standard_deviation": 2.3,
+    "source_location": "article Table 2 and EosFit7 Berman implementation; official supplement Table 4",
+    "doi": "10.1098/rsta.2022.0331"
+  },
+  {
     "id": "mie-gruneisen-einstein-pressure",
     "model": "MieGruneisenEinstein",
     "reference_model": "BM3",

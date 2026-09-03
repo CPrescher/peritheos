@@ -110,6 +110,31 @@
    },
    "notes": "Preferred default for mantle work. The fit combines multi-anvil data at 28-63 GPa and 300-1500 K with laser-heated DAC data at 52-108 GPa and 300 or 1500-2430 K; the study reports measurements up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=950(150) K, gamma0=1.54(9), and q=1.5(3). The paper calls the exponent b; with its fixed a=1, the published Gruneisen expression reduces exactly to gamma=gamma0(V/V0)^b used here.",
    "identifier": "bridgmanite_tange_2012_bm3_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/2008JB005813"
+      },
+      "source_location": "Experimental pressure determination and EOS analysis",
+      "reference_eos_record": "mgo_b1_tange_2009_vinet"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -194,6 +219,31 @@
    },
    "notes": "Alternative Vinet fit to the same multi-anvil and laser-heated DAC dataset, measured up to 110 GPa and 2500 K. V0=162.373 A^3 was fixed to an independent ambient measurement; theta0=940(140) K, gamma0=1.55(9), and q=1.1(3). The paper calls the exponent b; with a fixed to 1, it is the q parameter of the conventional MGD volume dependence stored here.",
    "identifier": "bridgmanite_tange_2012_vinet_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/2008JB005813"
+      },
+      "source_location": "Experimental pressure determination and EOS analysis",
+      "reference_eos_record": "mgo_b1_tange_2009_vinet"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -263,6 +313,16 @@
    "fixed_parameters": [],
    "notes": "Single-crystal P-V data to 10 GPa. Retained as a low-pressure structural reference, not as the default mantle-range EoS. The normalized-stress plot supported a second-order Birch-Murnaghan fit, so K0_prime=4 is implicit in BM2 rather than stored as a fitted parameter.",
    "identifier": "bridgmanite_vanpeteghem_2006_bm2_3",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

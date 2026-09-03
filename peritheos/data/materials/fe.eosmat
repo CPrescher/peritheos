@@ -68,6 +68,29 @@
    "temperature_ref": 300.0,
    "notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 2.5 GPa and K0' +/- 0.5. The bcc phase data extend to 15.5 GPa.",
    "identifier": "fe_shen_2026_vinet_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fratanduono et al."
+       ],
+       "year": 2020,
+       "source": "Phys. Rev. Lett.",
+       "doi": "10.1103/PhysRevLett.124.015701"
+      },
+      "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
+      "scope": "all fitted observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

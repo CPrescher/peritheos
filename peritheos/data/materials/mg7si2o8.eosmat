@@ -297,6 +297,16 @@
    ],
    "notes": "Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.",
    "identifier": "mg7si2o8_crichton_2002_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -70,6 +70,52 @@
    "temperature_ref": 300.0,
    "notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
    "identifier": "ruthenium_anzellini_2019_bm3_1",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2007,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.75.024115"
+      },
+      "source_location": "Methods; room-temperature run",
+      "scope": "room-temperature DAC run",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Belonoshko",
+        "Garbarino",
+        "Occelli",
+        "Bouvier",
+        "Hanfland",
+        "Mezouar"
+       ],
+       "year": 2012,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.85.214105"
+      },
+      "source_location": "Methods; KCl thermal EOS for resistively heated run",
+      "reference_eos_record": "kcl_b2_dewaele_2012_vinet_3",
+      "scope": "high-temperature run"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "The exact ruby formula is documented but not executable; the KCl EOS component is executable."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

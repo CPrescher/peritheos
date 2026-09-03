@@ -76,6 +76,51 @@
    "temperature_ref": 300.0,
    "notes": "Recommended finite-strain result from neon-medium single-crystal XRD to 25.3 GPa. Second-order Birch-Murnaghan fixes K0'=4 by definition; the unconstrained alternative was not selected.",
    "identifier": "fe2o3_schouwink_2011_bm2_1",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Experimental methods; primary pressure measurement",
+      "reference_calibration_record": "ruby_mao_1986"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental methods; solid-Ne cross-check",
+      "reference_eos_record": "neon_fcc_fei_2007_vinet_2",
+      "scope": "cross-check"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "The Ne cross-check resolves to a library EOS; the primary ruby wavelength model is not executable."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -130,6 +130,18 @@ class ThermalReferenceStateEOS(ThermalEOS):
     :math:`\alpha(T)=\alpha_0+\alpha_1T`, following Martinez et al. (1996),
     doi:10.2138/am-1996-5-608, equations (2), (4), and (5).
 
+    ``reference_volume_law="berman"`` applies the truncated quadratic form
+
+    .. math::
+
+        V_0(T) = V_0(T_r)\left[1 + \alpha_0(T-T_r)
+        + \frac{1}{2}\alpha_1(T-T_r)^2\right],
+
+    used by Berman (1988) and EosFit7 (Angel et al. 2014,
+    doi:10.1515/zkri-2013-1711). Here :math:`\alpha_0` is the expansion
+    coefficient at :math:`T_r`; the derivative of the truncated polynomial
+    only approximately equals :math:`\alpha_0+\alpha_1(T-T_r)`.
+
     ``reference_volume_law="linear_temperature"`` instead applies the direct
     relation
 
@@ -174,10 +186,11 @@ class ThermalReferenceStateEOS(ThermalEOS):
         if reference_volume_law not in {
             "integrated_expansivity",
             "linear_temperature",
+            "berman",
         }:
             raise EosValidationError(
                 "reference_volume_law must be 'integrated_expansivity' or "
-                "'linear_temperature'"
+                "'linear_temperature' or 'berman'"
             )
         self.reference_volume_law = reference_volume_law
         if thermal_expansion_law == "constant" and self.alpha1 != 0.0:
@@ -190,6 +203,13 @@ class ThermalReferenceStateEOS(ThermalEOS):
             raise EosValidationError(
                 "linear_temperature reference volume requires constant thermal "
                 "expansion configuration and alpha1=0"
+            )
+        if (
+            reference_volume_law == "berman"
+            and thermal_expansion_law != "linear_temperature"
+        ):
+            raise EosValidationError(
+                "berman reference volume requires linear_temperature thermal expansion"
             )
         parameters = rt_eos.parameter_values(include_reference=False)
         if "V0" not in parameters or "K0" not in parameters:
@@ -212,6 +232,12 @@ class ThermalReferenceStateEOS(ThermalEOS):
         delta_temperature = temperature - self.Tr
         if self.reference_volume_law == "linear_temperature":
             V0 = self.rt_eos.V0 * (1.0 + self.alpha0 * delta_temperature)
+        elif self.reference_volume_law == "berman":
+            V0 = self.rt_eos.V0 * (
+                1.0
+                + self.alpha0 * delta_temperature
+                + 0.5 * self.alpha1 * delta_temperature**2
+            )
         else:
             exponent = self.alpha0 * delta_temperature
             if self.thermal_expansion_law == "linear_temperature":

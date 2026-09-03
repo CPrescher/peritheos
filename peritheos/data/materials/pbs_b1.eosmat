@@ -72,6 +72,16 @@
    ],
    "notes": "Room-temperature B1-PbS Birch-Murnaghan fit: K0=51.0+/-1.2 GPa and K0'=4.3+/-0.9. V0=207.8955+/-0.0421 A^3 is calculated from the reported cubic a=5.9240(4) A. The B1/B16 coexistence interval ends near 6 GPa.",
    "identifier": "pbs_b1_knorr_2003_bm3_1",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

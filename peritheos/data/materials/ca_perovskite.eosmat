@@ -80,6 +80,32 @@
    ],
    "notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.",
    "identifier": "ca_perovskite_shim_2000_bm3_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Experimental methods; Pt internal pressure standard",
+      "reference_eos_record": "platinum_holmes_1989_vinet_1"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+    },
+    "audit_date": "2026-09-03"
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -170,6 +196,16 @@
    ],
    "notes": "Room-temperature third-order Birch-Murnaghan fit to 47 P-V measurements through 134 GPa: V0=45.37+/-0.08 A^3, K0=281+/-4 GPa, and K0'=4 assumed.",
    "identifier": "ca_perovskite_mao_1989_bm3_2",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-03",
+    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
