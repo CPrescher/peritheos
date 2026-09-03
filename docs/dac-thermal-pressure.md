@@ -33,12 +33,8 @@ heated_volume = eos.volume_with_dac_confinement(
     hot_temperature,
     f_dac=f_dac,
 )
-thermal_pressure = eos.thermal_pressure_increment(
-    heated_volume, hot_temperature
-)
-confinement_pressure = eos.dac_thermal_pressure(
-    heated_volume, hot_temperature, f_dac
-)
+thermal_pressure = eos.thermal_pressure_increment(heated_volume, hot_temperature)
+confinement_pressure = eos.dac_thermal_pressure(heated_volume, hot_temperature, f_dac)
 total_hot_pressure = cold_pressure + confinement_pressure
 ```
 

@@ -445,20 +445,18 @@ def test_correa_degenerate_reference_weight_has_finite_limit(correa_diamond_eos)
 def test_correa_pressure_is_negative_free_energy_volume_derivative(
     correa_diamond_eos, atomic_volume, temperature
 ):
+    # The absolute Correa energy offset is about -15 MJ/mol.  Removing it from
+    # the model before differencing avoids losing derivative precision when
+    # the two nearby total energies are rounded on different platforms.
+    eos = correa_diamond_eos.with_parameters(phi0=0.0)
     volume = atomic_volume * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
     step = 1.0e-6 * volume
     numerical_pressure = -(
-        (
-            correa_diamond_eos.helmholtz_free_energy(volume + step, temperature)
-            - correa_diamond_eos.phi0
-        )
-        - (
-            correa_diamond_eos.helmholtz_free_energy(volume - step, temperature)
-            - correa_diamond_eos.phi0
-        )
+        eos.helmholtz_free_energy(volume + step, temperature)
+        - eos.helmholtz_free_energy(volume - step, temperature)
     ) / (2.0 * step * 1.0e4)
 
-    assert correa_diamond_eos.pressure(volume, temperature) == pytest.approx(
+    assert eos.pressure(volume, temperature) == pytest.approx(
         numerical_pressure, rel=1.0e-8, abs=5.0e-8
     )
 

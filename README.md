@@ -160,9 +160,7 @@ heated_volume = eos.volume_with_dac_confinement(
     hot_temperature,
     f_dac=0.25,
 )
-thermal_increment = eos.thermal_pressure_increment(
-    heated_volume, hot_temperature
-)
+thermal_increment = eos.thermal_pressure_increment(heated_volume, hot_temperature)
 heated_pressure = cold_pressure + 0.25 * thermal_increment
 
 # Infer temperature from volumes measured before and during DAC heating.
