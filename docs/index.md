@@ -18,6 +18,9 @@ The documentation is organized around scientific workflows:
   - [Pressure calibration quickstart](notebooks/pressure-calibration-quickstart.ipynb)
     calculates, inverts, validates, and propagates uncertainty for a hot MgO
     pressure marker.
+  - [Normalize mixed pressure scales](notebooks/normalize-mixed-pressure-scales.ipynb)
+    finds a common target for Au-, Pt-, and ruby-referenced sample EOSs, then
+    executes and audits each transformation route.
   - [Comparing room-temperature EOS](notebooks/compare-room-temperature-eos.ipynb)
     contrasts fit diagnostics, parameter correlation, and extrapolation for
     four common equations.

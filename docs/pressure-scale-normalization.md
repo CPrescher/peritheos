@@ -160,6 +160,38 @@ an executable path to the requested target. The returned
 `calibration_path`, `edge_identifiers`, and `intermediate_states` make that
 route auditable.
 
+### Finding a common target for several EOS records
+
+Use `find_common_pressure_calibration_routes()` when the target has not yet
+been chosen. By default it tests every bundled XRD pressure-standard record and
+keeps only endpoints reachable from all source records:
+
+```python
+from peritheos import find_common_pressure_calibration_routes
+
+sources = [
+    "forsterite_finkelstein_2014_bm3_1",  # Au Fei (2007)
+    "ca_perovskite_shim_2000_bm3_1",  # Pt Holmes (1989)
+    "tungsten_dewaele_2004_vinet_2",  # ruby Dewaele (2004)
+]
+
+common = find_common_pressure_calibration_routes(
+    sources,
+    target_nodes=["gold_sokolova_2013_holzapfel_4"],
+)
+for source, path in common[0].paths.items():
+    nodes = [source, *(edge["target_node"] for edge in path)]
+    print(" -> ".join(nodes))
+```
+
+Each result contains `target_node`, `paths`, `maximum_path_length`, and
+`total_edge_count`. Results with the fewest required edges come first. This is
+a graph-complexity ranking, **not a claim that the first scale is scientifically
+best**. In production work, restrict `target_nodes` to the standard or
+internally consistent family appropriate to the pressure-temperature range and
+inspect every returned edge before conversion. An empty result means the
+bundled graph has no common executable endpoint for that source set.
+
 An Au-calibrated sample needs no explicit bridge:
 
 ```python

@@ -42,11 +42,13 @@ from peritheos.materials import (
 )
 from peritheos.pressure_calibrations import (
     CalibrationPathRecalculation,
+    CommonPressureCalibrationRoutes,
     DiamondRamanCalibration,
     PressureScaleRecalculation,
     RubyFluorescenceCalibration,
     RubyPressureScaleRecalculation,
     XrdPressureRecalculation,
+    find_common_pressure_calibration_routes,
     find_pressure_calibration_path,
     get_cross_calibration_edge,
     get_pressure_calibration,
@@ -77,6 +79,7 @@ __version__ = "0.6.0"
 
 __all__ = [
     "CalibrationPathRecalculation",
+    "CommonPressureCalibrationRoutes",
     "ConfigurationError",
     "EOSMAT_FORMAT",
     "EOSMAT_FORMAT_VERSION",
@@ -107,6 +110,7 @@ __all__ = [
     "ValidationError",
     "__version__",
     "eosmat_schema",
+    "find_common_pressure_calibration_routes",
     "get_eos_record",
     "get_eos_record_document",
     "get_material",

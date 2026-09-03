@@ -16,7 +16,7 @@ from __future__ import annotations
 import copy
 import json
 from collections import deque
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass
 from importlib import resources
 from types import MappingProxyType
@@ -237,16 +237,14 @@ class DiamondRamanCalibration:
             quadratic = float(self.parameters["B_gpa"])
         elif self.model == "akahama_quadratic":
             linear = float(self.parameters["K0_gpa"])
-            quadratic = 0.5 * linear * (
-                float(self.parameters["K0_prime"]) - 1.0
-            )
+            quadratic = 0.5 * linear * (float(self.parameters["K0_prime"]) - 1.0)
         else:  # pragma: no cover - protected by bundled-data tests
             raise ValidationError(
                 f"Unsupported diamond Raman calibration model {self.model!r}"
             )
-        shift = (
-            np.sqrt(linear**2 + 4.0 * quadratic * pressure) - linear
-        ) / (2.0 * quadratic)
+        shift = (np.sqrt(linear**2 + 4.0 * quadratic * pressure) - linear) / (
+            2.0 * quadratic
+        )
         return _result(np.asarray(1.0 + shift, dtype=float))
 
     def pressure_from_wavenumber(
@@ -347,6 +345,29 @@ class CalibrationPathRecalculation:
     intermediate_states: tuple[Mapping[str, Any], ...]
 
 
+@dataclass(frozen=True)
+class CommonPressureCalibrationRoutes:
+    """Shortest routes from several sources to one common target node.
+
+    Results from :func:`find_common_pressure_calibration_routes` are ordered
+    by the longest route required, then by the total number of edges.  This
+    makes the first result a useful default without hiding alternative target
+    standards.
+    """
+
+    target_node: str
+    paths: Mapping[str, tuple[Mapping[str, Any], ...]]
+    maximum_path_length: int
+    total_edge_count: int
+
+    def __post_init__(self) -> None:
+        immutable_paths = {
+            source: tuple(MappingProxyType(copy.deepcopy(dict(edge))) for edge in path)
+            for source, path in self.paths.items()
+        }
+        object.__setattr__(self, "paths", MappingProxyType(immutable_paths))
+
+
 def pressure_calibration_library() -> dict[str, Any]:
     """Return a copy of the bundled calibration-library document."""
     resource = resources.files("peritheos.data").joinpath(_CALIBRATION_DATA_FILE)
@@ -383,9 +404,7 @@ def list_xrd_pressure_standards() -> tuple[str, ...]:
     # Local imports avoid a cycle while eosmat validates calibration links.
     from peritheos.eosmat import get_material_document, list_material_documents
 
-    standards = set(
-        pressure_calibration_library().get("pressure_standard_records", [])
-    )
+    standards = set(pressure_calibration_library().get("pressure_standard_records", []))
     standards.update(
         method["reference_eos_record"]
         for material_identifier in list_material_documents()
@@ -507,8 +526,7 @@ def get_pressure_calibration(
             validity=document["validity"],
         )
     raise ValidationError(
-        f"Pressure calibration {identifier!r} has unsupported kind "
-        f"{document['kind']!r}"
+        f"Pressure calibration {identifier!r} has unsupported kind {document['kind']!r}"
     )
 
 
@@ -780,9 +798,7 @@ def recalculate_ruby_to_xrd_pressure(
     target_temperature = (
         target.reference_temperature
         if not target.is_thermal
-        else (
-            bridge.reference_temperature if temperature_k is None else temperature_k
-        )
+        else (bridge.reference_temperature if temperature_k is None else temperature_k)
     )
     implied_volume = np.asarray(
         bridge.volume(
@@ -837,9 +853,7 @@ def list_cross_calibration_edges() -> tuple[str, ...]:
     """Return identifiers from the explicit cross-calibration edge registry."""
     return tuple(
         edge["identifier"]
-        for edge in pressure_calibration_library().get(
-            "cross_calibration_edges", []
-        )
+        for edge in pressure_calibration_library().get("cross_calibration_edges", [])
     )
 
 
@@ -847,9 +861,7 @@ def get_cross_calibration_edge(identifier: str) -> dict[str, Any]:
     """Return one explicit, source-documented cross-calibration edge."""
     matches = [
         edge
-        for edge in pressure_calibration_library().get(
-            "cross_calibration_edges", []
-        )
+        for edge in pressure_calibration_library().get("cross_calibration_edges", [])
         if edge["identifier"] == identifier
     ]
     if len(matches) != 1:
@@ -992,10 +1004,23 @@ def find_pressure_calibration_path(
     and audited EOS-ancestry edges. Returned edge documents are oriented in
     traversal order.
     """
+    return _find_pressure_calibration_path(
+        source_node,
+        target_node,
+        _calibration_graph_edges(),
+    )
+
+
+def _find_pressure_calibration_path(
+    source_node: str,
+    target_node: str,
+    graph_edges: Iterable[dict[str, Any]],
+) -> tuple[dict[str, Any], ...]:
+    """Find one path using an already constructed calibration graph."""
     if source_node == target_node:
         return ()
     adjacency: dict[str, list[dict[str, Any]]] = {}
-    for edge in _calibration_graph_edges():
+    for edge in graph_edges:
         adjacency.setdefault(edge["source_node"], []).append(edge)
         if edge.get("bidirectional", False):
             reverse = copy.deepcopy(edge)
@@ -1006,9 +1031,7 @@ def find_pressure_calibration_path(
             reverse["reverse"] = True
             adjacency.setdefault(reverse["source_node"], []).append(reverse)
 
-    queue: deque[tuple[str, tuple[dict[str, Any], ...]]] = deque(
-        [(source_node, ())]
-    )
+    queue: deque[tuple[str, tuple[dict[str, Any], ...]]] = deque([(source_node, ())])
     visited = {source_node}
     while queue:
         node, path = queue.popleft()
@@ -1027,6 +1050,113 @@ def find_pressure_calibration_path(
         f"No executable pressure-calibration path from {source_node!r} to "
         f"{target_node!r}",
         field="target_node",
+    )
+
+
+def find_common_pressure_calibration_routes(
+    source_nodes: Iterable[str],
+    *,
+    target_nodes: Iterable[str] | None = None,
+) -> tuple[CommonPressureCalibrationRoutes, ...]:
+    """Find common normalization targets and one shortest route per source.
+
+    ``source_nodes`` normally contains sample EOS-record identifiers.  By
+    default, candidate endpoints are the bundled XRD pressure-standard EOS
+    records.  Supply ``target_nodes`` to limit discovery to a preferred
+    standard or pressure-scale family.
+
+    Only targets reachable from every source are returned.  Results are
+    ranked by the maximum path length and then the total edge count; scientific
+    suitability, validity overlap, temperature treatment, and uncertainty
+    must still be assessed by the caller.
+    """
+    if isinstance(source_nodes, str):
+        raise ValidationError(
+            "source_nodes must be an iterable of node identifiers, not a string",
+            field="source_nodes",
+        )
+    sources = tuple(dict.fromkeys(source_nodes))
+    if not sources:
+        raise ValidationError(
+            "source_nodes must contain at least one identifier",
+            field="source_nodes",
+        )
+    if any(not isinstance(node, str) or not node for node in sources):
+        raise ValidationError(
+            "source_nodes must contain non-empty string identifiers",
+            field="source_nodes",
+        )
+
+    graph_edges = _calibration_graph_edges()
+    known_nodes = set(list_pressure_calibrations())
+    known_nodes.update(list_xrd_pressure_standards())
+    for edge in graph_edges:
+        known_nodes.add(edge["source_node"])
+        known_nodes.add(edge["target_node"])
+    unknown_sources = tuple(node for node in sources if node not in known_nodes)
+    if unknown_sources:
+        raise ValidationError(
+            f"Unknown pressure-calibration source nodes: {unknown_sources}",
+            field="source_nodes",
+        )
+
+    if target_nodes is None:
+        targets = list_xrd_pressure_standards()
+    else:
+        if isinstance(target_nodes, str):
+            raise ValidationError(
+                "target_nodes must be an iterable of node identifiers, not a string",
+                field="target_nodes",
+            )
+        targets = tuple(dict.fromkeys(target_nodes))
+        if not targets:
+            raise ValidationError(
+                "target_nodes must contain at least one identifier",
+                field="target_nodes",
+            )
+        if any(not isinstance(node, str) or not node for node in targets):
+            raise ValidationError(
+                "target_nodes must contain non-empty string identifiers",
+                field="target_nodes",
+            )
+        unknown_targets = tuple(node for node in targets if node not in known_nodes)
+        if unknown_targets:
+            raise ValidationError(
+                f"Unknown pressure-calibration target nodes: {unknown_targets}",
+                field="target_nodes",
+            )
+
+    common: list[CommonPressureCalibrationRoutes] = []
+    for target in targets:
+        paths: dict[str, tuple[dict[str, Any], ...]] = {}
+        for source in sources:
+            try:
+                paths[source] = _find_pressure_calibration_path(
+                    source,
+                    target,
+                    graph_edges,
+                )
+            except ValidationError:
+                break
+        else:
+            lengths = tuple(len(path) for path in paths.values())
+            common.append(
+                CommonPressureCalibrationRoutes(
+                    target_node=target,
+                    paths=paths,
+                    maximum_path_length=max(lengths),
+                    total_edge_count=sum(lengths),
+                )
+            )
+    return tuple(
+        sorted(
+            common,
+            key=lambda result: (
+                result.maximum_path_length,
+                result.total_edge_count,
+                result.target_node,
+            ),
+        )
     )
 
 
@@ -1114,9 +1244,7 @@ def recalculate_pressure_calibration_path(
                     field="temperature_k",
                 )
             state["target_temperature_k"] = _result(current_temperature)
-        state["target_pressure_gpa"] = _result(
-            np.asarray(recalculated, dtype=float)
-        )
+        state["target_pressure_gpa"] = _result(np.asarray(recalculated, dtype=float))
         states.append(MappingProxyType(state))
         current = np.asarray(recalculated, dtype=float)
         nodes.append(target)
@@ -1194,6 +1322,7 @@ def recalculate_eos_pressure_scale(
 
 __all__ = [
     "CalibrationPathRecalculation",
+    "CommonPressureCalibrationRoutes",
     "DiamondRamanCalibration",
     "PressureScaleRecalculation",
     "RubyFluorescenceCalibration",
@@ -1203,6 +1332,7 @@ __all__ = [
     "get_pressure_calibration_document",
     "get_cross_calibration_edge",
     "find_pressure_calibration_path",
+    "find_common_pressure_calibration_routes",
     "list_cross_calibration_edges",
     "list_diamond_raman_calibrations",
     "list_pressure_calibrations",

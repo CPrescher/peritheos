@@ -300,8 +300,7 @@ def test_shen_smith_simultaneous_volume_dataset_is_complete():
         dataset = next(
             item
             for item in document["datasets"]
-            if item["identifier"]
-            == "shen_smith_2026_table_s1_simultaneous_volumes"
+            if item["identifier"] == "shen_smith_2026_table_s1_simultaneous_volumes"
         )
         assert dataset["used_by_eos_records"] == [record]
         datasets.append(dataset)
@@ -324,14 +323,20 @@ def test_shen_smith_simultaneous_volume_dataset_is_complete():
     assert sum(row["phase"] == "Cu" for row in rows) == 422
     assert sum(row["phase"] == "NaCl-B1" for row in rows) == 67
     assert sum(row["phase"] == "NaCl-B2" for row in rows) == 131
-    assert sum(
-        row["phase"] == "Pt" and row["measurement_sequence"] == "first"
-        for row in rows
-    ) == 421
-    assert sum(
-        row["phase"] == "Pt" and row["measurement_sequence"] == "last"
-        for row in rows
-    ) == 422
+    assert (
+        sum(
+            row["phase"] == "Pt" and row["measurement_sequence"] == "first"
+            for row in rows
+        )
+        == 421
+    )
+    assert (
+        sum(
+            row["phase"] == "Pt" and row["measurement_sequence"] == "last"
+            for row in rows
+        )
+        == 422
+    )
 
     first = rows[0]
     assert first == {

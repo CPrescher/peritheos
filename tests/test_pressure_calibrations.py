@@ -7,6 +7,7 @@ import peritheos.eosmat as eosmat_module
 import peritheos.pressure_calibrations as calibration_module
 from peritheos import (
     DiamondRamanCalibration,
+    find_common_pressure_calibration_routes,
     find_pressure_calibration_path,
     get_cross_calibration_edge,
     get_material_document,
@@ -385,6 +386,57 @@ def test_recursive_graph_connects_kcl_ruby_diamond_platinum_and_gold():
         assert result.calibration_path[-1] == "gold_fei_2007_vinet_2"
 
 
+def test_common_route_discovery_finds_and_ranks_shared_xrd_targets():
+    sources = (
+        "forsterite_finkelstein_2014_bm3_1",
+        "ca_perovskite_shim_2000_bm3_1",
+        "tungsten_dewaele_2004_vinet_2",
+    )
+    targets = (
+        "gold_fei_2007_vinet_2",
+        "gold_sokolova_2013_holzapfel_4",
+    )
+    common = find_common_pressure_calibration_routes(
+        sources,
+        target_nodes=targets,
+    )
+
+    assert {result.target_node for result in common} == set(targets)
+    assert common == tuple(
+        sorted(
+            common,
+            key=lambda result: (
+                result.maximum_path_length,
+                result.total_edge_count,
+                result.target_node,
+            ),
+        )
+    )
+    for result in common:
+        assert tuple(result.paths) == sources
+        for source, path in result.paths.items():
+            if path:
+                assert path[0]["source_node"] == source
+                assert path[-1]["target_node"] == result.target_node
+        assert result.maximum_path_length == max(map(len, result.paths.values()))
+        assert result.total_edge_count == sum(map(len, result.paths.values()))
+
+
+@pytest.mark.parametrize(
+    ("sources", "targets", "match"),
+    [
+        ((), None, "at least one"),
+        ("ruby_mao_1986", None, "not a string"),
+        (("unknown",), None, "Unknown pressure-calibration source"),
+        (("ruby_mao_1986",), (), "at least one"),
+        (("ruby_mao_1986",), ("unknown",), "Unknown pressure-calibration target"),
+    ],
+)
+def test_common_route_discovery_validates_node_sets(sources, targets, match):
+    with pytest.raises(ValidationError, match=match):
+        find_common_pressure_calibration_routes(sources, target_nodes=targets)
+
+
 def test_chidester_edge_restores_average_pt_temperature_and_is_reversible():
     edge_identifier = "kcl_chidester_2021_to_platinum_dorogokupets_2007"
     pt_identifier = "platinum_dorogokupets_oganov_2007_vinet_4"
@@ -492,7 +544,7 @@ def test_eosmat_rejects_other_malformed_pressure_calibration_fields():
     for document in documents:
         with pytest.raises(EosmatError):
             eosmat_module.validate_eosmat_document(document)
-    list_cross_calibration_edges,
-    list_diamond_raman_calibrations,
-    recalculate_diamond_raman_pressure,
-    recalculate_pressure_calibration_path,
+    (list_cross_calibration_edges,)
+    (list_diamond_raman_calibrations,)
+    (recalculate_diamond_raman_pressure,)
+    (recalculate_pressure_calibration_path,)

@@ -638,9 +638,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                         f"{method_location}.reference_eos_record requires an "
                         "equation_of_state method"
                     )
-                reference_calibration = method.get(
-                    "reference_calibration_record"
-                )
+                reference_calibration = method.get("reference_calibration_record")
                 if reference_calibration is not None and (
                     not isinstance(reference_calibration, str)
                     or not reference_calibration
@@ -814,9 +812,7 @@ def validate_pressure_calibration_references() -> None:
                         f"EOS record {record['identifier']!r} references missing "
                         f"pressure EOS {reference_identifier!r}"
                     )
-                calibration_identifier = method.get(
-                    "reference_calibration_record"
-                )
+                calibration_identifier = method.get("reference_calibration_record")
                 if (
                     calibration_identifier is not None
                     and calibration_identifier not in available_calibrations
@@ -848,16 +844,12 @@ def validate_pressure_calibration_references() -> None:
         "ruby_wavelength_ratio",
         "diamond_wavenumber_ratio",
     }
-    for edge in pressure_calibration_library().get(
-        "cross_calibration_edges", []
-    ):
+    for edge in pressure_calibration_library().get("cross_calibration_edges", []):
         edge_identifier = edge.get("identifier")
         if not isinstance(edge_identifier, str) or not edge_identifier:
             raise EosmatError("Cross-calibration edges require an identifier")
         if edge_identifier in edge_identifiers:
-            raise EosmatError(
-                f"Duplicate cross-calibration edge {edge_identifier!r}"
-            )
+            raise EosmatError(f"Duplicate cross-calibration edge {edge_identifier!r}")
         edge_identifiers.add(edge_identifier)
         if edge.get("transformation") not in allowed_transformations:
             raise EosmatError(
@@ -877,8 +869,9 @@ def validate_pressure_calibration_references() -> None:
                     "temperature transformation"
                 )
             for key in ("source_quantity", "target_quantity", "equation"):
-                if not isinstance(temperature_transformation.get(key), str) or not (
-                    temperature_transformation[key]
+                if (
+                    not isinstance(temperature_transformation.get(key), str)
+                    or not (temperature_transformation[key])
                 ):
                     raise EosmatError(
                         f"Cross-calibration edge {edge_identifier!r} requires a "

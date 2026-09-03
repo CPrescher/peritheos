@@ -66,6 +66,7 @@ field contract and consumer defaults.
 
 ```python
 from peritheos import (
+    find_common_pressure_calibration_routes,
     find_pressure_calibration_path,
     get_cross_calibration_edge,
     get_pressure_calibration,
@@ -104,6 +105,12 @@ Pt-foil temperature and records both edge-end values in `intermediate_states`. S
 graph edges, complete examples, cross-calibration literature, and the
 difference between a derived transformation and observation-level
 re-reduction.
+
+`find_common_pressure_calibration_routes(source_nodes)` discovers XRD-standard
+endpoints reachable from every supplied sample EOS and returns the shortest
+route for each source. Results are ranked by maximum and total edge count, not
+by scientific preference; callers should restrict `target_nodes` to a suitable
+standard or internally consistent family and verify the common validity range.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records have been added for aragonite BM2, the

@@ -29,7 +29,9 @@ All notable changes to Peritheos are documented here. The project follows
   available as a separate operation. A dedicated pressure-scale normalization
   guide documents valid same-standard, ruby, and cross-material paths, the
   qualifying literature, validity and uncertainty rules, and current library
-  coverage.
+  coverage. A set-level route helper now finds and ranks XRD-standard targets
+  reachable from every supplied EOS, with an executable notebook covering
+  direct, optical, recursive, and temperature-transforming routes.
 - Added the complete 51-row Somayazulu et al. (2023) B4C P-V-T table as a
   provenance-bearing `.eosmat` dataset, linked it to new MGD and Berman thermal
   records, and added a reproducible comparison of published, effective-

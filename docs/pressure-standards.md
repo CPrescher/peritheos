@@ -149,6 +149,14 @@ pressure. Arrays of sample volumes therefore
 produce a normalized P-V curve that can be compared directly or fitted to
 produce a derived parameterization on the target scale.
 
+For a collection of EOS records,
+`find_common_pressure_calibration_routes(source_nodes)` finds XRD-standard
+targets reachable from every record and returns one shortest auditable path per
+source. Its ranking minimizes graph-edge count only. Use `target_nodes` to
+limit candidates to the scientifically appropriate pressure-scale family, then
+check validity, temperature treatment, phase, stress conditions, and
+uncertainty before carrying out the transformations.
+
 This derived curve is distinct from an exact re-reduction of the original
 experiment. Reproducing the authors' observation-level fit and uncertainty
 still requires their row-wise sample and calibrant measurements. When such

@@ -67,12 +67,8 @@ class DorogokupetsOganov2007(ThermalEOS):
         self.gamma0 = validate_positive_scalar(gamma0, "gamma0")
         self.gamma_inf = validate_positive_scalar(gamma_inf, "gamma_inf")
         self.beta = validate_positive_scalar(beta, "beta")
-        self.anharmonic_a = validate_finite_scalar(
-            anharmonic_a, "anharmonic_a"
-        )
-        self.anharmonic_m = validate_finite_scalar(
-            anharmonic_m, "anharmonic_m"
-        )
+        self.anharmonic_a = validate_finite_scalar(anharmonic_a, "anharmonic_a")
+        self.anharmonic_m = validate_finite_scalar(anharmonic_m, "anharmonic_m")
         self.electronic_e = validate_finite_scalar(electronic_e, "electronic_e")
         self.electronic_g = validate_finite_scalar(electronic_g, "electronic_g")
         self.defect_H = validate_positive_scalar(defect_H, "defect_H")
@@ -116,10 +112,12 @@ class DorogokupetsOganov2007(ThermalEOS):
         return self.gamma_inf + (self.gamma0 - self.gamma_inf) * ratio**self.beta
 
     def _theta(self, theta0: float, ratio: np.ndarray) -> np.ndarray:
-        return theta0 * ratio ** (-self.gamma_inf) * np.exp(
-            (self.gamma0 - self.gamma_inf)
-            / self.beta
-            * (1.0 - ratio**self.beta)
+        return (
+            theta0
+            * ratio ** (-self.gamma_inf)
+            * np.exp(
+                (self.gamma0 - self.gamma_inf) / self.beta * (1.0 - ratio**self.beta)
+            )
         )
 
     @staticmethod
@@ -129,9 +127,7 @@ class DorogokupetsOganov2007(ThermalEOS):
         return decay / (-np.expm1(-exponent))
 
     @classmethod
-    def _einstein_energy(
-        cls, theta: np.ndarray, temperature: np.ndarray
-    ) -> np.ndarray:
+    def _einstein_energy(cls, theta: np.ndarray, temperature: np.ndarray) -> np.ndarray:
         return theta * (0.5 + cls._einstein_occupation(theta, temperature))
 
     @staticmethod
@@ -161,11 +157,7 @@ class DorogokupetsOganov2007(ThermalEOS):
         derivative = (
             2.0 * energy * energy_derivative
             + 4.0 * theta * fluctuation
-            - 2.0
-            * theta**2
-            / temperature
-            * fluctuation
-            * (2.0 * occupation + 1.0)
+            - 2.0 * theta**2 / temperature * fluctuation * (2.0 * occupation + 1.0)
         )
         return bracket, derivative
 
@@ -190,9 +182,7 @@ class DorogokupetsOganov2007(ThermalEOS):
                 energy = self._bose_energy(theta, temperature, dispersion)
             quasiharmonic += multiplicity * R * energy * gamma / volume
 
-            bracket, bracket_derivative = self._anharmonic_bracket(
-                theta, temperature
-            )
+            bracket, bracket_derivative = self._anharmonic_bracket(theta, temperature)
             anharmonic_derivative += (
                 multiplicity
                 * R
@@ -200,10 +190,7 @@ class DorogokupetsOganov2007(ThermalEOS):
                 * 1.0e-6
                 * ratio**self.anharmonic_m
                 / (6.0 * volume)
-                * (
-                    self.anharmonic_m * bracket
-                    - gamma * theta * bracket_derivative
-                )
+                * (self.anharmonic_m * bracket - gamma * theta * bracket_derivative)
             )
 
         electronic = (
