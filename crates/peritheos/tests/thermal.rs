@@ -6,7 +6,7 @@ use peritheos::thermal::{
     ReferenceVolumeLaw, Sokolova2016, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
     ThermalReferenceState, GAS_CONSTANT,
 };
-use peritheos::{CaloricEos, EosError, ThermalEos};
+use peritheos::{CaloricEos, EosError, IsothermalEos, ThermalEos};
 use serde_json::Value;
 
 fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
@@ -108,6 +108,73 @@ fn log_moment_double_debye_matches_the_correa_diamond_regression() {
             .unwrap()
             > 0.0
     );
+}
+
+#[test]
+fn double_debye_reference_temperatures_anchor_the_supplied_vinet_isotherm() {
+    let reference = Vinet::new(5.6693 * 0.060_221_407_6, 444.5, 4.18).unwrap();
+    let benedict_absolute = DoubleDebyeHelmholtz::new(
+        reference,
+        0.335_493_461_739_6,
+        1887.8,
+        -5.247_303_452_269_356,
+        0.913,
+        1887.8,
+        2.789_705_632_852_062_4,
+        0.429,
+        1887.8,
+        1.404_816_050_829_074_1,
+        0.499,
+        1.0,
+        3.79e-5,
+        0.348_380_842_966,
+        0.0,
+        0.0,
+    )
+    .unwrap();
+    let benedict = benedict_absolute.with_reference_temperature(298.0).unwrap();
+    let correa_absolute = DoubleDebyeLogMomentHelmholtz::new(
+        reference,
+        0.335_493_461_739_6,
+        1887.8,
+        -5.247_303_452_269_356,
+        0.913,
+        1887.8,
+        2.789_705_632_852_062_4,
+        0.429,
+        1887.8,
+        2.175_306_177_997_739,
+        0.202,
+        1.0,
+        3.8e-5,
+        0.0,
+    )
+    .unwrap();
+    let correa = correa_absolute.with_reference_temperature(298.0).unwrap();
+    let volume = 5.0 * 0.060_221_407_6;
+    let reference_pressure = reference.pressure(volume).unwrap();
+
+    for (anchored_at_reference, anchored_hot, absolute_at_reference, absolute_hot) in [
+        (
+            benedict.pressure(volume, 298.0).unwrap(),
+            benedict.pressure(volume, 5000.0).unwrap(),
+            benedict_absolute.pressure(volume, 298.0).unwrap(),
+            benedict_absolute.pressure(volume, 5000.0).unwrap(),
+        ),
+        (
+            correa.pressure(volume, 298.0).unwrap(),
+            correa.pressure(volume, 5000.0).unwrap(),
+            correa_absolute.pressure(volume, 298.0).unwrap(),
+            correa_absolute.pressure(volume, 5000.0).unwrap(),
+        ),
+    ] {
+        assert_close(anchored_at_reference, reference_pressure, 1.0e-13);
+        assert_close(
+            anchored_hot,
+            reference_pressure + absolute_hot - absolute_at_reference,
+            1.0e-12,
+        );
+    }
 }
 
 #[test]

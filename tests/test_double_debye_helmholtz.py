@@ -142,6 +142,47 @@ def test_free_energy_is_sum_of_individual_contributions(diamond_eos):
     )
 
 
+@pytest.mark.parametrize("fixture_name", ["diamond_eos", "correa_diamond_eos"])
+def test_optional_reference_temperature_anchors_experimental_isotherm(
+    request, fixture_name
+):
+    simulated = request.getfixturevalue(fixture_name)
+    reference = Vinet(
+        V0=5.6693 * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        K0=444.5,
+        K0_prime=4.18,
+    )
+    parameters = simulated.parameter_values(include_reference=False)
+    anchored = type(simulated)(rt_eos=reference, Tr=298.0, **parameters)
+    volume = 5.0 * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
+
+    assert anchored.pressure(volume, 298.0) == pytest.approx(
+        reference.pressure(volume), abs=1.0e-13
+    )
+    assert anchored.pressure(volume, 5000.0) == pytest.approx(
+        reference.pressure(volume)
+        + simulated.pressure(volume, 5000.0)
+        - simulated.pressure(volume, 298.0)
+    )
+    assert anchored.helmholtz_free_energy(volume, 298.0) == pytest.approx(
+        anchored.cold_energy(volume)
+    )
+    step = 1.0e-6 * volume
+    numerical_pressure = -(
+        anchored.helmholtz_free_energy(volume + step, 5000.0)
+        - anchored.helmholtz_free_energy(volume - step, 5000.0)
+    ) / (2.0 * step * 1.0e4)
+    assert anchored.pressure(volume, 5000.0) == pytest.approx(
+        numerical_pressure, rel=1.0e-8, abs=5.0e-8
+    )
+    assert anchored.parameter_values(include_reference=False)["Tr"] == 298.0
+
+
+def test_absolute_double_debye_omits_optional_Tr_from_parameters(diamond_eos):
+    assert diamond_eos.Tr == 300.0
+    assert "Tr" not in diamond_eos.parameter_values(include_reference=False)
+
+
 @pytest.mark.parametrize(
     "atomic_volume,temperature",
     [(5.7034, 0.0), (5.571, 300.0), (5.0, 2000.0), (4.5, 5000.0)],

@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-01",
+  "audit_date": "2026-09-03",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "BurnMan and Pytheos source code were not inspected or used. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 148,
-    "primary_source_validated": 148
+    "records": 150,
+    "primary_source_validated": 150
   },
   "records": [
     {
@@ -671,6 +671,42 @@
         ],
         "finding": "The record implements the complete diamond Helmholtz branch, including the motionless-ion Vinet cold curve, volume-dependent double-Debye weights and zero-point energy, and the T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
         "doi": "10.1103/physrevb.89.224109"
+      }
+    },
+    {
+      "material": "diamond",
+      "file": "diamond.eosmat",
+      "record": "diamond_correa_2008_dewaele_anchored",
+      "label": "Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)",
+      "doi": "10.1103/physrevb.77.094106",
+      "status": "primary_source_validated",
+      "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",
+      "primary_source_check": {
+        "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+        "locations": [
+          "Dewaele et al. (2008), Table III",
+          "Correa et al. (2008), equations 2-7 and 13-18 and Table I"
+        ],
+        "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy.",
+        "doi": "10.1103/physrevb.77.094106"
+      }
+    },
+    {
+      "material": "diamond",
+      "file": "diamond.eosmat",
+      "record": "diamond_benedict_2014_dewaele_anchored",
+      "label": "Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)",
+      "doi": "10.1103/physrevb.77.094106",
+      "status": "primary_source_validated",
+      "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",
+      "primary_source_check": {
+        "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+        "locations": [
+          "Dewaele et al. (2008), Table III",
+          "Benedict et al. (2014), equations 3-7 and Table I"
+        ],
+        "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy.",
+        "doi": "10.1103/physrevb.77.094106"
       }
     },
     {

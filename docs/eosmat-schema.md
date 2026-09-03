@@ -152,6 +152,8 @@ Thermal `type` and `model` must likewise match:
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
 | `MultiOscillatorGruneisen` | `multi_oscillator_gruneisen_thermal_pressure` | Oscillator, Grüneisen, anharmonic, and electronic parameters |
 | `ThermalModifiedTait` | `thermal_modified_tait` | `Tr`, `theta`, `alpha0`, `n` |
+| `DoubleDebyeHelmholtz` | `double_debye_helmholtz` | Double-Debye coefficients; optional `Tr` |
+| `DoubleDebyeLogMomentHelmholtz` | `double_debye_log_moment_helmholtz` | Logarithmic-moment double-Debye coefficients; optional `Tr` |
 
 `Sokolova2016` remains accepted as a legacy type alias for
 `multi_oscillator_gruneisen_thermal_pressure`; new writers use the general
@@ -162,6 +164,14 @@ model identifier is the mechanism-oriented `thermal_reference_state`, and the
 corresponding Peritheos class is `ThermalReferenceStateEOS`. It evaluates a
 temperature-dependent reference volume and bulk modulus; it is not the
 constant-`alpha_KT` pressure increment represented by `LinearThermalPressure`.
+
+For the two double-Debye Helmholtz types, `Tr` is always written explicitly.
+`"Tr": null` means that the stored Vinet curve is the motionless-ion 0 K cold
+curve and no non-cold contribution is subtracted. A positive numeric `Tr`
+means that the Vinet curve is the complete isotherm at that temperature; the
+ionic and anharmonic free energy and pressure at `Tr` are subtracted before the
+thermal contribution is added. `null` is not accepted for any other thermal
+parameter or model.
 
 ### Thermal-expansion law
 
@@ -243,7 +253,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. As of the 2026-09-01 audit, all 148
+`peritheos/data/primary-source-audit.json`. All 150
 bundled records are validated, with no deferred or pending record.
 
 ## Complete EOS-only example

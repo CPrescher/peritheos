@@ -25,7 +25,7 @@ volumes. Temperature is in K. Pressure is in GPa.
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 115 material documents and 148 independently
+library is broader: it contains 115 material documents and 150 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 
@@ -36,6 +36,8 @@ audited EOS records, accessed with `list_material_documents()` and
 | `diamond_sokolova_2013` | diamond, 8 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `diamond_correa_2008` | diamond, 8 atoms/cell | Vinet + logarithmic-moment double-Debye Helmholtz | 0–1075 GPa, 1–10000 K; DFT-GGA ambient-volume caveat applies | [Correa et al. (2008)](https://doi.org/10.1103/PhysRevB.78.024101) |
 | `diamond_benedict_2014` | diamond, 8 atoms/cell | Vinet + double-Debye Helmholtz | 0–1000 GPa, 300–9000 K; phase boundary must be checked separately | [Benedict et al. (2014)](https://doi.org/10.1103/PhysRevB.89.224109) |
+| `diamond_correa_2008_dewaele_anchored` | diamond, 8 atoms/cell | Dewaele 298 K Vinet + Correa logarithmic-moment thermal increment | Combined source envelopes; derived composition | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.77.094106); [Correa et al. (2008)](https://doi.org/10.1103/PhysRevB.78.024101) |
+| `diamond_benedict_2014_dewaele_anchored` | diamond, 8 atoms/cell | Dewaele 298 K Vinet + Benedict double-Debye thermal increment | Combined source envelopes; derived composition | [Dewaele et al. (2008)](https://doi.org/10.1103/PhysRevB.77.094106); [Benedict et al. (2014)](https://doi.org/10.1103/PhysRevB.89.224109) |
 | `al_fcc_sokolova_2013` | Al fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `cu_fcc_sokolova_2013` | Cu fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `ag_fcc_sokolova_2013` | Ag fcc, 4 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |

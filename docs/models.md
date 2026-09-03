@@ -32,8 +32,10 @@ $P(V,T)=P_{ref}(V)+\Delta P_{th}(V,T)$ with
 $\Delta P_{th}(V,T_r)=0$. Pressure, volume, and temperature inversion all use
 this combined relation. The reference and thermal parameters can also be fitted
 together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
-`DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` are the
-full-free-energy exceptions described below.
+`DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` can either represent
+the absolute simulated free energy or, when their optional `Tr` is supplied,
+add the simulated non-cold contribution relative to `Tr` to an experimental
+reference isotherm.
 
 The allowed reference EOS depends on the thermal formulation. The
 Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
@@ -47,8 +49,8 @@ correction instead inherits the reference EOS volume convention.
 
 | Import | Reference EOS | Thermal parameters | Caloric model |
 |---|---|---|---|
-| [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet` **0 K cold curve** | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0` | double Debye + $T^2$ |
-| [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet` **0 K cold curve** | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0` | logarithmic-moment double Debye + $T^2$ |
+| [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet` 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |
+| [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet` 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0`, `Tr` | logarithmic-moment double Debye + $T^2$ |
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
@@ -90,10 +92,11 @@ paper equations alone to reproduce Peritheos values; see
 - Use `MultiOscillatorGruneisenThermalEOS` for the multimode formulation; pass
   `n` explicitly and select the reference isotherm independently. Catalog
   entries pin the exact source-validated combinations.
-- Use `DoubleDebyeHelmholtz` when the source supplies one thermodynamically
-  complete Vinet cold curve plus volume-dependent double-Debye and $T^2$
-  free-energy terms. Its `rt_eos` argument is a motionless-ion 0 K cold curve,
-  not a room-temperature reference isotherm.
+- Use `DoubleDebyeHelmholtz` when the source supplies volume-dependent
+  double-Debye and $T^2$ free-energy terms. Leave `Tr` unset when `rt_eos` is
+  the source's motionless-ion 0 K cold curve. Set `Tr` when `rt_eos` is an
+  independently measured reference isotherm and only the simulated thermal
+  change away from that isotherm should be added.
 - Use `DoubleDebyeLogMomentHelmholtz` when the source constrains the two Debye
   weights with the logarithmic phonon moment $\theta_0$, as in Correa et al.
   (2008). It is intentionally distinct from the arithmetic-$\theta_1$

@@ -19,6 +19,12 @@ All notable changes to Peritheos are documented here. The project follows
   double-Debye weights, zero-point motion, and the published $T^2$
   anharmonic contribution, with pressure, volume, energy, entropy, and heat
   capacity evaluation.
+- Added optional reference-isotherm anchoring to both double-Debye Helmholtz
+  models. A numeric `Tr` subtracts the simulated ionic and anharmonic
+  contribution at that temperature before adding it to `rt_eos`; `Tr=null` in
+  `.eosmat` preserves the literal 0 K cold-curve formulation. The catalog now
+  includes Correa- and Benedict-thermal diamond variants anchored to the
+  experimental Dewaele 298 K Vinet isotherm.
 - Added a shared Python/Rust error contract with domain-specific Python
   exceptions, stable machine-readable codes and context, Rust error-kind
   accessors, preserved fitting source chains, and native-extension parity.

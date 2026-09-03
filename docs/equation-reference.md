@@ -219,18 +219,20 @@ P(V,T)=P_{\mathrm{ref}}(V)+\Delta P_{\mathrm{th}}(V,T),
 \Delta P_{\mathrm{th}}(V,T_r)=0.
 \]
 
-This reference-isotherm form applies except to the complete
-`DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` free-energy models
-defined first below.
+This reference-isotherm form also applies to the double-Debye Helmholtz models
+when their optional `Tr` is set. With `Tr` omitted, those models instead retain
+their original absolute simulated free-energy formulation.
 
 Because energy divided by the public molar-volume unit produces bar, the factor
 $10^{-4}$ converts thermal pressure to GPa.
 
 ### Double-Debye Helmholtz
 
-`DoubleDebyeHelmholtz` is a complete free-energy EOS, not a thermal-pressure
-wrapper around a measured reference isotherm. Its `rt_eos` is specifically a
-Vinet cold curve for a motionless lattice at 0 K. Define
+`DoubleDebyeHelmholtz` supports two explicit reference-state conventions. With
+`Tr=None` (the default), it is the complete simulated free-energy EOS and its
+`rt_eos` is a Vinet cold curve for a motionless lattice at 0 K. With a numeric
+`Tr`, `rt_eos` is instead the complete reference isotherm at `Tr` and the
+simulated non-cold free energy is rebased to vanish there. Define
 
 \[
 x=(V/V_0)^{1/3},\qquad X=\frac32(K_0'-1)(x-1).
@@ -287,7 +289,8 @@ $T^2$ contribution is
 F_{\rm anh}=-\frac12nR\alpha(V)T^2.
 \]
 
-The complete energy returned by `helmholtz_free_energy()` is
+For the absolute (`Tr=None`) convention, the complete energy returned by
+`helmholtz_free_energy()` is
 
 \[
 F=E_{\rm cold}+F_{\rm ion}+F_{\rm anh}.
@@ -306,12 +309,32 @@ P_{\rm anh}=\frac{nR\kappa\alpha(V)T^2}{2V\,10^4},\qquad
 P=P_{\rm Vinet}+P_{\rm ion}+P_{\rm anh}.
 \]
 
+For reference-isotherm anchoring at a numeric $T_r$, Peritheos evaluates
+
+\[
+F(V,T)=F_{\rm ref}(V)+F_{\rm ion}(V,T)-F_{\rm ion}(V,T_r)
++F_{\rm anh}(V,T)-F_{\rm anh}(V,T_r),
+\]
+
+and therefore
+
+\[
+P(V,T)=P_{\rm ref}(V)+P_{\rm ion}(V,T)-P_{\rm ion}(V,T_r)
++P_{\rm anh}(V,T)-P_{\rm anh}(V,T_r).
+\]
+
+Thus the supplied Vinet curve is recovered exactly at $T=T_r$. This operation
+does not replace the simulated thermal model: it preserves its volume-dependent
+temperature increment while removing its simulated reference-isotherm bias.
+In particular, `Tr=0` is not equivalent to leaving `Tr` unset, because rebasing
+at 0 K also subtracts zero-point motion.
+
 The $dw_A/dV$ term is essential when the double-Debye weights vary with
-volume. `thermal_pressure()` returns $P_{\rm ion}+P_{\rm anh}$, including
-zero-point pressure. `thermal_pressure_increment()` instead returns the
-pressure above the model's 300 K isotherm,
-$\Delta P_{\rm th}(V,T)=P(V,T)-P(V,300\ {\rm K})$. This retains zero-point and
-300 K ionic pressure in both total-pressure states. It lets
+volume. For `Tr=None`, `thermal_pressure()` returns
+$P_{\rm ion}+P_{\rm anh}$, including zero-point pressure, while
+`thermal_pressure_increment()` returns the pressure above the conventional
+300 K comparison isotherm. With numeric `Tr`, both methods return the
+reference-relative contribution, which is exactly zero at `Tr`. This lets
 `volume_with_dac_confinement()` and `temperature_from_volumes()` use the same
 empirical confinement equation as the other thermal models. Use the ordinary
 `volume(P,T)` or `temperature(P,V)` whenever total hot pressure is known
@@ -356,6 +379,12 @@ volume = diamond.volume(150.0, 3000.0)
 temperature = diamond.temperature(150.0, volume)
 ```
 
+To anchor those thermal coefficients to an independently measured 298 K Vinet
+curve, pass that curve as `rt_eos` and add `Tr=298.0`. The bundled
+`DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED` and
+`DIAMOND_CORREA_2008_DEWAELE_ANCHORED` records do this with Dewaele et al.
+(2008). Their unanchored counterparts preserve the original simulation models.
+
 For diamond, the paper identifies the $T^2$ coefficient as an anharmonic ionic
 correction rather than an electronic excitation. Because its published
 $\kappa=0$, that term changes free energy and heat capacity but not pressure.
@@ -380,8 +409,8 @@ are volume independent.
 #### Logarithmic-moment double-Debye variant
 
 `DoubleDebyeLogMomentHelmholtz` implements the earlier Correa et al. (2008)
-diamond branch. It shares the Vinet cold energy, Debye functions, absolute
-zero-point pressure, and 300 K DAC-increment convention above, but conserves
+diamond branch. It shares the Vinet energy, Debye functions, and optional
+reference-isotherm convention above, but conserves
 the logarithmic phonon moment $\theta_0$ rather than the arithmetic moment
 $\theta_1$:
 

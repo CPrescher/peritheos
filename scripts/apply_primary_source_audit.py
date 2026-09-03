@@ -22,6 +22,7 @@ from pathlib import Path
 from typing import Any
 
 AUDIT_DATE = "2026-09-01"
+CATALOG_AUDIT_DATE = "2026-09-03"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
 REPORT = ROOT / "peritheos" / "data" / "primary-source-audit.json"
@@ -35,6 +36,11 @@ VERIFIED_FIELDS = [
     "published_uncertainties",
     "validity",
 ]
+
+DERIVED_REFERENCE_ISOTHERM_RECORDS = {
+    "diamond_correa_2008_dewaele_anchored",
+    "diamond_benedict_2014_dewaele_anchored",
+}
 
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
@@ -673,6 +679,24 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
 # unambiguous publisher or institutional copies.  Key these by record ID so a
 # title-only match can never promote a different migrated record.
 VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
+    "diamond_correa_2008_dewaele_anchored": source(
+        "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+        [
+            "Dewaele et al. (2008), Table III",
+            "Correa et al. (2008), equations 2-7 and 13-18 and Table I",
+        ],
+        "Derived composition of the primary-source-validated Dewaele 298 K "
+        "Vinet isotherm and the reference-relative Correa thermal free energy.",
+    ),
+    "diamond_benedict_2014_dewaele_anchored": source(
+        "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+        [
+            "Dewaele et al. (2008), Table III",
+            "Benedict et al. (2014), equations 3-7 and Table I",
+        ],
+        "Derived composition of the primary-source-validated Dewaele 298 K "
+        "Vinet isotherm and the reference-relative Benedict thermal free energy.",
+    ),
     "aragonite_martinez_1996_bm2_2": source(
         "https://rruff.info/doclib/am/vol81/AM81_611.pdf",
         [
@@ -2642,6 +2666,11 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     doi = normalized_doi(result.get("reference"))
     previous = result.get("scientific_validation") or {}
     migration = previous.get("migration_source")
+    audit_date = (
+        CATALOG_AUDIT_DATE
+        if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
+        else AUDIT_DATE
+    )
 
     record_evidence = VALIDATED_RECORD_SOURCES.get(result["identifier"])
     doi_evidence = VALIDATED_SOURCES.get(doi) if doi is not None else None
@@ -2653,11 +2682,16 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation: dict[str, Any] = {
             "status": "primary_source_validated",
             "note": (
-                "Independently checked against the cited primary publication "
-                "(published article or official/author copy); no external software catalog was "
-                "used as scientific authority."
+                "Derived composition of separately primary-source-validated "
+                "reference-isotherm and simulated thermal components."
+                if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
+                else (
+                    "Independently checked against the cited primary publication "
+                    "(published article or official/author copy); no external "
+                    "software catalog was used as scientific authority."
+                )
             ),
-            "audit_date": AUDIT_DATE,
+            "audit_date": audit_date,
             "verified_fields": list(VERIFIED_FIELDS),
             "primary_source_check": evidence,
         }
@@ -2666,7 +2700,7 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation = {
             "status": "deferred",
             "note": reason,
-            "audit_date": AUDIT_DATE,
+            "audit_date": audit_date,
             "unresolved": [
                 "complete primary equation/parameter trace",
                 "reference-state and unit provenance",
@@ -2844,15 +2878,15 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 148:
-        raise ValueError(f"Expected 148 EOS records, found {len(entries)}")
+    if len(entries) != 150:
+        raise ValueError(f"Expected 150 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
     report = {
         "format": "peritheos.primary-source-audit",
         "format_version": 1,
-        "audit_date": AUDIT_DATE,
+        "audit_date": CATALOG_AUDIT_DATE,
         "policy": {
             "scientific_authority": "primary publications and official supplements",
             "external_catalogs": (
@@ -2879,7 +2913,7 @@ def main() -> None:
     manifest["materials"] = len(list(MATERIALS.glob("*.eosmat")))
     manifest["eos_records"] = len(entries)
     manifest["scientific_validation"] = {
-        "audit_date": AUDIT_DATE,
+        "audit_date": CATALOG_AUDIT_DATE,
         "report": "../primary-source-audit.json",
         "counts": dict(sorted(counts.items())),
         "policy": (

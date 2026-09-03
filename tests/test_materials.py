@@ -17,7 +17,9 @@ from peritheos.materials import (
     CU_SOKOLOVA_2013,
     DEFERRED_EOS_RECORDS,
     DIAMOND_BENEDICT_2014,
+    DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED,
     DIAMOND_CORREA_2008,
+    DIAMOND_CORREA_2008_DEWAELE_ANCHORED,
     DIAMOND_DEWAELE_2008,
     DIAMOND_SOKOLOVA_2013,
     FEI_2007_EOS_RECORDS,
@@ -66,7 +68,7 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 35
+    assert len(records) == 37
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
     assert get_eos_record("mgo_b1_tange_2009_vinet") is MGO_TANGE_2009
@@ -87,6 +89,8 @@ def test_catalog_listing_lookup_and_material_filter():
     )
     assert DIAMOND_BENEDICT_2014 in get_material("diamond").eos_records
     assert DIAMOND_CORREA_2008 in get_material("diamond").eos_records
+    assert DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED in get_material("diamond").eos_records
+    assert DIAMOND_CORREA_2008_DEWAELE_ANCHORED in get_material("diamond").eos_records
     assert get_material("au_fcc").get_eos_record("au_fcc_fei_2007") is AU_FEI_2007
     assert list_materials(formula="Au") == (get_material("au_fcc"),)
     assert list_eos_records(formula="missing") == ()
@@ -583,6 +587,27 @@ def test_diamond_correa_2008_library_regression(
     assert DIAMOND_CORREA_2008.volume(calculated, temperature) == pytest.approx(
         volume_per_cell, rel=1.0e-11
     )
+
+
+@pytest.mark.parametrize(
+    ("anchored", "absolute"),
+    [
+        (DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED, DIAMOND_BENEDICT_2014),
+        (DIAMOND_CORREA_2008_DEWAELE_ANCHORED, DIAMOND_CORREA_2008),
+    ],
+)
+@pytest.mark.parametrize(("volume", "temperature"), [(40.0, 298.0), (35.0, 3000.0)])
+def test_diamond_simulation_models_can_be_anchored_to_dewaele(
+    anchored, absolute, volume, temperature
+):
+    reference_pressure = DIAMOND_DEWAELE_2008.pressure(volume, 298.0)
+    expected = reference_pressure + (
+        absolute.pressure(volume, temperature) - absolute.pressure(volume, 298.0)
+    )
+
+    assert anchored.pressure(volume, 298.0) == pytest.approx(reference_pressure)
+    assert anchored.pressure(volume, temperature) == pytest.approx(expected)
+    assert anchored.volume(expected, temperature) == pytest.approx(volume)
 
 
 def test_diamond_benedict_cold_reference_is_not_zero_total_pressure():

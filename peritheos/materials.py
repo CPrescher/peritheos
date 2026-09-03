@@ -733,10 +733,20 @@ def _plain_data(value: Any) -> Any:
 
 def _eosmat_component(eos: EosBase) -> dict[str, Any]:
     model = _model_identifier(eos)
+    parameters: dict[str, Any] = eos.parameter_values(include_reference=False)
+    if (
+        model
+        in {
+            "double_debye_helmholtz",
+            "double_debye_log_moment_helmholtz",
+        }
+        and getattr(eos, "_reference_isotherm_temperature", None) is None
+    ):
+        parameters["Tr"] = None
     component = {
         "type": _EOSMAT_TYPES[model],
         "model": model,
-        "parameters": eos.parameter_values(include_reference=False),
+        "parameters": parameters,
     }
     configuration = eos.configuration_values()
     if configuration:
@@ -3016,6 +3026,166 @@ DIAMOND_DEWAELE_2008 = EOSRecord(
     volume_scale=_DIAMOND_SCALE,
 )
 
+DIAMOND_CORREA_2008_DEWAELE_ANCHORED = EOSRecord(
+    identifier="diamond_correa_2008_dewaele_anchored",
+    name="Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)",
+    material="C",
+    phase="diamond, cubic Fd-3m",
+    cell_contents="8 C atoms per conventional cubic cell",
+    eos=DoubleDebyeLogMomentHelmholtz(
+        Vinet(
+            5.6693 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+            444.5,
+            4.18,
+        ),
+        Vp=5.571 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        theta_a0=1887.8,
+        a_a=-0.316 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_a=0.913,
+        theta_b0=1887.8,
+        a_b=0.168 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_b=0.429,
+        theta_0_0=1887.8,
+        a_0=0.131 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_0=0.202,
+        n=1.0,
+        anharmonic_a=3.8e-5,
+        phi0=0.0,
+        Tr=298.0,
+    ),
+    reference_temperature=298.0,
+    reference=_DEWAELE_DIAMOND_REFERENCE,
+    validity=ValidityRange(
+        pressure_gpa=(0.0, 1075.0),
+        temperature_k=(1.0, 10000.0),
+        volume_ratio=(2.32 / 5.6693, 5.785 / 5.6693),
+        notes=(
+            "The Dewaele 298 K reference isotherm was measured to 80 GPa; its Vinet representation remains evaluable beyond that calibration coverage.",
+            "The Correa thermal contribution uses the simulation range recorded by the unanchored source record.",
+        ),
+    ),
+    parameter_provenance=MappingProxyType(
+        {
+            "rt_eos.V0": "Dewaele et al. (2008), Table III; 5.6693(16) A^3/atom",
+            "rt_eos.K0": "Dewaele et al. (2008), Table III; 444.5 GPa",
+            "rt_eos.K0_prime": "Dewaele et al. (2008), Table III; 4.18(15)",
+            "Vp": "Correa et al. (2008), Table I; 5.571 A^3/atom",
+            "theta_a0": "Correa et al. (2008), Table I; 1887.8 K",
+            "a_a": "Correa et al. (2008), Table I; beta_A=-0.316 A^-3",
+            "b_a": "Correa et al. (2008), Table I; alpha_A=0.913",
+            "theta_b0": "Correa et al. (2008), Table I; 1887.8 K",
+            "a_b": "Correa et al. (2008), Table I; beta_B=0.168 A^-3",
+            "b_b": "Correa et al. (2008), Table I; alpha_B=0.429",
+            "theta_0_0": "Correa et al. (2008), Table I; 1887.8 K",
+            "a_0": "Correa et al. (2008), Table I; beta_0=0.131 A^-3",
+            "b_0": "Correa et al. (2008), Table I; alpha_0=0.202",
+            "n": "one atom per elemental-carbon formula unit",
+            "anharmonic_a": "Correa et al. (2008), equation 18 and Table I; 3.8e-5 K^-1/atom",
+            "phi0": "Arbitrary zero for the integrated experimental reference isotherm",
+            "Tr": "Dewaele et al. (2008), Table III; 298 K reference isotherm",
+        }
+    ),
+    parameter_errors=MappingProxyType(
+        {
+            "rt_eos.V0": 0.0016 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR / 1.96,
+            "rt_eos.K0_prime": 0.15 / 1.96,
+        }
+    ),
+    notes=(
+        "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Correa(V,T)-P_Correa(V,298 K).",
+        "The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment.",
+        "Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected.",
+        "The Dewaele and Correa source records remain available independently and preserve their literal published formulations.",
+    ),
+    volume_scale=_DIAMOND_SCALE,
+    scientific_validation_note=(
+        "Derived composition of separately primary-source-validated Dewaele "
+        "reference-isotherm and Correa thermal components."
+    ),
+)
+
+DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED = EOSRecord(
+    identifier="diamond_benedict_2014_dewaele_anchored",
+    name="Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)",
+    material="C",
+    phase="diamond, cubic Fd-3m",
+    cell_contents="8 C atoms per conventional cubic cell",
+    eos=DoubleDebyeHelmholtz(
+        Vinet(
+            5.6693 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+            444.5,
+            4.18,
+        ),
+        Vp=5.571 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        theta_a0=1887.8,
+        a_a=-0.316 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_a=0.913,
+        theta_b0=1887.8,
+        a_b=0.168 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_b=0.429,
+        theta_1_0=1887.8,
+        a_1=0.0846 / _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        b_1=0.499,
+        n=1.0,
+        alpha0=3.79e-5,
+        Ve=5.785 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR,
+        kappa=0.0,
+        phi0=0.0,
+        Tr=298.0,
+    ),
+    reference_temperature=298.0,
+    reference=_DEWAELE_DIAMOND_REFERENCE,
+    validity=ValidityRange(
+        pressure_gpa=(0.0, 1000.0),
+        temperature_k=(298.0, 9000.0),
+        volume_ratio=(2.5 / 5.6693, 7.0 / 5.6693),
+        notes=(
+            "The Dewaele 298 K reference isotherm was measured to 80 GPa; its Vinet representation remains evaluable beyond that calibration coverage.",
+            "The Benedict thermal contribution uses the simulation range recorded by the unanchored source record.",
+        ),
+    ),
+    parameter_provenance=MappingProxyType(
+        {
+            "rt_eos.V0": "Dewaele et al. (2008), Table III; 5.6693(16) A^3/atom",
+            "rt_eos.K0": "Dewaele et al. (2008), Table III; 444.5 GPa",
+            "rt_eos.K0_prime": "Dewaele et al. (2008), Table III; 4.18(15)",
+            "Vp": "Benedict et al. (2014), Table I; 5.571 A^3/atom",
+            "theta_a0": "Benedict et al. (2014), Table I; 1887.8 K",
+            "a_a": "Benedict et al. (2014), Table I; -0.316 A^-3",
+            "b_a": "Benedict et al. (2014), Table I; 0.913",
+            "theta_b0": "Benedict et al. (2014), Table I; 1887.8 K",
+            "a_b": "Benedict et al. (2014), Table I; 0.168 A^-3",
+            "b_b": "Benedict et al. (2014), Table I; 0.429",
+            "theta_1_0": "Benedict et al. (2014), Table I; 1887.8 K",
+            "a_1": "Benedict et al. (2014), Table I; 0.0846 A^-3",
+            "b_1": "Benedict et al. (2014), Table I; 0.499",
+            "n": "one atom per elemental-carbon formula unit",
+            "alpha0": "Benedict et al. (2014), Table I; 3.79e-5 K^-1",
+            "Ve": "Benedict et al. (2014), Table I; 5.785 A^3/atom",
+            "kappa": "Benedict et al. (2014), Table I; 0.0",
+            "phi0": "Arbitrary zero for the integrated experimental reference isotherm",
+            "Tr": "Dewaele et al. (2008), Table III; 298 K reference isotherm",
+        }
+    ),
+    parameter_errors=MappingProxyType(
+        {
+            "rt_eos.V0": 0.0016 * _ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR / 1.96,
+            "rt_eos.K0_prime": 0.15 / 1.96,
+        }
+    ),
+    notes=(
+        "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Benedict(V,T)-P_Benedict(V,298 K).",
+        "The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment.",
+        "Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected.",
+        "The Dewaele and Benedict source records remain available independently and preserve their literal published formulations.",
+    ),
+    volume_scale=_DIAMOND_SCALE,
+    scientific_validation_note=(
+        "Derived composition of separately primary-source-validated Dewaele "
+        "reference-isotherm and Benedict thermal components."
+    ),
+)
+
 
 def _dewaele_metal_eos_record(
     identifier: str,
@@ -3143,6 +3313,8 @@ _EOS_RECORD_CATALOG = MappingProxyType(
             DIAMOND_CORREA_2008,
             DIAMOND_BENEDICT_2014,
             DIAMOND_DEWAELE_2008,
+            DIAMOND_CORREA_2008_DEWAELE_ANCHORED,
+            DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED,
             NI_DEWAELE_2008,
             AG_DEWAELE_2008,
             RE_HCP_ANZELLINI_2014,
@@ -3256,7 +3428,9 @@ __all__ = [
     "DEFERRED_EOS_RECORDS",
     "DeferredEOSRecord",
     "DIAMOND_BENEDICT_2014",
+    "DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED",
     "DIAMOND_CORREA_2008",
+    "DIAMOND_CORREA_2008_DEWAELE_ANCHORED",
     "DIAMOND_DEWAELE_2008",
     "DIAMOND_SOKOLOVA_2013",
     "FEI_2007_EOS_RECORDS",

@@ -669,7 +669,7 @@ struct RawComponent {
     model_type: Option<String>,
     model: Option<String>,
     #[serde(default)]
-    parameters: HashMap<String, f64>,
+    parameters: HashMap<String, Option<f64>>,
     debye_temperature_law: Option<String>,
     thermal_expansion_law: Option<String>,
     reference_volume_law: Option<String>,
@@ -1313,6 +1313,7 @@ fn parameter(component: &RawComponent, name: &str) -> Result<f64, String> {
         .parameters
         .get(name)
         .copied()
+        .flatten()
         .ok_or_else(|| format!("model {:?} is missing parameter {name}", component.model))
 }
 
@@ -1440,6 +1441,16 @@ fn build_thermal(
     component: &RawComponent,
     reference: IsothermalModel,
 ) -> Result<ThermalModel, String> {
+    if let Some((name, _)) = component
+        .parameters
+        .iter()
+        .find(|(name, value)| value.is_none() && name.as_str() != "Tr")
+    {
+        return Err(format!(
+            "model {:?} parameter {name} must be a finite number",
+            component.model
+        ));
+    }
     let model = component_model_identifier(component, true)?;
     let p = |name| parameter(component, name);
     let built = match model {
@@ -1448,7 +1459,7 @@ fn build_thermal(
             let IsothermalModel::Vinet(reference) = reference else {
                 return Err("double_debye_helmholtz requires a Vinet reference EOS".to_owned());
             };
-            DoubleDebyeHelmholtz::new(
+            let mut model = DoubleDebyeHelmholtz::new(
                 reference,
                 p("Vp")?,
                 p("theta_a0")?,
@@ -1466,7 +1477,13 @@ fn build_thermal(
                 p("kappa")?,
                 p("phi0")?,
             )
-            .map(ThermalModel::DoubleDebyeHelmholtz)
+            .map_err(|error| error.to_string())?;
+            if let Some(tr) = component.parameters.get("Tr").copied().flatten() {
+                model = model
+                    .with_reference_temperature(tr)
+                    .map_err(|error| error.to_string())?;
+            }
+            Ok(ThermalModel::DoubleDebyeHelmholtz(model))
         }
         "double_debye_log_moment_helmholtz" => {
             check_type(component, "DoubleDebyeLogMomentHelmholtz")?;
@@ -1475,7 +1492,7 @@ fn build_thermal(
                     "double_debye_log_moment_helmholtz requires a Vinet reference EOS".to_owned(),
                 );
             };
-            DoubleDebyeLogMomentHelmholtz::new(
+            let mut model = DoubleDebyeLogMomentHelmholtz::new(
                 reference,
                 p("Vp")?,
                 p("theta_a0")?,
@@ -1491,7 +1508,13 @@ fn build_thermal(
                 p("anharmonic_a")?,
                 p("phi0")?,
             )
-            .map(ThermalModel::DoubleDebyeLogMomentHelmholtz)
+            .map_err(|error| error.to_string())?;
+            if let Some(tr) = component.parameters.get("Tr").copied().flatten() {
+                model = model
+                    .with_reference_temperature(tr)
+                    .map_err(|error| error.to_string())?;
+            }
+            Ok(ThermalModel::DoubleDebyeLogMomentHelmholtz(model))
         }
         "linear_thermal_pressure" => {
             check_type(component, "LinearThermalPressure")?;
@@ -1523,7 +1546,12 @@ fn build_thermal(
                 p("Tr")?,
                 p("alpha0")?,
                 p("dK_dT")?,
-                component.parameters.get("alpha1").copied().unwrap_or(0.0),
+                component
+                    .parameters
+                    .get("alpha1")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(0.0),
                 expansion_law,
                 volume_law,
             )
@@ -1596,13 +1624,48 @@ fn build_thermal(
                 m: p("m")?,
                 g: p("g")?,
                 e_0: p("e_0")?,
-                beta: component.parameters.get("beta").copied().unwrap_or(0.0),
-                qbo: component.parameters.get("QBo").copied().unwrap_or(1.0),
-                d: component.parameters.get("d").copied().unwrap_or(1.0),
-                mb: component.parameters.get("mb").copied().unwrap_or(0.0),
-                qb1o: component.parameters.get("QB1o").copied().unwrap_or(1.0),
-                d1: component.parameters.get("d1").copied().unwrap_or(1.0),
-                mb1: component.parameters.get("mb1").copied().unwrap_or(0.0),
+                beta: component
+                    .parameters
+                    .get("beta")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(0.0),
+                qbo: component
+                    .parameters
+                    .get("QBo")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(1.0),
+                d: component
+                    .parameters
+                    .get("d")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(1.0),
+                mb: component
+                    .parameters
+                    .get("mb")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(0.0),
+                qb1o: component
+                    .parameters
+                    .get("QB1o")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(1.0),
+                d1: component
+                    .parameters
+                    .get("d1")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(1.0),
+                mb1: component
+                    .parameters
+                    .get("mb1")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(0.0),
             };
             MultiOscillatorGruneisen::new_with_atom_count(reference, parameters, p("n")?)
                 .map(ThermalModel::MultiOscillatorGruneisen)

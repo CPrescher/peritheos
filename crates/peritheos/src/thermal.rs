@@ -932,15 +932,15 @@ struct DoubleDebyeModeTerms {
     weight_a_prime: f64,
 }
 
-/// Vinet cold curve plus an absolute double-Debye Helmholtz contribution.
+/// Vinet curve plus a double-Debye Helmholtz contribution.
 ///
-/// The Vinet member is a motionless-ion 0 K cold curve. Unlike the other
-/// thermal models, [`Self::thermal_pressure`] is therefore an absolute
-/// non-cold contribution that includes zero-point pressure rather than a
-/// difference from the reference temperature.
+/// When `tr` is `None`, the Vinet member is a motionless-ion 0 K cold curve
+/// and [`Self::thermal_pressure`] is an absolute contribution including
+/// zero-point pressure. When `tr` is present, the Vinet member is a complete
+/// reference isotherm and the non-cold contribution is rebased to zero at it.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DoubleDebyeHelmholtz {
-    /// Motionless-ion Vinet cold curve.
+    /// Vinet cold curve, or complete reference isotherm when `tr` is present.
     pub rt_eos: Vinet,
     /// Characteristic reference volume in J bar^-1 mol^-1.
     pub vp: f64,
@@ -972,6 +972,8 @@ pub struct DoubleDebyeHelmholtz {
     pub kappa: f64,
     /// Cold energy at the Vinet reference volume in J mol^-1.
     pub phi0: f64,
+    /// Optional complete-reference-isotherm temperature in kelvin.
+    pub tr: Option<f64>,
 }
 
 impl DoubleDebyeHelmholtz {
@@ -1026,7 +1028,22 @@ impl DoubleDebyeHelmholtz {
             ve: positive_parameter(ve, "Ve")?,
             kappa: finite_parameter(kappa, "kappa")?,
             phi0: finite_parameter(phi0, "phi0")?,
+            tr: None,
         })
+    }
+
+    /// Rebase the non-cold contribution onto the supplied Vinet isotherm.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error unless `tr` is positive and finite.
+    pub fn with_reference_temperature(mut self, tr: f64) -> EosResult<Self> {
+        self.tr = Some(positive_parameter(tr, "Tr")?);
+        Ok(self)
+    }
+
+    fn increment_reference_temperature(&self) -> f64 {
+        self.tr.unwrap_or(Self::REFERENCE_TEMPERATURE)
     }
 
     fn nonnegative_temperature(temperature: f64) -> EosResult<f64> {
@@ -1226,11 +1243,13 @@ impl DoubleDebyeHelmholtz {
     ///
     /// Returns an error for an invalid state or failed model evaluation.
     pub fn helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
-        finite_result(
-            self.cold_energy(volume)?
-                + self.ion_helmholtz_free_energy(volume, temperature)?
-                + self.anharmonic_helmholtz_free_energy(volume, temperature)?,
-        )
+        let mut non_cold = self.ion_helmholtz_free_energy(volume, temperature)?
+            + self.anharmonic_helmholtz_free_energy(volume, temperature)?;
+        if let Some(tr) = self.tr {
+            non_cold -= self.ion_helmholtz_free_energy(volume, tr)?
+                + self.anharmonic_helmholtz_free_energy(volume, tr)?;
+        }
+        finite_result(self.cold_energy(volume)? + non_cold)
     }
 
     /// Return ionic pressure, including zero-point pressure, in `GPa`.
@@ -1283,20 +1302,25 @@ impl ThermalEos for DoubleDebyeHelmholtz {
     }
 
     fn reference_temperature(&self) -> f64 {
-        Self::REFERENCE_TEMPERATURE
+        self.increment_reference_temperature()
     }
 
     fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
-        finite_result(
-            self.ion_pressure(volume, temperature)?
-                + self.anharmonic_pressure(volume, temperature)?,
-        )
+        let mut pressure = self.ion_pressure(volume, temperature)?
+            + self.anharmonic_pressure(volume, temperature)?;
+        if let Some(tr) = self.tr {
+            pressure -= self.ion_pressure(volume, tr)? + self.anharmonic_pressure(volume, tr)?;
+        }
+        finite_result(pressure)
     }
 
     fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        if self.tr.is_some() {
+            return self.thermal_pressure(volume, temperature);
+        }
+        let reference_temperature = self.increment_reference_temperature();
         finite_result(
-            self.pressure(volume, temperature)?
-                - self.pressure(volume, Self::REFERENCE_TEMPERATURE)?,
+            self.pressure(volume, temperature)? - self.pressure(volume, reference_temperature)?,
         )
     }
 
@@ -1308,11 +1332,7 @@ impl ThermalEos for DoubleDebyeHelmholtz {
                 reason: "must lie in [0, 1)",
             });
         }
-        finite_result(
-            f_dac
-                * (self.pressure(volume, temperature)?
-                    - self.pressure(volume, Self::REFERENCE_TEMPERATURE)?),
-        )
+        finite_result(f_dac * self.thermal_pressure_increment(volume, temperature)?)
     }
 
     fn temperature_from_volumes(
@@ -1330,7 +1350,7 @@ impl ThermalEos for DoubleDebyeHelmholtz {
                 reason: "must lie in [0, 1)",
             });
         }
-        let reference_temperature = Self::REFERENCE_TEMPERATURE;
+        let reference_temperature = self.increment_reference_temperature();
         let heated_reference_pressure = self.pressure(heated_volume, reference_temperature)?;
         let target = (self.pressure(ambient_volume, reference_temperature)?
             - heated_reference_pressure)
@@ -1377,7 +1397,7 @@ impl CaloricEos for DoubleDebyeHelmholtz {
 /// free energy and heat capacity but not pressure.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct DoubleDebyeLogMomentHelmholtz {
-    /// Motionless-ion Vinet cold curve.
+    /// Vinet cold curve, or complete reference isotherm when `tr` is present.
     pub rt_eos: Vinet,
     /// Characteristic reference volume in J bar^-1 mol^-1.
     pub vp: f64,
@@ -1405,6 +1425,8 @@ pub struct DoubleDebyeLogMomentHelmholtz {
     pub anharmonic_a: f64,
     /// Cold energy at the Vinet reference volume in J mol^-1.
     pub phi0: f64,
+    /// Optional complete-reference-isotherm temperature in kelvin.
+    pub tr: Option<f64>,
 }
 
 impl DoubleDebyeLogMomentHelmholtz {
@@ -1455,7 +1477,22 @@ impl DoubleDebyeLogMomentHelmholtz {
             n: positive_parameter(n, "n")?,
             anharmonic_a,
             phi0: finite_parameter(phi0, "phi0")?,
+            tr: None,
         })
+    }
+
+    /// Rebase the non-cold contribution onto the supplied Vinet isotherm.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error unless `tr` is positive and finite.
+    pub fn with_reference_temperature(mut self, tr: f64) -> EosResult<Self> {
+        self.tr = Some(positive_parameter(tr, "Tr")?);
+        Ok(self)
+    }
+
+    fn increment_reference_temperature(&self) -> f64 {
+        self.tr.unwrap_or(Self::REFERENCE_TEMPERATURE)
     }
 
     fn temperature_law(&self, volume: f64, theta0: f64, a: f64, b: f64) -> EosResult<(f64, f64)> {
@@ -1616,11 +1653,13 @@ impl DoubleDebyeLogMomentHelmholtz {
     ///
     /// Returns an error for an invalid state or failed model evaluation.
     pub fn helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
-        finite_result(
-            self.cold_energy(volume)?
-                + self.ion_helmholtz_free_energy(volume, temperature)?
-                + self.anharmonic_helmholtz_free_energy(volume, temperature)?,
-        )
+        let mut non_cold = self.ion_helmholtz_free_energy(volume, temperature)?
+            + self.anharmonic_helmholtz_free_energy(volume, temperature)?;
+        if let Some(tr) = self.tr {
+            non_cold -= self.ion_helmholtz_free_energy(volume, tr)?
+                + self.anharmonic_helmholtz_free_energy(volume, tr)?;
+        }
+        finite_result(self.cold_energy(volume)? + non_cold)
     }
 
     /// Return ionic pressure, including zero-point pressure, in `GPa`.
@@ -1656,20 +1695,25 @@ impl ThermalEos for DoubleDebyeLogMomentHelmholtz {
     }
 
     fn reference_temperature(&self) -> f64 {
-        Self::REFERENCE_TEMPERATURE
+        self.increment_reference_temperature()
     }
 
     fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
-        finite_result(
-            self.ion_pressure(volume, temperature)?
-                + self.anharmonic_pressure(volume, temperature)?,
-        )
+        let mut pressure = self.ion_pressure(volume, temperature)?
+            + self.anharmonic_pressure(volume, temperature)?;
+        if let Some(tr) = self.tr {
+            pressure -= self.ion_pressure(volume, tr)? + self.anharmonic_pressure(volume, tr)?;
+        }
+        finite_result(pressure)
     }
 
     fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        if self.tr.is_some() {
+            return self.thermal_pressure(volume, temperature);
+        }
+        let reference_temperature = self.increment_reference_temperature();
         finite_result(
-            self.pressure(volume, temperature)?
-                - self.pressure(volume, Self::REFERENCE_TEMPERATURE)?,
+            self.pressure(volume, temperature)? - self.pressure(volume, reference_temperature)?,
         )
     }
 
@@ -1681,11 +1725,7 @@ impl ThermalEos for DoubleDebyeLogMomentHelmholtz {
                 reason: "must lie in [0, 1)",
             });
         }
-        finite_result(
-            f_dac
-                * (self.pressure(volume, temperature)?
-                    - self.pressure(volume, Self::REFERENCE_TEMPERATURE)?),
-        )
+        finite_result(f_dac * self.thermal_pressure_increment(volume, temperature)?)
     }
 
     fn temperature_from_volumes(
@@ -1703,7 +1743,7 @@ impl ThermalEos for DoubleDebyeLogMomentHelmholtz {
                 reason: "must lie in [0, 1)",
             });
         }
-        let reference_temperature = Self::REFERENCE_TEMPERATURE;
+        let reference_temperature = self.increment_reference_temperature();
         let heated_reference_pressure = self.pressure(heated_volume, reference_temperature)?;
         let target = (self.pressure(ambient_volume, reference_temperature)?
             - heated_reference_pressure)

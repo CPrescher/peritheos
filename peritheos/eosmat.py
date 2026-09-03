@@ -318,7 +318,19 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 thermal.get("parameters"), f"{location}.thermal.parameters"
             )
             for name, value in thermal_parameters.items():
-                _finite_number(value, f"{location}.thermal.parameters.{name}")
+                parameter_location = f"{location}.thermal.parameters.{name}"
+                if (
+                    name == "Tr"
+                    and value is None
+                    and thermal_type
+                    in {"DoubleDebyeHelmholtz", "DoubleDebyeLogMomentHelmholtz"}
+                ):
+                    continue
+                _finite_number(
+                    value,
+                    parameter_location,
+                    positive=name == "Tr",
+                )
             if thermal_expansion_law == "linear_temperature" and (
                 "alpha1" not in thermal_parameters
             ):

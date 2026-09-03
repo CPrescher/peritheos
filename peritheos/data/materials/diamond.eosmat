@@ -418,7 +418,8 @@
      "b_0": 0.202,
      "n": 1.0,
      "anharmonic_a": 3.8e-05,
-     "phi0": -14960919.113708327
+     "phi0": -14960919.113708327,
+     "Tr": null
     },
     "parameter_errors": {
      "Vp": null,
@@ -433,7 +434,8 @@
      "b_0": null,
      "n": null,
      "anharmonic_a": null,
-     "phi0": null
+     "phi0": null,
+     "Tr": null
     },
     "fixed_parameters": []
    },
@@ -548,7 +550,8 @@
      "alpha0": 3.79e-05,
      "Ve": 0.348380842966,
      "kappa": 0.0,
-     "phi0": -874736.0210299286
+     "phi0": -874736.0210299286,
+     "Tr": null
     },
     "parameter_errors": {
      "Vp": null,
@@ -565,7 +568,8 @@
      "alpha0": null,
      "Ve": null,
      "kappa": null,
-     "phi0": null
+     "phi0": null,
+     "Tr": null
     },
     "fixed_parameters": []
    },
@@ -612,6 +616,306 @@
      ],
      "finding": "The record implements the complete diamond Helmholtz branch, including the motionless-ion Vinet cold curve, volume-dependent double-Debye weights and zero-point energy, and the T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
      "doi": "10.1103/physrevb.89.224109"
+    }
+   }
+  },
+  {
+   "label": "Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)",
+   "reference": {
+    "authors": [
+     "A. Dewaele",
+     "F. Datchi",
+     "P. Loubeyre",
+     "M. Mezouar"
+    ],
+    "year": 2008,
+    "title": "High pressure-high temperature equations of state of neon and diamond",
+    "source": "Phys. Rev. B",
+    "volume": "77",
+    "locator": "094106",
+    "details": "Dewaele Table III reference isotherm combined with Correa equations 2-7 and 13-18",
+    "doi": "10.1103/PhysRevB.77.094106",
+    "locations": [
+     "Dewaele Table III",
+     "Correa equations 2-7 and 13-18 and Table I"
+    ]
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 45.3544,
+     "K0": 444.5,
+     "K0_prime": 4.18
+    }
+   },
+   "parameter_errors": {
+    "V0": 4.916033273469388e-05,
+    "K0_prime": 0.07653061224489796
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "temperature_ref": 298.0,
+   "volume": {
+    "reference_value": 45.3544,
+    "public_to_model_scale": 0.00752767595,
+    "model_unit": "J bar^-1 mol^-1"
+   },
+   "thermal": {
+    "type": "DoubleDebyeLogMomentHelmholtz",
+    "model": "double_debye_log_moment_helmholtz",
+    "parameters": {
+     "Vp": 0.3354934617396,
+     "theta_a0": 1887.8,
+     "a_a": -5.247303452269356,
+     "b_a": 0.913,
+     "theta_b0": 1887.8,
+     "a_b": 2.7897056328520624,
+     "b_b": 0.429,
+     "theta_0_0": 1887.8,
+     "a_0": 2.175306177997739,
+     "b_0": 0.202,
+     "n": 1.0,
+     "anharmonic_a": 3.8e-05,
+     "phi0": 0.0,
+     "Tr": 298.0
+    },
+    "parameter_errors": {
+     "Vp": null,
+     "theta_a0": null,
+     "a_a": null,
+     "b_a": null,
+     "theta_b0": null,
+     "a_b": null,
+     "b_b": null,
+     "theta_0_0": null,
+     "a_0": null,
+     "b_0": null,
+     "n": null,
+     "anharmonic_a": null,
+     "phi0": null,
+     "Tr": null
+    },
+    "fixed_parameters": []
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     1075.0
+    ],
+    "temperature_k": [
+     1.0,
+     10000.0
+    ],
+    "volume_ratio": [
+     0.4092215970225601,
+     1.0204081632653061
+    ],
+    "notes": [
+     "The Dewaele 298 K reference isotherm was measured to 80 GPa; its Vinet representation remains evaluable beyond that calibration coverage.",
+     "The Correa thermal contribution uses the simulation range recorded by the unanchored source record."
+    ]
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Dewaele et al. (2008), Table III; 5.6693(16) A^3/atom",
+     "K0": "Dewaele et al. (2008), Table III; 444.5 GPa",
+     "K0_prime": "Dewaele et al. (2008), Table III; 4.18(15)"
+    },
+    "thermal_correction": {
+     "Vp": "Correa et al. (2008), Table I; 5.571 A^3/atom",
+     "theta_a0": "Correa et al. (2008), Table I; 1887.8 K",
+     "a_a": "Correa et al. (2008), Table I; beta_A=-0.316 A^-3",
+     "b_a": "Correa et al. (2008), Table I; alpha_A=0.913",
+     "theta_b0": "Correa et al. (2008), Table I; 1887.8 K",
+     "a_b": "Correa et al. (2008), Table I; beta_B=0.168 A^-3",
+     "b_b": "Correa et al. (2008), Table I; alpha_B=0.429",
+     "theta_0_0": "Correa et al. (2008), Table I; 1887.8 K",
+     "a_0": "Correa et al. (2008), Table I; beta_0=0.131 A^-3",
+     "b_0": "Correa et al. (2008), Table I; alpha_0=0.202",
+     "n": "one atom per elemental-carbon formula unit",
+     "anharmonic_a": "Correa et al. (2008), equation 18 and Table I; 3.8e-5 K^-1/atom",
+     "phi0": "Arbitrary zero for the integrated experimental reference isotherm",
+     "Tr": "Dewaele et al. (2008), Table III; 298 K reference isotherm"
+    },
+    "additional": {}
+   },
+   "notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Correa(V,T)-P_Correa(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
+   "identifier": "diamond_correa_2008_dewaele_anchored",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+     "locations": [
+      "Dewaele et al. (2008), Table III",
+      "Correa et al. (2008), equations 2-7 and 13-18 and Table I"
+     ],
+     "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy.",
+     "doi": "10.1103/physrevb.77.094106"
+    }
+   }
+  },
+  {
+   "label": "Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)",
+   "reference": {
+    "authors": [
+     "A. Dewaele",
+     "F. Datchi",
+     "P. Loubeyre",
+     "M. Mezouar"
+    ],
+    "year": 2008,
+    "title": "High pressure-high temperature equations of state of neon and diamond",
+    "source": "Phys. Rev. B",
+    "volume": "77",
+    "locator": "094106",
+    "details": "Dewaele Table III reference isotherm combined with Benedict equations 3-7",
+    "doi": "10.1103/PhysRevB.77.094106",
+    "locations": [
+     "Dewaele Table III",
+     "Benedict equations 3-7 and Table I"
+    ]
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 45.3544,
+     "K0": 444.5,
+     "K0_prime": 4.18
+    }
+   },
+   "parameter_errors": {
+    "V0": 4.916033273469388e-05,
+    "K0_prime": 0.07653061224489796
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "temperature_ref": 298.0,
+   "volume": {
+    "reference_value": 45.3544,
+    "public_to_model_scale": 0.00752767595,
+    "model_unit": "J bar^-1 mol^-1"
+   },
+   "thermal": {
+    "type": "DoubleDebyeHelmholtz",
+    "model": "double_debye_helmholtz",
+    "parameters": {
+     "Vp": 0.3354934617396,
+     "theta_a0": 1887.8,
+     "a_a": -5.247303452269356,
+     "b_a": 0.913,
+     "theta_b0": 1887.8,
+     "a_b": 2.7897056328520624,
+     "b_b": 0.429,
+     "theta_1_0": 1887.8,
+     "a_1": 1.4048160508290741,
+     "b_1": 0.499,
+     "n": 1.0,
+     "alpha0": 3.79e-05,
+     "Ve": 0.348380842966,
+     "kappa": 0.0,
+     "phi0": 0.0,
+     "Tr": 298.0
+    },
+    "parameter_errors": {
+     "Vp": null,
+     "theta_a0": null,
+     "a_a": null,
+     "b_a": null,
+     "theta_b0": null,
+     "a_b": null,
+     "b_b": null,
+     "theta_1_0": null,
+     "a_1": null,
+     "b_1": null,
+     "n": null,
+     "alpha0": null,
+     "Ve": null,
+     "kappa": null,
+     "phi0": null,
+     "Tr": null
+    },
+    "fixed_parameters": []
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     1000.0
+    ],
+    "temperature_k": [
+     298.0,
+     9000.0
+    ],
+    "volume_ratio": [
+     0.44097154851568976,
+     1.2347203358439314
+    ],
+    "notes": [
+     "The Dewaele 298 K reference isotherm was measured to 80 GPa; its Vinet representation remains evaluable beyond that calibration coverage.",
+     "The Benedict thermal contribution uses the simulation range recorded by the unanchored source record."
+    ]
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Dewaele et al. (2008), Table III; 5.6693(16) A^3/atom",
+     "K0": "Dewaele et al. (2008), Table III; 444.5 GPa",
+     "K0_prime": "Dewaele et al. (2008), Table III; 4.18(15)"
+    },
+    "thermal_correction": {
+     "Vp": "Benedict et al. (2014), Table I; 5.571 A^3/atom",
+     "theta_a0": "Benedict et al. (2014), Table I; 1887.8 K",
+     "a_a": "Benedict et al. (2014), Table I; -0.316 A^-3",
+     "b_a": "Benedict et al. (2014), Table I; 0.913",
+     "theta_b0": "Benedict et al. (2014), Table I; 1887.8 K",
+     "a_b": "Benedict et al. (2014), Table I; 0.168 A^-3",
+     "b_b": "Benedict et al. (2014), Table I; 0.429",
+     "theta_1_0": "Benedict et al. (2014), Table I; 1887.8 K",
+     "a_1": "Benedict et al. (2014), Table I; 0.0846 A^-3",
+     "b_1": "Benedict et al. (2014), Table I; 0.499",
+     "n": "one atom per elemental-carbon formula unit",
+     "alpha0": "Benedict et al. (2014), Table I; 3.79e-5 K^-1",
+     "Ve": "Benedict et al. (2014), Table I; 5.785 A^3/atom",
+     "kappa": "Benedict et al. (2014), Table I; 0.0",
+     "phi0": "Arbitrary zero for the integrated experimental reference isotherm",
+     "Tr": "Dewaele et al. (2008), Table III; 298 K reference isotherm"
+    },
+    "additional": {}
+   },
+   "notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Benedict(V,T)-P_Benedict(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
+   "identifier": "diamond_benedict_2014_dewaele_anchored",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",
+    "audit_date": "2026-09-03",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
+     "locations": [
+      "Dewaele et al. (2008), Table III",
+      "Benedict et al. (2014), equations 3-7 and Table I"
+     ],
+     "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy.",
+     "doi": "10.1103/physrevb.77.094106"
     }
    }
   }

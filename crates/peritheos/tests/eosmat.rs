@@ -107,6 +107,43 @@ fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
         .is_err());
 }
 
+#[test]
+fn double_debye_eosmat_reference_temperature_anchors_the_dewaele_isotherm() {
+    let material = load_eosmat(materials_directory().join("diamond.eosmat")).unwrap();
+    let reference = material.record("diamond_dewaele_2008_vinet_2").unwrap();
+    let cases = [
+        (
+            "diamond_benedict_2014_double_debye_4",
+            "diamond_benedict_2014_dewaele_anchored",
+        ),
+        (
+            "diamond_correa_2008_double_debye_log_moment_5",
+            "diamond_correa_2008_dewaele_anchored",
+        ),
+    ];
+    let volume = 40.0;
+    let temperature = 3000.0;
+
+    for (absolute_identifier, anchored_identifier) in cases {
+        let absolute = material.record(absolute_identifier).unwrap();
+        let anchored = material.record(anchored_identifier).unwrap();
+        let reference_pressure = reference.pressure(volume, 298.0).unwrap();
+        let expected = reference_pressure + absolute.pressure(volume, temperature).unwrap()
+            - absolute.pressure(volume, 298.0).unwrap();
+
+        assert_close(
+            anchored.pressure(volume, 298.0).unwrap(),
+            reference_pressure,
+            1.0e-12,
+        );
+        assert_close(
+            anchored.pressure(volume, temperature).unwrap(),
+            expected,
+            1.0e-12,
+        );
+    }
+}
+
 fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
     assert!(
         (actual - expected).abs() <= relative_tolerance * expected.abs().max(1.0),
@@ -391,8 +428,11 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                         material.identifier, record.identifier
                     )
                 });
-            match record.eos.thermal_model_identifier() {
-                Some("double_debye_helmholtz") => {
+            match (
+                record.identifier.as_str(),
+                record.eos.thermal_model_identifier(),
+            ) {
+                ("diamond_benedict_2014_double_debye_4", Some("double_debye_helmholtz")) => {
                     assert!(pressure.is_finite());
                     assert!(pressure > 0.0);
                     let pressure = record
@@ -400,13 +440,23 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                         .unwrap();
                     assert!((pressure - 150.0).abs() < 1.0e-7);
                 }
-                Some("double_debye_log_moment_helmholtz") => {
+                (
+                    "diamond_correa_2008_double_debye_log_moment_5",
+                    Some("double_debye_log_moment_helmholtz"),
+                ) => {
                     assert!(pressure.is_finite());
                     assert!(pressure > 0.0);
                     let pressure = record.pressure(8.0 * 4.43, 5000.0).unwrap();
                     assert!((pressure - 202.628_115_197_741_86).abs() < 1.0e-7);
                 }
-                _ => {
+                (
+                    "diamond_benedict_2014_dewaele_anchored"
+                    | "diamond_correa_2008_dewaele_anchored",
+                    _,
+                ) => {
+                    assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
+                }
+                (_, _) => {
                     assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
                 }
             }
@@ -414,6 +464,6 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
     }
 
     assert_eq!(paths.len(), 115);
-    assert_eq!(records, 148);
-    assert_eq!(thermal_records, 29);
+    assert_eq!(records, 150);
+    assert_eq!(thermal_records, 31);
 }

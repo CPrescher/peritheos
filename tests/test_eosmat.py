@@ -88,7 +88,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 115
     assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 148
+    assert sum(len(document["eos_records"]) for document in documents) == 150
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -114,14 +114,26 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 148
+    assert len({record["identifier"] for record in records}) == 150
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 148
-    assert all(
-        record["scientific_validation"]["audit_date"] == "2026-09-01"
+    assert statuses.count("primary_source_validated") == 150
+    audit_dates = {
+        record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
-    )
+    }
+    anchored_identifiers = {
+        "diamond_benedict_2014_dewaele_anchored",
+        "diamond_correa_2008_dewaele_anchored",
+    }
+    assert {audit_dates[identifier] for identifier in anchored_identifiers} == {
+        "2026-09-03"
+    }
+    assert {
+        date
+        for identifier, date in audit_dates.items()
+        if identifier not in anchored_identifiers
+    } == {"2026-09-01"}
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
     )
@@ -143,7 +155,9 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert {record["identifier"] for record in native_records} == {
         "aragonite_martinez_1996_bm2_2",
         "diamond_benedict_2014_double_debye_4",
+        "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_double_debye_log_moment_5",
+        "diamond_correa_2008_dewaele_anchored",
         "kcl_b2_dewaele_2012_vinet_3",
     }
     assert {
@@ -173,9 +187,10 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 148,
-        "primary_source_validated": 148,
+        "records": 150,
+        "primary_source_validated": 150,
     }
+    assert report["audit_date"] == "2026-09-03"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
 
@@ -196,7 +211,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 148
+    assert checked == 150
     assert failures == []
 
 
@@ -235,6 +250,57 @@ def test_correa_diamond_eosmat_record_loads_and_reproduces_library_regression():
     )
     assert record.volume(202.62811519774186, 5000.0) == pytest.approx(
         8.0 * 4.43, rel=1.0e-11
+    )
+
+
+@pytest.mark.parametrize(
+    ("absolute_identifier", "anchored_identifier"),
+    [
+        (
+            "diamond_benedict_2014_double_debye_4",
+            "diamond_benedict_2014_dewaele_anchored",
+        ),
+        (
+            "diamond_correa_2008_double_debye_log_moment_5",
+            "diamond_correa_2008_dewaele_anchored",
+        ),
+    ],
+)
+def test_diamond_eosmat_reference_temperature_controls_isotherm_anchoring(
+    absolute_identifier, anchored_identifier
+):
+    document = get_material_document("diamond")
+    material = Material.from_eosmat(
+        document,
+        record_identifiers=[
+            "diamond_dewaele_2008_vinet_2",
+            absolute_identifier,
+            anchored_identifier,
+        ],
+    )
+    source_by_identifier = {
+        record["identifier"]: record for record in document["eos_records"]
+    }
+    reference = material.get_eos_record("diamond_dewaele_2008_vinet_2")
+    absolute = material.get_eos_record(absolute_identifier)
+    anchored = material.get_eos_record(anchored_identifier)
+    volume = 40.0
+    temperature = 3000.0
+
+    assert (
+        source_by_identifier[absolute_identifier]["thermal"]["parameters"]["Tr"] is None
+    )
+    assert (
+        source_by_identifier[anchored_identifier]["thermal"]["parameters"]["Tr"]
+        == 298.0
+    )
+    assert anchored.pressure(volume, 298.0) == pytest.approx(
+        reference.pressure(volume, 298.0)
+    )
+    assert anchored.pressure(volume, temperature) == pytest.approx(
+        reference.pressure(volume, 298.0)
+        + absolute.pressure(volume, temperature)
+        - absolute.pressure(volume, 298.0)
     )
 
 
@@ -1406,7 +1472,8 @@ def test_migration_manifest_and_dioptas_license_are_bundled():
     assert manifest["source"]["project"] == "Dioptas"
     assert manifest["source"]["version"] == "0.10.0"
     assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 148
+    assert manifest["eos_records"] == 150
+    assert manifest["scientific_validation"]["audit_date"] == "2026-09-03"
     assert "Copyright (c) 2021-2026 Clemens Prescher" in license_text
 
 

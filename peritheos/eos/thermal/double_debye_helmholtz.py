@@ -26,14 +26,16 @@ from .mie_gruneisen import _debye_function_3
 class DoubleDebyeHelmholtz(ThermalEOS):
     """Full Vinet/double-Debye Helmholtz equation of state.
 
-    This is a generic implementation of
+    With no reference temperature this implements
+    ``F(V,T) = E_cold(V) + F_ion(V,T) + F_anh(V,T)``.  With ``Tr`` supplied,
+    both non-cold terms are replaced by their differences from ``Tr``.
 
-    ``F(V,T) = E_cold(V) + F_ion(V,T) + F_anh(V,T)``.
-
-    ``rt_eos`` must be a :class:`~peritheos.eos.rt.Vinet` object.  Unlike the
-    reference-isotherm objects used by most :class:`ThermalEOS` subclasses, it
-    represents the classical, motionless-ion 0 K cold curve.  The ionic term
-    is unreferenced and includes zero-point energy and pressure.
+    ``rt_eos`` must be a :class:`~peritheos.eos.rt.Vinet` object.  With the
+    default ``Tr=None`` it represents the classical, motionless-ion 0 K cold
+    curve and the ionic term is absolute, including zero-point energy and
+    pressure.  Supplying ``Tr`` instead treats ``rt_eos`` as a complete
+    reference isotherm and subtracts the non-cold Helmholtz contribution at
+    ``Tr`` before composing the total EOS.
 
     The three characteristic temperatures (the two Debye cutoffs and their
     first phonon moment) independently follow
@@ -71,9 +73,9 @@ class DoubleDebyeHelmholtz(ThermalEOS):
     (3)--(7) and Table I. doi:10.1103/PhysRevB.89.224109
     """
 
-    # Used only to choose the nearest branch in the inherited numerical
-    # temperature inversion.  It is not a thermodynamic reference isotherm.
-    Tr = 300.0
+    # Absolute published models still need a conventional ambient isotherm for
+    # DAC increments and the nearest temperature-inversion branch.
+    DEFAULT_INCREMENT_REFERENCE_TEMPERATURE = 300.0
 
     def __init__(
         self,
@@ -93,9 +95,12 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         Ve: float = 1.0,
         kappa: float = 0.0,
         phi0: float = 0.0,
+        Tr: float | None = None,
     ) -> None:
         if not isinstance(rt_eos, Vinet):
-            raise ConfigurationError("rt_eos must be a Vinet cold curve")
+            raise ConfigurationError(
+                "rt_eos must be a Vinet cold curve or reference isotherm"
+            )
         super().__init__(rt_eos)
         self.Vp = validate_positive_scalar(Vp, "Vp")
         self.theta_a0 = validate_positive_scalar(theta_a0, "theta_a0")
@@ -114,6 +119,25 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         self.Ve = validate_positive_scalar(Ve, "Ve")
         self.kappa = validate_finite_scalar(kappa, "kappa")
         self.phi0 = validate_finite_scalar(phi0, "phi0")
+        self._reference_isotherm_temperature = (
+            None if Tr is None else validate_positive_scalar(Tr, "Tr")
+        )
+        self.Tr = (
+            self.DEFAULT_INCREMENT_REFERENCE_TEMPERATURE
+            if self._reference_isotherm_temperature is None
+            else self._reference_isotherm_temperature
+        )
+
+    def _own_parameter_names(self) -> tuple[str, ...]:
+        """Omit the optional reference temperature for absolute models."""
+        names = super()._own_parameter_names()
+        if self._reference_isotherm_temperature is None:
+            return tuple(name for name in names if name != "Tr")
+        return names
+
+    def _increment_reference_temperature(self) -> float:
+        """Return the isotherm used for reference-relative DAC operations."""
+        return self.Tr
 
     @staticmethod
     def _state(V: NumericType, T: NumericType) -> tuple[np.ndarray, np.ndarray]:
@@ -310,16 +334,21 @@ class DoubleDebyeHelmholtz(ThermalEOS):
     def helmholtz_free_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the complete Helmholtz free energy in J mol^-1."""
         volumes, temperatures = self._state(V, T)
-        result = (
-            np.asarray(self.cold_energy(volumes), dtype=float)
-            + np.asarray(
-                self.ion_helmholtz_free_energy(volumes, temperatures), dtype=float
-            )
-            + np.asarray(
-                self.anharmonic_helmholtz_free_energy(volumes, temperatures),
-                dtype=float,
-            )
+        ionic = np.asarray(
+            self.ion_helmholtz_free_energy(volumes, temperatures), dtype=float
         )
+        anharmonic = np.asarray(
+            self.anharmonic_helmholtz_free_energy(volumes, temperatures),
+            dtype=float,
+        )
+        if self._reference_isotherm_temperature is not None:
+            ionic -= np.asarray(
+                self.ion_helmholtz_free_energy(volumes, self.Tr), dtype=float
+            )
+            anharmonic -= np.asarray(
+                self.anharmonic_helmholtz_free_energy(volumes, self.Tr), dtype=float
+            )
+        result = np.asarray(self.cold_energy(volumes), dtype=float) + ionic + anharmonic
         return self._result(result)
 
     def ion_pressure(self, V: NumericType, T: NumericType) -> NumericType:
@@ -355,19 +384,26 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         return self._result(pressure_bar / 1.0e4)
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
-        """Return all non-cold pressure, including zero point, in GPa.
+        """Return the non-cold pressure contribution in GPa.
 
-        This is an absolute contribution, not a difference from ``Tr``.
+        This is absolute, including zero-point pressure, when ``Tr`` is
+        ``None``.  Otherwise it is relative to the complete ``Tr`` isotherm.
         """
         result = np.asarray(self.ion_pressure(V, T), dtype=float) + np.asarray(
             self.anharmonic_pressure(V, T), dtype=float
         )
+        if self._reference_isotherm_temperature is not None:
+            result -= np.asarray(self.ion_pressure(V, self.Tr), dtype=float)
+            result -= np.asarray(self.anharmonic_pressure(V, self.Tr), dtype=float)
         return self._result(result)
 
     def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
         """Return pressure gained above the complete ``Tr`` isotherm."""
+        if self._reference_isotherm_temperature is not None:
+            return self.thermal_pressure(V, T)
+        reference_temperature = self._increment_reference_temperature()
         increment = np.asarray(self.pressure(V, T), dtype=float) - np.asarray(
-            self.pressure(V, self.Tr), dtype=float
+            self.pressure(V, reference_temperature), dtype=float
         )
         return self._result(increment)
 
@@ -419,6 +455,7 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         ``[0, 1)``.  Only roots at or above ``Tr`` are accepted.
         """
         f_dac = self._validate_f_dac(f_dac)
+        reference_temperature = self._increment_reference_temperature()
         ambient_volumes = np.asarray(validate_volume(V_ambient), dtype=float)
         heated_volumes = np.asarray(validate_volume(V_heated), dtype=float)
         try:
@@ -431,10 +468,10 @@ class DoubleDebyeHelmholtz(ThermalEOS):
             ) from error
 
         ambient_reference_pressures = np.asarray(
-            self.pressure(ambient_volumes, self.Tr), dtype=float
+            self.pressure(ambient_volumes, reference_temperature), dtype=float
         )
         heated_reference_pressures = np.asarray(
-            self.pressure(heated_volumes, self.Tr), dtype=float
+            self.pressure(heated_volumes, reference_temperature), dtype=float
         )
         target_increments = (
             ambient_reference_pressures - heated_reference_pressures
@@ -450,18 +487,18 @@ class DoubleDebyeHelmholtz(ThermalEOS):
                 solve_temperature(
                     lambda temperature, volume=float(heated_volume): (
                         self.pressure(volume, temperature)
-                        - self.pressure(volume, self.Tr)
+                        - self.pressure(volume, reference_temperature)
                     ),
                     float(target_increment),
-                    self.Tr,
+                    reference_temperature,
                 )
                 for target_increment, heated_volume in zip(
                     target_increments.flat, heated_volumes.flat
                 )
             ]
         ).reshape(target_increments.shape)
-        temperature_tolerance = 1.0e-10 * max(1.0, self.Tr)
-        if np.any(temperatures < self.Tr - temperature_tolerance):
+        temperature_tolerance = 1.0e-10 * max(1.0, reference_temperature)
+        if np.any(temperatures < reference_temperature - temperature_tolerance):
             raise EosValidationError(
                 "The volume pair implies a temperature below the reference "
                 "temperature, not a heated state"
@@ -513,9 +550,12 @@ class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
         n: float = 1.0,
         anharmonic_a: float = 0.0,
         phi0: float = 0.0,
+        Tr: float | None = None,
     ) -> None:
         if not isinstance(rt_eos, Vinet):
-            raise ConfigurationError("rt_eos must be a Vinet cold curve")
+            raise ConfigurationError(
+                "rt_eos must be a Vinet cold curve or reference isotherm"
+            )
         ThermalEOS.__init__(self, rt_eos)
         self.Vp = validate_positive_scalar(Vp, "Vp")
         self.theta_a0 = validate_positive_scalar(theta_a0, "theta_a0")
@@ -532,6 +572,14 @@ class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
         if self.anharmonic_a < 0.0:
             raise EosValidationError("anharmonic_a must not be negative")
         self.phi0 = validate_finite_scalar(phi0, "phi0")
+        self._reference_isotherm_temperature = (
+            None if Tr is None else validate_positive_scalar(Tr, "Tr")
+        )
+        self.Tr = (
+            self.DEFAULT_INCREMENT_REFERENCE_TEMPERATURE
+            if self._reference_isotherm_temperature is None
+            else self._reference_isotherm_temperature
+        )
 
     def debye_temperatures(
         self, V: NumericType
