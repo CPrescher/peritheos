@@ -132,6 +132,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "ringwoodite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "ringwoodite_meng_1994_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, journal page 408"
+     ],
+     "finding": "All 32 gamma-Mg2SiO4 P-V-T observations printed in Table 1, including the 12-point 300 K isotherm used for the stored BM3 fit."
     }
    }
   }
@@ -142,5 +153,88 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "ringwoodite_meng_1994_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 32 gamma-Mg2SiO4 P-V-T observations printed in Table 1, including the 12-point 300 K isotherm used for the stored BM3 fit.",
+   "source_location": "Table 1, journal page 408",
+   "source_url": "https://doi.org/10.1007/BF00203299",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "observed_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "observed_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "observed_volume_sd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "observed_volume_a3"
+    },
+    {
+     "name": "calculated_pressure_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_residual_gpa",
+     "quantity": "pressure_residual",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "calculated_volume_a3",
+     "quantity": "calculated_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_residual_a3",
+     "quantity": "volume_residual",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ringwoodite-meng-1994-table1-pvt.csv",
+    "sha256": "9b16ac2c6220d571cac3b9bcbebbb27c58a5168e2f9d497608d65c6a27f5a322",
+    "media_type": "text/csv"
+   },
+   "notes": "The table's parenthesized volume uncertainties are separated as standard deviations. Calculated-pressure columns are blank for non-isothermal rows, as printed. The source states typical high-temperature pressure uncertainty of +/-0.2 GPa but does not tabulate row-wise pressure errors.",
+   "reference": {
+    "authors": [
+     "Meng",
+     "Fei",
+     "Weidner",
+     "Gwanmesia",
+     "Hu"
+    ],
+    "year": 1994,
+    "source": "Physics and Chemistry of Minerals",
+    "volume": "21",
+    "locator": "407-413",
+    "doi": "10.1007/BF00203299"
+   },
+   "used_by_eos_records": [
+    "ringwoodite_meng_1994_bm3_1"
+   ]
+  }
+ ]
 }

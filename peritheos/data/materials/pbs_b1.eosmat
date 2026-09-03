@@ -110,6 +110,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "pbs_b1.json"
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Figure 2; Table 1"
+     ],
+     "finding": "The experimental B1- and beta-PbS compression arrays are plotted in Figure 2 but not tabulated. Table 1 contains only fitted EOS parameters; Table 3 is a theoretical distortion analysis."
     }
    },
    "temperature_ref": 300.0,

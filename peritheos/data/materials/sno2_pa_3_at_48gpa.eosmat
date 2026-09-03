@@ -173,6 +173,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "sno2_pa_3_at_48gpa.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "sno2_ono_2000_table2_pvt"
+     ],
+     "source_locations": [
+      "Table 2, journal page 621"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    },
    "temperature_ref": 300.0,

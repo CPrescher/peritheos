@@ -103,6 +103,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "palladium.json"
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Figure 3; Table II"
+     ],
+     "finding": "The paper's own 300 K palladium P-V observations are plotted in Figure 3 but not tabulated. Table II contains calculated melting points rather than the EOS observations."
     }
    }
   }

@@ -132,6 +132,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "ice_vii.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "ice_vii_bezacier_2014_table1_pvt"
+     ],
+     "source_locations": [
+      "Table I, journal pages 104505-2 to 104505-4"
+     ],
+     "finding": "All 92 H2O ice-VII P-V-T observations printed in Table I, from 2.14 to 10.11 GPa and 300.5 to 451.2 K."
     }
    },
    "audit_corrections": [
@@ -241,6 +252,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "ice_vii.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "ice_vii_frank_2004_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, pages 2783-2784"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   }
@@ -352,6 +374,91 @@
    ],
    "notes": "The source describes the tabulated uncertainties as 2-sigma standard deviations from the mean. Gold lattice parameters used for the internal Anderson et al. (1989) pressure calibration are retained.",
    "source_url": "https://doi.org/10.1016/j.gca.2003.12.007"
+  },
+  {
+   "identifier": "ice_vii_bezacier_2014_table1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameters",
+   "description": "All 92 H2O ice-VII P-V-T observations printed in Table I, from 2.14 to 10.11 GPa and 300.5 to 451.2 K.",
+   "source_location": "Table I, journal pages 104505-2 to 104505-4",
+   "source_url": "https://doi.org/10.1063/1.4894421",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_a_angstrom"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ice-vii-bezacier-2014-table1-pvt.csv",
+    "sha256": "a03278032de32694cb9f8b813df8938add9a7e18b7bbd2a2781e3eefeba9272e",
+    "media_type": "text/csv"
+   },
+   "notes": "Pressure was determined from the temperature-calibrated ruby R1 shift. Parenthesized tabular errors are retained as generic published uncertainties because the article does not name their statistic; the common temperature error is explicitly +/-0.4 K.",
+   "reference": {
+    "authors": [
+     "Bezacier",
+     "Journaux",
+     "Perrillat",
+     "Cardon",
+     "Hanfland",
+     "Daniel"
+    ],
+    "year": 2014,
+    "source": "Journal of Chemical Physics",
+    "volume": "141",
+    "locator": "104505",
+    "doi": "10.1063/1.4894421"
+   },
+   "used_by_eos_records": [
+    "ice_vii_bezacier_2014_bm2_1"
+   ]
   }
  ]
 }

@@ -215,6 +215,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     )
             if column["role"] not in {
                 "value",
+                "uncertainty",
                 "standard_deviation",
                 "standard_error",
                 "bound",

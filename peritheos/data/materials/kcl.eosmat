@@ -167,6 +167,308 @@
    ],
    "notes": "The paper reports pressure uncertainty below 2% through 162 GPa and relative volume uncertainty below 0.001 under 50 GPa and below 0.005 above 50 GPa; row-wise values are not printed. The KCl value at 3.45 GPa is transcribed as 47.783 angstrom^3 rather than the text extractor's dropped leading 4.",
    "source_url": "https://doi.org/10.1103/PhysRevB.85.214105"
+  },
+  {
+   "identifier": "kcl_campbell_1991_table1_compression",
+   "kind": "pressure_normalized_volume",
+   "description": "All 14 B2-KCl compression observations printed in Table 1.",
+   "source_location": "Table 1, journal page 496",
+   "source_url": "https://doi.org/10.1016/0022-3697(91)90181-X",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "normalized_volume",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "normalized_volume_uncertainty",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "bound",
+     "of": "normalized_volume"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-campbell-1991-table1-compression.csv",
+    "sha256": "91671aa26aa19fb20450bf708f260a0e6040c56af1e37d7834f7bbec42a0830f",
+    "media_type": "text/csv"
+   },
+   "notes": "The source normalizes volumes to the B1-KCl molar volume V0=37.521 cm^3 mol^-1. Parenthesized uncertainties apply to the last printed digits; no confidence level is assigned.",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Heinz"
+    ],
+    "year": 1991,
+    "source": "J. Phys. Chem. Solids",
+    "volume": "52",
+    "locator": "495-499",
+    "doi": "10.1016/0022-3697(91)90181-X"
+   },
+   "used_by_eos_records": [
+    "kcl_campbell_1991_bm2_1"
+   ]
+  },
+  {
+   "identifier": "kcl_walker_2002_table2_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 39 B2-KCl P-V-T observations printed in Table 2 from 23 to 600 degC.",
+   "source_location": "Table 2, journal page 807",
+   "source_url": "https://doi.org/10.2138/am-2002-0701",
+   "columns": [
+    {
+     "name": "press_load_kn",
+     "quantity": "press_load",
+     "unit": "kN",
+     "role": "value"
+    },
+    {
+     "name": "temperature_celsius",
+     "quantity": "temperature",
+     "unit": "degC",
+     "role": "value"
+    },
+    {
+     "name": "nacl_file",
+     "quantity": "nacl_spectrum_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "nacl_lattice_a_angstrom",
+     "quantity": "nacl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_lattice_a_esd_angstrom",
+     "quantity": "nacl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "nacl_lattice_a_angstrom"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure_from_nacl",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_esd_kbar",
+     "quantity": "pressure_from_nacl",
+     "unit": "kbar",
+     "role": "standard_deviation",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "kcl_file",
+     "quantity": "kcl_spectrum_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "b2_kcl_cell_volume_a3",
+     "quantity": "b2_kcl_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "b2_kcl_cell_volume_esd_a3",
+     "quantity": "b2_kcl_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "b2_kcl_cell_volume_a3"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-walker-2002-table2-pvt.csv",
+    "sha256": "7859ec942ba26a966a18df6925a227a82c2436c4d5fd17a8c4a5dc754546eba6",
+    "media_type": "text/csv"
+   },
+   "notes": "The table's ESDs are retained as estimated standard deviations. The authors assign no additional pressure uncertainty for the NaCl EOS and no additional temperature error; stabilized thermocouple temperatures were normally within about 1 degC. Rows without B2-KCl observations are excluded.",
+   "reference": {
+    "authors": [
+     "Walker",
+     "Cranswick",
+     "Verma",
+     "Clark",
+     "Buhre"
+    ],
+    "year": 2002,
+    "source": "American Mineralogist",
+    "volume": "87",
+    "locator": "805-812",
+    "doi": "10.2138/am-2002-0701"
+   },
+   "used_by_eos_records": [
+    "kcl_walker_2002_bm3_2"
+   ]
+  },
+  {
+   "identifier": "kcl_tateno_2019_table1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameters",
+   "description": "All 39 simultaneous Pt and B2-KCl P-V-T observations printed in Table 1, spanning room temperature to 2560 K and pressures to 228.6 GPa.",
+   "source_location": "Table 1",
+   "source_url": "https://doi.org/10.2138/am-2019-6779",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_from_platinum",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure_from_platinum",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "platinum_lattice_a_angstrom",
+     "quantity": "platinum_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "platinum_lattice_a_uncertainty_angstrom",
+     "quantity": "platinum_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "platinum_lattice_a_angstrom"
+    },
+    {
+     "name": "platinum_unit_cell_volume_a3",
+     "quantity": "platinum_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "platinum_unit_cell_volume_uncertainty_a3",
+     "quantity": "platinum_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "platinum_unit_cell_volume_a3"
+    },
+    {
+     "name": "platinum_differential_stress_t_gpa",
+     "quantity": "platinum_differential_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "platinum_differential_stress_t_uncertainty_gpa",
+     "quantity": "platinum_differential_stress",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "platinum_differential_stress_t_gpa"
+    },
+    {
+     "name": "kcl_lattice_a_angstrom",
+     "quantity": "kcl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "kcl_lattice_a_uncertainty_angstrom",
+     "quantity": "kcl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "kcl_lattice_a_angstrom"
+    },
+    {
+     "name": "kcl_unit_cell_volume_a3",
+     "quantity": "kcl_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "kcl_unit_cell_volume_uncertainty_a3",
+     "quantity": "kcl_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "kcl_unit_cell_volume_a3"
+    },
+    {
+     "name": "kcl_st",
+     "quantity": "kcl_nonhydrostatic_stress_indicator",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "kcl_st_uncertainty",
+     "quantity": "kcl_nonhydrostatic_stress_indicator",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "kcl_st"
+    }
+   ],
+   "resource": {
+    "path": "datasets/kcl-tateno-2019-table1-pvt.csv",
+    "sha256": "7496a925b7a5838a60c00de9893e6ccc178d6ff92158a6bb207f9621cb2498b2",
+    "media_type": "text/csv"
+   },
+   "notes": "Pressure was calculated by the authors from the Pt volume using the Sokolova et al. (2016) Pt EOS. The published Pt differential stress t and KCl St diagnostic are retained. At high temperature, t was calculated using the Pt elastic-anisotropy factor at 300 K, as stated in the Table 1 footnote.",
+   "reference": {
+    "authors": [
+     "Tateno",
+     "Hirose",
+     "Ohishi"
+    ],
+    "year": 2019,
+    "source": "American Mineralogist",
+    "volume": "104",
+    "locator": "718-723",
+    "doi": "10.2138/am-2019-6779"
+   },
+   "used_by_eos_records": [
+    "kcl_b2_tateno_2019_vinet_4"
+   ]
   }
  ],
  "eos_records": [
@@ -241,6 +543,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "kcl.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "kcl_campbell_1991_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 496"
+     ],
+     "finding": "All 14 B2-KCl compression observations printed in Table 1."
     }
    },
    "temperature_ref": 298.0,
@@ -375,6 +688,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "kcl.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "kcl_walker_2002_table2_pvt"
+     ],
+     "source_locations": [
+      "Table 2, journal page 807"
+     ],
+     "finding": "All 39 B2-KCl P-V-T observations printed in Table 2 from 23 to 600 degC."
     }
    },
    "temperature_ref": 296.15,
@@ -583,6 +907,17 @@
      ],
      "finding": "The paper provides the complete B2-KCl P-V-T equation and parameters, explicitly recommends it for pressure calibration, and prints no fitted-parameter errors or covariance.",
      "doi": "10.1103/physrevb.85.214105"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "kcl_dewaele_2012_table1_compression"
+     ],
+     "source_locations": [
+      "Table I, page 214105-2"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -720,6 +1055,17 @@
      ],
      "finding": "The preferred Sokolova-Pt fit fixes V0=54.5 A^3 and theta0=235 K and reports K0=18.3(3) GPa, K0'=5.60(3), gamma0=0.58(5), and q=0.9(2).",
      "doi": "10.2138/am-2019-6779"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "kcl_tateno_2019_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1"
+     ],
+     "finding": "All 39 simultaneous Pt and B2-KCl P-V-T observations printed in Table 1, spanning room temperature to 2560 K and pressures to 228.6 GPa."
     }
    }
   },
@@ -868,6 +1214,17 @@
      ],
      "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K; the high-P-T pressures use Dorogokupets-Oganov Pt.",
      "doi": "10.1103/PhysRevB.104.094107"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "kcl_chidester_2021_supplemental_pvt"
+     ],
+     "source_locations": [
+      "Supplemental Table A1; author-deposited SuppTable_KCl.csv"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   }

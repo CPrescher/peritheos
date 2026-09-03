@@ -148,6 +148,14 @@
      ],
      "finding": "The stored record is the pressure-scale-free Fit3 Vinet-MGD parameterization.",
      "doi": "10.1029/2008jb005813"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Sections 2-3; optimized EOS parameter tables"
+     ],
+     "finding": "This is a unified least-squares analysis of previously published pressure-scale-free thermal, elastic, and shock datasets. It reports optimized MgO EOS parameters and residuals, but no new row-level experimental observations."
     }
    }
   },
@@ -225,6 +233,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "mgo.json"
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Figure 2; journal page 1372"
+     ],
+     "finding": "The MgO static-compression observations underlying this fit are plotted in Figure 2 but not supplied as a numerical table."
     }
    }
   },
@@ -319,6 +335,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "mgo.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "mgo_speziale_2001_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 517"
+     ],
+     "finding": "All 32 room-temperature MgO compression observations printed in Table 1, retaining the methanol-ethanol and helium pressure-medium series."
     }
    }
   },
@@ -414,6 +441,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "mgo.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "shen_smith_2026_table_s1_simultaneous_volumes"
+     ],
+     "source_locations": [
+      "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -550,6 +588,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "mgo.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Tables 1 and 4; Figures 3-11"
+     ],
+     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
     }
    },
    "source_lineage": [
@@ -686,6 +732,63 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "mgo_speziale_2001_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 32 room-temperature MgO compression observations printed in Table 1, retaining the methanol-ethanol and helium pressure-medium series.",
+   "source_location": "Table 1, journal page 517",
+   "source_url": "https://doi.org/10.1029/2000JB900318",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "pressure_medium",
+     "quantity": "pressure_transmitting_medium",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-speziale-2001-table1-compression.csv",
+    "sha256": "25153a29b4686283bbe894990e1eceac8a49f898025454bc823e8b3ea54bf4f6",
+    "media_type": "text/csv"
+   },
+   "notes": "Table 1 identifies parenthesized volume uncertainties as one standard deviation. Ruby pressure was measured before and after each diffraction collection; the paper states a common pressure precision of +/-0.1 GPa rather than printing row-wise pressure errors.",
+   "reference": {
+    "authors": [
+     "Speziale",
+     "Zha",
+     "Duffy",
+     "Hemley",
+     "Mao"
+    ],
+    "year": 2001,
+    "source": "J. Geophys. Res.",
+    "volume": "106",
+    "locator": "515-528",
+    "doi": "10.1029/2000JB900318"
+   },
+   "used_by_eos_records": [
+    "mgo_speziale_2001_bm3_2"
+   ]
   }
  ]
 }

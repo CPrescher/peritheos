@@ -144,7 +144,18 @@
       "text_and_table_7": "approximately 4.3 GPa",
       "resolution": "Retain 3.48 GPa because it is the fit-specific sigma K0,T printed in Table 6 alongside V0=227.5(8) A^3."
      }
-    ]
+    ],
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "aragonite_martinez_1996_table3_pvt"
+     ],
+     "source_locations": [
+      "Table 3, pages 616-617"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+    }
    },
    "thermal": {
     "type": "AlphaKT",

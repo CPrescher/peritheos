@@ -147,6 +147,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "fe2o3.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "hematite_schouwink_2011_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 1782"
+     ],
+     "finding": "All ten single-crystal hematite structural refinements printed in Table 1, including lattice parameters, cell volume, atomic coordinates, and refinement residual."
     }
    }
   }
@@ -157,5 +168,125 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "hematite_schouwink_2011_table1_compression",
+   "kind": "pressure_volume_structure",
+   "description": "All ten single-crystal hematite structural refinements printed in Table 1, including lattice parameters, cell volume, atomic coordinates, and refinement residual.",
+   "source_location": "Table 1, journal page 1782",
+   "source_url": "https://doi.org/10.2138/am.2011.3775",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "iron_fractional_z",
+     "quantity": "iron_fractional_z",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "iron_fractional_z_standard_deviation",
+     "quantity": "iron_fractional_z",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "iron_fractional_z"
+    },
+    {
+     "name": "oxygen_fractional_x",
+     "quantity": "oxygen_fractional_x",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "oxygen_fractional_x_standard_deviation",
+     "quantity": "oxygen_fractional_x",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "oxygen_fractional_x"
+    },
+    {
+     "name": "r1_percent",
+     "quantity": "r1_refinement_residual",
+     "unit": "%",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/hematite-schouwink-2011-table1-compression.csv",
+    "sha256": "84185d515282ca33c781b6cab5804a6eedaaf039502404ae21186f6b4f54fdc0",
+    "media_type": "text/csv"
+   },
+   "notes": "The near-ambient pressure is preserved as the printed 10^-5 GPa value. Pressure was measured by ruby fluorescence and cross-checked with solid neon; pressures were measured before and after each collection. Parenthesized structural-refinement uncertainties are retained as printed.",
+   "reference": {
+    "authors": [
+     "Schouwink",
+     "Dubrovinsky",
+     "Glazyrin",
+     "Merlini",
+     "Hanfland",
+     "Pippinger",
+     "Miletich"
+    ],
+    "year": 2011,
+    "source": "Am. Mineral.",
+    "volume": "96",
+    "locator": "1781-1786",
+    "doi": "10.2138/am.2011.3775"
+   },
+   "used_by_eos_records": [
+    "fe2o3_schouwink_2011_bm2_1"
+   ]
+  }
+ ]
 }

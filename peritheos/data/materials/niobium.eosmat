@@ -118,6 +118,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "niobium.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "niobium_takemura_2006_table1_compression"
+     ],
+     "source_locations": [
+      "Table I, pages 224119-2 to 224119-3"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    },
    "audit_corrections": [
@@ -281,6 +292,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "niobium.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Tables 1 and 4; Figures 3-11"
+     ],
+     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
     }
    },
    "source_lineage": [

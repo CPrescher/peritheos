@@ -147,6 +147,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "platinum.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "platinum_holmes_1989_table3_shock"
+     ],
+     "source_locations": [
+      "Table III, journal page 2964"
+     ],
+     "finding": "All seven new Pt shock experiments printed in Table III."
     }
    },
    "temperature_ref": 300.0,
@@ -308,6 +319,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "platinum.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "shen_smith_2026_table_s1_simultaneous_volumes"
+     ],
+     "source_locations": [
+      "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -498,6 +520,14 @@
      ],
      "finding": "The paper supplies a complete, directly implementable Pt Vinet plus four-oscillator Helmholtz EOS. Evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
      "doi": "10.1103/PhysRevB.75.024115"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Model equations and coefficient/calibration tables"
+     ],
+     "finding": "This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations."
     }
    }
   },
@@ -633,6 +663,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "platinum.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Tables 1 and 4; Figures 3-11"
+     ],
+     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
     }
    },
    "source_lineage": [
@@ -764,6 +802,113 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "platinum_holmes_1989_table3_shock",
+   "kind": "shock_hugoniot",
+   "description": "All seven new Pt shock experiments printed in Table III.",
+   "source_location": "Table III, journal page 2964",
+   "source_url": "https://doi.org/10.1063/1.344177",
+   "columns": [
+    {
+     "name": "shot",
+     "quantity": "shot_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "sample_density_g_cm3",
+     "quantity": "initial_sample_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "impactor_density_g_cm3",
+     "quantity": "impactor_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "impactor_velocity_km_s",
+     "quantity": "impactor_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_2sigma_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "bound",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "mass_velocity_km_s",
+     "quantity": "mass_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "mass_velocity_2sigma_km_s",
+     "quantity": "mass_velocity",
+     "unit": "km/s",
+     "role": "bound",
+     "of": "mass_velocity_km_s"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "hugoniot_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_2sigma_gpa",
+     "quantity": "hugoniot_pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "hugoniot_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_2sigma_g_cm3",
+     "quantity": "hugoniot_density",
+     "unit": "g/cm^3",
+     "role": "bound",
+     "of": "density_g_cm3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/platinum-holmes-1989-table3-shock.csv",
+    "sha256": "22e5cc3334758cbdd5b5fed94388ff66b404e005b375045c0a539db0c53915fd",
+    "media_type": "text/csv"
+   },
+   "notes": "Uncertainties are the source's quoted 2-sigma/95% bounds. The stored 300 K Vinet scale is a theoretical reduction constrained against the shock data; these rows are experimental anchors, not a direct static P-V fit table.",
+   "reference": {
+    "authors": [
+     "Holmes",
+     "Moriarty",
+     "Gathers",
+     "Nellis"
+    ],
+    "year": 1989,
+    "source": "J. Appl. Phys.",
+    "volume": "66",
+    "locator": "2962-2967",
+    "doi": "10.1063/1.344177"
+   },
+   "used_by_eos_records": [
+    "platinum_holmes_1989_vinet_1"
+   ]
   }
  ]
 }

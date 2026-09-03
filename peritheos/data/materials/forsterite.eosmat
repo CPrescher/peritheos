@@ -163,6 +163,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "forsterite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "forsterite_finkelstein_2014_table2_compression"
+     ],
+     "source_locations": [
+      "Table 2, journal page 39"
+     ],
+     "finding": "All 25 forsterite-I, -II, and -III unit-cell observations printed in Table 2; the 14 forsterite-I rows used for the reported EOS are identified explicitly."
     }
    }
   }
@@ -173,5 +184,156 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "forsterite_finkelstein_2014_table2_compression",
+   "kind": "multiphase_pressure_volume_lattice_parameters",
+   "description": "All 25 forsterite-I, -II, and -III unit-cell observations printed in Table 2; the 14 forsterite-I rows used for the reported EOS are identified explicitly.",
+   "source_location": "Table 2, journal page 39",
+   "source_url": "https://doi.org/10.2138/am.2014.4526",
+   "columns": [
+    {
+     "name": "phase",
+     "quantity": "crystal_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "gold_lattice_a_angstrom",
+     "quantity": "gold_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_from_gold",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "alpha_deg",
+     "quantity": "alpha_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "alpha_standard_deviation_deg",
+     "quantity": "alpha_angle",
+     "unit": "degree",
+     "role": "standard_deviation",
+     "of": "alpha_deg"
+    },
+    {
+     "name": "beta_deg",
+     "quantity": "beta_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "beta_standard_deviation_deg",
+     "quantity": "beta_angle",
+     "unit": "degree",
+     "role": "standard_deviation",
+     "of": "beta_deg"
+    },
+    {
+     "name": "gamma_deg",
+     "quantity": "gamma_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "gamma_standard_deviation_deg",
+     "quantity": "gamma_angle",
+     "unit": "degree",
+     "role": "standard_deviation",
+     "of": "gamma_deg"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "used_in_forsterite_i_eos_fit",
+     "quantity": "used_in_source_fit",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/forsterite-finkelstein-2014-table2-compression.csv",
+    "sha256": "67c2f735959e5118f28bf939e206611f9d019ed57b2b047ff9598b072afae110",
+    "media_type": "text/csv"
+   },
+   "notes": "Table 2 states that parenthesized last-digit uncertainties are one standard deviation. The paper fits only the forsterite-I data through 48 GPa; the one triclinic forsterite-II and ten orthorhombic forsterite-III observations are retained as additional primary data but marked outside that fit.",
+   "reference": {
+    "authors": [
+     "Finkelstein",
+     "Dera",
+     "Jahn",
+     "Oganov",
+     "Holl",
+     "Meng",
+     "Duffy"
+    ],
+    "year": 2014,
+    "source": "American Mineralogist",
+    "volume": "99",
+    "locator": "35-43",
+    "doi": "10.2138/am.2014.4526"
+   },
+   "used_by_eos_records": [
+    "forsterite_finkelstein_2014_bm3_1"
+   ]
+  }
+ ]
 }

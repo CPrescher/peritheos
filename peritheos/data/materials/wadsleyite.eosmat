@@ -193,6 +193,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "wadsleyite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "wadsleyite_katsura_2009_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, page L11307-3"
+     ],
+     "finding": "All 85 wadsleyite P-T-V/V0 observations printed in Table 1."
     }
    },
    "experimental_temperature_range_k": [
@@ -266,5 +277,79 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "wadsleyite_katsura_2009_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 85 wadsleyite P-T-V/V0 observations printed in Table 1.",
+   "source_location": "Table 1, page L11307-3",
+   "source_url": "https://doi.org/10.1029/2009GL038107",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "normalized_volume",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "normalized_volume_uncertainty",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "bound",
+     "of": "normalized_volume"
+    }
+   ],
+   "resource": {
+    "path": "datasets/wadsleyite-katsura-2009-table1-pvt.csv",
+    "sha256": "b0fba67929425c9f1c4c51137453b8a114d754cfd6ecd31280ebe89671538310",
+    "media_type": "text/csv"
+   },
+   "notes": "V/V0 uses the recovered-sample V0=538.49(2) A^3. Parenthesized last-digit errors are separated exactly as printed; the text describes different typical pressure and volume errors for earlier and later runs but does not assign those groups row by row.",
+   "reference": {
+    "authors": [
+     "Katsura",
+     "Shatskiy",
+     "Manthilake",
+     "Zhai",
+     "Yamazaki",
+     "Matsuzaki",
+     "Yoshino",
+     "Yoneda",
+     "Ito",
+     "Sugita",
+     "Tomioka",
+     "Nozawa",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "source": "Geophysical Research Letters",
+    "volume": "36",
+    "locator": "L11307",
+    "doi": "10.1029/2009GL038107"
+   },
+   "used_by_eos_records": [
+    "wadsleyite_katsura_2009_bm3_1"
+   ]
+  }
+ ]
 }

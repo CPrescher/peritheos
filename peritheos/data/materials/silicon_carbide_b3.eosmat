@@ -114,6 +114,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "silicon_carbide_b3.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "silicon_carbide_b3_miozzi_2018_data_set_s1_eos"
+     ],
+     "source_locations": [
+      "Data Set S1, worksheet SiC_B3_EoS"
+     ],
+     "finding": "All 104 B3-SiC observations in the publisher's dedicated EOS-refinement worksheet, retaining the reported KCl calibrant lattice and volume values."
     }
    }
   }
@@ -124,5 +135,98 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "silicon_carbide_b3_miozzi_2018_data_set_s1_eos",
+   "kind": "pressure_volume_temperature_lattice_parameters",
+   "description": "All 104 B3-SiC observations in the publisher's dedicated EOS-refinement worksheet, retaining the reported KCl calibrant lattice and volume values.",
+   "source_location": "Data Set S1, worksheet SiC_B3_EoS",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JE005582",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_from_kcl",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure_from_kcl",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "measured_temperature_k",
+     "quantity": "measured_temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "kcl_temperature_k",
+     "quantity": "kcl_temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "kcl_lattice_a_angstrom",
+     "quantity": "kcl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "kcl_unit_cell_volume_a3",
+     "quantity": "kcl_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "sic_lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "sic_unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "sic_unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "sic_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/silicon-carbide-b3-miozzi-2018-data-set-s1-eos.csv",
+    "sha256": "d302a4f50684a8dcef9c1b2cbe4ebf6106dc81c7a6328ab1eff086e6a0affea4",
+    "media_type": "text/csv"
+   },
+   "notes": "Extracted from the publisher workbook jgre20996-sup-0002-Data_Set_SI-S01.xlsx. Stored numerical values were normalized to 12 significant digits to remove binary spreadsheet artifacts; no rows were omitted.",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Morard",
+     "Antonangeli",
+     "Clark",
+     "Mezouar",
+     "Dorn",
+     "Rozel",
+     "Fiquet"
+    ],
+    "year": 2018,
+    "source": "J. Geophys. Res. Planets",
+    "volume": "123",
+    "locator": "2295-2309",
+    "doi": "10.1029/2018JE005582"
+   },
+   "used_by_eos_records": [
+    "silicon_carbide_b3_miozzi_2018_bm3_1"
+   ]
+  }
+ ]
 }

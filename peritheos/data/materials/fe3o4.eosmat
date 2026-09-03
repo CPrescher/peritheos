@@ -121,6 +121,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "fe3o4.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "magnetite_mao_1974_table3_compression"
+     ],
+     "source_locations": [
+      "Table 3, journal page 1167"
+     ],
+     "finding": "All 13 room-temperature magnetite compression observations printed in Table 3, with the source's phase-coexistence flags retained."
     }
    },
    "temperature_ref": 296.15,
@@ -140,5 +151,93 @@
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
  },
- "phase": "magnetite, cubic inverse-spinel Fd-3m"
+ "phase": "magnetite, cubic inverse-spinel Fd-3m",
+ "datasets": [
+  {
+   "identifier": "magnetite_mao_1974_table3_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All 13 room-temperature magnetite compression observations printed in Table 3, with the source's phase-coexistence flags retained.",
+   "source_location": "Table 3, journal page 1167",
+   "source_url": "https://doi.org/10.1029/JB079i008p01165",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "nacl_lattice_a_angstrom",
+     "quantity": "nacl_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_normalized_volume",
+     "quantity": "nacl_volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure_from_nacl",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "magnetite_lattice_a_angstrom",
+     "quantity": "magnetite_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "magnetite_molar_volume_cm3_mol",
+     "quantity": "magnetite_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "magnetite_normalized_volume",
+     "quantity": "magnetite_volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "magnetite_high_pressure_phase_coexists",
+     "quantity": "magnetite_phase_coexistence",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "nacl_b2_phase_coexists",
+     "quantity": "nacl_b1_b2_phase_coexistence",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/magnetite-mao-1974-table3-compression.csv",
+    "sha256": "5944d40193ff9c860ec267fbb9d05ab6c2c4a6dbd6d7ba5b8494d0625aad5e18",
+    "media_type": "text/csv"
+   },
+   "notes": "Measurements are at 23+/-3 degC. The source calculates pressure from B1-NaCl even where B1 and B2 NaCl coexist and tabulates no pointwise uncertainties. Magnetite's high-pressure phase coexists above 248 kbar; the table remains useful for the source's low-pressure spinel EOS fit because the spinel lattice parameter is still reported.",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Takahashi",
+     "Bassett",
+     "Kinsland",
+     "Merrill"
+    ],
+    "year": 1974,
+    "source": "J. Geophys. Res.",
+    "volume": "79",
+    "locator": "1165-1170",
+    "doi": "10.1029/JB079i008p01165"
+   },
+   "used_by_eos_records": [
+    "fe3o4_mao_1974_bm3_1"
+   ]
+  }
+ ]
 }

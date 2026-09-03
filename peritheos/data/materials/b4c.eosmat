@@ -709,7 +709,18 @@
       "supplement": "T0=298 K",
       "resolution": "Use the supplement's explicit 298 K calculation reference; 300 K is retained as the nominal lower experimental temperature."
      }
-    ]
+    ],
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "b4c_somayazulu_2023_table4_pvt"
+     ],
+     "source_locations": [
+      "official supplementary material, Table 4"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+    }
    }
   },
   {
@@ -834,6 +845,17 @@
      ],
      "finding": "Source inspection shows that EosFit7's Berman implementation uses a truncated quadratic reference-volume law and effective-variance pressure weights. The article displays an exponential-integral formula that instead matches EosFit's Fei-style law. Peritheos stores the actual EosFit Berman curve and documents both fitting objectives.",
      "doi": "10.1098/rsta.2022.0331"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "b4c_somayazulu_2023_table4_pvt"
+     ],
+     "source_locations": [
+      "official supplementary material, Table 4"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -1061,6 +1083,17 @@
      ],
      "finding": "A direct EosFit7c 7.60 run on the 41 heated public-data rows gives alpha0=1.81120e-5 +/- 0.21554e-5 K^-1, dK0/dT=-0.01311 +/- 0.00419 GPa/K, reduced weighted chi-square 1.0412, and correlation -0.958. Peritheos's matched effective-variance emulation reproduces these values within printed precision.",
      "doi": "10.1098/rsta.2022.0331"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "b4c_somayazulu_2023_table4_pvt"
+     ],
+     "source_locations": [
+      "official supplementary material, Table 4"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   }

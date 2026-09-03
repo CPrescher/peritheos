@@ -196,6 +196,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "iron.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "shen_smith_2026_table_s1_simultaneous_volumes"
+     ],
+     "source_locations": [
+      "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   }

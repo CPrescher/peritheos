@@ -134,6 +134,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "silica_cacl2.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "sio2_cacl2_sun_2019_dataset_s1_pvt"
+     ],
+     "source_locations": [
+      "Supporting Information, Data Set S1"
+     ],
+     "finding": "All 48 CaCl2-type SiO2 P-V-T observations deposited as Data Set S1, including the published row-level pressure, temperature, and volume uncertainties."
     }
    },
    "audit_corrections": [
@@ -156,5 +167,79 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "sio2_cacl2_sun_2019_dataset_s1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 48 CaCl2-type SiO2 P-V-T observations deposited as Data Set S1, including the published row-level pressure, temperature, and volume uncertainties.",
+   "source_location": "Supporting Information, Data Set S1",
+   "source_url": "https://zenodo.org/records/3361843",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "volume_angstrom3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_angstrom3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_angstrom3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/sio2-cacl2-sun-2019-dataset-s1-pvt.csv",
+    "sha256": "8c0e7b6567a7b50a08b7206916b5919e5cafad9c1c6ef30bc535a6fda71033e4",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized errors are retained as generic published uncertainties because the supplement does not name their statistic. The printed token 143(28) GPa is normalized to 143.0 +/- 2.8 GPa, consistent with the table's decimal convention and the article's stated pressure-error scale.",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Shi",
+     "Mao",
+     "Zhou",
+     "Prakapenka"
+    ],
+    "year": 2019,
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "124",
+    "locator": "12620-12630",
+    "doi": "10.1029/2019JB017853"
+   },
+   "used_by_eos_records": [
+    "silica_cacl2_sun_2019_bm2_1"
+   ]
+  }
+ ]
 }

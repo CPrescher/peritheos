@@ -105,6 +105,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "coo.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "coo_clendenen_1966_table3_smoothed_compression"
+     ],
+     "source_locations": [
+      "Table III, journal page 4225"
+     ],
+     "finding": "The nine-point smoothed CoO a/a0-versus-pressure array published in Table III."
     }
    },
    "experimental_pressure_range_gpa": [
@@ -171,5 +182,48 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "coo_clendenen_1966_table3_smoothed_compression",
+   "kind": "published_smoothed_pressure_lattice_parameter",
+   "description": "The nine-point smoothed CoO a/a0-versus-pressure array published in Table III.",
+   "source_location": "Table III, journal page 4225",
+   "source_url": "https://doi.org/10.1063/1.1726610",
+   "columns": [
+    {
+     "name": "normalized_lattice_parameter",
+     "quantity": "lattice_parameter_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/coo-clendenen-1966-table3-smoothed-compression.csv",
+    "sha256": "62115a3b9d477a12a1617ce3e14146033bf87102532845b60f2b39964a496c48",
+    "media_type": "text/csv"
+   },
+   "notes": "The article describes Table III as smoothed data. It is therefore preserved as a published reduction of the measurements, not mislabeled as the individual raw observations; no uncertainties are tabulated.",
+   "reference": {
+    "authors": [
+     "Clendenen",
+     "Drickamer"
+    ],
+    "year": 1966,
+    "source": "J. Chem. Phys.",
+    "volume": "44",
+    "locator": "4223-4228",
+    "doi": "10.1063/1.1726610"
+   },
+   "used_by_eos_records": [
+    "coo_clendenen_1966_murnaghan_1"
+   ]
+  }
+ ]
 }

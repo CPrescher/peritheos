@@ -161,6 +161,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "bridgmanite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "bridgmanite_tange_2012_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1 and publisher tab-delimited Table 1"
+     ],
+     "finding": "All 42 MgSiO3 bridgmanite observations in Table 1 from sintered-diamond multianvil and laser-heated diamond-anvil experiments, with the published standard deviations and pressures calculated using both Vinet and BM3 MgO scales."
     }
    }
   },
@@ -270,6 +281,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "bridgmanite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "bridgmanite_tange_2012_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1 and publisher tab-delimited Table 1"
+     ],
+     "finding": "All 42 observations fitted by the BM3 and Vinet thermal EOS records are bundled with both published MgO pressure-scale reductions and standard deviations."
     }
    }
   },
@@ -349,6 +371,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "bridgmanite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "bridgmanite_vanpeteghem_2006_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1 and publisher file grl20910-sup-0001-t01.txt"
+     ],
+     "finding": "All 12 MgSiO3 bridgmanite lattice-parameter and unit-cell-volume observations printed in Table 1 and supplied by the publisher as tab-delimited supporting data."
     }
    }
   }
@@ -359,5 +392,259 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "bridgmanite_tange_2012_table1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameters",
+   "description": "All 42 MgSiO3 bridgmanite observations in Table 1 from sintered-diamond multianvil and laser-heated diamond-anvil experiments, with the published standard deviations and pressures calculated using both Vinet and BM3 MgO scales.",
+   "source_location": "Table 1 and publisher tab-delimited Table 1",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JB008988",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "apparatus",
+     "quantity": "experimental_apparatus",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_sd_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "standard_deviation",
+     "of": "temperature_k"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_sd_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_sd_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_sd_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_sd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "mgo_unit_cell_volume_a3",
+     "quantity": "mgo_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "mgo_unit_cell_volume_sd_a3",
+     "quantity": "mgo_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "mgo_unit_cell_volume_a3"
+    },
+    {
+     "name": "pressure_vinet_gpa",
+     "quantity": "pressure_from_mgo_vinet_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_vinet_sd_gpa",
+     "quantity": "pressure_from_mgo_vinet_scale",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_vinet_gpa"
+    },
+    {
+     "name": "pressure_bm3_gpa",
+     "quantity": "pressure_from_mgo_bm3_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_bm3_sd_gpa",
+     "quantity": "pressure_from_mgo_bm3_scale",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_bm3_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/bridgmanite-tange-2012-table1-pvt.csv",
+    "sha256": "51693ccf34c965c7bd008915c6537c2bf68f4b34b373b2bd83564c01ff6af007",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized errors are explicitly standard deviations. Blank temperature-error cells denote the article's stated uncertainty below 1 K. SDMA pressure uncertainties are typically below 0.2 GPa and at most 0.4 GPa; LHDAC uncertainties are typically about 0.2 GPa at room temperature and 0.3-0.5 GPa at high temperature.",
+   "reference": {
+    "authors": [
+     "Tange",
+     "Kuwayama",
+     "Irifune",
+     "Funakoshi",
+     "Ohishi"
+    ],
+    "year": 2012,
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "117",
+    "locator": "B06201",
+    "doi": "10.1029/2011JB008988"
+   },
+   "used_by_eos_records": [
+    "bridgmanite_tange_2012_bm3_1",
+    "bridgmanite_tange_2012_vinet_2"
+   ]
+  },
+  {
+   "identifier": "bridgmanite_vanpeteghem_2006_table1_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All 12 MgSiO3 bridgmanite lattice-parameter and unit-cell-volume observations printed in Table 1 and supplied by the publisher as tab-delimited supporting data.",
+   "source_location": "Table 1 and publisher file grl20910-sup-0001-t01.txt",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005GL024955",
+   "columns": [
+    {
+     "name": "path",
+     "quantity": "compression_path",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sd_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_sd_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_sd_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_sd_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_sd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/bridgmanite-vanpeteghem-2006-table1-compression.csv",
+    "sha256": "55b1fed33b08abeafecf6bd5fcf673d8d260148af6ecf6ceee8696694c23b307",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized last-digit uncertainties are separated as standard deviations. Rows marked by the source footnote as collected on decompression are identified explicitly.",
+   "reference": {
+    "authors": [
+     "Vanpeteghem",
+     "Zhao",
+     "Angel",
+     "Ross",
+     "Bolfan-Casanova"
+    ],
+    "year": 2006,
+    "source": "Geophysical Research Letters",
+    "volume": "33",
+    "locator": "L03306",
+    "doi": "10.1029/2005GL024955"
+   },
+   "used_by_eos_records": [
+    "bridgmanite_vanpeteghem_2006_bm2_3"
+   ]
+  }
+ ]
 }

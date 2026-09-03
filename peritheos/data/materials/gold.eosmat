@@ -113,6 +113,17 @@
      ],
      "finding": "The stored record is the revised-ruby-scale Vinet fit with V0 and K0 fixed.",
      "doi": "10.1103/physrevb.70.094112"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "gold_dewaele_2004_table1_compression"
+     ],
+     "source_locations": [
+      "Table I, pages 094112-3 to 094112-4"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -201,6 +212,17 @@
      ],
      "finding": "The stored record is the B0=167 GPa constrained fit on the Dorogokupets-Oganov ruby scale.",
      "doi": "10.1103/physrevb.78.104119"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "gold_takemura_2008_table3_compression"
+     ],
+     "source_locations": [
+      "Table III, all runs; P, P-prime, and am(111) columns"
+     ],
+     "finding": "All 86 Au observations in Table III used for the definitive Vinet fit, retaining pressures on both the Zha et al. and Dorogokupets-Oganov ruby scales and the measured 111 lattice parameter."
     }
    }
   },
@@ -296,6 +318,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "gold.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Section III; Equations 20-29; Table V"
+     ],
+     "finding": "The paper derives a thermodynamic gold parameterization from literature properties and publishes coefficient tables, not a new row-level experimental compression dataset."
     }
    },
    "temperature_ref": 300.0,
@@ -543,6 +573,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "gold.json"
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Figures 1 and 5; Table 1"
+     ],
+     "finding": "The paper's new Au and solid-Ne compression observations are shown graphically in Figures 1 and 5. Table 1 contains optimized EOS parameters, not row-level measurements, and the article provides no numerical primary-data table or supporting dataset."
     }
    }
   },
@@ -638,6 +676,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "gold.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "shen_smith_2026_table_s1_simultaneous_volumes"
+     ],
+     "source_locations": [
+      "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -773,6 +822,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "gold.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Tables 1 and 4; Figures 3-11"
+     ],
+     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
     }
    },
    "source_lineage": [
@@ -1082,6 +1139,59 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "gold_takemura_2008_table3_compression",
+   "kind": "pressure_lattice_parameter",
+   "description": "All 86 Au observations in Table III used for the definitive Vinet fit, retaining pressures on both the Zha et al. and Dorogokupets-Oganov ruby scales and the measured 111 lattice parameter.",
+   "source_location": "Table III, all runs; P, P-prime, and am(111) columns",
+   "source_url": "https://doi.org/10.1103/PhysRevB.78.104119",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ruby_pressure_zha_gpa",
+     "quantity": "pressure_from_zha_ruby_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_pressure_dorogokupets_gpa",
+     "quantity": "pressure_from_dorogokupets_oganov_ruby_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "lattice_111_angstrom",
+     "quantity": "lattice_parameter_from_111_reflection",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-takemura-2008-table3-compression.csv",
+    "sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+    "media_type": "text/csv"
+   },
+   "notes": "The record's EOS was fitted to P-prime versus volume derived from am(111); fcc atomic volume is am(111)^3/4. Other reflection-specific lattice parameters and estimated uniaxial stresses remain available in the printed source table but are not required to reproduce this hydrostatic fit. Pointwise uncertainties are not tabulated.",
+   "reference": {
+    "authors": [
+     "Takemura",
+     "Dewaele"
+    ],
+    "year": 2008,
+    "source": "Phys. Rev. B",
+    "volume": "78",
+    "locator": "104119",
+    "doi": "10.1103/PhysRevB.78.104119"
+   },
+   "used_by_eos_records": [
+    "gold_takemura_2008_vinet_6"
+   ]
   }
  ]
 }

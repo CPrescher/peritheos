@@ -133,6 +133,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "tantalum.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "tantalum_cynn_1999_table2_compression"
+     ],
+     "source_locations": [
+      "Table II, page 8527"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    },
    "temperature_ref": 300.0,
@@ -269,6 +280,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "tantalum.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "shen_smith_2026_table_s1_simultaneous_volumes"
+     ],
+     "source_locations": [
+      "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -404,6 +426,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "tantalum.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Tables 1 and 4; Figures 3-11"
+     ],
+     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
     }
    },
    "source_lineage": [

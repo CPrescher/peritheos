@@ -115,6 +115,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "chromium.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "chromium_anzellini_2022_table2_compression"
+     ],
+     "source_locations": [
+      "Table 2"
+     ],
+     "finding": "All 119 Cr/W compression observations printed in Table 2."
     }
    }
   }
@@ -125,5 +136,71 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "chromium_anzellini_2022_table2_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All 119 Cr/W compression observations printed in Table 2.",
+   "source_location": "Table 2",
+   "source_url": "https://www.nature.com/articles/s41598-022-10523-2",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "measurement_sequence",
+     "quantity": "measurement_sequence",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_w_gpa",
+     "quantity": "pressure_from_tungsten",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "tungsten_lattice_a_angstrom",
+     "quantity": "tungsten_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "chromium_lattice_a_angstrom",
+     "quantity": "chromium_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "chromium_unit_cell_volume_a3",
+     "quantity": "chromium_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/chromium-anzellini-2022-table2-compression.csv",
+    "sha256": "031a15b7ebfb9701c334db2be26c87578ec8c45dd6f942fd45998bc8ea5406c5",
+    "media_type": "text/csv"
+   },
+   "notes": "The three horizontal blocks of Table 2 were normalized into reading order. Pressure is calculated from the simultaneously measured W lattice parameter as printed by the source; pointwise uncertainties are not tabulated.",
+   "reference": {
+    "authors": [
+     "Anzellini",
+     "Errandonea",
+     "Burakovsky",
+     "Proctor",
+     "Turnbull",
+     "Beavers"
+    ],
+    "year": 2022,
+    "source": "Sci. Rep.",
+    "volume": "12",
+    "locator": "6727",
+    "doi": "10.1038/s41598-022-10523-2"
+   },
+   "used_by_eos_records": [
+    "chromium_anzellini_2022_bm3_1"
+   ]
+  }
+ ]
 }

@@ -150,7 +150,7 @@
         "name": {"$ref": "#/$defs/identifier"},
         "quantity": {"type": "string", "minLength": 1},
         "unit": {"type": "string", "minLength": 1},
-        "role": {"enum": ["value", "standard_deviation", "standard_error", "bound", "flag"]},
+        "role": {"enum": ["value", "uncertainty", "standard_deviation", "standard_error", "bound", "flag"]},
         "of": {"$ref": "#/$defs/identifier"}
       },
       "additionalProperties": true

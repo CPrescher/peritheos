@@ -328,6 +328,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "iceviii.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "ice_viii_besson_1994_table2_structure"
+     ],
+     "source_locations": [
+      "Table II, journal page 12545"
+     ],
+     "finding": "All eight D2O ice-VIII structural refinements printed in Table II."
     }
    },
    "temperature_ref": 300.0,
@@ -373,5 +384,152 @@
  "aliases": [
   "Heavy ice VIII",
   "Deuterated ice VIII"
+ ],
+ "datasets": [
+  {
+   "identifier": "ice_viii_besson_1994_table2_structure",
+   "kind": "pressure_volume_structure",
+   "description": "All eight D2O ice-VIII structural refinements printed in Table II.",
+   "source_location": "Table II, journal page 12545",
+   "source_url": "https://doi.org/10.1103/PhysRevB.49.12540",
+   "columns": [
+    {
+     "name": "load_mn",
+     "quantity": "applied_load",
+     "unit": "MN",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_nm",
+     "quantity": "lattice_parameter_a",
+     "unit": "nm",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_standard_deviation_nm",
+     "quantity": "lattice_parameter_a",
+     "unit": "nm",
+     "role": "standard_deviation",
+     "of": "lattice_a_nm"
+    },
+    {
+     "name": "lattice_c_nm",
+     "quantity": "lattice_parameter_c",
+     "unit": "nm",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_standard_deviation_nm",
+     "quantity": "lattice_parameter_c",
+     "unit": "nm",
+     "role": "standard_deviation",
+     "of": "lattice_c_nm"
+    },
+    {
+     "name": "axial_ratio",
+     "quantity": "c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "axial_ratio_standard_deviation",
+     "quantity": "c_over_a",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "axial_ratio"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "oxygen_deuterium_distance_pm",
+     "quantity": "oxygen_deuterium_distance",
+     "unit": "pm",
+     "role": "value"
+    },
+    {
+     "name": "oxygen_deuterium_distance_standard_deviation_pm",
+     "quantity": "oxygen_deuterium_distance",
+     "unit": "pm",
+     "role": "standard_deviation",
+     "of": "oxygen_deuterium_distance_pm"
+    },
+    {
+     "name": "oxygen_z",
+     "quantity": "oxygen_fractional_z",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "oxygen_z_standard_deviation",
+     "quantity": "oxygen_fractional_z",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "oxygen_z"
+    },
+    {
+     "name": "deuterium_y",
+     "quantity": "deuterium_fractional_y",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "deuterium_y_standard_deviation",
+     "quantity": "deuterium_fractional_y",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "deuterium_y"
+    },
+    {
+     "name": "deuterium_z",
+     "quantity": "deuterium_fractional_z",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "deuterium_z_standard_deviation",
+     "quantity": "deuterium_fractional_z",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "deuterium_z"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ice-viii-besson-1994-table2-structure.csv",
+    "sha256": "f07ddc91a1ef78f9f81f401c23e7ad62b30f3ae7d40b9359b51694f6909b764b",
+    "media_type": "text/csv"
+   },
+   "notes": "The table's structural-refinement uncertainties are estimated standard deviations. The source explicitly says no errors can be quoted for its EOS-derived pressure and volume columns. These approximately 265 K structural rows accompany, but were not the direct observations fitted to, the paper's 300 K BM3 parameterization.",
+   "reference": {
+    "authors": [
+     "Besson",
+     "Pruzan",
+     "Klotz",
+     "Hamel",
+     "Silvi",
+     "Nelmes",
+     "Loveday",
+     "Wilson",
+     "Hull"
+    ],
+    "year": 1994,
+    "source": "Phys. Rev. B",
+    "volume": "49",
+    "locator": "12540-12550",
+    "doi": "10.1103/PhysRevB.49.12540"
+   },
+   "used_by_eos_records": [
+    "iceviii_besson_1994_bm3_1"
+   ]
+  }
  ]
 }

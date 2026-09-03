@@ -116,6 +116,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "silver.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "silver_dewaele_2008_table2_compression"
+     ],
+     "source_locations": [
+      "Table II, Ag rows"
+     ],
+     "finding": "All 34 Ag pressure-volume observations printed in Table II, retaining pressures on both the Mao et al. and revised Dewaele et al. ruby scales."
     }
    }
   },
@@ -251,6 +262,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "silver.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Tables 1 and 4; Figures 3-11"
+     ],
+     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
     }
    },
    "source_lineage": [
@@ -315,5 +334,62 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "silver_dewaele_2008_table2_compression",
+   "kind": "pressure_volume",
+   "description": "All 34 Ag pressure-volume observations printed in Table II, retaining pressures on both the Mao et al. and revised Dewaele et al. ruby scales.",
+   "source_location": "Table II, Ag rows",
+   "source_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ruby_pressure_mao_gpa",
+     "quantity": "pressure_from_mao_ruby_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_pressure_dewaele_gpa",
+     "quantity": "pressure_from_dewaele_ruby_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/silver-dewaele-2008-table2-compression.csv",
+    "sha256": "b369fc32298a0b4d43d54ff75af524227c9d43ccf66e813a215a4967a1fb157c",
+    "media_type": "text/csv"
+   },
+   "notes": "The Dewaele-scale pressure is the pressure coordinate used for the reported EOS. The article gives a common atomic-volume uncertainty of 0.01 angstrom^3/atom; pressure uncertainty rises from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but no rowwise error values are tabulated.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Torrent",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2008,
+    "source": "Phys. Rev. B",
+    "volume": "78",
+    "locator": "104102",
+    "doi": "10.1103/PhysRevB.78.104102"
+   },
+   "used_by_eos_records": [
+    "silver_dewaele_2008_vinet_1"
+   ]
+  }
+ ]
 }

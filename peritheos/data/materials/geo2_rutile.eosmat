@@ -109,6 +109,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "geo2_rutile.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "rutile_hazen_finger_1981_table1_sno2_geo2_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 145"
+     ],
+     "finding": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound."
     }
    },
    "temperature_ref": 293.15,
@@ -148,5 +159,120 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "rutile_hazen_finger_1981_table1_sno2_geo2_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound.",
+   "source_location": "Table 1, journal page 145",
+   "source_url": "https://doi.org/10.1016/0022-3697(81)90074-3",
+   "columns": [
+    {
+     "name": "compound",
+     "quantity": "compound",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "bound",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "lattice_a1_angstrom",
+     "quantity": "triclinic_check_lattice_parameter_a1",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a1_uncertainty_angstrom",
+     "quantity": "triclinic_check_lattice_parameter_a1",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a1_angstrom"
+    },
+    {
+     "name": "lattice_a2_angstrom",
+     "quantity": "triclinic_check_lattice_parameter_a2",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a2_uncertainty_angstrom",
+     "quantity": "triclinic_check_lattice_parameter_a2",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a2_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_uncertainty_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "axial_ratio",
+     "quantity": "c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "axial_ratio_uncertainty",
+     "quantity": "c_over_a",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "axial_ratio"
+    }
+   ],
+   "resource": {
+    "path": "datasets/rutile-hazen-finger-1981-table1-sno2-geo2-compression.csv",
+    "sha256": "6b43e168e8be0ca86166d4951b59d6646e669b93d31ae75f91c79b8d7ff953d6",
+    "media_type": "text/csv"
+   },
+   "notes": "The source refined cells as triclinic to test departures from tetragonal symmetry and reports standard deviations in parentheses. The three near-90-degree cell angles are omitted from this EOS-oriented transcription; both independently refined a dimensions, c, V, and c/a are retained. Ambient 0.001 kbar rows have no printed pressure uncertainty.",
+   "reference": {
+    "authors": [
+     "Hazen",
+     "Finger"
+    ],
+    "year": 1981,
+    "source": "J. Phys. Chem. Solids",
+    "volume": "42",
+    "locator": "143-151",
+    "doi": "10.1016/0022-3697(81)90074-3"
+   },
+   "used_by_eos_records": [
+    "geo2_rutile_hazen_1981_bm3_1"
+   ]
+  }
+ ]
 }

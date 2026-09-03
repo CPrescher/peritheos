@@ -1182,6 +1182,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "perovskite_orthorhombic.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "mgfe_perovskite_knittle_1987_table2_compression"
+     ],
+     "source_locations": [
+      "Table 2, journal page 669"
+     ],
+     "finding": "All five new static-compression observations of (Mg0.88Fe0.12)SiO3 perovskite printed in Table 2."
     }
    },
    "temperature_ref": 300.0
@@ -1235,5 +1246,146 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "mgfe_perovskite_knittle_1987_table2_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All five new static-compression observations of (Mg0.88Fe0.12)SiO3 perovskite printed in Table 2.",
+   "source_location": "Table 2, journal page 669",
+   "source_url": "https://doi.org/10.1126/science.235.4789.668",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_before_heating_gpa",
+     "quantity": "pressure_before_heating",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_before_heating_standard_deviation_gpa",
+     "quantity": "pressure_before_heating",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_before_heating_gpa"
+    },
+    {
+     "name": "pressure_after_heating_gpa",
+     "quantity": "pressure_after_heating",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_after_heating_standard_deviation_gpa",
+     "quantity": "pressure_after_heating",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_after_heating_gpa"
+    },
+    {
+     "name": "lattice_a_pm",
+     "quantity": "lattice_parameter_a",
+     "unit": "pm",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_standard_deviation_pm",
+     "quantity": "lattice_parameter_a",
+     "unit": "pm",
+     "role": "standard_deviation",
+     "of": "lattice_a_pm"
+    },
+    {
+     "name": "lattice_b_pm",
+     "quantity": "lattice_parameter_b",
+     "unit": "pm",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_standard_deviation_pm",
+     "quantity": "lattice_parameter_b",
+     "unit": "pm",
+     "role": "standard_deviation",
+     "of": "lattice_b_pm"
+    },
+    {
+     "name": "lattice_c_pm",
+     "quantity": "lattice_parameter_c",
+     "unit": "pm",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_standard_deviation_pm",
+     "quantity": "lattice_parameter_c",
+     "unit": "pm",
+     "role": "standard_deviation",
+     "of": "lattice_c_pm"
+    },
+    {
+     "name": "normalized_volume",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "normalized_volume_standard_deviation",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "normalized_volume"
+    },
+    {
+     "name": "axial_ratio_b_over_a",
+     "quantity": "b_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "axial_ratio_b_over_a_standard_deviation",
+     "quantity": "b_over_a",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "axial_ratio_b_over_a"
+    },
+    {
+     "name": "axial_ratio_c_over_a",
+     "quantity": "c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "axial_ratio_c_over_a_standard_deviation",
+     "quantity": "c_over_a",
+     "unit": "1",
+     "role": "standard_deviation",
+     "of": "axial_ratio_c_over_a"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgfe-perovskite-knittle-1987-table2-compression.csv",
+    "sha256": "e26fee8d385c028ac88ebe05f6ddd259ef94f1b565f509cfa13a406d8ef73024",
+    "media_type": "text/csv"
+   },
+   "notes": "The source plots and fits the pressures measured after heating; both before- and after-heating pressures are retained. Parenthesized uncertainties are explicitly standard deviations. V0 is the source's zero-pressure value of 162.49 A^3 per formula unit.",
+   "reference": {
+    "authors": [
+     "Knittle",
+     "Jeanloz"
+    ],
+    "year": 1987,
+    "source": "Science",
+    "volume": "235",
+    "locator": "668-670",
+    "doi": "10.1126/science.235.4789.668"
+   },
+   "used_by_eos_records": [
+    "perovskite_orthorhombic_knittle_1987_bm3_1"
+   ]
+  }
+ ]
 }

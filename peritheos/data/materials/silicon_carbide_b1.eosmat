@@ -112,6 +112,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "silicon_carbide_b1.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "silicon_carbide_b1_miozzi_2018_data_set_s1_eos"
+     ],
+     "source_locations": [
+      "Data Set S1, worksheet SiC_B1_EoS"
+     ],
+     "finding": "All 348 B1-SiC pressure-volume-temperature observations in the publisher's dedicated EOS-refinement worksheet."
     }
    }
   }
@@ -122,5 +133,81 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "silicon_carbide_b1_miozzi_2018_data_set_s1_eos",
+   "kind": "pressure_volume_temperature",
+   "description": "All 348 B1-SiC pressure-volume-temperature observations in the publisher's dedicated EOS-refinement worksheet.",
+   "source_location": "Data Set S1, worksheet SiC_B1_EoS",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018JE005582",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "sic_unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "sic_unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "sic_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/silicon-carbide-b1-miozzi-2018-data-set-s1-eos.csv",
+    "sha256": "8fab4de4a536dc0fb0b138090e8178b76fe39506271ac199d56a4719354ac124",
+    "media_type": "text/csv"
+   },
+   "notes": "Extracted from the publisher workbook jgre20996-sup-0002-Data_Set_SI-S01.xlsx. Stored numerical values were normalized to 12 significant digits to remove binary spreadsheet artifacts; no rows were omitted.",
+   "reference": {
+    "authors": [
+     "Miozzi",
+     "Morard",
+     "Antonangeli",
+     "Clark",
+     "Mezouar",
+     "Dorn",
+     "Rozel",
+     "Fiquet"
+    ],
+    "year": 2018,
+    "source": "J. Geophys. Res. Planets",
+    "volume": "123",
+    "locator": "2295-2309",
+    "doi": "10.1029/2018JE005582"
+   },
+   "used_by_eos_records": [
+    "silicon_carbide_b1_miozzi_2018_bm3_1"
+   ]
+  }
+ ]
 }

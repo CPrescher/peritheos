@@ -122,6 +122,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "goethite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "goethite_gleason_2008_deposit_table1_pvt"
+     ],
+     "source_locations": [
+      "MSA depository item AM-08-056, Table 1"
+     ],
+     "finding": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1."
     }
    }
   }
@@ -132,5 +143,121 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "goethite_gleason_2008_deposit_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1.",
+   "source_location": "MSA depository item AM-08-056, Table 1",
+   "source_url": "https://msaweb.org/MSA/AmMin/TOC/2008/ND2008_data/AM-08-056.zip",
+   "columns": [
+    {
+     "name": "file",
+     "quantity": "source_row_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_95ci_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_celsius",
+     "quantity": "temperature",
+     "unit": "degC",
+     "role": "value"
+    },
+    {
+     "name": "temperature_95ci_celsius",
+     "quantity": "temperature",
+     "unit": "degC",
+     "role": "uncertainty",
+     "of": "temperature_celsius"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_95ci_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_95ci_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_95ci_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "cell_volume_a3",
+     "quantity": "cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "cell_volume_95ci_a3",
+     "quantity": "cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/goethite-gleason-2008-deposit-table1-pvt.csv",
+    "sha256": "61f64e999962fb4e369341676d6c68604031109c6fcd5529e677b8141d1e430f",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized errors are the 95% confidence limits from the Rietveld refinements, as defined by the deposit. Temperatures and source row identifiers are retained exactly as published; parenthesized uncertainties are expanded to absolute values.",
+   "reference": {
+    "authors": [
+     "Gleason",
+     "Jeanloz",
+     "Kunz"
+    ],
+    "year": 2008,
+    "source": "American Mineralogist",
+    "volume": "93",
+    "locator": "1882-1885",
+    "doi": "10.2138/am.2008.2942"
+   },
+   "used_by_eos_records": [
+    "goethite_gleason_2008_bm3_1"
+   ]
+  }
+ ]
 }

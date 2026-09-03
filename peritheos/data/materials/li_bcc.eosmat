@@ -104,6 +104,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "li_bcc.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "lithium_hanfland_1999_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 125"
+     ],
+     "finding": "All 26 bcc and fcc lithium P-V observations printed in Table 1, including both measurements at the 7.50 GPa coexistence point."
     }
    },
    "temperature_ref": 298.0,
@@ -146,5 +157,64 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "phase": "bcc structure; EOS fit spans bcc and fcc Li",
- "cell_contents": "2 Li atoms per bcc conventional cell; fcc observations in the combined EOS are expressed as equivalent two-atom volumes"
+ "cell_contents": "2 Li atoms per bcc conventional cell; fcc observations in the combined EOS are expressed as equivalent two-atom volumes",
+ "datasets": [
+  {
+   "identifier": "lithium_hanfland_1999_table1_compression",
+   "kind": "multiphase_pressure_atomic_volume",
+   "description": "All 26 bcc and fcc lithium P-V observations printed in Table 1, including both measurements at the 7.50 GPa coexistence point.",
+   "source_location": "Table 1, journal page 125",
+   "source_url": "https://doi.org/10.1016/S0038-1098(99)00322-1",
+   "columns": [
+    {
+     "name": "phase",
+     "quantity": "crystal_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_uncertainty_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "bound",
+     "of": "atomic_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/lithium-hanfland-1999-table1-compression.csv",
+    "sha256": "1805945ea22438524e960d3d892f45a6c60cc4895056e6491b82302daa5cdfe1",
+    "media_type": "text/csv"
+   },
+   "notes": "The stored EOS is the source's single empirical Vinet fit across both phases. The 0 GPa volume comes from the cited ambient reference and has no printed uncertainty. The source estimates a common average pressure error of 0.04 GPa; parenthesized volume uncertainties are retained without assigning a confidence level.",
+   "reference": {
+    "authors": [
+     "Hanfland",
+     "Loa",
+     "Syassen",
+     "Schwarz",
+     "Takemura"
+    ],
+    "year": 1999,
+    "source": "Solid State Commun.",
+    "volume": "112",
+    "locator": "123-127",
+    "doi": "10.1016/S0038-1098(99)00322-1"
+   },
+   "used_by_eos_records": [
+    "li_hanfland_1999_vinet_1"
+   ]
+  }
+ ]
 }

@@ -116,6 +116,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "titanium_omega.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "titanium_omega_dewaele_2015_table4_compression"
+     ],
+     "source_locations": [
+      "Table IV, omega-Ti columns"
+     ],
+     "finding": "All 41 omega-Ti lattice-parameter observations printed in Table IV across runs 1-3, including decompression points."
     }
    }
   }
@@ -126,5 +137,70 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "titanium_omega_dewaele_2015_table4_compression",
+   "kind": "pressure_lattice_parameters",
+   "description": "All 41 omega-Ti lattice-parameter observations printed in Table IV across runs 1-3, including decompression points.",
+   "source_location": "Table IV, omega-Ti columns",
+   "source_url": "https://doi.org/10.1103/PhysRevB.91.134108",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gauge",
+     "quantity": "pressure_gauge",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/titanium-omega-dewaele-2015-table4-compression.csv",
+    "sha256": "17c9b2df1e03b069f721f6291b996f3caa77c79c1190c5a662bf8f1137e5278e",
+    "media_type": "text/csv"
+   },
+   "notes": "Runs 1-2 used ruby and run 3 used tungsten as pressure markers. Formula-unit volume is a^2*c/(2*sqrt(3)). The visually verified printed value a=4.010 angstrom at 66.3 GPa is retained verbatim despite being nonmonotonic with adjacent rows; pointwise uncertainties are not tabulated.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Stutzmann",
+     "Bouchet",
+     "Bottin",
+     "Occelli",
+     "Mezouar"
+    ],
+    "year": 2015,
+    "source": "Phys. Rev. B",
+    "volume": "91",
+    "locator": "134108",
+    "doi": "10.1103/PhysRevB.91.134108"
+   },
+   "used_by_eos_records": [
+    "titanium_omega_dewaele_2015_vinet_1"
+   ]
+  }
+ ]
 }

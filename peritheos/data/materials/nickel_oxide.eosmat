@@ -139,6 +139,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "nickel_oxide.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "nickel_oxide_noguchi_1999_table1_shock"
+     ],
+     "source_locations": [
+      "Table 1, journal page 510"
+     ],
+     "finding": "All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states."
     }
    }
   }
@@ -149,5 +160,114 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "nickel_oxide_noguchi_1999_table1_shock",
+   "kind": "shock_hugoniot",
+   "description": "All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states.",
+   "source_location": "Table 1, journal page 510",
+   "source_url": "https://doi.org/10.1016/S0022-3697(98)00296-0",
+   "columns": [
+    {
+     "name": "projectile_velocity_km_s",
+     "quantity": "projectile_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "flyer_target_plate",
+     "quantity": "flyer_target_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "sample_thickness_mm",
+     "quantity": "sample_thickness",
+     "unit": "mm",
+     "role": "value"
+    },
+    {
+     "name": "hel_shock_velocity_km_s",
+     "quantity": "hugoniot_elastic_limit_shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "hel_particle_velocity_km_s",
+     "quantity": "hugoniot_elastic_limit_particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "hel_pressure_gpa",
+     "quantity": "hugoniot_elastic_limit_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "hel_normalized_volume",
+     "quantity": "hugoniot_elastic_limit_volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "final_shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "final_particle_velocity_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "final_pressure_gpa",
+     "quantity": "hugoniot_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "final_normalized_volume",
+     "quantity": "hugoniot_volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "gun_facility",
+     "quantity": "gun_facility",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/nickel-oxide-noguchi-1999-table1-shock.csv",
+    "sha256": "48538ffa8fb2daef0455fc8dc44e43412db2c65e67ca3182b6d9da4e29a299ad",
+    "media_type": "text/csv"
+   },
+   "notes": "Blank HEL fields denote runs where no separate elastic limit was resolved. The paper estimates pressure and volume errors below 2%, but does not print row-wise values.",
+   "reference": {
+    "authors": [
+     "Noguchi",
+     "Uchino",
+     "Hikosaka",
+     "Atou",
+     "Kusaba",
+     "Fukuoka",
+     "Mashimo",
+     "Syono"
+    ],
+    "year": 1999,
+    "source": "J. Phys. Chem. Solids",
+    "volume": "60",
+    "locator": "509-514",
+    "doi": "10.1016/S0022-3697(98)00296-0"
+   },
+   "used_by_eos_records": [
+    "nickel_oxide_noguchi_1999_bm3_1"
+   ]
+  }
+ ]
 }

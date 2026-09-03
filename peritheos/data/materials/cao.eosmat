@@ -110,6 +110,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "cao.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "cao_richet_1988_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 15280"
+     ],
+     "finding": "All 19 B1- and B2-CaO observations printed in Table 1, including the one row explicitly excluded from the source EOS fits."
     }
    },
    "temperature_ref": 300.0,
@@ -133,5 +144,80 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "cao_richet_1988_table1_compression",
+   "kind": "multiphase_pressure_volume_lattice_parameters",
+   "description": "All 19 B1- and B2-CaO observations printed in Table 1, including the one row explicitly excluded from the source EOS fits.",
+   "source_location": "Table 1, journal page 15280",
+   "source_url": "https://doi.org/10.1029/JB093iB12p15279",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gradient_standard_deviation_kbar",
+     "quantity": "spatial_pressure_gradient",
+     "unit": "kbar",
+     "role": "standard_deviation",
+     "of": "pressure_kbar"
+    },
+    {
+     "name": "phase",
+     "quantity": "crystal_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "normalized_volume",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "used_in_eos_fit",
+     "quantity": "used_in_source_fit",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/cao-richet-1988-table1-compression.csv",
+    "sha256": "2e8e090cdcb2eaba218a3a2f411109a52ef466559320bf51ee152383abe82ad1",
+    "media_type": "text/csv"
+   },
+   "notes": "V/V0 uses V0=16.76 cm^3/mol. The parenthesized pressure quantities measure the spatial pressure gradient; the analysis instead assigns a common 2% pressure error. The source estimates volume errors below 0.5% for series C and 0.8% for series D. Run C14 is marked as not used in the EOS fits.",
+   "reference": {
+    "authors": [
+     "Richet",
+     "Mao",
+     "Bell"
+    ],
+    "year": 1988,
+    "source": "J. Geophys. Res.",
+    "volume": "93",
+    "locator": "15279-15288",
+    "doi": "10.1029/JB093iB12p15279"
+   },
+   "used_by_eos_records": [
+    "cao_richet_1988_bm3_1"
+   ]
+  }
+ ]
 }

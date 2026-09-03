@@ -134,6 +134,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "ca_perovskite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "ca_perovskite_shim_2000_table1_pv"
+     ],
+     "source_locations": [
+      "Table 1, page 334"
+     ],
+     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    },
    "temperature_ref": 300.0,
@@ -234,6 +245,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "ca_perovskite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "ca_perovskite_mao_1989_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 17891"
+     ],
+     "finding": "All 46 CaSiO3-perovskite observations printed in Table 1 across the synchrotron, moderate/low-pressure, and high-pressure series."
     }
    },
    "temperature_ref": 300.0
@@ -308,6 +330,97 @@
    ],
    "notes": "pressure_medium=1 denotes Ar and pressure_medium=2 denotes NaCl. Errors are the reported 1-sigma estimates. The published fit also incorporates low-pressure Wang et al. (1996) data, which are not reproduced here because they are not observations from this paper.",
    "source_url": "https://doi.org/10.1016/S0031-9201(00)00154-0"
+  },
+  {
+   "identifier": "ca_perovskite_mao_1989_table1_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All 46 CaSiO3-perovskite observations printed in Table 1 across the synchrotron, moderate/low-pressure, and high-pressure series.",
+   "source_location": "Table 1, journal page 17891",
+   "source_url": "https://doi.org/10.1029/JB094iB12p17889",
+   "columns": [
+    {
+     "name": "series",
+     "quantity": "experimental_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_standard_deviation_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "density_mg_m3",
+     "quantity": "density",
+     "unit": "Mg/m^3",
+     "role": "value"
+    },
+    {
+     "name": "density_standard_deviation_mg_m3",
+     "quantity": "density",
+     "unit": "Mg/m^3",
+     "role": "standard_deviation",
+     "of": "density_mg_m3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-mao-1989-table1-compression.csv",
+    "sha256": "b8278277cbaca2ed279956bdfe738a877706d3985fe5d48671fbc02acdc2ca80",
+    "media_type": "text/csv"
+   },
+   "notes": "The source states that parenthesized errors are standard deviations among diffraction lines or ruby measurements. The prose says the fit used 47 data points, whereas the printed table contains 46 rows; this transcription follows the printed table without inventing the absent point.",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Chen",
+     "Hemley",
+     "Jephcoat",
+     "Wu",
+     "Bassett"
+    ],
+    "year": 1989,
+    "source": "J. Geophys. Res.",
+    "volume": "94",
+    "locator": "17889-17894",
+    "doi": "10.1029/JB094iB12p17889"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_mao_1989_bm3_2"
+   ]
   }
  ]
 }

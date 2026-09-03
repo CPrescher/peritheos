@@ -118,6 +118,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "indium_nitride.json"
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Section 3; Figure 1; Table 1"
+     ],
+     "finding": "This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters."
     }
    },
    "parameter_provenance": {

@@ -117,6 +117,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "feo.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "feo_fischer_2011_table_s1_pvt"
+     ],
+     "source_locations": [
+      "Supplementary Table S1 (mmc1.xls)"
+     ],
+     "finding": "All 52 synchrotron X-ray diffraction observations in supplementary Table S1, including the B1-FeO and B8-FeO molar volumes used in the phase-specific EOS fits and the coexisting NaCl and iron measurements."
     }
    }
   }
@@ -127,5 +138,156 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "feo_fischer_2011_table_s1_pvt",
+   "kind": "pressure_volume_temperature_multiphase",
+   "description": "All 52 synchrotron X-ray diffraction observations in supplementary Table S1, including the B1-FeO and B8-FeO molar volumes used in the phase-specific EOS fits and the coexisting NaCl and iron measurements.",
+   "source_location": "Supplementary Table S1 (mmc1.xls)",
+   "source_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "nacl_molar_volume_cm3_mol",
+     "quantity": "nacl_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "nacl_molar_volume_uncertainty_cm3_mol",
+     "quantity": "nacl_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "nacl_molar_volume_cm3_mol"
+    },
+    {
+     "name": "iron_molar_volume_cm3_mol",
+     "quantity": "iron_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "iron_molar_volume_uncertainty_cm3_mol",
+     "quantity": "iron_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "iron_molar_volume_cm3_mol"
+    },
+    {
+     "name": "iron_c_over_a",
+     "quantity": "iron_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "iron_c_over_a_uncertainty",
+     "quantity": "iron_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "iron_c_over_a"
+    },
+    {
+     "name": "b1_feo_molar_volume_cm3_mol",
+     "quantity": "b1_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "b1_feo_molar_volume_uncertainty_cm3_mol",
+     "quantity": "b1_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "b1_feo_molar_volume_cm3_mol"
+    },
+    {
+     "name": "b8_feo_molar_volume_cm3_mol",
+     "quantity": "b8_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "b8_feo_molar_volume_uncertainty_cm3_mol",
+     "quantity": "b8_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "b8_feo_molar_volume_cm3_mol"
+    },
+    {
+     "name": "b8_feo_c_over_a",
+     "quantity": "b8_feo_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "b8_feo_c_over_a_uncertainty",
+     "quantity": "b8_feo_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "b8_feo_c_over_a"
+    },
+    {
+     "name": "b1_observation",
+     "quantity": "b1_phase_observation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "b8_observation",
+     "quantity": "b8_phase_observation",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/feo-fischer-2011-table-s1-pvt.csv",
+    "sha256": "eb960e0ca0d2d0733f42adec9038bb31a53ffd25f95cb0ecdb4f3b341f5d32da",
+    "media_type": "text/csv"
+   },
+   "notes": "The dataset preserves the workbook's full numeric precision, normalized to 12 significant digits. Asterisks are represented by b8_observation=detected_one_peak_no_volume; dagger marks are represented by b1_observation=rhombohedrally_distorted_detected_no_volume; double-dagger rows retain the measured B8 values but leave their unconstrained uncertainties blank. The supplement labels all numeric error columns generically with +/- and does not define a statistic, so they are recorded as published uncertainties.",
+   "reference": {
+    "authors": [
+     "Fischer",
+     "Campbell",
+     "Shofner",
+     "Lord",
+     "Dera",
+     "Prakapenka"
+    ],
+    "year": 2011,
+    "source": "Earth Planet. Sci. Lett.",
+    "volume": "304",
+    "locator": "496-502",
+    "doi": "10.1016/j.epsl.2011.02.025"
+   },
+   "used_by_eos_records": [
+    "feo_fischer_2011_bm3_2"
+   ]
+  }
+ ]
 }

@@ -131,6 +131,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "diamond.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Table II; Figures 2 and 3"
+     ],
+     "finding": "For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record."
     }
    }
   },
@@ -225,6 +233,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "diamond.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "diamond_dewaele_2008_table1_pvt"
+     ],
+     "source_locations": [
+      "Table I, diamond aC rows"
+     ],
+     "finding": "All 57 diamond observations printed in Table I for which the diamond lattice parameter was reported, spanning 0-900 K and pressures to 76.8 GPa."
     }
    }
   },
@@ -407,6 +426,14 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "diamond.json"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Tables 1 and 4; Figures 3-11"
+     ],
+     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
     }
    },
    "audit_corrections": [
@@ -589,6 +616,14 @@
      ],
      "finding": "The record implements the complete published diamond Helmholtz branch: the DFT-GGA Vinet cold curve, logarithmic-moment double-Debye weights and zero-point energy, and the volume-independent T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
      "doi": "10.1103/physrevb.78.024101"
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Equations 2-7 and 13-18; Table I; Figures 3 and 5-8"
+     ],
+     "finding": "This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data."
     }
    }
   },
@@ -745,6 +780,14 @@
      ],
      "finding": "The record implements the complete diamond Helmholtz branch, including the motionless-ion Vinet cold curve, volume-dependent double-Debye weights and zero-point energy, and the T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
      "doi": "10.1103/physrevb.89.224109"
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-03",
+     "source_locations": [
+      "Equations 3-7; Table I; Figure 6"
+     ],
+     "finding": "This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data."
     }
    }
   },
@@ -916,6 +959,17 @@
      ],
      "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy.",
      "doi": "10.1103/physrevb.77.094106"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "diamond_dewaele_2008_table1_pvt"
+     ],
+     "source_locations": [
+      "Table I, diamond aC rows"
+     ],
+     "finding": "The complete experimental Dewaele reference-isotherm dataset is bundled. This record combines that experimental anchor with a separately documented theoretical thermal parameterization."
     }
    }
   },
@@ -1093,6 +1147,17 @@
      ],
      "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy.",
      "doi": "10.1103/physrevb.77.094106"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "diamond_dewaele_2008_table1_pvt"
+     ],
+     "source_locations": [
+      "Table I, diamond aC rows"
+     ],
+     "finding": "The complete experimental Dewaele reference-isotherm dataset is bundled. This record combines that experimental anchor with a separately documented theoretical thermal parameterization."
     }
    }
   }
@@ -1103,5 +1168,70 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "diamond_dewaele_2008_table1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameter",
+   "description": "All 57 diamond observations printed in Table I for which the diamond lattice parameter was reported, spanning 0-900 K and pressures to 76.8 GPa.",
+   "source_location": "Table I, diamond aC rows",
+   "source_url": "https://doi.org/10.1103/PhysRevB.77.094106",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gauge",
+     "quantity": "pressure_gauge",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_h05_gpa",
+     "quantity": "pressure_on_holzapfel_2005_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/diamond-dewaele-2008-table1-pvt.csv",
+    "sha256": "383bff242d40c74cfa9f49047531fad506eb98659e62320307357b6d8f1641f6",
+    "media_type": "text/csv"
+   },
+   "notes": "The table defines atomic volume as aC^3/8. Temperature was measured within 5 K; relative lattice-parameter uncertainty is approximately +/-3e-4. The stated H05 pressure uncertainty increases from 0.05 GPa at 1 GPa to 3 GPa at 200 GPa; no rowwise error columns are provided.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Datchi",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2008,
+    "source": "Phys. Rev. B",
+    "volume": "77",
+    "locator": "094106",
+    "doi": "10.1103/PhysRevB.77.094106"
+   },
+   "used_by_eos_records": [
+    "diamond_dewaele_2008_vinet_2",
+    "diamond_correa_2008_dewaele_anchored",
+    "diamond_benedict_2014_dewaele_anchored"
+   ]
+  }
+ ]
 }

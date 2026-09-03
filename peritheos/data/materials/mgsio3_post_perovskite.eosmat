@@ -156,6 +156,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "mgsio3_post_perovskite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
+     ],
+     "source_locations": [
+      "Table 2, rows with phase state PPv"
+     ],
+     "finding": "All six shock observations assigned to the MgSiO3 post-perovskite regime in Table 2, including one new aggregate experiment and five explicitly identified literature experiments used in the global inversion."
     }
    }
   },
@@ -246,6 +257,19 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "mgsio3_post_perovskite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "mgsio3_post_perovskite_sakai_2016_table_s1_pvt",
+      "mgsio3_post_perovskite_sakai_2016_table_s5_model_grid"
+     ],
+     "source_locations": [
+      "Supplementary Information B, Table S1",
+      "Supplementary Table S5 workbook"
+     ],
+     "finding": "All 35 experimental MgSiO3 post-perovskite P-V-T observations in Supplementary Table S1, including four source pressure-model reductions and simultaneous MgO measurements."
     }
    }
   }
@@ -256,5 +280,407 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "mgsio3_post_perovskite_sakai_2016_table_s1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameters",
+   "description": "All 35 experimental MgSiO3 post-perovskite P-V-T observations in Supplementary Table S1, including four source pressure-model reductions and simultaneous MgO measurements.",
+   "source_location": "Supplementary Information B, Table S1",
+   "source_url": "https://www.nature.com/articles/srep22652",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_keane_gpa",
+     "quantity": "pressure_keane",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_keane_uncertainty_gpa",
+     "quantity": "pressure_keane",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_keane_gpa"
+    },
+    {
+     "name": "pressure_ap2_gpa",
+     "quantity": "pressure_ap2",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_ap2_uncertainty_gpa",
+     "quantity": "pressure_ap2",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_ap2_gpa"
+    },
+    {
+     "name": "pressure_bm3_gpa",
+     "quantity": "pressure_bm3",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_bm3_uncertainty_gpa",
+     "quantity": "pressure_bm3",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_bm3_gpa"
+    },
+    {
+     "name": "pressure_vinet_gpa",
+     "quantity": "pressure_vinet",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_vinet_uncertainty_gpa",
+     "quantity": "pressure_vinet",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_vinet_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "bound",
+     "of": "temperature_k"
+    },
+    {
+     "name": "mgsio3_lattice_a_angstrom",
+     "quantity": "mgsio3_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_lattice_a_uncertainty_angstrom",
+     "quantity": "mgsio3_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "mgsio3_lattice_a_angstrom"
+    },
+    {
+     "name": "mgsio3_lattice_b_angstrom",
+     "quantity": "mgsio3_lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_lattice_b_uncertainty_angstrom",
+     "quantity": "mgsio3_lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "mgsio3_lattice_b_angstrom"
+    },
+    {
+     "name": "mgsio3_lattice_c_angstrom",
+     "quantity": "mgsio3_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_lattice_c_uncertainty_angstrom",
+     "quantity": "mgsio3_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "mgsio3_lattice_c_angstrom"
+    },
+    {
+     "name": "mgsio3_unit_cell_volume_a3",
+     "quantity": "mgsio3_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "mgsio3_unit_cell_volume_uncertainty_a3",
+     "quantity": "mgsio3_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "bound",
+     "of": "mgsio3_unit_cell_volume_a3"
+    },
+    {
+     "name": "mgo_lattice_a_angstrom",
+     "quantity": "mgo_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgo_lattice_a_uncertainty_angstrom",
+     "quantity": "mgo_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "bound",
+     "of": "mgo_lattice_a_angstrom"
+    },
+    {
+     "name": "mgo_unit_cell_volume_a3",
+     "quantity": "mgo_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "mgo_unit_cell_volume_uncertainty_a3",
+     "quantity": "mgo_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "bound",
+     "of": "mgo_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-sakai-2016-table-s1-pvt.csv",
+    "sha256": "918233f9b524bf0f431f558386e76c70e9b3a019b1c30ad7604140cf0c402fcd",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized last-digit uncertainties are separated without assigning a confidence level. The stored Sakai BM3 record corresponds to the table's 3BM pressure column; the other three pressure reductions are retained because the source prints them for the same observations.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Dekura",
+     "Hirao"
+    ],
+    "year": 2016,
+    "source": "Scientific Reports",
+    "volume": "6",
+    "locator": "22652",
+    "doi": "10.1038/srep22652"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_sakai_2016_bm3_2"
+   ]
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_sakai_2016_table_s5_model_grid",
+   "kind": "published_eos_model_grid",
+   "description": "The 530-point fitted P-V-T comparison grid from the official Table S5 workbook: experimental Keane fit 7 and theoretical Keane fit 8 at 53 volume ratios and ten temperatures.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Dekura",
+     "Hirao"
+    ],
+    "year": 2016,
+    "source": "Scientific Reports",
+    "volume": "6",
+    "locator": "22652",
+    "doi": "10.1038/srep22652"
+   },
+   "source_location": "Supplementary Table S5 workbook",
+   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fsrep22652/MediaObjects/41598_2016_BFsrep22652_MOESM2_ESM.xls",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "experimental_fit_volume_a3",
+     "quantity": "experimental_fit_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "theoretical_fit_volume_a3",
+     "quantity": "theoretical_fit_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "experimental_fit_pressure_gpa",
+     "quantity": "experimental_keane_fit_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "theoretical_fit_pressure_gpa",
+     "quantity": "theoretical_keane_fit_pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-sakai-2016-table-s5-model-grid.csv",
+    "sha256": "bca0c8788b80e9444825200fbb7f8b4f106c22a45d30044e1ced307851649ae4",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_sakai_2016_bm3_2"
+   ],
+   "notes": "These are values evaluated from fitted EOS models, not experimental observations. The workbook's printed rounded fit-8 values were retained separately from the full-precision fit-7 spreadsheet values."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_mosenfelder_2009_table2_shock",
+   "kind": "shock_hugoniot",
+   "description": "All six shock observations assigned to the MgSiO3 post-perovskite regime in Table 2, including one new aggregate experiment and five explicitly identified literature experiments used in the global inversion.",
+   "source_location": "Table 2, rows with phase state PPv",
+   "source_url": "https://doi.org/10.1029/2008JB005900",
+   "columns": [
+    {
+     "name": "starting_material",
+     "quantity": "starting_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "reference",
+     "quantity": "row_provenance",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "shot",
+     "quantity": "shot_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_driver_material",
+     "quantity": "flyer_driver_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_velocity_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "flyer_velocity_uncertainty_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "flyer_velocity_km_s"
+    },
+    {
+     "name": "initial_density_mg_m3",
+     "quantity": "initial_density",
+     "unit": "Mg/m^3",
+     "role": "value"
+    },
+    {
+     "name": "initial_density_uncertainty_mg_m3",
+     "quantity": "initial_density",
+     "unit": "Mg/m^3",
+     "role": "uncertainty",
+     "of": "initial_density_mg_m3"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_uncertainty_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "particle_velocity_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "particle_velocity_uncertainty_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "particle_velocity_km_s"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "shock_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "shock_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "shock_density_mg_m3",
+     "quantity": "shock_density",
+     "unit": "Mg/m^3",
+     "role": "value"
+    },
+    {
+     "name": "shock_density_uncertainty_mg_m3",
+     "quantity": "shock_density",
+     "unit": "Mg/m^3",
+     "role": "uncertainty",
+     "of": "shock_density_mg_m3"
+    },
+    {
+     "name": "hugoniot_temperature_k",
+     "quantity": "hugoniot_temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "hugoniot_temperature_uncertainty_k",
+     "quantity": "hugoniot_temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "hugoniot_temperature_k"
+    },
+    {
+     "name": "phase_state",
+     "quantity": "interpreted_phase_state",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-mosenfelder-2009-table2-shock.csv",
+    "sha256": "5011fe6ed20ad477dc13c42f30241a9bba050990c85f041d25984800662b89d4",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized table values are retained as generic published uncertainties because the table does not specify their statistic. The paper states a common +/-0.01 km/s flyer-velocity uncertainty for the Caltech experiments. Row provenance is retained because five of the six PPv rows originate in the cited Akins and Luo experiments; the 245.4 GPa aggregate experiment is new in this paper.",
+   "reference": {
+    "authors": [
+     "Mosenfelder",
+     "Asimow",
+     "Frost",
+     "Rubie",
+     "Ahrens"
+    ],
+    "year": 2009,
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "114",
+    "locator": "B01203",
+    "doi": "10.1029/2008JB005900"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
+   ]
+  }
+ ]
 }

@@ -122,6 +122,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "fes.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "fes_ono_2006_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 1943"
+     ],
+     "finding": "All eight orthorhombic FeS-VI compression observations printed in Table 1 and used for the reported EOS fit."
     }
    }
   }
@@ -132,5 +143,101 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "fes_ono_2006_table1_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All eight orthorhombic FeS-VI compression observations printed in Table 1 and used for the reported EOS fit.",
+   "source_location": "Table 1, journal page 1943",
+   "source_url": "https://doi.org/10.2138/am.2006.2347",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fes-ono-2006-table1-compression.csv",
+    "sha256": "ef257f65725bf52a5c7bd6c5d12d654591220e3d3c6bfe24a2cca27b8895496d",
+    "media_type": "text/csv"
+   },
+   "notes": "The sample was transformed by laser heating and each observation was made after temperature quench. The article states that cell-parameter standard deviations were calculated from variations in diffraction d-spacings. Pressure is from the internal NaCl standard of Brown (1999).",
+   "reference": {
+    "authors": [
+     "Ono",
+     "Kikegawa"
+    ],
+    "year": 2006,
+    "source": "American Mineralogist",
+    "volume": "91",
+    "locator": "1941-1944",
+    "doi": "10.2138/am.2006.2347"
+   },
+   "used_by_eos_records": [
+    "fes_ono_2006_bm3_1"
+   ]
+  }
+ ]
 }

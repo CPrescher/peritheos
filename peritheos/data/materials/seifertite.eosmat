@@ -134,6 +134,17 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "seifertite.json"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-03",
+     "dataset_identifiers": [
+      "seifertite_sun_2019_dataset_s2_pvt"
+     ],
+     "source_locations": [
+      "Supporting Information, Data Set S2"
+     ],
+     "finding": "All 20 seifertite P-V-T observations deposited as Data Set S2, including the published row-level pressure, temperature, and volume uncertainties."
     }
    },
    "audit_corrections": [
@@ -156,5 +167,79 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "datasets": [
+  {
+   "identifier": "seifertite_sun_2019_dataset_s2_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 20 seifertite P-V-T observations deposited as Data Set S2, including the published row-level pressure, temperature, and volume uncertainties.",
+   "source_location": "Supporting Information, Data Set S2",
+   "source_url": "https://zenodo.org/records/3361843",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "volume_angstrom3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_angstrom3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_angstrom3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/seifertite-sun-2019-dataset-s2-pvt.csv",
+    "sha256": "8e73de68cdcb470b29666011761c4fed5dfefe5b3ea48826255982765cd204b2",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized errors are retained as generic published uncertainties because the supplement does not name their statistic. The article notes that some lower-quality diffraction patterns were excluded from the thermal-EOS fit; Data Set S2 is bundled in full.",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Shi",
+     "Mao",
+     "Zhou",
+     "Prakapenka"
+    ],
+    "year": 2019,
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "124",
+    "locator": "12620-12630",
+    "doi": "10.1029/2019JB017853"
+   },
+   "used_by_eos_records": [
+    "seifertite_sun_2019_bm2_1"
+   ]
+  }
+ ]
 }
