@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 162
+    assert len(identifiers) == len(set(identifiers)) == 164
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,9 +29,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 162, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 164, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 82,
+        "parity": 84,
         "similar": 33,
         "parity_not_achieved": 8,
         "not_refittable": 39,
@@ -47,6 +47,25 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     ledger = load_ledger()
     by_identifier = {item["record_identifier"]: item for item in ledger["records"]}
     markdown = MARKDOWN_PATH.read_text(encoding="utf-8")
+
+    reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
+    reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
+    assert reynard_ruby["status"] == reynard_ice["status"] == "parity"
+    assert reynard_ruby["observations"] == 16
+    assert reynard_ice["observations"] == 14
+    assert reynard_ruby["columns"]["pressure"] == "ruby_pressure_gpa"
+    assert reynard_ice["columns"]["pressure"] == "ice_vii_pressure_gpa"
+    assert reynard_ruby["fixed_parameters"] == reynard_ice["fixed_parameters"] == ["K0"]
+    assert [item["refit"] for item in reynard_ruby["parameters"]] == pytest.approx(
+        [262.421420404, 6.915511476]
+    )
+    assert [item["refit"] for item in reynard_ice["parameters"]] == pytest.approx(
+        [262.580091892, 5.055863026]
+    )
+    assert "same 16-row compression/decompression experiment" in reynard_ruby[
+        "source_notes"
+    ]
+    assert "distinct fit" in reynard_ice["source_notes"]
 
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
     assert by_identifier["kcl_campbell_1991_bm2_1"]["status"] == "parity"

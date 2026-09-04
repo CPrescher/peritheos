@@ -12,6 +12,164 @@
     {
       "absolute_sigma": true,
       "columns": {
+        "pressure": "ruby_pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "akimotoite_reynard_1996_table1_compression"
+      ],
+      "degrees_of_freedom": 14,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        27.8
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "label": "Reynard et al. (1996), BM3, ruby pressure scale",
+      "material_identifier": "akimotoite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 16,
+      "observed_pressure_range_gpa": [
+        0.0,
+        27.8
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        239.13,
+        262.45
+      ],
+      "parameters": [
+        {
+          "difference": 0.12142040393530351,
+          "parameter": "V0",
+          "published": 262.3,
+          "published_error": 0.4,
+          "refit": 262.4214204039353,
+          "refit_error": 0.4489783454543883,
+          "relative_difference": 0.00046290661050439765,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.5844885244597275,
+          "parameter": "K0_prime",
+          "published": 7.5,
+          "published_error": 1.0,
+          "refit": 6.9155114755402725,
+          "refit_error": 1.0539104640910595,
+          "relative_difference": 0.077931803261297,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including compression/decompression direction, both reported pressure assignments, cell parameters, conventional-cell volumes, reported uncertainties, reflection counts, and ice-VII calibrant volumes. All 16 rows have ruby pressures and were used for this refit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+      "published_rmse_gpa": 0.6335359430776666,
+      "qualification": "Direct Table 1 reproduction of the ruby-pressure fit with K0 fixed at the source-adopted 212 GPa. The source says its parameter uncertainties account for pressure and volume errors, but it does not publish the exact objective or covariance. Ruby brackets are fluorescence-line-width estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses all 16 rows, unweighted pressure residuals, and the reported one-sigma volume errors.",
+      "record_identifier": "akimotoite_reynard_1996_bm3_ruby_2",
+      "reduced_chi_square": 0.2579036675887712,
+      "rmse_gpa": 0.37775121285160607,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "This is the ruby-pressure assignment of the same 16-row compression/decompression experiment represented by the companion ice-VII-scale record. It is a distinct fit, not a duplicate parameter transcription. The paper reports that V0 was varied and stayed within 0.01% of the measured in-cell value, while K0 was fixed at the adopted 212 GPa Brillouin value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress; the authors therefore regarded K0'=7.5 as less realistic than the ice-VII-scale result. The source gives neither parameter covariance nor a confidence convention for parenthesized fit errors, and it does not specify an exact ruby calibration equation. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "ice_vii_pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "akimotoite_reynard_1996_table1_compression"
+      ],
+      "degrees_of_freedom": 12,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        25.2
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "label": "Reynard et al. (1996), preferred BM3, ice-VII pressure scale",
+      "material_identifier": "akimotoite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 14,
+      "observed_pressure_range_gpa": [
+        0.0,
+        25.2
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        239.13,
+        262.45
+      ],
+      "parameters": [
+        {
+          "difference": 0.2800918920929121,
+          "parameter": "V0",
+          "published": 262.3,
+          "published_error": 0.4,
+          "refit": 262.5800918920929,
+          "refit_error": 0.5173624514301168,
+          "relative_difference": 0.0010678303167857876,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.5441369739699615,
+          "parameter": "K0_prime",
+          "published": 5.6,
+          "published_error": 1.0,
+          "refit": 5.055863026030038,
+          "refit_error": 1.02741367446667,
+          "relative_difference": 0.09716731678035027,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including 12 printed finite-pressure Pi values and the two ambient measurements plotted at zero pressure in Figure 3f, both reported pressure assignments, cell parameters, conventional-cell volumes, uncertainties, reflection counts, and ice-VII calibrant volumes.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+      "published_rmse_gpa": 0.7487276925948315,
+      "qualification": "Direct Table 1 reproduction of the authors' preferred ice-VII-pressure fit with K0 fixed at the source-adopted 212 GPa. Table 1 prints 12 finite-pressure Pi values and Figure 3f supplies two zero-pressure ambient anchors. The source does not publish its exact objective or covariance; ice-pressure brackets are maximum-gradient estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses unweighted pressure residuals and the reported one-sigma volume errors.",
+      "record_identifier": "akimotoite_reynard_1996_bm3_ice_vii_3",
+      "reduced_chi_square": 0.2845940744839172,
+      "rmse_gpa": 0.35695092387892463,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "This is the authors' preferred pressure assignment of the same experiment represented by the companion ruby-scale record. It is a distinct fit, not a duplicate parameter transcription. Ice-VII (110) diffraction and MgSiO3 ilmenite were measured on the same 50 micrometer X-ray spot; Table 1 prints 12 finite-pressure Pi values, and Figure 3f additionally plots the two ambient measurements as zero-pressure anchors, giving 14 usable rows. The paper reports that V0 was varied and K0 was fixed at the adopted 212 GPa Brillouin value. Above 15 GPa the pressure medium developed nonhydrostatic stress and pressure gradients; the bracketed ice-pressure quantities are maximum gradient estimates, not stated one-sigma errors. The source gives neither parameter covariance nor a confidence convention for fitted-parameter errors. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "unit_cell_volume_a3"
@@ -5441,7 +5599,7 @@
       ],
       "primary_data_finding": "Both source inputs to the simultaneous fit are bundled: all 123 Dewaele et al. (2012) room-temperature B2 rows and all 155 Chidester et al. high-temperature rows.",
       "primary_data_status": "bundled",
-      "primary_source": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.104.094107",
       "published_rmse_gpa": 1.3025804462129118,
       "qualification": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
       "record_identifier": "kcl_b2_chidester_2021_bm3_5",
@@ -10995,9 +11153,9 @@
   ],
   "summary": {
     "not_refittable": 39,
-    "parity": 82,
+    "parity": 84,
     "parity_not_achieved": 8,
     "similar": 33,
-    "total": 162
+    "total": 164
   }
 }

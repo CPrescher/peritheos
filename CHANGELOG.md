@@ -7,6 +7,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the two distinct Reynard et al. (1996) MgSiO3-akimotoite BM3 fits on
+  the ruby-fluorescence and preferred ice-VII pressure assignments, together
+  with all 16 Table 1 unit-cell observations, paired ice-VII calibrant volumes,
+  pressure-scale provenance, independent high-pressure reproductions, and
+  parity-checked refits with the published 212 GPa bulk modulus held fixed.
+
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
   which had mistakenly contained an incomplete subset of the RbCl table, and

@@ -778,7 +778,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         }
     }
 
-    assert_eq!(paths.len(), 115);
-    assert_eq!(records, 160);
-    assert_eq!(thermal_records, 38);
+    assert_eq!(paths.len(), 116);
+    assert_eq!(records, 164);
+    assert_eq!(thermal_records, 39);
 }

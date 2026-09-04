@@ -1,7 +1,12 @@
 {
  "format_version": 3,
  "name": "Akimotoite",
+ "aliases": [
+  "MgSiO3 ilmenite",
+  "ilmenite-type MgSiO3"
+ ],
  "formula": "MgSiO3",
+ "phase": "ilmenite-type (akimotoite)",
  "symmetry": "TRIGONAL",
  "lattice": {
   "a": 4.7277,
@@ -40,9 +45,269 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Ilmenite-type MgSiO3 structure from Horiuchi et al., Am. Mineral. 67, 788-793 (1982).",
+ "notes": "Ilmenite-type MgSiO3 structure from Horiuchi et al., Am. Mineral. 67, 788-793 (1982). The conventional hexagonal cell has Z=6; this is also the cell and volume basis used by the Reynard et al. (1996) and Siersch et al. (2021) EOS records.",
  "peaks": [],
  "eos_records": [
+  {
+   "label": "Reynard et al. (1996), BM3, ruby pressure scale",
+   "reference": {
+    "authors": [
+     "Reynard",
+     "Fiquet",
+     "Itié",
+     "Rubie"
+    ],
+    "year": 1996,
+    "source": "American Mineralogist",
+    "volume": "81",
+    "locator": "45-50",
+    "doi": "10.2138/am-1996-1-206"
+   },
+   "record_kind": "published",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 262.3,
+     "K0": 212.0,
+     "K0_prime": 7.5
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.4,
+    "K0": null,
+    "K0_prime": 1.0
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "K0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    27.8
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.0,
+    298.0
+   ],
+   "temperature_ref": 298.0,
+   "identifier": "akimotoite_reynard_1996_bm3_ruby_2",
+   "fit_datasets": [
+    "akimotoite_reynard_1996_table1_compression"
+   ],
+   "parameter_provenance": {
+    "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
+    "V0": "Figure 3e, page 48: fitted V0=262.3(4) A^3.",
+    "K0": "Page 49 and Figure 3e: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
+    "K0_prime": "Abstract, Figure 3e, and page 49: K0'=7.5(10) using ruby-fluorescence pressures.",
+    "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
+    "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
+   },
+   "notes": "This is the ruby-pressure assignment of the same 16-row compression/decompression experiment represented by the companion ice-VII-scale record. It is a distinct fit, not a duplicate parameter transcription. The paper reports that V0 was varied and stayed within 0.01% of the measured in-cell value, while K0 was fixed at the adopted 212 GPa Brillouin value. Ruby-line broadening above 15 GPa showed increasing nonhydrostatic stress; the authors therefore regarded K0'=7.5 as less realistic than the ice-VII-scale result. The source gives neither parameter covariance nor a confidence convention for parenthesized fit errors, and it does not specify an exact ruby calibration equation. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Pressure measurements and pressure-gradient estimation, pages 46-47; Table 1 column Pr",
+      "notes": "Ruby fluorescence was measured before and after each 30-45 minute X-ray collection. The article does not cite or define the wavelength-to-pressure equation."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Table 1 supplies reduced ruby pressures and line-width-derived uncertainty estimates but no R1 wavelengths or exact ruby calibration equation. The published reported-pressure fit can be refitted, but the pressure reduction cannot be recalculated."
+    },
+    "audit_date": "2026-09-04",
+    "notes": "Ruby fluorescence is explicit, but the exact ruby scale is unresolved and is not inferred from publication year."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "crystallographic_basis",
+     "published_uncertainties",
+     "fixed_parameters",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+     "locations": [
+      "Abstract, page 45",
+      "Table 1 and experimental methods, page 46",
+      "EOS method, page 47",
+      "Figure 3e, page 48",
+      "EOS discussion, page 49"
+     ],
+     "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=7.5(10) on the ruby-pressure assignment. At V=239.13 A^3 the stored curve gives 27.53 GPa, consistent with the Table 1 ruby value 27.8[5] GPa.",
+     "doi": "10.2138/am-1996-1-206"
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "Table 1 row Pr=0.95 GPa",
+      "lattice_derived_volume_a3": 260.7321,
+      "reported_volume_a3": 260.49,
+      "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
+     }
+    ],
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "akimotoite_reynard_1996_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, page 46"
+     ],
+     "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including compression/decompression direction, both reported pressure assignments, cell parameters, conventional-cell volumes, reported uncertainties, reflection counts, and ice-VII calibrant volumes. All 16 rows have ruby pressures and were used for this refit."
+    }
+   }
+  },
+  {
+   "label": "Reynard et al. (1996), preferred BM3, ice-VII pressure scale",
+   "reference": {
+    "authors": [
+     "Reynard",
+     "Fiquet",
+     "Itié",
+     "Rubie"
+    ],
+    "year": 1996,
+    "source": "American Mineralogist",
+    "volume": "81",
+    "locator": "45-50",
+    "doi": "10.2138/am-1996-1-206"
+   },
+   "record_kind": "published",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 262.3,
+     "K0": 212.0,
+     "K0_prime": 5.6
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.4,
+    "K0": null,
+    "K0_prime": 1.0
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "K0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    25.2
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.0,
+    298.0
+   ],
+   "temperature_ref": 298.0,
+   "identifier": "akimotoite_reynard_1996_bm3_ice_vii_3",
+   "fit_datasets": [
+    "akimotoite_reynard_1996_table1_compression"
+   ],
+   "parameter_provenance": {
+    "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
+    "V0": "Figure 3f, page 48: fitted V0=262.3(4) A^3.",
+    "K0": "Page 49 and Figure 3f: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
+    "K0_prime": "Abstract, Figure 3f, and page 49: K0'=5.6(10) using pressures calculated from the ice-VII EOS.",
+    "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
+    "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
+   },
+   "notes": "This is the authors' preferred pressure assignment of the same experiment represented by the companion ruby-scale record. It is a distinct fit, not a duplicate parameter transcription. Ice-VII (110) diffraction and MgSiO3 ilmenite were measured on the same 50 micrometer X-ray spot; Table 1 prints 12 finite-pressure Pi values, and Figure 3f additionally plots the two ambient measurements as zero-pressure anchors, giving 14 usable rows. The paper reports that V0 was varied and K0 was fixed at the adopted 212 GPa Brillouin value. Above 15 GPa the pressure medium developed nonhydrostatic stress and pressure gradients; the bracketed ice-pressure quantities are maximum gradient estimates, not stated one-sigma errors. The source gives neither parameter covariance nor a confidence convention for fitted-parameter errors. The numerical 298 K reference encodes the source's qualitative 'ambient temperature' wording rather than a measured sample temperature.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Hemley",
+        "Jephcoat",
+        "Mao",
+        "Zha",
+        "Finger",
+        "Cox"
+       ],
+       "year": 1987,
+       "source": "Nature",
+       "volume": "330",
+       "locator": "737-740",
+       "doi": "10.1038/330737a0"
+      },
+      "source_location": "High-pressure diffraction experiment, page 46; Table 1 columns Pi and Vice",
+      "scope": "preferred EOS pressure assignment",
+      "notes": "Pressures were calculated from the measured ice-VII (110) line and the Hemley et al. (1987) ice-VII EOS on the same X-ray spot as the sample."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Table 1 preserves the row-wise ice-VII volumes needed for pressure recalculation, but Peritheos does not bundle the exact Hemley et al. (1987) calibration. The published reported-pressure fit can nevertheless be refitted directly."
+    },
+    "audit_date": "2026-09-04",
+    "notes": "The calibration publication and row-wise calibrant volumes are resolved; only an executable bundled representation of that historical ice-VII EOS is absent."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "crystallographic_basis",
+     "published_uncertainties",
+     "fixed_parameters",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+     "locations": [
+      "Abstract, page 45",
+      "Table 1 and experimental methods, page 46",
+      "EOS method, page 47",
+      "Figure 3f, page 48",
+      "EOS discussion, page 49"
+     ],
+     "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
+     "doi": "10.2138/am-1996-1-206"
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "Table 1 row Pr=0.95 GPa",
+      "lattice_derived_volume_a3": 260.7321,
+      "reported_volume_a3": 260.49,
+      "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
+     }
+    ],
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "akimotoite_reynard_1996_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, page 46"
+     ],
+     "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including 12 printed finite-pressure Pi values and the two ambient measurements plotted at zero pressure in Figure 3f, both reported pressure assignments, cell parameters, conventional-cell volumes, uncertainties, reflection counts, and ice-VII calibrant volumes."
+    }
+   }
+  },
   {
    "label": "Siersch et al. (2021), BM3",
    "reference": {
@@ -58,8 +323,9 @@
     "source": "Phys. Earth Planet. Inter.",
     "volume": "320",
     "locator": "106786",
-    "doi": "10.1016/j.pepi.2021.106786"
+     "doi": "10.1016/j.pepi.2021.106786"
    },
+   "default_for": "equilibrium",
    "eos": {
     "type": "BM3",
     "parameters": {
@@ -144,6 +410,132 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "akimotoite_reynard_1996_table1_compression",
+   "kind": "pressure_volume_lattice_parameters_with_calibrant",
+   "description": "All 16 room-temperature MgSiO3 ilmenite unit-cell rows printed in Reynard et al. (1996) Table 1, with ruby and ice-VII pressure assignments and the measured ice-VII calibrant volumes.",
+   "source_location": "Table 1, article page 46",
+   "source_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+   "columns": [
+    {
+     "name": "run_direction",
+     "quantity": "compression_or_decompression",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ruby_pressure_gpa",
+     "quantity": "ruby_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_linewidth_uncertainty_gpa",
+     "quantity": "ruby_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "ruby_pressure_gpa"
+    },
+    {
+     "name": "ice_vii_pressure_gpa",
+     "quantity": "ice_vii_eos_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ice_vii_max_gradient_gpa",
+     "quantity": "ice_vii_eos_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "ice_vii_pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_sd_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_sd_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_sd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "reflections_used",
+     "quantity": "number_of_reflections_in_lattice_refinement",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ice_vii_volume_a3",
+     "quantity": "calibrant_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "ice_vii_volume_uncertainty_a3",
+     "quantity": "calibrant_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "ice_vii_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/akimotoite-reynard-1996-table1-compression.csv",
+    "sha256": "5013e95e53e8e8fa08e1fa7ee59b6f85fb0bb84c3b689c2d0665590a47b505d3",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "reported_as": "Cell-parameter and MgSiO3 volume parentheses are estimated one-standard-deviation values. Ruby-pressure brackets are estimates from fluorescence line widths. Ice-pressure brackets are maximum pressure gradients estimated from ice-VII diffraction-line widths, and ice-volume parentheses are peak-location estimates described as probably underestimated.",
+    "covariance": "not_reported"
+   },
+   "notes": "The table's Pr and Pi columns are retained separately because they define two published BM3 fits. Blank Pi/Vice entries remain null in the transcription. The 16 rows include 13 compression states, two decompression states, and a final decompressed ambient state; together with the initial ambient row this gives 16 observations. Table 1 prints 12 finite-pressure Pi values; Figure 3f also plots the two ambient measurements as zero-pressure anchors, giving 14 rows for the ice-VII-scale reproduction. At Pr=0.95 GPa, the printed a=4.7240 A and c=13.491 A imply V=260.732 A^3 rather than the printed 260.49 A^3; all values are retained verbatim and the EOS reproduction uses the V column. No official supplement or machine-readable deposit was found; this CSV is a direct transcription of the final article table.",
+   "reference": {
+    "authors": [
+     "Reynard",
+     "Fiquet",
+     "Itié",
+     "Rubie"
+    ],
+    "year": 1996,
+    "source": "American Mineralogist",
+    "volume": "81",
+    "locator": "45-50",
+    "doi": "10.2138/am-1996-1-206"
+   },
+   "used_by_eos_records": [
+    "akimotoite_reynard_1996_bm3_ruby_2",
+    "akimotoite_reynard_1996_bm3_ice_vii_3"
+   ]
+  },
   {
    "identifier": "akimotoite_siersch_2021_table2_compression",
    "kind": "pressure_volume_lattice_parameters",

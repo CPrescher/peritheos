@@ -65,8 +65,9 @@ volume is omitted and its remaining coefficients are not reproducible from the
 printed data under the documented equations.
 Peritheos-native aragonite BM2, B2-KCl P-V-T, and Correa and Benedict diamond
 Helmholtz records, plus two explicitly derived Dewaele-anchored diamond
-compositions, plus the Campbell-Heinz RbCl-B2 record, bring the distributed
-catalog to 116 materials and 162 EOS
+compositions, plus the Campbell-Heinz RbCl-B2 record and the two
+pressure-scale-specific Reynard et al. MgSiO3-akimotoite BM3 fits, bring the distributed
+catalog to 116 materials and 164 EOS
 records; they have primary-publication provenance rather than fabricated
 Dioptas migration sources.
 
@@ -98,7 +99,7 @@ new or edited records so the scientific choice is visible without consulting
 the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
-marks all 162 bundled records `primary_source_validated`; no record remains
+marks all 164 bundled records `primary_source_validated`; no record remains
 pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.

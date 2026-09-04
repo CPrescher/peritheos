@@ -16,7 +16,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-04 classifies all 162 bundled records as
+dated 2026-09-04 classifies all 164 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -26,7 +26,9 @@ parameterization from Martinez et al. (1996), the Dewaele et al. (2012) B2-KCl
 P-V-T pressure calibration, the complete Correa and Benedict diamond Helmholtz
 models and experimental anchors, and the Tange (2009), Dewaele (2004), and
 Takemura-Dewaele (2008) reference standards added for pressure-calibration
-lineage, the Hemley neon refit, and Campbell and Heinz's RbCl-B2 record. The
+lineage, the Hemley neon refit, Campbell and Heinz's RbCl-B2 record, and the
+two Reynard et al. MgSiO3-akimotoite BM3 fits on the ruby and ice-VII pressure
+assignments. The
 KCl record is the preferred
 `kcl.eosmat` record and
 keeps its measured 298 K range distinct from its molecular-dynamics thermal
@@ -39,8 +41,8 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 30 distinct primary datasets with 4,713 distinct
-observation rows, represented by 40 material-document links to 43 EOS records.
+The current bundle contains 98 distinct primary datasets with 8,413 distinct
+observation rows, represented by 114 material-document links to 120 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
 and phase entries while retaining the simultaneously measured Cu reference

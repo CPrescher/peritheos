@@ -95,6 +95,25 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "akimotoite_reynard_1996_bm3_ruby_2": (
+        "Direct Table 1 reproduction of the ruby-pressure fit with K0 fixed at "
+        "the source-adopted 212 GPa. The source says its parameter uncertainties "
+        "account for pressure and volume errors, but it does not publish the exact "
+        "objective or covariance. Ruby brackets are fluorescence-line-width "
+        "estimates rather than stated one-sigma errors and are absent at the two "
+        "ambient anchors, so the reproducible Peritheos fit uses all 16 rows, "
+        "unweighted pressure residuals, and the reported one-sigma volume errors."
+    ),
+    "akimotoite_reynard_1996_bm3_ice_vii_3": (
+        "Direct Table 1 reproduction of the authors' preferred ice-VII-pressure "
+        "fit with K0 fixed at the source-adopted 212 GPa. Table 1 prints 12 "
+        "finite-pressure Pi values and Figure 3f supplies two zero-pressure "
+        "ambient anchors. The source does not publish its exact objective or "
+        "covariance; ice-pressure brackets are maximum-gradient estimates rather "
+        "than stated one-sigma errors and are absent at the two ambient anchors, "
+        "so the reproducible Peritheos fit uses unweighted pressure residuals and "
+        "the reported one-sigma volume errors."
+    ),
     "cscl_campbell_1994_bm3_1": (
         "Complete source-data reproduction: Table 1 contains a distinct 13-row "
         "CsCl block, not the RbCl rows previously attached to this material. The "
@@ -336,6 +355,12 @@ INVESTIGATION_NOTES = {
 
 # Dataset choices that cannot be inferred uniquely from generic quantity metadata.
 PRESSURE_COLUMNS = {
+    "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ruby_2": (
+        "ruby_pressure_gpa"
+    ),
+    "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ice_vii_3": (
+        "ice_vii_pressure_gpa"
+    ),
     "neon_hemley_1989_table1_compression": "pressure_gpa",
     "neon_hemley_1989_table1_fei_recalculated": "pressure_gpa_dewaele_2004",
     "aluminum_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
@@ -446,7 +471,10 @@ def _value_columns(dataset: dict[str, Any]) -> list[dict[str, Any]]:
     return [column for column in dataset["columns"] if column["role"] == "value"]
 
 
-def _pressure_column(dataset: dict[str, Any], model_type: str) -> str:
+def _pressure_column(dataset: dict[str, Any], model_type: str, record_id: str) -> str:
+    key = f"{dataset['identifier']}#{record_id}"
+    if key in PRESSURE_COLUMNS:
+        return PRESSURE_COLUMNS[key]
     key = f"{dataset['identifier']}#{model_type}"
     if key in PRESSURE_COLUMNS:
         return PRESSURE_COLUMNS[key]
@@ -674,7 +702,7 @@ def _series(
     if dataset["identifier"] == "silicon_anzellini_2019_tables1_4_6_7_compression":
         pressure_name = "pressure_gold_gpa|pressure_tungsten_gpa|pressure_ruby_gpa"
     else:
-        pressure_name = _pressure_column(dataset, model_type)
+        pressure_name = _pressure_column(dataset, model_type, record["identifier"])
     volume_name = _volume_column(dataset, record["identifier"])
     temperature_name = _temperature_column(dataset)
     columns = _column_map(dataset)
@@ -702,6 +730,14 @@ def _series(
     else:
         pressure = np.array([_number(row.get(pressure_name)) for row in rows])
         pressure_unit = columns[pressure_name]["unit"]
+        if record["identifier"] == "akimotoite_reynard_1996_bm3_ice_vii_3":
+            # Table 1 leaves Pi blank for the two ambient measurements, while
+            # Figure 3f plots both as zero-pressure anchors on the ice-VII scale.
+            ruby_pressure = np.array(
+                [_number(row.get("ruby_pressure_gpa")) for row in rows]
+            )
+            ambient = ~np.isfinite(pressure) & (ruby_pressure == 0.0)
+            pressure[ambient] = 0.0
     pressure *= _pressure_factor(pressure_unit)
     raw_volume = np.array([_number(row.get(volume_name)) for row in rows])
     volume, volume_factor = _volume_values(
