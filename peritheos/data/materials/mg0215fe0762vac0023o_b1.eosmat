@@ -1,0 +1,754 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg0215fe0762vac0023o_b1",
+ "name": "Mw78 defect-bearing magnesiowustite",
+ "formula": "Mg0.215Fe0.762□0.023O",
+ "phase": "defect-bearing B1 magnesiowustite, metrically cubic average structure",
+ "aliases": [
+  "Mw78",
+  "(Mg0.215Fe0.762□0.023)O",
+  "(Mg0.22Fe0.78)O",
+  "iron-rich ferropericlase"
+ ],
+ "cell_contents": "Four defect-normalized Mg0.215Fe0.762□0.023O formula units per conventional average rocksalt cell (Z=4). The average diffraction model does not resolve the tetrahedral Fe3+-vacancy defect clusters seen by room-pressure Mossbauer spectroscopy and diffuse scattering.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.2898,
+  "b": 4.2898,
+  "c": 4.2898,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.215,
+   "source_label": "average cation site; defect clusters unresolved",
+   "multiplicity": 4
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.762,
+   "source_label": "average total-Fe scattering occupancy; not a coordination assignment",
+   "multiplicity": 4
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0,
+   "source_label": "average anion site",
+   "multiplicity": 4
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Finkelstein",
+    "Jackson",
+    "Sturhahn",
+    "Zhang",
+    "Alp",
+    "Toellner"
+   ],
+   "year": 2017,
+   "title": "Single-crystal equations of state of magnesiowustite at high pressures",
+   "source": "American Mineralogist",
+   "volume": "102",
+   "locator": "1709-1717",
+   "doi": "10.2138/am-2017-5966"
+  },
+  "structure_location": "Final article, pages 1711-1712, Room pressure and Phase stability; official deposit AM-17-85966, Table 2",
+  "structure_url": "https://web.gps.caltech.edu/~jackson/pdf/Finkelstein2017_AmMin.pdf",
+  "structure_file_sha256": "b4caf3b4ee71869be0c7d69dd3f557745f0ec93b2a03d39f8bc10ed87a3fb6e3",
+  "official_deposit_url": "https://msaweb.org/MSA/AmMin/TOC/2017/Aug2017_data/AM-17-85966.zip",
+  "official_deposit_sha256": "80f895e66372fe27ba8104a7b65960fea67846b3aea10225c644df77ffc845d2",
+  "official_table2_workbook_sha256": "2b7320f0f6fce96045edf19d3cd9ea583032446173e558bb204f82654c755264"
+ },
+ "notes": "The authors call the specimen nominally (Mg0.22Fe0.78)O or Mw78, then use room-pressure synchrotron Mossbauer spectroscopy to resolve 71.6 mol% high-spin Fe2+, 4.6 mol% high-spin Fe3+, 21.5 mol% Mg, and 2.3 mol% net cation vacancies per O: Mg0.215Fe2+0.716Fe3+0.046□0.023O. The EOS records are attached to that defect-normalized measured composition because both DAC fragments came from the same characterized crystal. The Fm-3m sites are an average diffraction proxy: the final article explicitly says the nominal cubic cell and Bragg peaks do not fully describe the diffuse defect structure, and it does not publish an ordered defect-cluster refinement. Room-pressure Mossbauer data establish high-spin Fe2+ and Fe3+ only at ambient pressure; this study did not measure spin state under compression, so neither EOS record is labeled as a high-spin pressure branch. The neon crystal becomes increasingly hexagonally distorted above about 20 GPa under growing differential stress. That high-pressure indexing-cell fit is documented but excluded from execution because no space group or atomic structure is established.",
+ "eos_records": [
+  {
+   "identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
+   "label": "Finkelstein et al. (2017), Mw78 cubic helium BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": [
+     "Finkelstein",
+     "Jackson",
+     "Sturhahn",
+     "Zhang",
+     "Alp",
+     "Toellner"
+    ],
+    "year": 2017,
+    "title": "Single-crystal equations of state of magnesiowustite at high pressures",
+    "source": "American Mineralogist",
+    "volume": "102",
+    "locator": "1709-1717",
+    "doi": "10.2138/am-2017-5966"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 78.87,
+     "K0": 148.0,
+     "K0_prime": 4.09
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.06,
+    "K0": 3.0,
+    "K0_prime": 0.12
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    1.823,
+    55.542
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_configuration": {
+    "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
+    "pressure_medium": "helium gas-loaded at approximately 25000 PSI",
+    "pressure_cell": "BX90 diamond-anvil cell with 250 micrometer beveled culets",
+    "diffraction": "single-crystal X-ray diffraction at APS GSECARS PX2 13-BM-C, wavelength 0.4340 A",
+    "fit_software": "MINUTI version 2.0",
+    "fit_selection": "all 17 helium-medium cubic-indexed Table 2 rows",
+    "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3; K0 and K0_prime free"
+   },
+   "fit_datasets": [
+    "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     55.542
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.792358,
+     1.0
+    ],
+    "notes": [
+     "Empirical nominal-300 K cubic compression curve through the helium data range plus its zero-pressure reference; the bounds are not a phase-stability guarantee.",
+     "The crystal remains metrically cubic through 55.5 GPa, but spin state was measured only at room pressure before loading and is unresolved under compression.",
+     "Helium is the more hydrostatic baseline, although the article cites gradual nonhydrostaticity in helium above about 23 GPa."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Final article, page 1710: explicitly printed third-order Birch-Murnaghan pressure-volume equation in V0/V form; MINUTI version 2.0",
+    "V0": "Final article, page 1713 and Table 3: 78.87(6) A^3, conventional cubic unit cell; fitted with ambient-volume prior 78.94 +/- 0.1 A^3",
+    "K0": "Final article, abstract, page 1713, and Table 3: K0T=148(3) GPa",
+    "K0_prime": "Final article, abstract, page 1713, and Table 3: K'0T=4.09(12), freely varied",
+    "temperature_ref": "Final article, Table 3 title: selected 300 K EOS fit parameters; nominal room-temperature reference",
+    "volume_basis": "Official deposit AM-17-85966, Table 2, Helium Medium - Cubic Unit Cell; the B1 conventional cell has Z=4",
+    "uncertainties": "Final article, Figures 4 and 7 captions: 1-sigma fitting uncertainties; numerical covariance matrices are not printed"
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "title": "Equations of state of six metals above 94 GPa",
+       "source": "Physical Review B",
+       "volume": "70",
+       "locator": "094112",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Final article, page 1710, Experimental procedures",
+      "scope": "all 17 helium-medium Table 2 compression observations",
+      "reference_calibration_record": "ruby_dewaele_2004",
+      "notes": "Reported pressure is the mean of the pressures from two ruby spheres; its uncertainty is their standard deviation. At 31.820 GPa ruby 1 was not measured and was estimated from ruby 2 with the Table 2 footnote relation."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 preserves both absolute R1 wavelengths except for the explicitly estimated 31.820 GPa ruby-1 value, but it does not give the specimen-specific zero-pressure R1 reference wavelength. Exact raw-wavelength pressure reduction therefore cannot be rerun without inference; the printed Dewaele-2004 pressures remain directly convertible through the bundled calibration."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystallography",
+     "formula_units_per_cell",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2017-5966",
+     "doi": "10.2138/am-2017-5966",
+     "locations": [
+      "final article, pages 1709-1713, especially Experimental procedures, Room pressure, Phase stability, Equations of state, and Table 3",
+      "official American Mineralogist deposit AM-17-85966, 5966_supp.pdf",
+      "official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx"
+     ],
+     "finding": "The defect-normalized specimen remains metrically cubic in helium through 55.5 GPa. The authors fit all 17 cubic-cell observations with their explicitly printed BM3 equation, an ambient V0 prior, and free K0 and K0_prime."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+     ],
+     "source_locations": [
+      "official deposit AM-17-85966, Table 2"
+     ],
+     "finding": "All 30 Table 2 rows are bundled: one ambient observation, 17 helium observations, and 12 neon observations. Both cubic and hexagonal indexing results, all printed uncertainties, and both ruby wavelengths are retained."
+    },
+    "numerical_reproduction": {
+     "published_curve_on_rounded_fit_rows": {
+      "observations": 17,
+      "pressure_rmse_gpa": 0.2779224099,
+      "maximum_absolute_pressure_residual_gpa": 0.5288116855
+     },
+     "published_135_8_gpa_density_benchmark": {
+      "source_value_g_cm3": 8.17,
+      "reproduced_value_g_cm3": 8.1667425918,
+      "volume_a3": 52.788547723,
+      "mass_basis": "nominal Mg0.22Fe0.78O with Z=4, matching the source calculation"
+     }
+    },
+    "independent_refit": {
+     "selection": "17 helium cubic-cell Table 2 rows",
+     "objective": "diagnostic iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2, plus the published Gaussian V0 prior",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "refit_parameters": {
+      "V0": 78.88229097,
+      "K0": 146.69244887,
+      "K0_prime": 4.13085052
+     },
+     "pressure_rmse_gpa": 0.2387738951,
+     "result": "near_parity",
+     "notes": "All diagnostic coefficients are within the source's 1-sigma parameter uncertainties. The paper does not state MINUTI's exact residual objective or treatment of P-V covariance, so this diagnostic is not promoted to a Peritheos refit record."
+    },
+    "reported_parameterizations": [
+     {
+      "branch": "helium, cubic indexed",
+      "disposition": "selected_default",
+      "V0_a3": 78.87,
+      "K0_gpa": 148.0,
+      "K0_prime": 4.09,
+      "fit_range_gpa": [
+       1.8,
+       55.5
+      ]
+     },
+     {
+      "branch": "neon, low-pressure cubic indexed",
+      "disposition": "retained_non_default",
+      "V0_a3": 78.742,
+      "K0_gpa": 163.0,
+      "K0_prime": 4.02,
+      "fit_range_gpa": [
+       1.3,
+       19.2
+      ]
+     },
+     {
+      "branch": "neon, high-pressure hexagonal indexing cell",
+      "disposition": "excluded",
+      "V0_a3": 58.7,
+      "K0_gpa": 176.8,
+      "K0_prime": 4.0,
+      "fit_range_gpa": [
+       24.1,
+       53.3
+      ],
+      "reason": "No space group or atomic structure is established; the authors describe an increasingly hexagonal distortion correlated with nonhydrostatic stress, and the 58.7 A^3 V0 is for a three-formula-unit indexing cell rather than the four-formula-unit cubic cell."
+     }
+    ],
+    "unresolved_issues": [
+     "The numerical EOS covariance matrices used for Figure 5 are not printed or deposited; parameter_covariance is therefore null.",
+     "The exact MINUTI version-2.0 residual objective, weights, and treatment of pressure-volume covariance are not stated in the article or official supplement.",
+     "The study establishes high-spin Fe2+ and tetrahedral high-spin Fe3+ at ambient pressure only; it does not resolve spin state along either compression run.",
+     "The paper's 135.8 GPa density reproduces only with the nominal Mg0.22Fe0.78O molar mass, not the defect-normalized Mg0.215Fe0.762□0.023O mass reported from the same study. This benchmark is retained as a source calculation, not used to redefine the material composition."
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS equation, parameters, composition, experimental scope, and interpretation",
+     "citation": "Finkelstein et al. (2017), American Mineralogist 102, 1709-1717",
+     "doi": "10.2138/am-2017-5966"
+    },
+    {
+     "role": "complete lattice, volume, and ruby-wavelength observations",
+     "citation": "American Mineralogist deposit AM-17-85966, Table 2",
+     "url": "https://msaweb.org/MSA/AmMin/TOC/2017/Aug2017_data/AM-17-85966.zip",
+     "sha256": "80f895e66372fe27ba8104a7b65960fea67846b3aea10225c644df77ffc845d2"
+    }
+   ],
+   "notes": "Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported."
+  },
+  {
+   "identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
+   "label": "Finkelstein et al. (2017), Mw78 low-pressure cubic neon BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Finkelstein",
+     "Jackson",
+     "Sturhahn",
+     "Zhang",
+     "Alp",
+     "Toellner"
+    ],
+    "year": 2017,
+    "title": "Single-crystal equations of state of magnesiowustite at high pressures",
+    "source": "American Mineralogist",
+    "volume": "102",
+    "locator": "1709-1717",
+    "doi": "10.2138/am-2017-5966"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 78.742,
+     "K0": 163.0,
+     "K0_prime": 4.02
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.014,
+    "K0": 1.0,
+    "K0_prime": 0.10
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    1.314,
+    19.244
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_configuration": {
+    "sample": "single-crystal fragments from defect-normalized Mw78, Mg0.215Fe0.762□0.023O",
+    "pressure_medium": "neon gas-loaded at approximately 25000 PSI",
+    "pressure_cell": "Princeton-design symmetric diamond-anvil cell with 300 micrometer culets",
+    "diffraction": "single-crystal X-ray diffraction at APS GSECARS 13-ID-D, wavelength 0.3100 A",
+    "fit_software": "MINUTI version 2.0",
+    "fit_selection": "first five neon-medium cubic-indexed Table 2 rows, 1.314-19.244 GPa",
+    "fit_constraints": "V0 prior 78.94 +/- 0.1 A^3 and K0_prime prior 4.0 +/- 0.1; neither parameter fixed"
+   },
+   "fit_datasets": [
+    "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     19.244
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.9074588,
+     1.0
+    ],
+    "notes": [
+     "Empirical nominal-300 K low-pressure cubic-indexing fit plus its zero-pressure reference; it is not an equilibrium recommendation.",
+     "Neon crystallizes near 4.8 GPa, and the authors state that the unit-cell volume is affected below the approximately 20 GPa onset of resolvable hexagonal distortion.",
+     "Do not extrapolate this stress-sensitive fit into the high-pressure distorted branch."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Final article, page 1710: explicitly printed third-order Birch-Murnaghan pressure-volume equation in V0/V form; MINUTI version 2.0",
+    "V0": "Final article, page 1713 and Table 3: 78.742(14) A^3 conventional cubic unit cell; fitted with ambient-volume prior 78.94 +/- 0.1 A^3",
+    "K0": "Final article, page 1713 and Table 3: K0T=163.0(1.0) GPa",
+    "K0_prime": "Final article, page 1713 and Table 3: K'0T=4.02(10), fitted under a 4.0 +/- 0.1 prior rather than fixed",
+    "temperature_ref": "Final article, Table 3 title: selected 300 K EOS fit parameters; nominal room-temperature reference",
+    "volume_basis": "Official deposit AM-17-85966, Table 2, Neon Medium - Cubic Unit Cell; the B1 conventional cell has Z=4",
+    "uncertainties": "Final article, Figures 4 and 7 captions: 1-sigma fitting uncertainties; numerical covariance matrices are not printed"
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "title": "Equations of state of six metals above 94 GPa",
+       "source": "Physical Review B",
+       "volume": "70",
+       "locator": "094112",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Final article, page 1710, Experimental procedures",
+      "scope": "first five neon-medium Table 2 observations used by the cubic fit",
+      "reference_calibration_record": "ruby_dewaele_2004",
+      "notes": "Reported pressure is the mean of the pressures from two ruby spheres; its uncertainty is their standard deviation. The source prints no parenthetical pressure uncertainty at 19.244 GPa, where the two wavelengths are both 701.02 nm; the CSV leaves it blank rather than inferring zero."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 preserves both absolute R1 wavelengths but not the specimen-specific zero-pressure R1 reference wavelength. Exact raw-wavelength pressure reduction therefore cannot be rerun without inference; the printed Dewaele-2004 pressures remain directly convertible through the bundled calibration."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystallography",
+     "formula_units_per_cell",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2017-5966",
+     "doi": "10.2138/am-2017-5966",
+     "locations": [
+      "final article, pages 1710-1713, Experimental procedures, Phase stability, Equations of state, and Table 3",
+      "official American Mineralogist deposit AM-17-85966, 5966_supp.pdf",
+      "official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx"
+     ],
+     "finding": "The first five neon observations remain cubic-indexable through 19.244 GPa and define a separate BM3 fit with both V0 and K0_prime priors. The higher-pressure rows are increasingly hexagonally distorted and are not part of this executable record."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+     ],
+     "source_locations": [
+      "official deposit AM-17-85966, Table 2"
+     ],
+     "finding": "All 30 Table 2 rows are bundled. The five-row neon cubic fit selection and seven-row excluded neon hexagonal selection are explicit, and both cell indexings remain available for every pressure."
+    },
+    "numerical_reproduction": {
+     "published_curve_on_rounded_fit_rows": {
+      "observations": 5,
+      "pressure_rmse_gpa": 0.1182512894,
+      "maximum_absolute_pressure_residual_gpa": 0.1542757551
+     },
+     "published_135_8_gpa_density_benchmark": {
+      "source_value_g_cm3": 8.03,
+      "reproduced_value_g_cm3": 8.0371048201,
+      "volume_a3": 53.6400222094,
+      "mass_basis": "nominal Mg0.22Fe0.78O with Z=4, matching the source calculation"
+     }
+    },
+    "independent_refit": {
+     "selection": "five neon cubic-cell Table 2 rows from 1.314 through 19.244 GPa",
+     "objective": "diagnostic iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2, plus the published Gaussian V0 and K0_prime priors; the unprinted 19.244 GPa pressure uncertainty contributes no inferred pressure term",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "refit_parameters": {
+      "V0": 78.76818584,
+      "K0": 161.64662941,
+      "K0_prime": 3.99361735
+     },
+     "pressure_rmse_gpa": 0.1457227793,
+     "result": "method_dependent_near_parity",
+     "notes": "The diagnostic coefficients are within two source 1-sigma uncertainties, but the exact MINUTI objective is unpublished and the source rounds the five observations. This diagnostic is not promoted to a Peritheos refit record."
+    },
+    "excluded_hexagonal_parameterization": {
+     "V0_a3": 58.7,
+     "V0_error_a3": 0.4,
+     "K0_gpa": 176.8,
+     "K0_error_gpa": 1.1,
+     "K0_prime": 4.0,
+     "K0_prime_error": 0.10,
+     "K0_prime_prior": "4.0 +/- 0.1",
+     "fit_range_gpa": [
+      24.1,
+      53.3
+     ],
+     "volume_basis": "hexagonal indexing cell with V=sqrt(3)/2*a^2*c and three formula units; V_hex=3/4 V_cubic at the undistorted cubic limit",
+     "disposition": "excluded because no space group or atomic structure is established and the distortion tracks increasing differential stress"
+    },
+    "unresolved_issues": [
+     "The numerical EOS covariance matrices are not printed or deposited; parameter_covariance is therefore null.",
+     "The exact MINUTI version-2.0 residual objective, weights, and treatment of pressure-volume covariance are not stated in the article or official supplement.",
+     "The source prints no pressure uncertainty for the 19.244 GPa row; it is preserved as missing rather than inferred as zero from identical rounded ruby wavelengths.",
+     "Spin state was measured only at ambient pressure and remains unresolved along the neon compression path."
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS equation, parameters, composition, experimental scope, and stress interpretation",
+     "citation": "Finkelstein et al. (2017), American Mineralogist 102, 1709-1717",
+     "doi": "10.2138/am-2017-5966"
+    },
+    {
+     "role": "complete lattice, volume, and ruby-wavelength observations",
+     "citation": "American Mineralogist deposit AM-17-85966, Table 2",
+     "url": "https://msaweb.org/MSA/AmMin/TOC/2017/Aug2017_data/AM-17-85966.zip",
+     "sha256": "80f895e66372fe27ba8104a7b65960fea67846b3aea10225c644df77ffc845d2"
+    }
+   ],
+   "notes": "Published stress-sensitive low-pressure neon alternative. V0 and K0_prime were constrained by priors, not fixed, so fixed_parameters is empty. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity; this record is intentionally not the default. Parenthetical values are 1-sigma fit uncertainties."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "magnesiowustite_mw78_finkelstein_2017_table2_compression",
+   "kind": "pressure_volume_lattice_parameters_calibrant_observations",
+   "description": "Complete official Table 2 transcription for the defect-bearing Mw78 single crystal: one ambient row, 17 helium rows, and 12 neon rows, preserving both cubic and hexagonal cell indexings and the two ruby R1 wavelengths.",
+   "reference": {
+    "authors": [
+     "Finkelstein",
+     "Jackson",
+     "Sturhahn",
+     "Zhang",
+     "Alp",
+     "Toellner"
+    ],
+    "year": 2017,
+    "title": "Single-crystal equations of state of magnesiowustite at high pressures",
+    "source": "American Mineralogist",
+    "volume": "102",
+    "locator": "1709-1717",
+    "doi": "10.2138/am-2017-5966"
+   },
+   "source_location": "Official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx",
+   "source_url": "https://msaweb.org/MSA/AmMin/TOC/2017/Aug2017_data/AM-17-85966.zip",
+   "source_file_sha256": "2b7320f0f6fce96045edf19d3cd9ea583032446173e558bb204f82654c755264",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "medium",
+     "quantity": "pressure_medium",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "reported_structure_branch",
+     "quantity": "structure_branch",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_as_v0_prior",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_helium_cubic_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_neon_cubic_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_excluded_neon_hex_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_standard_deviation_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "ruby1_wavelength_nm",
+     "quantity": "ruby_r1_wavelength",
+     "unit": "nm",
+     "role": "value"
+    },
+    {
+     "name": "ruby1_observation_status",
+     "quantity": "observation_status",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ruby2_wavelength_nm",
+     "quantity": "ruby_r1_wavelength",
+     "unit": "nm",
+     "role": "value"
+    },
+    {
+     "name": "cubic_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "cubic_a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "cubic_a_angstrom"
+    },
+    {
+     "name": "cubic_volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "cubic_volume_standard_deviation_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "cubic_volume_a3"
+    },
+    {
+     "name": "hexagonal_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "hexagonal_a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "hexagonal_a_angstrom"
+    },
+    {
+     "name": "hexagonal_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "hexagonal_c_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "hexagonal_c_angstrom"
+    },
+    {
+     "name": "hexagonal_c_over_a",
+     "quantity": "lattice_parameter_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "hexagonal_c_over_a_standard_deviation",
+     "quantity": "lattice_parameter_ratio",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "hexagonal_c_over_a"
+    },
+    {
+     "name": "hexagonal_volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/hexagonal_indexing_cell",
+     "role": "value"
+    },
+    {
+     "name": "hexagonal_volume_standard_deviation_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/hexagonal_indexing_cell",
+     "role": "uncertainty",
+     "of": "hexagonal_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/magnesiowustite-mw78-finkelstein-2017-table2-compression.csv",
+    "sha256": "55ec130144ce8c0c7bd8fad6ebf45e3747ea631dfd901daf74993d7bd862f01d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
+    "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2"
+   ],
+   "uncertainty": {
+    "pressure": "The reported pressure uncertainty is the standard deviation of pressures from different ruby spheres in each chamber.",
+    "lattice_and_volume": "Parenthetical crystallographic uncertainties are transcribed in absolute units; c/a uncertainties are explicitly 1 sigma propagated from lattice-parameter fits.",
+    "missing": "The 19.244 GPa neon row has no printed pressure uncertainty and remains blank."
+   },
+   "notes": "The article's EOS fits use cubic volumes for all 17 helium rows, cubic volumes for the first five neon rows through 19.244 GPa, and hexagonal volumes for the seven neon rows from 24.084 GPa onward. The source also reports the unused alternate indexing at every pressure, retained here without cleaning. At 31.820 GPa helium, ruby 1 was estimated from ruby 2 using P_ruby1=0.9973 P_ruby2+1.8804 GPa because its wavelength was not measured. The official workbook omits a closing parenthesis in two 16.199(65) cells; the visually typeset official PDF confirms 16.199(65), which is transcribed here. The ambient footnote gives the geometric cubic-to-hexagonal transformation a_hex=a_cubic/sqrt(2), c_hex=sqrt(3)a_cubic, V_hex=3V_cubic/4."
+  }
+ ]
+}
