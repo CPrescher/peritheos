@@ -92,9 +92,9 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 116
-    assert len(set(identifiers)) == 116
-    assert sum(len(document["eos_records"]) for document in documents) == 162
+    assert len(identifiers) == 117
+    assert len(set(identifiers)) == 117
+    assert sum(len(document["eos_records"]) for document in documents) == 163
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 162
+    assert len({record["identifier"] for record in records}) == 163
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 162
+    assert statuses.count("primary_source_validated") == 163
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -145,6 +145,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
+        "phase_egg_mookherjee_2019_bm3_lp_1",
     }
     latest_audit_identifiers = {
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
@@ -153,6 +154,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
+        "phase_egg_mookherjee_2019_bm3_lp_1",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
@@ -212,6 +214,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
+        "phase_egg_mookherjee_2019_bm3_lp_1",
     }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -240,8 +243,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 162,
-        "primary_source_validated": 162,
+        "records": 163,
+        "primary_source_validated": 163,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -584,7 +587,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 162
+    assert len(records) == 163
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -650,7 +653,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 162
+    assert checked == 163
     assert failures == []
 
 
@@ -1343,6 +1346,103 @@ def test_munoz_1993_inn_uses_theoretical_murnaghan_cell():
     assert record.pressure(expected_volume) == pytest.approx(0.0, abs=1e-14)
     pressure = record.pressure(expected_volume * 0.9)
     assert record.volume(pressure) == pytest.approx(expected_volume * 0.9)
+
+
+def test_phase_egg_2019_lp_bm3_primary_source_record_and_supplement():
+    document = get_material_document("phase_egg")
+    assert document["formula"] == "AlSiO3(OH)"
+    assert document["space_group"] == "P21/n"
+    assert document["space_group_number"] == 14
+    assert document["formula_units_per_cell"] == 4
+    assert len(document["eos_records"]) == 1
+
+    cell_volume = (
+        document["lattice"]["a"]
+        * document["lattice"]["b"]
+        * document["lattice"]["c"]
+        * math.sin(math.radians(document["lattice"]["beta"]))
+    )
+    assert cell_volume == pytest.approx(212.99, abs=0.002)
+    assert {site["wyckoff"] for site in document["atom_sites"]} == {"4e"}
+    assert {
+        element: 4
+        * sum(
+            site["occupancy"]
+            for site in document["atom_sites"]
+            if site["element"] == element
+        )
+        for element in ("Al", "Si", "O", "H")
+    } == {"Al": 4.0, "Si": 4.0, "O": 16.0, "H": 4.0}
+
+    source = document["eos_records"][0]
+    assert source["identifier"] == "phase_egg_mookherjee_2019_bm3_lp_1"
+    assert source["reference"]["doi"] == "10.2138/am-2019-6694"
+    assert source["eos"] == {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+            "V0": pytest.approx(210.21),
+            "K0": pytest.approx(164.4),
+            "K0_prime": pytest.approx(7.14),
+        },
+    }
+    assert source["parameter_errors"] == {
+        "V0": pytest.approx(0.14),
+        "K0": pytest.approx(1.8),
+        "K0_prime": pytest.approx(0.24),
+    }
+    assert source["parameter_error_confidence"] is None
+    assert source["fixed_parameters"] == []
+    assert source["temperature_ref"] == 0.0
+    assert source["experimental_temperature_range_k"] == [0.0, 0.0]
+    assert source["pressure_range_status"] == "theoretical"
+    assert source["pressure_calibration"]["status"] == "not_applicable"
+    assert source["pressure_calibration"]["methods"][0]["kind"] == "ab_initio"
+
+    lineage_dois = [item["doi"] for item in source["source_lineage"]]
+    assert lineage_dois == [
+        "10.2138/am-2019-6694",
+        "10.2138/am-2018-6694",
+        "10.2138/am-1998-7-820",
+    ]
+    canonical_record_dois = [
+        record["reference"].get("doi", "").lower()
+        for material_id in list_material_documents()
+        for record in get_material_document(material_id)["eos_records"]
+    ]
+    assert canonical_record_dois.count("10.2138/am-2019-6694") == 1
+    assert "10.2138/am-2018-6694" not in canonical_record_dois
+
+    dataset = document["datasets"][0]
+    assert dataset["identifier"] == ("phase_egg_mookherjee_2019_supplement_lp_pv")
+    assert [column["name"] for column in dataset["columns"]] == [
+        "volume_a3",
+        "pressure_gpa",
+    ]
+    assert dataset["rows"] == [
+        [220.0, -6.4],
+        [215.0, -3.4],
+        [210.0, 0.2],
+        [205.0, 4.5],
+        [200.0, 9.8],
+        [198.0, 12.2],
+        [196.0, 14.7],
+        [195.0, 16.1],
+        [190.0, 23.7],
+        [185.0, 32.8],
+        [180.0, 43.7],
+    ]
+    assert dataset["uncertainty"] == {
+        "reported_as": "not_reported",
+        "covariance": "not_reported",
+    }
+
+    record = Material.from_eosmat(document).eos_records[0]
+    # Supplementary Table 1 prints 14.7 GPa at V=196 A^3.
+    assert record.pressure(196.0) == pytest.approx(14.7, abs=0.05)
+    assert record.volume(record.pressure(196.0)) == pytest.approx(196.0)
+    assert record.within_validity(196.0)
+    assert not record.within_validity(195.0)
 
 
 def test_formerly_unverified_migrated_reductions_are_corrected_or_removed():
@@ -2204,8 +2304,8 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert manifest["source"]["version"] == "0.10.0"
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
-    assert manifest["materials"] == 116
-    assert manifest["eos_records"] == 162
+    assert manifest["materials"] == 117
+    assert manifest["eos_records"] == 163
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 

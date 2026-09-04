@@ -367,7 +367,12 @@ class EOSRecord:
         if temperature is None:
             temperature = self.reference_temperature
         values = np.asarray(temperature, dtype=float)
-        if not np.all(np.isfinite(values)) or np.any(values <= 0.0):
+        static_zero_isotherm = self.is_isothermal and self.reference_temperature == 0.0
+        if (
+            not np.all(np.isfinite(values))
+            or np.any(values < 0.0)
+            or (not static_zero_isotherm and np.any(values == 0.0))
+        ):
             raise MaterialError("Temperature must be finite and greater than zero")
         if not self.is_thermal and not np.allclose(
             values, self.reference_temperature, rtol=0.0, atol=1.0e-8

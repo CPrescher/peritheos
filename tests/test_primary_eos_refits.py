@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 162
+    assert len(identifiers) == len(set(identifiers)) == 163
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,9 +29,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 162, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 163, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 82,
+        "parity": 83,
         "similar": 33,
         "parity_not_achieved": 8,
         "not_refittable": 39,
@@ -50,6 +50,18 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
 
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
     assert by_identifier["kcl_campbell_1991_bm2_1"]["status"] == "parity"
+    phase_egg = by_identifier["phase_egg_mookherjee_2019_bm3_lp_1"]
+    assert phase_egg["status"] == "parity"
+    assert phase_egg["observations"] == 11
+    assert phase_egg["published_rmse_gpa"] == pytest.approx(0.03011320577)
+    assert phase_egg["rmse_gpa"] == pytest.approx(0.02339254240)
+    assert [item["refit"] for item in phase_egg["parameters"]] == pytest.approx(
+        [210.2176007194, 164.8339602796, 7.0813721266]
+    )
+    assert (
+        "cannot reconstruct the source energy-fit protocol"
+        in phase_egg["qualification"]
+    )
     walker = by_identifier["kcl_walker_2002_bm3_2"]
     assert walker["status"] == "similar"
     assert walker["free_parameters"] == [

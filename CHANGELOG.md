@@ -7,6 +7,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added one primary-sourced static 0 K Phase Egg LP BM3 record from Mookherjee
+  et al. (2019), including the official 11-row supplementary P-V grid,
+  diffraction-ready Schmidt et al. (1998) structure, published-value
+  reproduction, and diagnostic coefficient-parity refit. The canonical final
+  DOI is `10.2138/am-2019-6694`; the 2018 accepted-manuscript DOI is retained
+  only as source lineage to prevent a duplicate publication record.
+
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
   which had mistakenly contained an incomplete subset of the RbCl table, and
