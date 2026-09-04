@@ -49,6 +49,8 @@ The documentation is organized around scientific workflows:
 - [Units and reference states](units.md) explains the deliberately strict
   thermal volume convention.
 - [Validation](validation.md) describes the numerical and literature checks.
+- [Primary EOS refit validation](primary-eos-refits.md) reports a fit attempt
+  for every bundled material record and lists all coefficient-parity failures.
 - [API reference](api.md) is a compact import and method reference.
 - [API stability](api-stability.md) defines the compatibility contract.
 

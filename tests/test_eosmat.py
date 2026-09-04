@@ -94,7 +94,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 115
     assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 159
+    assert sum(len(document["eos_records"]) for document in documents) == 160
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 159
+    assert len({record["identifier"] for record in records}) == 160
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 159
+    assert statuses.count("primary_source_validated") == 160
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -141,10 +141,14 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_tateno_2019_vinet_4",
         "mgo_b1_tange_2009_vinet",
         "platinum_dorogokupets_oganov_2007_vinet_4",
+        "neon_fcc_hemley_1989_bm3_refit",
     }
-    assert {audit_dates[identifier] for identifier in current_audit_identifiers} == {
-        "2026-09-03"
-    }
+    assert audit_dates["neon_fcc_hemley_1989_bm3_refit"] == "2026-09-04"
+    assert {
+        audit_dates[identifier]
+        for identifier in current_audit_identifiers
+        if identifier != "neon_fcc_hemley_1989_bm3_refit"
+    } == {"2026-09-03"}
     assert {
         date
         for identifier, date in audit_dates.items()
@@ -184,6 +188,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "mgo_b1_tange_2009_vinet",
         "kcl_b2_tateno_2019_vinet_4",
         "platinum_dorogokupets_oganov_2007_vinet_4",
+        "neon_fcc_hemley_1989_bm3_refit",
     }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -212,10 +217,10 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 159,
-        "primary_source_validated": 159,
+        "records": 160,
+        "primary_source_validated": 160,
     }
-    assert report["audit_date"] == "2026-09-03"
+    assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
     assert len(report["records"]) == len(bundled_ids)
 
@@ -440,15 +445,15 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 159
+    assert len(records) == 160
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
     assert all("pressure_calibration" in record for record in records)
-    assert all(
-        record["pressure_calibration"]["audit_date"] == "2026-09-03"
-        for record in records
-    )
+    assert {record["pressure_calibration"]["audit_date"] for record in records} == {
+        "2026-09-03",
+        "2026-09-04",
+    }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
         .joinpath("manifest.json")
@@ -506,7 +511,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 159
+    assert checked == 160
     assert failures == []
 
 
@@ -2003,8 +2008,8 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 159
-    assert manifest["scientific_validation"]["audit_date"] == "2026-09-03"
+    assert manifest["eos_records"] == 160
+    assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 
 @pytest.mark.parametrize(

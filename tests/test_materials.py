@@ -511,6 +511,27 @@ def test_fei_table1_parameters_and_published_errors():
     assert NACL_B2_FEI_2007.eos.theta0 == 290.0
     assert NE_FEI_2007.eos.rt_eos.K0 == 1.16
     assert NE_FEI_2007.parameter_errors["rt_eos.K0"] == 0.14
+    neon_records = {
+        record["identifier"]: record
+        for record in get_material_document("neon_fcc")["eos_records"]
+    }
+    assert neon_records["neon_fcc_fei_2007_bm3_1"]["fixed_parameters"] == ["V0"]
+    assert neon_records["neon_fcc_fei_2007_vinet_2"]["fixed_parameters"] == ["V0"]
+    for identifier in (
+        "neon_fcc_fei_2007_bm3_1",
+        "neon_fcc_fei_2007_vinet_2",
+    ):
+        record = neon_records[identifier]
+        assert record["fit_datasets"] == [
+            "neon_fei_2007_figure5_digitized",
+            "neon_hemley_1989_table1_fei_recalculated",
+        ]
+        assert [item["source"] for item in record["fit_data_sources"]] == [
+            "Fei et al. (2007), this study",
+            "Hemley et al. (1989), Fei reference 45",
+            "Finger et al. (1981), Fei reference 47",
+        ]
+        assert record["fit_data_sources"][-1]["availability"] == "not_yet_bundled"
 
 
 @pytest.mark.parametrize(

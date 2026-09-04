@@ -34,6 +34,19 @@ equation/table/page locations, outcome, and any
 caveat. `scripts/apply_primary_source_audit.py` deterministically reapplies
 the ledger after a mechanical Dioptas migration.
 
+Primary-source traceability is complemented by the independent
+[primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
+fit for every record with sufficient direct observations and documents all 160
+records, including selected columns, row count, published and refitted
+coefficients, curve and refit RMSE, uncertainty comparison, and solver
+diagnostics. The current campaign finds 76 uncertainty-parity matches and 32
+additional numerically similar results. Thirteen direct refits do not
+recover at least one published coefficient, while 39 records cannot be
+directly refitted because row-level inputs or an executable source reduction
+are unavailable. There are no unresolved extraction or solver failures. The
+machine-readable results are in
+[`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
+
 ### Audit outcome
 
 The validated set includes the eleven Sokolova material parameterizations;

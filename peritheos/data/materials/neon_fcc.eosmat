@@ -58,12 +58,38 @@
     "K0": 0.14,
     "K0_prime": 0.31
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
+   "fit_datasets": [
+    "neon_fei_2007_figure5_digitized",
+    "neon_hemley_1989_table1_fei_recalculated"
+   ],
+   "fit_data_sources": [
+    {
+     "source": "Fei et al. (2007), this study",
+     "data": "300 K Pt- and Au-scale observations plotted in Figure 5",
+     "dataset_identifier": "neon_fei_2007_figure5_digitized",
+     "availability": "bundled_digitized"
+    },
+    {
+     "source": "Hemley et al. (1989), Fei reference 45",
+     "data": "Table I 300 K compression observations",
+     "dataset_identifier": "neon_hemley_1989_table1_fei_recalculated",
+     "pressure_treatment": "Mao et al. (1986) ruby pressures recalculated to the Dewaele et al. (2004) ruby scale",
+     "availability": "bundled_transcribed_and_recalculated"
+    },
+    {
+     "source": "Finger et al. (1981), Fei reference 47",
+     "data": "low-pressure single-crystal compression observations",
+     "availability": "not_yet_bundled"
+    }
+   ],
    "experimental_pressure_range_gpa": [
     4.7,
     110.0
    ],
-   "notes": "From the paper's text: BM3 fit to the same data as the Vinet fit, K0=1.43(14) GPa, K0p=8.02(31).",
+   "notes": "From the paper's text: BM3 fit to the same data as the Vinet fit, K0=1.43(14) GPa, K0p=8.02(31), with V0 fixed at 4.464^3 = 88.955449344 A^3. The room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and Fei et al.'s new Pt- and Au-scale observations. Fei recalculated the Hemley ruby pressures to the Dewaele et al. (2004) scale. The Hemley and Fei observations are bundled; the Finger rows remain unavailable.",
    "identifier": "neon_fcc_fei_2007_bm3_1",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -110,9 +136,9 @@
      "locations": [
       "Equations 1-3",
       "Table 1",
-      "Ne BM3 values in main text"
+      "Ne EOS discussion and Figure 5 caption"
      ],
-     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law.",
+     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
      "doi": "10.1073/pnas.0609013104"
     },
     "migration_source": {
@@ -123,14 +149,18 @@
     },
     "primary_data_check": {
      "status": "plot_only",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "neon_hemley_1989_table1_fei_recalculated"
+     ],
      "digitized_dataset_identifiers": [
       "neon_fei_2007_figure5_digitized"
      ],
      "source_locations": [
-      "Figures 1 and 5; Table 1"
+      "Ne EOS discussion and Figure 5 caption",
+      "Hemley et al. (1989), Table I"
      ],
-     "finding": "The paper's new solid-Ne compression observations are shown graphically in Figure 5. Thirteen separable 300 K observations from this study (seven on the Pt scale and six on the Au scale) were digitized from the source-resolution PMC figure. No experimental error bars are plotted; Table 1 contains optimized EOS parameters, not row-level measurements."
+     "finding": "Fei's room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and this study. Bundled inputs now comprise 21 Hemley Table I observations recalculated from the Mao to the Dewaele ruby scale and 13 separable Figure 5 observations from this study. The Finger low-pressure rows are not yet bundled, so this remains a 34-point partial reproduction of the complete source fit."
     }
    }
   },
@@ -166,7 +196,33 @@
     "K0": 0.14,
     "K0_prime": 0.31
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
+   "fit_datasets": [
+    "neon_fei_2007_figure5_digitized",
+    "neon_hemley_1989_table1_fei_recalculated"
+   ],
+   "fit_data_sources": [
+    {
+     "source": "Fei et al. (2007), this study",
+     "data": "300 K Pt- and Au-scale observations plotted in Figure 5",
+     "dataset_identifier": "neon_fei_2007_figure5_digitized",
+     "availability": "bundled_digitized"
+    },
+    {
+     "source": "Hemley et al. (1989), Fei reference 45",
+     "data": "Table I 300 K compression observations",
+     "dataset_identifier": "neon_hemley_1989_table1_fei_recalculated",
+     "pressure_treatment": "Mao et al. (1986) ruby pressures recalculated to the Dewaele et al. (2004) ruby scale",
+     "availability": "bundled_transcribed_and_recalculated"
+    },
+    {
+     "source": "Finger et al. (1981), Fei reference 47",
+     "data": "low-pressure single-crystal compression observations",
+     "availability": "not_yet_bundled"
+    }
+   ],
    "experimental_pressure_range_gpa": [
     4.7,
     110.0
@@ -183,7 +239,7 @@
     "debye_temperature_law": "variable_exponent",
     "model": "mie_gruneisen_debye"
    },
-   "notes": "The paper's primary fit (Table 1: V0=88.967, K0=1.16(14), K0p=8.23(31)); was missing from the hosted database. Thermal parameters are the paper's MGD fit (not yet used by Dioptas).",
+   "notes": "The paper's primary fit (Table 1: fixed V0=88.967, K0=1.16(14), K0p=8.23(31)); was missing from the hosted database. The room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and Fei et al.'s new Pt- and Au-scale observations. Fei recalculated the Hemley ruby pressures to the Dewaele et al. (2004) scale. The Hemley and Fei observations are bundled; the Finger rows remain unavailable. Thermal parameters are the paper's MGD fit (not yet used by Dioptas).",
    "migration_corrections": [
     {
      "path": "thermal.debye_temperature_law",
@@ -242,9 +298,9 @@
      "locations": [
       "Equations 1-3",
       "Table 1",
-      "Ne BM3 values in main text"
+      "Ne EOS discussion and Figure 5 caption"
      ],
-     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law.",
+     "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
      "doi": "10.1073/pnas.0609013104"
     },
     "migration_source": {
@@ -255,15 +311,127 @@
     },
     "primary_data_check": {
      "status": "plot_only",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "neon_hemley_1989_table1_fei_recalculated"
+     ],
      "digitized_dataset_identifiers": [
       "neon_fei_2007_figure5_digitized"
      ],
      "source_locations": [
-      "Figures 1 and 5; Table 1"
+      "Ne EOS discussion and Figure 5 caption",
+      "Hemley et al. (1989), Table I"
      ],
-     "finding": "The paper's new solid-Ne compression observations are shown graphically in Figure 5. Thirteen separable 300 K observations from this study (seven on the Pt scale and six on the Au scale) were digitized from the source-resolution PMC figure. No experimental error bars are plotted; Table 1 contains optimized EOS parameters, not row-level measurements."
+     "finding": "Fei's room-temperature fit combined Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and this study. Bundled inputs now comprise 21 Hemley Table I observations recalculated from the Mao to the Dewaele ruby scale and 13 separable Figure 5 observations from this study. The Finger low-pressure rows are not yet bundled, so this remains a 34-point partial reproduction of the complete source fit."
     }
+   }
+  },
+  {
+   "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
+   "reference": {
+    "authors": [
+     "Hemley",
+     "Zha",
+     "Jephcoat",
+     "Mao",
+     "Finger",
+     "Cox"
+    ],
+    "year": 1989,
+    "source": "Phys. Rev. B",
+    "volume": "39",
+    "locator": "11820-11827",
+    "doi": "10.1103/PhysRevB.39.11820"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 88.96504106290601,
+     "K0": 1.7277462566083195,
+     "K0_prime": 6.972110967032526
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.22322191999036312,
+    "K0_prime": 0.5439133435530098
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    10.0,
+    110.4
+   ],
+   "notes": "Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).",
+   "identifier": "neon_fcc_hemley_1989_bm3_refit",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Experimental methods and Table I; A=1904 GPa and B=7.665",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The exact ruby scale is executable and all row-level pressure-volume observations are bundled. Reported source-scale pressures can be inverted if a recalibration is required."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The primary table and source fitting protocol were checked directly. The stored coefficients are explicitly identified as a new Peritheos table-only refit, not as Hemley et al.'s published thermally reduced coefficients.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevB.39.11820",
+     "locations": [
+      "Table I, page 11823",
+      "Equation-of-state discussion and Figure 4, pages 11823-11824"
+     ],
+     "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The paper's own BM3 coefficients instead describe data reduced to 0 K, include the earlier Finger et al. low-pressure series, and therefore are not a direct fit to Table I alone.",
+     "doi": "10.1103/PhysRevB.39.11820"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "neon_hemley_1989_table1_compression"
+     ],
+     "source_locations": [
+      "Table I, page 11823"
+     ],
+     "finding": "All 21 tabulated 300 K fcc-neon pressure, lattice-parameter, molar-volume, and uncertainty values are bundled."
+    }
+   },
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "parameter_provenance": {
+    "V0": "Hemley et al. (1989), page 11824: fixed low-temperature V0=13.394 cm^3/mol, converted to the four-atom fcc cell",
+    "K0": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",
+    "K0_prime": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",
+    "equation": "Third-order Birch-Murnaghan equation used by Hemley et al. (1989)"
    }
   }
  ],
@@ -303,6 +471,80 @@
     },
     "digitized_on": "2026-09-03"
    },
+   "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/"
+  },
+  {
+   "identifier": "neon_hemley_1989_table1_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All 21 fcc-neon observations printed in Hemley et al. Table I at 300 K, retaining pressure, lattice-parameter, molar-volume, and reported uncertainties.",
+   "reference": {
+    "authors": ["Hemley", "Zha", "Jephcoat", "Mao", "Finger", "Cox"],
+    "year": 1989,
+    "source": "Phys. Rev. B",
+    "volume": "39",
+    "locator": "11820-11827",
+    "doi": "10.1103/PhysRevB.39.11820"
+   },
+   "source_location": "Table I, page 11823",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "pressure_gpa_dewaele_2004", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa_dewaele_2004", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa_dewaele_2004"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "lattice_a_angstrom"},
+    {"name": "molar_volume_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+    {"name": "molar_volume_uncertainty_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_mol"},
+    {"name": "volume_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "volume_uncertainty_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {"path": "datasets/neon-hemley-1989-table1-compression.csv", "sha256": "e5e3ea137a29f17c64beba1bb9b055eea34513b2ff5bda38389de7d5cdf6087d", "media_type": "text/csv"},
+   "used_by_eos_records": ["neon_fcc_hemley_1989_bm3_refit"],
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Transcribed directly from Table I in the user-supplied publisher PDF and visually verified against the rendered page. Conventional-cell volumes and first-order propagated uncertainties are derived from a^3 and 3*a^2*sigma_a.",
+    "source_pdf_sha256": "d982b52777fe4008abadfa3c1a242514d966fd09a88ea0c1205016fbbca2e7e7",
+    "transcribed_on": "2026-09-04"
+   },
+   "notes": "pressure_gpa is the Mao et al. (1986) ruby scale printed by Hemley et al. The derived pressure_gpa_dewaele_2004 column in the same resource performs the scale conversion explicitly for the separate Fei-fit dataset view.",
+   "source_url": "https://doi.org/10.1103/PhysRevB.39.11820"
+  },
+  {
+   "identifier": "neon_hemley_1989_table1_fei_recalculated",
+   "kind": "pressure_volume_recalculated",
+   "description": "The 21 Hemley et al. Table I observations with pressures recalculated from the printed Mao et al. (1986) ruby scale to the Dewaele et al. (2004) revised ruby scale, matching the pressure treatment stated in Fei et al. Figure 5.",
+   "reference": {
+    "authors": ["Hemley", "Zha", "Jephcoat", "Mao", "Finger", "Cox"],
+    "year": 1989,
+    "source": "Phys. Rev. B",
+    "volume": "39",
+    "locator": "11820-11827",
+    "doi": "10.1103/PhysRevB.39.11820"
+   },
+   "source_location": "Hemley et al. Table I, page 11823; Fei et al. (2007) Figure 5 caption",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "source_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "source_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "pressure_gpa_dewaele_2004", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa_dewaele_2004", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa_dewaele_2004"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "lattice_a_angstrom"},
+    {"name": "molar_volume_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+    {"name": "molar_volume_uncertainty_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_mol"},
+    {"name": "volume_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "volume_uncertainty_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {"path": "datasets/neon-hemley-1989-table1-compression.csv", "sha256": "e5e3ea137a29f17c64beba1bb9b055eea34513b2ff5bda38389de7d5cdf6087d", "media_type": "text/csv"},
+   "used_by_eos_records": ["neon_fcc_fei_2007_bm3_1", "neon_fcc_fei_2007_vinet_2"],
+   "provenance": {
+    "type": "derived_pressure_recalculation",
+    "source_dataset_identifier": "neon_hemley_1989_table1_compression",
+    "source_calibration_record": "ruby_mao_1986",
+    "target_calibration_record": "ruby_dewaele_2004",
+    "method": "Invert each printed Mao-scale pressure to lambda/lambda0 and evaluate that ratio with the Dewaele 2004 scale. Propagate pressure uncertainty with dP_target/dP_source=(lambda/lambda0)^(9.5-7.665).",
+    "derived_on": "2026-09-04"
+   },
+   "notes": "This is the transformed Hemley contribution to Fei's room-temperature fit. It does not alter the source-reported Hemley pressure column.",
    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/"
   }
  ],

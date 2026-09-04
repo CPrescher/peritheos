@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-03",
+  "audit_date": "2026-09-04",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "BurnMan and Pytheos source code were not inspected or used. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 159,
-    "primary_source_validated": 159
+    "records": 160,
+    "primary_source_validated": 160
   },
   "records": [
     {
@@ -1856,9 +1856,9 @@
         "locations": [
           "Equations 1-3",
           "Table 1",
-          "Ne BM3 values in main text"
+          "Ne EOS discussion and Figure 5 caption"
         ],
-        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law.",
+        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit combines Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and this study. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
         "doi": "10.1073/pnas.0609013104"
       }
     },
@@ -1875,10 +1875,28 @@
         "locations": [
           "Equations 1-3",
           "Table 1",
-          "Ne BM3 values in main text"
+          "Ne EOS discussion and Figure 5 caption"
         ],
-        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law.",
+        "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit combines Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and this study. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
         "doi": "10.1073/pnas.0609013104"
+      }
+    },
+    {
+      "material": "neon_fcc",
+      "file": "neon_fcc.eosmat",
+      "record": "neon_fcc_hemley_1989_bm3_refit",
+      "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
+      "doi": "10.1103/physrevb.39.11820",
+      "status": "primary_source_validated",
+      "note": "The primary table and source fitting protocol were checked directly. The stored coefficients are explicitly identified as a new Peritheos table-only refit, not as Hemley et al.'s published thermally reduced coefficients.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.39.11820",
+        "locations": [
+          "Table I, page 11823",
+          "Equation-of-state discussion and Figure 4, pages 11823-11824"
+        ],
+        "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The paper's own BM3 coefficients instead describe data reduced to 0 K, include the earlier Finger et al. low-pressure series, and therefore are not a direct fit to Table I alone.",
+        "doi": "10.1103/PhysRevB.39.11820"
       }
     },
     {

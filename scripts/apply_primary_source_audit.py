@@ -23,6 +23,7 @@ from typing import Any
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
+REPORT_AUDIT_DATE = "2026-09-04"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
 REPORT = ROOT / "peritheos" / "data" / "primary-source-audit.json"
@@ -41,6 +42,8 @@ DERIVED_REFERENCE_ISOTHERM_RECORDS = {
     "diamond_correa_2008_dewaele_anchored",
     "diamond_benedict_2014_dewaele_anchored",
 }
+
+DERIVED_REFIT_RECORDS = {"neon_fcc_hemley_1989_bm3_refit"}
 
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
@@ -440,8 +443,11 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
     ),
     "10.1073/pnas.0609013104": source(
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
-        ["Equations 1-3", "Table 1", "Ne BM3 values in main text"],
-        "Equation 3 uses the published variable-exponent Debye-temperature law.",
+        ["Equations 1-3", "Table 1", "Ne EOS discussion and Figure 5 caption"],
+        "Equation 3 uses the published variable-exponent Debye-temperature law. "
+        "The room-temperature Ne fit combines Hemley et al. (1989, ref. 45), "
+        "Finger et al. (1981, ref. 47), and this study. Figure 5 states that the "
+        "Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale.",
     ),
     "10.1080/08957950212807": source(
         "https://doi.org/10.1080/08957950212807",
@@ -679,6 +685,17 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
 # unambiguous publisher or institutional copies.  Key these by record ID so a
 # title-only match can never promote a different migrated record.
 VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
+    "neon_fcc_hemley_1989_bm3_refit": source(
+        "https://doi.org/10.1103/PhysRevB.39.11820",
+        [
+            "Table I, page 11823",
+            "Equation-of-state discussion and Figure 4, pages 11823-11824",
+        ],
+        "Table I provides 21 raw 300 K observations on the Mao ruby scale. "
+        "The stored coefficients are a Peritheos errors-in-variables fit to "
+        "that table alone; the paper's published thermally reduced 0 K fit "
+        "also includes the earlier Finger et al. low-pressure series.",
+    ),
     "diamond_correa_2008_dewaele_anchored": source(
         "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
         [
@@ -2667,7 +2684,9 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     previous = result.get("scientific_validation") or {}
     migration = previous.get("migration_source")
     audit_date = (
-        CATALOG_AUDIT_DATE
+        REPORT_AUDIT_DATE
+        if result["identifier"] in DERIVED_REFIT_RECORDS
+        else CATALOG_AUDIT_DATE
         if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
         else AUDIT_DATE
     )
@@ -2682,13 +2701,18 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation: dict[str, Any] = {
             "status": "primary_source_validated",
             "note": (
-                "Derived composition of separately primary-source-validated "
-                "reference-isotherm and simulated thermal components."
-                if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
+                "Primary observations and source protocol were validated; the "
+                "stored coefficients are an explicitly identified Peritheos refit."
+                if result["identifier"] in DERIVED_REFIT_RECORDS
                 else (
-                    "Independently checked against the cited primary publication "
-                    "(published article or official/author copy); no external "
-                    "software catalog was used as scientific authority."
+                    "Derived composition of separately primary-source-validated "
+                    "reference-isotherm and simulated thermal components."
+                    if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
+                    else (
+                        "Independently checked against the cited primary publication "
+                        "(published article or official/author copy); no external "
+                        "software catalog was used as scientific authority."
+                    )
                 )
             ),
             "audit_date": audit_date,
@@ -2878,15 +2902,15 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 150:
-        raise ValueError(f"Expected 150 EOS records, found {len(entries)}")
+    if len(entries) != 160:
+        raise ValueError(f"Expected 160 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
     report = {
         "format": "peritheos.primary-source-audit",
         "format_version": 1,
-        "audit_date": CATALOG_AUDIT_DATE,
+        "audit_date": REPORT_AUDIT_DATE,
         "policy": {
             "scientific_authority": "primary publications and official supplements",
             "external_catalogs": (
@@ -2913,7 +2937,7 @@ def main() -> None:
     manifest["materials"] = len(list(MATERIALS.glob("*.eosmat")))
     manifest["eos_records"] = len(entries)
     manifest["scientific_validation"] = {
-        "audit_date": CATALOG_AUDIT_DATE,
+        "audit_date": REPORT_AUDIT_DATE,
         "report": "../primary-source-audit.json",
         "counts": dict(sorted(counts.items())),
         "policy": (
