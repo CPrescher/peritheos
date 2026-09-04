@@ -269,6 +269,18 @@
   [doi:10.1016/S0012-821X(00)00033-9](https://doi.org/10.1016/S0012-821X(00)00033-9).
   Peritheos represents the joint BM2 modulus with separate AntA and AntB
   measured ambient volumes from Table 2.
+- Mookherjee, M., Panero, W. R., Wunder, B. & Jahn, S. (2019). Anomalous
+  elastic behavior of phase egg, AlSiO3(OH), at high pressures. *American
+  Mineralogist*, 104, 130--139.
+  [doi:10.2138/am-2019-6694](https://doi.org/10.2138/am-2019-6694).
+  Peritheos implements the static 0 K LP BM3 fit and bundles the official
+  supplementary LP P--V grid. The 2018 DOI is an accepted-manuscript alias,
+  not a second publication record.
+- Schmidt, M. W., Finger, L. W., Angel, R. J. & Dinnebier, R. E. (1998).
+  Synthesis, crystal structure, and phase relations of AlSiO3OH, a
+  high-pressure hydrous phase. *American Mineralogist*, 83, 881--888.
+  [doi:10.2138/am-1998-7-820](https://doi.org/10.2138/am-1998-7-820).
+  Table 4 supplies the phase-Egg P21/n structure, occupied sites, and `Z=4`.
 - Scott, H. P., Williams, Q. & Knittle, E. (2001). Stability and equation of
   state of Fe3C to 73 GPa: Implications for carbon in the Earth's core.
   *Geophysical Research Letters*, 28, 1875--1878.

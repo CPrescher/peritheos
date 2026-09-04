@@ -11505,6 +11505,95 @@
    "solver_success": true,
    "source_notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee.",
    "status": "parity"
+  },
+  {
+   "absolute_sigma": true,
+   "columns": {
+    "pressure": "pressure_gpa",
+    "temperature": null,
+    "volume": "volume_a3"
+   },
+   "dataset_identifiers": [
+    "phase_egg_mookherjee_2019_supplement_lp_pv"
+   ],
+   "degrees_of_freedom": 8,
+   "experimental_pressure_range_gpa": [
+    -6.4,
+    43.7
+   ],
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "fit_kind": "isothermal_pv",
+   "fixed_parameters": [],
+   "free_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "label": "Mookherjee et al. (2019), static LP BM3",
+   "material_identifier": "phase_egg",
+   "model": "BM3",
+   "objective": "pressure_residuals",
+   "observations": 11,
+   "observed_pressure_range_gpa": [
+    -6.4,
+    43.7
+   ],
+   "observed_temperature_range_k": null,
+   "observed_volume_range": [
+    180.0,
+    220.0
+   ],
+   "parameters": [
+    {
+     "difference": 0.007600719414796231,
+     "parameter": "V0",
+     "published": 210.21,
+     "published_error": 0.14,
+     "refit": 210.2176007194148,
+     "refit_error": 0.014434224595616635,
+     "relative_difference": 3.615774423098916e-05,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": 0.4339602795841415,
+     "parameter": "K0",
+     "published": 164.4,
+     "published_error": 1.8,
+     "refit": 164.83396027958415,
+     "refit_error": 0.3021723046783939,
+     "relative_difference": 0.002639661068030058,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": -0.05862787339330655,
+     "parameter": "K0_prime",
+     "published": 7.14,
+     "published_error": 0.24,
+     "refit": 7.081372126606693,
+     "refit_error": 0.027581570310362798,
+     "relative_difference": 0.008211186749762822,
+     "similar": true,
+     "within_combined_2sigma": true
+    }
+   ],
+   "primary_data_finding": "All 11 low-pressure static unit-cell-volume and pressure rows are transcribed at published precision. The authors fitted total energy versus volume, but the workbook does not tabulate the energies, row uncertainties, regression weights, objective, covariance, or fit statistic; the bundled P-V rows therefore support an independent curve-level diagnostic refit rather than exact reconstruction of the source energy fit.",
+   "primary_data_status": "bundled",
+   "primary_source": "https://par.nsf.gov/servlets/purl/10089001",
+   "published_rmse_gpa": 0.03011320576939226,
+   "qualification": "Curve-level diagnostic reproduction: Supplementary Table 1 provides all 11 static LP pressure-volume points and they recover the published BM3 coefficients within the printed parameter uncertainties. The publication fitted total energy versus volume, however, and the deposited workbook does not include those energies, row uncertainties, regression weights, objective, covariance, or fit statistic. This pressure-residual refit therefore validates the published pressure curve but cannot reconstruct the source energy-fit protocol exactly. See the dedicated phase-Egg reproduction in literature-reproductions.md.",
+   "record_identifier": "phase_egg_mookherjee_2019_bm3_lp_1",
+   "reduced_chi_square": 0.0007524151798479245,
+   "rmse_gpa": 0.02339254239900827,
+   "selection": "all rows",
+   "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+   "solver_success": true,
+   "source_notes": "Published LP parameterization only. All V0, K0, and K0' values were fitted; none was fixed or adopted. The source's separate HP proton-configuration parameters are scientifically distinct and are intentionally not merged into this one-record publication-scoped addition. The official supplement continues the LP calculation grid beyond the approximately 15 GPa proton-transfer boundary to 43.7 GPa; those rows document the source fit/curve but do not expand the recommended LP branch. The source reports no E0 value needed by pressure evaluation and no parameter covariance, confidence convention, row uncertainties, fit objective, weights, software-fit details, or fit statistic.",
+   "status": "parity"
   }
  ],
  "summary": {

@@ -33,6 +33,11 @@ Schulze Phase Egg records produces 163 records in total. These checks
 establish file and software interoperability only.
 
 The primary-source audit covers all 163
+Berman public-data and Hemley neon refits plus the Campbell-Heinz RbCl and
+Mookherjee phase-Egg records produces 163 records in total. These checks
+establish file and software interoperability only.
+
+The primary-source audit covers all 163
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,

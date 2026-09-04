@@ -202,6 +202,17 @@ FIT_QUALIFICATIONS = {
         "unavailable. V0 and thermal coefficients are held fixed, and the available "
         "subset is fitted without weights."
     ),
+    "phase_egg_mookherjee_2019_bm3_lp_1": (
+        "Curve-level diagnostic reproduction: Supplementary Table 1 provides all "
+        "11 static LP pressure-volume points and they recover the published BM3 "
+        "coefficients within the printed parameter uncertainties. The publication "
+        "fitted total energy versus volume, however, and the deposited workbook does "
+        "not include those energies, row uncertainties, regression weights, objective, "
+        "covariance, or fit statistic. This pressure-residual refit therefore validates "
+        "the published pressure curve but cannot reconstruct the source energy-fit "
+        "protocol exactly. See the dedicated phase-Egg reproduction in "
+        "literature-reproductions.md."
+    ),
     "rbcl_b2_campbell_1994_bm3_1": (
         "Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted "
         "with the paper's hypothetical zero-pressure density held fixed. The refit "

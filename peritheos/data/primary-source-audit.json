@@ -3213,6 +3213,26 @@
     "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
     "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97"
    }
+  },
+  {
+   "material": "phase_egg",
+   "file": "phase_egg.eosmat",
+   "record": "phase_egg_mookherjee_2019_bm3_lp_1",
+   "label": "Mookherjee et al. (2019), static LP BM3",
+   "doi": "10.2138/am-2019-6694",
+   "status": "primary_source_validated",
+   "note": "Validated from the final publication, its official MSA supplement, and the cited primary crystallographic refinement; LitCurate was used only as a discovery lead.",
+   "primary_source_check": {
+    "access_url": "https://par.nsf.gov/servlets/purl/10089001",
+    "locations": [
+     "article footer and bibliographic header, page 130",
+     "Methods, pages 131-132",
+     "equations (1)-(2) and equation-of-state discussion, pages 132-133",
+     "official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block"
+    ],
+    "finding": "The canonical final-publication DOI is 10.2138/am-2019-6694; 10.2138/am-2018-6694 resolves to an accepted manuscript that directs citation to the final DOI and is not a separate EOS record. The static LP BM3 reproduces the supplementary pressure at V=196 A^3 and an independent diagnostic refit of all 11 LP P-V rows recovers all coefficients within their published uncertainties.",
+    "doi": "10.2138/am-2019-6694"
+   }
   }
  ]
 }

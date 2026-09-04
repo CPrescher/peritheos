@@ -90,6 +90,24 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
 }
 
 #[test]
+fn static_isothermal_record_accepts_zero_kelvin_reference_temperature() {
+    let source = simple_document().replace(
+        "\"default\": true,",
+        "\"default\": true, \"equation_kind\": \"isothermal\", \"temperature_ref\": 0.0,",
+    );
+    let material = load_eosmat_str(&source).unwrap();
+    let record = material.record("test_bm3").unwrap();
+
+    assert_eq!(record.reference_temperature, 0.0);
+    assert!(record.pressure(9.0, 0.0).unwrap().is_finite());
+
+    let error =
+        load_eosmat_str(&source.replace("\"temperature_ref\": 0.0", "\"temperature_ref\": -1.0"))
+            .unwrap_err();
+    assert!(error.to_string().contains("static 0 K isothermal"));
+}
+
+#[test]
 fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
     let Some(material) = load_bundled_material("diamond.eosmat") else {
         return;

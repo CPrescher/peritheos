@@ -36,7 +36,7 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters the curated pressure-scale
 convenience catalog. This compact executable catalog is distinct from the full
-115-document shared material library described below. Each
+117-document shared material library described below. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
 canonical executable format-3 material document. Optional crystallographic
@@ -136,6 +136,7 @@ RbCl-B2 and Wang stishovite records. All 163 bundled records are
 RbCl-B2 record. All 164 bundled records are
 Dewaele 298 K Vinet isotherm, together with primary-sourced Campbell-Heinz
 RbCl-B2 and Schulze Phase Egg records. All 163 bundled records are
+RbCl-B2 and Mookherjee phase-Egg records. All 163 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with

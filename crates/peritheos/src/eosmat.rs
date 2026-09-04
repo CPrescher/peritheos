@@ -2418,8 +2418,14 @@ fn build_record(
             .and_then(|state| state.temperature_k)
             .unwrap_or(300.0),
     });
-    if !reference_temperature.is_finite() || reference_temperature <= 0.0 {
-        return Err("temperature_ref must be positive and finite".to_owned());
+    if !reference_temperature.is_finite()
+        || reference_temperature < 0.0
+        || (reference_temperature == 0.0 && !matches!(eos, LoadedEos::Isothermal(_)))
+    {
+        return Err(
+            "temperature_ref must be positive and finite, except for a static 0 K isothermal record"
+                .to_owned(),
+        );
     }
     let default_category = if is_hugoniot {
         "hugoniot"

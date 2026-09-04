@@ -672,6 +672,85 @@ uncertainty, so `cscl_campbell_1994_bm3_1` remains classified as `parity`.
 The residual central-value difference is documented as a fit-protocol
 qualification, not missing-data parity.
 
+<a id="phase-egg-mookherjee-2019"></a>
+
+## Phase Egg: Mookherjee et al. (2019)
+
+### Publication identity and scientific scope
+
+The publication of record is Mookherjee, Panero, Wunder, and Jahn,
+*Anomalous elastic behavior of phase egg, AlSiO3(OH), at high pressures*,
+*American Mineralogist* **104**, 130--139 (2019),
+[doi:10.2138/am-2019-6694](https://doi.org/10.2138/am-2019-6694). The separate
+[10.2138/am-2018-6694](https://doi.org/10.2138/am-2018-6694) registration
+resolves to the accepted manuscript. That manuscript labels itself a preprint
+and instructs readers to cite the final 2019 DOI. Peritheos therefore creates
+one literature EOS record under the 2019 DOI and retains the 2018 identifier
+only in `source_lineage` as a discovery alias.
+
+The implemented record is the ordered low-pressure proton configuration,
+phase Egg (LP), with composition `AlSiO3(OH)` (`AlSiO4H`). Its diffraction
+structure is independently sourced to Schmidt et al. (1998),
+[doi:10.2138/am-1998-7-820](https://doi.org/10.2138/am-1998-7-820), Table 4:
+monoclinic `P21/n` (the alternate setting of `P21/c`, number 14),
+`a=7.14409 A`, `b=4.33462 A`, `c=6.95253 A`, `beta=98.396 deg`,
+`V=212.99 A^3`, and `Z=4`. Seven fully occupied general `4e` sites reproduce
+four `AlSiO4H` formula units. This measured structural cell is retained
+separately from the static-DFT EOS reference cell.
+
+Mookherjee et al. calculated the primitive cell with GGA-PAW/VASP, an 800 eV
+cutoff, a 6 by 9 by 6 k-point mesh, and the stated van der Waals correction.
+For primitive monoclinic `P21/c`, that calculation cell is also the
+conventional `Z=4` cell used by Peritheos. The source fits total energy to
+
+\[
+E=E_0+\frac{9}{2}K_0V_0\left[f_V^2+(K'_0-4)f_V^3\right],\qquad
+f_V=\frac{1}{2}\left[\left(\frac{V_0}{V}\right)^{2/3}-1\right],
+\]
+
+whose negative volume derivative is the standard third-order
+Birch--Murnaghan pressure equation. The LP fit reports
+`V0=210.21+/-0.14 A^3`, `K0=164.4+/-1.8 GPa`, and
+`K0'=7.14+/-0.24`; all three were fitted. The source does not define the
+confidence convention or publish covariance. It describes these calculations
+as static conditions (0 K), so the record uses a 0 K reference isotherm rather
+than relabeling it as a room-temperature EOS.
+
+### Supplement and numerical reproduction
+
+The [official MSA data deposit](https://www.minsocam.org/MSA/AmMin/TOC/2019/Jan2019_data/AM-19-16694.zip)
+contains `6694_supp.xlsx`. Supplementary Table 1 reports 11 LP volumes from
+220 to 180 `A^3` and corresponding static pressures from -6.4 to 43.7 GPa;
+no row uncertainties are given. The separate five-row HP block and elastic
+tensor are outside this one-record EOS dataset.
+
+At the paper's proton-transfer volume `V=196 A^3`, the published LP
+coefficients calculate `P=14.725955 GPa`, reproducing the workbook's
+`14.7 GPa` to its 0.1 GPa printed precision. Across all 11 LP rows, the
+published curve has a pressure RMSE of `0.03011 GPa` and a maximum absolute
+residual of `0.04836 GPa`.
+
+An independent unweighted BM3 pressure-residual fit gives:
+
+| Parameter | Publication | Diagnostic P-V refit | Difference |
+|---|---:|---:|---:|
+| `V0` (A^3) | 210.21 +/- 0.14 | 210.21760 | +0.00760 |
+| `K0` (GPa) | 164.4 +/- 1.8 | 164.83396 | +0.43396 |
+| `K0'` | 7.14 +/- 0.24 | 7.08137 | -0.05863 |
+
+The refit RMSE is `0.02339 GPa`; every coefficient agrees within its published
+error. This is a strong curve-level check, but not an exact reconstruction of
+the authors' regression: the source fitted total energies, while the deposited
+workbook omits those energies, row uncertainties, objective, weights,
+covariance, fitting-software details, and fit statistic. The refit ledger
+therefore records that limitation explicitly.
+
+The article defines LP below the approximately 15 GPa proton transfer. Its
+supplement continues the LP starting configuration metastably to 43.7 GPa.
+Peritheos preserves every row but limits the preferred LP validity branch to
+-6.4--15 GPa at 0 K. The separately published HP parameterization is neither
+merged with LP nor added as a second record in this publication-scoped change.
+
 <a id="coo-clendenen-1966"></a>
 
 ## CoO: Clendenen and Drickamer (1966)

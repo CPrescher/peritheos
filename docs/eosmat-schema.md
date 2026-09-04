@@ -136,7 +136,7 @@ Each item in `eos_records` describes one source parameterization.
 | `experimental_pressure_range_gpa` | no | Two-element marginal pressure envelope. |
 | `pressure_range_status` | no | Provenance of the pressure envelope: `reported_exactly`, `reported_qualitatively`, `theoretical`, or `reference_parameterization`. |
 | `experimental_temperature_range_k` | no | Two-element marginal temperature envelope. |
-| `temperature_ref` | no | Reference-isotherm temperature in K. |
+| `temperature_ref` | no | Reference-isotherm temperature in K. Zero is allowed only for an explicitly static 0 K isothermal record; thermal and Hugoniot records require a positive temperature. |
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
 | `source_lineage` | no | Ordered sources and their roles when a record combines an earlier fit, final parameter table, implementation, correction, or experimental context. |
 | `pressure_calibration` | no | Audited pressure basis of the observations used for the fit, including resolvable links to reference EOS and optical-calibration records. |
