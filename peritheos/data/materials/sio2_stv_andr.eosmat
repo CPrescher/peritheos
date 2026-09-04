@@ -286,6 +286,180 @@
      "finding": "All 56 Table 1 observations are bundled with data identifiers, temperature, pressure, tetragonal lattice parameters, conventional-cell volume, simultaneous Au volume, and every printed parenthetical e.s.d. The publisher's supplement endpoint was unavailable to this audit client, so the transcription was verified against the complete official HTML rendering of Table 1."
     }
    }
+  },
+  {
+   "label": "Schoelmerich et al. (2020), shock-reduced 300 K BM3 isotherm",
+   "identifier": "sio2_stv_andr_schoelmerich_2020_bm3_3",
+   "equation_kind": "isothermal",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Schoelmerich",
+     "Tschentscher",
+     "Bhat",
+     "Bolme",
+     "Cunningham"
+    ],
+    "authors_truncated": true,
+    "year": 2020,
+    "title": "Evidence of shock-compressed stishovite above 300 GPa",
+    "source": "Scientific Reports",
+    "volume": "10",
+    "locator": "10197",
+    "doi": "10.1038/s41598-020-66340-y"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 46.5,
+     "K0": 307.0,
+     "K0_prime": 4.66
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 4.0,
+    "K0_prime": 0.15
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": ["V0"],
+   "temperature_ref": 300.0,
+   "fit_datasets": ["stishovite_schoelmerich_2020_table1_shock"],
+   "experimental_pressure_range_gpa": [0.0, 336.0],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [324.0, 4757.0],
+   "validity": {
+    "pressure_gpa": [0.0, 336.0],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.6666666666666666, 1.0],
+    "notes": [
+     "The executable record is the authors' 300 K BM3 isotherm obtained by reducing shock states; it is not the stishovite Hugoniot and it is not a direct static-compression fit.",
+     "The lower volume bound is the smallest Table 1 volume, 31.0 A^3, divided by the measured ambient V0=46.5 A^3.",
+     "The source explicitly attributes persistence of tetragonal stishovite above about 60 GPa to nanosecond kinetic hindrance. The 0-336 GPa fit interval is therefore not an equilibrium phase-stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Article Table 1 and Supplementary Table S1: measured ambient tetragonal conventional-cell volume 46.5(2) A^3; Supplementary equations 5-17 define V0 as the ambient volume. The EOS discussion reports only K0 and K0' as fit outputs, so V0 is retained as the fixed measured reference and its observational uncertainty remains in the dataset.",
+    "K0": "Article EOS paragraph following equations 2-4: shock-wave data fit gives K0=307+/-4 GPa.",
+    "K0_prime": "Article EOS paragraph following equations 2-4: shock-wave data fit gives K0'=4.66+/-0.15. K0'=dK/dP is dimensionless; the prose's appended GPa unit is inconsistent with Supplementary equation 7.",
+    "equation": "Supplementary equation 7 gives P=3 K0 f (1+2f)^(5/2) [1+(3/2)(K0'-4)f], and Supplementary equation 6 defines f=(1/2)[(V0/V)^(2/3)-1]. This is Peritheos birch_murnaghan_3 exactly.",
+    "volume_basis": "Article Table 1 and Supplementary Table S1 report V from tetragonal a and c refinements. V=a^2*c is the P42/mnm conventional cell containing Z=2 SiO2 formula units.",
+    "reference_state": "The stated comparison isotherm is 300 K. V0 is the ambient sample cell from Table 1; the shocked observations span 18-336 GPa and calculated Hugoniot temperatures of 324-4757 K.",
+    "uncertainties": "The article reports +/-4 GPa for K0 and +/-0.15 for K0' without a confidence convention or covariance. The parenthetical Table 1 uncertainties are preserved separately; no error is assigned to fixed V0 in the executable parameter set."
+   },
+   "fit_protocol": {
+    "selection": "The article states a 0-336 GPa fit interval and shows the new Table 1 shock states and their 300 K-corrected counterparts in Figure 3/Supplementary Figure S5. It does not explicitly enumerate whether any plotted historical shock points were also included in the EosFit regression.",
+    "method": "Shock states were reduced at fixed volume to a 300 K isotherm by subtracting calculated thermal pressure, then fitted with EosFit to the third-order Birch-Murnaghan equation.",
+    "free_parameters": ["K0", "K0_prime"],
+    "fixed_parameters": ["V0"],
+    "weights": null,
+    "covariance": null,
+    "fit_statistic": null,
+    "dataset_role": "The bundled Table 1 rows are the reported pre-correction shock observations. Row-wise 300 K-corrected pressures are only plotted, not tabulated."
+   },
+   "thermal_reduction": {
+    "target_temperature_k": 300.0,
+    "gamma0": 1.35,
+    "q": 2.65,
+    "atoms_per_formula_unit": 3,
+    "parameter_sources": {
+     "gamma0": "Watanabe et al. (1982), cited as article reference 33 and Supplementary reference 10",
+     "q": "Luo et al. (2002), doi:10.1029/2002GL015627, cited as article reference 24 and Supplementary reference 5"
+    },
+    "source_locations": [
+     "Article equation 4 and EOS paragraph",
+     "Supplementary equations 4-18 and Figure S5"
+    ],
+    "reproduction_status": "not_directly_refittable",
+    "unresolved_details": [
+     "Supplementary equation 7 does not give the K0,S and K0,S' values used for the isentrope.",
+     "Supplementary equation 18 introduces a multiplier m to the Dulong-Petit heat capacity but does not report its value.",
+     "Neither row-wise Hugoniot temperatures nor row-wise 300 K-corrected pressures are tabulated."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": ["Schoelmerich", "Tschentscher", "Bhat", "Bolme", "Cunningham"],
+       "authors_truncated": true,
+       "year": 2020,
+       "source": "Scientific Reports",
+       "doi": "10.1038/s41598-020-66340-y"
+      },
+      "source_location": "Article equations 2-3, Table 1; Supplementary equations 2-3 and Pressure determination section",
+      "scope": "Peak shock pressure from P=rho0*Us*Up, using the measured ambient density rho0=4.30(2) g/cm^3. Up comes from the VISAR free-surface velocity under Ufs=2Up; Us comes from shock transit time and, where available, the Rankine-Hugoniot density relation.",
+      "notes": "No external pressure-standard EOS is used. VISAR uncertainties are reported as typically 10-15%; XRD density uncertainties are typically 1-2%."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "There is no external pressure scale to re-reduce. The tabulated rho0, Us, and Up reproduce all five reported shock pressures within their printed uncertainties. This does not make the later thermal-pressure correction directly refittable; the missing reduction details are recorded separately."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "notes": "This source-reported BM3 curve is reusable as a 300 K pressure-volume parameterization, but its evidence is dynamically compressed, metastable stishovite. It must not be described as direct equilibrium/static data to 336 GPa. The paper newly fits K0 and K0'; the comparison values K0=315 GPa, K0'=4.8 from earlier shock work, K0=307 GPa, K0'=5.0 from Luo et al. (2002), K0=309.9 GPa, K0'=4.59 from Andrault et al. (2003), and K0=294 GPa, K0'=4.85 from Wang et al. (2012) are cited context, not adopted coefficients.",
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The open-access final article and official ten-page Supplementary Material were audited directly. The newly reported 300 K BM3 parameters, equation convention, measured V0/Z basis, shock-pressure reduction, uncertainties, dynamic scope, and all recoverable observations are represented. Missing thermal-reduction details prevent an independent refit and are not inferred.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "volume_basis",
+     "published_uncertainties",
+     "fixed_parameters",
+     "validity",
+     "shock_pressure_basis",
+     "primary_observations",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7311448/",
+     "supplement_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7311448/supplementaryFiles",
+     "article_xml_sha256": "becd98f3320bee26b4a3c1b189a2bfe0e01e606a3012b32d2d2bf31691740095",
+     "supplement_sha256": "2b1b43493480e9a92aeaf25bd43738f73f796c971660ff304ac9de4f966800d3",
+     "locations": [
+      "Article Table 1, equations 2-4, EOS paragraph, Figure 3, and Discussion",
+      "Supplementary Tables S1-S2, equations 2-18, and Figure S5"
+     ],
+     "finding": "The paper newly reports a shock-reduced 300 K BM3 fit with V0=46.5 A^3, K0=307(4) GPa, and K0'=4.66(15). The coefficients quoted from Luo, Andrault, Wang, and other earlier studies are comparisons, not the source of the new parameterization.",
+     "doi": "10.1038/s41598-020-66340-y"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": ["stishovite_schoelmerich_2020_table1_shock"],
+     "source_locations": [
+      "Article Table 1",
+      "Official Supplementary Table S1"
+     ],
+     "finding": "All six Table 1 rows are bundled, including the ambient reference and five shocked states with printed velocity, pressure, energy, volume, density, lattice, and uncertainty fields. Run LCLS-233 is retained although it has no XRD refinement, exactly as identified by the source."
+    },
+    "numerical_reproduction": {
+     "rankine_hugoniot": "Using P=rho0*Us*Up with rho0=4.30 g/cm^3 reproduces the five printed pressures as 18.6921, 123.8134, 301.4730, 316.9328, and 336.5655 GPa, all within the respective 2-15 GPa reported uncertainties.",
+     "figure_s5_300k_curve": "The stored BM3 gives 113.5306 GPa at V/V0=37.3/46.5 and 324.0885 GPa at V/V0=31.0/46.5, reproducing the solid 300 K isotherm and grey corrected points in Supplementary Figure S5 within the approximately 5 GPa plot-reading precision.",
+     "direct_refit": "Not possible: the source does not tabulate the corrected pressures and omits numerical K0,S, K0,S', and heat-capacity multiplier m used in the thermal reduction."
+    },
+    "reported_inconsistencies": [
+     {
+      "location": "Article EOS paragraph",
+      "finding": "K0'=4.66+/-0.15 is followed by GPa, although K0'=dK/dP is dimensionless and appears dimensionlessly in Supplementary equation 7."
+     },
+     {
+      "location": "Article Table 1",
+      "finding": "The E-E0 column is labeled kJ/mol, but its numerical values are consistent with MJ/kg (equivalently kJ/g) under the printed Rankine-Hugoniot equation. The transcription preserves the source label and does not silently change the unit."
+     }
+    ]
+   }
   }
  ],
  "datasets": [
@@ -394,6 +568,69 @@
      }
     },
     "transcribed_on": "2026-09-04"
+   }
+  },
+  {
+   "identifier": "stishovite_schoelmerich_2020_table1_shock",
+   "kind": "shock_hugoniot_pressure_volume_lattice",
+   "description": "The ambient reference and all five shock-compressed stishovite states reported in Table 1, before the authors' thermal-pressure correction to 300 K.",
+   "reference": {
+    "authors": ["Schoelmerich", "Tschentscher", "Bhat", "Bolme", "Cunningham"],
+    "authors_truncated": true,
+    "year": 2020,
+    "title": "Evidence of shock-compressed stishovite above 300 GPa",
+    "source": "Scientific Reports",
+    "volume": "10",
+    "locator": "10197",
+    "doi": "10.1038/s41598-020-66340-y"
+   },
+   "source_location": "Article Table 1; official Supplementary Table S1",
+   "source_url": "https://doi.org/10.1038/s41598-020-66340-y",
+   "license": "CC BY 4.0",
+   "columns": [
+    {"name": "run_id", "quantity": "experimental_run_identifier", "unit": "1", "role": "flag"},
+    {"name": "particle_velocity_km_s", "quantity": "particle_velocity", "unit": "km/s", "role": "value"},
+    {"name": "particle_velocity_uncertainty_km_s", "quantity": "particle_velocity", "unit": "km/s", "role": "uncertainty", "of": "particle_velocity_km_s"},
+    {"name": "shock_velocity_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "value"},
+    {"name": "shock_velocity_uncertainty_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "uncertainty", "of": "shock_velocity_km_s"},
+    {"name": "pressure_gpa", "quantity": "hugoniot_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "hugoniot_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "reported_energy_increment_kj_mol", "quantity": "reported_internal_energy_increment", "unit": "kJ/mol", "role": "value"},
+    {"name": "reported_energy_increment_uncertainty_kj_mol", "quantity": "reported_internal_energy_increment", "unit": "kJ/mol", "role": "uncertainty", "of": "reported_energy_increment_kj_mol"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "volume_uncertainty_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
+    {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
+    {"name": "density_uncertainty_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "uncertainty", "of": "density_g_cm3"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "lattice_a_angstrom"},
+    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_c_uncertainty_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "lattice_c_angstrom"}
+   ],
+   "resource": {
+    "path": "datasets/stishovite-schoelmerich-2020-table1-shock.csv",
+    "sha256": "5270eb40cd862bb36b4e1487878bd4497a2e09a32e80a1ee81e08b087a207475",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": ["sio2_stv_andr_schoelmerich_2020_bm3_3"],
+   "uncertainty": {
+    "reported_as": "parenthetical uncertainties in the last printed digits",
+    "confidence_convention": "not_reported",
+    "covariance": "not_reported",
+    "method_notes": "The supplement describes VISAR uncertainties as typically 10-15%, dominated by the free-surface velocity profile, and XRD density uncertainties as typically 1-2% from refinement. It calls the Figure S3 velocity error bars standard deviations but does not explicitly assign that convention to every Table 1 parenthetical value."
+   },
+   "notes": "The ambient pressure entry printed as 'ambient' is represented by an empty numeric pressure field rather than inferred as exactly zero. LCLS-233 has no XRD data; its volume and density are retained because the article says all of its results were determined solely by velocimetry. The printed energy unit inconsistency is preserved and disclosed on the EOS record. The table does not provide the row-wise 300 K-corrected pressures used in the BM3 fit.",
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Transcribed every value and parenthetical uncertainty from article Table 1 and checked against the duplicate official Supplementary Table S1.",
+    "article_xml_sha256": "becd98f3320bee26b4a3c1b189a2bfe0e01e606a3012b32d2d2bf31691740095",
+    "supplement_sha256": "2b1b43493480e9a92aeaf25bd43738f73f796c971660ff304ac9de4f966800d3",
+    "quality_control": {
+     "row_count": 6,
+     "shock_state_count": 5,
+     "xrd_refined_state_count": 5,
+     "rankine_hugoniot_pressure_max_abs_difference_gpa": 0.8134
+    },
+    "transcribed_on": "2026-09-05"
    }
   }
  ],
