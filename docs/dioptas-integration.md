@@ -67,6 +67,8 @@ Peritheos-native aragonite BM2, B2-KCl P-V-T, and Correa and Benedict diamond
 Helmholtz records, plus two explicitly derived Dewaele-anchored diamond
 compositions, plus the Campbell-Heinz RbCl-B2 record, bring the distributed
 catalog to 116 materials and 163 EOS
+compositions, plus the Campbell-Heinz RbCl-B2 and Dewaele et al. (2000) MgO
+BM3-MGD records, bring the distributed catalog to 116 materials and 163 EOS
 records; they have primary-publication provenance rather than fabricated
 Dioptas migration sources.
 

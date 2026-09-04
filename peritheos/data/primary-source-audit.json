@@ -1770,6 +1770,26 @@
     {
       "material": "mgo",
       "file": "mgo.eosmat",
+      "record": "mgo_dewaele_2000_bm3_mgd_5",
+      "label": "Dewaele et al. (2000), BM3-MGD",
+      "doi": "10.1029/1999jb900364",
+      "status": "primary_source_validated",
+      "note": "Equation convention, parameter provenance, reference state, MgO cell-volume basis, all 61 primary rows, Pt pressure calibration, and experimental envelope were checked against the primary article. The DOI is authored by Dewaele et al. (2000), not Fei et al.; Fei (1999) supplies comparison data used in the paper's combined room-temperature fit.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/1999JB900364",
+        "locations": [
+          "Experimental section and Table 2",
+          "Equation 1 and Table 3",
+          "Equations 2-8, Figure 4, and Tables 4-5",
+          "Abstract and conclusion"
+        ],
+        "finding": "The article's reproducible preferred result is one B1-MgO BM3-MGD EOS with V0=74.71 A^3, K0=161 GPa, K0'=3.94, theta0=800 K, gamma0=1.45, and q=0.8. Alternative Murnaghan, Vinet, logarithmic, and constrained BM3 rows in Table 3 quantify room-temperature extrapolation sensitivity and are not additional recommended thermal parameterizations.",
+        "doi": "10.1029/1999jb900364"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
       "record": "mgo_sokolova_2013_holzapfel_4",
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
       "doi": "10.1016/j.rgg.2013.01.005",

@@ -983,3 +983,97 @@ flyer Hugoniots, while shots 1 and 4 use measured particle velocity. The
 published `0--345 GPa` and `300--8500 K` limits are retained as the stated
 pressure-scale domain, not as a rectangular observation envelope or a B1
 phase-stability claim.
+<a id="mgo-dewaele-2000"></a>
+
+## MgO: Dewaele et al. (2000)
+
+### Authority, identity, and represented equation
+
+The discovery lead attributed DOI
+[10.1029/1999JB900364](https://doi.org/10.1029/1999JB900364) to Fei et al., but
+the version of record is Dewaele, Fiquet, Andrault, and Hausermann (2000),
+*P-V-T equation of state of periclase from synchrotron radiation
+measurements*. Fei (1999) is an input to the paper's combined room-temperature
+comparison, not the author of this DOI.
+
+The single implemented record is the paper's preferred complete P-V-T model:
+
+\[
+P(V,T)=P_{BM3}(V,300\,\mathrm{K})+
+\frac{10^{-4}\gamma(V)}{V}\left[E_D(V,T)-E_D(V,300\,\mathrm{K})\right],
+\]
+
+with `V` in cubic angstroms per mole-equivalent formula-unit basis inside the
+engine, `gamma(V) = gamma0 (V/V0)^q`, and
+`theta(V) = theta0 exp[(gamma0-gamma(V))/q]`. This is Peritheos's explicit
+`integrated_gruneisen` convention. The conventional crystallographic MgO
+volumes in the material document contain four formula units and are converted
+by the material wrapper.
+
+The stored source parameters are `V0 = 74.71(3) A^3`, `K0 = 161(1) GPa`,
+`K0' = 3.94 +/- 0.2`, `theta0 = 800(50) K`, `gamma0 = 1.45(10)`, and
+`q = 0.8(5)`, with `n = 2`. The provenance is staged: `V0` and `K0` are
+adopted ambient/acoustic constraints; `K0'` is obtained from the combined 300 K
+data and then fixed in the thermal analysis; `theta0` is obtained from ambient
+heat-capacity data; `gamma0` is constrained by the zero-pressure thermal-pressure
+intercept and then fixed; and `q` is constrained by the pressure dependence.
+Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 rows are
+extrapolation-sensitivity comparisons and are deliberately not represented as
+additional full P-V-T records.
+
+The source is internally inconsistent about the uncertainty on `K0'`: the
+fit discussion gives a formal `+/-0.06` (rounded to `(5)` in Table 3) and an
+expanded `+/-0.2` after propagating pressure errors; the abstract repeats
+`+/-0.2`, whereas the conclusion prints `+/-0.3` without explanation. The
+record stores `+/-0.2` because it is tied explicitly to the paper's pressure
+uncertainty analysis and is repeated in the abstract; all three printed values
+remain documented here and in the record provenance.
+
+### Primary observations and pressure basis
+
+Dataset `mgo_dewaele_2000_table2_pvt` contains every Table 2 observation: 41
+laser-heated rows and 20 rows at 300 K, spanning 0--53 GPa and 300--2474 K.
+Each row retains MgO conventional-cell volume and the simultaneously measured
+Pt lattice parameter. Parenthesized pressure and volume errors are transcribed
+as printed; the paper assigns +/-200 K to heated temperatures. No official
+supplement or machine-readable deposit accompanies the article.
+
+Pressure was reduced from Pt using the Jamieson, Fritz, and Manghnani (1982)
+shock-Hugoniot/Debye P-V-T scale. The paper gives the row-wise Pt lattice
+parameters and the pressure-error law
+
+\[
+\Delta P = 0.03P + 0.0004(T-300),
+\]
+
+for pressure in GPa and temperature in kelvin. The exact Jamieson Pt
+implementation is not presently bundled as an executable reference EOS, so
+the source-scale pressure values are preserved and the calibration is marked
+`reference_eos_not_bundled`; no substitute scale is inferred.
+
+### Independent value and refit
+
+The room-temperature discussion reports that the BM3 curve reaches 145 GPa at
+`V/V0 = 0.667`. Direct evaluation of the stored record gives 144.947 GPa, a
+0.053 GPa difference attributable to the source's integer rounding.
+
+For an observation-level check, the automated campaign fits `q` to the 41
+heated Table 2 rows while holding `V0`, `K0`, `K0'`, `theta0`, `gamma0`, `Tr`,
+and `n` at their source-staged values. It uses the complete positive row-wise
+P, V, and T uncertainties in an errors-in-variables objective.
+
+| Quantity | Published | Current-study refit |
+|---|---:|---:|
+| `gamma0` | 1.45 +/- 0.10 | 1.45 fixed, following the source's staged procedure |
+| `q` | 0.80 +/- 0.50 | 0.847 +/- 0.122 |
+| Pressure RMSE | 0.952 GPa for the published curve | 0.950 GPa |
+| Reduced chi-square | -- | 0.925 |
+
+The refitted `q` agrees within combined two-standard-deviation uncertainty and
+the numerical similarity limit, so the ledger classifies the result as
+`parity`. It is a
+conditional current-study reproduction: the source's thermal analysis also
+uses Fei (1999) observations that are not reprinted in Dewaele et al. Exact
+coefficient identity from the 41 new rows alone is therefore neither expected
+nor claimed. The published parameters, not the refit, remain the executable
+literature record.

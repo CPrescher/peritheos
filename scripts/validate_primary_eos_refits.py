@@ -158,6 +158,14 @@ FIT_QUALIFICATIONS = {
         "[dedicated Mo2C reproduction]"
         "(literature-reproductions.md#mo2c-haines-2001)."
     ),
+    "mgo_dewaele_2000_bm3_mgd_5": (
+        "Conditional current-study thermal reproduction: the 41 heated Table 2 "
+        "rows constrain q while V0, K0, K0', theta0, gamma0, Tr, and n are held "
+        "to the source's staged/adopted values. Dewaele et al.'s published "
+        "thermal analysis additionally used Fei (1999) observations that are not "
+        "reprinted in this article, so exact parameter parity is not required from "
+        "the new current-study rows alone."
+    ),
     "neon_fcc_fei_2007_bm3_1": (
         "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, "
         "ref. 45), Finger et al. (1981, ref. 47), and their new observations. The "
@@ -1060,6 +1068,11 @@ def _fit_record(
         assert series.temperature is not None
         heated = series.temperature > 300.0
         series = _masked_series(series, heated, "41 heated rows")
+
+    if record_id == "mgo_dewaele_2000_bm3_mgd_5":
+        assert series.temperature is not None
+        heated = series.temperature > 300.0
+        series = _masked_series(series, heated, "41 heated Table 2 rows")
 
     if record_id == "ice_vi_bezacier_2014_bm2_1":
         assert series.temperature is not None

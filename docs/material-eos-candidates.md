@@ -39,6 +39,35 @@ audit.
 
 ## A — review first
 
+### Audited discovery lead — MgO/periclase, Dewaele et al. (2000)
+
+**Status: accepted and implemented (2026-09-04) as one record.**
+
+- **Identity correction:** DOI
+  [10.1029/1999JB900364](https://doi.org/10.1029/1999JB900364) is Dewaele,
+  Fiquet, Andrault, and Hausermann (2000), not Fei et al. Fei (1999) is one of
+  the comparison datasets used in the paper's combined room-temperature
+  analysis.
+- **Authoritative model:** the recommended full P-V-T result is a 300 K BM3
+  reference isotherm (`V0 = 74.71 A^3`, `K0 = 161 GPa`, `K0' = 3.94`) plus
+  integrated-Gruneisen MGD thermal pressure (`theta0 = 800 K`,
+  `gamma0 = 1.45`, `q = 0.8`, `n = 2`).
+- **Why one record:** Table 3's Murnaghan, Vinet, logarithmic, and alternate
+  constrained BM3 rows are room-temperature extrapolation comparisons. They
+  are not separate preferred P-V-T parameterizations and are not promoted to
+  duplicate executable records.
+- **Primary data and calibration:** all 61 Table 2 rows are bundled, including
+  the simultaneous Pt lattice parameters. Pressures use the Jamieson et al.
+  (1982) Pt shock-Hugoniot/Debye scale. That exact Pt implementation is not yet
+  a bundled reference record, so the calibration is explicit but not silently
+  recalculated.
+- **Reproduction:** the stored BM3 gives 144.947 GPa at `V/V0 = 0.667`, versus
+  the paper's 145 GPa. An errors-in-variables refit to the 41 new heated rows,
+  with the source's staged/adopted quantities including `gamma0` fixed, gives
+  `q = 0.847(122)`, within combined two-sigma uncertainty of the reported
+  value. See the
+  [full reproduction](literature-reproductions.md#mgo-dewaele-2000).
+
 ### C01 — Boron carbide B4C: add the thermal branch
 
 **Status: accepted and implemented (2026-09-03).**

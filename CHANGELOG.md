@@ -10,6 +10,14 @@ All notable changes to Peritheos are documented here. The project follows
 - Added the Luo et al. (2023) B1-MgO pressure scale as a 0 K Vinet curve plus
   the published absolute second-order thermal-pressure polynomial, with all
   five new shock states and the complete 576-value Tables II--III P-V-T grid.
+- Added the primary-source-audited Dewaele et al. (2000) B1-MgO BM3-MGD EOS
+  and all 61 P-V-T observations from its Table 2. The record preserves the
+  Jamieson platinum pressure basis, distinguishes adopted, fitted, and fixed
+  quantities, reproduces the paper's 145 GPa BM3 benchmark at `V/V0=0.667`,
+  and recovers `q` within combined two-sigma uncertainty from the 41 new heated
+  rows with `gamma0` fixed as in the source's staged procedure. The paper's
+  Murnaghan, Vinet, logarithmic, and alternate
+  BM3 rows are documented as comparison fits rather than duplicate EOS records.
 
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,

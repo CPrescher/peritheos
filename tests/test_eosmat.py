@@ -146,6 +146,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
+        "mgo_dewaele_2000_bm3_mgd_5",
     }
     latest_audit_identifiers = {
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
@@ -155,6 +156,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
         "mgo_b1_luo_2023_vinet_thermal_5",
+        "mgo_dewaele_2000_bm3_mgd_5",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
@@ -210,6 +212,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "mgo_b1_luo_2023_vinet_thermal_5",
         "mgo_b1_tange_2009_vinet",
+        "mgo_dewaele_2000_bm3_mgd_5",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
         "platinum_dorogokupets_oganov_2007_vinet_4",

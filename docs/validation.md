@@ -18,6 +18,8 @@ combine the Correa and Benedict thermal increments with the experimental
 Dewaele 298 K Vinet isotherm, and adding the independently reproducible B4C
 Berman public-data and Hemley neon refits plus the Campbell-Heinz RbCl record
 produces 163 records in total. These checks
+Berman public-data and Hemley neon refits plus the Campbell-Heinz RbCl and
+Dewaele et al. (2000) MgO BM3-MGD records produce 163 records in total. These checks
 establish file and software interoperability only.
 
 The primary-source audit covers all 163
@@ -40,7 +42,7 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 163
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 82 uncertainty-parity matches and 33
+diagnostics. The current campaign finds 83 uncertainty-parity matches and 33
 additional numerically similar results. [Eight direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 39 records cannot be
 directly refitted because row-level inputs or an executable source reduction
