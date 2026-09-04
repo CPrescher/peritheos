@@ -1,0 +1,495 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg087fe013sio3_bridgmanite",
+ "name": "13% Fe-bearing bridgmanite",
+ "formula": "Mg0.87Fe0.13SiO3",
+ "phase": "ferrous iron-bearing bridgmanite, orthorhombic Pbnm",
+ "aliases": [
+  "(Mg0.87Fe0.13)SiO3 bridgmanite",
+  "13% Fe bridgmanite",
+  "13% Fe magnesium silicate perovskite"
+ ],
+ "cell_contents": "Four Mg0.87Fe0.13SiO3 formula units per conventional orthorhombic Pbnm cell (Mg3.48Fe0.52Si4O12; Z=4)",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 4.7963,
+  "b": 4.9346,
+  "c": 6.9092,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4c",
+   "x": 0.974,
+   "y": 0.063,
+   "z": 0.25,
+   "occupancy": 0.87
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4c",
+   "x": 0.974,
+   "y": 0.063,
+   "z": 0.25,
+   "occupancy": 0.13
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4b",
+   "x": 0.0,
+   "y": 0.5,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.096,
+   "y": 0.477,
+   "z": 0.25,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "8d",
+   "x": 0.696,
+   "y": 0.291,
+   "z": 0.056,
+   "occupancy": 1.0
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "primary_article_url": "https://doi.org/10.1002/2015JB012108",
+  "author_article_url": "https://web.gps.caltech.edu/~jackson/pdf/Wolf2015_JGR.pdf",
+  "author_data_page": "https://aswolf.github.io/data.html",
+  "author_table1_url": "https://aswolf.github.io/data/Wolf2015/tbl1.txt",
+  "author_table1_sha256": "6fa55c4e36e108301695b7a599f3ed6e104534363effe5b8cff3d78f5bad9958",
+  "pvt_tool_url": "https://github.com/aswolf/pvt-tool",
+  "pvt_tool_commit": "1a7243a39a21afa90a2951a0cdcd2a668602720f",
+  "structure_proxy_reference": {
+   "authors": [
+    "Knittle",
+    "Jeanloz"
+   ],
+   "year": 1987,
+   "title": "Synthesis and equation of state of (Mg,Fe)SiO3 perovskite to over 100 gigapascals",
+   "source": "Science",
+   "volume": "235",
+   "locator": "668-670",
+   "doi": "10.1126/science.235.4789.668"
+  },
+  "coordinate_proxy_reference": {
+   "authors": [
+    "Yagi",
+    "Mao",
+    "Bell"
+   ],
+   "year": 1978,
+   "title": "Structure and crystal chemistry of perovskite-type MgSiO3",
+   "source": "Physics and Chemistry of Minerals",
+   "volume": "3",
+   "locator": "97-110",
+   "doi": "10.1007/BF00308114"
+  }
+ },
+ "notes": "Wolf et al. verify the analyzed EOS specimen as (Mg0.87Fe0.13)SiO3 and constrain ferric iron to less than 3% of total Fe; the record therefore represents the ferrous 13% Fe composition, not the existing 12% Fe perovskite material. The article reports Pbnm bridgmanite diffraction and Z=4 unit-cell volumes but no positional refinement for this specimen. For diffraction readiness only, the lattice is the near-composition (Mg0.88Fe0.12)SiO3 ambient cell reported by Knittle and Jeanloz (1987), and the positional scaffold is the Yagi et al. (1978) MgSiO3 Pbnm refinement with 0.87/0.13 Mg/Fe occupancy on the A site. These proxies are not used by the EOS and are not presented as exact refinements of the Wolf specimen.",
+ "eos_records": [
+  {
+   "identifier": "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1",
+   "label": "Wolf et al. (2015), 13% Fe bridgmanite Vinet-MGD",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": [
+     "Wolf",
+     "Jackson",
+     "Dera",
+     "Prakapenka"
+    ],
+    "year": 2015,
+    "title": "The thermal equation of state of (Mg,Fe)SiO3 bridgmanite (perovskite) and implications for lower mantle structures",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "120",
+    "locator": "7460-7489",
+    "doi": "10.1002/2015JB012108"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 163.16,
+     "K0": 243.8,
+     "K0_prime": 4.16
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.19,
+    "K0": 4.3,
+    "K0_prime": 0.11
+   },
+   "parameter_error_confidence": 0.68,
+   "fixed_parameters": [],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1000.0,
+     "gamma0": 1.4,
+     "q": 0.56,
+     "n": 5.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.11,
+     "q": 0.37,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "rt_eos.K0_prime",
+     "gamma0",
+     "q"
+    ],
+    "matrix": [
+     [
+      8.18255671207e-06,
+      -0.010455189127,
+      0.00019508724992,
+      9.4397056413e-06,
+      3.17517371571e-05
+     ],
+     [
+      -0.010455189127,
+      18.49,
+      -0.43989,
+      -0.15136,
+      -0.50912
+     ],
+     [
+      0.00019508724992,
+      -0.43989,
+      0.0121,
+      0.005808,
+      0.02035
+     ],
+     [
+      9.4397056413e-06,
+      -0.15136,
+      0.005808,
+      0.0121,
+      0.039479
+     ],
+     [
+      3.17517371571e-05,
+      -0.50912,
+      0.02035,
+      0.039479,
+      0.1369
+     ]
+    ]
+   },
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    33.15,
+    132.7
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    2455.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     33.15,
+     132.7
+    ],
+    "temperature_k": [
+     300.0,
+     2455.0
+    ],
+    "volume_ratio": [
+     0.75030645,
+     0.89844325
+    ],
+    "notes": [
+     "Marginal envelope of the 153 observations; the sampled P-T paths are not a rectangular phase-stability guarantee.",
+     "The authors report that every experimental state followed a thermodynamic path within the bridgmanite stability field and found no H-phase exsolution."
+    ]
+   },
+   "experimental_configuration": {
+    "sample": "polycrystalline synthetic (Mg0.87Fe0.13)SiO3 bridgmanite; microprobe verified; ferric iron below the approximately 3% detection constraint",
+    "pressure_medium": "quasi-hydrostatic neon",
+    "pressure_cell": "symmetric laser-heated diamond-anvil cell with beveled 250 micrometre culets",
+    "diffraction": "angle-dispersive powder X-ray diffraction at GSECARS 13-ID-D, wavelength 0.3344 angstrom",
+    "temperature_measurement": "double-sided laser heating and gray-body spectroradiometry over 600-800 nm"
+   },
+   "fit_datasets": [
+    "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"
+   ],
+   "parameter_provenance": {
+    "equation": "Final article, equations 1-6: 300 K Vinet reference isotherm plus reference-subtracted Mie-Gruneisen-Debye thermal pressure",
+    "V0": "Final article, Table 3, 13% Fe column: fitted 163.16(19) angstrom^3 conventional Z=4 cell; prior 163.2 +/- 0.2 angstrom^3",
+    "K0": "Final article, Table 3, 13% Fe column: fitted K0T=243.8(43) GPa",
+    "K0_prime": "Final article, Table 3, 13% Fe column: fitted K0T'=4.160(110)",
+    "Tr": "Final article, equation 1: thermal pressure referenced to 300 K",
+    "theta0": "Final article, section 3.3 and Table 3 note: fixed to 1000 K after the Fe-free preliminary fit gave 991 +/- 77 K",
+    "gamma0": "Final article, Table 3, 13% Fe column: fitted 1.400(110), with prior 1 +/- 1",
+    "q": "Final article, Table 3, 13% Fe column: fitted 0.56(37), with prior 1 +/- 1",
+    "n": "Final article, equation 3 definition CVmax=3 kB Ncell and PVT-tool input natom=20 for the Z=4 cell; exactly equivalent to n=5 per formula unit in Peritheos",
+    "parameter_covariance": "Reconstructed from the 68% parameter errors in final Table 3 and the complete correlation matrix in final Table 4. The V0 row and column are converted from cell-volume units to Peritheos's internal molar-volume unit using N_A*1e-25/Z; all reported correlations are preserved."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Ne",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Datchi",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2008,
+       "title": "High pressure-high temperature equations of state of neon and diamond",
+       "source": "Physical Review B",
+       "volume": "77",
+       "locator": "094106",
+       "doi": "10.1103/PhysRevB.77.094106"
+      },
+      "source_location": "Final article, sections 2.1 and 3.1, Figure 1 caption, and Table 3 note",
+      "scope": "all 153 Table 1 observations",
+      "notes": "Pressures use the Dewaele et al. (2008) Ne Mie-Gruneisen-Debye scale from the measured Ne 111 volume and temperature. Offline ruby fluorescence was secondary verification only."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Every paired Ne unit-cell volume, uncertainty, and temperature is bundled, but the exact Dewaele et al. (2008) Ne thermal EOS is not yet an executable Peritheos calibration record."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1002/2015JB012108",
+     "doi": "10.1002/2015JB012108",
+     "locations": [
+      "final article, sections 2.1-2.3, 3.1-3.4, and 4.2",
+      "final article, equations 1-11 and Tables 1, 3, and 4",
+      "final article, Appendices A-B and data-availability statement",
+      "corresponding-author data page, Table 1 machine-readable mirror",
+      "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Wolf2014_lsq_fixdeb.in"
+     ],
+     "finding": "The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"
+     ],
+     "source_locations": [
+      "final article, Table 1",
+      "corresponding-author machine-readable Table 1"
+     ],
+     "finding": "All 153 observations are bundled in source order: 49 measurements at 300 K and 104 laser-heated measurements, with reduced pressure and total propagated uncertainty, temperature and uncertainty, bridgmanite cell volume and uncertainty, and paired Ne cell volume and uncertainty."
+    },
+    "independent_refit": {
+     "selection": "all 153 Table 1 rows",
+     "objective": "joint weighted pressure residuals using the final printed total pressure uncertainties, plus the published independent Gaussian priors on V0, gamma0, and q; theta0 fixed to 1000 K",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime",
+      "gamma0",
+      "q"
+     ],
+     "refit_parameters": {
+      "V0": 163.16078947,
+      "K0": 243.8308391,
+      "K0_prime": 4.15944883,
+      "gamma0": 1.40147771,
+      "q": 0.55884896
+     },
+     "published_curve_pressure_rmse_gpa": 1.9496990046,
+     "result": "parity",
+     "notes": "This independently evaluates the rounded published P-V-T table and final effective pressure errors. It reproduces every displayed coefficient within rounding or far inside its 68% interval, but it is not substituted for the authors' iterative marker-volume error-model fit."
+    },
+    "unresolved_issues": [
+     "The publisher record exposes no separate supporting-information file; the final article states that the analyzed data are included in its tables, and the corresponding author supplies exact machine-readable mirrors of Tables 1-5.",
+     "The exact Dewaele et al. (2008) Ne thermal pressure scale is identified and all paired calibrant observations are available, but that calibration record is not bundled in Peritheos.",
+     "The article does not publish a positional refinement for the exact 13% Fe specimen; diffraction metadata therefore use an explicitly labeled near-composition structural proxy.",
+     "The article's equation 13 ideal lattice mixing model for arbitrary Fe content is a separate compositional interpolation and is not represented as another single-composition EOS record."
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "final equations, parameters, correlations, measured composition, experimental scope, and pressure calibration",
+     "citation": "Wolf et al. (2015), Journal of Geophysical Research: Solid Earth 120, 7460-7489",
+     "doi": "10.1002/2015JB012108"
+    },
+    {
+     "role": "machine-readable mirror of final article Table 1",
+     "citation": "Aaron S. Wolf, Wolf2015 Table 1",
+     "url": "https://aswolf.github.io/data/Wolf2015/tbl1.txt",
+     "sha256": "6fa55c4e36e108301695b7a599f3ed6e104534363effe5b8cff3d78f5bad9958"
+    },
+    {
+     "role": "author implementation and exact model/fitting configuration cross-check",
+     "citation": "aswolf/pvt-tool",
+     "url": "https://github.com/aswolf/pvt-tool",
+     "commit": "1a7243a39a21afa90a2951a0cdcd2a668602720f"
+    }
+   ],
+   "notes": "The 300 K Vinet parameters and thermal parameters are one coupled published thermal EOS. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2387 K the implementation reproduces density 5.40 g/cm3, KS=604.5 GPa, gamma=1.23, and Cv/(3Nk)=0.9838 at the source's printed precision."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt",
+   "kind": "pressure_volume_temperature_with_calibrant",
+   "description": "All 153 P-V-T observations for 13% Fe-bearing bridgmanite in final Table 1, including paired Ne marker volumes and the final adjusted uncertainties used by the published fit.",
+   "source_location": "Final article Table 1 and corresponding-author machine-readable Table 1",
+   "source_url": "https://aswolf.github.io/data/Wolf2015/tbl1.txt",
+   "source_file_sha256": "6fa55c4e36e108301695b7a599f3ed6e104534363effe5b8cff3d78f5bad9958",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "measurement_group",
+     "quantity": "measurement_uncertainty_group",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_from_neon_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_total_uncertainty_gpa",
+     "quantity": "pressure_from_neon_scale",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "bridgmanite_unit_cell_volume_a3",
+     "quantity": "bridgmanite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "bridgmanite_unit_cell_volume_uncertainty_a3",
+     "quantity": "bridgmanite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "bridgmanite_unit_cell_volume_a3"
+    },
+    {
+     "name": "neon_unit_cell_volume_a3",
+     "quantity": "neon_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "neon_unit_cell_volume_uncertainty_a3",
+     "quantity": "neon_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "neon_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg087fe013sio3-bridgmanite-wolf-2015-table1-pvt.csv",
+    "sha256": "dee6828c62a0682550d1a7a0b68c4d3bce6bc5c8b3f09b9c7417c36709eda070",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "confidence_convention": "The article labels parenthetical entries as errors in trailing digits and Table 3 parameter errors as 68% confidence intervals. Table 1 pressure uncertainties are the final propagated effective uncertainties after the authors' empirical group-wise error adjustment.",
+    "covariance": "No observation-level covariance matrix is published."
+   },
+   "notes": "Measurement group 1 contains 49 observations at 300 K; group 2 contains 104 laser-heated observations. The source assigns 100 K uncertainty to heated measurements except the approximately 122 GPa state with a missing downstream temperature measurement, where the error is 140 K (approximately sqrt(2)*100 K). The Ne volumes are from the 111 reflection.",
+   "reference": {
+    "authors": [
+     "Wolf",
+     "Jackson",
+     "Dera",
+     "Prakapenka"
+    ],
+    "year": 2015,
+    "title": "The thermal equation of state of (Mg,Fe)SiO3 bridgmanite (perovskite) and implications for lower mantle structures",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "120",
+    "locator": "Table 1, 7468",
+    "doi": "10.1002/2015JB012108"
+   },
+   "used_by_eos_records": [
+    "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1"
+   ]
+  }
+ ]
+}
