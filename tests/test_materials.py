@@ -801,7 +801,10 @@ def test_isothermal_eos_record_rejects_unsupported_temperature(temperature):
 
 
 def test_static_zero_kelvin_isothermal_record_accepts_only_zero_temperature():
-    record = Material.from_eosmat(get_material_document("phase_egg")).eos_records[0]
+    record = Material.from_eosmat(
+        get_material_document("phase_egg"),
+        record_identifiers=["phase_egg_mookherjee_2019_bm3_lp_1"],
+    ).eos_records[0]
 
     assert record.reference_temperature == 0.0
     assert record.pressure(196.0) == pytest.approx(14.72595528543105)

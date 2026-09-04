@@ -98,7 +98,7 @@ fn static_isothermal_record_accepts_zero_kelvin_reference_temperature() {
     let material = load_eosmat_str(&source).unwrap();
     let record = material.record("test_bm3").unwrap();
 
-    assert_eq!(record.reference_temperature, 0.0);
+    assert!(record.reference_temperature.abs() < f64::EPSILON);
     assert!(record.pressure(9.0, 0.0).unwrap().is_finite());
 
     let error =
@@ -834,14 +834,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         }
     }
 
-    assert_eq!(paths.len(), 116);
-    assert_eq!(records, 163);
-    assert_eq!(thermal_records, 40);
-    assert_eq!(records, 164);
-    assert_eq!(paths.len(), 117);
-    assert_eq!(records, 163);
-    assert_eq!(thermal_records, 39);
-    assert_eq!(paths.len(), 117);
-    assert_eq!(records, 163);
-    assert_eq!(thermal_records, 40);
+    assert_eq!(paths.len(), 118);
+    assert_eq!(records, 172);
+    assert_eq!(thermal_records, 44);
 }

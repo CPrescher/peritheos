@@ -40,7 +40,7 @@ Here volume is in angstrom cubed per conventional unit cell, pressure is in
 GPa, and temperature is in K. See [Pressure standards](pressure-standards.md)
 for the curated calculation catalog and [Exploring the material
 library](notebooks/exploring-material-library.ipynb) for the complete bundled
-115-material/160-record collection.
+118-material/172-record collection.
 
 ## Construct a room-temperature model
 

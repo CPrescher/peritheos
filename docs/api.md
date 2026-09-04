@@ -36,7 +36,7 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters the curated pressure-scale
 convenience catalog. This compact executable catalog is distinct from the full
-117-document shared material library described below. Each
+118-document shared material library described below. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
 canonical executable format-3 material document. Optional crystallographic
@@ -125,19 +125,9 @@ by scientific preference; callers should restrict `target_nodes` to a suitable
 standard or internally consistent family and verify the common validity range.
 
 Transferred Dioptas records have completed a primary-source classification,
-and native primary-sourced records have been added for aragonite BM2, the
-B2-KCl P-V-T pressure calibration, and the Correa and Benedict diamond
-Helmholtz models, including derived variants anchored to the experimental
-Dewaele 298 K Vinet isotherm, together with a primary-sourced Campbell-Heinz
-RbCl-B2 record. All 163 bundled records are
-RbCl-B2 record and the Dewaele et al. (2000) MgO BM3-MGD record. All 163 bundled records are
-Dewaele 298 K Vinet isotherm, together with primary-sourced Campbell-Heinz
-RbCl-B2 and Wang stishovite records. All 163 bundled records are
-RbCl-B2 record. All 164 bundled records are
-Dewaele 298 K Vinet isotherm, together with primary-sourced Campbell-Heinz
-RbCl-B2 and Schulze Phase Egg records. All 163 bundled records are
-RbCl-B2 and Mookherjee phase-Egg records. All 163 bundled records are
-RbCl-B2 record and the Rh2O3(II)-type alumina thermal EOS. All 163 bundled records are
+and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 172
+bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with

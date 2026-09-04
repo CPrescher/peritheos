@@ -49,14 +49,17 @@ DERIVED_REFIT_RECORDS = {
 }
 
 CURRENT_SOURCE_AUDIT_RECORDS = {
+    "akimotoite_reynard_1996_bm3_ice_vii_3",
+    "akimotoite_reynard_1996_bm3_ruby_2",
+    "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
     "mgo_b1_luo_2023_vinet_thermal_5",
+    "mgo_dewaele_2000_bm3_mgd_5",
     "ca_perovskite_caracas_2005_bm3_3",
-    "rbcl_b2_campbell_1994_bm3_1",
+    "ca_perovskite_kawai_2014_vinet_mgd_3",
+    "phase_egg_mookherjee_2019_bm3_lp_1",
+    "phase_egg_schulze_2018_bm3_1",
     "rbcl_b2_campbell_1994_bm3_1",
     "sio2_stv_andr_wang_2012_vinet_mgd_2",
-    "phase_egg_schulze_2018_bm3_1",
-    "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
-    "rbcl_b2_campbell_1994_bm3_1",
 }
 
 
@@ -2971,7 +2974,11 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation["migration_source"] = migration
     if primary_data_check is not None:
         validation["primary_data_check"] = primary_data_check
-    for extension in ("reported_parameterizations", "parameterization_resolution"):
+    for extension in (
+        "reported_parameterizations",
+        "parameterization_resolution",
+        "reported_inconsistencies",
+    ):
         if extension in previous:
             validation[extension] = previous[extension]
     result["scientific_validation"] = validation
@@ -3232,8 +3239,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 163:
-        raise ValueError(f"Expected 163 EOS records, found {len(entries)}")
+    if len(entries) != 172:
+        raise ValueError(f"Expected 172 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

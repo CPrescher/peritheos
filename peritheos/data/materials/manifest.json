@@ -7,36 +7,34 @@
     "version": "0.10.0",
     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a"
   },
-  "materials": 116,
-  "eos_records": 163,
+  "materials": 118,
+  "eos_records": 172,
   "scientific_validation": {
     "audit_date": "2026-09-04",
     "report": "../primary-source-audit.json",
     "counts": {
-      "primary_source_validated": 163
+      "primary_source_validated": 172
     },
     "policy": "Only primary_source_validated records are executable; deferred records remain available for lossless catalog interchange."
   },
   "pressure_calibration": {
     "audit_date": "2026-09-04",
     "status_counts": {
-      "resolved": 66,
-      "partially_resolved": 12,
-      "not_applicable": 24,
-      "partially_resolved": 13,
-      "not_applicable": 23,
+      "resolved": 67,
+      "partially_resolved": 17,
+      "not_applicable": 27,
       "unresolved": 61
     },
     "recalculation_counts": {
-      "missing_calibrant_observations": 51,
+      "missing_calibrant_observations": 52,
       "reference_model_not_supported": 16,
-      "not_applicable": 23,
-      "not_possible": 65,
+      "not_applicable": 26,
+      "not_possible": 66,
       "ready": 7,
-      "reference_eos_not_bundled": 2
+      "reference_eos_not_bundled": 5
     },
     "resolvable_reference_eos_uses": 25,
-    "resolvable_reference_calibration_uses": 36,
+    "resolvable_reference_calibration_uses": 37,
     "policy": "Exact EOS and ruby-scale links resolve to executable bundled records. Unsupported or ambiguous calibrations are recorded explicitly and are never replaced by an approximate pressure scale."
   }
 }
