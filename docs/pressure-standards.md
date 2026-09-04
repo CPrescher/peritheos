@@ -170,7 +170,7 @@ identified as references by the audit.
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 118 material documents and 172 independently
+library is broader: it contains 139 material documents and 211 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 

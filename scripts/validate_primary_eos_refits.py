@@ -79,6 +79,12 @@ INDIRECT_DATA = {
         "300 K reference part of a combined thermal fit, but the record does not "
         "represent the source's thermal correction needed to refit those rows."
     ),
+    "mgo_li_2006_bm3_absolute_acoustic": (
+        "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not "
+        "independent pressure-volume observations. The source-derived isothermal "
+        "coefficients are instead validated by the bundled velocity-density data "
+        "and the dedicated acoustic finite-strain reproduction."
+    ),
 }
 
 SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
@@ -405,6 +411,15 @@ PRESSURE_COLUMNS = {
     "bridgmanite_tange_2012_table1_pvt#BM3": "pressure_bm3_gpa",
     "bridgmanite_tange_2012_table1_pvt#Vinet": "pressure_vinet_gpa",
     "mgfe_perovskite_knittle_1987_table2_compression": ("pressure_after_heating_gpa"),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_anderson_bm2_3": (
+        "pressure_anderson_1989_gpa"
+    ),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_jamieson_bm2_4": (
+        "pressure_jamieson_1982_gpa"
+    ),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_dewaele_bm2_5": (
+        "pressure_dewaele_2004_gpa"
+    ),
 }
 
 VOLUME_COLUMNS = {
@@ -434,6 +449,10 @@ VOLUME_COLUMNS = {
     "silicon_carbide_b3_miozzi_2018_data_set_s1_eos": ("sic_unit_cell_volume_a3"),
     "titanium_alpha_dewaele_2015_table4_compression": "lattice_a_angstrom",
     "titanium_omega_dewaele_2015_table4_compression": "lattice_a_angstrom",
+    "bridgmanite_wolf_2015_table2_pvt": "bridgmanite_unit_cell_volume_a3",
+    "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt": (
+        "bridgmanite_unit_cell_volume_a3"
+    ),
 }
 
 PHASE_FILTERS = {

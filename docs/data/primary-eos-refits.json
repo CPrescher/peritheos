@@ -259,6 +259,87 @@
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "al_bearing_phase_d_xu_2020_earthchem_pvt"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        20.53
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Xu et al. (2020), 300 K gold-scale BM3",
+      "material_identifier": "al_bearing_phase_d",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 8,
+      "observed_pressure_range_gpa": [
+        0.0,
+        20.53
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        78.01,
+        86.71
+      ],
+      "parameters": [
+        {
+          "difference": 0.35496116131346866,
+          "parameter": "K0",
+          "published": 143.0,
+          "published_error": 5.0,
+          "refit": 143.35496116131347,
+          "refit_error": 37.80399068122436,
+          "relative_difference": 0.0024822458833109696,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.01415003067710252,
+          "parameter": "K0_prime",
+          "published": 5.8,
+          "published_error": 0.7,
+          "refit": 5.814150030677102,
+          "refit_error": 5.862130212795976,
+          "relative_difference": 0.0024396604615694,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 28 numerical P-V-T states in the author-deposited workbook are transcribed in source order with every printed row-wise uncertainty; all eight 300 K rows are flagged as the represented BM3 fit selection. Five later diffraction patterns mentioned by the article are not published numerically because the sample partially dehydrated above about 20 GPa and 1400 K, and the authors explicitly excluded them from subsequent models.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020GL088877",
+      "published_rmse_gpa": 0.12191812508696777,
+      "record_identifier": "al_bearing_phase_d_xu_2020_bm3_300k",
+      "reduced_chi_square": 0.01629223470546935,
+      "rmse_gpa": 0.11035459600622245,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published room-temperature BM3. V0 was fixed to the in situ 300 K zero-pressure observation; K0 and K0' were fitted. Parenthetical parameter errors have no stated confidence convention, and no covariance matrix or scalar fit statistic is published. The broader experiment used Au and NaCl pressure standards, while the article's Table 1 explicitly labels this represented BM3 as the Tsuchiya (2003) gold-scale fit. The article also publishes high-temperature BM3 and pressure-scale-free elastic parameterizations, but the narrative and Table 1 disagree on their fit interval, fixed/free choices, alpha(T) form, and coefficients; none is silently approximated as a Peritheos thermal EOS.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "unit_cell_volume_a3"
       },
@@ -514,6 +595,103 @@
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_notes": "Quasihydrostatic 300 K Vinet fit to corundum data from 0.56 to 165 GPa. V0=255.45+/-0.52 A^3, K0=254.1+/-7.6 GPa, and K0'=4.00+/-0.15 were all fitted; errors are 95% confidence intervals.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "alumina_shi_2022_table_s1_pvt"
+      ],
+      "degrees_of_freedom": 72,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        97.7
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        2980.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.K0",
+        "gamma0",
+        "q"
+      ],
+      "label": "Shi et al. (2022), selected BM3-MGD corundum model 3",
+      "material_identifier": "alumina",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 75,
+      "observed_pressure_range_gpa": [
+        0.0,
+        97.7
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        2980.0
+      ],
+      "observed_volume_range": [
+        203.2,
+        255.1
+      ],
+      "parameters": [
+        {
+          "difference": 0.30828535420849335,
+          "parameter": "rt_eos.K0",
+          "published": 246.0,
+          "published_error": 2.0,
+          "refit": 246.3082853542085,
+          "refit_error": 1.3330686242884453,
+          "relative_difference": 0.0012531924967824934,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.03931384347933298,
+          "parameter": "gamma0",
+          "published": 1.32,
+          "published_error": 0.07,
+          "refit": 1.359313843479333,
+          "refit_error": 0.0672542431191841,
+          "relative_difference": 0.029783214757070436,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.0008675754992379936,
+          "parameter": "q",
+          "published": 0.8,
+          "published_error": 0.4,
+          "refit": 0.800867575499238,
+          "refit_error": 0.3527000020790587,
+          "relative_difference": 0.001084469374047492,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 75 corundum P-T-V rows are bundled with every printed parenthetical uncertainty and their Pt-versus-NaCl pressure-calibrant grouping. The two horizontal table blocks are normalized without deduplication or inferred values.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2021JB023805",
+      "published_rmse_gpa": 1.2330494551142515,
+      "record_identifier": "alumina_shi_2022_bm3_mgd_2",
+      "reduced_chi_square": 1.478545269752585,
+      "rmse_gpa": 1.1913871994286667,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published corundum model 3 selected in main Table 1 and Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per Al2O3 formula unit. V0=255.1 A^3 is the fixed conventional six-formula-unit hexagonal corundum cell from Lutterotti and Scardi (1990); K0, gamma0, and q were fitted, while K0', V0, theta0, Tr, and n were fixed. Main Table 1 reports K0=246(2) GPa for the selected model, whereas sensitivity Table 2 reports 246(1) GPa; the selected-table uncertainty is retained and the discrepancy is explicit. Table 2's 500 K and 800 K Debye-temperature trials are sensitivity fits, not additional preferred records. All 75 Table S1 observations are bundled: 59 are grouped under Pt pressures (including the fixed 0 GPa reference row) and 16 under NaCl pressures. The source does not state an uncertainty confidence convention or coefficient covariance matrix. An independent unweighted Peritheos fit of pressure residuals at all 75 printed V-T states, with the published fixed parameters, returns K0=246.3083 GPa, gamma0=1.35931, and q=0.800868; all reproduce the published coefficients within their reported uncertainties. The published curve has a 1.23305 GPa pressure RMSE and the refit has a 1.19139 GPa RMSE. Weighting by the tabulated coordinate uncertainties does not recover q, so the parity result is specifically identified as an unweighted pressure-residual reproduction rather than an undocumented reconstruction of the authors' weighting.",
       "status": "parity"
     },
     {
@@ -1684,6 +1862,206 @@
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "molar_volume_cm3_mol"
+      },
+      "dataset_identifiers": [
+        "bridgmanite_saxena_1999_table1_pvt"
+      ],
+      "degrees_of_freedom": 8,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        82.5
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Saxena et al. (1999), 300 K BM3 slice",
+      "material_identifier": "bridgmanite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        36.2,
+        82.5
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        131.82023330852866,
+        145.2905262214429
+      ],
+      "parameters": [
+        {
+          "difference": -0.017304487194195417,
+          "parameter": "V0",
+          "published": 162.4007,
+          "published_error": null,
+          "refit": 162.3833955128058,
+          "refit_error": 0.9678803105396369,
+          "relative_difference": 0.00010655426481656432,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.004786299639874869,
+          "parameter": "K0",
+          "published": 260.51,
+          "published_error": null,
+          "refit": 260.5052137003601,
+          "refit_error": 11.54296789060183,
+          "relative_difference": 1.8372805803519518e-05,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All 37 primary P-V-T rows printed in Table 1 are bundled with their parenthesized molar-volume uncertainties. The paper does not publish the simultaneous Pt observations, retained-row pressure uncertainties, or individual temperature errors; it only states the pressure-error rejection threshold and a common thermocouple error bound.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-1999-0303",
+      "published_rmse_gpa": 0.06179618857537843,
+      "record_identifier": "bridgmanite_saxena_1999_bm3_4",
+      "reduced_chi_square": 9.326487189620008e-05,
+      "rmse_gpa": 0.007035690135033842,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published 300 K isotherm of the two high-temperature Birch-Murnaghan models, which coincide at 300 K. The full Model 1 and Model 2 parameterizations are intentionally not represented: they require the article's quadratic temperature laws for thermal expansivity and compressibility together with its temperature-dependent K'_T convention, which the current Peritheos thermal reference-state model cannot encode exactly. The executable record is therefore restricted to 300 K and is not the default bridgmanite EOS. The natural-enstatite starting material contained less than 1% Al and Fe; the authors identify the transformed phase and reported volumes as MgSiO3 perovskite. No EOS-parameter errors, confidence convention, covariance, residual statistic, or fit weights are published.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "bridgmanite_unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "bridgmanite_wolf_2015_table2_pvt"
+      ],
+      "degrees_of_freedom": 37,
+      "experimental_pressure_range_gpa": [
+        27.96,
+        108.51
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        2430.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "label": "Wolf et al. (2015), reanalyzed Fe-free bridgmanite Vinet-MGD",
+      "material_identifier": "bridgmanite",
+      "model": "Vinet",
+      "objective": "errors_in_variables",
+      "observations": 42,
+      "observed_pressure_range_gpa": [
+        27.96,
+        108.51
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        2430.0
+      ],
+      "observed_volume_range": [
+        128.1,
+        150.26
+      ],
+      "parameters": [
+        {
+          "difference": -0.2352252860375188,
+          "parameter": "rt_eos.V0",
+          "published": 162.12,
+          "published_error": 0.13,
+          "refit": 161.88477471396249,
+          "refit_error": 0.21420961690393595,
+          "relative_difference": 0.0014509331731897286,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 5.9177793866433035,
+          "parameter": "rt_eos.K0",
+          "published": 262.3,
+          "published_error": 3.2,
+          "refit": 268.2177793866433,
+          "refit_error": 5.419993036383285,
+          "relative_difference": 0.02256111089074839,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.11698267594676892,
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.044,
+          "published_error": 0.075,
+          "refit": 3.9270173240532307,
+          "refit_error": 0.11940819896210689,
+          "relative_difference": 0.02892746685132763,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.011577590385185355,
+          "parameter": "gamma0",
+          "published": 1.675,
+          "published_error": 0.045,
+          "refit": 1.6865775903851854,
+          "refit_error": 0.059762527437745606,
+          "relative_difference": 0.006911994259812152,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.08131591605901534,
+          "parameter": "q",
+          "published": 1.39,
+          "published_error": 0.16,
+          "refit": 1.4713159160590152,
+          "refit_error": 0.21391170464392928,
+          "relative_difference": 0.05850065903526284,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 42 reanalyzed observations are bundled in source order, with reduced pressure and total propagated uncertainty, temperature and uncertainty, bridgmanite cell volume and uncertainty, and paired MgO cell volume and uncertainty.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1002/2015JB012108",
+      "published_rmse_gpa": 0.3027410707977591,
+      "record_identifier": "bridgmanite_wolf_2015_vinet_mgd_4",
+      "reduced_chi_square": 0.5826646312264548,
+      "rmse_gpa": 0.1825691771851696,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published Fe-free comparison record from Wolf et al.'s homogeneous reanalysis, deliberately separate from the original Tange et al. BM3-MGD and Vinet-MGD records. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2429 K the implementation gives density 5.17 g/cm3, gamma=1.22, and Cv/(3Nk)=0.9839 at printed precision, and KS=603.81 GPa versus the printed 603.7 GPa (a 0.11 GPa difference attributable to rounded coefficients).",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "unit_cell_volume_a3"
       },
@@ -1804,6 +2182,92 @@
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "ca_perovskite_shim_2000_jgr_table1_dac_pvt"
+      ],
+      "degrees_of_freedom": 32,
+      "experimental_pressure_range_gpa": [
+        20.6,
+        68.5
+      ],
+      "experimental_temperature_range_k": [
+        1272.0,
+        2380.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "gamma0",
+        "q"
+      ],
+      "label": "Shim et al. (2000), DAC-only cubic CaSiO3 BM3-MGD alternative",
+      "material_identifier": "ca_perovskite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 34,
+      "observed_pressure_range_gpa": [
+        20.6,
+        68.5
+      ],
+      "observed_temperature_range_k": [
+        1272.0,
+        2380.0
+      ],
+      "observed_volume_range": [
+        38.058,
+        43.662
+      ],
+      "parameters": [
+        {
+          "difference": -0.05211797743158719,
+          "parameter": "gamma0",
+          "published": 2.0,
+          "published_error": 0.08,
+          "refit": 1.9478820225684128,
+          "refit_error": 0.09675479911375763,
+          "relative_difference": 0.026058988715793596,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.6179386309896846,
+          "parameter": "q",
+          "published": 0.9,
+          "published_error": 0.4,
+          "refit": 0.2820613690103155,
+          "refit_error": 0.5724761216270707,
+          "relative_difference": 0.6865984788774273,
+          "similar": false,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 34 DAC P-V-T observations used for the DAC-only alternative are bundled with their printed 1-sigma pressure, volume, and temperature uncertainties and experiment-medium provenance.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_jgrb12383_2000.pdf",
+      "published_rmse_gpa": 1.0519440299626266,
+      "record_identifier": "ca_perovskite_shim_2000_dac_only_bm3_mgd_4",
+      "reduced_chi_square": 0.7554333624303845,
+      "rmse_gpa": 0.7843342138928051,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published non-default DAC-only alternative. The authors' selected result is the separate combined DAC+Wang et al. LVP fit (gamma0=1.92(5), q=0.6(3)); it is explicitly excluded because this article does not publish the numerical Wang observations. This record instead preserves the article's independently reported fit to the complete 34-row Table 1 DAC subset: gamma0=2.00(8) and q=0.9(4). The BM3 reference parameters and theta0 were fixed, while gamma0 and q were free. Parenthetical errors are 1 sigma. V0=27.45(2) cm3/mol is converted to 45.5817973939 A3 for the Z=1 cubic Pm-3m cell.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "volume_a3"
       },
@@ -1874,6 +2338,176 @@
       "solver_success": true,
       "source_notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.",
       "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "cairo3_perovskite_boffa_ballaran_2007_table1_compression"
+      ],
+      "degrees_of_freedom": 8,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        7.79
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Boffa Ballaran et al. (2007), CaIrO3 perovskite BM3",
+      "material_identifier": "cairo3_perovskite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 11,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        7.79
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        220.801,
+        229.463
+      ],
+      "parameters": [
+        {
+          "difference": 8.783803153278313e-05,
+          "parameter": "V0",
+          "published": 229.463,
+          "published_error": 0.008,
+          "refit": 229.46308783803153,
+          "refit_error": 0.007974591023761456,
+          "relative_difference": 3.8279823558823486e-07,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 1.9438856928916266,
+          "parameter": "K0",
+          "published": 198.0,
+          "published_error": 3.0,
+          "refit": 199.94388569289163,
+          "refit_error": 2.6764487509049695,
+          "relative_difference": 0.009817604509553669,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.324022178478098,
+          "parameter": "K0_prime",
+          "published": 1.2,
+          "published_error": 0.8,
+          "refit": 0.875977821521902,
+          "refit_error": 0.7639623163547105,
+          "relative_difference": 0.27001848206508167,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 11 printed P-a-b-c-V rows and their standard deviations are bundled; the decompression row remains present and is explicitly excluded from the published fit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases",
+      "published_rmse_gpa": 0.09324611471845982,
+      "record_identifier": "cairo3_perovskite_boffa_ballaran_2007_bm3_1",
+      "reduced_chi_square": 1.5202094153128174,
+      "rmse_gpa": 0.03622805921461332,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "This record is limited to the Pbnm CaIrO3 perovskite polymorph and must not be used for the Cmcm post-perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "cairo3_post_perovskite_boffa_ballaran_2007_table1_compression"
+      ],
+      "degrees_of_freedom": 8,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        7.79
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Boffa Ballaran et al. (2007), CaIrO3 post-perovskite BM3",
+      "material_identifier": "cairo3_post_perovskite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 11,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        7.79
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        217.28,
+        226.376
+      ],
+      "parameters": [
+        {
+          "difference": -0.002278663455598462,
+          "parameter": "V0",
+          "published": 226.38,
+          "published_error": 0.01,
+          "refit": 226.3777213365444,
+          "refit_error": 0.011925866007670649,
+          "relative_difference": 1.0065657105744598e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.24373918772332104,
+          "parameter": "K0",
+          "published": 181.0,
+          "published_error": 3.0,
+          "refit": 180.75626081227668,
+          "refit_error": 2.53109820437119,
+          "relative_difference": 0.0013466253465376852,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.13978636333455574,
+          "parameter": "K0_prime",
+          "published": 2.3,
+          "published_error": 0.8,
+          "refit": 2.4397863633345556,
+          "refit_error": 0.7654095311885648,
+          "relative_difference": 0.060776679710676414,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 11 printed P-a-b-c-V rows and their standard deviations are bundled; the decompression row remains present and is explicitly excluded from the published fit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases",
+      "published_rmse_gpa": 0.02632624666901072,
+      "record_identifier": "cairo3_post_perovskite_boffa_ballaran_2007_bm3_1",
+      "reduced_chi_square": 0.36581007156364914,
+      "rmse_gpa": 0.025386928350339906,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "This record is limited to the Cmcm CaIrO3 post-perovskite polymorph and must not be used for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -2139,6 +2773,182 @@
       "solver_success": true,
       "source_notes": "Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.",
       "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "calcium_germanate_perovskite_ross_1999_table1_compression"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        8.553
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Ross and Angel (1999), single-crystal BM3",
+      "material_identifier": "calcium_germanate_perovskite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 9,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        8.553
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        198.577,
+        206.484
+      ],
+      "parameters": [
+        {
+          "difference": -0.0004217012991887259,
+          "parameter": "V0",
+          "published": 206.49,
+          "published_error": 0.017,
+          "refit": 206.48957829870082,
+          "refit_error": 0.9231858414205946,
+          "relative_difference": 2.042235939700353e-06,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.6599516958117135,
+          "parameter": "K0",
+          "published": 194.0,
+          "published_error": 2.1,
+          "refit": 194.6599516958117,
+          "refit_error": 100.48595013741318,
+          "relative_difference": 0.0034018128650088325,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.19936696419642708,
+          "parameter": "K0_prime",
+          "published": 6.1,
+          "published_error": 0.5,
+          "refit": 5.900633035803573,
+          "refit_error": 24.63583237627187,
+          "relative_difference": 0.03268310888466018,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 9 printed CaGeO3 pressure, lattice-parameter, conventional-cell-volume, and estimated-standard-deviation values are transcribed. Row-wise quartz volumes are not published.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
+      "published_rmse_gpa": 0.019110876348061613,
+      "record_identifier": "calcium_germanate_perovskite_ross_1999_bm3_1",
+      "reduced_chi_square": 0.0005283309037255345,
+      "rmse_gpa": 0.018763230068957467,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaGeO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "calcium_titanate_perovskite_ross_1999_table1_compression"
+      ],
+      "degrees_of_freedom": 8,
+      "experimental_pressure_range_gpa": [
+        0.001,
+        9.7
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Ross and Angel (1999), single-crystal BM3",
+      "material_identifier": "calcium_titanate_perovskite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 11,
+      "observed_pressure_range_gpa": [
+        0.001,
+        9.7
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        213.207,
+        223.769
+      ],
+      "parameters": [
+        {
+          "difference": 0.0048111048803320955,
+          "parameter": "V0",
+          "published": 223.764,
+          "published_error": 0.017,
+          "refit": 223.76881110488034,
+          "refit_error": 1.0472425512985832,
+          "relative_difference": 2.1500799415152104e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.8536594407381415,
+          "parameter": "K0",
+          "published": 170.9,
+          "published_error": 1.4,
+          "refit": 170.04634055926186,
+          "refit_error": 74.6727352369813,
+          "relative_difference": 0.0049950815724876625,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.19087161461020852,
+          "parameter": "K0_prime",
+          "published": 6.6,
+          "published_error": 0.3,
+          "refit": 6.790871614610208,
+          "refit_error": 17.161377728736007,
+          "relative_difference": 0.028919941607607354,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 11 printed CaTiO3 pressure, lattice-parameter, conventional-cell-volume, and estimated-standard-deviation values are transcribed. Row-wise quartz volumes are not published.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
+      "published_rmse_gpa": 0.018945998606839338,
+      "record_identifier": "calcium_titanate_perovskite_ross_1999_bm3_1",
+      "reduced_chi_square": 0.00044877237021156806,
+      "rmse_gpa": 0.01806320466500881,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaTiO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -3187,6 +3997,94 @@
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "epsilon_feooh_thompson_2017_supplement_table_s1"
+      ],
+      "degrees_of_freedom": 14,
+      "experimental_pressure_range_gpa": [
+        30.0,
+        140.0
+      ],
+      "experimental_temperature_range_k": [
+        0.0,
+        0.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Thompson et al. (2017), hydrogen-centered low-spin FM BM3",
+      "material_identifier": "e_feooh_hc_low_spin",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 17,
+      "observed_pressure_range_gpa": [
+        0.01,
+        139.99
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        42.4,
+        59.88
+      ],
+      "parameters": [
+        {
+          "difference": 0.9667024788234642,
+          "parameter": "V0",
+          "published": 58.62,
+          "published_error": 0.05,
+          "refit": 59.58670247882346,
+          "refit_error": 0.11077273773581184,
+          "relative_difference": 0.016491001003470902,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -37.078629854604,
+          "parameter": "K0",
+          "published": 223.0,
+          "published_error": 2.0,
+          "refit": 185.921370145396,
+          "refit_error": 4.583134972175357,
+          "relative_difference": 0.16627188275607177,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 0.581259896496598,
+          "parameter": "K0_prime",
+          "published": 4.07,
+          "published_error": 0.03,
+          "refit": 4.651259896496598,
+          "refit_error": 0.10488593237991214,
+          "relative_difference": 0.1428156993849135,
+          "similar": true,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "All 17 printed static GGA+U structural rows are transcribed. The 12 rows at 30.01-139.99 GPa represent the unambiguous HC fit interval; the five lower-pressure rows are retained to expose the HOC/transition region and its unresolved parameter/data contradiction. Row-level uncertainties are not reported.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168",
+      "published_rmse_gpa": 1.5640550930881583,
+      "record_identifier": "e_feooh_hc_low_spin_thompson_2017_bm3_1",
+      "reduced_chi_square": 0.34211974900811676,
+      "rmse_gpa": 0.530797207654433,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
         "temperature": "temperature_k",
         "volume": "unit_cell_volume_a3"
       },
@@ -3286,6 +4184,84 @@
       "record_identifier": "fe_shen_2026_vinet_1",
       "source_notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 2.5 GPa and K0' +/- 0.5. The bcc phase data extend to 15.5 GPa.",
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "fe093o_rhombohedral_volume_a3"
+      },
+      "dataset_identifiers": [
+        "jacobsen_2005_table1_compression"
+      ],
+      "degrees_of_freedom": 7,
+      "experimental_pressure_range_gpa": [
+        27.7,
+        51.1
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Jacobsen et al. (2005), rhombohedral Fe0.93O constrained BM3",
+      "material_identifier": "fe093o_rhombohedral",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 9,
+      "observed_pressure_range_gpa": [
+        27.7,
+        51.1
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        47.0,
+        51.27
+      ],
+      "parameters": [
+        {
+          "difference": 0.019513260002298694,
+          "parameter": "V0",
+          "published": 59.72,
+          "published_error": 0.22,
+          "refit": 59.7395132600023,
+          "refit_error": 0.13126348450424175,
+          "relative_difference": 0.0003267458138362139,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.33792781220995494,
+          "parameter": "K0",
+          "published": 134.0,
+          "published_error": 4.0,
+          "refit": 133.66207218779005,
+          "refit_error": 2.1612363944843067,
+          "relative_difference": 0.00252184934485041,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "The complete multiphase table is transcribed, including all nine rhombohedral a, c, equivalent-hexagonal volume, and estimated-standard-deviation values.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1107/S0909049505022326",
+      "published_rmse_gpa": 0.4415688144493295,
+      "record_identifier": "fe093o_rhombohedral_jacobsen_2005_bm3_1",
+      "reduced_chi_square": 2.6797370526722912,
+      "rmse_gpa": 0.016131562401951283,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published preferred cross-check fit to all nine rhombohedral Table 1 observations from 27.7 to 51.1 GPa, using a 1 atm reference without an artificial P0 data point. V0 and K0 are free and K0'=4 is fixed. The executable V0 is a metastable zero-pressure extrapolation for a phase observed only above 23 GPa. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -3504,6 +4480,182 @@
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "fe_bearing_al_phase_d_criniti_2023_table1_compression"
+      ],
+      "degrees_of_freedom": 23,
+      "experimental_pressure_range_gpa": [
+        0.35,
+        37.92
+      ],
+      "experimental_temperature_range_k": [
+        291.0,
+        295.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Criniti et al. (2023), pre-crossover BM3",
+      "material_identifier": "fe_bearing_al_phase_d",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        0.35,
+        52.41
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        67.91,
+        83.525
+      ],
+      "parameters": [
+        {
+          "difference": -0.054644547404379296,
+          "parameter": "V0",
+          "published": 83.68,
+          "published_error": 0.02,
+          "refit": 83.62535545259563,
+          "refit_error": 0.012907316467177887,
+          "relative_difference": 0.0006530180139146665,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 8.398898441099675,
+          "parameter": "K0",
+          "published": 166.3,
+          "published_error": 1.5,
+          "refit": 174.6988984410997,
+          "refit_error": 0.8491089771380721,
+          "relative_difference": 0.05050450054780321,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -0.7619608856289557,
+          "parameter": "K0_prime",
+          "published": 4.46,
+          "published_error": 0.12,
+          "refit": 3.6980391143710443,
+          "refit_error": 0.048974857483092646,
+          "relative_difference": 0.17084324789886898,
+          "similar": true,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "All 26 rows are bundled. The 21 rows at or below 38 GPa are flagged as the room-temperature BM3/Vinet fit selection; the five higher-pressure rows are retained as observations across the changed compression regime.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2022-8559",
+      "published_rmse_gpa": 1.0247802405619364,
+      "record_identifier": "fe_bearing_al_phase_d_criniti_2023_bm3_1",
+      "reduced_chi_square": 9.796863463894667,
+      "rmse_gpa": 0.16855900862279588,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "fe_bearing_al_phase_d_criniti_2023_table1_compression"
+      ],
+      "degrees_of_freedom": 23,
+      "experimental_pressure_range_gpa": [
+        0.35,
+        37.92
+      ],
+      "experimental_temperature_range_k": [
+        291.0,
+        295.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Criniti et al. (2023), pre-crossover Vinet alternative",
+      "material_identifier": "fe_bearing_al_phase_d",
+      "model": "Vinet",
+      "objective": "errors_in_variables",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        0.35,
+        52.41
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        67.91,
+        83.525
+      ],
+      "parameters": [
+        {
+          "difference": -0.04874636159266288,
+          "parameter": "V0",
+          "published": 83.68,
+          "published_error": 0.02,
+          "refit": 83.63125363840734,
+          "refit_error": 0.013090788072897458,
+          "relative_difference": 0.0005825330018243652,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 8.272617038007382,
+          "parameter": "K0",
+          "published": 165.5,
+          "published_error": 1.5,
+          "refit": 173.77261703800738,
+          "refit_error": 0.901089583153732,
+          "relative_difference": 0.04998560143811107,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -0.8012472693802732,
+          "parameter": "K0_prime",
+          "published": 4.62,
+          "published_error": 0.12,
+          "refit": 3.818752730619727,
+          "refit_error": 0.05867264795575632,
+          "relative_difference": 0.17343014488750502,
+          "similar": true,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "All 26 rows are bundled, including the 21-row Vinet fit selection and the five higher-pressure observations excluded from this ordinary room-temperature fit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2022-8559",
+      "published_rmse_gpa": 0.9627659688083019,
+      "record_identifier": "fe_bearing_al_phase_d_criniti_2023_vinet_2",
+      "reduced_chi_square": 9.440549160495328,
+      "rmse_gpa": 0.16568738946171954,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published non-default alternative. The first Vinet row of Table 2 freely fits V0, K0, and K0'; the two ambient-volume-fixed variants are documented but not multiplied into additional executable records. Parenthetical errors are retained as generic published uncertainties because their confidence convention is not stated.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
         "volume": "volume_a3_conventional_cell"
       },
       "dataset_identifiers": [
@@ -3673,6 +4825,84 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "fe093o_rhombohedral_volume_a3"
+      },
+      "dataset_identifiers": [
+        "jacobsen_2005_table1_compression"
+      ],
+      "degrees_of_freedom": 7,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        22.8
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Jacobsen et al. (2005), cubic Fe0.93O constrained BM3",
+      "material_identifier": "feo",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 9,
+      "observed_pressure_range_gpa": [
+        27.7,
+        51.1
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        47.0,
+        51.27
+      ],
+      "parameters": [
+        {
+          "difference": -19.67048667388493,
+          "parameter": "V0",
+          "published": 79.41,
+          "published_error": 0.04,
+          "refit": 59.739513326115066,
+          "refit_error": 0.13126349196469253,
+          "relative_difference": 0.2477079294029081,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -12.33792890276544,
+          "parameter": "K0",
+          "published": 146.0,
+          "published_error": 2.0,
+          "refit": 133.66207109723456,
+          "refit_error": 2.161236514210038,
+          "relative_difference": 0.0845063623477085,
+          "similar": true,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "The complete multiphase table is transcribed, including all seven cubic Fe0.93O lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1107/S0909049505022326",
+      "published_rmse_gpa": 148.96227558876112,
+      "record_identifier": "fe093o_b1_jacobsen_2005_bm3_1",
+      "reduced_chi_square": 2.679737052672477,
+      "rmse_gpa": 0.016131572541184663,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published cubic-phase fit to the seven Table 1 observations from 0 to 22.8 GPa. The source calls the fitted equation third-order Birch-Murnaghan even though fixing K0'=4 reduces it numerically to BM2; BM3 is retained to preserve the source model declaration and fixed parameter. Parenthesized parameter errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
+      "status": "parity_not_achieved"
+    },
+    {
       "dataset_identifiers": [
         "feo_fischer_2011_table_s1_pvt"
       ],
@@ -3694,6 +4924,94 @@
       "record_identifier": "feo_b8_2_fischer_2011_bm3_1",
       "source_notes": "Fischer et al. fit B8 Fe0.94O with molar V0 = 11.997 +/- 0.018 cm^3/mol, K0 = 137.8 +/- 0.9 GPa, and K0' fixed at 4.0. V0 and its uncertainty were converted to the Z=2 hexagonal cell.",
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "quartz_volume_a3"
+      },
+      "dataset_identifiers": [
+        "ferropericlase_fe27_jacobsen_2002_table5_compression"
+      ],
+      "degrees_of_freedom": 7,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        9.292
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Jacobsen et al. (2002), Fe27 error-weighted BM3",
+      "material_identifier": "ferropericlase_fe27",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        9.292
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        96.605,
+        113.012
+      ],
+      "parameters": [
+        {
+          "difference": 36.67886308533227,
+          "parameter": "V0",
+          "published": 76.336,
+          "published_error": 0.002,
+          "refit": 113.01486308533227,
+          "refit_error": 2.629292331596437,
+          "relative_difference": 0.4804923376301125,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -121.22827792047039,
+          "parameter": "K0",
+          "published": 158.4,
+          "published_error": 0.4,
+          "refit": 37.171722079529616,
+          "refit_error": 23.931913915720425,
+          "relative_difference": 0.765330037376707,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 0.4883430134005833,
+          "parameter": "K0_prime",
+          "published": 5.49,
+          "published_error": 0.11,
+          "refit": 5.9783430134005835,
+          "refit_error": 7.183970287187099,
+          "relative_difference": 0.08895136856112627,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 10 printed Fe27 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+      "published_rmse_gpa": 25.49264178981503,
+      "record_identifier": "ferropericlase_fe27_jacobsen_2002_bm3_1",
+      "reduced_chi_square": 5.029427074150353e-07,
+      "rmse_gpa": 0.0005933410525851139,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.",
+      "status": "parity_not_achieved"
     },
     {
       "absolute_sigma": true,
@@ -6036,6 +7354,182 @@
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
+        "volume": "quartz_volume_a3"
+      },
+      "dataset_identifiers": [
+        "magnesiowustite_fe56_jacobsen_2002_table4_compression"
+      ],
+      "degrees_of_freedom": 8,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        8.923
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Jacobsen et al. (2002), Fe56 error-weighted BM3",
+      "material_identifier": "magnesiowustite_fe56",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 11,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        8.923
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        97.009,
+        113.007
+      ],
+      "parameters": [
+        {
+          "difference": 35.54918388613309,
+          "parameter": "V0",
+          "published": 77.453,
+          "published_error": 0.004,
+          "refit": 113.0021838861331,
+          "refit_error": 1.995958871160554,
+          "relative_difference": 0.4589774945597084,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -118.63312741334728,
+          "parameter": "K0",
+          "published": 155.8,
+          "published_error": 0.9,
+          "refit": 37.16687258665273,
+          "refit_error": 22.674085268821493,
+          "relative_difference": 0.7614449769791224,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 0.44777959727411787,
+          "parameter": "K0_prime",
+          "published": 5.53,
+          "published_error": 0.23,
+          "refit": 5.977779597274118,
+          "refit_error": 7.526912878579194,
+          "relative_difference": 0.08097280240038297,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 11 printed Fe56 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+      "published_rmse_gpa": 24.092827915922662,
+      "record_identifier": "magnesiowustite_fe56_jacobsen_2002_bm3_1",
+      "reduced_chi_square": 1.8981510459750057e-06,
+      "rmse_gpa": 0.0011749263184770455,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "quartz_volume_a3"
+      },
+      "dataset_identifiers": [
+        "magnesiowustite_fe75_jacobsen_2002_table5_compression"
+      ],
+      "degrees_of_freedom": 4,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        7.179
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Jacobsen et al. (2002), Fe75 error-weighted BM3",
+      "material_identifier": "magnesiowustite_fe75",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 7,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        7.179
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        99.149,
+        113.012
+      ],
+      "parameters": [
+        {
+          "difference": 34.93207291557319,
+          "parameter": "V0",
+          "published": 78.082,
+          "published_error": 0.003,
+          "refit": 113.01407291557318,
+          "refit_error": 2.7711572591460816,
+          "relative_difference": 0.44737676949326594,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -114.11202426163362,
+          "parameter": "K0",
+          "published": 151.3,
+          "published_error": 0.6,
+          "refit": 37.1879757383664,
+          "refit_error": 31.480597629900842,
+          "relative_difference": 0.754210338807889,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 0.42109412415868075,
+          "parameter": "K0_prime",
+          "published": 5.55,
+          "published_error": 0.19,
+          "refit": 5.971094124158681,
+          "refit_error": 11.55655297310973,
+          "relative_difference": 0.07587281516372626,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 7 printed Fe75 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly; Table 5's three blank Fe75 entries are not invented as observations.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+      "published_rmse_gpa": 23.27690931342628,
+      "record_identifier": "magnesiowustite_fe75_jacobsen_2002_bm3_1",
+      "reduced_chi_square": 5.715133023857659e-07,
+      "rmse_gpa": 0.0005714671314060626,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
         "volume": "volume_a3"
       },
       "dataset_identifiers": [
@@ -6115,6 +7609,210 @@
       "solver_success": true,
       "source_notes": "Room-temperature unconstrained BM3 fit to single-crystal data from 0 to 7 GPa: V0=279.41+/-0.08 A^3, K0=117+/-3 GPa, and K0'=2.3+/-0.7. The paper also reports an alternative BM2 fit with K0=111+/-1 GPa; this record represents the BM3 result.",
       "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "magnesite_vocadlo_1999_table1_energy_volume"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        -2.41596,
+        207.419
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Vocadlo (1999), static GGA BM3",
+      "material_identifier": "magnesite",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 9,
+      "observed_pressure_range_gpa": [
+        -2.41596,
+        207.419
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        160.0,
+        295.0
+      ],
+      "parameters": [
+        {
+          "difference": 1.9556141523935366e-06,
+          "parameter": "V0",
+          "published": 287.49,
+          "published_error": null,
+          "refit": 287.49000195561416,
+          "refit_error": 2.279964013858719e-05,
+          "relative_difference": 6.8023727865092235e-09,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -5.9215611400986745e-05,
+          "parameter": "K0",
+          "published": 99.0,
+          "published_error": 0.5,
+          "refit": 98.9999407843886,
+          "refit_error": 7.843909917808862e-05,
+          "relative_difference": 5.98137488898856e-07,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 3.4011988834237172e-06,
+          "parameter": "K0_prime",
+          "published": 4.28,
+          "published_error": 0.01,
+          "refit": 4.280003401198884,
+          "refit_error": 1.7725938705363647e-06,
+          "relative_difference": 7.946726363139526e-07,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All nine printed static energy-volume rows and their BM3-derived pressures are bundled. The source reports no row uncertainties, weights, fit statistic, or coefficient covariance.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-1999-1017",
+      "published_rmse_gpa": 3.994635008310426e-05,
+      "record_identifier": "magnesite_vocadlo_1999_bm3_2",
+      "reduced_chi_square": 2.8228293281037224e-10,
+      "rmse_gpa": 1.3718185808392503e-05,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Static-lattice GGA pseudopotential calculation for the named magnesite phase using a fully relaxed 30-atom MgCO3 cell (Z=6), with atomic positions and cell shape relaxed at nine volumes. The source reports the zero-pressure reference volume and an isothermal BM3 fit, but no finite-temperature or vibrational contribution; temperature_ref=0 K records that static electronic reference. The nine calculated states span -2.41596 to 207.419 GPa. Table 1 incorrectly labels both its energy and volume columns as per formula unit: its 160-295 A^3 volumes, stated V0=287.49 A^3, Figure 1 volume axis, and exact BM3 pressure reproduction establish the 30-atom conventional-cell basis; the energy rows likewise recover K0=98.921 GPa only when interpreted per 30-atom cell and give a factor-of-six error under the printed label. The parenthetical K0 and K0_prime errors are preserved, but the source states no confidence convention or covariance and gives no V0 uncertainty. The alternative K0_prime=4 fit, K0=111(1) GPa is not stored because the article calls it a poor second-order fit and does not use it in the subsequent analysis. The calculation finds no discontinuity within the sampled pressure range but explicitly cannot rule out reconstructive transitions with an energy barrier.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "magnesite_yu_2024_table_s1_pvt"
+      ],
+      "degrees_of_freedom": 69,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        119.5
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        2200.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "theta0",
+        "gamma0",
+        "q"
+      ],
+      "label": "Yu et al. (2024), BM3-MGD",
+      "material_identifier": "magnesite",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 74,
+      "observed_pressure_range_gpa": [
+        0.0,
+        119.0
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        2200.0
+      ],
+      "observed_volume_range": [
+        187.26,
+        280.71
+      ],
+      "parameters": [
+        {
+          "difference": 0.6397478758716488,
+          "parameter": "rt_eos.K0",
+          "published": 105.0,
+          "published_error": 2.0,
+          "refit": 105.63974787587165,
+          "refit_error": 1.4236750278265324,
+          "relative_difference": 0.006092836913063322,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.012898394558237491,
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.49,
+          "published_error": 0.05,
+          "refit": 4.477101605441763,
+          "refit_error": 0.09263345033733188,
+          "relative_difference": 0.002872693665531735,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -192.43576788985376,
+          "parameter": "theta0",
+          "published": 850.0,
+          "published_error": 200.0,
+          "refit": 657.5642321101462,
+          "refit_error": 246.67508064933432,
+          "relative_difference": 0.22639502104688677,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.2735760309784676,
+          "parameter": "gamma0",
+          "published": 1.7,
+          "published_error": 0.2,
+          "refit": 1.9735760309784676,
+          "refit_error": 0.21354018578534056,
+          "relative_difference": 0.1609270770461574,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.4229215647013208,
+          "parameter": "q",
+          "published": 0.9,
+          "published_error": 0.3,
+          "refit": 1.3229215647013208,
+          "refit_error": 0.37029010599848894,
+          "relative_difference": 0.46991284966813424,
+          "similar": false,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 74 printed P-T-a-c-V rows and every parenthetical uncertainty are bundled in source order. The anomalous source-order row 5 is preserved verbatim: a=4.508 A and c=14.310 A imply 251.85 A^3, not the printed V=246.96 A^3 used by the EOS fit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2023JB028026",
+      "published_rmse_gpa": 1.0304556630476074,
+      "record_identifier": "magnesite_yu_2024_bm3_mgd_3",
+      "reduced_chi_square": 0.5250059506694258,
+      "rmse_gpa": 0.6996660457848404,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Preferred thermal parameterization from Table 1: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. Equations 7-8 specify gamma=gamma0(V/V0)^q and theta=theta0*exp[-(gamma-gamma0)/q], which is Peritheos's integrated_gruneisen law, not the Fei et al. variable-exponent law used for the Pt calibrant. The source conventional-cell volumes are converted internally to molar volume using Z=6, while the public API remains in A^3 per conventional hexagonal cell. The paper also reports a separate high-temperature BM3 reference-state fit with alpha0, alpha1, and dK/dT; it is not represented here because the preferred MGD model is explicitly described as more reliable for extrapolation and is used in the downstream mantle calculations. The publication does not report the regression weights, residual definition, coefficient covariance, or confidence convention for parenthetical parameter errors. An independent unweighted pressure-residual refit is therefore a transparent reproduction diagnostic rather than a claim to duplicate the unpublished regression protocol.",
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -6419,6 +8117,853 @@
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
+        "volume": "hexagonal_c_over_a"
+      },
+      "dataset_identifiers": [
+        "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+      ],
+      "degrees_of_freedom": 26,
+      "experimental_pressure_range_gpa": [
+        1.823,
+        55.542
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Finkelstein et al. (2017), Mw78 cubic helium BM3",
+      "material_identifier": "mg0215fe0762vac0023o_b1",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 29,
+      "observed_pressure_range_gpa": [
+        1.314,
+        55.542
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        1157.03389384704,
+        1275.7287085854298
+      ],
+      "parameters": [
+        {
+          "difference": 78.87,
+          "parameter": "V0",
+          "published": 78.87,
+          "published_error": 0.06,
+          "refit": 157.74,
+          "refit_error": 69.11197695651806,
+          "relative_difference": 1.0,
+          "similar": false,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 189.79110469300645,
+          "parameter": "K0",
+          "published": 148.0,
+          "published_error": 3.0,
+          "refit": 337.79110469300645,
+          "refit_error": 5.192451223354436,
+          "relative_difference": 1.2823723290068003,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 5.56769849041236,
+          "parameter": "K0_prime",
+          "published": 4.09,
+          "published_error": 0.12,
+          "refit": 9.65769849041236,
+          "refit_error": 1.8861367991684745,
+          "relative_difference": 1.3612954744284498,
+          "similar": false,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "All 30 Table 2 rows are bundled: one ambient observation, 17 helium observations, and 12 neon observations. Both cubic and hexagonal indexing results, all printed uncertainties, and both ruby wavelengths are retained.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2017-5966",
+      "published_rmse_gpa": 34.42381789539319,
+      "record_identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
+      "reduced_chi_square": 324.36190147936856,
+      "rmse_gpa": 17.04851622710108,
+      "selection": "all rows",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Canonical equilibrium-oriented record. V0 is fitted under a 78.94 +/- 0.1 A^3 ambient prior rather than fixed; K0 and K0_prime are freely varied. Parenthetical values are the source's 1-sigma fit uncertainties, stored with null confidence because they are standard errors rather than interval half-widths. The 300 K reference is nominal room temperature and no row-wise temperature observations are reported.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "hexagonal_c_over_a"
+      },
+      "dataset_identifiers": [
+        "magnesiowustite_mw78_finkelstein_2017_table2_compression"
+      ],
+      "degrees_of_freedom": 26,
+      "experimental_pressure_range_gpa": [
+        1.314,
+        19.244
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Finkelstein et al. (2017), Mw78 low-pressure cubic neon BM3",
+      "material_identifier": "mg0215fe0762vac0023o_b1",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 29,
+      "observed_pressure_range_gpa": [
+        1.314,
+        55.542
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        1155.156116004864,
+        1273.658298103638
+      ],
+      "parameters": [
+        {
+          "difference": 78.742,
+          "parameter": "V0",
+          "published": 78.742,
+          "published_error": 0.014,
+          "refit": 157.484,
+          "refit_error": 67.33421168212409,
+          "relative_difference": 1.0,
+          "similar": false,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 197.36626672363207,
+          "parameter": "K0",
+          "published": 163.0,
+          "published_error": 1.0,
+          "refit": 360.36626672363207,
+          "refit_error": 4.930344231579624,
+          "relative_difference": 1.210835992169522,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 5.394777221575911,
+          "parameter": "K0_prime",
+          "published": 4.02,
+          "published_error": 0.1,
+          "refit": 9.41477722157591,
+          "refit_error": 1.7082352542511037,
+          "relative_difference": 1.341984383476595,
+          "similar": false,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "All 30 Table 2 rows are bundled. The five-row neon cubic fit selection and seven-row excluded neon hexagonal selection are explicit, and both cell indexings remain available for every pressure.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2017-5966",
+      "published_rmse_gpa": 34.679300562759536,
+      "record_identifier": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
+      "reduced_chi_square": 324.263652248802,
+      "rmse_gpa": 17.046031219578666,
+      "selection": "all rows",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published stress-sensitive low-pressure neon alternative. V0 and K0_prime were constrained by priors, not fixed, so fixed_parameters is empty. The authors attribute the stiffer curve relative to helium to neon crystallization and nonhydrostaticity; this record is intentionally not the default. Parenthetical values are 1-sigma fit uncertainties.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"
+      ],
+      "degrees_of_freedom": 42,
+      "experimental_pressure_range_gpa": [
+        26.8,
+        102.2
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Zhu et al. (2020), sample 1 preferred all-observation BM2",
+      "material_identifier": "mg05fe05al05si05o3_bridgmanite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 44,
+      "observed_pressure_range_gpa": [
+        26.8,
+        103.6
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        131.838315,
+        155.858292
+      ],
+      "parameters": [
+        {
+          "difference": -0.8158116967046567,
+          "parameter": "V0",
+          "published": 172.1,
+          "published_error": 0.4,
+          "refit": 171.28418830329534,
+          "refit_error": 0.31124211455285067,
+          "relative_difference": 0.004740335251043909,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 7.2199200833133546,
+          "parameter": "K0",
+          "published": 229.0,
+          "published_error": 4.0,
+          "refit": 236.21992008331335,
+          "refit_error": 3.7638034680956434,
+          "relative_difference": 0.031528035298311594,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 44 official XRD rows are bundled with P, a, b, c, V, reported uncertainties, grain identity, thermal history, and explicit fit-selection flags.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2020JB019964",
+      "published_rmse_gpa": 0.9635059089773417,
+      "record_identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1",
+      "reduced_chi_square": 0.24752735805239015,
+      "rmse_gpa": 0.005335239546325782,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"
+      ],
+      "degrees_of_freedom": 42,
+      "experimental_pressure_range_gpa": [
+        29.0,
+        102.2
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Zhu et al. (2020), sample 1 after-current-step-anneal subset BM2",
+      "material_identifier": "mg05fe05al05si05o3_bridgmanite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 44,
+      "observed_pressure_range_gpa": [
+        26.8,
+        103.6
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        131.838315,
+        155.858292
+      ],
+      "parameters": [
+        {
+          "difference": -0.7158117545559435,
+          "parameter": "V0",
+          "published": 172.0,
+          "published_error": 0.7,
+          "refit": 171.28418824544406,
+          "refit_error": 0.3112421285583978,
+          "relative_difference": 0.004161696247418276,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 6.219920806582422,
+          "parameter": "K0",
+          "published": 230.0,
+          "published_error": 6.0,
+          "refit": 236.21992080658242,
+          "refit_error": 3.7638036000632082,
+          "relative_difference": 0.027043133941662707,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All selected rows and all excluded before-current-step-anneal rows are bundled with explicit flags.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2020JB019964",
+      "published_rmse_gpa": 0.9591587899297476,
+      "record_identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2",
+      "reduced_chi_square": 0.24752735805237686,
+      "rmse_gpa": 0.005335237826584185,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"
+      ],
+      "degrees_of_freedom": 42,
+      "experimental_pressure_range_gpa": [
+        27.5,
+        103.6
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Zhu et al. (2020), sample 2 cold-compressed BM2",
+      "material_identifier": "mg05fe05al05si05o3_bridgmanite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 44,
+      "observed_pressure_range_gpa": [
+        26.8,
+        103.6
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        131.838315,
+        155.858292
+      ],
+      "parameters": [
+        {
+          "difference": 0.5841875658873619,
+          "parameter": "V0",
+          "published": 170.7,
+          "published_error": 0.3,
+          "refit": 171.28418756588735,
+          "refit_error": 0.3112421182129479,
+          "relative_difference": 0.0034223055998087986,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -3.7800708372560337,
+          "parameter": "K0",
+          "published": 240.0,
+          "published_error": 3.0,
+          "refit": 236.21992916274397,
+          "refit_error": 3.763803717773989,
+          "relative_difference": 0.015750295155233473,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 21 selected sample-2 observations are bundled.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2020JB019964",
+      "published_rmse_gpa": 1.078003543844502,
+      "record_identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3",
+      "reduced_chi_square": 0.24752735805235754,
+      "rmse_gpa": 0.005335219152781051,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "fe093o_rhombohedral_volume_a3"
+      },
+      "dataset_identifiers": [
+        "jacobsen_2005_table1_compression"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        51.1
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Jacobsen et al. (2005), (Mg0.73Fe0.27)O BM3",
+      "material_identifier": "mg073fe027o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 9,
+      "observed_pressure_range_gpa": [
+        27.7,
+        51.1
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        47.0,
+        51.27
+      ],
+      "parameters": [
+        {
+          "difference": -19.337042399492212,
+          "parameter": "V0",
+          "published": 77.3,
+          "published_error": 0.09,
+          "refit": 57.962957600507785,
+          "refit_error": 0.4894110807517964,
+          "relative_difference": 0.250155787833017,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 42.545297730054784,
+          "parameter": "K0",
+          "published": 154.0,
+          "published_error": 3.0,
+          "refit": 196.54529773005478,
+          "refit_error": 21.39627520939305,
+          "relative_difference": 0.27626816707827784,
+          "similar": false,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.6185365243683947,
+          "parameter": "K0_prime",
+          "published": 4.0,
+          "published_error": 0.1,
+          "refit": 2.3814634756316053,
+          "refit_error": 0.47416477585520606,
+          "relative_difference": 0.40463413109209867,
+          "similar": false,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "The complete multiphase table is transcribed, including all 16 Fe27 cubic lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1107/S0909049505022326",
+      "published_rmse_gpa": 138.3330136402883,
+      "record_identifier": "mg073fe027o_jacobsen_2005_bm3_1",
+      "reduced_chi_square": 2.0557085501933092,
+      "rmse_gpa": 0.01246242566453095,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "bridgmanite_unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"
+      ],
+      "degrees_of_freedom": 148,
+      "experimental_pressure_range_gpa": [
+        33.15,
+        132.7
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        2455.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "label": "Wolf et al. (2015), 13% Fe bridgmanite Vinet-MGD",
+      "material_identifier": "mg087fe013sio3_bridgmanite",
+      "model": "Vinet",
+      "objective": "errors_in_variables",
+      "observations": 153,
+      "observed_pressure_range_gpa": [
+        33.15,
+        132.7
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        2455.0
+      ],
+      "observed_volume_range": [
+        122.42,
+        146.59
+      ],
+      "parameters": [
+        {
+          "difference": -0.5575022064996347,
+          "parameter": "rt_eos.V0",
+          "published": 163.16,
+          "published_error": 0.19,
+          "refit": 162.60249779350036,
+          "refit_error": 0.9892224812410404,
+          "relative_difference": 0.0034169049184826837,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 10.37859774338662,
+          "parameter": "rt_eos.K0",
+          "published": 243.8,
+          "published_error": 4.3,
+          "refit": 254.17859774338663,
+          "refit_error": 20.25823489376331,
+          "relative_difference": 0.04257013020257022,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.17425399347625525,
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.16,
+          "published_error": 0.11,
+          "refit": 3.985746006523745,
+          "refit_error": 0.38012196644976537,
+          "relative_difference": 0.0418879792010229,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0067991467139403294,
+          "parameter": "gamma0",
+          "published": 1.4,
+          "published_error": 0.11,
+          "refit": 1.3932008532860596,
+          "refit_error": 0.16372680757846567,
+          "relative_difference": 0.004856533367100235,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.006414927251739644,
+          "parameter": "q",
+          "published": 0.56,
+          "published_error": 0.37,
+          "refit": 0.5535850727482604,
+          "refit_error": 0.5406057640991617,
+          "relative_difference": 0.011455227235249364,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 153 observations are bundled in source order: 49 measurements at 300 K and 104 laser-heated measurements, with reduced pressure and total propagated uncertainty, temperature and uncertainty, bridgmanite cell volume and uncertainty, and paired Ne cell volume and uncertainty.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1002/2015JB012108",
+      "published_rmse_gpa": 1.949699004618039,
+      "record_identifier": "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1",
+      "reduced_chi_square": 0.6139161050098989,
+      "rmse_gpa": 1.0712048904026166,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "The 300 K Vinet parameters and thermal parameters are one coupled published thermal EOS. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2387 K the implementation reproduces density 5.40 g/cm3, KS=604.5 GPa, gamma=1.23, and Cv/(3Nk)=0.9838 at the source's printed precision.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"
+      ],
+      "degrees_of_freedom": 40,
+      "experimental_pressure_range_gpa": [
+        0.37,
+        39.97
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Daniel et al. (2004), Al.05-Pv BM2",
+      "material_identifier": "mg095al010si095o3_bridgmanite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 42,
+      "observed_pressure_range_gpa": [
+        0.37,
+        39.97
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        143.907,
+        163.008
+      ],
+      "parameters": [
+        {
+          "difference": -0.01218575889214435,
+          "parameter": "V0",
+          "published": 163.234,
+          "published_error": 0.008,
+          "refit": 163.22181424110786,
+          "refit_error": 0.007801082355490618,
+          "relative_difference": 7.465208775221063e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 1.102000920870779,
+          "parameter": "K0",
+          "published": 251.5,
+          "published_error": 1.3,
+          "refit": 252.60200092087078,
+          "refit_error": 0.9339807953417907,
+          "relative_difference": 0.004381713403064728,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 42 printed pressure, pressure-error, a-b-c lattice, lattice-error, conventional-cell-volume, and volume-error observations are directly transcribed. All rows are selected because the source reports no exclusions.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
+      "published_rmse_gpa": 0.59861763693516,
+      "record_identifier": "mg095al010si095o3_bridgmanite_daniel_2004_bm2_1",
+      "reduced_chi_square": 1.9629295114364282,
+      "rmse_gpa": 0.6032074259770701,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Preferred second-order Birch-Murnaghan fit. K0_prime=4 is intrinsic to BM2, so V0 and K0 are the only free EOS parameters and fixed_parameters is empty. The one-sigma covariance is reconstructed transparently from the published marginal errors and correlation.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"
+      ],
+      "degrees_of_freedom": 39,
+      "experimental_pressure_range_gpa": [
+        0.37,
+        39.97
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Daniel et al. (2004), Al.05-Pv BM3",
+      "material_identifier": "mg095al010si095o3_bridgmanite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 42,
+      "observed_pressure_range_gpa": [
+        0.37,
+        39.97
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        143.907,
+        163.008
+      ],
+      "parameters": [
+        {
+          "difference": -0.010749413488156279,
+          "parameter": "V0",
+          "published": 163.23,
+          "published_error": 0.01,
+          "refit": 163.21925058651183,
+          "refit_error": 0.008946823798465156,
+          "relative_difference": 6.585439862866066e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 2.076338951228905,
+          "parameter": "K0",
+          "published": 251.5,
+          "published_error": 2.7,
+          "refit": 253.5763389512289,
+          "refit_error": 1.939004771311074,
+          "relative_difference": 0.008255820879637794,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.10823428631803989,
+          "parameter": "K0_prime",
+          "published": 4.0,
+          "published_error": 0.3,
+          "refit": 3.89176571368196,
+          "refit_error": 0.18854459422689462,
+          "relative_difference": 0.02705857157950997,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 42 printed pressure, pressure-error, a-b-c lattice, lattice-error, conventional-cell-volume, and volume-error observations are directly transcribed. All rows are selected because the source reports no exclusions.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
+      "published_rmse_gpa": 0.5990070580862642,
+      "record_identifier": "mg095al010si095o3_bridgmanite_daniel_2004_bm3_2",
+      "reduced_chi_square": 2.004921376047665,
+      "rmse_gpa": 0.5789386685714858,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Third-order Birch-Murnaghan alternative with V0, K0, and K0_prime all fitted. Its derivative is statistically indistinguishable from 4 and the paper therefore favors the BM2 representation.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv"
+      ],
+      "degrees_of_freedom": 95,
+      "experimental_pressure_range_gpa": [
+        25.4,
+        125.6
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Mao et al. (2015), post-transition B-site Fe3+ low-spin BM3",
+      "material_identifier": "mg09fe01sio3_bridgmanite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 97,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        125.6
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        125.06,
+        163.27
+      ],
+      "parameters": [
+        {
+          "difference": 0.6562959187833712,
+          "parameter": "V0",
+          "published": 162.6,
+          "published_error": 0.3,
+          "refit": 163.25629591878337,
+          "refit_error": 0.10250806127775225,
+          "relative_difference": 0.004036260263120365,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -8.254947126405511,
+          "parameter": "K0",
+          "published": 284.0,
+          "published_error": 4.0,
+          "refit": 275.7450528735945,
+          "refit_error": 1.4296057507089817,
+          "relative_difference": 0.029066715233822222,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 97 printed P, Pstd, conventional-cell V, and Vstd observations from three runs are bundled, including all 28 laser-annealing flags and the measured ambient high-spin anchor. The explicit above-25-GPa rule selects 63 low-spin rows for the published EOS.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1002/2015GL064400",
+      "published_rmse_gpa": 0.9284356116597271,
+      "record_identifier": "mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1",
+      "reduced_chi_square": 0.37841562979146587,
+      "rmse_gpa": 0.5772851282651091,
+      "selection": "all rows",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published 300 K post-transition low-spin branch. Peritheos stores it as BM3 because the source explicitly calls the fit third-order Birch-Murnaghan; K0_prime=4 is retained as fixed, making this parameterization algebraically reduce to the second-order special case without changing the source's family label. The article's conventional-cell wording, Pbnm structure, Z=4 topology, complete Table S1 curve, and coefficient-parity refit establish the volume basis. Do not apply this EOS to the high-spin or 18-25 GPa mixed-spin observations.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
         "volume": "volume_a3_conventional_cell"
       },
       "dataset_identifiers": [
@@ -6561,6 +9106,188 @@
       "solver_success": true,
       "source_notes": "Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.",
       "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "atomic_volume_angstrom3"
+      },
+      "dataset_identifiers": [
+        "mgfe94o_dobrosavljevic_2019_table_s1_compression"
+      ],
+      "degrees_of_freedom": 25,
+      "experimental_pressure_range_gpa": [
+        1.5,
+        23.3
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dobrosavljevic et al. (2019), Mw94 B1 BM3",
+      "material_identifier": "mgfe94o_b1",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 28,
+      "observed_pressure_range_gpa": [
+        1.5,
+        88.7
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        55.376,
+        78.008
+      ],
+      "parameters": [
+        {
+          "difference": -0.18313796631080947,
+          "parameter": "V0",
+          "published": 78.88,
+          "published_error": 0.056,
+          "refit": 78.69686203368919,
+          "refit_error": 0.06499772263282735,
+          "relative_difference": 0.002321728781830749,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 13.471418034993519,
+          "parameter": "K0",
+          "published": 155.3,
+          "published_error": 2.2,
+          "refit": 168.77141803499353,
+          "refit_error": 2.374199920287406,
+          "relative_difference": 0.08674448187375092,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -1.0755561290049402,
+          "parameter": "K0_prime",
+          "published": 3.79,
+          "published_error": 0.11,
+          "refit": 2.71444387099506,
+          "refit_error": 0.055397542371339197,
+          "relative_difference": 0.2837878968350766,
+          "similar": false,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "All 28 printed rows are preserved. Fourteen B1 rows are selected, the two anomalous B1 rows are retained with explicit exclusion reasons, and all 12 rhombohedral rows remain in the shared dataset.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.mdpi.com/2075-163X/9/12/762",
+      "published_rmse_gpa": 6.366557735161361,
+      "record_identifier": "mgfe94o_b1_dobrosavljevic_2019_bm3_1",
+      "reduced_chi_square": 1.8441445435782284,
+      "rmse_gpa": 0.3410050005103942,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published B1 parameterization on the Dewaele-2008 ruby scale. V0 is stored on the conventional eight-atom cell basis. K0-prime was constrained by a finite prior and is therefore listed as free, not fixed. No numerical covariance matrix is available.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "atomic_volume_angstrom3"
+      },
+      "dataset_identifiers": [
+        "mgfe94o_dobrosavljevic_2019_table_s1_compression"
+      ],
+      "degrees_of_freedom": 25,
+      "experimental_pressure_range_gpa": [
+        34.5,
+        88.7
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dobrosavljevic et al. (2019), Mw94 rhombohedral BM3",
+      "material_identifier": "mgfe94o_rhombohedral",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 28,
+      "observed_pressure_range_gpa": [
+        1.5,
+        88.7
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        13.844,
+        19.502
+      ],
+      "parameters": [
+        {
+          "difference": 0.49421539026839056,
+          "parameter": "V0",
+          "published": 19.18,
+          "published_error": 0.2,
+          "refit": 19.67421539026839,
+          "refit_error": 0.01624942875334518,
+          "relative_difference": 0.02576722576998908,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -48.22856136383251,
+          "parameter": "K0",
+          "published": 217.0,
+          "published_error": 19.0,
+          "refit": 168.7714386361675,
+          "refit_error": 2.374199928341893,
+          "relative_difference": 0.22225143485637103,
+          "similar": false,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": 0.6544433373482619,
+          "parameter": "K0_prime",
+          "published": 2.06,
+          "published_error": 0.22,
+          "refit": 2.714443337348262,
+          "refit_error": 0.055397530779674985,
+          "relative_difference": 0.3176909404603213,
+          "similar": true,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "All 28 printed rows are preserved in the shared dataset; all 12 rows identified as fully rhombohedral are selected for this fit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.mdpi.com/2075-163X/9/12/762",
+      "published_rmse_gpa": 2.4103452964748904,
+      "record_identifier": "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1",
+      "reduced_chi_square": 1.8441445435791852,
+      "rmse_gpa": 0.34100507581761974,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive EOS basis because the source does not publish a complete conventional-cell metric. All three coefficients were free; no numerical covariance matrix is available.",
+      "status": "parity_not_achieved"
     },
     {
       "dataset_identifiers": [],
@@ -6735,6 +9462,208 @@
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
       "source_notes": "Publication constrained BM3 fit. The imported constant-alpha thermal approximation was not part of this fit and was removed.",
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "mgo_li_2006_table1_elasticity"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        10.95
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fixed_parameters": [
+        "V0"
+      ],
+      "label": "Li et al. (2006), acoustic absolute-pressure BM3",
+      "material_identifier": "mgo",
+      "model": "BM3",
+      "primary_data_finding": "All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251",
+      "reason": "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not independent pressure-volume observations. The source-derived isothermal coefficients are instead validated by the bundled velocity-density data and the dedicated acoustic finite-strain reproduction.",
+      "record_identifier": "mgo_li_2006_bm3_absolute_acoustic",
+      "source_notes": "This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. The authors first fit measured acoustic velocities and density with third-order finite-strain equations to obtain adiabatic moduli, convert the preferred decompression fit to isothermal K0T and K0T' with Equation 4, and then calculate pressure from volume with BM3 Equation 3. Table 1 pressures are therefore EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.",
+      "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "reported_pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgo_jacobsen_2008_table2_kcl_compression"
+      ],
+      "degrees_of_freedom": 23,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        86.6
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3",
+      "material_identifier": "mgo",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        3.6,
+        86.6
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        55.792,
+        73.1
+      ],
+      "parameters": [
+        {
+          "difference": 0.045310393946536465,
+          "parameter": "V0",
+          "published": 74.698,
+          "published_error": 0.007,
+          "refit": 74.74331039394653,
+          "refit_error": 0.03575968541129269,
+          "relative_difference": 0.0006065810857926112,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.4318225430942846,
+          "parameter": "K0",
+          "published": 164.1,
+          "published_error": 0.9,
+          "refit": 162.6681774569057,
+          "refit_error": 1.2057684879296597,
+          "relative_difference": 0.008725304954870717,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.03928188780318553,
+          "parameter": "K0_prime",
+          "published": 4.05,
+          "published_error": 0.04,
+          "refit": 4.089281887803185,
+          "refit_error": 0.03514911322985537,
+          "relative_difference": 0.009699231556342107,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 26 KCl-medium pressure-volume rows and their printed standard deviations are bundled. The separately bundled Table 1 resource preserves the shared experimental ambient-volume anchor.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am.2008.2988",
+      "published_rmse_gpa": 0.33114051930417365,
+      "record_identifier": "mgo_jacobsen_2008_bm3_kcl_mao1978",
+      "reduced_chi_square": 4.735780550595273,
+      "rmse_gpa": 0.31603260350532,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published three-parameter BM3 fit to the non-hydrostatic KCl-medium series using the Mao et al. (1978) non-hydrostatic ruby scale. The fitted V0 was not fixed. Table 2 contains 26 high-pressure observations; the ambient V0 anchor is printed in Table 1 and attributed to Jacobsen et al. (2002). The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective. The 300 K reference is nominal room temperature. This pressure-scale-specific fit is retained separately from the companion helium/Mao-1986 fit.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "reported_pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgo_jacobsen_2008_table1_helium_compression"
+      ],
+      "degrees_of_freedom": 49,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        111.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3",
+      "material_identifier": "mgo",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 52,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        111.0
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        52.239,
+        74.698
+      ],
+      "parameters": [
+        {
+          "difference": -0.06568777226378586,
+          "parameter": "V0",
+          "published": 74.687,
+          "published_error": 0.006,
+          "refit": 74.62131222773621,
+          "refit_error": 0.18140613737377156,
+          "relative_difference": 0.0008795074412385805,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 2.6213859958872376,
+          "parameter": "K0",
+          "published": 159.6,
+          "published_error": 0.6,
+          "refit": 162.22138599588723,
+          "refit_error": 4.60618363125784,
+          "relative_difference": 0.016424724285007755,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.07494166962790061,
+          "parameter": "K0_prime",
+          "published": 3.74,
+          "published_error": 0.03,
+          "refit": 3.6650583303720996,
+          "refit_error": 0.09853073005865955,
+          "relative_difference": 0.020037879579652567,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 52 printed rows are bundled, preserving run identifiers, normalized ruby shifts, the mixed ruby/diamond pressure marker, reported-pressure and volume standard deviations, and the Zha-2000 MgO-scale recalculations.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am.2008.2988",
+      "published_rmse_gpa": 0.3176878775243587,
+      "record_identifier": "mgo_jacobsen_2008_bm3_helium_mao1986",
+      "reduced_chi_square": 0.08961456938877022,
+      "rmse_gpa": 0.28917809332275024,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published three-parameter BM3 fit to all three helium-medium runs using Mao et al. (1986) quasi-hydrostatic ruby pressures through 85 GPa and six Sun et al. (2005) diamond-Raman pressures calibrated against that ruby scale at higher compression. The 111.0 GPa upper bound is the maximum pressure actually used by this BM3; the paper's 118.1 GPa headline value is the same final volume recalculated from the Zha et al. (2000) MgO scale. The Zha-derived pressure column is preserved as provenance but is not a separate Jacobsen MgO EOS because it is calculated from the already-defined Zha pressure scale. The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective.",
       "status": "parity"
     },
     {
@@ -6995,6 +9924,213 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_anderson_1989_gpa",
+        "temperature": "temperature_k",
+        "volume": "mgsio3_unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgsio3_post_perovskite_ono_2006_table2_compression"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        116.1,
+        144.4
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)",
+      "material_identifier": "mgsio3_post_perovskite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        116.1,
+        144.4
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        117.91,
+        123.26
+      ],
+      "parameters": [
+        {
+          "difference": 0.18460264261062775,
+          "parameter": "K0",
+          "published": 237.0,
+          "published_error": 1.0,
+          "refit": 237.18460264261063,
+          "refit_error": 0.6620433655098663,
+          "relative_difference": 0.0007789141038423112,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All six 300 K observations are bundled with gold lattice parameters, all three published pressure reductions, MgSiO3 lattice parameters, cell volumes, printed errors, and fit inclusion.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+      "published_rmse_gpa": 1.4316084628771457,
+      "record_identifier": "mgsio3_post_perovskite_ono_2006_anderson_bm2_3",
+      "reduced_chi_square": 2.1382833738672606,
+      "rmse_gpa": 0.21844530160004158,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_jamieson_1982_gpa",
+        "temperature": "temperature_k",
+        "volume": "mgsio3_unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgsio3_post_perovskite_ono_2006_table2_compression"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        111.5,
+        137.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)",
+      "material_identifier": "mgsio3_post_perovskite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        111.5,
+        137.0
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        117.91,
+        123.26
+      ],
+      "parameters": [
+        {
+          "difference": 0.8104100477467284,
+          "parameter": "K0",
+          "published": 226.0,
+          "published_error": 1.0,
+          "refit": 226.81041004774673,
+          "refit_error": 0.6352257151292431,
+          "relative_difference": 0.0035858851670209223,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All six 300 K observations and all three published pressure-scale reductions are bundled from Table 2.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+      "published_rmse_gpa": 1.743114881363511,
+      "record_identifier": "mgsio3_post_perovskite_ono_2006_jamieson_bm2_4",
+      "reduced_chi_square": 4.617904642641084,
+      "rmse_gpa": 0.3064778879039632,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_dewaele_2004_gpa",
+        "temperature": "temperature_k",
+        "volume": "mgsio3_unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgsio3_post_perovskite_ono_2006_table2_compression"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        121.4,
+        151.1
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)",
+      "material_identifier": "mgsio3_post_perovskite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        121.4,
+        151.1
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        117.91,
+        123.26
+      ],
+      "parameters": [
+        {
+          "difference": 0.04491160615899048,
+          "parameter": "K0",
+          "published": 248.0,
+          "published_error": 1.0,
+          "refit": 248.044911606159,
+          "refit_error": 0.6901603541984719,
+          "relative_difference": 0.00018109518612496162,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All six 300 K observations and all three published pressure-scale reductions are bundled from Table 2.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+      "published_rmse_gpa": 1.4859096031659682,
+      "record_identifier": "mgsio3_post_perovskite_ono_2006_dewaele_bm2_5",
+      "reduced_chi_square": 2.070742238663835,
+      "rmse_gpa": 0.20967713990929238,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4.",
+      "status": "parity"
+    },
+    {
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
@@ -7187,6 +10323,182 @@
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "na088al099fe013si094o4_qin_2023_table_s4_pv"
+      ],
+      "degrees_of_freedom": 7,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        44.0
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Qin et al. (2023), Fe-bearing CF BM3",
+      "material_identifier": "na088al099fe013si094o4_calcium_ferrite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        44.0
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        206.6,
+        244.0
+      ],
+      "parameters": [
+        {
+          "difference": 0.08633550522827704,
+          "parameter": "V0",
+          "published": 244.2,
+          "published_error": 0.2,
+          "refit": 244.28633550522827,
+          "refit_error": 0.9391725790742369,
+          "relative_difference": 0.000353544247454042,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -5.784662942475165,
+          "parameter": "K0",
+          "published": 211.0,
+          "published_error": 6.0,
+          "refit": 205.21533705752483,
+          "refit_error": 22.90440376666817,
+          "relative_difference": 0.027415464182346756,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.3331497248068147,
+          "parameter": "K0_prime",
+          "published": 2.6,
+          "published_error": 0.3,
+          "refit": 2.933149724806815,
+          "refit_error": 1.1172876778709533,
+          "relative_difference": 0.12813450954108258,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 10 printed pressure, lattice-parameter, conventional-cell-volume, and parenthetical uncertainty rows are bundled verbatim. No pressure uncertainty or row-wise temperature is published.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2022-8432",
+      "published_rmse_gpa": 0.3887326932802064,
+      "record_identifier": "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1",
+      "reduced_chi_square": 0.1028320444349107,
+      "rmse_gpa": 0.22874104603148265,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted with EosFit7c; none was fixed. Parenthesized coefficient errors are retained as generic published uncertainties because the source gives neither confidence level nor covariance. The observed range is not a phase-stability guarantee. See docs/qin-2023-naalsio4-eos.md.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "na093al102si100o4_qin_2023_table_s3_pv"
+      ],
+      "degrees_of_freedom": 19,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        41.0
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Qin et al. (2023), Fe-free CF BM3",
+      "material_identifier": "na093al102si100o4_calcium_ferrite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 22,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        41.0
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        207.3,
+        241.5
+      ],
+      "parameters": [
+        {
+          "difference": 0.4112339041850248,
+          "parameter": "V0",
+          "published": 241.6,
+          "published_error": 0.1,
+          "refit": 242.01123390418502,
+          "refit_error": 0.702985533770538,
+          "relative_difference": 0.0017021270868585465,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -10.57773553056245,
+          "parameter": "K0",
+          "published": 220.0,
+          "published_error": 4.0,
+          "refit": 209.42226446943755,
+          "refit_error": 16.67566234810676,
+          "relative_difference": 0.048080616048011136,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.5148664753802965,
+          "parameter": "K0_prime",
+          "published": 2.6,
+          "published_error": 0.3,
+          "refit": 3.1148664753802966,
+          "refit_error": 0.8016324782435751,
+          "relative_difference": 0.1980255674539602,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 22 printed pressure, lattice-parameter, conventional-cell-volume, and parenthetical uncertainty rows are bundled verbatim. No pressure uncertainty or row-wise temperature is published.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2022-8432",
+      "published_rmse_gpa": 0.32627826994900105,
+      "record_identifier": "na093al102si100o4_calcium_ferrite_qin_2023_bm3_1",
+      "reduced_chi_square": 0.07829135062151375,
+      "rmse_gpa": 0.24675204189907327,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted with EosFit7c; none was fixed. Parenthesized coefficient errors are retained as generic published uncertainties because the source gives neither confidence level nor covariance. The observed range is not a phase-stability guarantee. See docs/qin-2023-naalsio4-eos.md.",
       "status": "parity"
     },
     {
@@ -11705,10 +15017,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 42,
-    "parity": 88,
-    "parity_not_achieved": 8,
-    "similar": 34,
-    "total": 172
+    "not_refittable": 43,
+    "parity": 109,
+    "parity_not_achieved": 18,
+    "similar": 41,
+    "total": 211
   }
 }

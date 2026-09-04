@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 172
+    assert len(identifiers) == len(set(identifiers)) == 211
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 172, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 211, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 88,
-        "similar": 34,
-        "parity_not_achieved": 8,
-        "not_refittable": 42,
+        "parity": 109,
+        "similar": 41,
+        "parity_not_achieved": 18,
+        "not_refittable": 43,
     }
     assert all(
         item.get("reason")
@@ -313,7 +313,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 42
+    assert markdown.count("### `") == len(explained) == 59
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

@@ -36,7 +36,7 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters the curated pressure-scale
 convenience catalog. This compact executable catalog is distinct from the full
-118-document shared material library described below. Each
+139-document shared material library described below. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
 canonical executable format-3 material document. Optional crystallographic
@@ -126,7 +126,7 @@ standard or internally consistent family and verify the common validity range.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 172
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 211
 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
