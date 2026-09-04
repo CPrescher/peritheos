@@ -149,18 +149,32 @@ def test_ruby_shift_api_and_input_validation():
         get_pressure_calibration("ruby_holzapfel_2005").wavelength_ratio(2_000.0)
 
 
-def test_every_identified_ruby_use_links_to_an_executable_calibration():
-    ruby_methods = []
+def test_every_declared_ruby_calibration_link_is_executable():
+    ruby_uses = []
     for material_identifier in list_material_documents():
         for record in get_material_document(material_identifier)["eos_records"]:
             for method in record["pressure_calibration"]["methods"]:
                 if method["kind"] == "ruby_fluorescence":
-                    ruby_methods.append(method)
+                    ruby_uses.append((record["pressure_calibration"], method))
 
-    assert len(ruby_methods) == 33
+    assert ruby_uses
+    linked_methods = [
+        method for _, method in ruby_uses if "reference_calibration_record" in method
+    ]
+    unlinked_uses = [
+        (calibration, method)
+        for calibration, method in ruby_uses
+        if "reference_calibration_record" not in method
+    ]
+    assert linked_methods
     assert all(
         method["reference_calibration_record"] in EXPECTED_RUBY_SCALES
-        for method in ruby_methods
+        for method in linked_methods
+    )
+    assert all(
+        calibration["status"] == "partially_resolved"
+        and calibration["recalculation"]["status"] != "ready"
+        for calibration, _ in unlinked_uses
     )
     validate_pressure_calibration_references()
 

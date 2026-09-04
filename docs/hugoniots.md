@@ -55,11 +55,11 @@ different conventional cells.
 from peritheos import LinearUsUpHugoniot
 
 hugoniot = LinearUsUpHugoniot(
-    V0=60.4,   # angstrom^3/conventional cell
+    V0=60.4,  # angstrom^3/conventional cell
     rho0=21.45,  # g/cm^3
-    c0=3.6,    # km/s
+    c0=3.6,  # km/s
     s=1.55,
-    P0=0.0,    # GPa
+    P0=0.0,  # GPa
 )
 
 pressure = hugoniot.pressure(48.0)
@@ -90,8 +90,8 @@ initial state and must be supplied independently.
 from peritheos.fitting import fit_linear_us_up
 
 fit = fit_linear_us_up(
-    particle_velocity=up,       # km/s
-    shock_velocity=Us,          # km/s
+    particle_velocity=up,  # km/s
+    shock_velocity=Us,  # km/s
     V0=60.4,
     rho0=21.45,
     shock_velocity_sigma=sigma_Us,

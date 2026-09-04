@@ -411,9 +411,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         }:
             raise EosmatError(f"{location}.default_for is invalid")
         if default_for is not None and default_for != default_category:
-            raise EosmatError(
-                f"{location}.default_for does not match equation_kind"
-            )
+            raise EosmatError(f"{location}.default_for does not match equation_kind")
         if record.get("default") is True or default_for == default_category:
             default_counts[default_category] += 1
         if is_hugoniot:
@@ -553,8 +551,8 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 positive=True,
             )
             public_v0 = float(parameters["V0"])
-            expected_density = basis_formula_units * molar_mass / (
-                _AVOGADRO * public_v0 * 1.0e-24
+            expected_density = (
+                basis_formula_units * molar_mass / (_AVOGADRO * public_v0 * 1.0e-24)
             )
             if not math.isclose(
                 initial_density,

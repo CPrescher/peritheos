@@ -1699,7 +1699,14 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
                 }
                 if !matches!(
                     column.get("role").and_then(Value::as_str),
-                    Some("value" | "standard_deviation" | "standard_error" | "bound" | "flag")
+                    Some(
+                        "value"
+                            | "uncertainty"
+                            | "standard_deviation"
+                            | "standard_error"
+                            | "bound"
+                            | "flag"
+                    )
                 ) {
                     return Err(invalid_document(format!(
                         "{column_location}.role is invalid"

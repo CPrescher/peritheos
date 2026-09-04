@@ -169,7 +169,10 @@ class HugoniotInitialState:
             raise MaterialError(
                 "Hugoniot initial-state material_identifier must not be empty"
             )
-        if self.eos_record_identifier is not None and not self.eos_record_identifier.strip():
+        if (
+            self.eos_record_identifier is not None
+            and not self.eos_record_identifier.strip()
+        ):
             raise MaterialError(
                 "Hugoniot initial-state eos_record_identifier must not be empty"
             )
@@ -555,9 +558,7 @@ class EOSRecord:
         temperatures = self._temperature(temperature)
         if self.is_hugoniot:
             assert isinstance(self, HugoniotRecord)
-            pressure = self.pressure(
-                volume, check_validity=False, check_domain=False
-            )
+            pressure = self.pressure(volume, check_validity=False, check_domain=False)
         else:
             pressure = self.pressure(volume, temperatures, check_validity=False)
         ratio = np.asarray(volume, dtype=float) / self.reference_volume
@@ -753,7 +754,10 @@ class HugoniotRecord(EOSRecord):
             raise MaterialError(
                 "HugoniotRecord.branch_domain must be HugoniotBranchDomain"
             )
-        if self.branch_kind == "untransformed" and self.initial_state.phase != self.phase:
+        if (
+            self.branch_kind == "untransformed"
+            and self.initial_state.phase != self.phase
+        ):
             raise MaterialError(
                 "An untransformed Hugoniot branch must represent its initial-state phase"
             )
@@ -2006,11 +2010,7 @@ def _material_from_eosmat(
                 is_default=bool(
                     raw_record.get("default") is True
                     or raw_record.get("default_for")
-                    == (
-                        "hugoniot"
-                        if isinstance(eos, HugoniotBase)
-                        else "equilibrium"
-                    )
+                    == ("hugoniot" if isinstance(eos, HugoniotBase) else "equilibrium")
                 ),
                 equation_kind=str(
                     raw_record.get(
@@ -2043,7 +2043,8 @@ def _material_from_eosmat(
                             ),
                             eos_record_identifier=(
                                 None
-                                if raw_initial_state.get("eos_record_identifier") is None
+                                if raw_initial_state.get("eos_record_identifier")
+                                is None
                                 else str(raw_initial_state["eos_record_identifier"])
                             ),
                         ),
@@ -2060,12 +2061,9 @@ def _material_from_eosmat(
                                 float(raw_branch_domain["particle_velocity_km_s"][1]),
                             ),
                             kind=str(raw_branch_domain["kind"]),
-                            boundary_status=str(
-                                raw_branch_domain["boundary_status"]
-                            ),
+                            boundary_status=str(raw_branch_domain["boundary_status"]),
                             notes=tuple(
-                                str(note)
-                                for note in raw_branch_domain.get("notes", ())
+                                str(note) for note in raw_branch_domain.get("notes", ())
                             ),
                         ),
                     )
