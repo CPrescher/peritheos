@@ -1,0 +1,312 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "calcium_titanate_perovskite",
+ "name": "Calcium titanate perovskite",
+ "formula": "CaTiO3",
+ "phase": "orthorhombic GdFeO3-type perovskite",
+ "aliases": [
+  "CaTiO3 perovskite",
+  "perovskite"
+ ],
+ "cell_contents": "Four CaTiO3 formula units in the conventional orthorhombic Pbnm cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 5.38041,
+  "b": 5.4432,
+  "c": 7.6406,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [
+  {
+   "element": "Ca",
+   "wyckoff": "4c",
+   "x": 0.00648,
+   "y": 0.0356,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "Ca"
+  },
+  {
+   "element": "Ti",
+   "wyckoff": "4b",
+   "x": 0.0,
+   "y": 0.5,
+   "z": 0.0,
+   "occupancy": 1.0,
+   "source_label": "Ti"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.5711,
+   "y": 0.9839,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "O1"
+  },
+  {
+   "element": "O",
+   "wyckoff": "8d",
+   "x": 0.7103,
+   "y": 0.7112,
+   "z": 0.5373,
+   "occupancy": 1.0,
+   "source_label": "O2"
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Sasaki",
+    "Prewitt",
+    "Bass",
+    "Schulze"
+   ],
+   "year": 1987,
+   "title": "Orthorhombic perovskites CaTiO3 and CdTiO3: structure and space group",
+   "source": "Acta Crystallographica Section C",
+   "volume": "43",
+   "locator": "1668-1674",
+   "doi": "10.1107/S0108270187090620"
+  },
+  "structure_location": "Sasaki et al. (1987), refined Pbnm CaTiO3 fractional coordinates; symmetry-equivalent representatives of the reported Ca, Ti, O1, and O2 orbits",
+  "eos_specimen_lattice_location": "Ross and Angel (1999), Table 1, 0.001 GPa row"
+ },
+ "notes": "The conventional-cell lattice is the near-ambient measurement of the EOS specimen in Ross and Angel (1999). Fractional coordinates are symmetry-equivalent representatives of Sasaki et al.'s Pbnm CaTiO3 refinement, which Ross and Angel identify as consistent with their structure. The four occupied Wyckoff orbits give Ca4Ti4O12 (Z=4). The numerical 298 K EOS reference is an operational encoding of the source's qualitative room-temperature statement, not a reported thermometer reading.",
+ "eos_records": [
+  {
+   "identifier": "calcium_titanate_perovskite_ross_1999_bm3_1",
+   "label": "Ross and Angel (1999), single-crystal BM3",
+   "reference": {
+    "authors": [
+     "Ross",
+     "Angel"
+    ],
+    "year": 1999,
+    "title": "Compression of CaTiO3 and CaGeO3 perovskites",
+    "source": "American Mineralogist",
+    "volume": "84",
+    "locator": "277-281",
+    "doi": "10.2138/am-1999-0309"
+   },
+   "default_for": "equilibrium",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 223.764,
+     "K0": 170.9,
+     "K0_prime": 6.6
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.017,
+    "K0": 1.4,
+    "K0_prime": 0.3
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 298.0,
+   "experimental_pressure_range_gpa": [
+    0.001,
+    9.7
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.0,
+    298.0
+   ],
+   "fit_datasets": [
+    "calcium_titanate_perovskite_ross_1999_table1_compression"
+   ],
+   "experimental_configuration": {
+    "sample": "single crystal provided by E. Takayama-Muromachi, NIRIM, Tsukuba, Japan",
+    "pressure_medium": "4:1 methanol-ethanol",
+    "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard using Angel et al. (1997)",
+    "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 135.942
+   },
+   "parameter_provenance": {
+    "equation": "Ross and Angel (1999), Experimental methods and Results, journal pages 278-279: pressure-dependent weighted least-squares fit of a Birch (1947) third-order Birch-Murnaghan EOS; reproduction of the reported residuals and weighted chi-square verifies the standard Eulerian finite-strain convention",
+    "V0": "Ross and Angel (1999), abstract and Results, journal page 279: 223.764 +/- 0.017 A^3 conventional Pbnm cell; fitted",
+    "K0": "Ross and Angel (1999), abstract and Results, journal page 279: 170.9 +/- 1.4 GPa; fitted",
+    "K0_prime": "Ross and Angel (1999), abstract and Results, journal page 279: 6.6 +/- 0.3; fitted",
+    "temperature_ref": "The article states room temperature without a numeric thermometer reading; 298 K is the operational room-temperature reference used by this record",
+    "fit_selection": "All 11 CaTiO3 rows in Table 1, from 0.001 to 9.700 GPa"
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference_eos_record": "alpha_quartz_angel_1997_bm3_1",
+      "reference": {
+       "authors": [
+        "Angel",
+        "Allan",
+        "Miletich",
+        "Finger"
+       ],
+       "year": 1997,
+       "title": "The use of quartz as an internal pressure standard in high-pressure crystallography",
+       "source": "Journal of Applied Crystallography",
+       "volume": "30",
+       "locator": "461-466",
+       "doi": "10.1107/S0021889897000861"
+      },
+      "source_location": "Ross and Angel (1999), Experimental methods, journal page 278; pressures were obtained from measured quartz unit-cell volumes using Angel et al. (1997)",
+      "scope": "all 11 Table 1 CaTiO3 observations",
+      "notes": "Angel et al.'s standard is a room-temperature BM3 with V0=112.981(2) A^3, K0=37.12(9) GPa, and K0_prime=5.99(4)."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact quartz reference EOS is executable, but Ross and Angel Table 1 reports only reduced pressures and sample-cell measurements, not the row-wise quartz unit-cell volumes required to recalculate each pressure."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.001,
+     9.7
+    ],
+    "temperature_k": [
+     298.0,
+     298.0
+    ],
+    "volume_ratio": [
+     0.952820827,
+     1.000022345
+    ],
+    "notes": [
+     "The numerical range is the exact Table 1 measurement envelope, not a phase-stability guarantee.",
+     "No phase transition or significant distortion change was detected through 9.700 GPa.",
+     "The 4:1 methanol-ethanol medium and single-crystal measurements define the experimental stress environment; extrapolation beyond the measured range is unvalidated."
+    ]
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
+     "structure",
+     "published_uncertainties",
+     "covariance_availability",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction",
+     "independent_refit"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
+     "locations": [
+      "Abstract",
+      "Experimental methods, journal page 278",
+      "Table 1, journal page 278",
+      "Results, journal page 279",
+      "Figure 1"
+     ],
+     "finding": "The source defines an 11-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.4.",
+     "doi": "10.2138/am-1999-0309"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "calcium_titanate_perovskite_ross_1999_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, journal page 278"
+     ],
+     "finding": "All 11 printed CaTiO3 pressure, lattice-parameter, conventional-cell-volume, and estimated-standard-deviation values are transcribed. Row-wise quartz volumes are not published."
+    },
+    "numerical_reproduction": {
+     "observations": 11,
+     "published_curve_rmse_gpa": 0.0189459986,
+     "published_curve_max_abs_residual_gpa": 0.0296793188,
+     "source_reported_max_abs_residual_gpa": 0.03,
+     "source_reported_weighted_chi_square": 1.4
+    },
+    "independent_refit": {
+     "objective": "effective-variance pressure residuals combining the reported pressure and volume estimated standard deviations; the ambient pressure has no printed error and is treated as fixed",
+     "parameters": {
+      "V0": 223.76464009,
+      "K0": 170.85581942,
+      "K0_prime": 6.57739326
+     },
+     "reduced_chi_square": 1.3808862174,
+     "raw_pressure_rmse_gpa": 0.0185850706,
+     "conclusion": "The independent refit recovers every published coefficient within its printed uncertainty and reproduces the source's rounded weighted chi-square."
+    }
+   },
+   "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaTiO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "calcium_titanate_perovskite_ross_1999_table1_compression",
+   "kind": "calibrated_pressure_volume_lattice_parameters",
+   "description": "All 11 CaTiO3 single-crystal compression observations printed in Ross and Angel (1999), Table 1.",
+   "source_location": "Table 1, journal page 278",
+   "source_url": "https://doi.org/10.2138/am-1999-0309",
+   "columns": [
+    {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "pressure_from_quartz", "unit": "GPa", "role": "value"},
+    {"name": "pressure_sd_gpa", "quantity": "pressure_from_quartz", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_sd_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_a_angstrom"},
+    {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_b_sd_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_b_angstrom"},
+    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_c_sd_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_c_angstrom"},
+    {"name": "unit_cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "unit_cell_volume_sd_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "unit_cell_volume_a3"}
+   ],
+   "resource": {
+    "path": "datasets/calcium-titanate-perovskite-ross-1999-table1-compression.csv",
+    "sha256": "a1f9acdcd0bbf98839dc9d0b85ae398fd6869a7b2bfa06df513edb52448e1680",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized values are estimated standard deviations. The near-ambient 0.001 GPa row has no printed pressure uncertainty, which is represented as missing rather than zero. The source does not publish the measured quartz volumes.",
+   "reference": {
+    "authors": ["Ross", "Angel"],
+    "year": 1999,
+    "source": "American Mineralogist",
+    "volume": "84",
+    "locator": "277-281",
+    "doi": "10.2138/am-1999-0309"
+   },
+   "used_by_eos_records": [
+    "calcium_titanate_perovskite_ross_1999_bm3_1"
+   ]
+  }
+ ]
+}
