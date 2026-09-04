@@ -11113,6 +11113,32 @@
    "record_identifier": "ca_perovskite_caracas_2005_bm3_3",
    "source_notes": "Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The same calculations also have a distinct Pm-3m BM4 fit (V0=44.588 A^3, K0=248 GPa, K0'=4.206, K0''=-0.002 GPa^-1); it is audit metadata rather than a duplicate of this record. The source's nine low-symmetry BM3/BM4 pairs describe different crystallographic phases and must not be attached to this cubic material.",
    "status": "not_refittable"
+  },
+  {
+   "dataset_identifiers": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    150.0
+   ],
+   "experimental_temperature_range_k": [
+    1000.0,
+    4000.0
+   ],
+   "fixed_parameters": [
+    "Tr",
+    "theta0",
+    "n"
+   ],
+   "label": "Kawai and Tsuchiya (2014), cubic CaSiO3 Vinet-MGD",
+   "material_identifier": "ca_perovskite",
+   "model": "Vinet",
+   "primary_data_finding": "The publisher page exposes no supporting-information or data file, and the article plots but does not tabulate the underlying FPMD P-V-T stress averages. A direct refit is therefore impossible. All 60 printed Table 1 fitted-isotherm benchmark states are bundled separately for numerical reproduction; they are model values, not primary observations.",
+   "primary_data_status": "theoretical_parameterization_only",
+   "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2013JB010905",
+   "reason": "The publisher page exposes no supporting-information or data file, and the article plots but does not tabulate the underlying FPMD P-V-T stress averages. A direct refit is therefore impossible. All 60 printed Table 1 fitted-isotherm benchmark states are bundled separately for numerical reproduction; they are model values, not primary observations.",
+   "record_identifier": "ca_perovskite_kawai_2014_vinet_mgd_3",
+   "source_notes": "Preferred Vinet reference isotherm plus a constant-q Mie-Gruneisen-Debye thermal pressure relative to 1000 K. The integrated Debye-temperature law follows equations 4-10 of Tange et al. (2009), which Kawai and Tsuchiya explicitly adopt; n=5 for one CaSiO3 formula unit. V0 is already one cubic Pm-3m conventional cell because Z=1. The input stresses came from LDA-PWSCF NVT FPMD on an 80-atom 2x2x1 tetragonal-supercell representation constrained to cubic metrics, with 50 Ry cutoff, a 2x2x2 k-point grid, 1 fs steps, 1 ps equilibration, and 5 ps production averages. Figure 1 reports a convergence benchmark near 15 GPa and 2000 K: the 2x2x2 sampling gives diagonal stresses 15.3, 15.5, and 15.2 GPa, compared with 16.0, 16.1, and 14.6 GPa at Gamma only; no volume is printed, so this is not an EOS-fit row. No parameter uncertainties or covariance are reported, so missing errors are null rather than zero. The alternate BM3 column is intentionally not added because this contribution is limited to one literature EOS record and the article plots and abstracts the Vinet result. The abstract's K0=203.95 GPa reproduces Table 1 (for example 184.42 GPa rounds to 184.5 GPa at V/V0=0.70 and 4000 K), whereas the PDF-extracted Table 2 value 203.5 GPa predicts 184.06 GPa; the benchmark-consistent abstract value is retained. Section 2's printed 300-1500 K simulation range conflicts with calculated 1000-4000 K points in Figure 2 and cannot be resolved without the raw state table.",
+   "status": "not_refittable"
   }
  ],
  "summary": {

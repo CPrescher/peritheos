@@ -133,6 +133,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "b4c_somayazulu_2023_berman_refit",
         "b4c_somayazulu_2023_bm3_1",
         "ca_perovskite_caracas_2005_bm3_3",
+        "ca_perovskite_kawai_2014_vinet_mgd_3",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
         "gold_dewaele_2004_vinet_5",
@@ -151,6 +152,7 @@ def test_migrated_records_have_completed_primary_source_audit():
     }
     latest_audit_identifiers = {
         "ca_perovskite_caracas_2005_bm3_3",
+        "ca_perovskite_kawai_2014_vinet_mgd_3",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "neon_fcc_hemley_1989_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
@@ -204,6 +206,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
         "ca_perovskite_caracas_2005_bm3_3",
+        "ca_perovskite_kawai_2014_vinet_mgd_3",
         "diamond_benedict_2014_double_debye_4",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_double_debye_log_moment_5",

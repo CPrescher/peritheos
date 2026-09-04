@@ -1176,3 +1176,60 @@ uses Fei (1999) observations that are not reprinted in Dewaele et al. Exact
 coefficient identity from the 41 new rows alone is therefore neither expected
 nor claimed. The published parameters, not the refit, remain the executable
 literature record.
+## CaSiO3 perovskite: Kawai and Tsuchiya (2014)
+
+The primary source is Kawai and Tsuchiya, *P-V-T equation of state of cubic
+CaSiO3 perovskite from first-principles computation*, JGR Solid Earth **119**,
+2801--2809, [doi:10.1002/2013JB010905](https://doi.org/10.1002/2013JB010905).
+It reports LDA first-principles molecular-dynamics calculations for ideal
+cubic `Pm-3m` CaSiO3 and fits both Vinet and third-order Birch--Murnaghan
+reference isotherms. Peritheos stores only the preferred Vinet branch, which
+is the curve plotted in Figure 2 and the parameterization summarized in the
+abstract.
+
+The complete stored thermal EOS is a Vinet reference isotherm at 1000 K with
+`V0 = 46.17 A^3/formula unit`, `K0 = 203.95 GPa`, and `K0' = 4.76`, plus a
+constant-`q` Mie--Gruneisen--Debye increment with fixed `theta0 = 1100 K`,
+`gamma0 = 1.576`, `q = 0.96`, and `n = 5`. The article says it follows the
+Tange et al. (2009) procedure; their equations 4--10 define
+`gamma(V) = gamma0 (V/V0)^q`, the thermodynamically integrated Debye
+temperature, and thermal pressure relative to the reference temperature.
+Because cubic `Pm-3m` CaSiO3 has one formula unit per conventional cell, the
+reported formula-unit volume is also the public conventional-cell volume.
+
+The underlying calculations used LDA in PWSCF, Vanderbilt pseudopotentials
+for Ca and O and a Troullier--Martins pseudopotential for Si, a 50 Ry cutoff,
+and canonical-ensemble FPMD with 1 fs steps. The 80-atom `2x2x1`
+tetragonal-conventional-cell supercell was constrained to cubic metrics and
+sampled on a `2x2x2` Monkhorst--Pack grid. Each state was equilibrated for
+1 ps and normally averaged for the next 5 ps. The methods sentence prints a
+300--1500 K simulation range, but Figure 2 explicitly shows calculated points
+at 1000, 2000, 3000, and 4000 K. With no raw state table available, this
+internal temperature-range inconsistency cannot be resolved; the executable
+range follows the unambiguous plotted and tabulated 1000--4000 K EOS output.
+Figure 1 supplies one convergence benchmark near 15 GPa and 2000 K: the
+`2x2x2` sampling gives diagonal stresses of 15.3, 15.5, and 15.2 GPa, whereas
+Gamma-only sampling gives 16.0, 16.1, and 14.6 GPa. Because the corresponding
+volume is not printed, these values test k-point convergence but cannot serve
+as a row in an EOS refit.
+
+There is a source discrepancy in `K0`. The abstract prints 203.95 GPa, while
+the PDF text layer and later comparison tables render Table 2 as 203.5 GPa.
+The article's 60 one-decimal Table 1 isochors resolve the executable value:
+203.95 GPa gives an RMSE of 0.03734 GPa and maximum absolute difference of
+0.09071 GPa. At `V/V0 = 0.70` and 4000 K, it gives 184.4177 GPa, which rounds
+to the published 184.5 GPa. Using 203.5 GPa increases the grid RMSE to
+0.20047 GPa and gives 184.0565 GPa at that endpoint. The benchmark-consistent
+abstract value is therefore retained, with the conflicting Table 2 extraction
+recorded in provenance.
+
+The publisher exposes no supporting data file, and the numerical FPMD stress
+averages appear only as Figure 2 markers. The bundled dataset
+`ca_perovskite_kawai_2014_table1_isochors` contains every printed Table 1
+benchmark but is explicitly classified as a fitted-model grid, not as primary
+observations. A direct independent refit is consequently not possible and no
+synthetic refit record is created. The record's 0--150 GPa, 1000--4000 K
+numerical envelope follows the stated pressure limit and published grid; the
+paper's warning that the low-pressure/high-temperature corner may be outside
+the cubic stability field or near melting remains attached to the validity
+metadata.

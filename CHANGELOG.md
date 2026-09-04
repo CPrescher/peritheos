@@ -18,6 +18,10 @@ All notable changes to Peritheos are documented here. The project follows
   rows with `gamma0` fixed as in the source's staged procedure. The paper's
   Murnaghan, Vinet, logarithmic, and alternate
   BM3 rows are documented as comparison fits rather than duplicate EOS records.
+- Added a primary-source-validated Vinet--Mie--Gruneisen--Debye EOS for cubic
+  CaSiO3 perovskite from Kawai and Tsuchiya (2014), together with all 60
+  published Table 1 isochor benchmarks, explicit computational provenance,
+  source inconsistencies, and a documented raw-data/refit limitation.
 
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
