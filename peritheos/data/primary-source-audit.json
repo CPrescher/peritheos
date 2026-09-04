@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 162,
-    "primary_source_validated": 162
+    "records": 163,
+    "primary_source_validated": 163
   },
   "records": [
     {
@@ -364,6 +364,29 @@
         ],
         "finding": "The authors report V0=45.37(8) A^3 and K0=281(4) GPa with K0'=4 assumed.",
         "doi": "10.1029/jb094ib12p17889"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_kawai_2014_vinet_mgd_3",
+      "label": "Kawai and Tsuchiya (2014), cubic CaSiO3 Vinet-MGD",
+      "doi": "10.1002/2013jb010905",
+      "status": "primary_source_validated",
+      "note": "The preferred Vinet-MGD equation, parameters, reference state, volume basis, computational method, and model benchmark grid were checked against the final open-access primary publication and its explicitly cited Tange et al. formulation.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2013JB010905",
+        "locations": [
+          "Abstract",
+          "Section 2, pages 2802-2803",
+          "Section 4, pages 2803-2805",
+          "Figure 1",
+          "Table 1",
+          "Table 2",
+          "Figure 2"
+        ],
+        "finding": "The final article selects a 1000 K reference because cubic CaSiO3 is unstable at 300 K, plots the Vinet-MGD compression curves, and reports V0=46.17 A^3/formula unit, K0=203.95 GPa in the abstract, K0'=4.76, fixed theta0=1100 K, gamma0=1.576, and q=0.96. Its Table 1 isochors numerically support the abstract K0 despite the 203.5 GPa value extracted from Table 2. Section 2's printed 300-1500 K simulation range conflicts with Figure 2's calculated 1000-4000 K points.",
+        "doi": "10.1002/2013jb010905"
       }
     },
     {

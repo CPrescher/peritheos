@@ -94,7 +94,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 116
     assert len(set(identifiers)) == 116
-    assert sum(len(document["eos_records"]) for document in documents) == 162
+    assert sum(len(document["eos_records"]) for document in documents) == 163
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 162
+    assert len({record["identifier"] for record in records}) == 163
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 162
+    assert statuses.count("primary_source_validated") == 163
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -132,6 +132,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
         "b4c_somayazulu_2023_bm3_1",
+        "ca_perovskite_kawai_2014_vinet_mgd_3",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
         "gold_dewaele_2004_vinet_5",
@@ -147,6 +148,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "rbcl_b2_campbell_1994_bm3_1",
     }
     latest_audit_identifiers = {
+        "ca_perovskite_kawai_2014_vinet_mgd_3",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "neon_fcc_hemley_1989_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
@@ -197,6 +199,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "aragonite_martinez_1996_bm2_2",
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
+        "ca_perovskite_kawai_2014_vinet_mgd_3",
         "diamond_benedict_2014_double_debye_4",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_double_debye_log_moment_5",
@@ -240,8 +243,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 162,
-        "primary_source_validated": 162,
+        "records": 163,
+        "primary_source_validated": 163,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -584,7 +587,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 162
+    assert len(records) == 163
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -650,7 +653,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 162
+    assert checked == 163
     assert failures == []
 
 
@@ -1107,7 +1110,12 @@ def test_eosmat_refit_validation_requires_resolvable_lineage_and_dataset():
 
 
 def test_newly_validated_primary_records_retain_published_errors():
-    shim, mao = get_material_document("ca_perovskite")["eos_records"]
+    ca_records = {
+        record["identifier"]: record
+        for record in get_material_document("ca_perovskite")["eos_records"]
+    }
+    shim = ca_records["ca_perovskite_shim_2000_bm3_1"]
+    mao = ca_records["ca_perovskite_mao_1989_bm3_2"]
     cao_b1 = get_material_document("cao")["eos_records"][0]
     cao_b2 = get_material_document("cao_b2")["eos_records"][0]
     geo2 = get_material_document("geo2_rutile")["eos_records"][0]
@@ -2205,7 +2213,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 116
-    assert manifest["eos_records"] == 162
+    assert manifest["eos_records"] == 163
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 
