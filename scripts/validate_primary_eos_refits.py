@@ -390,6 +390,7 @@ PHASE_FILTERS = {
     "cao_b2_richet_1988_bm3_1": {"phase": "B2", "used_in_eos_fit": "yes"},
     "phase_d_ant_a_shieh_2000_bm2_1": {"sample": "1"},
     "phase_d_ant_b_shieh_2000_bm2_1": {"sample": "2"},
+    "phase_egg_schulze_2018_bm3_1": {"used_in_published_fit": "1"},
     "forsterite_finkelstein_2014_bm3_1": {
         "phase": "forsterite_I",
         "used_in_forsterite_i_eos_fit": "yes",

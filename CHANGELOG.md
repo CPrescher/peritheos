@@ -7,6 +7,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the Schulze et al. (2018) Phase Egg single-crystal BM3 EOS and all 16
+  printed compression rows, with the excluded ambient observation flagged and
+  the 15-row fit independently reproduced. The record distinguishes the
+  analyzed `Al0.98Si0.92H1.39O4` composition from the ideal `AlSiO3OH`
+  structural model, traces the hydrogen coordinate to Schmidt et al. (1998),
+  and explains why the paper's Vanpeteghem-data refit is not a second EOS for
+  the 2018 specimen. The Dewaele et al. (2008) ruby calibration used by the
+  experiment is now executable and linked explicitly.
+
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
   which had mistakenly contained an incomplete subset of the RbCl table, and
@@ -29,10 +38,10 @@ All notable changes to Peritheos are documented here. The project follows
   formula units, and molar mass are cross-validated. Structured derivation
   metadata covers coefficients obtained from SESAME or published tables.
 - Added a bundled executable pressure-calibration library for the Mao (1978),
-  Mao--Xu--Bell (1986), Dewaele (2004), Holzapfel (2005), and
+  Mao--Xu--Bell (1986), Dewaele (2004, 2008), Holzapfel (2005), and
   Dorogokupets--Oganov (2007), and IPPS-Ruby2020 ruby R1 scales in Python and
   Rust, together with the Akahama--Kawamura (2006) and Eremets et al. (2023)
-  diamond-anvil Raman-edge scales. All 33
+  diamond-anvil Raman-edge scales. All 34
   identified ruby-calibrated material records now link to an exact calibration
   identifier. Public APIs convert ruby scales through the R1 wavelength ratio,
   diamond scales through the Raman wavenumber ratio, transform XRD pressure

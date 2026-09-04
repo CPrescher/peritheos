@@ -37,6 +37,7 @@ EXPECTED_RUBY_SCALES = {
     "ruby_mao_1978",
     "ruby_mao_1986",
     "ruby_dewaele_2004",
+    "ruby_dewaele_2008",
     "ruby_holzapfel_2005",
     "ruby_dorogokupets_oganov_2007",
     "ruby_shen_2020",
@@ -188,6 +189,17 @@ def test_holzapfel_2005_reference_is_not_the_unrelated_aip_doi():
         "reference_wavelength_nm": 694.24,
     }
     assert document["reference"]["doi"] == "10.1080/09511920500147501"
+
+
+def test_dewaele_2008_ruby_scale_uses_the_published_coefficients():
+    document = get_pressure_calibration_document("ruby_dewaele_2008")
+    assert document["model"] == "power_law"
+    assert document["parameters"] == {
+        "A_gpa": 1920.0,
+        "B": 9.61,
+        "reference_wavelength_nm": 694.24,
+    }
+    assert document["reference"]["doi"] == "10.1103/PhysRevB.78.104102"
 
 
 def test_xrd_standard_pressure_uses_bundled_reference_eos():

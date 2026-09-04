@@ -6,8 +6,17 @@ use peritheos::{
 
 #[test]
 fn bundled_ruby_scales_have_stable_identifiers_and_models() {
-    assert_eq!(RUBY_CALIBRATIONS.len(), 6);
+    assert_eq!(RUBY_CALIBRATIONS.len(), 7);
     assert_eq!(RUBY_CALIBRATIONS[0].identifier, "ruby_mao_1978");
+    assert!(matches!(
+        ruby_calibration("ruby_dewaele_2008")
+            .expect("bundled scale")
+            .model,
+        RubyCalibrationModel::PowerLaw {
+            a_gpa: 1920.0,
+            b: 9.61
+        }
+    ));
     assert!(matches!(
         ruby_calibration("ruby_dorogokupets_oganov_2007")
             .expect("bundled scale")

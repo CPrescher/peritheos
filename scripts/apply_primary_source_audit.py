@@ -48,7 +48,10 @@ DERIVED_REFIT_RECORDS = {
     "neon_fcc_hemley_1989_bm3_refit",
 }
 
-CURRENT_SOURCE_AUDIT_RECORDS = {"rbcl_b2_campbell_1994_bm3_1"}
+CURRENT_SOURCE_AUDIT_RECORDS = {
+    "phase_egg_schulze_2018_bm3_1",
+    "rbcl_b2_campbell_1994_bm3_1",
+}
 
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
@@ -2895,8 +2898,7 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     primary_data_check = previous.get("primary_data_check")
     audit_date = (
         REPORT_AUDIT_DATE
-        if result["identifier"]
-        in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
+        if result["identifier"] in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
         else CATALOG_AUDIT_DATE
         if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
         else AUDIT_DATE
@@ -3000,9 +3002,35 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             "not_recommended_for_quantitative_use"
         )
         result["scientific_validation"]["audit_date"] = REPORT_AUDIT_DATE
-        result["scientific_validation"]["verified_fields"].append(
-            "fit_reproducibility"
+        result["scientific_validation"]["verified_fields"].append("fit_reproducibility")
+
+    if result["identifier"] == "phase_egg_schulze_2018_bm3_1":
+        result["scientific_validation"]["note"] = (
+            "Validated against the accepted author manuscript and official MSA "
+            "deposit. The final article's Table 2 is internally inconsistent about "
+            "the K0-prime error: the table prints 1.2, whereas the abstract and EOS "
+            "prose print 1.3. The tabulated parameter error is stored and the "
+            "discrepancy is not silently averaged."
         )
+        result["scientific_validation"]["verified_fields"] = [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "cell_setting",
+            "formula_units_per_cell",
+            "structure",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+        ]
+        if "numerical_reproduction" in previous:
+            result["scientific_validation"]["numerical_reproduction"] = previous[
+                "numerical_reproduction"
+            ]
 
     if result["identifier"] == "graphite_hanfland_1989_murnaghan_1":
         result["parameter_errors"] = dict(result["parameter_errors"])
@@ -3167,8 +3195,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 162:
-        raise ValueError(f"Expected 162 EOS records, found {len(entries)}")
+    if len(entries) != 163:
+        raise ValueError(f"Expected 163 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

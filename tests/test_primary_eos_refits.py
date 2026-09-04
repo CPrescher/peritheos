@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 162
+    assert len(identifiers) == len(set(identifiers)) == 163
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,9 +29,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 162, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 163, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 82,
+        "parity": 83,
         "similar": 33,
         "parity_not_achieved": 8,
         "not_refittable": 39,
@@ -132,13 +132,9 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert [item["refit"] for item in mo2c["parameters"]] == pytest.approx(
         [325.874185450, 4.909198583]
     )
-    assert all(
-        item["within_combined_2sigma"] for item in mo2c["parameters"]
-    )
+    assert all(item["within_combined_2sigma"] for item in mo2c["parameters"])
     assert "Corrected source-scope reproduction" in mo2c["qualification"]
-    mo2c_refit = by_identifier[
-        "molybenum_carbide_mo2c_haines_2001_bm3_refit"
-    ]
+    mo2c_refit = by_identifier["molybenum_carbide_mo2c_haines_2001_bm3_refit"]
     assert mo2c_refit["status"] == "parity"
     assert mo2c_refit["observations"] == 16
     assert mo2c_refit["fixed_parameters"] == ["V0"]
@@ -165,6 +161,17 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [17.6967334851, 5.2026008383]
     )
     assert "Complete source-data reproduction" in cscl["qualification"]
+    phase_egg = by_identifier["phase_egg_schulze_2018_bm3_1"]
+    assert phase_egg["status"] == "parity"
+    assert phase_egg["observations"] == 15
+    assert phase_egg["selection"] == "used_in_published_fit=1"
+    assert phase_egg["dataset_identifiers"] == [
+        "phase_egg_schulze_2018_table1_compression"
+    ]
+    assert [item["refit"] for item in phase_egg["parameters"]] == pytest.approx(
+        [214.0810595, 152.8459201, 8.597514758]
+    )
+    assert phase_egg["reduced_chi_square"] == pytest.approx(5.486063469)
     coo = by_identifier["coo_clendenen_1966_murnaghan_1"]
     assert coo["status"] == "parity_not_achieved"
     tradeoff = coo["coefficient_tradeoff_diagnostic"]

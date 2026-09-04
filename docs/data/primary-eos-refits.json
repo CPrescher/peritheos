@@ -5441,7 +5441,7 @@
       ],
       "primary_data_finding": "Both source inputs to the simultaneous fit are bundled: all 123 Dewaele et al. (2012) room-temperature B2 rows and all 155 Chidester et al. high-temperature rows.",
       "primary_data_status": "bundled",
-      "primary_source": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.104.094107",
       "published_rmse_gpa": 1.3025804462129118,
       "qualification": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
       "record_identifier": "kcl_b2_chidester_2021_bm3_5",
@@ -8065,6 +8065,94 @@
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
       "source_notes": "Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "phase_egg_schulze_2018_table1_compression"
+      ],
+      "degrees_of_freedom": 12,
+      "experimental_pressure_range_gpa": [
+        1.09,
+        23.33
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Schulze et al. (2018), single-crystal BM3",
+      "material_identifier": "phase_egg",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 15,
+      "observed_pressure_range_gpa": [
+        1.09,
+        23.33
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        193.75,
+        212.69
+      ],
+      "parameters": [
+        {
+          "difference": 0.001059484399121402,
+          "parameter": "V0",
+          "published": 214.08,
+          "published_error": 0.17,
+          "refit": 214.08105948439913,
+          "refit_error": 0.07471862387156843,
+          "relative_difference": 4.949011580350345e-06,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.15407994912268919,
+          "parameter": "K0",
+          "published": 153.0,
+          "published_error": 8.0,
+          "refit": 152.8459200508773,
+          "refit_error": 3.452004107426867,
+          "relative_difference": 0.0010070584909979685,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.002485242187624692,
+          "parameter": "K0_prime",
+          "published": 8.6,
+          "published_error": 1.2,
+          "refit": 8.597514757812375,
+          "refit_error": 0.5103663766300438,
+          "relative_difference": 0.0002889816497238014,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 16 Table 1 rows are embedded with cell-parameter and pressure uncertainties; the source-marked in-house ambient row is retained but flagged as excluded, leaving the 15 synchrotron rows used by the published fit. Ruby wavelengths are not reported.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2018-6562",
+      "published_rmse_gpa": 0.2269903600333908,
+      "record_identifier": "phase_egg_schulze_2018_bm3_1",
+      "reduced_chi_square": 5.486063468893597,
+      "rmse_gpa": 0.21173304498974524,
+      "selection": "used_in_published_fit=1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee.",
       "status": "parity"
     },
     {
@@ -10995,9 +11083,9 @@
   ],
   "summary": {
     "not_refittable": 39,
-    "parity": 82,
+    "parity": 83,
     "parity_not_achieved": 8,
     "similar": 33,
-    "total": 162
+    "total": 163
   }
 }

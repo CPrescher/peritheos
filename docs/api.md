@@ -65,7 +65,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 116 bundled
+`list_material_documents()` returns the identifiers of all 117 bundled
 materials. `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
@@ -98,7 +98,7 @@ from peritheos import (
 )
 ```
 
-Six published ruby R1 calibrations and two diamond-anvil Raman-edge
+Seven published ruby R1 calibrations and two diamond-anvil Raman-edge
 calibrations are bundled with their equations, coefficients, provenance, and
 validity metadata. Ruby supports wavelength, wavelength shift, and normalized
 wavelength ratio; diamond Raman supports wavenumber and normalized wavenumber
@@ -128,8 +128,8 @@ Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records have been added for aragonite BM2, the
 B2-KCl P-V-T pressure calibration, and the Correa and Benedict diamond
 Helmholtz models, including derived variants anchored to the experimental
-Dewaele 298 K Vinet isotherm, together with a primary-sourced Campbell-Heinz
-RbCl-B2 record. All 162 bundled records are
+Dewaele 298 K Vinet isotherm, together with primary-sourced Campbell-Heinz
+RbCl-B2 and Schulze Phase Egg records. All 163 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with

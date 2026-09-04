@@ -110,7 +110,7 @@ impl RubyFluorescenceCalibration {
 }
 
 /// Bundled executable ruby calibrations, in chronological order.
-pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 6] = [
+pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 7] = [
     RubyFluorescenceCalibration {
         identifier: "ruby_mao_1978",
         label: "Mao et al. (1978) ruby scale",
@@ -139,6 +139,16 @@ pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 6] = [
         model: RubyCalibrationModel::PowerLaw {
             a_gpa: 1904.0,
             b: 9.5,
+        },
+    },
+    RubyFluorescenceCalibration {
+        identifier: "ruby_dewaele_2008",
+        label: "Dewaele et al. (2008) hydrostatic ruby scale",
+        doi: "10.1103/PhysRevB.78.104102",
+        reference_wavelength_nm: 694.24,
+        model: RubyCalibrationModel::PowerLaw {
+            a_gpa: 1920.0,
+            b: 9.61,
         },
     },
     RubyFluorescenceCalibration {
