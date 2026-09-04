@@ -40,7 +40,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by the three literature EoS records; the Caracas et al. record is a static 0 K DFT branch, whereas the Mao and Shim records are room-temperature experiments.",
+ "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by the literature EoS records; the Caracas et al. record is a static 0 K DFT branch, the Akber-Knutson et al. record is a thermally corrected 300 K theoretical branch, and the Mao and Shim records are room-temperature experiments.",
  "peaks": [],
  "eos_records": [
   {
@@ -395,6 +395,208 @@
      "reason": "It matches the existing cubic material identity and reproduces the paper's independent cubic-density statement at 130 GPa. The Pm-3m BM4 row is an alternate fit to the same theoretical branch, while every other pair belongs to a distinct low-symmetry phase.",
      "bm3_higher_order_convention": "BM3 has no independently fitted K0_double_prime. The listed implied values are derived from the BM3 truncation K0*K0_double_prime + (K0_prime-4)*(K0_prime-3) + 35/9 = 0 and are not source-reported BM4 coefficients.",
      "low_symmetry_disposition": "Not attached to ca_perovskite: the paper does not publish the optimized atomic coordinates needed to create diffraction-ready phase-specific material records, and the current task is limited to one literature EOS record."
+    }
+   }
+  },
+  {
+   "label": "Akber-Knutson et al. (2002), 300 K cubic Pm-3m VIBC BM3",
+   "reference": {
+    "authors": [
+     "Akber-Knutson",
+     "Bukowinski",
+     "Matas"
+    ],
+    "year": 2002,
+    "title": "On the structure and compressibility of CaSiO3 perovskite",
+    "source": "Geophys. Res. Lett.",
+    "volume": "29",
+    "issue": "3",
+    "locator": "1034",
+    "doi": "10.1029/2001GL013523"
+   },
+   "record_kind": "published",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 45.92,
+     "K0": 229.0,
+     "K0_prime": 4.3
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.02,
+    "K0": 2.0,
+    "K0_prime": 0.1
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "fit_datasets": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    150.0
+   ],
+   "pressure_range_status": "theoretical",
+   "temperature_ref": 300.0,
+   "parameter_provenance": {
+    "V0": "Akber-Knutson et al. (2002), Table 2, VIBC (Pm3m) row; 45.92(2) A^3",
+    "K0": "Akber-Knutson et al. (2002), Table 2, VIBC (Pm3m) row; 229(2) GPa",
+    "K0_prime": "Akber-Knutson et al. (2002), Table 2, VIBC (Pm3m) row; 4.3(1)",
+    "equation": "Akber-Knutson et al. (2002), Table 2 title; third-order Birch-Murnaghan equation of state",
+    "temperature_ref": "Akber-Knutson et al. (2002), paragraph 9 and Table 2 note a; calculated EOS parameters corrected for zero-point and thermal vibrations at 300 K",
+    "volume_basis": "Table 2 gives V0 in A^3 for the cubic Pm3m CaSiO3 branch; the existing Pm-3m aristotype has Z=1, so one formula-unit volume is one conventional cubic-cell volume"
+   },
+   "notes": "Published 300 K third-order Birch-Murnaghan parameterization for the cubic Pm3m branch calculated with the authors' density-functional-based Variationally Induced Breathing model plus the calibrated covalent Si-O correction (VIBC). The stored 45.92 A^3 value is both the per-formula-unit and conventional cubic-cell volume because Pm-3m CaSiO3 has Z=1. All three coefficients were fitted; the parenthetical errors are retained with confidence convention unspecified because the article does not define it, and no covariance or fit statistic is published. The Debye-like zero-point and 300 K correction is already folded into the reported isotherm; the source does not publish the thermal-model coefficients needed for a thermal EOS. The preferred weakly orthorhombic Pnma VIBC fit, the uncorrected cubic VIB fit, and the stishovite calibration fit remain audit metadata rather than being conflated with this cubic VIBC record.",
+   "identifier": "ca_perovskite_akber_knutson_2002_bm3_4",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "other",
+      "reference": {
+       "authors": [
+        "Akber-Knutson",
+        "Bukowinski",
+        "Matas"
+       ],
+       "year": 2002,
+       "source": "Geophys. Res. Lett.",
+       "doi": "10.1029/2001GL013523"
+      },
+      "source_location": "Sections 2-3; density-functional-based VIBC theoretical calculation and energy-volume fit",
+      "notes": "VIBC includes a parameterized covalent correction calibrated against stishovite; it is a theoretical pressure coordinate rather than an experimental pressure gauge."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This theoretical EOS has no experimental pressure-reference EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final free-access publisher article and its primary figure. LitCurate was used only for discovery. Only the phase- and model-specific cubic VIBC parameterization that matches this material is executable.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "source_parameterizations",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523",
+     "locations": [
+      "Abstract",
+      "section 1, paragraphs 3-4",
+      "section 2, paragraphs 5-8",
+      "section 3, paragraphs 9-14",
+      "Figure 1",
+      "Table 1 and notes",
+      "Table 2 and note a"
+     ],
+     "finding": "Table 2 identifies three distinct CaSiO3 BM3 calculations: corrected VIBC Pnma, corrected VIBC Pm3m, and uncorrected VIB Pm3m. The selected cubic VIBC coefficients reproduce the solid 'This work' Figure 1 curve within its graphical resolution; the paper's preferred static Pnma result is a distinct phase.",
+     "doi": "10.1029/2001GL013523"
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "publisher full-text article",
+      "Figure 1",
+      "Table 2"
+     ],
+     "finding": "The article publishes fitted theoretical coefficients and a plotted compression curve but not the underlying VIBC energy-volume or pressure-volume rows, fit weights, residuals, or covariance. The publisher page exposes no official supporting-information or data attachment. Figure 1's experimental markers are comparison data attributed to earlier primary publications and are therefore not rebundled as observations of this study."
+    },
+    "numerical_reproduction": {
+     "method": "Direct standard Eulerian-strain BM3 evaluation compared with the solid 'This work' curve in Figure 1; graphical readings are approximate and are not treated as primary observations.",
+     "figure_1_curve_checks": [
+      {
+       "volume_a3_per_formula_unit": 40.0,
+       "figure_pressure_gpa_approx": 43.0,
+       "calculated_pressure_gpa": 42.573154,
+       "absolute_tolerance_gpa": 2.0
+      },
+      {
+       "volume_a3_per_formula_unit": 35.0,
+       "figure_pressure_gpa_approx": 112.0,
+       "calculated_pressure_gpa": 111.975283,
+       "absolute_tolerance_gpa": 3.0
+      }
+     ]
+    },
+    "reported_parameterizations": [
+     {
+      "model": "VIBC",
+      "structure": "Pnma",
+      "temperature_k": 300.0,
+      "V0_a3_per_formula_unit": 45.9,
+      "K0_gpa": 228.0,
+      "K0_prime": 4.3,
+      "parameter_errors": {
+       "V0": 0.02,
+       "K0": 2.0,
+       "K0_prime": 0.1
+      },
+      "disposition": "excluded_distinct_phase",
+      "reason": "This is the paper's preferred static phase, but it is not the cubic Pm-3m material represented by this file. The article does not publish the optimized Pnma lattice metrics and atomic coordinates required for a diffraction-ready new material record."
+     },
+     {
+      "model": "VIBC",
+      "structure": "Pm3m",
+      "temperature_k": 300.0,
+      "V0_a3_per_formula_unit": 45.92,
+      "K0_gpa": 229.0,
+      "K0_prime": 4.3,
+      "parameter_errors": {
+       "V0": 0.02,
+       "K0": 2.0,
+       "K0_prime": 0.1
+      },
+      "disposition": "selected"
+     },
+     {
+      "model": "VIB without covalent correction",
+      "structure": "Pm3m",
+      "temperature_k": 300.0,
+      "V0_a3_per_formula_unit": 44.75,
+      "K0_gpa": 305.0,
+      "K0_prime": 3.5,
+      "parameter_errors": {
+       "V0": 0.01,
+       "K0": 2.0,
+       "K0_prime": 0.1
+      },
+      "disposition": "audit_only",
+      "reason": "This is a separate uncorrected potential-model result, not the authors' corrected VIBC result represented by the Figure 1 curve."
+     }
+    ],
+    "calibration_model_boundary": {
+     "material": "stishovite SiO2",
+     "source_location": "section 2, paragraph 8, and Table 1",
+     "role": "The Morse-potential correction was calibrated to reproduce the stishovite density and bulk modulus.",
+     "disposition": "The stishovite VIBC BM3 parameters are not CaSiO3 observations or a CaSiO3 EOS and are not attached to this material."
+    },
+    "structure_resolution": {
+     "selected": "cubic Pm3m VIBC",
+     "reason": "It is explicitly reported in Table 2 and matches the existing Pm-3m, Z=1 CaSiO3 material identity.",
+     "low_symmetry_disposition": "The Pnma result is preserved in audit metadata but not executed from the cubic material."
+    },
+    "unresolved_issues": {
+     "figure_1_curve_symmetry": "The solid 'This work' curve is not labeled Pnma or Pm3m. The two VIBC fits differ by less than the printed figure resolution, so Figure 1 verifies the selected cubic curve only to graphical tolerance and does not distinguish the two structures.",
+     "fit_statistics": "The paper does not report the fit objective, weights, residual statistic, covariance, or confidence convention for the parenthetical coefficient errors."
     }
    }
   },
