@@ -43,7 +43,10 @@ DERIVED_REFERENCE_ISOTHERM_RECORDS = {
     "diamond_benedict_2014_dewaele_anchored",
 }
 
-DERIVED_REFIT_RECORDS = {"neon_fcc_hemley_1989_bm3_refit"}
+DERIVED_REFIT_RECORDS = {
+    "molybenum_carbide_mo2c_haines_2001_bm3_refit",
+    "neon_fcc_hemley_1989_bm3_refit",
+}
 
 CURRENT_SOURCE_AUDIT_RECORDS = {"rbcl_b2_campbell_1994_bm3_1"}
 
@@ -471,9 +474,11 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
             "section 4.1, pages 2449-2450",
             "Figure 2, Birch-Murnaghan fit through 46 GPa",
         ],
-        "The experimental EOS is fitted to relative volume. The measured ambient "
-        "hexagonal subcell was converted to the equivalent four-formula-unit "
-        "orthorhombic conventional-cell volume used by the record.",
+        "The experimental EOS is fitted to relative volume and reports only K0 "
+        "and K0' as fit coefficients, so the measured ambient V0 is fixed in the "
+        "reproduction. The measured hexagonal subcell was converted to the "
+        "equivalent four-formula-unit orthorhombic conventional-cell volume used "
+        "by the record.",
     ),
     "10.1098/rsta.2022.0331": source(
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC10069115/",
@@ -2242,17 +2247,32 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             "K0": 5.0,
             "K0_prime": 0.3,
         }
+        record["fixed_parameters"] = ["V0"]
         record["experimental_pressure_range_gpa"] = [0.0, 46.0]
         record["temperature_ref"] = 300.0
         record["notes"] = (
             "Room-temperature BM3 fit to relative-volume X-ray diffraction data "
-            "through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. V0 is calculated "
-            "from this sample's measured ambient hexagonal subcell a=3.0128(4) A "
-            "and c=4.7357(9) A, converted to the equivalent four-formula-unit "
+            "through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the "
+            "source fits and plots V/V0 and does not report V0 as a fitted "
+            "coefficient, the refit fixes V0 at the value calculated from this "
+            "sample's measured ambient hexagonal subcell a=3.0128(4) A and "
+            "c=4.7357(9) A, converted to the equivalent four-formula-unit "
             "orthorhombic conventional-cell volume; its error is propagated from "
-            "the reported lattice-parameter errors."
+            "the reported lattice-parameter errors. The dedicated literature "
+            "reproduction documents the remaining high-pressure sensitivity."
         )
         for correction in (
+            {
+                "path": "fixed_parameters",
+                "source_value": [],
+                "value": ["V0"],
+                "reason": (
+                    "Figure 2 and its caption express the fitted observations as "
+                    "V/V0 and publish only K0 and K0'; the measured ambient "
+                    "reference volume is therefore held fixed during the "
+                    "reproduction."
+                ),
+            },
             {
                 "path": "eos.parameters.V0",
                 "source_value": 147.4587,
@@ -3147,8 +3167,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 161:
-        raise ValueError(f"Expected 161 EOS records, found {len(entries)}")
+    if len(entries) != 162:
+        raise ValueError(f"Expected 162 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

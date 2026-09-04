@@ -64,12 +64,14 @@
     "K0": 5.0,
     "K0_prime": 0.3
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
     46.0
    ],
-   "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. V0 is calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors.",
+   "notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.",
    "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -125,6 +127,18 @@
    "temperature_ref": 300.0,
    "audit_corrections": [
     {
+     "path": "fixed_parameters",
+     "source_value": [],
+     "value": [
+      "V0"
+     ],
+     "reason": "Figure 2 and its caption express the fitted observations as V/V0 and publish only K0 and K0'; the measured ambient reference volume is therefore held fixed during the reproduction.",
+     "primary_reference": {
+      "doi": "10.1088/0953-8984/13/11/303",
+      "location": "section 2, section 4.1, and Figure 2"
+     }
+    },
+    {
      "path": "eos.parameters.V0",
      "source_value": 147.4587,
      "value": 148.9071,
@@ -161,6 +175,173 @@
      }
     }
    ]
+  },
+  {
+   "label": "Haines et al. (2001) Figure 2 direct BM3 refit",
+   "reference": {
+    "authors": [
+     "Haines",
+     "Léger",
+     "Chateau",
+     "Lowther"
+    ],
+    "year": 2001,
+    "source": "J. Phys.: Condens. Matter",
+    "volume": "13",
+    "locator": "2447-2454",
+    "doi": "10.1088/0953-8984/13/11/303"
+   },
+   "record_kind": "refit",
+   "derived_from_record": "molybenum_carbide_mo2c_haines_2001_bm3_1",
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos",
+     "version": "0.6.0"
+    },
+    "dataset": "molybdenum_carbide_haines_2001_figure2_digitized",
+    "selection": {
+     "predicate": "all Figure 2 markers",
+     "included_rows": 16,
+     "excluded_rows": 0
+    },
+    "objective": "errors_in_variables",
+    "weights": [
+     "pressure_digitization_uncertainty_gpa",
+     "volume_ratio_digitization_uncertainty"
+    ],
+    "refined_parameters": [
+     "K0",
+     "K0_prime"
+    ],
+    "fixed_parameters": [
+     "V0"
+    ],
+    "covariance_scaling": "absolute_sigma=True; digitization uncertainties treated as one-standard-deviation errors",
+    "statistics": {
+     "observations": 16,
+     "free_parameters": 2,
+     "chi_square": 13.626497585148972,
+     "reduced_chi_square": 0.9733212560820694,
+     "degrees_of_freedom": 14,
+     "pressure_residual_rmse_gpa": 0.37453767113271197,
+     "max_absolute_pressure_residual_gpa": 0.65771138566015,
+     "parameter_correlation": {
+      "parameter_order": [
+       "K0",
+       "K0_prime"
+      ],
+      "matrix": [
+       [
+        1.0,
+        -0.9720601471624124
+       ],
+       [
+        -0.9720601471624124,
+        1.0
+       ]
+      ]
+     }
+    },
+    "reproduction": {
+     "script": "scripts/validate_primary_eos_refits.py",
+     "solver": "scipy.optimize.least_squares",
+     "maximum_function_evaluations": 5000
+    }
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 148.9071,
+     "K0": 325.87419826054304,
+     "K0_prime": 4.9092021387052664
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 9.50029103042738,
+    "K0_prime": 0.6513930636044009
+   },
+   "parameter_covariance": {
+    "parameter_order": [
+     "K0",
+     "K0_prime"
+    ],
+    "matrix": [
+     [
+      90.25552966281894,
+      -6.015520032543208
+     ],
+     [
+      -6.015520032543208,
+      0.42431292331192705
+     ]
+    ]
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    45.499
+   ],
+   "temperature_ref": 300.0,
+   "parameter_provenance": {
+    "V0": "Fixed to the measured ambient reference volume used by Haines et al. (2001) for Figure 2 relative volumes.",
+    "K0": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
+    "K0_prime": "Peritheos errors-in-variables refit of all 16 digitized Figure 2 markers.",
+    "equation": "Third-order Birch-Murnaghan equation identified in the Figure 2 caption."
+   },
+   "fit_datasets": [
+    "molybdenum_carbide_haines_2001_figure2_digitized"
+   ],
+   "notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
+   "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_refit",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+    },
+    "audit_date": "2026-09-04",
+    "notes": "The refit uses the pressures printed graphically by the source; no replacement pressure scale is inferred."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
+     "locations": [
+      "section 4.1, pages 2449-2450",
+      "Figure 2 and caption",
+      "docs/literature-reproductions.md"
+     ],
+     "finding": "The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.",
+     "doi": "10.1088/0953-8984/13/11/303"
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-04",
+     "digitized_dataset_identifiers": [
+      "molybdenum_carbide_haines_2001_figure2_digitized"
+     ],
+     "source_locations": [
+      "Figure 2"
+     ],
+     "finding": "All 16 separable Figure 2 marker centers are bundled with explicit digitization uncertainties and pressure-medium flags."
+    }
+   }
   }
  ],
  "datasets": [
@@ -222,7 +403,8 @@
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
-    "molybenum_carbide_mo2c_haines_2001_bm3_1"
+    "molybenum_carbide_mo2c_haines_2001_bm3_1",
+    "molybenum_carbide_mo2c_haines_2001_bm3_refit"
    ],
    "provenance": {
     "type": "digitized_from_figure",
@@ -230,16 +412,28 @@
     "source_pdf_sha256": "b0aeabeee53267a80e9c77f3fd2399fc783c69c0bbc31b43215f89ee7ced143f",
     "axis_calibration_pdf_points": {
      "pressure": [
-      [192.414, 0.0],
-      [354.244, 50.0]
+      [
+       192.414,
+       0.0
+      ],
+      [
+       354.244,
+       50.0
+      ]
      ],
      "volume_ratio": [
-      [508.185, 0.89],
-      [745.542, 1.01]
+      [
+       508.185,
+       0.89
+      ],
+      [
+       745.542,
+       1.01
+      ]
      ]
     },
     "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.7040,
+     "published_bm3_rms_pressure_residual_gpa": 0.704,
      "published_bm3_max_abs_pressure_residual_gpa": 1.6335
     },
     "digitized_on": "2026-09-03"

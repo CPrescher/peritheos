@@ -135,6 +135,22 @@ FIT_QUALIFICATIONS = {
         "the seven rows at 340.0-340.7 K; it recovers V0, K0, and alpha0 within "
         "combined two-sigma uncertainty."
     ),
+    "molybenum_carbide_mo2c_haines_2001_bm3_1": (
+        "Corrected source-scope reproduction: Figure 2 expresses the observations "
+        "as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured "
+        "ambient V0 is held fixed. The 16-marker refit is statistically compatible "
+        "with both published coefficients but remains only numerically similar; see "
+        "the [dedicated Mo2C reproduction]"
+        "(literature-reproductions.md#mo2c-haines-2001)."
+    ),
+    "molybenum_carbide_mo2c_haines_2001_bm3_refit": (
+        "Explicit Peritheos refit record: all 16 digitized Figure 2 markers are "
+        "fitted with measured V0 fixed and the documented errors-in-variables "
+        "objective. This record reproduces its stored coefficients exactly and "
+        "does not replace the published Haines parameterization; see the "
+        "[dedicated Mo2C reproduction]"
+        "(literature-reproductions.md#mo2c-haines-2001)."
+    ),
     "neon_fcc_fei_2007_bm3_1": (
         "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, "
         "ref. 45), Finger et al. (1981, ref. 47), and their new observations. The "
@@ -267,11 +283,19 @@ INVESTIGATION_NOTES = {
         "(literature-reproductions.md#kcl-tateno-2019)."
     ),
     "molybenum_carbide_mo2c_haines_2001_bm3_1": (
-        "Only Figure 2 markers are available, split across pressure-medium regimes. "
-        "K0 and V0 remain broadly consistent, but K0' is sensitive to marker "
-        "placement, weighting, and the highest-pressure points. The original numeric "
-        "P-V array or the authors' finite-strain regression is needed for a decisive "
-        "coefficient comparison."
+        "The earlier validation incorrectly varied V0 even though Figure 2 uses "
+        "relative volume and the source reports only K0 and K0' as fit results. "
+        "Fixing the measured reference volume gives K0=325.87 GPa and K0'=4.91; "
+        "both are within combined two-sigma uncertainty of 307(5) GPa and 6.2(3), "
+        "but K0' narrowly misses the numerical similarity limit. An independent "
+        "normalized-stress regression gives K0=321.0 GPa and K0'=5.16, ruling out "
+        "the standard finite-strain linearization as the full explanation. The "
+        "two pressure-medium regimes pull in opposite directions, and omitting only "
+        "the two observations above 40 GPa gives K0=309.28 GPa and K0'=6.62. The "
+        "paper plots those points and provides no stated basis for excluding them, "
+        "so that sensitivity result is diagnostic only. Exact parity requires the "
+        "authors' numerical P-V array, weights, and row mask. See the [dedicated "
+        "Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001)."
     ),
     "palladium_baty_2024_bm3_1": (
         "The complete supplementary table is present, yet the published curve fits "

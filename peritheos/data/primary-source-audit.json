@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 161,
-    "primary_source_validated": 161
+    "records": 162,
+    "primary_source_validated": 162
   },
   "records": [
     {
@@ -1860,6 +1860,25 @@
           "Figure 2, Birch-Murnaghan fit through 46 GPa"
         ],
         "finding": "The experimental EOS is fitted to relative volume. The measured ambient hexagonal subcell was converted to the equivalent four-formula-unit orthorhombic conventional-cell volume used by the record.",
+        "doi": "10.1088/0953-8984/13/11/303"
+      }
+    },
+    {
+      "material": "molybenum_carbide_mo2c",
+      "file": "molybenum_carbide_mo2c.eosmat",
+      "record": "molybenum_carbide_mo2c_haines_2001_bm3_refit",
+      "label": "Haines et al. (2001) Figure 2 direct BM3 refit",
+      "doi": "10.1088/0953-8984/13/11/303",
+      "status": "primary_source_validated",
+      "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
+      "primary_source_check": {
+        "access_url": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
+        "locations": [
+          "section 4.1, pages 2449-2450",
+          "Figure 2 and caption",
+          "docs/literature-reproductions.md"
+        ],
+        "finding": "The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.",
         "doi": "10.1088/0953-8984/13/11/303"
       }
     },

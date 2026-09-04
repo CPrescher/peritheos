@@ -94,7 +94,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 116
     assert len(set(identifiers)) == 116
-    assert sum(len(document["eos_records"]) for document in documents) == 161
+    assert sum(len(document["eos_records"]) for document in documents) == 162
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 161
+    assert len({record["identifier"] for record in records}) == 162
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 161
+    assert statuses.count("primary_source_validated") == 162
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -141,11 +141,13 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "kcl_b2_tateno_2019_vinet_4",
         "mgo_b1_tange_2009_vinet",
+        "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
     }
     latest_audit_identifiers = {
+        "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "neon_fcc_hemley_1989_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
         "kcl_b2_chidester_2021_bm3_5",
@@ -205,6 +207,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "gold_takemura_2008_vinet_6",
         "kcl_b2_chidester_2021_bm3_5",
         "mgo_b1_tange_2009_vinet",
+        "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
@@ -237,8 +240,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 161,
-        "primary_source_validated": 161,
+        "records": 162,
+        "primary_source_validated": 162,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -581,7 +584,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 161
+    assert len(records) == 162
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -647,7 +650,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 161
+    assert checked == 162
     assert failures == []
 
 
@@ -818,8 +821,18 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     ]
 
     magnesite = get_material_document("magnesite")["eos_records"][0]
-    molybdenum_carbide = get_material_document("molybenum_carbide_mo2c")["eos_records"][
-        0
+    molybdenum_carbide_document = get_material_document(
+        "molybenum_carbide_mo2c"
+    )
+    molybdenum_carbide_records = {
+        record["identifier"]: record
+        for record in molybdenum_carbide_document["eos_records"]
+    }
+    molybdenum_carbide = molybdenum_carbide_records[
+        "molybenum_carbide_mo2c_haines_2001_bm3_1"
+    ]
+    molybdenum_carbide_refit = molybdenum_carbide_records[
+        "molybenum_carbide_mo2c_haines_2001_bm3_refit"
     ]
     platinum = get_material_document("platinum")["eos_records"][0]
     alumina = get_material_document("alumina")["eos_records"][0]
@@ -832,6 +845,41 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     assert molybdenum_carbide["eos"]["parameters"]["V0"] == pytest.approx(148.9071)
     assert molybdenum_carbide["parameter_errors"]["V0"] == pytest.approx(0.049)
     assert molybdenum_carbide["experimental_pressure_range_gpa"] == [0.0, 46.0]
+    assert molybdenum_carbide_refit["record_kind"] == "refit"
+    assert molybdenum_carbide_refit["derived_from_record"] == (
+        "molybenum_carbide_mo2c_haines_2001_bm3_1"
+    )
+    assert molybdenum_carbide_refit["fixed_parameters"] == ["V0"]
+    assert molybdenum_carbide_refit["eos"]["parameters"] == pytest.approx(
+        {
+            "V0": 148.9071,
+            "K0": 325.87419826054304,
+            "K0_prime": 4.9092021387052664,
+        }
+    )
+    assert molybdenum_carbide_refit["parameter_errors"]["V0"] is None
+    assert molybdenum_carbide_refit["parameter_errors"]["K0"] == pytest.approx(
+        9.50029103042738
+    )
+    assert molybdenum_carbide_refit["parameter_errors"][
+        "K0_prime"
+    ] == pytest.approx(0.6513930636044009)
+    assert molybdenum_carbide_refit["fit_provenance"]["selection"] == {
+        "predicate": "all Figure 2 markers",
+        "included_rows": 16,
+        "excluded_rows": 0,
+    }
+    assert molybdenum_carbide_refit["fit_provenance"]["objective"] == (
+        "errors_in_variables"
+    )
+    assert molybdenum_carbide_document["datasets"][0]["used_by_eos_records"] == [
+        "molybenum_carbide_mo2c_haines_2001_bm3_1",
+        "molybenum_carbide_mo2c_haines_2001_bm3_refit",
+    ]
+    molybdenum_carbide_executable = Material.from_eosmat(
+        molybdenum_carbide_document
+    ).get_eos_record("molybenum_carbide_mo2c_haines_2001_bm3_refit")
+    assert molybdenum_carbide_executable.eosmat_metadata["record_kind"] == "refit"
     assert platinum["identifier"] == "platinum_holmes_1989_vinet_1"
     assert platinum["eos"]["type"] == "Vinet"
     assert platinum["thermal"]["type"] == "LinearThermalPressure"
@@ -2157,7 +2205,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 116
-    assert manifest["eos_records"] == 161
+    assert manifest["eos_records"] == 162
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 

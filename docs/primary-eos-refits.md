@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **161** EOS records. **81** achieve uncertainty parity, **32** are numerically similar, **[9](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **162** EOS records. **82** achieve uncertainty parity, **33** are numerically similar, **[8](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -132,7 +132,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgsio3_post_perovskite_sakai_2016_bm3_2`](https://doi.org/10.1038/srep22652) | `mgsio3_post_perovskite_sakai_2016_table_s1_pvt` | 18 | `V0` 158 → 157.838; `K0` 292 → 288.168; `K0_prime` 3.74 → 3.82067 | 1.68096/1.37054 | parity |
 | [`molybdenum_shen_2026_vinet_1`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
 | [`molybdenum_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`molybenum_carbide_mo2c_haines_2001_bm3_1`](https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf) | `molybdenum_carbide_haines_2001_figure2_digitized` | 16 | `V0` 148.907 → 148.713; `K0` 307 → 343.734; `K0_prime` 6.2 → 4.1467 | 0.704038/0.360953 | [parity_not_achieved](#investigation-molybenum_carbide_mo2c_haines_2001_bm3_1) |
+| [`molybenum_carbide_mo2c_haines_2001_bm3_1`](https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf) | `molybdenum_carbide_haines_2001_figure2_digitized` | 16 | `K0` 307 → 325.874; `K0_prime` 6.2 → 4.9092 | 0.704038/0.374538 | [similar](#investigation-molybenum_carbide_mo2c_haines_2001_bm3_1) — Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001). |
+| [`molybenum_carbide_mo2c_haines_2001_bm3_refit`](https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf) | `molybdenum_carbide_haines_2001_figure2_digitized` | 16 | `K0` 325.874 → 325.874; `K0_prime` 4.9092 → 4.90919 | 0.617553/0.374538 | parity — Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001). |
 | [`naalsi2o6_zhao_1997_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/96GL03769) | `jadeite_zhao_1997_table1_pvt` | — | — | —/— | not_refittable — Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
 | [`naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1`](https://doi.org/10.1080/08957950212807) | `naalsio4_dubrovinsky_2002_figure2_digitized` | 19 | `V0` 242.957 → 243.06; `K0` 220 → 216.817; `K0_prime` 4.1 → 4.19447 | 0.138515/0.0345784 | parity |
 | [`nacl_b1_shen_2026_vinet_1`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
@@ -201,7 +202,6 @@ use `--check` in continuous integration to detect stale generated files.
 - [`b4c_somayazulu_2023_bm3_1`](#investigation-b4c_somayazulu_2023_bm3_1): outside similarity limits (q 2.1 → 1.04991)
 - [`coo_clendenen_1966_murnaghan_1`](#investigation-coo_clendenen_1966_murnaghan_1): outside similarity limits (K0_prime 3.9 → 5.1481)
 - [`goethite_gleason_2008_bm3_1`](#investigation-goethite_gleason_2008_bm3_1): outside similarity limits (rt_eos.K0 140.3 → 183.338; rt_eos.K0_prime 4.6 → 0)
-- [`molybenum_carbide_mo2c_haines_2001_bm3_1`](#investigation-molybenum_carbide_mo2c_haines_2001_bm3_1): outside similarity limits (K0_prime 6.2 → 4.1467)
 - [`palladium_baty_2024_bm3_1`](#investigation-palladium_baty_2024_bm3_1): outside similarity limits (K0 190 → 152.057)
 - [`silicon_vii_anzellini_2019_vinet_1`](#investigation-silicon_vii_anzellini_2019_vinet_1): outside similarity limits (V0 28.6 → 41.6139; K0 96.9 → 4.845; K0_prime 4.01 → 9.10969)
 - [`sno2_cubic_27gpa_ono_2000_bm3_1`](#investigation-sno2_cubic_27gpa_ono_2000_bm3_1): outside similarity limits (K0 252 → 379.59; K0_prime 3.5 → 0)
@@ -797,23 +797,23 @@ the missing source fit detail is recovered.
 
 ### `molybenum_carbide_mo2c_haines_2001_bm3_1`
 
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `molybdenum_carbide_haines_2001_figure2_digitized` with 16 selected observations.
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `molybdenum_carbide_haines_2001_figure2_digitized` with 16 selected observations.
 
 | Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
 |---|---:|---:|---:|:---:|:---:|
-| `V0` | 148.907 | 148.713 ± 0.158216 | 0.13% | yes | yes |
-| `K0` | 307 | 343.734 ± 17.425 | 11.97% | no | yes |
-| `K0_prime` | 6.2 | 4.1467 ± 0.849811 | 33.12% | no | no |
+| `K0` | 307 | 325.874 ± 9.50029 | 6.15% | yes | yes |
+| `K0_prime` | 6.2 | 4.9092 ± 0.651393 | 20.82% | yes | no |
 
-**Fit diagnostics.** Observed pressure range: 0-45.499 GPa; source-declared range: 0-46 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.704038/0.360953 GPa; reduced chi-square: 0.943777; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+**Fit diagnostics.** Observed pressure range: 0-45.499 GPa; source-declared range: 0-46 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.704038/0.374538 GPa; reduced chi-square: 0.973321; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
 
 **Source/data scope.** The Mo2C compression observations used for the BM3 fit are plotted in Figure 2. Table 1 provides selected structural and fitted summaries rather than the row-level pressure-volume array.
 
-**Registered source-fit note.** Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. V0 is calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors.
+**Registered source-fit note.** Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.
 
 **Assessment and likely origin.**
+- The point estimate exceeds the numerical limit for `K0_prime`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 - The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
-- Only Figure 2 markers are available, split across pressure-medium regimes. K0 and V0 remain broadly consistent, but K0' is sensitive to marker placement, weighting, and the highest-pressure points. The original numeric P-V array or the authors' finite-strain regression is needed for a decisive coefficient comparison.
+- The earlier validation incorrectly varied V0 even though Figure 2 uses relative volume and the source reports only K0 and K0' as fit results. Fixing the measured reference volume gives K0=325.87 GPa and K0'=4.91; both are within combined two-sigma uncertainty of 307(5) GPa and 6.2(3), but K0' narrowly misses the numerical similarity limit. An independent normalized-stress regression gives K0=321.0 GPa and K0'=5.16, ruling out the standard finite-strain linearization as the full explanation. The two pressure-medium regimes pull in opposite directions, and omitting only the two observations above 40 GPa gives K0=309.28 GPa and K0'=6.62. The paper plots those points and provides no stated basis for excluding them, so that sensitivity result is diagnostic only. Exact parity requires the authors' numerical P-V array, weights, and row mask. See the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).
 
 <a id="investigation-nickel_dewaele_2008_vinet_1"></a>
 

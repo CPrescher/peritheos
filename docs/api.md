@@ -129,7 +129,7 @@ and native primary-sourced records have been added for aragonite BM2, the
 B2-KCl P-V-T pressure calibration, and the Correa and Benedict diamond
 Helmholtz models, including derived variants anchored to the experimental
 Dewaele 298 K Vinet isotherm, together with a primary-sourced Campbell-Heinz
-RbCl-B2 record. All 161 bundled records are
+RbCl-B2 record. All 162 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with

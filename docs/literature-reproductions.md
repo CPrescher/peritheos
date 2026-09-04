@@ -822,3 +822,96 @@ treatment of non-hydrostatic observations, and any preprocessing not described
 in the article. The library retains the published parameterization as an
 explicitly warned archival record while exposing the complete source-faithful
 refit and all sensitivity results; it is not a recommended quantitative EOS.
+
+<a id="mo2c-haines-2001"></a>
+
+## Mo2C: Haines et al. (2001)
+
+### Source, data, and fit scope
+
+- Primary article: Haines et al., *Experimental and theoretical investigation
+  of Mo2C at high pressure*, Journal of Physics: Condensed Matter **13**,
+  2447--2454 (2001),
+  [doi:10.1088/0953-8984/13/11/303](https://doi.org/10.1088/0953-8984/13/11/303).
+- Primary observations: Figure 2 contains 16 plotted `P`--`V/V0` markers. The
+  first nine, through 14.87 GPa, are measurements in 21:4:1
+  methanol--ethanol--water; the remaining seven, from 19.71 to 45.50 GPa, are
+  measurements with NaCl after laser heating. The article does not print the
+  numerical pressure--volume array or the regression weights.
+- Digitization: vector marker centers were extracted directly from the
+  publisher PDF and affinely calibrated from the printed axes. The marker
+  shapes and therefore the two experimental regimes are retained in dataset
+  `molybdenum_carbide_haines_2001_figure2_digitized`.
+- Model: standard third-order Birch--Murnaghan. The article plots relative
+  volume and publishes `K0 = 307(5) GPa` and `K0' = 6.2(3)`, but does not report
+  `V0` as a fitted coefficient. The reproduction therefore fixes `V0` at
+  `148.9071 A^3`, calculated from the same specimen's measured ambient
+  hexagonal subcell and expressed as the equivalent four-formula-unit
+  orthorhombic conventional cell.
+
+The first validation incorrectly varied `V0`. That added a third correlated
+degree of freedom that is absent from the source's relative-volume fit and
+produced `V0 = 148.713 A^3`, `K0 = 343.734 GPa`, and `K0' = 4.147`.
+
+### Corrected refit
+
+| Calculation | Points | `V0` (A^3) | `K0` (GPa) | `K0'` | Pressure RMSE (GPa) |
+|---|---:|---:|---:|---:|---:|
+| Publication | 16 plotted | measured reference | 307 +/- 5 | 6.2 +/- 0.3 | 0.704 on digitized markers |
+| Peritheos errors in variables | 16 | 148.9071 fixed | 325.874 +/- 9.500 | 4.909 +/- 0.651 | 0.375 |
+| Unweighted pressure residuals | 16 | 148.9071 fixed | 326.197 | 4.859 | 0.618 |
+| Unweighted normalized-stress regression | 15 nonzero-pressure points | 148.9071 fixed | 320.955 | 5.158 | -- |
+
+The corrected errors-in-variables result is statistically compatible with
+both published coefficients at combined two-standard-deviation uncertainty.
+It is classified `similar`, rather than strict `parity`, because the `K0'`
+point estimate differs by 1.291, or 20.82%, narrowly outside the library's
+numerical limit of 1.0 absolute or 20% relative. The curve-level discrepancy is
+small: the refit reduces the pressure RMSE on the marker centers from 0.704 to
+0.375 GPa.
+
+The all-marker result is also exposed as the opt-in EOS record
+`molybenum_carbide_mo2c_haines_2001_bm3_refit`, with explicit lineage to the
+published record `molybenum_carbide_mo2c_haines_2001_bm3_1`. This makes the
+reproducible Peritheos reduction usable without presenting it as a coefficient
+set reported by Haines et al. The published record remains the authoritative
+literature parameterization.
+
+The normalized-stress calculation tests whether the difference is merely due
+to a conventional finite-strain linearization. It shifts the coefficients only
+to `320.955 GPa` and `5.158`, so that convention alone does not recover the
+published pair.
+
+### Pressure-regime and endpoint sensitivity
+
+The coefficient tradeoff is driven by curvature across the two experimental
+regimes rather than by a uniform offset:
+
+| Diagnostic errors-in-variables fit | Points | `K0` (GPa) | `K0'` |
+|---|---:|---:|---:|
+| Methanol--ethanol--water, at or below 15 GPa | 9 | about 284.2 | about 10.8 |
+| NaCl and laser-heated regime, above 15 GPa | 7 | about 352.6 | about 3.31 |
+| All markers at or below 40 GPa | 14 | 309.277 | 6.621 |
+| All Figure 2 markers | 16 | 325.874 | 4.909 |
+
+The under-40-GPa diagnostic reproduces the published pair closely, while the
+two final markers at 43.10 and 45.50 GPa pull the fitted curvature down. This
+does not justify deleting them: they are explicitly plotted as observations,
+and the source does not identify a row exclusion or alternative weighting for
+them. Their influence is reported to localize the discrepancy, not to create
+an opportunistic parity result. Consequently, the under-40-GPa calculation is
+documented only as a sensitivity test and is not stored as another EOS record.
+
+### Parity conclusion
+
+The original large failure was primarily a validation-scope error and is now
+resolved to `similar`: `V0` is fixed as required by the source representation,
+and both remaining coefficients overlap the published two-sigma intervals.
+The small residual point-estimate mismatch cannot be assigned to digitization
+alone, because it persists across pressure-residual and normalized-stress
+fits. The most bounded explanation is sensitivity to the two measurement
+regimes, the last two high-pressure observations, and unpublished row weights
+or preprocessing. Exact coefficient parity requires the authors' numerical
+P--V array, row mask, and fitting weights; the published parameterization
+remains the default library EOS, while the separately labeled refit record
+provides the direct all-marker Peritheos result.

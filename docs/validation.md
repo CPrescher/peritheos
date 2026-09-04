@@ -17,10 +17,10 @@ records; adding the Correa diamond branch produces 148. Two derived records
 combine the Correa and Benedict thermal increments with the experimental
 Dewaele 298 K Vinet isotherm, and adding the independently reproducible B4C
 Berman public-data and Hemley neon refits plus the Campbell-Heinz RbCl record
-produces 161 records in total. These checks
+produces 162 records in total. These checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 161
+The primary-source audit covers all 162
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -37,11 +37,11 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 161
+fit for every record with sufficient direct observations and documents all 162
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 81 uncertainty-parity matches and 32
-additional numerically similar results. [Nine direct refits](primary-eos-refits.md#parity-not-achieved) do not
+diagnostics. The current campaign finds 82 uncertainty-parity matches and 33
+additional numerically similar results. [Eight direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 39 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
@@ -130,7 +130,12 @@ Primary-source findings changed or qualified several migrated records:
   replaced by the fitted reference volume and error.
 - Haines et al. fit relative volumes for their Mo2C specimen. Its reference
   volume is now normalized from their measured ambient subcell rather than
-  unrelated lattice constants, and the represented range ends at 46 GPa.
+  unrelated lattice constants, the represented range ends at 46 GPa, and the
+  measured `V0` is fixed in the refit as required by the source's `V/V0`
+  representation. The corrected result, `K0=325.874(9.500) GPa` and
+  `K0'=4.909(651)`, is within combined two-sigma uncertainty of the published
+  pair and is now classified `similar`; its remaining endpoint sensitivity is
+  documented in the [dedicated reproduction](literature-reproductions.md#mo2c-haines-2001).
 - Holmes et al.'s platinum pressure scale is Equation (11), the universal
   (Vinet) EOS, not BM3. Its reference volume, 0--550 GPa static-isotherm range,
   and Equation (12) constant thermal-pressure extension were restored. The

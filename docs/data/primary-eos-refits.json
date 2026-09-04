@@ -6633,16 +6633,17 @@
       "dataset_identifiers": [
         "molybdenum_carbide_haines_2001_figure2_digitized"
       ],
-      "degrees_of_freedom": 13,
+      "degrees_of_freedom": 14,
       "experimental_pressure_range_gpa": [
         0.0,
         46.0
       ],
       "experimental_temperature_range_k": null,
       "fit_kind": "isothermal_pv",
-      "fixed_parameters": [],
+      "fixed_parameters": [
+        "V0"
+      ],
       "free_parameters": [
-        "V0",
         "K0",
         "K0_prime"
       ],
@@ -6662,51 +6663,117 @@
       ],
       "parameters": [
         {
-          "difference": -0.1940221149110073,
-          "parameter": "V0",
-          "published": 148.9071,
-          "published_error": 0.049,
-          "refit": 148.713077885089,
-          "refit_error": 0.15821552762569904,
-          "relative_difference": 0.0013029742363594972,
+          "difference": 18.87419826054304,
+          "parameter": "K0",
+          "published": 307.0,
+          "published_error": 5.0,
+          "refit": 325.87419826054304,
+          "refit_error": 9.50029103042738,
+          "relative_difference": 0.06147947316137798,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": 36.734175802928746,
-          "parameter": "K0",
-          "published": 307.0,
-          "published_error": 5.0,
-          "refit": 343.73417580292875,
-          "refit_error": 17.42502454431013,
-          "relative_difference": 0.1196552957750122,
-          "similar": true,
-          "within_combined_2sigma": false
-        },
-        {
-          "difference": -2.0533016497774295,
+          "difference": -1.2907978612947337,
           "parameter": "K0_prime",
           "published": 6.2,
           "published_error": 0.3,
-          "refit": 4.146698350222571,
-          "refit_error": 0.8498112196511691,
-          "relative_difference": 0.3311776854479725,
+          "refit": 4.9092021387052664,
+          "refit_error": 0.6513930636044009,
+          "relative_difference": 0.20819320343463446,
           "similar": false,
-          "within_combined_2sigma": false
+          "within_combined_2sigma": true
         }
       ],
       "primary_data_finding": "The Mo2C compression observations used for the BM3 fit are plotted in Figure 2. Table 1 provides selected structural and fitted summaries rather than the row-level pressure-volume array.",
       "primary_data_status": "plot_only",
       "primary_source": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
       "published_rmse_gpa": 0.7040384578944161,
+      "qualification": "Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
       "record_identifier": "molybenum_carbide_mo2c_haines_2001_bm3_1",
-      "reduced_chi_square": 0.9437771294513373,
-      "rmse_gpa": 0.36095283727036487,
+      "reduced_chi_square": 0.9733212560820694,
+      "rmse_gpa": 0.37453767113271197,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_ratio"
+      },
+      "dataset_identifiers": [
+        "molybdenum_carbide_haines_2001_figure2_digitized"
+      ],
+      "degrees_of_freedom": 14,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        45.499
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Haines et al. (2001) Figure 2 direct BM3 refit",
+      "material_identifier": "molybenum_carbide_mo2c",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 16,
+      "observed_pressure_range_gpa": [
+        0.0,
+        45.499
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        133.452032091,
+        148.911567213
+      ],
+      "parameters": [
+        {
+          "difference": 0.00021498089279248234,
+          "parameter": "K0",
+          "published": 325.87419826054304,
+          "published_error": 9.50029103042738,
+          "refit": 325.87441324143583,
+          "refit_error": 9.500289924692877,
+          "relative_difference": 6.597051682520772e-07,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.553194338121955e-05,
+          "parameter": "K0_prime",
+          "published": 4.9092021387052664,
+          "published_error": 0.6513930636044009,
+          "refit": 4.909186606761885,
+          "refit_error": 0.6513920513055321,
+          "relative_difference": 3.163842706488326e-06,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 16 separable Figure 2 marker centers are bundled with explicit digitization uncertainties and pressure-medium flags.",
+      "primary_data_status": "plot_only",
+      "primary_source": "https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf",
+      "published_rmse_gpa": 0.6175533237710905,
+      "qualification": "Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
+      "record_identifier": "molybenum_carbide_mo2c_haines_2001_bm3_refit",
+      "reduced_chi_square": 0.9733212561069121,
+      "rmse_gpa": 0.37453844418422366,
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. V0 is calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors.",
-      "status": "parity_not_achieved"
+      "source_notes": "Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute_sigma=True. The unchanged record molybenum_carbide_mo2c_haines_2001_bm3_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [
@@ -10928,9 +10995,9 @@
   ],
   "summary": {
     "not_refittable": 39,
-    "parity": 81,
-    "parity_not_achieved": 9,
-    "similar": 32,
-    "total": 161
+    "parity": 82,
+    "parity_not_achieved": 8,
+    "similar": 33,
+    "total": 162
   }
 }
