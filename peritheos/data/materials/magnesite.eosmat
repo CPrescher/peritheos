@@ -12,6 +12,7 @@
   "gamma": 120.0
  },
  "formula_units_per_cell": 6,
+ "cell_contents": "Mg6C6O18 (6 MgCO3 formula units) in the conventional hexagonal R-3c cell",
  "space_group": "R-3c",
  "space_group_number": 167,
  "atom_sites": [
@@ -165,6 +166,143 @@
      }
     }
    ]
+  },
+  {
+   "label": "Vocadlo (1999), static GGA BM3",
+   "reference": {
+    "authors": [
+     "Vocadlo"
+    ],
+    "year": 1999,
+    "title": "First principles calculations on the high-pressure behavior of magnesite",
+    "source": "American Mineralogist",
+    "volume": "84",
+    "locator": "1627-1631",
+    "doi": "10.2138/am-1999-1017"
+   },
+   "record_kind": "published",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 287.49,
+     "K0": 99.0,
+     "K0_prime": 4.28
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.5,
+    "K0_prime": 0.01
+   },
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "experimental_pressure_range_gpa": [
+    -2.41596,
+    207.419
+   ],
+   "pressure_range_status": "theoretical",
+   "temperature_ref": 0.0,
+   "volume": {
+    "reference_value": 287.49,
+    "public_to_model_scale": 1.0,
+    "model_unit": "angstrom^3/conventional_unit_cell"
+   },
+   "parameter_provenance": {
+    "V0": "Results, page 1628: the simulations predict V0=287.49 A^3 at P=0",
+    "K0": "Abstract and Table 2, pages 1627 and 1629: KT(0)=99.0(5) GPa for this work's unconstrained third-order fit",
+    "K0_prime": "Abstract and Table 2, pages 1627 and 1629: dK/dP=4.28(1) for this work's unconstrained third-order fit",
+    "equation": "Results, page 1628: printed E(V)=E1+E2+E3 third-order Birch-Murnaghan energy equation; the resulting pressure-volume convention is independently reproduced by all nine Table 1 pressure values"
+   },
+   "notes": "Static-lattice GGA pseudopotential calculation for the named magnesite phase using a fully relaxed 30-atom MgCO3 cell (Z=6), with atomic positions and cell shape relaxed at nine volumes. The source reports the zero-pressure reference volume and an isothermal BM3 fit, but no finite-temperature or vibrational contribution; temperature_ref=0 K records that static electronic reference. The nine calculated states span -2.41596 to 207.419 GPa. Table 1 incorrectly labels both its energy and volume columns as per formula unit: its 160-295 A^3 volumes, stated V0=287.49 A^3, Figure 1 volume axis, and exact BM3 pressure reproduction establish the 30-atom conventional-cell basis; the energy rows likewise recover K0=98.921 GPa only when interpreted per 30-atom cell and give a factor-of-six error under the printed label. The parenthetical K0 and K0_prime errors are preserved, but the source states no confidence convention or covariance and gives no V0 uncertainty. The alternative K0_prime=4 fit, K0=111(1) GPa is not stored because the article calls it a poor second-order fit and does not use it in the subsequent analysis. The calculation finds no discontinuity within the sampled pressure range but explicitly cannot rule out reconstructive transitions with an energy barrier.",
+   "identifier": "magnesite_vocadlo_1999_bm3_2",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Vocadlo"
+       ],
+       "year": 1999,
+       "source": "American Mineralogist",
+       "doi": "10.2138/am-1999-1017"
+      },
+      "source_location": "Simulation techniques and Results, pages 1627-1628",
+      "scope": "Static DFT-GGA total energies at nine fully relaxed cell volumes"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This theoretical EOS has no experimental pressure-reference scale; Table 1 pressures are values of the fitted BM3 equation, not independently calibrated observations."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The complete five-page primary article was audited directly. Its equation, coefficients, 30-atom cell basis, calculated E-V table, and pressure reproduction support an executable static BM3 record despite the explicitly documented Table 1 unit-label error.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "volume_basis",
+     "reference_state",
+     "phase",
+     "crystallography",
+     "published_uncertainties",
+     "validity",
+     "primary_data",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-1999-1017",
+     "locations": [
+      "Abstract, page 1627",
+      "Simulation techniques, page 1628",
+      "Results and printed energy equation, page 1628",
+      "Table 1 and Figure 1, page 1628",
+      "Table 2, page 1629",
+      "phase-transition qualification, page 1630"
+     ],
+     "finding": "The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0_prime=4.27911, within the published precision and coefficient errors.",
+     "doi": "10.2138/am-1999-1017"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "magnesite_vocadlo_1999_table1_energy_volume"
+     ],
+     "source_locations": [
+      "Table 1, page 1628"
+     ],
+     "finding": "All nine printed static energy-volume rows and their BM3-derived pressures are bundled. The source reports no row uncertainties, weights, fit statistic, or coefficient covariance."
+    }
+   },
+   "audit_corrections": [
+    {
+     "path": "datasets.magnesite_vocadlo_1999_table1_energy_volume.columns.energy_ev.unit",
+     "source_value": "eV per formula unit",
+     "value": "eV/conventional_unit_cell",
+     "reason": "The tabulated energies are for the same 30-atom cell as the volumes. A Birch-Murnaghan energy refit recovers K0=98.921 GPa on the cell basis but 593.525 GPa if the printed per-formula-unit label is applied.",
+     "primary_reference": {
+      "doi": "10.2138/am-1999-1017",
+      "location": "Simulation techniques, Results, Table 1, and Figure 1, page 1628"
+     }
+    },
+    {
+     "path": "datasets.magnesite_vocadlo_1999_table1_energy_volume.columns.volume_a3.unit",
+     "source_value": "A^3 per formula unit",
+     "value": "A^3/conventional_unit_cell",
+     "reason": "The tabulated volumes bracket the stated V0=287.49 A^3 of the 30-atom MgCO3 cell and reproduce every printed pressure with the reported BM3 coefficients; they cannot be per formula unit.",
+     "primary_reference": {
+      "doi": "10.2138/am-1999-1017",
+      "location": "Simulation techniques, Results, Table 1, and Figure 1, page 1628"
+     }
+    }
+   ]
   }
  ],
  "format": "peritheos.material",
@@ -249,6 +387,60 @@
     "pressure": "Precision estimated by the author to be better than +/-0.03 GPa; not encoded as a standard deviation."
    },
    "source_url": "https://doi.org/10.2138/am-1997-7-805"
+  },
+  {
+   "identifier": "magnesite_vocadlo_1999_table1_energy_volume",
+   "kind": "energy_volume_with_derived_pressure",
+   "description": "All nine static total-energy and relaxed conventional-cell-volume calculations; pressure is the source's reported value from the fitted third-order Birch-Murnaghan equation.",
+   "reference": {
+    "authors": [
+     "Vocadlo"
+    ],
+    "year": 1999,
+    "title": "First principles calculations on the high-pressure behavior of magnesite",
+    "source": "American Mineralogist",
+    "volume": "84",
+    "locator": "1627-1631",
+    "doi": "10.2138/am-1999-1017"
+   },
+   "source_location": "Table 1, page 1628",
+   "columns": [
+    {
+     "name": "energy_ev",
+     "quantity": "static_internal_energy",
+     "unit": "eV/conventional_unit_cell",
+     "role": "value",
+     "source_reported_unit": "eV per formula unit"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value",
+     "source_reported_unit": "angstrom^3 per formula unit"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value",
+     "derivation": "third-order Birch-Murnaghan equation fitted by the author"
+    }
+   ],
+   "resource": {
+    "path": "datasets/magnesite-vocadlo-1999-table1-energy-volume.csv",
+    "sha256": "b33663e21c908065dc3d0c5ea14b6a2b8f15202ade870f5d79c5b3889336ea3b",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "magnesite_vocadlo_1999_bm3_2"
+   ],
+   "uncertainty": {
+    "row_values": "No row-wise energy, volume, or pressure uncertainties are reported.",
+    "fit": "No fit weights, objective details beyond E(V), fit statistic, or covariance matrix are reported."
+   },
+   "notes": "The two printed 'per formula unit' column labels are internally inconsistent with the article's 30-atom calculation cell, V0=287.49 A^3, Figure 1, and the Table 1 pressures. The typed columns preserve the numerically demonstrated conventional-cell basis; source_reported_unit and the EOS record's audit_corrections retain the literal headers.",
+   "source_url": "https://doi.org/10.2138/am-1999-1017"
   }
  ]
 }
