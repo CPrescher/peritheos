@@ -1345,7 +1345,7 @@
           "Table 3",
           "B2 KCl Thermal EOS, pages 807-810"
         ],
-        "finding": "The author-uploaded primary article's preferred B2 fit is the bold Table 3 row. It explicitly declines individual parameter errors because of covariance, but reports alpha0*K0=0.0275+/-0.0009 kbar/K.",
+        "finding": "The author-uploaded primary article's preferred B2 fit is the bold Table 3 row. Its footnote specifies a staged fit of K0 and K0' to the room-temperature data before alpha0; the italic row is the distinct simultaneous four-parameter fit. The article explicitly declines individual parameter errors because of covariance, but reports alpha0*K0=0.0275+/-0.0009 kbar/K.",
         "doi": "10.2138/am-2002-0701"
       }
     },
@@ -2966,14 +2966,16 @@
       "label": "Tateno et al. (2019), B2 Vinet + MGD on Sokolova Pt",
       "doi": "10.2138/am-2019-6779",
       "status": "primary_source_validated",
-      "note": "Equation, parameters, fixed quantities, uncertainties, P-T range, and Pt pressure basis checked against the accepted primary manuscript.",
+      "note": "Equation, final published parameters, fixed quantities, uncertainties, P-T range, Pt pressure basis, and row alignment checked against the final article and official MSA supplement.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.2138/am-2019-6779",
         "locations": [
           "Equations 1-6",
-          "Tables 1-2"
+          "Table 1",
+          "pages 721-723 of the final article",
+          "MSA deposit AM-19-56779, Supplemental Table S1 workbook"
         ],
-        "finding": "The preferred Sokolova-Pt fit fixes V0=54.5 A^3 and theta0=235 K and reports K0=18.3(3) GPa, K0'=5.60(3), gamma0=0.58(5), and q=0.9(2).",
+        "finding": "The final article's preferred Sokolova-Pt fit fixes V0=54.5 A^3 and theta0=235 K and reports K0=18.3(3) GPa, K0'=5.60(3), gamma0=2.3(2), and q=0.8(2). Equation 6 is the integrated-Gruneisen Debye-temperature law. The accepted manuscript's gamma0=0.58(5) and q=0.9(2) are superseded.",
         "doi": "10.2138/am-2019-6779"
       }
     },
@@ -2984,7 +2986,7 @@
       "label": "Chidester et al. (2021), B2 BM3 + MGD on Dorogokupets-Oganov Pt",
       "doi": "10.1103/physrevb.104.094107",
       "status": "primary_source_validated",
-      "note": "Equation, parameters, units, molar-to-cell conversion, P-T range, temperature convention, and Pt pressure basis checked against the primary paper and author-deposited table.",
+      "note": "Equation, parameters, units, molar-to-cell conversion, P-T range, temperature convention, Pt pressure basis, complete two-dataset fit scope, and Debye-temperature convention checked against the primary paper, Dewaele et al. (2012) Table I, and the author-deposited high-temperature table.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.104.094107",
         "locations": [
@@ -2993,7 +2995,7 @@
           "Table I",
           "Supplemental Table A1"
         ],
-        "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K.",
+        "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K. It simultaneously fits all Dewaele et al. (2012) room-temperature B2 data and the new high-temperature data. Equations 3-4 give gamma(V) and the full Debye energy but do not print theta(V); the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.",
         "doi": "10.1103/physrevb.104.094107"
       }
     }

@@ -39,8 +39,8 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 160
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 76 uncertainty-parity matches and 32
-additional numerically similar results. Thirteen direct refits do not
+diagnostics. The current campaign finds 78 uncertainty-parity matches and 32
+additional numerically similar results. [Eleven direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 39 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
@@ -146,7 +146,31 @@ Primary-source findings changed or qualified several migrated records:
   `alpha0` errors remain null because the authors explicitly reject them as
   meaningful under the strong parameter covariance; the directly reported
   `alpha0*K0=0.0275(9) kbar/K` product and its uncertainty are retained and
-  propagated as `0.00275(9) GPa/K`.
+  propagated as `0.00275(9) GPa/K`. The refit campaign now follows the preferred
+  Table 3 staging: hold fictive `V0=53.53 angstrom^3`, fit `K0` and `K0'` to
+  the eight 23-24 degC rows, and then fit the thermal-pressure product. It
+  recovers `K0=23.775 GPa`, `K0'=4.416`, and
+  `alpha_KT=0.002766 GPa/K`; the previous large discrepancy came from comparing
+  an all-free simultaneous refit with the preferred staged row. The full
+  diagnosis is in the [Walker KCl reproduction](literature-reproductions.md#kcl-walker-2002).
+- Tateno et al.'s B2-KCl record now follows the final published article rather
+  than the accepted manuscript: `gamma0=2.3(2)`, `q=0.8(2)`, and Equation 6's
+  integrated-Gruneisen Debye-temperature law. The 39 observations are
+  retranscribed from the official MSA Supplemental Table S1 workbook, which
+  preserves the Pt-KCl row pairing that was lost across the split manuscript
+  table. The corrected joint refit gives `K0=18.3446 GPa`, `K0'=5.60096`,
+  `gamma0=2.29519`, and `q=0.82490`, restoring uncertainty parity. See the
+  [Tateno KCl reproduction](literature-reproductions.md#kcl-tateno-2019).
+- Chidester et al.'s B2-KCl record now declares both inputs to its published
+  simultaneous fit: all 123 Dewaele et al. (2012) room-temperature B2 rows and
+  all 155 new high-temperature rows. The corrected unweighted fit uses the
+  thermodynamically integrated constant-`q` Debye-temperature relation and
+  gives `V0=53.2036 angstrom^3`, `K0=23.9721 GPa`, `K0'=4.55798`,
+  `gamma0=2.91714`, and `q=0.96524`. All five regain uncertainty parity, and
+  the 1.582 GPa high-temperature RMSE matches the source's reported 1.6 GPa.
+  The earlier `q=0` boundary came from fitting only the high-temperature rows
+  with a different objective. See the
+  [Chidester KCl reproduction](literature-reproductions.md#kcl-chidester-2021).
 - Shen and Smith's ten Cu-anchored 300 K records reproduce the phase-specific
   Vinet fits in Equation (4) and Table II: Pt, Au, Ta, W, Mo, MgO, NaCl B1,
   NaCl B2, bcc Fe, and hcp Fe. The fixed reference volumes, fitted pressure

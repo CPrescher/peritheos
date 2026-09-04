@@ -11,7 +11,7 @@ Run from the repository root::
     python scripts/apply_primary_source_audit.py
 
 The generated audit report is committed so releases do not depend on network
-access.  BurnMan and Pytheos source code were not consulted during this audit.
+access. External software catalogs are not treated as scientific authority.
 """
 
 from __future__ import annotations
@@ -624,8 +624,25 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         "https://www.researchgate.net/publication/231182054_Thermal_equations_of_state_for_B1_and_B2_KCl",
         ["Equation BE1", "Table 2", "Table 3", "B2 KCl Thermal EOS, pages 807-810"],
         "The author-uploaded primary article's preferred B2 fit is the bold "
-        "Table 3 row. It explicitly declines individual parameter errors "
-        "because of covariance, but reports alpha0*K0=0.0275+/-0.0009 kbar/K.",
+        "Table 3 row. Its footnote specifies a staged fit of K0 and K0' to the "
+        "room-temperature data before alpha0; the italic row is the distinct "
+        "simultaneous four-parameter fit. The article explicitly declines "
+        "individual parameter errors because of covariance, but reports "
+        "alpha0*K0=0.0275+/-0.0009 kbar/K.",
+    ),
+    "10.2138/am-2019-6779": source(
+        "https://doi.org/10.2138/am-2019-6779",
+        [
+            "Equations 1-6",
+            "Table 1",
+            "pages 721-723 of the final article",
+            "MSA deposit AM-19-56779, Supplemental Table S1 workbook",
+        ],
+        "The final article's preferred Sokolova-Pt fit fixes V0=54.5 A^3 and "
+        "theta0=235 K and reports K0=18.3(3) GPa, K0'=5.60(3), gamma0=2.3(2), "
+        "and q=0.8(2). Equation 6 is the integrated-Gruneisen Debye-temperature "
+        "law. The accepted manuscript's gamma0=0.58(5) and q=0.9(2) are "
+        "superseded.",
     ),
     "10.2138/am-2002-2-316": source(
         "https://doi.org/10.2138/am-2002-2-316",
@@ -761,6 +778,23 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         "The paper provides the complete B2-KCl P-V-T equation and parameters, "
         "explicitly recommends it for pressure calibration, and prints no "
         "fitted-parameter errors or covariance.",
+    ),
+    "kcl_b2_chidester_2021_bm3_5": source(
+        "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
+        [
+            "Methods, effective KCl temperature and Pt pressure basis",
+            "Section III and Equations 1-4",
+            "Table I and Figure 3",
+            "Supplemental Table A1; author-deposited SuppTable_KCl.csv",
+            "Dewaele et al. (2012), Table I",
+        ],
+        "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, "
+        "K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed "
+        "thetaD=235 K. It simultaneously fits all Dewaele et al. (2012) "
+        "room-temperature B2 data and the 155 new high-temperature rows. "
+        "Equations 3-4 leave theta(V) implicit; the thermodynamically integrated "
+        "constant-q relation reproduces all five coefficients and the reported "
+        "1.6 GPa high-temperature RMSE.",
     ),
     "kcl_campbell_1991_bm2_1": source(
         "https://doi.org/10.1016/0022-3697(91)90181-X",
@@ -2587,6 +2621,7 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
         record["temperature_ref"] = 296.15
         record["experimental_pressure_range_gpa"] = [3.18, 8.14]
         record["experimental_temperature_range_k"] = [296.15, 873.15]
+        record["fixed_parameters"] = ["V0"]
         record["thermal"] = {
             "type": "LinearThermalPressure",
             "parameters": {"Tr": 296.15, "alpha_KT": 0.00275},
@@ -2600,16 +2635,30 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             if correction.get("path") != "thermal.parameters.alpha0"
         ]
         record["notes"] = (
-            "Walker et al.'s preferred B2-KCl BE1 fit uses fictive V0=53.53 "
-            "A^3, K0=23.7 GPa, and K0'=4.4. Equation BE1 adds the directly "
-            "reported alpha0*K0=0.0275+/-0.0009 kbar/K thermal pressure "
-            "coefficient relative to the 23 degC isotherm. The paper states "
-            "that individual V0, K0, K0', and alpha0 errors are not meaningful "
-            "because of parameter correlation, so only the published error of "
-            "the identifiable alpha0*K0 product is retained. The represented "
-            "data span 3.18-8.14 GPa and 23-600 degC."
+            "Walker et al.'s preferred bold Table 3 B2-KCl BE1 result is staged: "
+            "the fictive V0=53.53 A^3 reference is held fixed while K0=23.7 GPa "
+            "and K0'=4.4 are fitted to the room-temperature data, then Equation "
+            "BE1 fits the directly reported alpha0*K0=0.0275+/-0.0009 kbar/K "
+            "thermal-pressure coefficient to the P-V-T data. The separate italic "
+            "Table 3 row is a simultaneous four-parameter solution (V0=55.25 A^3, "
+            "K0=14.8 GPa, K0'=6.9, alpha0=0.00018 K^-1) and is not this record. "
+            "The paper states that individual parameter errors are not meaningful "
+            "because of correlation, so only the published error of the identifiable "
+            "alpha0*K0 product is retained. The represented data span 3.18-8.14 GPa "
+            "and 23-600 degC."
         )
         for correction in (
+            {
+                "path": "fixed_parameters",
+                "source_value": [],
+                "value": ["V0"],
+                "reason": (
+                    "The preferred bold Table 3 protocol fits only K0 and K0' to "
+                    "the room-temperature data before fitting alpha0; V0 is the "
+                    "held fictive reference. The italic row is the separate "
+                    "simultaneous fit."
+                ),
+            },
             {
                 "path": "thermal",
                 "source_value": {
@@ -2642,6 +2691,123 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
                 "doi": "10.2138/am-2002-0701",
                 "location": "Equation BE1, Tables 2-3, and pages 807-810",
             }
+            append_correction(record, correction)
+
+    if identifier == "kcl_b2_tateno_2019_vinet_4":
+        record["reference"]["authors"] = [
+            "Tateno",
+            "Komabayashi",
+            "Hirose",
+            "Hirao",
+            "Ohishi",
+        ]
+        record["thermal"]["parameters"].update({"gamma0": 2.3, "q": 0.8})
+        record["thermal"]["parameter_errors"].update({"gamma0": 0.2, "q": 0.2})
+        record["thermal"]["debye_temperature_law"] = "integrated_gruneisen"
+        record["notes"] = (
+            "Preferred final-publication Tateno fit on the Sokolova Pt scale. The "
+            "final article reports gamma0=2.3+/-0.2 and q=0.8+/-0.2 and defines "
+            "theta(V)=theta0*exp[(gamma0-gamma(V))/q], the integrated-Gruneisen "
+            "Debye law. The accepted manuscript instead printed gamma0=0.58+/-0.05 "
+            "and q=0.9+/-0.2; those superseded values are not used. Table 1 also "
+            "gives a Holmes-Pt alternative, which is not represented by this record. "
+            "All 39 observations come from the official MSA Supplemental Table S1 "
+            "workbook."
+        )
+        for correction in (
+            {
+                "path": "thermal.parameters",
+                "source_value": {"gamma0": 0.58, "q": 0.9},
+                "value": {"gamma0": 2.3, "q": 0.8},
+                "reason": (
+                    "Use the final published thermal coefficients rather than the "
+                    "superseded accepted-manuscript values."
+                ),
+                "primary_reference": {
+                    "doi": "10.2138/am-2019-6779",
+                    "location": (
+                        "Equation 6, Table 1, and thermal-EOS discussion on pages "
+                        "721-722"
+                    ),
+                },
+            },
+            {
+                "path": "thermal.debye_temperature_law",
+                "source_value": "variable_exponent",
+                "value": "integrated_gruneisen",
+                "reason": (
+                    "Final Equation 6 defines theta(V)=theta0*exp[(gamma0-gamma(V))/q]."
+                ),
+                "primary_reference": {
+                    "doi": "10.2138/am-2019-6779",
+                    "location": "Equation 6",
+                },
+            },
+            {
+                "path": "scientific_validation.primary_data_check",
+                "source_value": "accepted-manuscript split table",
+                "value": "official MSA Supplemental Table S1 workbook",
+                "reason": (
+                    "The split manuscript layout does not preserve Pt-KCl row "
+                    "alignment for runs 3 and 4; the official XLSX deposit does."
+                ),
+                "primary_reference": {
+                    "doi": "10.2138/am-2019-6779",
+                    "location": ("MSA deposit AM-19-56779, 6779TableS1 revised.xlsx"),
+                },
+            },
+        ):
+            append_correction(record, correction)
+
+    if identifier == "kcl_b2_chidester_2021_bm3_5":
+        record["thermal"]["debye_temperature_law"] = "integrated_gruneisen"
+        record["fit_datasets"] = [
+            "kcl_dewaele_2012_table1_compression",
+            "kcl_chidester_2021_supplemental_pvt",
+        ]
+        record["notes"] = (
+            "The preferred Birch-Murnaghan reference EOS from Table I. Published "
+            "molar V0=32.0(3) cm^3/mol is converted to one B2 formula unit per "
+            "conventional cell with the exact Avogadro constant. Chidester et al. "
+            "fitted the 155 new high-temperature observations simultaneously with "
+            "all 123 Dewaele et al. (2012) room-temperature B2 observations. "
+            "Pressures in the author-deposited high-temperature table were "
+            "calculated from the Dorogokupets-Oganov (2007) Pt EOS. This is an "
+            "experimental, effective-temperature-calibrated P-V-T pressure scale: "
+            "KCl volumes and Pt-derived pressures are measured constraints, while "
+            "the KCl temperature coordinate comes from the authors' gradient model "
+            "for this laser-heated DAC geometry."
+        )
+        for correction in (
+            {
+                "path": "fit_datasets",
+                "source_value": None,
+                "value": list(record["fit_datasets"]),
+                "reason": (
+                    "Section III states that the new high-temperature data were "
+                    "fitted together with the Dewaele et al. (2012) room-temperature "
+                    "B2 data."
+                ),
+                "primary_reference": {
+                    "doi": "10.1103/PhysRevB.104.094107",
+                    "location": "Section III and Figure 3",
+                },
+            },
+            {
+                "path": "thermal.debye_temperature_law",
+                "source_value": "variable_exponent",
+                "value": "integrated_gruneisen",
+                "reason": (
+                    "Equations 3-4 leave theta(V) implicit; the thermodynamically "
+                    "integrated constant-q relation reproduces all five Table I "
+                    "coefficients with the complete 278-row fit scope."
+                ),
+                "primary_reference": {
+                    "doi": "10.1103/PhysRevB.104.094107",
+                    "location": "Equations 3-4, Table I, and Figure 3",
+                },
+            },
+        ):
             append_correction(record, correction)
 
 
@@ -2740,6 +2906,30 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     if migration is not None:
         validation["migration_source"] = migration
     result["scientific_validation"] = validation
+
+    if result["identifier"] == "kcl_b2_tateno_2019_vinet_4":
+        result["scientific_validation"]["note"] = (
+            "Equation, final published parameters, fixed quantities, uncertainties, "
+            "P-T range, Pt pressure basis, and row alignment checked against the "
+            "final article and official MSA supplement."
+        )
+        result["scientific_validation"]["audit_date"] = REPORT_AUDIT_DATE
+        result["scientific_validation"]["verified_fields"].append(
+            "pressure_calibration"
+        )
+
+    if result["identifier"] == "kcl_b2_chidester_2021_bm3_5":
+        result["scientific_validation"]["note"] = (
+            "Equation, parameters, units, molar-to-cell conversion, P-T range, "
+            "temperature convention, Pt pressure basis, complete two-dataset fit "
+            "scope, and Debye-temperature convention checked against the primary "
+            "paper, Dewaele et al. (2012) Table I, and the author-deposited "
+            "high-temperature table."
+        )
+        result["scientific_validation"]["audit_date"] = REPORT_AUDIT_DATE
+        result["scientific_validation"]["verified_fields"].extend(
+            ["pressure_calibration", "fit_scope", "thermal_model_convention"]
+        )
 
     if result["identifier"] == "graphite_hanfland_1989_murnaghan_1":
         result["parameter_errors"] = dict(result["parameter_errors"])
@@ -2914,7 +3104,7 @@ def main() -> None:
         "policy": {
             "scientific_authority": "primary publications and official supplements",
             "external_catalogs": (
-                "BurnMan and Pytheos source code were not inspected or used. "
+                "External software catalogs are not used as scientific authority. "
                 "Dioptas supplied migration/file provenance only."
             ),
             "validated_definition": (

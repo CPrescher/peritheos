@@ -198,3 +198,220 @@ B36C9, or nine B4C formula units. The supplement's ambient `a = 5.601 Å` and
 `c = 12.087 Å` give 328.383 Å³, matching the EOS reference cell volume.
 The average atomic model follows Clark and Hoard (1943),
 [doi:10.1021/ja01251a026](https://doi.org/10.1021/ja01251a026).
+
+<a id="kcl-walker-2002"></a>
+
+## KCl: Walker et al. (2002)
+
+### Why the first validation failed
+
+[Walker et al. (2002)](https://doi.org/10.2138/am-2002-0701) report two B2-KCl
+solutions in Table 3. The preferred bold row and the italic simultaneous-fit
+row are different regressions, not alternative roundings of one result. The
+Table 3 footnote says that the preferred result fits `K0` and `K0'` to the
+room-temperature data before fitting the thermal coefficient. The italic row
+fits all parameters simultaneously.
+
+The first Peritheos campaign released `V0`, `K0`, `K0'`, and `alpha_KT`
+together against all 39 P-V-T rows, used the printed pressure and volume ESDs,
+and then compared that result with the preferred staged row. It therefore
+changed both the staging and the objective. The resulting
+`V0 = 56.811 A^3`, `K0 = 9.482 GPa`, and `K0' = 9.629` looked alarming, but
+they were not evidence that the stored preferred EOS was incorrectly evaluated.
+
+This distinction matters especially here. B2 KCl is observed only from 3.18 to
+8.14 GPa, whereas `V0` is a fictive zero-pressure reference for a high-pressure
+phase. Walker et al. explicitly warn that the parameters are strongly correlated
+and decline to assign meaningful individual errors. Their own simultaneous
+solution (`V0 = 55.25 A^3`, `K0 = 14.8 GPa`, `K0' = 6.9`, and
+`alpha0 = 0.00018 K^-1`) demonstrates the size of that covariance.
+
+### Source-protocol reproduction
+
+The corrected validation minimizes the unweighted squared pressure residuals
+specified by the article. It uses two stages:
+
+1. hold the preferred fictive `V0 = 53.53 A^3` fixed and fit `K0` and `K0'`
+   to the eight Table 2 observations at 23-24 degC; and
+2. hold that fitted reference isotherm fixed and fit `alpha_KT` to all 39
+   observations from 23 to 600 degC using Equation BE1.
+
+| Parameter | Preferred Table 3 | Peritheos staged refit | Difference |
+|---|---:|---:|---:|
+| `V0` (A^3) | 53.53, held | 53.53, held | 0% |
+| `K0` (GPa) | 23.7 | 23.7754 | 0.32% |
+| `K0'` | 4.4 | 4.41587 | 0.36% |
+| `alpha_KT` (GPa/K) | 0.00275 | 0.00276625 | 0.59% |
+
+The room-temperature stage has a pressure RMSE of 0.0261 GPa. Across all 39
+rows, the printed preferred coefficients have an RMSE of 0.1046 GPa and the
+staged refit has an RMSE of 0.1035 GPa. This is curve-level and coefficient-level
+agreement to the precision of the printed table. The campaign labels the result
+`similar`, rather than strict uncertainty `parity`, only because the source
+withholds individual errors for `K0` and `K0'`.
+
+For diagnosis, the ledger also retains the correctly unweighted all-free
+four-parameter calculation. It independently reproduces the paper's italic
+simultaneous solution:
+
+| Parameter | Italic Table 3 | Peritheos simultaneous refit | Difference |
+|---|---:|---:|---:|
+| `V0` (A^3) | 55.25 | 55.3923 | 0.26% |
+| `K0` (GPa) | 14.8 | 14.1887 | 4.13% |
+| `K0'` | 6.9 | 7.15656 | 3.72% |
+| `alpha_KT` (GPa/K) | 0.002664, derived from `alpha0*K0` | 0.00269692 | 1.24% |
+
+That simultaneous fit has a 0.0816 GPa pressure RMSE. It is still not the
+protocol used for the preferred row, but its agreement with the separate italic
+row confirms the diagnosis from the opposite direction. The material record
+remains the preferred bold Table 3 EOS, now with `V0` marked as fixed and with
+both fit protocols described explicitly.
+
+<a id="kcl-tateno-2019"></a>
+
+## KCl: Tateno et al. (2019)
+
+### Two source-control errors
+
+The first validation of
+[Tateno et al. (2019)](https://doi.org/10.2138/am-2019-6779) failed for two
+independent reasons.
+
+First, the record had been audited against the accepted manuscript. That
+version reports `gamma0 = 0.58(5)` and `q = 0.9(2)`, but the final published
+article reports `gamma0 = 2.3(2)` and `q = 0.8(2)` for the preferred Sokolova-Pt
+fit. Final Equation 6 defines
+
+\[
+\theta(V)=\theta_0\exp\{[\gamma_0-\gamma(V)]/q\},
+\]
+
+which is Peritheos's `integrated_gruneisen` law, not `variable_exponent`.
+The final article's approximately 10 GPa thermal pressure at 3000 K is also
+consistent with `gamma0 = 2.3`, not 0.58.
+
+Second, the accepted-manuscript table placed the Pt pressure/temperature half
+and the KCl-volume half on separate pages in different row orders. Joining them
+by printed position corrupted runs 3 and 4. For example, the 6.0 GPa, 300 K
+observation was incorrectly paired with `V = 33.8821 A^3`; its actual KCl
+volume is `45.0463 A^3`.
+
+The authoritative observations are the 39 rows in the
+[official MSA deposit AM-19-56779](http://www.minsocam.org/MSA/AmMin/TOC/2019/May2019_data/AM-19-56779.zip),
+workbook `6779TableS1 revised.xlsx`. The checked-in CSV now follows that
+workbook's row alignment and retains the reported Pt pressures, temperatures,
+volumes, and uncertainties.
+
+### Corrected reproduction
+
+The corrected errors-in-variables fit uses all 39 Supplemental Table S1 rows.
+It holds the source-fixed `V0 = 54.5 A^3`, `theta0 = 235 K`, `Tr = 300 K`, and
+`n = 2`, and fits the remaining Vinet and MGD coefficients simultaneously.
+
+| Parameter | Final publication | Peritheos refit | Difference |
+|---|---:|---:|---:|
+| `K0` (GPa) | 18.3(3) | 18.3446(362) | 0.24% |
+| `K0'` | 5.60(3) | 5.60096(492) | 0.02% |
+| `gamma0` | 2.3(2) | 2.29519(278) | 0.21% |
+| `q` | 0.8(2) | 0.82490(283) | 3.11% |
+
+Every fitted coefficient agrees within the combined two-standard-deviation
+uncertainty and the numerical similarity threshold. The final published curve
+has a 0.726 GPa pressure RMSE on the rounded deposited rows; the refit gives
+0.569 GPa with reduced chi-square 0.431. The record therefore moves from
+`parity_not_achieved` to `parity`. The large earlier residuals were entirely
+explained by the superseded thermal parameters, wrong Debye law, and mispaired
+table rows; no remaining EOS implementation discrepancy is evident.
+
+<a id="kcl-chidester-2021"></a>
+
+## KCl: Chidester et al. (2021)
+
+### Why the first refit drove `q` to zero
+
+The first validation did not reproduce the fit described by
+[Chidester et al. (2021)](https://doi.org/10.1103/PhysRevB.104.094107). It used
+only the 155 rows in the author-deposited high-temperature table. The paper,
+however, states that those new observations were fitted simultaneously with
+the room-temperature B2-KCl data of
+[Dewaele et al. (2012)](https://doi.org/10.1103/PhysRevB.85.214105). Figure 3
+also plots both sets and describes its residuals as belonging to the fit of all
+the data.
+
+That omission removed all observations below 26.2 GPa while leaving the
+fictive zero-pressure `V0` and the other four coefficients free. Applying the
+new-table temperature, pressure, and volume uncertainties as an
+errors-in-variables objective further changed the regression from the
+source-compatible unweighted pressure fit. In that under-anchored
+calculation, `V0` fell from `53.1373` to `51.8022 A^3` and `q` reached its
+lower bound. The boundary was therefore a fit-scope and weighting artifact,
+not evidence that the published `q = 1.0(1)` is wrong.
+
+The article does not state a detailed weighting formula. The Dewaele source
+table has no row-wise uncertainties, and the unweighted calculation recovers
+both the complete coefficient set and the reported RMSE. The validation
+therefore records the unweighted objective as a reproduction-supported
+inference rather than an explicitly printed method.
+
+The corrected material record names both source inputs explicitly:
+
+- all 123 rows of `kcl_dewaele_2012_table1_compression`, assigned to the
+  300 K reference isotherm; and
+- all 155 rows of `kcl_chidester_2021_supplemental_pvt`, which retain the
+  authors' effective KCl temperatures and Pt-derived pressures.
+
+The high-temperature source file is the author-deposited
+[`SuppTable_KCl.csv`](https://knowledge.uchicago.edu/records/6t4wc-w2146/files/SuppTable_KCl.csv?download=1).
+It contains the reduced KCl P-V-T states, but not the raw Pt cell volumes;
+therefore the published pressure basis can be reproduced but cannot be
+independently re-reduced observation by observation.
+
+### Debye-temperature convention
+
+Equations 3-4 print
+
+\[
+P_{\mathrm{thermal}}=\frac{\gamma(V)}{V}
+ [E_D(V,T)-E_D(V,300\,\mathrm{K})],
+\qquad
+\gamma(V)=\gamma_0(V/V_0)^q,
+\]
+
+but do not separately print the volume dependence of the Debye temperature.
+The corrected record uses the thermodynamically consistent integral of the
+stated constant-`q` Gruneisen law,
+
+\[
+\theta(V)=\theta_0\exp\{[\gamma_0-\gamma(V)]/q\}.
+\]
+
+This convention is not chosen only by preference: with the complete data scope
+it recovers the printed coefficients, including `gamma0` and `q`, whereas the
+previous direct variable-exponent convention gives `gamma0 = 3.104` and
+`q = 1.130` on the same rows. The reproduction therefore supplies the missing
+operational detail while recording that the article itself leaves
+`theta(V)` implicit.
+
+### Corrected reproduction
+
+The corrected calculation minimizes unweighted pressure residuals over all
+278 observations. It fixes only the source-defined `Tr = 300 K`,
+`theta0 = 235 K`, and `n = 2`, and fits the BM3 reference and MGD thermal
+coefficients simultaneously.
+
+| Parameter | Publication | Peritheos refit | Difference |
+|---|---:|---:|---:|
+| `V0` (A^3) | 53.1373 ± 0.4982, converted from 32.0(3) cm^3/mol | 53.2036 ± 0.4752 | 0.12% |
+| `K0` (GPa) | 24 ± 1 | 23.9721 ± 1.1961 | 0.12% |
+| `K0'` | 4.56 ± 0.05 | 4.55798 ± 0.04694 | 0.04% |
+| `gamma0` | 2.9 ± 0.4 | 2.91714 ± 0.36014 | 0.59% |
+| `q` | 1.0 ± 0.1 | 0.96524 ± 0.16751 | 3.48% |
+
+Every coefficient meets both the numerical criterion and the combined
+two-standard-deviation uncertainty test. Across all 278 rounded observations,
+the published and refitted curves have pressure RMSE values of 1.303 and
+1.263 GPa. On the 155 high-temperature rows alone, the refit gives
+1.582 GPa, reproducing the article's reported 1.6 GPa. Chidester therefore
+moves from `similar` with a boundary solution to full `parity`; there is no
+remaining coefficient-level discrepancy after restoring the source's actual
+data scope and model convention.

@@ -86,6 +86,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Corrected the B2-KCl refit reproductions for Walker (2002), Tateno et al.
+  (2019), and Chidester et al. (2021). Walker now follows the source's staged,
+  unweighted preferred
+  fit. Tateno now uses the final published `gamma0=2.3`, `q=0.8`, integrated-
+  Gruneisen Debye law, and the correctly aligned official Supplemental Table S1
+  workbook rather than the split accepted-manuscript table. Chidester now uses
+  the source's full simultaneous fit scope—123 Dewaele room-temperature rows
+  plus 155 new high-temperature rows—and the integrated-Gruneisen Debye law,
+  eliminating the false `q=0` boundary and recovering all five coefficients.
 - EOS records now evaluate extrapolated states by default. Published ranges are
   treated as calibration/data coverage, with opt-in enforcement through
   `check_validity=True`; `within_calibration_range()` is the preferred coverage

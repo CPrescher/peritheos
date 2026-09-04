@@ -143,11 +143,18 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
     }
-    assert audit_dates["neon_fcc_hemley_1989_bm3_refit"] == "2026-09-04"
+    latest_audit_identifiers = {
+        "neon_fcc_hemley_1989_bm3_refit",
+        "kcl_b2_tateno_2019_vinet_4",
+        "kcl_b2_chidester_2021_bm3_5",
+    }
+    assert {
+        audit_dates[identifier] for identifier in latest_audit_identifiers
+    } == {"2026-09-04"}
     assert {
         audit_dates[identifier]
         for identifier in current_audit_identifiers
-        if identifier != "neon_fcc_hemley_1989_bm3_refit"
+        if identifier not in latest_audit_identifiers
     } == {"2026-09-03"}
     assert {
         date
@@ -391,10 +398,29 @@ def test_chidester_kcl_dataset_and_new_pressure_markers_match_primary_values():
     assert tateno["thermal"]["parameters"] == {
         "Tr": 300.0,
         "theta0": 235.0,
-        "gamma0": 0.58,
-        "q": 0.9,
+        "gamma0": 2.3,
+        "q": 0.8,
         "n": 2,
     }
+    assert tateno["thermal"]["debye_temperature_law"] == "integrated_gruneisen"
+    assert tateno["thermal"]["parameter_errors"]["gamma0"] == pytest.approx(0.2)
+    tateno_dataset = next(
+        item
+        for item in document["datasets"]
+        if item["identifier"] == "kcl_tateno_2019_table_s1_pvt"
+    )
+    tateno_payload = (
+        resources.files("peritheos.data")
+        .joinpath(tateno_dataset["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    tateno_rows = list(csv.DictReader(io.StringIO(tateno_payload)))
+    assert len(tateno_rows) == 39
+    six_gpa = next(
+        row for row in tateno_rows if row["run"] == "3" and row["pressure_gpa"] == "6.0"
+    )
+    assert six_gpa["kcl_unit_cell_volume_a3"] == "45.0463"
+    assert "official MSA XLSX deposit" in tateno_dataset["notes"]
     assert (
         tateno["pressure_calibration"]["methods"][0]["reference_eos_record"]
         == "platinum_sokolova_2013_holzapfel_3"
@@ -413,6 +439,22 @@ def test_chidester_kcl_dataset_and_new_pressure_markers_match_primary_values():
         "q": 1.0,
         "n": 2,
     }
+    assert chidester["thermal"]["debye_temperature_law"] == (
+        "integrated_gruneisen"
+    )
+    assert chidester["fit_datasets"] == [
+        "kcl_dewaele_2012_table1_compression",
+        "kcl_chidester_2021_supplemental_pvt",
+    ]
+    assert chidester["scientific_validation"]["primary_data_check"][
+        "dataset_identifiers"
+    ] == chidester["fit_datasets"]
+    dewaele_dataset = next(
+        item
+        for item in document["datasets"]
+        if item["identifier"] == "kcl_dewaele_2012_table1_compression"
+    )
+    assert chidester["identifier"] in dewaele_dataset["used_by_eos_records"]
     assert chidester["experimental_configuration"] == {
         "geometry": "laser-heated diamond-anvil cell",
         "sample_and_laser_absorber": "approximately 5 micrometer Pt foil",
@@ -1303,9 +1345,19 @@ def test_newly_validated_primary_errors_and_single_remaining_deferral():
 
 def test_walker_2002_kcl_be1_and_reported_product_error_regression():
     document = get_material_document("kcl")
+    source = next(
+        item
+        for item in document["eos_records"]
+        if item["identifier"] == "kcl_walker_2002_bm3_2"
+    )
     record = Material.from_eosmat(
         document, record_identifiers=["kcl_walker_2002_bm3_2"]
     ).eos_records[0]
+
+    # The preferred bold Table 3 row uses the staged fit; the italic row is the
+    # separate simultaneous solution. V0 is therefore fixed for this record.
+    assert source["fixed_parameters"] == ["V0"]
+    assert "italic Table 3 row" in source["notes"]
 
     # Table 2 reports V=47.57(3) A^3 at 36.3(2) kbar and 23 degC.
     assert record.pressure(47.57, 296.15) == pytest.approx(3.63, abs=0.02)

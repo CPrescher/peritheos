@@ -4911,7 +4911,7 @@
       "status": "parity"
     },
     {
-      "absolute_sigma": true,
+      "absolute_sigma": false,
       "columns": {
         "pressure": "pressure_kbar",
         "temperature": "temperature_celsius",
@@ -4920,7 +4920,7 @@
       "dataset_identifiers": [
         "kcl_walker_2002_table2_pvt"
       ],
-      "degrees_of_freedom": 35,
+      "degrees_of_freedom": 38,
       "experimental_pressure_range_gpa": [
         3.18,
         8.14
@@ -4929,12 +4929,12 @@
         296.15,
         873.15
       ],
-      "fit_kind": "joint_pvt",
+      "fit_kind": "staged_reference_isotherm_then_thermal_pressure",
       "fixed_parameters": [
+        "V0",
         "Tr"
       ],
       "free_parameters": [
-        "rt_eos.V0",
         "rt_eos.K0",
         "rt_eos.K0_prime",
         "alpha_KT"
@@ -4942,7 +4942,7 @@
       "label": "Walker et al. (2002), B2 thermal Birch",
       "material_identifier": "kcl",
       "model": "BM3",
-      "objective": "errors_in_variables",
+      "objective": "unweighted pressure residuals in two source-stated stages",
       "observations": 39,
       "observed_pressure_range_gpa": [
         3.18,
@@ -4958,46 +4958,35 @@
       ],
       "parameters": [
         {
-          "difference": 3.280660660259457,
-          "parameter": "rt_eos.V0",
-          "published": 53.53,
-          "published_error": null,
-          "refit": 56.81066066025946,
-          "refit_error": 1.3841715840376079,
-          "relative_difference": 0.0612863938027173,
-          "similar": false,
-          "within_combined_2sigma": null
-        },
-        {
-          "difference": -14.218268757895652,
+          "difference": 0.0753978404896678,
           "parameter": "rt_eos.K0",
           "published": 23.7,
           "published_error": null,
-          "refit": 9.481731242104347,
-          "refit_error": 4.084777762628159,
-          "relative_difference": 0.5999269518099432,
-          "similar": false,
+          "refit": 23.775397840489667,
+          "refit_error": 0.2594338360674082,
+          "relative_difference": 0.0031813434805767005,
+          "similar": true,
           "within_combined_2sigma": null
         },
         {
-          "difference": 5.228981859071233,
+          "difference": 0.015873762008514092,
           "parameter": "rt_eos.K0_prime",
           "published": 4.4,
           "published_error": null,
-          "refit": 9.628981859071233,
-          "refit_error": 3.132238317010689,
-          "relative_difference": 1.1884049679707347,
-          "similar": false,
+          "refit": 4.4158737620085144,
+          "refit_error": 0.11471257449556843,
+          "relative_difference": 0.0036076731837532024,
+          "similar": true,
           "within_combined_2sigma": null
         },
         {
-          "difference": -3.621930798956884e-05,
+          "difference": 1.624568787038025e-05,
           "parameter": "alpha_KT",
           "published": 0.00275,
           "published_error": 9e-05,
-          "refit": 0.002713780692010431,
-          "refit_error": 5.3970207085973776e-05,
-          "relative_difference": 0.013170657450752306,
+          "refit": 0.00276624568787038,
+          "refit_error": 5.184245631446523e-05,
+          "relative_difference": 0.005907522861956454,
           "similar": true,
           "within_combined_2sigma": true
         }
@@ -5006,14 +4995,71 @@
       "primary_data_status": "bundled",
       "primary_source": "https://www.researchgate.net/publication/231182054_Thermal_equations_of_state_for_B1_and_B2_KCl",
       "published_rmse_gpa": 0.10458131660623424,
+      "qualification": "Source-protocol reproduction: the preferred bold Table 3 result is staged, not a simultaneous four-parameter fit. V0 is held at the published fictive reference, K0 and K0' are fitted to the eight 23-24 degC rows, and alpha_KT is then fitted to all 39 P-V-T rows.",
       "record_identifier": "kcl_walker_2002_bm3_2",
-      "reduced_chi_square": 1.9239608397737213,
-      "rmse_gpa": 0.04879935161946387,
-      "selection": "all rows",
-      "solver_message": "`ftol` termination condition is satisfied.",
+      "reduced_chi_square": null,
+      "rmse_gpa": 0.10347680223255967,
+      "selection": "eight 23-24 degC rows for K0 and K0'; all 39 rows for alpha_KT",
+      "simultaneous_fit_diagnostic": {
+        "peritheos_four_parameter_refit": {
+          "Tr": 296.15,
+          "alpha_KT": 0.0026969207643112946,
+          "rt_eos.K0": 14.188725515717113,
+          "rt_eos.K0_prime": 7.156559906017614,
+          "rt_eos.V0": 55.392325009531554
+        },
+        "published_italic_table3_alternative": {
+          "K0": 14.8,
+          "K0_prime": 6.9,
+          "V0": 55.25,
+          "alpha0": 0.00018,
+          "alpha_KT_derived": 0.002664
+        },
+        "purpose": "Demonstrates why the original validator disagreed: this is not the protocol used for the preferred bold Table 3 row.",
+        "rmse_gpa": 0.08157600171817615
+      },
+      "solver_message": "room-temperature BM3 and thermal-pressure stages completed",
       "solver_success": true,
-      "source_notes": "Walker et al.'s preferred B2-KCl BE1 fit uses fictive V0=53.53 A^3, K0=23.7 GPa, and K0'=4.4. Equation BE1 adds the directly reported alpha0*K0=0.0275+/-0.0009 kbar/K thermal pressure coefficient relative to the 23 degC isotherm. The paper states that individual V0, K0, K0', and alpha0 errors are not meaningful because of parameter correlation, so only the published error of the identifiable alpha0*K0 product is retained. The represented data span 3.18-8.14 GPa and 23-600 degC.",
-      "status": "parity_not_achieved"
+      "source_notes": "Walker et al.'s preferred bold Table 3 B2-KCl BE1 result is staged: the fictive V0=53.53 A^3 reference is held fixed while K0=23.7 GPa and K0'=4.4 are fitted to the room-temperature data, then Equation BE1 fits the directly reported alpha0*K0=0.0275+/-0.0009 kbar/K thermal-pressure coefficient to the P-V-T data. The separate italic Table 3 row is a simultaneous four-parameter solution (V0=55.25 A^3, K0=14.8 GPa, K0'=6.9, alpha0=0.00018 K^-1) and is not this record. The paper states that individual parameter errors are not meaningful because of correlation, so only the published error of the identifiable alpha0*K0 product is retained. The represented data span 3.18-8.14 GPa and 23-600 degC.",
+      "stages": [
+        {
+          "fixed_parameters": {
+            "V0": 53.53
+          },
+          "free_parameters": [
+            "K0",
+            "K0_prime"
+          ],
+          "name": "reference_isotherm",
+          "observations": 8,
+          "parameters": {
+            "K0": 23.775397840489667,
+            "K0_prime": 4.4158737620085144
+          },
+          "rmse_gpa": 0.026107390261322076,
+          "temperature_range_k": [
+            296.15,
+            297.15
+          ]
+        },
+        {
+          "fixed_parameters": {
+            "K0": 23.775397840489667,
+            "K0_prime": 4.4158737620085144,
+            "V0": 53.53
+          },
+          "free_parameters": [
+            "alpha_KT"
+          ],
+          "name": "thermal_pressure",
+          "observations": 39,
+          "parameters": {
+            "alpha_KT": 0.00276624568787038
+          },
+          "rmse_gpa": 0.10347680223255967
+        }
+      ],
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -5102,7 +5148,7 @@
         "volume": "kcl_unit_cell_volume_a3"
       },
       "dataset_identifiers": [
-        "kcl_tateno_2019_table1_pvt"
+        "kcl_tateno_2019_table_s1_pvt"
       ],
       "degrees_of_freedom": 35,
       "experimental_pressure_range_gpa": [
@@ -5145,74 +5191,76 @@
       ],
       "parameters": [
         {
-          "difference": -5.6435824184959245,
+          "difference": 0.04461637057322321,
           "parameter": "rt_eos.K0",
           "published": 18.3,
           "published_error": 0.3,
-          "refit": 12.656417581504076,
-          "refit_error": 0.25437256191540203,
-          "relative_difference": 0.30839248188502316,
-          "similar": false,
-          "within_combined_2sigma": false
+          "refit": 18.344616370573224,
+          "refit_error": 0.361851450913276,
+          "relative_difference": 0.002438053036788153,
+          "similar": true,
+          "within_combined_2sigma": true
         },
         {
-          "difference": 0.8971809268036735,
+          "difference": 0.0009551508023593058,
           "parameter": "rt_eos.K0_prime",
           "published": 5.6,
           "published_error": 0.03,
-          "refit": 6.497180926803673,
-          "refit_error": 0.05007134040312314,
-          "relative_difference": 0.16021087978637027,
+          "refit": 5.600955150802359,
+          "refit_error": 0.04919389862646186,
+          "relative_difference": 0.0001705626432784475,
           "similar": true,
-          "within_combined_2sigma": false
+          "within_combined_2sigma": true
         },
         {
-          "difference": 8.310904752200017,
+          "difference": -0.00481480688856184,
           "parameter": "gamma0",
-          "published": 0.58,
-          "published_error": 0.05,
-          "refit": 8.890904752200017,
-          "refit_error": 0.3229162580800857,
-          "relative_difference": 14.329146124482788,
-          "similar": false,
-          "within_combined_2sigma": false
+          "published": 2.3,
+          "published_error": 0.2,
+          "refit": 2.295185193111438,
+          "refit_error": 0.27799055479471196,
+          "relative_difference": 0.002093394299374713,
+          "similar": true,
+          "within_combined_2sigma": true
         },
         {
-          "difference": -0.6644205261523132,
+          "difference": 0.024899721514183182,
           "parameter": "q",
-          "published": 0.9,
+          "published": 0.8,
           "published_error": 0.2,
-          "refit": 0.23557947384768685,
-          "refit_error": 0.09915043523137149,
-          "relative_difference": 0.7382450290581257,
-          "similar": false,
-          "within_combined_2sigma": false
+          "refit": 0.8248997215141832,
+          "refit_error": 0.2828653210953963,
+          "relative_difference": 0.031124651892728977,
+          "similar": true,
+          "within_combined_2sigma": true
         }
       ],
-      "primary_data_finding": "All 39 simultaneous Pt and B2-KCl P-V-T observations printed in Table 1, spanning room temperature to 2560 K and pressures to 228.6 GPa.",
+      "primary_data_finding": "All 39 simultaneous Pt and B2-KCl P-V-T observations are transcribed from the official MSA Supplemental Table S1 workbook. Its row alignment corrects the earlier accepted-manuscript transcription that mismatched the Pt and KCl halves for runs 3 and 4.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.2138/am-2019-6779",
-      "published_rmse_gpa": 16.64508493407164,
+      "published_rmse_gpa": 0.7262295725683019,
+      "qualification": "Corrected final-publication reproduction: the model uses the final gamma0=2.3 and q=0.8 coefficients, Equation 6's integrated-Gruneisen Debye law, and the correctly aligned official MSA Supplemental Table S1 workbook. See the [dedicated Tateno reproduction](literature-reproductions.md#kcl-tateno-2019).",
       "record_identifier": "kcl_b2_tateno_2019_vinet_4",
-      "reduced_chi_square": 211.30114583821145,
-      "rmse_gpa": 13.699489640476498,
+      "reduced_chi_square": 0.4305370523763842,
+      "rmse_gpa": 0.5693967167537919,
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Preferred Tateno fit on the Sokolova Pt scale. Table 2 also gives a Holmes-Pt alternative, which is not represented by this record. The MGD fit gives gamma0=0.58, not the ambient acoustic gamma values used in some older KCl parameterizations.",
-      "status": "parity_not_achieved"
+      "source_notes": "Preferred final-publication Tateno fit on the Sokolova Pt scale. The final article reports gamma0=2.3+/-0.2 and q=0.8+/-0.2 and defines theta(V)=theta0*exp[(gamma0-gamma(V))/q], the integrated-Gruneisen Debye law. The accepted manuscript instead printed gamma0=0.58+/-0.05 and q=0.9+/-0.2; those superseded values are not used. Table 1 also gives a Holmes-Pt alternative, which is not represented by this record. All 39 observations come from the official MSA Supplemental Table S1 workbook.",
+      "status": "parity"
     },
     {
-      "absolute_sigma": true,
+      "absolute_sigma": false,
       "columns": {
-        "pressure": "pt_derived_pressure_gpa",
-        "temperature": "kcl_temperature_k",
-        "volume": "kcl_molar_volume_cm3_mol"
+        "pressure": "pressure_gpa + pt_derived_pressure_gpa",
+        "temperature": "300 K assigned + kcl_temperature_k",
+        "volume": "volume_a3_per_formula_unit + kcl_molar_volume_cm3_mol"
       },
       "dataset_identifiers": [
+        "kcl_dewaele_2012_table1_compression",
         "kcl_chidester_2021_supplemental_pvt"
       ],
-      "degrees_of_freedom": 150,
+      "degrees_of_freedom": 273,
       "experimental_pressure_range_gpa": [
         2.6,
         167.52
@@ -5234,92 +5282,96 @@
         "gamma0",
         "q"
       ],
+      "high_temperature_published_rmse_gpa": 1.6317751579435855,
+      "high_temperature_refit_rmse_gpa": 1.5819245678289608,
       "label": "Chidester et al. (2021), B2 BM3 + MGD on Dorogokupets-Oganov Pt",
       "material_identifier": "kcl",
       "model": "BM3",
-      "objective": "errors_in_variables",
-      "observations": 155,
+      "objective": "pressure_residuals",
+      "observations": 278,
       "observed_pressure_range_gpa": [
-        26.16466914,
+        2.56,
         167.5198165
       ],
       "observed_temperature_range_k": [
-        959.0,
+        300.0,
         2377.0
       ],
       "observed_volume_range": [
-        22.237646999137894,
-        36.20098544491677
+        22.065,
+        48.991
       ],
       "parameters": [
         {
-          "difference": -1.3350717981387916,
+          "difference": 0.06630242114739815,
           "parameter": "rt_eos.V0",
           "published": 53.137250149563094,
           "published_error": 0.49816172015215404,
-          "refit": 51.8021783514243,
-          "refit_error": 4.289543781830692,
-          "relative_difference": 0.02512496966593159,
+          "refit": 53.20355257071049,
+          "refit_error": 0.47516566049474107,
+          "relative_difference": 0.001247757852745101,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": -0.3784845727683539,
+          "difference": -0.027858035273681026,
           "parameter": "rt_eos.K0",
           "published": 24.0,
           "published_error": 1.0,
-          "refit": 23.621515427231646,
-          "refit_error": 10.175444668605149,
-          "relative_difference": 0.015770190532014745,
+          "refit": 23.97214196472632,
+          "refit_error": 1.1960994091602488,
+          "relative_difference": 0.0011607514697367094,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": 0.23939654947086897,
+          "difference": -0.0020193422609526834,
           "parameter": "rt_eos.K0_prime",
           "published": 4.56,
           "published_error": 0.05,
-          "refit": 4.799396549470869,
-          "refit_error": 0.43319704492619604,
-          "relative_difference": 0.05249924330501513,
+          "refit": 4.557980657739047,
+          "refit_error": 0.046943811002004995,
+          "relative_difference": 0.00044283821512120257,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": 0.4599877511885193,
+          "difference": 0.01713705285766487,
           "parameter": "gamma0",
           "published": 2.9,
           "published_error": 0.4,
-          "refit": 3.3599877511885192,
-          "refit_error": 1.3776886442272338,
-          "relative_difference": 0.15861646592707562,
+          "refit": 2.917137052857665,
+          "refit_error": 0.36013540135819855,
+          "relative_difference": 0.005909328571608576,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": -0.999999999,
+          "difference": -0.03475741825002654,
           "parameter": "q",
           "published": 1.0,
           "published_error": 0.1,
-          "refit": 1e-09,
-          "refit_error": 0.7401884482445505,
-          "relative_difference": 0.999999999,
-          "similar": false,
+          "refit": 0.9652425817499735,
+          "refit_error": 0.16750528881796325,
+          "relative_difference": 0.03475741825002654,
+          "similar": true,
           "within_combined_2sigma": true
         }
       ],
-      "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
+      "primary_data_finding": "Both source inputs to the simultaneous fit are bundled: all 123 Dewaele et al. (2012) room-temperature B2 rows and all 155 Chidester et al. high-temperature rows.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/PhysRevB.104.094107",
-      "published_rmse_gpa": 1.582921315768393,
+      "published_rmse_gpa": 1.3025804462129118,
+      "qualification": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
       "record_identifier": "kcl_b2_chidester_2021_bm3_5",
-      "reduced_chi_square": 0.3308812414353519,
-      "rmse_gpa": 0.18219631589026217,
-      "selection": "all rows",
-      "solver_message": "`xtol` termination condition is satisfied.",
+      "reduced_chi_square": 1.623828263514953,
+      "rmse_gpa": 1.2627837183014081,
+      "selection": "all 123 Dewaele 300 K rows and all 155 Chidester high-temperature rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "The preferred Birch-Murnaghan reference EOS from Table I. Published molar V0=32.0(3) cm^3/mol is converted to one B2 formula unit per conventional cell with the exact Avogadro constant. Pressures in the author-deposited high-temperature table were calculated from the Dorogokupets-Oganov (2007) Pt EOS. This is an experimental, effective-temperature-calibrated P-V-T pressure scale: KCl volumes and Pt-derived pressures are measured constraints, while the KCl temperature coordinate comes from the authors' gradient model for this laser-heated DAC geometry.",
-      "status": "similar"
+      "source_notes": "The preferred Birch-Murnaghan reference EOS from Table I. Published molar V0=32.0(3) cm^3/mol is converted to one B2 formula unit per conventional cell with the exact Avogadro constant. Chidester et al. fitted the 155 new high-temperature observations simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 observations. Pressures in the author-deposited high-temperature table were calculated from the Dorogokupets-Oganov (2007) Pt EOS. This is an experimental, effective-temperature-calibrated P-V-T pressure scale: KCl volumes and Pt-derived pressures are measured constraints, while the KCl temperature coordinate comes from the authors' gradient model for this laser-heated DAC geometry.",
+      "source_reported_pressure_rmse_gpa": 1.6,
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -10719,8 +10771,8 @@
   ],
   "summary": {
     "not_refittable": 39,
-    "parity": 76,
-    "parity_not_achieved": 13,
+    "parity": 78,
+    "parity_not_achieved": 11,
     "similar": 32,
     "total": 160
   }

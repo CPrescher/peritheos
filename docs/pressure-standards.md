@@ -340,11 +340,16 @@ Two newer shared records provide explicit metal lineage:
 
 - `kcl_b2_tateno_2019_vinet_4` is a Vinet+MGD EOS based on simultaneous
   B2-KCl/Pt diffraction and the Sokolova Pt scale. Its preferred parameters
-  are `V0=54.5 A^3`, `K0=18.3 GPa`, `K0'=5.60`, `gamma0=0.58`, and `q=0.9`.
+  are `V0=54.5 A^3`, `K0=18.3 GPa`, `K0'=5.60`, `gamma0=2.3`, and `q=0.8`.
+  These are the final published values; the accepted manuscript's `gamma0=0.58`
+  and `q=0.9` are superseded. The bundled observations follow the correctly
+  aligned official MSA Supplemental Table S1 workbook.
 - `kcl_b2_chidester_2021_bm3_5` is a BM3+MGD EOS on the
-  Dorogokupets--Oganov Pt scale. The complete 155-row author table is bundled
-  at `peritheos/data/datasets/chidester_2021_kcl_pvt.csv`. It contains KCl
-  volume and Pt-derived pressure, not raw Pt cell volume.
+  Dorogokupets--Oganov Pt scale. Its simultaneous fit uses both all 123
+  Dewaele et al. (2012) room-temperature B2 rows and the complete 155-row
+  author high-temperature table bundled at
+  `peritheos/data/datasets/chidester_2021_kcl_pvt.csv`. The latter contains
+  KCl volume and Pt-derived pressure, not raw Pt cell volume.
 
 These records let the recursive graph normalize a KCl-based sample to Au,
 Pt, or another connected XRD target without treating a KCl volume as a metal

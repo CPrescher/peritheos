@@ -31,9 +31,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 160, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 76,
+        "parity": 78,
         "similar": 32,
-        "parity_not_achieved": 13,
+        "parity_not_achieved": 11,
         "not_refittable": 39,
     }
     assert all(
@@ -50,6 +50,47 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
 
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
     assert by_identifier["kcl_campbell_1991_bm2_1"]["status"] == "parity"
+    walker = by_identifier["kcl_walker_2002_bm3_2"]
+    assert walker["status"] == "similar"
+    assert walker["free_parameters"] == [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "alpha_KT",
+    ]
+    assert [item["refit"] for item in walker["parameters"]] == pytest.approx(
+        [23.7753978405, 4.4158737620, 0.002766245688]
+    )
+    assert walker["stages"][0]["observations"] == 8
+    assert walker["stages"][1]["observations"] == 39
+    assert "not a simultaneous four-parameter fit" in walker["qualification"]
+    simultaneous = walker["simultaneous_fit_diagnostic"]
+    simultaneous_parameters = simultaneous["peritheos_four_parameter_refit"]
+    assert simultaneous_parameters["rt_eos.V0"] == pytest.approx(55.39232501)
+    assert simultaneous_parameters["rt_eos.K0"] == pytest.approx(14.188725516)
+    assert simultaneous_parameters["rt_eos.K0_prime"] == pytest.approx(7.156559906)
+    assert simultaneous_parameters["alpha_KT"] == pytest.approx(0.002696920764)
+    tateno = by_identifier["kcl_b2_tateno_2019_vinet_4"]
+    assert tateno["status"] == "parity"
+    assert tateno["dataset_identifiers"] == ["kcl_tateno_2019_table_s1_pvt"]
+    assert [item["refit"] for item in tateno["parameters"]] == pytest.approx(
+        [18.344616371, 5.600955151, 2.295185193, 0.824899722]
+    )
+    assert "Corrected final-publication reproduction" in tateno["qualification"]
+    chidester = by_identifier["kcl_b2_chidester_2021_bm3_5"]
+    assert chidester["status"] == "parity"
+    assert chidester["observations"] == 278
+    assert chidester["dataset_identifiers"] == [
+        "kcl_dewaele_2012_table1_compression",
+        "kcl_chidester_2021_supplemental_pvt",
+    ]
+    assert [item["refit"] for item in chidester["parameters"]] == pytest.approx(
+        [53.203552571, 23.972141965, 4.557980658, 2.917137053, 0.965242582]
+    )
+    assert chidester["high_temperature_refit_rmse_gpa"] == pytest.approx(
+        1.581924568
+    )
+    assert chidester["source_reported_pressure_rmse_gpa"] == 1.6
+    assert "155 new high-temperature rows" in chidester["qualification"]
     assert by_identifier["b4c_somayazulu_2023_bm3_1"]["status"] == (
         "parity_not_achieved"
     )
@@ -78,12 +119,26 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert neon_vinet["free_parameters"] == ["rt_eos.K0", "rt_eos.K0_prime"]
     assert "Conditional partial reproduction" in neon_bm3["qualification"]
     assert "Conditional partial reference-isotherm" in neon_vinet["qualification"]
-    assert "Finger's low-pressure rows remain unavailable" in (
-        neon_bm3["qualification"]
+    assert (
+        "Finger's low-pressure rows remain unavailable" in (neon_bm3["qualification"])
     )
     hemley = by_identifier["neon_fcc_hemley_1989_bm3_refit"]
     assert hemley["status"] == "parity"
     assert hemley["observations"] == 21
     assert hemley["free_parameters"] == ["K0", "K0_prime"]
-    assert markdown.count("### `") == 45
+    explained = [
+        item
+        for item in ledger["records"]
+        if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
+    ]
+    assert markdown.count("### `") == len(explained) == 43
     assert all(identifier in markdown for identifier in by_identifier)
+    failed = [
+        item
+        for item in ledger["records"]
+        if item["status"] in {"parity_not_achieved", "refit_failed"}
+    ]
+    for item in failed:
+        anchor = f"investigation-{item['record_identifier']}"
+        assert markdown.count(f'<a id="{anchor}"></a>') == 1
+        assert markdown.count(f"](#{anchor})") >= 2
