@@ -40,7 +40,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by the three literature EoS records; the Caracas et al. record is a static 0 K DFT branch, whereas the Mao and Shim records are room-temperature experiments.",
+ "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by the literature EOS records; Caracas et al. is a static 0 K DFT branch, Mao et al. and Shim et al. provide room-temperature experiments, and Kawai-Tsuchiya and the explicitly non-preferred Shim et al. JGR DAC-only alternative provide thermal parameterizations.",
  "peaks": [],
  "eos_records": [
   {
@@ -559,6 +559,252 @@
    }
   },
   {
+   "label": "Shim et al. (2000), DAC-only cubic CaSiO3 BM3-MGD alternative",
+   "reference": {
+    "authors": [
+     "Shim",
+     "Duffy",
+     "Shen"
+    ],
+    "year": 2000,
+    "title": "The stability and P-V-T equation of state of CaSiO3 perovskite in the Earth's lower mantle",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "105",
+    "locator": "25955-25968",
+    "doi": "10.1029/2000JB900183"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "default": false,
+   "phase_selection": {
+    "phase": "CaSiO3 perovskite treated as cubic in the source EOS analysis",
+    "cell_basis": "one-formula-unit pseudo-cubic cell (Z=1)",
+    "structure_model": "Pm-3m aristotype used by this material record",
+    "source_caveat": "No peak splitting or new peaks were observed, but the authors state that a small predicted tetragonal distortion could remain below the energy-dispersive XRD resolution."
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 45.5817973939,
+     "K0": 236.0,
+     "K0_prime": 3.9
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.0332107813,
+    "K0": 4.0,
+    "K0_prime": 0.2
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "parameter_covariance": null,
+   "parameter_error_confidence": 0.68,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    20.6,
+    68.5
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    1272.0,
+    2380.0
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1000.0,
+     "gamma0": 2.0,
+     "q": 0.9,
+     "n": 5.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.08,
+     "q": 0.4,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "fit_datasets": [
+    "ca_perovskite_shim_2000_jgr_table1_dac_pvt"
+   ],
+   "experimental_configuration": {
+    "sample": "Natural wollastonite with less than 0.1 mol % Fe and Mn impurities, mixed with 10 wt % Pt",
+    "pressure_cell": "Diamond-anvil cell with double-sided Nd:YLF laser heating",
+    "pressure_media": [
+     "NaCl for experiment 1",
+     "argon for experiments 2-4"
+    ],
+    "diffraction": "Energy-dispersive synchrotron X-ray diffraction at GSECARS, Advanced Photon Source, using a 10 micrometer by 10 micrometer beam",
+    "temperature_measurement": "Two-sided spectroradiometry with radial profiles integrated over the X-rayed area; only rows with total estimated 1-sigma temperature error below 150 K were selected"
+   },
+   "validity": {
+    "pressure_gpa": [
+     20.6,
+     68.5
+    ],
+    "temperature_k": [
+     1272.0,
+     2380.0
+    ],
+    "volume_ratio": [
+     0.8349385539,
+     0.9578823674
+    ],
+    "notes": [
+     "This domain is the rectangular envelope of the 34 Table 1 DAC observations used for the published DAC-only fit.",
+     "The two measurements above 90 GPa shown only in Figures 7-8 were excluded by the authors because Pt-Ar peak overlap made their pressures highly uncertain; they are not reconstructed as numerical rows.",
+     "This non-default record is not the authors' preferred combined DAC+LVP model."
+    ]
+   },
+   "parameter_provenance": {
+    "eos.V0": "Table 2 and the paragraph following Equation 12: fixed V0=27.45(2) cm^3/mol, converted with the exact Avogadro constant to the one-formula-unit cubic cell",
+    "eos.K0": "Table 2 and the paragraph following Equation 12: fixed KT0=236(4) GPa from Shim et al.'s companion 300 K static-compression study",
+    "eos.K0_prime": "Table 2 and the paragraph following Equation 12: fixed K'T0=3.9(2) from the companion 300 K static-compression study",
+    "thermal.Tr": "Equations 7-10: thermal pressure is referenced to the 300 K static isotherm",
+    "thermal.theta0": "Paragraph preceding Table 1: theta0=1000 K assumed from MgSiO3 perovskite",
+    "thermal.gamma0": "Text following Figure 7: fitted to this study's DAC P-V-T rows alone, gamma0=2.00(8)",
+    "thermal.q": "Text following Figure 7: fitted to this study's DAC P-V-T rows alone, q=0.9(4)",
+    "thermal.n": "Equation 10 defines n as atoms per formula unit; CaSiO3 has five atoms",
+    "equation": "Equations 7-12: BM3 300 K reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure",
+    "fit_selection": "All 34 P-V-T observations printed in Table 1; unweighted fit",
+    "volume_basis": "Table 1 volumes are one-formula-unit pseudo-cubic cell volumes in A3. The fixed V0=27.45(2) cm3/mol is converted on the same Z=1 basis."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Section 2.1 and final paragraph of Section 2.3; in-situ Pt internal standard at high temperature",
+      "scope": "all 34 Table 1 DAC observations",
+      "reference_eos_record": "platinum_holmes_1989_vinet_1"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The Holmes Pt P-V-T EOS is executable in Peritheos, but Table 1 reports only reduced sample pressures and does not provide row-wise Pt volumes needed to repeat pressure reduction."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The complete DAC-only alternative was checked against the author-hosted primary article. It is intentionally represented as a published non-preferred fit, separate from the article's selected combined DAC+LVP parameterization.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "fixed_free_parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "fit_selection",
+     "pressure_calibration",
+     "volume_basis"
+    ],
+    "primary_source_check": {
+     "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_jgrb12383_2000.pdf",
+     "doi": "10.1029/2000jb900183",
+     "locations": [
+      "Section 2, pages 25956-25960",
+      "Equations 7-12, page 25962",
+      "Table 1 and Table 2, page 25963",
+      "Figure 7 and accompanying text, page 25964",
+      "Figure 8 and accompanying text, page 25965"
+     ],
+     "finding": "The article explicitly reports a separate unweighted fit to its DAC data alone: gamma0=2.00+/-0.08 and q=0.9+/-0.4, with V0, KT0, K'T0, and theta0 fixed. This alternative is distinct from the preferred combined-data result."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "ca_perovskite_shim_2000_jgr_table1_dac_pvt"
+     ],
+     "source_locations": [
+      "Table 1, journal page 25963"
+     ],
+     "finding": "All 34 DAC P-V-T observations used for the DAC-only alternative are bundled with their printed 1-sigma pressure, volume, and temperature uncertainties and experiment-medium provenance."
+    },
+    "independent_refit": {
+     "selection": "all 34 Table 1 DAC observations",
+     "objective": "unweighted pressure residuals, matching the source statement that no weighting was used",
+     "free_parameters": [
+      "gamma0",
+      "q"
+     ],
+     "fixed_parameters": {
+      "V0_cm3_per_mol": 27.45,
+      "K0_gpa": 236.0,
+      "K0_prime": 3.9,
+      "Tr_k": 300.0,
+      "theta0_k": 1000.0,
+      "n_atoms_per_formula_unit": 5.0
+     },
+     "refit_parameters": {
+      "gamma0": 2.0006405181,
+      "q": 0.9404932591
+     },
+     "refit_standard_errors": {
+      "gamma0": 0.0875352616,
+      "q": 0.4223094684
+     },
+     "published_curve_pressure_rmse_gpa": 1.05194403,
+     "refit_curve_pressure_rmse_gpa": 1.0511631566,
+     "result": "parity",
+     "notes": "Both refitted coefficients agree with the published DAC-only values within displayed precision or their reported 1-sigma intervals."
+    },
+    "excluded_preferred_combined_fit": {
+     "parameters": {
+      "gamma0": 1.92,
+      "q": 0.6
+     },
+     "reason": "The preferred result combines the 34 Table 1 DAC rows with Wang et al. (1996) LVP observations that are only plotted in this article and are not provided numerically in an official supplement. It therefore fails the complete-checksummed-dataset rule and is not represented by this record."
+    },
+    "unresolved_issues": [
+     "The source publishes no coefficient covariance matrix.",
+     "Row-wise Pt volumes are unavailable, so the reported Holmes-scale pressures cannot be independently reduced from calibrant observations."
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "DAC-only BM3-MGD equations, coefficients, complete fit observations, uncertainty convention, and fit selection",
+     "citation": "Shim, Duffy, and Shen (2000), Journal of Geophysical Research 105, 25955-25968",
+     "doi": "10.1029/2000JB900183"
+    },
+    {
+     "role": "fixed 300 K cubic CaSiO3 reference isotherm",
+     "citation": "Shim, Duffy, and Shen (2000), Physics of the Earth and Planetary Interiors 120, 327-338",
+     "doi": "10.1016/S0031-9201(00)00154-0"
+    }
+   ],
+   "notes": "Published non-default DAC-only alternative. The authors' selected result is the separate combined DAC+Wang et al. LVP fit (gamma0=1.92(5), q=0.6(3)); it is explicitly excluded because this article does not publish the numerical Wang observations. This record instead preserves the article's independently reported fit to the complete 34-row Table 1 DAC subset: gamma0=2.00(8) and q=0.9(4). The BM3 reference parameters and theta0 were fixed, while gamma0 and q were free. Parenthetical errors are 1 sigma. V0=27.45(2) cm3/mol is converted to 45.5817973939 A3 for the Z=1 cubic Pm-3m cell.",
+   "identifier": "ca_perovskite_shim_2000_dac_only_bm3_mgd_4"
+  },
+  {
    "label": "Shim et al. (2000), cubic CaSiO3 BM3",
    "default": true,
    "reference": {
@@ -753,6 +999,94 @@
    ],
    "notes": "pressure_medium=1 denotes Ar and pressure_medium=2 denotes NaCl. Errors are the reported 1-sigma estimates. The published fit also incorporates low-pressure Wang et al. (1996) data, which are not reproduced here because they are not observations from this paper.",
    "source_url": "https://doi.org/10.1016/S0031-9201(00)00154-0"
+  },
+  {
+   "identifier": "ca_perovskite_shim_2000_jgr_table1_dac_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 34 laser-heated DAC P-V-T observations printed in Shim et al. (2000), Table 1 and used for the article's explicitly reported DAC-only BM3-MGD alternative fit.",
+   "reference": {
+    "authors": [
+     "Shim",
+     "Duffy",
+     "Shen"
+    ],
+    "year": 2000,
+    "title": "The stability and P-V-T equation of state of CaSiO3 perovskite in the Earth's lower mantle",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "105",
+    "locator": "25955-25968",
+    "doi": "10.1029/2000JB900183"
+   },
+   "source_location": "Table 1, journal page 25963",
+   "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_jgrb12383_2000.pdf",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "experiment_group",
+     "quantity": "experimental_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_medium",
+     "quantity": "pressure_medium",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_standard_deviation_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_standard_deviation_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "standard_deviation",
+     "of": "temperature_k"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-shim-2000-jgr-table1-dac-pvt.csv",
+    "sha256": "aaeaee4626b516b33cdee7acfe1350d59173183824844de2ff826a3cdcdfa869",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_shim_2000_dac_only_bm3_mgd_4"
+   ],
+   "notes": "Table 1 is printed as parallel blocks. Rows are normalized as all 17 experiment-1/NaCl entries followed by all 17 experiments-2-to-4/argon entries, preserving the source order within each block. Every parenthetical value is expanded as the source's estimated 1-sigma uncertainty. The two greater-than-90-GPa observations shown only in Figures 7-8 were excluded from all reported fits because Pt and Ar diffraction peaks overlapped; they are not part of Table 1 and are not digitized here. This dataset is complete for the published DAC-only alternative, but not for the preferred combined fit, whose Wang et al. (1996) LVP observations are unavailable numerically in this article."
   },
   {
    "identifier": "ca_perovskite_mao_1989_table1_compression",
