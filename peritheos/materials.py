@@ -368,8 +368,15 @@ class EOSRecord:
         if temperature is None:
             temperature = self.reference_temperature
         values = np.asarray(temperature, dtype=float)
-        if not np.all(np.isfinite(values)) or np.any(values <= 0.0):
-            raise MaterialError("Temperature must be finite and greater than zero")
+        if self.is_thermal or self.is_hugoniot:
+            invalid_minimum = values <= 0.0
+        else:
+            invalid_minimum = values < 0.0
+        if not np.all(np.isfinite(values)) or np.any(invalid_minimum):
+            raise MaterialError(
+                "Temperature must be finite and nonnegative for an isothermal EOS; "
+                "thermal and Hugoniot records require a value greater than zero"
+            )
         if not self.is_thermal and not np.allclose(
             values, self.reference_temperature, rtol=0.0, atol=1.0e-8
         ):

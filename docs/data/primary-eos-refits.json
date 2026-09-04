@@ -11094,6 +11094,25 @@
    "solver_success": true,
    "source_notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are room-temperature extrapolation comparisons, not separate preferred P-V-T records, and are therefore not added. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
    "status": "parity"
+  },
+  {
+   "dataset_identifiers": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    160.0
+   ],
+   "experimental_temperature_range_k": null,
+   "fixed_parameters": [],
+   "label": "Caracas et al. (2005), static cubic Pm-3m BM3",
+   "material_identifier": "ca_perovskite",
+   "model": "BM3",
+   "primary_data_finding": "The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible.",
+   "primary_data_status": "theoretical_parameterization_only",
+   "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+   "reason": "The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible.",
+   "record_identifier": "ca_perovskite_caracas_2005_bm3_3",
+   "source_notes": "Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The same calculations also have a distinct Pm-3m BM4 fit (V0=44.588 A^3, K0=248 GPa, K0'=4.206, K0''=-0.002 GPa^-1); it is audit metadata rather than a duplicate of this record. The source's nine low-symmetry BM3/BM4 pairs describe different crystallographic phases and must not be attached to this cubic material.",
+   "status": "not_refittable"
   }
  ],
  "summary": {

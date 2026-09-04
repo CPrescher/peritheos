@@ -50,6 +50,7 @@ DERIVED_REFIT_RECORDS = {
 
 CURRENT_SOURCE_AUDIT_RECORDS = {
     "mgo_b1_luo_2023_vinet_thermal_5",
+    "ca_perovskite_caracas_2005_bm3_3",
     "rbcl_b2_campbell_1994_bm3_1",
 }
 
@@ -2966,7 +2967,29 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation["migration_source"] = migration
     if primary_data_check is not None:
         validation["primary_data_check"] = primary_data_check
+    for extension in ("reported_parameterizations", "parameterization_resolution"):
+        if extension in previous:
+            validation[extension] = previous[extension]
     result["scientific_validation"] = validation
+
+    if result["identifier"] == "ca_perovskite_caracas_2005_bm3_3":
+        result["scientific_validation"]["note"] = (
+            "The primary article and publisher HTML were audited directly. "
+            "Exactly one cubic source parameterization is executable; all 18 "
+            "Table 2 fits remain distinguished in the audit metadata."
+        )
+        result["scientific_validation"]["verified_fields"] = [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallography",
+            "published_uncertainties",
+            "validity",
+            "source_parameterizations",
+            "numerical_reproduction",
+        ]
 
     if result["identifier"] == "kcl_b2_tateno_2019_vinet_4":
         result["scientific_validation"]["note"] = (

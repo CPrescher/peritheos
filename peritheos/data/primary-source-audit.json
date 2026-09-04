@@ -367,6 +367,26 @@
       }
     },
     {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_caracas_2005_bm3_3",
+      "label": "Caracas et al. (2005), static cubic Pm-3m BM3",
+      "doi": "10.1029/2004gl022144",
+      "status": "primary_source_validated",
+      "note": "The primary article and publisher HTML were audited directly. Exactly one cubic source parameterization is executable; all 18 Table 2 fits remain distinguished in the material audit metadata.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+        "locations": [
+          "section 2, paragraphs 6-7",
+          "section 3, Table 1",
+          "section 4, equation 1 and paragraphs 11-17",
+          "Table 2 and footnote"
+        ],
+        "finding": "Table 2 contains nine phase-specific BM3 fits and nine phase-specific BM4 fits, not duplicate rows. The stored Pm-3m BM3 parameters reproduce the separately stated cubic density at 130 GPa (5.77 g/cm^3) after direct EOS inversion and formula-mass conversion.",
+        "doi": "10.1029/2004gl022144"
+      }
+    },
+    {
       "material": "calcite",
       "file": "calcite.eosmat",
       "record": "calcite_redfern_1999_bm2_1",

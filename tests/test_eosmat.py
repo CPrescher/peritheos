@@ -132,6 +132,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
         "b4c_somayazulu_2023_bm3_1",
+        "ca_perovskite_caracas_2005_bm3_3",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
         "gold_dewaele_2004_vinet_5",
@@ -149,6 +150,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "mgo_dewaele_2000_bm3_mgd_5",
     }
     latest_audit_identifiers = {
+        "ca_perovskite_caracas_2005_bm3_3",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "neon_fcc_hemley_1989_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
@@ -201,6 +203,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "aragonite_martinez_1996_bm2_2",
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
+        "ca_perovskite_caracas_2005_bm3_3",
         "diamond_benedict_2014_double_debye_4",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_double_debye_log_moment_5",
@@ -1113,7 +1116,12 @@ def test_eosmat_refit_validation_requires_resolvable_lineage_and_dataset():
 
 
 def test_newly_validated_primary_records_retain_published_errors():
-    shim, mao = get_material_document("ca_perovskite")["eos_records"]
+    ca_records = {
+        record["identifier"]: record
+        for record in get_material_document("ca_perovskite")["eos_records"]
+    }
+    shim = ca_records["ca_perovskite_shim_2000_bm3_1"]
+    mao = ca_records["ca_perovskite_mao_1989_bm3_2"]
     cao_b1 = get_material_document("cao")["eos_records"][0]
     cao_b2 = get_material_document("cao_b2")["eos_records"][0]
     geo2 = get_material_document("geo2_rutile")["eos_records"][0]
