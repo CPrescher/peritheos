@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added Birch-Murnaghan Eulerian finite-strain/normalized-stress diagnostics,
+  including first-order P-V error propagation and fitted-model curves. The
+  numerical API is plotting-library independent; an executable notebook shows
+  how to produce the conventional F-f plot with Matplotlib.
+
 - Added phase-specific linear `Us`-`up` shock Hugoniot EOSs in Python and Rust,
   including Rankine--Hugoniot pressure-volume inversion, velocity, density,
   energy, tangent-modulus, uncertainty propagation, OLS/WLS/errors-in-variables

@@ -401,6 +401,12 @@ temperature uncertainty API.
 identity and reconstructable parameters, fit arrays, diagnostics, and solver
 configuration. Passing a path to `to_json()` also writes the record to disk.
 
+`peritheos.diagnostics.birch_murnaghan_finite_strain_diagnostic()` constructs
+the conventional Birch-Murnaghan normalized-stress diagnostic from P-V
+observations. The returned `BirchMurnaghanFiniteStrainDiagnostic` exposes the
+transformed arrays and an optional numerical model curve. Plotting is left to
+the caller; the fitting guide links to a complete executable example.
+
 `fit_joint_eos()` estimates reference-isotherm and thermal parameters in one
 regression. Reference parameters use dotted names such as `rt_eos.V0`; its
 covariance includes reference/thermal cross-correlations and is directly

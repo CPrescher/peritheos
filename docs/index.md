@@ -24,6 +24,9 @@ The documentation is organized around scientific workflows:
   - [Comparing room-temperature EOS](notebooks/compare-room-temperature-eos.ipynb)
     contrasts fit diagnostics, parameter correlation, and extrapolation for
     four common equations.
+  - [Birch-Murnaghan f-F diagnostic](notebooks/birch-murnaghan-f-f-diagnostic.ipynb)
+    compares BM2 and BM3 fits to bundled room-temperature coesite data and
+    constructs the conventional normalized-stress plot explicitly.
   - [Comparing gold pressure scales](notebooks/compare-gold-pressure-scales.ipynb)
     evaluates named literature records only on their common validity domains.
   - [Thermal EOS state surfaces](notebooks/thermal-eos-state-surfaces.ipynb)

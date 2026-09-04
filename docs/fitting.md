@@ -104,6 +104,66 @@ print(result.correlation)
 fitted_pressures = result.model.pressure(volumes)
 ```
 
+### Birch-Murnaghan finite-strain diagnostic
+
+For a room-temperature compression fit, construct the conventional
+normalized-stress diagnostic from the observations and fitted model:
+
+```python
+from peritheos.diagnostics import birch_murnaghan_finite_strain_diagnostic
+
+diagnostic = birch_murnaghan_finite_strain_diagnostic(
+    volumes,
+    pressures,
+    model=result.model,
+    pressure_sigma=pressure_uncertainties,
+    volume_sigma=volume_uncertainties,
+)
+```
+
+The conventional plot places Eulerian strain
+$f=[(V_0/V)^{2/3}-1]/2$ against normalized stress
+$F=P/[3f(1+2f)^{5/2}]$. For BM3,
+
+\[
+F=K_0+\frac{3}{2}K_0(K_0'-4)f.
+\]
+
+The intercept is therefore $K_0$, and a horizontal trend supports the BM2
+constraint $K_0'=4$. A positive or negative slope supports freeing $K_0'$ in
+BM3; systematic curvature suggests that BM3 itself may be insufficient or that
+the fitted range contains other structure. Observations at exactly $V_0$ are
+listed in `diagnostic.omitted_indices`, since their normalized stress is the
+indeterminate ratio $0/0$.
+
+The transform can also be constructed from an explicit reference volume,
+without attaching a model:
+
+```python
+from peritheos.diagnostics import birch_murnaghan_finite_strain_diagnostic
+
+diagnostic = birch_murnaghan_finite_strain_diagnostic(
+    volumes,
+    pressures,
+    reference_volume=V0,
+)
+f = diagnostic.strain
+F = diagnostic.normalized_stress
+```
+
+`pressure_sigma` and `volume_sigma` are propagated to f-F error bars to first
+order, assuming independent measurement errors. Diagnostics remain NumPy-only;
+the [executable F-f notebook](notebooks/birch-murnaghan-f-f-diagnostic.ipynb)
+contains a complete Matplotlib example without making plotting part of the
+Peritheos API.
+
+The transformation treats $V_0$ as fixed, so these bars do not include fitted
+$V_0$ uncertainty or its shared covariance between points. Because the
+transformation also changes the error structure, use the plot as a diagnostic;
+use the fitted $K_0'$ uncertainty and like-for-like BM2/BM3 fit statistics for
+a quantitative model-order decision rather than an unweighted straight-line
+fit to the transformed points.
+
 ## Linear `Us`-`up` Hugoniot fitting
 
 Use `fit_linear_us_up` for ordinary least squares, weighted least squares, or
