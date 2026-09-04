@@ -12,7 +12,8 @@ use peritheos::isothermal::{
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
     LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
-    MultiOscillatorGruneisen, SokolovaParameters, ThermalModifiedTait, ThermalReferenceState,
+    MultiOscillatorGruneisen, SecondOrderTaylorThermalPressure, SokolovaParameters,
+    ThermalModifiedTait, ThermalReferenceState,
 };
 use peritheos::{EosResult, ThermalEos};
 use pyo3::prelude::*;
@@ -192,6 +193,7 @@ impl ThermalModel {
             Self::DorogokupetsOganov2007(model) => model.pressure(volume, temperature),
             Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
             Self::LogVolumeThermalPressure(model) => model.pressure(volume, temperature),
+            Self::SecondOrderTaylorThermalPressure(model) => model.pressure(volume, temperature),
             Self::MieGruneisenDebye(model) => model.pressure(volume, temperature),
             Self::MieGruneisenEinstein(model) => model.pressure(volume, temperature),
             Self::ThermalModifiedTait(model) => model.pressure(volume, temperature),
@@ -315,6 +317,30 @@ impl ThermalModel {
                         value(names, values, "Tr", model.tr),
                         value(names, values, "alpha_KT_ref", model.alpha_kt_ref),
                         value(names, values, "dK_dT_V", model.dk_dt_v),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::SecondOrderTaylorThermalPressure(model) => {
+                ensure_names(
+                    names,
+                    &["Tr", "eta0", "c0", "c1", "c2", "c3", "c4", "c5"],
+                    true,
+                )?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::SecondOrderTaylorThermalPressure(
+                    SecondOrderTaylorThermalPressure::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "eta0", model.eta0),
+                        value(names, values, "c0", model.c0),
+                        value(names, values, "c1", model.c1),
+                        value(names, values, "c2", model.c2),
+                        value(names, values, "c3", model.c3),
+                        value(names, values, "c4", model.c4),
+                        value(names, values, "c5", model.c5),
                     )
                     .map_err(FitError::from)?,
                 )

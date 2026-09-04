@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 162
+    assert len(identifiers) == len(set(identifiers)) == 163
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 162, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 163, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 82,
         "similar": 33,
         "parity_not_achieved": 8,
-        "not_refittable": 39,
+        "not_refittable": 40,
     }
     assert all(
         item.get("reason")
@@ -47,6 +47,11 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     ledger = load_ledger()
     by_identifier = {item["record_identifier"]: item for item in ledger["records"]}
     markdown = MARKDOWN_PATH.read_text(encoding="utf-8")
+
+    luo = by_identifier["mgo_b1_luo_2023_vinet_thermal_5"]
+    assert luo["status"] == "not_refittable"
+    assert luo["dataset_identifiers"] == ["mgo_luo_2023_table1_shock"]
+    assert "derived EOS output" in luo["reason"]
 
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
     assert by_identifier["kcl_campbell_1991_bm2_1"]["status"] == "parity"

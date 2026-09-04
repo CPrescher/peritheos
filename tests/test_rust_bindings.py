@@ -23,6 +23,7 @@ from peritheos.eos.thermal import (
     DoubleDebyeHelmholtz,
     MieGruneisenDebye,
     MieGruneisenEinstein,
+    SecondOrderTaylorThermalPressure,
     Sokolova2016,
     ThermalModifiedTait,
 )
@@ -147,6 +148,31 @@ def test_concurrent_parallel_batches_are_deterministic_and_thread_safe():
 @pytest.mark.parametrize(
     ("python_model", "native_model", "caloric"),
     [
+        (
+            SecondOrderTaylorThermalPressure(
+                Vinet(1.0, 169.8, 4.501),
+                300.0,
+                0.02,
+                0.5096,
+                -13.4246,
+                6.3295e-3,
+                36.2194,
+                5.4705e-8,
+                3.2238e-3,
+            ),
+            _rust.ThermalEos.second_order_taylor_thermal_pressure(
+                _rust.RtEos.vinet(1.0, 169.8, 4.501),
+                300.0,
+                0.02,
+                0.5096,
+                -13.4246,
+                6.3295e-3,
+                36.2194,
+                5.4705e-8,
+                3.2238e-3,
+            ),
+            False,
+        ),
         (
             MieGruneisenDebye(BM3(1.0, 160.0, 4.0), 300.0, 800.0, 1.5, 1.0, 2.0),
             _rust.ThermalEos.mie_gruneisen_debye(

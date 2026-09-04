@@ -5441,7 +5441,7 @@
       ],
       "primary_data_finding": "Both source inputs to the simultaneous fit are bundled: all 123 Dewaele et al. (2012) room-temperature B2 rows and all 155 Chidester et al. high-temperature rows.",
       "primary_data_status": "bundled",
-      "primary_source": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.104.094107",
       "published_rmse_gpa": 1.3025804462129118,
       "qualification": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
       "record_identifier": "kcl_b2_chidester_2021_bm3_5",
@@ -6447,6 +6447,33 @@
       "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
       "record_identifier": "mgo_shen_2026_vinet_3",
       "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [
+        "mgo_luo_2023_table1_shock"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        345.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        8500.0
+      ],
+      "fixed_parameters": [
+        "Tr",
+        "eta0"
+      ],
+      "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
+      "material_identifier": "mgo",
+      "model": "Vinet",
+      "primary_data_finding": "All five new shock experiments and all 576 published derived P-V-T grid values are bundled. Earlier literature observations selected for the global optimization are cited but not reproduced row by row in this article.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
+      "reason": "The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations.",
+      "record_identifier": "mgo_b1_luo_2023_vinet_thermal_5",
+      "source_notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; the three reported temperatures span 3088-5676 K. The full quasi-Debye Helmholtz construction in Equations (1)-(6) is not independently reconstructable from the article because the numerical longitudinal- and shear-velocity versus density fits needed for the Debye-temperature law are not published. The authors therefore supply Equations (B1)-(B2) as the derived executable P-V-T form. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
       "status": "not_refittable"
     },
     {
@@ -10994,10 +11021,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 39,
+    "not_refittable": 40,
     "parity": 82,
     "parity_not_achieved": 8,
     "similar": 33,
-    "total": 162
+    "total": 163
   }
 }

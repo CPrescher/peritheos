@@ -48,7 +48,10 @@ DERIVED_REFIT_RECORDS = {
     "neon_fcc_hemley_1989_bm3_refit",
 }
 
-CURRENT_SOURCE_AUDIT_RECORDS = {"rbcl_b2_campbell_1994_bm3_1"}
+CURRENT_SOURCE_AUDIT_RECORDS = {
+    "mgo_b1_luo_2023_vinet_thermal_5",
+    "rbcl_b2_campbell_1994_bm3_1",
+}
 
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
@@ -2893,6 +2896,7 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     previous = result.get("scientific_validation") or {}
     migration = previous.get("migration_source")
     primary_data_check = previous.get("primary_data_check")
+    reproduction = previous.get("reproduction")
     audit_date = (
         REPORT_AUDIT_DATE
         if result["identifier"]
@@ -2974,6 +2978,14 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         result["scientific_validation"]["verified_fields"].append(
             "pressure_calibration"
         )
+
+    if result["identifier"] == "mgo_b1_luo_2023_vinet_thermal_5":
+        result["scientific_validation"]["note"] = previous["note"]
+        result["scientific_validation"]["verified_fields"] = previous[
+            "verified_fields"
+        ]
+        if reproduction is not None:
+            result["scientific_validation"]["reproduction"] = reproduction
 
     if result["identifier"] == "kcl_b2_chidester_2021_bm3_5":
         result["scientific_validation"]["note"] = (
@@ -3167,8 +3179,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 162:
-        raise ValueError(f"Expected 162 EOS records, found {len(entries)}")
+    if len(entries) != 163:
+        raise ValueError(f"Expected 163 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

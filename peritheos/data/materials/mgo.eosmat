@@ -36,7 +36,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 fit is the default. The Duffy et al. (1995) multimegabar and Shen and Smith (2026) Cu-referenced fits remain available as alternatives.",
+ "notes": "MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 fit is the default. The Duffy et al. (1995) multimegabar, Luo et al. (2023) shock- and sound-velocity-constrained thermal, and Shen and Smith (2026) Cu-referenced fits remain available as alternatives.",
  "peaks": [],
  "eos_records": [
   {
@@ -459,6 +459,225 @@
    }
   },
   {
+   "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
+   "reference": {
+    "authors": [
+     "Luo",
+     "Xiang",
+     "Li",
+     "Wu",
+     "Liu",
+     "Li",
+     "Xian",
+     "Wu"
+    ],
+    "year": 2023,
+    "title": "Equation of state of MgO up to 345 GPa and 8500 K",
+    "source": "Phys. Rev. B",
+    "volume": "107",
+    "locator": "134116",
+    "doi": "10.1103/PhysRevB.107.134116"
+   },
+   "equation_kind": "thermal",
+   "record_kind": "published",
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 74.0741025123,
+     "K0": 169.8,
+     "K0_prime": 4.501
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.0267705466,
+    "K0": 0.5,
+    "K0_prime": 0.007
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "SecondOrderTaylorThermalPressure",
+    "model": "second_order_taylor_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "eta0": 0.02,
+     "c0": 0.5096,
+     "c1": -13.4246,
+     "c2": 0.0063295,
+     "c3": 36.2194,
+     "c4": 5.4705e-08,
+     "c5": 0.0032238
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "eta0": null,
+     "c0": null,
+     "c1": null,
+     "c2": null,
+     "c3": null,
+     "c4": null,
+     "c5": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "eta0"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    345.0
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "experimental_temperature_range_k": [
+    300.0,
+    8500.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     345.0
+    ],
+    "temperature_k": [
+     300.0,
+     8500.0
+    ],
+    "volume_ratio": [
+     0.563747,
+     1.006692
+    ],
+    "notes": [
+     "Pressure and temperature bounds are the authors' stated range for the derived pressure-scale equation, not a rectangular experimental-data envelope or a phase boundary.",
+     "The volume-ratio bounds convert the Tables II-III ambient compression range through the measured initial density and the fitted 0 K cold reference volume."
+    ]
+   },
+   "fit_datasets": [
+    "mgo_luo_2023_table1_shock"
+   ],
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Section III, page 6: V0K = 0.2767 +/- 0.0001 cm^3/g at zero pressure and zero temperature; converted with 40.304 g/mol MgO and Z=4 to the conventional B1 cell",
+     "K0": "Section III, page 6: B0 = 169.8 +/- 0.5 GPa at zero pressure and zero temperature",
+     "K0_prime": "Section III, page 6: B' = 4.501 +/- 0.007 at zero pressure and zero temperature"
+    },
+    "thermal_correction": {
+     "Tr": "Appendix B, Equation (B2), page 10: 300 K Taylor expansion coordinate",
+     "eta0": "Appendix B, Equation (B2), page 10: compression expansion coordinate 0.02",
+     "c0": "Appendix B, Equation (B2), page 10",
+     "c1": "Appendix B, Equation (B2), page 10",
+     "c2": "Appendix B, Equation (B2), page 10",
+     "c3": "Appendix B, Equation (B2), page 10",
+     "c4": "Appendix B, Equation (B2), page 10",
+     "c5": "Appendix B, Equation (B2), page 10"
+    }
+   },
+   "volume": {
+    "reference_value": 74.0741025123,
+    "public_to_model_scale": 1.0,
+    "model_unit": "angstrom^3/conventional_unit_cell"
+   },
+   "notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; the three reported temperatures span 3088-5676 K. The full quasi-Debye Helmholtz construction in Equations (1)-(6) is not independently reconstructable from the article because the numerical longitudinal- and shear-velocity versus density fits needed for the Debye-temperature law are not published. The authors therefore supply Equations (B1)-(B2) as the derived executable P-V-T form. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
+   "identifier": "mgo_b1_luo_2023_vinet_thermal_5",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Luo",
+        "Xiang",
+        "Li",
+        "Wu",
+        "Liu",
+        "Li",
+        "Xian",
+        "Wu"
+       ],
+       "year": 2023,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.107.134116"
+      },
+      "source_location": "Equations (7)-(10), Table I, and Section II.B.2",
+      "scope": "Hugoniot P-V-T and sound-velocity constraints",
+      "notes": "Pressure follows the Rankine-Hugoniot relations from measured shock and particle velocities. Shots 2, 3, and 5 obtain particle velocity by impedance matching to the printed Ta or Pt flyer Hugoniots; Shots 1 and 4 use Doppler-pin measurements."
+     },
+     {
+      "kind": "ultrasonic",
+      "reference": {
+       "authors": [
+        "Kono",
+        "Irifune",
+        "Higo",
+        "Inoue",
+        "Barnhoorn"
+       ],
+       "year": 2010,
+       "source": "Phys. Earth Planet. Inter.",
+       "volume": "183",
+       "locator": "196",
+       "doi": "10.1016/j.pepi.2010.03.010"
+      },
+      "source_location": "Section II.B.2 and Appendix A",
+      "scope": "Room-temperature pressure-scale-independent sound-velocity constraints"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The five new Table I shock states are bundled and their reduced pressures can be checked, but the complete global fit also selects observations from multiple earlier publications and requires unpublished sound-velocity-density fit coefficients and the detailed objective implementation."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The zero-temperature Vinet convention, mass-to-cell volume conversion, absolute polynomial thermal pressure, parameters, uncertainties, B1 identity, stated model range, shock pressure basis, and tabulated P-V-T reproduction were checked against the primary article.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
+     "locations": [
+      "Equations (1)-(6), pages 2-3",
+      "Table I and Section II.B, pages 3-6",
+      "Section III, page 6",
+      "Tables II-III, pages 8-9",
+      "Appendices A-B, pages 9-10"
+     ],
+     "finding": "The executable source form is a 0 K Rydberg-Vinet cold curve plus the absolute second-order Taylor thermal pressure in Equations (B1)-(B2). Calling the record simply Vinet would omit the thermal EOS that produces the published P-V-T scale.",
+     "doi": "10.1103/physrevb.107.134116"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "mgo_luo_2023_table1_shock",
+      "mgo_luo_2023_tables2_3_pvt_grid"
+     ],
+     "source_locations": [
+      "Table I, page 5",
+      "Tables II-III, pages 8-9"
+     ],
+     "finding": "All five new shock experiments and all 576 published derived P-V-T grid values are bundled. Earlier literature observations selected for the global optimization are cited but not reproduced row by row in this article."
+    },
+    "reproduction": {
+     "method": "Independent evaluation of Equations (B1)-(B2) using the printed cold and thermal coefficients, with Tables II-III compression converted using rho0=3.590 g/cm^3",
+     "states": 576,
+     "rmse_gpa": 0.484096,
+     "max_abs_residual_gpa": 1.435303,
+     "note": "The table is generated from the full quasi-Debye free energy and the Appendix-B polynomial is stated to be consistent with it, so sub-GPa RMS rather than printed-rounding equality is the appropriate check. A diagnostic least-squares refit of c0-c5 to the tabulated derived grid lowers RMSE only to 0.445789 GPa; it is not a refit to primary observations and is not stored as an EOS record."
+    }
+   }
+  },
+  {
    "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
    "reference": {
     "authors": [
@@ -670,6 +889,102 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "mgo_luo_2023_table1_shock",
+   "kind": "shock_hugoniot_pvt_sound_velocity",
+   "description": "All five new MgO shock experiments in Table I, including reported one-sigma Hugoniot and sound-velocity errors and two-sigma temperature errors.",
+   "reference": {
+    "authors": [
+     "Luo",
+     "Xiang",
+     "Li",
+     "Wu",
+     "Liu",
+     "Li",
+     "Xian",
+     "Wu"
+    ],
+    "year": 2023,
+    "source": "Phys. Rev. B",
+    "volume": "107",
+    "locator": "134116",
+    "doi": "10.1103/PhysRevB.107.134116"
+   },
+   "source_location": "Table I, page 5",
+   "source_url": "https://doi.org/10.1103/PhysRevB.107.134116",
+   "columns": [
+    {"name": "shot_number", "quantity": "shot_number", "unit": "1", "role": "flag"},
+    {"name": "flyer_material_code", "quantity": "flyer_material", "unit": "1", "role": "flag"},
+    {"name": "flyer_velocity_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "value"},
+    {"name": "shock_velocity_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "value"},
+    {"name": "shock_velocity_sigma_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "standard_deviation", "of": "shock_velocity_km_s"},
+    {"name": "particle_velocity_km_s", "quantity": "particle_velocity", "unit": "km/s", "role": "value"},
+    {"name": "particle_velocity_sigma_km_s", "quantity": "particle_velocity", "unit": "km/s", "role": "standard_deviation", "of": "particle_velocity_km_s"},
+    {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
+    {"name": "density_sigma_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "standard_deviation", "of": "density_g_cm3"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_sigma_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "temperature_2sigma_k", "quantity": "temperature", "unit": "K", "role": "uncertainty", "of": "temperature_k"},
+    {"name": "euler_sound_velocity_km_s", "quantity": "euler_sound_velocity", "unit": "km/s", "role": "value"},
+    {"name": "euler_sound_velocity_sigma_km_s", "quantity": "euler_sound_velocity", "unit": "km/s", "role": "standard_deviation", "of": "euler_sound_velocity_km_s"}
+   ],
+   "rows": [
+    [1, 1, 6.54, 12.94, 0.11, 4.62, 0.03, 5.58, 0.03, 215, 2, 4228, 152, null, null],
+    [2, 2, 7.20, 13.88, 0.10, 5.31, 0.03, 5.82, 0.03, 265, 3, 5676, 202, 16.96, 0.10],
+    [3, 1, 7.50, 13.64, 0.10, 5.13, 0.03, 5.76, 0.03, 251, 3, 5274, 190, 16.68, 0.10],
+    [4, 1, 5.36, 11.50, 0.06, 3.69, 0.02, 5.29, 0.02, 152, 1, null, null, null, null],
+    [5, 1, 5.91, 12.11, 0.06, 4.06, 0.02, 5.40, 0.02, 176, 1, 3088, 106, 15.66, 0.06]
+   ],
+   "used_by_eos_records": [
+    "mgo_b1_luo_2023_vinet_thermal_5"
+   ],
+   "uncertainty": {
+    "hugoniot_and_sound_velocity": "one_standard_deviation",
+    "temperature": "two_standard_deviations",
+    "covariance": "not_reported"
+   },
+   "notes": "flyer_material_code 1 denotes Ta and 2 denotes Pt. The flyer velocity is reported without a row-wise error; the electromagnetic measurement accuracy is stated as better than 0.5%. The common initial MgO density is 3.590 +/- 0.004 g/cm^3 at one sigma."
+  },
+  {
+   "identifier": "mgo_luo_2023_tables2_3_pvt_grid",
+   "kind": "published_eos_grid",
+   "description": "All 576 pressures tabulated from the authors' full quasi-Debye free-energy EOS over the printed compression-temperature grid.",
+   "reference": {
+    "authors": [
+     "Luo",
+     "Xiang",
+     "Li",
+     "Wu",
+     "Liu",
+     "Li",
+     "Xian",
+     "Wu"
+    ],
+    "year": 2023,
+    "source": "Phys. Rev. B",
+    "volume": "107",
+    "locator": "134116",
+    "doi": "10.1103/PhysRevB.107.134116"
+   },
+   "source_location": "Tables II-III, pages 8-9",
+   "source_url": "https://doi.org/10.1103/PhysRevB.107.134116",
+   "columns": [
+    {"name": "compression_ambient", "quantity": "one_minus_volume_ratio", "unit": "1", "role": "value"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "source_table", "quantity": "source_table", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mgo-luo-2023-tables2-3-pvt.csv",
+    "sha256": "c631868deb0a7894bc15e6c2555af53531f9cac66c894dec6ea0e06da894ac4d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_b1_luo_2023_vinet_thermal_5"
+   ],
+   "notes": "Tables II-III use compression 1-V/V0 with the ambient initial sample volume V0=1/rho0, while Appendix B uses eta=1-V/V0K with the fitted zero-temperature cold volume V0K. These are calculated EOS values, not independent experimental observations."
+  },
   {
    "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
    "kind": "simultaneous_unit_cell_volumes",

@@ -7,6 +7,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the Luo et al. (2023) B1-MgO pressure scale as a 0 K Vinet curve plus
+  the published absolute second-order thermal-pressure polynomial, with all
+  five new shock states and the complete 576-value Tables II--III P-V-T grid.
+
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
   which had mistakenly contained an incomplete subset of the RbCl table, and

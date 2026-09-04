@@ -18,8 +18,8 @@ use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
     DorogokupetsOganov2007Parameters, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
-    ReferenceVolumeLaw, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
-    ThermalReferenceState,
+    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
+    ThermalModifiedTait, ThermalReferenceState,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use pyo3::exceptions::PyRuntimeError;
@@ -407,6 +407,7 @@ enum ThermalModel {
     DorogokupetsOganov2007(DorogokupetsOganov2007<RtModel>),
     LinearThermalPressure(LinearThermalPressure<RtModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<RtModel>),
+    SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<RtModel>),
     MieGruneisenDebye(MieGruneisenDebye<RtModel>),
     MieGruneisenEinstein(MieGruneisenEinstein<RtModel>),
     ThermalModifiedTait(ThermalModifiedTait),
@@ -421,6 +422,7 @@ impl ThermalModel {
             Self::DorogokupetsOganov2007(_) => "DorogokupetsOganov2007",
             Self::LinearThermalPressure(_) => "LinearThermalPressure",
             Self::LogVolumeThermalPressure(_) => "LogVolumeThermalPressure",
+            Self::SecondOrderTaylorThermalPressure(_) => "SecondOrderTaylorThermalPressure",
             Self::MieGruneisenDebye(_) => "MieGruneisenDebye",
             Self::MieGruneisenEinstein(_) => "MieGruneisenEinstein",
             Self::ThermalModifiedTait(_) => "ThermalModifiedTait",
@@ -441,6 +443,9 @@ impl ThermalModel {
                 evaluate_thermal_quantity(&model, quantity, first, second)
             }
             Self::LogVolumeThermalPressure(model) => {
+                evaluate_thermal_quantity(&model, quantity, first, second)
+            }
+            Self::SecondOrderTaylorThermalPressure(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
             }
             Self::MieGruneisenDebye(model) => {
@@ -476,6 +481,9 @@ impl ThermalModel {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::LogVolumeThermalPressure(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::SecondOrderTaylorThermalPressure(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::MieGruneisenDebye(model) => {
@@ -611,6 +619,37 @@ impl PyThermalEos {
             model: ThermalModel::LogVolumeThermalPressure(
                 LogVolumeThermalPressure::new(rt_eos.model, tr, alpha_kt_ref, dk_dt_v)
                     .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    fn second_order_taylor_thermal_pressure(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        eta0: f64,
+        c0: f64,
+        c1: f64,
+        c2: f64,
+        c3: f64,
+        c4: f64,
+        c5: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::SecondOrderTaylorThermalPressure(
+                SecondOrderTaylorThermalPressure::new(
+                    rt_eos.model,
+                    tr,
+                    eta0,
+                    c0,
+                    c1,
+                    c2,
+                    c3,
+                    c4,
+                    c5,
+                )
+                .map_err(to_python_error)?,
             ),
         })
     }

@@ -915,3 +915,71 @@ or preprocessing. Exact coefficient parity requires the authors' numerical
 P--V array, row mask, and fitting weights; the published parameterization
 remains the default library EOS, while the separately labeled refit record
 provides the direct all-marker Peritheos result.
+
+## Luo et al. (2023) MgO
+
+### Source, identity, and equation
+
+The primary source is Luo et al., *Equation of state of MgO up to 345 GPa and
+8500 K*, *Physical Review B* **107**, 134116 (2023),
+[doi:10.1103/PhysRevB.107.134116](https://doi.org/10.1103/PhysRevB.107.134116).
+The sample is stoichiometric B1 (NaCl-structure) MgO/periclase, represented by
+the conventional cubic cell with four MgO formula units. The paper gives an
+initial density of `3.590(4) g/cm3` and globally optimizes a zero-pressure,
+zero-temperature specific volume `V0K = 0.2767(1) cm3/g`, bulk modulus
+`B0 = 169.8(5) GPa`, and pressure derivative `B' = 4.501(7)`. Using the
+paper's MgO molar mass, the cold specific volume is
+`74.0741025123 A3/conventional cell`; the ambient initial density corresponds
+to `74.5697677586 A3/conventional cell`.
+
+The catalog record is not a static Vinet fit. It implements Appendix B's
+executable pressure scale,
+
+\[
+P(V,T)=P_{\mathrm{Vinet},0K}(V)+c_0+c_1\delta\eta+c_2\delta T
++\tfrac12c_3\delta\eta^2+\tfrac12c_4\delta T^2
++\tfrac12c_5\delta\eta\delta T,
+\]
+
+where `eta = 1 - V/V0K`, `delta eta = eta - 0.02`, and
+`delta T = T - 300 K`. The printed coefficients are `c0=0.5096 GPa`,
+`c1=-13.4246 GPa`, `c2=6.3295e-3 GPa/K`, `c3=36.2194 GPa`,
+`c4=5.4705e-8 GPa/K2`, and `c5=3.2238e-3 GPa/K`. No uncertainties are
+reported for these six coefficients. The three cold-curve uncertainties have
+an unstated confidence convention and no published covariance.
+
+The paper's Equations (1)--(6) give the underlying quasi-Debye Helmholtz
+construction, but not the numerical longitudinal- and shear-wave velocity
+fits needed to reconstruct its effective sound velocity and Debye-temperature
+law. The Appendix-B polynomial is therefore the complete independently
+executable form supported by the primary article. The APS article record has
+no linked official supplement or machine-readable deposit.
+
+### Data reproduction and refit boundary
+
+Peritheos bundles all five new shock states from Table I and all 576 derived
+P-V-T values in Tables II--III. Re-evaluating the printed Appendix-B equation
+at the table coordinates gives `0.484096 GPa` RMS and `1.435303 GPa` maximum
+absolute pressure residual. For example, the state at ambient compression
+`0.42` and `8500 K` is reproduced within that documented sub-GPa consistency
+at the table's printed `342.01 GPa`. The table was generated from the fuller
+quasi-Debye calculation, so exact equality after decimal rounding is neither
+claimed nor expected.
+
+A diagnostic unweighted least-squares fit of only `c0`--`c5` to that derived
+grid gives `(1.423975, -17.564509, 0.006092604, 45.696538,
+8.377914e-8, 0.004084916)` and lowers the RMS only to `0.445789 GPa`. This is a
+fit to model output, not to primary observations, and is not stored as another
+EOS record. An observation-level refit is not possible from the publication:
+the global optimization selected data from multiple earlier studies, while
+the complete row set, unpublished sound-velocity fits, objective weights, and
+covariance are unavailable. The refit ledger records that precise limitation
+rather than circularly fitting the authors' derived table.
+
+Table I pressure is independently checkable from the Rankine--Hugoniot
+relation `P=rho0*D*up`; all five printed pressures are recovered within
+`0.6 GPa`. Shots 2, 3, and 5 use impedance matching to the stated Ta or Pt
+flyer Hugoniots, while shots 1 and 4 use measured particle velocity. The
+published `0--345 GPa` and `300--8500 K` limits are retained as the stated
+pressure-scale domain, not as a rectangular observation envelope or a B1
+phase-stability claim.
