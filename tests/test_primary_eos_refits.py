@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 162
+    assert len(identifiers) == len(set(identifiers)) == 163
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,9 +29,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 162, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 163, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 82,
+        "parity": 83,
         "similar": 33,
         "parity_not_achieved": 8,
         "not_refittable": 39,
@@ -124,6 +124,16 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert hemley["status"] == "parity"
     assert hemley["observations"] == 21
     assert hemley["free_parameters"] == ["K0", "K0_prime"]
+    stishovite = by_identifier["sio2_stv_andr_wang_2012_vinet_mgd_2"]
+    assert stishovite["status"] == "parity"
+    assert stishovite["observations"] == 56
+    assert stishovite["objective"] == "errors_in_variables"
+    assert stishovite["fixed_parameters"] == ["V0", "Tr", "a", "n"]
+    assert [item["refit"] for item in stishovite["parameters"]] == pytest.approx(
+        [294.6773736503, 4.8789956491, 1134.709214856, 1.6555196866,
+         3.0469258011]
+    )
+    assert all(item["within_combined_2sigma"] for item in stishovite["parameters"])
     mo2c = by_identifier["molybenum_carbide_mo2c_haines_2001_bm3_1"]
     assert mo2c["status"] == "similar"
     assert mo2c["observations"] == 16

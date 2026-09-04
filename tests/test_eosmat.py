@@ -94,7 +94,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 116
     assert len(set(identifiers)) == 116
-    assert sum(len(document["eos_records"]) for document in documents) == 162
+    assert sum(len(document["eos_records"]) for document in documents) == 163
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 162
+    assert len({record["identifier"] for record in records}) == 163
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 162
+    assert statuses.count("primary_source_validated") == 163
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -145,6 +145,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
+        "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
     latest_audit_identifiers = {
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
@@ -153,6 +154,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
+        "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
@@ -212,6 +214,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
+        "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -240,8 +243,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 162,
-        "primary_source_validated": 162,
+        "records": 163,
+        "primary_source_validated": 163,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -269,6 +272,69 @@ def test_bundled_primary_dataset_resources_match_metadata():
             checked += 1
 
     assert checked >= 39
+
+
+def test_wang_2012_stishovite_vinet_mgd_record_and_table_transcription():
+    document = get_material_document("sio2_stv_andr")
+    identifier = "sio2_stv_andr_wang_2012_vinet_mgd_2"
+    source = next(
+        record for record in document["eos_records"]
+        if record["identifier"] == identifier
+    )
+    record = Material.from_eosmat(
+        document, record_identifiers=[identifier]
+    ).eos_records[0]
+
+    assert source["eos"]["model"] == "vinet"
+    assert source["thermal"]["model"] == (
+        "asymptotic_power_law_mie_gruneisen_debye"
+    )
+    assert source["fixed_parameters"] == ["V0"]
+    assert source["thermal"]["fixed_parameters"] == ["Tr", "a", "n"]
+    assert "equally successful BM3-MGD alternative" in source["notes"]
+    assert source["pressure_calibration"]["recalculation"]["status"] == (
+        "reference_eos_not_bundled"
+    )
+
+    # Table 3 independently tabulates these two Vinet-MGD pressures.
+    assert record.pressure(46.55 * 0.98, 1000.0, check_validity=False) == (
+        pytest.approx(11.11, abs=0.02)
+    )
+    assert record.pressure(46.55, 3000.0, check_validity=False) == pytest.approx(
+        22.62, abs=0.02
+    )
+    assert record.volume(record.pressure(42.0, 1500.0), 1500.0) == pytest.approx(
+        42.0
+    )
+
+    dataset = next(
+        item for item in document["datasets"]
+        if item["identifier"] == "stishovite_wang_2012_table1_pvt"
+    )
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(dataset["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    assert len(rows) == 56
+    assert rows[0] == {
+        "data_number": "M1034007",
+        "temperature_k": "1300",
+        "pressure_gpa": "19.32",
+        "pressure_esd_gpa": "0.10",
+        "lattice_a_angstrom": "4.1145",
+        "lattice_a_esd_angstrom": "0.0003",
+        "lattice_c_angstrom": "2.6464",
+        "lattice_c_esd_angstrom": "0.0004",
+        "volume_a3_conventional_cell": "44.80",
+        "volume_esd_a3_conventional_cell": "0.02",
+        "au_volume_a3_conventional_cell": "63.84",
+        "au_volume_esd_a3_conventional_cell": "0.02",
+    }
+    assert rows[-1]["data_number"] == "M922011"
+    assert float(rows[-1]["pressure_gpa"]) == pytest.approx(53.4)
+    assert float(rows[-1]["au_volume_a3_conventional_cell"]) == pytest.approx(56.41)
 
 
 def test_ono_cubic_sno2_primary_data_transcription_is_complete():
@@ -584,7 +650,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 162
+    assert len(records) == 163
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -650,7 +716,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 162
+    assert checked == 163
     assert failures == []
 
 
@@ -2205,7 +2271,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 116
-    assert manifest["eos_records"] == 162
+    assert manifest["eos_records"] == 163
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 

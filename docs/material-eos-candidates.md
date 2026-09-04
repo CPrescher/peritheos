@@ -16,7 +16,7 @@ not published). Crystal structure and EOS provenance are audited separately;
 an EOS is not accepted into the library with only a phase name or nominal
 formula.
 
-The current baseline is 116 material files and 162 EOS records. The model
+The current baseline is 116 material files and 163 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,
@@ -38,6 +38,21 @@ normal primary-source, units, uncertainty, phase, and numerical reproduction
 audit.
 
 ## A — review first
+
+### Stishovite: lower-mantle Vinet-MGD
+
+**Status: accepted and implemented (2026-09-04).**
+
+- **Source:** Wang et al. (2012), [P-V-T equation of state of stishovite up to
+  mid-lower mantle conditions](https://doi.org/10.1029/2011JB009100).
+- **Implemented scope:** one Vinet-MGD record and all 56 Table 1 P-V-T
+  observations, including simultaneous Au volumes and printed uncertainties.
+  The equally successful BM3-MGD coefficients are preserved as the documented
+  alternative; the source does not explicitly prefer either cold curve.
+- **Audit result:** the existing asymptotic-power-law MGD model exactly matches
+  equations (4)--(8), reproduces two independent Table 3 values, and recovers
+  all fitted coefficients within combined two-standard-deviation intervals.
+  Exact pressure re-reduction awaits an executable Tsuchiya (2003) Au EOS.
 
 ### C01 — Boron carbide B4C: add the thermal branch
 

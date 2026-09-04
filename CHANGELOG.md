@@ -7,6 +7,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the Wang et al. (2012) stishovite Vinet-Mie--Gruneisen--Debye EOS and
+  all 56 Table 1 P-V-T observations with simultaneous Au calibrant volumes and
+  printed uncertainties. The source's equally successful BM3 alternative,
+  300 K thermal reference correction, Tsuchiya (2003) Au calibration lineage,
+  numerical Table 3 checks, and an errors-in-variables parity refit are fully
+  documented.
+
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
   which had mistakenly contained an incomplete subset of the RbCl table, and

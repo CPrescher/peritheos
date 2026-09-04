@@ -160,6 +160,132 @@
      "finding": "All 11 single-crystal sample observations and all 13 powder sample observations underlying the reported combined stishovite EOS are tabulated and bundled. The ambient NaCl-B1 standard-only entry in Table 2 is documented in the dataset notes but omitted because it has no paired SiO2 measurement."
     }
    }
+  },
+  {
+   "label": "Wang et al. (2012), principal Vinet-MGD presentation",
+   "reference": {
+    "authors": ["Wang", "Tange", "Irifune", "Funakoshi"],
+    "year": 2012,
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "117",
+    "locator": "B06209",
+    "doi": "10.1029/2011JB009100"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 46.55,
+     "K0": 292.0,
+     "K0_prime": 5.01
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.0,
+    "K0_prime": 0.12
+   },
+   "fixed_parameters": ["V0"],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "AsymptoticPowerLawMieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1130.0,
+     "gamma0": 1.67,
+     "a": 1.0,
+     "b": 3.0,
+     "n": 3.0
+    },
+    "parameter_errors": {
+     "theta0": 110.0,
+     "gamma0": 0.07,
+     "b": 0.4
+    },
+    "fixed_parameters": ["Tr", "a", "n"],
+    "model": "asymptotic_power_law_mie_gruneisen_debye"
+   },
+   "fit_datasets": ["stishovite_wang_2012_table1_pvt"],
+   "experimental_pressure_range_gpa": [16.85, 54.5],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 1700.0],
+   "parameter_provenance": {
+    "V0": "Table 2 and paragraphs 11 and 14; fixed at 46.55 A^3 after rounding the recovered ambient conventional-cell measurement 46.553(19) A^3",
+    "K0": "Table 2, Morse-Rydberg (Vinet) column",
+    "K0_prime": "Table 2, Morse-Rydberg (Vinet) column",
+    "theta0": "Table 2, Morse-Rydberg (Vinet) column",
+    "gamma0": "Table 2, Morse-Rydberg (Vinet) column",
+    "a": "Equation 7 and paragraph 14; fixed at 1 because it could not be constrained",
+    "b": "Table 2, Morse-Rydberg (Vinet) column",
+    "n": "Equation 5 atom count applied to SiO2 stoichiometry"
+   },
+   "notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
+   "identifier": "sio2_stv_andr_wang_2012_vinet_mgd_2",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": ["Tsuchiya"],
+       "year": 2003,
+       "source": "J. Geophys. Res. Solid Earth",
+       "volume": "108",
+       "locator": "2462",
+       "doi": "10.1029/2003JB002446"
+      },
+      "source_location": "Experimental procedures, paragraphs 7-8; Results, paragraph 12",
+      "scope": "pressures calculated from simultaneous Au volume and measured temperature"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "All 56 paired Au conventional-cell volumes and temperatures are bundled, but the Tsuchiya (2003) ab initio Au thermal EOS is not an executable Peritheos pressure-standard record. Exact pressure re-reduction therefore awaits that separate calibration record."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, reference state, uncertainties, material identity, calibration, complete observations, and numerical values were checked against the primary publication; LitCurate was used only to discover the DOI.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "volume_basis",
+     "published_uncertainties",
+     "fixed_parameters",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/2011JB009100",
+     "locations": [
+      "Equations 1-8 and analytical methods, paragraphs 9 and 13-14",
+      "Tables 1-3",
+      "Experimental procedures, paragraphs 6-8",
+      "Discussion, paragraph 24"
+     ],
+     "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
+     "doi": "10.1029/2011JB009100"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": ["stishovite_wang_2012_table1_pvt"],
+     "source_locations": [
+      "Primary article Table 1",
+      "Publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt"
+     ],
+     "finding": "All 56 Table 1 observations are bundled with data identifiers, temperature, pressure, tetragonal lattice parameters, conventional-cell volume, simultaneous Au volume, and every printed parenthetical e.s.d. The publisher's supplement endpoint was unavailable to this audit client, so the transcription was verified against the complete official HTML rendering of Table 1."
+    }
+   }
   }
  ],
  "datasets": [
@@ -208,6 +334,65 @@
     "method": "Transcribed all paired SiO2 rows from Tables 1 and 2 verbatim and retained both NaCl calibrant volumes at B1-B2 coexistence.",
     "source_pdf_sha256": "763a38bc358770b1277c50eb7cf1eec23164b9a3fcc18b62fb4abb5745987e4e",
     "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.6225, "published_bm3_max_abs_pressure_residual_gpa": 1.1326},
+    "transcribed_on": "2026-09-04"
+   }
+  },
+  {
+   "identifier": "stishovite_wang_2012_table1_pvt",
+   "kind": "pressure_temperature_lattice_volume_with_pressure_standard",
+   "description": "All 56 in situ stishovite P-V-T observations and simultaneous Au pressure-marker volumes used for the Wang et al. (2012) EOS fit.",
+   "reference": {
+    "authors": ["Wang", "Tange", "Irifune", "Funakoshi"],
+    "year": 2012,
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "117",
+    "locator": "B06209",
+    "doi": "10.1029/2011JB009100"
+   },
+   "source_location": "Primary article Table 1; publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt",
+   "source_url": "https://doi.org/10.1029/2011JB009100",
+   "columns": [
+    {"name": "data_number", "quantity": "observation_identifier", "unit": "1", "role": "flag"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_esd_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_esd_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_a_angstrom"},
+    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_c_esd_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_c_angstrom"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "volume_esd_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "standard_deviation", "of": "volume_a3_conventional_cell"},
+    {"name": "au_volume_a3_conventional_cell", "quantity": "pressure_standard_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "au_volume_esd_a3_conventional_cell", "quantity": "pressure_standard_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "standard_deviation", "of": "au_volume_a3_conventional_cell"}
+   ],
+   "resource": {
+    "path": "datasets/stishovite-wang-2012-table1-pvt.csv",
+    "sha256": "96a78c2c408ad945f5a5245c7270c927616a919f75de6508e531f00a4a34b251",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": ["sio2_stv_andr_wang_2012_vinet_mgd_2"],
+   "uncertainty": {
+    "reported_as": "parenthetical estimated standard deviations in the last printed digits",
+    "covariance": "not_reported",
+    "temperature": "No row-wise temperature uncertainty is tabulated; pressure effects on thermocouple emf were neglected."
+   },
+   "notes": "The conventional tetragonal unit-cell volume is a^2*c and contains Z=2 SiO2 formula units. Pressures were calculated from the paired Au volume and temperature using Tsuchiya (2003). The publisher lists tab-delimited supplements for Tables 1-4; Table 1 contains the primary observations, Table 2 the fitted parameters, and Tables 3-4 calculated P-V-T and thermoelastic-property grids.",
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Transcribed all rows from the publisher's complete official HTML rendering of Table 1 and expanded every parenthetical e.s.d. by its printed decimal place.",
+    "quality_control": {
+     "row_count": 56,
+     "published_vinet_mgd_pressure_rmse_gpa": 0.2134406,
+     "published_vinet_mgd_max_abs_pressure_residual_gpa": 0.5501378,
+     "unweighted_joint_refit": {
+      "K0_gpa": 292.8961,
+      "K0_prime": 4.9770,
+      "theta0_k": 1133.8747,
+      "gamma0": 1.66318,
+      "b": 2.95754,
+      "pressure_rmse_gpa": 0.2086286
+     }
+    },
     "transcribed_on": "2026-09-04"
    }
   }

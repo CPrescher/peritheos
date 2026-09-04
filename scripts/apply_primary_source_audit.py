@@ -48,7 +48,10 @@ DERIVED_REFIT_RECORDS = {
     "neon_fcc_hemley_1989_bm3_refit",
 }
 
-CURRENT_SOURCE_AUDIT_RECORDS = {"rbcl_b2_campbell_1994_bm3_1"}
+CURRENT_SOURCE_AUDIT_RECORDS = {
+    "rbcl_b2_campbell_1994_bm3_1",
+    "sio2_stv_andr_wang_2012_vinet_mgd_2",
+}
 
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
@@ -3167,8 +3170,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 162:
-        raise ValueError(f"Expected 162 EOS records, found {len(entries)}")
+    if len(entries) != 163:
+        raise ValueError(f"Expected 163 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
