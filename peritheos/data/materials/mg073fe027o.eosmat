@@ -1,0 +1,160 @@
+{
+ "format_version": 3,
+ "format": "peritheos.material",
+ "identifier": "mg073fe027o",
+ "name": "(Mg0.73Fe0.27)O magnesiowustite",
+ "formula": "Mg0.73Fe0.27O",
+ "aliases": ["Fe27", "ferropericlase", "magnesiowustite"],
+ "phase": "cubic B1 magnesiowustite",
+ "symmetry": "CUBIC",
+ "lattice": {"a": 4.2599, "b": 4.2599, "c": 4.2599, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+ "formula_units_per_cell": 4,
+ "cell_contents": "Four Mg0.73Fe0.27O formula units per conventional rocksalt cell",
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.73},
+  {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.27},
+  {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+ ],
+ "notes": "Composition-specific Fe27 single crystal from Jacobsen et al. (2005). The ambient lattice parameter and all EOS observations are from the same crystal compressed in helium. No rhombohedral distortion was observed through 51.1 GPa.",
+ "peaks": [],
+ "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+ "eos_records": [
+  {
+   "label": "Jacobsen et al. (2005), (Mg0.73Fe0.27)O BM3",
+   "reference": {
+    "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],
+    "year": 2005,
+    "title": "Single-crystal synchrotron X-ray diffraction study of wustite and magnesiowustite at lower-mantle pressures",
+    "source": "Journal of Synchrotron Radiation",
+    "volume": "12",
+    "locator": "577-583",
+    "doi": "10.1107/S0909049505022326"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {"V0": 77.30, "K0": 154.0, "K0_prime": 4.0},
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {"V0": 0.09, "K0": 3.0, "K0_prime": 0.1},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [0.0, 51.1],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "temperature_ref": 300.0,
+   "fit_datasets": ["jacobsen_2005_table1_compression"],
+   "identifier": "mg073fe027o_jacobsen_2005_bm3_1",
+   "parameter_provenance": {
+    "equation": "The article's third-order Birch-Murnaghan framework is stated in Results section 3.1; section 3.2 reports the Fe27 coefficients and its F-f diagnostic.",
+    "V0": "Results section 3.2, page 581: V0=77.30(9) A^3, fitted.",
+    "K0": "Results section 3.2, page 581: K0=154(3) GPa, fitted.",
+    "K0_prime": "Results section 3.2, page 581: K0'=4.0(1), fitted; the uncertainty and F-f discussion distinguish it from the fixed Fe0.93O values.",
+    "volume_basis": "Table 1 reports cubic lattice parameter a; V=a^3 is the conventional B1 cell containing four Mg0.73Fe0.27O formula units.",
+    "temperature_ref": "The source identifies the ambient lattice measurements as 300 K and reports a room-temperature static compression experiment."
+   },
+   "notes": "Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
+   "validity": {
+    "pressure_gpa": [0.0, 51.1],
+    "temperature_k": [300.0, 300.0],
+    "notes": ["Composition-specific to Mg0.73Fe0.27O in the cubic B1 phase.", "The source reports no phase transition or rhombohedral distortion over the experimental range."]
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [{
+     "kind": "ruby_fluorescence",
+     "reference": {"authors": ["Mao", "Xu", "Bell"], "year": 1986, "source": "J. Geophys. Res.", "doi": "10.1029/JB091iB05p04673"},
+     "source_location": "Experiment, page 578: unit-cell parameters were measured using the Mao et al. (1986) ruby fluorescence pressure scale.",
+     "reference_calibration_record": "ruby_mao_1986"
+    }],
+    "recalculation": {
+     "status": "ready",
+     "notes": "All row-wise sample volumes and source-scale pressures are bundled. The exact Mao-1986 ruby equation is executable; reported pressures can be inverted to normalized R1 wavelength before applying another ruby calibration."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "equation", "parameters", "units", "reference_state", "phase", "composition", "crystallography", "formula_units_per_cell", "published_uncertainties", "fixed_parameters", "parameter_covariance", "validity", "pressure_calibration", "primary_data", "fit_selection", "fit_reproducibility"],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1107/S0909049505022326",
+     "locations": ["Experiment, pages 577-578", "Table 1, page 580", "Results section 3.2 and Figures 6-7, pages 581-582"],
+     "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
+     "doi": "10.1107/S0909049505022326"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": ["jacobsen_2005_table1_compression"],
+     "source_locations": ["Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"],
+     "finding": "The complete multiphase table is transcribed, including all 16 Fe27 cubic lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns."
+    },
+    "numerical_reproduction": {
+     "published_curve_pressure_rmse_gpa": 0.1939114407,
+     "published_curve_max_abs_residual_gpa": 0.4161484547,
+     "independent_refit": {
+      "model": "Third-order Birch-Murnaghan",
+      "selection": "All 16 Table 1 rows, flagged mg073fe027o_fit_included=1.",
+      "objective": "Effective-variance pressure residuals using propagated V=a^3 standard deviations and 0.075 GPa as the midpoint of the source's stated 0.05-0.1 GPa pressure precision range.",
+      "free_parameters": ["V0", "K0", "K0_prime"],
+      "fixed_parameters": [],
+      "parameters": {"V0": 77.30368820, "K0": 154.85488377, "K0_prime": 3.97082563},
+      "reduced_chi_square": 0.6601309155,
+      "raw_pressure_rmse_gpa": 0.2055089515,
+      "conclusion": "All three free coefficients reproduce the published values within their reported uncertainties."
+     },
+     "limitation": "The midpoint pressure precision is an explicit deterministic audit choice, not a reconstruction of undocumented EOS-FIT weights; the source publishes no covariance or confidence convention."
+    }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "jacobsen_2005_table1_compression",
+   "kind": "calibrated_pressure_lattice_volume_multiphase",
+   "description": "Complete Table 1 shared-pressure compression dataset for cubic (Mg0.73Fe0.27)O, cubic Fe0.93O, and rhombohedral Fe0.93O.",
+   "source_location": "Table 1, journal page 580",
+   "source_url": "https://doi.org/10.1107/S0909049505022326",
+   "columns": [
+    {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "mao_1986_ruby_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_precision_min_gpa", "quantity": "pressure_precision_lower_bound", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
+    {"name": "pressure_precision_max_gpa", "quantity": "pressure_precision_upper_bound", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
+    {"name": "temperature_k", "quantity": "nominal_temperature", "unit": "K", "role": "value"},
+    {"name": "mg073fe027o_a_angstrom", "quantity": "mg073fe027o_cubic_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "mg073fe027o_a_sd_angstrom", "quantity": "mg073fe027o_cubic_lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "mg073fe027o_a_angstrom"},
+    {"name": "mg073fe027o_derived_volume_a3", "quantity": "mg073fe027o_conventional_cell_volume_derived_as_a_cubed", "unit": "angstrom^3", "role": "value"},
+    {"name": "mg073fe027o_derived_volume_sd_a3", "quantity": "mg073fe027o_conventional_cell_volume_propagated_standard_deviation", "unit": "angstrom^3", "role": "standard_deviation", "of": "mg073fe027o_derived_volume_a3"},
+    {"name": "mg073fe027o_fit_included", "quantity": "published_fit_selection", "unit": "1", "role": "flag"},
+    {"name": "fe093o_b1_a_angstrom", "quantity": "fe093o_b1_cubic_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "fe093o_b1_a_sd_angstrom", "quantity": "fe093o_b1_cubic_lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "fe093o_b1_a_angstrom"},
+    {"name": "fe093o_b1_derived_volume_a3", "quantity": "fe093o_b1_conventional_cell_volume_derived_as_a_cubed", "unit": "angstrom^3", "role": "value"},
+    {"name": "fe093o_b1_derived_volume_sd_a3", "quantity": "fe093o_b1_conventional_cell_volume_propagated_standard_deviation", "unit": "angstrom^3", "role": "standard_deviation", "of": "fe093o_b1_derived_volume_a3"},
+    {"name": "fe093o_b1_fit_included", "quantity": "published_fit_selection", "unit": "1", "role": "flag"},
+    {"name": "fe093o_rhombohedral_a_angstrom", "quantity": "fe093o_rhombohedral_hexagonal_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "fe093o_rhombohedral_a_sd_angstrom", "quantity": "fe093o_rhombohedral_hexagonal_lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "fe093o_rhombohedral_a_angstrom"},
+    {"name": "fe093o_rhombohedral_c_angstrom", "quantity": "fe093o_rhombohedral_hexagonal_lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "fe093o_rhombohedral_c_sd_angstrom", "quantity": "fe093o_rhombohedral_hexagonal_lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "fe093o_rhombohedral_c_angstrom"},
+    {"name": "fe093o_rhombohedral_volume_a3", "quantity": "fe093o_rhombohedral_equivalent_hexagonal_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "fe093o_rhombohedral_volume_sd_a3", "quantity": "fe093o_rhombohedral_equivalent_hexagonal_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "fe093o_rhombohedral_volume_a3"},
+    {"name": "fe093o_rhombohedral_fit_included", "quantity": "published_fit_selection", "unit": "1", "role": "flag"}
+   ],
+   "resource": {"path": "datasets/jacobsen-2005-table1-compression.csv", "sha256": "afe24343cd64bd3b17e1a0d708dbd79a5511d6d43755af0cd082c0cde533820f", "media_type": "text/csv"},
+   "notes": "All values printed in Table 1 are transcribed. Parenthesized lattice and volume values are represented as standard deviations. The paper gives one shared pressure-precision range of 0.05-0.1 GPa rather than row-wise errors; the two bounds are preserved and no single source uncertainty is invented. Temperature is the source's nominal 300 K experimental condition. Cubic volumes and their standard deviations are derived as V=a^3 and sigma_V=3a^2 sigma_a; rhombohedral equivalent-hexagonal volumes are source values. Blank cells mean that Table 1 reports no observation for that phase at that pressure.",
+   "reference": {
+    "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],
+    "year": 2005,
+    "title": "Single-crystal synchrotron X-ray diffraction study of wustite and magnesiowustite at lower-mantle pressures",
+    "source": "Journal of Synchrotron Radiation",
+    "volume": "12",
+    "locator": "577-583",
+    "doi": "10.1107/S0909049505022326"
+   },
+   "used_by_eos_records": ["mg073fe027o_jacobsen_2005_bm3_1"]
+  }
+ ]
+}
