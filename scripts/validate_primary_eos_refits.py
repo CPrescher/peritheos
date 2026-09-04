@@ -82,11 +82,30 @@ SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
 UNWEIGHTED_DATASETS = {"neon_fei_2007_figure5_digitized"}
 
 COMBINED_FIT_DATASET_RECORDS = {
+    "cscl_campbell_1994_bm3_1",
     "neon_fcc_fei_2007_bm3_1",
     "neon_fcc_fei_2007_vinet_2",
 }
 
+# These tables report one-sigma uncertainties on a cubic lattice parameter.
+# Convert sigma_a to sigma_V with the first-order derivative of V=a^3.
+CUBIC_LATTICE_SIGMA_DATASETS = {
+    "cscl_campbell_1994_table1_compression",
+    "rbcl_campbell_1994_table1_compression",
+}
+
 FIT_QUALIFICATIONS = {
+    "cscl_campbell_1994_bm3_1": (
+        "Complete source-data reproduction: Table 1 contains a distinct 13-row "
+        "CsCl block, not the RbCl rows previously attached to this material. The "
+        "fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after "
+        "the source-stated 4.118-to-4.123 A reference correction. The numerical "
+        "weights used for Campbell and Heinz's normalized-stress regression are not "
+        "published, but the complete unweighted 22-point refit recovers both "
+        "coefficients within combined two-sigma uncertainty. See the "
+        "[dedicated Campbell-Heinz reproduction]"
+        "(literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl)."
+    ),
     "kcl_b2_chidester_2021_bm3_5": (
         "Corrected source-scope reproduction: Chidester et al. fitted the 155 "
         "new high-temperature rows simultaneously with all 123 Dewaele et al. "
@@ -125,6 +144,13 @@ FIT_QUALIFICATIONS = {
         "unavailable. V0 and thermal coefficients are held fixed, and the available "
         "subset is fitted without weights."
     ),
+    "rbcl_b2_campbell_1994_bm3_1": (
+        "Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted "
+        "with the paper's hypothetical zero-pressure density held fixed. The refit "
+        "recovers K0 and K0' within combined two-sigma uncertainty. See the "
+        "[dedicated Campbell-Heinz reproduction]"
+        "(literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl)."
+    ),
 }
 
 # Record-specific conclusions for cases that remain outside both the numerical
@@ -147,13 +173,12 @@ INVESTIGATION_NOTES = {
         "variable is the next evidence needed."
     ),
     "cscl_campbell_1994_bm3_1": (
-        "This is a high-priority data/protocol discrepancy: the published curve's "
-        "RMSE against the bundled rows is orders of magnitude larger than the "
-        "unconstrained refit's RMSE. Ordinary optimizer or rounding differences "
-        "cannot explain it. The Table 1 transcription, lattice-volume convention, "
-        "and the merge with corrected Yagi (1978) observations must be checked "
-        "against the page image before either coefficient set is treated as a "
-        "reproduction of this row set."
+        "The original extreme discrepancy was a data-assignment error: the resource "
+        "contained 21 rows from Table 1's RbCl block and evaluated them with CsCl's "
+        "larger reference volume. After restoring the 13-row CsCl block and adding "
+        "Yagi's nine Table 1 ratios with the Campbell-Heinz reference correction, "
+        "the complete 22-point refit is statistically compatible with the published "
+        "fit. Only the exact normalized-stress regression weights remain unpublished."
     ),
     "goethite_gleason_2008_bm3_1": (
         "The audit uses the 27 rows nearest the reference temperature from a "
@@ -632,6 +657,10 @@ def _series(
         else uncertainties(pressure_name, _pressure_factor(pressure_unit))
     )
     volume_sigma = uncertainties(volume_name, volume_factor)
+    if dataset["identifier"] in CUBIC_LATTICE_SIGMA_DATASETS:
+        lattice_sigma = uncertainties(volume_name)
+        if lattice_sigma is not None:
+            volume_sigma = 3.0 * raw_volume**2 * lattice_sigma
     temperature_sigma = (
         uncertainties(temperature_name) if temperature_name is not None else None
     )
@@ -1794,6 +1823,16 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "Debye-temperature relation. It recovers all five coefficients within ",
             "combined two-sigma uncertainty, and its 1.582 GPa high-temperature ",
             "RMSE reproduces the paper's reported 1.6 GPa.",
+            "",
+            "The Campbell-Heinz CsCl failure was a material-assignment error. ",
+            "Table 1 prints 24 RbCl rows followed by 13 CsCl rows, but the first ",
+            "campaign had attached only the first 21 RbCl rows to CsCl. Restoring ",
+            "the correct CsCl block and adding all nine corrected Yagi Table 1 ",
+            "ratios changes the refit from K0=2.4298 GPa and K0'=17.1164 to ",
+            "K0=17.6967 GPa and K0'=5.2026, which is compatible with the ",
+            "combined Campbell + Yagi values. The complete 24-row RbCl ",
+            "dataset is now a separate material record and refits to K0=17.8808 ",
+            "GPa and K0'=5.2382, reproducing the printed 17.9(10) and 5.23(29).",
             "",
             "## Detailed non-parity investigations",
             "",

@@ -2562,12 +2562,13 @@
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
-        "volume": "lattice_parameter_a"
+        "volume": "volume_a3_conventional_cell"
       },
       "dataset_identifiers": [
-        "cscl_campbell_1994_table1_compression"
+        "cscl_campbell_1994_table1_compression",
+        "cscl_yagi_1978_table1_compression"
       ],
-      "degrees_of_freedom": 19,
+      "degrees_of_freedom": 20,
       "experimental_pressure_range_gpa": [
         0.0,
         28.7
@@ -2585,52 +2586,53 @@
       "material_identifier": "cscl",
       "model": "BM3",
       "objective": "pressure_residuals",
-      "observations": 21,
+      "observations": 22,
       "observed_pressure_range_gpa": [
-        1.11,
-        26.5
+        1.0,
+        28.7
       ],
       "observed_temperature_range_k": null,
       "observed_volume_range": [
-        38.713949581788995,
-        58.406555796399005
+        44.01688993811201,
+        66.52265958111215
       ],
       "parameters": [
         {
-          "difference": -14.58021561336274,
+          "difference": 0.686733485074182,
           "parameter": "K0",
           "published": 17.01,
           "published_error": 0.29,
-          "refit": 2.4297843866372633,
-          "refit_error": 0.678318234500482,
-          "relative_difference": 0.8571555328255578,
-          "similar": false,
-          "within_combined_2sigma": false
+          "refit": 17.696733485074184,
+          "refit_error": 0.5705648310620951,
+          "relative_difference": 0.04037233892264444,
+          "similar": true,
+          "within_combined_2sigma": true
         },
         {
-          "difference": 11.626387849285708,
+          "difference": -0.28739916169726776,
           "parameter": "K0_prime",
           "published": 5.49,
           "published_error": 0.15,
-          "refit": 17.116387849285708,
-          "refit_error": 4.72963680468662,
-          "relative_difference": 2.1177391346604204,
-          "similar": false,
-          "within_combined_2sigma": false
+          "refit": 5.2026008383027325,
+          "refit_error": 0.18002308649400284,
+          "relative_difference": 0.05234957407964804,
+          "similar": true,
+          "within_combined_2sigma": true
         }
       ],
-      "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
+      "primary_data_finding": "The complete published fit scope is bundled: 13 Campbell-Heinz observations plus nine Yagi 25 degC compression ratios corrected from a0=4.118 A to 4.123 A. Campbell and Heinz do not publish their numerical regression weights.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/94JB00127",
-      "published_rmse_gpa": 12.260240421103372,
+      "published_rmse_gpa": 0.3903051728515524,
+      "qualification": "Complete source-data reproduction: Table 1 contains a distinct 13-row CsCl block, not the RbCl rows previously attached to this material. The fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after the source-stated 4.118-to-4.123 A reference correction. The numerical weights used for Campbell and Heinz's normalized-stress regression are not published, but the complete unweighted 22-point refit recovers both coefficients within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).",
       "record_identifier": "cscl_campbell_1994_bm3_1",
-      "reduced_chi_square": 0.20907370503477676,
-      "rmse_gpa": 0.3431028995705593,
+      "reduced_chi_square": 0.1302555867164772,
+      "rmse_gpa": 0.34411360005418556,
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' data and corrected Yagi (1978) data. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). The exact laboratory temperature and coefficient covariance are not reported.",
-      "status": "parity_not_achieved"
+      "source_notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -8178,6 +8180,82 @@
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
+        "volume": "lattice_parameter_a"
+      },
+      "dataset_identifiers": [
+        "rbcl_campbell_1994_table1_compression"
+      ],
+      "degrees_of_freedom": 22,
+      "experimental_pressure_range_gpa": [
+        1.11,
+        32.3
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Campbell and Heinz (1994), RbCl-B2 BM3",
+      "material_identifier": "rbcl",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 24,
+      "observed_pressure_range_gpa": [
+        1.11,
+        32.3
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        36.929363769900995,
+        58.406555796399005
+      ],
+      "parameters": [
+        {
+          "difference": -0.019156340032708385,
+          "parameter": "K0",
+          "published": 17.9,
+          "published_error": 1.0,
+          "refit": 17.88084365996729,
+          "refit_error": 1.0581791574892083,
+          "relative_difference": 0.0010701865940060552,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.008151959171042833,
+          "parameter": "K0_prime",
+          "published": 5.23,
+          "published_error": 0.29,
+          "refit": 5.238151959171043,
+          "refit_error": 0.3525905442063895,
+          "relative_difference": 0.0015586920021114401,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 24 room-temperature RbCl-B2 pressure-lattice-parameter observations printed in Table 1.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/94JB00127",
+      "published_rmse_gpa": 0.28986542659100895,
+      "qualification": "Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).",
+      "record_identifier": "rbcl_b2_campbell_1994_bm3_1",
+      "reduced_chi_square": 0.19972537696575704,
+      "rmse_gpa": 0.27906464867282704,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
         "volume": "volume_a3_conventional_cell"
       },
       "dataset_identifiers": [
@@ -10771,9 +10849,9 @@
   ],
   "summary": {
     "not_refittable": 39,
-    "parity": 78,
-    "parity_not_achieved": 11,
+    "parity": 80,
+    "parity_not_achieved": 10,
     "similar": 32,
-    "total": 160
+    "total": 161
   }
 }

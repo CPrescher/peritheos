@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 160
+    assert len(identifiers) == len(set(identifiers)) == 161
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,11 +29,11 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 160, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 161, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 78,
+        "parity": 80,
         "similar": 32,
-        "parity_not_achieved": 11,
+        "parity_not_achieved": 10,
         "not_refittable": 39,
     }
     assert all(
@@ -126,12 +126,32 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert hemley["status"] == "parity"
     assert hemley["observations"] == 21
     assert hemley["free_parameters"] == ["K0", "K0_prime"]
+    rbcl = by_identifier["rbcl_b2_campbell_1994_bm3_1"]
+    assert rbcl["status"] == "parity"
+    assert rbcl["observations"] == 24
+    assert rbcl["dataset_identifiers"] == [
+        "rbcl_campbell_1994_table1_compression"
+    ]
+    assert [item["refit"] for item in rbcl["parameters"]] == pytest.approx(
+        [17.8808436600, 5.2381519592]
+    )
+    cscl = by_identifier["cscl_campbell_1994_bm3_1"]
+    assert cscl["status"] == "parity"
+    assert cscl["observations"] == 22
+    assert cscl["dataset_identifiers"] == [
+        "cscl_campbell_1994_table1_compression",
+        "cscl_yagi_1978_table1_compression",
+    ]
+    assert [item["refit"] for item in cscl["parameters"]] == pytest.approx(
+        [17.6967334851, 5.2026008383]
+    )
+    assert "Complete source-data reproduction" in cscl["qualification"]
     explained = [
         item
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 43
+    assert markdown.count("### `") == len(explained) == 42
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

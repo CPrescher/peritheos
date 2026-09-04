@@ -92,9 +92,9 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 115
-    assert len(set(identifiers)) == 115
-    assert sum(len(document["eos_records"]) for document in documents) == 160
+    assert len(identifiers) == 116
+    assert len(set(identifiers)) == 116
+    assert sum(len(document["eos_records"]) for document in documents) == 161
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 160
+    assert len({record["identifier"] for record in records}) == 161
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 160
+    assert statuses.count("primary_source_validated") == 161
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -142,11 +142,13 @@ def test_migrated_records_have_completed_primary_source_audit():
         "mgo_b1_tange_2009_vinet",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
+        "rbcl_b2_campbell_1994_bm3_1",
     }
     latest_audit_identifiers = {
         "neon_fcc_hemley_1989_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
         "kcl_b2_chidester_2021_bm3_5",
+        "rbcl_b2_campbell_1994_bm3_1",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
@@ -196,6 +198,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_tateno_2019_vinet_4",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
+        "rbcl_b2_campbell_1994_bm3_1",
     }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -224,8 +227,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 160,
-        "primary_source_validated": 160,
+        "records": 161,
+        "primary_source_validated": 161,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -370,6 +373,87 @@ def test_shen_smith_simultaneous_volume_dataset_is_complete():
     }
 
 
+def test_campbell_cscl_and_rbcl_table_blocks_are_separate_and_complete():
+    expected = {
+        "cscl": {
+            "dataset": "cscl_campbell_1994_table1_compression",
+            "record": "cscl_campbell_1994_bm3_1",
+            "rows": 13,
+            "first": ("6.97", "3.8405"),
+            "last": ("28.7", "3.5308"),
+        },
+        "rbcl": {
+            "dataset": "rbcl_campbell_1994_table1_compression",
+            "record": "rbcl_b2_campbell_1994_bm3_1",
+            "rows": 24,
+            "first": ("1.11", "3.8799"),
+            "last": ("32.3", "3.3301"),
+        },
+    }
+    resource_paths = set()
+
+    for material_identifier, values in expected.items():
+        document = get_material_document(material_identifier)
+        dataset = next(
+            item
+            for item in document["datasets"]
+            if item["identifier"] == values["dataset"]
+        )
+        resource_paths.add(dataset["resource"]["path"])
+        payload = (
+            resources.files("peritheos.data")
+            .joinpath(dataset["resource"]["path"])
+            .read_text(encoding="utf-8")
+        )
+        rows = list(csv.DictReader(io.StringIO(payload)))
+
+        assert len(rows) == values["rows"]
+        assert (rows[0]["pressure_gpa"], rows[0]["lattice_parameter_a"]) == values[
+            "first"
+        ]
+        assert (rows[-1]["pressure_gpa"], rows[-1]["lattice_parameter_a"]) == values[
+            "last"
+        ]
+        assert dataset["used_by_eos_records"] == [values["record"]]
+        assert {
+            column["role"]
+            for column in dataset["columns"]
+            if column["name"].endswith("uncertainty_gpa")
+            or column["name"].endswith("_uncertainty")
+        } == {"standard_deviation"}
+
+    assert len(resource_paths) == 2
+
+    cscl = get_material_document("cscl")
+    yagi = next(
+        item
+        for item in cscl["datasets"]
+        if item["identifier"] == "cscl_yagi_1978_table1_compression"
+    )
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(yagi["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    correction = (4.118 / 4.123) ** 3
+    assert len(rows) == 9
+    assert [float(row["pressure_kbar"]) for row in rows] == list(
+        np.arange(10.0, 100.0, 10.0)
+    )
+    assert [float(row["volume_ratio_reported"]) for row in rows] == pytest.approx(
+        [0.9526, 0.9159, 0.8860, 0.8609, 0.8391, 0.8201, 0.8031, 0.7878, 0.7739]
+    )
+    assert [float(row["volume_ratio_corrected"]) for row in rows] == pytest.approx(
+        [float(row["volume_ratio_reported"]) * correction for row in rows],
+        abs=5.0e-13,
+    )
+    assert cscl["eos_records"][0]["fit_datasets"] == [
+        "cscl_campbell_1994_table1_compression",
+        "cscl_yagi_1978_table1_compression",
+    ]
+
+
 def test_chidester_kcl_dataset_and_new_pressure_markers_match_primary_values():
     document = get_material_document("kcl")
     dataset = next(
@@ -487,7 +571,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 160
+    assert len(records) == 161
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -553,7 +637,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 160
+    assert checked == 161
     assert failures == []
 
 
@@ -1240,6 +1324,7 @@ def test_formerly_unverified_migrated_reductions_are_corrected_or_removed():
     ("material_id", "record_id", "volume", "published_pressure", "absolute_error"),
     [
         ("cscl", "cscl_campbell_1994_bm3_1", 3.5308**3, 28.7, 1.5),
+        ("rbcl", "rbcl_b2_campbell_1994_bm3_1", 3.3301**3, 32.3, 2.0),
         (
             "fe3o4",
             "fe3o4_mao_1974_bm3_1",
@@ -2059,8 +2144,8 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert manifest["source"]["version"] == "0.10.0"
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
-    assert manifest["materials"] == 115
-    assert manifest["eos_records"] == 160
+    assert manifest["materials"] == 116
+    assert manifest["eos_records"] == 161
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 

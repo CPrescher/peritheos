@@ -7,6 +7,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
+  Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
+  which had mistakenly contained an incomplete subset of the RbCl table, and
+  added all nine Yagi (1978) CsCl compression ratios needed for the complete
+  22-point parity reproduction.
+
 - Added Birch-Murnaghan Eulerian finite-strain/normalized-stress diagnostics,
   including first-order P-V error propagation and fitted-model curves. The
   numerical API is plotting-library independent; an executable notebook shows

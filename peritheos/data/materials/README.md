@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 115 curated materials with EOS records from the
+This directory contains 116 curated materials with EOS records from the
 120-material, 147-EOS-record Dioptas 0.10.0 database, tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
 <https://github.com/Dioptas/Dioptas>.
@@ -16,7 +16,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-01 classifies all 147 bundled records as
+dated 2026-09-04 classifies all 161 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -26,7 +26,8 @@ parameterization from Martinez et al. (1996), the Dewaele et al. (2012) B2-KCl
 P-V-T pressure calibration, the complete Correa and Benedict diamond Helmholtz
 models and experimental anchors, and the Tange (2009), Dewaele (2004), and
 Takemura-Dewaele (2008) reference standards added for pressure-calibration
-lineage. The KCl record is the preferred
+lineage, the Hemley neon refit, and Campbell and Heinz's RbCl-B2 record. The
+KCl record is the preferred
 `kcl.eosmat` record and
 keeps its measured 298 K range distinct from its molecular-dynamics thermal
 extension. The Martinez staged result uses its exact Equation (3) direct-linear

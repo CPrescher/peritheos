@@ -45,6 +45,8 @@ DERIVED_REFERENCE_ISOTHERM_RECORDS = {
 
 DERIVED_REFIT_RECORDS = {"neon_fcc_hemley_1989_bm3_refit"}
 
+CURRENT_SOURCE_AUDIT_RECORDS = {"rbcl_b2_campbell_1994_bm3_1"}
+
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
     """Construct one compact primary-evidence description."""
@@ -220,13 +222,13 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
     "10.1029/94jb00127": source(
         "https://doi.org/10.1029/94JB00127",
         [
-            "page 11767, accepted 4.123 A zero-pressure CsCl lattice parameter",
-            "page 11767, Table 1, room-temperature compression data",
-            "page 11767, Figure 2 and Eulerian finite-strain fit",
+            "page 11767, Table 1, separate RbCl and CsCl compression blocks",
+            "page 11767, Figures 2-3 and Eulerian finite-strain fits",
         ],
-        "The third-order Birch-Murnaghan reference volume is fixed from the "
-        "4.123 A lattice parameter explicitly printed in the primary paper. "
-        "No V0 error or coefficient covariance is reported.",
+        "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 "
+        "reference from the hypothetical zero-pressure density 3.3068(10) "
+        "Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; "
+        "the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).",
     ),
     "10.1029/jb078i035p08470": source(
         "https://doi.org/10.1029/JB078i035p08470",
@@ -1158,11 +1160,13 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
         }
         record["notes"] = (
             "Room-temperature third-order Birch-Murnaghan fit to the authors' "
-            "data and corrected Yagi (1978) data. The primary paper explicitly "
+            "13 Table 1 observations and nine corrected Yagi (1978) Table 1 "
+            "compression ratios. The primary paper explicitly "
             "uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-"
             "unit Pm-3m cell; it reports no uncertainty for that fixed lattice "
-            "parameter. K0=17.01(29) GPa and K0'=5.49(15). The exact laboratory "
-            "temperature and coefficient covariance are not reported."
+            "parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do "
+            "not state the numerical weights used for their normalized-stress "
+            "regression, so exact central-value reproduction remains fit-protocol limited."
         )
     if identifier == "fe3o4_mao_1974_bm3_1":
         record["label"] = "Mao et al. (1974), magnetite BM3"
@@ -2849,15 +2853,27 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     doi = normalized_doi(result.get("reference"))
     previous = result.get("scientific_validation") or {}
     migration = previous.get("migration_source")
+    primary_data_check = previous.get("primary_data_check")
     audit_date = (
         REPORT_AUDIT_DATE
-        if result["identifier"] in DERIVED_REFIT_RECORDS
+        if result["identifier"]
+        in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
         else CATALOG_AUDIT_DATE
         if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
         else AUDIT_DATE
     )
 
+    previous_evidence = (
+        previous.get("primary_source_check")
+        if previous.get("status") == "primary_source_validated"
+        else None
+    )
     record_evidence = VALIDATED_RECORD_SOURCES.get(result["identifier"])
+    if record_evidence is None and previous_evidence is not None:
+        # Native records added after the original migration audit carry their
+        # completed, publication-specific evidence in the document itself.
+        # Preserve that evidence when deterministically rebuilding the ledger.
+        record_evidence = previous_evidence
     doi_evidence = VALIDATED_SOURCES.get(doi) if doi is not None else None
     if result["identifier"] not in FORCED_DEFERRED and (
         record_evidence is not None or doi_evidence is not None
@@ -2905,6 +2921,8 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         }
     if migration is not None:
         validation["migration_source"] = migration
+    if primary_data_check is not None:
+        validation["primary_data_check"] = primary_data_check
     result["scientific_validation"] = validation
 
     if result["identifier"] == "kcl_b2_tateno_2019_vinet_4":
@@ -2986,6 +3004,7 @@ def main() -> None:
             "cscl": "B2 (CsCl-type), cubic Pm-3m",
             "fe3o4": "magnetite, cubic inverse-spinel Fd-3m",
             "nis": "metastable NiAs-type, hexagonal P63/mmc",
+            "rbcl": "B2 (CsCl-type), cubic Pm-3m",
             "sno2_cubic_27gpa": "high-pressure cubic Pa-3 SnO2",
             "sno2_pa_3_at_48gpa": "high-pressure cubic Pa-3 SnO2",
             "sro": "B1 (NaCl-type), cubic Fm-3m",
@@ -3092,8 +3111,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 160:
-        raise ValueError(f"Expected 160 EOS records, found {len(entries)}")
+    if len(entries) != 161:
+        raise ValueError(f"Expected 161 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

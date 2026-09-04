@@ -76,9 +76,17 @@
 - Campbell, A. J. & Heinz, D. L. (1994). High-pressure acoustic wave
   velocities and equations of state of the alkali chlorides. *Journal of
   Geophysical Research*, 99, 11765--11774.
-  [doi:10.1029/94JB00127](https://doi.org/10.1029/94JB00127). The CsCl record
-  uses the finite-strain equation and fit on pages 11768--11770 and the
-  accepted ambient lattice parameter stated on page 11766.
+  [doi:10.1029/94JB00127](https://doi.org/10.1029/94JB00127). The CsCl and
+  RbCl-B2 records use the separate Table 1 compression blocks and finite-strain
+  fits on pages 11767--11768. CsCl uses the accepted ambient lattice parameter
+  and Yagi's corrected Table 1 ratios; non-quenchable RbCl-B2 uses the paper's
+  hypothetical zero-pressure density.
+- Yagi, T. (1978). Experimental determination of thermal expansivity of several
+  alkali halides at high pressures. *Journal of Physics and Chemistry of
+  Solids*, 39, 563--571.
+  [doi:10.1016/0022-3697(78)90037-9](https://doi.org/10.1016/0022-3697(78)90037-9).
+  The CsCl validation uses the nine 25 degC `V/V0` values in Table 1 and applies
+  Campbell and Heinz's documented 4.118-to-4.123 angstrom reference correction.
 - Dewaele, A. (2019). Equations of State of Simple Solids (Including Pb, NaCl
   and LiF) Compressed in Helium or Neon in the Mbar Range. *Minerals*, 9, 684.
   doi:10.3390/min9110684. Peritheos uses equation 1, the unified

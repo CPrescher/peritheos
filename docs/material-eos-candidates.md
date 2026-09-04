@@ -16,7 +16,7 @@ not published). Crystal structure and EOS provenance are audited separately;
 an EOS is not accepted into the library with only a phase name or nominal
 formula.
 
-The current baseline is 115 material files and 159 EOS records. The model
+The current baseline is 116 material files and 161 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,
@@ -159,9 +159,10 @@ audit.
   paper, express its alpha polynomial in Peritheos's reference-temperature
   convention, and encode the bcc-to-rhombohedral upper-pressure limit.
 
-### C07 — B2 RbCl, RbBr, and RbI: a pressure-marker family
+### C07 — modern B2 RbCl, RbBr, and RbI thermal pressure-marker family
 
-- **Change:** add three new alkali-halide materials as one coordinated review.
+- **Change:** extend the new Campbell-Heinz (1994) 298 K RbCl-B2 material with
+  a modern thermal EOS, and add RbBr and RbI as two new materials.
 - **Source:** Farla et al. (2025), [Thermal equations of state of B2-structured
   rubidium halides RbCl, RbBr, and RbI](https://doi.org/10.1063/5.0248905).
 - **Published scope:** to 26 GPa and 1800 K. All three use BM3 + MGD. Reported

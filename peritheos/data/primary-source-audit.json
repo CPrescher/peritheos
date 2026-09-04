@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 160,
-    "primary_source_validated": 160
+    "records": 161,
+    "primary_source_validated": 161
   },
   "records": [
     {
@@ -618,7 +618,7 @@
           "page 11767, Table 1, room-temperature compression data",
           "page 11767, Figure 2 and Eulerian finite-strain fit"
         ],
-        "finding": "The third-order Birch-Murnaghan reference volume is fixed from the 4.123 A lattice parameter explicitly printed in the primary paper. No V0 error or coefficient covariance is reported.",
+        "finding": "The third-order Birch-Murnaghan reference volume is fixed from the 4.123 A lattice parameter explicitly printed in the primary paper. The complete fit scope combines 13 new observations with nine corrected Yagi (1978) V/V0 values; no coefficient covariance or exact normalized-stress weights are reported.",
         "doi": "10.1029/94jb00127"
       }
     },
@@ -2239,6 +2239,24 @@
           "Primary article abstract and reported BM3 fits for pyrope and almandine"
         ],
         "doi": "10.1016/j.lithos.2015.03.017"
+      }
+    },
+    {
+      "material": "rbcl",
+      "file": "rbcl.eosmat",
+      "record": "rbcl_b2_campbell_1994_bm3_1",
+      "label": "Campbell and Heinz (1994), RbCl-B2 BM3",
+      "doi": "10.1029/94jb00127",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/94JB00127",
+        "locations": [
+          "page 11767, Table 1, separate RbCl and CsCl compression blocks",
+          "page 11767, Figures 2-3 and Eulerian finite-strain fits"
+        ],
+        "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.",
+        "doi": "10.1029/94jb00127"
       }
     },
     {

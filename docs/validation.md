@@ -5,21 +5,22 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 115 bundled material documents pass the format-3 validator. The
+separate. All 116 bundled material documents pass the format-3 validator. The
 147 raw records transferred from Dioptas 0.10.0 were loaded with its material
 implementation and construct through Dioptas's Peritheos-backed EOS wrapper.
 Peritheos additionally supplies native, primary-sourced aragonite BM2,
-B2-KCl P-V-T, and Correa and Benedict diamond Helmholtz records. Primary review consolidates one duplicate material,
+B2-KCl P-V-T, RbCl-B2, and Correa and Benedict diamond Helmholtz records. Primary review consolidates one duplicate material,
 removes two EOS reductions that their citations do not define, and excludes the
 unreproducible Martinez global HT-BM3 reduction. Splitting the two distinct
 phase-D reference volumes and adding the Benedict record produces 147 bundled
 records; adding the Correa diamond branch produces 148. Two derived records
 combine the Correa and Benedict thermal increments with the experimental
 Dewaele 298 K Vinet isotherm, and adding the independently reproducible B4C
-Berman public-data refit produces 159 records in total. These checks
+Berman public-data and Hemley neon refits plus the Campbell-Heinz RbCl record
+produces 161 records in total. These checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 159
+The primary-source audit covers all 161
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -36,11 +37,11 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 160
+fit for every record with sufficient direct observations and documents all 161
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 78 uncertainty-parity matches and 32
-additional numerically similar results. [Eleven direct refits](primary-eos-refits.md#parity-not-achieved) do not
+diagnostics. The current campaign finds 80 uncertainty-parity matches and 32
+additional numerically similar results. [Ten direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 39 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
@@ -211,7 +212,8 @@ other former blockers directly from primary evidence:
 
 | Material | Primary result represented | Important qualification |
 |---|---|---|
-| CsCl | Campbell et al. (1994) 300 K BM3, `K0=17.01(29) GPa`, `K0'=5.49(15)` | `V0` is fixed from the paper's accepted `a0=4.123 angstrom`; no fit error is assigned to it. |
+| CsCl | Campbell and Heinz (1994) 300 K BM3, `K0=17.01(29) GPa`, `K0'=5.49(15)` | `V0` is fixed from the accepted `a0=4.123 angstrom`; all 13 new rows and nine corrected Yagi ratios are bundled. The 22-point refit achieves parity, with a qualification because the source does not publish its normalized-stress weights. |
+| RbCl B2 | Campbell et al. (1994) 300 K BM3, `K0=17.9(10) GPa`, `K0'=5.23(29)` | The non-quenchable phase uses the paper's fixed hypothetical `rho02=3.3068(10) Mg/m^3`; all 24 Table 1 rows are bundled and achieve parity. |
 | Fe3O4 | Mao et al. (1974) BM3, `K0=183(10) GPa` | `K0'=4.0(4)` is explicitly assumed; the `K0` error combines fit and pressure-scale contributions rather than defining covariance. |
 | Li | Hanfland et al. (1999) Vinet, `K0=11.32(10) GPa`, `K0'=3.62(4)` | This is one empirical fit spanning bcc and fcc data, not a phase-specific bcc EOS; the stored conventional bcc cell contains two atoms. |
 | majorite | Yagi et al. (1992) BM3, `V0=1513.1 angstrom^3`, `K0=161.2 GPa`, fixed `K0'=4` | The paper prints no fit error or covariance; the inherited `4 GPa` error was removed. |

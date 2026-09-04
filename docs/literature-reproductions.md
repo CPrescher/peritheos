@@ -415,3 +415,91 @@ the published and refitted curves have pressure RMSE values of 1.303 and
 moves from `similar` with a boundary solution to full `parity`; there is no
 remaining coefficient-level discrepancy after restoring the source's actual
 data scope and model convention.
+
+<a id="campbell-heinz-1994-cscl-and-rbcl"></a>
+
+## CsCl and RbCl: Campbell and Heinz (1994)
+
+### Source-table correction
+
+[Campbell and Heinz (1994)](https://doi.org/10.1029/94JB00127) report separate
+room-temperature BM3 equations of state for CsCl and the high-pressure B2 phase
+of RbCl. Table 1 on page 11767 is divided into two consecutive blocks: 24 RbCl
+observations from 1.11 to 32.3 GPa, followed by 13 CsCl observations from 6.97
+to 28.7 GPa.
+
+The original Peritheos resource labeled as CsCl instead contained the first 21
+rows of the RbCl block. It also omitted the final RbCl observations at 28.0,
+30.1, and 32.3 GPa. Evaluating those RbCl lattice parameters with CsCl's much
+larger reference volume produced the spurious validation result
+`K0 = 2.4298 GPa`, `K0' = 17.1164`, and a 12.260 GPa published-curve RMSE.
+This was a data-to-material assignment error, not an EOS implementation or
+optimizer failure.
+
+The corrected library now contains:
+
+- `cscl_campbell_1994_table1_compression`, the 13-row CsCl block; and
+- `rbcl_campbell_1994_table1_compression`, the complete 24-row RbCl block.
+
+The paper used gold as its internal pressure standard, following the Heinz and
+Jeanloz (1984) gold EOS, and corrected gold strain anisotropy with the procedure
+of Meng et al. (1993). The published table already contains the reduced
+pressures. Raw gold diffraction values and row-wise correction terms are not
+provided, so the pressure reduction cannot be independently repeated.
+
+### RbCl complete reproduction
+
+The B2 phase of RbCl is not quenchable to ambient pressure. Campbell and Heinz
+therefore fixed a hypothetical zero-pressure density
+`rho02 = 3.3068(10) Mg/m^3`, chosen to satisfy the measured B1-B2 volume change
+and the other experimental constraints. Using `M(RbCl) = 120.9208 g/mol`,
+Peritheos converts this to the one-formula-unit reference
+`V0 = 60.72146(184) A^3`; `V0` is fixed while `K0` and `K0'` are fitted.
+
+The validation treats the parenthesized pressure and lattice-parameter errors
+as one-standard-deviation uncertainties and propagates
+`sigma_V = 3 a^2 sigma_a`. It then performs an errors-in-variables BM3 fit to
+all 24 rows.
+
+| Parameter | Publication | Peritheos refit | Difference |
+|---|---:|---:|---:|
+| `K0` (GPa) | 17.9 +/- 1.0 | 17.8808 +/- 1.0582 | 0.11% |
+| `K0'` | 5.23 +/- 0.29 | 5.23815 +/- 0.35259 | 0.16% |
+
+The published and refitted curves have pressure RMSE values of 0.290 and
+0.279 GPa, respectively. Both coefficients satisfy the numerical and combined
+two-standard-deviation criteria, so the new
+`rbcl_b2_campbell_1994_bm3_1` record achieves full parity.
+
+### CsCl complete reproduction with fit-protocol qualification
+
+For CsCl, the paper fixes `a0 = 4.123 A`, hence
+`V0 = 70.087408867 A^3`. The published `K0 = 17.01(29) GPa` and
+`K0' = 5.49(15)` come from a joint least-squares fit to the 13 new Table 1
+observations and earlier Yagi (1978) data. Yagi's Table 1 supplies nine 25 degC
+`V/V0` values at 10--90 kbar. Campbell and Heinz state that those values used
+the older `a0 = 4.118 A` reference and corrected them to 4.123 A. Peritheos
+therefore applies
+
+`(V/V0)_corrected = (V/V0)_Yagi * (4.118/4.123)^3`,
+
+where the correction factor is `0.9963662826302614`. Yagi states that the
+room-temperature volume uncertainty is below 0.15%; this is retained as an
+accuracy bound rather than silently interpreted as a one-standard-deviation
+weight.
+
+Because Campbell and Heinz do not publish the numerical weights used for their
+straight-line normalized-stress regression, the reproducible ledger uses an
+unweighted pressure-residual BM3 fit to all 22 observations:
+
+| Parameter | Publication, Campbell + Yagi | Peritheos, all 22 rows | Difference |
+|---|---:|---:|---:|
+| `K0` (GPa) | 17.01 +/- 0.29 | 17.6967 +/- 0.5706 | 4.04% |
+| `K0'` | 5.49 +/- 0.15 | 5.20260 +/- 0.18002 | 5.23% |
+
+The published and refitted curves have pressure RMSE values of 0.390 and
+0.344 GPa, respectively, on the complete combined dataset. Both coefficients
+meet the numerical limits and overlap within combined two-standard-deviation
+uncertainty, so `cscl_campbell_1994_bm3_1` remains classified as `parity`.
+The residual central-value difference is documented as a fit-protocol
+qualification, not missing-data parity.

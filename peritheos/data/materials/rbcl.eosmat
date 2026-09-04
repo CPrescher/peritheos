@@ -1,0 +1,209 @@
+{
+ "format_version": 3,
+ "name": "Rubidium chloride (B2)",
+ "formula": "RbCl",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.9304963153,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "Pm-3m",
+ "space_group_number": 221,
+ "atom_sites": [
+  {
+   "element": "Rb",
+   "wyckoff": "1a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Cl",
+   "wyckoff": "1b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "High-pressure CsCl-type B2 RbCl. The phase is not quenchable to zero pressure. The lattice is therefore the hypothetical zero-pressure reference implied by Campbell and Heinz's rho02=3.3068(10) Mg/m^3, not a directly observed ambient cell.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Campbell and Heinz (1994), RbCl-B2 BM3",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Heinz"
+    ],
+    "year": 1994,
+    "source": "J. Geophys. Res.",
+    "volume": "99",
+    "locator": "11765-11774",
+    "doi": "10.1029/94JB00127"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 60.7214565241,
+     "K0": 17.9,
+     "K0_prime": 5.23
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.0183626033,
+    "K0": 1.0,
+    "K0_prime": 0.29
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    1.11,
+    32.3
+   ],
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reported_exactly",
+   "notes": "Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.",
+   "identifier": "rbcl_b2_campbell_1994_bm3_1",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Heinz",
+        "Jeanloz"
+       ],
+       "year": 1984,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/1.333139"
+      },
+      "source_location": "Experimental method, page 11766",
+      "notes": "Gold was the internal pressure standard; strain-anisotropy corrections followed Meng et al. (1993)."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The exact measured gold lattice parameters and row-wise strain-anisotropy corrections are not published."
+    },
+    "audit_date": "2026-09-04",
+    "notes": "The pressure-standard lineage is explicit, but the reported pressures cannot be recalculated from the paper alone."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/94JB00127",
+     "locations": [
+      "page 11767, Table 1, separate RbCl and CsCl compression blocks",
+      "page 11767, Figures 2-3 and Eulerian finite-strain fits"
+     ],
+     "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations.",
+     "doi": "10.1029/94jb00127"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "rbcl_campbell_1994_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, page 11767"
+     ],
+     "finding": "All 24 room-temperature RbCl-B2 pressure-lattice-parameter observations printed in Table 1."
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Derived from Campbell and Heinz (1994), pages 11767-11768: fixed hypothetical rho02=3.3068(10) Mg/m^3 and M(RbCl)=120.9208 g/mol",
+    "K0": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",
+    "K0_prime": "Campbell and Heinz (1994), pages 11767-11768 and Figure 3",
+    "equation": "Campbell and Heinz (1994), pages 11767-11768: third-order Eulerian finite-strain equation"
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "rbcl",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "phase": "B2 (CsCl-type), cubic Pm-3m",
+ "datasets": [
+  {
+   "identifier": "rbcl_campbell_1994_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 24 room-temperature RbCl-B2 compression observations printed in the RbCl block of Table 1.",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Heinz"
+    ],
+    "year": 1994,
+    "source": "J. Geophys. Res.",
+    "volume": "99",
+    "locator": "11765-11774",
+    "doi": "10.1029/94JB00127"
+   },
+   "source_location": "Table 1, page 11767, RbCl block",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_parameter_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_parameter_a_uncertainty",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_parameter_a"
+    }
+   ],
+   "resource": {
+    "path": "datasets/rbcl-campbell-1994-table1-compression.csv",
+    "sha256": "b26a2c31e320c7ca402898a7346d894442c1fecd1cb994536f8e37db65ec0798",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "rbcl_b2_campbell_1994_bm3_1"
+   ],
+   "notes": "Parenthesized last-digit uncertainties are expanded explicitly. The final three RbCl rows at 28.0, 30.1, and 32.3 GPa were absent from the previously mislabeled 21-row CsCl resource and are restored from the page image.",
+   "source_url": "https://doi.org/10.1029/94JB00127"
+  }
+ ]
+}

@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **160** EOS records. **78** achieve uncertainty parity, **32** are numerically similar, **[11](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **161** EOS records. **80** achieve uncertainty parity, **32** are numerically similar, **[10](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -66,7 +66,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`coo_clendenen_1966_murnaghan_1`](https://pubs.aip.org/aip/jcp/article/44/11/4223/209674/Lattice-Parameters-of-Nine-Oxides-and-Sulfides-as) | `coo_clendenen_1966_table3_smoothed_compression` | 9 | `K0` 190.5 → 176.797; `K0_prime` 3.9 → 5.1481 | 0.519196/0.422682 | [parity_not_achieved](#investigation-coo_clendenen_1966_murnaghan_1) |
 | [`copper_dewaele_2004_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `copper_dewaele_2004_table1_compression` | 42 | `K0` 132.4 → 132.787; `K0_prime` 5.32 → 5.30404 | 0.432688/0.302385 | parity |
 | [`copper_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`cscl_campbell_1994_bm3_1`](https://doi.org/10.1029/94JB00127) | `cscl_campbell_1994_table1_compression` | 21 | `K0` 17.01 → 2.42978; `K0_prime` 5.49 → 17.1164 | 12.2602/0.343103 | [parity_not_achieved](#investigation-cscl_campbell_1994_bm3_1) |
+| [`cscl_campbell_1994_bm3_1`](https://doi.org/10.1029/94JB00127) | `cscl_campbell_1994_table1_compression, cscl_yagi_1978_table1_compression` | 22 | `K0` 17.01 → 17.6967; `K0_prime` 5.49 → 5.2026 | 0.390305/0.344114 | parity — Complete source-data reproduction: Table 1 contains a distinct 13-row CsCl block, not the RbCl rows previously attached to this material. The fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after the source-stated 4.118-to-4.123 A reference correction. The numerical weights used for Campbell and Heinz's normalized-stress regression are not published, but the complete unweighted 22-point refit recovers both coefficients within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl). |
 | [`diamond_datchi_2007_vinet_1`](https://doi.org/10.1103/PhysRevB.75.214104) | `parameterization_only` | — | — | —/— | not_refittable — For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record. |
 | [`diamond_dewaele_2008_vinet_2`](https://doi.org/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt` | 23 | `V0` 45.3544 → 45.3574; `K0_prime` 4.18 → 4.09474 | 0.241967/0.231284 | parity |
 | [`diamond_sokolova_2013_holzapfel_3`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
@@ -159,6 +159,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`platinum_sokolova_2013_holzapfel_3`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
 | [`praseodymium_dioxide_gerward_2005_bm3_1`](https://people.iith.ac.in/kanchana/publications/2005/17.pdf) | `praseodymium_dioxide_gerward_2005_figure3b_digitized` | 18 | `K0` 187 → 183.32; `K0_prime` 4.8 → 4.96544 | 0.177766/0.10475 | parity |
 | [`pyrope_milani_2015_bm3_1`](https://doi.org/10.1016/j.lithos.2015.03.017) | `pyrope_milani_2015_table_a2_compression` | 12 | `V0` 1506.15 → 1506.15; `K0` 163.7 → 163.739; `K0_prime` 6.4 → 6.36875 | 0.0177237/0.00382681 | parity |
+| [`rbcl_b2_campbell_1994_bm3_1`](https://doi.org/10.1029/94JB00127) | `rbcl_campbell_1994_table1_compression` | 24 | `K0` 17.9 → 17.8808; `K0_prime` 5.23 → 5.23815 | 0.289865/0.279065 | parity — Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl). |
 | [`rhenium_anzellini_2014_vinet_1`](https://doi.org/10.1063/1.4863300) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.4666 → 29.4712; `K0` 352.6 → 349.324; `K0_prime` 4.56 → 4.65097 | 0.613188/0.604048 | parity |
 | [`rhodium_rodrigo_ramon_2024_vinet_1`](https://doi.org/10.1038/s41598-024-78006-0) | `rhodium_rodrigo_ramon_2024_table2_compression` | 51 | `V0` 55.046 → 55.0484; `K0` 251 → 250.426; `K0_prime` 5.7 → 5.70433 | 0.0486409/0.018579 | parity |
 | [`ringwoodite_meng_1994_bm3_1`](https://doi.org/10.1007/BF00203299) | `ringwoodite_meng_1994_table1_pvt` | 12 | `V0` 526.7 → 526.901; `K0` 182 → 178.432; `K0_prime` 4.2 → 4.49028 | 0.17443/0.167996 | parity |
@@ -199,7 +200,6 @@ use `--check` in continuous integration to detect stale generated files.
 
 - [`b4c_somayazulu_2023_bm3_1`](#investigation-b4c_somayazulu_2023_bm3_1): outside similarity limits (q 2.1 → 1.04991)
 - [`coo_clendenen_1966_murnaghan_1`](#investigation-coo_clendenen_1966_murnaghan_1): outside similarity limits (K0_prime 3.9 → 5.1481)
-- [`cscl_campbell_1994_bm3_1`](#investigation-cscl_campbell_1994_bm3_1): outside similarity limits (K0 17.01 → 2.42978; K0_prime 5.49 → 17.1164)
 - [`goethite_gleason_2008_bm3_1`](#investigation-goethite_gleason_2008_bm3_1): outside similarity limits (K0 140.3 → 196.537; K0_prime 4.6 → 0.895675)
 - [`ice_vi_bezacier_2014_bm2_1`](#investigation-ice_vi_bezacier_2014_bm2_1): outside similarity limits (alpha0 0.000146 → 5.28658e-05)
 - [`molybenum_carbide_mo2c_haines_2001_bm3_1`](#investigation-molybenum_carbide_mo2c_haines_2001_bm3_1): outside similarity limits (K0_prime 6.2 → 4.1467)
@@ -256,9 +256,19 @@ Debye-temperature relation. It recovers all five coefficients within
 combined two-sigma uncertainty, and its 1.582 GPa high-temperature
 RMSE reproduces the paper's reported 1.6 GPa.
 
+The Campbell-Heinz CsCl failure was a material-assignment error.
+Table 1 prints 24 RbCl rows followed by 13 CsCl rows, but the first
+campaign had attached only the first 21 RbCl rows to CsCl. Restoring
+the correct CsCl block and adding all nine corrected Yagi Table 1
+ratios changes the refit from K0=2.4298 GPa and K0'=17.1164 to
+K0=17.6967 GPa and K0'=5.2026, which is compatible with the
+combined Campbell + Yagi values. The complete 24-row RbCl
+dataset is now a separate material record and refits to K0=17.8808
+GPa and K0'=5.2382, reproducing the printed 17.9(10) and 5.23(29).
+
 ## Detailed non-parity investigations
 
-The following **43** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **42** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -476,27 +486,6 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - The input is a nine-point smoothed and rounded table, not the original measurements, and the paper gives no coefficient covariance or exact regression objective. K0 remains close, while K0' is the sensitive coefficient. Reproducing the authors' pre-smoothing data and regression variable is the next evidence needed.
-
-<a id="investigation-cscl_campbell_1994_bm3_1"></a>
-
-### `cscl_campbell_1994_bm3_1`
-
-**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `cscl_campbell_1994_table1_compression` with 21 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `K0` | 17.01 | 2.42978 ± 0.678318 | 85.72% | no | no |
-| `K0_prime` | 5.49 | 17.1164 ± 4.72964 | 211.77% | no | no |
-
-**Fit diagnostics.** Observed pressure range: 1.11-26.5 GPa; source-declared range: 0-28.7 GPa; fit kind: `isothermal_pv`; objective: `pressure_residuals`; published/refit pressure RMSE: 12.2602/0.343103 GPa; reduced chi-square: 0.209074; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
-
-**Source/data scope.** The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.
-
-**Registered source-fit note.** Room-temperature third-order Birch-Murnaghan fit to the authors' data and corrected Yagi (1978) data. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). The exact laboratory temperature and coefficient covariance are not reported.
-
-**Assessment and likely origin.**
-- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
-- This is a high-priority data/protocol discrepancy: the published curve's RMSE against the bundled rows is orders of magnitude larger than the unconstrained refit's RMSE. Ordinary optimizer or rounding differences cannot explain it. The Table 1 transcription, lattice-volume convention, and the merge with corrected Yagi (1978) observations must be checked against the page image before either coefficient set is treated as a reproduction of this row set.
 
 <a id="investigation-fe3s_fei_2000_bm3_1"></a>
 
