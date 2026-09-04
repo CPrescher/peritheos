@@ -4,6 +4,8 @@ This directory contains 117 curated materials with EOS records. The collection
 began with the 120-material, 147-EOS-record Dioptas 0.10.0 database, tag commit
 This directory contains 117 curated materials. The mechanical migration began
 from the 120-material, 147-EOS-record Dioptas 0.10.0 database, tag commit
+This directory contains 117 curated materials with EOS records from the
+120-material, 147-EOS-record Dioptas 0.10.0 database, tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
 <https://github.com/Dioptas/Dioptas>.
 
@@ -38,6 +40,8 @@ lineage, the Hemley neon refit, Campbell and Heinz's RbCl-B2 record, and the
 Schulze et al. (2018) Phase Egg single-crystal BM3 record. The
 lineage, the Hemley neon refit, Campbell and Heinz's RbCl-B2 record, and the
 static low-pressure phase-Egg EOS of Mookherjee et al. (2019). The
+lineage, the Hemley neon refit, Campbell and Heinz's RbCl-B2 record, and the
+selected Shi et al. Rh2O3(II)-type alumina thermal EOS. The
 KCl record is the preferred
 `kcl.eosmat` record and
 keeps its measured 298 K range distinct from its molecular-dynamics thermal
@@ -57,6 +61,7 @@ The current bundle contains 98 distinct primary datasets with 8,413 distinct
 observation rows, represented by 114 material-document links to 120 EOS records.
 The current bundle contains 31 distinct primary datasets with 4,729 distinct
 The current bundle contains 31 distinct primary datasets with 4,724 distinct
+The current bundle contains 31 distinct primary datasets with 4,788 distinct
 observation rows, represented by 41 material-document links to 44 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant

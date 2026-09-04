@@ -55,6 +55,7 @@ CURRENT_SOURCE_AUDIT_RECORDS = {
     "rbcl_b2_campbell_1994_bm3_1",
     "sio2_stv_andr_wang_2012_vinet_mgd_2",
     "phase_egg_schulze_2018_bm3_1",
+    "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
     "rbcl_b2_campbell_1994_bm3_1",
 }
 

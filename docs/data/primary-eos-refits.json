@@ -11594,13 +11594,121 @@
    "solver_success": true,
    "source_notes": "Published LP parameterization only. All V0, K0, and K0' values were fitted; none was fixed or adopted. The source's separate HP proton-configuration parameters are scientifically distinct and are intentionally not merged into this one-record publication-scoped addition. The official supplement continues the LP calculation grid beyond the approximately 15 GPa proton-transfer boundary to 43.7 GPa; those rows document the source fit/curve but do not expand the recommended LP branch. The source reports no E0 value needed by pressure evaluation and no parameter covariance, confidence convention, row uncertainties, fit objective, weights, software-fit details, or fit statistic.",
    "status": "parity"
+  },
+  {
+   "absolute_sigma": true,
+   "columns": {
+    "pressure": "pressure_gpa",
+    "temperature": "temperature_k",
+    "volume": "volume_a3"
+   },
+   "dataset_identifiers": [
+    "alumina_rh2o3_ii_shi_2022_table_s2_pvt"
+   ],
+   "degrees_of_freedom": 71,
+   "experimental_pressure_range_gpa": [
+    96.5,
+    153.0
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    3400.0
+   ],
+   "fit_kind": "joint_pvt",
+   "fixed_parameters": [
+    "K0_prime",
+    "Tr",
+    "q",
+    "n"
+   ],
+   "free_parameters": [
+    "rt_eos.V0",
+    "rt_eos.K0",
+    "theta0",
+    "gamma0"
+   ],
+   "label": "Shi et al. (2022), selected BM3-MGD model 2",
+   "material_identifier": "alumina_rh2o3_ii",
+   "model": "BM3",
+   "objective": "errors_in_variables",
+   "observations": 75,
+   "observed_pressure_range_gpa": [
+    96.5,
+    156.7
+   ],
+   "observed_temperature_range_k": [
+    300.0,
+    3670.0
+   ],
+   "observed_volume_range": [
+    123.3,
+    132.4
+   ],
+   "parameters": [
+    {
+     "difference": 1.9940050282301343,
+     "parameter": "rt_eos.V0",
+     "published": 165.2,
+     "published_error": 0.7,
+     "refit": 167.19400502823012,
+     "refit_error": 1.8127107943178884,
+     "relative_difference": 0.01207024835490396,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": -16.584685989039116,
+     "parameter": "rt_eos.K0",
+     "published": 256.0,
+     "published_error": 6.0,
+     "refit": 239.41531401096088,
+     "refit_error": 14.703300273871765,
+     "relative_difference": 0.06478392964468405,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": 166.25836828768456,
+     "parameter": "theta0",
+     "published": 600.0,
+     "published_error": 200.0,
+     "refit": 766.2583682876846,
+     "refit_error": 572.8466765140149,
+     "relative_difference": 0.2770972804794743,
+     "similar": false,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": 0.0802121627657042,
+     "parameter": "gamma0",
+     "published": 1.47,
+     "published_error": 0.05,
+     "refit": 1.5502121627657042,
+     "refit_error": 0.1622031157546712,
+     "relative_difference": 0.05456609711952667,
+     "similar": true,
+     "within_combined_2sigma": true
+    }
+   ],
+   "primary_data_finding": "All 75 Pt-calibrated Rh2O3(II) P-T-V rows are bundled with their printed parenthetical uncertainties, including both identical 156.7 GPa, 3670 K transition-onset rows.",
+   "primary_data_status": "bundled",
+   "primary_source": "https://doi.org/10.1029/2021JB023805",
+   "published_rmse_gpa": 1.1433652954213611,
+   "record_identifier": "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
+   "reduced_chi_square": 0.1519600558131106,
+   "rmse_gpa": 0.8659771870917405,
+   "selection": "all rows",
+   "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+   "solver_success": true,
+   "source_notes": "Published model 2 selected in main Table 1 and reused in Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per formula unit. V0=165.2(7) A^3 is the conventional four-formula-unit Pbcn cell, fitted by extrapolation from high-pressure data rather than measured at ambient conditions. K0, V0, theta0, and gamma0 were fitted; K0'=4 and q=1 were fixed. Parenthetical errors are retained as generic published uncertainties because no confidence convention or covariance matrix is given. Table 3 also reports four q-sensitivity fits (q=0.6, 1.4, 1.8, and 2.2); they are documented alternatives, not separate preferred EOS records. The article states a 153 GPa, 3400 K EOS scope. Table S2 nevertheless prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes at the reported onset of CaIrO3-type Al2O3; they remain in the source dataset with an explicit phase-context flag but do not extend this record's declared validity. At the Table S2 state V=129.8 A^3 and T=300 K, the stored model gives 100.1123 GPa versus 100.0(1.0) GPa. Across all 75 printed rows it gives a 1.1434 GPa pressure RMSE. The independent errors-in-variables refit is reported in docs/literature-reproductions.md and the primary-EOS refit ledger.",
+   "status": "similar"
   }
  ],
  "summary": {
   "not_refittable": 40,
   "parity": 83,
   "parity_not_achieved": 8,
-  "similar": 33,
+  "similar": 34,
   "total": 163
  }
 }

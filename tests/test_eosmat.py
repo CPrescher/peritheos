@@ -137,6 +137,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in records
     }
     current_audit_identifiers = {
+        "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
         "b4c_somayazulu_2023_bm3_1",
@@ -168,6 +169,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "ca_perovskite_kawai_2014_vinet_mgd_3",
         "akimotoite_reynard_1996_bm3_ruby_2",
         "akimotoite_reynard_1996_bm3_ice_vii_3",
+        "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "neon_fcc_hemley_1989_bm3_refit",
         "phase_egg_schulze_2018_bm3_1",
@@ -223,6 +225,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "akimotoite_reynard_1996_bm3_ruby_2",
         "akimotoite_reynard_1996_bm3_ice_vii_3",
         "aragonite_martinez_1996_bm2_2",
+        "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
         "ca_perovskite_caracas_2005_bm3_3",
@@ -1297,6 +1300,115 @@ def test_b4c_primary_data_transcription_is_complete():
     material = Material.from_eosmat(document)
     assert len(material.datasets) == 1
     assert material.to_eosmat()["datasets"] == document["datasets"]
+
+
+def test_shi_2022_rh2o3_ii_record_and_primary_data_are_source_reproduced():
+    document = get_material_document("alumina_rh2o3_ii")
+    record = document["eos_records"][0]
+
+    assert document["formula"] == "Al2O3"
+    assert document["phase"] == "Rh2O3(II)-type, orthorhombic Pbcn"
+    assert document["space_group"] == "Pbcn"
+    assert document["space_group_number"] == 60
+    assert document["formula_units_per_cell"] == 4
+
+    atom_counts = {"Al": 0.0, "O": 0.0}
+    for site in document["atom_sites"]:
+        multiplicity = int(re.match(r"\d+", site["wyckoff"]).group())
+        atom_counts[site["element"]] += multiplicity * site["occupancy"]
+    assert atom_counts == pytest.approx({"Al": 8.0, "O": 12.0})
+
+    lattice = document["lattice"]
+    assert lattice["a"] * lattice["b"] * lattice["c"] == pytest.approx(126.687306438)
+    assert "113 GPa, 300 K" in document["notes"]
+
+    assert record["identifier"] == "alumina_rh2o3_ii_shi_2022_bm3_mgd_1"
+    assert record["eos"]["parameters"] == {
+        "V0": 165.2,
+        "K0": 256.0,
+        "K0_prime": 4.0,
+    }
+    assert record["fixed_parameters"] == ["K0_prime"]
+    assert record["parameter_errors"] == {
+        "V0": 0.7,
+        "K0": 6.0,
+        "K0_prime": None,
+    }
+    assert record["thermal"] == {
+        "type": "MieGruneisenDebye",
+        "model": "mie_gruneisen_debye",
+        "debye_temperature_law": "integrated_gruneisen",
+        "parameters": {
+            "Tr": 300.0,
+            "theta0": 600.0,
+            "gamma0": 1.47,
+            "q": 1.0,
+            "n": 5.0,
+        },
+        "parameter_errors": {
+            "Tr": None,
+            "theta0": 200.0,
+            "gamma0": 0.05,
+            "q": None,
+            "n": None,
+        },
+        "fixed_parameters": ["Tr", "q", "n"],
+    }
+    assert record["experimental_pressure_range_gpa"] == [96.5, 153.0]
+    assert record["experimental_temperature_range_k"] == [300.0, 3400.0]
+
+    material = Material.from_eosmat(document)
+    executable = material.get_eos_record(record["identifier"])
+    assert executable.pressure(165.2, 300.0) == pytest.approx(0.0, abs=1e-12)
+    assert executable.thermal_pressure_increment(125.5, 300.0) == pytest.approx(
+        0.0, abs=1e-12
+    )
+    published_state = executable.pressure(129.8, 300.0)
+    assert published_state == pytest.approx(100.11226544486252)
+    assert abs(published_state - 100.0) < 1.0
+    high_temperature_state = executable.pressure(125.5, 1560.0)
+    assert high_temperature_state == pytest.approx(130.72774532098987)
+    assert abs(high_temperature_state - 129.6) < 2.0
+    assert executable.volume(high_temperature_state, 1560.0) == pytest.approx(125.5)
+    round_trip = material.to_eosmat()
+    assert round_trip["eos_records"][0]["identifier"] == record["identifier"]
+    assert round_trip["eos_records"][0]["volume"] == {
+        "reference_value": 165.2,
+        "public_to_model_scale": pytest.approx(0.0150553519),
+        "model_unit": "J bar^-1 mol^-1",
+    }
+    reloaded = Material.from_eosmat(round_trip).get_eos_record(record["identifier"])
+    assert reloaded.pressure(125.5, 1560.0) == pytest.approx(high_temperature_state)
+
+    dataset = document["datasets"][0]
+    assert dataset["identifier"] == "alumina_rh2o3_ii_shi_2022_table_s2_pvt"
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(dataset["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    assert len(rows) == 75
+    assert list(rows[0]) == [column["name"] for column in dataset["columns"]]
+    assert rows[0] == {
+        "source_order": "1",
+        "pressure_gpa": "100.0",
+        "pressure_uncertainty_gpa": "1.0",
+        "temperature_k": "300",
+        "temperature_uncertainty_k": "",
+        "volume_a3": "129.8",
+        "volume_uncertainty_a3": "0.2",
+        "phase_context": "rh2o3_ii",
+    }
+    assert min(float(row["pressure_gpa"]) for row in rows) == 96.5
+    assert max(float(row["pressure_gpa"]) for row in rows) == 156.7
+    assert min(float(row["volume_a3"]) for row in rows) == 123.3
+    assert max(float(row["volume_a3"]) for row in rows) == 132.4
+    transition_rows = [
+        row for row in rows if row["phase_context"] == "rh2o3_ii_at_cairo3_onset"
+    ]
+    assert len(transition_rows) == 2
+    assert transition_rows[0] == transition_rows[1] | {"source_order": "74"}
 
 
 def test_eosmat_dataset_validation_rejects_ragged_and_dangling_data():

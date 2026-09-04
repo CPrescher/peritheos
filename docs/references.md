@@ -146,6 +146,13 @@
   Peritheos uses Table 1 and the Birch--Murnaghan result on page 198:
   `V0 = 260.79(4) angstrom^3`, `K0 = 227(2) GPa`, with `K0' = 6.5` assumed.
   [Primary article](https://msaweb.org/AmMin/AM64/AM64_196.pdf).
+- Lin, J.-F., Degtyareva, O., Prewitt, C. T., Dera, P., Sata, N., Gregoryanz,
+  E., Mao, H.-K. & Hemley, R. J. (2004). Crystal structure of a
+  high-pressure/high-temperature phase of alumina by in situ X-ray
+  diffraction. *Nature Materials*, 3, 389--393.
+  [doi:10.1038/nmat1121](https://doi.org/10.1038/nmat1121). The refined
+  113 GPa, 300 K `Pbcn` cell, coordinates, and four-formula-unit contents are
+  the structural source for the Rh2O3(II)-type alumina material.
 - Holland, T. J. B. & Powell, R. (2011). An improved and extended internally
   consistent thermodynamic dataset for phases of petrological interest,
   involving a new equation of state for solids. *Journal of Metamorphic
@@ -263,6 +270,12 @@
   Peritheos uses the this-study BM3 column and the 15 synchrotron rows in
   Table 1; the adjacent column is a re-fit of Vanpeteghem et al. (2003), not a
   second fit to the 2018 specimen.
+- Shi, W., Wei, W., Sun, N., Mao, Z. & Prakapenka, V. B. (2022). Thermal
+  equations of state of corundum and Rh2O3 (II)-type Al2O3 up to 153 GPa and
+  3400 K. *Journal of Geophysical Research: Solid Earth*, 127,
+  e2021JB023805. [doi:10.1029/2021JB023805](https://doi.org/10.1029/2021JB023805).
+  Peritheos uses Equations 1--6, the selected Rh2O3(II) model in Tables 1 and
+  3, and all 75 P--T--V rows in official Supporting Information Table S2.
 - Shieh, S. R., Mao, H.-K., Hemley, R. J. & Ming, L. C. (2000). In situ X-ray
   diffraction studies of dense hydrous magnesium silicates at mantle
   conditions. *Earth and Planetary Science Letters*, 177, 69--80.

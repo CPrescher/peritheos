@@ -37,6 +37,8 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert statuses == {
         "parity": 84,
         "similar": 33,
+        "parity": 82,
+        "similar": 34,
         "parity_not_achieved": 8,
         "not_refittable": 40,
     }
@@ -239,6 +241,23 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [214.0810595, 152.8459201, 8.597514758]
     )
     assert phase_egg["reduced_chi_square"] == pytest.approx(5.486063469)
+    rh2o3 = by_identifier["alumina_rh2o3_ii_shi_2022_bm3_mgd_1"]
+    assert rh2o3["status"] == "similar"
+    assert rh2o3["observations"] == 75
+    assert rh2o3["dataset_identifiers"] == ["alumina_rh2o3_ii_shi_2022_table_s2_pvt"]
+    assert rh2o3["fixed_parameters"] == ["K0_prime", "Tr", "q", "n"]
+    assert rh2o3["free_parameters"] == [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "theta0",
+        "gamma0",
+    ]
+    assert [item["refit"] for item in rh2o3["parameters"]] == pytest.approx(
+        [167.1940050282, 239.4153140110, 766.2583682877, 1.5502121628]
+    )
+    assert rh2o3["published_rmse_gpa"] == pytest.approx(1.1433652954)
+    assert rh2o3["rmse_gpa"] == pytest.approx(0.8659771871)
+    assert all(item["within_combined_2sigma"] for item in rh2o3["parameters"])
     coo = by_identifier["coo_clendenen_1966_murnaghan_1"]
     assert coo["status"] == "parity_not_achieved"
     tradeoff = coo["coefficient_tradeoff_diagnostic"]
@@ -300,7 +319,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 41
+    assert markdown.count("### `") == len(explained) == 42
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

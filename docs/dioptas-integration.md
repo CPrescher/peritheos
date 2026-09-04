@@ -78,6 +78,8 @@ catalog to 116 materials and 164 EOS
 compositions, plus the Campbell-Heinz RbCl-B2 and Schulze Phase Egg records,
 compositions, plus the Campbell-Heinz RbCl-B2 and Mookherjee phase-Egg records,
 bring the distributed catalog to 117 materials and 163 EOS
+compositions, plus the Campbell-Heinz RbCl-B2 and Shi Rh2O3(II)-type alumina
+records, bring the distributed catalog to 117 materials and 163 EOS
 records; they have primary-publication provenance rather than fabricated
 Dioptas migration sources.
 
