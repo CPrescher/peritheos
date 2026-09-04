@@ -3148,6 +3148,48 @@
     "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
     "doi": "10.1029/2011JB009100"
    }
+  },
+  {
+   "material": "akimotoite",
+   "file": "akimotoite.eosmat",
+   "record": "akimotoite_reynard_1996_bm3_ruby_2",
+   "label": "Reynard et al. (1996), BM3, ruby pressure scale",
+   "doi": "10.2138/am-1996-1-206",
+   "status": "primary_source_validated",
+   "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+   "primary_source_check": {
+    "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+    "locations": [
+     "Abstract, page 45",
+     "Table 1 and experimental methods, page 46",
+     "EOS method, page 47",
+     "Figure 3e, page 48",
+     "EOS discussion, page 49"
+    ],
+    "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=7.5(10) on the ruby-pressure assignment. At V=239.13 A^3 the stored curve gives 27.53 GPa, consistent with the Table 1 ruby value 27.8[5] GPa.",
+    "doi": "10.2138/am-1996-1-206"
+   }
+  },
+  {
+   "material": "akimotoite",
+   "file": "akimotoite.eosmat",
+   "record": "akimotoite_reynard_1996_bm3_ice_vii_3",
+   "label": "Reynard et al. (1996), preferred BM3, ice-VII pressure scale",
+   "doi": "10.2138/am-1996-1-206",
+   "status": "primary_source_validated",
+   "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+   "primary_source_check": {
+    "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+    "locations": [
+     "Abstract, page 45",
+     "Table 1 and experimental methods, page 46",
+     "EOS method, page 47",
+     "Figure 3f, page 48",
+     "EOS discussion, page 49"
+    ],
+    "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
+    "doi": "10.2138/am-1996-1-206"
+   }
   }
  ]
 }

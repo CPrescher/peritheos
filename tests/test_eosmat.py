@@ -95,6 +95,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
     assert len(identifiers) == 116
     assert len(set(identifiers)) == 116
     assert sum(len(document["eos_records"]) for document in documents) == 163
+    assert sum(len(document["eos_records"]) for document in documents) == 164
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -124,6 +125,10 @@ def test_migrated_records_have_completed_primary_source_audit():
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
     assert statuses.count("primary_source_validated") == 163
+    assert len({record["identifier"] for record in records}) == 164
+    statuses = [record["scientific_validation"]["status"] for record in records]
+    assert set(statuses) == {"primary_source_validated"}
+    assert statuses.count("primary_source_validated") == 164
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -134,6 +139,8 @@ def test_migrated_records_have_completed_primary_source_audit():
         "b4c_somayazulu_2023_bm3_1",
         "ca_perovskite_caracas_2005_bm3_3",
         "ca_perovskite_kawai_2014_vinet_mgd_3",
+        "akimotoite_reynard_1996_bm3_ruby_2",
+        "akimotoite_reynard_1996_bm3_ice_vii_3",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
         "gold_dewaele_2004_vinet_5",
@@ -154,6 +161,8 @@ def test_migrated_records_have_completed_primary_source_audit():
     latest_audit_identifiers = {
         "ca_perovskite_caracas_2005_bm3_3",
         "ca_perovskite_kawai_2014_vinet_mgd_3",
+        "akimotoite_reynard_1996_bm3_ruby_2",
+        "akimotoite_reynard_1996_bm3_ice_vii_3",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "neon_fcc_hemley_1989_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
@@ -204,6 +213,8 @@ def test_migrated_records_have_completed_primary_source_audit():
         if "migration_source" not in record["scientific_validation"]
     ]
     assert {record["identifier"] for record in native_records} == {
+        "akimotoite_reynard_1996_bm3_ruby_2",
+        "akimotoite_reynard_1996_bm3_ice_vii_3",
         "aragonite_martinez_1996_bm2_2",
         "b4c_somayazulu_2023_berman_2",
         "b4c_somayazulu_2023_berman_refit",
@@ -257,6 +268,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     assert report["summary"] == {
         "records": 163,
         "primary_source_validated": 163,
+        "records": 164,
+        "primary_source_validated": 164,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -283,7 +296,79 @@ def test_bundled_primary_dataset_resources_match_metadata():
             assert all(len(row) == len(dataset["columns"]) for row in rows[1:])
             checked += 1
 
-    assert checked >= 39
+    assert checked >= 40
+
+
+def test_reynard_akimotoite_pressure_scale_fits_and_table_are_distinct():
+    document = get_material_document("akimotoite")
+    records = {record["identifier"]: record for record in document["eos_records"]}
+    ruby_id = "akimotoite_reynard_1996_bm3_ruby_2"
+    ice_id = "akimotoite_reynard_1996_bm3_ice_vii_3"
+    ruby = records[ruby_id]
+    ice = records[ice_id]
+    assert records["akimotoite_siersch_2021_bm3_1"]["default_for"] == "equilibrium"
+
+    assert ruby["eos"]["parameters"] == {
+        "V0": 262.3,
+        "K0": 212.0,
+        "K0_prime": 7.5,
+    }
+    assert ice["eos"]["parameters"] == {
+        "V0": 262.3,
+        "K0": 212.0,
+        "K0_prime": 5.6,
+    }
+    assert ruby["fixed_parameters"] == ice["fixed_parameters"] == ["K0"]
+    assert ruby["pressure_calibration"]["methods"][0]["kind"] == "ruby_fluorescence"
+    assert ice["pressure_calibration"]["methods"][0]["reference"]["doi"] == (
+        "10.1038/330737a0"
+    )
+
+    dataset = next(
+        item
+        for item in document["datasets"]
+        if item["identifier"] == "akimotoite_reynard_1996_table1_compression"
+    )
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(dataset["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    assert len(rows) == 16
+    assert dataset["used_by_eos_records"] == [ruby_id, ice_id]
+    assert sum(bool(row["ruby_pressure_gpa"]) for row in rows) == 16
+    assert sum(bool(row["ice_vii_pressure_gpa"]) for row in rows) == 12
+    assert sum(row["run_direction"] == "decompression" for row in rows) == 3
+
+    row_095 = next(row for row in rows if row["ruby_pressure_gpa"] == "0.95")
+    lattice_volume_095 = (
+        math.sqrt(3.0)
+        * float(row_095["lattice_a_angstrom"]) ** 2
+        * float(row_095["lattice_c_angstrom"])
+        / 2.0
+    )
+    assert lattice_volume_095 == pytest.approx(260.732129595)
+    assert float(row_095["unit_cell_volume_a3"]) == 260.49
+    assert ruby["scientific_validation"]["reported_inconsistencies"][0][
+        "lattice_derived_volume_a3"
+    ] == pytest.approx(lattice_volume_095, abs=0.0001)
+
+    high_pressure = next(row for row in rows if row["ruby_pressure_gpa"] == "27.8")
+    a = float(high_pressure["lattice_a_angstrom"])
+    c = float(high_pressure["lattice_c_angstrom"])
+    volume = float(high_pressure["unit_cell_volume_a3"])
+    assert math.sqrt(3.0) * a**2 * c / 2.0 == pytest.approx(volume, abs=0.01)
+
+    material = Material.from_eosmat(document, record_identifiers=[ruby_id, ice_id])
+    ruby_eos = material.get_eos_record(ruby_id)
+    ice_eos = material.get_eos_record(ice_id)
+    assert ruby_eos.pressure(volume) == pytest.approx(27.5318399241)
+    assert ice_eos.pressure(volume) == pytest.approx(25.3937608606)
+    assert ruby_eos.pressure(volume) == pytest.approx(27.8, abs=0.5)
+    assert ice_eos.pressure(volume) == pytest.approx(25.2, abs=1.4)
+    assert ruby_eos.volume(ruby_eos.pressure(volume)) == pytest.approx(volume)
+    assert ice_eos.volume(ice_eos.pressure(volume)) == pytest.approx(volume)
 
 
 def test_wang_2012_stishovite_vinet_mgd_record_and_table_transcription():
@@ -663,6 +748,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
     ]
 
     assert len(records) == 163
+    assert len(records) == 164
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -729,6 +815,7 @@ def test_every_primary_validated_migrated_record_is_executable():
                 failures.append(f"{record['identifier']}: {error}")
 
     assert checked == 163
+    assert checked == 164
     assert failures == []
 
 
@@ -2387,6 +2474,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 116
     assert manifest["eos_records"] == 163
+    assert manifest["eos_records"] == 164
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 

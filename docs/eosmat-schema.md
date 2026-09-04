@@ -429,6 +429,7 @@ object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
 `peritheos/data/primary-source-audit.json`. All 163
+`peritheos/data/primary-source-audit.json`. All 164
 bundled records are validated, with no deferred or pending record.
 
 ## Complete EOS-only example

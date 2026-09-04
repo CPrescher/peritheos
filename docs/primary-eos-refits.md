@@ -10,6 +10,7 @@ are independent diagnostics and never overwrite a library record.
 
 The campaign covers all **163** EOS records. **82** achieve uncertainty parity, **33** are numerically similar, **[8](#parity-not-achieved)** do not achieve parity, **40** cannot be directly refitted, and **0** attempts failed before comparison.
 The campaign covers all **163** EOS records. **83** achieve uncertainty parity, **33** are numerically similar, **[8](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **164** EOS records. **84** achieve uncertainty parity, **33** are numerically similar, **[8](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -35,6 +36,8 @@ use `--check` in continuous integration to detect stale generated files.
 
 | Record | Data | n | Published → Peritheos refit | Curve/refit RMSE (GPa) | Outcome |
 |---|---|---:|---|---:|---|
+| [`akimotoite_reynard_1996_bm3_ruby_2`](https://www.rruff.net/doclib/am/vol81/AM81_45.pdf) | `akimotoite_reynard_1996_table1_compression` | 16 | `V0` 262.3 → 262.421; `K0_prime` 7.5 → 6.91551 | 0.633536/0.377751 | parity — Direct Table 1 reproduction of the ruby-pressure fit with K0 fixed at the source-adopted 212 GPa. The source says its parameter uncertainties account for pressure and volume errors, but it does not publish the exact objective or covariance. Ruby brackets are fluorescence-line-width estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses all 16 rows, unweighted pressure residuals, and the reported one-sigma volume errors. |
+| [`akimotoite_reynard_1996_bm3_ice_vii_3`](https://www.rruff.net/doclib/am/vol81/AM81_45.pdf) | `akimotoite_reynard_1996_table1_compression` | 14 | `V0` 262.3 → 262.58; `K0_prime` 5.6 → 5.05586 | 0.748728/0.356951 | parity — Direct Table 1 reproduction of the authors' preferred ice-VII-pressure fit with K0 fixed at the source-adopted 212 GPa. Table 1 prints 12 finite-pressure Pi values and Figure 3f supplies two zero-pressure ambient anchors. The source does not publish its exact objective or covariance; ice-pressure brackets are maximum-gradient estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses unweighted pressure residuals and the reported one-sigma volume errors. |
 | [`akimotoite_siersch_2021_bm3_1`](https://doi.org/10.1016/j.pepi.2021.106786) | `akimotoite_siersch_2021_table2_compression` | 54 | `V0` 262.43 → 262.426; `K0` 205 → 205.009; `K0_prime` 4.9 → 4.92363 | 0.156985/0.0738524 | parity |
 | [`almandine_milani_2015_bm3_1`](https://doi.org/10.1016/j.lithos.2015.03.017) | `almandine_milani_2015_table_a3_compression` | 14 | `V0` 1533.52 → 1533.51; `K0` 172.6 → 172.669; `K0_prime` 5.8 → 5.76956 | 0.0135601/0.00264505 | parity |
 | [`alpha_quartz_angel_1997_bm3_1`](https://doi.org/10.1107/S0021889897000861) | `alpha_quartz_angel_1997_table1_compression` | 23 | `V0` 112.981 → 112.972; `K0` 37.12 → 37.2011; `K0_prime` 5.99 → 5.95789 | 0.0135845/0.0131784 | parity |

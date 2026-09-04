@@ -72,6 +72,9 @@ BM3-MGD records, bring the distributed catalog to 116 materials and 163 EOS
 compositions, plus the Campbell-Heinz RbCl-B2 and Wang stishovite records,
 bring the distributed
 catalog to 116 materials and 163 EOS
+compositions, plus the Campbell-Heinz RbCl-B2 record and the two
+pressure-scale-specific Reynard et al. MgSiO3-akimotoite BM3 fits, bring the distributed
+catalog to 116 materials and 164 EOS
 records; they have primary-publication provenance rather than fabricated
 Dioptas migration sources.
 
@@ -104,6 +107,7 @@ the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
 marks all 163 bundled records `primary_source_validated`; no record remains
+marks all 164 bundled records `primary_source_validated`; no record remains
 pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.

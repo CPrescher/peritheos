@@ -23,6 +23,11 @@ Dewaele et al. (2000) MgO BM3-MGD records produce 163 records in total. These ch
 establish file and software interoperability only.
 
 The primary-source audit covers all 163
+produces 162 records; the two pressure-scale-specific Reynard et al.
+MgSiO3-akimotoite BM3 fits produce 164 in total. These checks
+establish file and software interoperability only.
+
+The primary-source audit covers all 164
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -43,6 +48,10 @@ fit for every record with sufficient direct observations and documents all 163
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
 diagnostics. The current campaign finds 83 uncertainty-parity matches and 33
+fit for every record with sufficient direct observations and documents all 164
+records, including selected columns, row count, published and refitted
+coefficients, curve and refit RMSE, uncertainty comparison, and solver
+diagnostics. The current campaign finds 84 uncertainty-parity matches and 33
 additional numerically similar results. [Eight direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 39 records cannot be
 directly refitted because row-level inputs or an executable source reduction
