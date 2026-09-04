@@ -67,6 +67,20 @@ audit.
   `q = 0.847(122)`, within combined two-sigma uncertainty of the reported
   value. See the
   [full reproduction](literature-reproductions.md#mgo-dewaele-2000).
+### Stishovite: lower-mantle Vinet-MGD
+
+**Status: accepted and implemented (2026-09-04).**
+
+- **Source:** Wang et al. (2012), [P-V-T equation of state of stishovite up to
+  mid-lower mantle conditions](https://doi.org/10.1029/2011JB009100).
+- **Implemented scope:** one Vinet-MGD record and all 56 Table 1 P-V-T
+  observations, including simultaneous Au volumes and printed uncertainties.
+  The equally successful BM3-MGD coefficients are preserved as the documented
+  alternative; the source does not explicitly prefer either cold curve.
+- **Audit result:** the existing asymptotic-power-law MGD model exactly matches
+  equations (4)--(8), reproduces two independent Table 3 values, and recovers
+  all fitted coefficients within combined two-standard-deviation intervals.
+  Exact pressure re-reduction awaits an executable Tsuchiya (2003) Au EOS.
 
 ### C01 — Boron carbide B4C: add the thermal branch
 

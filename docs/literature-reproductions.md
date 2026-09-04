@@ -123,6 +123,75 @@ explicitly unavailable. Consequently no source-faithful coefficient refit is
 possible; the refit ledger classifies this record as
 `theoretical_parameterization_only` and `not_refittable` rather than digitizing
 or synthesizing observations.
+## Stishovite, Wang et al. (2012)
+
+### Source, observations, and calibration
+
+- Primary article: F. Wang, Y. Tange, T. Irifune, and K. Funakoshi,
+  *P-V-T equation of state of stishovite up to mid-lower mantle conditions*,
+  *Journal of Geophysical Research: Solid Earth* **117**, B06209 (2012),
+  [doi:10.1029/2011JB009100](https://doi.org/10.1029/2011JB009100).
+- Primary data: all 56 rows of Table 1, spanning 16.85--54.5 GPa and
+  300--1700 K. The bundled CSV preserves the stishovite lattice parameters and
+  conventional-cell volumes, simultaneous Au volumes, and all printed
+  parenthetical estimated standard deviations. The publisher also lists
+  tab-delimited supplements for Tables 2--4; these contain fitted parameters
+  and calculated P-V-T/thermoelastic grids rather than additional observations.
+- Pressure calibration: each pressure was calculated from simultaneous Au
+  volume and temperature with the Tsuchiya (2003) Au thermal EOS,
+  [doi:10.1029/2003JB002446](https://doi.org/10.1029/2003JB002446). The paired
+  calibrant observations are preserved, but that Au EOS is not yet executable
+  in Peritheos, so exact pressure re-reduction is recorded as pending rather
+  than approximated with a different gold scale.
+
+The sample is pure, Al-free SiO2 stishovite. The diffraction cell is the
+existing rutile-type tetragonal `P42/mnm`, `Z = 2` structure in
+`sio2_stv_andr.eosmat`; therefore the Table 1 conventional-cell volume is the
+model volume without a crystallographic conversion.
+
+### Model choice and numerical reproduction
+
+The paper fits one Mie--Gruneisen--Debye thermal formulation with two alternative
+300 K reference curves. The implemented record uses the Vinet curve because
+Figure 2 plots it and Tables 3--4 list it first. The authors do not claim that
+it is statistically preferred: they say both Vinet and BM3 reproduce the data
+and agree within analytical uncertainty. To keep this audit to one executable
+literature record, the complete BM3 coefficients are retained in the Vinet
+record's notes.
+
+For `x = V/V0`, the stored thermal law is exactly equations (4)--(8), with
+
+\[
+\gamma=\gamma_0\{1+a(x^b-1)\},\qquad
+\Theta=\Theta_0\exp\left[-\gamma_0\left((1-a)\ln x+
+\frac{a}{b}(x^b-1)\right)\right],
+\]
+
+and a Debye thermal-pressure increment referenced to 300 K. The atom count is
+`n = 3` per SiO2 formula unit. Table 2 fixes `V0 = 46.55 Å³` and `a = 1`, and
+reports the Vinet solution `K0 = 292(2) GPa`, `K0' = 5.01(12)`,
+`theta0 = 1130(110) K`, `gamma0 = 1.67(7)`, and `b = 3.0(4)`. The alternative
+BM3 solution is `K0 = 294(2) GPa`, `K0' = 4.85(12)`,
+`theta0 = 1130(100) K`, `gamma0 = 1.66(7)`, and `b = 2.9(4)`, with the same
+fixed `V0` and `a`.
+
+The fixed `V0` is the rounded form of the separately reported recovered-sample
+measurement `46.553(19) Å³`; it has no fit uncertainty because it was held
+fixed, although the underlying ambient measurement does have an uncertainty.
+
+The published Vinet coefficients reproduce the Table 3 values: at
+`V/V0 = 0.98` and 1000 K Peritheos gives 11.103 GPa versus 11.11 GPa, and at
+`V/V0 = 1` and 3000 K it gives 22.619 GPa versus 22.62 GPa. Across all 56
+observations the printed curve has a pressure RMSE of 0.213 GPa. An independent
+errors-in-variables refit using the printed pressure and volume uncertainties,
+with `V0`, `Tr`, `a`, and `n` fixed, gives `K0 = 294.68 GPa`, `K0' = 4.879`,
+`theta0 = 1134.7 K`, `gamma0 = 1.6555`, and `b = 3.0469`; every coefficient is
+within the combined two-standard-deviation interval of the published value.
+
+Several measurements lie beyond the cited stishovite--CaCl2-type boundary, but
+no transition was observed on the experimental timescale. The authors report
+that excluding those points leaves the fit unchanged. Consequently the stored
+P-T bounds describe the observations, not a rectangular phase-stability field.
 
 ## C01: boron carbide, Somayazulu et al. (2023)
 

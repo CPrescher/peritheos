@@ -131,6 +131,8 @@ Helmholtz models, including derived variants anchored to the experimental
 Dewaele 298 K Vinet isotherm, together with a primary-sourced Campbell-Heinz
 RbCl-B2 record. All 163 bundled records are
 RbCl-B2 record and the Dewaele et al. (2000) MgO BM3-MGD record. All 163 bundled records are
+Dewaele 298 K Vinet isotherm, together with primary-sourced Campbell-Heinz
+RbCl-B2 and Wang stishovite records. All 163 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with

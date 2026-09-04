@@ -52,6 +52,8 @@ CURRENT_SOURCE_AUDIT_RECORDS = {
     "mgo_b1_luo_2023_vinet_thermal_5",
     "ca_perovskite_caracas_2005_bm3_3",
     "rbcl_b2_campbell_1994_bm3_1",
+    "rbcl_b2_campbell_1994_bm3_1",
+    "sio2_stv_andr_wang_2012_vinet_mgd_2",
 }
 
 

@@ -305,11 +305,24 @@
   Earth*, 115, B12203. doi:10.1029/2010JB007959. The correction changes Figure
   11 only and does not alter the EOS equations, parameters, or regression table
   used by Peritheos.
+- Tsuchiya, T. (2003). First-principles prediction of the P-V-T equation of
+  state of gold and the 660-km discontinuity in Earth's mantle. *Journal of
+  Geophysical Research: Solid Earth*, 108(B10), 2462.
+  [doi:10.1029/2003JB002446](https://doi.org/10.1029/2003JB002446). Wang et al.
+  (2012) use this Au thermal EOS to calculate pressure from simultaneous Au
+  volume and temperature; the paired observations are bundled, but this
+  pressure standard is not yet executable in Peritheos.
 - Victor, A. C. (1962). Heat capacity of diamond at high temperatures.
   *Journal of Chemical Physics*, 36, 1903--1911.
   [doi:10.1063/1.1701288](https://doi.org/10.1063/1.1701288).
 - Vinet, P. and coauthors (1986, 1987). Universal/Rydberg equation of state for
   compressed solids.
+- Wang, F., Tange, Y., Irifune, T. & Funakoshi, K. (2012). P-V-T equation of
+  state of stishovite up to mid-lower mantle conditions. *Journal of
+  Geophysical Research: Solid Earth*, 117, B06209.
+  [doi:10.1029/2011JB009100](https://doi.org/10.1029/2011JB009100). Peritheos
+  represents the paper's presentation-leading Vinet-MGD fit, documents its
+  BM3-MGD alternative, and bundles all 56 Table 1 observations.
 - Yen, C. E., Williams, Q. & Kunz, M. (2020).
   Thermal pressure in the laser-heated diamond anvil cell: A quantitative study
   and implications for the density versus mineralogy correlation of the mantle.

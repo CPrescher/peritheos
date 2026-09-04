@@ -129,6 +129,16 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert hemley["status"] == "parity"
     assert hemley["observations"] == 21
     assert hemley["free_parameters"] == ["K0", "K0_prime"]
+    stishovite = by_identifier["sio2_stv_andr_wang_2012_vinet_mgd_2"]
+    assert stishovite["status"] == "parity"
+    assert stishovite["observations"] == 56
+    assert stishovite["objective"] == "errors_in_variables"
+    assert stishovite["fixed_parameters"] == ["V0", "Tr", "a", "n"]
+    assert [item["refit"] for item in stishovite["parameters"]] == pytest.approx(
+        [294.6773736503, 4.8789956491, 1134.709214856, 1.6555196866,
+         3.0469258011]
+    )
+    assert all(item["within_combined_2sigma"] for item in stishovite["parameters"])
     mo2c = by_identifier["molybenum_carbide_mo2c_haines_2001_bm3_1"]
     assert mo2c["status"] == "similar"
     assert mo2c["observations"] == 16

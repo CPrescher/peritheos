@@ -11139,6 +11139,126 @@
    "record_identifier": "ca_perovskite_kawai_2014_vinet_mgd_3",
    "source_notes": "Preferred Vinet reference isotherm plus a constant-q Mie-Gruneisen-Debye thermal pressure relative to 1000 K. The integrated Debye-temperature law follows equations 4-10 of Tange et al. (2009), which Kawai and Tsuchiya explicitly adopt; n=5 for one CaSiO3 formula unit. V0 is already one cubic Pm-3m conventional cell because Z=1. The input stresses came from LDA-PWSCF NVT FPMD on an 80-atom 2x2x1 tetragonal-supercell representation constrained to cubic metrics, with 50 Ry cutoff, a 2x2x2 k-point grid, 1 fs steps, 1 ps equilibration, and 5 ps production averages. Figure 1 reports a convergence benchmark near 15 GPa and 2000 K: the 2x2x2 sampling gives diagonal stresses 15.3, 15.5, and 15.2 GPa, compared with 16.0, 16.1, and 14.6 GPa at Gamma only; no volume is printed, so this is not an EOS-fit row. No parameter uncertainties or covariance are reported, so missing errors are null rather than zero. The alternate BM3 column is intentionally not added because this contribution is limited to one literature EOS record and the article plots and abstracts the Vinet result. The abstract's K0=203.95 GPa reproduces Table 1 (for example 184.42 GPa rounds to 184.5 GPa at V/V0=0.70 and 4000 K), whereas the PDF-extracted Table 2 value 203.5 GPa predicts 184.06 GPa; the benchmark-consistent abstract value is retained. Section 2's printed 300-1500 K simulation range conflicts with calculated 1000-4000 K points in Figure 2 and cannot be resolved without the raw state table.",
    "status": "not_refittable"
+  },
+  {
+   "absolute_sigma": true,
+   "columns": {
+    "pressure": "pressure_gpa",
+    "temperature": "temperature_k",
+    "volume": "volume_a3_conventional_cell"
+   },
+   "dataset_identifiers": [
+    "stishovite_wang_2012_table1_pvt"
+   ],
+   "degrees_of_freedom": 51,
+   "experimental_pressure_range_gpa": [
+    16.85,
+    54.5
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    1700.0
+   ],
+   "fit_kind": "joint_pvt",
+   "fixed_parameters": [
+    "V0",
+    "Tr",
+    "a",
+    "n"
+   ],
+   "free_parameters": [
+    "rt_eos.K0",
+    "rt_eos.K0_prime",
+    "theta0",
+    "gamma0",
+    "b"
+   ],
+   "label": "Wang et al. (2012), principal Vinet-MGD presentation",
+   "material_identifier": "sio2_stv_andr",
+   "model": "Vinet",
+   "objective": "errors_in_variables",
+   "observations": 56,
+   "observed_pressure_range_gpa": [
+    16.85,
+    54.5
+   ],
+   "observed_temperature_range_k": [
+    300.0,
+    1700.0
+   ],
+   "observed_volume_range": [
+    40.8,
+    44.8
+   ],
+   "parameters": [
+    {
+     "difference": 2.6773736502755128,
+     "parameter": "rt_eos.K0",
+     "published": 292.0,
+     "published_error": 2.0,
+     "refit": 294.6773736502755,
+     "refit_error": 3.498249817619043,
+     "relative_difference": 0.00916908784340929,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": -0.13100435088314644,
+     "parameter": "rt_eos.K0_prime",
+     "published": 5.01,
+     "published_error": 0.12,
+     "refit": 4.878995649116853,
+     "refit_error": 0.21281160051056341,
+     "relative_difference": 0.026148573030568154,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": 4.709214855791288,
+     "parameter": "theta0",
+     "published": 1130.0,
+     "published_error": 110.0,
+     "refit": 1134.7092148557913,
+     "refit_error": 193.7972052633596,
+     "relative_difference": 0.0041674467750365375,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": -0.014480313356317831,
+     "parameter": "gamma0",
+     "published": 1.67,
+     "published_error": 0.07,
+     "refit": 1.655519686643682,
+     "refit_error": 0.11045969542863156,
+     "relative_difference": 0.008670846321148402,
+     "similar": true,
+     "within_combined_2sigma": true
+    },
+    {
+     "difference": 0.0469258011103415,
+     "parameter": "b",
+     "published": 3.0,
+     "published_error": 0.4,
+     "refit": 3.0469258011103415,
+     "refit_error": 0.5624754863702742,
+     "relative_difference": 0.01564193370344717,
+     "similar": true,
+     "within_combined_2sigma": true
+    }
+   ],
+   "primary_data_finding": "All 56 Table 1 observations are bundled with data identifiers, temperature, pressure, tetragonal lattice parameters, conventional-cell volume, simultaneous Au volume, and every printed parenthetical e.s.d. The publisher's supplement endpoint was unavailable to this audit client, so the transcription was verified against the complete official HTML rendering of Table 1.",
+   "primary_data_status": "bundled",
+   "primary_source": "https://doi.org/10.1029/2011JB009100",
+   "published_rmse_gpa": 0.21344058766885318,
+   "record_identifier": "sio2_stv_andr_wang_2012_vinet_mgd_2",
+   "reduced_chi_square": 0.4060514859634414,
+   "rmse_gpa": 0.10024480560149769,
+   "selection": "all rows",
+   "solver_message": "`ftol` termination condition is satisfied.",
+   "solver_success": true,
+   "source_notes": "This is a thermal EOS, not a standalone room-temperature Vinet fit. Equations 1 and 4-8 add a Debye Mie-Gruneisen pressure increment relative to 300 K; with a=1, gamma(V)=gamma0*(V/V0)^b and theta(V)=theta0*exp[-gamma0*((V/V0)^b-1)/b]. The paper also reports an equally successful BM3-MGD alternative: V0=46.55 A^3 fixed, K0=294(2) GPa, K0'=4.85(12), theta0=1130(100) K, gamma0=1.66(7), a=1 fixed, and b=2.9(4). Vinet is retained as the single executable record from this paper because Figure 2 uses it and Tables 3-4 present its values first, with BM3 in parentheses; the authors state that the two fits agree within analytical uncertainty rather than explicitly designating a preferred model. The fixed V0 rounds the independently measured recovered-sample value 46.553(19) A^3; null in parameter_errors means it was not a fitted coefficient, not that the ambient measurement lacked uncertainty. Several measurements crossed the established stishovite-CaCl2-type boundary without transforming on the experimental timescale; the authors report that excluding them gives identical fit results, so the marginal P-T envelope is not a rectangular phase-stability claim.",
+   "status": "parity"
   }
  ],
  "summary": {

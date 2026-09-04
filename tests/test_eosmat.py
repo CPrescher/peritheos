@@ -149,6 +149,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
         "mgo_dewaele_2000_bm3_mgd_5",
+        "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
     latest_audit_identifiers = {
         "ca_perovskite_caracas_2005_bm3_3",
@@ -161,6 +162,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "rbcl_b2_campbell_1994_bm3_1",
         "mgo_b1_luo_2023_vinet_thermal_5",
         "mgo_dewaele_2000_bm3_mgd_5",
+        "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
@@ -224,6 +226,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
+        "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -281,6 +284,69 @@ def test_bundled_primary_dataset_resources_match_metadata():
             checked += 1
 
     assert checked >= 39
+
+
+def test_wang_2012_stishovite_vinet_mgd_record_and_table_transcription():
+    document = get_material_document("sio2_stv_andr")
+    identifier = "sio2_stv_andr_wang_2012_vinet_mgd_2"
+    source = next(
+        record for record in document["eos_records"]
+        if record["identifier"] == identifier
+    )
+    record = Material.from_eosmat(
+        document, record_identifiers=[identifier]
+    ).eos_records[0]
+
+    assert source["eos"]["model"] == "vinet"
+    assert source["thermal"]["model"] == (
+        "asymptotic_power_law_mie_gruneisen_debye"
+    )
+    assert source["fixed_parameters"] == ["V0"]
+    assert source["thermal"]["fixed_parameters"] == ["Tr", "a", "n"]
+    assert "equally successful BM3-MGD alternative" in source["notes"]
+    assert source["pressure_calibration"]["recalculation"]["status"] == (
+        "reference_eos_not_bundled"
+    )
+
+    # Table 3 independently tabulates these two Vinet-MGD pressures.
+    assert record.pressure(46.55 * 0.98, 1000.0, check_validity=False) == (
+        pytest.approx(11.11, abs=0.02)
+    )
+    assert record.pressure(46.55, 3000.0, check_validity=False) == pytest.approx(
+        22.62, abs=0.02
+    )
+    assert record.volume(record.pressure(42.0, 1500.0), 1500.0) == pytest.approx(
+        42.0
+    )
+
+    dataset = next(
+        item for item in document["datasets"]
+        if item["identifier"] == "stishovite_wang_2012_table1_pvt"
+    )
+    payload = (
+        resources.files("peritheos.data")
+        .joinpath(dataset["resource"]["path"])
+        .read_text(encoding="utf-8")
+    )
+    rows = list(csv.DictReader(io.StringIO(payload)))
+    assert len(rows) == 56
+    assert rows[0] == {
+        "data_number": "M1034007",
+        "temperature_k": "1300",
+        "pressure_gpa": "19.32",
+        "pressure_esd_gpa": "0.10",
+        "lattice_a_angstrom": "4.1145",
+        "lattice_a_esd_angstrom": "0.0003",
+        "lattice_c_angstrom": "2.6464",
+        "lattice_c_esd_angstrom": "0.0004",
+        "volume_a3_conventional_cell": "44.80",
+        "volume_esd_a3_conventional_cell": "0.02",
+        "au_volume_a3_conventional_cell": "63.84",
+        "au_volume_esd_a3_conventional_cell": "0.02",
+    }
+    assert rows[-1]["data_number"] == "M922011"
+    assert float(rows[-1]["pressure_gpa"]) == pytest.approx(53.4)
+    assert float(rows[-1]["au_volume_a3_conventional_cell"]) == pytest.approx(56.41)
 
 
 def test_ono_cubic_sno2_primary_data_transcription_is_complete():

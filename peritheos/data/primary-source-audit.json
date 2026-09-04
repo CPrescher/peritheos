@@ -3128,6 +3128,26 @@
     "finding": "The final article selects a 1000 K reference because cubic CaSiO3 is unstable at 300 K, plots the Vinet-MGD compression curves, and reports V0=46.17 A^3/formula unit, K0=203.95 GPa in the abstract, K0'=4.76, fixed theta0=1100 K, gamma0=1.576, and q=0.96. Its Table 1 isochors numerically support the abstract K0 despite the 203.5 GPa value extracted from Table 2. Section 2's printed 300-1500 K simulation range conflicts with Figure 2's calculated 1000-4000 K points.",
     "doi": "10.1002/2013jb010905"
    }
+  },
+  {
+   "material": "sio2_stv_andr",
+   "file": "sio2_stv_andr.eosmat",
+   "record": "sio2_stv_andr_wang_2012_vinet_mgd_2",
+   "label": "Wang et al. (2012), principal Vinet-MGD presentation",
+   "doi": "10.1029/2011JB009100",
+   "status": "primary_source_validated",
+   "note": "Equation, parameters, reference state, uncertainties, material identity, calibration, complete observations, and numerical values were checked against the primary publication; LitCurate was used only to discover the DOI.",
+   "primary_source_check": {
+    "access_url": "https://doi.org/10.1029/2011JB009100",
+    "locations": [
+     "Equations 1-8 and analytical methods, paragraphs 9 and 13-14",
+     "Tables 1-3",
+     "Experimental procedures, paragraphs 6-8",
+     "Discussion, paragraph 24"
+    ],
+    "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
+    "doi": "10.1029/2011JB009100"
+   }
   }
  ]
 }
