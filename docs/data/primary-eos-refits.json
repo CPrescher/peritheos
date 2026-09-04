@@ -6391,6 +6391,32 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        14.0,
+        133.0
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fixed_parameters": [
+        "V0",
+        "rho0",
+        "P0"
+      ],
+      "label": "Duffy and Ahrens (1995), B1 principal Hugoniot",
+      "material_identifier": "mgo",
+      "model": "LinearUsUpHugoniot",
+      "primary_data_finding": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://duffy.princeton.edu/document/27",
+      "reason": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.",
+      "record_identifier": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
+      "source_notes": "Constrained principal Hugoniot for the B1 phase only. This is not an equilibrium EOS or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.",
+      "status": "not_refittable"
+    },
+    {
       "dataset_identifiers": [
         "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
       ],
@@ -7193,6 +7219,83 @@
       "record_identifier": "nickel_oxide_noguchi_1999_bm3_1",
       "source_notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient.",
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "particle_velocity": "final_particle_velocity_km_s",
+        "shock_velocity": "final_shock_velocity_km_s"
+      },
+      "dataset_identifiers": [
+        "nickel_oxide_noguchi_1999_table1_shock"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        17.7,
+        147.6
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fit_kind": "linear_us_up_hugoniot",
+      "fixed_parameters": [
+        "V0",
+        "rho0",
+        "P0"
+      ],
+      "free_parameters": [
+        "c0",
+        "s"
+      ],
+      "label": "Noguchi et al. (1999), derived B1 principal Hugoniot",
+      "material_identifier": "nickel_oxide",
+      "model": "LinearUsUpHugoniot",
+      "objective": "shock_velocity_residuals",
+      "observations": 8,
+      "observed_particle_velocity_range_km_s": [
+        0.431,
+        2.547
+      ],
+      "observed_shock_velocity_range_km_s": [
+        5.958,
+        8.543
+      ],
+      "parameters": [
+        {
+          "difference": 2.2232882201933535e-11,
+          "parameter": "c0",
+          "published": 5.3549770536,
+          "published_error": 0.0531157378,
+          "refit": 5.354977053622233,
+          "refit_error": 0.05311573780318259,
+          "relative_difference": 4.151816521228041e-12,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 2.4421131783469718e-11,
+          "parameter": "s",
+          "published": 1.2137281492,
+          "published_error": 0.02956091343,
+          "refit": 1.2137281492244212,
+          "refit_error": 0.029560913431890334,
+          "relative_difference": 2.012075916634736e-11,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All eight final-state Us-up pairs are fitted; three separately resolved HEL state pairs remain bundled but are explicitly excluded.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
+      "record_identifier": "nickel_oxide_noguchi_1999_linear_hugoniot_2",
+      "reduced_chi_square": 0.004127258683400022,
+      "rmse_shock_velocity_km_s": 0.05563671460959945,
+      "selection": "finite final_particle_velocity_km_s and final_shock_velocity_km_s; 8 rows",
+      "solver_message": "`gtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -10848,10 +10951,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 39,
-    "parity": 80,
+    "not_refittable": 40,
+    "parity": 81,
     "parity_not_achieved": 10,
     "similar": 32,
-    "total": 161
+    "total": 163
   }
 }

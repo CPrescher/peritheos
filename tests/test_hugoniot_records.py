@@ -7,7 +7,7 @@ import numpy as np
 import pytest
 from jsonschema import Draft202012Validator
 
-from peritheos import eosmat_schema, validate_eosmat_document
+from peritheos import eosmat_schema, get_material_document, validate_eosmat_document
 from peritheos.errors import EosmatError, MaterialError, UnsupportedOperationError
 from peritheos.fitting import fit_linear_us_up
 from peritheos.hugoniot import LinearUsUpHugoniot
@@ -677,6 +677,44 @@ def test_linear_us_up_ordinary_least_squares_recovers_parameters():
     assert serialized["model"]["class"] == "LinearUsUpHugoniot"
     assert serialized["parameters"]["c0"] == pytest.approx(4.2)
     assert '"adjusted_particle_velocity"' in result.to_json()
+
+
+def test_bundled_single_phase_hugoniot_records():
+    mgo_document = get_material_document("mgo")
+    mgo = Material.from_eosmat(mgo_document)
+    mgo_hugoniot = mgo.get_eos_record(
+        "mgo_b1_duffy_ahrens_1995_hugoniot_5"
+    )
+    assert mgo.phase == "B1 (periclase)"
+    assert mgo_hugoniot.loading_path == "principal"
+    assert mgo_hugoniot.branch_kind == "untransformed"
+    assert mgo_hugoniot.eos.c0 == pytest.approx(6.87)
+    assert mgo_hugoniot.eos.s == pytest.approx(1.24)
+    assert mgo_hugoniot.state_from_particle_velocity(0.5228).pressure == pytest.approx(
+        14.0, abs=0.01
+    )
+    assert mgo_hugoniot.state_from_particle_velocity(3.3768).pressure == pytest.approx(
+        133.0, abs=0.01
+    )
+
+    nio_document = get_material_document("nickel_oxide")
+    nio = Material.from_eosmat(nio_document)
+    nio_hugoniot = nio.get_eos_record(
+        "nickel_oxide_noguchi_1999_linear_hugoniot_2"
+    )
+    assert nio.phase == "rhombohedral B1"
+    assert nio_hugoniot.loading_path == "principal"
+    assert nio_hugoniot.branch_kind == "untransformed"
+    assert nio_hugoniot.eos.c0 == pytest.approx(5.3549770536)
+    assert nio_hugoniot.eos.s == pytest.approx(1.2137281492)
+    assert nio_hugoniot.covariance_parameters == ("c0", "s")
+    assert np.allclose(
+        np.asarray(nio_hugoniot.parameter_covariance),
+        [
+            [0.0028212816024, -0.0014193469559],
+            [-0.0014193469559, 0.00087384760293],
+        ],
+    )
 
 
 def test_linear_us_up_supports_weighting_and_particle_velocity_errors():

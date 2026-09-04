@@ -16,9 +16,15 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-04 classifies all 161 bundled records as
+dated 2026-09-04 classifies all 163 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
+
+The library includes two phase-restricted principal Hugoniot records: the
+published B1-MgO relation of Duffy and Ahrens (1995) and a transparent
+Peritheos OLS fit to the final-state B1-NiO observations of Noguchi et al.
+(1999). These are constrained shock paths, not equilibrium isotherms or thermal
+EOS surfaces.
 
 Additional records native to Peritheos have no invented Dioptas migration
 provenance. They include the primary-sourced staged aragonite BM2 P-V-T
