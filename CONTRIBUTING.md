@@ -36,6 +36,13 @@ uncertainty calculation should include:
   documentation; and
 - an entry under `Unreleased` in `CHANGELOG.md`.
 
+New materials, literature parameterizations, refits, and equation families
+must also follow the
+[material and EOS contribution guide](https://peritheos.readthedocs.io/en/latest/adding-materials-and-eos/).
+It defines the primary-data, crystallographic, provenance, numerical
+reproduction, interchange, and testing requirements for acceptance into the
+bundled library.
+
 Do not silently change an existing scientific convention. Follow the
 [API stability policy](https://peritheos.readthedocs.io/en/latest/api-stability/)
 and document any migration path.
