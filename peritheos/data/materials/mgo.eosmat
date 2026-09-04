@@ -353,6 +353,214 @@
    }
   },
   {
+   "label": "Li et al. (2006), acoustic absolute-pressure BM3",
+   "reference": {
+    "authors": [
+     "Li",
+     "Woody",
+     "Kung"
+    ],
+    "year": 2006,
+    "title": "Elasticity of MgO to 11 GPa with an independent absolute pressure scale: Implications for pressure calibration",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "111",
+    "locator": "B11206",
+    "doi": "10.1029/2005JB004251"
+   },
+   "record_kind": "published",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.702,
+     "K0": 161.1767340842165,
+     "K0_prime": 4.237911491402006
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.026,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    10.95
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "temperature_ref": 300.0,
+   "identifier": "mgo_li_2006_bm3_absolute_acoustic",
+   "fit_datasets": [
+    "mgo_li_2006_table1_elasticity"
+   ],
+   "parameter_provenance": {
+    "equation": "Equation 3 uses epsilon=[1-(rho/rho0)^(2/3)]/2=[1-(V0/V)^(2/3)]/2 and P=-3*K0T*epsilon*(1-2*epsilon)^(5/2)*[1+3*(4-K0T')*epsilon/2]. With f=-epsilon, this is exactly the standard third-order Birch-Murnaghan pressure equation used by Peritheos.",
+    "V0": "Table 1 footnote reports V0=74.702(26) A^3. Section 3 states that MgO specific volume was refined from five diffraction lines; for B1 MgO this is the conventional cubic Fm-3m cell with Z=4. V0 is an independently measured reference value, not a coefficient varied in a pressure-volume BM3 regression.",
+    "K0": "Abstract and Section 4 report the preferred decompression acoustic finite-strain fit K0S=163.5(11) GPa. Equation 4 converts this to K0T=K0S/(1+alpha*gamma*T), using the paper's adopted alpha=3.12e-5 K^-1, gamma=1.54, and T=300 K, giving 161.1767340842165 GPa.",
+    "K0_prime": "Equation 4 gives K0T'=[K0S'+q*alpha*gamma*T-gamma*T*(dK0T/dT)/K0T]/(1+alpha*gamma*T). Using the preferred K0S'=4.20, q=1.3, dK0T/dT=-0.028 GPa/K, and the derived K0T gives 4.237911491402006.",
+    "temperature_ref": "The abstract, Sections 2-5, and Figures 3 and 6 identify the represented isotherm as 300 K. High-pressure measurements were collected after the annealed sample had cooled and stabilized at room temperature.",
+    "volume_basis": "Table 1 reports the MgO unit-cell reference volume, and Section 3 derives specific volume from the 111, 200, 220, 311, and 222 reflections of the cubic B1 lattice. The represented Fm-3m conventional cell contains four MgO formula units."
+   },
+   "notes": "This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. The authors first fit measured acoustic velocities and density with third-order finite-strain equations to obtain adiabatic moduli, convert the preferred decompression fit to isothermal K0T and K0T' with Equation 4, and then calculate pressure from volume with BM3 Equation 3. Table 1 pressures are therefore EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     10.95
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "The upper bound is the largest calculated sample pressure printed in Table 1; the title rounds this to 11 GPa.",
+     "The range is experimental coverage of stable B1 MgO, not a phase boundary or an endorsement of higher-pressure extrapolation."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Li",
+        "Woody",
+        "Kung"
+       ],
+       "year": 2006,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/2005JB004251"
+      },
+      "source_location": "Sections 2-3 and Equations 1-4; simultaneous ultrasonic interferometry, X-ray diffraction, and X-ray imaging determine density, acoustic velocity, and sample pressure without a secondary pressure standard",
+      "scope": "all 17 Table 1 states"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The represented BM3 is itself the absolute acoustic-diffraction pressure scale. NaCl was present only for comparison and was not used to calibrate the stored EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final free-access publisher article, including the equation images, complete HTML tables, and official tab-delimited supplements for Tables 1 and 2. LitCurate was used only for discovery. The Table 1 supplement duplicates the primary observations bundled here; Table 2 is a literature-comparison summary rather than additional primary observations.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "parameter_derivation",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fitted_fixed_adopted_status",
+     "parameter_covariance",
+     "validity",
+     "absolute_pressure_method",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251",
+     "locations": [
+      "Abstract and Sections 1-2",
+      "Table 1 and Equations 1-4 in Section 3",
+      "Table 2 and Sections 4-5",
+      "Official tab-delimited supplements for Tables 1 and 2"
+     ],
+     "finding": "Li et al. report a new absolute 300 K MgO BM3 pressure scale, not a direct pressure-volume BM3 regression. Its conventional-cell V0 is measured by XRD; its isothermal K0 and K0' follow exactly from the preferred decompression acoustic finite-strain fit and the printed Equation 4 conversion.",
+     "doi": "10.1029/2005jb004251"
+    },
+    "reported_parameterizations": [
+     {
+      "role": "preferred_decompression_acoustic_fit",
+      "K0S_gpa": 163.5,
+      "K0S_standard_deviation_gpa": 1.1,
+      "K0S_prime": 4.2,
+      "K0S_prime_standard_deviation": 0.1,
+      "G0_gpa": 129.8,
+      "G0_standard_deviation_gpa": 0.6,
+      "G0_prime": 2.42,
+      "G0_prime_standard_deviation": 0.06,
+      "p_wave_rms_misfit_km_s": 0.02,
+      "s_wave_rms_misfit_km_s": 0.015
+     },
+     {
+      "role": "all_data_acoustic_fit",
+      "K0S_gpa": 163.4,
+      "K0S_standard_deviation_gpa": 1.0,
+      "K0S_prime": 4.22,
+      "K0S_prime_standard_deviation": 0.1,
+      "G0_gpa": 129.5,
+      "G0_standard_deviation_gpa": 0.7,
+      "G0_prime": 2.44,
+      "G0_prime_standard_deviation": 0.06,
+      "p_wave_rms_misfit_km_s": 0.02,
+      "s_wave_rms_misfit_km_s": 0.017
+     }
+    ],
+    "isothermal_parameter_derivation": {
+     "inputs": {
+      "K0S_gpa": 163.5,
+      "K0S_prime": 4.2,
+      "alpha_per_k": 3.12e-05,
+      "gamma0": 1.54,
+      "q": 1.3,
+      "dK0T_dT_gpa_per_k": -0.028,
+      "temperature_k": 300.0
+     },
+     "outputs": {
+      "K0T_gpa": 161.1767340842165,
+      "K0T_prime": 4.237911491402006
+     },
+     "uncertainty": "The acoustic-fit errors are one standard deviation, but the source gives no uncertainties or covariance for alpha, gamma, q, or dK0T/dT and no propagated K0T/K0T' uncertainty. None is inferred."
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "preferred decompression K0S",
+      "abstract_and_section_4": "163.5(11) GPa",
+      "table_2": "163.6(11) GPa",
+      "resolution": "The stored isothermal derivation uses 163.5 GPa because the abstract and narrative results agree on that value; the conflicting Table 2 value is retained here rather than silently averaged."
+     },
+     {
+      "field": "fourth initial-compression Table 1 volume ratio",
+      "table_1": "V/V0=0.962, density=3.696(6) g/cm^3, Pcal=6.23(14) GPa",
+      "finding": "The printed ratio is not mutually consistent with the row density and the published BM3 pressure at the displayed precision. It is retained verbatim; no correction is inferred."
+     }
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the Table 1 endpoint V/V0=0.942, the stored BM3 predicts 10.9321 GPa versus the printed calculated pressure 10.95(15) GPa.",
+     "reference_state_check": "The stored equation gives P(V0)=0 and K(V0)=K0T; inverse pressure-volume evaluation is tested across the reported branch.",
+     "independent_acoustic_refit_check": "An unweighted simultaneous nonlinear least-squares fit of Equations 1-2 to the ten decompression density/VP/VS rows plus the independently reported ambient density/VP/VS anchor gives K0S=163.5115 GPa, K0S'=4.15807, G0=129.7175 GPa, and G0'=2.39724. All four recover the preferred published coefficients within their reported one-standard-deviation errors. Equation 4 then gives K0T=161.1881 GPa and K0T'=4.19657, differing from the stored source-derived values by 0.0113 GPa and 0.0413, respectively. The high-pressure-row RMS residuals are 0.02165 km/s for VP and 0.01474 km/s for VS, versus the paper's rounded 0.02 and 0.015 km/s.",
+     "refit_status": "not_directly_refittable_as_pressure_volume",
+     "limitation": "Table 1 pressure was calculated from the same acoustic-derived BM3 and is not an independent pressure coordinate. Regressing those Pcal-V/V0 pairs would be circular and would also be limited by ratios printed to only three decimals. The paper does not state an observation-weighting rule or fitting software; the deterministic audit fit therefore uses ordinary unweighted velocity residuals and is evidence of coefficient recovery within published uncertainty, not a claim to reproduce the authors' covariance calculation."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgo_li_2006_table1_elasticity"
+     ],
+     "source_locations": [
+      "Section 2 paragraph 5 ambient density and acoustic velocities",
+      "Table 1 and official tab-delimited Table 1 supplement, all 17 rows and footnote"
+     ],
+     "finding": "All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations."
+    }
+   }
+  },
+  {
    "label": "Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3",
    "reference": {
     "authors": [
@@ -1808,6 +2016,132 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "mgo_li_2006_table1_elasticity",
+   "kind": "compression_density_velocity_elastic_moduli",
+   "description": "The ambient density and acoustic velocities reported in Section 2 plus all 17 MgO states printed in Table 1, preserving the compression path, relative volume, density, P- and S-wave velocities, adiabatic bulk and shear moduli, calculated absolute pressure, and all parenthesized uncertainties.",
+   "reference": {
+    "authors": [
+     "Li",
+     "Woody",
+     "Kung"
+    ],
+    "year": 2006,
+    "title": "Elasticity of MgO to 11 GPa with an independent absolute pressure scale: Implications for pressure calibration",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "111",
+    "locator": "B11206",
+    "doi": "10.1029/2005JB004251"
+   },
+   "source_location": "Section 2 paragraph 5 ambient measurements; official tab-delimited Table 1 supplement and article Table 1 footnote",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2005JB004251&file=jgrb14836-sup-0001-t01.txt",
+   "columns": [
+    {
+     "name": "experimental_path",
+     "quantity": "compression_path",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_over_reference_volume",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_standard_deviation_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "density_g_cm3"
+    },
+    {
+     "name": "p_wave_velocity_km_s",
+     "quantity": "p_wave_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "p_wave_velocity_standard_deviation_km_s",
+     "quantity": "p_wave_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "p_wave_velocity_km_s"
+    },
+    {
+     "name": "s_wave_velocity_km_s",
+     "quantity": "s_wave_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "s_wave_velocity_standard_deviation_km_s",
+     "quantity": "s_wave_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "s_wave_velocity_km_s"
+    },
+    {
+     "name": "adiabatic_bulk_modulus_gpa",
+     "quantity": "adiabatic_bulk_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "adiabatic_bulk_modulus_standard_deviation_gpa",
+     "quantity": "adiabatic_bulk_modulus",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "adiabatic_bulk_modulus_gpa"
+    },
+    {
+     "name": "shear_modulus_gpa",
+     "quantity": "shear_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "shear_modulus_standard_deviation_gpa",
+     "quantity": "shear_modulus",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "shear_modulus_gpa"
+    },
+    {
+     "name": "calculated_absolute_pressure_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "calculated_absolute_pressure_standard_deviation_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "calculated_absolute_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-li-2006-table1-elasticity.csv",
+    "sha256": "d7bf9bbd77dfcf086d64e0297566f6d9168eefb52a1f889ee7678f83c1c1f2f5",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_li_2006_bm3_absolute_acoustic"
+   ],
+   "uncertainty": {
+    "reported_as": "one_standard_deviation_from_error_propagation",
+    "volume_ratio": "Table 1 gives no row-wise parenthesized error; its footnote states that refined unit-cell-volume error is less than 0.05%.",
+    "parameter_covariance": "not_reported"
+   },
+   "notes": "The ambient row transcribes Section 2 paragraph 5: Archimedes bulk density 3.566(5) g/cm^3 and ambient VP=9.74(1), VS=6.00(1) km/s; unavailable moduli and pressure fields remain blank rather than being inferred. The other rows are a lossless field-wise transcription of the official publisher Table 1 file. The first seven high-pressure rows are the initial room-temperature compression. The remaining ten are decompression measurements collected at room temperature after annealing at up to 800 degC. Pcal is calculated from the acoustic-derived BM3 and must not be treated as an independent pressure observation for a volumetric refit. The fourth initial-compression row is retained exactly as printed even though its V/V0=0.962 is internally inconsistent with its density and Pcal columns. The Table 1 footnote reports the conventional-cell reference V0=74.702(26) A^3 separately; it is stored on the EOS record rather than duplicated as a synthetic data row."
   },
   {
    "identifier": "mgo_jacobsen_2008_table1_helium_compression",
