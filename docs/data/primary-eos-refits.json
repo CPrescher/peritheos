@@ -5441,7 +5441,7 @@
       ],
       "primary_data_finding": "Both source inputs to the simultaneous fit are bundled: all 123 Dewaele et al. (2012) room-temperature B2 rows and all 155 Chidester et al. high-temperature rows.",
       "primary_data_status": "bundled",
-      "primary_source": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.104.094107",
       "published_rmse_gpa": 1.3025804462129118,
       "qualification": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
       "record_identifier": "kcl_b2_chidester_2021_bm3_5",
@@ -6448,6 +6448,82 @@
       "record_identifier": "mgo_shen_2026_vinet_3",
       "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "mgo_unit_cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgo_dewaele_2000_table2_pvt"
+      ],
+      "degrees_of_freedom": 40,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        53.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        2474.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "gamma0",
+        "n"
+      ],
+      "free_parameters": [
+        "q"
+      ],
+      "label": "Dewaele et al. (2000), BM3-MGD",
+      "material_identifier": "mgo",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 41,
+      "observed_pressure_range_gpa": [
+        13.6,
+        53.0
+      ],
+      "observed_temperature_range_k": [
+        1750.0,
+        2474.0
+      ],
+      "observed_volume_range": [
+        62.05,
+        72.433
+      ],
+      "parameters": [
+        {
+          "difference": 0.047089124853067266,
+          "parameter": "q",
+          "published": 0.8,
+          "published_error": 0.5,
+          "refit": 0.8470891248530673,
+          "refit_error": 0.1216238590895104,
+          "relative_difference": 0.05886140606633408,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All printed P-V-T observations are transcribed with MgO conventional-cell volume, platinum lattice parameter, and the displayed uncertainties. There is no separate official supplement or data deposit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/1999JB900364",
+      "published_rmse_gpa": 0.9521834929261871,
+      "qualification": "Conditional current-study thermal reproduction: the 41 heated Table 2 rows constrain q while V0, K0, K0', theta0, gamma0, Tr, and n are held to the source's staged/adopted values. Dewaele et al.'s published thermal analysis additionally used Fei (1999) observations that are not reprinted in this article, so exact parameter parity is not required from the new current-study rows alone.",
+      "record_identifier": "mgo_dewaele_2000_bm3_mgd_5",
+      "reduced_chi_square": 0.924976071329563,
+      "rmse_gpa": 0.9496810532049298,
+      "selection": "41 heated Table 2 rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are room-temperature extrapolation comparisons, not separate preferred P-V-T records, and are therefore not added. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -10995,9 +11071,9 @@
   ],
   "summary": {
     "not_refittable": 39,
-    "parity": 82,
+    "parity": 83,
     "parity_not_achieved": 8,
     "similar": 33,
-    "total": 162
+    "total": 163
   }
 }

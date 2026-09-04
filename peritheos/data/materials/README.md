@@ -16,7 +16,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-04 classifies all 162 bundled records as
+dated 2026-09-04 classifies all 163 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -39,8 +39,8 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 30 distinct primary datasets with 4,713 distinct
-observation rows, represented by 40 material-document links to 43 EOS records.
+The current bundle contains 31 distinct primary datasets with 4,774 distinct
+observation rows, represented by 41 material-document links to 44 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
 and phase entries while retaining the simultaneously measured Cu reference

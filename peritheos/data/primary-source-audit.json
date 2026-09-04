@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 162,
-    "primary_source_validated": 162
+    "records": 163,
+    "primary_source_validated": 163
   },
   "records": [
     {
@@ -1744,6 +1744,26 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_dewaele_2000_bm3_mgd_5",
+      "label": "Dewaele et al. (2000), BM3-MGD",
+      "doi": "10.1029/1999jb900364",
+      "status": "primary_source_validated",
+      "note": "Equation convention, parameter provenance, reference state, MgO cell-volume basis, all 61 primary rows, Pt pressure calibration, and experimental envelope were checked against the primary article. The DOI is authored by Dewaele et al. (2000), not Fei et al.; Fei (1999) supplies comparison data used in the paper's combined room-temperature fit.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/1999JB900364",
+        "locations": [
+          "Experimental section and Table 2",
+          "Equation 1 and Table 3",
+          "Equations 2-8, Figure 4, and Tables 4-5",
+          "Abstract and conclusion"
+        ],
+        "finding": "The article's reproducible preferred result is one B1-MgO BM3-MGD EOS with V0=74.71 A^3, K0=161 GPa, K0'=3.94, theta0=800 K, gamma0=1.45, and q=0.8. Alternative Murnaghan, Vinet, logarithmic, and constrained BM3 rows in Table 3 quantify room-temperature extrapolation sensitivity and are not additional recommended thermal parameterizations.",
+        "doi": "10.1029/1999jb900364"
       }
     },
     {

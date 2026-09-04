@@ -94,7 +94,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 116
     assert len(set(identifiers)) == 116
-    assert sum(len(document["eos_records"]) for document in documents) == 162
+    assert sum(len(document["eos_records"]) for document in documents) == 163
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 162
+    assert len({record["identifier"] for record in records}) == 163
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 162
+    assert statuses.count("primary_source_validated") == 163
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -145,6 +145,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
         "rbcl_b2_campbell_1994_bm3_1",
+        "mgo_dewaele_2000_bm3_mgd_5",
     }
     latest_audit_identifiers = {
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
@@ -153,6 +154,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
+        "mgo_dewaele_2000_bm3_mgd_5",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
@@ -207,6 +209,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "gold_takemura_2008_vinet_6",
         "kcl_b2_chidester_2021_bm3_5",
         "mgo_b1_tange_2009_vinet",
+        "mgo_dewaele_2000_bm3_mgd_5",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
         "platinum_dorogokupets_oganov_2007_vinet_4",
@@ -240,8 +243,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 162,
-        "primary_source_validated": 162,
+        "records": 163,
+        "primary_source_validated": 163,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -584,7 +587,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 162
+    assert len(records) == 163
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -650,7 +653,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 162
+    assert checked == 163
     assert failures == []
 
 
@@ -2205,7 +2208,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 116
-    assert manifest["eos_records"] == 162
+    assert manifest["eos_records"] == 163
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 

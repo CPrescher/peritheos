@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 162
+    assert len(identifiers) == len(set(identifiers)) == 163
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,9 +29,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 162, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 163, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 82,
+        "parity": 83,
         "similar": 33,
         "parity_not_achieved": 8,
         "not_refittable": 39,
@@ -165,6 +165,24 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [17.6967334851, 5.2026008383]
     )
     assert "Complete source-data reproduction" in cscl["qualification"]
+    dewaele_mgo = by_identifier["mgo_dewaele_2000_bm3_mgd_5"]
+    assert dewaele_mgo["status"] == "parity"
+    assert dewaele_mgo["observations"] == 41
+    assert dewaele_mgo["selection"] == "41 heated Table 2 rows"
+    assert dewaele_mgo["free_parameters"] == ["q"]
+    assert dewaele_mgo["fixed_parameters"] == [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "gamma0",
+        "n",
+    ]
+    assert dewaele_mgo["parameters"][0]["refit"] == pytest.approx(0.847089125)
+    assert "Conditional current-study thermal reproduction" in (
+        dewaele_mgo["qualification"]
+    )
     coo = by_identifier["coo_clendenen_1966_murnaghan_1"]
     assert coo["status"] == "parity_not_achieved"
     tradeoff = coo["coefficient_tradeoff_diagnostic"]
