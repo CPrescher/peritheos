@@ -5,7 +5,7 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 116 bundled material documents pass the format-3 validator. The
+separate. All 117 bundled material documents pass the format-3 validator. The
 147 raw records transferred from Dioptas 0.10.0 were loaded with its material
 implementation and construct through Dioptas's Peritheos-backed EOS wrapper.
 Peritheos additionally supplies native, primary-sourced aragonite BM2,
@@ -17,10 +17,11 @@ records; adding the Correa diamond branch produces 148. Two derived records
 combine the Correa and Benedict thermal increments with the experimental
 Dewaele 298 K Vinet isotherm, and adding the independently reproducible B4C
 Berman public-data and Hemley neon refits plus the Campbell-Heinz RbCl record
-produces 162 records in total. These checks
+produces 162 records; the phase-specific Shi et al. Rh2O3(II)-type alumina
+thermal EOS brings the current library to 163 records in total. These checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 162
+The primary-source audit covers all 163
 bundled records. Every record is `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -37,10 +38,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 162
+fit for every record with sufficient direct observations and documents all 163
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 82 uncertainty-parity matches and 33
+diagnostics. The current campaign finds 82 uncertainty-parity matches and 34
 additional numerically similar results. [Eight direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 39 records cannot be
 directly refitted because row-level inputs or an executable source reduction

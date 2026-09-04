@@ -7,6 +7,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the selected Shi et al. (2022) Rh2O3(II)-type Al2O3 BM3-MGD thermal
+  EOS as a distinct `Pbcn` phase, with all 75 official supplementary P-T-V
+  observations, published uncertainties, Pt pressure-scale provenance,
+  source-state reproduction, and an independent errors-in-variables refit.
+  The audit documents all eight corundum/Rh2O3(II) sensitivity fits and avoids
+  treating LitCurate's flattened BM3 rows as independent isothermal records.
+
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
   which had mistakenly contained an incomplete subset of the RbCl table, and

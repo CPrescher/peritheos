@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **162** EOS records. **82** achieve uncertainty parity, **33** are numerically similar, **[8](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **163** EOS records. **82** achieve uncertainty parity, **34** are numerically similar, **[8](#parity-not-achieved)** do not achieve parity, **39** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -38,6 +38,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`almandine_milani_2015_bm3_1`](https://doi.org/10.1016/j.lithos.2015.03.017) | `almandine_milani_2015_table_a3_compression` | 14 | `V0` 1533.52 → 1533.51; `K0` 172.6 → 172.669; `K0_prime` 5.8 → 5.76956 | 0.0135601/0.00264505 | parity |
 | [`alpha_quartz_angel_1997_bm3_1`](https://doi.org/10.1107/S0021889897000861) | `alpha_quartz_angel_1997_table1_compression` | 23 | `V0` 112.981 → 112.972; `K0` 37.12 → 37.2011; `K0_prime` 5.99 → 5.95789 | 0.0135845/0.0131784 | parity |
 | [`alumina_dewaele_2013_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.88.064107/fulltext) | `alumina_dewaele_2013_table1_compression` | 53 | `V0` 255.45 → 255.386; `K0` 254.1 → 253.884; `K0_prime` 4 → 4.01488 | 0.805085/0.80122 | parity |
+| [`alumina_rh2o3_ii_shi_2022_bm3_mgd_1`](https://doi.org/10.1029/2021JB023805) | `alumina_rh2o3_ii_shi_2022_table_s2_pvt` | 75 | `rt_eos.V0` 165.2 → 167.194; `rt_eos.K0` 256 → 239.415; `theta0` 600 → 766.258; `gamma0` 1.47 → 1.55021 | 1.14337/0.865977 | [similar](#investigation-alumina_rh2o3_ii_shi_2022_bm3_mgd_1) |
 | [`aluminum_dewaele_2004_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `aluminum_dewaele_2004_table1_compression` | 40 | `K0` 74.3 → 74.3472; `K0_prime` 4.47 → 4.46406 | 0.490418/0.432914 | parity |
 | [`aluminum_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
 | [`aragonite_martinez_1996_bm2_2`](https://rruff.info/doclib/am/vol81/AM81_611.pdf) | `aragonite_martinez_1996_table3_pvt` | 64 | `rt_eos.V0` 227.5 → 227.051; `rt_eos.K0` 64.81 → 65.7595; `alpha0` 6.5e-05 → 6.61628e-05; `dK_dT` -0.018 → -0.0166648 | 0.259189/0.205496 | parity |
@@ -111,7 +112,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`kcl_walker_2002_bm3_2`](https://www.researchgate.net/publication/231182054_Thermal_equations_of_state_for_B1_and_B2_KCl) | `kcl_walker_2002_table2_pvt` | 39 | `rt_eos.K0` 23.7 → 23.7754; `rt_eos.K0_prime` 4.4 → 4.41587; `alpha_KT` 0.00275 → 0.00276625 | 0.104581/0.103477 | [similar](#investigation-kcl_walker_2002_bm3_2) — Source-protocol reproduction: the preferred bold Table 3 result is staged, not a simultaneous four-parameter fit. V0 is held at the published fictive reference, K0 and K0' are fitted to the eight 23-24 degC rows, and alpha_KT is then fitted to all 39 P-V-T rows. |
 | [`kcl_b2_dewaele_2012_vinet_3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext) | `kcl_dewaele_2012_table1_compression` | 123 | `rt_eos.K0` 17.2 → 17.2499; `rt_eos.K0_prime` 5.89 → 5.8731 | 0.819344/0.800253 | [similar](#investigation-kcl_b2_dewaele_2012_vinet_3) |
 | [`kcl_b2_tateno_2019_vinet_4`](https://doi.org/10.2138/am-2019-6779) | `kcl_tateno_2019_table_s1_pvt` | 39 | `rt_eos.K0` 18.3 → 18.3446; `rt_eos.K0_prime` 5.6 → 5.60096; `gamma0` 2.3 → 2.29519; `q` 0.8 → 0.8249 | 0.72623/0.569397 | parity — Corrected final-publication reproduction: the model uses the final gamma0=2.3 and q=0.8 coefficients, Equation 6's integrated-Gruneisen Debye law, and the correctly aligned official MSA Supplemental Table S1 workbook. See the [dedicated Tateno reproduction](literature-reproductions.md#kcl-tateno-2019). |
-| [`kcl_b2_chidester_2021_bm3_5`](https://link.aps.org/accepted/10.1103/PhysRevB.104.094107) | `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` | 278 | `rt_eos.V0` 53.1373 → 53.2036; `rt_eos.K0` 24 → 23.9721; `rt_eos.K0_prime` 4.56 → 4.55798; `gamma0` 2.9 → 2.91714; `q` 1 → 0.965243 | 1.30258/1.26278 | parity — Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021). |
+| [`kcl_b2_chidester_2021_bm3_5`](https://doi.org/10.1103/PhysRevB.104.094107) | `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` | 278 | `rt_eos.V0` 53.1373 → 53.2036; `rt_eos.K0` 24 → 23.9721; `rt_eos.K0_prime` 4.56 → 4.55798; `gamma0` 2.9 → 2.91714; `q` 1 → 0.965243 | 1.30258/1.26278 | parity — Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021). |
 | [`kcl_b1_dewaele_2012_vinet_1`](https://doi.org/10.1103/PhysRevB.85.214105) | `kcl_b1_dewaele_2012_table2_compression` | 30 | `V0` 249.44 → 249.379; `K0` 17.1 → 17.3253 | 0.0554449/0.0534777 | [similar](#investigation-kcl_b1_dewaele_2012_vinet_1) |
 | [`lead_fcc_fortes_2019_bm4_1`](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | `parameterization_only` | — | — | —/— | not_refittable — Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations. |
 | [`li_hanfland_1999_vinet_1`](https://doi.org/10.1016/S0038-1098(99)00322-1) | `lithium_hanfland_1999_table1_compression` | 26 | `K0` 11.32 → 11.3157; `K0_prime` 3.62 → 3.61677 | 0.036204/0.0338053 | parity |
@@ -281,11 +282,34 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **41** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **42** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
 the missing source fit detail is recovered.
+
+<a id="investigation-alumina_rh2o3_ii_shi_2022_bm3_mgd_1"></a>
+
+### `alumina_rh2o3_ii_shi_2022_bm3_mgd_1`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `alumina_rh2o3_ii_shi_2022_table_s2_pvt` with 75 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `rt_eos.V0` | 165.2 | 167.194 ± 1.81271 | 1.21% | yes | yes |
+| `rt_eos.K0` | 256 | 239.415 ± 14.7033 | 6.48% | yes | yes |
+| `theta0` | 600 | 766.258 ± 572.847 | 27.71% | yes | no |
+| `gamma0` | 1.47 | 1.55021 ± 0.162203 | 5.46% | yes | yes |
+
+**Fit diagnostics.** Observed pressure range: 96.5-156.7 GPa; source-declared range: 96.5-153 GPa; fit kind: `joint_pvt`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.14337/0.865977 GPa; reduced chi-square: 0.15196; free parameters: `rt_eos.V0, rt_eos.K0, theta0, gamma0`; source-fixed parameters: `K0_prime, Tr, q, n`.
+
+**Source/data scope.** All 75 Pt-calibrated Rh2O3(II) P-T-V rows are bundled with their printed parenthetical uncertainties, including both identical 156.7 GPa, 3670 K transition-onset rows.
+
+**Registered source-fit note.** Published model 2 selected in main Table 1 and reused in Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per formula unit. V0=165.2(7) A^3 is the conventional four-formula-unit Pbcn cell, fitted by extrapolation from high-pressure data rather than measured at ambient conditions. K0, V0, theta0, and gamma0 were fitted; K0'=4 and q=1 were fixed. Parenthetical errors are retained as generic published uncertainties because no confidence convention or covariance matrix is given. Table 3 also reports four q-sensitivity fits (q=0.6, 1.4, 1.8, and 2.2); they are documented alternatives, not separate preferred EOS records. The article states a 153 GPa, 3400 K EOS scope. Table S2 nevertheless prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes at the reported onset of CaIrO3-type Al2O3; they remain in the source dataset with an explicit phase-context flag but do not extend this record's declared validity. At the Table S2 state V=129.8 A^3 and T=300 K, the stored model gives 100.1123 GPa versus 100.0(1.0) GPa. Across all 75 printed rows it gives a 1.1434 GPa pressure RMSE. The independent errors-in-variables refit is reported in docs/literature-reproductions.md and the primary-EOS refit ledger.
+
+**Assessment and likely origin.**
+- The point estimate exceeds the numerical limit for `theta0`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
+- The lowest checked pressure is 96.5 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 
 <a id="investigation-argon_hcp_wittlinger_1997_bm2_1"></a>
 

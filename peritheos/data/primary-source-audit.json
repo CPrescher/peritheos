@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 162,
-    "primary_source_validated": 162
+    "records": 163,
+    "primary_source_validated": 163
   },
   "records": [
     {
@@ -81,6 +81,27 @@
         ],
         "finding": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
         "doi": "10.1103/physrevb.88.064107"
+      }
+    },
+    {
+      "material": "alumina_rh2o3_ii",
+      "file": "alumina_rh2o3_ii.eosmat",
+      "record": "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
+      "label": "Shi et al. (2022), selected BM3-MGD model 2",
+      "doi": "10.1029/2021jb023805",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2021JB023805",
+        "locations": [
+          "main text, Equations 1-6, pages 3-4",
+          "main text, Table 1, page 4, selected Rh2O3(II) coefficients",
+          "main text, Table 3, page 7, five q-sensitivity fits",
+          "Supporting Information, Table S2, all Rh2O3(II) P-T-V observations",
+          "Supporting Information, Table S3, selected model reproduced downstream"
+        ],
+        "finding": "The source reports a BM3 reference isotherm embedded in a full Mie-Gruneisen-Debye thermal EOS, not a stand-alone BM3. Of five Rh2O3(II) q-sensitivity fits, model 2 with q=1 is the selected parameterization used in Table 1 and Table S3. The table volumes are conventional Pbcn-cell volumes with Z=4.",
+        "doi": "10.1029/2021jb023805"
       }
     },
     {

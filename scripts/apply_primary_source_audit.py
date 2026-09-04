@@ -48,7 +48,10 @@ DERIVED_REFIT_RECORDS = {
     "neon_fcc_hemley_1989_bm3_refit",
 }
 
-CURRENT_SOURCE_AUDIT_RECORDS = {"rbcl_b2_campbell_1994_bm3_1"}
+CURRENT_SOURCE_AUDIT_RECORDS = {
+    "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
+    "rbcl_b2_campbell_1994_bm3_1",
+}
 
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
@@ -2895,8 +2898,7 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     primary_data_check = previous.get("primary_data_check")
     audit_date = (
         REPORT_AUDIT_DATE
-        if result["identifier"]
-        in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
+        if result["identifier"] in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
         else CATALOG_AUDIT_DATE
         if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
         else AUDIT_DATE
@@ -3167,8 +3169,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 162:
-        raise ValueError(f"Expected 162 EOS records, found {len(entries)}")
+    if len(entries) != 163:
+        raise ValueError(f"Expected 163 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

@@ -25,6 +25,114 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+## Rh2O3(II)-type Al2O3: Shi et al. (2022)
+
+### Source classification and equation
+
+Shi et al., *Thermal Equations of State of Corundum and Rh2O3 (II)-Type
+Al2O3 up to 153 GPa and 3400 K*, Journal of Geophysical Research: Solid Earth
+**127**, e2021JB023805 (2022),
+[doi:10.1029/2021JB023805](https://doi.org/10.1029/2021JB023805), is the
+primary EOS source. Its [official Zenodo deposit](https://doi.org/10.5281/zenodo.5771198)
+contains the Supporting Information under CC BY 4.0.
+
+The LitCurate discovery result is not a scientifically correct record model.
+The paper does not report six interchangeable, isothermal BM3 equations. It
+uses the following full Mie--Gruneisen--Debye equation, with a 300 K BM3 cold
+term:
+
+\[
+P(V,T)=P_{300}(V)+\frac{\gamma(V)}{V}
+\left[E_D(V,T)-E_D(V,300\ \mathrm{K})\right],
+\]
+
+\[
+\gamma(V)=\gamma_0(V/V_0)^q,\qquad
+\theta(V)=\theta_0\exp[-(\gamma(V)-\gamma_0)/q].
+\]
+
+Equation 2 is algebraically third-order Birch--Murnaghan even though the prose
+calls it Murnaghan. Every fit fixes `K0' = 4`, so the cold curve numerically
+reduces to BM2. Equation 4 uses `n = 5` atoms per Al2O3 formula unit. This maps
+exactly to `BM3 + MieGruneisenDebye` with
+`debye_temperature_law: integrated_gruneisen`.
+
+The apparent multiple records are sensitivity trials. Main Tables 2 and 3
+contain three corundum trial-Debye-temperature fits and five Rh2O3(II)
+trial-`q` fits:
+
+| Phase/model | `K0` (GPa) | `K0'` | `V0` (A^3/cell) | `theta0` (K) | `gamma0` | `q` |
+|---|---:|---:|---:|---:|---:|---:|
+| corundum M1 | 245(1) | 4 fixed | 255.1 fixed | 500 fixed | 1.21(6) | 0.7(3) |
+| corundum M2 | 245(1) | 4 fixed | 255.1 fixed | 800 fixed | 1.26(6) | 0.7(3) |
+| corundum M3, selected | 246(1) | 4 fixed | 255.1 fixed | 1100 fixed | 1.32(7) | 0.8(4) |
+| Rh2O3(II) M1 | 253(6) | 4 fixed | 165.5(7) | 600(200) | 1.33(5) | 0.6 fixed |
+| Rh2O3(II) M2, selected | 256(6) | 4 fixed | 165.2(7) | 600(200) | 1.47(5) | 1.0 fixed |
+| Rh2O3(II) M3 | 259(6) | 4 fixed | 164.8(7) | 600(200) | 1.62(6) | 1.4 fixed |
+| Rh2O3(II) M4 | 262(6) | 4 fixed | 164.5(6) | 600(200) | 1.79(7) | 1.8 fixed |
+| Rh2O3(II) M5 | 262(6) | 4 fixed | 164.2(6) | 500(200) | 1.97(7) | 2.2 fixed |
+
+Main Table 1 and Supporting Information Table S3 select corundum M3 and
+Rh2O3(II) M2 for downstream calculations. Table 1 prints a corundum `K0`
+error of 2 GPa while Table 2 prints 1 GPa for the same central value; this
+internal discrepancy is one reason not to materialize the sensitivity table
+as a set of equivalent EOS records. Peritheos adds exactly one record here:
+the selected Rh2O3(II) M2 parameterization.
+
+### Identity, data, and calibration
+
+Rh2O3(II)-type alumina is a distinct orthorhombic `Pbcn` (#60) polymorph, so it
+does not belong in the existing corundum `alumina.eosmat` material. The
+separate `alumina_rh2o3_ii.eosmat` structure follows Lin et al. (2004) at
+113 GPa and 300 K and contains four Al2O3 formula units. Consequently the EOS
+`V0 = 165.2(7) A^3` is a conventional-cell value, equivalent to
+41.30 A^3/formula unit and 24.871 cm^3/mol. It is a high-pressure fit
+extrapolated to zero pressure, not an observed ambient cell.
+
+All 75 Pt-calibrated P--T--V rows from Supporting Information Table S2 are
+bundled in `alumina-rh2o3-ii-shi-2022-table-s2-pvt.csv`, including every
+printed pressure, temperature, and volume uncertainty. The source does not
+state their confidence convention or publish a coefficient covariance matrix;
+the errors are therefore retained as generic uncertainties. No row-wise Pt
+lattice parameters are published. Pressures use the self-consistent Fei et al.
+(2007) Pt thermal scale, so observation-level recalculation is not possible
+from the supplement alone.
+
+The article describes the EOS as extending to 153 GPa and 3400 K. Table S2
+also prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes, while
+the main text identifies that state as the onset of CaIrO3-type Al2O3. The
+rows are retained and flagged, but the executable record conservatively keeps
+the authors' 153 GPa and 3400 K scope.
+
+### Numerical reproduction and refit
+
+At 300 K the thermal increment vanishes. The selected cold curve gives
+`P(129.8 A^3, 300 K) = 100.1123 GPa`, reproducing the first Table S2 value
+`100.0(1.0) GPa`. At the independent heated state `V = 125.5 A^3` and
+`T = 1560 K`, it gives 130.7277 GPa versus `129.6(2.0) GPa`. Across all 75
+printed rows, the published parameterization has a pressure RMSE of
+1.1434 GPa.
+
+The generic Peritheos errors-in-variables refit uses all 75 rows, pressure and
+volume uncertainties, and the published fixed values `K0' = 4`, `q = 1`,
+`Tr = 300 K`, and `n = 5`. Temperature uncertainties are not used because the
+source omits them for every 300 K row and for the 710 K row.
+
+| Parameter | Published | Peritheos refit |
+|---|---:|---:|
+| `V0` (A^3/cell) | 165.2 +/- 0.7 | 167.194 +/- 1.813 |
+| `K0` (GPa) | 256 +/- 6 | 239.415 +/- 14.703 |
+| `theta0` (K) | 600 +/- 200 | 766.258 +/- 572.847 |
+| `gamma0` | 1.47 +/- 0.05 | 1.5502 +/- 0.1622 |
+
+The refit pressure RMSE is 0.8660 GPa and reduced chi-square is 0.152. Every
+coefficient agrees within the combined two-standard-deviation uncertainty,
+but `theta0` differs by 27.7%, so the campaign classifies the result as
+`similar` rather than strict parity. Unpublished weighting, covariance,
+temperature-error handling, or additional point selection can explain the
+remaining coefficient tradeoff; the published parameterization remains the
+executable record.
+
 ## C01: boron carbide, Somayazulu et al. (2023)
 
 ### Sources and model
