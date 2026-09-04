@@ -98,7 +98,7 @@ new or edited records so the scientific choice is visible without consulting
 the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
-marks all 162 bundled records `primary_source_validated`; no record remains
+marks all 163 bundled records `primary_source_validated`; no record remains
 pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.

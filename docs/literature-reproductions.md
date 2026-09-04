@@ -25,6 +25,105 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+<a id="casio3-caracas-2005"></a>
+
+## CaSiO3 perovskite: Caracas et al. (2005)
+
+### Source identity and equation convention
+
+The primary source is Caracas, Wentzcovitch, Price, and Brodholt,
+*CaSiO3 perovskite at lower mantle pressures*, Geophysical Research Letters
+**32**, L06306 (2005),
+[doi:10.1029/2004GL022144](https://doi.org/10.1029/2004GL022144). The audit used
+the publisher HTML and the UCL author-deposited five-page article. Neither page
+lists supporting information or a data attachment.
+
+This is a static-lattice, zero-Kelvin first-principles study, not an experimental
+pressure calibration. Section 4 defines the Eulerian strain
+
+\[
+f=\frac{1}{2}\left[\left(\frac{V_0}{V}\right)^{2/3}-1\right]
+\]
+
+and identifies the Table 2 fits as third- and fourth-order Birch--Murnaghan.
+In Peritheos notation their pressure forms are
+
+\[
+P_{\mathrm{BM3}}=3K_0f(1+2f)^{5/2}
+\left[1+\frac{3}{2}(K'_0-4)f\right]
+\]
+
+and
+
+\[
+P_{\mathrm{BM4}}=3K_0f(1+2f)^{5/2}
+\left[1+\frac{3}{2}(K'_0-4)f
++\frac{3}{2}\left(K_0K''_0+(K'_0-4)(K'_0-3)+\frac{35}{9}\right)f^2\right].
+\]
+
+Thus a BM3 row does not have a missing free `K0_double_prime`: truncation fixes
+its implied value to
+
+\[
+K''_0=-\frac{(K'_0-4)(K'_0-3)+35/9}{K_0}.
+\]
+
+That derived value must not be confused with the independently fitted and much
+less negative `K0_double_prime` printed in the BM4 block.
+
+### Resolution of all Table 2 rows
+
+LitCurate's repeated rows correspond to 18 distinct source parameterizations:
+nine crystallographic distortions, each fitted once as BM3 and once as BM4.
+Volumes are the paper's `V0/Z`, in A^3 per CaSiO3 formula unit. The final BM3
+column below is derived from the truncation identity above; every BM4 `K0''`
+is directly source-reported in GPa^-1.
+
+| Structure | Glazer tilt | BM3 `V0`, `K0`, `K0'` | BM3 implied `K0''` | BM4 `V0`, `K0`, `K0'`, `K0''` |
+|---|---|---|---:|---|
+| Pm-3m | a0a0a0 | 44.579, 250, 4.098 | -0.015985972 | 44.588, 248, 4.206, -0.002 |
+| I4/mcm | a0a0c- | 44.537, 249, 4.090 | -0.016012004 | 44.547, 247, 4.213, -0.002 |
+| Imma | a0b-b- | 44.567, 249, 4.094 | -0.016031024 | 44.576, 247, 4.218, -0.002 |
+| R-3c | a-a-a- | 44.821, 247, 4.100 | -0.016189834 | 44.832, 244, 4.236, -0.002 |
+| P4/mbm | a0a0c+ | 44.629, 247, 4.124 | -0.016308765 | 44.641, 244, 4.261, -0.002 |
+| I4/mmm | a0b+b+ | 44.599, 250, 4.103 | -0.016009992 | 44.609, 248, 4.219, -0.002 |
+| Im-3 | a+a+a+ | 44.600, 250, 4.104 | -0.016014820 | 44.610, 247, 4.229, -0.002 |
+| P42/nmc | a+a+c- | 44.576, 248, 4.092 | -0.016086100 | 44.566, 251, 3.977, -0.001 |
+| Pnma | a-b+a- | 44.576, 249, 4.104 | -0.016079136 | 44.588, 246, 4.248, -0.002 |
+
+These are not interchangeable composition variants. Pm-3m is the ideal cubic
+parent; the other eight rows represent distinct tilted structures. The paper
+finds Pm-3m dynamically unstable throughout the investigated static pressure
+range and identifies I4/mcm as the lowest-energy static configuration. It does
+not publish the optimized atomic coordinates required for new diffraction-ready
+low-symmetry material records.
+
+### Selected record and numerical reproduction
+
+The one executable addition is `ca_perovskite_caracas_2005_bm3_3`, the Pm-3m
+BM3 fit (`V0 = 44.579 A^3`, `K0 = 250 GPa`, `K0' = 4.098`). It belongs in the
+existing cubic `ca_perovskite` material because Pm-3m has one formula unit in
+its primitive conventional cell, so the source's `V0/Z` is directly the public
+cell volume. The low-symmetry rows do not belong in that material. The cubic
+BM4 row is retained as explicit alternative-fit metadata rather than being
+misrepresented as a duplicate or added as a second record in this focused
+change.
+
+As an independent check, inversion of the published BM3 equation at 130 GPa
+gives `V = 33.436317 A^3`. Using the CaSiO3 formula mass and one formula unit per
+cell gives `rho = 5.76885 g/cm^3`, reproducing the paper's separately stated
+`5.77 g/cm^3` cubic density. The zero-pressure conversion gives
+`4.32690 g/cm^3`, consistent with the paper's truncated `4.32 g/cm^3` statement.
+
+The underlying first-principles energy-volume points, coefficient uncertainties,
+fit weights, residuals, and covariance are not published. Table 2's stated
+calculation uncertainty of about 20 meV per molecule describes the energy scale,
+not an uncertainty on `V0`, `K0`, `K0'`, or `K0''`; the coefficient errors remain
+explicitly unavailable. Consequently no source-faithful coefficient refit is
+possible; the refit ledger classifies this record as
+`theoretical_parameterization_only` and `not_refittable` rather than digitizing
+or synthesizing observations.
+
 ## C01: boron carbide, Somayazulu et al. (2023)
 
 ### Sources and model

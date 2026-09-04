@@ -1565,6 +1565,25 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        160.0
+      ],
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Caracas et al. (2005), static cubic Pm-3m BM3",
+      "material_identifier": "ca_perovskite",
+      "model": "BM3",
+      "primary_data_finding": "The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible.",
+      "primary_data_status": "theoretical_parameterization_only",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+      "reason": "The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible.",
+      "record_identifier": "ca_perovskite_caracas_2005_bm3_3",
+      "source_notes": "Static-lattice 0 K DFT parameterization of the ideal cubic Pm-3m (Glazer a0a0a0) CaSiO3 perovskite branch. The paper finds this branch dynamically unstable at all investigated pressures, so this is a theoretical reference curve and not a stable ambient phase. Table 2 reports V0/Z; Pm-3m has Z=1, so 44.579 A^3 is also the conventional cubic-cell volume (a0=3.54577 A). All three BM3 coefficients were fitted; no parameter uncertainties, covariance, fit weights, or underlying E(V) rows are published. The Table 2 footnote estimates calculation uncertainty as about 20 meV per molecule, an energy-scale estimate rather than an EOS-coefficient error. The same calculations also have a distinct Pm-3m BM4 fit (V0=44.588 A^3, K0=248 GPa, K0'=4.206, K0''=-0.002 GPa^-1); it is audit metadata rather than a duplicate of this record. The source's nine low-symmetry BM3/BM4 pairs describe different crystallographic phases and must not be attached to this cubic material.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -5441,7 +5460,7 @@
       ],
       "primary_data_finding": "Both source inputs to the simultaneous fit are bundled: all 123 Dewaele et al. (2012) room-temperature B2 rows and all 155 Chidester et al. high-temperature rows.",
       "primary_data_status": "bundled",
-      "primary_source": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.104.094107",
       "published_rmse_gpa": 1.3025804462129118,
       "qualification": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
       "record_identifier": "kcl_b2_chidester_2021_bm3_5",
@@ -10994,10 +11013,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 39,
+    "not_refittable": 40,
     "parity": 82,
     "parity_not_achieved": 8,
     "similar": 33,
-    "total": 162
+    "total": 163
   }
 }
