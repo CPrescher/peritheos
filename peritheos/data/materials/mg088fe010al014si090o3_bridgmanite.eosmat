@@ -1,0 +1,536 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg088fe010al014si090o3_bridgmanite",
+ "name": "Fe10-Al14 bridgmanite",
+ "formula": "Mg0.88Fe0.10Al0.14Si0.90O3",
+ "phase": "Pbnm (Al,Fe)-bearing bridgmanite, synthesis run 5K2667",
+ "aliases": [
+  "Fe10-Al14-Bgm",
+  "5K2667 bridgmanite"
+ ],
+ "cell_contents": "Four nominal ABO3 formula units in the conventional orthorhombic Pbnm cell. The article reports the analytical/site-assigned composition (Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3. The deposited 4.2 GPa refinement normalizes the crystallographic A and B sites to unity and therefore represents Mg0.88Fe0.09Al0.13Si0.90O3; the source does not reconcile this rounding difference.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 4.7564,
+  "b": 4.9266,
+  "c": 6.9005,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [
+  {
+   "element": "Si",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.0,
+   "z": 0.5,
+   "occupancy": 0.9,
+   "source_label": "Si1"
+  },
+  {
+   "element": "Al",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.0,
+   "z": 0.5,
+   "occupancy": 0.1,
+   "source_label": "Alb"
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "4c",
+   "x": 0.5149,
+   "y": 0.55835,
+   "z": 0.25,
+   "occupancy": 0.88,
+   "source_label": "Mg1"
+  },
+  {
+   "element": "Al",
+   "wyckoff": "4c",
+   "x": 0.5149,
+   "y": 0.55835,
+   "z": 0.25,
+   "occupancy": 0.03,
+   "source_label": "Ala"
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4c",
+   "x": 0.5149,
+   "y": 0.55835,
+   "z": 0.25,
+   "occupancy": 0.09,
+   "source_label": "Fea"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.10678,
+   "y": 0.46307,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "O1"
+  },
+  {
+   "element": "O",
+   "wyckoff": "8d",
+   "x": 0.19434,
+   "y": 0.19942,
+   "z": 0.55478,
+   "occupancy": 1.0,
+   "source_label": "O2"
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
+   "year": 2024,
+   "title": "Single-crystal X-ray diffraction on the structure of (Al,Fe)-bearing bridgmanite in the lower mantle",
+   "source": "American Mineralogist",
+   "volume": "109",
+   "locator": "872-881",
+   "doi": "10.2138/am-2023-8969"
+  },
+  "structure_location": "Official deposit AM-24-58969, 8969fu.cif, data_P1_bridgmanite_4.2GPa; normalized refinement at 4.2(1) GPa and 293 K",
+  "structure_url": "https://msaweb.org/MSA/AmMin/TOC/2024/May2024_data/AM-24-58969.zip",
+  "deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
+  "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
+  "cif_sha256": "b21f73e3e9a0b24e07ec990505df038b3293b18895351e57dde2fc9ff8e47145"
+ },
+ "notes": "Composition-specific record for synthetic run 5K2667. The material formula preserves the article's measured Mg0.88Fe0.10Al0.14Si0.90O3 composition; the site-assigned form is (Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3. The stored diffraction structure is the official deposited 4.2 GPa, 293 K Pbnm refinement with Z=4. Its normalized occupancies give Mg0.88Fe0.09Al0.13Si0.90O3, so it is a refinement model for the same specimen and not a replacement analytical composition. The EOS V0 values are separately fitted zero-pressure conventional-cell extrapolations. The authors report BM2 and BM3 as equally acceptable within uncertainty and do not designate a preferred fit; record ordering follows Table 1 and is not a scientific preference.",
+ "eos_records": [
+  {
+   "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1",
+   "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM2",
+   "reference": {
+    "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
+    "year": 2024,
+    "title": "Single-crystal X-ray diffraction on the structure of (Al,Fe)-bearing bridgmanite in the lower mantle",
+    "source": "American Mineralogist",
+    "volume": "109",
+    "locator": "872-881",
+    "doi": "10.2138/am-2023-8969"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "sample_composition": "(Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3",
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 163.85,
+     "K0": 242.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.07,
+    "K0": 3.0
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "implicit_parameters": {"K0_prime": 4.0},
+   "author_fit_preference": "none; the article reports BM2 and BM3 as equally acceptable within uncertainty",
+   "temperature_ref": 293.0,
+   "experimental_pressure_range_gpa": [4.2, 64.6],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [293.0, 293.0],
+   "validity": {
+    "pressure_gpa": [4.2, 64.6],
+    "temperature_k": [293.0, 293.0],
+    "volume_ratio": [0.83179737564845, 0.98687824229479],
+    "notes": [
+     "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
+     "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+    ]
+   },
+   "experimental_configuration": {
+    "sample": "two single-crystal platelets from synthesis run 5K2667",
+    "pressure_medium": "neon",
+    "pressure_gauge": "gold measured immediately before and after each SCXRD acquisition using Fei et al. (2007)",
+    "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13ID-D, GSECARS"
+   },
+   "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
+   "parameter_provenance": {
+    "equation": "Article pages 874-875 and Table 1: second-order Birch-Murnaghan EOS fitted with EosFit7-GUI; K0_prime=4 is fixed",
+    "V0": "Article page 874 and Table 1, unit-cell first row: 163.85(7) A^3, fitted zero-pressure Pbnm conventional-cell volume",
+    "K0": "Article page 874 and Table 1, unit-cell first row: KT0=242(3) GPa",
+    "K0_prime": "Article page 874 and Table 1, unit-cell first row: 4 fixed",
+    "temperature_ref": "Article states room-temperature compression; every deposited CIF block reports 293 K",
+    "fit_selection": "The article says the weighted P-V data with corresponding errors were fitted, but it does not state whether the exact EosFit inputs were the merged Table S1/CIF series or separate platelet volumes plotted in Figure S2"
+   },
+   "source_lineage": [
+    {
+     "role": "published_parameterization_observations_composition_and_structure",
+     "citation": "Fu et al. (2024), final article and official deposit AM-24-58969",
+     "doi": "10.2138/am-2023-8969",
+     "locations": ["article pages 873-875", "article Table 1", "Online Materials Table S1", "8969fu.cif"]
+    }
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+       "year": 2007,
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Fu et al. (2024), Experimental details, page 873; Au volume measured immediately before and after each SCXRD acquisition",
+      "scope": "all 22 Table S1/CIF observations",
+      "reference_eos_record": "gold_fei_2007_vinet_2"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Only reduced pressures and their 1-sigma errors are published; the row-wise Au lattice parameters or volumes measured before and after each acquisition are absent, so observation-level pressure recalculation is impossible."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM2 parameters reproduce the 64.6 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.7195 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
+     "structure",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_preference"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2023-8969",
+     "locations": [
+      "article Experimental details, pages 873-874",
+      "article EOS discussion and Table 1, pages 874-875",
+      "official Online Materials Table S1",
+      "official deposit AM-24-58969, 8969fu.cif"
+     ],
+     "finding": "The source fully defines a room-temperature standard Eulerian BM2 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; K0_prime is fixed to 4.",
+     "doi": "10.2138/am-2023-8969",
+     "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
+     "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
+     "cif_sha256": "b21f73e3e9a0b24e07ec990505df038b3293b18895351e57dde2fc9ff8e47145"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
+     "source_locations": ["Official Online Materials Table S1", "official 8969fu.cif blocks P1-P22"],
+     "finding": "All 22 recoverable pressures, lattice parameters, conventional-cell volumes, and 1-sigma uncertainties are bundled. Table S1 and the CIF are both retained where their printed lattice values differ. Row-wise Au calibrant volumes and the two individual platelet volume series plotted in Figure S2 are not published."
+    },
+    "numerical_reproduction": {
+     "published_state": {"pressure_gpa": 64.6, "pressure_sd_gpa": 0.6, "volume_a3": 136.29},
+     "calculated_pressure_gpa": 64.4560123693,
+     "absolute_difference_gpa": 0.1439876307,
+     "tolerance_gpa": 0.6,
+     "tolerance_basis": "The source reports 64.6(6) GPa for the final CIF volume; the calculated pressure differs by less than that printed 1-sigma pressure uncertainty."
+    },
+    "published_curve_diagnostic": {
+     "rows": 22,
+     "pressure_rmse_gpa": 0.7195012696,
+     "max_abs_pressure_residual_gpa": 1.4607777344,
+     "status": "fit_input_limited",
+     "unweighted_pressure_refit": {
+      "V0": 164.2462213204,
+      "K0": 239.9953226085,
+      "pressure_rmse_gpa": 0.3840757281
+     },
+     "pressure_sigma_weighted_refit": {
+      "V0": 164.4291163439,
+      "K0": 237.0704862154,
+      "pressure_rmse_gpa": 0.4114093950,
+      "reduced_chi_square": 1.0780949218
+     },
+     "finding": "The diagnostic evaluates the rounded published coefficients against the deposited CIF volumes. It is not an exact source refit because the article does not disclose the complete numerical EosFit input series or weight configuration."
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "sample composition versus normalized CIF occupancy model",
+      "source_values": ["article: Mg0.88Fe0.10Al0.14Si0.90O3", "CIF: Mg0.88Fe0.09Al0.13Si0.90O3"],
+      "finding": "The analytical/site-assigned article composition and the normalized crystallographic occupancy model differ by 0.01 Fe and 0.01 Al per formula unit. Both are preserved in their proper roles; the source gives no further reconciliation."
+     },
+     {
+      "field": "Online Materials Table S1 versus deposited CIF lattice values",
+      "source_values": ["7.1 GPa Table S1: b=4.9098(3), c=6.8742(13) A", "7.1 GPa CIF: b=4.9097(3), c=6.8741(13) A"],
+      "finding": "The CSV preserves separate Table S1 and CIF columns rather than silently choosing one transcription."
+     },
+     {
+      "field": "Online Materials Table S1 versus deposited CIF lattice uncertainties",
+      "source_values": ["Table S1: a(39.3 GPa)=4.5725(14), b(39.3 GPa)=4.7743(40), a(41.8 GPa)=4.5624(47), b(50.1 GPa)=4.7435(45) A", "CIF: 4.5725(11), 4.7743(10), 4.5624(15), 4.7435(12) A"],
+      "finding": "The printed 1-sigma values disagree; both source versions are bundled and no correction is inferred."
+     }
+    ]
+   },
+   "notes": "Standard second-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. K0_prime=4 is fixed by the BM2 model; V0 and K0 were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM2 is co-reported with BM3 and is not designated preferred."
+  },
+  {
+   "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2",
+   "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM3",
+   "reference": {
+    "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
+    "year": 2024,
+    "title": "Single-crystal X-ray diffraction on the structure of (Al,Fe)-bearing bridgmanite in the lower mantle",
+    "source": "American Mineralogist",
+    "volume": "109",
+    "locator": "872-881",
+    "doi": "10.2138/am-2023-8969"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "sample_composition": "(Mg0.88Fe3+0.065Fe2+0.035Al0.03)(Al0.11Si0.90)O3",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 164.64,
+     "K0": 228.0,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.11,
+    "K0": 5.0,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "author_fit_preference": "none; the article reports BM2 and BM3 as equally acceptable within uncertainty",
+   "temperature_ref": 293.0,
+   "experimental_pressure_range_gpa": [4.2, 64.6],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [293.0, 293.0],
+   "validity": {
+    "pressure_gpa": [4.2, 64.6],
+    "temperature_k": [293.0, 293.0],
+    "volume_ratio": [0.82780612244897, 0.98214285714287],
+    "notes": [
+     "Bounds are the 22-row Table S1/CIF observation envelope, not a broader phase-stability guarantee.",
+     "Neon becomes increasingly nonhydrostatic above 15 GPa; the article reports no volume discontinuity through 64.6 GPa but does not establish a rectangular thermodynamic stability field."
+    ]
+   },
+   "experimental_configuration": {
+    "sample": "two single-crystal platelets from synthesis run 5K2667",
+    "pressure_medium": "neon",
+    "pressure_gauge": "gold measured immediately before and after each SCXRD acquisition using Fei et al. (2007)",
+    "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13ID-D, GSECARS"
+   },
+   "fit_datasets": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
+   "parameter_provenance": {
+    "equation": "Article pages 874-875 and Table 1: third-order Birch-Murnaghan EOS fitted with EosFit7-GUI",
+    "V0": "Article page 874 and Table 1, unit-cell second row: 164.64(11) A^3, fitted zero-pressure Pbnm conventional-cell volume",
+    "K0": "Article page 874 and Table 1, unit-cell second row: KT0=228(5) GPa",
+    "K0_prime": "Article page 874 and Table 1, unit-cell second row: K'T0=4.1(2)",
+    "temperature_ref": "Article states room-temperature compression; every deposited CIF block reports 293 K",
+    "fit_selection": "The article says the weighted P-V data with corresponding errors were fitted, but it does not state whether the exact EosFit inputs were the merged Table S1/CIF series or separate platelet volumes plotted in Figure S2"
+   },
+   "source_lineage": [
+    {
+     "role": "published_parameterization_observations_composition_and_structure",
+     "citation": "Fu et al. (2024), final article and official deposit AM-24-58969",
+     "doi": "10.2138/am-2023-8969",
+     "locations": ["article pages 873-875", "article Table 1", "Online Materials Table S1", "8969fu.cif"]
+    }
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+       "year": 2007,
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Fu et al. (2024), Experimental details, page 873; Au volume measured immediately before and after each SCXRD acquisition",
+      "scope": "all 22 Table S1/CIF observations",
+      "reference_eos_record": "gold_fei_2007_vinet_2"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Only reduced pressures and their 1-sigma errors are published; the row-wise Au lattice parameters or volumes measured before and after each acquisition are absent, so observation-level pressure recalculation is impossible."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM3 parameters reproduce the 4.2 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.9291 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
+     "structure",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_preference"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2023-8969",
+     "locations": [
+      "article Experimental details, pages 873-874",
+      "article EOS discussion and Table 1, pages 874-875",
+      "official Online Materials Table S1",
+      "official deposit AM-24-58969, 8969fu.cif"
+     ],
+     "finding": "The source fully defines a room-temperature standard Eulerian BM3 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; V0, K0, and K0_prime were fitted.",
+     "doi": "10.2138/am-2023-8969",
+     "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
+     "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
+     "cif_sha256": "b21f73e3e9a0b24e07ec990505df038b3293b18895351e57dde2fc9ff8e47145"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": ["mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"],
+     "source_locations": ["Official Online Materials Table S1", "official 8969fu.cif blocks P1-P22"],
+     "finding": "All 22 recoverable pressures, lattice parameters, conventional-cell volumes, and 1-sigma uncertainties are bundled. Table S1 and the CIF are both retained where their printed lattice values differ. Row-wise Au calibrant volumes and the two individual platelet volume series plotted in Figure S2 are not published."
+    },
+    "numerical_reproduction": {
+     "published_state": {"pressure_gpa": 4.2, "pressure_sd_gpa": 0.1, "volume_a3": 161.70},
+     "calculated_pressure_gpa": 4.2628529138,
+     "absolute_difference_gpa": 0.0628529138,
+     "tolerance_gpa": 0.1,
+     "tolerance_basis": "The source reports 4.2(1) GPa for the first CIF volume; the calculated pressure differs by less than that printed 1-sigma pressure uncertainty."
+    },
+    "published_curve_diagnostic": {
+     "rows": 22,
+     "pressure_rmse_gpa": 0.9290848204,
+     "max_abs_pressure_residual_gpa": 1.9358848929,
+     "status": "fit_input_limited",
+     "unweighted_pressure_refit": {
+      "V0": 164.5769876060,
+      "K0": 228.0862927250,
+      "K0_prime": 4.4142425782,
+      "pressure_rmse_gpa": 0.3539016965
+     },
+     "pressure_sigma_weighted_refit": {
+      "V0": 164.6424457894,
+      "K0": 225.8726101207,
+      "K0_prime": 4.4968498002,
+      "pressure_rmse_gpa": 0.3552363705,
+      "reduced_chi_square": 0.6735725370
+     },
+     "finding": "The diagnostic evaluates the rounded published coefficients against the deposited CIF volumes. It is not an exact source refit because the article does not disclose the complete numerical EosFit input series or weight configuration."
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "sample composition versus normalized CIF occupancy model",
+      "source_values": ["article: Mg0.88Fe0.10Al0.14Si0.90O3", "CIF: Mg0.88Fe0.09Al0.13Si0.90O3"],
+      "finding": "The analytical/site-assigned article composition and the normalized crystallographic occupancy model differ by 0.01 Fe and 0.01 Al per formula unit. Both are preserved in their proper roles; the source gives no further reconciliation."
+     },
+     {
+      "field": "Online Materials Table S1 versus deposited CIF lattice values",
+      "source_values": ["7.1 GPa Table S1: b=4.9098(3), c=6.8742(13) A", "7.1 GPa CIF: b=4.9097(3), c=6.8741(13) A"],
+      "finding": "The CSV preserves separate Table S1 and CIF columns rather than silently choosing one transcription."
+     },
+     {
+      "field": "Online Materials Table S1 versus deposited CIF lattice uncertainties",
+      "source_values": ["Table S1: a(39.3 GPa)=4.5725(14), b(39.3 GPa)=4.7743(40), a(41.8 GPa)=4.5624(47), b(50.1 GPa)=4.7435(45) A", "CIF: 4.5725(11), 4.7743(10), 4.5624(15), 4.7435(12) A"],
+      "finding": "The printed 1-sigma values disagree; both source versions are bundled and no correction is inferred."
+     }
+    ]
+   },
+   "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. V0, K0, and K0_prime were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM3 is co-reported with BM2 and is not designated preferred."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv",
+   "kind": "single_crystal_pressure_volume_lattice_parameters",
+   "description": "All 22 recoverable room-temperature Fe10-Al14 bridgmanite compression observations from Online Materials Table S1 and deposited CIF blocks P1-P22.",
+   "reference": {
+    "authors": ["Fu", "Chariton", "Zhang", "Okuchi", "Prakapenka", "Lin"],
+    "year": 2024,
+    "title": "Single-crystal X-ray diffraction on the structure of (Al,Fe)-bearing bridgmanite in the lower mantle",
+    "source": "American Mineralogist Online Materials",
+    "volume": "109",
+    "locator": "Table S1 and 8969fu.cif",
+    "doi": "10.2138/am-2023-8969"
+   },
+   "source_location": "Official deposit AM-24-58969, 8969_supp.pdf Table S1 and 8969fu.cif blocks data_P1 through data_P22",
+   "source_url": "https://msaweb.org/MSA/AmMin/TOC/2024/May2024_data/AM-24-58969.zip",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_sd_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "table_s1_a_angstrom", "quantity": "table_s1_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "table_s1_a_sd_angstrom", "quantity": "table_s1_lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "table_s1_a_angstrom"},
+    {"name": "table_s1_b_angstrom", "quantity": "table_s1_lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "table_s1_b_sd_angstrom", "quantity": "table_s1_lattice_parameter_b", "unit": "angstrom", "role": "standard_deviation", "of": "table_s1_b_angstrom"},
+    {"name": "table_s1_c_angstrom", "quantity": "table_s1_lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "table_s1_c_sd_angstrom", "quantity": "table_s1_lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "table_s1_c_angstrom"},
+    {"name": "cif_a_angstrom", "quantity": "cif_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "cif_a_sd_angstrom", "quantity": "cif_lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "cif_a_angstrom"},
+    {"name": "cif_b_angstrom", "quantity": "cif_lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "cif_b_sd_angstrom", "quantity": "cif_lattice_parameter_b", "unit": "angstrom", "role": "standard_deviation", "of": "cif_b_angstrom"},
+    {"name": "cif_c_angstrom", "quantity": "cif_lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "cif_c_sd_angstrom", "quantity": "cif_lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "cif_c_angstrom"},
+    {"name": "cif_volume_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "cif_volume_sd_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "cif_volume_a3_conventional_cell"},
+    {"name": "cif_block", "quantity": "source_cif_data_block", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mg088fe010al014si090o3-bridgmanite-fu-2024-table-s1-cif-pv.csv",
+    "sha256": "c735c80ede486b5ab85b755f1ab450a56e20864b41f7adeb2e2798e818090fff",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1",
+    "mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"
+   ],
+   "uncertainty": {
+    "parenthetical_values": "Online Materials Table S1 explicitly defines all parenthetical pressure and lattice uncertainties as 1 sigma; CIF cell-volume uncertainties are crystallographic standard uncertainties.",
+    "temperature": "Every deposited CIF block reports 293 K without a temperature uncertainty.",
+    "covariance": "No observation-level covariance matrix is published."
+   },
+   "provenance": {
+    "type": "direct_transcription",
+    "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
+    "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
+    "cif_sha256": "b21f73e3e9a0b24e07ec990505df038b3293b18895351e57dde2fc9ff8e47145",
+    "transcribed_on": "2026-09-05"
+   },
+   "notes": "Table S1 and the CIF report the same 22 pressure states. Separate columns preserve the 7.1 GPa last-digit lattice differences and the conflicting lattice uncertainties at 39.3, 41.8, and 50.1 GPa. The CIF supplies the conventional-cell volume and its uncertainty; no volume is printed in Table S1. The article states that weighted P-V data were fitted but does not publish the row-wise Au calibrant measurements, the exact EosFit weight configuration, or a numerical table for both individual platelet volume series shown in Figure S2."
+  }
+ ]
+}
