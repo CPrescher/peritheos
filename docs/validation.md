@@ -40,8 +40,8 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 161
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 80 uncertainty-parity matches and 32
-additional numerically similar results. [Ten direct refits](primary-eos-refits.md#parity-not-achieved) do not
+diagnostics. The current campaign finds 81 uncertainty-parity matches and 32
+additional numerically similar results. [Nine direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 39 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
@@ -87,7 +87,30 @@ Primary-source findings changed or qualified several migrated records:
   Table II `a0 = 4.258 angstrom`, Table VI `B0 = 190.5 GPa` and `B0' = 3.9`,
   and the 0--30.8 GPa Table III data span. The source prints no fit errors or
   covariance and warns that these whole-range empirical constants need not be
-  the true one-atmosphere derivatives.
+  the true one-atmosphere derivatives. The [detailed CoO reproduction](literature-reproductions.md#coo-clendenen-1966)
+  rules out decimal rounding alone. It identifies a strongly anticorrelated,
+  weakly identifiable coefficient pair plus unavailable source rows, weights,
+  and regression details; conditional fits recover either published
+  coefficient when the other is fixed.
+- Gleason et al.'s goethite record is a BM3 reference isotherm plus
+  Mie--Gruneisen--Debye thermal pressure, not a standalone room-temperature
+  BM3. The corrected validation now uses all 65 deposited P-V-T rows, but
+  `K0=183.338 GPa` and a boundary `K0'=0` still do not reproduce the printed
+  `140.3 GPa` and `4.6`. Depository row 32 is itself an isolated 100 degC,
+  6.66 GPa state at `V=122.80 angstrom^3`; the published EOS expects
+  `133.105 angstrom^3`. Removing it improves the curve residual but still gives
+  `K0=177.642 GPa` and `K0'=1.5419`. The
+  [detailed goethite reproduction](literature-reproductions.md#goethite-gleason-2008)
+  documents the anomaly, a fresh Figure 3 digitization cross-check, the paper's
+  malformed printed Equation 1, the 9 GPa non-hydrostatic discontinuity, and
+  the unresolved source weighting/reduction details. The figure agrees with the
+  primary table where points are shown, but omits the entire 100 degC series
+  containing row 32. Fitting the 47 visible markers independently gives
+  `K0=193.45 GPa` and `K0'=0.893` with the reconstructed thermal model, or
+  `203.78 GPa` and `0.262` as plain BM3; fixing `K0=140.3 GPa` requires
+  `K0'=6.112`, rather than `4.6`. This record is retained for provenance and
+  published-curve reproduction but is not recommended for quantitative
+  pressure-volume or thermoelastic work.
 - Noguchi et al.'s NiO record is a shock-derived 300 K isotherm, not a static
   compression experiment. The official 1998 primary conference paper supplies
   the sample's pseudo-cubic `a0 = 4.177(1) angstrom`, the Mie--Gruneisen

@@ -18,18 +18,18 @@
     "policy": "Only primary_source_validated records are executable; deferred records remain available for lossless catalog interchange."
   },
   "pressure_calibration": {
-    "audit_date": "2026-09-03",
+    "audit_date": "2026-09-04",
     "status_counts": {
       "resolved": 66,
-      "partially_resolved": 11,
+      "partially_resolved": 12,
       "not_applicable": 23,
-      "unresolved": 61
+      "unresolved": 60
     },
     "recalculation_counts": {
-      "missing_calibrant_observations": 50,
+      "missing_calibrant_observations": 51,
       "reference_model_not_supported": 16,
       "not_applicable": 23,
-      "not_possible": 64,
+      "not_possible": 63,
       "ready": 7,
       "reference_eos_not_bundled": 1
     },

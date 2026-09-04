@@ -127,6 +127,14 @@ FIT_QUALIFICATIONS = {
         "published fictive reference, K0 and K0' are fitted to the eight "
         "23-24 degC rows, and alpha_KT is then fitted to all 39 P-V-T rows."
     ),
+    "ice_vi_bezacier_2014_bm2_1": (
+        "Source-scope reproduction: Figure 2 displays the ice-VI PVT data as the "
+        "300 K and 340 K isotherms. The 15 intermediate-temperature rows in Table I "
+        "form a pressure-temperature ramp and are not plotted there. The "
+        "best-supported reconstruction selects the 23 rows at 298.7-300.7 K and "
+        "the seven rows at 340.0-340.7 K; it recovers V0, K0, and alpha0 within "
+        "combined two-sigma uncertainty."
+    ),
     "neon_fcc_fei_2007_bm3_1": (
         "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, "
         "ref. 45), Finger et al. (1981, ref. 47), and their new observations. The "
@@ -166,11 +174,17 @@ INVESTIGATION_NOTES = {
         "literature reproduction documents that distinction in detail."
     ),
     "coo_clendenen_1966_murnaghan_1": (
-        "The input is a nine-point smoothed and rounded table, not the original "
-        "measurements, and the paper gives no coefficient covariance or exact "
-        "regression objective. K0 remains close, while K0' is the sensitive "
-        "coefficient. Reproducing the authors' pre-smoothing data and regression "
-        "variable is the next evidence needed."
+        "Decimal rounding alone is ruled out: four printed rows cannot lie on the "
+        "published curve even within both displayed rounding intervals. The input "
+        "is a nine-point smoothed table rather than the numerical Figure 2 "
+        "observations, and the source gives no weights or exact regression "
+        "objective. The free K0 and K0' estimates are strongly anticorrelated "
+        "(correlation -0.971); fixing either published coefficient recovers the "
+        "other closely, so the large derivative shift follows a shallow objective "
+        "valley rather than a comparably large curve discrepancy. Exact parity "
+        "requires the source observations and fit protocol. See the "
+        "[dedicated CoO reproduction]"
+        "(literature-reproductions.md#coo-clendenen-1966)."
     ),
     "cscl_campbell_1994_bm3_1": (
         "The original extreme discrepancy was a data-assignment error: the resource "
@@ -181,18 +195,50 @@ INVESTIGATION_NOTES = {
         "fit. Only the exact normalized-stress regression weights remain unpublished."
     ),
     "goethite_gleason_2008_bm3_1": (
-        "The audit uses the 27 rows nearest the reference temperature from a "
-        "65-row P-V-T deposit. The source's exact temperature selection, thermal "
-        "correction, weighting, and covariance are not encoded. The much softer "
-        "K0/K0' trade-off in the refit is therefore most plausibly a fit-scope "
-        "difference; reproducing the paper's row mask and objective is required."
+        "The earlier audit incorrectly reduced the record to a plain BM3 and used "
+        "only 27 room-temperature rows. The corrected record implements Equation "
+        "1 as a BM3 plus Mie-Gruneisen-Debye thermal pressure and uses all 65 P-V-T "
+        "rows, as the paper states. Parity still fails. Official deposit row 32 is "
+        "an isolated 100 degC, 6.66 GPa point at V=122.80 A^3; the published curve "
+        "expects 133.11 A^3 and misses its pressure by 16.29 GPa. Excluding that "
+        "verbatim source anomaly changes the refit materially but still does not "
+        "recover the reported elastic coefficients. The remaining systematic "
+        "misfit begins near the room-temperature 9 GPa discontinuity that the "
+        "authors attribute to pressure-medium solidification. Thus neither the old "
+        "fit-scope error nor row 32 alone explains the published values; unavailable "
+        "source regression weights/reduction details and strongly non-hydrostatic "
+        "data remain the bounded causes. A fresh Figure 3 cross-check confirms all "
+        "47 plotted alpha-FeOOH Table 1 coordinates and all 49 epsilon-FeOOH Table "
+        "2 coordinates; Figure 3a omits the 100 degC series containing row 32, so "
+        "the plot supplies no alternate value for that anomaly. An independent "
+        "unweighted fit of the 47 Figure 3a marker centers gives K0=193.45 GPa and "
+        "K0'=0.893 with the reconstructed thermal model, or K0=203.78 GPa and "
+        "K0'=0.262 as plain BM3. Fixing K0=140.3 GPa instead requires K0'=6.112 "
+        "for the marker-based thermal fit, so the published pair is not recovered "
+        "even conditionally. The 27 primary room-temperature rows alone give "
+        "K0=189.775 GPa and K0'=1.103, showing that the low derivative is not a "
+        "thermal-model artifact. Nagai et al.'s P-V observations are presented as "
+        "a separate comparison, not as fit inputs; appending their 12 normalized "
+        "rows experimentally also fails to recover the published pair. Equation 1 "
+        "is malformed as printed: its static "
+        "bracket has the opposite sign from standard BM3 under the stated strain "
+        "definition, and its thermal-term grouping is incomplete. The Figure 3 "
+        "curve supports the standard BM3 sign, so this is most likely a source "
+        "typographical error rather than a different EOS convention. The record is "
+        "retained for provenance and published-curve reproduction but is not "
+        "recommended for quantitative pressure-volume or thermoelastic use. See "
+        "the [dedicated "
+        "goethite reproduction]"
+        "(literature-reproductions.md#goethite-gleason-2008)."
     ),
     "ice_vi_bezacier_2014_bm2_1": (
-        "The 42 K temperature span and roughly 1.3 GPa pressure span provide weak "
-        "leverage on alpha0 once V0 and K0 are also free. The refitted curve only "
-        "modestly improves the RMSE, but alpha0 shifts strongly. This is consistent "
-        "with coefficient correlation; the source covariance or exact fitting "
-        "weights are needed to distinguish it from a convention difference."
+        "The original discrepancy was a fit-scope error. Figure 2 labels only the "
+        "300 K and 340 K ice-VI series as P-V data and the corresponding two-isotherm "
+        "refit recovers all three published coefficients. Treating all 45 Table I "
+        "rows as one regression incorrectly includes 15 measurements collected "
+        "along the intervening pressure-temperature ramp; that fit lowers alpha0 "
+        "from 1.46e-4 to 5.29e-5 K^-1. The equation itself is equivalent to "
+        "Peritheos's constant-alpha thermal reference-state BM2 when dK/dT=0."
     ),
     "kcl_walker_2002_bm3_2": (
         "The original large discrepancy was a validation-protocol error: it compared "
@@ -925,6 +971,7 @@ def _fit_record(
         }
 
     chidester_high_temperature = None
+    ice_vi_all_rows = None
     source_protocol_unweighted = False
     if record_id == "kcl_b2_chidester_2021_bm3_5":
         datasets = {item["identifier"]: item for item in document["datasets"]}
@@ -961,13 +1008,10 @@ def _fit_record(
             volume_sigma=None,
             temperature_sigma=None,
             pressure_column="pressure_gpa + pt_derived_pressure_gpa",
-            volume_column=(
-                "volume_a3_per_formula_unit + kcl_molar_volume_cm3_mol"
-            ),
+            volume_column=("volume_a3_per_formula_unit + kcl_molar_volume_cm3_mol"),
             temperature_column="300 K assigned + kcl_temperature_k",
             selection=(
-                "all 123 Dewaele 300 K rows and all 155 Chidester high-temperature "
-                "rows"
+                "all 123 Dewaele 300 K rows and all 155 Chidester high-temperature rows"
             ),
         )
         source_protocol_unweighted = True
@@ -985,6 +1029,22 @@ def _fit_record(
         assert series.temperature is not None
         heated = series.temperature > 300.0
         series = _masked_series(series, heated, "41 heated rows")
+
+    if record_id == "ice_vi_bezacier_2014_bm2_1":
+        assert series.temperature is not None
+        # Figure 2 identifies the ice-VI P-V data as the 300 K and 340 K
+        # isotherms. Table I also prints 15 points measured while pressure and
+        # temperature were ramped together; including that transition path is
+        # what produced the earlier, irreproducibly small alpha0.
+        ice_vi_all_rows = series
+        endpoint_isotherms = (np.abs(series.temperature - 300.0) <= 1.5) | (
+            np.abs(series.temperature - 340.0) <= 1.0
+        )
+        series = _masked_series(
+            series,
+            endpoint_isotherms,
+            "23 rows at 298.7-300.7 K and seven rows at 340.0-340.7 K",
+        )
 
     if record_id == "kcl_walker_2002_bm3_2":
         return _fit_walker_staged(
@@ -1153,12 +1213,217 @@ def _fit_record(
         "solver_success": bool(result.success),
         "solver_message": str(result.message),
     }
+    if ice_vi_all_rows is not None:
+        all_rows_fit = fit_joint_eos(
+            type(executable),
+            rt_class,
+            volume=(ice_vi_all_rows.volume * material.eos_records[0].volume_scale),
+            temperature=ice_vi_all_rows.temperature,
+            pressure=ice_vi_all_rows.pressure,
+            initial=initial,
+            fixed=fixed,
+            configuration=_configuration(record),
+            bounds={name: _bounds(name, value) for name, value in initial.items()},
+            pressure_sigma=ice_vi_all_rows.pressure_sigma,
+            volume_sigma=(
+                None
+                if ice_vi_all_rows.volume_sigma is None
+                else ice_vi_all_rows.volume_sigma * material.eos_records[0].volume_scale
+            ),
+            temperature_sigma=ice_vi_all_rows.temperature_sigma,
+            absolute_sigma=True,
+            max_nfev=5000,
+        )
+        all_rows_parameters = {
+            name: float(value) for name, value in all_rows_fit.parameters.items()
+        }
+        all_rows_parameters["rt_eos.V0"] /= material.eos_records[0].volume_scale
+        outcome["all_table_rows_diagnostic"] = {
+            "purpose": (
+                "Shows the fit-scope failure caused by treating the intermediate "
+                "pressure-temperature ramp as additional isotherm data."
+            ),
+            "observations": int(ice_vi_all_rows.pressure.size),
+            "parameters": all_rows_parameters,
+            "published_rmse_gpa": _published_rmse(
+                executable,
+                material.eos_records[0].volume_scale,
+                ice_vi_all_rows,
+                material.eos_records[0].reference_temperature,
+            ),
+            "refit_rmse_gpa": float(
+                np.sqrt(np.mean(np.asarray(all_rows_fit.residuals, dtype=float) ** 2))
+            ),
+        }
+    if record_id == "goethite_gleason_2008_bm3_1":
+        assert thermal and series.temperature is not None
+        anomaly = (
+            np.isclose(series.pressure, 6.66)
+            & np.isclose(series.temperature, 373.15)
+            & np.isclose(series.volume, 122.80)
+        )
+        if int(np.count_nonzero(anomaly)) != 1:
+            raise ValueError("expected exactly one Gleason depository-row-32 anomaly")
+        clean = _masked_series(
+            series,
+            ~anomaly,
+            "all P-V-T rows except verbatim depository row 32",
+        )
+
+        def goethite_fit(selected: Series, *, use_uncertainties: bool):
+            return fit_joint_eos(
+                type(executable),
+                rt_class,
+                volume=selected.volume * volume_scale,
+                temperature=selected.temperature,
+                pressure=selected.pressure,
+                initial=initial,
+                fixed=fixed,
+                configuration=_configuration(record),
+                bounds={name: _bounds(name, value) for name, value in initial.items()},
+                pressure_sigma=(selected.pressure_sigma if use_uncertainties else None),
+                volume_sigma=(
+                    None
+                    if not use_uncertainties or selected.volume_sigma is None
+                    else selected.volume_sigma * volume_scale
+                ),
+                temperature_sigma=(
+                    selected.temperature_sigma if use_uncertainties else None
+                ),
+                absolute_sigma=use_uncertainties,
+                max_nfev=5000,
+            )
+
+        clean_eiv = goethite_fit(clean, use_uncertainties=True)
+        all_unweighted = goethite_fit(series, use_uncertainties=False)
+        clean_unweighted = goethite_fit(clean, use_uncertainties=False)
+
+        def public_parameters(fit: Any) -> dict[str, float]:
+            values = {
+                name: float(fit.parameters[name])
+                for name in ("rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime")
+            }
+            values["rt_eos.V0"] /= volume_scale
+            return values
+
+        published_pressure = np.asarray(
+            executable.pressure(series.volume * volume_scale, series.temperature),
+            dtype=float,
+        )
+        published_residual = published_pressure - series.pressure
+        anomaly_index = int(np.flatnonzero(anomaly)[0])
+        outcome["source_table_anomaly_diagnostic"] = {
+            "depository_row": 32,
+            "reported_state": {
+                "pressure_gpa": float(series.pressure[anomaly_index]),
+                "temperature_k": float(series.temperature[anomaly_index]),
+                "volume_a3": float(series.volume[anomaly_index]),
+            },
+            "published_model_pressure_gpa": float(published_pressure[anomaly_index]),
+            "published_model_volume_a3": float(
+                executable.volume(
+                    series.pressure[anomaly_index],
+                    series.temperature[anomaly_index],
+                )
+                / volume_scale
+            ),
+            "published_model_pressure_residual_gpa": float(
+                published_residual[anomaly_index]
+            ),
+            "published_curve_rmse_gpa": {
+                "all_65_rows": float(np.sqrt(np.mean(published_residual**2))),
+                "excluding_row_32": float(
+                    np.sqrt(np.mean(published_residual[~anomaly] ** 2))
+                ),
+            },
+            "refit_sensitivity": {
+                "errors_in_variables_all_65": public_parameters(result),
+                "errors_in_variables_excluding_row_32": public_parameters(clean_eiv),
+                "unweighted_pressure_all_65": public_parameters(all_unweighted),
+                "unweighted_pressure_excluding_row_32": public_parameters(
+                    clean_unweighted
+                ),
+            },
+        }
     if record_id in FIT_QUALIFICATIONS:
         outcome["qualification"] = FIT_QUALIFICATIONS[record_id]
+    if record_id == "coo_clendenen_1966_murnaghan_1":
+        free_names = list(result.free_parameters)
+        k0_index = free_names.index("K0")
+        derivative_index = free_names.index("K0_prime")
+        published = record["eos"]["parameters"]
+        conditional_fits = {}
+        for fixed_name, free_name in (
+            ("K0", "K0_prime"),
+            ("K0_prime", "K0"),
+        ):
+            conditional = fit_rt_eos(
+                Murnaghan,
+                volume=series.volume,
+                pressure=series.pressure,
+                initial={free_name: float(published[free_name])},
+                fixed={**static_fixed, fixed_name: float(published[fixed_name])},
+                bounds={free_name: _bounds(free_name, float(published[free_name]))},
+                absolute_sigma=True,
+                max_nfev=5000,
+            )
+            conditional_fits[f"{fixed_name}_fixed"] = {
+                "fixed_value": float(published[fixed_name]),
+                "refit_parameter": free_name,
+                "refit_value": float(conditional.parameters[free_name]),
+                "pressure_rmse_gpa": float(
+                    np.sqrt(np.mean(np.asarray(conditional.residuals) ** 2))
+                ),
+            }
+
+        ratio = np.cbrt(series.volume / float(static_fixed["V0"]))
+        pressure_half_interval_gpa = 0.05
+        ratio_half_interval = 0.0005
+        published_model = Murnaghan(**published)
+        low_pressure = np.asarray(
+            published_model.pressure(
+                float(static_fixed["V0"]) * (ratio + ratio_half_interval) ** 3
+            )
+        )
+        high_pressure = np.asarray(
+            published_model.pressure(
+                float(static_fixed["V0"]) * (ratio - ratio_half_interval) ** 3
+            )
+        )
+        rounding_gaps = np.maximum.reduce(
+            (
+                low_pressure - (series.pressure + pressure_half_interval_gpa),
+                (series.pressure - pressure_half_interval_gpa) - high_pressure,
+                np.zeros_like(series.pressure),
+            )
+        )
+        published_residual_sum_squares = float(published_rmse**2 * series.pressure.size)
+        refit_residual_sum_squares = float(np.sum(residuals**2))
+        outcome["coefficient_tradeoff_diagnostic"] = {
+            "K0_K0_prime_correlation": float(
+                result.correlation[k0_index, derivative_index]
+            ),
+            "conditional_fits": conditional_fits,
+            "rounding_intervals": {
+                "lattice_ratio_half_interval": ratio_half_interval,
+                "pressure_half_interval_kbar": 0.5,
+                "rows_outside_published_curve": int(np.count_nonzero(rounding_gaps)),
+                "minimum_pressure_gaps_kbar": [
+                    float(value * 10.0) for value in rounding_gaps if value > 0.0
+                ],
+            },
+            "published_pair_delta_chi_square": float(
+                (published_residual_sum_squares - refit_residual_sum_squares)
+                / result.reduced_chi_square
+            ),
+            "confidence_region_assumption": (
+                "Homoscedastic Gaussian pressure residuals with variance estimated "
+                "from the unconstrained fit."
+            ),
+        }
     if chidester_high_temperature is not None:
         high_temperature_refit_pressure = result.model.pressure(
-            chidester_high_temperature.volume
-            * material.eos_records[0].volume_scale,
+            chidester_high_temperature.volume * material.eos_records[0].volume_scale,
             chidester_high_temperature.temperature,
         )
         outcome["source_reported_pressure_rmse_gpa"] = 1.6
@@ -1833,6 +2098,20 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "combined Campbell + Yagi values. The complete 24-row RbCl ",
             "dataset is now a separate material record and refits to K0=17.8808 ",
             "GPa and K0'=5.2382, reproducing the printed 17.9(10) and 5.23(29).",
+            "",
+            "The Bezacier ice-VI failure was also a fit-scope error. Table I ",
+            "contains 45 observations, but Figure 2 identifies only the 300 K and ",
+            "340 K isotherms as the ice-VI P-V data used for the EOS comparison. ",
+            "The corrected 30-row endpoint-isotherm fit gives V0=235.3538 A^3 ",
+            "(14.1733 cm^3/mol), K0=14.0158 GPa, and alpha0=1.4815e-4 K^-1, ",
+            "recovering the published 14.17(2) cm^3/mol, 14.05(23) GPa, and ",
+            "1.46(14)e-4 K^-1 within combined two-sigma uncertainty. The 15 ",
+            "intermediate rows are retained as primary measurements but excluded ",
+            "from this reproduction because they form a correlated pressure-",
+            "temperature ramp rather than either plotted isotherm. For comparison, ",
+            "forcing all 45 rows into one simultaneous fit gives V0=233.1912 A^3, ",
+            "K0=15.5626 GPa, and alpha0=5.2866e-5 K^-1; this failed diagnostic ",
+            "is retained in the machine-readable ledger.",
             "",
             "## Detailed non-parity investigations",
             "",

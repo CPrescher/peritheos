@@ -411,8 +411,16 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
     ),
     "10.1063/1.4894421": source(
         "https://doi.org/10.1063/1.4894421",
-        ["Primary abstract", "BM2 P-V-T fits for ice VI and ice VII"],
-        "Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.",
+        [
+            "Table I, journal pages 104505-2 to 104505-3",
+            "Equations (1)-(3), journal page 104505-4",
+            "Figure 2 caption and Table II",
+        ],
+        "The source uses BM2 with T0=300 K, exponential constant-alpha "
+        "reference-volume scaling, and dK/dT fixed to zero. Figure 2 displays "
+        "the ice-VI P-V series at 300 and 340 K; fitting those 30 endpoint-isotherm "
+        "rows reproduces Table II. Molar volumes were converted with Z=10 for ice "
+        "VI and Z=2 for ice VII.",
     ),
     "10.1063/1.342969": source(
         "https://doi.org/10.1063/1.342969",
@@ -674,7 +682,18 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
     ),
     "10.2138/am.2008.2942": source(
         "https://doi.org/10.2138/am.2008.2942",
-        ["EOS method", "goethite and epsilon-FeOOH parameter tables"],
+        [
+            "Equation 1 and goethite EOS discussion, manuscript pages 6-7",
+            "Goethite thermodynamic parameters, Table 1 on manuscript page 15",
+            "MSA depository item AM-08-056, Table 1",
+        ],
+        "The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal "
+        "pressure and says that all 65 deposited P-V-T rows determine K0 and "
+        "K0'. The deposit's row 32 values are retained verbatim but flagged as "
+        "an isolated source-data/refinement anomaly. An independent fit of the "
+        "47 plotted Figure 3a marker centers also fails badly, and Equation 1 "
+        "is malformed as printed; the record is retained for provenance but is "
+        "not recommended for quantitative use.",
     ),
     "10.2138/am.2011.3775": source(
         "https://doi.org/10.2138/am.2011.3775",
@@ -2949,6 +2968,22 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             ["pressure_calibration", "fit_scope", "thermal_model_convention"]
         )
 
+    if result["identifier"] == "goethite_gleason_2008_bm3_1":
+        result["scientific_validation"]["note"] = (
+            "Independently checked against the cited primary publication and "
+            "official deposit; bibliographic validation does not imply fit "
+            "reproducibility. The EOS is retained for provenance but is not "
+            "recommended for quantitative use because table and figure-marker "
+            "refits fail to reproduce the published coefficients."
+        )
+        result["scientific_validation"]["usage_recommendation"] = (
+            "not_recommended_for_quantitative_use"
+        )
+        result["scientific_validation"]["audit_date"] = REPORT_AUDIT_DATE
+        result["scientific_validation"]["verified_fields"].append(
+            "fit_reproducibility"
+        )
+
     if result["identifier"] == "graphite_hanfland_1989_murnaghan_1":
         result["parameter_errors"] = dict(result["parameter_errors"])
         result["parameter_errors"]["V0"] = 0.02
@@ -3092,18 +3127,19 @@ def main() -> None:
             audited = audit_record(record, path.name)
             records.append(audited)
             check = audited["scientific_validation"]
-            entries.append(
-                {
-                    "material": document["identifier"],
-                    "file": path.name,
-                    "record": audited["identifier"],
-                    "label": audited["label"],
-                    "doi": normalized_doi(audited.get("reference")),
-                    "status": check["status"],
-                    "note": check["note"],
-                    "primary_source_check": check["primary_source_check"],
-                }
-            )
+            entry = {
+                "material": document["identifier"],
+                "file": path.name,
+                "record": audited["identifier"],
+                "label": audited["label"],
+                "doi": normalized_doi(audited.get("reference")),
+                "status": check["status"],
+                "note": check["note"],
+                "primary_source_check": check["primary_source_check"],
+            }
+            if "usage_recommendation" in check:
+                entry["usage_recommendation"] = check["usage_recommendation"]
+            entries.append(entry)
         document["eos_records"] = records
         path.write_text(
             json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",

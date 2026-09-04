@@ -100,7 +100,7 @@
    "fixed_parameters": [],
    "experimental_pressure_range_gpa": [
     1.26,
-    2.56
+    2.81
    ],
    "experimental_temperature_range_k": [
     298.7,
@@ -125,7 +125,7 @@
     ],
     "model": "thermal_reference_state"
    },
-   "notes": "Joint PVT fit for pure H2O ice VI. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VI measurements tabulated in the paper.",
+   "notes": "PVT fit for pure H2O ice VI. The best-supported refit reconstruction uses the 300 K and 340 K isotherms displayed in Figure 2 (30 rows: 23 at 298.7-300.7 K and seven at 340.0-340.7 K). The 15 intermediate-temperature Table I observations are retained in the linked primary dataset but form a correlated pressure-temperature ramp and are not plotted in Figure 2. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of all ice-VI measurements tabulated in the paper.",
    "identifier": "ice_vi_bezacier_2014_bm2_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -153,10 +153,11 @@
     "primary_source_check": {
      "access_url": "https://doi.org/10.1063/1.4894421",
      "locations": [
-      "Primary abstract",
-      "BM2 P-V-T fits for ice VI and ice VII"
+      "Table I, journal pages 104505-2 to 104505-3",
+      "Equations (1)-(3), journal page 104505-4",
+      "Figure 2 caption and Table II"
      ],
-     "finding": "Molar volumes were converted with Z=10 for ice VI and Z=2 for ice VII.",
+     "finding": "The source uses BM2 with T0=300 K, exponential constant-alpha reference-volume scaling, and dK/dT fixed to zero. Figure 2 displays the ice-VI P-V series at 300 and 340 K; fitting those 30 endpoint-isotherm rows reproduces Table II. Molar volume is converted with Z=10.",
      "doi": "10.1063/1.4894421"
     },
     "migration_source": {

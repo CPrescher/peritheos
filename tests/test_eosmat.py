@@ -137,6 +137,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "gold_dewaele_2004_vinet_5",
         "gold_fratanduono_2021_vinet_7",
         "gold_takemura_2008_vinet_6",
+        "goethite_gleason_2008_bm3_1",
         "kcl_b2_chidester_2021_bm3_5",
         "kcl_b2_tateno_2019_vinet_4",
         "mgo_b1_tange_2009_vinet",
@@ -148,11 +149,20 @@ def test_migrated_records_have_completed_primary_source_audit():
         "neon_fcc_hemley_1989_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
         "kcl_b2_chidester_2021_bm3_5",
+        "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
     } == {"2026-09-04"}
+    goethite = next(
+        record
+        for record in records
+        if record["identifier"] == "goethite_gleason_2008_bm3_1"
+    )
+    assert goethite["scientific_validation"]["usage_recommendation"] == (
+        "not_recommended_for_quantitative_use"
+    )
     assert {
         audit_dates[identifier]
         for identifier in current_audit_identifiers

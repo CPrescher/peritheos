@@ -31,9 +31,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 161, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 80,
+        "parity": 81,
         "similar": 32,
-        "parity_not_achieved": 10,
+        "parity_not_achieved": 9,
         "not_refittable": 39,
     }
     assert all(
@@ -86,9 +86,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert [item["refit"] for item in chidester["parameters"]] == pytest.approx(
         [53.203552571, 23.972141965, 4.557980658, 2.917137053, 0.965242582]
     )
-    assert chidester["high_temperature_refit_rmse_gpa"] == pytest.approx(
-        1.581924568
-    )
+    assert chidester["high_temperature_refit_rmse_gpa"] == pytest.approx(1.581924568)
     assert chidester["source_reported_pressure_rmse_gpa"] == 1.6
     assert "155 new high-temperature rows" in chidester["qualification"]
     assert by_identifier["b4c_somayazulu_2023_bm3_1"]["status"] == (
@@ -129,9 +127,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     rbcl = by_identifier["rbcl_b2_campbell_1994_bm3_1"]
     assert rbcl["status"] == "parity"
     assert rbcl["observations"] == 24
-    assert rbcl["dataset_identifiers"] == [
-        "rbcl_campbell_1994_table1_compression"
-    ]
+    assert rbcl["dataset_identifiers"] == ["rbcl_campbell_1994_table1_compression"]
     assert [item["refit"] for item in rbcl["parameters"]] == pytest.approx(
         [17.8808436600, 5.2381519592]
     )
@@ -146,12 +142,68 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [17.6967334851, 5.2026008383]
     )
     assert "Complete source-data reproduction" in cscl["qualification"]
+    coo = by_identifier["coo_clendenen_1966_murnaghan_1"]
+    assert coo["status"] == "parity_not_achieved"
+    tradeoff = coo["coefficient_tradeoff_diagnostic"]
+    assert tradeoff["K0_K0_prime_correlation"] == pytest.approx(-0.971026845)
+    assert tradeoff["conditional_fits"]["K0_fixed"]["refit_value"] == (
+        pytest.approx(3.839109480)
+    )
+    assert tradeoff["conditional_fits"]["K0_prime_fixed"]["refit_value"] == (
+        pytest.approx(189.0898192)
+    )
+    assert tradeoff["rounding_intervals"]["rows_outside_published_curve"] == 4
+    assert tradeoff["rounding_intervals"]["minimum_pressure_gaps_kbar"] == (
+        pytest.approx([1.975447794, 4.436419298, 0.633380963, 3.635154586])
+    )
+    assert tradeoff["published_pair_delta_chi_square"] == pytest.approx(3.561705438)
+    assert "properly balanced" in coo["source_notes"]
+    goethite = by_identifier["goethite_gleason_2008_bm3_1"]
+    assert goethite["status"] == "parity_not_achieved"
+    assert goethite["fit_kind"] == "joint_pvt"
+    assert goethite["observations"] == 65
+    assert goethite["free_parameters"] == [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+    ]
+    assert [item["refit"] for item in goethite["parameters"]] == pytest.approx(
+        [183.337839186, 0.0]
+    )
+    anomaly = goethite["source_table_anomaly_diagnostic"]
+    assert anomaly["depository_row"] == 32
+    assert anomaly["published_model_volume_a3"] == pytest.approx(133.105228337)
+    assert anomaly["published_model_pressure_residual_gpa"] == pytest.approx(
+        16.293430720
+    )
+    assert anomaly["published_curve_rmse_gpa"] == pytest.approx(
+        {"all_65_rows": 2.540000975, "excluding_row_32": 1.550596848}
+    )
+    clean_goethite = anomaly["refit_sensitivity"][
+        "errors_in_variables_excluding_row_32"
+    ]
+    assert clean_goethite["rt_eos.K0"] == pytest.approx(177.642304461)
+    assert clean_goethite["rt_eos.K0_prime"] == pytest.approx(1.541879108)
+    assert "not recommended for quantitative" in goethite["source_notes"]
+    ice_vi = by_identifier["ice_vi_bezacier_2014_bm2_1"]
+    assert ice_vi["status"] == "parity"
+    assert ice_vi["observations"] == 30
+    assert ice_vi["selection"] == (
+        "23 rows at 298.7-300.7 K and seven rows at 340.0-340.7 K"
+    )
+    assert [item["refit"] for item in ice_vi["parameters"]] == pytest.approx(
+        [235.353768434, 14.015825054, 0.000148152628]
+    )
+    assert "Figure 2 displays" in ice_vi["qualification"]
+    all_ice_vi_rows = ice_vi["all_table_rows_diagnostic"]
+    assert all_ice_vi_rows["observations"] == 45
+    assert all_ice_vi_rows["parameters"]["alpha0"] == pytest.approx(0.000052865775)
+    assert all_ice_vi_rows["parameters"]["rt_eos.K0"] == pytest.approx(15.562571244)
     explained = [
         item
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 42
+    assert markdown.count("### `") == len(explained) == 41
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

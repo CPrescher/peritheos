@@ -2389,6 +2389,36 @@
     },
     {
       "absolute_sigma": true,
+      "coefficient_tradeoff_diagnostic": {
+        "K0_K0_prime_correlation": -0.9710268443952922,
+        "conditional_fits": {
+          "K0_fixed": {
+            "fixed_value": 190.5,
+            "pressure_rmse_gpa": 0.5161669287261903,
+            "refit_parameter": "K0_prime",
+            "refit_value": 3.839109447022122
+          },
+          "K0_prime_fixed": {
+            "fixed_value": 3.9,
+            "pressure_rmse_gpa": 0.5039734788358984,
+            "refit_parameter": "K0",
+            "refit_value": 189.08981924134844
+          }
+        },
+        "confidence_region_assumption": "Homoscedastic Gaussian pressure residuals with variance estimated from the unconstrained fit.",
+        "published_pair_delta_chi_square": 3.5617054375396417,
+        "rounding_intervals": {
+          "lattice_ratio_half_interval": 0.0005,
+          "minimum_pressure_gaps_kbar": [
+            1.975447794012517,
+            4.436419297645315,
+            0.6333809628027254,
+            3.6351545857370837
+          ],
+          "pressure_half_interval_kbar": 0.5,
+          "rows_outside_published_curve": 4
+        }
+      },
       "columns": {
         "pressure": "pressure_kbar",
         "temperature": null,
@@ -2459,7 +2489,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
+      "source_notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative; calculated pressures are insensitive to their exact individual values when the pair is properly balanced. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
       "status": "parity_not_achieved"
     },
     {
@@ -3589,31 +3619,40 @@
       "dataset_identifiers": [
         "goethite_gleason_2008_deposit_table1_pvt"
       ],
-      "degrees_of_freedom": 24,
+      "degrees_of_freedom": 63,
       "experimental_pressure_range_gpa": [
         0.0,
         29.4
       ],
-      "experimental_temperature_range_k": null,
-      "fit_kind": "isothermal_pv",
-      "fixed_parameters": [],
-      "free_parameters": [
+      "experimental_temperature_range_k": [
+        296.15,
+        583.15
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
         "V0",
-        "K0",
-        "K0_prime"
+        "Tr",
+        "theta0",
+        "gamma0",
+        "q",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime"
       ],
       "label": "Gleason et al. (2008)",
       "material_identifier": "goethite",
       "model": "BM3",
       "objective": "errors_in_variables",
-      "observations": 27,
+      "observations": 65,
       "observed_pressure_range_gpa": [
         0.0,
         29.41
       ],
       "observed_temperature_range_k": [
         296.15,
-        296.15
+        583.15
       ],
       "observed_volume_range": [
         119.5,
@@ -3621,50 +3660,76 @@
       ],
       "parameters": [
         {
-          "difference": -0.20275797531886042,
-          "parameter": "V0",
-          "published": 138.75,
-          "published_error": 0.02,
-          "refit": 138.54724202468114,
-          "refit_error": 0.28592476272774003,
-          "relative_difference": 0.0014613187410368318,
-          "similar": true,
-          "within_combined_2sigma": true
-        },
-        {
-          "difference": 56.23700158252734,
-          "parameter": "K0",
+          "difference": 43.037839185771475,
+          "parameter": "rt_eos.K0",
           "published": 140.3,
           "published_error": 3.7,
-          "refit": 196.53700158252735,
-          "refit_error": 14.113357210344592,
-          "relative_difference": 0.4008339385782419,
+          "refit": 183.3378391857715,
+          "refit_error": 4.974274935978137,
+          "relative_difference": 0.30675580317727347,
           "similar": false,
           "within_combined_2sigma": false
         },
         {
-          "difference": -3.7043248967705455,
-          "parameter": "K0_prime",
+          "difference": -4.6,
+          "parameter": "rt_eos.K0_prime",
           "published": 4.6,
           "published_error": 0.4,
-          "refit": 0.8956751032294542,
-          "refit_error": 0.8376903053248884,
-          "relative_difference": 0.8052880210370752,
+          "refit": 0.0,
+          "refit_error": 0.41271533583025954,
+          "relative_difference": 1.0,
           "similar": false,
           "within_combined_2sigma": false
         }
       ],
-      "primary_data_finding": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1.",
+      "primary_data_finding": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1. Depository row 32 itself reports the isolated 100 degC, 6.66 GPa values a = 4.159 A and V = 122.80 A^3; these are retained verbatim and flagged as a likely source-table or refinement anomaly rather than silently corrected.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.2138/am.2008.2942",
-      "published_rmse_gpa": 1.7532124427581985,
+      "published_rmse_gpa": 2.5400009751252877,
       "record_identifier": "goethite_gleason_2008_bm3_1",
-      "reduced_chi_square": 0.7077705120195534,
-      "rmse_gpa": 0.7382644796055425,
-      "selection": "all rows; reference-T rows",
-      "solver_message": "`ftol` termination condition is satisfied.",
+      "reduced_chi_square": 4.9480212253270714,
+      "rmse_gpa": 2.1363449095241265,
+      "selection": "all rows",
+      "solver_message": "`xtol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Gleason et al. report V0 = 138.75 +/- 0.02 A^3, K0 = 140.3 +/- 3.7 GPa, and K0' = 4.6 +/- 0.4.",
+      "source_notes": "USAGE WARNING: retained for provenance and reproduction of the published curve, but not recommended for quantitative pressure-volume or thermoelastic use. Neither the complete 65-row primary table nor an independent fit of the 47 plotted Figure 3a marker centers reproduces K0 = 140.3 GPa and K0' = 4.6; the marker fit gives K0 = 193.45 GPa and K0' = 0.893 with the reconstructed thermal model. Equation 1 is malformed as printed, although the Figure 3 curve supports the standard BM3 sign used here. Gleason et al. report a thermal EOS, not a standalone 300 K BM3: a BM3 reference with V0 = 138.75 +/- 0.02 A^3, K0 = 140.3 +/- 3.7 GPa, and K0' = 4.6 +/- 0.4 is combined with Mie-Gruneisen-Debye thermal pressure. Equation 1 references E(300 K); Table 1 gives gamma0 = 0.91 +/- 0.07 and theta0 = 740 +/- 5 K, and the text assumes dln(gamma)/dln(V) = q = 1. The Debye atom count n = 4 follows FeOOH stoichiometry. The measured zero-pressure V0 is held fixed because the authors say all P-V-T rows determine K0 and K0', specifically. Thermal quantities are also held fixed in the numerical refit because gamma0 and theta0 are thermodynamically derived after the elastic fit and q is assumed, rather than being reported as simultaneous regression coefficients. The deposited table spans 23-310 degC even though the abstract states 23-250 degC.",
+      "source_table_anomaly_diagnostic": {
+        "depository_row": 32,
+        "published_curve_rmse_gpa": {
+          "all_65_rows": 2.5400009751252877,
+          "excluding_row_32": 1.5505968475515983
+        },
+        "published_model_pressure_gpa": 22.95343072019109,
+        "published_model_pressure_residual_gpa": 16.29343072019109,
+        "published_model_volume_a3": 133.10522833679423,
+        "refit_sensitivity": {
+          "errors_in_variables_all_65": {
+            "rt_eos.K0": 183.3378391857715,
+            "rt_eos.K0_prime": 0.0,
+            "rt_eos.V0": 138.75
+          },
+          "errors_in_variables_excluding_row_32": {
+            "rt_eos.K0": 177.64230446137572,
+            "rt_eos.K0_prime": 1.541879108078295,
+            "rt_eos.V0": 138.75
+          },
+          "unweighted_pressure_all_65": {
+            "rt_eos.K0": 185.50492153410696,
+            "rt_eos.K0_prime": 0.0,
+            "rt_eos.V0": 138.75
+          },
+          "unweighted_pressure_excluding_row_32": {
+            "rt_eos.K0": 177.80011714067854,
+            "rt_eos.K0_prime": 1.5988643325191052,
+            "rt_eos.V0": 138.75
+          }
+        },
+        "reported_state": {
+          "pressure_gpa": 6.66,
+          "temperature_k": 373.15,
+          "volume_a3": 122.8
+        }
+      },
       "status": "parity_not_achieved"
     },
     {
@@ -4096,6 +4161,19 @@
     },
     {
       "absolute_sigma": true,
+      "all_table_rows_diagnostic": {
+        "observations": 45,
+        "parameters": {
+          "Tr": 300.0,
+          "alpha0": 5.2865775068587933e-05,
+          "dK_dT": 0.0,
+          "rt_eos.K0": 15.562571243578219,
+          "rt_eos.V0": 233.19122894079857
+        },
+        "published_rmse_gpa": 0.058511669507115824,
+        "purpose": "Shows the fit-scope failure caused by treating the intermediate pressure-temperature ramp as additional isotherm data.",
+        "refit_rmse_gpa": 0.04587191798215924
+      },
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": "temperature_k",
@@ -4104,10 +4182,10 @@
       "dataset_identifiers": [
         "ice_vi_bezacier_2014_table1_pvt"
       ],
-      "degrees_of_freedom": 42,
+      "degrees_of_freedom": 27,
       "experimental_pressure_range_gpa": [
         1.26,
-        2.56
+        2.81
       ],
       "experimental_temperature_range_k": [
         298.7,
@@ -4127,7 +4205,7 @@
       "material_identifier": "ice_vi",
       "model": "BM2",
       "objective": "errors_in_variables",
-      "observations": 45,
+      "observations": 30,
       "observed_pressure_range_gpa": [
         1.26,
         2.81
@@ -4142,51 +4220,52 @@
       ],
       "parameters": [
         {
-          "difference": -2.107156877701442,
+          "difference": 0.05538261500848307,
           "parameter": "rt_eos.V0",
           "published": 235.2983858185,
           "published_error": 0.3321078134,
-          "refit": 233.19122894079857,
-          "refit_error": 0.2703772745988471,
-          "relative_difference": 0.008955254284348643,
+          "refit": 235.3537684335085,
+          "refit_error": 0.3884730523499238,
+          "relative_difference": 0.00023537184420467321,
           "similar": true,
-          "within_combined_2sigma": false
+          "within_combined_2sigma": true
         },
         {
-          "difference": 1.5125712435782184,
+          "difference": -0.034174946242236715,
           "parameter": "rt_eos.K0",
           "published": 14.05,
           "published_error": 0.23,
-          "refit": 15.562571243578219,
-          "refit_error": 0.23675679472248526,
-          "relative_difference": 0.10765631626891234,
+          "refit": 14.015825053757764,
+          "refit_error": 0.272882340924503,
+          "relative_difference": 0.0024323805154616877,
           "similar": true,
-          "within_combined_2sigma": false
+          "within_combined_2sigma": true
         },
         {
-          "difference": -9.313422493141207e-05,
+          "difference": 2.1526275817624393e-06,
           "parameter": "alpha0",
           "published": 0.000146,
           "published_error": 1.4e-05,
-          "refit": 5.2865775068587933e-05,
-          "refit_error": 1.387782828307554e-05,
-          "relative_difference": 0.6379056502151512,
-          "similar": false,
-          "within_combined_2sigma": false
+          "refit": 0.00014815262758176244,
+          "refit_error": 1.833756244128889e-05,
+          "relative_difference": 0.014744024532619446,
+          "similar": true,
+          "within_combined_2sigma": true
         }
       ],
       "primary_data_finding": "All 45 H2O ice-VI P-V-T observations printed in Table I, from 1.26 to 2.81 GPa and 298.7 to 340.7 K.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/1.4894421",
-      "published_rmse_gpa": 0.058511669507115824,
+      "published_rmse_gpa": 0.010440591210967413,
+      "qualification": "Source-scope reproduction: Figure 2 displays the ice-VI PVT data as the 300 K and 340 K isotherms. The 15 intermediate-temperature rows in Table I form a pressure-temperature ramp and are not plotted there. The best-supported reconstruction selects the 23 rows at 298.7-300.7 K and the seven rows at 340.0-340.7 K; it recovers V0, K0, and alpha0 within combined two-sigma uncertainty.",
       "record_identifier": "ice_vi_bezacier_2014_bm2_1",
-      "reduced_chi_square": 3.36792224443362,
-      "rmse_gpa": 0.04587191798215924,
-      "selection": "all rows",
+      "reduced_chi_square": 0.13962648236191608,
+      "rmse_gpa": 0.010204620341662998,
+      "selection": "23 rows at 298.7-300.7 K and seven rows at 340.0-340.7 K",
       "solver_message": "`xtol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Joint PVT fit for pure H2O ice VI. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of the ice-VI measurements tabulated in the paper.",
-      "status": "parity_not_achieved"
+      "source_notes": "PVT fit for pure H2O ice VI. The best-supported refit reconstruction uses the 300 K and 340 K isotherms displayed in Figure 2 (30 rows: 23 at 298.7-300.7 K and seven at 340.0-340.7 K). The 15 intermediate-temperature Table I observations are retained in the linked primary dataset but form a correlated pressure-temperature ramp and are not plotted in Figure 2. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of all ice-VI measurements tabulated in the paper.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -5362,7 +5441,7 @@
       ],
       "primary_data_finding": "Both source inputs to the simultaneous fit are bundled: all 123 Dewaele et al. (2012) room-temperature B2 rows and all 155 Chidester et al. high-temperature rows.",
       "primary_data_status": "bundled",
-      "primary_source": "https://doi.org/10.1103/PhysRevB.104.094107",
+      "primary_source": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
       "published_rmse_gpa": 1.3025804462129118,
       "qualification": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
       "record_identifier": "kcl_b2_chidester_2021_bm3_5",
@@ -10849,8 +10928,8 @@
   ],
   "summary": {
     "not_refittable": 39,
-    "parity": 80,
-    "parity_not_achieved": 10,
+    "parity": 81,
+    "parity_not_achieved": 9,
     "similar": 32,
     "total": 161
   }

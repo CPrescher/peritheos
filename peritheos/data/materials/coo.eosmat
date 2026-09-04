@@ -66,7 +66,7 @@
     "V0"
    ],
    "pressure_range_status": "reported_exactly",
-   "notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
+   "notes": "Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative; calculated pressures are insensitive to their exact individual values when the pair is properly balanced. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.",
    "identifier": "coo_clendenen_1966_murnaghan_1",
    "pressure_calibration": {
     "status": "unresolved",
@@ -97,7 +97,7 @@
       "Equation (4), journal page 4226",
       "Tables II, III, and VI, journal pages 4224-4227"
      ],
-     "finding": "The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions that B0 and B0' need not equal the true one-atmosphere derivatives.",
+     "finding": "The CoO record is the empirical whole-range Murnaghan fit printed in Table VI, not a Birch-Murnaghan fit. V0 is calculated from the Table II ambient cubic lattice parameter. The paper prints no parameter errors or covariance and cautions both that B0 and B0' need not equal the true one-atmosphere derivatives and that calculated pressures are insensitive to their exact individual values when the pair is properly balanced.",
      "doi": "10.1063/1.1726610"
     },
     "migration_source": {
@@ -209,7 +209,7 @@
     "sha256": "62115a3b9d477a12a1617ce3e14146033bf87102532845b60f2b39964a496c48",
     "media_type": "text/csv"
    },
-   "notes": "The article describes Table III as smoothed data. It is therefore preserved as a published reduction of the measurements, not mislabeled as the individual raw observations; no uncertainties are tabulated.",
+   "notes": "The article describes Table III as smoothed data. It is therefore preserved as a published reduction of the measurements, not mislabeled as the individual raw observations; the observations themselves are shown only graphically in Figure 2, and no uncertainties or regression weights are tabulated.",
    "reference": {
     "authors": [
      "Clendenen",

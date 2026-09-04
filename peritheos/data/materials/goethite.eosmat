@@ -74,32 +74,100 @@
     },
     "model": "birch_murnaghan_3"
    },
+   "temperature_ref": 300.0,
    "parameter_errors": {
     "V0": 0.02,
     "K0": 3.7,
     "K0_prime": 0.4
    },
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 740.0,
+     "gamma0": 0.91,
+     "q": 1.0,
+     "n": 4.0
+    },
+    "model": "mie_gruneisen_debye",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 5.0,
+     "gamma0": 0.07,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "q",
+     "n"
+    ]
+   },
    "experimental_pressure_range_gpa": [
     0.0,
     29.4
    ],
-   "notes": "Gleason et al. report V0 = 138.75 +/- 0.02 A^3, K0 = 140.3 +/- 3.7 GPa, and K0' = 4.6 +/- 0.4.",
+   "experimental_temperature_range_k": [
+    296.15,
+    583.15
+   ],
+   "notes": "USAGE WARNING: retained for provenance and reproduction of the published curve, but not recommended for quantitative pressure-volume or thermoelastic use. Neither the complete 65-row primary table nor an independent fit of the 47 plotted Figure 3a marker centers reproduces K0 = 140.3 GPa and K0' = 4.6; the marker fit gives K0 = 193.45 GPa and K0' = 0.893 with the reconstructed thermal model. Equation 1 is malformed as printed, although the Figure 3 curve supports the standard BM3 sign used here. Gleason et al. report a thermal EOS, not a standalone 300 K BM3: a BM3 reference with V0 = 138.75 +/- 0.02 A^3, K0 = 140.3 +/- 3.7 GPa, and K0' = 4.6 +/- 0.4 is combined with Mie-Gruneisen-Debye thermal pressure. Equation 1 references E(300 K); Table 1 gives gamma0 = 0.91 +/- 0.07 and theta0 = 740 +/- 5 K, and the text assumes dln(gamma)/dln(V) = q = 1. The Debye atom count n = 4 follows FeOOH stoichiometry. The measured zero-pressure V0 is held fixed because the authors say all P-V-T rows determine K0 and K0', specifically. Thermal quantities are also held fixed in the numerical refit because gamma0 and theta0 are thermodynamically derived after the elastic fit and q is assumed, rather than being reported as simultaneous regression coefficients. The deposited table spans 23-310 degC even though the abstract states 23-250 degC.",
    "identifier": "goethite_gleason_2008_bm3_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Experimental section; room-temperature pressure standard following Mao et al. (1978)",
+      "notes": "The deposit does not identify which room-temperature rows used ruby rather than NaCl or gold."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Birch"
+       ],
+       "year": 1986,
+       "source": "Journal of Geophysical Research",
+       "volume": "91B",
+       "locator": "4949-4954"
+      },
+      "source_location": "Experimental section; room-temperature NaCl standard following Birch (1986)",
+      "notes": "Raw NaCl volumes and per-row calibrant assignments are not deposited."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Shim",
+        "Duffy",
+        "Takemura"
+       ],
+       "year": 2002,
+       "source": "Earth and Planetary Science Letters",
+       "volume": "203",
+       "locator": "729-739"
+      },
+      "source_location": "Experimental section; gold standard following Shim et al. (2002), used exclusively for high-temperature runs",
+      "notes": "Raw gold volumes are not deposited."
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "missing_calibrant_observations",
+     "notes": "The deposited table contains reduced sample pressures but no raw ruby wavelengths, NaCl or gold volumes, or per-row room-temperature calibrant assignments, so the mixed pressure reduction cannot be rerun independently."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-04",
+    "notes": "The pressure standards and their cited sources are explicit, but the mixed room-temperature row mapping and calibrant observations are unavailable."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Independently checked against the cited primary publication and official deposit; bibliographic validation does not imply fit reproducibility. The EOS is retained for provenance but is not recommended for quantitative use because table and figure-marker refits fail to reproduce the published coefficients.",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
@@ -107,14 +175,17 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am.2008.2942",
      "locations": [
-      "EOS method",
-      "goethite and epsilon-FeOOH parameter tables"
+      "Equation 1 and goethite EOS discussion, manuscript pages 6-7",
+      "Goethite thermodynamic parameters, Table 1 on manuscript page 15",
+      "MSA depository item AM-08-056, Table 1"
      ],
+     "finding": "The source defines a BM3 reference plus Mie-Gruneisen-Debye thermal pressure and says that all 65 deposited P-V-T rows determine K0 and K0'. The deposit's row 32 values are retained verbatim but flagged as an isolated source-data/refinement anomaly. An independent fit of the 47 plotted Figure 3a marker centers also fails badly, and Equation 1 is malformed as printed; the record is retained for provenance but is not recommended for quantitative use.",
      "doi": "10.2138/am.2008.2942"
     },
     "migration_source": {
@@ -125,15 +196,16 @@
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-04",
      "dataset_identifiers": [
       "goethite_gleason_2008_deposit_table1_pvt"
      ],
      "source_locations": [
       "MSA depository item AM-08-056, Table 1"
      ],
-     "finding": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1."
-    }
+     "finding": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1. Depository row 32 itself reports the isolated 100 degC, 6.66 GPa values a = 4.159 A and V = 122.80 A^3; these are retained verbatim and flagged as a likely source-table or refinement anomaly rather than silently corrected."
+    },
+    "usage_recommendation": "not_recommended_for_quantitative_use"
    }
   }
  ],
@@ -148,7 +220,7 @@
   {
    "identifier": "goethite_gleason_2008_deposit_table1_pvt",
    "kind": "pressure_volume_temperature",
-   "description": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1.",
+   "description": "All 65 goethite (alpha-FeOOH) P-T lattice-parameter and unit-cell-volume observations published in depository Table 1, including the isolated row-32 values retained verbatim for auditability.",
    "source_location": "MSA depository item AM-08-056, Table 1",
    "source_url": "https://msaweb.org/MSA/AmMin/TOC/2008/ND2008_data/AM-08-056.zip",
    "columns": [
@@ -242,7 +314,7 @@
     "sha256": "61f64e999962fb4e369341676d6c68604031109c6fcd5529e677b8141d1e430f",
     "media_type": "text/csv"
    },
-   "notes": "Parenthesized errors are the 95% confidence limits from the Rietveld refinements, as defined by the deposit. Temperatures and source row identifiers are retained exactly as published; parenthesized uncertainties are expanded to absolute values.",
+   "notes": "Parenthesized errors are the 95% confidence limits from the Rietveld refinements, as defined by the deposit. Temperatures and source row identifiers are retained exactly as published; parenthesized uncertainties are expanded to absolute values. Row 32 reports P = 6.66 GPa, T = 100 degC, a = 4.159 A, and V = 122.80 A^3 in the official deposit. Its volume is about 11 A^3 below the adjacent 5.55-5.65 GPa observations and is retained unchanged as a probable source-table or refinement anomaly.",
    "reference": {
     "authors": [
      "Gleason",
