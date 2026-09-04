@@ -1,0 +1,459 @@
+{
+  "format": "peritheos.material",
+  "format_version": 3,
+  "identifier": "phase_egg",
+  "name": "Phase Egg",
+  "formula": "Al0.98Si0.92H1.39O4",
+  "phase": "monoclinic Al-bearing hydrous phase Egg, sample S5050",
+  "aliases": [
+    "AlSiO3OH phase Egg",
+    "AlSiO3(OH) phase Egg"
+  ],
+  "cell_contents": "Four nominal AlSiO3OH formula units in the conventional monoclinic P21/n cell; the analyzed EOS specimen has the non-stoichiometric central composition Al0.98Si0.92H1.39O4 per nominal formula unit.",
+  "units": {
+    "pressure": "GPa",
+    "temperature": "K",
+    "volume": "angstrom^3/conventional_unit_cell"
+  },
+  "symmetry": "MONOCLINIC",
+  "lattice": {
+    "a": 7.1835,
+    "b": 4.3287,
+    "c": 6.9672,
+    "alpha": 90.0,
+    "beta": 98.202,
+    "gamma": 90.0
+  },
+  "formula_units_per_cell": 4,
+  "space_group": "P21/n",
+  "space_group_number": 14,
+  "atom_sites": [
+    {
+      "element": "Al",
+      "wyckoff": "4e",
+      "x": 0.06552,
+      "y": 0.01868,
+      "z": 0.71036,
+      "occupancy": 1.0,
+      "source_label": "AL"
+    },
+    {
+      "element": "Si",
+      "wyckoff": "4e",
+      "x": 0.68143,
+      "y": 0.01029,
+      "z": 0.5814,
+      "occupancy": 1.0,
+      "source_label": "SI"
+    },
+    {
+      "element": "O",
+      "wyckoff": "4e",
+      "x": 0.15108,
+      "y": 0.2093,
+      "z": 0.261,
+      "occupancy": 1.0,
+      "source_label": "O1"
+    },
+    {
+      "element": "O",
+      "wyckoff": "4e",
+      "x": 0.52213,
+      "y": 0.201,
+      "z": 0.39554,
+      "occupancy": 1.0,
+      "source_label": "O2"
+    },
+    {
+      "element": "O",
+      "wyckoff": "4e",
+      "x": 0.88225,
+      "y": 0.2036,
+      "z": 0.51364,
+      "occupancy": 1.0,
+      "source_label": "O3"
+    },
+    {
+      "element": "O",
+      "wyckoff": "4e",
+      "x": 0.76136,
+      "y": 0.2228,
+      "z": 0.1282,
+      "occupancy": 1.0,
+      "source_label": "O4"
+    },
+    {
+      "element": "H",
+      "wyckoff": "4e",
+      "x": 0.796,
+      "y": 0.553,
+      "z": 0.422,
+      "occupancy": 1.0,
+      "source_label": "H",
+      "coordinate_provenance": "Schmidt et al. (1998), Table 4; used for the H atoms in Schulze et al. (2018), Figure 1, but not refined in the 2018 deposited CIF"
+    }
+  ],
+  "peaks": [],
+  "source": {
+    "structure_reference": {
+      "authors": [
+        "Schulze",
+        "Pamato",
+        "Kurnosov",
+        "Boffa Ballaran",
+        "Glazyrin",
+        "Pakhomova",
+        "Marquardt"
+      ],
+      "year": 2018,
+      "source": "American Mineralogist",
+      "volume": "103",
+      "locator": "1975-1980",
+      "doi": "10.2138/am-2018-6562"
+    },
+    "structure_location": "Official MSA deposit AM-18-126562, 6562schulze.cif, data_phaseEgg_P00",
+    "structure_url": "http://www.minsocam.org/MSA/AmMin/TOC/2018/Dec2018_data/AM-18-126562.zip",
+    "deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97",
+    "cif_sha256": "0cd4b2379e694cd9e81249f061426e56431cf1881c5fc7ba6622604f56b60aa7",
+    "hydrogen_reference": {
+      "authors": [
+        "Schmidt",
+        "Finger",
+        "Angel",
+        "Dinnebier"
+      ],
+      "year": 1998,
+      "source": "American Mineralogist",
+      "volume": "83",
+      "locator": "881-888",
+      "doi": "10.2138/am-1998-7-820"
+    },
+    "hydrogen_location": "Table 4"
+  },
+  "notes": "The article writes the analyzed composition as Al0.98(1)Si0.92(1)O3OH1.39(5). This is condensed hydroxyl notation for Al0.98Si0.92H1.39O4 (three O plus one O bearing 1.39 H), consistent with the official CIF analytical formula; it is not O4.39. The deposited 2018 X-ray structure fixes Al and Si occupancies to unity because refined and fixed-occupancy models were indistinguishable, and it contains no H atom site. The ideal fully occupied structural model therefore has Al4Si4H4O16 cell contents and is a diffraction model for the analyzed Al3.92Si3.68H5.56O16 composition, not an assertion that the measured vacancies or excess hydrogen were crystallographically resolved. The H coordinate is the powder-XRD position from Schmidt et al. (1998) explicitly used in the 2018 paper's Figure 1. The structural ambient volume, 214.431(13) A^3, differs from fitted V0 because the authors excluded the in-house ambient point from the synchrotron EOS regression.",
+  "eos_records": [
+    {
+      "identifier": "phase_egg_schulze_2018_bm3_1",
+      "label": "Schulze et al. (2018), single-crystal BM3",
+      "reference": {
+        "authors": [
+          "Schulze",
+          "Pamato",
+          "Kurnosov",
+          "Boffa Ballaran",
+          "Glazyrin",
+          "Pakhomova",
+          "Marquardt"
+        ],
+        "year": 2018,
+        "title": "High-pressure single-crystal structural analysis of AlSiO3OH phase egg",
+        "source": "American Mineralogist",
+        "volume": "103",
+        "locator": "1975-1980",
+        "doi": "10.2138/am-2018-6562"
+      },
+      "default_for": "equilibrium",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "eos": {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {
+          "V0": 214.08,
+          "K0": 153.0,
+          "K0_prime": 8.6
+        }
+      },
+      "parameter_errors": {
+        "V0": 0.17,
+        "K0": 8.0,
+        "K0_prime": 1.2
+      },
+      "parameter_covariance": null,
+      "fixed_parameters": [],
+      "temperature_ref": 293.0,
+      "experimental_pressure_range_gpa": [
+        1.09,
+        23.33
+      ],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "experimental_configuration": {
+        "sample": "single crystal from synthesis run S5050",
+        "pressure_medium": "neon",
+        "pressure_gauge": "ruby R1 fluorescence shift on the Dewaele et al. (2008) scale",
+        "diffraction": "single-crystal synchrotron X-ray diffraction"
+      },
+      "fit_datasets": [
+        "phase_egg_schulze_2018_table1_compression"
+      ],
+      "parameter_provenance": {
+        "equation": "Results, pages 1977-1978: F-f plot requires a third-order Birch-Murnaghan EOS; standard Eulerian finite-strain convention implemented by EosFit7c",
+        "V0": "Table 2, this-study column: 214.08(17) A^3 conventional cell; all three coefficients refined",
+        "K0": "Table 2, this-study column: 153(8) GPa; all three coefficients refined",
+        "K0_prime": "Table 2, this-study column: 8.6(1.2); all three coefficients refined",
+        "temperature_ref": "Official deposited CIF blocks report 293(2) K",
+        "fit_selection": "Results: the 0.0001 GPa in-house ambient point was excluded; the 15 synchrotron observations from 1.09 to 23.33 GPa were fitted"
+      },
+      "source_lineage": [
+        {
+          "role": "published_parameterization_and_observations",
+          "citation": "Schulze et al. (2018), DOI 10.2138/am-2018-6562",
+          "doi": "10.2138/am-2018-6562",
+          "locations": [
+            "Results, EOS discussion",
+            "Table 1",
+            "Table 2, this-study column",
+            "official deposit AM-18-126562"
+          ]
+        },
+        {
+          "role": "comparison_refit_not_bundled_as_an_eos_record",
+          "citation": "Vanpeteghem et al. (2003), DOI 10.2138/am-2003-1002",
+          "doi": "10.2138/am-2003-1002",
+          "locations": [
+            "Schulze et al. (2018), Table 2, Vanpeteghem refitted column"
+          ],
+          "notes": "The 211.41(11) A^3, 155(5) GPa, 6.7(5) BM3 row is Schulze et al.'s re-fit of Vanpeteghem's older powder observations, not a second fit to the 2018 single-crystal dataset. It is intentionally not a second EOS record in this one-record contribution."
+        }
+      ],
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference_calibration_record": "ruby_dewaele_2008",
+            "reference": {
+              "authors": [
+                "Dewaele",
+                "Torrent",
+                "Loubeyre",
+                "Mezouar"
+              ],
+              "year": 2008,
+              "source": "Physical Review B",
+              "volume": "78",
+              "locator": "104102",
+              "doi": "10.1103/PhysRevB.78.104102"
+            },
+            "source_location": "Methods, high-pressure experiments: ruby R1 fluorescence shift according to Dewaele et al. (2008)",
+            "scope": "all 15 synchrotron compression observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact Dewaele ruby scale is executable, but Table 1 and the deposited CIF report only reduced pressures, not the row-wise ruby wavelengths needed for observation-level recalculation."
+        },
+        "audit_date": "2026-09-04"
+      },
+      "scientific_validation": {
+        "status": "primary_source_validated",
+        "note": "Validated against the accepted author manuscript and official MSA deposit. The final article's Table 2 is internally inconsistent about the K0-prime error: the table prints 1.2, whereas the abstract and EOS prose print 1.3. The tabulated parameter error is stored and the discrepancy is not silently averaged.",
+        "audit_date": "2026-09-04",
+        "verified_fields": [
+          "equation",
+          "parameters",
+          "units",
+          "reference_state",
+          "phase",
+          "composition",
+          "cell_setting",
+          "formula_units_per_cell",
+          "structure",
+          "published_uncertainties",
+          "validity",
+          "pressure_calibration",
+          "primary_data"
+        ],
+        "primary_source_check": {
+          "access_url": "https://doi.org/10.2138/am-2018-6562",
+          "locations": [
+            "Methods, sample synthesis and characterization",
+            "Methods, high-pressure experiments",
+            "Results, compressibility of Phase Egg",
+            "Tables 1-2",
+            "official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf"
+          ],
+          "finding": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
+          "doi": "10.2138/am-2018-6562",
+          "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
+          "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97"
+        },
+        "primary_data_check": {
+          "status": "bundled",
+          "audit_date": "2026-09-04",
+          "dataset_identifiers": [
+            "phase_egg_schulze_2018_table1_compression"
+          ],
+          "source_locations": [
+            "Table 1, article page 1978",
+            "official MSA deposit AM-18-126562, CIF cell blocks"
+          ],
+          "finding": "All 16 Table 1 rows are embedded with cell-parameter and pressure uncertainties; the source-marked in-house ambient row is retained but flagged as excluded, leaving the 15 synchrotron rows used by the published fit. Ruby wavelengths are not reported."
+        },
+        "numerical_reproduction": {
+          "published_state": {
+            "pressure_gpa": 23.33,
+            "volume_a3": 193.75
+          },
+          "calculated_pressure_gpa": 23.0655725641,
+          "absolute_difference_gpa": 0.2644274359,
+          "tolerance_gpa": 0.46,
+          "tolerance_basis": "The maximum absolute pressure residual of the printed 15-row dataset under the rounded published coefficients is 0.4535 GPa."
+        }
+      },
+      "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee."
+    }
+  ],
+  "datasets": [
+    {
+      "identifier": "phase_egg_schulze_2018_table1_compression",
+      "kind": "pressure_lattice_volume",
+      "description": "The complete 16-row Phase Egg compression table, including the in-house ambient point retained but explicitly excluded from the published EOS fit.",
+      "reference": {
+        "authors": [
+          "Schulze",
+          "Pamato",
+          "Kurnosov",
+          "Boffa Ballaran",
+          "Glazyrin",
+          "Pakhomova",
+          "Marquardt"
+        ],
+        "year": 2018,
+        "source": "American Mineralogist",
+        "volume": "103",
+        "locator": "1975-1980",
+        "doi": "10.2138/am-2018-6562"
+      },
+      "source_location": "Table 1, article page 1978; cell values cross-checked against official deposit AM-18-126562 where a refinement CIF is available",
+      "source_url": "https://doi.org/10.2138/am-2018-6562",
+      "columns": [
+        {
+          "name": "used_in_published_fit",
+          "quantity": "fit_row_selection",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "lattice_a_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_a_uncertainty_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_a_angstrom"
+        },
+        {
+          "name": "lattice_b_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_b_uncertainty_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_b_angstrom"
+        },
+        {
+          "name": "lattice_c_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_c_uncertainty_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "volume_uncertainty_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        },
+        {
+          "name": "beta_deg",
+          "quantity": "cell_angle_beta",
+          "unit": "degree",
+          "role": "value"
+        },
+        {
+          "name": "beta_uncertainty_deg",
+          "quantity": "cell_angle_beta",
+          "unit": "degree",
+          "role": "uncertainty",
+          "of": "beta_deg"
+        }
+      ],
+      "rows": [
+        [0, 0.0001, null, 7.1835, 0.0002, 4.3287, 0.0002, 6.9672, 0.0002, 214.43, 0.01, 98.201, 0.002],
+        [1, 1.09, 0.05, 7.1738, 0.0002, 4.3092, 0.0004, 6.9499, 0.0003, 212.69, 0.02, 98.114, 0.004],
+        [1, 1.82, 0.05, 7.1666, 0.0002, 4.2977, 0.0003, 6.9375, 0.0002, 211.553, 0.017, 98.08, 0.003],
+        [1, 3.09, 0.07, 7.1613, 0.0003, 4.2819, 0.0004, 6.9249, 0.0003, 210.28, 0.02, 98.007, 0.005],
+        [1, 4.15, 0.08, 7.1505, 0.0004, 4.2632, 0.0007, 6.9107, 0.0005, 208.64, 0.04, 97.953, 0.008],
+        [1, 4.87, 0.06, 7.1488, 0.0004, 4.2564, 0.0005, 6.9071, 0.0006, 208.14, 0.03, 97.966, 0.009],
+        [1, 6.92, 0.09, 7.1267, 0.0004, 4.2357, 0.0005, 6.8801, 0.0006, 205.74, 0.03, 97.853, 0.009],
+        [1, 9.74, 0.1, 7.1128, 0.0003, 4.2132, 0.0003, 6.8639, 0.0004, 203.78, 0.02, 97.838, 0.006],
+        [1, 11.67, 0.09, 7.0951, 0.0006, 4.1968, 0.0006, 6.8456, 0.0007, 201.93, 0.04, 97.842, 0.011],
+        [1, 14.54, 0.11, 7.0693, 0.0002, 4.1722, 0.0002, 6.8187, 0.0002, 199.252, 0.012, 97.805, 0.003],
+        [1, 16.82, 0.11, 7.0533, 0.0002, 4.1583, 0.0002, 6.8029, 0.0003, 197.687, 0.014, 97.793, 0.004],
+        [1, 17.27, 0.15, 7.0529, 0.0002, 4.1561, 0.0003, 6.803, 0.0003, 197.567, 0.017, 97.8, 0.005],
+        [1, 18.56, 0.13, 7.0424, 0.0004, 4.1452, 0.0004, 6.795, 0.0005, 196.52, 0.03, 97.814, 0.008],
+        [1, 19.33, 0.17, 7.0356, 0.0003, 4.1403, 0.0003, 6.7875, 0.0004, 195.886, 0.019, 97.806, 0.006],
+        [1, 21.44, 0.18, 7.0263, 0.0003, 4.1302, 0.0004, 6.7774, 0.0005, 194.86, 0.03, 97.799, 0.008],
+        [1, 23.33, 0.18, 7.0138, 0.0003, 4.1209, 0.0003, 6.7661, 0.0004, 193.75, 0.02, 97.802, 0.006]
+      ],
+      "used_by_eos_records": [
+        "phase_egg_schulze_2018_bm3_1"
+      ],
+      "uncertainty": {
+        "reported_as": "parenthesized uncertainty in the last printed digit; confidence convention not stated",
+        "covariance": "not_reported"
+      },
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Table 1 transcribed verbatim; selected cell values independently cross-checked against the official multi-block CIF.",
+        "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
+        "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97",
+        "transcribed_on": "2026-09-04",
+        "quality_control": {
+          "published_bm3_pressure_rmse_gpa": 0.2269903600,
+          "published_bm3_max_abs_pressure_residual_gpa": 0.4534550296
+        }
+      },
+      "notes": "The asterisked 0.0001 GPa row was measured on an in-house Huber point-detector diffractometer and was excluded by the authors to avoid technique bias relative to the synchrotron area-detector series. All 15 remaining rows were used in the published fit. No ruby R1 wavelengths are provided. The official CIF contains the ambient block and ten high-pressure structure-refinement blocks, whereas Table 1 is the authority for the complete 15-point cell series."
+    }
+  ]
+}

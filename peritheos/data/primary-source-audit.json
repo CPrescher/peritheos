@@ -3190,6 +3190,29 @@
     "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
     "doi": "10.2138/am-1996-1-206"
    }
+  },
+  {
+   "material": "phase_egg",
+   "file": "phase_egg.eosmat",
+   "record": "phase_egg_schulze_2018_bm3_1",
+   "label": "Schulze et al. (2018), single-crystal BM3",
+   "doi": "10.2138/am-2018-6562",
+   "status": "primary_source_validated",
+   "note": "Validated against the accepted author manuscript and official MSA deposit. The final article's Table 2 is internally inconsistent about the K0-prime error: the table prints 1.2, whereas the abstract and EOS prose print 1.3. The tabulated parameter error is stored and the discrepancy is not silently averaged.",
+   "primary_source_check": {
+    "access_url": "https://doi.org/10.2138/am-2018-6562",
+    "locations": [
+     "Methods, sample synthesis and characterization",
+     "Methods, high-pressure experiments",
+     "Results, compressibility of Phase Egg",
+     "Tables 1-2",
+     "official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf"
+    ],
+    "finding": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
+    "doi": "10.2138/am-2018-6562",
+    "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
+    "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97"
+   }
   }
  ]
 }

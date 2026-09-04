@@ -45,7 +45,7 @@ assert reference_id == "mgo_b1_tange_2009_vinet"
 
 The audit also distinguishes ruby and other optical gauges, shock-wave and
 ultrasonic measurements, ab initio curves, and self-consistent fits. Identified
-ruby methods use `reference_calibration_record` to link to one of six
+ruby methods use `reference_calibration_record` to link to one of seven
 executable R1 scales bundled in `pressure-calibrations.json`, including
 IPPS-Ruby2020. Two diamond-anvil Raman-edge scales are stored in the same
 registry.
@@ -172,6 +172,7 @@ The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
 library is broader: it contains 116 material documents and 163 independently
 library is broader: it contains 116 material documents and 164 independently
+library is broader: it contains 117 material documents and 163 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 

@@ -169,13 +169,9 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert [item["refit"] for item in mo2c["parameters"]] == pytest.approx(
         [325.874185450, 4.909198583]
     )
-    assert all(
-        item["within_combined_2sigma"] for item in mo2c["parameters"]
-    )
+    assert all(item["within_combined_2sigma"] for item in mo2c["parameters"])
     assert "Corrected source-scope reproduction" in mo2c["qualification"]
-    mo2c_refit = by_identifier[
-        "molybenum_carbide_mo2c_haines_2001_bm3_refit"
-    ]
+    mo2c_refit = by_identifier["molybenum_carbide_mo2c_haines_2001_bm3_refit"]
     assert mo2c_refit["status"] == "parity"
     assert mo2c_refit["observations"] == 16
     assert mo2c_refit["fixed_parameters"] == ["V0"]
@@ -220,6 +216,17 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert "Conditional current-study thermal reproduction" in (
         dewaele_mgo["qualification"]
     )
+    phase_egg = by_identifier["phase_egg_schulze_2018_bm3_1"]
+    assert phase_egg["status"] == "parity"
+    assert phase_egg["observations"] == 15
+    assert phase_egg["selection"] == "used_in_published_fit=1"
+    assert phase_egg["dataset_identifiers"] == [
+        "phase_egg_schulze_2018_table1_compression"
+    ]
+    assert [item["refit"] for item in phase_egg["parameters"]] == pytest.approx(
+        [214.0810595, 152.8459201, 8.597514758]
+    )
+    assert phase_egg["reduced_chi_square"] == pytest.approx(5.486063469)
     coo = by_identifier["coo_clendenen_1966_murnaghan_1"]
     assert coo["status"] == "parity_not_achieved"
     tradeoff = coo["coefficient_tradeoff_diagnostic"]

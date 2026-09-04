@@ -40,6 +40,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   measurement/parameter uncertainty
 - A Peritheos-owned `.eosmat` schema and 116-material/163-record EOS library with optional
 - A Peritheos-owned `.eosmat` schema and 116-material/164-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 117-material/163-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and

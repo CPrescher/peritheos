@@ -88,7 +88,7 @@ SHEN_SMITH_2026_RECORDS = (
 )
 
 
-def test_complete_migrated_dioptas_library_is_bundled_and_valid():
+def test_complete_material_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
@@ -96,6 +96,9 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
     assert len(set(identifiers)) == 116
     assert sum(len(document["eos_records"]) for document in documents) == 163
     assert sum(len(document["eos_records"]) for document in documents) == 164
+    assert len(identifiers) == 117
+    assert len(set(identifiers)) == 117
+    assert sum(len(document["eos_records"]) for document in documents) == 163
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -154,6 +157,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
+        "phase_egg_schulze_2018_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
         "mgo_dewaele_2000_bm3_mgd_5",
         "sio2_stv_andr_wang_2012_vinet_mgd_2",
@@ -165,6 +169,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "akimotoite_reynard_1996_bm3_ice_vii_3",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "neon_fcc_hemley_1989_bm3_refit",
+        "phase_egg_schulze_2018_bm3_1",
         "kcl_b2_tateno_2019_vinet_4",
         "kcl_b2_chidester_2021_bm3_5",
         "goethite_gleason_2008_bm3_1",
@@ -173,9 +178,9 @@ def test_migrated_records_have_completed_primary_source_audit():
         "mgo_dewaele_2000_bm3_mgd_5",
         "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
-    assert {
-        audit_dates[identifier] for identifier in latest_audit_identifiers
-    } == {"2026-09-04"}
+    assert {audit_dates[identifier] for identifier in latest_audit_identifiers} == {
+        "2026-09-04"
+    }
     goethite = next(
         record
         for record in records
@@ -236,6 +241,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_tateno_2019_vinet_4",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
+        "phase_egg_schulze_2018_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
         "sio2_stv_andr_wang_2012_vinet_mgd_2",
     }
@@ -699,16 +705,15 @@ def test_chidester_kcl_dataset_and_new_pressure_markers_match_primary_values():
         "q": 1.0,
         "n": 2,
     }
-    assert chidester["thermal"]["debye_temperature_law"] == (
-        "integrated_gruneisen"
-    )
+    assert chidester["thermal"]["debye_temperature_law"] == ("integrated_gruneisen")
     assert chidester["fit_datasets"] == [
         "kcl_dewaele_2012_table1_compression",
         "kcl_chidester_2021_supplemental_pvt",
     ]
-    assert chidester["scientific_validation"]["primary_data_check"][
-        "dataset_identifiers"
-    ] == chidester["fit_datasets"]
+    assert (
+        chidester["scientific_validation"]["primary_data_check"]["dataset_identifiers"]
+        == chidester["fit_datasets"]
+    )
     dewaele_dataset = next(
         item
         for item in document["datasets"]
@@ -986,9 +991,7 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     ]
 
     magnesite = get_material_document("magnesite")["eos_records"][0]
-    molybdenum_carbide_document = get_material_document(
-        "molybenum_carbide_mo2c"
-    )
+    molybdenum_carbide_document = get_material_document("molybenum_carbide_mo2c")
     molybdenum_carbide_records = {
         record["identifier"]: record
         for record in molybdenum_carbide_document["eos_records"]
@@ -1026,9 +1029,9 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     assert molybdenum_carbide_refit["parameter_errors"]["K0"] == pytest.approx(
         9.50029103042738
     )
-    assert molybdenum_carbide_refit["parameter_errors"][
-        "K0_prime"
-    ] == pytest.approx(0.6513930636044009)
+    assert molybdenum_carbide_refit["parameter_errors"]["K0_prime"] == pytest.approx(
+        0.6513930636044009
+    )
     assert molybdenum_carbide_refit["fit_provenance"]["selection"] == {
         "predicate": "all Figure 2 markers",
         "included_rows": 16,
@@ -1153,6 +1156,72 @@ def test_b4c_thermal_record_is_source_reproduced_and_diffraction_ready():
     refit_executable = material.get_eos_record("b4c_somayazulu_2023_berman_refit")
     assert refit_executable.pressure(289.1, 2023.0) == pytest.approx(40.84280383878691)
     assert refit_executable.eosmat_metadata["record_kind"] == "refit"
+
+
+def test_phase_egg_record_preserves_composition_structure_and_fit_scope():
+    document = get_material_document("phase_egg")
+
+    assert document["formula"] == "Al0.98Si0.92H1.39O4"
+    assert "AlSiO3OH phase Egg" in document["aliases"]
+    assert document["space_group"] == "P21/n"
+    assert document["space_group_number"] == 14
+    assert document["formula_units_per_cell"] == 4
+
+    lattice = document["lattice"]
+    cell_volume = (
+        lattice["a"]
+        * lattice["b"]
+        * lattice["c"]
+        * math.sin(math.radians(lattice["beta"]))
+    )
+    assert cell_volume == pytest.approx(214.431, abs=0.002)
+
+    atom_counts: dict[str, float] = {}
+    for site in document["atom_sites"]:
+        multiplicity = int(re.match(r"\d+", site["wyckoff"]).group())
+        atom_counts[site["element"]] = atom_counts.get(site["element"], 0.0) + (
+            multiplicity * site["occupancy"]
+        )
+    assert atom_counts == pytest.approx({"Al": 4.0, "Si": 4.0, "O": 16.0, "H": 4.0})
+    hydrogen = next(site for site in document["atom_sites"] if site["element"] == "H")
+    assert [hydrogen[axis] for axis in ("x", "y", "z")] == pytest.approx(
+        [0.796, 0.553, 0.422]
+    )
+    assert "Schmidt et al. (1998)" in hydrogen["coordinate_provenance"]
+    assert "not refined" in hydrogen["coordinate_provenance"]
+    assert "Al3.92Si3.68H5.56O16" in document["notes"]
+
+    assert len(document["eos_records"]) == 1
+    source = document["eos_records"][0]
+    assert source["identifier"] == "phase_egg_schulze_2018_bm3_1"
+    assert source["eos"] == {
+        "type": "BM3",
+        "model": "birch_murnaghan_3",
+        "parameters": {"V0": 214.08, "K0": 153.0, "K0_prime": 8.6},
+    }
+    assert source["parameter_errors"] == {"V0": 0.17, "K0": 8.0, "K0_prime": 1.2}
+    assert source["fixed_parameters"] == []
+    assert source["temperature_ref"] == 293.0
+    assert source["experimental_pressure_range_gpa"] == [1.09, 23.33]
+    assert (
+        source["pressure_calibration"]["methods"][0]["reference_calibration_record"]
+        == "ruby_dewaele_2008"
+    )
+    assert "Vanpeteghem" in source["source_lineage"][1]["notes"]
+    assert "not a second EOS record" in source["source_lineage"][1]["notes"]
+
+    dataset = document["datasets"][0]
+    assert dataset["identifier"] == "phase_egg_schulze_2018_table1_compression"
+    assert len(dataset["rows"]) == 16
+    assert sum(row[0] for row in dataset["rows"]) == 15
+    assert dataset["rows"][0][0:3] == [0, 0.0001, None]
+    assert dataset["rows"][-1][0:3] == [1, 23.33, 0.18]
+
+    record = Material.from_eosmat(document).eos_records[0]
+    calculated_pressure = record.pressure(193.75)
+    assert calculated_pressure == pytest.approx(23.0655725641)
+    assert abs(calculated_pressure - 23.33) < 0.46
+    assert record.volume(calculated_pressure) == pytest.approx(193.75)
 
 
 def test_former_peak_only_materials_have_source_backed_crystal_models():
@@ -2475,6 +2544,8 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert manifest["materials"] == 116
     assert manifest["eos_records"] == 163
     assert manifest["eos_records"] == 164
+    assert manifest["materials"] == 117
+    assert manifest["eos_records"] == 163
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 

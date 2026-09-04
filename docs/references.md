@@ -56,7 +56,8 @@
   curves of transition metals in the Mbar range: Experiments and projector
   augmented-wave calculations. *Physical Review B*, 78, 104102.
   doi:10.1103/PhysRevB.78.104102. Peritheos uses the unconstrained Ag and Ni
-  fits in Table IV and regression rows from Table II.
+  fits in Table IV, regression rows from Table II, and the paper's hydrostatic
+  ruby calibration with `A = 1920 GPa` and `B = 9.61`.
 - Dewaele, A., Belonoshko, A. B., Garbarino, G., Occelli, F., Bouvier, P.,
   Hanfland, M. & Mezouar, M. (2012). High-pressure-high-temperature equation
   of state of KCl and KBr. *Physical Review B*, 85, 214105.
@@ -248,6 +249,20 @@
   [doi:10.1029/JB086iB12p11773](https://doi.org/10.1029/JB086iB12p11773).
   The B2 reference volume and error are converted from the reported
   extrapolated density; the derivative is fixed as in the source.
+- Schmidt, M. W., Finger, L. W., Angel, R. J. & Dinnebier, R. E. (1998).
+  Synthesis, crystal structure, and phase relations of AlSiO3OH, a
+  high-pressure hydrous phase. *American Mineralogist*, 83, 881--888.
+  [doi:10.2138/am-1998-7-820](https://doi.org/10.2138/am-1998-7-820).
+  Peritheos uses the hydrogen coordinate in Table 4 because the 2018
+  single-crystal deposit contains no refined hydrogen atom.
+- Schulze, K., Pamato, M. G., Kurnosov, A., Boffa Ballaran, T., Glazyrin, K.,
+  Pakhomova, A. & Marquardt, H. (2018). High-pressure single-crystal
+  structural analysis of AlSiO3OH phase egg. *American Mineralogist*, 103,
+  1975--1980.
+  [doi:10.2138/am-2018-6562](https://doi.org/10.2138/am-2018-6562).
+  Peritheos uses the this-study BM3 column and the 15 synchrotron rows in
+  Table 1; the adjacent column is a re-fit of Vanpeteghem et al. (2003), not a
+  second fit to the 2018 specimen.
 - Shieh, S. R., Mao, H.-K., Hemley, R. J. & Ming, L. C. (2000). In situ X-ray
   diffraction studies of dense hydrous magnesium silicates at mantle
   conditions. *Earth and Planetary Science Letters*, 177, 69--80.

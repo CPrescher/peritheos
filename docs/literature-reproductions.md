@@ -1302,3 +1302,71 @@ numerical envelope follows the stated pressure limit and published grid; the
 paper's warning that the low-pressure/high-temperature corner may be outside
 the cubic stability field or near melting remains attached to the validity
 metadata.
+## Phase Egg: Schulze et al. (2018)
+
+### Source identity, structure, and the two printed BM3 sets
+
+The record follows [Schulze et al. (2018)](https://doi.org/10.2138/am-2018-6562)
+and the official MSA deposit `AM-18-126562`. The analyzed S5050 crystal is
+printed as `Al0.98(1)Si0.92(1)O3OH1.39(5)`. The deposit writes the same
+composition as `Al0.98(1) Si0.92(1) H1.39(5) O4`, so the canonical record
+formula is `Al0.98Si0.92H1.39O4`; the hydroxyl notation does not mean O4.39.
+The ideal phase name remains `AlSiO3OH`.
+
+The deposited ambient structure is the conventional monoclinic `P21/n` cell,
+space-group number 14, with `Z = 4`, `a = 7.1835(2) A`, `b = 4.3287(2) A`,
+`c = 6.9672(2) A`, `beta = 98.202(2) deg`, and `V = 214.431(13) A^3`.
+All Al, Si, and O coordinates come from that single-crystal refinement. The
+authors report that fixed and refined Al/Si occupancies were indistinguishable
+and adopt the fully occupied model. Its site multiplicities therefore expand
+to ideal Al4Si4O16 per cell even though the analyzed central composition is
+Al3.92Si3.68H5.56O16. The 2018 CIF contains no hydrogen atom; the H coordinate
+used in the article's structural drawing and in Peritheos is explicitly traced
+to Schmidt et al. (1998), Table 4. It is not represented as a 2018 refinement.
+
+Table 2 contains two BM3 parameter sets because it compares different data,
+not because the 2018 single-crystal observations have two alternative fits:
+
+| Table 2 column | Data represented | `V0` (A^3/cell) | `K0` (GPa) | `K0'` |
+|---|---|---:|---:|---:|
+| This study | 15 synchrotron single-crystal rows | 214.08(17) | 153(8) | 8.6(1.2) |
+| Vanpeteghem refitted | Vanpeteghem et al. (2003) powder rows | 211.41(11) | 155(5) | 6.7(5) |
+
+Only the first is stored as `phase_egg_schulze_2018_bm3_1`. The comparison
+reduction is source-lineage evidence, not a second Phase Egg EOS contributed by
+this audit. The source's abstract and EOS prose give the first set's `K0'`
+error as 1.3 while Table 2 gives 1.2; Peritheos retains the tabulated 1.2 and
+records the contradiction. All three coefficients were fitted in EosFit7c;
+none was fixed or adopted. The paper does not state a confidence level or
+publish a covariance matrix.
+
+### Numerical reproduction and calibration scope
+
+The complete 16-row Table 1 transcription is embedded. The authors exclude
+the in-house ambient point to avoid an inter-technique bias, leaving the 15
+synchrotron observations from 1.09 to 23.33 GPa for the EOS fit. With the
+standard Eulerian third-order Birch--Murnaghan equation, the rounded published
+coefficients predict 23.0656 GPa at the final `V = 193.75 A^3` state, compared
+with 23.33 GPa observed. Their pressure RMSE over the 15 fitted rows is 0.2270
+GPa and the maximum absolute residual is 0.4535 GPa.
+
+An independent errors-in-variables refit uses the printed pressure and volume
+uncertainties and `absolute_sigma=True`:
+
+| Parameter | Published | Peritheos refit |
+|---|---:|---:|
+| `V0` (A^3/cell) | 214.08 +/- 0.17 | 214.0811 +/- 0.0747 |
+| `K0` (GPa) | 153 +/- 8 | 152.8459 +/- 3.4520 |
+| `K0'` | 8.6 +/- 1.2 | 8.5975 +/- 0.5104 |
+
+The refit has a 0.2117 GPa pressure RMSE and reduced chi-square 5.486; every
+coefficient agrees within combined two-standard-deviation uncertainty, so the
+campaign classifies it as `parity`. The fitted `V0` is a zero-pressure
+extrapolation and need not equal the separately measured ambient structure
+volume.
+
+Pressures were assigned from ruby R1 fluorescence using Dewaele et al. (2008),
+with neon as the pressure medium. The corresponding `A = 1920 GPa`, `B = 9.61`
+power-law calibration is bundled as `ruby_dewaele_2008`. Observation-level
+pressure re-reduction is not possible because neither Table 1 nor the deposit
+provides the row-wise ruby wavelengths.

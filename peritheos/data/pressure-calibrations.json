@@ -80,6 +80,31 @@
       }
     },
     {
+      "identifier": "ruby_dewaele_2008",
+      "label": "Dewaele et al. (2008) hydrostatic ruby scale",
+      "kind": "ruby_fluorescence",
+      "model": "power_law",
+      "parameters": {
+        "A_gpa": 1920.0,
+        "B": 9.61,
+        "reference_wavelength_nm": 694.24
+      },
+      "equation": "P = (A/B) * ((lambda/lambda0)^B - 1)",
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Phys. Rev. B",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 153.0],
+        "temperature_k": [298.0, 298.0],
+        "pressure_medium": "helium; hydrostatic calibration",
+        "notes": "The source equation uses the experiment-specific ambient R1 wavelength lambda0. The library's 694.24 nm default is overrideable and does not alter ratio-based scale conversion."
+      }
+    },
+    {
       "identifier": "ruby_holzapfel_2005",
       "label": "Holzapfel (2005) practical ruby scale",
       "kind": "ruby_fluorescence",

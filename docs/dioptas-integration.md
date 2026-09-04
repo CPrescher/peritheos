@@ -75,13 +75,15 @@ catalog to 116 materials and 163 EOS
 compositions, plus the Campbell-Heinz RbCl-B2 record and the two
 pressure-scale-specific Reynard et al. MgSiO3-akimotoite BM3 fits, bring the distributed
 catalog to 116 materials and 164 EOS
+compositions, plus the Campbell-Heinz RbCl-B2 and Schulze Phase Egg records,
+bring the distributed catalog to 117 materials and 163 EOS
 records; they have primary-publication provenance rather than fabricated
 Dioptas migration sources.
 
 ```python
 from peritheos import get_material_document, list_material_documents
 
-print(len(list_material_documents()))  # 116
+print(len(list_material_documents()))  # 117
 gold = get_material_document("gold")
 print(len(gold["eos_records"]))
 ```

@@ -18,6 +18,7 @@ formula.
 
 The current baseline is 116 material files and 163 EOS records. The model
 The current baseline is 116 material files and 164 EOS records. The model
+The current baseline is 117 material files and 163 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,
