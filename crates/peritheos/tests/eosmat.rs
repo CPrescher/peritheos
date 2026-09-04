@@ -149,6 +149,44 @@ fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
 }
 
 #[test]
+fn qin_2023_calcium_ferrite_records_load_and_reproduce_high_pressure_states() {
+    let cases = [
+        (
+            "na093al102si100o4_calcium_ferrite.eosmat",
+            "na093al102si100o4_calcium_ferrite_qin_2023_bm3_1",
+            207.3,
+            40.609_612_068_923_79,
+        ),
+        (
+            "na088al099fe013si094o4_calcium_ferrite.eosmat",
+            "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1",
+            206.6,
+            43.209_378_809_850_9,
+        ),
+    ];
+
+    for (filename, identifier, volume, expected_pressure) in cases {
+        let material = load_bundled_material(filename).unwrap();
+        let record = material.record(identifier).unwrap();
+
+        assert_eq!(
+            record.eos.isothermal_model_identifier(),
+            "birch_murnaghan_3"
+        );
+        assert_close(
+            record.pressure(volume, 293.0).unwrap(),
+            expected_pressure,
+            1.0e-12,
+        );
+        assert_close(
+            record.volume(expected_pressure, 293.0).unwrap(),
+            volume,
+            1.0e-12,
+        );
+    }
+}
+
+#[test]
 fn luo_mgo_eosmat_preserves_absolute_thermal_pressure() {
     let Some(material) = load_bundled_material("mgo.eosmat") else {
         return;
