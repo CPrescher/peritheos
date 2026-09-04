@@ -192,7 +192,8 @@ Several measurements lie beyond the cited stishovite--CaCl2-type boundary, but
 no transition was observed on the experimental timescale. The authors report
 that excluding those points leaves the fit unchanged. Consequently the stored
 P-T bounds describe the observations, not a rectangular phase-stability field.
-## Rh2O3(II)-type Al2O3: Shi et al. (2022)
+
+## Corundum and Rh2O3(II)-type Al2O3: Shi et al. (2022)
 
 ### Source classification and equation
 
@@ -243,8 +244,10 @@ Main Table 1 and Supporting Information Table S3 select corundum M3 and
 Rh2O3(II) M2 for downstream calculations. Table 1 prints a corundum `K0`
 error of 2 GPa while Table 2 prints 1 GPa for the same central value; this
 internal discrepancy is one reason not to materialize the sensitivity table
-as a set of equivalent EOS records. Peritheos adds exactly one record here:
-the selected Rh2O3(II) M2 parameterization.
+as a set of equivalent EOS records. Peritheos adds exactly two records from
+this article: selected corundum M3 in `alumina.eosmat` and selected
+Rh2O3(II) M2 in its phase-specific material. The other six rows remain
+documented sensitivity trials rather than executable alternatives.
 
 ### Identity, data, and calibration
 
@@ -256,14 +259,24 @@ separate `alumina_rh2o3_ii.eosmat` structure follows Lin et al. (2004) at
 41.30 A^3/formula unit and 24.871 cm^3/mol. It is a high-pressure fit
 extrapolated to zero pressure, not an observed ambient cell.
 
-All 75 Pt-calibrated P--T--V rows from Supporting Information Table S2 are
-bundled in `alumina-rh2o3-ii-shi-2022-table-s2-pvt.csv`, including every
+All 75 corundum P--T--V rows from Supporting Information Table S1 are bundled
+in `alumina-shi-2022-table-s1-pvt.csv`, including every printed pressure,
+temperature, and volume uncertainty. The table groups 59 rows under Pt
+pressures, including the fixed ambient reference row, and 16 under NaCl
+pressures. The dataset keeps this calibrant identity. The paper reports that
+NaCl and Pt pressures agree within 1 GPa from 35 to 67 GPa up to 3000 K, but
+neither row-wise calibrant volumes nor a separate numerical NaCl
+parameterization are published. Calibrant-level recalculation is therefore
+unavailable even though the reduced sample pressures are complete.
+
+All 75 Pt-calibrated Rh2O3(II) P--T--V rows from Supporting Information Table
+S2 are bundled in `alumina-rh2o3-ii-shi-2022-table-s2-pvt.csv`, including every
 printed pressure, temperature, and volume uncertainty. The source does not
-state their confidence convention or publish a coefficient covariance matrix;
-the errors are therefore retained as generic uncertainties. No row-wise Pt
-lattice parameters are published. Pressures use the self-consistent Fei et al.
-(2007) Pt thermal scale, so observation-level recalculation is not possible
-from the supplement alone.
+state an uncertainty confidence convention or publish a coefficient
+covariance matrix; errors from both tables are therefore retained as generic
+uncertainties. No row-wise Pt lattice parameters are published. Pressures use
+the self-consistent Fei et al. (2007) Pt thermal scale, so observation-level
+recalculation is not possible from the supplement alone.
 
 The article describes the EOS as extending to 153 GPa and 3400 K. Table S2
 also prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes, while
@@ -272,6 +285,27 @@ rows are retained and flagged, but the executable record conservatively keeps
 the authors' 153 GPa and 3400 K scope.
 
 ### Numerical reproduction and refit
+
+For selected corundum M3, Peritheos fixes the conventional six-formula-unit
+cell `V0 = 255.1 A^3`, `K0' = 4`, `theta0 = 1100 K`, `Tr = 300 K`, and `n = 5`
+exactly as reported, and varies `K0`, `gamma0`, and `q`. The source does not
+state its weighting objective. An ordinary nonlinear least-squares fit of
+pressure residuals at all 75 printed volume-temperature states independently
+recovers the selected coefficients:
+
+| Parameter | Published | Peritheos unweighted refit |
+|---|---:|---:|
+| `K0` (GPa) | 246 +/- 2 | 246.308 +/- 1.333 |
+| `gamma0` | 1.32 +/- 0.07 | 1.35931 +/- 0.06725 |
+| `q` | 0.8 +/- 0.4 | 0.800868 +/- 0.35270 |
+
+The published corundum parameterization has a 1.23305 GPa pressure RMSE on
+Table S1; the refit RMSE is 1.19139 GPa. All three free coefficients agree
+within the published uncertainties. An errors-in-variables fit using the
+printed pressure and volume uncertainties drives `q` close to zero, so the
+successful comparison is recorded specifically as unweighted
+pressure-residual parity and is not presented as knowledge of an unpublished
+weighting scheme. The executable record retains the published coefficients.
 
 At 300 K the thermal increment vanishes. The selected cold curve gives
 `P(129.8 A^3, 300 K) = 100.1123 GPa`, reproducing the first Table S2 value
