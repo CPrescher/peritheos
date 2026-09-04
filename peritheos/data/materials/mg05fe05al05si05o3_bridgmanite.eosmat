@@ -1,0 +1,414 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg05fe05al05si05o3_bridgmanite",
+ "name": "FA50 bridgmanite",
+ "formula": "Mg0.5Fe0.5Al0.5Si0.5O3",
+ "phase": "orthorhombic Pbnm Fe3+-Al-bearing bridgmanite (FA50)",
+ "aliases": [
+  "FA50",
+  "MgSiO3-FeAlO3 50:50 bridgmanite",
+  "(Mg0.5Fe0.5)(Al0.5Si0.5)O3 bridgmanite"
+ ],
+ "cell_contents": "Four nominal Mg0.5Fe0.5Al0.5Si0.5O3 formula units per conventional Pbnm bridgmanite cell (Z=4). All EOS volumes and bundled diffraction volumes use this 20-atom conventional-cell basis.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "peaks": [],
+ "source": {
+  "article_url": "https://doi.org/10.1029/2020JB019964",
+  "official_supporting_information_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2020JB019964&file=jgrb54280-sup-0001-2020JB019964-SI.pdf",
+  "official_data_deposit": {
+   "doi": "10.5281/zenodo.3747000",
+   "url": "https://zenodo.org/records/3747000",
+   "version": "v2",
+   "license": "CC BY 4.0",
+   "files": [
+    {
+     "name": "latticeparameters.xlsx",
+     "url": "https://zenodo.org/api/records/3747000/files/latticeparameters.xlsx/content",
+     "sha256": "d1a94effe4d202284d166957679616c65e1e4a9d3d89906ccd424acc9ac73cee"
+    },
+    {
+     "name": "EoS-Ffplot-bulkv.xlsx",
+     "url": "https://zenodo.org/api/records/3747000/files/EoS-Ffplot-bulkv.xlsx/content",
+     "sha256": "aee87799ba994cce1dc455f77b8e65dca3b142164e0bb1fe6b12e8854efabe55"
+    },
+    {
+     "name": "EPMA.xlsx",
+     "url": "https://zenodo.org/api/records/3747000/files/EPMA.xlsx/content",
+     "sha256": "266091fdd085fdd144da51aae85e13bbef00f7c8ace7cc8ad98c632f34f03f4d"
+    },
+    {
+     "name": "DFTEoS.xlsx",
+     "url": "https://zenodo.org/api/records/3747000/files/DFTEoS.xlsx/content",
+     "sha256": "2deb83e0b1e9ea8c94f0c02f7f602e2588a50cb5e0104de34c5885864b716268"
+    }
+   ]
+  }
+ },
+ "notes": "Zhu et al. synthesized nominal FA50 from two runs whose recovered compositions were (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3. The source does not map those two analyses to the individual XRD grains, so no grain-specific exact formula is inferred. Recovered material is LiNbO3-type at ambient conditions and converts to Pbnm bridgmanite above 18.8 GPa; consequently no ambient bridgmanite lattice or atom coordinates are fabricated here, and every V0 is a high-pressure-branch extrapolation. Sample 1 was stepwise laser annealed and develops a gradual mixed population of A-site high-spin and B-site low-spin Fe3+ through pressure-driven Fe-Al exchange. Sample 2 was cold compressed after its initial synthesis/anneal treatment and is the authors' reference for the original high-spin A-site ordering. The source supports no independently fitted, fully low-spin EOS branch.",
+ "eos_records": [
+  {
+   "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1",
+   "label": "Zhu et al. (2020), sample 1 preferred all-observation BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
+    "year": 2020,
+    "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "125",
+    "locator": "e2020JB019964",
+    "doi": "10.1029/2020JB019964"
+   },
+   "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
+   "iron_speciation": "Initially high-spin Fe3+ occupies the A site. Stepwise laser annealing permits gradual Fe-Al exchange, placing a pressure-increasing minority of Fe3+ on the B site where it becomes low spin. Spectroscopy reports approximately 6% low-spin Fe3+ at 59 GPa and method-dependent 17-31% at 80 GPa. This preferred curve spans a pressure-dependent mixed-spin population and is not a fully low-spin branch.",
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 172.1,
+     "K0": 229.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.4,
+    "K0": 4.0
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [26.8, 102.2],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_configuration": {
+    "sample": "Approximately 30 micrometre diameter and 15 micrometre thick grain of synthesized FA50 bridgmanite in a rhenium-gasket diamond-anvil cell.",
+    "pressure_medium": "neon",
+    "pressure_gauge": "gold powder using Fei et al. (2007)",
+    "diffraction": "Angle-dispersive synchrotron XRD at APS 13-ID-D, 3 micrometre beam, wavelength 0.3344 angstrom, with +/-10 degree wide scans; Dioptas integration and Le Bail refinement in GSAS.",
+    "thermal_history": "After initial transformation/annealing near 27 GPa, sample 1 was compressed stepwise and laser annealed at 1600-2200 K for 10-25 minutes after selected measurements. The fit uses all 23 room-temperature volumes measured both before and after the current pressure-step anneal.",
+    "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
+   },
+   "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
+   "validity": {
+    "pressure_gpa": [26.8, 102.2],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.7660564497, 0.9056263335],
+    "notes": [
+     "Bounds are the 23-observation fitted envelope, not a broader phase-stability field.",
+     "V0 is extrapolated because FA50 bridgmanite is not retained at ambient pressure.",
+     "The curve averages before- and after-current-step-anneal states and must not be interpreted as a pure low-spin branch."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Article EOS section and Figure 3: standard second-order Birch-Murnaghan pressure-volume equation, equivalent to fixing K0'=4.",
+    "V0": "Article EOS discussion: V0=172.1(4) angstrom^3 for sample 1 using all before- and after-current-step-anneal observations.",
+    "K0": "Article EOS discussion: K0=229(4) GPa for sample 1 using all before- and after-current-step-anneal observations.",
+    "implicit_K0_prime": "Second-order Birch-Murnaghan definition fixes K0'=4; it is not an independently fitted or stored BM2 parameter.",
+    "fit_selection": "All 23 rows on the official Zenodo latticeparameters.xlsx 'sample 1' worksheet. Black-font rows are before current-step heating and red-font rows are after current-step heating.",
+    "uncertainties": "Parenthetical published parameter uncertainties are retained, but the article does not state their confidence convention or covariance."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [{
+     "kind": "equation_of_state",
+     "material": "Au",
+     "reference": {
+      "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+      "year": 2007,
+      "title": "Toward an internally consistent pressure scale",
+      "source": "Proceedings of the National Academy of Sciences",
+      "volume": "104",
+      "locator": "9182-9186",
+      "doi": "10.1073/pnas.0609013104"
+     },
+     "reference_eos_record": "gold_fei_2007_vinet_2",
+     "source_location": "Article experimental XRD methods: Au powder pressure marker and Fei et al. (2007) EOS.",
+     "scope": "both XRD samples"
+    }],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The official article and deposit provide reduced pressures but no row-wise Au lattice parameters or volumes, so the pressure reduction cannot be repeated observation by observation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the publisher article and the article's official Zenodo v2 raw-data deposit.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "cell_setting", "formula_units_per_cell", "spin_state", "equation", "parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "fit_selection", "validity", "pressure_calibration", "primary_data"],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/2020JB019964",
+     "doi": "10.1029/2020JB019964",
+     "locations": ["publisher article experimental methods, EOS discussion, Figure 3, and data-availability statement", "official Zenodo v2 files latticeparameters.xlsx, EoS-Ffplot-bulkv.xlsx, EPMA.xlsx, and DFTEoS.xlsx"],
+     "finding": "The source defines three reproducible experimental BM2 fits: the preferred 23-row sample-1 curve, an 11-row after-current-step-anneal sample-1 comparison, and a 21-row cold-compressed sample-2 comparison. Spectroscopy demonstrates gradual Fe-Al exchange and a mixed-spin population, not a separately fitted fully low-spin branch."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
+     "finding": "All 44 official XRD rows are bundled with P, a, b, c, V, reported uncertainties, grain identity, thermal history, and explicit fit-selection flags."
+    },
+    "independent_refit": {
+     "selection": "all 23 sample-1 observations",
+     "objective": "unweighted least squares in pressure residuals using the standard BM2 pressure equation",
+     "free_parameters": ["V0", "K0"],
+     "fixed_parameters": {"K0_prime": 4.0},
+     "refit_parameters": {"V0": 172.0737222855, "K0": 229.4797393590},
+     "published_curve_pressure_rmse_gpa": 0.9577399457,
+     "refit_curve_pressure_rmse_gpa": 0.9545433388,
+     "result": "parity",
+     "notes": "The independent refit rounds to published V0=172.1 and lies within published K0=229+/-4 GPa. The source does not identify its numerical objective, weighting, software, covariance, or fit statistic, so this diagnostic is not asserted to reconstruct the authors' exact optimization protocol."
+    },
+    "unresolved_issues": [
+     "No parameter covariance, confidence convention, fit objective, weighting rule, software, or published fit statistic is reported.",
+     "The two analyzed synthesis compositions are not mapped to the individual XRD grains.",
+     "No row-wise Au observations are published for pressure-scale recalculation.",
+     "The DFT workbook contains complete energy-volume values and a reported fit, but the source states only energy-volume fitting and does not identify the exact energy equation/order; no executable DFT EOS is inferred."
+    ]
+   },
+   "notes": "Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch."
+  },
+  {
+   "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2",
+   "label": "Zhu et al. (2020), sample 1 after-current-step-anneal subset BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
+    "year": 2020,
+    "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "125",
+    "locator": "e2020JB019964",
+    "doi": "10.1029/2020JB019964"
+   },
+   "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
+   "iron_speciation": "Same pressure-dependent mixed-spin sample-1 series as the preferred record. Each selected row was measured after the current pressure-step laser anneal, but increasing low-spin B-site Fe3+ remains a minority and the source does not define this subset as a separate low-spin branch.",
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {"V0": 172.0, "K0": 230.0}
+   },
+   "parameter_errors": {"V0": 0.7, "K0": 6.0},
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [29.0, 102.2],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_configuration": {
+    "sample": "Sample 1 FA50 grain in the same Au-Ne-rhenium DAC configuration as the preferred record.",
+    "thermal_history": "Eleven room-temperature observations marked red in the official workbook and Figure 3, each collected after the current-step laser anneal at 1600-2200 K for 10-25 minutes.",
+    "fit_selection": "Only the 11 red-font sample-1 observations; black-font before-current-step-anneal rows are excluded.",
+    "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
+   },
+   "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
+   "validity": {
+    "pressure_gpa": [29.0, 102.2],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.7665018314, 0.9019469477],
+    "notes": ["Bounds are the 11 selected-observation envelope.", "V0 is a high-pressure bridgmanite extrapolation.", "This comparison subset is not an independent spin-state branch."]
+   },
+   "parameter_provenance": {
+    "equation": "Article EOS discussion: standard second-order Birch-Murnaghan pressure-volume equation, with K0'=4 implicit.",
+    "V0": "Article EOS discussion: V0=172.0(7) angstrom^3 from sample-1 after-current-step-anneal points only.",
+    "K0": "Article EOS discussion: K0=230(6) GPa from sample-1 after-current-step-anneal points only.",
+    "implicit_K0_prime": "Second-order Birch-Murnaghan definition fixes K0'=4.",
+    "fit_selection": "The 11 red-font rows in official latticeparameters.xlsx sample 1: 29.0, 35.2, 43.8, 53.2, 62.2, 68.0, 74.8, 82.2, 91.8, 95.8, and 102.2 GPa.",
+    "uncertainties": "Parenthetical published parameter uncertainties retained; confidence convention and covariance unreported."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [{
+     "kind": "equation_of_state",
+     "material": "Au",
+     "reference": {"authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"], "year": 2007, "title": "Toward an internally consistent pressure scale", "source": "Proceedings of the National Academy of Sciences", "volume": "104", "locator": "9182-9186", "doi": "10.1073/pnas.0609013104"},
+     "reference_eos_record": "gold_fei_2007_vinet_2",
+     "source_location": "Article experimental XRD methods",
+     "scope": "both XRD samples"
+    }],
+    "recalculation": {"status": "missing_calibrant_observations", "notes": "No row-wise Au lattice parameters or volumes are published."},
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "cell_setting", "formula_units_per_cell", "spin_state", "equation", "parameters", "fixed_parameters", "published_uncertainties", "fit_selection", "primary_data"],
+    "primary_source_check": {"access_url": "https://doi.org/10.1029/2020JB019964", "doi": "10.1029/2020JB019964", "locations": ["publisher article EOS discussion and Figure 3", "official Zenodo v2 latticeparameters.xlsx"], "finding": "The article explicitly reports the 11-row after-current-step-anneal comparison fit. It is a selection from the same gradual mixed-spin sample-1 trajectory, not a distinct low-spin EOS branch."},
+    "primary_data_check": {"status": "bundled", "dataset_identifiers": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"], "finding": "All selected rows and all excluded before-current-step-anneal rows are bundled with explicit flags."},
+    "independent_refit": {
+     "selection": "11 sample-1 observations measured after current-step laser annealing",
+     "objective": "unweighted least squares in pressure residuals using standard BM2",
+     "free_parameters": ["V0", "K0"],
+     "fixed_parameters": {"K0_prime": 4.0},
+     "refit_parameters": {"V0": 172.0370217144, "K0": 230.0026422447},
+     "published_curve_pressure_rmse_gpa": 0.9990515601,
+     "refit_curve_pressure_rmse_gpa": 0.9935784693,
+     "result": "parity",
+     "notes": "Both refitted coefficients round to the published values. The source does not report its objective, weighting, software, covariance, or fit statistic."
+    },
+    "unresolved_issues": ["No covariance or fit-protocol detail is reported.", "No row-wise Au observations are published.", "The selected rows do not isolate a pure spin state."]
+   },
+   "notes": "Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch."
+  },
+  {
+   "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3",
+   "label": "Zhu et al. (2020), sample 2 cold-compressed BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
+    "year": 2020,
+    "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "125",
+    "locator": "e2020JB019964",
+    "doi": "10.1029/2020JB019964"
+   },
+   "sample_composition": "Nominal (Mg0.5Fe3+0.5)(Al0.5Si0.5)O3 (FA50); the two synthesis runs analyzed as (Mg0.50Fe0.52)(Al0.47Si0.51)O3 and (Mg0.47Fe0.52)(Al0.46Si0.55)O3, without a published mapping to XRD sample 1 versus sample 2.",
+   "iron_speciation": "After initial high-pressure synthesis/annealing, sample 2 was cold compressed. The authors expect no subsequent cation exchange or spin transition and use it as a reference for the original ordering, with Fe3+ high spin on the A site. This is a metastable thermal-history comparison rather than the equilibrium default.",
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {"V0": 170.7, "K0": 240.0}
+   },
+   "parameter_errors": {"V0": 0.3, "K0": 3.0},
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [27.5, 103.6],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_configuration": {
+    "sample": "Sample 2 FA50 grain in an Au-Ne-rhenium DAC.",
+    "thermal_history": "Initially transformed/annealed near 27 GPa, then cold compressed without stepwise laser annealing; 21 room-temperature observations.",
+    "fit_selection": "All 21 rows on official latticeparameters.xlsx sample 2.",
+    "excluded_reflections": "Overlapping sample, Au, and Ne peaks were excluded during lattice refinement."
+   },
+   "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"],
+   "validity": {
+    "pressure_gpa": [27.5, 103.6],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.7724757411, 0.9077366315],
+    "notes": ["Bounds are the 21-observation fitted envelope.", "V0 is a high-pressure bridgmanite extrapolation.", "The record preserves a kinetically retained cation-ordering history and is not the equilibrium default."]
+   },
+   "parameter_provenance": {
+    "equation": "Article EOS discussion: standard second-order Birch-Murnaghan pressure-volume equation, with K0'=4 implicit.",
+    "V0": "Article EOS discussion: V0=170.7(3) angstrom^3 for cold-compressed sample 2.",
+    "K0": "Article EOS discussion: K0=240(3) GPa for cold-compressed sample 2.",
+    "implicit_K0_prime": "Second-order Birch-Murnaghan definition fixes K0'=4.",
+    "fit_selection": "All 21 rows in official latticeparameters.xlsx sample 2.",
+    "uncertainties": "Parenthetical published parameter uncertainties retained; confidence convention and covariance unreported."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [{
+     "kind": "equation_of_state",
+     "material": "Au",
+     "reference": {"authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"], "year": 2007, "title": "Toward an internally consistent pressure scale", "source": "Proceedings of the National Academy of Sciences", "volume": "104", "locator": "9182-9186", "doi": "10.1073/pnas.0609013104"},
+     "reference_eos_record": "gold_fei_2007_vinet_2",
+     "source_location": "Article experimental XRD methods",
+     "scope": "both XRD samples"
+    }],
+    "recalculation": {"status": "missing_calibrant_observations", "notes": "No row-wise Au lattice parameters or volumes are published."},
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "cell_setting", "formula_units_per_cell", "spin_state", "equation", "parameters", "fixed_parameters", "published_uncertainties", "fit_selection", "primary_data"],
+    "primary_source_check": {"access_url": "https://doi.org/10.1029/2020JB019964", "doi": "10.1029/2020JB019964", "locations": ["publisher article EOS discussion and Figure 3", "official Zenodo v2 latticeparameters.xlsx"], "finding": "The article explicitly reports a 21-row BM2 for cold-compressed sample 2 and describes it as the original-ordering reference where cation exchange and spin transition are not expected."},
+    "primary_data_check": {"status": "bundled", "dataset_identifiers": ["mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"], "finding": "All 21 selected sample-2 observations are bundled."},
+    "independent_refit": {
+     "selection": "all 21 cold-compressed sample-2 observations",
+     "objective": "unweighted least squares in pressure residuals using standard BM2",
+     "free_parameters": ["V0", "K0"],
+     "fixed_parameters": {"K0_prime": 4.0},
+     "refit_parameters": {"V0": 170.7468795339, "K0": 240.0511433144},
+     "published_curve_pressure_rmse_gpa": 0.6882434168,
+     "refit_curve_pressure_rmse_gpa": 0.6707208695,
+     "result": "parity",
+     "notes": "Both refitted coefficients agree with the published values and uncertainties. The source does not report its objective, weighting, software, covariance, or fit statistic."
+    },
+    "unresolved_issues": ["No covariance or fit-protocol detail is reported.", "No row-wise Au observations are published.", "The cold-compressed curve is a thermal-history reference, not an independently demonstrated equilibrium high-spin phase boundary."]
+   },
+   "notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters",
+   "kind": "pressure_volume_lattice",
+   "description": "Complete room-temperature XRD observations for both FA50 grains from the official Zenodo v2 latticeparameters.xlsx workbook: 23 sample-1 and 21 sample-2 rows, including lattice constants, conventional-cell volumes, reported uncertainties, thermal history, and explicit Peritheos fit-selection flags.",
+   "reference": {
+    "authors": ["Zhu", "Liu", "Lai", "Xiao", "Prakapenka", "Bi", "Alp", "Dera", "Chen", "Li"],
+    "year": 2020,
+    "title": "Synthesis, Elasticity, and Spin State of an Intermediate MgSiO3-FeAlO3 Bridgmanite: Implications for Iron in Earth's Lower Mantle",
+    "source": "Zenodo v2 data deposit for Journal of Geophysical Research: Solid Earth 125",
+    "volume": "125",
+    "locator": "latticeparameters.xlsx",
+    "doi": "10.5281/zenodo.3747000"
+   },
+   "source_location": "Official Zenodo record 3747000 v2, latticeparameters.xlsx sheets 'sample 1' and 'sample 2'; pressure uncertainty from EoS-Ffplot-bulkv.xlsx sheet 'sample1'.",
+   "source_url": "https://zenodo.org/api/records/3747000/files/latticeparameters.xlsx/content",
+   "columns": [
+    {"name": "source_order", "quantity": "transcription_order", "unit": "dimensionless", "role": "value"},
+    {"name": "sample_number", "quantity": "xrd_sample", "unit": "dimensionless", "role": "value"},
+    {"name": "measurement_sequence", "quantity": "within_sample_sequence", "unit": "dimensionless", "role": "value"},
+    {"name": "thermal_history", "quantity": "compression_thermal_history", "unit": "dimensionless", "role": "value"},
+    {"name": "used_in_preferred_sample1_fit", "quantity": "fit_selection", "unit": "dimensionless", "role": "flag"},
+    {"name": "used_in_post_anneal_subset_fit", "quantity": "fit_selection", "unit": "dimensionless", "role": "flag"},
+    {"name": "used_in_cold_compressed_sample2_fit", "quantity": "fit_selection", "unit": "dimensionless", "role": "flag"},
+    {"name": "measured_after_current_step_laser_anneal", "quantity": "laser_annealing_measurement_timing", "unit": "dimensionless", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "lattice_a_angstrom"},
+    {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_b_uncertainty_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "lattice_b_angstrom"},
+    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_c_uncertainty_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "lattice_c_angstrom"},
+    {"name": "volume_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {
+    "path": "datasets/fa50-bridgmanite-zhu-2020-zenodo-latticeparameters.csv",
+    "sha256": "ed88e17fb3028d1abe2c5fa57bd4bc38b7c61d6fe11b74c0ee952436bcaba3ce",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1",
+    "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2",
+    "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3"
+   ],
+   "uncertainty": {
+    "reported_as": "uncertainty; confidence convention not stated",
+    "pressure": "EoS-Ffplot-bulkv.xlsx states dP was estimated at 0.1 GPa; that value is applied to every deposited XRD row because the workbook gives no row-specific alternatives.",
+    "lattice_and_volume": "Values transcribed directly from the da, db, dc, and dV columns of official latticeparameters.xlsx.",
+    "covariance": "not reported"
+   },
+   "provenance": {
+    "type": "direct_transcription_with_explicit_derived_flags",
+    "official_lattice_workbook_sha256": "d1a94effe4d202284d166957679616c65e1e4a9d3d89906ccd424acc9ac73cee",
+    "official_eos_workbook_sha256": "aee87799ba994cce1dc455f77b8e65dca3b142164e0bb1fe6b12e8854efabe55",
+    "transcribed_on": "2026-09-05",
+    "row_order": "Original worksheet order: all sample-1 rows followed by all sample-2 rows; duplicate and before/after pairs are retained.",
+    "derived_flags": "Sample membership directly determines preferred and cold-compressed selections. The post-anneal subset transcribes the sample-1 red font identified by the workbook legend and article Figure 3 caption as measurements after current-step heating."
+   }
+  }
+ ]
+}
