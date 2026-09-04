@@ -1,6 +1,6 @@
 # Candidate material equations of state
 
-Literature search date: 2026-09-02
+Literature search date: 2026-09-04
 
 This is a review backlog, not a set of validated Peritheos records. A candidate
 is included when a primary paper reports a pressure-volume or
@@ -352,6 +352,50 @@ audit.
   parameter identifiability, inversion behavior, and serialization contract
   have been designed.
 
+### C21 — KAlSi3O8 liebermannite and K-hollandite II
+
+**Status: audited and deferred (2026-09-04); no executable record created.**
+
+- **Source:** Wang et al. (2026), [Seismic signature of the upper continental
+  crust: Implications from the thermoelastic properties of liebermannite and
+  K-hollandite II](https://doi.org/10.2138/am-2024-9562), with the authors'
+  [latest official data release](https://doi.org/10.5281/zenodo.15929797).
+- **Published scope available for audit:** the current deposited P-V-T grids
+  cover 0--20 GPa for liebermannite and 25--80 GPa for K-hollandite II, both
+  from 0 to 2000 K in 100 K increments. A historical first-version workbook
+  extends the calculated grids to 59.5 and 136.5 GPa, respectively, and
+  exposes selected-temperature isotherms on a primitive-cell `Z = 2` volume
+  basis. The current text grids use the doubled `Z = 4` ordered-cell volumes.
+- **Reproduction:** independent standard BM3 fits recover every current
+  isotherm to at worst `4.5e-5 GPa` RMSE. Between 0 and 2000 K, the recovered
+  `K0'` changes from 4.19862 to 4.69577 for liebermannite and from 4.42978 to
+  4.57146 for K-hollandite II. See the
+  [full source and refit audit](literature-reproductions.md#wang-2026-kalsi3o8-polymorphs).
+- **Mapping decision:** do not encode the selected temperatures as independent
+  static literature records. They are deterministic temperature slices of one
+  first-principles thermodynamic calculation. The existing
+  `ThermalReferenceStateEOS` is also not source-faithful: it keeps `K0'`
+  constant and makes `K0(T)` linear, whereas both vary nonlinearly in the
+  deposited curves. A future record should use the publication's continuous
+  free-energy formulation or a provenance-bearing interpolated BM3 model with
+  temperature-dependent `V0`, `K0`, and `K0'`.
+- **Crystallography:** all official CIFs contain the exact `K4Al4Si12O32`
+  ordered cell (`Z = 4`) but declare only `P1`. Independent symmetry recovery
+  is stable across all deposited pressures and identifies `P4_2/m` (No. 84)
+  for liebermannite and `P2/m` (No. 10) for K-hollandite II. This is sufficient
+  to document the candidate structures, but not to silently replace the
+  source-declared settings in executable material cards without an audited
+  transformation and primary-text confirmation.
+- **Precise blocker:** the publisher full text and official PDF supplement
+  could not be acquired in this audit. The open repository supplies rounded,
+  derived P-V-T curves and expanded CIFs, but no raw static-energy or
+  vibrational-free-energy observations, parameter covariance, uncertainty or
+  fixed/fitted status, exact pressure/free-energy fitting objective, or
+  authoritative symmetry-reduced settings. There is no experimental pressure
+  calibrant because this is a first-principles study, but the computational
+  pressure convention still requires the inaccessible methods. These missing
+  items fail the executable-record acceptance gate.
+
 ## Proposed one-by-one review order
 
 1. C01 B4C thermal extension
@@ -374,6 +418,7 @@ audit.
 18. C17 dolomite/ankerite polymorph suite
 19. C15 ferropericlase spin states
 20. C20 spin-crossover phase H
+21. C21 KAlSi3O8 liebermannite/K-hollandite II thermal model
 
 For each review, the acceptance gate should be: obtain the primary full text
 and supplement; identify exact composition, phase, cell and volume convention;

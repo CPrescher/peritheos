@@ -915,3 +915,147 @@ or preprocessing. Exact coefficient parity requires the authors' numerical
 P--V array, row mask, and fitting weights; the published parameterization
 remains the default library EOS, while the separately labeled refit record
 provides the direct all-marker Peritheos result.
+
+<a id="wang-2026-kalsi3o8-polymorphs"></a>
+
+## KAlSi3O8 polymorphs: Wang et al. (2026)
+
+### Audit status and source lineage
+
+- Primary article: Wang et al., *Seismic signature of the upper continental
+  crust: Implications from the thermoelastic properties of liebermannite and
+  K-hollandite II*, American Mineralogist **111**, 266--276 (2026),
+  [doi:10.2138/am-2024-9562](https://doi.org/10.2138/am-2024-9562).
+- Official data: the authors' versioned Zenodo deposit, concept
+  [doi:10.5281/zenodo.10393639](https://doi.org/10.5281/zenodo.10393639).
+  The current audited release is
+  [version 9](https://doi.org/10.5281/zenodo.15929797). The historical
+  [version 1](https://doi.org/10.5281/zenodo.10393640) contains the otherwise
+  removed `Equation of states.xlsx` workbook; its MD5 is
+  `8e8a88335a90ee6f0eed1ecc8256d97d`.
+- Access limit: the publisher abstract confirms that the work is a
+  first-principles calculation, but the full article and publisher PDF
+  supplement were not retrievable in this audit environment. LitCurate was
+  used only to discover the citation and was not used as evidence.
+
+The source is computational, so no experimental pressure calibrant applies.
+The tables label pressure in GPa but do not identify, by themselves, the
+electronic-structure pressure definition or free-energy fitting objective.
+Those method details remain unverified without the primary text.
+
+### Phase, range, and volume basis
+
+Both phases have ideal composition `KAlSi3O8`, but they are structurally and
+thermodynamically distinct and must never share one phase card. The current
+official files provide rounded calculated volumes, not independent diffraction
+observations:
+
+| Phase | Current pressure grid | Temperature grid | File checksum (SHA-256) |
+|---|---:|---:|---|
+| Liebermannite | 0--20 GPa, 0.5 GPa steps | 0--2000 K, 100 K steps | `d18528cca376868d6fe31045dce10551ea185e7129c775840cbfa2b93429a25e` |
+| K-hollandite II | 25--80 GPa, 0.5 GPa steps | 0--2000 K, 100 K steps | `0efac68e76ae67e9ea74cfdc276f9f5abff03a6b9c6171ba3bb16b32b610e91d` |
+
+The version-1 workbook instead tabulates liebermannite from 0 to 59.5 GPa at
+static, 300, 600, 1000, 1600, and 2000 K, and K-hollandite II from 20 to
+136.5 GPa at static, 300, 1000, and 2000 K. Its volume columns use the
+primitive `Z = 2` basis. At shared temperatures, doubling the liebermannite
+workbook values reproduces the current `Z = 4` text grid within `1e-5 A^3`;
+the K-hollandite II revisions differ by at most `0.0077 A^3`. The workbook's
+`Static` column is not interchangeable with the current grid's `0 K` row: for
+example, their doubled zero-pressure liebermannite volumes are 467.76944 and
+472.08613 A^3, respectively. Peritheos must therefore preserve the explicit
+reference-state label rather than relabel either as an ambient measurement.
+
+### Independent BM3 recovery
+
+Each current temperature row was independently fitted to the standard
+third-order Birch--Murnaghan pressure form
+
+\[
+P=\frac{3K_0}{2}(x^7-x^5)
+\left[1+\frac{3}{4}(K_0'-4)(x^2-1)\right],
+\qquad x=(V_0/V)^{1/3}.
+\]
+
+Representative recovered coefficients on the current full-cell `Z = 4`
+volume basis are:
+
+| Phase | T (K) | `V0` (A^3) | `K0` (GPa) | `K0'` |
+|---|---:|---:|---:|---:|
+| Liebermannite | 0 | 472.08613 | 199.01484 | 4.19862 |
+| Liebermannite | 300 | 473.45838 | 194.73580 | 4.27086 |
+| Liebermannite | 1000 | 482.28471 | 176.60453 | 4.43794 |
+| Liebermannite | 2000 | 499.01501 | 148.26022 | 4.69577 |
+| K-hollandite II | 0 | 475.38794 | 172.20759 | 4.42978 |
+| K-hollandite II | 300 | 476.99570 | 168.89774 | 4.45508 |
+| K-hollandite II | 1000 | 486.41025 | 155.56828 | 4.50533 |
+| K-hollandite II | 2000 | 502.91164 | 136.40471 | 4.57146 |
+
+The pressure RMSE is at most `1.7e-6 GPa` for any liebermannite isotherm and
+`4.5e-5 GPa` for any K-hollandite II isotherm. As a point reproduction, the
+300 K liebermannite row gives `P = 9.999996 GPa` at the deposited
+`V = 451.94987 A^3`, versus the tabulated 10 GPa. The 1000 K K-hollandite II
+row gives `P = 49.999953 GPa` at `V = 397.08713 A^3`, versus 50 GPa.
+
+These tiny residuals show that the repository contains rounded samples of BM3
+curves. They do not establish parameter uncertainty: no observational sigmas,
+weights, covariance, or raw static-energy/free-energy points are deposited,
+so uncertainty estimates from these deterministic samples would be
+scientifically meaningless. For K-hollandite II, `V0` is additionally a
+zero-pressure extrapolation outside the current 25--80 GPa grid.
+
+### Thermal-model decision
+
+The temperature rows must not become independent static literature records.
+They are slices of one first-principles thermodynamic result, and treating
+selected temperatures as separate experiments would discard both their shared
+provenance and the temperatures between them.
+
+Peritheos's current `ThermalReferenceStateEOS` is not an exact replacement. It
+holds the reference EOS's `K0'` constant and restricts `K0(T)` to a straight
+line. The recovered curves require temperature-dependent `K0'` and nonlinear
+softening of `K0`. Even allowing the current Berman quadratic volume law, a
+joint pressure-residual fit leaves RMSE/max errors of 0.119/0.387 GPa for
+liebermannite and 0.143/0.430 GPa for K-hollandite II, orders of magnitude
+above the rounding residuals of the source curves.
+
+A faithful future implementation should therefore be one thermal record per
+phase, using either the publication's temperature-continuous formulation, if
+the full methods define one, or a new provenance-bearing interpolated BM3
+model in which `V0(T)`, `K0(T)`, and `K0'(T)` all vary. It must define
+interpolation, extrapolation, and inversion behavior explicitly. No executable
+`.eosmat` record is created by this audit.
+
+### Crystallographic audit
+
+The latest official deposit includes six pressure-resolved liebermannite CIFs
+and eleven K-hollandite II CIFs. Every file declares `P 1` and explicitly lists
+52 fully occupied atoms: `K4Al4Si12O32`, hence `Z = 4`. Independent symmetry
+recovery from the deposited coordinates is stable from `1e-4` through
+`0.1 A` tolerance across every pressure:
+
+| Phase and representative file | Deposited cell | Recovered ordered symmetry | Independent asymmetric sites |
+|---|---|---|---:|
+| Liebermannite, 0 kbar | `a = b = 9.24964 A`, `c = 5.43684 A`, all angles 90 degrees | `P4_2/m` (No. 84) | 11 |
+| K-hollandite II, 300 kbar | `a = 12.7474 A`, `b = 9.14368 A`, `c = 5.2714 A`, `gamma = 137.832 degrees` | `P2/m` (No. 10) | 21 |
+
+The K-hollandite II cell standardizes to `a = 8.562829 A`, `b = 5.2714 A`,
+`c = 9.14368 A`, `beta = 92.03746 degrees` at 300 kbar without changing its
+412.46738 A^3 volume. These are defensible audit results, but the higher
+symmetry and standardized transformation are independently inferred rather
+than asserted in the source CIFs. Until the primary methods/supplement and an
+audited asymmetric-site transformation are available, Peritheos should not
+silently promote them into diffraction-ready executable material cards.
+
+### Acceptance conclusion
+
+The official data are sufficient to identify the phases, establish the two
+volume bases, reproduce the temperature-indexed BM3 curves, and reject both a
+static-snapshot interpretation and the current constant-`K0'` thermal wrapper.
+They are not sufficient to verify the article's exact equation hierarchy,
+static-versus-zero-point reference states, parameter uncertainties and
+fixed/fitted/adopted status, computational pressure convention, covariance,
+scientific fit range, or authoritative conventional crystallographic settings.
+The candidate remains documented but non-executable until those items can be
+resolved from the primary article/supplement or author-supplied method and
+parameter files.
