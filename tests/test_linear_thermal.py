@@ -6,8 +6,10 @@ from peritheos.eos.rt import BM2, BM3, Vinet
 from peritheos.eos.thermal import (
     LinearThermalPressure,
     LogVolumeThermalPressure,
+    SecondOrderTaylorThermalPressure,
     ThermalReferenceStateEOS,
 )
+from peritheos.fitting import fit_thermal_eos
 
 
 def test_linear_thermal_pressure_reference_identity_and_arrays():
@@ -77,6 +79,96 @@ def test_log_volume_thermal_pressure_round_trips_and_requires_reference_volume()
             alpha_KT_ref=0.00714,
             dK_dT_V=-0.0115,
         )
+
+
+def test_second_order_taylor_thermal_pressure_is_absolute_and_round_trips():
+    reference = Vinet(V0=74.0741025123, K0=169.8, K0_prime=4.501)
+    eos = SecondOrderTaylorThermalPressure(
+        reference,
+        Tr=300.0,
+        eta0=0.02,
+        c0=0.5096,
+        c1=-13.4246,
+        c2=6.3295e-3,
+        c3=36.2194,
+        c4=5.4705e-8,
+        c5=3.2238e-3,
+    )
+    volume = reference.V0 * 0.8
+    temperature = 3000.0
+    delta_eta = 0.2 - 0.02
+    delta_temperature = temperature - 300.0
+    expected_thermal = (
+        0.5096
+        - 13.4246 * delta_eta
+        + 6.3295e-3 * delta_temperature
+        + 0.5 * 36.2194 * delta_eta**2
+        + 0.5 * 5.4705e-8 * delta_temperature**2
+        + 0.5 * 3.2238e-3 * delta_eta * delta_temperature
+    )
+
+    assert eos.thermal_pressure(volume, temperature) == pytest.approx(expected_thermal)
+    assert eos.thermal_pressure(volume, 300.0) != pytest.approx(0.0)
+    assert eos.thermal_pressure_increment(volume, 300.0) == pytest.approx(0.0)
+    pressure = eos.pressure(volume, temperature)
+    assert eos.volume(pressure, temperature) == pytest.approx(volume)
+    assert eos.temperature(pressure, volume) == pytest.approx(temperature)
+
+
+def test_second_order_taylor_thermal_pressure_broadcasts_and_validates():
+    eos = SecondOrderTaylorThermalPressure(
+        Vinet(50.0, 20.0, 5.0),
+        300.0,
+        0.02,
+        0.5,
+        -13.0,
+        0.006,
+        36.0,
+        5.0e-8,
+        0.003,
+    )
+    result = eos.thermal_pressure(np.array([50.0, 45.0]), 1000.0)
+    assert result.shape == (2,)
+    with pytest.raises(ValueError):
+        eos.thermal_pressure(45.0, 0.0)
+
+
+def test_second_order_taylor_thermal_pressure_can_be_refitted():
+    reference = Vinet(1.0, 169.8, 4.501)
+    expected = SecondOrderTaylorThermalPressure(
+        reference,
+        300.0,
+        0.02,
+        0.5096,
+        -13.4246,
+        0.0063295,
+        36.2194,
+        5.4705e-8,
+        0.0032238,
+    )
+    volumes = np.tile(np.array([0.65, 0.75, 0.85, 0.95]), 3)
+    temperatures = np.repeat(np.array([500.0, 3000.0, 7000.0]), 4)
+    pressures = expected.pressure(volumes, temperatures)
+    result = fit_thermal_eos(
+        SecondOrderTaylorThermalPressure,
+        reference,
+        volumes,
+        temperatures,
+        pressures,
+        initial={"c2": 0.005},
+        fixed={
+            "Tr": 300.0,
+            "eta0": 0.02,
+            "c0": 0.5096,
+            "c1": -13.4246,
+            "c3": 36.2194,
+            "c4": 5.4705e-8,
+            "c5": 0.0032238,
+        },
+    )
+
+    assert result.success
+    assert result.parameters["c2"] == pytest.approx(0.0063295)
 
 
 def _bm2_pressure(volume, reference_volume, bulk_modulus):

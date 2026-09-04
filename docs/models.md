@@ -36,12 +36,15 @@ the `EquationOfState` base interface; the canonical namespaced import is
 ## Thermal models
 
 Most thermal EOS classes wrap an isothermal `rt_eos`, which defines pressure on the
-reference isotherm at `Tr`. The thermal model adds the pressure change away
+reference isotherm at `Tr`. The thermal model usually adds the pressure change away
 from that temperature, so the combined model evaluates
 $P(V,T)=P_{ref}(V)+\Delta P_{th}(V,T)$ with
 $\Delta P_{th}(V,T_r)=0$. Pressure, volume, and temperature inversion all use
 this combined relation. The reference and thermal parameters can also be fitted
 together with [`fit_joint_eos`](fitting.md#joint-reference-and-thermal-fitting).
+`SecondOrderTaylorThermalPressure` instead adds an absolute pressure polynomial
+to a cold curve; its `Tr` is an expansion coordinate, not the temperature of
+the reference EOS.
 `DoubleDebyeHelmholtz` and `DoubleDebyeLogMomentHelmholtz` can either represent
 the absolute simulated free energy or, when their optional `Tr` is supplied,
 add the simulated non-cold contribution relative to `Tr` to an experimental
@@ -66,6 +69,7 @@ correction instead inherits the reference EOS volume convention.
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
 | [`DorogokupetsOganov2007`](equation-reference.md#dorogokupets-oganov-2007-four-oscillator-model) | any `EosBase` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect parameters | generalized Bose + Einstein |
 | [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
+| [`SecondOrderTaylorThermalPressure`](equation-reference.md#second-order-temperature-compression-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `eta0`, `c0`--`c5` | none |
 | [`LogVolumeThermalPressure`](equation-reference.md#logarithmic-volume-linear-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `alpha_KT_ref`, `dK_dT_V` | none |
 | [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `thermal_expansion_law`, `reference_volume_law` | none |
 | [`ThermalModifiedTait`](equation-reference.md#thermal-modified-tait) | `ModifiedTait` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
@@ -102,6 +106,9 @@ paper equations alone to reproduce Peritheos values; see
   model even though the authors and physical terms overlap.
 - Use linear thermal pressure only when the primary calibration reports a
   constant fitted $\alpha K_T$ product over the intended range.
+- Use `SecondOrderTaylorThermalPressure` only for a source that publishes the
+  corresponding absolute second-order pressure polynomial, such as Luo et al.'s
+  MgO scale; do not reinterpret its cold curve as a reference-temperature isotherm.
 - Use thermal modified Tait with Holland-Powell-style datasets.
 - Use `MultiOscillatorGruneisenThermalEOS` for the multimode formulation; pass
   `n` explicitly and select the reference isotherm independently. Catalog

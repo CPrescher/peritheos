@@ -45,6 +45,13 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "mgo_b1_luo_2023_vinet_thermal_5": (
+        "The five bundled Table I rows are only the new shock subset of a global "
+        "quasi-Debye fit. The complete earlier-study observations, numerical "
+        "sound-velocity-density fits, objective weights, and covariance are not "
+        "published; Tables II-III are derived EOS output and cannot serve as "
+        "independent refit observations."
+    ),
     "platinum_holmes_1989_vinet_1": (
         "The bundled rows are shock-Hugoniot qualification experiments; the stored "
         "equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be "

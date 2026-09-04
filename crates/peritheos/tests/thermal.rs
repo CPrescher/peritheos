@@ -4,8 +4,8 @@ use peritheos::thermal::{
     DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceVolumeLaw,
-    Sokolova2016, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
-    ThermalReferenceState, GAS_CONSTANT,
+    SecondOrderTaylorThermalPressure, Sokolova2016, SokolovaParameters, ThermalExpansionLaw,
+    ThermalModifiedTait, ThermalReferenceState, GAS_CONSTANT,
 };
 use peritheos::{CaloricEos, EosError, IsothermalEos, ThermalEos};
 use serde_json::Value;
@@ -349,6 +349,47 @@ fn simple_thermal_pressure_models_preserve_reference_state() {
         logarithmic.thermal_pressure(0.8, 800.0).unwrap(),
         (0.002 - 0.000_01 * (1.0_f64 / 0.8).ln()) * 500.0,
         1.0e-14,
+    );
+}
+
+#[test]
+fn second_order_taylor_thermal_pressure_preserves_its_absolute_baseline() {
+    let reference = Vinet::new(74.074_102_512_3, 169.8, 4.501).unwrap();
+    let model = SecondOrderTaylorThermalPressure::new(
+        reference, 300.0, 0.02, 0.5096, -13.4246, 6.3295e-3, 36.2194, 5.4705e-8, 3.2238e-3,
+    )
+    .unwrap();
+    let volume = reference.v0 * 0.8;
+    let temperature = 3000.0;
+    let delta_eta = 0.18;
+    let delta_temperature = 2700.0;
+    let expected = 0.5096 - 13.4246 * delta_eta
+        + 6.3295e-3 * delta_temperature
+        + 0.5 * 36.2194 * delta_eta * delta_eta
+        + 0.5 * 5.4705e-8 * delta_temperature * delta_temperature
+        + 0.5 * 3.2238e-3 * delta_eta * delta_temperature;
+
+    assert_close(
+        model.thermal_pressure(volume, temperature).unwrap(),
+        expected,
+        1.0e-14,
+    );
+    assert!(model.thermal_pressure(volume, 300.0).unwrap().abs() > 0.1);
+    assert_close(
+        model.thermal_pressure_increment(volume, 300.0).unwrap(),
+        0.0,
+        1.0e-14,
+    );
+    let pressure = model.pressure(volume, temperature).unwrap();
+    assert_close(
+        model.volume(pressure, temperature).unwrap(),
+        volume,
+        1.0e-10,
+    );
+    assert_close(
+        model.temperature(pressure, volume).unwrap(),
+        temperature,
+        1.0e-10,
     );
 }
 

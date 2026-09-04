@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 162,
-    "primary_source_validated": 162
+    "records": 163,
+    "primary_source_validated": 163
   },
   "records": [
     {
@@ -1687,6 +1687,27 @@
         ],
         "finding": "The stored record is the pressure-scale-free Fit3 Vinet-MGD parameterization.",
         "doi": "10.1029/2008jb005813"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_b1_luo_2023_vinet_thermal_5",
+      "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
+      "doi": "10.1103/physrevb.107.134116",
+      "status": "primary_source_validated",
+      "note": "The primary article was audited directly. The executable record preserves the complete Appendix-B thermal pressure scale rather than flattening its zero-temperature cold curve into a static Vinet record.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
+        "locations": [
+          "Equations (1)-(6), pages 2-3",
+          "Table I and Section II.B, pages 3-6",
+          "Section III, page 6",
+          "Tables II-III, pages 8-9",
+          "Appendices A-B, pages 9-10"
+        ],
+        "finding": "Appendix B publishes a zero-temperature Rydberg-Vinet cold curve plus an absolute second-order thermal pressure. All five new shock states and all 576 derived P-V-T table entries are bundled; evaluation of the printed coefficients gives 0.484096 GPa RMS against the table. The full observation-level global refit is blocked by unavailable literature rows, numerical sound-velocity-density fits, objective weights, and covariance.",
+        "doi": "10.1103/physrevb.107.134116"
       }
     },
     {

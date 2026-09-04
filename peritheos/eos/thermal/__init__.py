@@ -11,6 +11,7 @@ from .holland_powell import HollandPowell2011, ThermalModifiedTait
 from .linear import (
     LinearThermalPressure,
     LogVolumeThermalPressure,
+    SecondOrderTaylorThermalPressure,
     ThermalReferenceStateEOS,
 )
 from .mie_gruneisen import (
@@ -32,6 +33,7 @@ __all__ = [
     "MieGruneisenEinstein",
     "MultiOscillatorGruneisenThermalEOS",
     "Sokolova2016",
+    "SecondOrderTaylorThermalPressure",
     "Tange2009Debye",
     "ThermalModifiedTait",
     "ThermalReferenceStateEOS",

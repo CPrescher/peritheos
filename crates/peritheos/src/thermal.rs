@@ -593,6 +593,102 @@ impl<R: IsothermalEos> ThermalEos for LogVolumeThermalPressure<R> {
     }
 }
 
+/// Absolute bivariate second-order Taylor thermal pressure.
+///
+/// The wrapped isothermal EOS is a cold curve. With
+/// `eta = 1 - V/V0`, `delta_eta = eta - eta0`, and
+/// `delta_temperature = T - Tr`, the additive pressure is
+///
+/// `c0 + c1*delta_eta + c2*delta_temperature`
+/// `+ c3*delta_eta^2/2 + c4*delta_temperature^2/2`
+/// `+ c5*delta_eta*delta_temperature/2`.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct SecondOrderTaylorThermalPressure<R> {
+    /// Cold compression curve.
+    pub rt_eos: R,
+    /// Temperature coordinate of the Taylor expansion in kelvin.
+    pub tr: f64,
+    /// Compression coordinate of the Taylor expansion.
+    pub eta0: f64,
+    /// Constant pressure coefficient in `GPa`.
+    pub c0: f64,
+    /// Linear compression coefficient in `GPa`.
+    pub c1: f64,
+    /// Linear temperature coefficient in GPa/K.
+    pub c2: f64,
+    /// Quadratic compression coefficient in `GPa`.
+    pub c3: f64,
+    /// Quadratic temperature coefficient in GPa/K^2.
+    pub c4: f64,
+    /// Compression-temperature cross coefficient in GPa/K.
+    pub c5: f64,
+}
+
+impl<R: IsothermalEos> SecondOrderTaylorThermalPressure<R> {
+    /// Construct an absolute second-order thermal-pressure model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid or non-finite parameters.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new(
+        rt_eos: R,
+        tr: f64,
+        eta0: f64,
+        c0: f64,
+        c1: f64,
+        c2: f64,
+        c3: f64,
+        c4: f64,
+        c5: f64,
+    ) -> EosResult<Self> {
+        Ok(Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            eta0: finite_parameter(eta0, "eta0")?,
+            c0: finite_parameter(c0, "c0")?,
+            c1: finite_parameter(c1, "c1")?,
+            c2: finite_parameter(c2, "c2")?,
+            c3: finite_parameter(c3, "c3")?,
+            c4: finite_parameter(c4, "c4")?,
+            c5: finite_parameter(c5, "c5")?,
+        })
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for SecondOrderTaylorThermalPressure<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        let delta_eta = 1.0 - volume / self.rt_eos.reference_volume() - self.eta0;
+        let delta_temperature = temperature - self.tr;
+        finite_result(
+            self.c0
+                + self.c1 * delta_eta
+                + self.c2 * delta_temperature
+                + 0.5 * self.c3 * delta_eta.powi(2)
+                + 0.5 * self.c4 * delta_temperature.powi(2)
+                + 0.5 * self.c5 * delta_eta * delta_temperature,
+        )
+    }
+
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_pressure(volume, temperature)? - self.thermal_pressure(volume, self.tr)?,
+        )
+    }
+}
+
 /// Temperature dependence of instantaneous volumetric expansivity.
 #[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
 pub enum ThermalExpansionLaw {

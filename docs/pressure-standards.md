@@ -170,13 +170,14 @@ identified as references by the audit.
 
 The table below documents the compact set exposed directly by
 `get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 116 material documents and 162 independently
+library is broader: it contains 116 material documents and 163 independently
 audited EOS records, accessed with `list_material_documents()` and
 `Material.from_eosmat()`.
 
 | EOS record identifier | Material and phase | Model | Published envelope | Primary source |
 |---|---|---|---|---|
 | `mgo_b1_tange_2009_vinet` | MgO B1, 4 formula units/cell | Fit3-Vinet + Mie-Gruneisen-Debye | 0–196 GPa, 300–3700 K, $0.652 \leq V/V_0 \leq 1.150$ | [Tange et al. (2009)](https://doi.org/10.1029/2008JB005813) |
+| `mgo_b1_luo_2023_vinet_thermal_5` | MgO B1, 4 formula units/cell | 0 K Vinet + absolute second-order thermal pressure | stated scale range 0–345 GPa, 300–8500 K; not an experimental rectangle or phase boundary | [Luo et al. (2023)](https://doi.org/10.1103/PhysRevB.107.134116) |
 | `mgo_b1_sokolova_2013` | MgO B1, 4 formula units/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 correction/workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `diamond_sokolova_2013` | diamond, 8 atoms/cell | Holzapfel + Sokolova thermal | 0–400 GPa, 298.15–3000 K | [Sokolova et al. (2013), Tables 1 and 4](https://doi.org/10.1016/j.rgg.2013.01.005); [2016 workbook](https://doi.org/10.1016/j.cageo.2016.06.002) |
 | `diamond_correa_2008` | diamond, 8 atoms/cell | Vinet + logarithmic-moment double-Debye Helmholtz | 0–1075 GPa, 1–10000 K; DFT-GGA ambient-volume caveat applies | [Correa et al. (2008)](https://doi.org/10.1103/PhysRevB.78.024101) |
@@ -428,6 +429,12 @@ The thermal term is a genuine Tange Mie-Gruneisen-Debye pressure relative to
 the 300 K Vinet isotherm. It is not the empirical fractional DAC confinement
 term described in [Advanced DAC analysis](dac-thermal-pressure.md), and it is
 not a shock Hugoniot.
+
+The independent `mgo_b1_luo_2023_vinet_thermal_5` record is deliberately not a
+static Vinet alternative. It adds Luo et al.'s Appendix-B absolute thermal
+pressure to their 0 K cold Vinet curve. Its `Tr=300 K` is a Taylor expansion
+coordinate, and the thermal pressure is nonzero there. The record bundles the
+five new shock states and the paper's 576-value derived P-V-T table.
 
 ### Measurement and parameter uncertainty
 

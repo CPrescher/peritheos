@@ -115,6 +115,109 @@ class LogVolumeThermalPressure(ThermalEOS):
         return self._scalar_or_array(np.asarray(result, dtype=float))
 
 
+class SecondOrderTaylorThermalPressure(ThermalEOS):
+    r"""Add an absolute bivariate second-order thermal pressure.
+
+    The model is
+
+    .. math::
+
+        P(V,T) = P_c(V) + c_0 + c_1\delta\eta + c_2\delta T
+        + \frac{c_3}{2}\delta\eta^2 + \frac{c_4}{2}\delta T^2
+        + \frac{c_5}{2}\delta\eta\delta T,
+
+    where ``eta = 1 - V/V0``, ``delta_eta = eta - eta0``, and
+    ``delta_T = T - Tr``. Unlike the reference-isotherm thermal models, this
+    pressure is absolute: ``rt_eos`` is a cold curve and the thermal term is
+    generally nonzero at ``Tr``. :meth:`thermal_pressure_increment` subtracts
+    the value at ``Tr`` for DAC and ambient-isotherm operations.
+
+    This is the pressure-scale form published for MgO by Luo et al. (2023),
+    doi:10.1103/PhysRevB.107.134116, Appendix B, equations (B1)--(B2).
+    ``c0``, ``c1``, and ``c3`` use GPa; ``c2`` and ``c5`` use GPa/K; and
+    ``c4`` uses GPa/K^2. The volume convention is inherited from the cold
+    curve because only ``V/V0`` enters the thermal expression.
+    """
+
+    def __init__(
+        self,
+        rt_eos: EosBase,
+        Tr: float,
+        eta0: float,
+        c0: float,
+        c1: float,
+        c2: float,
+        c3: float,
+        c4: float,
+        c5: float,
+    ) -> None:
+        super().__init__(rt_eos)
+        self.Tr = validate_positive_scalar(Tr, "Tr")
+        self.eta0 = validate_finite_scalar(eta0, "eta0")
+        self.c0 = validate_finite_scalar(c0, "c0")
+        self.c1 = validate_finite_scalar(c1, "c1")
+        self.c2 = validate_finite_scalar(c2, "c2")
+        self.c3 = validate_finite_scalar(c3, "c3")
+        self.c4 = validate_finite_scalar(c4, "c4")
+        self.c5 = validate_finite_scalar(c5, "c5")
+        if not hasattr(rt_eos, "V0"):
+            raise EosValidationError("rt_eos must expose V0")
+        validate_positive_scalar(rt_eos.V0, "rt_eos.V0")
+        reference_native = _native_for_exact_model(rt_eos)
+        if (
+            reference_native is not None
+            and type(self) is SecondOrderTaylorThermalPressure
+        ):
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.second_order_taylor_thermal_pressure(
+                reference_native,
+                self.Tr,
+                self.eta0,
+                self.c0,
+                self.c1,
+                self.c2,
+                self.c3,
+                self.c4,
+                self.c5,
+            )
+
+    def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the absolute non-cold pressure contribution in GPa."""
+        if hasattr(self, "_native"):
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native, "thermal_pressure", volumes, temperatures
+            )
+        volumes, temperatures = self._broadcast_state(V, T)
+        delta_eta = 1.0 - volumes / self.rt_eos.V0 - self.eta0
+        delta_temperature = temperatures - self.Tr
+        result = (
+            self.c0
+            + self.c1 * delta_eta
+            + self.c2 * delta_temperature
+            + 0.5 * self.c3 * delta_eta**2
+            + 0.5 * self.c4 * delta_temperature**2
+            + 0.5 * self.c5 * delta_eta * delta_temperature
+        )
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return pressure gained above the complete ``Tr`` isotherm."""
+        if hasattr(self, "_native"):
+            volumes, temperatures = self._broadcast_state(V, T)
+            return _native_thermal_evaluate(
+                self._native,
+                "thermal_pressure_increment",
+                volumes,
+                temperatures,
+            )
+        increment = np.asarray(self.thermal_pressure(V, T), dtype=float) - np.asarray(
+            self.thermal_pressure(V, self.Tr), dtype=float
+        )
+        return self._scalar_or_array(increment)
+
+
 class ThermalReferenceStateEOS(ThermalEOS):
     r"""Vary the reference volume and bulk modulus with temperature.
 

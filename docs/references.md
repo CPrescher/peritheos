@@ -289,6 +289,11 @@
   anharmonic coefficient. Peritheos follows the accompanying workbook
   calculation path when it differs from the typeset equations; see
   [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
+- Luo, B., Xiang, S., Li, X., Wu, Q., Liu, J., Li, J., Xian, G. & Wu, G.
+  (2023). Equation of state of MgO up to 345 GPa and 8500 K. *Physical Review
+  B*, 107, 134116. [doi:10.1103/PhysRevB.107.134116](https://doi.org/10.1103/PhysRevB.107.134116).
+  Peritheos implements Appendix B's executable 0 K Rydberg--Vinet plus absolute
+  thermal-pressure form and bundles Tables I--III.
 - Tange, Y., Nishihara, Y. & Tsuchiya, T. (2009). Unified analyses for P-V-T
   equation of state of MgO: A solution for pressure-scale problems in high
   P-T experiments. *Journal of Geophysical Research: Solid Earth*, 114,

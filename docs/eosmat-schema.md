@@ -302,6 +302,7 @@ Thermal `type` and `model` must likewise match:
 |---|---|---|
 | `AlphaKT` | `thermal_reference_state` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1` |
 | `LinearThermalPressure` | `linear_thermal_pressure` | `Tr`, `alpha_KT` |
+| `SecondOrderTaylorThermalPressure` | `second_order_taylor_thermal_pressure` | `Tr`, `eta0`, `c0`, `c1`, `c2`, `c3`, `c4`, `c5` |
 | `LogVolumeThermalPressure` | `log_volume_thermal_pressure` | `Tr`, `alpha_KT_ref`, `dK_dT_V` |
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
@@ -321,6 +322,11 @@ model identifier is the mechanism-oriented `thermal_reference_state`, and the
 corresponding Peritheos class is `ThermalReferenceStateEOS`. It evaluates a
 temperature-dependent reference volume and bulk modulus; it is not the
 constant-`alpha_KT` pressure increment represented by `LinearThermalPressure`.
+
+`SecondOrderTaylorThermalPressure` represents an absolute polynomial thermal
+pressure added to a cold curve. Its numeric `Tr` is the polynomial's
+temperature coordinate, not a claim that the reference EOS is an isotherm at
+that temperature.
 
 For the two double-Debye Helmholtz types, `Tr` is always written explicitly.
 `"Tr": null` means that the stored Vinet curve is the motionless-ion 0 K cold

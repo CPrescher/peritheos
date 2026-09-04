@@ -131,6 +131,38 @@ fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
 }
 
 #[test]
+fn luo_mgo_eosmat_preserves_absolute_thermal_pressure() {
+    let Some(material) = load_bundled_material("mgo.eosmat") else {
+        return;
+    };
+    let record = material.record("mgo_b1_luo_2023_vinet_thermal_5").unwrap();
+    let ambient_cell_volume = 74.569_767_758_6;
+    let table_volume = ambient_cell_volume * (1.0 - 0.42);
+
+    assert_eq!(record.eos.isothermal_model_identifier(), "vinet");
+    assert_eq!(
+        record.eos.thermal_model_identifier(),
+        Some("second_order_taylor_thermal_pressure")
+    );
+    assert_close(
+        record.pressure(table_volume, 8500.0).unwrap(),
+        342.01,
+        1.5 / 342.01,
+    );
+
+    let cold_reference_volume = 74.074_102_512_3;
+    let baseline = record.pressure(cold_reference_volume, 300.0).unwrap();
+    assert!(baseline.abs() > 1.0e-3);
+    assert_close(
+        record
+            .thermal_pressure_increment(table_volume, 300.0)
+            .unwrap(),
+        0.0,
+        1.0e-12,
+    );
+}
+
+#[test]
 fn double_debye_eosmat_reference_temperature_anchors_the_dewaele_isotherm() {
     let Some(material) = load_bundled_material("diamond.eosmat") else {
         return;
@@ -771,6 +803,12 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                     let pressure = record.pressure(8.0 * 4.43, 5000.0).unwrap();
                     assert!((pressure - 202.628_115_197_741_86).abs() < 1.0e-7);
                 }
+                (
+                    "mgo_b1_luo_2023_vinet_thermal_5",
+                    Some("second_order_taylor_thermal_pressure"),
+                ) => {
+                    assert_close(pressure, 0.785_335_88, 1.0e-8);
+                }
                 (_, _) => {
                     assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
                 }
@@ -778,7 +816,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         }
     }
 
-    assert_eq!(paths.len(), 115);
-    assert_eq!(records, 160);
-    assert_eq!(thermal_records, 38);
+    assert_eq!(paths.len(), 116);
+    assert_eq!(records, 163);
+    assert_eq!(thermal_records, 40);
 }

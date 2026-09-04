@@ -94,7 +94,7 @@ def test_complete_migrated_dioptas_library_is_bundled_and_valid():
 
     assert len(identifiers) == 116
     assert len(set(identifiers)) == 116
-    assert sum(len(document["eos_records"]) for document in documents) == 162
+    assert sum(len(document["eos_records"]) for document in documents) == 163
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 162
+    assert len({record["identifier"] for record in records}) == 163
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 162
+    assert statuses.count("primary_source_validated") == 163
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -141,6 +141,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "kcl_b2_tateno_2019_vinet_4",
         "mgo_b1_tange_2009_vinet",
+        "mgo_b1_luo_2023_vinet_thermal_5",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",
@@ -153,6 +154,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
+        "mgo_b1_luo_2023_vinet_thermal_5",
     }
     assert {
         audit_dates[identifier] for identifier in latest_audit_identifiers
@@ -206,6 +208,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "gold_fratanduono_2021_vinet_7",
         "gold_takemura_2008_vinet_6",
         "kcl_b2_chidester_2021_bm3_5",
+        "mgo_b1_luo_2023_vinet_thermal_5",
         "mgo_b1_tange_2009_vinet",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
         "kcl_b2_tateno_2019_vinet_4",
@@ -240,8 +243,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 162,
-        "primary_source_validated": 162,
+        "records": 163,
+        "primary_source_validated": 163,
     }
     assert report["audit_date"] == "2026-09-04"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -584,7 +587,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 162
+    assert len(records) == 163
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -650,7 +653,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 162
+    assert checked == 163
     assert failures == []
 
 
@@ -1645,6 +1648,104 @@ def test_holmes_1989_platinum_equations_11_and_12_regression():
     )
 
 
+def test_luo_2023_mgo_complete_thermal_eos_and_primary_tables():
+    document = get_material_document("mgo")
+    identifier = "mgo_b1_luo_2023_vinet_thermal_5"
+    source = next(
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == identifier
+    )
+    record = Material.from_eosmat(
+        document, record_identifiers=[identifier]
+    ).eos_records[0]
+
+    assert source["eos"]["parameters"] == {
+        "V0": pytest.approx(74.0741025123),
+        "K0": pytest.approx(169.8),
+        "K0_prime": pytest.approx(4.501),
+    }
+    assert source["thermal"]["model"] == "second_order_taylor_thermal_pressure"
+    assert source["thermal"]["parameters"]["c0"] == pytest.approx(0.5096)
+
+    # Tables II-III use the ambient initial volume from rho0=3.590 g/cm3,
+    # whereas Equation (B2) uses the fitted zero-K V0K in eta.
+    ambient_cell_volume = 74.5697677586
+    table_volume = ambient_cell_volume * (1.0 - 0.42)
+    assert record.pressure(table_volume, 8500.0) == pytest.approx(342.01, abs=1.5)
+    pressure = record.pressure(table_volume, 8500.0)
+    assert record.volume(pressure, 8500.0) == pytest.approx(table_volume)
+    assert record.eos.temperature(pressure, table_volume) == pytest.approx(8500.0)
+
+    shock = next(
+        dataset
+        for dataset in document["datasets"]
+        if dataset["identifier"] == "mgo_luo_2023_table1_shock"
+    )
+    assert len(shock["rows"]) == 5
+    for row in shock["rows"]:
+        calculated_pressure = 3.590 * row[3] * row[5]
+        assert calculated_pressure == pytest.approx(row[9], abs=0.6)
+
+    grid = next(
+        dataset
+        for dataset in document["datasets"]
+        if dataset["identifier"] == "mgo_luo_2023_tables2_3_pvt_grid"
+    )
+    resource = Path("peritheos/data").joinpath(grid["resource"]["path"])
+    rows = list(csv.DictReader(resource.open(encoding="utf-8")))
+    assert len(rows) == 576
+    assert rows[0] == {
+        "compression_ambient": "0.02",
+        "temperature_k": "300",
+        "pressure_gpa": "2.89",
+        "source_table": "II",
+    }
+    assert rows[-1] == {
+        "compression_ambient": "0.42",
+        "temperature_k": "8500",
+        "pressure_gpa": "342.01",
+        "source_table": "III",
+    }
+
+    compression = np.array([float(row["compression_ambient"]) for row in rows])
+    temperatures = np.array([float(row["temperature_k"]) for row in rows])
+    published_pressures = np.array([float(row["pressure_gpa"]) for row in rows])
+    volumes = ambient_cell_volume * (1.0 - compression)
+    residuals = record.pressure(volumes, temperatures) - published_pressures
+    assert np.sqrt(np.mean(residuals**2)) == pytest.approx(0.4840957067)
+    assert np.max(np.abs(residuals)) == pytest.approx(1.4353026419)
+
+    # Diagnostic only: Tables II-III are model output, not independent
+    # observations, so these coefficients are not stored as another EOS.
+    delta_eta = 1.0 - volumes / source["eos"]["parameters"]["V0"] - 0.02
+    delta_temperature = temperatures - 300.0
+    design = np.column_stack(
+        [
+            np.ones_like(delta_eta),
+            delta_eta,
+            delta_temperature,
+            0.5 * delta_eta**2,
+            0.5 * delta_temperature**2,
+            0.5 * delta_eta * delta_temperature,
+        ]
+    )
+    target_thermal_pressure = published_pressures - record.eos.rt_eos.pressure(volumes)
+    coefficients, *_ = np.linalg.lstsq(design, target_thermal_pressure, rcond=None)
+    assert coefficients == pytest.approx(
+        [
+            1.42397479,
+            -17.5645093,
+            0.00609260423,
+            45.6965382,
+            8.37791429e-8,
+            0.00408491607,
+        ]
+    )
+    diagnostic_residuals = design @ coefficients - target_thermal_pressure
+    assert np.sqrt(np.mean(diagnostic_residuals**2)) == pytest.approx(0.4457892496)
+
+
 @pytest.mark.parametrize(
     ("compression", "temperature", "table_pressure"),
     [
@@ -2005,7 +2106,7 @@ def test_normative_schema_is_bundled():
         "berman",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 11
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 12
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 13
 
 
 def test_normative_schema_validates_every_bundled_document():
@@ -2205,7 +2306,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 116
-    assert manifest["eos_records"] == 162
+    assert manifest["eos_records"] == 163
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-04"
 
 
