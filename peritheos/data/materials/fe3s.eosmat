@@ -14,7 +14,7 @@
  "formula_units_per_cell": 8,
  "space_group": "I-4",
  "space_group_number": 82,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Fe3S-Fei.jcpds, JCPDS/dac_user_jcpds/Fe3S_calc.jcpds. Fei et al., American Mineralogist 85, 1830-1833 (2000), doi:10.2138/am-2000-11-1229, identify the phase as Fe3P-type I-4; the reported cell and density imply Z=8. The paper does not provide a complete positional refinement, so atom_sites remain empty and the legacy peaks remain authoritative for intensities.",
+ "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Fe3S-Fei.jcpds, JCPDS/dac_user_jcpds/Fe3S_calc.jcpds. Fei et al., American Mineralogist 85, 1830-1833 (2000), doi:10.2138/am-2000-11-1229, identify the phase as Fe3P-type I-4; the reported cell and density imply Z=8. The atom sites are an explicitly approximate Fe3P-type proxy based on the near-end-member Fe3P schreibersite refinement Htr of Britvin et al., American Mineralogist 106, 1520-1529 (2021), doi:10.2138/am-2021-7766: its P site is replaced by S while the three Fe sites are retained. These coordinates were not refined for the Fe3S specimen and must not be presented as its original structure; calculated intensities are approximate, while the legacy Fe3S peaks remain authoritative where available.",
  "peaks": [
   [
    0,
@@ -262,7 +262,40 @@
    }
   }
  ],
- "atom_sites": [],
+ "atom_sites": [
+  {
+   "element": "Fe",
+   "wyckoff": "8g",
+   "x": 0.92035,
+   "y": 0.10599,
+   "z": 0.76758,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "8g",
+   "x": 0.63956,
+   "y": 0.0311,
+   "z": 0.01317,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "8g",
+   "x": 0.82813,
+   "y": 0.21928,
+   "z": 0.24521,
+   "occupancy": 1.0
+  },
+  {
+   "element": "S",
+   "wyckoff": "8g",
+   "x": 0.70781,
+   "y": 0.04476,
+   "z": 0.5104,
+   "occupancy": 1.0
+  }
+ ],
  "datasets": [
   {
    "identifier": "fe3s_fei_2000_figure2_digitized",

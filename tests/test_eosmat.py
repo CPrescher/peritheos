@@ -934,6 +934,7 @@ def test_b4c_thermal_record_is_source_reproduced_and_diffraction_ready():
 
 def test_former_peak_only_materials_have_source_backed_crystal_models():
     expected_cell_counts = {
+        "fe3s": {"Fe": 24.0, "S": 8.0},
         "feh2": {"Fe": 4.0, "H": 8.0},
         "iceviii": {"D": 16.0, "O": 8.0},
         "majorite": {"Mg": 32.0, "Si": 32.0, "O": 96.0},
@@ -969,7 +970,8 @@ def test_former_peak_only_materials_have_source_backed_crystal_models():
     assert fe3s["space_group"] == "I-4"
     assert fe3s["space_group_number"] == 82
     assert fe3s["formula_units_per_cell"] == 8
-    assert fe3s["atom_sites"] == []
+    assert "approximate Fe3P-type proxy" in fe3s["notes"]
+    assert "not be presented as its original structure" in fe3s["notes"]
 
 
 def test_b4c_primary_data_transcription_is_complete():
