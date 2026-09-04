@@ -104,6 +104,16 @@ print(result.correlation)
 fitted_pressures = result.model.pressure(volumes)
 ```
 
+## Linear `Us`-`up` Hugoniot fitting
+
+Use `fit_linear_us_up` for ordinary least squares, weighted least squares, or
+errors-in-variables fitting of shock and particle velocities. Initial volume,
+density, and pressure are fixed physical state inputs; only `c0` and `s` are
+identifiable from `Us`-`up` observations. See the complete
+[Shock Hugoniot guide](hugoniots.md#fitting-us-up-observations).
+The returned `HugoniotFitResult` supports the same `to_dict()` and `to_json()`
+workflow as equilibrium EOS fits.
+
 ## Reporting and export
 
 `FitResult.summary()` produces a compact report with free and fixed parameters,

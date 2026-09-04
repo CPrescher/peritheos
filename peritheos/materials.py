@@ -19,7 +19,7 @@ import numpy as np
 from scipy.constants import Avogadro, electron_volt
 from scipy.special import ndtri
 
-from peritheos.eos import EosBase, NumericType, ThermalEOS
+from peritheos.eos import EosBase, EquationOfState, NumericType, ThermalEOS
 from peritheos.eos.rt import (
     BM2,
     BM3,
@@ -49,7 +49,9 @@ from peritheos.errors import (
     ConfigurationError,
     MaterialError,
     MaterialLookupError,
+    UnsupportedOperationError,
 )
+from peritheos.hugoniot import HugoniotBase, HugoniotState, LinearUsUpHugoniot
 from peritheos.uncertainty import EOSUncertainty, PredictionUncertainty
 
 
@@ -125,6 +127,129 @@ class DeferredEOSRecord:
     reason: str
 
 
+HUGONIOT_PATH_KINDS = frozenset(
+    {
+        "principal_hugoniot",
+        "precompressed_hugoniot",
+        "transformed_hugoniot_branch",
+    }
+)
+
+HUGONIOT_LOADING_PATHS = frozenset({"principal", "precompressed"})
+HUGONIOT_BRANCH_KINDS = frozenset({"untransformed", "transformed"})
+HUGONIOT_DOMAIN_KINDS = frozenset(
+    {"phase_stability", "experimental_coverage", "recommended"}
+)
+HUGONIOT_BOUNDARY_STATUSES = frozenset(
+    {"reported_exactly", "reported_qualitatively", "inferred"}
+)
+_LEGACY_HUGONIOT_PATHS = {
+    "principal_hugoniot": ("principal", "untransformed"),
+    "precompressed_hugoniot": ("precompressed", "untransformed"),
+    "transformed_hugoniot_branch": ("principal", "transformed"),
+}
+_HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
+
+
+@dataclass(frozen=True)
+class HugoniotInitialState:
+    """Precursor state from which a single shock path is measured."""
+
+    phase: str
+    temperature_k: float
+    pressure_gpa: float
+    density_g_cm3: float
+    material_identifier: str
+    eos_record_identifier: str | None = None
+
+    def __post_init__(self) -> None:
+        if not self.phase.strip():
+            raise MaterialError("Hugoniot initial-state phase must not be empty")
+        if not self.material_identifier.strip():
+            raise MaterialError(
+                "Hugoniot initial-state material_identifier must not be empty"
+            )
+        if self.eos_record_identifier is not None and not self.eos_record_identifier.strip():
+            raise MaterialError(
+                "Hugoniot initial-state eos_record_identifier must not be empty"
+            )
+        for name, value, positive in (
+            ("temperature_k", self.temperature_k, True),
+            ("pressure_gpa", self.pressure_gpa, False),
+            ("density_g_cm3", self.density_g_cm3, True),
+        ):
+            if not np.isfinite(value) or (positive and value <= 0.0):
+                qualifier = "positive and " if positive else ""
+                raise MaterialError(
+                    f"Hugoniot initial-state {name} must be {qualifier}finite"
+                )
+
+
+@dataclass(frozen=True)
+class HugoniotVolumeBasis:
+    """Amount of material represented by every ``V`` and ``V0`` value."""
+
+    formula_units: float
+    molar_mass_g_mol: float
+    kind: str = "formula_units"
+
+    def __post_init__(self) -> None:
+        if self.kind != "formula_units":
+            raise MaterialError("Hugoniot volume basis kind must be 'formula_units'")
+        if not np.isfinite(self.formula_units) or self.formula_units <= 0.0:
+            raise MaterialError(
+                "Hugoniot volume-basis formula_units must be positive and finite"
+            )
+        if not np.isfinite(self.molar_mass_g_mol) or self.molar_mass_g_mol <= 0.0:
+            raise MaterialError(
+                "Hugoniot volume-basis molar_mass_g_mol must be positive and finite"
+            )
+
+
+@dataclass(frozen=True)
+class HugoniotBranchDomain:
+    """Declared particle-velocity interval for one phase-specific branch."""
+
+    particle_velocity_km_s: tuple[float, float]
+    kind: str
+    boundary_status: str
+    notes: tuple[str, ...] = ()
+
+    def __post_init__(self) -> None:
+        lower, upper = self.particle_velocity_km_s
+        if (
+            not np.isfinite(lower)
+            or not np.isfinite(upper)
+            or lower < 0.0
+            or lower > upper
+        ):
+            raise MaterialError(
+                "Hugoniot branch-domain particle velocities must be finite, "
+                "non-negative, and ordered"
+            )
+        if self.kind not in HUGONIOT_DOMAIN_KINDS:
+            raise MaterialError(
+                f"Hugoniot branch-domain kind must be one of "
+                f"{sorted(HUGONIOT_DOMAIN_KINDS)}"
+            )
+        if self.boundary_status not in HUGONIOT_BOUNDARY_STATUSES:
+            raise MaterialError(
+                f"Hugoniot branch-domain boundary_status must be one of "
+                f"{sorted(HUGONIOT_BOUNDARY_STATUSES)}"
+            )
+
+    def contains(self, particle_velocity: Any) -> np.ndarray:
+        """Return whether particle velocities lie within this branch domain."""
+        values = np.asarray(particle_velocity, dtype=float)
+        lower, upper = self.particle_velocity_km_s
+        tolerance = 16.0 * np.finfo(float).eps * max(1.0, abs(lower), abs(upper))
+        return (
+            np.isfinite(values)
+            & (values >= lower - tolerance)
+            & (values <= upper + tolerance)
+        )
+
+
 @dataclass(frozen=True)
 class EOSRecord:
     """A literature-specific EOS parameterization for one material phase.
@@ -139,7 +264,7 @@ class EOSRecord:
     material: str
     phase: str
     cell_contents: str
-    eos: EosBase
+    eos: EquationOfState
     reference_temperature: float
     reference: LiteratureReference
     validity: ValidityRange
@@ -154,11 +279,15 @@ class EOSRecord:
     volume_scale: float = 1.0
     scientific_validation_status: str = "primary_source_validated"
     scientific_validation_note: str = ""
+    is_default: bool = False
+    equation_kind: str | None = None
     eosmat_metadata: Mapping[str, Any] = field(
         default_factory=dict, compare=False, repr=False
     )
 
     def __post_init__(self) -> None:
+        if not isinstance(self.is_default, bool):
+            raise MaterialError("is_default must be a boolean")
         allowed = {
             "primary_source_validated",
             "pending_primary_source_check",
@@ -174,6 +303,29 @@ class EOSRecord:
             raise MaterialError(
                 "parameter_error_confidence must lie between zero and one"
             )
+        inferred_kind = (
+            "hugoniot"
+            if isinstance(self.eos, HugoniotBase)
+            else "thermal"
+            if isinstance(self.eos, ThermalEOS)
+            else "isothermal"
+        )
+        if inferred_kind == "hugoniot" and not isinstance(self, HugoniotRecord):
+            raise MaterialError(
+                "Hugoniot models require HugoniotRecord with explicit path, "
+                "initial-state, and volume-basis metadata"
+            )
+        equation_kind = self.equation_kind or inferred_kind
+        if equation_kind not in {"isothermal", "thermal", "hugoniot"}:
+            raise MaterialError(
+                "equation_kind must be 'isothermal', 'thermal', or 'hugoniot'"
+            )
+        if equation_kind != inferred_kind:
+            raise MaterialError(
+                f"equation_kind {equation_kind!r} does not match "
+                f"{type(self.eos).__name__}"
+            )
+        object.__setattr__(self, "equation_kind", equation_kind)
         object.__setattr__(
             self,
             "pressure_calibration",
@@ -191,12 +343,22 @@ class EOSRecord:
         reference_eos = (
             self.eos.rt_eos if isinstance(self.eos, ThermalEOS) else self.eos
         )
-        return float(reference_eos.V0 / self.volume_scale)
+        return float(_own_parameter_values(reference_eos)["V0"] / self.volume_scale)
 
     @property
     def is_thermal(self) -> bool:
         """Whether temperature contributes to the pressure equation."""
         return isinstance(self.eos, ThermalEOS)
+
+    @property
+    def is_isothermal(self) -> bool:
+        """Whether the record represents a single-temperature equilibrium EOS."""
+        return self.equation_kind == "isothermal"
+
+    @property
+    def is_hugoniot(self) -> bool:
+        """Whether the record represents a shock Hugoniot path."""
+        return self.equation_kind == "hugoniot"
 
     def _temperature(self, temperature: Any | None) -> np.ndarray:
         if temperature is None:
@@ -207,6 +369,11 @@ class EOSRecord:
         if not self.is_thermal and not np.allclose(
             values, self.reference_temperature, rtol=0.0, atol=1.0e-8
         ):
+            if self.is_hugoniot:
+                raise MaterialError(
+                    "Temperature is initial-state metadata for a Hugoniot and "
+                    f"must equal {self.reference_temperature:g} K"
+                )
             raise MaterialError(
                 f"{self.identifier} is an isothermal {self.reference_temperature:g} K "
                 "EOS record and has no thermal correction"
@@ -276,8 +443,9 @@ class EOSRecord:
         increment is zero at the record's reference temperature.
         """
         if not isinstance(self.eos, ThermalEOS):
+            record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
-                f"{self.identifier} is isothermal and has no thermal pressure"
+                f"{self.identifier} is {record_kind} and has no thermal pressure"
             )
         temperatures = self._temperature(temperature)
         internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
@@ -297,8 +465,9 @@ class EOSRecord:
     ) -> NumericType:
         """Retained DAC pressure increment in GPa at a heated state."""
         if not isinstance(self.eos, ThermalEOS):
+            record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
-                f"{self.identifier} is isothermal and has no thermal pressure"
+                f"{self.identifier} is {record_kind} and has no thermal pressure"
             )
         temperatures = self._temperature(temperature)
         internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
@@ -323,8 +492,9 @@ class EOSRecord:
         conventional-cell volume unit.
         """
         if not isinstance(self.eos, ThermalEOS):
+            record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
-                f"{self.identifier} is isothermal and cannot apply DAC confinement"
+                f"{self.identifier} is {record_kind} and cannot apply DAC confinement"
             )
         temperatures = self._temperature(temperature)
         internal_volume = self.eos.volume_with_dac_confinement(
@@ -356,8 +526,9 @@ class EOSRecord:
         EOS :meth:`temperature_from_volumes` method for model-specific details.
         """
         if not isinstance(self.eos, ThermalEOS):
+            record_kind = "a Hugoniot record" if self.is_hugoniot else "isothermal"
             raise MaterialError(
-                f"{self.identifier} is isothermal and cannot invert temperature"
+                f"{self.identifier} is {record_kind} and cannot invert temperature"
             )
         ambient_internal = np.asarray(ambient_volume, dtype=float) * self.volume_scale
         heated_internal = np.asarray(heated_volume, dtype=float) * self.volume_scale
@@ -382,7 +553,13 @@ class EOSRecord:
     ) -> bool | np.ndarray:
         """Test whether states lie in the published calibration/data envelope."""
         temperatures = self._temperature(temperature)
-        pressure = self.pressure(volume, temperatures, check_validity=False)
+        if self.is_hugoniot:
+            assert isinstance(self, HugoniotRecord)
+            pressure = self.pressure(
+                volume, check_validity=False, check_domain=False
+            )
+        else:
+            pressure = self.pressure(volume, temperatures, check_validity=False)
         ratio = np.asarray(volume, dtype=float) / self.reference_volume
         result = self.validity.contains(pressure, temperatures, ratio)
         if result.ndim == 0:
@@ -415,11 +592,20 @@ class EOSRecord:
         volume_sigma: Any | None = None,
         temperature_sigma: Any | None = None,
         check_validity: bool = False,
+        check_domain: bool = True,
         **options: Any,
     ) -> PredictionUncertainty:
         """Propagate published parameter and measured V/T uncertainty."""
         temperatures = self._temperature(temperature)
-        if check_validity:
+        if self.is_hugoniot:
+            assert isinstance(self, HugoniotRecord)
+            if check_validity or check_domain:
+                self.pressure(
+                    volume,
+                    check_validity=check_validity,
+                    check_domain=check_domain,
+                )
+        elif check_validity:
             self.pressure(volume, temperatures, check_validity=True)
         internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
         internal_sigma = (
@@ -437,9 +623,10 @@ class EOSRecord:
                 **options,
             )
         if temperature_sigma is not None:
+            record_kind = "Hugoniot" if self.is_hugoniot else "isothermal"
             raise MaterialError(
                 "Temperature uncertainty cannot be propagated through an "
-                "isothermal EOS record without a published thermal model"
+                f"{record_kind} EOS record without a published thermal model"
             )
         return uncertainty.pressure(
             internal_volume, volume_sigma=internal_sigma, **options
@@ -453,11 +640,20 @@ class EOSRecord:
         pressure_sigma: Any | None = None,
         temperature_sigma: Any | None = None,
         check_validity: bool = False,
+        check_domain: bool = True,
         **options: Any,
     ) -> PredictionUncertainty:
         """Propagate uncertainty into an inverted unit-cell volume."""
         temperatures = self._temperature(temperature)
-        if check_validity:
+        if self.is_hugoniot:
+            assert isinstance(self, HugoniotRecord)
+            if check_validity or check_domain:
+                self.volume(
+                    pressure,
+                    check_validity=check_validity,
+                    check_domain=check_domain,
+                )
+        elif check_validity:
             self.volume(pressure, temperatures, check_validity=True)
         uncertainty = self._uncertainty()
         if self.is_thermal:
@@ -470,9 +666,10 @@ class EOSRecord:
             )
         else:
             if temperature_sigma is not None:
+                record_kind = "Hugoniot" if self.is_hugoniot else "isothermal"
                 raise MaterialError(
                     "Temperature uncertainty cannot be propagated through an "
-                    "isothermal EOS record without a published thermal model"
+                    f"{record_kind} EOS record without a published thermal model"
                 )
             prediction = uncertainty.volume(
                 pressure, pressure_sigma=pressure_sigma, **options
@@ -498,6 +695,213 @@ class EOSRecord:
             confidence=prediction.confidence,
             assumptions=prediction.assumptions,
             rejected_fraction=prediction.rejected_fraction,
+        )
+
+
+@dataclass(frozen=True)
+class HugoniotRecord(EOSRecord):
+    """Phase-specific shock-path EOS with an explicit precursor and mass basis."""
+
+    eos: HugoniotBase
+    loading_path: str = ""
+    branch_kind: str = ""
+    initial_state: HugoniotInitialState = field(default=None)  # type: ignore[assignment]
+    volume_basis: HugoniotVolumeBasis = field(default=None)  # type: ignore[assignment]
+    branch_domain: HugoniotBranchDomain = field(default=None)  # type: ignore[assignment]
+    path_kind: str | None = field(default=None, repr=False, compare=False)
+    equation_kind: str | None = "hugoniot"
+
+    def __post_init__(self) -> None:
+        super().__post_init__()
+        if not isinstance(self.eos, HugoniotBase):
+            raise MaterialError("HugoniotRecord.eos must be a Hugoniot model")
+        loading_path = self.loading_path
+        branch_kind = self.branch_kind
+        if self.path_kind is not None:
+            try:
+                legacy_loading, legacy_branch = _LEGACY_HUGONIOT_PATHS[self.path_kind]
+            except KeyError as error:
+                raise MaterialError(
+                    f"path_kind must be one of {sorted(HUGONIOT_PATH_KINDS)}; "
+                    "reshock paths require a frame-aware model"
+                ) from error
+            if loading_path and loading_path != legacy_loading:
+                raise MaterialError("path_kind conflicts with loading_path")
+            if branch_kind and branch_kind != legacy_branch:
+                raise MaterialError("path_kind conflicts with branch_kind")
+            loading_path = legacy_loading
+            branch_kind = legacy_branch
+        if loading_path not in HUGONIOT_LOADING_PATHS:
+            raise MaterialError(
+                f"loading_path must be one of {sorted(HUGONIOT_LOADING_PATHS)}"
+            )
+        if branch_kind not in HUGONIOT_BRANCH_KINDS:
+            raise MaterialError(
+                f"branch_kind must be one of {sorted(HUGONIOT_BRANCH_KINDS)}"
+            )
+        object.__setattr__(self, "loading_path", loading_path)
+        object.__setattr__(self, "branch_kind", branch_kind)
+        if not isinstance(self.initial_state, HugoniotInitialState):
+            raise MaterialError(
+                "HugoniotRecord.initial_state must be HugoniotInitialState"
+            )
+        if not isinstance(self.volume_basis, HugoniotVolumeBasis):
+            raise MaterialError(
+                "HugoniotRecord.volume_basis must be HugoniotVolumeBasis"
+            )
+        if not isinstance(self.branch_domain, HugoniotBranchDomain):
+            raise MaterialError(
+                "HugoniotRecord.branch_domain must be HugoniotBranchDomain"
+            )
+        if self.branch_kind == "untransformed" and self.initial_state.phase != self.phase:
+            raise MaterialError(
+                "An untransformed Hugoniot branch must represent its initial-state phase"
+            )
+        if self.branch_kind == "transformed" and self.initial_state.phase == self.phase:
+            raise MaterialError(
+                "A transformed Hugoniot branch must differ from its initial-state phase"
+            )
+        if self.loading_path == "precompressed" and self.eos.P0 <= 0.0:
+            raise MaterialError("A precompressed Hugoniot requires positive P0")
+        for field_name, metadata_value, model_value in (
+            ("pressure_gpa", self.initial_state.pressure_gpa, self.eos.P0),
+            ("density_g_cm3", self.initial_state.density_g_cm3, self.eos.rho0),
+            (
+                "temperature_k",
+                self.initial_state.temperature_k,
+                self.reference_temperature,
+            ),
+        ):
+            if not np.isclose(metadata_value, model_value, rtol=1.0e-12, atol=1.0e-12):
+                raise MaterialError(
+                    f"Hugoniot initial-state {field_name} must match its executable "
+                    "record value"
+                )
+
+        public_v0 = self.eos.V0 / self.volume_scale
+        expected_density = (
+            self.volume_basis.formula_units
+            * self.volume_basis.molar_mass_g_mol
+            / (Avogadro * public_v0 * 1.0e-24)
+        )
+        if not np.isclose(
+            self.eos.rho0,
+            expected_density,
+            rtol=_HUGONIOT_MASS_BASIS_RTOL,
+            atol=0.0,
+        ):
+            raise MaterialError(
+                "Hugoniot V0, rho0, formula_units, and molar_mass_g_mol do not "
+                "describe the same mass basis"
+            )
+
+    def _validate_branch_domain(self, particle_velocity: Any) -> None:
+        if not np.all(self.branch_domain.contains(particle_velocity)):
+            raise MaterialError(
+                f"State is outside the declared Hugoniot branch domain for "
+                f"{self.identifier}; evaluate the raw model to extrapolate deliberately"
+            )
+
+    def pressure(
+        self,
+        volume: NumericType,
+        temperature: Any | None = None,
+        *,
+        check_validity: bool = False,
+        check_domain: bool = True,
+    ) -> NumericType:
+        """Calculate branch pressure, checking its declared domain by default."""
+        result = super().pressure(
+            volume, temperature=temperature, check_validity=check_validity
+        )
+        if check_domain:
+            self._validate_branch_domain(
+                self.eos.particle_velocity(
+                    np.asarray(volume, dtype=float) * self.volume_scale
+                )
+            )
+        return result
+
+    def volume(
+        self,
+        pressure: NumericType,
+        temperature: Any | None = None,
+        *,
+        check_validity: bool = False,
+        check_domain: bool = True,
+    ) -> NumericType:
+        """Invert branch volume, checking its declared domain by default."""
+        result = super().volume(
+            pressure, temperature=temperature, check_validity=check_validity
+        )
+        if check_domain:
+            self._validate_branch_domain(
+                self.eos.particle_velocity(
+                    np.asarray(result, dtype=float) * self.volume_scale
+                )
+            )
+        return result
+
+    def shock_velocity(
+        self, volume: NumericType, *, check_domain: bool = True
+    ) -> NumericType:
+        """Return shock velocity in km/s for a state on this branch."""
+        internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
+        if check_domain:
+            self._validate_branch_domain(self.eos.particle_velocity(internal_volume))
+        return self.eos.shock_velocity(internal_volume)
+
+    def particle_velocity(
+        self, volume: NumericType, *, check_domain: bool = True
+    ) -> NumericType:
+        """Return particle velocity in km/s for a state on this branch."""
+        result = self.eos.particle_velocity(
+            np.asarray(volume, dtype=float) * self.volume_scale
+        )
+        if check_domain:
+            self._validate_branch_domain(result)
+        return result
+
+    def density(self, volume: NumericType, *, check_domain: bool = True) -> NumericType:
+        """Return Hugoniot density in g/cm^3 for a state on this branch."""
+        internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
+        if check_domain:
+            self._validate_branch_domain(self.eos.particle_velocity(internal_volume))
+        return self.eos.density(internal_volume)
+
+    def specific_internal_energy_change(
+        self, volume: NumericType, *, check_domain: bool = True
+    ) -> NumericType:
+        """Return the Hugoniot internal-energy increase in MJ/kg."""
+        internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
+        if check_domain:
+            self._validate_branch_domain(self.eos.particle_velocity(internal_volume))
+        return self.eos.specific_internal_energy_change(internal_volume)
+
+    def tangent_modulus(
+        self, volume: NumericType, *, check_domain: bool = True
+    ) -> NumericType:
+        """Return ``-V dP_H/dV`` along this branch in GPa."""
+        internal_volume = np.asarray(volume, dtype=float) * self.volume_scale
+        if check_domain:
+            self._validate_branch_domain(self.eos.particle_velocity(internal_volume))
+        return self.eos.tangent_modulus(internal_volume)
+
+    def state_from_particle_velocity(
+        self, up: Any, *, check_domain: bool = True
+    ) -> HugoniotState:
+        """Return a coupled state, with volume in the record's public unit."""
+        if check_domain:
+            self._validate_branch_domain(up)
+        state = self.eos.state_from_particle_velocity(up)
+        volume = np.asarray(state.volume, dtype=float) / self.volume_scale
+        return HugoniotState(
+            volume=float(volume) if volume.ndim == 0 else volume,
+            density=state.density,
+            pressure=state.pressure,
+            particle_velocity=state.particle_velocity,
+            shock_velocity=state.shock_velocity,
+            specific_internal_energy_change=state.specific_internal_energy_change,
         )
 
 
@@ -554,6 +958,51 @@ class Material:
                 raise MaterialError(
                     "formula_units_per_cell must be positive and finite"
                 )
+        for record in self.eos_records:
+            if not isinstance(record, HugoniotRecord):
+                continue
+            if self.formula_units_per_cell is None:
+                raise MaterialError(
+                    "Materials with Hugoniot records require formula_units_per_cell"
+                )
+            if not np.isclose(
+                record.volume_basis.formula_units,
+                self.formula_units_per_cell,
+                rtol=1.0e-12,
+                atol=1.0e-12,
+            ):
+                raise MaterialError(
+                    f"Hugoniot record {record.identifier!r} volume basis must match "
+                    "the material's formula_units_per_cell"
+                )
+            if record.branch_kind == "untransformed" and (
+                record.initial_state.material_identifier != self.identifier
+            ):
+                raise MaterialError(
+                    f"Untransformed Hugoniot record {record.identifier!r} must "
+                    "reference its containing material as the initial state"
+                )
+            if record.branch_kind == "transformed" and (
+                record.initial_state.material_identifier == self.identifier
+            ):
+                raise MaterialError(
+                    f"Transformed Hugoniot record {record.identifier!r} must "
+                    "reference a distinct precursor material"
+                )
+        for equation_kind in ("equilibrium", "hugoniot"):
+            defaults = [
+                record
+                for record in self.eos_records
+                if record.is_default
+                and (
+                    "hugoniot" if isinstance(record, HugoniotRecord) else "equilibrium"
+                )
+                == equation_kind
+            ]
+            if len(defaults) > 1:
+                raise MaterialError(
+                    f"A material may have at most one default {equation_kind} record"
+                )
         if self.space_group_number is not None and not (
             1 <= self.space_group_number <= 230
         ):
@@ -595,6 +1044,40 @@ class Material:
             f"available: {[record.identifier for record in self.eos_records]}"
         )
 
+    def default_equilibrium_record(self) -> EOSRecord | None:
+        """Return the preferred equilibrium record, falling back to the first."""
+        records = self.equilibrium_records
+        return next((record for record in records if record.is_default), None) or (
+            records[0] if records else None
+        )
+
+    def default_hugoniot_record(self) -> HugoniotRecord | None:
+        """Return the preferred Hugoniot record, falling back to the first."""
+        records = self.hugoniot_records
+        return next((record for record in records if record.is_default), None) or (
+            records[0] if records else None
+        )
+
+    def default_record(self) -> EOSRecord | None:
+        """Return the equilibrium default first, for backward-safe selection."""
+        return self.default_equilibrium_record() or self.default_hugoniot_record()
+
+    @property
+    def equilibrium_records(self) -> tuple[EOSRecord, ...]:
+        """Return the equilibrium isothermal and thermal EOS records."""
+        return tuple(
+            record
+            for record in self.eos_records
+            if not isinstance(record, HugoniotRecord)
+        )
+
+    @property
+    def hugoniot_records(self) -> tuple[HugoniotRecord, ...]:
+        """Return the phase-specific shock-path records."""
+        return tuple(
+            record for record in self.eos_records if isinstance(record, HugoniotRecord)
+        )
+
     def to_dict(self) -> dict[str, Any]:
         """Return the canonical JSON-safe ``.eosmat`` format-3 document."""
         return self.to_eosmat()
@@ -605,6 +1088,11 @@ class Material:
 
     def to_snapshot_dict(self) -> dict[str, Any]:
         """Return the deprecated executable snapshot-v2 representation."""
+        if self.hugoniot_records:
+            raise UnsupportedOperationError(
+                "Snapshot-v2 cannot represent typed Hugoniot path metadata; "
+                "use to_eosmat()"
+            )
         return _eos_records_to_document(self.eos_records, self.identifier)
 
     @classmethod
@@ -658,6 +1146,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
             "multi_oscillator_gruneisen_thermal_pressure"
         ),
         "ThermalModifiedTait": "thermal_modified_tait",
+        "LinearUsUpHugoniot": "linear_us_up_hugoniot",
     }
 )
 
@@ -686,6 +1175,7 @@ _MODEL_CLASSES = MappingProxyType(
             MultiOscillatorGruneisenThermalEOS,
             Tange2009Debye,
             ThermalModifiedTait,
+            LinearUsUpHugoniot,
         )
     }
 )
@@ -715,6 +1205,7 @@ _EOSMAT_TYPES = MappingProxyType(
         ),
         "multi_oscillator_gruneisen_thermal_pressure": ("MultiOscillatorGruneisen"),
         "thermal_modified_tait": "ThermalModifiedTait",
+        "linear_us_up_hugoniot": "LinearUsUpHugoniot",
     }
 )
 
@@ -732,7 +1223,7 @@ _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
 )
 
 
-def _model_identifier(eos: EosBase) -> str:
+def _model_identifier(eos: EquationOfState) -> str:
     """Return a stable mechanism-oriented model identifier."""
     try:
         return _MODEL_IDENTIFIERS[type(eos).__name__]
@@ -751,9 +1242,15 @@ def _plain_data(value: Any) -> Any:
     return copy.deepcopy(value)
 
 
-def _eosmat_component(eos: EosBase) -> dict[str, Any]:
+def _own_parameter_values(eos: EquationOfState) -> dict[str, float]:
+    if isinstance(eos, HugoniotBase):
+        return eos.parameter_values()
+    return eos.parameter_values(include_reference=False)
+
+
+def _eosmat_component(eos: EquationOfState) -> dict[str, Any]:
     model = _model_identifier(eos)
-    parameters: dict[str, Any] = eos.parameter_values(include_reference=False)
+    parameters: dict[str, Any] = _own_parameter_values(eos)
     if (
         model
         in {
@@ -768,7 +1265,7 @@ def _eosmat_component(eos: EosBase) -> dict[str, Any]:
         "model": model,
         "parameters": parameters,
     }
-    configuration = eos.configuration_values()
+    configuration = {} if isinstance(eos, HugoniotBase) else eos.configuration_values()
     if configuration:
         component["configuration"] = configuration
         # Kept at the established location for Dioptas format-3 readers.
@@ -829,6 +1326,10 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
         record, record.parameter_provenance
     )
     result: dict[str, Any] = _plain_data(record.eosmat_metadata)
+    result["equation_kind"] = record.equation_kind
+    result.pop("default_for", None)
+    if record.is_default:
+        result["default_for"] = "hugoniot" if record.is_hugoniot else "equilibrium"
     reference_component = _merge_eosmat_component(
         result.get("eos"), _eosmat_component(reference_eos)
     )
@@ -866,26 +1367,66 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
             "eos": reference_component,
             "parameter_errors": merged_errors,
             "parameter_error_confidence": record.parameter_error_confidence,
-            "temperature_ref": record.reference_temperature,
             "volume": volume,
             "scientific_validation": validation,
         }
     )
+    if isinstance(record, HugoniotRecord):
+        result.pop("temperature_ref", None)
+    else:
+        result["temperature_ref"] = record.reference_temperature
     result.setdefault("reference", _reference_to_eosmat(record.reference))
     if record.pressure_calibration:
         result["pressure_calibration"] = _plain_data(record.pressure_calibration)
     else:
         result.pop("pressure_calibration", None)
     result.setdefault("fixed_parameters", [])
-    result.setdefault(
-        "parameter_provenance",
-        {
-            "reference_isotherm": component_provenance[0],
-            "thermal_correction": component_provenance[1],
-            "additional": component_provenance[2],
-        },
-    )
+    if isinstance(record, HugoniotRecord):
+        result["parameter_provenance"] = {
+            **component_provenance[0],
+            **component_provenance[2],
+        }
+    else:
+        result.setdefault(
+            "parameter_provenance",
+            {
+                "reference_isotherm": component_provenance[0],
+                "thermal_correction": component_provenance[1],
+                "additional": component_provenance[2],
+            },
+        )
     result.setdefault("notes", "\n".join(record.notes))
+    if isinstance(record, HugoniotRecord):
+        initial_state = (
+            _plain_data(result.get("initial_state"))
+            if isinstance(result.get("initial_state"), Mapping)
+            else {}
+        )
+        initial_state.update(_plain_data(asdict(record.initial_state)))
+        if initial_state.get("eos_record_identifier") is None:
+            initial_state.pop("eos_record_identifier", None)
+        volume_basis = (
+            _plain_data(result.get("volume_basis"))
+            if isinstance(result.get("volume_basis"), Mapping)
+            else {}
+        )
+        volume_basis.update(_plain_data(asdict(record.volume_basis)))
+        branch_domain = (
+            _plain_data(result.get("branch_domain"))
+            if isinstance(result.get("branch_domain"), Mapping)
+            else {}
+        )
+        branch_domain.update(_plain_data(asdict(record.branch_domain)))
+        result.update(
+            {
+                "loading_path": record.loading_path,
+                "branch_kind": record.branch_kind,
+                "initial_state": initial_state,
+                "volume_basis": volume_basis,
+                "branch_domain": branch_domain,
+            }
+        )
+        result.pop("path_kind", None)
     if record.parameter_covariance is not None:
         result["parameter_covariance"] = {
             "matrix": [list(row) for row in record.parameter_covariance],
@@ -978,14 +1519,14 @@ def _material_to_eosmat(material: Material) -> dict[str, Any]:
     return document
 
 
-def _equation_component(eos: EosBase) -> dict[str, Any]:
+def _equation_component(eos: EquationOfState) -> dict[str, Any]:
     """Serialize one independently selectable EOS component."""
     component = {
         "model": _model_identifier(eos),
         "implementation": f"{type(eos).__module__}.{type(eos).__name__}",
-        "parameters": eos.parameter_values(include_reference=False),
+        "parameters": _own_parameter_values(eos),
     }
-    configuration = eos.configuration_values()
+    configuration = {} if isinstance(eos, HugoniotBase) else eos.configuration_values()
     if configuration:
         component["configuration"] = configuration
     return component
@@ -1004,10 +1545,10 @@ def _component_parameter_mapping(
     reference_eos = (
         record.eos.rt_eos if isinstance(record.eos, ThermalEOS) else record.eos
     )
-    reference_names = set(reference_eos.parameter_values(include_reference=False))
+    reference_names = set(_own_parameter_values(reference_eos))
     thermal_names = (
         set(record.eos.parameter_values(include_reference=False))
-        if record.is_thermal
+        if isinstance(record.eos, ThermalEOS)
         else set()
     )
     for name, value in values.items():
@@ -1159,7 +1700,7 @@ def _eos_records_to_document(
 
 def _load_component(
     component: Mapping[str, Any], *, rt_eos: EosBase | None = None
-) -> EosBase:
+) -> EosBase | HugoniotBase:
     """Construct a whitelisted EOS component from a version-2 record."""
     try:
         model_identifier = component["model"]
@@ -1370,6 +1911,11 @@ def _material_from_eosmat(
             if thermal_data is None:
                 eos = reference_eos
             else:
+                if isinstance(reference_eos, HugoniotBase):
+                    raise MaterialError(
+                        "A Hugoniot record cannot have a thermal correction"
+                    )
+                assert isinstance(reference_eos, EosBase)
                 thermal_component = _plain_data(thermal_data)
                 configuration = dict(thermal_component.get("configuration", {}))
                 for name in (
@@ -1416,7 +1962,9 @@ def _material_from_eosmat(
             reference_temperature = float(
                 raw_record.get(
                     "temperature_ref",
-                    getattr(eos, "Tr", 300.0),
+                    raw_record.get("initial_state", {}).get(
+                        "temperature_k", getattr(eos, "Tr", 300.0)
+                    ),
                 )
             )
             notes_value = raw_record.get("notes", "")
@@ -1425,40 +1973,105 @@ def _material_from_eosmat(
                 if isinstance(notes_value, list)
                 else ((str(notes_value),) if notes_value else ())
             )
-            eos_records.append(
-                EOSRecord(
-                    identifier=str(raw_record["identifier"]),
-                    name=str(raw_record["label"]),
-                    material=formula,
-                    phase=phase,
-                    cell_contents=cell_contents,
-                    eos=eos,
-                    reference_temperature=reference_temperature,
-                    reference=_eosmat_reference(raw_record["reference"]),
-                    validity=_eosmat_validity(raw_record),
-                    parameter_provenance=_eosmat_provenance(
-                        raw_record.get("parameter_provenance", {}),
-                        thermal=is_thermal,
-                    ),
-                    pressure_calibration=_plain_data(
-                        raw_record.get("pressure_calibration", {})
-                    ),
-                    parameter_errors=(None if not errors else MappingProxyType(errors)),
-                    parameter_error_confidence=(
-                        None
-                        if raw_record.get("parameter_error_confidence") is None
-                        else float(raw_record["parameter_error_confidence"])
-                    ),
-                    parameter_covariance=covariance,
-                    covariance_parameters=covariance_parameters,
-                    notes=notes,
-                    volume_unit=volume_unit,
-                    volume_scale=volume_scale,
-                    scientific_validation_status=validation_status,
-                    scientific_validation_note=str(validation.get("note", "")),
-                    eosmat_metadata=_plain_data(raw_record),
-                )
+            record_arguments = dict(
+                identifier=str(raw_record["identifier"]),
+                name=str(raw_record["label"]),
+                material=formula,
+                phase=phase,
+                cell_contents=cell_contents,
+                eos=eos,
+                reference_temperature=reference_temperature,
+                reference=_eosmat_reference(raw_record["reference"]),
+                validity=_eosmat_validity(raw_record),
+                parameter_provenance=_eosmat_provenance(
+                    raw_record.get("parameter_provenance", {}),
+                    thermal=is_thermal,
+                ),
+                pressure_calibration=_plain_data(
+                    raw_record.get("pressure_calibration", {})
+                ),
+                parameter_errors=(None if not errors else MappingProxyType(errors)),
+                parameter_error_confidence=(
+                    None
+                    if raw_record.get("parameter_error_confidence") is None
+                    else float(raw_record["parameter_error_confidence"])
+                ),
+                parameter_covariance=covariance,
+                covariance_parameters=covariance_parameters,
+                notes=notes,
+                volume_unit=volume_unit,
+                volume_scale=volume_scale,
+                scientific_validation_status=validation_status,
+                scientific_validation_note=str(validation.get("note", "")),
+                is_default=bool(
+                    raw_record.get("default") is True
+                    or raw_record.get("default_for")
+                    == (
+                        "hugoniot"
+                        if isinstance(eos, HugoniotBase)
+                        else "equilibrium"
+                    )
+                ),
+                equation_kind=str(
+                    raw_record.get(
+                        "equation_kind",
+                        "thermal"
+                        if is_thermal
+                        else "hugoniot"
+                        if isinstance(eos, HugoniotBase)
+                        else "isothermal",
+                    )
+                ),
+                eosmat_metadata=_plain_data(raw_record),
             )
+            if isinstance(eos, HugoniotBase):
+                raw_initial_state = raw_record["initial_state"]
+                raw_volume_basis = raw_record["volume_basis"]
+                raw_branch_domain = raw_record["branch_domain"]
+                eos_records.append(
+                    HugoniotRecord(
+                        **record_arguments,
+                        loading_path=str(raw_record["loading_path"]),
+                        branch_kind=str(raw_record["branch_kind"]),
+                        initial_state=HugoniotInitialState(
+                            phase=str(raw_initial_state["phase"]),
+                            temperature_k=float(raw_initial_state["temperature_k"]),
+                            pressure_gpa=float(raw_initial_state["pressure_gpa"]),
+                            density_g_cm3=float(raw_initial_state["density_g_cm3"]),
+                            material_identifier=str(
+                                raw_initial_state["material_identifier"]
+                            ),
+                            eos_record_identifier=(
+                                None
+                                if raw_initial_state.get("eos_record_identifier") is None
+                                else str(raw_initial_state["eos_record_identifier"])
+                            ),
+                        ),
+                        volume_basis=HugoniotVolumeBasis(
+                            formula_units=float(raw_volume_basis["formula_units"]),
+                            molar_mass_g_mol=float(
+                                raw_volume_basis["molar_mass_g_mol"]
+                            ),
+                            kind=str(raw_volume_basis["kind"]),
+                        ),
+                        branch_domain=HugoniotBranchDomain(
+                            particle_velocity_km_s=(
+                                float(raw_branch_domain["particle_velocity_km_s"][0]),
+                                float(raw_branch_domain["particle_velocity_km_s"][1]),
+                            ),
+                            kind=str(raw_branch_domain["kind"]),
+                            boundary_status=str(
+                                raw_branch_domain["boundary_status"]
+                            ),
+                            notes=tuple(
+                                str(note)
+                                for note in raw_branch_domain.get("notes", ())
+                            ),
+                        ),
+                    )
+                )
+            else:
+                eos_records.append(EOSRecord(**record_arguments))
         except (KeyError, TypeError, ValueError) as error:
             identifier = (
                 raw_record.get("identifier", "<unknown>")
@@ -1585,11 +2198,14 @@ def material_from_dict(document: Mapping[str, Any]) -> Material:
                 )
             reference_eos = _load_component(equation["reference_isotherm"])
             thermal_component = equation.get("thermal_correction")
-            eos = (
-                reference_eos
-                if thermal_component is None
-                else _load_component(thermal_component, rt_eos=reference_eos)
-            )
+            if thermal_component is None:
+                eos = reference_eos
+            else:
+                if isinstance(reference_eos, HugoniotBase):
+                    raise MaterialError(
+                        "A Hugoniot record cannot have a thermal correction"
+                    )
+                eos = _load_component(thermal_component, rt_eos=reference_eos)
             is_thermal = isinstance(eos, ThermalEOS)
             reference_data = record["provenance"]["primary_reference"]
             reference = LiteratureReference(
@@ -3485,6 +4101,13 @@ __all__ = [
     "KCL_B1_DEWAELE_2012",
     "KCL_B2_DEWAELE_2012",
     "LIF_B1_DEWAELE_2019",
+    "HUGONIOT_LOADING_PATHS",
+    "HUGONIOT_BRANCH_KINDS",
+    "HUGONIOT_DOMAIN_KINDS",
+    "HugoniotBranchDomain",
+    "HugoniotInitialState",
+    "HugoniotRecord",
+    "HugoniotVolumeBasis",
     "LiteratureReference",
     "Material",
     "MGO_TANGE_2009",

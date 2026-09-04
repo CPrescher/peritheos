@@ -56,7 +56,9 @@
 //! use peritheos::load_eosmat;
 //!
 //! let material = load_eosmat("gold.eosmat")?;
-//! let record = material.default_record().expect("material has a default EOS");
+//! let record = material
+//!     .default_equilibrium_record()
+//!     .expect("material has a default equilibrium EOS");
 //! let pressure = record.pressure(60.0, 300.0)?;
 //! material.save("gold-copy.eosmat")?;
 //! println!("{}: {pressure:.3} GPa", material.name);
@@ -108,6 +110,7 @@ mod validation;
 pub mod batch;
 pub mod eosmat;
 pub mod fit;
+pub mod hugoniot;
 pub mod isothermal;
 pub mod pressure_calibration;
 pub mod thermal;
@@ -116,7 +119,10 @@ pub use batch::{CaloricEosBatch, IsothermalEosBatch, ThermalEosBatch};
 pub use eosmat::{
     load_eosmat, load_eosmat_reader, load_eosmat_str, material_from_value, save_eosmat,
     serialize_eosmat, validate_eosmat_document, EosRecord, EosmatError, EosmatErrorKind,
-    IsothermalModel, LoadedEos, Material, ThermalModel, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
+    HugoniotBoundaryStatus, HugoniotBranchDomain, HugoniotBranchKind, HugoniotDomainKind,
+    HugoniotInitialState, HugoniotLoadingPath, HugoniotModel, HugoniotRecord,
+    HugoniotRecordMetadata, HugoniotState, HugoniotVolumeBasis, IsothermalModel, LoadedEos,
+    Material, ThermalModel, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
 };
 pub use error::{EosError, EosErrorKind};
 pub use pressure_calibration::{

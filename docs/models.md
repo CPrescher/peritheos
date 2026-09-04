@@ -23,6 +23,16 @@ bulk_modulus(V)
 volume(P)
 ```
 
+## Shock Hugoniot models
+
+[`LinearUsUpHugoniot`](hugoniots.md) implements a phase-specific constrained
+shock path from `Us = c0 + s * up`. Typed `HugoniotRecord` instances remain in
+the material's common `eos_records` collection, marked by
+`equation_kind="hugoniot"`, but are deliberately not accepted as reference
+isotherms for thermal EOS composition. Hugoniot and equilibrium models share
+the `EquationOfState` base interface; the canonical namespaced import is
+`peritheos.eos.hugoniot` and `peritheos.hugoniot` remains compatible.
+
 ## Thermal models
 
 Most thermal EOS classes wrap an isothermal `rt_eos`, which defines pressure on the

@@ -20,6 +20,10 @@ codes, Rust error kinds, and source-chain examples.
 ```python
 from peritheos import (
     EOSRecord,
+    HugoniotBranchDomain,
+    HugoniotInitialState,
+    HugoniotRecord,
+    HugoniotVolumeBasis,
     Material,
     get_eos_record,
     get_material,
@@ -39,6 +43,14 @@ canonical executable format-3 material document. Optional crystallographic
 fields are preserved but not interpreted. Loading uses a fixed model registry
 and never imports an implementation path. The legacy executable snapshot-v2
 reader and `to_snapshot_dict()` remain compatibility-only APIs.
+
+`HugoniotRecord` specializes `EOSRecord` with mandatory loading-path,
+branch-kind, initial-state, operational volume-basis, and branch-domain fields.
+It stays in the common
+`Material.eos_records` collection; `Material.hugoniot_records` and
+`Material.equilibrium_records` return convenient filtered views. Hugoniot
+records expose `shock_velocity()`, `particle_velocity()`, `density()`, and
+`specific_internal_energy_change()` in addition to `pressure()` and `volume()`.
 
 ## Shared `.eosmat` material library
 
@@ -352,10 +364,28 @@ Mie-Gruneisen models additionally expose `gruneisen_parameter()`,
 `characteristic_temperature()`, and the vibrational thermodynamic methods
 documented under [Thermoelastic properties](thermoelastic-properties.md).
 
+## Shock Hugoniot equations of state
+
+```python
+from peritheos import HugoniotBase, HugoniotState, LinearUsUpHugoniot
+```
+
+`LinearUsUpHugoniot(V0, rho0, c0, s, P0=0)` implements a phase-specific
+`Us = c0 + s * up` relation and the Rankine--Hugoniot jump conditions. See
+[Shock Hugoniot equations of state](hugoniots.md) for equations, units,
+fitting, EOSMAT records, and phase-branch semantics.
+
 ## Fitting
 
 ```python
-from peritheos.fitting import FitResult, fit_joint_eos, fit_rt_eos, fit_thermal_eos
+from peritheos.fitting import (
+    FitResult,
+    HugoniotFitResult,
+    fit_joint_eos,
+    fit_linear_us_up,
+    fit_rt_eos,
+    fit_thermal_eos,
+)
 ```
 
 `FitResult` contains the fitted `model`, parameter and uncertainty mappings,
@@ -375,6 +405,12 @@ configuration. Passing a path to `to_json()` also writes the record to disk.
 regression. Reference parameters use dotted names such as `rt_eos.V0`; its
 covariance includes reference/thermal cross-correlations and is directly
 compatible with `FitResult.eos_uncertainty()`.
+
+`fit_linear_us_up()` returns a `HugoniotFitResult`. With no uncertainties it
+performs OLS; shock-velocity uncertainties select WLS, and particle-velocity
+uncertainties add latent-coordinate errors-in-variables fitting.
+`HugoniotFitResult.to_dict()` and `.to_json()` serialize the fitted model,
+covariance, adjusted particle velocities, diagnostics, and solver status.
 
 ## Units
 

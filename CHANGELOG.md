@@ -7,6 +7,16 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added phase-specific linear `Us`-`up` shock Hugoniot EOSs in Python and Rust,
+  including Rankine--Hugoniot pressure-volume inversion, velocity, density,
+  energy, tangent-modulus, uncertainty propagation, OLS/WLS/errors-in-variables
+  fitting, JSON-serializable fit results, and typed precursor, mass-basis, and
+  branch-domain APIs. Hugoniots remain in `Material.eos_records`, with filtered
+  `hugoniot_records` and `equilibrium_records` views and category-scoped
+  defaults. Loading history and transformed-branch identity are independent;
+  record evaluation enforces the declared branch domain, while `V0`, `rho0`,
+  formula units, and molar mass are cross-validated. Structured derivation
+  metadata covers coefficients obtained from SESAME or published tables.
 - Added a bundled executable pressure-calibration library for the Mao (1978),
   Mao--Xu--Bell (1986), Dewaele (2004), Holzapfel (2005), and
   Dorogokupets--Oganov (2007), and IPPS-Ruby2020 ruby R1 scales in Python and

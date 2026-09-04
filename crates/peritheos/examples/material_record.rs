@@ -30,7 +30,7 @@ const MATERIAL: &str = r#"{
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let material = load_eosmat_str(MATERIAL)?;
     let record = material
-        .default_record()
+        .default_equilibrium_record()
         .expect("example has a default record");
     let pressure = record.pressure(9.0, 300.0)?;
     let recovered = record.volume(pressure, 300.0)?;

@@ -16,6 +16,7 @@ use std::path::Path;
 use serde::Deserialize;
 use serde_json::Value;
 
+use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
     Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
     BM3, BM4,
@@ -35,6 +36,7 @@ pub const EOSMAT_FORMAT: &str = "peritheos.material";
 pub const EOSMAT_FORMAT_VERSION: u64 = 3;
 const LEGACY_FORMAT_VERSION: u64 = 2;
 const CELL_ANGSTROM3_TO_FORMULA_MOLAR_J_PER_BAR: f64 = 0.060_221_407_6;
+const HUGONIOT_MASS_BASIS_RELATIVE_TOLERANCE: f64 = 1.0e-3;
 
 /// Machine-readable category for an [`EosmatError`].
 #[derive(Clone, Copy, Debug, PartialEq, Eq)]
@@ -271,6 +273,225 @@ impl ReferenceStateEos for IsothermalModel {
     }
 }
 
+/// Runtime-dispatched built-in shock Hugoniot model.
+#[derive(Clone, Copy, Debug, PartialEq)]
+#[non_exhaustive]
+pub enum HugoniotModel {
+    /// Linear shock-velocity--particle-velocity relation.
+    LinearUsUp(LinearUsUpHugoniot),
+}
+
+/// Coupled mechanical state on a shock Hugoniot.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HugoniotState {
+    /// Volume in the record's public conventional-cell unit.
+    pub volume: f64,
+    /// Density in g cm^-3.
+    pub density: f64,
+    /// Pressure in `GPa`.
+    pub pressure: f64,
+    /// Particle velocity in km s^-1.
+    pub particle_velocity: f64,
+    /// Shock velocity in km s^-1.
+    pub shock_velocity: f64,
+    /// Specific internal-energy increase in MJ kg^-1.
+    pub specific_internal_energy_change: f64,
+}
+
+/// Initial loading history for a Hugoniot record.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HugoniotLoadingPath {
+    /// Single shock from the ordinary initial state.
+    Principal,
+    /// Single shock from a statically precompressed state.
+    Precompressed,
+}
+
+/// Whether the represented states retain or transform the precursor phase.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HugoniotBranchKind {
+    /// The represented and precursor phases are the same.
+    Untransformed,
+    /// The represented phase differs from the precursor phase.
+    Transformed,
+}
+
+/// Scientific meaning attached to a declared branch domain.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HugoniotDomainKind {
+    /// A phase-stability interval.
+    PhaseStability,
+    /// The interval covered by observations or a fit.
+    ExperimentalCoverage,
+    /// A source-recommended usage interval.
+    Recommended,
+}
+
+/// Provenance strength of a branch-domain boundary.
+#[derive(Clone, Copy, Debug, PartialEq, Eq)]
+pub enum HugoniotBoundaryStatus {
+    /// Numerical endpoints were reported by the source.
+    ReportedExactly,
+    /// The source described the interval qualitatively.
+    ReportedQualitatively,
+    /// The endpoints were inferred during curation.
+    Inferred,
+}
+
+/// Typed precursor state retained from an `.eosmat` Hugoniot record.
+#[derive(Clone, Debug, PartialEq)]
+pub struct HugoniotInitialState {
+    /// Precursor phase label.
+    pub phase: String,
+    /// Stable identifier of the precursor material document.
+    pub material_identifier: String,
+    /// Optional precursor equilibrium-EOS record identifier.
+    pub eos_record_identifier: Option<String>,
+    /// Initial temperature in kelvin.
+    pub temperature_k: f64,
+    /// Initial pressure in `GPa`.
+    pub pressure_gpa: f64,
+    /// Initial density in g cm^-3.
+    pub density_g_cm3: f64,
+}
+
+/// Operational mass basis shared by `V0` and every evaluated volume.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct HugoniotVolumeBasis {
+    /// Number of chemical formula units represented by one public volume.
+    pub formula_units: f64,
+    /// Molar mass of one chemical formula in g mol^-1.
+    pub molar_mass_g_mol: f64,
+}
+
+/// Declared particle-velocity interval for one phase-specific branch.
+#[derive(Clone, Debug, PartialEq)]
+pub struct HugoniotBranchDomain {
+    /// Inclusive particle-velocity interval in km s^-1.
+    pub particle_velocity_km_s: [f64; 2],
+    /// Scientific meaning of the interval.
+    pub kind: HugoniotDomainKind,
+    /// Provenance strength of its endpoints.
+    pub boundary_status: HugoniotBoundaryStatus,
+    /// Qualifications retained from the record.
+    pub notes: Vec<String>,
+}
+
+/// Typed metadata required by a phase-specific Hugoniot record.
+#[derive(Clone, Debug, PartialEq)]
+pub struct HugoniotRecordMetadata {
+    /// Initial loading history.
+    pub loading_path: HugoniotLoadingPath,
+    /// Whether this branch transforms the precursor phase.
+    pub branch_kind: HugoniotBranchKind,
+    /// Resolvable precursor state.
+    pub initial_state: HugoniotInitialState,
+    /// Enforced mass basis.
+    pub volume_basis: HugoniotVolumeBasis,
+    /// Declared branch domain.
+    pub branch_domain: HugoniotBranchDomain,
+}
+
+impl HugoniotModel {
+    /// Stable mechanism-oriented `.eosmat` model identifier.
+    #[must_use]
+    pub const fn model_identifier(&self) -> &'static str {
+        match self {
+            Self::LinearUsUp(_) => "linear_us_up_hugoniot",
+        }
+    }
+
+    /// Application-facing model name used by `.eosmat`.
+    #[must_use]
+    pub const fn model_name(&self) -> &'static str {
+        match self {
+            Self::LinearUsUp(_) => "LinearUsUpHugoniot",
+        }
+    }
+
+    fn shock_velocity_from_particle_velocity(&self, particle_velocity: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => {
+                model.shock_velocity_from_particle_velocity(particle_velocity)
+            }
+        }
+    }
+
+    fn pressure_from_particle_velocity(&self, particle_velocity: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.pressure_from_particle_velocity(particle_velocity),
+        }
+    }
+
+    fn volume_from_particle_velocity(&self, particle_velocity: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.volume_from_particle_velocity(particle_velocity),
+        }
+    }
+}
+
+impl Hugoniot for HugoniotModel {
+    fn reference_volume(&self) -> f64 {
+        match self {
+            Self::LinearUsUp(model) => model.reference_volume(),
+        }
+    }
+
+    fn initial_density(&self) -> f64 {
+        match self {
+            Self::LinearUsUp(model) => model.initial_density(),
+        }
+    }
+
+    fn initial_pressure(&self) -> f64 {
+        match self {
+            Self::LinearUsUp(model) => model.initial_pressure(),
+        }
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.pressure(volume),
+        }
+    }
+
+    fn volume(&self, pressure: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.volume(pressure),
+        }
+    }
+
+    fn particle_velocity(&self, volume: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.particle_velocity(volume),
+        }
+    }
+
+    fn shock_velocity(&self, volume: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.shock_velocity(volume),
+        }
+    }
+
+    fn density(&self, volume: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.density(volume),
+        }
+    }
+
+    fn specific_internal_energy_change(&self, volume: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.specific_internal_energy_change(volume),
+        }
+    }
+
+    fn tangent_modulus(&self, volume: f64) -> EosResult<f64> {
+        match self {
+            Self::LinearUsUp(model) => model.tangent_modulus(volume),
+        }
+    }
+}
+
 /// Runtime-dispatched built-in thermal model.
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[non_exhaustive]
@@ -386,6 +607,8 @@ pub enum LoadedEos {
     Isothermal(IsothermalModel),
     /// Composed reference isotherm and thermal correction.
     Thermal(ThermalModel),
+    /// One-dimensional pressure-volume shock path.
+    Hugoniot(HugoniotModel),
 }
 
 impl LoadedEos {
@@ -395,7 +618,27 @@ impl LoadedEos {
         matches!(self, Self::Thermal(_))
     }
 
+    /// Whether the record describes a shock Hugoniot path.
+    #[must_use]
+    pub const fn is_hugoniot(&self) -> bool {
+        matches!(self, Self::Hugoniot(_))
+    }
+
+    /// Stable model identifier for the record's primary equation.
+    #[must_use]
+    pub const fn model_identifier(&self) -> &'static str {
+        match self {
+            Self::Isothermal(model) => model.model_identifier(),
+            Self::Thermal(model) => model.model_identifier(),
+            Self::Hugoniot(model) => model.model_identifier(),
+        }
+    }
+
     /// Reference-isotherm model identifier.
+    ///
+    /// For a Hugoniot this returns its path-model identifier for backward
+    /// compatibility. Prefer [`Self::model_identifier`] when the equation kind
+    /// is not already known.
     #[must_use]
     pub const fn isothermal_model_identifier(&self) -> &'static str {
         match self {
@@ -415,6 +658,7 @@ impl LoadedEos {
                 ThermalModel::ThermalModifiedTait(_) => "modified_tait",
                 ThermalModel::ThermalReferenceState(value) => value.rt_eos.model_identifier(),
             },
+            Self::Hugoniot(model) => model.model_identifier(),
         }
     }
 
@@ -422,8 +666,8 @@ impl LoadedEos {
     #[must_use]
     pub const fn thermal_model_identifier(&self) -> Option<&'static str> {
         match self {
-            Self::Isothermal(_) => None,
             Self::Thermal(model) => Some(model.model_identifier()),
+            Self::Isothermal(_) | Self::Hugoniot(_) => None,
         }
     }
 }
@@ -439,6 +683,8 @@ pub struct EosRecord {
     pub is_default: bool,
     /// Executable built-in EOS.
     pub eos: LoadedEos,
+    /// Typed shock-path metadata, present exactly for Hugoniot records.
+    pub hugoniot: Option<HugoniotRecordMetadata>,
     /// Reference temperature in kelvin.
     pub reference_temperature: f64,
     /// Original record including all extension fields.
@@ -446,20 +692,142 @@ pub struct EosRecord {
     volume_scale: f64,
 }
 
+/// Typed view of one phase-specific Hugoniot record.
+#[derive(Clone, Copy, Debug)]
+pub struct HugoniotRecord<'a> {
+    /// Common EOS-record fields and executable model.
+    pub record: &'a EosRecord,
+    /// Required path, precursor, mass-basis, and domain metadata.
+    pub metadata: &'a HugoniotRecordMetadata,
+}
+
+impl HugoniotRecord<'_> {
+    fn model(&self) -> HugoniotModel {
+        match self.record.eos {
+            LoadedEos::Hugoniot(model) => model,
+            LoadedEos::Isothermal(_) | LoadedEos::Thermal(_) => {
+                unreachable!("typed Hugoniot record must contain a Hugoniot model")
+            }
+        }
+    }
+
+    fn validate_domain(&self, particle_velocity: f64) -> EosResult<()> {
+        let [lower, upper] = self.metadata.branch_domain.particle_velocity_km_s;
+        let tolerance = 16.0 * f64::EPSILON * lower.abs().max(upper.abs()).max(1.0);
+        if particle_velocity.is_finite()
+            && particle_velocity >= lower - tolerance
+            && particle_velocity <= upper + tolerance
+        {
+            Ok(())
+        } else {
+            Err(EosError::InvalidState {
+                name: "particle_velocity",
+                reason: "is outside the declared Hugoniot branch domain",
+            })
+        }
+    }
+
+    fn model_volume_and_particle_velocity(&self, volume: f64) -> EosResult<(f64, f64)> {
+        let model_volume = volume * self.record.volume_scale;
+        let particle_velocity = self.model().particle_velocity(model_volume)?;
+        self.validate_domain(particle_velocity)?;
+        Ok((model_volume, particle_velocity))
+    }
+
+    /// Return particle velocity in km s^-1, enforcing the branch domain.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid volume or a state outside the branch domain.
+    pub fn particle_velocity(&self, volume: f64) -> EosResult<f64> {
+        self.model_volume_and_particle_velocity(volume)
+            .map(|(_, particle_velocity)| particle_velocity)
+    }
+
+    /// Return shock velocity in km s^-1, enforcing the branch domain.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid volume or a state outside the branch domain.
+    pub fn shock_velocity(&self, volume: f64) -> EosResult<f64> {
+        let (model_volume, _) = self.model_volume_and_particle_velocity(volume)?;
+        self.model().shock_velocity(model_volume)
+    }
+
+    /// Return density in g cm^-3, enforcing the branch domain.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid volume or a state outside the branch domain.
+    pub fn density(&self, volume: f64) -> EosResult<f64> {
+        let (model_volume, _) = self.model_volume_and_particle_velocity(volume)?;
+        self.model().density(model_volume)
+    }
+
+    /// Return specific internal-energy increase in MJ kg^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid volume or a state outside the branch domain.
+    pub fn specific_internal_energy_change(&self, volume: f64) -> EosResult<f64> {
+        let (model_volume, _) = self.model_volume_and_particle_velocity(volume)?;
+        self.model().specific_internal_energy_change(model_volume)
+    }
+
+    /// Return tangent stiffness in `GPa`, enforcing the branch domain.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid volume or a state outside the branch domain.
+    pub fn tangent_modulus(&self, volume: f64) -> EosResult<f64> {
+        let (model_volume, _) = self.model_volume_and_particle_velocity(volume)?;
+        self.model().tangent_modulus(model_volume)
+    }
+
+    /// Return a coupled shock state, enforcing the declared branch domain.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid particle velocity or a state outside the domain.
+    pub fn state_from_particle_velocity(&self, particle_velocity: f64) -> EosResult<HugoniotState> {
+        self.validate_domain(particle_velocity)?;
+        let model = self.model();
+        let model_volume = model.volume_from_particle_velocity(particle_velocity)?;
+        Ok(HugoniotState {
+            volume: model_volume / self.record.volume_scale,
+            density: model.density(model_volume)?,
+            pressure: model.pressure_from_particle_velocity(particle_velocity)?,
+            particle_velocity,
+            shock_velocity: model.shock_velocity_from_particle_velocity(particle_velocity)?,
+            specific_internal_energy_change: model.specific_internal_energy_change(model_volume)?,
+        })
+    }
+}
+
 impl EosRecord {
+    /// Return a typed Hugoniot view when this record represents a shock path.
+    #[must_use]
+    pub fn as_hugoniot(&self) -> Option<HugoniotRecord<'_>> {
+        self.hugoniot.as_ref().map(|metadata| HugoniotRecord {
+            record: self,
+            metadata,
+        })
+    }
     /// Reference volume in the file's conventional-cell volume unit.
     #[must_use]
     pub fn reference_volume(&self) -> f64 {
         let model_volume = match self.eos {
             LoadedEos::Isothermal(model) => model.reference_volume(),
             LoadedEos::Thermal(model) => model.reference_volume(),
+            LoadedEos::Hugoniot(model) => model.reference_volume(),
         };
         model_volume / self.volume_scale
     }
 
     /// Pressure in `GPa` at conventional-cell `volume` and `temperature`.
     ///
-    /// Isothermal records ignore `temperature`.
+    /// Isothermal records ignore `temperature`. Hugoniot records require the
+    /// coordinate to equal their precursor-state temperature.
     ///
     /// # Errors
     ///
@@ -469,6 +837,16 @@ impl EosRecord {
         match self.eos {
             LoadedEos::Isothermal(model) => model.pressure(volume),
             LoadedEos::Thermal(model) => model.pressure(volume, temperature),
+            LoadedEos::Hugoniot(model) => {
+                self.validate_hugoniot_temperature(temperature)?;
+                self.as_hugoniot()
+                    .ok_or(EosError::InvalidState {
+                        name: "eos",
+                        reason: "Hugoniot model is missing typed metadata",
+                    })?
+                    .validate_domain(model.particle_velocity(volume)?)?;
+                model.pressure(volume)
+            }
         }
     }
 
@@ -482,6 +860,10 @@ impl EosRecord {
         match self.eos {
             LoadedEos::Isothermal(model) => model.bulk_modulus(volume),
             LoadedEos::Thermal(model) => model.bulk_modulus(volume, temperature),
+            LoadedEos::Hugoniot(_) => Err(EosError::InvalidState {
+                name: "eos",
+                reason: "must be an equilibrium isothermal or thermal EOS",
+            }),
         }
     }
 
@@ -494,8 +876,30 @@ impl EosRecord {
         let model_volume = match self.eos {
             LoadedEos::Isothermal(model) => model.volume(pressure)?,
             LoadedEos::Thermal(model) => model.volume(pressure, temperature)?,
+            LoadedEos::Hugoniot(model) => {
+                self.validate_hugoniot_temperature(temperature)?;
+                let volume = model.volume(pressure)?;
+                self.as_hugoniot()
+                    .ok_or(EosError::InvalidState {
+                        name: "eos",
+                        reason: "Hugoniot model is missing typed metadata",
+                    })?
+                    .validate_domain(model.particle_velocity(volume)?)?;
+                volume
+            }
         };
         Ok(model_volume / self.volume_scale)
+    }
+
+    fn validate_hugoniot_temperature(&self, temperature: f64) -> EosResult<()> {
+        if nearly_equal(temperature, self.reference_temperature) {
+            Ok(())
+        } else {
+            Err(EosError::InvalidState {
+                name: "temperature",
+                reason: "must equal the Hugoniot initial-state temperature",
+            })
+        }
     }
 
     /// Thermal-pressure increase above the reference-temperature isotherm.
@@ -510,7 +914,7 @@ impl EosRecord {
         let volume = volume * self.volume_scale;
         match self.eos {
             LoadedEos::Thermal(model) => model.thermal_pressure_increment(volume, temperature),
-            LoadedEos::Isothermal(_) => Err(EosError::InvalidState {
+            LoadedEos::Isothermal(_) | LoadedEos::Hugoniot(_) => Err(EosError::InvalidState {
                 name: "eos",
                 reason: "must be thermal",
             }),
@@ -532,7 +936,7 @@ impl EosRecord {
         let volume = volume * self.volume_scale;
         match self.eos {
             LoadedEos::Thermal(model) => model.dac_thermal_pressure(volume, temperature, f_dac),
-            LoadedEos::Isothermal(_) => Err(EosError::InvalidState {
+            LoadedEos::Isothermal(_) | LoadedEos::Hugoniot(_) => Err(EosError::InvalidState {
                 name: "eos",
                 reason: "must be thermal",
             }),
@@ -555,7 +959,7 @@ impl EosRecord {
             LoadedEos::Thermal(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)?
             }
-            LoadedEos::Isothermal(_) => {
+            LoadedEos::Isothermal(_) | LoadedEos::Hugoniot(_) => {
                 return Err(EosError::InvalidState {
                     name: "eos",
                     reason: "must be thermal",
@@ -575,6 +979,8 @@ pub struct Material {
     pub name: String,
     /// Chemical formula.
     pub formula: String,
+    /// Represented material phase.
+    pub phase: String,
     /// EOS records in source order.
     pub eos_records: Vec<EosRecord>,
     /// Original material document including all extension fields.
@@ -590,13 +996,41 @@ impl Material {
             .find(|record| record.identifier == identifier)
     }
 
-    /// Return the preferred record, or the first record when no default is marked.
+    /// Return the preferred equilibrium record, or its first record as fallback.
     #[must_use]
-    pub fn default_record(&self) -> Option<&EosRecord> {
+    pub fn default_equilibrium_record(&self) -> Option<&EosRecord> {
         self.eos_records
             .iter()
+            .filter(|record| !record.eos.is_hugoniot())
             .find(|record| record.is_default)
-            .or_else(|| self.eos_records.first())
+            .or_else(|| self.equilibrium_records().next())
+    }
+
+    /// Return the preferred Hugoniot record, or its first record as fallback.
+    #[must_use]
+    pub fn default_hugoniot_record(&self) -> Option<HugoniotRecord<'_>> {
+        self.hugoniot_records()
+            .find(|record| record.record.is_default)
+            .or_else(|| self.hugoniot_records().next())
+    }
+
+    /// Return an equilibrium default first, preserving safe legacy behavior.
+    #[must_use]
+    pub fn default_record(&self) -> Option<&EosRecord> {
+        self.default_equilibrium_record()
+            .or_else(|| self.default_hugoniot_record().map(|record| record.record))
+    }
+
+    /// Iterate over equilibrium isothermal and thermal EOS records.
+    pub fn equilibrium_records(&self) -> impl Iterator<Item = &EosRecord> {
+        self.eos_records
+            .iter()
+            .filter(|record| !record.eos.is_hugoniot())
+    }
+
+    /// Iterate over phase-specific shock Hugoniot records.
+    pub fn hugoniot_records(&self) -> impl Iterator<Item = HugoniotRecord<'_>> {
+        self.eos_records.iter().filter_map(EosRecord::as_hugoniot)
     }
 
     /// Validate the retained document, including every executable EOS record.
@@ -638,6 +1072,7 @@ struct RawMaterial {
     identifier: Option<String>,
     name: Option<String>,
     formula: Option<String>,
+    phase: Option<String>,
     units: Option<RawUnits>,
     formula_units_per_cell: Option<f64>,
     #[serde(default)]
@@ -657,10 +1092,43 @@ struct RawRecord {
     label: Option<String>,
     #[serde(default)]
     default: bool,
+    default_for: Option<String>,
     eos: Option<RawComponent>,
     thermal: Option<RawComponent>,
+    equation_kind: Option<String>,
+    loading_path: Option<String>,
+    branch_kind: Option<String>,
     temperature_ref: Option<f64>,
+    initial_state: Option<RawInitialState>,
+    volume_basis: Option<RawVolumeBasis>,
+    branch_domain: Option<RawBranchDomain>,
     volume: Option<RawVolume>,
+}
+
+#[derive(Debug, Deserialize)]
+struct RawInitialState {
+    phase: Option<String>,
+    material_identifier: Option<String>,
+    eos_record_identifier: Option<String>,
+    temperature_k: Option<f64>,
+    pressure_gpa: Option<f64>,
+    density_g_cm3: Option<f64>,
+}
+
+#[derive(Debug, Deserialize)]
+struct RawVolumeBasis {
+    kind: Option<String>,
+    formula_units: Option<f64>,
+    molar_mass_g_mol: Option<f64>,
+}
+
+#[derive(Debug, Deserialize)]
+struct RawBranchDomain {
+    particle_velocity_km_s: Option<[f64; 2]>,
+    kind: Option<String>,
+    boundary_status: Option<String>,
+    #[serde(default)]
+    notes: Vec<String>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -784,6 +1252,7 @@ fn construct_material(document: Value) -> Result<Material, EosmatError> {
 
     let name = required_string(raw.name, "name")?;
     let formula = required_string(raw.formula, "formula")?;
+    let phase = raw.phase.unwrap_or_else(|| "unspecified".to_owned());
     let identifier = match raw.identifier {
         Some(value) if !value.is_empty() => value,
         Some(_) if canonical => {
@@ -808,6 +1277,8 @@ fn construct_material(document: Value) -> Result<Material, EosmatError> {
             record_document,
             index,
             raw.formula_units_per_cell,
+            &identifier,
+            &phase,
         )?);
     }
 
@@ -815,6 +1286,7 @@ fn construct_material(document: Value) -> Result<Material, EosmatError> {
         identifier,
         name,
         formula,
+        phase,
         eos_records,
         document,
     })
@@ -1356,7 +1828,7 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
     let mut identifiers = std::collections::HashSet::new();
     let mut derived_record_links = Vec::new();
     let mut fit_dataset_links = Vec::new();
-    let mut default_count = 0;
+    let mut default_counts = [0_u32; 2];
     for (index, value) in records.iter().enumerate() {
         let location = format!("eos_records[{index}]");
         let record = object_at(value, &location)?;
@@ -1382,8 +1854,28 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
                 "{location}.identifier is required"
             )));
         }
-        if record.get("default") == Some(&Value::Bool(true)) {
-            default_count += 1;
+        let is_hugoniot = record
+            .get("eos")
+            .and_then(Value::as_object)
+            .and_then(|eos| eos.get("type"))
+            .and_then(Value::as_str)
+            == Some("LinearUsUpHugoniot");
+        let default_category = if is_hugoniot {
+            "hugoniot"
+        } else {
+            "equilibrium"
+        };
+        if let Some(default_for) = record.get("default_for") {
+            if default_for.as_str() != Some(default_category) {
+                return Err(invalid_document(format!(
+                    "{location}.default_for does not match equation_kind"
+                )));
+            }
+        }
+        if record.get("default") == Some(&Value::Bool(true))
+            || record.get("default_for").and_then(Value::as_str) == Some(default_category)
+        {
+            default_counts[usize::from(is_hugoniot)] += 1;
         }
 
         let record_identifier = record.get("identifier").and_then(Value::as_str);
@@ -1391,7 +1883,10 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             .get("record_kind")
             .and_then(Value::as_str)
             .unwrap_or("published");
-        if !matches!(record_kind, "published" | "refit" | "diagnostic") {
+        if !matches!(
+            record_kind,
+            "published" | "refit" | "derived" | "diagnostic"
+        ) {
             return Err(invalid_document(format!(
                 "{location}.record_kind is invalid"
             )));
@@ -1417,6 +1912,33 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             return Err(invalid_document(format!(
                 "{location} refit records require derived_from_record and fit_provenance"
             )));
+        }
+        if record_kind == "derived" {
+            let derivation = object_at(
+                record.get("derivation").ok_or_else(|| {
+                    invalid_document(format!("{location}.derivation is required"))
+                })?,
+                &format!("{location}.derivation"),
+            )?;
+            if !matches!(
+                derivation.get("source_kind").and_then(Value::as_str),
+                Some("sesame_table" | "published_table" | "calculation")
+            ) {
+                return Err(invalid_document(format!(
+                    "{location}.derivation.source_kind is invalid"
+                )));
+            }
+            for key in ["source_identifier", "method"] {
+                if derivation
+                    .get(key)
+                    .and_then(Value::as_str)
+                    .is_none_or(str::is_empty)
+                {
+                    return Err(invalid_document(format!(
+                        "{location}.derivation.{key} must be a non-empty string"
+                    )));
+                }
+            }
         }
         if let Some(value) = fit_provenance {
             let provenance = object_at(value, &format!("{location}.fit_provenance"))?;
@@ -1528,10 +2050,12 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             }
         }
     }
-    if default_count > 1 {
-        return Err(invalid_document(
-            "a material may have at most one default EOS record",
-        ));
+    for (category, count) in ["equilibrium", "hugoniot"].into_iter().zip(default_counts) {
+        if count > 1 {
+            return Err(invalid_document(format!(
+                "a material may have at most one default {category} EOS record"
+            )));
+        }
     }
     for (dataset_identifier, record_identifier) in dataset_record_links {
         if !identifiers.contains(record_identifier) {
@@ -1609,6 +2133,8 @@ fn record_from_value(
     document: Value,
     index: usize,
     formula_units_per_cell: Option<f64>,
+    material_identifier: &str,
+    represented_phase: &str,
 ) -> Result<EosRecord, EosmatError> {
     let raw: RawRecord =
         serde_json::from_value(document.clone()).map_err(|error| EosmatError::InvalidRecord {
@@ -1626,17 +2152,25 @@ fn record_from_value(
         label,
         document,
         formula_units_per_cell,
+        material_identifier,
+        represented_phase,
     );
     result.map_err(|reason| EosmatError::InvalidRecord { identifier, reason })
 }
 
+#[allow(clippy::too_many_lines)]
 fn build_record(
     raw: &RawRecord,
     identifier: String,
     label: String,
     document: Value,
     formula_units_per_cell: Option<f64>,
+    material_identifier: &str,
+    represented_phase: &str,
 ) -> Result<EosRecord, String> {
+    let reference_component = raw.eos.as_ref().ok_or("missing eos component")?;
+    let reference_identifier = component_model_identifier(reference_component, false)?;
+    let is_hugoniot = reference_identifier == "linear_us_up_hugoniot";
     let thermal_identifier = raw
         .thermal
         .as_ref()
@@ -1663,29 +2197,242 @@ fn build_record(
         1.0
     };
 
-    let reference_component = raw.eos.as_ref().ok_or("missing eos component")?;
-    let reference = build_isothermal(reference_component, volume_scale)?;
-    let eos = match raw.thermal.as_ref() {
-        None => LoadedEos::Isothermal(reference),
-        Some(thermal) => LoadedEos::Thermal(build_thermal(thermal, reference)?),
+    let mut hugoniot_metadata = None;
+    let eos = if is_hugoniot {
+        if raw.equation_kind.as_deref() != Some("hugoniot") {
+            return Err("a Hugoniot model requires equation_kind \"hugoniot\"".to_owned());
+        }
+        if raw.thermal.is_some() {
+            return Err("a Hugoniot record cannot contain a thermal component".to_owned());
+        }
+        let loading_path = match raw.loading_path.as_deref() {
+            Some("principal") => HugoniotLoadingPath::Principal,
+            Some("precompressed") => HugoniotLoadingPath::Precompressed,
+            _ => return Err("a Hugoniot record requires a supported loading_path".to_owned()),
+        };
+        let branch_kind = match raw.branch_kind.as_deref() {
+            Some("untransformed") => HugoniotBranchKind::Untransformed,
+            Some("transformed") => HugoniotBranchKind::Transformed,
+            _ => return Err("a Hugoniot record requires a supported branch_kind".to_owned()),
+        };
+        let initial_state = raw
+            .initial_state
+            .as_ref()
+            .ok_or("a Hugoniot record requires initial_state")?;
+        let initial_phase = initial_state
+            .phase
+            .as_deref()
+            .filter(|phase| !phase.trim().is_empty())
+            .ok_or("initial_state.phase must be a non-empty string")?;
+        let initial_material = initial_state
+            .material_identifier
+            .as_deref()
+            .filter(|identifier| !identifier.is_empty())
+            .ok_or("initial_state.material_identifier must be a non-empty string")?;
+        if initial_state
+            .eos_record_identifier
+            .as_deref()
+            .is_some_and(str::is_empty)
+        {
+            return Err("initial_state.eos_record_identifier must not be empty".to_owned());
+        }
+        if branch_kind == HugoniotBranchKind::Untransformed
+            && (initial_phase != represented_phase || initial_material != material_identifier)
+        {
+            return Err(
+                "an untransformed branch must reference the represented material and phase"
+                    .to_owned(),
+            );
+        }
+        if branch_kind == HugoniotBranchKind::Transformed
+            && (initial_phase == represented_phase || initial_material == material_identifier)
+        {
+            return Err("a transformed branch requires a distinct precursor".to_owned());
+        }
+        let temperature = initial_state
+            .temperature_k
+            .ok_or("initial_state.temperature_k is required")?;
+        if !temperature.is_finite() || temperature <= 0.0 {
+            return Err("initial_state.temperature_k must be positive and finite".to_owned());
+        }
+        let initial_pressure = initial_state
+            .pressure_gpa
+            .ok_or("initial_state.pressure_gpa is required")?;
+        if !initial_pressure.is_finite() {
+            return Err("initial_state.pressure_gpa must be finite".to_owned());
+        }
+        let initial_density = initial_state
+            .density_g_cm3
+            .ok_or("initial_state.density_g_cm3 is required")?;
+        if !initial_density.is_finite() || initial_density <= 0.0 {
+            return Err("initial_state.density_g_cm3 must be positive and finite".to_owned());
+        }
+        let volume_basis = raw
+            .volume_basis
+            .as_ref()
+            .ok_or("a Hugoniot record requires volume_basis")?;
+        if volume_basis.kind.as_deref() != Some("formula_units") {
+            return Err("volume_basis.kind must be \"formula_units\"".to_owned());
+        }
+        let basis_formula_units = volume_basis
+            .formula_units
+            .ok_or("volume_basis.formula_units is required")?;
+        if !basis_formula_units.is_finite() || basis_formula_units <= 0.0 {
+            return Err("volume_basis.formula_units must be positive and finite".to_owned());
+        }
+        let material_formula_units = formula_units_per_cell
+            .ok_or("formula_units_per_cell is required when a material has a Hugoniot record")?;
+        if !nearly_equal(basis_formula_units, material_formula_units) {
+            return Err("volume_basis.formula_units must match formula_units_per_cell".to_owned());
+        }
+        let molar_mass = volume_basis
+            .molar_mass_g_mol
+            .ok_or("volume_basis.molar_mass_g_mol is required")?;
+        if !molar_mass.is_finite() || molar_mass <= 0.0 {
+            return Err("volume_basis.molar_mass_g_mol must be positive and finite".to_owned());
+        }
+        if raw
+            .temperature_ref
+            .is_some_and(|reference| !nearly_equal(reference, temperature))
+        {
+            return Err(
+                "temperature_ref must match initial_state.temperature_k for a Hugoniot record"
+                    .to_owned(),
+            );
+        }
+        let model = build_hugoniot(reference_component, volume_scale)?;
+        if !nearly_equal(initial_pressure, model.initial_pressure()) {
+            return Err("initial_state.pressure_gpa must match eos.parameters.P0".to_owned());
+        }
+        if !nearly_equal(initial_density, model.initial_density()) {
+            return Err("initial_state.density_g_cm3 must match eos.parameters.rho0".to_owned());
+        }
+        let public_v0 = model.reference_volume() / volume_scale;
+        let expected_density =
+            basis_formula_units * molar_mass / (6.022_140_76e23 * public_v0 * 1.0e-24);
+        if (initial_density - expected_density).abs()
+            > HUGONIOT_MASS_BASIS_RELATIVE_TOLERANCE
+                * initial_density.abs().max(expected_density.abs())
+        {
+            return Err(
+                "V0, rho0, formula_units, and molar_mass_g_mol must share a mass basis".to_owned(),
+            );
+        }
+        if loading_path == HugoniotLoadingPath::Precompressed && initial_pressure <= 0.0 {
+            return Err("a precompressed Hugoniot requires positive P0".to_owned());
+        }
+        let domain = raw
+            .branch_domain
+            .as_ref()
+            .ok_or("a Hugoniot record requires branch_domain")?;
+        let velocity_range = domain
+            .particle_velocity_km_s
+            .ok_or("branch_domain.particle_velocity_km_s is required")?;
+        if velocity_range[0] < 0.0
+            || !velocity_range[0].is_finite()
+            || !velocity_range[1].is_finite()
+            || velocity_range[0] > velocity_range[1]
+        {
+            return Err(
+                "branch-domain particle velocities must be finite, non-negative, and ordered"
+                    .to_owned(),
+            );
+        }
+        let domain_kind = match domain.kind.as_deref() {
+            Some("phase_stability") => HugoniotDomainKind::PhaseStability,
+            Some("experimental_coverage") => HugoniotDomainKind::ExperimentalCoverage,
+            Some("recommended") => HugoniotDomainKind::Recommended,
+            _ => return Err("branch_domain.kind is invalid".to_owned()),
+        };
+        let boundary_status = match domain.boundary_status.as_deref() {
+            Some("reported_exactly") => HugoniotBoundaryStatus::ReportedExactly,
+            Some("reported_qualitatively") => HugoniotBoundaryStatus::ReportedQualitatively,
+            Some("inferred") => HugoniotBoundaryStatus::Inferred,
+            _ => return Err("branch_domain.boundary_status is invalid".to_owned()),
+        };
+        hugoniot_metadata = Some(HugoniotRecordMetadata {
+            loading_path,
+            branch_kind,
+            initial_state: HugoniotInitialState {
+                phase: initial_phase.to_owned(),
+                material_identifier: initial_material.to_owned(),
+                eos_record_identifier: initial_state.eos_record_identifier.clone(),
+                temperature_k: temperature,
+                pressure_gpa: initial_pressure,
+                density_g_cm3: initial_density,
+            },
+            volume_basis: HugoniotVolumeBasis {
+                formula_units: basis_formula_units,
+                molar_mass_g_mol: molar_mass,
+            },
+            branch_domain: HugoniotBranchDomain {
+                particle_velocity_km_s: velocity_range,
+                kind: domain_kind,
+                boundary_status,
+                notes: domain.notes.clone(),
+            },
+        });
+        LoadedEos::Hugoniot(model)
+    } else {
+        let expected_kind = if raw.thermal.is_some() {
+            "thermal"
+        } else {
+            "isothermal"
+        };
+        if raw
+            .equation_kind
+            .as_deref()
+            .is_some_and(|kind| kind != expected_kind)
+        {
+            return Err(format!(
+                "equation_kind must be {expected_kind:?} for this record"
+            ));
+        }
+        let reference = build_isothermal(reference_component, volume_scale)?;
+        match raw.thermal.as_ref() {
+            None => LoadedEos::Isothermal(reference),
+            Some(thermal) => LoadedEos::Thermal(build_thermal(thermal, reference)?),
+        }
     };
     let reference_temperature = raw.temperature_ref.unwrap_or_else(|| match eos {
         LoadedEos::Isothermal(_) => 300.0,
         LoadedEos::Thermal(model) => model.reference_temperature(),
+        LoadedEos::Hugoniot(_) => raw
+            .initial_state
+            .as_ref()
+            .and_then(|state| state.temperature_k)
+            .unwrap_or(300.0),
     });
     if !reference_temperature.is_finite() || reference_temperature <= 0.0 {
         return Err("temperature_ref must be positive and finite".to_owned());
+    }
+    let default_category = if is_hugoniot {
+        "hugoniot"
+    } else {
+        "equilibrium"
+    };
+    if raw
+        .default_for
+        .as_deref()
+        .is_some_and(|category| category != default_category)
+    {
+        return Err("default_for does not match equation_kind".to_owned());
     }
 
     Ok(EosRecord {
         identifier,
         label,
-        is_default: raw.default,
+        is_default: raw.default || raw.default_for.as_deref() == Some(default_category),
         eos,
+        hugoniot: hugoniot_metadata,
         reference_temperature,
         document,
         volume_scale,
     })
+}
+
+fn nearly_equal(left: f64, right: f64) -> bool {
+    (left - right).abs() <= 1.0e-12 * left.abs().max(right.abs()).max(1.0)
 }
 
 fn is_molar_volume_model(model: &str) -> bool {
@@ -1748,10 +2495,31 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "NaturalStrain3" => "natural_strain_3",
             "NaturalStrain4" => "natural_strain_4",
             "Vinet" => "vinet",
+            "LinearUsUpHugoniot" => "linear_us_up_hugoniot",
             _ => return Err(format!("unknown isothermal type {model_type:?}")),
         }
     };
     Ok(identifier)
+}
+
+fn build_hugoniot(component: &RawComponent, volume_scale: f64) -> Result<HugoniotModel, String> {
+    let model = component_model_identifier(component, false)?;
+    let p = |name| parameter(component, name);
+    match model {
+        "linear_us_up_hugoniot" => {
+            check_type(component, "LinearUsUpHugoniot")?;
+            LinearUsUpHugoniot::new(
+                p("V0")? * volume_scale,
+                p("rho0")?,
+                p("c0")?,
+                p("s")?,
+                p("P0")?,
+            )
+            .map(HugoniotModel::LinearUsUp)
+            .map_err(|error| error.to_string())
+        }
+        _ => Err(format!("unknown Hugoniot model {model:?}")),
+    }
 }
 
 fn build_isothermal(

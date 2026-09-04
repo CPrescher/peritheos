@@ -9,6 +9,7 @@ use peritheos::fit::{
     propagate_linear_uncertainty, summarize_monte_carlo, FitError, LinearPropagation, Loss,
     MonteCarloSummary, SolverOptions, StructuredLayout,
 };
+use peritheos::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use peritheos::isothermal::{
     holzapfel_bulk_modulus_derivative_analytical, Holzapfel, ModifiedTait, Murnaghan,
     NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2, BM3, BM4,
@@ -332,6 +333,71 @@ impl PyRtEos {
 
     fn __repr__(&self) -> String {
         format!("RtEos(model_name='{}')", self.model.name())
+    }
+}
+
+/// Private native representation of a built-in shock Hugoniot.
+#[pyclass(
+    name = "HugoniotEos",
+    frozen,
+    module = "peritheos._rust",
+    skip_from_py_object
+)]
+#[derive(Clone, Copy, Debug, PartialEq)]
+struct PyHugoniotEos {
+    model: LinearUsUpHugoniot,
+}
+
+impl PyHugoniotEos {
+    fn evaluate_model(&self, quantity: &str, value: f64) -> EosResult<f64> {
+        match quantity {
+            "pressure" => self.model.pressure(value),
+            "volume" => self.model.volume(value),
+            "particle_velocity" => self.model.particle_velocity(value),
+            "shock_velocity" => self.model.shock_velocity(value),
+            "density" => self.model.density(value),
+            "specific_internal_energy_change" => self.model.specific_internal_energy_change(value),
+            "tangent_modulus" => self.model.tangent_modulus(value),
+            "shock_velocity_from_particle_velocity" => {
+                self.model.shock_velocity_from_particle_velocity(value)
+            }
+            "pressure_from_particle_velocity" => self.model.pressure_from_particle_velocity(value),
+            "volume_from_particle_velocity" => self.model.volume_from_particle_velocity(value),
+            _ => Err(EosError::InvalidState {
+                name: "quantity",
+                reason: "unknown shock Hugoniot quantity",
+            }),
+        }
+    }
+}
+
+#[pymethods]
+impl PyHugoniotEos {
+    #[staticmethod]
+    fn linear_us_up(v0: f64, rho0: f64, c0: f64, s: f64, p0: f64) -> PyResult<Self> {
+        Ok(Self {
+            model: LinearUsUpHugoniot::new(v0, rho0, c0, s, p0).map_err(to_python_error)?,
+        })
+    }
+
+    fn evaluate_scalar(&self, quantity: &str, value: f64) -> PyResult<f64> {
+        self.evaluate_model(quantity, value)
+            .map_err(to_python_error)
+    }
+
+    fn evaluate_array<'py>(
+        &self,
+        py: Python<'py>,
+        quantity: &str,
+        values: PyReadonlyArrayDyn<'py, f64>,
+    ) -> PyResult<Bound<'py, PyArrayDyn<f64>>> {
+        map_array(py, values, PARALLEL_ELEMENTWISE_THRESHOLD, |value| {
+            self.evaluate_model(quantity, value)
+        })
+    }
+
+    fn __repr__(&self) -> String {
+        format!("HugoniotEos({:?})", self.model)
     }
 }
 
@@ -1517,6 +1583,7 @@ fn holzapfel_derivative_analytical(
 #[pymodule]
 fn _rust(module: &Bound<'_, PyModule>) -> PyResult<()> {
     module.add_class::<PyRtEos>()?;
+    module.add_class::<PyHugoniotEos>()?;
     module.add_class::<PyThermalEos>()?;
     module.add_class::<PyLeastSquaresResult>()?;
     module.add_class::<PyLinearPropagation>()?;

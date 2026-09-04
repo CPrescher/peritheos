@@ -11,8 +11,19 @@ from numpy.typing import NDArray
 from scipy.stats import norm
 
 from peritheos import _rust
-from peritheos.eos import EosBase, NumericType, ThermalEOS
+from peritheos.eos import EosBase, EquationOfState, NumericType, ThermalEOS
 from peritheos.errors import ConfigurationError, NumericalError, ValidationError
+from peritheos.hugoniot import HugoniotBase
+
+DeterministicEos = EquationOfState
+
+
+def _parameter_values(eos: DeterministicEos) -> dict[str, float]:
+    if isinstance(eos, HugoniotBase):
+        return eos.parameter_values()
+    if isinstance(eos, EosBase):
+        return eos.parameter_values(include_reference=True)
+    return eos.parameter_values()
 
 
 def _scalar_or_array(values: NDArray[np.float64]) -> NumericType:
@@ -174,17 +185,17 @@ class EOSUncertainty:
 
     def __init__(
         self,
-        eos: EosBase,
+        eos: DeterministicEos,
         *,
         parameter_errors: Mapping[str, float] | None = None,
         covariance: Any | None = None,
         correlation: Any | None = None,
         parameter_names: Sequence[str] | None = None,
     ) -> None:
-        if not isinstance(eos, EosBase):
+        if not isinstance(eos, EquationOfState):
             raise ConfigurationError("eos must be an equation of state")
         if covariance is not None and parameter_names is None:
-            all_names = tuple(eos.parameter_values(include_reference=True))
+            all_names = tuple(_parameter_values(eos))
             covariance_shape = np.asarray(covariance).shape
             if covariance_shape == (len(all_names), len(all_names)):
                 parameter_names = all_names
@@ -202,9 +213,9 @@ class EOSUncertainty:
         self._initialize(eos, uncertainty)
 
     def _initialize(
-        self, eos: EosBase, parameter_uncertainty: ParameterUncertainty
+        self, eos: DeterministicEos, parameter_uncertainty: ParameterUncertainty
     ) -> None:
-        available = eos.parameter_values(include_reference=True)
+        available = _parameter_values(eos)
         unknown = set(parameter_uncertainty.parameter_names) - set(available)
         if unknown:
             raise ValidationError(
@@ -215,16 +226,16 @@ class EOSUncertainty:
 
     @classmethod
     def _from_parameter_uncertainty(
-        cls, eos: EosBase, parameter_uncertainty: ParameterUncertainty
+        cls, eos: DeterministicEos, parameter_uncertainty: ParameterUncertainty
     ) -> EOSUncertainty:
         result = cls.__new__(cls)
         result._initialize(eos, parameter_uncertainty)
         return result
 
     @classmethod
-    def state_only(cls, eos: EosBase) -> EOSUncertainty:
+    def state_only(cls, eos: DeterministicEos) -> EOSUncertainty:
         """Create propagation with measured-state errors but no parameter block."""
-        if not isinstance(eos, EosBase):
+        if not isinstance(eos, EquationOfState):
             raise ConfigurationError("eos must be an equation of state")
         uncertainty = ParameterUncertainty._empty(
             ("published parameter uncertainty not available",)
@@ -260,9 +271,7 @@ class EOSUncertainty:
         )
         if type(additional.eos) is not type(fit_result.model.rt_eos) or any(
             not np.isclose(reference_values[name], value)
-            for name, value in additional.eos.parameter_values(
-                include_reference=True
-            ).items()
+            for name, value in _parameter_values(additional.eos).items()
         ):
             raise ValidationError(
                 "additional uncertainty must describe the reference EOS"
@@ -305,7 +314,7 @@ class EOSUncertainty:
 
     def _evaluate_model(
         self,
-        eos: EosBase,
+        eos: DeterministicEos,
         quantity: str,
         arguments: tuple[Any, ...],
         quantity_kwargs: Mapping[str, Any],
@@ -327,7 +336,7 @@ class EOSUncertainty:
         nominal: NDArray[np.float64],
         relative_step: float,
     ) -> NDArray[np.float64]:
-        values = self.eos.parameter_values(include_reference=True)
+        values = _parameter_values(self.eos)
         derivatives = []
         for name in self.parameter_names:
             value = values[name]
@@ -504,7 +513,7 @@ class EOSUncertainty:
             raise ValidationError("sample_count must be at least two")
         nominal = self._evaluate_model(self.eos, quantity, arguments, quantity_kwargs)
         rng = np.random.default_rng(random_state)
-        parameter_values = self.eos.parameter_values(include_reference=True)
+        parameter_values = _parameter_values(self.eos)
         means = np.array([parameter_values[name] for name in self.parameter_names])
         prepared_sigmas = {}
         for index, raw_sigma in argument_sigmas.items():

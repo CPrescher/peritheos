@@ -496,6 +496,8 @@ fn canonical_document_loads_as_an_executable_model_and_preserves_extensions() {
     assert_eq!(material.document["extension"]["preserved"], true);
 
     let record = material.default_record().unwrap();
+    assert_eq!(material.hugoniot_records().count(), 0);
+    assert_eq!(material.equilibrium_records().count(), 1);
     assert_eq!(record.identifier, "test_bm3");
     assert_eq!(
         record.eos.isothermal_model_identifier(),
@@ -547,6 +549,160 @@ fn wrong_type_model_pair_is_rejected() {
     let error = load_eosmat_str(&source).unwrap_err();
     assert!(matches!(error, EosmatError::InvalidRecord { .. }));
     assert!(error.to_string().contains("requires type \"BM3\""));
+}
+
+#[test]
+#[allow(clippy::too_many_lines)]
+fn canonical_hugoniot_record_loads_as_an_executable_eos_path() {
+    let source = r#"{
+        "format": "peritheos.material",
+        "format_version": 3,
+        "identifier": "shock_test",
+        "name": "Shock test",
+        "formula": "X",
+        "phase": "alpha",
+        "formula_units_per_cell": 1.0,
+        "units": {
+            "pressure": "GPa",
+            "temperature": "K",
+            "volume": "angstrom^3/conventional_unit_cell"
+        },
+        "eos_records": [{
+            "identifier": "shock_alpha",
+            "label": "Alpha principal Hugoniot",
+            "equation_kind": "hugoniot",
+            "default_for": "hugoniot",
+            "loading_path": "principal",
+            "branch_kind": "untransformed",
+            "initial_state": {
+                "phase": "alpha",
+                "material_identifier": "shock_test",
+                "temperature_k": 298.15,
+                "pressure_gpa": 0.0,
+                "density_g_cm3": 8.0
+            },
+            "volume_basis": {
+                "kind": "formula_units",
+                "formula_units": 1.0,
+                "molar_mass_g_mol": 48.17712608
+            },
+            "branch_domain": {
+                "particle_velocity_km_s": [0.0, 3.0],
+                "kind": "phase_stability",
+                "boundary_status": "reported_exactly"
+            },
+            "reference": "Synthetic test record",
+            "eos": {
+                "type": "LinearUsUpHugoniot",
+                "model": "linear_us_up_hugoniot",
+                "parameters": {
+                    "V0": 10.0,
+                    "rho0": 8.0,
+                    "c0": 4.0,
+                    "s": 1.5,
+                    "P0": 0.0
+                }
+            },
+            "parameter_errors": {},
+            "fixed_parameters": [],
+            "scientific_validation": {"status": "primary_source_validated"}
+        }]
+    }"#;
+    let material = load_eosmat_str(source).unwrap();
+    let record = material.default_record().unwrap();
+    assert_eq!(material.hugoniot_records().count(), 1);
+    assert_eq!(material.equilibrium_records().count(), 0);
+    assert!(record.eos.is_hugoniot());
+    assert!(!record.eos.is_thermal());
+    assert_eq!(record.eos.model_identifier(), "linear_us_up_hugoniot");
+    assert!((record.reference_temperature - 298.15).abs() < f64::EPSILON);
+    let pressure = record.pressure(8.0, 298.15).unwrap();
+    assert!(record.pressure(8.0, 300.0).is_err());
+    assert!(pressure > 0.0);
+    assert!((record.volume(pressure, 298.15).unwrap() - 8.0).abs() < 1.0e-10);
+    assert!(record.bulk_modulus(8.0, 298.15).is_err());
+    let typed = material.default_hugoniot_record().unwrap();
+    assert_eq!(
+        typed.metadata.loading_path,
+        peritheos::HugoniotLoadingPath::Principal
+    );
+    assert!((typed.density(8.0).unwrap() - 10.0).abs() < 1.0e-12);
+    assert!(typed.shock_velocity(8.0).unwrap() > 0.0);
+    assert!(typed.particle_velocity(8.0).unwrap() > 0.0);
+    assert!(typed.specific_internal_energy_change(8.0).unwrap() > 0.0);
+    assert!(typed.tangent_modulus(8.0).unwrap() > 0.0);
+    let state = typed.state_from_particle_velocity(1.0).unwrap();
+    assert!((state.particle_velocity - 1.0).abs() < f64::EPSILON);
+    assert!(typed.state_from_particle_velocity(3.1).is_err());
+
+    let mut mixed: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    let hugoniot_document: serde_json::Value = serde_json::from_str(source).unwrap();
+    mixed["identifier"] = "shock_test".into();
+    mixed["phase"] = "alpha".into();
+    mixed["formula_units_per_cell"] = 1.0.into();
+    mixed["eos_records"]
+        .as_array_mut()
+        .unwrap()
+        .push(hugoniot_document["eos_records"][0].clone());
+    let mixed = load_eosmat_str(&mixed.to_string()).unwrap();
+    assert!(!mixed.default_record().unwrap().eos.is_hugoniot());
+    assert!(mixed.default_equilibrium_record().is_some());
+    assert!(mixed.default_hugoniot_record().is_some());
+
+    let mut derived = hugoniot_document.clone();
+    derived["eos_records"][0]["record_kind"] = "derived".into();
+    assert!(validate_eosmat_document(&derived).is_err());
+    derived["eos_records"][0]["derivation"] = serde_json::json!({
+        "source_kind": "sesame_table",
+        "source_identifier": "SESAME 1234, release 2026-01",
+        "method": "sampled the principal Hugoniot and fit linear Us-up coefficients"
+    });
+    validate_eosmat_document(&derived).unwrap();
+
+    let mut precompressed_transformed = hugoniot_document;
+    precompressed_transformed["identifier"] = "shock_beta".into();
+    precompressed_transformed["phase"] = "beta".into();
+    precompressed_transformed["eos_records"][0]["loading_path"] = "precompressed".into();
+    precompressed_transformed["eos_records"][0]["branch_kind"] = "transformed".into();
+    precompressed_transformed["eos_records"][0]["initial_state"]["material_identifier"] =
+        "shock_alpha".into();
+    precompressed_transformed["eos_records"][0]["initial_state"]["pressure_gpa"] = 5.0.into();
+    precompressed_transformed["eos_records"][0]["eos"]["parameters"]["P0"] = 5.0.into();
+    let precompressed_transformed =
+        load_eosmat_str(&precompressed_transformed.to_string()).unwrap();
+    let metadata = &precompressed_transformed
+        .default_hugoniot_record()
+        .unwrap()
+        .metadata;
+    assert_eq!(
+        metadata.loading_path,
+        peritheos::HugoniotLoadingPath::Precompressed
+    );
+    assert_eq!(
+        metadata.branch_kind,
+        peritheos::HugoniotBranchKind::Transformed
+    );
+
+    for (old, new, expected) in [
+        (
+            "\"density_g_cm3\": 8.0",
+            "\"density_g_cm3\": 7.9",
+            "must match eos.parameters.rho0",
+        ),
+        (
+            "\"formula_units\": 1.0,",
+            "\"formula_units\": 2.0,",
+            "must match formula_units_per_cell",
+        ),
+        (
+            "\"loading_path\": \"principal\"",
+            "\"loading_path\": \"reshock\"",
+            "supported loading_path",
+        ),
+    ] {
+        let error = load_eosmat_str(&source.replace(old, new)).unwrap_err();
+        assert!(error.to_string().contains(expected));
+    }
 }
 
 #[test]

@@ -19,6 +19,7 @@ from scipy.sparse.linalg import spsolve
 from peritheos import _rust
 from peritheos.eos import EosBase, ThermalEOS
 from peritheos.errors import FitValidationError
+from peritheos.hugoniot import HugoniotBase, LinearUsUpHugoniot
 
 if TYPE_CHECKING:
     from peritheos.uncertainty import EOSUncertainty
@@ -184,6 +185,129 @@ class FitResult:
             },
         }
         return _json_safe(result)
+
+    def to_json(self, path: str | Path | None = None, *, indent: int | None = 2) -> str:
+        """Return strict JSON and optionally write it to *path*."""
+        serialized = json.dumps(
+            self.to_dict(), indent=indent, sort_keys=True, allow_nan=False
+        )
+        if path is not None:
+            Path(path).write_text(serialized + "\n", encoding="utf-8")
+        return serialized
+
+
+@dataclass(frozen=True)
+class HugoniotFitResult:
+    """Result of fitting a linear ``Us = c0 + s * up`` relation."""
+
+    model: LinearUsUpHugoniot
+    parameters: dict[str, float]
+    standard_errors: dict[str, float]
+    covariance: NDArray[np.float64]
+    correlation: NDArray[np.float64]
+    free_parameters: tuple[str, ...]
+    residuals: NDArray[np.float64]
+    weighted_residuals: NDArray[np.float64]
+    adjusted_particle_velocity: NDArray[np.float64]
+    particle_velocity_corrections: NDArray[np.float64]
+    chi_square: float
+    reduced_chi_square: float
+    degrees_of_freedom: int
+    aic: float
+    bic: float
+    success: bool
+    message: str
+    loss: str = "linear"
+    f_scale: float = 1.0
+    max_nfev: int | None = None
+    status: int = 0
+    nfev: int = 0
+    njev: int | None = None
+    cost: float = np.nan
+    optimality: float = np.nan
+
+    def eos_uncertainty(self) -> EOSUncertainty:
+        """Return the fitted Hugoniot with its parameter covariance."""
+        from peritheos.uncertainty import EOSUncertainty
+
+        return EOSUncertainty.from_fit(self)
+
+    def summary(self, *, precision: int = 6) -> str:
+        """Return a compact human-readable fit report."""
+        if isinstance(precision, bool) or not isinstance(precision, (int, np.integer)):
+            raise FitValidationError("precision must be a positive integer")
+        if precision <= 0:
+            raise FitValidationError("precision must be a positive integer")
+
+        def formatted(value: float) -> str:
+            return f"{float(value):.{int(precision)}g}"
+
+        lines = [
+            "HugoniotFitResult (LinearUsUpHugoniot)",
+            f"Success: {self.success} (status {self.status})",
+            f"Message: {self.message}",
+            "",
+            "Parameters:",
+        ]
+        free = set(self.free_parameters)
+        for name, value in self.parameters.items():
+            lines.append(
+                f"  {name}: {formatted(value)} +/- "
+                f"{formatted(self.standard_errors[name])} "
+                f"({'free' if name in free else 'fixed'})"
+            )
+        lines.extend(
+            [
+                "",
+                "Diagnostics:",
+                f"  chi-square: {formatted(self.chi_square)}",
+                f"  reduced chi-square: {formatted(self.reduced_chi_square)}",
+                f"  degrees of freedom: {self.degrees_of_freedom}",
+            ]
+        )
+        return "\n".join(lines)
+
+    def to_dict(self) -> dict[str, Any]:
+        """Return a versioned, JSON-safe representation of the Hugoniot fit."""
+        return _json_safe(
+            {
+                "schema_version": 1,
+                "model": {
+                    "module": type(self.model).__module__,
+                    "class": type(self.model).__name__,
+                    "parameters": self.model.parameter_values(),
+                    "configuration": {},
+                },
+                "parameters": self.parameters,
+                "standard_errors": self.standard_errors,
+                "free_parameters": self.free_parameters,
+                "covariance": self.covariance,
+                "correlation": self.correlation,
+                "residuals": self.residuals,
+                "weighted_residuals": self.weighted_residuals,
+                "adjusted_particle_velocity": self.adjusted_particle_velocity,
+                "particle_velocity_corrections": self.particle_velocity_corrections,
+                "diagnostics": {
+                    "chi_square": self.chi_square,
+                    "reduced_chi_square": self.reduced_chi_square,
+                    "degrees_of_freedom": self.degrees_of_freedom,
+                    "aic": self.aic,
+                    "bic": self.bic,
+                },
+                "solver": {
+                    "success": self.success,
+                    "status": self.status,
+                    "message": self.message,
+                    "loss": self.loss,
+                    "f_scale": self.f_scale,
+                    "max_nfev": self.max_nfev,
+                    "nfev": self.nfev,
+                    "njev": self.njev,
+                    "cost": self.cost,
+                    "optimality": self.optimality,
+                },
+            }
+        )
 
     def to_json(self, path: str | Path | None = None, *, indent: int | None = 2) -> str:
         """Return strict JSON and optionally write it to *path*."""
@@ -494,6 +618,7 @@ def _fit_model(
     loss: str | Callable[..., Any],
     f_scale: float,
     max_nfev: int | None,
+    coordinate_lower_bounds: Mapping[str, float] | None = None,
 ) -> FitResult:
     loss, f_scale, max_nfev = _validated_solver_options(loss, f_scale, max_nfev)
     fixed_values = {name: float(value) for name, value in (fixed or {}).items()}
@@ -534,7 +659,10 @@ def _fit_model(
         size = values.size
         coordinate_slices[name] = slice(offset, offset + size)
         x0_parts.append(values.ravel())
-        lower_parts.append(np.full(size, np.finfo(float).tiny))
+        coordinate_lower = (coordinate_lower_bounds or {}).get(
+            name, np.finfo(float).tiny
+        )
+        lower_parts.append(np.full(size, coordinate_lower))
         upper_parts.append(np.full(size, np.inf))
         offset += size
 
@@ -801,6 +929,171 @@ def fit_rt_eos(
         loss=loss,
         f_scale=f_scale,
         max_nfev=max_nfev,
+    )
+
+
+def fit_linear_us_up(
+    particle_velocity: Any,
+    shock_velocity: Any,
+    *,
+    V0: float,
+    rho0: float,
+    P0: float = 0.0,
+    initial: Mapping[str, float] | None = None,
+    fixed: Mapping[str, float] | None = None,
+    bounds: Mapping[str, Sequence[float]] | None = None,
+    shock_velocity_sigma: Any | None = None,
+    particle_velocity_sigma: Any | None = None,
+    sigma: Any | None = None,
+    absolute_sigma: bool = False,
+    observation_covariance: Any | None = None,
+    loss: str | Callable[..., Any] = "linear",
+    f_scale: float = 1.0,
+    max_nfev: int | None = None,
+) -> HugoniotFitResult:
+    """Fit ``Us = c0 + s * up`` by OLS, WLS, or errors in variables.
+
+    With no uncertainty arguments, minimizing the vertical ``Us`` residuals is
+    ordinary least squares. ``shock_velocity_sigma`` produces weighted least
+    squares. Supplying ``particle_velocity_sigma`` additionally fits latent
+    particle velocities, and ``observation_covariance`` accepts one or
+    per-point 2-by-2 covariance matrices ordered as ``(Us, up)``.
+
+    ``V0``, ``rho0``, and ``P0`` define the initial state used to turn the
+    fitted velocity relation into an executable pressure-volume Hugoniot; they
+    are not inferred from velocity data.
+    """
+    particle, shock = np.broadcast_arrays(
+        np.asarray(particle_velocity, dtype=float),
+        np.asarray(shock_velocity, dtype=float),
+    )
+    if particle.size < 2 or not np.all(np.isfinite(particle)):
+        raise FitValidationError(
+            "Particle velocity must contain at least two finite values"
+        )
+    if np.any(particle < 0.0):
+        raise FitValidationError("Particle velocity must be non-negative")
+    if not np.all(np.isfinite(shock)) or np.any(shock <= 0.0):
+        raise FitValidationError("Shock velocity must be finite and positive")
+    if np.ptp(particle) == 0.0:
+        raise FitValidationError("Particle velocities must not all be equal")
+
+    allowed = {"c0", "s"}
+    supplied_initial = dict(initial or {})
+    supplied_fixed = dict(fixed or {})
+    configured_bounds = dict(bounds or {})
+    unknown = (
+        set(supplied_initial) | set(supplied_fixed) | set(configured_bounds)
+    ) - allowed
+    if unknown:
+        raise FitValidationError(
+            f"Only c0 and s can be fit from Us-up data; found {sorted(unknown)}"
+        )
+    overlap = set(supplied_initial) & set(supplied_fixed)
+    if overlap:
+        raise FitValidationError(
+            f"Parameters cannot be both initial and fixed: {sorted(overlap)}"
+        )
+
+    slope, intercept = np.polyfit(particle.ravel(), shock.ravel(), 1)
+    guesses = {"c0": float(intercept), "s": float(slope)}
+    free_initial = {
+        name: float(supplied_initial.get(name, guesses[name]))
+        for name in ("c0", "s")
+        if name not in supplied_fixed
+    }
+    if not free_initial:
+        raise FitValidationError("At least c0 or s must be a free parameter")
+    if any(value <= 0.0 or not np.isfinite(value) for value in free_initial.values()):
+        raise FitValidationError(
+            "Initial c0 and s estimates must be finite and positive; provide initial"
+        )
+
+    uncertainties, observation_cholesky, uncertainty_supplied = (
+        _observation_error_model(
+            shock.shape,
+            ("pressure", "volume"),
+            (shock_velocity_sigma, particle_velocity_sigma),
+            sigma,
+            observation_covariance,
+        )
+    )
+    shock_uncertainty, particle_uncertainty = uncertainties
+    assert shock_uncertainty is not None
+    fixed_parameters = {
+        "V0": float(V0),
+        "rho0": float(rho0),
+        "P0": float(P0),
+        **{name: float(value) for name, value in supplied_fixed.items()},
+    }
+    positive_bounds: dict[str, Sequence[float]] = {
+        "c0": (float(np.finfo(float).tiny), float(np.inf)),
+        "s": (float(np.finfo(float).tiny), float(np.inf)),
+        **configured_bounds,
+    }
+
+    def factory(parameters: Mapping[str, float]) -> LinearUsUpHugoniot:
+        return LinearUsUpHugoniot(**parameters)
+
+    def evaluator(
+        model: HugoniotBase,
+        coordinates: Mapping[str, NDArray[np.float64]],
+    ) -> NDArray[np.float64]:
+        return np.asarray(
+            model.shock_velocity_from_particle_velocity(coordinates["volume"]),
+            dtype=float,
+        )
+
+    inner = _fit_model(
+        cast(Callable[[Mapping[str, float]], EosBase], factory),
+        cast(
+            Callable[
+                [EosBase, Mapping[str, NDArray[np.float64]]],
+                NDArray[np.float64],
+            ],
+            evaluator,
+        ),
+        shock,
+        shock_uncertainty,
+        {"volume": particle},
+        {"volume": particle_uncertainty},
+        free_initial,
+        fixed_parameters,
+        positive_bounds,
+        scale_covariance=not absolute_sigma or not uncertainty_supplied,
+        observation_cholesky=observation_cholesky,
+        loss=loss,
+        f_scale=f_scale,
+        max_nfev=max_nfev,
+        coordinate_lower_bounds={"volume": 0.0},
+    )
+    model = cast(LinearUsUpHugoniot, inner.model)
+    return HugoniotFitResult(
+        model=model,
+        parameters=inner.parameters,
+        standard_errors=inner.standard_errors,
+        covariance=inner.covariance,
+        correlation=inner.correlation,
+        free_parameters=inner.free_parameters,
+        residuals=inner.residuals,
+        weighted_residuals=inner.weighted_residuals,
+        adjusted_particle_velocity=inner.adjusted_volume,
+        particle_velocity_corrections=inner.volume_corrections,
+        chi_square=inner.chi_square,
+        reduced_chi_square=inner.reduced_chi_square,
+        degrees_of_freedom=inner.degrees_of_freedom,
+        aic=inner.aic,
+        bic=inner.bic,
+        success=inner.success,
+        message=inner.message,
+        loss=inner.loss,
+        f_scale=inner.f_scale,
+        max_nfev=inner.max_nfev,
+        status=inner.status,
+        nfev=inner.nfev,
+        njev=inner.njev,
+        cost=inner.cost,
+        optimality=inner.optimality,
     )
 
 

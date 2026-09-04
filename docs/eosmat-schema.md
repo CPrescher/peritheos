@@ -117,15 +117,22 @@ Each item in `eos_records` describes one source parameterization.
 | `identifier` | yes | Stable lower-snake-case record identifier. |
 | `label` | yes | Human-readable source/model label. |
 | `reference` | yes | Citation string or structured citation with authors, year, source, and optional DOI. |
-| `default` | no | Preferred record for this material; at most one may be true. |
-| `record_kind` | no | `published`, `refit`, or `diagnostic`; omission means `published` for backward compatibility. |
+| `default_for` | no | `equilibrium` or `hugoniot`; at most one default is allowed in each category. Legacy `default: true` is interpreted within the record's category. |
+| `equation_kind` | required for Hugoniots | `isothermal`, `thermal`, or `hugoniot`; older equilibrium records may omit it and are inferred. |
+| `loading_path` | for Hugoniots | `principal` or `precompressed`; reshocks require a future frame-aware model. |
+| `branch_kind` | for Hugoniots | `untransformed` or `transformed`, independently of loading history. |
+| `initial_state` | for Hugoniots | Required precursor material identifier, phase, temperature, pressure, and density; pressure and density must equal executable `P0` and `rho0`. |
+| `volume_basis` | for Hugoniots | Required operational mass basis containing `formula_units` and `molar_mass_g_mol`; these values must be consistent with `V0` and `rho0`. |
+| `branch_domain` | for Hugoniots | Required particle-velocity interval, scientific meaning, and boundary status; record-level evaluation enforces it. |
+| `record_kind` | no | `published`, `refit`, `derived`, or `diagnostic`; omission means `published` for backward compatibility. |
 | `derived_from_record` | for refits | Identifier of the published or prior record supplying the model choices and fixed parameters. |
 | `fit_provenance` | for refits | Software/version, dataset, row selection, objective, weights, varied/fixed parameters, and fit statistics. |
-| `eos` | yes | Reference-isotherm equation and parameters. |
+| `derivation` | for derived records | Structured source kind and identifier, transformation method, sampling domain, software, and access/licensing information. |
+| `eos` | yes | Primary equation and parameters: an equilibrium reference isotherm or a Hugoniot path model. |
 | `thermal` | no | Thermal-pressure equation, parameters, and fixed equation choices. |
-| `parameter_errors` | yes | Reported reference-isotherm parameter errors; JSON `null` means unavailable, not zero. |
+| `parameter_errors` | yes | Reported primary-equation parameter errors; JSON `null` means unavailable, not zero. |
 | `parameter_error_confidence` | no | Two-sided confidence level when the reported errors are interval half-widths rather than standard errors. |
-| `fixed_parameters` | yes | Reference-isotherm parameters fixed during the reported fit. |
+| `fixed_parameters` | yes | Primary-equation parameters fixed during the reported fit. |
 | `experimental_pressure_range_gpa` | no | Two-element marginal pressure envelope. |
 | `pressure_range_status` | no | Provenance of the pressure envelope: `reported_exactly`, `reported_qualitatively`, `theoretical`, or `reference_parameterization`. |
 | `experimental_temperature_range_k` | no | Two-element marginal temperature envelope. |
@@ -136,6 +143,12 @@ Each item in `eos_records` describes one source parameterization.
 | `parameter_covariance` | no | Published or reproducibly derived covariance metadata when available; its origin must be documented. |
 | `scientific_validation` | yes | Validation boundary described below. |
 | `notes` | no | Scientific qualifications that do not fit another field. |
+
+Hugoniots are EOS records, not a parallel material collection. Their `eos`
+component has type `LinearUsUpHugoniot` and parameters `V0`, `rho0`, `c0`, `s`,
+and `P0`. They cannot contain a thermal component because temperature is not an
+independent coordinate on the constrained shock path. See
+[Shock Hugoniot equations of state](hugoniots.md).
 
 An experimental range records data or fit coverage, not an assertion of phase
 stability and not permission to extrapolate over every combination of its

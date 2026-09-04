@@ -22,6 +22,19 @@ from peritheos.errors import (
 NumericType = Union[float, NDArray[np.float64]]
 
 
+class EquationOfState:
+    """Common interface for equilibrium EOS surfaces and constrained EOS paths."""
+
+    def parameter_values(self, *args: Any, **kwargs: Any) -> dict[str, float]:
+        raise NotImplementedError  # pragma: no cover - interface declaration
+
+    def pressure(self, *args: Any, **kwargs: Any) -> NumericType:
+        raise NotImplementedError  # pragma: no cover - interface declaration
+
+    def volume(self, *args: Any, **kwargs: Any) -> NumericType:
+        raise NotImplementedError  # pragma: no cover - interface declaration
+
+
 @cache
 def _native_evaluation_types() -> tuple[type, ...]:
     """Return classes whose inherited behavior exactly matches a Rust model."""
@@ -311,7 +324,7 @@ def solve_temperature(
     return float(result)
 
 
-class EosBase:
+class EosBase(EquationOfState):
     """
     Base class for equation of state implementations.
 

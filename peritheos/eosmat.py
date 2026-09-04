@@ -23,6 +23,8 @@ from peritheos.pressure_calibrations import (
 
 EOSMAT_FORMAT = "peritheos.material"
 EOSMAT_FORMAT_VERSION = 3
+_AVOGADRO = 6.022_140_76e23
+_HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
 _MATERIAL_PACKAGE = "peritheos.data.materials"
 _RT_TYPES = {
     "BM2",
@@ -35,6 +37,7 @@ _RT_TYPES = {
     "NaturalStrain3",
     "NaturalStrain4",
     "Vinet",
+    "LinearUsUpHugoniot",
 }
 _THERMAL_TYPES = {
     "AlphaKT",
@@ -61,6 +64,7 @@ _RT_MODELS = {
     "NaturalStrain3": "natural_strain_3",
     "NaturalStrain4": "natural_strain_4",
     "Vinet": "vinet",
+    "LinearUsUpHugoniot": "linear_us_up_hugoniot",
 }
 _THERMAL_MODELS = {
     "AlphaKT": "thermal_reference_state",
@@ -118,6 +122,16 @@ def _finite_number(value: Any, location: str, *, positive: bool = False) -> floa
     if positive and number <= 0.0:
         raise EosmatError(f"{location} must be greater than zero")
     return number
+
+
+def _finite_range(value: Any, location: str) -> tuple[float, float]:
+    if not isinstance(value, list) or len(value) != 2:
+        raise EosmatError(f"{location} must contain two values")
+    lower = _finite_number(value[0], f"{location}[0]")
+    upper = _finite_number(value[1], f"{location}[1]")
+    if lower > upper:
+        raise EosmatError(f"{location} must be ordered")
+    return lower, upper
 
 
 def validate_eosmat_document(document: Mapping[str, Any]) -> None:
@@ -283,7 +297,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
     record_identifiers: set[str] = set()
     derived_record_links: list[tuple[str, str]] = []
     fit_dataset_links: list[tuple[str, str]] = []
-    default_count = 0
+    default_counts = {"equilibrium": 0, "hugoniot": 0}
     for index, raw_record in enumerate(document.get("eos_records", [])):
         location = f"eos_records[{index}]"
         record = _require_mapping(raw_record, location)
@@ -298,10 +312,8 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if identifier in record_identifiers:
                 raise EosmatError(f"Duplicate EOS record identifier {identifier!r}")
             record_identifiers.add(identifier)
-        default_count += record.get("default") is True
-
         record_kind = record.get("record_kind", "published")
-        if record_kind not in {"published", "refit", "diagnostic"}:
+        if record_kind not in {"published", "refit", "derived", "diagnostic"}:
             raise EosmatError(f"{location}.record_kind is invalid")
         derived_from = record.get("derived_from_record")
         if derived_from is not None:
@@ -319,6 +331,22 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                 f"{location} refit records require derived_from_record and "
                 "fit_provenance"
             )
+        derivation = record.get("derivation")
+        if record_kind == "derived" and not isinstance(derivation, Mapping):
+            raise EosmatError(f"{location} derived records require derivation")
+        if derivation is not None:
+            derivation = _require_mapping(derivation, f"{location}.derivation")
+            if derivation.get("source_kind") not in {
+                "sesame_table",
+                "published_table",
+                "calculation",
+            }:
+                raise EosmatError(f"{location}.derivation.source_kind is invalid")
+            for key in ("source_identifier", "method"):
+                if not isinstance(derivation.get(key), str) or not derivation[key]:
+                    raise EosmatError(
+                        f"{location}.derivation.{key} must be a non-empty string"
+                    )
         if fit_provenance is not None:
             fit_provenance = _require_mapping(
                 fit_provenance, f"{location}.fit_provenance"
@@ -355,6 +383,225 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             _finite_number(value, f"{location}.eos.parameters.{name}")
         if "V0" not in parameters:
             raise EosmatError(f"{location}.eos.parameters requires V0")
+        equation_kind = record.get(
+            "equation_kind",
+            "thermal"
+            if record.get("thermal") is not None
+            else "hugoniot"
+            if eos_type == "LinearUsUpHugoniot"
+            else "isothermal",
+        )
+        if equation_kind not in {"isothermal", "thermal", "hugoniot"}:
+            raise EosmatError(f"{location}.equation_kind is invalid")
+        is_hugoniot = eos_type == "LinearUsUpHugoniot"
+        if (equation_kind == "hugoniot") != is_hugoniot:
+            raise EosmatError(f"{location}.equation_kind does not match eos.type")
+        expected_equilibrium_kind = (
+            "thermal" if record.get("thermal") is not None else "isothermal"
+        )
+        if not is_hugoniot and equation_kind != expected_equilibrium_kind:
+            raise EosmatError(
+                f"{location}.equation_kind must be {expected_equilibrium_kind!r}"
+            )
+        default_category = "hugoniot" if is_hugoniot else "equilibrium"
+        default_for = record.get("default_for")
+        if default_for is not None and default_for not in {
+            "equilibrium",
+            "hugoniot",
+        }:
+            raise EosmatError(f"{location}.default_for is invalid")
+        if default_for is not None and default_for != default_category:
+            raise EosmatError(
+                f"{location}.default_for does not match equation_kind"
+            )
+        if record.get("default") is True or default_for == default_category:
+            default_counts[default_category] += 1
+        if is_hugoniot:
+            for name in ("rho0", "c0", "s", "P0"):
+                if name not in parameters:
+                    raise EosmatError(f"{location}.eos.parameters requires {name}")
+            for name in ("V0", "rho0", "c0", "s"):
+                _finite_number(
+                    parameters[name],
+                    f"{location}.eos.parameters.{name}",
+                    positive=True,
+                )
+            if record.get("thermal") is not None:
+                raise EosmatError(
+                    f"{location} Hugoniot records cannot have a thermal component"
+                )
+            loading_path = record.get("loading_path")
+            branch_kind = record.get("branch_kind")
+            if loading_path not in {"principal", "precompressed"}:
+                raise EosmatError(f"{location}.loading_path is invalid")
+            if branch_kind not in {"untransformed", "transformed"}:
+                raise EosmatError(f"{location}.branch_kind is invalid")
+            initial_state = _require_mapping(
+                record.get("initial_state"), f"{location}.initial_state"
+            )
+            if (
+                not isinstance(initial_state.get("phase"), str)
+                or not initial_state["phase"].strip()
+            ):
+                raise EosmatError(
+                    f"{location}.initial_state.phase must be a non-empty string"
+                )
+            initial_material = initial_state.get("material_identifier")
+            if not isinstance(initial_material, str) or not initial_material:
+                raise EosmatError(
+                    f"{location}.initial_state.material_identifier must be a "
+                    "non-empty string"
+                )
+            precursor_record = initial_state.get("eos_record_identifier")
+            if precursor_record is not None and (
+                not isinstance(precursor_record, str) or not precursor_record
+            ):
+                raise EosmatError(
+                    f"{location}.initial_state.eos_record_identifier must be a "
+                    "non-empty string"
+                )
+            material_identifier = str(document.get("identifier", ""))
+            represented_phase = str(document.get("phase", ""))
+            initial_phase = str(initial_state["phase"])
+            if branch_kind == "untransformed" and (
+                initial_phase != represented_phase
+                or initial_material != material_identifier
+            ):
+                raise EosmatError(
+                    f"{location} untransformed branches must reference the "
+                    "represented material and phase"
+                )
+            if branch_kind == "transformed" and (
+                initial_phase == represented_phase
+                or initial_material == material_identifier
+            ):
+                raise EosmatError(
+                    f"{location} transformed branches require a distinct precursor"
+                )
+            _finite_number(
+                initial_state.get("temperature_k"),
+                f"{location}.initial_state.temperature_k",
+                positive=True,
+            )
+            initial_pressure = _finite_number(
+                initial_state.get("pressure_gpa"),
+                f"{location}.initial_state.pressure_gpa",
+            )
+            initial_density = _finite_number(
+                initial_state.get("density_g_cm3"),
+                f"{location}.initial_state.density_g_cm3",
+                positive=True,
+            )
+            if not math.isclose(
+                initial_pressure,
+                float(parameters["P0"]),
+                rel_tol=1.0e-12,
+                abs_tol=1.0e-12,
+            ):
+                raise EosmatError(
+                    f"{location}.initial_state.pressure_gpa must match eos.parameters.P0"
+                )
+            if not math.isclose(
+                initial_density,
+                float(parameters["rho0"]),
+                rel_tol=1.0e-12,
+                abs_tol=1.0e-12,
+            ):
+                raise EosmatError(
+                    f"{location}.initial_state.density_g_cm3 must match "
+                    "eos.parameters.rho0"
+                )
+            if record.get("temperature_ref") is not None and not math.isclose(
+                float(record["temperature_ref"]),
+                float(initial_state["temperature_k"]),
+                rel_tol=1.0e-12,
+                abs_tol=1.0e-12,
+            ):
+                raise EosmatError(
+                    f"{location}.temperature_ref must match initial_state.temperature_k"
+                )
+            volume_basis = _require_mapping(
+                record.get("volume_basis"), f"{location}.volume_basis"
+            )
+            if volume_basis.get("kind") != "formula_units":
+                raise EosmatError(
+                    f"{location}.volume_basis.kind must be 'formula_units'"
+                )
+            basis_formula_units = _finite_number(
+                volume_basis.get("formula_units"),
+                f"{location}.volume_basis.formula_units",
+                positive=True,
+            )
+            if formula_units is None:
+                raise EosmatError(
+                    "formula_units_per_cell is required when a material has a "
+                    "Hugoniot record"
+                )
+            if not math.isclose(
+                basis_formula_units,
+                float(formula_units),
+                rel_tol=1.0e-12,
+                abs_tol=1.0e-12,
+            ):
+                raise EosmatError(
+                    f"{location}.volume_basis.formula_units must match "
+                    "formula_units_per_cell"
+                )
+            molar_mass = _finite_number(
+                volume_basis.get("molar_mass_g_mol"),
+                f"{location}.volume_basis.molar_mass_g_mol",
+                positive=True,
+            )
+            public_v0 = float(parameters["V0"])
+            expected_density = basis_formula_units * molar_mass / (
+                _AVOGADRO * public_v0 * 1.0e-24
+            )
+            if not math.isclose(
+                initial_density,
+                expected_density,
+                rel_tol=_HUGONIOT_MASS_BASIS_RTOL,
+                abs_tol=0.0,
+            ):
+                raise EosmatError(
+                    f"{location} V0, rho0, formula_units, and molar_mass_g_mol "
+                    "do not describe the same mass basis"
+                )
+            if loading_path == "precompressed" and initial_pressure <= 0.0:
+                raise EosmatError(
+                    f"{location} precompressed Hugoniots require positive P0"
+                )
+            branch_domain = _require_mapping(
+                record.get("branch_domain"), f"{location}.branch_domain"
+            )
+            velocity_range = _finite_range(
+                branch_domain.get("particle_velocity_km_s"),
+                f"{location}.branch_domain.particle_velocity_km_s",
+            )
+            if velocity_range[0] < 0.0:
+                raise EosmatError(
+                    f"{location}.branch_domain particle velocity must be non-negative"
+                )
+            if branch_domain.get("kind") not in {
+                "phase_stability",
+                "experimental_coverage",
+                "recommended",
+            }:
+                raise EosmatError(f"{location}.branch_domain.kind is invalid")
+            if branch_domain.get("boundary_status") not in {
+                "reported_exactly",
+                "reported_qualitatively",
+                "inferred",
+            }:
+                raise EosmatError(
+                    f"{location}.branch_domain.boundary_status is invalid"
+                )
+            domain_notes = branch_domain.get("notes", [])
+            if not isinstance(domain_notes, list) or not all(
+                isinstance(note, str) for note in domain_notes
+            ):
+                raise EosmatError(
+                    f"{location}.branch_domain.notes must contain strings"
+                )
 
         errors = _require_mapping(
             record.get("parameter_errors"), f"{location}.parameter_errors"
@@ -681,8 +928,11 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             }:
                 raise EosmatError(f"{location}.scientific_validation.status is invalid")
 
-    if default_count > 1:
-        raise EosmatError("A material may have at most one default EOS record")
+    for category, count in default_counts.items():
+        if count > 1:
+            raise EosmatError(
+                f"A material may have at most one default {category} EOS record"
+            )
     for dataset_identifier, record_identifier in dataset_record_links:
         if record_identifier not in record_identifiers:
             raise EosmatError(

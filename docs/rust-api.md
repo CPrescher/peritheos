@@ -43,7 +43,9 @@ provenance, and extension metadata should be data:
 use peritheos::{load_eosmat, load_eosmat_str};
 
 let mut material = load_eosmat("gold.eosmat")?;
-let record = material.default_record().expect("a default EOS record");
+let record = material
+    .default_equilibrium_record()
+    .expect("a default equilibrium EOS record");
 let pressure = record.pressure(60.0, 300.0)?;
 
 // Unknown extension fields survive document edits and serialization.
@@ -62,6 +64,12 @@ uses static dispatch and gives access to model-specific methods. For decoded
 record before writing and retains fields that the Rust model registry does not
 interpret.
 
+For a shock path, use `material.default_hugoniot_record()` or iterate
+`material.hugoniot_records()`. These return typed views exposing loading path,
+branch kind, precursor state, mass basis, branch domain, and
+`state_from_particle_velocity()`. The generic `default_record()` remains for
+compatibility but always prefers an equilibrium record.
+
 ## Work with the common traits
 
 Rust trait methods must be brought into scope:
@@ -69,6 +77,7 @@ Rust trait methods must be brought into scope:
 | Trait | Main operations |
 |---|---|
 | `IsothermalEos` | pressure, bulk modulus, `dK/dP`, volume inversion |
+| `hugoniot::Hugoniot` | constrained-path pressure, volume, velocities, density, and energy |
 | `ThermalEos` | thermal/total pressure, P-T-to-V and P-V-to-T inversion, expansivity, compressibility |
 | `CaloricEos` | `Cv`, `Cp`, Gruneisen parameter, adiabatic bulk modulus |
 | batch extension traits | ordered slice versions of the scalar operations |

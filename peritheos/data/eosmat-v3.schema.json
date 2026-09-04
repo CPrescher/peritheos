@@ -96,6 +96,27 @@
       "description": "Literature EOS parameterizations for this material and phase; may be empty for a structure-only exchange document."
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "eos_records": {
+            "contains": {
+              "properties": {"equation_kind": {"const": "hugoniot"}},
+              "required": ["equation_kind"]
+            }
+          }
+        },
+        "required": ["eos_records"]
+      },
+      "then": {
+        "required": ["formula_units_per_cell"],
+        "properties": {
+          "formula_units_per_cell": {"type": "number", "exclusiveMinimum": 0}
+        }
+      }
+    }
+  ],
   "additionalProperties": true,
   "$defs": {
     "identifier": {
@@ -243,7 +264,8 @@
             "NaturalStrain2",
             "NaturalStrain3",
             "NaturalStrain4",
-            "Vinet"
+            "Vinet",
+            "LinearUsUpHugoniot"
           ]
         },
         "model": {
@@ -257,7 +279,8 @@
             "natural_strain_2",
             "natural_strain_3",
             "natural_strain_4",
-            "vinet"
+            "vinet",
+            "linear_us_up_hugoniot"
           ]
         },
         "parameters": {
@@ -279,7 +302,8 @@
             {"properties": {"type": {"const": "NaturalStrain2"}, "model": {"const": "natural_strain_2"}}},
             {"properties": {"type": {"const": "NaturalStrain3"}, "model": {"const": "natural_strain_3"}}},
             {"properties": {"type": {"const": "NaturalStrain4"}, "model": {"const": "natural_strain_4"}}},
-            {"properties": {"type": {"const": "Vinet"}, "model": {"const": "vinet"}}}
+            {"properties": {"type": {"const": "Vinet"}, "model": {"const": "vinet"}}},
+            {"properties": {"type": {"const": "LinearUsUpHugoniot"}, "model": {"const": "linear_us_up_hugoniot"}}}
           ]
         }
       ]
@@ -523,6 +547,22 @@
       },
       "additionalProperties": true
     },
+    "derivation": {
+      "type": "object",
+      "required": ["source_kind", "source_identifier", "method"],
+      "properties": {
+        "source_kind": {
+          "enum": ["sesame_table", "published_table", "calculation"]
+        },
+        "source_identifier": {"type": "string", "minLength": 1},
+        "source_version": {"type": "string", "minLength": 1},
+        "method": {"type": "string", "minLength": 1},
+        "sampling_domain": {"type": "object"},
+        "software": {"type": "object"},
+        "access_and_licensing": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
     "scientific_validation": {
       "type": "object",
       "required": ["status"],
@@ -626,8 +666,54 @@
         "label": {"type": "string"},
         "reference": {"$ref": "#/$defs/reference"},
         "default": {"type": "boolean"},
+        "default_for": {"enum": ["equilibrium", "hugoniot"]},
+        "equation_kind": {
+          "enum": ["isothermal", "thermal", "hugoniot"],
+          "description": "Thermodynamic dimensionality or constrained path represented by this EOS record. Omission retains backward-compatible inference for isothermal and thermal records."
+        },
+        "loading_path": {"enum": ["principal", "precompressed"]},
+        "branch_kind": {"enum": ["untransformed", "transformed"]},
+        "initial_state": {
+          "type": "object",
+          "required": ["phase", "material_identifier", "temperature_k", "pressure_gpa", "density_g_cm3"],
+          "properties": {
+            "phase": {"type": "string", "minLength": 1},
+            "material_identifier": {"$ref": "#/$defs/identifier"},
+            "eos_record_identifier": {"$ref": "#/$defs/identifier"},
+            "temperature_k": {"type": "number", "exclusiveMinimum": 0},
+            "pressure_gpa": {"type": "number"},
+            "density_g_cm3": {"type": "number", "exclusiveMinimum": 0}
+          },
+          "additionalProperties": true
+        },
+        "volume_basis": {
+          "type": "object",
+          "description": "Common amount of material represented by every V and V0 value. V0 for a transformed branch is the precursor volume containing this amount, not necessarily one precursor conventional cell.",
+          "required": ["kind", "formula_units", "molar_mass_g_mol"],
+          "properties": {
+            "kind": {"const": "formula_units"},
+            "formula_units": {"type": "number", "exclusiveMinimum": 0},
+            "molar_mass_g_mol": {"type": "number", "exclusiveMinimum": 0}
+          },
+          "additionalProperties": true
+        },
+        "branch_domain": {
+          "type": "object",
+          "required": ["particle_velocity_km_s", "kind", "boundary_status"],
+          "properties": {
+            "particle_velocity_km_s": {"$ref": "#/$defs/range"},
+            "kind": {
+              "enum": ["phase_stability", "experimental_coverage", "recommended"]
+            },
+            "boundary_status": {
+              "enum": ["reported_exactly", "reported_qualitatively", "inferred"]
+            },
+            "notes": {"type": "array", "items": {"type": "string"}}
+          },
+          "additionalProperties": false
+        },
         "record_kind": {
-          "enum": ["published", "refit", "diagnostic"],
+          "enum": ["published", "refit", "derived", "diagnostic"],
           "description": "Scientific status of the parameter set. Omission means published for backward compatibility."
         },
         "derived_from_record": {
@@ -635,6 +721,7 @@
           "description": "EOS record whose equation choices or published fixed parameters form the basis of this derived record."
         },
         "fit_provenance": {"$ref": "#/$defs/fit_provenance"},
+        "derivation": {"$ref": "#/$defs/derivation"},
         "eos": {"$ref": "#/$defs/equation"},
         "parameter_errors": {"$ref": "#/$defs/parameter_errors"},
         "parameter_error_confidence": {
@@ -683,6 +770,83 @@
             "required": ["record_kind"]
           },
           "then": {"required": ["derived_from_record", "fit_provenance"]}
+        },
+        {
+          "if": {
+            "properties": {"record_kind": {"const": "derived"}},
+            "required": ["record_kind"]
+          },
+          "then": {"required": ["derivation"]}
+        },
+        {
+          "if": {
+            "properties": {
+              "eos": {
+                "properties": {"type": {"const": "LinearUsUpHugoniot"}},
+                "required": ["type"]
+              }
+            },
+            "required": ["eos"]
+          },
+          "then": {
+            "required": [
+              "equation_kind",
+              "loading_path",
+              "branch_kind",
+              "initial_state",
+              "volume_basis",
+              "branch_domain"
+            ],
+            "properties": {
+              "equation_kind": {"const": "hugoniot"},
+              "eos": {
+                "properties": {
+                  "parameters": {"required": ["V0", "rho0", "c0", "s", "P0"]}
+                }
+              }
+            },
+            "not": {"required": ["thermal"]}
+          }
+        },
+        {
+          "if": {
+            "properties": {"equation_kind": {"const": "hugoniot"}},
+            "required": ["equation_kind"]
+          },
+          "then": {
+            "properties": {
+              "eos": {
+                "properties": {"type": {"const": "LinearUsUpHugoniot"}}
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"equation_kind": {"const": "thermal"}},
+            "required": ["equation_kind"]
+          },
+          "then": {"required": ["thermal"]}
+        },
+        {
+          "if": {
+            "properties": {"equation_kind": {"const": "isothermal"}},
+            "required": ["equation_kind"]
+          },
+          "then": {
+            "not": {
+              "anyOf": [
+                {"required": ["thermal"]},
+                {
+                  "properties": {
+                    "eos": {
+                      "properties": {"type": {"const": "LinearUsUpHugoniot"}}
+                    }
+                  }
+                }
+              ]
+            }
+          }
         }
       ],
       "additionalProperties": true

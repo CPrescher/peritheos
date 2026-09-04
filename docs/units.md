@@ -102,3 +102,18 @@ The double-Debye Helmholtz classes are the explicit exceptions: they consume a 0
 motionless-ion Vinet cold curve and add absolute ionic (including zero-point)
 and anharmonic free energies. Their cold-curve `V0` therefore must not be
 interpreted as an ambient-temperature zero-pressure volume.
+
+## Shock Hugoniot units and initial states
+
+`LinearUsUpHugoniot` uses density in g/cm³, particle and shock velocity in
+km/s, and pressure in GPa. In that combination the momentum jump condition
+`P - P0 = rho0 * Us * up` needs no numerical conversion factor. Specific
+internal-energy changes are returned in MJ/kg. Hugoniot `V0` and `V` may use
+any consistent volume unit. EOSMAT records expose represented-phase
+conventional-cell Å³ and require a `volume_basis` stating how many formula
+units both `V` and `V0` represent and the molar mass of one formula. Peritheos
+checks these values against `rho0` and `V0`. This keeps transformed branches
+mass-normalized when precursor and product unit cells differ.
+
+The initial temperature belongs to `initial_state` metadata. It is not an
+independent argument to a Hugoniot evaluation.

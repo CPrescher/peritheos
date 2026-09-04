@@ -1802,7 +1802,7 @@ def test_normative_schema_is_bundled():
         "linear_temperature",
         "berman",
     ]
-    assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 10
+    assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 11
     assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 12
 
 

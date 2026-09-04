@@ -1,5 +1,6 @@
 """Peritheos: thermodynamic equations of state calculations."""
 
+from peritheos.eos import EquationOfState
 from peritheos.eosmat import (
     EOSMAT_FORMAT,
     EOSMAT_FORMAT_VERSION,
@@ -31,8 +32,17 @@ from peritheos.errors import (
     UnsupportedOperationError,
     ValidationError,
 )
+from peritheos.hugoniot import (
+    HugoniotBase,
+    HugoniotState,
+    LinearUsUpHugoniot,
+)
 from peritheos.materials import (
     EOSRecord,
+    HugoniotBranchDomain,
+    HugoniotInitialState,
+    HugoniotRecord,
+    HugoniotVolumeBasis,
     Material,
     get_eos_record,
     get_material,
@@ -84,6 +94,7 @@ __all__ = [
     "EOSMAT_FORMAT",
     "EOSMAT_FORMAT_VERSION",
     "EOSUncertainty",
+    "EquationOfState",
     "EosError",
     "EosNumericalError",
     "EosValidationError",
@@ -93,6 +104,13 @@ __all__ = [
     "FitEosValidationError",
     "FitNumericalError",
     "FitValidationError",
+    "HugoniotBase",
+    "HugoniotBranchDomain",
+    "HugoniotInitialState",
+    "HugoniotRecord",
+    "HugoniotState",
+    "HugoniotVolumeBasis",
+    "LinearUsUpHugoniot",
     "MaterialError",
     "MaterialLookupError",
     "NumericalError",

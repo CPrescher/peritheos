@@ -1,5 +1,10 @@
 # Uncertainty in EOS calculations
 
+`EOSUncertainty` accepts equilibrium EOSs and shock Hugoniots. For a Hugoniot,
+use `evaluate()` with any public path quantity, for example
+`uncertainty.evaluate("shock_velocity", volume)`; temperature is not an
+independent state variable.
+
 Peritheos keeps its EOS classes deterministic and attaches uncertainty through
 `EOSUncertainty`. This avoids changing the return type of established methods
 such as `pressure()` and makes every statistical assumption explicit.
