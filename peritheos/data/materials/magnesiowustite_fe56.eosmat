@@ -1,0 +1,129 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "magnesiowustite_fe56",
+ "name": "Fe56 magnesiowustite",
+ "formula": "Mg0.423Fe0.541O",
+ "phase": "cation-deficient rocksalt magnesiowustite, cubic Fm-3m",
+ "aliases": ["Fe56", "(Mg0.423Fe0.541 vacancy0.036)O", "magnesiowüstite Fe56"],
+ "cell_contents": "Mg1.692Fe2.164 vacancy0.144O4 in the conventional rocksalt cell; composition is normalized to one oxygen and Z=4 on that basis.",
+ "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+ "symmetry": "CUBIC",
+ "lattice": {"a": 4.26264, "b": 4.26264, "c": 4.26264, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.423, "site_multiplicity": 4, "source_label": "M-site Mg"},
+  {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.541, "site_multiplicity": 4, "source_label": "total Fe in oxygen-normalized composition"},
+  {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0, "site_multiplicity": 4}
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {"authors": ["Jacobsen", "Reichmann", "Spetzler", "Mackwell", "Smyth", "Angel", "McCammon"], "year": 2002, "title": "Structure and elasticity of single-crystal (Mg,Fe)O and a new method of generating shear waves for gigahertz ultrasonic interferometry", "source": "Journal of Geophysical Research: Solid Earth", "volume": "107", "locator": "2037; ECV 4-1-ECV 4-14", "doi": "10.1029/2001JB000490"},
+  "structure_location": "Table 1 composition; Tables 7-8 and paragraphs 27-31 Fm-3m structure refinement",
+  "eos_specimen_lattice_location": "Table 4 zero-pressure in-cell measurement"
+ },
+ "notes": "Fe56 is the article's less-stoichiometric magnesiowustite specimen. The average B1 atom-site representation preserves the oxygen-normalized bulk composition from Table 1; it does not claim to resolve the article's refined split of ferric iron between octahedral and interstitial sites. The lattice is the zero-pressure measurement made in the diamond cell without pressure fluid for the exact EOS specimen.",
+ "eos_records": [
+  {
+   "identifier": "magnesiowustite_fe56_jacobsen_2002_bm3_1",
+   "label": "Jacobsen et al. (2002), Fe56 error-weighted BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {"authors": ["Jacobsen", "Reichmann", "Spetzler", "Mackwell", "Smyth", "Angel", "McCammon"], "year": 2002, "title": "Structure and elasticity of single-crystal (Mg,Fe)O and a new method of generating shear waves for gigahertz ultrasonic interferometry", "source": "Journal of Geophysical Research: Solid Earth", "volume": "107", "locator": "2037; ECV 4-1-ECV 4-14", "doi": "10.1029/2001JB000490"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 77.453, "K0": 155.8, "K0_prime": 5.53}},
+   "parameter_errors": {"V0": 0.004, "K0": 0.9, "K0_prime": 0.23},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 298.0,
+   "experimental_pressure_range_gpa": [0.0001, 8.923],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [298.0, 298.0],
+   "fit_datasets": ["magnesiowustite_fe56_jacobsen_2002_table4_compression"],
+   "experimental_configuration": {
+    "sample": "Fe56 single crystal, (Mg0.423Fe0.541 vacancy0.036)O, SigmaFe/(SigmaFe+Mg)=0.561(2), Fe3+/SigmaFe=0.13(2)",
+    "pressure_medium": "4:1 methanol-ethanol",
+    "pressure_cell": "four-pin beryllium-backed diamond-anvil cell with 0.6 mm culets",
+    "pressure_gauge": "single-crystal alpha-quartz internal diffraction standard of Angel et al. (1997); ruby fluorescence used only for quick between-measurement estimates",
+    "diffraction": "single-crystal X-ray diffraction on a Huber four-circle diffractometer in fixed-phi mode",
+    "temperature": "room/ambient temperature; no numeric thermometer reading reported"
+   },
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 56.49216},
+   "parameter_provenance": {
+    "equation": "Paragraphs 25-26 and Figure 6: standard third-order Birch-Murnaghan EOS in the Eulerian finite-strain convention, with f=[(V0/V)^(2/3)-1]/2 and F=P/[3f(1+2f)^(5/2)].",
+    "V0": "Paragraph 25: freely fitted V0=77.453(4) A^3 for the conventional cubic cell.",
+    "K0": "Paragraph 25 and Table 6: freely fitted isothermal K0=155.8(9) GPa.",
+    "K0_prime": "Paragraph 25 and Table 6: freely fitted K'=5.53(23).",
+    "reference_temperature": "The article reports room/ambient temperature but no numeric kelvin value; 298 K is an explicit operational reference for this isothermal record.",
+    "fit_selection": "Paragraphs 24-25 and Table 4: all 11 Fe56 rows, including the zero-pressure in-cell observation.",
+    "weighting": "Paragraph 25: error-weighted three-parameter fit with EoSFIT; the table supplies row-wise sample-lattice and pressure standard deviations."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference_eos_record": "alpha_quartz_angel_1997_bm3_1",
+      "reference": {"authors": ["Angel", "Allan", "Miletich", "Finger"], "year": 1997, "title": "The use of quartz as an internal pressure standard in high-pressure crystallography", "source": "Journal of Applied Crystallography", "volume": "30", "locator": "461-466", "doi": "10.1107/S0021889897000861"},
+      "source_location": "Paragraph 23 and Table 4 note b",
+      "scope": "all 11 Table 4 Fe56 observations",
+      "notes": "Angel et al.'s room-temperature BM3 has V0=112.981(2) A^3, K0=37.12(9) GPa, and K0'=5.99(4)."
+     }
+    ],
+    "recalculation": {"status": "ready", "notes": "Every simultaneously measured quartz conventional-cell volume and standard deviation is bundled. Using the run's 0.0001 GPa quartz volume as V0 and the Angel et al. K0 and K0' reproduces the printed pressures to 0.0044 GPa maximum residual; this run normalization removes the ambient cell-volume offset while retaining the cited calibrant compression law."},
+    "audit_date": "2026-09-05"
+   },
+   "validity": {
+    "pressure_gpa": [0.0001, 8.923],
+    "temperature_k": [298.0, 298.0],
+    "volume_ratio": [0.95142, 1.0],
+    "notes": ["The bounds are the complete Table 4 measurement envelope, not a phase-stability guarantee.", "The 4:1 methanol-ethanol medium and single-crystal experiment define the stress environment.", "The numeric temperature is operational because the source states only room/ambient temperature."]
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "reference_state", "volume_basis", "published_uncertainties", "fixed_parameters", "fit_selection", "pressure_calibration", "primary_data", "numerical_reproduction", "independent_refit"],
+    "primary_source_check": {"access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490", "doi": "10.1029/2001JB000490", "locations": ["Paragraphs 23-26", "Tables 1 and 4 and 6", "Figures 5-6"], "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 11 Fe56 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."},
+    "primary_data_check": {"status": "bundled", "audit_date": "2026-09-05", "dataset_identifiers": ["magnesiowustite_fe56_jacobsen_2002_table4_compression"], "source_locations": ["Table 4"], "finding": "All 11 printed Fe56 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly."},
+    "numerical_reproduction": {"observations": 11, "published_curve_rmse_gpa": 0.0128727844, "published_curve_max_abs_residual_gpa": 0.0193735635, "quartz_recalculation_rmse_gpa": 0.0014032461, "quartz_recalculation_max_abs_residual_gpa": 0.0043130544},
+    "independent_refit": {
+     "objective": "Effective-variance pressure residuals combining tabulated pressure and lattice-parameter standard deviations; the ambient pressure has no printed standard deviation.",
+     "parameters": {"V0": 77.45691695, "K0": 155.19063404, "K0_prime": 5.67628583},
+     "reduced_chi_square": 1.2946097098,
+     "conclusion": "The independent refit recovers every published coefficient within its printed standard deviation; the V0 difference is 0.98 of the printed standard deviation."
+    }
+   },
+   "notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "magnesiowustite_fe56_jacobsen_2002_table4_compression",
+   "kind": "calibrated_pressure_volume_lattice_parameters",
+   "description": "All 11 Fe56 single-crystal compression observations printed in Jacobsen et al. (2002), Table 4.",
+   "reference": {"authors": ["Jacobsen", "Reichmann", "Spetzler", "Mackwell", "Smyth", "Angel", "McCammon"], "year": 2002, "source": "Journal of Geophysical Research: Solid Earth", "volume": "107", "locator": "2037; ECV 4-1-ECV 4-14", "doi": "10.1029/2001JB000490"},
+   "source_location": "Table 4",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+   "columns": [
+    {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "pressure_from_quartz", "unit": "GPa", "role": "value"},
+    {"name": "pressure_sd_gpa", "quantity": "pressure_from_quartz", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
+    {"name": "quartz_volume_a3", "quantity": "quartz_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "quartz_volume_sd_a3", "quantity": "quartz_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "quartz_volume_a3"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_sd_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_a_angstrom"},
+    {"name": "volume_ratio", "quantity": "volume_ratio", "unit": "1", "role": "value"},
+    {"name": "volume_ratio_sd", "quantity": "volume_ratio", "unit": "1", "role": "standard_deviation", "of": "volume_ratio"}
+   ],
+   "resource": {"path": "datasets/magnesiowustite-fe56-jacobsen-2002-table4-compression.csv", "sha256": "0597a3737f66275eb1e86361510360dc99641c64bd1559a60594bf3a2322cd61", "media_type": "text/csv"},
+   "used_by_eos_records": ["magnesiowustite_fe56_jacobsen_2002_bm3_1"],
+   "uncertainty": {"reported_as": "Parenthetical values are standard deviations in the last printed digits; absent parenthetical values remain blank rather than being treated as measured zero uncertainty.", "covariance": "not_reported"},
+   "notes": "The source reports a and V/V0 rather than a separately rounded absolute sample volume. The conventional-cell volume used for refitting is losslessly derived as a^3; the source's V/V0 column is retained independently.",
+   "provenance": {"type": "transcribed_from_table", "method": "Transcribed the complete official publisher HTML Table 4 verbatim and expanded parenthetical standard deviations by printed decimal place.", "transcribed_on": "2026-09-05"}
+  }
+ ]
+}
