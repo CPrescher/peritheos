@@ -29,14 +29,18 @@ from peritheos import (
     get_material,
     list_eos_records,
     list_materials,
+    search_eos_records,
+    search_materials,
 )
 from peritheos.materials import DEFERRED_EOS_RECORDS
 ```
 
 `get_material(identifier)` returns a material phase and
-`list_materials(formula=...)` lists or filters the curated pressure-scale
-convenience catalog. This compact executable catalog is distinct from the full
-139-document shared material library described below. Each
+`list_materials(formula=...)` lists or filters all bundled materials.
+`get_eos_record(identifier)` and `list_eos_records(formula=...)` expose all
+records. These canonical objects are constructed from the bundled `.eosmat`
+documents. The pre-0.7 convenience constants remain in an isolated
+compatibility layer and are excluded from canonical listing and search. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
 canonical executable format-3 material document. Optional crystallographic
@@ -51,6 +55,15 @@ It stays in the common
 `Material.equilibrium_records` return convenient filtered views. Hugoniot
 records expose `shock_velocity()`, `particle_velocity()`, `density()`, and
 `specific_internal_energy_change()` in addition to `pressure()` and `volume()`.
+
+`search_materials()` and `search_eos_records()` accept typed filters for free
+text, name, alias, formula, phase, model family, DOI, author/reference,
+thermal or caloric capability, calibration pressure/temperature, uncertainty,
+and validation status. Results are executable objects ordered by stable
+identifier. A two-value range uses `range_semantics="contains"` by default;
+`"overlaps"` requests any closed-interval overlap. Records with missing range
+metadata do not satisfy a range filter. See [Material
+catalog](catalog.md) for signatures and examples.
 
 ## Shared `.eosmat` material library
 
@@ -206,10 +219,9 @@ The separate Martinez global thermal BM3 reduction is intentionally absent:
 its published fitted reference volume is missing, and its remaining coefficients
 do not reproduce the printed dataset under the documented equations.
 
-`get_eos_record(identifier)` and `list_eos_records(formula=...)` are convenient
-lookups within that curated pressure-scale set. Use
-`list_material_documents()` and `Material.from_eosmat()` for the complete
-shared library. Each `EOSRecord` provides:
+`get_material_document()` remains the advanced raw-document API for exchange,
+inspection, and editing. Normal calculations and discovery do not require a
+manual `Material.from_eosmat()` step. Each `EOSRecord` provides:
 
 - `pressure(volume, temperature=None, check_validity=False)` in GPa;
 - `volume(pressure, temperature=None, check_validity=False)` in

@@ -56,6 +56,29 @@ from peritheos.hugoniot import HugoniotBase, HugoniotState, LinearUsUpHugoniot
 from peritheos.uncertainty import EOSUncertainty, PredictionUncertainty
 
 
+def _validated_aliases(
+    aliases: Iterable[str], *, identifier: str, kind: str, strict: bool = True
+) -> tuple[str, ...]:
+    if isinstance(aliases, str):
+        raise MaterialError(f"{kind} aliases must be an iterable of strings")
+    try:
+        normalized = tuple(aliases)
+    except TypeError as error:
+        raise MaterialError(f"{kind} aliases must be an iterable of strings") from error
+    if any(not isinstance(alias, str) for alias in normalized):
+        raise MaterialError(f"{kind} aliases must contain only strings")
+    if strict:
+        if any(not alias.strip() for alias in normalized):
+            raise MaterialError(f"{kind} aliases must be non-empty strings")
+        if any(alias != alias.strip() for alias in normalized):
+            raise MaterialError(f"{kind} aliases must not have surrounding whitespace")
+        if len(normalized) != len(set(normalized)):
+            raise MaterialError(f"{kind} aliases must be unique")
+        if identifier in normalized:
+            raise MaterialError(f"{kind} aliases must not repeat its identifier")
+    return normalized
+
+
 @dataclass(frozen=True)
 class LiteratureReference:
     """A primary publication and the exact locations used by an entry."""
@@ -288,6 +311,7 @@ class EOSRecord:
     eosmat_metadata: Mapping[str, Any] = field(
         default_factory=dict, compare=False, repr=False
     )
+    aliases: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if not isinstance(self.is_default, bool):
@@ -339,6 +363,13 @@ class EOSRecord:
             self,
             "eosmat_metadata",
             MappingProxyType(copy.deepcopy(dict(self.eosmat_metadata))),
+        )
+        object.__setattr__(
+            self,
+            "aliases",
+            _validated_aliases(
+                self.aliases, identifier=self.identifier, kind="EOS record"
+            ),
         )
 
     @property
@@ -939,6 +970,7 @@ class Material:
     eosmat_metadata: Mapping[str, Any] = field(
         default_factory=dict, compare=False, repr=False
     )
+    aliases: tuple[str, ...] = ()
 
     def __post_init__(self) -> None:
         if not self.identifier:
@@ -949,6 +981,15 @@ class Material:
         if len(identifiers) != len(set(identifiers)):
             raise MaterialError(
                 "EOS record identifiers must be unique within a material"
+            )
+        record_names = [
+            name
+            for record in self.eos_records
+            for name in (record.identifier, *record.aliases)
+        ]
+        if len(record_names) != len(set(record_names)):
+            raise MaterialError(
+                "EOS record identifiers and aliases must be unique within a material"
             )
         expected = (self.formula, self.phase, self.cell_contents, self.volume_unit)
         for record in self.eos_records:
@@ -1045,15 +1086,38 @@ class Material:
             "eosmat_metadata",
             MappingProxyType(copy.deepcopy(dict(self.eosmat_metadata))),
         )
+        object.__setattr__(
+            self,
+            "aliases",
+            _validated_aliases(
+                self.aliases,
+                identifier=self.identifier,
+                kind="Material",
+                strict=False,
+            ),
+        )
 
     def get_eos_record(self, identifier: str) -> EOSRecord:
         """Return one EOS parameterization by its stable identifier."""
         for record in self.eos_records:
-            if record.identifier == identifier:
+            if identifier == record.identifier or identifier in record.aliases:
                 return record
+        from difflib import get_close_matches
+
+        choices = {
+            choice
+            for record in self.eos_records
+            for choice in (record.identifier, *record.aliases)
+        }
+        suggestions = get_close_matches(identifier, sorted(choices), n=3, cutoff=0.5)
+        hint = f" Did you mean: {', '.join(suggestions)}?" if suggestions else ""
         raise MaterialLookupError(
             f"Unknown EOS record {identifier!r} for {self.identifier!r}; "
-            f"available: {[record.identifier for record in self.eos_records]}"
+            f"available: {[record.identifier for record in self.eos_records]}."
+            f"{hint}",
+            operation="lookup_eos_record",
+            field="identifier",
+            context={"identifier": identifier, "material": self.identifier},
         )
 
     def default_equilibrium_record(self) -> EOSRecord | None:
@@ -1390,6 +1454,10 @@ def _record_to_eosmat(record: EOSRecord) -> dict[str, Any]:
         result.pop("temperature_ref", None)
     else:
         result["temperature_ref"] = record.reference_temperature
+    if record.aliases:
+        result["aliases"] = list(record.aliases)
+    else:
+        result.pop("aliases", None)
     result.setdefault("reference", _reference_to_eosmat(record.reference))
     if record.pressure_calibration:
         result["pressure_calibration"] = _plain_data(record.pressure_calibration)
@@ -1511,6 +1579,10 @@ def _material_to_eosmat(material: Material) -> dict[str, Any]:
         "space_group": material.space_group,
         "space_group_number": material.space_group_number,
     }
+    if material.aliases:
+        document["aliases"] = list(material.aliases)
+    else:
+        document.pop("aliases", None)
     for key, value in optional.items():
         if value is not None:
             document[key] = _plain_data(value)
@@ -2034,6 +2106,7 @@ def _material_from_eosmat(
                     )
                 ),
                 eosmat_metadata=_plain_data(raw_record),
+                aliases=tuple(raw_record.get("aliases", ())),
             )
             if isinstance(eos, HugoniotBase):
                 raw_initial_state = raw_record["initial_state"]
@@ -2100,6 +2173,7 @@ def _material_from_eosmat(
         "phase",
         "cell_contents",
         "units",
+        "aliases",
         "symmetry",
         "lattice",
         "formula_units_per_cell",
@@ -2156,6 +2230,7 @@ def _material_from_eosmat(
             for key, value in document.items()
             if key not in known_keys
         },
+        aliases=tuple(document.get("aliases", ())),
     )
 
 
@@ -4050,42 +4125,40 @@ DEFERRED_EOS_RECORDS = (
 
 
 def get_material(identifier: str) -> Material:
-    """Return one material phase by its stable identifier."""
-    try:
-        return _MATERIAL_CATALOG[identifier]
-    except KeyError as error:
-        raise MaterialLookupError(
-            f"Unknown material {identifier!r}; available: {sorted(_MATERIAL_CATALOG)}"
-        ) from error
+    """Return one bundled material by its stable identifier or alias."""
+    from peritheos.catalog import get_material as catalog_get_material
+
+    return catalog_get_material(identifier)
 
 
 def list_materials(*, formula: str | None = None) -> tuple[Material, ...]:
-    """List material phases, optionally filtered by chemical formula."""
-    materials = tuple(_MATERIAL_CATALOG.values())
-    if formula is None:
-        return materials
-    return tuple(item for item in materials if item.formula.lower() == formula.lower())
+    """List all bundled materials, optionally filtered by formula."""
+    from peritheos.catalog import list_materials as catalog_list_materials
+
+    return catalog_list_materials(formula=formula)
 
 
 def get_eos_record(identifier: str) -> EOSRecord:
-    """Return one literature-specific EOS record by its stable identifier."""
-    try:
-        return _EOS_RECORD_CATALOG[identifier]
-    except KeyError as error:
-        raise MaterialLookupError(
-            f"Unknown EOS record {identifier!r}; "
-            f"available: {sorted(_EOS_RECORD_CATALOG)}"
-        ) from error
+    """Return one bundled EOS record by its stable identifier or alias."""
+    from peritheos.catalog import get_eos_record as catalog_get_eos_record
+
+    return catalog_get_eos_record(identifier)
 
 
 def list_eos_records(*, formula: str | None = None) -> tuple[EOSRecord, ...]:
-    """List EOS records, optionally filtered by chemical formula."""
-    records = tuple(_EOS_RECORD_CATALOG.values())
-    if formula is None:
-        return records
-    return tuple(
-        record for record in records if record.material.lower() == formula.lower()
-    )
+    """List all bundled EOS records, optionally filtered by formula."""
+    from peritheos.catalog import list_eos_records as catalog_list_eos_records
+
+    return catalog_list_eos_records(formula=formula)
+
+
+# Keep discovery beside the historical material lookup imports as well as at
+# the package root. catalog_search imports catalog listing lazily, so this does
+# not make construction of data classes depend on catalog initialization.
+from peritheos.catalog_search import (  # noqa: E402, I001
+    search_eos_records,
+    search_materials,
+)
 
 
 __all__ = [
@@ -4146,4 +4219,6 @@ __all__ = [
     "list_eos_records",
     "list_materials",
     "material_from_dict",
+    "search_eos_records",
+    "search_materials",
 ]

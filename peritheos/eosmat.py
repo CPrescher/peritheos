@@ -8,6 +8,7 @@ Dioptas 0.10.0 can read the format-2 document shape directly.
 from __future__ import annotations
 
 import copy
+import difflib
 import json
 import math
 from collections.abc import Mapping
@@ -193,6 +194,9 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
     for key in ("aliases", "atom_sites", "peaks", "datasets", "eos_records"):
         if not isinstance(document.get(key, []), list):
             raise EosmatError(f"{key} must be a JSON array")
+    material_aliases = document.get("aliases", [])
+    if not all(isinstance(alias, str) for alias in material_aliases):
+        raise EosmatError("aliases must contain only strings")
 
     dataset_identifiers: set[str] = set()
     dataset_record_links: list[tuple[str, str]] = []
@@ -297,6 +301,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             dataset_record_links.append((identifier, record_identifier))
 
     record_identifiers: set[str] = set()
+    record_names: set[str] = set()
     derived_record_links: list[tuple[str, str]] = []
     fit_dataset_links: list[tuple[str, str]] = []
     default_counts = {"equilibrium": 0, "hugoniot": 0}
@@ -305,6 +310,19 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
         record = _require_mapping(raw_record, location)
         if not isinstance(record.get("label"), str):
             raise EosmatError(f"{location}.label must be a string")
+        aliases = record.get("aliases", [])
+        if not isinstance(aliases, list) or not all(
+            isinstance(alias, str) and alias.strip() for alias in aliases
+        ):
+            raise EosmatError(
+                f"{location}.aliases must be an array of non-empty strings"
+            )
+        if any(alias != alias.strip() for alias in aliases):
+            raise EosmatError(
+                f"{location}.aliases must not have surrounding whitespace"
+            )
+        if len(aliases) != len(set(aliases)):
+            raise EosmatError(f"{location}.aliases must be unique")
         identifier = record.get("identifier")
         if is_canonical and identifier is None:
             raise EosmatError(f"{location} requires an identifier")
@@ -314,6 +332,14 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if identifier in record_identifiers:
                 raise EosmatError(f"Duplicate EOS record identifier {identifier!r}")
             record_identifiers.add(identifier)
+        record_identifiers_and_aliases = (
+            *((identifier,) if identifier is not None else ()),
+            *aliases,
+        )
+        for name in record_identifiers_and_aliases:
+            if name in record_names:
+                raise EosmatError(f"Duplicate EOS record identifier or alias {name!r}")
+            record_names.add(name)
         record_kind = record.get("record_kind", "published")
         if record_kind not in {"published", "refit", "derived", "diagnostic"}:
             raise EosmatError(f"{location}.record_kind is invalid")
@@ -1001,10 +1027,15 @@ def list_material_documents() -> tuple[str, ...]:
 
 def get_material_document(identifier: str) -> dict[str, Any]:
     """Return a defensive copy of one bundled `.eosmat` document."""
-    if identifier not in list_material_documents():
+    available = list_material_documents()
+    if identifier not in available:
+        suggestions = difflib.get_close_matches(identifier, available, n=3, cutoff=0.5)
+        hint = f" Did you mean: {', '.join(suggestions)}?" if suggestions else ""
         raise MaterialLookupError(
-            f"Unknown material document {identifier!r}; available: "
-            f"{list_material_documents()}"
+            f"Unknown material document {identifier!r}.{hint}",
+            operation="lookup_material_document",
+            field="identifier",
+            context={"identifier": identifier},
         )
     resource = resources.files(_MATERIAL_PACKAGE).joinpath(f"{identifier}.eosmat")
     document = json.loads(resource.read_text(encoding="utf-8"))

@@ -1,5 +1,16 @@
 """Peritheos: thermodynamic equations of state calculations."""
 
+from peritheos.catalog import (
+    RangeQuery,
+    RangeSemantics,
+    ValidationStatus,
+    get_eos_record,
+    get_material,
+    list_eos_records,
+    list_materials,
+    search_eos_records,
+    search_materials,
+)
 from peritheos.eos import EquationOfState
 from peritheos.eosmat import (
     EOSMAT_FORMAT,
@@ -44,10 +55,6 @@ from peritheos.materials import (
     HugoniotRecord,
     HugoniotVolumeBasis,
     Material,
-    get_eos_record,
-    get_material,
-    list_eos_records,
-    list_materials,
     material_from_dict,
 )
 from peritheos.pressure_calibrations import (
@@ -123,9 +130,12 @@ __all__ = [
     "RubyFluorescenceCalibration",
     "RubyPressureScaleRecalculation",
     "XrdPressureRecalculation",
+    "RangeQuery",
+    "RangeSemantics",
     "PeritheosError",
     "UnsupportedOperationError",
     "ValidationError",
+    "ValidationStatus",
     "__version__",
     "eosmat_schema",
     "find_common_pressure_calibration_routes",
@@ -158,6 +168,8 @@ __all__ = [
     "recalculate_ruby_with_measured_xrd_standard",
     "recalculate_xrd_pressure_scale",
     "save_eosmat",
+    "search_eos_records",
+    "search_materials",
     "validate_eosmat_document",
     "validate_pressure_calibration_references",
     "xrd_standard_pressure",

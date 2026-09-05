@@ -116,6 +116,7 @@ Each item in `eos_records` describes one source parameterization.
 |---|---:|---|
 | `identifier` | yes | Stable lower-snake-case record identifier. |
 | `label` | yes | Human-readable source/model label. |
+| `aliases` | no | Unique, non-empty historical or alternate record names accepted by executable lookup. An alias cannot collide with another record identifier or alias in the material. |
 | `reference` | yes | Citation string or structured citation with authors, year, source, and optional DOI. |
 | `default_for` | no | `equilibrium` or `hugoniot`; at most one default is allowed in each category. Legacy `default: true` is interpreted within the record's category. |
 | `equation_kind` | required for Hugoniots | `isothermal`, `thermal`, or `hugoniot`; older equilibrium records may omit it and are inferred. |

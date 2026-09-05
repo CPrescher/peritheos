@@ -8,6 +8,8 @@ least-squares parameter fitting.
 The documentation is organized around scientific workflows:
 
 - [Getting started](getting-started.md) introduces isothermal and thermal use.
+- [Material catalog](catalog.md) covers executable lookup and typed discovery
+  across all 115 materials and 150 literature records.
 - [EOS models](models.md) lists parameters, assumptions, and useful limits.
 - [Equation reference](equation-reference.md) defines the implemented
   isothermal and thermal equations and their coefficients.

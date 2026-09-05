@@ -166,13 +166,14 @@ workflow. `xrd_standard_pressure()` evaluates a measured standard volume
 directly, and `list_xrd_pressure_standards()` lists EOS records explicitly
 identified as references by the audit.
 
-## Curated pressure-scale convenience catalog
+## Historical pressure-scale compatibility API
 
-The table below documents the compact set exposed directly by
-`get_eos_record()` and `list_eos_records()`. The cross-compatible `.eosmat`
-library is broader: it contains 139 material documents and 217 independently
-audited EOS records, accessed with `list_material_documents()` and
-`Material.from_eosmat()`.
+The table below documents the historical pressure-scale identifiers and
+constants. They remain executable compatibility objects, including their
+published numerical behavior. `list_eos_records()` returns the broader
+canonical catalog loaded from the bundled `.eosmat` documents. Use
+`search_eos_records()` to select canonical records by capability, source, or
+calibration range.
 
 | EOS record identifier | Material and phase | Model | Published envelope | Primary source |
 |---|---|---|---|---|
@@ -299,9 +300,9 @@ the two formulas differ when $q\ne0$.
 
 ### B2 KCl as pressure medium and marker
 
-The same primary scale is available through the compact EOS catalog and the
-cross-compatible material library. The latter also carries the ideal B2
-structure needed by Dioptas:
+The same primary scale is available through its historical convenience alias
+and canonical catalog identifier. The canonical material also carries the
+ideal B2 structure needed by Dioptas:
 
 ```python
 from peritheos import Material, get_eos_record, get_material_document

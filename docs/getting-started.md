@@ -19,10 +19,10 @@ the primary reference, calibration coverage, and uncertainty metadata. The EOS
 remains evaluable outside that coverage; range enforcement is opt-in.
 
 ```python
-from peritheos import get_material
+from peritheos import get_material, search_eos_records
 
-mgo = get_material("mgo_b1")
-record = mgo.get_eos_record("mgo_b1_tange_2009_vinet")
+mgo = get_material("mgo")
+record = mgo.get_eos_record("mgo_sokolova_2013_holzapfel_4")
 
 pressure = record.pressure(volume=60.0, temperature=2000.0)
 recovered_volume = record.volume(pressure, temperature=2000.0)
@@ -37,10 +37,23 @@ prediction = record.pressure_with_uncertainty(
 ```
 
 Here volume is in angstrom cubed per conventional unit cell, pressure is in
-GPa, and temperature is in K. See [Pressure standards](pressure-standards.md)
-for the curated calculation catalog and [Exploring the material
-library](notebooks/exploring-material-library.ipynb) for the complete bundled
-139-material/217-record collection.
+GPa, and temperature is in K. The returned object came directly from the
+bundled `.eosmat` document. Search the same executable catalog without loading
+raw documents yourself:
+
+```python
+hot_gold_scales = search_eos_records(
+    formula="Au",
+    thermal=True,
+    pressure_gpa=(0.0, 200.0),
+    temperature_k=2000.0,
+)
+```
+
+See [Material catalog](catalog.md) for every discovery filter,
+[Pressure standards](pressure-standards.md) for pressure-calibration guidance,
+and [Exploring the material library](notebooks/exploring-material-library.ipynb)
+for a longer walkthrough.
 
 ## Construct a room-temperature model
 
