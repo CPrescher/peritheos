@@ -14,6 +14,7 @@ from peritheos.materials import Material
 from peritheos.units import cell_volume_to_molar_volume
 
 RECORD_ID = "ca_perovskite_shim_2000_dac_only_bm3_mgd_4"
+COMBINED_RECORD_ID = "ca_perovskite_shim_2000_combined_bm3_mgd_6"
 DATASET_ID = "ca_perovskite_shim_2000_jgr_table1_dac_pvt"
 TARGET_DOI = "10.1029/2000jb900183"
 
@@ -47,7 +48,10 @@ def test_shim_2000_jgr_record_is_distinct_nonpreferred_dac_only_fit():
         if item["reference"].get("doi", "").lower() == TARGET_DOI
     ]
 
-    assert [item["identifier"] for item in matching] == [RECORD_ID]
+    assert [item["identifier"] for item in matching] == [
+        RECORD_ID,
+        COMBINED_RECORD_ID,
+    ]
     assert record["record_kind"] == "published"
     assert record["equation_kind"] == "thermal"
     assert record["default"] is False
@@ -57,14 +61,14 @@ def test_shim_2000_jgr_record_is_distinct_nonpreferred_dac_only_fit():
     assert record["phase_selection"]["cell_basis"] == (
         "one-formula-unit pseudo-cubic cell (Z=1)"
     )
-    assert record["scientific_validation"]["excluded_preferred_combined_fit"] == {
+    assert record["scientific_validation"]["related_preferred_combined_fit"] == {
+        "identifier": "ca_perovskite_shim_2000_combined_bm3_mgd_6",
         "parameters": {"gamma0": 1.92, "q": 0.6},
         "reason": (
-            "The preferred result combines the 34 Table 1 DAC rows with Wang et "
-            "al. (1996) LVP observations that are only plotted in this article and "
-            "are not provided numerically in an official supplement. It therefore "
-            "fails the complete-checksummed-dataset rule and is not represented by "
-            "this record."
+            "The preferred result combines the 34 Table 1 DAC rows with the "
+            "separately published Wang et al. (1996) LVP observations. It is "
+            "represented as a distinct record; this record remains the explicitly "
+            "reported DAC-only alternative."
         ),
     }
 
@@ -129,7 +133,7 @@ def test_shim_2000_jgr_table1_transcription_is_complete_and_checksummed():
     document, _ = _source_record()
     dataset, rows = _source_rows(document)
 
-    assert dataset["used_by_eos_records"] == [RECORD_ID]
+    assert dataset["used_by_eos_records"] == [RECORD_ID, COMBINED_RECORD_ID]
     assert len(rows) == 34
     assert [row["source_order"] for row in rows] == [str(i) for i in range(1, 35)]
     assert sum(row["pressure_medium"] == "nacl" for row in rows) == 17
