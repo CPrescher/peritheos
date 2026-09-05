@@ -149,6 +149,23 @@ fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
 }
 
 #[test]
+fn bundled_suzuki_epsilon_feooh_uses_reference_temperature_expansivity() {
+    let Some(material) = load_bundled_material("e_feooh.eosmat") else {
+        return;
+    };
+    let record = material
+        .record("e_feooh_suzuki_2016_bm3_thermal_2")
+        .unwrap();
+
+    assert_close(record.pressure(66.278, 300.0).unwrap(), 0.0, 1.0e-12);
+    assert_close(
+        record.pressure(62.63, 700.0).unwrap(),
+        10.833562803310029,
+        1.0e-11,
+    );
+}
+
+#[test]
 fn qin_2023_calcium_ferrite_records_load_and_reproduce_high_pressure_states() {
     let cases = [
         (

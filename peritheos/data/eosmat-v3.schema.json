@@ -351,9 +351,9 @@
           "description": "Characteristic-temperature relation for MieGruneisenDebye. Omission means integrated_gruneisen; JSON Schema defaults are annotations and do not insert the field."
         },
         "thermal_expansion_law": {
-          "enum": ["constant", "linear_temperature"],
+          "enum": ["constant", "linear_temperature", "linear_reference_temperature"],
           "default": "constant",
-          "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature requires alpha1."
+          "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature means alpha(T)=alpha0+alpha1*T, while linear_reference_temperature means alpha(T)=alpha0+alpha1*(T-Tr); both linear laws require alpha1."
         },
         "reference_volume_law": {
           "enum": ["integrated_expansivity", "linear_temperature", "berman"],
@@ -413,7 +413,7 @@
           "then": {"properties": {"type": {"const": "AlphaKT"}}}
         },
         {
-          "if": {"properties": {"thermal_expansion_law": {"const": "linear_temperature"}}, "required": ["thermal_expansion_law"]},
+          "if": {"properties": {"thermal_expansion_law": {"enum": ["linear_temperature", "linear_reference_temperature"]}}, "required": ["thermal_expansion_law"]},
           "then": {"properties": {"parameters": {"required": ["alpha1"]}}}
         },
         {

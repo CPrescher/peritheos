@@ -232,6 +232,10 @@ class ThermalReferenceStateEOS(ThermalEOS):
     law uses :math:`\alpha(T)=\alpha_0`. ``linear_temperature`` uses
     :math:`\alpha(T)=\alpha_0+\alpha_1T`, following Martinez et al. (1996),
     doi:10.2138/am-1996-5-608, equations (2), (4), and (5).
+    ``linear_reference_temperature`` instead defines the intercept at the
+    reference temperature,
+    :math:`\alpha(T)=\alpha_0+\alpha_1(T-T_r)`, as in Suzuki (2016),
+    doi:10.2465/jmps.160719c.
 
     ``reference_volume_law="berman"`` applies the truncated quadratic form
 
@@ -281,9 +285,14 @@ class ThermalReferenceStateEOS(ThermalEOS):
         self.alpha0 = validate_finite_scalar(alpha0, "alpha0")
         self.dK_dT = validate_finite_scalar(dK_dT, "dK_dT")
         self.alpha1 = validate_finite_scalar(alpha1, "alpha1")
-        if thermal_expansion_law not in {"constant", "linear_temperature"}:
+        if thermal_expansion_law not in {
+            "constant",
+            "linear_temperature",
+            "linear_reference_temperature",
+        }:
             raise EosValidationError(
-                "thermal_expansion_law must be 'constant' or 'linear_temperature'"
+                "thermal_expansion_law must be 'constant', 'linear_temperature', "
+                "or 'linear_reference_temperature'"
             )
         self.thermal_expansion_law = thermal_expansion_law
         if reference_volume_law not in {
@@ -345,6 +354,8 @@ class ThermalReferenceStateEOS(ThermalEOS):
             exponent = self.alpha0 * delta_temperature
             if self.thermal_expansion_law == "linear_temperature":
                 exponent += 0.5 * self.alpha1 * (temperature**2 - self.Tr**2)
+            elif self.thermal_expansion_law == "linear_reference_temperature":
+                exponent += 0.5 * self.alpha1 * delta_temperature**2
             with np.errstate(over="ignore", under="ignore"):
                 V0 = self.rt_eos.V0 * np.exp(exponent)
         K0 = self.rt_eos.K0 + self.dK_dT * delta_temperature

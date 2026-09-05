@@ -2,6 +2,12 @@
  "format_version": 3,
  "name": "E-FeOOH",
  "formula": "FeOOH",
+ "phase": "hydrogen-off-center P21nm epsilon-FeOOH",
+ "aliases": [
+  "epsilon-FeOOH",
+  "InOOH-type FeOOH"
+ ],
+ "cell_contents": "Two FeOOH formula units in the conventional orthorhombic P21nm cell (Fe2O4H2).",
  "symmetry": "ORTHORHOMBIC",
  "lattice": {
   "a": 4.771,
@@ -133,6 +139,219 @@
      "finding": "All 49 epsilon-FeOOH P-T lattice-parameter and unit-cell-volume observations published in depository Table 2."
     }
    }
+  },
+  {
+   "label": "Suzuki (2016), BM3 thermal reference state",
+   "identifier": "e_feooh_suzuki_2016_bm3_thermal_2",
+   "equation_kind": "thermal",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Suzuki"
+    ],
+    "year": 2016,
+    "title": "Pressure-volume-temperature equation of state of epsilon-FeOOH to 11 GPa and 700 K",
+    "source": "Journal of Mineralogical and Petrological Sciences",
+    "volume": "111",
+    "locator": "420-424",
+    "doi": "10.2465/jmps.160719c"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 66.278,
+     "K0": 135.0,
+     "K0_prime": 6.1
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.006,
+    "K0": 3.0,
+    "K0_prime": 0.9
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    11.07
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    700.0
+   ],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_reference_temperature",
+    "reference_volume_law": "integrated_expansivity",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 0.000026,
+     "alpha1": 1e-7,
+     "dK_dT": -0.05
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 0.000007,
+     "alpha1": 3e-8,
+     "dK_dT": 0.02
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "fit_datasets": [
+    "epsilon_feooh_suzuki_2016_table1_pvt"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0001,
+     11.07
+    ],
+    "temperature_k": [
+     300.0,
+     700.0
+    ],
+    "volume_ratio": [
+     0.93832,
+     1.0
+    ],
+    "notes": [
+     "Bounds are the extrema of the 33 Table 1 observations, not a rectangular phase-stability field.",
+     "The represented InOOH-type epsilon-FeOOH lies far below the approximately 53 GPa spin transition discussed by Gleason et al. (2013); it is not the hydrogen-centered low-spin Pnnm material.",
+     "The article notes a possible change in compression slope between 3 and 7 GPa that may reflect deviatoric stress or hydrogen-bond symmetrization; the single smooth fit is retained exactly as published."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Suzuki (2016), starting-material powder-XRD result and Table 2: V0,300=66.278(6) A^3 for the conventional Z=2 cell; held fixed in the P-V-T fit.",
+    "K0": "Suzuki (2016), Table 2: KT0=135(3) GPa at 300 K.",
+    "K0_prime": "Suzuki (2016), Equation 1 and Table 2: K'T=6.1(9), assumed temperature-independent.",
+    "Tr": "Suzuki (2016), equations below Equation 1: reference temperature T0=300 K.",
+    "alpha0": "Suzuki (2016), Table 2: a0=2.6(7)e-5 K^-1 in alpha(T)=a0+a1(T-T0).",
+    "alpha1": "Suzuki (2016), Table 2: a1=1.0(3)e-7 K^-2 in alpha(T)=a0+a1(T-T0).",
+    "dK_dT": "Suzuki (2016), Table 2: (partial KT/partial T)P=-0.05(2) GPa/K.",
+    "equation": "Suzuki (2016), Equation 1 and the three displayed temperature relations on page 422: standard BM3 evaluated with linearly temperature-shifted KT0 and exponentially integrated volumetric expansivity.",
+    "volume_basis": "Table 1 labels V as unit-cell volume, and the ambient a*b*c product is 66.278 A^3. The conventional orthorhombic epsilon-FeOOH cell contains Z=2 FeOOH.",
+    "uncertainties": "The Table 2 footnote explicitly defines parenthetical numbers as standard deviations. No parameter covariance matrix or scalar fit statistic is published; the text notes inverse correlation between KT0 and K'T."
+   },
+   "fit_protocol": {
+    "selection": "All 33 Table 1 P-V-T observations spanning 300-700 K and 0.0001-11.07 GPa; V0,300 fixed at 66.278 A^3.",
+    "method": "Third-order high-temperature Birch-Murnaghan fit with EosFit7c.",
+    "free_parameters": [
+     "K0",
+     "K0_prime",
+     "alpha0",
+     "alpha1",
+     "dK_dT"
+    ],
+    "weights": null,
+    "covariance": null,
+    "fit_statistic": null
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Brown"
+       ],
+       "year": 1999,
+       "title": "The NaCl pressure standard",
+       "source": "Journal of Applied Physics",
+       "volume": "86",
+       "locator": "5801-5808",
+       "doi": "10.1063/1.371596"
+      },
+      "source_location": "Experimental Methods, page 421",
+      "scope": "All in situ pressures were calculated from the simultaneously loaded NaCl standard at experimental temperature."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 1 reports sample P-V-T states but not row-wise NaCl lattice parameters, so observation-level pressure recalculation is not possible from the article."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The final J-STAGE article, its displayed equations, both tables, and all 33 printed P-V-T observations were audited directly. The reference-temperature form of the linear expansivity required an explicit Peritheos configuration distinct from alpha0+alpha1*T.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "crystallography",
+     "volume_basis",
+     "published_uncertainties",
+     "covariance_availability",
+     "validity",
+     "pressure_calibration",
+     "primary_observations",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf",
+     "article_sha256": "0066dfbd7b3ab45ce7aae866aef24978c63571a433651ae470912cd0cc8b0289",
+     "locations": [
+      "Experimental Methods, pages 420-421",
+      "Table 1 and Figure 1, page 421",
+      "Equation 1, temperature relations, and Table 2, page 422",
+      "compression and phase discussion, pages 422-423"
+     ],
+     "finding": "The source reports a conventional-cell BM3 high-temperature EOS for low-pressure InOOH-type epsilon-FeOOH. It fixes V0,300, fits five elastic/thermal coefficients, and defines alpha0 at T0 through alpha(T)=a0+a1(T-T0).",
+     "doi": "10.2465/jmps.160719c"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "epsilon_feooh_suzuki_2016_table1_pvt"
+     ],
+     "source_locations": [
+      "Article Table 1, page 421"
+     ],
+     "finding": "All 33 printed pressure, temperature, lattice-parameter, and conventional-cell-volume rows are transcribed with every reported one-standard-deviation uncertainty. No supplementary or machine-readable data are exposed by J-STAGE."
+    },
+    "numerical_reproduction": {
+     "published_curve_on_table1_rows": {
+      "observations": 33,
+      "pressure_rmse_gpa": 0.10201978513163779,
+      "max_abs_pressure_residual_gpa": 0.24320535477927407,
+      "high_temperature_benchmark": {
+       "pressure_gpa": 11.07,
+       "temperature_k": 700.0,
+       "volume_a3": 62.63,
+       "calculated_pressure_gpa": 10.833562803310029
+      }
+     },
+     "diagnostic_peritheos_errors_in_variables_refit": {
+      "objective": "Joint pressure-volume errors-in-variables fit to the 32 finite-pressure Table 1 rows using reported pressure and volume standard deviations; temperature errors were not reported. The ambient row fixes V0,300 and has no printed pressure error, so it is not a separate residual.",
+      "V0_fixed_a3": 66.278,
+      "K0_gpa": 133.8165711071433,
+      "K0_prime": 6.3907975324331465,
+      "alpha0_per_k": 2.708878779423724e-05,
+      "alpha1_per_k2": 1.040910723643e-7,
+      "dK_dT_gpa_per_k": -0.05081473555989552,
+      "reduced_chi_square": 0.49305844611466604,
+      "raw_pressure_rmse_gpa": 0.09607800313639715,
+      "qualification": "All five refitted coefficients lie within the corresponding published one-standard-deviation intervals. The source's precise EosFit weighting, unrounded inputs, covariance, and fit statistic are unavailable, so this is a parity diagnostic rather than a replacement EOS record."
+     }
+    },
+    "phase_boundary": {
+     "finding": "This record remains on e_feooh, the hydrogen-off-center P21nm material. It is not goethite alpha-FeOOH and is not merged with the separate e_feooh_hc_low_spin high-pressure Pnnm material."
+    }
+   },
+   "notes": "Published high-temperature BM3 parameterization. The source reports no EosFit7c version, numerical weights, full covariance, or scalar fit statistic. The Table 1 transcription is retained at printed precision; its source page states copyright 2016 Japan Association of Mineralogical Sciences and exposes no open data license."
   }
  ],
  "format": "peritheos.material",
@@ -255,6 +474,118 @@
    },
    "used_by_eos_records": [
     "e_feooh_gleason_2008_bm2_1"
+   ]
+  },
+  {
+   "identifier": "epsilon_feooh_suzuki_2016_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 33 epsilon-FeOOH pressure-temperature lattice-parameter and conventional-cell-volume observations printed in Suzuki (2016) Table 1.",
+   "source_location": "Article Table 1, page 421",
+   "source_url": "https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf",
+   "license": "No open data reuse license stated; publisher page states copyright 2016 Japan Association of Mineralogical Sciences.",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_sigma_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_sigma_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_sigma_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "cell_volume_a3",
+     "quantity": "cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "cell_volume_sigma_a3",
+     "quantity": "cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/epsilon-feooh-suzuki-2016-table1-pvt.csv",
+    "sha256": "16304bc610cadc78f5428e32e3c779eddfc1331b09ddf28a77572f5768bb1c3e",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "status": "reported",
+    "confidence": "one_standard_deviation",
+    "notes": "The Table 2 footnote states that all parenthesized values are standard deviations; Table 1 temperatures and the 0.0001 GPa ambient pressure have no printed uncertainties."
+   },
+   "notes": "Rows are transcribed verbatim at printed precision and remain in source order. Lattice and volume uncertainties are expanded from last-digit parentheses. J-STAGE lists zero supplementary files and no machine-readable data. This factual transcription is included for scientific validation and is not claimed to carry an open reuse license.",
+   "reference": {
+    "authors": [
+     "Suzuki"
+    ],
+    "year": 2016,
+    "title": "Pressure-volume-temperature equation of state of epsilon-FeOOH to 11 GPa and 700 K",
+    "source": "Journal of Mineralogical and Petrological Sciences",
+    "volume": "111",
+    "locator": "420-424",
+    "doi": "10.2465/jmps.160719c"
+   },
+   "used_by_eos_records": [
+    "e_feooh_suzuki_2016_bm3_thermal_2"
    ]
   }
  ]

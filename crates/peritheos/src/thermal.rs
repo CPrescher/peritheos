@@ -697,6 +697,8 @@ pub enum ThermalExpansionLaw {
     Constant,
     /// `alpha(T) = alpha0 + alpha1 T`.
     LinearTemperature,
+    /// `alpha(T) = alpha0 + alpha1 (T - Tr)`.
+    LinearReferenceTemperature,
 }
 
 /// Relationship used to construct the temperature-dependent reference volume.
@@ -795,6 +797,10 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
                 let mut exponent = self.alpha0 * delta;
                 if self.thermal_expansion_law == ThermalExpansionLaw::LinearTemperature {
                     exponent += 0.5 * self.alpha1 * (temperature * temperature - self.tr * self.tr);
+                } else if self.thermal_expansion_law
+                    == ThermalExpansionLaw::LinearReferenceTemperature
+                {
+                    exponent += 0.5 * self.alpha1 * delta * delta;
                 }
                 self.rt_eos.reference_volume() * exponent.exp()
             }
