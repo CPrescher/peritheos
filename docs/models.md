@@ -71,7 +71,7 @@ correction instead inherits the reference EOS volume convention.
 | [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
 | [`SecondOrderTaylorThermalPressure`](equation-reference.md#second-order-temperature-compression-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `eta0`, `c0`--`c5` | none |
 | [`LogVolumeThermalPressure`](equation-reference.md#logarithmic-volume-linear-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `alpha_KT_ref`, `dK_dT_V` | none |
-| [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `thermal_expansion_law`, `reference_volume_law` | none |
+| [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `alpha_inverse_square`, `thermal_expansion_law`, `reference_volume_law` | none |
 | [`ThermalModifiedTait`](equation-reference.md#thermal-modified-tait) | `ModifiedTait` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
 | [`MultiOscillatorGruneisenThermalEOS`](equation-reference.md#multi-oscillator-gruneisen-thermal-pressure) | any `EosBase` | mode, Gruneisen, anharmonic, electronic parameters plus `n` | Multi-mode |
 

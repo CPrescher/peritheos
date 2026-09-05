@@ -697,6 +697,8 @@ pub enum ThermalExpansionLaw {
     Constant,
     /// `alpha(T) = alpha0 + alpha1 T`.
     LinearTemperature,
+    /// `alpha(T) = alpha0 + alpha1 T - alpha_inverse_square / T^2`.
+    LinearTemperatureInverseSquare,
 }
 
 /// Relationship used to construct the temperature-dependent reference volume.
@@ -724,6 +726,8 @@ pub struct ThermalReferenceState<R> {
     pub dk_dt: f64,
     /// Linear temperature coefficient of expansivity in K^-2.
     pub alpha1: f64,
+    /// Coefficient of the inverse-temperature-squared expansivity term in K.
+    pub alpha_inverse_square: f64,
     /// Instantaneous expansivity law.
     pub thermal_expansion_law: ThermalExpansionLaw,
     /// Reference-volume construction law.
@@ -746,12 +750,42 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
         thermal_expansion_law: ThermalExpansionLaw,
         reference_volume_law: ReferenceVolumeLaw,
     ) -> EosResult<Self> {
+        Self::new_with_inverse_square(
+            rt_eos,
+            tr,
+            alpha0,
+            dk_dt,
+            alpha1,
+            0.0,
+            thermal_expansion_law,
+            reference_volume_law,
+        )
+    }
+
+    /// Construct a temperature-dependent reference-state EOS with an optional
+    /// inverse-temperature-squared expansivity coefficient.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid parameters or an inconsistent law pair.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new_with_inverse_square(
+        rt_eos: R,
+        tr: f64,
+        alpha0: f64,
+        dk_dt: f64,
+        alpha1: f64,
+        alpha_inverse_square: f64,
+        thermal_expansion_law: ThermalExpansionLaw,
+        reference_volume_law: ReferenceVolumeLaw,
+    ) -> EosResult<Self> {
         let model = Self {
             rt_eos,
             tr: positive_parameter(tr, "Tr")?,
             alpha0: finite_parameter(alpha0, "alpha0")?,
             dk_dt: finite_parameter(dk_dt, "dK_dT")?,
             alpha1: finite_parameter(alpha1, "alpha1")?,
+            alpha_inverse_square: finite_parameter(alpha_inverse_square, "alpha_inverse_square")?,
             thermal_expansion_law,
             reference_volume_law,
         };
@@ -761,8 +795,26 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
                 reason: "must be zero for constant thermal expansion",
             });
         }
+        if model.thermal_expansion_law == ThermalExpansionLaw::Constant
+            && model.alpha_inverse_square != 0.0
+        {
+            return Err(EosError::InvalidParameter {
+                name: "alpha_inverse_square",
+                reason: "must be zero for constant thermal expansion",
+            });
+        }
+        if model.thermal_expansion_law == ThermalExpansionLaw::LinearTemperature
+            && model.alpha_inverse_square != 0.0
+        {
+            return Err(EosError::InvalidParameter {
+                name: "alpha_inverse_square",
+                reason: "must be zero for linear-temperature thermal expansion",
+            });
+        }
         if model.reference_volume_law == ReferenceVolumeLaw::LinearTemperature
-            && (model.thermal_expansion_law != ThermalExpansionLaw::Constant || model.alpha1 != 0.0)
+            && (model.thermal_expansion_law != ThermalExpansionLaw::Constant
+                || model.alpha1 != 0.0
+                || model.alpha_inverse_square != 0.0)
         {
             return Err(EosError::InvalidParameter {
                 name: "reference_volume_law",
@@ -795,6 +847,11 @@ impl<R: ReferenceStateEos> ThermalReferenceState<R> {
                 let mut exponent = self.alpha0 * delta;
                 if self.thermal_expansion_law == ThermalExpansionLaw::LinearTemperature {
                     exponent += 0.5 * self.alpha1 * (temperature * temperature - self.tr * self.tr);
+                } else if self.thermal_expansion_law
+                    == ThermalExpansionLaw::LinearTemperatureInverseSquare
+                {
+                    exponent += 0.5 * self.alpha1 * (temperature * temperature - self.tr * self.tr)
+                        + self.alpha_inverse_square * (temperature.recip() - self.tr.recip());
                 }
                 self.rt_eos.reference_volume() * exponent.exp()
             }

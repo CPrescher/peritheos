@@ -451,6 +451,34 @@ fn thermal_reference_state_supports_all_volume_laws_and_domains() {
 }
 
 #[test]
+fn thermal_reference_state_integrates_inverse_temperature_squared_expansivity() {
+    let reference = BM3::new(1.0, 261.0, 4.0).unwrap();
+    let model = ThermalReferenceState::new_with_inverse_square(
+        reference,
+        300.0,
+        1.982e-5,
+        -0.0280,
+        0.818e-8,
+        0.474,
+        ThermalExpansionLaw::LinearTemperatureInverseSquare,
+        ReferenceVolumeLaw::IntegratedExpansivity,
+    )
+    .unwrap();
+    let temperature: f64 = 2000.0;
+    let exponent = 1.982e-5 * (temperature - 300.0)
+        + 0.5 * 0.818e-8 * (temperature.powi(2) - 300.0_f64.powi(2))
+        + 0.474 * (temperature.recip() - 300.0_f64.recip());
+    let shifted_volume = exponent.exp();
+
+    assert_close(
+        model.pressure(shifted_volume, temperature).unwrap(),
+        0.0,
+        1.0e-12,
+    );
+    assert_close(model.pressure(1.0, 300.0).unwrap(), 0.0, 1.0e-14);
+}
+
+#[test]
 fn thermal_configuration_and_state_errors_are_typed() {
     let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
     assert!(matches!(

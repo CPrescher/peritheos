@@ -603,6 +603,37 @@ fn canonical_document_loads_as_an_executable_model_and_preserves_extensions() {
 }
 
 #[test]
+fn inverse_square_thermal_expansion_record_loads_and_evaluates() {
+    let mut document: serde_json::Value = serde_json::from_str(simple_document()).unwrap();
+    document["eos_records"][0]["thermal"] = serde_json::json!({
+        "type": "AlphaKT",
+        "model": "thermal_reference_state",
+        "thermal_expansion_law": "linear_temperature_inverse_square",
+        "reference_volume_law": "integrated_expansivity",
+        "parameters": {
+            "Tr": 300.0,
+            "alpha0": 1.982e-5,
+            "alpha1": 0.818e-8,
+            "alpha_inverse_square": 0.474,
+            "dK_dT": -0.0280
+        }
+    });
+    let material = load_eosmat_str(&document.to_string()).unwrap();
+    let record = material.default_record().unwrap();
+    let temperature: f64 = 2000.0;
+    let exponent = 1.982e-5 * (temperature - 300.0)
+        + 0.5 * 0.818e-8 * (temperature.powi(2) - 300.0_f64.powi(2))
+        + 0.474 * (temperature.recip() - 300.0_f64.recip());
+    let shifted_volume = 10.0 * exponent.exp();
+
+    assert_close(
+        record.pressure(shifted_volume, temperature).unwrap(),
+        0.0,
+        1.0e-12,
+    );
+}
+
+#[test]
 fn legacy_dioptas_format_two_is_accepted_and_identifiers_are_generated() {
     let source = r#"{
         "format_version": 2,

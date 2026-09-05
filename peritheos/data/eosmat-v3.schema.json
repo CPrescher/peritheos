@@ -351,9 +351,9 @@
           "description": "Characteristic-temperature relation for MieGruneisenDebye. Omission means integrated_gruneisen; JSON Schema defaults are annotations and do not insert the field."
         },
         "thermal_expansion_law": {
-          "enum": ["constant", "linear_temperature"],
+          "enum": ["constant", "linear_temperature", "linear_temperature_inverse_square"],
           "default": "constant",
-          "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature requires alpha1."
+          "description": "Volumetric expansion law integrated by thermal_reference_state. Omission means constant; linear_temperature requires alpha1; linear_temperature_inverse_square requires alpha1 and alpha_inverse_square and represents alpha(T)=alpha0+alpha1*T-alpha_inverse_square/T^2."
         },
         "reference_volume_law": {
           "enum": ["integrated_expansivity", "linear_temperature", "berman"],
@@ -417,13 +417,21 @@
           "then": {"properties": {"parameters": {"required": ["alpha1"]}}}
         },
         {
+          "if": {"properties": {"thermal_expansion_law": {"const": "linear_temperature_inverse_square"}}, "required": ["thermal_expansion_law"]},
+          "then": {"properties": {"parameters": {"required": ["alpha1", "alpha_inverse_square"]}}}
+        },
+        {
           "if": {
             "anyOf": [
               {"not": {"required": ["thermal_expansion_law"]}},
               {"properties": {"thermal_expansion_law": {"const": "constant"}}, "required": ["thermal_expansion_law"]}
             ]
           },
-          "then": {"properties": {"parameters": {"properties": {"alpha1": {"const": 0}}}}}
+          "then": {"properties": {"parameters": {"properties": {"alpha1": {"const": 0}, "alpha_inverse_square": {"const": 0}}}}}
+        },
+        {
+          "if": {"properties": {"thermal_expansion_law": {"const": "linear_temperature"}}, "required": ["thermal_expansion_law"]},
+          "then": {"properties": {"parameters": {"properties": {"alpha_inverse_square": {"const": 0}}}}}
         },
         {
           "if": {
@@ -433,7 +441,7 @@
           "then": {
             "properties": {
               "thermal_expansion_law": {"const": "constant"},
-              "parameters": {"properties": {"alpha1": {"const": 0}}}
+              "parameters": {"properties": {"alpha1": {"const": 0}, "alpha_inverse_square": {"const": 0}}}
             }
           }
         },
@@ -445,7 +453,7 @@
           "then": {
             "properties": {
               "thermal_expansion_law": {"const": "linear_temperature"},
-              "parameters": {"required": ["alpha1"]}
+              "parameters": {"required": ["alpha1"], "properties": {"alpha_inverse_square": {"const": 0}}}
             }
           }
         }

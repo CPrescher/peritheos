@@ -707,7 +707,12 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if thermal_type == "AlphaKT":
                 if thermal_expansion_law is not None and (
                     not isinstance(thermal_expansion_law, str)
-                    or thermal_expansion_law not in {"constant", "linear_temperature"}
+                    or thermal_expansion_law
+                    not in {
+                        "constant",
+                        "linear_temperature",
+                        "linear_temperature_inverse_square",
+                    }
                 ):
                     raise EosmatError(
                         f"{location}.thermal.thermal_expansion_law is invalid"
@@ -756,17 +761,35 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     f"{location}.thermal.parameters requires alpha1 for "
                     "linear_temperature thermal expansion"
                 )
-            if (
-                thermal_expansion_law in {None, "constant"}
-                and thermal_parameters.get("alpha1", 0.0) != 0.0
+            if thermal_expansion_law == "linear_temperature_inverse_square" and (
+                "alpha1" not in thermal_parameters
+                or "alpha_inverse_square" not in thermal_parameters
             ):
                 raise EosmatError(
-                    f"{location}.thermal.parameters.alpha1 must be zero for "
-                    "constant thermal expansion"
+                    f"{location}.thermal.parameters requires alpha1 and "
+                    "alpha_inverse_square for linear_temperature_inverse_square "
+                    "thermal expansion"
+                )
+            if thermal_expansion_law in {None, "constant"} and (
+                thermal_parameters.get("alpha1", 0.0) != 0.0
+                or thermal_parameters.get("alpha_inverse_square", 0.0) != 0.0
+            ):
+                raise EosmatError(
+                    f"{location}.thermal constant thermal expansion requires "
+                    "alpha1=0 and alpha_inverse_square=0"
+                )
+            if (
+                thermal_expansion_law == "linear_temperature"
+                and thermal_parameters.get("alpha_inverse_square", 0.0) != 0.0
+            ):
+                raise EosmatError(
+                    f"{location}.thermal.parameters.alpha_inverse_square must be "
+                    "zero for linear_temperature thermal expansion"
                 )
             if reference_volume_law == "linear_temperature" and (
                 thermal_expansion_law not in {None, "constant"}
                 or thermal_parameters.get("alpha1", 0.0) != 0.0
+                or thermal_parameters.get("alpha_inverse_square", 0.0) != 0.0
             ):
                 raise EosmatError(
                     f"{location}.thermal linear_temperature reference volume "

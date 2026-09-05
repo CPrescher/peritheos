@@ -163,7 +163,9 @@ omit the field intentionally retain the integrated default.
 
 Format 3 also defines `thermal_expansion_law` for `AlphaKT` components.
 `constant` is the backward-compatible default; `linear_temperature` adds the
-integrated `alpha0 + alpha1*T` reference-volume law. Dioptas consumers that do
+integrated `alpha0 + alpha1*T` reference-volume law, and
+`linear_temperature_inverse_square` adds the exact
+`alpha0 + alpha1*T - alpha_inverse_square/T^2` law. Dioptas consumers that do
 not yet evaluate this extension must preserve it as unknown record data rather
 than replacing it with constant expansivity.
 

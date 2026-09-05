@@ -461,9 +461,25 @@ V_0(T)=V_0(T_r)\exp\left[
 \right].
 \]
 
+The `linear_temperature_inverse_square` law uses
+
+\[
+\alpha(T)=\alpha_0+\alpha_1T-\frac{c}{T^2},
+\qquad
+V_0(T)=V_0(T_r)\exp\left[
+\alpha_0(T-T_r)+\frac{\alpha_1}{2}(T^2-T_r^2)
++c\left(\frac{1}{T}-\frac{1}{T_r}\right)
+\right],
+\]
+
+where `alpha_inverse_square` stores $c$ in kelvin. This exact form is the
+thermal reference-volume law published by Funamori et al. (1996),
+[doi:10.1029/95JB03732](https://doi.org/10.1029/95JB03732).
+
 Here $\alpha$ is the volumetric expansion coefficient; crystallographic-axis
 expansivities are separate quantities. The stored numeric parameters are
-`Tr`, `alpha0`, `dK_dT`, and `alpha1` (zero by default). Unlike the energy-based
+`Tr`, `alpha0`, `dK_dT`, `alpha1`, and `alpha_inverse_square` (the latter two
+zero by default). Unlike the energy-based
 thermal models, this construction inherits the volume unit of its reference
 isotherm.
 

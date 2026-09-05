@@ -237,6 +237,46 @@ def test_thermal_reference_state_integrates_linear_temperature_expansivity():
     assert reconstructed.thermal_expansion_law == "linear_temperature"
 
 
+def test_thermal_reference_state_integrates_inverse_temperature_squared_term():
+    eos = ThermalReferenceStateEOS(
+        BM3(V0=1.0, K0=261.0, K0_prime=4.0),
+        Tr=300.0,
+        alpha0=1.982e-5,
+        alpha1=0.818e-8,
+        dK_dT=-0.0280,
+        thermal_expansion_law="linear_temperature_inverse_square",
+        alpha_inverse_square=0.474,
+    )
+    temperatures = np.array([300.0, 1000.0, 2000.0])
+    exponent = (
+        eos.alpha0 * (temperatures - eos.Tr)
+        + 0.5 * eos.alpha1 * (temperatures**2 - eos.Tr**2)
+        + eos.alpha_inverse_square * (1.0 / temperatures - 1.0 / eos.Tr)
+    )
+    shifted_volumes = eos.rt_eos.V0 * np.exp(exponent)
+    shifted_moduli = eos.rt_eos.K0 + eos.dK_dT * (temperatures - eos.Tr)
+    expected = np.array(
+        [
+            BM3(volume, modulus, 4.0).pressure(0.92)
+            for volume, modulus in zip(shifted_volumes, shifted_moduli)
+        ]
+    )
+
+    assert eos.configuration_values() == {
+        "thermal_expansion_law": "linear_temperature_inverse_square",
+        "reference_volume_law": "integrated_expansivity",
+    }
+    assert eos.parameter_values(include_reference=False)[
+        "alpha_inverse_square"
+    ] == pytest.approx(0.474)
+    assert np.allclose(eos.pressure(0.92, temperatures), expected)
+    assert np.allclose(eos.pressure(shifted_volumes, temperatures), 0.0, atol=1e-12)
+
+    reconstructed = eos.with_parameters(alpha_inverse_square=0.5)
+    assert reconstructed.alpha_inverse_square == pytest.approx(0.5)
+    assert reconstructed.thermal_expansion_law == "linear_temperature_inverse_square"
+
+
 def test_thermal_reference_state_supports_direct_linear_reference_volume():
     eos = ThermalReferenceStateEOS(
         BM2(V0=227.5, K0=64.81),

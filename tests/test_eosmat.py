@@ -2722,6 +2722,21 @@ def test_eosmat_thermal_expansion_law_defaults_and_validation():
         validate_eosmat_document(document)
 
     thermal["parameters"]["alpha1"] = 3.1e-9
+    thermal["thermal_expansion_law"] = "linear_temperature_inverse_square"
+    with pytest.raises(ValueError, match="requires alpha1 and alpha_inverse_square"):
+        validate_eosmat_document(document)
+
+    thermal["parameters"]["alpha_inverse_square"] = 0.474
+    validate_eosmat_document(document)
+    record_identifier = document["eos_records"][0]["identifier"]
+    executable = Material.from_eosmat(
+        document, record_identifiers=[record_identifier]
+    ).get_eos_record(record_identifier)
+    assert executable.eos.alpha_inverse_square == pytest.approx(0.474)
+    assert executable.eos.thermal_expansion_law == "linear_temperature_inverse_square"
+
+    thermal["parameters"].pop("alpha_inverse_square")
+    thermal["thermal_expansion_law"] = "linear_temperature"
     thermal["reference_volume_law"] = "linear_temperature"
     with pytest.raises(ValueError, match="requires constant thermal expansion"):
         validate_eosmat_document(document)

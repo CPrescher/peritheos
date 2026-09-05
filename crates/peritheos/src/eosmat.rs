@@ -2759,6 +2759,9 @@ fn build_thermal(
                 match configuration(component, "thermal_expansion_law").unwrap_or("constant") {
                     "constant" => ThermalExpansionLaw::Constant,
                     "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
+                    "linear_temperature_inverse_square" => {
+                        ThermalExpansionLaw::LinearTemperatureInverseSquare
+                    }
                     value => return Err(format!("unknown thermal_expansion_law {value:?}")),
                 };
             let volume_law = match configuration(component, "reference_volume_law")
@@ -2769,7 +2772,7 @@ fn build_thermal(
                 "berman" => ReferenceVolumeLaw::Berman,
                 value => return Err(format!("unknown reference_volume_law {value:?}")),
             };
-            ThermalReferenceState::new(
+            ThermalReferenceState::new_with_inverse_square(
                 reference,
                 p("Tr")?,
                 p("alpha0")?,
@@ -2777,6 +2780,12 @@ fn build_thermal(
                 component
                     .parameters
                     .get("alpha1")
+                    .copied()
+                    .flatten()
+                    .unwrap_or(0.0),
+                component
+                    .parameters
+                    .get("alpha_inverse_square")
                     .copied()
                     .flatten()
                     .unwrap_or(0.0),

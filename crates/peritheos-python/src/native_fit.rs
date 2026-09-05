@@ -441,17 +441,27 @@ impl ThermalModel {
                 )
             }
             Self::ThermalReferenceState(model) => {
-                ensure_names(names, &["Tr", "alpha0", "dK_dT", "alpha1"], true)?;
+                ensure_names(
+                    names,
+                    &["Tr", "alpha0", "dK_dT", "alpha1", "alpha_inverse_square"],
+                    true,
+                )?;
                 let reference = model
                     .rt_eos
                     .with_parameters(&reference_names, &reference_values)?;
                 Self::ThermalReferenceState(
-                    ThermalReferenceState::new(
+                    ThermalReferenceState::new_with_inverse_square(
                         reference,
                         value(names, values, "Tr", model.tr),
                         value(names, values, "alpha0", model.alpha0),
                         value(names, values, "dK_dT", model.dk_dt),
                         value(names, values, "alpha1", model.alpha1),
+                        value(
+                            names,
+                            values,
+                            "alpha_inverse_square",
+                            model.alpha_inverse_square,
+                        ),
                         model.thermal_expansion_law,
                         model.reference_volume_law,
                     )

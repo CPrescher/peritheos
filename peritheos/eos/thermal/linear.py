@@ -232,6 +232,11 @@ class ThermalReferenceStateEOS(ThermalEOS):
     law uses :math:`\alpha(T)=\alpha_0`. ``linear_temperature`` uses
     :math:`\alpha(T)=\alpha_0+\alpha_1T`, following Martinez et al. (1996),
     doi:10.2138/am-1996-5-608, equations (2), (4), and (5).
+    ``linear_temperature_inverse_square`` uses
+    :math:`\alpha(T)=\alpha_0+\alpha_1T-c/T^2`, where
+    ``alpha_inverse_square`` stores :math:`c`; its exact integrated exponent
+    adds :math:`c(1/T-1/T_r)`. This is the law published by Funamori et al.
+    (1996), doi:10.1029/95JB03732.
 
     ``reference_volume_law="berman"`` applies the truncated quadratic form
 
@@ -275,15 +280,24 @@ class ThermalReferenceStateEOS(ThermalEOS):
         alpha1: float = 0.0,
         thermal_expansion_law: str = "constant",
         reference_volume_law: str = "integrated_expansivity",
+        alpha_inverse_square: float = 0.0,
     ) -> None:
         super().__init__(rt_eos)
         self.Tr = validate_positive_scalar(Tr, "Tr")
         self.alpha0 = validate_finite_scalar(alpha0, "alpha0")
         self.dK_dT = validate_finite_scalar(dK_dT, "dK_dT")
         self.alpha1 = validate_finite_scalar(alpha1, "alpha1")
-        if thermal_expansion_law not in {"constant", "linear_temperature"}:
+        self.alpha_inverse_square = validate_finite_scalar(
+            alpha_inverse_square, "alpha_inverse_square"
+        )
+        if thermal_expansion_law not in {
+            "constant",
+            "linear_temperature",
+            "linear_temperature_inverse_square",
+        }:
             raise EosValidationError(
-                "thermal_expansion_law must be 'constant' or 'linear_temperature'"
+                "thermal_expansion_law must be 'constant', 'linear_temperature', "
+                "or 'linear_temperature_inverse_square'"
             )
         self.thermal_expansion_law = thermal_expansion_law
         if reference_volume_law not in {
@@ -300,8 +314,22 @@ class ThermalReferenceStateEOS(ThermalEOS):
             raise EosValidationError(
                 "alpha1 must be zero for constant thermal expansion"
             )
+        if thermal_expansion_law == "constant" and self.alpha_inverse_square != 0.0:
+            raise EosValidationError(
+                "alpha_inverse_square must be zero for constant thermal expansion"
+            )
+        if (
+            thermal_expansion_law == "linear_temperature"
+            and self.alpha_inverse_square != 0.0
+        ):
+            raise EosValidationError(
+                "alpha_inverse_square must be zero for linear_temperature "
+                "thermal expansion"
+            )
         if reference_volume_law == "linear_temperature" and (
-            thermal_expansion_law != "constant" or self.alpha1 != 0.0
+            thermal_expansion_law != "constant"
+            or self.alpha1 != 0.0
+            or self.alpha_inverse_square != 0.0
         ):
             raise EosValidationError(
                 "linear_temperature reference volume requires constant thermal "
@@ -329,6 +357,7 @@ class ThermalReferenceStateEOS(ThermalEOS):
                 self.alpha1,
                 self.thermal_expansion_law,
                 self.reference_volume_law,
+                self.alpha_inverse_square,
             )
 
     def _state_eos(self, temperature: float) -> EosBase:
@@ -345,6 +374,11 @@ class ThermalReferenceStateEOS(ThermalEOS):
             exponent = self.alpha0 * delta_temperature
             if self.thermal_expansion_law == "linear_temperature":
                 exponent += 0.5 * self.alpha1 * (temperature**2 - self.Tr**2)
+            elif self.thermal_expansion_law == "linear_temperature_inverse_square":
+                exponent += 0.5 * self.alpha1 * (temperature**2 - self.Tr**2)
+                exponent += self.alpha_inverse_square * (
+                    1.0 / temperature - 1.0 / self.Tr
+                )
             with np.errstate(over="ignore", under="ignore"):
                 V0 = self.rt_eos.V0 * np.exp(exponent)
         K0 = self.rt_eos.K0 + self.dK_dT * delta_temperature

@@ -658,7 +658,8 @@ impl PyThermalEos {
     #[pyo3(signature = (
         rt_eos, tr, alpha0, dk_dt, alpha1=0.0,
         thermal_expansion_law="constant",
-        reference_volume_law="integrated_expansivity"
+        reference_volume_law="integrated_expansivity",
+        alpha_inverse_square=0.0
     ))]
     #[allow(clippy::too_many_arguments)]
     fn thermal_reference_state(
@@ -669,13 +670,17 @@ impl PyThermalEos {
         alpha1: f64,
         thermal_expansion_law: &str,
         reference_volume_law: &str,
+        alpha_inverse_square: f64,
     ) -> PyResult<Self> {
         let expansion_law = match thermal_expansion_law {
             "constant" => ThermalExpansionLaw::Constant,
             "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
+            "linear_temperature_inverse_square" => {
+                ThermalExpansionLaw::LinearTemperatureInverseSquare
+            }
             _ => {
                 return Err(python_validation_error(
-                    "thermal_expansion_law must be 'constant' or 'linear_temperature'",
+                    "thermal_expansion_law must be 'constant', 'linear_temperature', or 'linear_temperature_inverse_square'",
                 ));
             }
         };
@@ -691,12 +696,13 @@ impl PyThermalEos {
         };
         Ok(Self {
             model: ThermalModel::ThermalReferenceState(
-                ThermalReferenceState::new(
+                ThermalReferenceState::new_with_inverse_square(
                     rt_eos.model,
                     tr,
                     alpha0,
                     dk_dt,
                     alpha1,
+                    alpha_inverse_square,
                     expansion_law,
                     volume_law,
                 )

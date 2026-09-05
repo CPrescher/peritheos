@@ -344,12 +344,20 @@ An `AlphaKT` component may select the integrated volumetric expansion law:
 "thermal_expansion_law": "linear_temperature"
 ```
 
-Allowed values are `constant` and `linear_temperature`. Omission means
+Allowed values are `constant`, `linear_temperature`, and
+`linear_temperature_inverse_square`. Omission means
 `constant` for backward compatibility. The linear law requires `alpha1` and
 represents $\alpha(T)=\alpha_0+\alpha_1T$; the implementation analytically
 integrates this expression when constructing $V_0(T)$. Writers should store
 the field explicitly for new or edited linear-temperature records. The field
 is valid only for `AlphaKT` / `thermal_reference_state` components.
+
+The inverse-square law additionally requires `alpha_inverse_square` and
+represents
+$\alpha(T)=\alpha_0+\alpha_1T-\mathtt{alpha\_inverse\_square}/T^2$. Its exact
+integral adds
+$\mathtt{alpha\_inverse\_square}(1/T-1/T_r)$ to the reference-volume exponent.
+The coefficient has units of kelvin.
 
 The independent `reference_volume_law` configuration controls how expansion
 information constructs the reference volume. Omission means

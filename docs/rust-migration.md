@@ -66,7 +66,7 @@ available:
 | `LinearThermalPressure` | any built-in isothermal EOS | `Tr, alpha_KT` |
 | `SecondOrderTaylorThermalPressure` | any built-in isothermal EOS exposing `V0` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
 | `LogVolumeThermalPressure` | any built-in isothermal EOS | `Tr, alpha_KT_ref, dK_dT_V` |
-| `ThermalReferenceStateEOS` | any reconstructable built-in isothermal EOS | `Tr, alpha0, dK_dT, alpha1`; expansion and reference-volume laws are fixed configuration |
+| `ThermalReferenceStateEOS` | any reconstructable built-in isothermal EOS | `Tr, alpha0, dK_dT, alpha1, alpha_inverse_square`; expansion and reference-volume laws are fixed configuration |
 | `MieGruneisenDebye` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n`; Debye-temperature law is fixed configuration |
 | `MieGruneisenEinstein` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n` |
 | `Tange2009Debye` | any built-in isothermal EOS | `Tr, theta0, gamma0, a, b, n` |

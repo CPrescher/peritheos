@@ -133,6 +133,23 @@ def test_every_builtin_rt_model_fits_end_to_end_natively(expected, monkeypatch):
             },
         ),
         (
+            ThermalReferenceStateEOS(
+                BM3(1.0, 261.0, 4.0),
+                300.0,
+                1.982e-5,
+                -0.0280,
+                0.818e-8,
+                thermal_expansion_law="linear_temperature_inverse_square",
+                alpha_inverse_square=0.474,
+            ),
+            "alpha_inverse_square",
+            0.8,
+            {
+                "thermal_expansion_law": "linear_temperature_inverse_square",
+                "reference_volume_law": "integrated_expansivity",
+            },
+        ),
+        (
             ThermalModifiedTait(
                 ModifiedTait(1.0, 160.0, 4.0, -0.01),
                 298.15,
