@@ -1,0 +1,713 @@
+{
+ "format_version": 3,
+ "name": "(Mg0.75Fe0.25)O ferropericlase",
+ "formula": "Mg0.75Fe0.25O",
+ "phase": "B1 rocksalt ferropericlase with pressure-induced Fe2+ spin crossover",
+ "aliases": [
+  "fp25",
+  "25 mol.% Fe ferropericlase",
+  "magnesiowustite (Mg0.75Fe0.25)O"
+ ],
+ "cell_contents": "Three Mg, one Fe, and four O atoms in the conventional Fm-3m B1 cell (Z=4), represented by Mg0.75/Fe0.25 occupational mixing on 4a.",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.2421,
+  "b": null,
+  "c": null,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.75
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.25
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "notes": "Publication-scoped fp25 material. The two executable records are the pure high-spin and low-spin thermal BM3 end members only. The mixed-spin interpolation, spin-fraction surface, geotherm projection, and anomalous crossover elastic response are preserved as explicitly excluded scope because Peritheos does not implement that coupled crossover model and the source does not tabulate P_HS and P_LS.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Mao et al. (2011), fp25 high-spin thermal BM3",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Lin",
+     "Liu",
+     "Prakapenka"
+    ],
+    "year": 2011,
+    "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
+    "source": "Geophys. Res. Lett.",
+    "volume": "38",
+    "locator": "L23308",
+    "doi": "10.1029/2011GL049915"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 76.34,
+     "K0": 162.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.01,
+    "K0": 1.0,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    85.4
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2000.0
+   ],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "constant",
+    "reference_volume_law": "integrated_expansivity",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 3.76e-05,
+     "dK_dT": -0.017
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 5e-07,
+     "dK_dT": 0.002
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "identifier": "mg075fe025o_ferropericlase_mao_2011_high_spin_bm3_thermal",
+   "fit_datasets": [
+    "mg075fe025o_ferropericlase_mao_2011_table_s1_pvt"
+   ],
+   "phase_scope": "B1 Fm-3m (Mg0.75Fe0.25)O on the high-spin Fe2+ end-member branch; mixed-spin observations are outside this executable model.",
+   "sample_composition": {
+    "measured_formula": "(Mg0.75Fe0.25)O",
+    "iron_speciation": "Fe was predominantly Fe2+; Fe3+ was below the 2-3% detection limit of the cited Mossbauer measurements.",
+    "homogeneity": "Electron microprobe analyses found 25% Fe and chemical homogeneity; XRD found no magnetite impurity."
+   },
+   "spin_state_scope": {
+    "branch": "high_spin_end_member",
+    "selection_status": "audit_reconstruction_from_complete_source_data_and_figures",
+    "selection_rule": "Compute n_LS=(V_HS(P,T)-V_obs)/(V_HS(P,T)-V_LS(P,T)) from the two corrected published thermal end-member curves; retain rows with unclipped n_LS <= 0.05 as high-spin plateau inliers.",
+    "threshold_rationale": "A five-percent endpoint tolerance resolves the plateaus visible in Figures 1-2 while leaving transition observations out of both pure-state refits.",
+    "inferred_last_high_spin_pressure_gpa": {
+     "300": 54.6,
+     "1200": 68.5,
+     "1500": 78.3,
+     "1800": 82.7,
+     "2000": 85.4
+    },
+    "selected_observations": 97
+   },
+   "parameter_provenance": {
+    "equation": "Main text paragraph 7: third-order Birch-Murnaghan EOS; K0'=4 fixed. Duffy and Anderson (1989), Equations 9-10, supply the cited high-temperature convention: integrate alpha for V0(T) and use a linear temperature expansion for the modulus.",
+    "V0": "Main text paragraph 7: measured high-spin V0=76.34(1) A^3, fixed in the 300 K fit.",
+    "K0": "Main text paragraph 7: high-spin KT0=162(1) GPa from the 300 K fit.",
+    "K0_prime": "Main text paragraph 7: fixed at 4.",
+    "alpha0": "Corrected main text paragraph 7: high-spin alpha0=3.76(5)e-5 K^-1 from all selected high-spin P-V-T data.",
+    "dK_dT": "Corrected main text paragraph 7: high-spin (dK/dT)P=-0.017(2) GPa/K.",
+    "temperature_ref": "The static reference fit is explicitly at 300 K; high-temperature series are nominally 1200, 1500, 1800, and 2000 K.",
+    "volume_basis": "Table S1 reports conventional cubic B1 unit-cell volumes in A^3; the cell parameter 4.2421(2) A gives 76.3383 A^3 and Z=4.",
+    "fit_row_selection": "The source identifies spin states from the volume offset to the Tange et al. MgO EOS but does not print row flags. The bundled flags are a deterministic audit reconstruction, not claimed source annotations."
+   },
+   "notes": "Published high-spin thermal end-member curve. Static V0 and K0 were used as inputs to the thermal fit. The parenthesized parameter errors and their confidence convention are not defined, and covariance is not published. The validity box is the coordinate envelope of reconstructed high-spin plateau rows and must be combined with spin_state_scope; it does not authorize evaluation through the mixed-spin region.",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     85.4
+    ],
+    "temperature_k": [
+     300.0,
+     2000.0
+    ],
+    "volume_ratio": [
+     0.7652606759,
+     1.0
+    ],
+    "notes": [
+     "Coordinate envelope of the 97 reconstructed n_LS<=0.05 high-spin plateau rows.",
+     "The spin-state boundary is temperature dependent; use the per-temperature limits in spin_state_scope rather than treating 85.4 GPa as a universal high-spin bound."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Main text experimental section, paragraphs 4-5: 5 wt.% Au mixed with the sample and pressures calculated in situ from the Fei et al. thermal EOS.",
+      "reference_eos_record": "gold_fei_2007_vinet_2"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table S1 reports reduced pressures but no row-wise Au lattice parameters or volumes, so observation-level pressure recalculation is impossible."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked against the corrected article, official supporting text and complete official Table S1. Spin-state row selection is explicitly marked as an audit reconstruction from Figures 1-2 and the published end-member equations.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "spin_state_scope"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049915",
+     "locations": [
+      "Main text paragraphs 3-8 and Figures 1-2",
+      "Official supporting text, Sample Characterization and Determination of the Spin Crossover sections",
+      "Official supporting Table S1, all 195 P-V rows",
+      "Correction doi:10.1029/2011GL050814"
+     ],
+     "finding": "The corrected publication supplies complete P-V-T observations, BM3 end-member parameters, thermal coefficients, composition, conventional-cell basis, and Au pressure calibration. Pure-state row flags are absent, but the plotted end-member fractions and Equation 6 allow a deterministic five-percent plateau reconstruction that reproduces both published thermal coefficients within one reported standard uncertainty.",
+     "doi": "10.1029/2011GL049915"
+    },
+    "correction": {
+     "doi": "10.1029/2011GL050814",
+     "applied_changes": [
+      "Use corrected low-spin V0=74.4 A^3 rather than 74.44 A^3.",
+      "Use the corrected logistic expression for n_LS.",
+      "Treat the static P-V fit as the 300 K fit."
+     ]
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mg075fe025o_ferropericlase_mao_2011_table_s1_pvt"
+     ],
+     "source_locations": [
+      "Official Table S1 text file, all 195 rows"
+     ],
+     "finding": "All 195 observations and their printed pressure and volume uncertainties are preserved in source order: 58 at 300 K, 38 at 1200 K, 35 at 1500 K, 33 at 1800 K, and 31 at 2000 K."
+    },
+    "independent_refit": {
+     "implementation": "scripts/reproduce_mao_2011_ferropericlase.py",
+     "static_300k_refit": {
+      "selection": "24 reconstructed high-spin plateau rows at 300 K",
+      "objective": "iteratively updated effective-variance pressure residuals",
+      "fixed_parameters": {
+       "V0": 76.34,
+       "K0_prime": 4.0
+      },
+      "refined_parameters": {
+       "K0": 162.39174473
+      }
+     },
+     "selection": "97 rows with reconstructed unclipped n_LS<=0.05",
+     "objective": "iteratively updated effective-variance pressure residuals using printed pressure and volume standard deviations and 50 K for laser-heated temperature series",
+     "fixed_parameters": {
+      "V0": 76.34,
+      "K0": 162.0,
+      "K0_prime": 4.0,
+      "Tr": 300.0
+     },
+     "refined_parameters": {
+      "alpha0": 3.80225563e-05,
+      "dK_dT": -0.0168525892
+     },
+     "published_curve_pressure_rmse_gpa": 0.3227722153,
+     "published_curve_max_absolute_pressure_residual_gpa": 0.794471724,
+     "parity": "Both reconstructed-fit coefficients lie within one published parameter uncertainty."
+    },
+    "excluded_parameterizations": [
+     {
+      "scope": "mixed-spin crossover equations 1-7 and derived alpha, KT, density, and bulk-sound-velocity anomalies",
+      "reason": "Peritheos has no coupled spin-fraction/Gibbs-free-energy/interpolated-volume EOS, and the source does not tabulate the temperature-dependent P_HS and P_LS inputs required by Equations 2-3. No surrogate crossover record is encoded."
+     },
+     {
+      "scope": "2000 K low-spin end-member branch",
+      "reason": "No Table S1 observation reaches reconstructed n_LS>=0.95 at 2000 K; the low-spin record therefore stops at the 1800 K observed envelope."
+     }
+    ]
+   }
+  },
+  {
+   "label": "Mao et al. (2011), fp25 low-spin thermal BM3",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Lin",
+     "Liu",
+     "Prakapenka"
+    ],
+    "year": 2011,
+    "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
+    "source": "Geophys. Res. Lett.",
+    "volume": "38",
+    "locator": "L23308",
+    "doi": "10.1029/2011GL049915"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.4,
+     "K0": 166.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.6,
+    "K0": 7.0,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    81.5,
+    130.5
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    1800.0
+   ],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "constant",
+    "reference_volume_law": "integrated_expansivity",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 3.37e-05,
+     "dK_dT": -0.014
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 5e-07,
+     "dK_dT": 0.002
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "identifier": "mg075fe025o_ferropericlase_mao_2011_low_spin_bm3_thermal",
+   "fit_datasets": [
+    "mg075fe025o_ferropericlase_mao_2011_table_s1_pvt"
+   ],
+   "phase_scope": "B1 Fm-3m (Mg0.75Fe0.25)O on the low-spin Fe2+ end-member branch; mixed-spin observations are outside this executable model.",
+   "sample_composition": {
+    "measured_formula": "(Mg0.75Fe0.25)O",
+    "iron_speciation": "Fe was predominantly Fe2+; Fe3+ was below the 2-3% detection limit of the cited Mossbauer measurements.",
+    "homogeneity": "Electron microprobe analyses found 25% Fe and chemical homogeneity; XRD found no magnetite impurity."
+   },
+   "spin_state_scope": {
+    "branch": "low_spin_end_member",
+    "selection_status": "audit_reconstruction_from_complete_source_data_and_figures",
+    "selection_rule": "Compute n_LS=(V_HS(P,T)-V_obs)/(V_HS(P,T)-V_LS(P,T)) from the two corrected published thermal end-member curves; retain rows with unclipped n_LS >= 0.95 as low-spin plateau inliers.",
+    "threshold_rationale": "A five-percent endpoint tolerance resolves the plateaus visible in Figures 1-2 while leaving transition observations out of both pure-state refits.",
+    "inferred_first_low_spin_pressure_gpa": {
+     "300": 81.5,
+     "1200": 100.0,
+     "1500": 123.3,
+     "1800": 124.6,
+     "2000": null
+    },
+    "selected_observations": 27,
+    "selection_note": "After the first low-spin threshold crossing, later rows remain physically assigned to the low-spin regime, but only rows individually within five percent of the end-member plateau enter the diagnostic refit; this retains source scatter without inventing a re-entrant crossover."
+   },
+   "parameter_provenance": {
+    "equation": "Main text paragraph 7: third-order Birch-Murnaghan EOS; K0'=4 fixed. Duffy and Anderson (1989), Equations 9-10, supply the cited high-temperature convention: integrate alpha for V0(T) and use a linear temperature expansion for the modulus.",
+    "V0": "Corrected main text paragraph 7 and correction: low-spin V0=74.4(6) A^3 from the 300 K fit.",
+    "K0": "Main text paragraph 7: low-spin KT0=166(7) GPa from the 300 K fit.",
+    "K0_prime": "Main text paragraph 7: fixed at 4.",
+    "alpha0": "Corrected main text paragraph 7: low-spin alpha0=3.37(5)e-5 K^-1 from all selected low-spin P-V-T data.",
+    "dK_dT": "Corrected main text paragraph 7: low-spin (dK/dT)P=-0.014(2) GPa/K.",
+    "temperature_ref": "The static reference fit is explicitly at 300 K; high-temperature series are nominally 1200, 1500, and 1800 K for reconstructed low-spin inliers.",
+    "volume_basis": "Table S1 reports conventional cubic B1 unit-cell volumes in A^3; Z=4.",
+    "fit_row_selection": "The source identifies spin states from the volume offset to the Tange et al. MgO EOS but does not print row flags. The bundled flags are a deterministic audit reconstruction, not claimed source annotations."
+   },
+   "notes": "Published low-spin thermal end-member curve with the corrected V0. Static V0 and K0 were used as inputs to the thermal fit. The parenthesized parameter errors and their confidence convention are not defined, and covariance is not published. The validity box is the coordinate envelope of reconstructed low-spin plateau inliers and must be combined with spin_state_scope.",
+   "validity": {
+    "pressure_gpa": [
+     81.5,
+     130.5
+    ],
+    "temperature_k": [
+     300.0,
+     1800.0
+    ],
+    "volume_ratio": [
+     0.6946236559,
+     0.7563172043
+    ],
+    "notes": [
+     "Coordinate envelope of the 27 reconstructed n_LS>=0.95 low-spin plateau inliers.",
+     "No reconstructed pure low-spin observation exists at 2000 K, so that isotherm is excluded from this branch's validated domain."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Main text experimental section, paragraphs 4-5: 5 wt.% Au mixed with the sample and pressures calculated in situ from the Fei et al. thermal EOS.",
+      "reference_eos_record": "gold_fei_2007_vinet_2"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table S1 reports reduced pressures but no row-wise Au lattice parameters or volumes, so observation-level pressure recalculation is impossible."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked against the corrected article, official supporting text and complete official Table S1. Spin-state row selection is explicitly marked as an audit reconstruction from Figures 1-2 and the published end-member equations.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "spin_state_scope"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049915",
+     "locations": [
+      "Main text paragraphs 3-8 and Figures 1-2",
+      "Official supporting text, Sample Characterization and Determination of the Spin Crossover sections",
+      "Official supporting Table S1, all 195 P-V rows",
+      "Correction doi:10.1029/2011GL050814"
+     ],
+     "finding": "The corrected publication supplies complete P-V-T observations, BM3 end-member parameters, thermal coefficients, composition, conventional-cell basis, and Au pressure calibration. Pure-state row flags are absent, but the plotted end-member fractions and Equation 6 allow a deterministic five-percent plateau reconstruction that reproduces both published thermal coefficients within one reported standard uncertainty.",
+     "doi": "10.1029/2011GL049915"
+    },
+    "correction": {
+     "doi": "10.1029/2011GL050814",
+     "applied_changes": [
+      "Use corrected low-spin V0=74.4 A^3 rather than 74.44 A^3.",
+      "Use the corrected logistic expression for n_LS.",
+      "Treat the static P-V fit as the 300 K fit."
+     ]
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mg075fe025o_ferropericlase_mao_2011_table_s1_pvt"
+     ],
+     "source_locations": [
+      "Official Table S1 text file, all 195 rows"
+     ],
+     "finding": "All 195 observations and their printed pressure and volume uncertainties are preserved in source order: 58 at 300 K, 38 at 1200 K, 35 at 1500 K, 33 at 1800 K, and 31 at 2000 K."
+    },
+    "independent_refit": {
+     "implementation": "scripts/reproduce_mao_2011_ferropericlase.py",
+     "static_300k_refit": {
+      "selection": "16 reconstructed low-spin plateau inlier rows at 300 K",
+      "objective": "iteratively updated effective-variance pressure residuals",
+      "fixed_parameters": {
+       "K0_prime": 4.0
+      },
+      "refined_parameters": {
+       "V0": 74.50083421,
+       "K0": 165.00280482
+      }
+     },
+     "selection": "27 rows with reconstructed unclipped n_LS>=0.95",
+     "objective": "iteratively updated effective-variance pressure residuals using printed pressure and volume standard deviations and 50 K for laser-heated temperature series",
+     "fixed_parameters": {
+      "V0": 74.4,
+      "K0": 166.0,
+      "K0_prime": 4.0,
+      "Tr": 300.0
+     },
+     "refined_parameters": {
+      "alpha0": 3.3401109e-05,
+      "dK_dT": -0.0137505591
+     },
+     "published_curve_pressure_rmse_gpa": 0.2436807761,
+     "published_curve_max_absolute_pressure_residual_gpa": 0.6671922109,
+     "parity": "Both reconstructed-fit coefficients lie within one published parameter uncertainty."
+    },
+    "excluded_parameterizations": [
+     {
+      "scope": "mixed-spin crossover equations 1-7 and derived alpha, KT, density, and bulk-sound-velocity anomalies",
+      "reason": "Peritheos has no coupled spin-fraction/Gibbs-free-energy/interpolated-volume EOS, and the source does not tabulate the temperature-dependent P_HS and P_LS inputs required by Equations 2-3. No surrogate crossover record is encoded."
+     },
+     {
+      "scope": "2000 K low-spin end-member branch",
+      "reason": "No Table S1 observation reaches reconstructed n_LS>=0.95 at 2000 K; the low-spin record therefore stops at the 1800 K observed envelope."
+     }
+    ]
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg075fe025o_ferropericlase_mao_2011_table_s1_pvt",
+   "kind": "pressure_volume_temperature_with_audit_spin_classification",
+   "description": "Complete official 195-row fp25 Table S1 P-V-T dataset, augmented with explicitly reconstructed spin fractions, physical regime labels, and diagnostic end-member-refit flags.",
+   "reference": {
+    "authors": [
+     "Mao",
+     "Lin",
+     "Liu",
+     "Prakapenka"
+    ],
+    "year": 2011,
+    "source": "Geophys. Res. Lett. supporting information",
+    "volume": "38",
+    "locator": "Table S1",
+    "doi": "10.1029/2011GL049915"
+   },
+   "source_location": "Official supporting Table S1, all five temperature blocks and all 195 rows",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049915",
+   "source_artifacts": [
+    {
+     "filename": "grl28755-sup-0006-ts01.txt",
+     "role": "official complete numerical Table S1",
+     "sha256": "c8b02a5f505eab9b5911ef11c9078451450ec3cd9e8085cd76655d83594fa36d",
+     "retrieved": "2026-09-05"
+    },
+    {
+     "filename": "grl28755-sup-0002-txts01.doc",
+     "role": "official supporting methods, equations, and figure annotations",
+     "sha256": "b7c36a7e4f6d40aa0f298a965fbd03cb937de4b65c0551b73cf5638dc404618e",
+     "retrieved": "2026-09-05"
+    },
+    {
+     "filename": "MaoFp-EoSGRL2011.pdf",
+     "role": "author-hosted corrected article copy",
+     "sha256": "54d40b7391f64761543038396473fd062f43e57172034d6a3b0d5b12e2627981",
+     "retrieved": "2026-09-05"
+    }
+   ],
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_series_order",
+     "quantity": "source_row_order_within_temperature_block",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_standard_deviation_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "standard_deviation",
+     "of": "temperature_k"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_standard_deviation_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "reconstructed_low_spin_fraction_unclipped",
+     "quantity": "audit_reconstructed_low_spin_fraction",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "inferred_spin_regime",
+     "quantity": "audit_reconstructed_spin_regime",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_diagnostic_high_spin_refit",
+     "quantity": "audit_fit_row_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_diagnostic_low_spin_refit",
+     "quantity": "audit_fit_row_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferropericlase-fp25-mao-2011-table-s1-pvt.csv",
+    "sha256": "45f6a2e1c8f275cab6837d6525c18df7b9c7bde7198235a37da23802efa4355c",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg075fe025o_ferropericlase_mao_2011_high_spin_bm3_thermal",
+    "mg075fe025o_ferropericlase_mao_2011_low_spin_bm3_thermal"
+   ],
+   "uncertainty": {
+    "pressure": "Table S1 err_P values, retained as printed; the source does not define a confidence convention.",
+    "volume": "Table S1 err_V_fp25 values, retained as printed; printed 0.00 entries remain 0.00 rather than being replaced.",
+    "temperature": "Main text paragraph 5 reports an estimated 50 K uncertainty for laser-heated measurements. Room-temperature entries remain blank because no 300 K uncertainty is reported."
+   },
+   "spin_classification": {
+    "status": "derived_not_source_annotated",
+    "equation": "n_LS=(V_HS(P,T)-V_obs)/(V_HS(P,T)-V_LS(P,T))",
+    "end_member_models": [
+     "mg075fe025o_ferropericlase_mao_2011_high_spin_bm3_thermal",
+     "mg075fe025o_ferropericlase_mao_2011_low_spin_bm3_thermal"
+    ],
+    "plateau_tolerance": 0.05,
+    "physical_regime_rule": "High spin through the final n_LS<=0.05 row; mixed spin until the first n_LS>=0.95 row; low spin thereafter. At 2000 K no low-spin threshold crossing occurs within the measurements.",
+    "fit_inlier_rule": "High-spin diagnostic rows have individual unclipped n_LS<=0.05; low-spin diagnostic rows have individual unclipped n_LS>=0.95. Later low-spin-regime observations that scatter below 0.95 remain in the complete dataset but are not used as plateau inliers.",
+    "temperature_ranges_gpa": {
+     "300": {
+      "high_spin_through": 54.6,
+      "crossover_from": 55.2,
+      "low_spin_from": 81.5
+     },
+     "1200": {
+      "high_spin_through": 68.5,
+      "crossover_from": 73.7,
+      "low_spin_from": 100.0
+     },
+     "1500": {
+      "high_spin_through": 78.3,
+      "crossover_from": 81.9,
+      "low_spin_from": 123.3
+     },
+     "1800": {
+      "high_spin_through": 82.7,
+      "crossover_from": 85.2,
+      "low_spin_from": 124.6
+     },
+     "2000": {
+      "high_spin_through": 85.4,
+      "crossover_from": 86.8,
+      "low_spin_from": null
+     }
+    }
+   },
+   "notes": "The first eight columns transcribe the official table or the article's stated hot-series uncertainty. The last four columns are reproducible audit derivatives, not source annotations. Unclipped fractions intentionally retain values slightly below zero or above one caused by experimental scatter."
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "mg075fe025o_ferropericlase",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}
