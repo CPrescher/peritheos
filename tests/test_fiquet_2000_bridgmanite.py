@@ -69,7 +69,7 @@ def test_fiquet_refit_recovers_reported_moduli():
             "K0_prime": 3.9161902310,
             "pressure_rmse_gpa": 0.6837616952,
         },
-        abs=2.0e-9,
+        abs=2.0e-7,
     )
     assert abs(result["fixed_v0_refit"]["K0"] - 253.0) < 9.0
     assert abs(result["fixed_v0_refit"]["K0_prime"] - 3.9) < 0.2

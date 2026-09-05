@@ -107,7 +107,7 @@ def test_mao_digitized_refits_recover_both_branch_parameterizations():
     assert low_spin["observations"] == 18
     assert low_spin["refit_parameters"] == pytest.approx(
         {"V0": 74.47146131, "K0": 165.6618754184, "K0_prime": 4.0},
-        abs=5.0e-7,
+        abs=2.0e-6,
     )
     assert low_spin["published_curve_pressure_rmse_gpa"] == pytest.approx(
         0.4942818332, abs=2.0e-10

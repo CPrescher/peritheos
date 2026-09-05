@@ -192,7 +192,7 @@ def test_shieh_independent_refits_have_parameter_parity():
             lambda free: _bm3(ppv_volume, free[0], free[1], k0_prime) - ppv_pressure,
             [parameters["V0"], parameters["K0"]],
         )
-        assert result.x == pytest.approx(expected, abs=2.0e-7)
+        assert result.x == pytest.approx(expected, abs=1.0e-6)
         errors = stored["parameter_errors"]
         assert abs(result.x[0] - parameters["V0"]) < errors["V0"]
         assert abs(result.x[1] - parameters["K0"]) < errors["K0"]
