@@ -237,6 +237,35 @@ def test_thermal_reference_state_integrates_linear_temperature_expansivity():
     assert reconstructed.thermal_expansion_law == "linear_temperature"
 
 
+def test_thermal_reference_state_integrates_reference_temperature_linear_expansivity():
+    eos = ThermalReferenceStateEOS(
+        BM3(V0=66.278, K0=135.0, K0_prime=6.1),
+        Tr=300.0,
+        alpha0=2.6e-5,
+        alpha1=1.0e-7,
+        dK_dT=-0.05,
+        thermal_expansion_law="linear_reference_temperature",
+    )
+    temperatures = np.array([300.0, 500.0, 700.0])
+    delta = temperatures - eos.Tr
+    shifted_volumes = eos.rt_eos.V0 * np.exp(
+        eos.alpha0 * delta + 0.5 * eos.alpha1 * delta**2
+    )
+    shifted_moduli = eos.rt_eos.K0 + eos.dK_dT * delta
+    expected = np.array(
+        [
+            BM3(volume, modulus, 6.1).pressure(63.0)
+            for volume, modulus in zip(shifted_volumes, shifted_moduli)
+        ]
+    )
+
+    assert eos.configuration_values()["thermal_expansion_law"] == (
+        "linear_reference_temperature"
+    )
+    assert np.allclose(eos.pressure(63.0, temperatures), expected)
+    assert np.allclose(eos.pressure(shifted_volumes, temperatures), 0.0, atol=1e-13)
+
+
 def test_thermal_reference_state_supports_direct_linear_reference_volume():
     eos = ThermalReferenceStateEOS(
         BM2(V0=227.5, K0=64.81),

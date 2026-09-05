@@ -747,7 +747,12 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if thermal_type == "AlphaKT":
                 if thermal_expansion_law is not None and (
                     not isinstance(thermal_expansion_law, str)
-                    or thermal_expansion_law not in {"constant", "linear_temperature"}
+                    or thermal_expansion_law
+                    not in {
+                        "constant",
+                        "linear_temperature",
+                        "linear_reference_temperature",
+                    }
                 ):
                     raise EosmatError(
                         f"{location}.thermal.thermal_expansion_law is invalid"
@@ -789,12 +794,13 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     parameter_location,
                     positive=name == "Tr",
                 )
-            if thermal_expansion_law == "linear_temperature" and (
-                "alpha1" not in thermal_parameters
-            ):
+            if thermal_expansion_law in {
+                "linear_temperature",
+                "linear_reference_temperature",
+            } and ("alpha1" not in thermal_parameters):
                 raise EosmatError(
                     f"{location}.thermal.parameters requires alpha1 for "
-                    "linear_temperature thermal expansion"
+                    "linear thermal expansion"
                 )
             if (
                 thermal_expansion_law in {None, "constant"}

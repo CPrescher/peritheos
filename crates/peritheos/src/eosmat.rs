@@ -2757,12 +2757,14 @@ fn build_thermal(
         }
         "thermal_reference_state" => {
             check_type(component, "AlphaKT")?;
-            let expansion_law =
-                match configuration(component, "thermal_expansion_law").unwrap_or("constant") {
-                    "constant" => ThermalExpansionLaw::Constant,
-                    "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
-                    value => return Err(format!("unknown thermal_expansion_law {value:?}")),
-                };
+            let expansion_law = match configuration(component, "thermal_expansion_law")
+                .unwrap_or("constant")
+            {
+                "constant" => ThermalExpansionLaw::Constant,
+                "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
+                "linear_reference_temperature" => ThermalExpansionLaw::LinearReferenceTemperature,
+                value => return Err(format!("unknown thermal_expansion_law {value:?}")),
+            };
             let volume_law = match configuration(component, "reference_volume_law")
                 .unwrap_or("integrated_expansivity")
             {

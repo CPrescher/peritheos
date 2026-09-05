@@ -452,6 +452,16 @@ fn thermal_reference_state_supports_all_volume_laws_and_domains() {
         ReferenceVolumeLaw::LinearTemperature,
     )
     .unwrap();
+    let linear_reference_temperature = ThermalReferenceState::new(
+        reference,
+        300.0,
+        2.0e-5,
+        -0.01,
+        1.0e-8,
+        ThermalExpansionLaw::LinearReferenceTemperature,
+        ReferenceVolumeLaw::IntegratedExpansivity,
+    )
+    .unwrap();
     let berman = ThermalReferenceState::new(
         reference,
         298.0,
@@ -470,6 +480,14 @@ fn thermal_reference_state_supports_all_volume_laws_and_domains() {
     );
     assert_close(linear.thermal_pressure(0.9, 300.0).unwrap(), 0.0, 1.0e-14);
     assert!(integrated.pressure(0.9, 1200.0).unwrap().is_finite());
+    let expected_reference_volume = (2.0e-5_f64 * 900.0 + 0.5 * 1.0e-8 * 900.0_f64.powi(2)).exp();
+    assert_close(
+        linear_reference_temperature
+            .pressure(expected_reference_volume, 1200.0)
+            .unwrap(),
+        0.0,
+        1.0e-12,
+    );
     assert!(linear.pressure(0.9, 1200.0).unwrap().is_finite());
     assert!(berman.pressure(0.9, 1200.0).unwrap().is_finite());
 

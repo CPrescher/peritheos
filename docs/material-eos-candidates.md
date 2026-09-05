@@ -163,16 +163,38 @@ audit.
 
 ### C03 — Epsilon-FeOOH: replace/augment the static record with P-V-T
 
-- **Change:** add a thermal record to the existing `e_feooh` material.
+**Status: accepted and implemented (2026-09-05).**
+
+- **Change:** added a thermal record to the existing low-pressure P21nm
+  `e_feooh` material.
 - **Source:** Suzuki (2016), [Pressure-volume-temperature equation of state of
   epsilon-FeOOH to 11 GPa and 700 K](https://doi.org/10.2465/jmps.160719c).
-- **Published scope:** to 11 GPa and 700 K; `V0,300 = 66.278(6) A^3`,
+- **Published scope:** 33 Table 1 observations from 0.0001 to 11.07 GPa and
+  300--700 K; `V0,300 = 66.278(6) A^3`,
   `K0 = 135(3) GPa`, `K0' = 6.1(9)`, `dK/dT = -0.05(2) GPa/K`, and
   `alpha(T) = 2.6(7)e-5 + 1.0(3)e-7 (T - 300) K^-1`.
-- **Likely mapping:** `BM3` + `ThermalReferenceStateEOS` with integrated linear
-  expansivity and `Tr = 300 K`.
-- **Effort/risk:** low. Keep this composition/phase distinct from goethite and
-  from high-pressure spin-transition descriptions of epsilon-FeOOH.
+- **Exact mapping:** `BM3` + `ThermalReferenceStateEOS`, with `Tr = 300 K`,
+  linearly temperature-shifted `K0`, and exponential integration of the
+  source's reference-temperature linear expansivity. A new
+  `linear_reference_temperature` configuration preserves the paper's
+  `alpha0 + alpha1*(T-Tr)` convention without translating its published
+  `alpha0` into an absolute-temperature intercept.
+- **Reproduction:** the stored published curve has 0.10202 GPa pressure RMSE
+  and 0.24321 GPa maximum absolute residual on all 33 printed rows. A joint
+  Peritheos pressure-volume errors-in-variables refit with `V0,300` fixed
+  recovers all five free coefficients within their published one-standard-
+  deviation intervals. The precise EosFit weights, unrounded inputs,
+  covariance, and scalar fit statistic are not published, so no replacement
+  refit record is added. See the
+  [dedicated reproduction](epsilon-feooh-suzuki-2016.md).
+- **Data and calibration:** all Table 1 lattice/volume observations and printed
+  standard deviations are bundled. Pressures use Brown's (1999) NaCl EOS;
+  row-wise NaCl volumes are not reported, preventing pressure recalculation.
+  The J-STAGE article exposes no supplement or open data license, which is
+  recorded explicitly with the transcription.
+- **Phase boundary:** this remains epsilon-FeOOH, not starting-material
+  goethite, and remains distinct from the separate hydrogen-centered Pnnm
+  low-spin material and the approximately 53 GPa spin-transition literature.
 
 ### C04 — CaSiO3 perovskite: add a lower-mantle thermal record
 

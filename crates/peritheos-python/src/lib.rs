@@ -685,9 +685,10 @@ impl PyThermalEos {
         let expansion_law = match thermal_expansion_law {
             "constant" => ThermalExpansionLaw::Constant,
             "linear_temperature" => ThermalExpansionLaw::LinearTemperature,
+            "linear_reference_temperature" => ThermalExpansionLaw::LinearReferenceTemperature,
             _ => {
                 return Err(python_validation_error(
-                    "thermal_expansion_law must be 'constant' or 'linear_temperature'",
+                    "thermal_expansion_law must be 'constant', 'linear_temperature', or 'linear_reference_temperature'",
                 ));
             }
         };

@@ -461,6 +461,21 @@ V_0(T)=V_0(T_r)\exp\left[
 \right].
 \]
 
+The `linear_reference_temperature` law instead defines `alpha0` at the
+reference temperature:
+
+\[
+\alpha(T)=\alpha_0+\alpha_1(T-T_r),
+\qquad
+V_0(T)=V_0(T_r)\exp\left[
+\alpha_0(T-T_r)+\frac{\alpha_1}{2}(T-T_r)^2
+\right].
+\]
+
+This is the convention used by the bundled Suzuki (2016) epsilon-FeOOH
+thermal EOS. The two linear laws are intentionally distinct because their
+stored `alpha0` parameters have different reference points.
+
 Here $\alpha$ is the volumetric expansion coefficient; crystallographic-axis
 expansivities are separate quantities. The stored numeric parameters are
 `Tr`, `alpha0`, `dK_dT`, and `alpha1` (zero by default). Unlike the energy-based
