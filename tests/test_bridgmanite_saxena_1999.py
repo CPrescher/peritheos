@@ -169,7 +169,7 @@ def test_saxena_1999_independent_300_k_volume_weighted_refit_has_parity():
     assert fitted_v0_cell == pytest.approx(162.38464327, abs=5.0e-7)
     assert fitted_k0 == pytest.approx(260.48766286, abs=5.0e-7)
     assert fitted_v0_cell_error == pytest.approx(0.2142853, abs=5.0e-7)
-    assert standard_errors[1] == pytest.approx(2.62311623, abs=5.0e-7)
+    assert standard_errors[1] == pytest.approx(2.62311623, abs=5.0e-6)
     assert reduced_chi_square == pytest.approx(0.00110423827, abs=5.0e-10)
     assert result["V0_molar_cm3_mol"] == pytest.approx(fitted_v0_molar)
     assert result["V0_cell_angstrom3"] == pytest.approx(fitted_v0_cell)

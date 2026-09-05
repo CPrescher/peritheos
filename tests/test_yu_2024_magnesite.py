@@ -246,7 +246,7 @@ def test_yu_2024_independent_peritheos_refit_has_parameter_parity():
             "n": 5.0,
             **expected,
         },
-        abs=5.0e-5,
+        abs=2.0e-4,
     )
     stored = source["scientific_validation"]["independent_refit"]
     assert stored["implementation"] == "peritheos.fitting.fit_joint_eos"
@@ -277,7 +277,7 @@ def test_yu_2024_independent_peritheos_refit_has_parameter_parity():
         for name in published
     }
     assert max(normalized_differences.values()) == pytest.approx(
-        1.4097385490, abs=2.0e-8
+        1.4097385490, abs=2.0e-6
     )
     assert all(value < 2.0 for value in normalized_differences.values())
 

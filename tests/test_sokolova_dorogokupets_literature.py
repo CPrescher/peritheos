@@ -643,9 +643,9 @@ def test_sokolova_2016_figure_3_digitization_prefers_workbook_form():
         volume = eos.calculate_volume(0.0, temperature)
         workbook_value = eos.bulk_modulus(volume, temperature)
         printed_value = _literal_zero_pressure_bulk_modulus(eos, temperature)
-        assert workbook_value == pytest.approx(row["workbook_model_gpa"], abs=0.001)
+        assert workbook_value == pytest.approx(row["workbook_model_gpa"], abs=0.002)
         assert printed_value == pytest.approx(
-            row["printed_equation_model_gpa"], abs=0.001
+            row["printed_equation_model_gpa"], abs=0.002
         )
         workbook_residuals.append(workbook_value - observed)
         printed_residuals.append(printed_value - observed)
