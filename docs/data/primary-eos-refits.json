@@ -2340,6 +2340,57 @@
       "status": "similar"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        21.2,
+        156.0
+      ],
+      "experimental_temperature_range_k": [
+        1200.0,
+        2600.0
+      ],
+      "fixed_parameters": [
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "label": "Sun et al. (2016), cubic CaSiO3 BM3-MGD",
+      "material_identifier": "ca_perovskite",
+      "model": "BM3",
+      "primary_data_finding": "The published thermal-EOS coefficients are transcribed directly. The article's P-V-T table is not redistributed because no open table-data license was identified.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
+      "reason": "The published thermal-EOS coefficients are transcribed directly. The article's P-V-T table is not redistributed because no open table-data license was identified.",
+      "record_identifier": "ca_perovskite_sun_2016_bm3_3",
+      "source_notes": "Joint BM3-Mie-Gruneisen-Debye fit for pure cubic Pm-3m CaSiO3 using model 1 in Table 2. The fitted data cover approximately 21-156 GPa and 1200-2600 K. The 300 K V0, K0, and K0' define an extrapolated reference isotherm: cubic CaSiO3 is not quenchable and the record must not be interpreted as a stable cubic phase at 300 K. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        21.5,
+        199.2
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "label": "Sun et al. (2022), 300 K tetragonal CaSiO3 BM3 (K0' fixed)",
+      "material_identifier": "ca_perovskite_tetragonal",
+      "model": "BM3",
+      "primary_data_finding": "The published fixed-derivative BM3 coefficients are transcribed directly. The article's P-V table is not redistributed because no open table-data license was identified.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+      "reason": "The published fixed-derivative BM3 coefficients are transcribed directly. The article's P-V table is not redistributed because no open table-data license was identified.",
+      "record_identifier": "ca_perovskite_tetragonal_sun_2022_bm3_1",
+      "source_notes": "Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -8721,6 +8772,176 @@
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "cif_volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"
+      ],
+      "degrees_of_freedom": 20,
+      "experimental_pressure_range_gpa": [
+        4.2,
+        64.6
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM2",
+      "material_identifier": "mg088fe010al014si090o3_bridgmanite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 22,
+      "observed_pressure_range_gpa": [
+        4.2,
+        64.6
+      ],
+      "observed_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "observed_volume_range": [
+        136.29,
+        161.7
+      ],
+      "parameters": [
+        {
+          "difference": 0.5774628024082347,
+          "parameter": "V0",
+          "published": 163.85,
+          "published_error": 0.07,
+          "refit": 164.42746280240823,
+          "refit_error": 0.07192661557636676,
+          "relative_difference": 0.003524338128826577,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -5.152009744664042,
+          "parameter": "K0",
+          "published": 242.0,
+          "published_error": 3.0,
+          "refit": 236.84799025533596,
+          "refit_error": 1.386259172014844,
+          "relative_difference": 0.021289296465553893,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 22 recoverable pressures, lattice parameters, conventional-cell volumes, and 1-sigma uncertainties are bundled. Table S1 and the CIF are both retained where their printed lattice values differ. Row-wise Au calibrant volumes and the two individual platelet volume series plotted in Figure S2 are not published.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2023-8969",
+      "published_rmse_gpa": 0.7195012695517916,
+      "record_identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1",
+      "reduced_chi_square": 0.819611673797963,
+      "rmse_gpa": 0.32281215082456644,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Standard second-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. K0_prime=4 is fixed by the BM2 model; V0 and K0 were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM2 is co-reported with BM3 and is not designated preferred.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "cif_volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv"
+      ],
+      "degrees_of_freedom": 19,
+      "experimental_pressure_range_gpa": [
+        4.2,
+        64.6
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM3",
+      "material_identifier": "mg088fe010al014si090o3_bridgmanite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 22,
+      "observed_pressure_range_gpa": [
+        4.2,
+        64.6
+      ],
+      "observed_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "observed_volume_range": [
+        136.29,
+        161.7
+      ],
+      "parameters": [
+        {
+          "difference": 0.0360952521695026,
+          "parameter": "V0",
+          "published": 164.64,
+          "published_error": 0.11,
+          "refit": 164.6760952521695,
+          "refit_error": 0.12458982170747895,
+          "relative_difference": 0.00021923744029095363,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -3.420744901854164,
+          "parameter": "K0",
+          "published": 228.0,
+          "published_error": 5.0,
+          "refit": 224.57925509814584,
+          "refit_error": 4.938155754753872,
+          "relative_difference": 0.015003267113395455,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.44448088758427584,
+          "parameter": "K0_prime",
+          "published": 4.1,
+          "published_error": 0.2,
+          "refit": 4.5444808875842755,
+          "refit_error": 0.21821952384614782,
+          "relative_difference": 0.1084099725815307,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 22 recoverable pressures, lattice parameters, conventional-cell volumes, and 1-sigma uncertainties are bundled. Table S1 and the CIF are both retained where their printed lattice values differ. Row-wise Au calibrant volumes and the two individual platelet volume series plotted in Figure S2 are not published.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.2138/am-2023-8969",
+      "published_rmse_gpa": 0.929084820389755,
+      "record_identifier": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2",
+      "reduced_chi_square": 0.5004008539633722,
+      "rmse_gpa": 0.2641406271767265,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 293 K. V0, K0, and K0_prime were fitted. Parenthesized coefficient errors are retained as printed, but the article does not give their confidence convention or numerical covariance. BM3 is co-reported with BM2 and is not designated preferred.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "volume_a3_conventional_cell"
       },
@@ -9811,6 +10032,32 @@
       "solver_success": true,
       "source_notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are room-temperature extrapolation comparisons, not separate preferred P-V-T records, and are therefore not added. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        14.0,
+        133.0
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fixed_parameters": [
+        "V0",
+        "rho0",
+        "P0"
+      ],
+      "label": "Duffy and Ahrens (1995), B1 principal Hugoniot",
+      "material_identifier": "mgo",
+      "model": "LinearUsUpHugoniot",
+      "primary_data_finding": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://duffy.princeton.edu/document/27",
+      "reason": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.",
+      "record_identifier": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
+      "source_notes": "Constrained principal Hugoniot for the B1 phase only. This is not an equilibrium EOS or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.",
+      "status": "not_refittable"
     },
     {
       "dataset_identifiers": [
@@ -11065,6 +11312,83 @@
       "record_identifier": "nickel_oxide_noguchi_1999_bm3_1",
       "source_notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient.",
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "particle_velocity": "final_particle_velocity_km_s",
+        "shock_velocity": "final_shock_velocity_km_s"
+      },
+      "dataset_identifiers": [
+        "nickel_oxide_noguchi_1999_table1_shock"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": [
+        17.7,
+        147.6
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fit_kind": "linear_us_up_hugoniot",
+      "fixed_parameters": [
+        "V0",
+        "rho0",
+        "P0"
+      ],
+      "free_parameters": [
+        "c0",
+        "s"
+      ],
+      "label": "Noguchi et al. (1999), derived B1 principal Hugoniot",
+      "material_identifier": "nickel_oxide",
+      "model": "LinearUsUpHugoniot",
+      "objective": "shock_velocity_residuals",
+      "observations": 8,
+      "observed_particle_velocity_range_km_s": [
+        0.431,
+        2.547
+      ],
+      "observed_shock_velocity_range_km_s": [
+        5.958,
+        8.543
+      ],
+      "parameters": [
+        {
+          "difference": 2.2232882201933535e-11,
+          "parameter": "c0",
+          "published": 5.3549770536,
+          "published_error": 0.0531157378,
+          "refit": 5.354977053622233,
+          "refit_error": 0.05311573780318259,
+          "relative_difference": 4.151816521228041e-12,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 2.4421131783469718e-11,
+          "parameter": "s",
+          "published": 1.2137281492,
+          "published_error": 0.02956091343,
+          "refit": 1.2137281492244212,
+          "refit_error": 0.029560913431890334,
+          "relative_difference": 2.012075916634736e-11,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All eight final-state Us-up pairs are fitted; three separately resolved HEL state pairs remain bundled but are explicitly excluded.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
+      "record_identifier": "nickel_oxide_noguchi_1999_linear_hugoniot_2",
+      "reduced_chi_square": 0.004127258683400022,
+      "rmse_shock_velocity_km_s": 0.05563671460959945,
+      "selection": "finite final_particle_velocity_km_s and final_shock_velocity_km_s; 8 rows",
+      "solver_message": "`gtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -15461,10 +15785,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 45,
-    "parity": 111,
+    "not_refittable": 48,
+    "parity": 113,
     "parity_not_achieved": 18,
-    "similar": 43,
-    "total": 217
+    "similar": 44,
+    "total": 223
   }
 }

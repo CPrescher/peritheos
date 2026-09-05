@@ -7,6 +7,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added Fu et al. (2024) BM2 and BM3 records for Fe-Al-bearing bridgmanite,
+  with the complete 22-row primary compression dataset, Au pressure-scale
+  provenance, independent reproduction, and record-specific tests.
+- Added phase-restricted principal Hugoniots for B1 MgO and B1 NiO. The MgO
+  relation preserves the published coefficients and uncertainties; the NiO
+  relation is a documented OLS derivation from all eight published final-state
+  observations with the elastic precursor excluded.
 - Added primary-source-validated Sun et al. (2016, 2022) CaSiO3-perovskite
   records: a 300 K tetragonal I4/mcm BM3 isotherm with the published Z=1
   volume converted to the conventional Z=4 cell, and a high-temperature cubic

@@ -137,6 +137,14 @@
      ],
      "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell; the fitted modulus, direct data range, 300 K phase, Fei et al. Pt pressure scale, and lack of published covariance are retained.",
      "doi": "10.2138/am-2021-7913"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 1, page 112"
+     ],
+     "finding": "The published fixed-derivative BM3 coefficients are transcribed directly. The article's P-V table is not redistributed because no open table-data license was identified."
     }
    }
   }

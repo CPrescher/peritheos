@@ -830,14 +830,31 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
             .count();
         for record in &material.eos_records {
             let reference_volume = record.reference_volume();
+            let evaluation_volume = record.as_hugoniot().map_or(reference_volume, |hugoniot| {
+                let [lower, upper] = hugoniot.metadata.branch_domain.particle_velocity_km_s;
+                hugoniot
+                    .state_from_particle_velocity(0.5 * (lower + upper))
+                    .unwrap_or_else(|error| {
+                        panic!(
+                            "{} / {} failed inside its declared Hugoniot branch: {error}",
+                            material.identifier, record.identifier
+                        )
+                    })
+                    .volume
+            });
             let pressure = record
-                .pressure(reference_volume, record.reference_temperature)
+                .pressure(evaluation_volume, record.reference_temperature)
                 .unwrap_or_else(|error| {
                     panic!(
-                        "{} / {} failed at its reference state: {error}",
+                        "{} / {} failed at its catalog validation state: {error}",
                         material.identifier, record.identifier
                     )
                 });
+            if record.as_hugoniot().is_some() {
+                assert!(pressure.is_finite());
+                assert!(pressure > 0.0);
+                continue;
+            }
             match (
                 record.identifier.as_str(),
                 record.eos.thermal_model_identifier(),
@@ -872,7 +889,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         }
     }
 
-    assert_eq!(paths.len(), 139);
-    assert_eq!(records, 217);
-    assert_eq!(thermal_records, 49);
+    assert_eq!(paths.len(), 141);
+    assert_eq!(records, 223);
+    assert_eq!(thermal_records, 50);
 }

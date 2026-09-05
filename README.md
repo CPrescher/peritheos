@@ -38,7 +38,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Versioned material and EOS-record catalog with explicit literature provenance,
   calibration/data envelopes, extrapolation enabled by default, inversion, and
   measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 139-material/217-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 141-material/223-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and
@@ -102,7 +102,7 @@ gold = search_eos_records(formula="Au", thermal=True, pressure_gpa=200.0)[0]
 hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
 ```
 
-The normal catalog API constructs all 115 materials and 150 records directly
+The normal catalog API constructs all 141 materials and 223 records directly
 from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
 EOS records commonly used in that application, and

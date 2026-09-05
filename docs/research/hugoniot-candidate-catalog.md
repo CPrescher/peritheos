@@ -11,7 +11,7 @@ The strongest records are:
 1. **B1 MgO, 14--133 GPa**: a directly published, single-phase linear relation with one-standard-deviation coefficient errors.
 2. **Liquid Cu, above completion of melting**: a directly published liquid-branch fit with a covariance matrix; it requires a liquid-Cu material/phase representation rather than attaching the curve to the existing fcc document.
 
-The complete repository inventory is in [`docs/data/hugoniot-material-inventory.csv`](../data/hugoniot-material-inventory.csv). It contains 116 material documents, 161 equilibrium records (123 isothermal and 38 thermal), and two production Hugoniot records, for 163 records total. Phase identity is taken from the explicit phase field where present and otherwise from the material name and crystal structure.
+The complete repository inventory is in [`docs/data/hugoniot-material-inventory.csv`](../data/hugoniot-material-inventory.csv). It contains 141 material documents, 221 equilibrium records (171 isothermal and 50 thermal), and two production Hugoniot records, for 223 records total. Phase identity is taken from the explicit phase field where present and otherwise from the material name and crystal structure. Regenerate it with `python scripts/generate_hugoniot_material_inventory.py`.
 
 ## Interpretation and acceptance rules
 

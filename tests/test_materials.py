@@ -48,6 +48,7 @@ from peritheos.materials import (
     TA_SOKOLOVA_2013,
     W_SOKOLOVA_2013,
     EOSRecord,
+    HugoniotRecord,
     Material,
     get_eos_record,
     get_material,
@@ -68,8 +69,8 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 217
-    assert len(materials) == 139
+    assert len(records) == 223
+    assert len(materials) == 141
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
     assert [item.identifier for item in records] == sorted(
@@ -183,10 +184,17 @@ def test_material_document_json_round_trip_reconstructs_catalog_material(materia
         assert loaded_record.eos.parameter_values() == pytest.approx(
             record.eos.parameter_values()
         )
-        assert (
-            loaded_record.eos.configuration_values()
-            == record.eos.configuration_values()
+        loaded_configuration = (
+            {}
+            if isinstance(loaded_record, HugoniotRecord)
+            else loaded_record.eos.configuration_values()
         )
+        configuration = (
+            {}
+            if isinstance(record, HugoniotRecord)
+            else record.eos.configuration_values()
+        )
+        assert loaded_configuration == configuration
         pressure = record.pressure(
             0.9 * record.reference_volume,
             record.reference_temperature,
