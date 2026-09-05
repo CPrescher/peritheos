@@ -1590,9 +1590,10 @@
     "n": "Fixed to two atoms per MgO formula unit in the Debye energy expression."
    },
    "fit_datasets": [
-    "mgo_dewaele_2000_table2_pvt"
+    "mgo_dewaele_2000_table2_pvt",
+    "mgo_fei_1999_table1_1100k"
    ],
-   "notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are room-temperature extrapolation comparisons, not separate preferred P-V-T records, and are therefore not added. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
+   "notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are room-temperature extrapolation comparisons, not separate preferred P-V-T records, and are therefore not added. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled inputs contain all 61 new observations from this study and the complete 16-row Fei (1999) 1100 K isotherm that Dewaele et al. use with the gold pressure calibration in their Debye thermal-pressure comparison. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies either article.",
    "identifier": "mgo_dewaele_2000_bm3_mgd_5",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -1613,18 +1614,36 @@
       "source_location": "Experimental section and pressure-error discussion; platinum lattice parameters were converted with the Jamieson et al. shock-Hugoniot/Debye P-V-T EOS.",
       "scope": "all nonzero-pressure Table 2 observations",
       "notes": "Table 2 preserves the row-wise Pt lattice parameter and temperature used in the reduction."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "title": "Anharmonicity and the equation of state for gold",
+       "source": "J. Appl. Phys.",
+       "volume": "65",
+       "locator": "1534-1543"
+      },
+      "source_location": "Fei (1999), experimental procedures and Table 1; Dewaele et al. (2000), Section 4.1.1 and Figures 3-4.",
+      "scope": "all 16 Fei (1999) 1100 K observations used in the Dewaele thermal-pressure comparison",
+      "notes": "Dewaele et al. explicitly select Fei's gold-calibrated pressures. Both the Au- and NaCl-derived pressures printed by Fei are preserved, but the refit uses the Au column."
      }
     ],
     "recalculation": {
      "status": "reference_eos_not_bundled",
-     "notes": "The source identifies the platinum calibration and publishes the required row-wise Pt lattice parameters and temperatures, but the exact Jamieson et al. (1982) platinum P-V-T implementation is not bundled as an executable Peritheos reference record. Reported source-scale pressures are retained without silent recalibration."
+     "notes": "The sources identify the platinum and gold calibrations and publish the corresponding row-wise calibrant quantities or pressures, but the exact Jamieson et al. (1982) platinum and Anderson et al. (1989) gold P-V-T implementations are not bundled as executable Peritheos reference records. Reported source-scale pressures are retained without silent recalibration."
     },
     "audit_date": "2026-09-04",
-    "notes": "Pressure uncertainty is defined by Delta P = 0.03 P + 0.0004(T-300), with P in GPa and T in K. Parenthesized Table 2 values are retained verbatim; the 0.8 and 0.0 GPa rows have no printed parenthesized pressure uncertainty."
+    "notes": "For Dewaele Table 2, pressure uncertainty is defined by Delta P = 0.03 P + 0.0004(T-300), with P in GPa and T in K. Parenthesized values from both sources are retained verbatim; unavailable uncertainties are left blank rather than inferred."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation convention, parameter provenance, reference state, MgO cell-volume basis, all 61 primary rows, Pt pressure calibration, and experimental envelope were checked against the primary article. The DOI is authored by Dewaele et al. (2000), not Fei et al.; Fei (1999) supplies comparison data used in the paper's combined room-temperature fit.",
+    "note": "Equation convention, parameter provenance, reference state, MgO cell-volume basis, all 61 Dewaele rows, all 16 Fei 1100 K rows, pressure calibrations, and experimental envelope were checked against the primary articles. The target DOI is authored by Dewaele et al. (2000), not Fei et al.; Fei (1999) supplies both room-temperature comparison data and the gold-calibrated 1100 K observations used in the Debye thermal-pressure analysis.",
     "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
@@ -1639,7 +1658,9 @@
      "fitted_fixed_adopted_status",
      "validity",
      "pressure_calibration",
-     "primary_data"
+     "primary_data",
+     "numerical_reproduction",
+     "independent_refit"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/1999JB900364",
@@ -1656,12 +1677,46 @@
      "status": "bundled",
      "audit_date": "2026-09-04",
      "dataset_identifiers": [
-      "mgo_dewaele_2000_table2_pvt"
+      "mgo_dewaele_2000_table2_pvt",
+      "mgo_fei_1999_table1_1100k"
      ],
      "source_locations": [
-      "Table 2, all 61 rows"
+      "Dewaele et al. (2000), Table 2, all 61 rows",
+      "Fei (1999), Table 1, complete 16-row 1100 K isotherm"
      ],
-     "finding": "All printed P-V-T observations are transcribed with MgO conventional-cell volume, platinum lattice parameter, and the displayed uncertainties. There is no separate official supplement or data deposit."
+     "finding": "All 61 Dewaele P-V-T observations and all 16 Fei 1100 K observations used by the Debye thermal-pressure comparison are transcribed with their printed calibrant quantities or pressure columns and displayed uncertainties. Dewaele explicitly selects Fei's gold-derived pressures. Neither article has a separate official supplement or machine-readable data deposit."
+    },
+    "numerical_reproduction": {
+     "observations": 57,
+     "selection": "All 41 heated Dewaele Table 2 rows plus all 16 Fei Table 1 rows at 1100 K, using Fei's gold-derived pressure column as specified by Dewaele.",
+     "published_curve_rmse_gpa": 1.030760335,
+     "refit_curve_rmse_gpa": 1.030641245
+    },
+    "independent_refit": {
+     "objective": "Unweighted pressure residuals for the complete 57-row thermal-pressure input. An unweighted objective is required for a non-invented complete-row fit because Fei reports no temperature uncertainty and no pressure or volume uncertainty for the zero-pressure row; Dewaele does not publish the generalized-gradient implementation or covariance for the graphical Debye constraint.",
+     "fixed_parameters": {
+      "V0": 74.71,
+      "K0": 161.0,
+      "K0_prime": 3.94,
+      "Tr": 300.0,
+      "theta0": 800.0,
+      "gamma0": 1.45,
+      "n": 2.0
+     },
+     "free_parameters": [
+      "q"
+     ],
+     "parameters": {
+      "q": 0.785888544
+     },
+     "standard_errors": {
+      "q": 0.124307071
+     },
+     "published": {
+      "q": 0.8,
+      "q_error": 0.5
+     },
+     "conclusion": "The complete-input refit differs from the published q by 0.0141, is well within the published uncertainty, and changes pressure RMSE by only 0.00012 GPa."
     }
    }
   }
@@ -2554,7 +2609,91 @@
     "pressure": "Parenthesized uncertainties are printed in Table 2 and follow Delta P = 0.03 P + 0.0004(T-300), with P in GPa and T in K.",
     "volume": "Parenthesized last-digit uncertainties are calculated by GSAS, as stated in the Table 2 footnote."
    },
-   "notes": "MgO volumes are conventional cubic Fm-3m cell volumes (Z=4), not molar or per-formula-unit volumes. The missing Pt entry at 0.0 GPa and missing pressure-uncertainty entries at 0.8 and 0.0 GPa are preserved as unavailable rather than inferred. The table is the primary publication's complete new dataset; earlier Fiquet, Fei, and Utsumi observations used in parts of the authors' combined analysis are separate literature datasets and are not silently merged here."
+   "notes": "MgO volumes are conventional cubic Fm-3m cell volumes (Z=4), not molar or per-formula-unit volumes. The missing Pt entry at 0.0 GPa and missing pressure-uncertainty entries at 0.8 and 0.0 GPa are preserved as unavailable rather than inferred. The table is the primary publication's complete new dataset; earlier Fiquet and Utsumi observations used in parts of the authors' combined analysis remain separate literature datasets and are not silently merged here."
+  },
+  {
+   "identifier": "mgo_fei_1999_table1_1100k",
+   "kind": "pressure_volume_temperature",
+   "description": "Complete 16-row MgO isotherm measured at 1100 K in a NaCl pressure medium, retaining both NaCl- and Au-derived pressures; Dewaele et al. (2000) explicitly use the Au pressure column in their thermal-pressure analysis.",
+   "reference": {
+    "authors": [
+     "Fei"
+    ],
+    "year": 1999,
+    "title": "Effects of temperature and composition on the bulk modulus of (Mg,Fe)O",
+    "source": "Am. Mineral.",
+    "volume": "84",
+    "locator": "272-276",
+    "doi": "10.2138/am-1999-0308"
+   },
+   "source_location": "Table 1, middle block, journal page 274",
+   "source_url": "https://www.msaweb.org/MSA/AmMin/TOC/Articles_Free/1999/Fei_p272-276_99.pdf",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "nacl_pressure_gpa",
+     "quantity": "calibrant_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "nacl_pressure_uncertainty_gpa",
+     "quantity": "calibrant_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "nacl_pressure_gpa"
+    },
+    {
+     "name": "gold_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "gold_pressure_gpa"
+    },
+    {
+     "name": "mgo_molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "mgo_molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "mgo_molar_volume_cm3_mol"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-fei-1999-table1-1100k.csv",
+    "sha256": "78821a17b70db4612ba8f6c3780b1a479bf99af7ef18a2ca9b4c2726d0bc0ca6",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_dewaele_2000_bm3_mgd_5"
+   ],
+   "uncertainty": {
+    "temperature": "Fei states that temperature was measured with a Pt-Pt13%Rh thermocouple but does not report a numerical temperature uncertainty.",
+    "pressure": "Parenthesized last digits are transcribed independently for the NaCl- and Au-derived pressure columns. The ambient row has no printed uncertainty.",
+    "volume": "Parenthesized last digits are transcribed from Table 1. The ambient row has no printed uncertainty."
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "source_pdf_sha256": "98f44f1a44c5b0bcfd18baa84a460e36d53d46f5512e67b636b085e7bf9c0ac3",
+    "transcription_scope": "All 16 rows in the T=1100 K, NaCl-medium block of Table 1."
+   },
+   "notes": "Volumes are the printed molar volumes, not crystallographic cell volumes. Dewaele et al. (2000), Section 4.1.1 and Figures 3-4, specify the Au-calibrated Fei observations for comparison with their own high-temperature measurements. No temperature error or ambient-row pressure/volume error is inferred."
   }
  ]
 }

@@ -1392,6 +1392,18 @@ Pt lattice parameter. Parenthesized pressure and volume errors are transcribed
 as printed; the paper assigns +/-200 K to heated temperatures. No official
 supplement or machine-readable deposit accompanies the article.
 
+Dewaele's Debye analysis also uses the 1100 K MgO observations from
+[Fei (1999)](https://doi.org/10.2138/am-1999-0308), explicitly selecting Fei's
+gold-derived pressures. Dataset `mgo_fei_1999_table1_1100k` now contains that
+complete 16-row Table 1 isotherm, including both the printed NaCl- and
+gold-derived pressures, MgO molar volumes, and every displayed uncertainty.
+The zero-pressure row has no printed pressure or volume uncertainty, and Fei
+does not quantify the thermocouple temperature uncertainty; those fields are
+left unavailable rather than inferred. Thus the complete numerical input to
+Dewaele's Figure 4 Debye comparison is now bundled: 41 current-study heated
+rows plus all 16 Fei rows. Utsumi et al.'s measurements are expressly omitted
+from Figure 4 because their sub-10 GPa range does not constrain `q`.
+
 Pressure was reduced from Pt using the Jamieson, Fritz, and Manghnani (1982)
 shock-Hugoniot/Debye P-V-T scale. The paper gives the row-wise Pt lattice
 parameters and the pressure-error law
@@ -1411,26 +1423,28 @@ The room-temperature discussion reports that the BM3 curve reaches 145 GPa at
 `V/V0 = 0.667`. Direct evaluation of the stored record gives 144.947 GPa, a
 0.053 GPa difference attributable to the source's integer rounding.
 
-For an observation-level check, the automated campaign fits `q` to the 41
-heated Table 2 rows while holding `V0`, `K0`, `K0'`, `theta0`, `gamma0`, `Tr`,
-and `n` at their source-staged values. It uses the complete positive row-wise
-P, V, and T uncertainties in an errors-in-variables objective.
+For the observation-level check, `q` is fitted to the complete 57-row thermal
+input while holding `V0`, `K0`, `K0'`, `theta0`, `gamma0`, `Tr`, and `n` at
+their source-staged values. Dewaele constrains `gamma0` from the zero-pressure
+thermal-pressure intercept and `q` from its compression dependence, so this
+one-parameter refit follows the published staging. A transparent unweighted
+pressure-residual objective is used because Fei prints no uncertainty for the
+zero-pressure row or for temperature, and Dewaele does not publish the
+generalized-gradient implementation or covariance used for this graphical
+Debye constraint.
 
 | Quantity | Published | Current-study refit |
 |---|---:|---:|
 | `gamma0` | 1.45 +/- 0.10 | 1.45 fixed, following the source's staged procedure |
-| `q` | 0.80 +/- 0.50 | 0.847 +/- 0.122 |
-| Pressure RMSE | 0.952 GPa for the published curve | 0.950 GPa |
-| Reduced chi-square | -- | 0.925 |
+| `q` | 0.80 +/- 0.50 | 0.7859 +/- 0.1243 |
+| Pressure RMSE | 1.03076 GPa for the published curve | 1.03064 GPa |
 
-The refitted `q` agrees within combined two-standard-deviation uncertainty and
-the numerical similarity limit, so the ledger classifies the result as
-`parity`. It is a
-conditional current-study reproduction: the source's thermal analysis also
-uses Fei (1999) observations that are not reprinted in Dewaele et al. Exact
-coefficient identity from the 41 new rows alone is therefore neither expected
-nor claimed. The published parameters, not the refit, remain the executable
-literature record.
+The refitted `q` differs from the published value by only `0.0141`, lies well
+inside the published uncertainty, and changes the pressure RMSE by only
+`0.00012 GPa`. This supplies complete observation-level numerical parity for
+the staged Debye `q` constraint without inventing missing uncertainties or a
+source weighting formula. The published parameters, not the refit, remain the
+executable literature record.
 ## CaSiO3 perovskite: Kawai and Tsuchiya (2014)
 
 The primary source is Kawai and Tsuchiya, *P-V-T equation of state of cubic
