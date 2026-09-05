@@ -228,6 +228,9 @@ audit.
 
 ### C05 — Mg2SiO4 ringwoodite: add the thermal branch
 
+**Status: blocked after primary-source and numerical audit (2026-09-05); no
+production EOS record added.**
+
 - **Change:** extend the existing Mg end-member `ringwoodite` material.
 - **Source:** Katsura et al. (2004), [Thermal expansion of Mg2SiO4 ringwoodite
   at high pressures](https://doi.org/10.1029/2004JB003094).
@@ -235,8 +238,22 @@ audit.
   `K0 = 182 GPa`, `K0' = 4.6(2)`, `theta0 = 846(26) K`, `gamma0 = 1.93(3)`,
   and `q = 3.5(3)`.
 - **Likely mapping:** `BM3` + `MieGruneisenDebye`, `Tr = 300 K`.
-- **Effort/risk:** low. This should be a new literature record, not a thermal
-  component attached to the existing Meng et al. static fit.
+- **Audit result:** the official Wiley version of record supplies all 127
+  Table 2 observations and identifies the Matsui et al. (2000) MgO pressure
+  scale. The paper defines `n` as atoms per formula unit but does not print the
+  value used or a Debye-temperature volume law. With chemically required
+  `n = 7`, the published coefficients miss the table by 1.890 GPa RMSE
+  (2.013 GPa for heated rows) under Peritheos' integrated-Gruneisen mapping;
+  the alternate variable-exponent law is no better. An independent `n = 7`
+  refit moves `gamma0` from 1.93(3) to 1.3996(836), far outside the reported
+  error. An unphysical, unreported `n = 5` diagnostic reduces the heated-row
+  RMSE to 0.242 GPa, indicating an unresolved hidden normalization rather than
+  a defensible parameter choice. The exact blocker and direct table
+  transcription are documented in the
+  [reproduction](literature-reproductions.md#ringwoodite-katsura-2004).
+- **Disposition:** keep the existing Meng static fit unchanged. Add Katsura as
+  its own literature record only if an authoritative source resolves the
+  numeric atom count, Debye-temperature law, and energy/volume normalization.
 
 ### C06 — Bcc vanadium: practical high-temperature marker
 
