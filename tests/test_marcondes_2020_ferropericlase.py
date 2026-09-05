@@ -17,7 +17,11 @@ DOI = "10.1103/physrevb.102.104112"
 
 def _documents() -> list[dict]:
     return [
-        json.loads((ROOT / f"peritheos/data/materials/{name}.eosmat").read_text())
+        json.loads(
+            (ROOT / f"peritheos/data/materials/{name}.eosmat").read_text(
+                encoding="utf-8"
+            )
+        )
         for name in ("mg096875fe003125o", "mg09375fe00625o")
     ]
 
@@ -74,7 +78,7 @@ def test_marcondes_reproduction_and_audit_dispose_all_rows():
     assert reproduce()["accepted_records"] == 8
     audit = (
         ROOT / "docs/literature-reproductions/marcondes-2020-ferropericlase.md"
-    ).read_text()
+    ).read_text(encoding="utf-8")
     candidates = (
         "litcurate_8b61325b3373dcc9",
         "litcurate_b5a171ea0852a37e",

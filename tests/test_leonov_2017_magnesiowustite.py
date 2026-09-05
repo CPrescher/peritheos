@@ -81,7 +81,7 @@ def test_leonov_reproduction_and_audit_dispose_all_rows_without_inventing_ls_v0(
     assert result["rejected_incomplete_low_spin_rows"] == 8
     audit = (
         ROOT / "docs/literature-reproductions/leonov-2017-magnesiowustite.md"
-    ).read_text()
+    ).read_text(encoding="utf-8")
     candidates = [
         "litcurate_5b0bfea83d12c0fb",
         "litcurate_e92cab581af0e56b",

@@ -28,7 +28,11 @@ MATERIALS = (
 
 def _documents() -> list[dict]:
     return [
-        json.loads((ROOT / f"peritheos/data/materials/{name}.eosmat").read_text())
+        json.loads(
+            (ROOT / f"peritheos/data/materials/{name}.eosmat").read_text(
+                encoding="utf-8"
+            )
+        )
         for name in MATERIALS
     ]
 
@@ -103,7 +107,7 @@ def test_solomatova_fp48_primary_tables_are_complete_and_unchanged():
 def test_solomatova_audit_disposes_all_sixteen_rows_once():
     audit = (
         ROOT / "docs/literature-reproductions/solomatova-2016-ferropericlase.md"
-    ).read_text()
+    ).read_text(encoding="utf-8")
     candidates = (
         "litcurate_d84461e22abf5080",
         "litcurate_1524ace141e7f7f0",
