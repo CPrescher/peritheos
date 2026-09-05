@@ -1825,3 +1825,86 @@ record and documents the failure rather than silently replacing it. A separate
 refit record is not added at this stage because several defensible objectives
 produce materially different coefficients and the paper does not identify
 which objective its reported values represent.
+
+<a id="ringwoodite-katsura-2004"></a>
+
+## Mg2SiO4 ringwoodite: Katsura et al. (2004) blocked MGD audit
+
+### Primary source, identity, and observations
+
+[Katsura et al. (2004)](https://doi.org/10.1029/2004JB003094) report pure
+Mg2SiO4 ringwoodite measured in a Kawai-type multianvil apparatus. The official
+free-access Wiley version of record identifies the cubic conventional cell,
+`a0 = 8.0663(7) A` and `V0 = 524.8(1) A^3` at 300 K and 0 GPa. Ringwoodite has
+eight Mg2SiO4 formula units per conventional cell, so each formula unit has
+seven atoms. The composition, phase, and cell basis match the existing
+`ringwoodite` material, but the Katsura parameterization is independent of the
+existing Meng et al. static record.
+
+All 127 P-T-V/V0 observations in the article's Table 2 are preserved in
+`docs/data/ringwoodite-katsura-2004-table2-pvt.csv`. They cover four runs,
+-0.01 to 23.18 GPa, 300 to 2000 K, and V/V0 from 0.9106 to 1.0001. The
+parenthetical pressure and normalized-volume errors are split into separate
+columns exactly as printed. The CSV SHA-256 is
+`aaae5542dcc46eee4fe626ca17e8b24ba1f791028f70cfb4d502036a18211649`.
+The article calls the parenthetical values errors but does not state a
+confidence level, so they are not relabeled as standard deviations. Wiley
+marks the article free access, but the page states Copyright 2004 American
+Geophysical Union and does not identify a reuse license; Peritheos therefore
+makes no broader licensing claim for the transcription.
+
+Pressures were calculated from simultaneous MgO cell volumes with the
+[Matsui, Parker, and Leslie (2000)](https://doi.org/10.2138/am-2000-2-308)
+high-temperature MgO EOS. The article reports typical pressure uncertainty up
+to 0.04 GPa at high temperature, and the table prints row-wise errors. It does
+not publish the corresponding MgO volumes, so observation-level pressure
+recalculation is impossible even though the calibration reference is
+unambiguous.
+
+### Published equations and parameter status
+
+Equation (4) is the standard 300 K third-order Birch-Murnaghan isotherm. The
+article fixes `K0 = 182 GPa` to the Meng et al. (1994) result and fits the 300 K
+data for `K0' = 4.6(2)`. Its MGD section defines
+
+`P(V,T) = P(V,300) + Pth(V,T) - Pth(V,300)`,
+
+with `Pth = gamma E_th / V`, Debye thermal energy, and
+`gamma = gamma0 (V/V0)^q`. It reports fitted `theta = 846(26) K`,
+`gamma0 = 1.93(3)`, and `q = 3.5(3)`. `V0` is measured, `K0` is adopted and
+fixed, `K0'` is fitted separately, and the three thermal coefficients are
+fitted. No covariance matrix, fit statistic, objective, or weighting rule is
+given. The paper defines `n` as the number of atoms per formula unit but does
+not print the numeric value used, and it does not print a volume law for the
+Debye temperature.
+
+### Numerical audit and blocker
+
+The deterministic audit is
+`scripts/reproduce_katsura_2004_ringwoodite.py`. It converts the conventional
+cell to Peritheos' internal molar-energy volume with `Z = 8` and evaluates both
+available Debye-temperature laws. With the chemically required `n = 7`, the
+published coefficients give a 1.889936 GPa pressure RMSE over all 127 rows and
+a 2.013420 GPa RMSE over the 110 rows above 304 K; the maximum residual is
+3.263616 GPa. The alternate direct variable-exponent Debye-temperature law is
+no better (1.904889 GPa overall). These discrepancies are far larger than the
+printed row errors.
+
+An unweighted Peritheos refit with `n = 7`, the reference BM3 fixed, and
+`theta0`, `gamma0`, and `q` free gives `1035.4123 K`, `1.399632`, and
+`2.826559`, with a 0.296233 GPa pressure RMSE. In particular, `gamma0` moves
+far outside the paper's 0.03 reported error. The separate 300-304 K BM3 check
+gives `K0' = 4.83790 +/- 0.22972`, consistent with the reported 4.6(2), so the
+failure is localized to the thermal normalization rather than the cell basis
+or BM3 convention.
+
+A diagnostic substitution of `n = 5` with all published coefficients nearly
+restores the curve: 0.333829 GPa overall and 0.242193 GPa for heated rows.
+However, `n = 5` is neither reported nor chemically possible for Mg2SiO4. It is
+evidence of an unresolved hidden normalization or source-side implementation
+detail, not permission to invent a coefficient.
+
+Candidate C05 is therefore blocked. No production Katsura EOS record and no
+refit record are added. Resolution requires the authors' fitting code or an
+authoritative statement of the numeric `n`, Debye-temperature volume law, and
+thermal-energy/volume normalization used to obtain the published coefficients.

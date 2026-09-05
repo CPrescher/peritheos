@@ -200,6 +200,15 @@
   Peritheos uses Table 7 and the unweighted Birch--Murnaghan fit on page 328;
   the conventional-cell `V0` follows the ambient lattice parameters.
   [Primary article](https://msaweb.org/AmMin/AM66/AM66_324.pdf).
+- Katsura, T., Yokoshi, S., Song, M., Kawabe, K., Tsujimura, T., Kubo, A.,
+  Ito, E., Tange, Y., Tomioka, N., Saito, K., Nozawa, A. & Funakoshi, K.
+  (2004). Thermal expansion of Mg2SiO4 ringwoodite at high pressures.
+  *Journal of Geophysical Research: Solid Earth*, 109, B12209.
+  [doi:10.1029/2004JB003094](https://doi.org/10.1029/2004JB003094).
+  The full Table 2 transcription and a numerical audit are retained, but no
+  executable record is added because the printed MGD definition and
+  coefficients do not reproduce the observations with the chemically required
+  atom count.
 - Liu, L.-G. & Bassett, W. A. (1973). Changes of the crystal structure and the
   lattice parameter of SrO at high pressure. *Journal of Geophysical Research*,
   78, 8470--8473.
@@ -221,6 +230,13 @@
   separate global HT-BM3 reduction is excluded because its fitted reference
   volume is omitted and the remaining coefficients are not reproducible from
   the printed dataset. [Primary article](https://rruff.info/doclib/am/vol81/AM81_611.pdf).
+- Matsui, M., Parker, S. C. & Leslie, M. (2000). The MD simulation of the
+  equation of state of MgO: Application as a pressure calibration standard at
+  high temperature and high pressure. *American Mineralogist*, 85, 312--316.
+  [doi:10.2138/am-2000-2-308](https://doi.org/10.2138/am-2000-2-308).
+  Katsura et al. (2004) use this MgO thermal EOS as their pressure scale, but
+  do not print the paired MgO volumes needed to recalculate the tabulated
+  pressures independently.
 - Hanfland, M., Loa, I., Syassen, K., Schwarz, U. & Takemura, K. (1999).
   Equation of state of lithium to 21 GPa. *Solid State Communications*, 112,
   123--127.
