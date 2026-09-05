@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 226,
-    "primary_source_validated": 226
+    "records": 233,
+    "primary_source_validated": 233
   },
   "records": [
     {
@@ -2327,6 +2327,24 @@
       }
     },
     {
+      "material": "mg05fe05al05si05o3_bridgmanite",
+      "file": "mg05fe05al05si05o3_bridgmanite.eosmat",
+      "record": "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4",
+      "label": "Koemets et al. (2023) single-crystal Pnma perovskite BM2",
+      "doi": "10.3389/fchem.2023.1258389",
+      "status": "primary_source_validated",
+      "note": "Validated against the open-access publisher article and its official Supplementary Table S3.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3389/fchem.2023.1258389",
+        "doi": "10.3389/fchem.2023.1258389",
+        "locations": [
+          "publisher article Materials and methods and Figure 4 caption",
+          "official Supplementary Table S3"
+        ],
+        "finding": "The source reports a phase-specific Pnma BM2 and complete single-crystal unit-cell measurements. The two lowest-pressure Pnma refinements occur within the stated transformation interval; selecting the 16 observations above that interval reproduces the published coefficients and uncertainties."
+      }
+    },
+    {
       "material": "mg073fe027o",
       "file": "mg073fe027o.eosmat",
       "record": "mg073fe027o_jacobsen_2005_bm3_1",
@@ -2343,6 +2361,46 @@
         ],
         "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
         "doi": "10.1107/S0909049505022326"
+      }
+    },
+    {
+      "material": "mg075fe025o",
+      "file": "mg075fe025o.eosmat",
+      "record": "mg075fe025o_matsui_2012_bm3_mgd_1",
+      "label": "Matsui et al. (2012), (Mg0.75Fe0.25)O high-spin BM3-MGD",
+      "doi": "10.2138/am.2012.3937",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.rruff.net/odr/view/downloadfile/81129",
+        "doi": "10.2138/am.2012.3937",
+        "locations": [
+          "Experiments, page 177",
+          "Equations (1)-(6), pages 178-179",
+          "Tables 2 and 3, page 179",
+          "High-spin to low-spin transition, page 180"
+        ],
+        "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.75Fe0.25)O, fitted only below 47 GPa."
+      }
+    },
+    {
+      "material": "mg083fe017o",
+      "file": "mg083fe017o.eosmat",
+      "record": "mg083fe017o_matsui_2012_bm3_mgd_1",
+      "label": "Matsui et al. (2012), (Mg0.83Fe0.17)O high-spin BM3-MGD",
+      "doi": "10.2138/am.2012.3937",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.rruff.net/odr/view/downloadfile/81129",
+        "doi": "10.2138/am.2012.3937",
+        "locations": [
+          "Experiments, page 177",
+          "Equations (1)-(6), pages 178-179",
+          "Tables 1 and 3, pages 178-179",
+          "High-spin to low-spin transition, page 180"
+        ],
+        "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.83Fe0.17)O, fitted only below 47 GPa."
       }
     },
     {
@@ -2457,6 +2515,46 @@
       }
     },
     {
+      "material": "mg09al02si09o3_bridgmanite",
+      "file": "mg09al02si09o3_bridgmanite.eosmat",
+      "record": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1",
+      "label": "Kubo et al. (2000), adopted fixed-derivative BM3",
+      "doi": "10.2183/pjab.76.103",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+        "doi": "10.2183/pjab.76.103",
+        "locations": [
+          "abstract and Experimental section, pages 103-105",
+          "Table I, page 104",
+          "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
+        ],
+        "finding": "The source reports a preferred fixed-K0_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.",
+        "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
+      }
+    },
+    {
+      "material": "mg09al02si09o3_bridgmanite",
+      "file": "mg09al02si09o3_bridgmanite.eosmat",
+      "record": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2",
+      "label": "Kubo et al. (2000), unconstrained BM3",
+      "doi": "10.2183/pjab.76.103",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+        "doi": "10.2183/pjab.76.103",
+        "locations": [
+          "abstract and Experimental section, pages 103-105",
+          "Table I, page 104",
+          "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
+        ],
+        "finding": "The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.",
+        "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
+      }
+    },
+    {
       "material": "mg09fe01sio3_bridgmanite",
       "file": "mg09fe01sio3_bridgmanite.eosmat",
       "record": "mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1",
@@ -2556,6 +2654,49 @@
         "doi": "10.3390/min9120762",
         "article_sha256": "34238063c07d90e8cf3a00746420291735b7be0015735c30c715cb2edcc69898",
         "supplement_sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9"
+      }
+    },
+    {
+      "material": "mggeo3_post_perovskite",
+      "file": "mggeo3_post_perovskite.eosmat",
+      "record": "mggeo3_post_perovskite_kubo_2006_bm3_1",
+      "label": "Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3",
+      "doi": "10.1029/2006gl025686",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf",
+        "source_version": "author-hosted copy of the final published GRL article plus publisher Supporting Information",
+        "doi": "10.1029/2006gl025686",
+        "locations": [
+          "Abstract",
+          "Experimental method, paragraphs 4-9",
+          "Results and discussion, paragraphs 10-19",
+          "Tables 1-2",
+          "Figure 3",
+          "Supporting Information Table S1 and readme"
+        ],
+        "finding": "The source selects a constrained room-temperature BM3 fit for CaIrO3-type Cmcm MgGeO3 post-perovskite, fixes K0'=4.4, and excludes only its three rows below 47 GPa."
+      }
+    },
+    {
+      "material": "mggeo3_post_perovskite",
+      "file": "mggeo3_post_perovskite.eosmat",
+      "record": "mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2",
+      "label": "Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit",
+      "doi": "10.1029/2006gl025686",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf",
+        "source_version": "author-hosted copy of the final published GRL article plus publisher Supporting Information",
+        "doi": "10.1029/2006gl025686",
+        "locations": [
+          "Results and discussion, paragraph 17",
+          "Figure 3",
+          "Supporting Information Table S1"
+        ],
+        "finding": "The source reports V0=175.9(6) A^3 and K0=245(5) GPa when K0'=4 specifically to demonstrate parameter trade-off; it does not select this curve over the fixed-4.4 result."
       }
     },
     {

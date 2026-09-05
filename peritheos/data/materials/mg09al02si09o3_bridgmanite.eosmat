@@ -1,0 +1,636 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg09al02si09o3_bridgmanite",
+ "name": "Mg0.9Al0.2Si0.9O3 aluminous bridgmanite",
+ "formula": "Mg0.9Al0.2Si0.9O3",
+ "phase": "orthorhombic aluminous silicate perovskite, synthesis run en90G3",
+ "aliases": [
+  "Mg0.9Al0.2Si0.9O3 perovskite",
+  "10 mol% Al2O3 silicate perovskite",
+  "aluminous bridgmanite en90G3"
+ ],
+ "cell_contents": "Four nominal Mg0.9Al0.2Si0.9O3 formula units per conventional orthorhombic Pbnm cell (Z=4). The source establishes the composition, lattice, and space group but publishes neither fractional coordinates nor Al site occupancies. The stored atom_sites are therefore an explicitly identified MgSiO3 Pbnm positional-topology proxy and do not encode the specimen composition or an experimentally determined Al distribution.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 4.774,
+  "b": 4.941,
+  "c": 6.935,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4c",
+   "x": 0.974,
+   "y": 0.063,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "MgSiO3 topology proxy Mg"
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4b",
+   "x": 0.0,
+   "y": 0.5,
+   "z": 0.0,
+   "occupancy": 1.0,
+   "source_label": "MgSiO3 topology proxy Si"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.096,
+   "y": 0.477,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "MgSiO3 topology proxy O1"
+  },
+  {
+   "element": "O",
+   "wyckoff": "8d",
+   "x": 0.696,
+   "y": 0.291,
+   "z": 0.056,
+   "occupancy": 1.0,
+   "source_label": "MgSiO3 topology proxy O2"
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "specimen_lattice_location": "Kubo et al. (2000), Table I, run ap107 atmospheric row: a=4.774(4), b=4.941(4), c=6.935(6) A and V=163.6(4) A^3",
+  "alternate_ambient_lattice": "Table I, independent run ku117: a=4.776(5), b=4.939(5), c=6.933(8) A and V=163.5(5) A^3",
+  "topology_proxy_reference": {
+   "authors": [
+    "Yagi",
+    "Mao",
+    "Bell"
+   ],
+   "year": 1978,
+   "title": "Structure and crystal chemistry of perovskite-type MgSiO3",
+   "source": "Physics and Chemistry of Minerals",
+   "volume": "3",
+   "locator": "97-110",
+   "doi": "10.1007/BF00308114"
+  },
+  "topology_proxy_location": "MgSiO3 Pbnm fractional coordinates also used by the bundled bridgmanite material, COD 9005757",
+  "publisher_article_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+  "publisher_pdf_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_pdf/-char/en",
+  "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
+ },
+ "notes": "Composition-specific Fe-free aluminous bridgmanite synthesized from a 90 mol% MgSiO3 plus 10 mol% Al2O3 glass. EPMA confirmed Mg0.9Al0.2Si0.9O3 within analytical error. The source later discusses equal Al occupation of large and small sites only as a hypothetical interpretation, so no site partition is asserted here. The stored lattice is the more precise of two mutually consistent atmospheric measurements. Its rounded a*b*c product is 163.585 A^3 and agrees with the printed 163.6(4) A^3 conventional-cell volume. Pbnm perovskite has Z=4; that cell content is a crystallographic inference because the paper does not explicitly print Z. The positional model is a pure-MgSiO3 topology proxy, not a composition-bearing refinement.",
+ "eos_records": [
+  {
+   "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1",
+   "label": "Kubo et al. (2000), adopted fixed-derivative BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": [
+     "Kubo",
+     "Yagi",
+     "Ono",
+     "Akaogi"
+    ],
+    "year": 2000,
+    "title": "Compressibility of Mg0.9Al0.2Si0.9O3 perovskite",
+    "source": "Proceedings of the Japan Academy, Series B",
+    "volume": "76",
+    "locator": "103-107",
+    "doi": "10.2183/pjab.76.103"
+   },
+   "sample_composition": "Sintered polycrystalline Mg0.9Al0.2Si0.9O3 perovskite from run en90G3; synthesized from 90 mol% MgSiO3 plus 10 mol% Al2O3 glass and composition-confirmed by EPMA",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 163.6,
+     "K0": 225.5,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.4,
+    "K0": 1.2
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    8.71
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "experimental_configuration": {
+    "sample": "Sintered polycrystalline run en90G3, synthesized at 27 GPa and 2000 degrees C for 83 minutes in a 6-8 multianvil apparatus; recovered single-phase Pbnm perovskite with grain size below 1 micrometre",
+    "pressure_medium": "4:1 by volume methanol-ethanol mixture, reported hydrostatic through 9 GPa",
+    "pressure_cell": "lever-and-spring diamond-anvil cell; separate ap and ku decompression runs",
+    "pressure_gauge": "Mao et al. (1986) ruby R1 fluorescence; Anderson et al. (1989) Au EOS was an independent ku-series cross-check",
+    "diffraction": "room-temperature angle-dispersive synchrotron powder X-ray diffraction with imaging-plate detector at Photon Factory beamline 13-B2",
+    "path": "sample first compressed to 9-10 GPa; diffraction patterns collected during pressure decrease after 2-3 hours of stabilization"
+   },
+   "fit_datasets": [
+    "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"
+   ],
+   "author_fit_preference": "preferred; the abstract reports this result, Figure 2 uses its curve, and the article adopts K0_prime=4 because less than 4% compression does not constrain the derivative accurately",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     8.71
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.9645476773,
+     1.0
+    ],
+    "notes": [
+     "The pressure bound is the complete Table I observation envelope, not a broader phase-stability guarantee.",
+     "K0_prime=4 was fixed by the authors. The source nevertheless calls the fit third-order Birch-Murnaghan; Peritheos preserves that family label although this coefficient choice algebraically reduces to BM2.",
+     "The source normalized ap and ku observations to their separate measured atmospheric volumes of 163.6 and 163.5 A^3. The executable record uses the more precise ap value 163.6(4) A^3 as its single conventional-cell V0."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
+    "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
+    "K0": "Abstract and page 106: KT0=225.5+/-1.2 GPa when K'T0=4 is assumed.",
+    "K0_prime": "Abstract and page 106: K'T0=4 fixed, chosen for consistency with MgSiO3 perovskite because the experimental compression did not constrain the derivative accurately.",
+    "temperature_ref": "Source says room temperature without a numerical value; encoded operationally as 300 K.",
+    "fit_selection": "All ten Table I rows are retained. They represent eight finite-pressure diffraction patterns plus one atmospheric measurement from each run; ruby pressure is the fit coordinate."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+       "source": "Journal of Geophysical Research",
+       "volume": "91",
+       "locator": "4673-4676",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Methods on page 104 and Results on page 105: ruby R1 pressure values are adopted for both runs and for the EOS fit",
+      "scope": "all Table I pressure_ruby_gpa values",
+      "reference_calibration_record": "ruby_mao_1986"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "title": "Anharmonicity and the equation of state for gold",
+       "source": "Journal of Applied Physics",
+       "volume": "65",
+       "locator": "1534-1543",
+       "doi": "10.1063/1.342969"
+      },
+      "source_location": "Methods and Table I: five ku-series Au pressure checks",
+      "scope": "diagnostic pressure_au_gpa column only; not the adopted EOS pressure coordinate",
+      "reference_eos_record": "gold_anderson_1989_bm3_1"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The source prints reduced ruby and Au pressures but not ruby R1 shifts or Au lattice parameters. Observation-by-observation pressure recalculation is therefore impossible."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+     "doi": "10.2183/pjab.76.103",
+     "locations": [
+      "abstract and Experimental section, pages 103-105",
+      "Table I, page 104",
+      "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
+     ],
+     "finding": "The source reports a preferred fixed-K0_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.",
+     "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"
+     ],
+     "source_locations": [
+      "Kubo et al. (2000), Table I, page 104"
+     ],
+     "finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS coefficients, complete compression observations, experiment, and pressure calibration",
+     "citation": "Kubo et al. (2000), Proceedings of the Japan Academy, Series B 76, 103-107",
+     "doi": "10.2183/pjab.76.103"
+    },
+    {
+     "role": "isostructural positional-topology proxy only",
+     "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
+     "doi": "10.1007/BF00308114"
+    }
+   ],
+   "notes": "Preferred source result. K0_prime was fixed rather than fitted. The source calls this a third-order Birch-Murnaghan fit; preserving BM3 plus an explicit fixed parameter avoids changing the published model label."
+  },
+  {
+   "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2",
+   "label": "Kubo et al. (2000), unconstrained BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Kubo",
+     "Yagi",
+     "Ono",
+     "Akaogi"
+    ],
+    "year": 2000,
+    "title": "Compressibility of Mg0.9Al0.2Si0.9O3 perovskite",
+    "source": "Proceedings of the Japan Academy, Series B",
+    "volume": "76",
+    "locator": "103-107",
+    "doi": "10.2183/pjab.76.103"
+   },
+   "sample_composition": "Sintered polycrystalline Mg0.9Al0.2Si0.9O3 perovskite from run en90G3; synthesized from 90 mol% MgSiO3 plus 10 mol% Al2O3 glass and composition-confirmed by EPMA",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 163.6,
+     "K0": 215.4,
+     "K0_prime": 7.2
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.4,
+    "K0": 4.4,
+    "K0_prime": 1.4
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    8.71
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "experimental_configuration": {
+    "sample": "Sintered polycrystalline run en90G3, synthesized at 27 GPa and 2000 degrees C for 83 minutes in a 6-8 multianvil apparatus; recovered single-phase Pbnm perovskite with grain size below 1 micrometre",
+    "pressure_medium": "4:1 by volume methanol-ethanol mixture, reported hydrostatic through 9 GPa",
+    "pressure_cell": "lever-and-spring diamond-anvil cell; separate ap and ku decompression runs",
+    "pressure_gauge": "Mao et al. (1986) ruby R1 fluorescence; Anderson et al. (1989) Au EOS was an independent ku-series cross-check",
+    "diffraction": "room-temperature angle-dispersive synchrotron powder X-ray diffraction with imaging-plate detector at Photon Factory beamline 13-B2",
+    "path": "sample first compressed to 9-10 GPa; diffraction patterns collected during pressure decrease after 2-3 hours of stabilization"
+   },
+   "fit_datasets": [
+    "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"
+   ],
+   "author_fit_preference": "nonpreferred; source-reported sensitivity fit whose K0_prime the authors state cannot be determined very accurately from less than 4% compression",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     8.71
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.9645476773,
+     1.0
+    ],
+    "notes": [
+     "The pressure bound is the complete Table I observation envelope, not a broader phase-stability guarantee.",
+     "V0, K0, and K0_prime are represented, but V0 came from measured run-specific atmospheric references rather than a shared three-parameter fit.",
+     "The authors explicitly caution that the pressure range and less than 4% compression do not constrain K0_prime accurately; this record is retained as a reported alternative, not as the equilibrium default."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
+    "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
+    "K0": "Page 106: unconstrained KT0=215.4+/-4.4 GPa.",
+    "K0_prime": "Page 106: unconstrained K'T0=7.2+/-1.4; the source immediately warns that this derivative is not accurately determined.",
+    "temperature_ref": "Source says room temperature without a numerical value; encoded operationally as 300 K.",
+    "fit_selection": "All ten Table I rows are retained. They represent eight finite-pressure diffraction patterns plus one atmospheric measurement from each run; ruby pressure is the fit coordinate."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+       "source": "Journal of Geophysical Research",
+       "volume": "91",
+       "locator": "4673-4676",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Methods on page 104 and Results on page 105: ruby R1 pressure values are adopted for both runs and for the EOS fit",
+      "scope": "all Table I pressure_ruby_gpa values",
+      "reference_calibration_record": "ruby_mao_1986"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "title": "Anharmonicity and the equation of state for gold",
+       "source": "Journal of Applied Physics",
+       "volume": "65",
+       "locator": "1534-1543",
+       "doi": "10.1063/1.342969"
+      },
+      "source_location": "Methods and Table I: five ku-series Au pressure checks",
+      "scope": "diagnostic pressure_au_gpa column only; not the adopted EOS pressure coordinate",
+      "reference_eos_record": "gold_anderson_1989_bm3_1"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The source prints reduced ruby and Au pressures but not ruby R1 shifts or Au lattice parameters. Observation-by-observation pressure recalculation is therefore impossible."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+     "doi": "10.2183/pjab.76.103",
+     "locations": [
+      "abstract and Experimental section, pages 103-105",
+      "Table I, page 104",
+      "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
+     ],
+     "finding": "The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.",
+     "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"
+     ],
+     "source_locations": [
+      "Kubo et al. (2000), Table I, page 104"
+     ],
+     "finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS coefficients, complete compression observations, experiment, and pressure calibration",
+     "citation": "Kubo et al. (2000), Proceedings of the Japan Academy, Series B 76, 103-107",
+     "doi": "10.2183/pjab.76.103"
+    },
+    {
+     "role": "isostructural positional-topology proxy only",
+     "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
+     "doi": "10.1007/BF00308114"
+    }
+   ],
+   "notes": "Valid source-reported but nonpreferred unconstrained fit. The derivative is not treated as a robust physical determination because the source says its less than 4% compression range cannot determine K0_prime accurately."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression",
+   "kind": "calibrated_pressure_volume_lattice_parameters",
+   "description": "All ten room-temperature Mg0.9Al0.2Si0.9O3 perovskite rows in Kubo et al. (2000) Table I, including both run-specific atmospheric references, adopted ruby pressures, diagnostic Au pressures, lattice constants, volumes, axial ratios, and printed errors.",
+   "reference": {
+    "authors": [
+     "Kubo",
+     "Yagi",
+     "Ono",
+     "Akaogi"
+    ],
+    "year": 2000,
+    "title": "Compressibility of Mg0.9Al0.2Si0.9O3 perovskite",
+    "source": "Proceedings of the Japan Academy, Series B",
+    "volume": "76",
+    "locator": "Table I, page 104",
+    "doi": "10.2183/pjab.76.103"
+   },
+   "source_location": "Final J-STAGE PDF, Table I, page 104",
+   "source_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_pdf/-char/en",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "transcription_order",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "run_id",
+     "quantity": "source_run_identifier",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "series",
+     "quantity": "experimental_series",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_ruby_gpa",
+     "quantity": "pressure_on_mao_1986_ruby_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_ruby_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_ruby_gpa"
+    },
+    {
+     "name": "pressure_au_gpa",
+     "quantity": "pressure_on_anderson_1989_gold_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_au_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_au_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_uncertainty_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_uncertainty_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "b_over_a",
+     "quantity": "axial_ratio_b_over_a",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "c_over_a",
+     "quantity": "axial_ratio_c_over_a",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "run_reference_volume_a3",
+     "quantity": "run_specific_atmospheric_reference_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "used_in_published_fit",
+     "quantity": "fit_selection",
+     "unit": "dimensionless",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg09al02si09o3-bridgmanite-kubo-2000-table1-compression.csv",
+    "sha256": "1d18597504e34fe54cdbb839a29f63f7118324c046351c3174d7e2d923f7eb9f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1",
+    "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2"
+   ],
+   "uncertainty": {
+    "reported_as": "parenthesized_last_digit_error",
+    "pressure": "Parenthesized last-digit errors are expanded for ruby and Au pressures; atmospheric rows have no printed pressure error and remain blank.",
+    "lattice_parameters": "Parenthesized last-digit lattice errors are expanded verbatim.",
+    "volume": "Parenthesized last-digit conventional-cell-volume errors are expanded verbatim.",
+    "confidence": "The paper does not explicitly state a confidence convention for Table I errors.",
+    "covariance": "Row-wise pressure-volume and lattice-parameter covariances are not reported."
+   },
+   "provenance": {
+    "type": "direct_transcription",
+    "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214",
+    "transcribed_on": "2026-09-05",
+    "row_order": "Exact printed Table I order is retained; no sorting or deduplication is applied.",
+    "derived_fields": "run_reference_volume_a3 repeats each series' atmospheric Table I volume to reproduce the source's statement that V/V0 was fixed to unity at atmospheric pressure. used_in_published_fit is one for every row because the source says all Table I volume data were fitted."
+   },
+   "license": "J-STAGE labels the article free access; the article page and PDF do not state a reusable data license."
+  }
+ ]
+}

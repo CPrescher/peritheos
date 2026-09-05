@@ -13,9 +13,7 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 AUDIT_PATH = ROOT / "peritheos" / "data" / "primary-source-audit.json"
 REFIT_PATH = ROOT / "docs" / "data" / "primary-eos-refits.json"
-NONPRODUCTION_PATH = (
-    ROOT / "docs" / "data" / "nonproduction-paper-investigations.json"
-)
+NONPRODUCTION_PATH = ROOT / "docs" / "data" / "nonproduction-paper-investigations.json"
 OUTPUT_PATH = ROOT / "docs" / "paper-investigation-ledger.md"
 
 STATUS_LABELS = {
@@ -101,9 +99,7 @@ def source_link(paper: dict[str, Any]) -> str:
 def compact_counts(counts: Counter[str], labels: dict[str, str]) -> str:
     """Render nonzero status counts in a stable order."""
     return "; ".join(
-        f"{count} {labels[key]}"
-        for key in labels
-        if (count := counts.get(key, 0))
+        f"{count} {labels[key]}" for key in labels if (count := counts.get(key, 0))
     )
 
 
@@ -121,9 +117,7 @@ def discrepancy_summary(record: dict[str, Any]) -> str:
     """Summarize published-to-refit changes for a discrepant record."""
     differences = []
     for parameter in record.get("parameters", []):
-        if not parameter.get("similar") and not parameter.get(
-            "within_combined_2sigma"
-        ):
+        if not parameter.get("similar") and not parameter.get("within_combined_2sigma"):
             differences.append(
                 f"{parameter['parameter']} {parameter['published']:.6g} -> "
                 f"{parameter['refit']:.6g}"
@@ -134,10 +128,7 @@ def discrepancy_summary(record: dict[str, Any]) -> str:
 def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
     """Combine source audit, refit results, and nonproduction investigations."""
     audits = load_json(AUDIT_PATH)["records"]
-    refits = {
-        row["record_identifier"]: row
-        for row in load_json(REFIT_PATH)["records"]
-    }
+    refits = {row["record_identifier"]: row for row in load_json(REFIT_PATH)["records"]}
     audit_ids = {row["record"] for row in audits}
     if audit_ids != set(refits):
         missing_audit = sorted(set(refits) - audit_ids)
@@ -188,20 +179,16 @@ def render() -> str:
     papers, outcome_counts = build_papers()
     catalog_papers = [paper for paper in papers if paper["records"]]
     nonproduction = [paper for paper in papers if not paper["records"]]
+    record_count = sum(len(paper["records"]) for paper in catalog_papers)
     discrepancy_papers = [
         paper
         for paper in catalog_papers
-        if any(
-            record["status"] == "parity_not_achieved"
-            for record in paper["records"]
-        )
+        if any(record["status"] == "parity_not_achieved" for record in paper["records"])
     ]
     unavailable_papers = [
         paper
         for paper in catalog_papers
-        if any(
-            record["status"] == "not_refittable" for record in paper["records"]
-        )
+        if any(record["status"] == "not_refittable" for record in paper["records"])
     ]
 
     lines = [
@@ -233,7 +220,7 @@ def render() -> str:
         "## Summary",
         "",
         f"The register covers **{len(papers)} primary papers**: "
-        f"**{len(catalog_papers)}** support the 226 audited catalog records and "
+        f"**{len(catalog_papers)}** support the {record_count} audited catalog records and "
         f"**{len(nonproduction)}** were investigated without adding a production record.",
         "No numerical refit attempt failed before producing a comparison. The adverse",
         "outcomes are instead explicit coefficient discrepancies, unavailable direct",
@@ -384,7 +371,9 @@ def main() -> None:
     args = parser.parse_args()
     rendered = render()
     if args.check:
-        current = OUTPUT_PATH.read_text(encoding="utf-8") if OUTPUT_PATH.exists() else ""
+        current = (
+            OUTPUT_PATH.read_text(encoding="utf-8") if OUTPUT_PATH.exists() else ""
+        )
         if current != rendered:
             raise SystemExit(f"stale generated file: {OUTPUT_PATH.relative_to(ROOT)}")
         return

@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **226** EOS records. **114** achieve uncertainty parity, **45** are numerically similar, **[18](#parity-not-achieved)** do not achieve parity, **49** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **233** EOS records. **120** achieve uncertainty parity, **46** are numerically similar, **[18](#parity-not-achieved)** do not achieve parity, **49** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -157,17 +157,24 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1`](https://doi.org/10.1029/2020JB019964) | `mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters` | 44 | `V0` 172.1 → 171.284; `K0` 229 → 236.22 | 0.963506/0.00533524 | parity |
 | [`mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2`](https://doi.org/10.1029/2020JB019964) | `mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters` | 44 | `V0` 172 → 171.284; `K0` 230 → 236.22 | 0.959159/0.00533524 | parity |
 | [`mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3`](https://doi.org/10.1029/2020JB019964) | `mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters` | 44 | `V0` 170.7 → 171.284; `K0` 240 → 236.22 | 1.078/0.00533522 | parity |
+| [`mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4`](https://doi.org/10.3389/fchem.2023.1258389) | `mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv` | 16 | `V0` 171.2 → 171.307; `K0` 221 → 220.008 | 0.677631/0.644373 | parity |
 | [`mg073fe027o_jacobsen_2005_bm3_1`](https://doi.org/10.1107/S0909049505022326) | `jacobsen_2005_table1_compression` | 9 | `V0` 77.3 → 57.963; `K0` 154 → 196.545; `K0_prime` 4 → 2.38146 | 138.333/0.0124624 | [parity_not_achieved](#investigation-mg073fe027o_jacobsen_2005_bm3_1) |
+| [`mg075fe025o_matsui_2012_bm3_mgd_1`](https://www.rruff.net/odr/view/downloadfile/81129) | `mg075fe025o_matsui_2012_table2_pvt` | 30 | `rt_eos.V0` 76.372 → 76.405; `rt_eos.K0_prime` 4.22 → 4.18523; `gamma0` 1.64 → 1.60814; `q` 0.7 → 0.643043 | 0.14261/0.13709 | parity |
+| [`mg083fe017o_matsui_2012_bm3_mgd_1`](https://www.rruff.net/odr/view/downloadfile/81129) | `mg083fe017o_matsui_2012_table1_pvt` | 23 | `rt_eos.V0` 75.849 → 75.8179; `rt_eos.K0_prime` 4.08 → 4.13239; `gamma0` 1.53 → 1.57742; `q` 0.7 → 0.928806 | 0.123303/0.114991 | [similar](#investigation-mg083fe017o_matsui_2012_bm3_mgd_1) |
 | [`mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1`](https://doi.org/10.1002/2015JB012108) | `mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt` | 153 | `rt_eos.V0` 163.16 → 162.602; `rt_eos.K0` 243.8 → 254.179; `rt_eos.K0_prime` 4.16 → 3.98575; `gamma0` 1.4 → 1.3932; `q` 0.56 → 0.553585 | 1.9497/1.0712 | parity |
 | [`mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1`](https://doi.org/10.2138/am-2023-8969) | `mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv` | 22 | `V0` 163.85 → 164.427; `K0` 242 → 236.848 | 0.719501/0.322812 | [similar](#investigation-mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1) |
 | [`mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2`](https://doi.org/10.2138/am-2023-8969) | `mg088fe010al014si090o3_bridgmanite_fu_2024_table_s1_cif_pv` | 22 | `V0` 164.64 → 164.676; `K0` 228 → 224.579; `K0_prime` 4.1 → 4.54448 | 0.929085/0.264141 | parity |
 | [`mg095al010si095o3_bridgmanite_daniel_2004_bm2_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213) | `mg095al010si095o3_bridgmanite_daniel_2004_table1_compression` | 42 | `V0` 163.234 → 163.222; `K0` 251.5 → 252.602 | 0.598618/0.603207 | parity |
 | [`mg095al010si095o3_bridgmanite_daniel_2004_bm3_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213) | `mg095al010si095o3_bridgmanite_daniel_2004_table1_compression` | 42 | `V0` 163.23 → 163.219; `K0` 251.5 → 253.576; `K0_prime` 4 → 3.89177 | 0.599007/0.578939 | parity |
+| [`mg09al02si09o3_bridgmanite_kubo_2000_bm3_1`](https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article) | `mg09al02si09o3_bridgmanite_kubo_2000_table1_compression` | 10 | `V0` 163.6 → 163.535; `K0` 225.5 → 226.098 | 0.103207/0.0378957 | parity |
+| [`mg09al02si09o3_bridgmanite_kubo_2000_bm3_2`](https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article) | `mg09al02si09o3_bridgmanite_kubo_2000_table1_compression` | 10 | `V0` 163.6 → 163.555; `K0` 215.4 → 219.134; `K0_prime` 7.2 → 5.82194 | 0.0940477/0.0337966 | parity |
 | [`mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1`](https://doi.org/10.1002/2015GL064400) | `mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv` | 97 | `V0` 162.6 → 163.256; `K0` 284 → 275.745 | 0.928436/0.577285 | [similar](#investigation-mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1) |
 | [`mg7si2o8_crichton_2002_bm3_1`](https://doi.org/10.2138/am-2002-2-316) | `phase_a_crichton_2002_table1_compression` | 12 | `V0` 512.56 → 512.558; `K0` 97.5 → 97.4359; `K0_prime` 5.97 → 5.97857 | 0.00807659/0.00770891 | parity |
 | [`mgfe60o_richet_1989_bm2_1`](https://doi.org/10.1029/JB094iB03p03037) | `mgfe60o_richet_1989_table2_compression` | 14 | `K0` 149 → 153.217 | 1.04024/0.601213 | parity |
 | [`mgfe94o_b1_dobrosavljevic_2019_bm3_1`](https://www.mdpi.com/2075-163X/9/12/762) | `mgfe94o_dobrosavljevic_2019_table_s1_compression` | 28 | `V0` 78.88 → 78.6969; `K0` 155.3 → 168.771; `K0_prime` 3.79 → 2.71444 | 6.36656/0.341005 | [parity_not_achieved](#investigation-mgfe94o_b1_dobrosavljevic_2019_bm3_1) |
 | [`mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1`](https://www.mdpi.com/2075-163X/9/12/762) | `mgfe94o_dobrosavljevic_2019_table_s1_compression` | 28 | `V0` 19.18 → 19.6742; `K0` 217 → 168.771; `K0_prime` 2.06 → 2.71444 | 2.41035/0.341005 | [parity_not_achieved](#investigation-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1) |
+| [`mggeo3_post_perovskite_kubo_2006_bm3_1`](https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf) | `mggeo3_post_perovskite_kubo_2006_table_s1_pv` | 22 | `V0` 179.2 → 178.665; `K0` 207 → 210.581 | 1.39451/0.812029 | parity |
+| [`mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2`](https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf) | `mggeo3_post_perovskite_kubo_2006_table_s1_pv` | 22 | `V0` 175.9 → 175.456; `K0` 245 → 248.679 | 1.35613/0.749397 | parity |
 | [`mgo_b1_tange_2009_vinet`](https://doi.org/10.1029/2008JB005813) | `parameterization_only` | — | — | —/— | not_refittable — This is a unified least-squares analysis of previously published pressure-scale-free thermal, elastic, and shock datasets. It reports optimized MgO EOS parameters and residuals, but no new row-level experimental observations. |
 | [`mgo_duffy_1995_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.74.1371/fulltext) | `mgo_duffy_1995_figure2_digitized` | 17 | `K0` 177 → 178.49; `K0_prime` 4 → 3.85959 | 5.04655/2.6251 | parity |
 | [`mgo_speziale_2001_bm3_2`](https://doi.org/10.1029/2000JB900318) | `mgo_speziale_2001_table1_compression` | 32 | `V0` 74.71 → 74.7114; `K0_prime` 3.99 → 3.99628 | 0.290939/0.287769 | parity |
@@ -357,7 +364,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **63** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **64** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -1210,6 +1217,28 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The lowest checked pressure is 27.7 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg083fe017o_matsui_2012_bm3_mgd_1"></a>
+
+### `mg083fe017o_matsui_2012_bm3_mgd_1`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg083fe017o_matsui_2012_table1_pvt` with 23 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `rt_eos.V0` | 75.849 | 75.8179 ± 0.20549 | 0.04% | yes | yes |
+| `rt_eos.K0_prime` | 4.08 | 4.13239 ± 0.268453 | 1.28% | yes | yes |
+| `gamma0` | 1.53 | 1.57742 ± 0.41144 | 3.10% | yes | yes |
+| `q` | 0.7 | 0.928806 ± 1.9007 | 32.69% | yes | no |
+
+**Fit diagnostics.** Observed pressure range: 0-46.39 GPa; source-declared range: 0-47 GPa; fit kind: `joint_pvt`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.123303/0.114991 GPa; reduced chi-square: 0.0160721; free parameters: `rt_eos.V0, rt_eos.K0_prime, gamma0, q`; source-fixed parameters: `K0, Tr, theta0, n`.
+
+**Source/data scope.** Every printed temperature, ferropericlase conventional-cell volume, Au V/V0, observed/calculated pressure, residual, and parenthetical uncertainty is transcribed; the high-pressure rows remain explicit exclusions.
+
+**Registered source-fit note.** The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.
+
+**Assessment and likely origin.**
+- The point estimate exceeds the numerical limit for `q`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 
 <a id="investigation-mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"></a>
 

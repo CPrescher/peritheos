@@ -25,14 +25,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **146 primary papers**: **144** support the 226 audited catalog records and **2** were investigated without adding a production record.
+The register covers **150 primary papers**: **148** support the 233 audited catalog records and **2** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 106 |
+| Reproduced | 110 |
 | Partly reproduced | 3 |
 | Mixed: reproduced and discrepant records | 3 |
 | Coefficient parity not achieved | 9 |
@@ -209,6 +209,9 @@ the primary-source and refit ledgers.
 | [Kawai and Tsuchiya (2014)](https://doi.org/10.1002/2013jb010905) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Knittle and Jeanloz (1987)](https://doi.org/10.1126/science.235.4789.668) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Knorr et al. (2003)](https://doi.org/10.1140/epjb/e2003-00034-6) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
+| [Koemets et al. (2023)](https://doi.org/10.3389/fchem.2023.1258389) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Kubo et al. (2000)](https://doi.org/10.2183/pjab.76.103) | Reproduced | 2 | 2 parity | 2 bundled |
+| [Kubo et al. (2006)](https://doi.org/10.1029/2006gl025686) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Le Godec et al. (2014)](https://doi.org/10.3103/s1063457614010092) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Liu and Bassett (1973)](https://doi.org/10.1029/jb078i035p08470) | Reproduced | 1 | 1 parity | 1 bundled |
@@ -220,6 +223,7 @@ the primary-source and refit ledgers.
 | [Mao et al. (1990)](https://doi.org/10.1029/jb095ib13p21737) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Mao et al. (2015)](https://doi.org/10.1002/2015gl064400) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Martinez et al. (1996)](https://doi.org/10.2138/am-1996-5-608) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Matsui et al. (2012)](https://doi.org/10.2138/am.2012.3937) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [McHardy et al. (2026)](https://doi.org/10.1103/zp3m-kjpc) | Reproduced | 3 | 3 parity | 3 bundled |
 | [Meng et al. (1994)](https://doi.org/10.1007/bf00203299) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Milani et al. (2015)](https://doi.org/10.1016/j.lithos.2015.03.017) | Reproduced | 2 | 2 parity | 2 bundled |

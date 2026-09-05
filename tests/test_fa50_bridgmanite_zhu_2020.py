@@ -17,6 +17,8 @@ DATASET_ID = "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"
 PREFERRED_ID = "mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1"
 POST_ANNEAL_ID = "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2"
 COLD_ID = "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3"
+KOEMETS_ID = "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4"
+ZHU_RECORD_IDS = {PREFERRED_ID, POST_ANNEAL_ID, COLD_ID}
 DOI = "10.1029/2020JB019964"
 DATASET_SHA256 = "ed88e17fb3028d1abe2c5fa57bd4bc38b7c61d6fe11b74c0ee952436bcaba3ce"
 
@@ -58,11 +60,13 @@ def test_fa50_material_identity_volume_basis_and_source_scope():
     assert "LiNbO3-type at ambient" in document["notes"]
     assert "no independently fitted, fully low-spin EOS branch" in document["notes"]
 
-    assert set(records) == {PREFERRED_ID, POST_ANNEAL_ID, COLD_ID}
+    assert set(records) == ZHU_RECORD_IDS | {KOEMETS_ID}
     assert records[PREFERRED_ID]["default_for"] == "equilibrium"
     assert "default_for" not in records[POST_ANNEAL_ID]
     assert "default_for" not in records[COLD_ID]
-    assert all(record["reference"]["doi"] == DOI for record in records.values())
+    assert all(
+        records[identifier]["reference"]["doi"] == DOI for identifier in ZHU_RECORD_IDS
+    )
     assert all(
         record["scientific_validation"]["status"] == "primary_source_validated"
         for record in records.values()
@@ -275,13 +279,14 @@ def test_fa50_spin_and_thermal_history_are_not_overinterpreted_as_branches():
         for issue in unresolved
     )
     assert any("two analyzed synthesis compositions" in issue for issue in unresolved)
-    assert len(records) == 3
+    assert len(records) == 4
 
 
 def test_fa50_pressure_scale_is_linked_but_rowwise_reduction_is_unavailable():
     _, records, _, _ = _document_records_dataset_rows()
 
-    for source in records.values():
+    for record_id in ZHU_RECORD_IDS:
+        source = records[record_id]
         calibration = source["pressure_calibration"]
         assert calibration["status"] == "partially_resolved"
         assert calibration["methods"][0]["material"] == "Au"

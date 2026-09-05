@@ -8783,6 +8783,85 @@
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv"
+      ],
+      "degrees_of_freedom": 14,
+      "experimental_pressure_range_gpa": [
+        10.8,
+        60.0
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Koemets et al. (2023) single-crystal Pnma perovskite BM2",
+      "material_identifier": "mg05fe05al05si05o3_bridgmanite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 16,
+      "observed_pressure_range_gpa": [
+        10.8,
+        60.0
+      ],
+      "observed_temperature_range_k": [
+        293.0,
+        293.0
+      ],
+      "observed_volume_range": [
+        142.2,
+        163.87
+      ],
+      "parameters": [
+        {
+          "difference": 0.10694531122453554,
+          "parameter": "V0",
+          "published": 171.2,
+          "published_error": 0.2,
+          "refit": 171.30694531122452,
+          "refit_error": 0.22168893936449124,
+          "relative_difference": 0.0006246805562180815,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.9916935399711235,
+          "parameter": "K0",
+          "published": 221.0,
+          "published_error": 3.0,
+          "refit": 220.00830646002888,
+          "refit_error": 3.0285115729808005,
+          "relative_difference": 0.0044873010858421875,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 18 Pnma Supplementary Table S3 rows are bundled with pressure, lattice parameters, conventional-cell volume, reported uncertainties, and explicit fit flags; 16 rows are selected.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.3389/fchem.2023.1258389",
+      "published_rmse_gpa": 0.6776309819297365,
+      "record_identifier": "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4",
+      "reduced_chi_square": 1.3740327191068384,
+      "rmse_gpa": 0.6443734730246198,
+      "selection": "used_in_bm2_fit=1; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Accepted LitCurate record litcurate_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "fe093o_rhombohedral_volume_a3"
       },
@@ -8866,6 +8945,222 @@
       "solver_success": true,
       "source_notes": "Published fit to all 16 Table 1 Fe27 observations from 0 to 51.1 GPa. V0, K0, and K0' are free parameters; none was fixed. Parenthesized errors have no reported confidence convention, and no covariance or exact EOS-FIT residual weighting configuration is published.",
       "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mg075fe025o_matsui_2012_table2_pvt"
+      ],
+      "degrees_of_freedom": 26,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        47.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1100.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "K0",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "label": "Matsui et al. (2012), (Mg0.75Fe0.25)O high-spin BM3-MGD",
+      "material_identifier": "mg075fe025o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 30,
+      "observed_pressure_range_gpa": [
+        0.0,
+        46.21
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        1100.0
+      ],
+      "observed_volume_range": [
+        63.411,
+        76.368
+      ],
+      "parameters": [
+        {
+          "difference": 0.0330358565448563,
+          "parameter": "rt_eos.V0",
+          "published": 76.372,
+          "published_error": 0.016,
+          "refit": 76.40503585654486,
+          "refit_error": 0.1838458123812961,
+          "relative_difference": 0.0004325650309649649,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.03477413730895673,
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.22,
+          "published_error": 0.03,
+          "refit": 4.185225862691043,
+          "refit_error": 0.2637883235279186,
+          "relative_difference": 0.008240316897857047,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.031856447248650444,
+          "parameter": "gamma0",
+          "published": 1.64,
+          "published_error": 0.04,
+          "refit": 1.6081435527513495,
+          "refit_error": 0.3550316301027666,
+          "relative_difference": 0.019424662956494174,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.05695742207706467,
+          "parameter": "q",
+          "published": 0.7,
+          "published_error": 0.2,
+          "refit": 0.6430425779229353,
+          "refit_error": 1.6984960255775357,
+          "relative_difference": 0.0813677458243781,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "Every printed temperature, ferropericlase conventional-cell volume, Au V/V0, observed/calculated pressure, residual, and parenthetical uncertainty is transcribed; the high-pressure rows remain explicit exclusions.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.rruff.net/odr/view/downloadfile/81129",
+      "published_rmse_gpa": 0.14260978521825343,
+      "record_identifier": "mg075fe025o_matsui_2012_bm3_mgd_1",
+      "reduced_chi_square": 0.0217972844160393,
+      "rmse_gpa": 0.13709017402347742,
+      "selection": "fit_included=1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "mg083fe017o_matsui_2012_table1_pvt"
+      ],
+      "degrees_of_freedom": 19,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        47.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        1100.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "K0",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "label": "Matsui et al. (2012), (Mg0.83Fe0.17)O high-spin BM3-MGD",
+      "material_identifier": "mg083fe017o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 23,
+      "observed_pressure_range_gpa": [
+        0.0,
+        46.39
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        1100.0
+      ],
+      "observed_volume_range": [
+        62.442,
+        75.855
+      ],
+      "parameters": [
+        {
+          "difference": -0.03107603703413986,
+          "parameter": "rt_eos.V0",
+          "published": 75.849,
+          "published_error": 0.011,
+          "refit": 75.81792396296586,
+          "refit_error": 0.20549025078895694,
+          "relative_difference": 0.0004097092517256636,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.05239491661677764,
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.08,
+          "published_error": 0.02,
+          "refit": 4.132394916616778,
+          "refit_error": 0.26845276639119514,
+          "relative_difference": 0.012841891327641578,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.047424375154855314,
+          "parameter": "gamma0",
+          "published": 1.53,
+          "published_error": 0.04,
+          "refit": 1.5774243751548553,
+          "refit_error": 0.41144014274174534,
+          "relative_difference": 0.03099632363062439,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.2288056976858469,
+          "parameter": "q",
+          "published": 0.7,
+          "published_error": 0.2,
+          "refit": 0.9288056976858469,
+          "refit_error": 1.9007015682950819,
+          "relative_difference": 0.3268652824083528,
+          "similar": false,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "Every printed temperature, ferropericlase conventional-cell volume, Au V/V0, observed/calculated pressure, residual, and parenthetical uncertainty is transcribed; the high-pressure rows remain explicit exclusions.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.rruff.net/odr/view/downloadfile/81129",
+      "published_rmse_gpa": 0.12330274873326477,
+      "record_identifier": "mg083fe017o_matsui_2012_bm3_mgd_1",
+      "reduced_chi_square": 0.016072145119999704,
+      "rmse_gpa": 0.11499064762190032,
+      "selection": "fit_included=1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -9323,6 +9618,172 @@
     {
       "absolute_sigma": true,
       "columns": {
+        "pressure": "pressure_ruby_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"
+      ],
+      "degrees_of_freedom": 8,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        8.71
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Kubo et al. (2000), adopted fixed-derivative BM3",
+      "material_identifier": "mg09al02si09o3_bridgmanite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        0.0,
+        8.71
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        157.8,
+        163.6
+      ],
+      "parameters": [
+        {
+          "difference": -0.06518527047381895,
+          "parameter": "V0",
+          "published": 163.6,
+          "published_error": 0.4,
+          "refit": 163.53481472952618,
+          "refit_error": 0.4661985022229434,
+          "relative_difference": 0.00039844297355635054,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.5975510473359407,
+          "parameter": "K0",
+          "published": 225.5,
+          "published_error": 1.2,
+          "refit": 226.09755104733594,
+          "refit_error": 30.66884999717636,
+          "relative_difference": 0.002649893779760269,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+      "published_rmse_gpa": 0.10320744048355725,
+      "record_identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1",
+      "reduced_chi_square": 0.002660930265451025,
+      "rmse_gpa": 0.037895675177745454,
+      "selection": "used_in_published_fit=1",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Preferred source result. K0_prime was fixed rather than fitted. The source calls this a third-order Birch-Murnaghan fit; preserving BM3 plus an explicit fixed parameter avoids changing the published model label.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_ruby_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"
+      ],
+      "degrees_of_freedom": 7,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        8.71
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Kubo et al. (2000), unconstrained BM3",
+      "material_identifier": "mg09al02si09o3_bridgmanite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        0.0,
+        8.71
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        157.8,
+        163.6
+      ],
+      "parameters": [
+        {
+          "difference": -0.04549246410292085,
+          "parameter": "V0",
+          "published": 163.6,
+          "published_error": 0.4,
+          "refit": 163.55450753589707,
+          "refit_error": 0.5636887861454142,
+          "relative_difference": 0.0002780712964726213,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 3.73386997186779,
+          "parameter": "K0",
+          "published": 215.4,
+          "published_error": 4.4,
+          "refit": 219.1338699718678,
+          "refit_error": 107.77011557250326,
+          "relative_difference": 0.017334586684622982,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.3780624625273301,
+          "parameter": "K0_prime",
+          "published": 7.2,
+          "published_error": 1.4,
+          "refit": 5.82193753747267,
+          "refit_error": 27.72279651526544,
+          "relative_difference": 0.19139756423990695,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+      "published_rmse_gpa": 0.09404774837049258,
+      "record_identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2",
+      "reduced_chi_square": 0.0023762941677099693,
+      "rmse_gpa": 0.03379659098906755,
+      "selection": "used_in_published_fit=1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Valid source-reported but nonpreferred unconstrained fit. The derivative is not treated as a robust physical determination because the source says its less than 4% compression range cannot determine K0_prime accurately.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "volume_a3_conventional_cell"
@@ -9727,6 +10188,154 @@
       "solver_success": true,
       "source_notes": "Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive EOS basis because the source does not publish a complete conventional-cell metric. All three coefficients were free; no numerical covariance matrix is available.",
       "status": "parity_not_achieved"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mggeo3_post_perovskite_kubo_2006_table_s1_pv"
+      ],
+      "degrees_of_freedom": 20,
+      "experimental_pressure_range_gpa": [
+        47.3,
+        196.3
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Kubo et al. (2006), MgGeO3 post-perovskite preferred BM3",
+      "material_identifier": "mggeo3_post_perovskite",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 22,
+      "observed_pressure_range_gpa": [
+        47.3,
+        196.3
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        120.928305,
+        152.481768
+      ],
+      "parameters": [
+        {
+          "difference": -0.534708108207866,
+          "parameter": "V0",
+          "published": 179.2,
+          "published_error": 0.7,
+          "refit": 178.66529189179212,
+          "refit_error": 0.6144318174627531,
+          "relative_difference": 0.002983862210981395,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 3.5806718468501515,
+          "parameter": "K0",
+          "published": 207.0,
+          "published_error": 5.0,
+          "refit": 210.58067184685015,
+          "refit_error": 4.293351645284262,
+          "relative_difference": 0.01729793162729542,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 25 source rows are bundled with lattice-parameter 1-sigma errors, Pt 111 and 200 spacings, Holmes-scale pressure, deviatoric stress, and exposure timing. Exactly 22 rows are marked fit-included.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf",
+      "published_rmse_gpa": 1.394506952622881,
+      "record_identifier": "mggeo3_post_perovskite_kubo_2006_bm3_1",
+      "reduced_chi_square": 1.1509768661620852,
+      "rmse_gpa": 0.8120293208021537,
+      "selection": "fit_included=1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Preferred source-selected 300 K experimental fit. V0 is the four-formula-unit conventional Cmcm-cell volume. K0' was fixed, while V0 and K0 were fitted with an external elasticity-systematics constraint.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mggeo3_post_perovskite_kubo_2006_table_s1_pv"
+      ],
+      "degrees_of_freedom": 20,
+      "experimental_pressure_range_gpa": [
+        47.3,
+        196.3
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Kubo et al. (2006), MgGeO3 post-perovskite fixed-K0-prime=4 sensitivity fit",
+      "material_identifier": "mggeo3_post_perovskite",
+      "model": "BM2",
+      "objective": "errors_in_variables",
+      "observations": 22,
+      "observed_pressure_range_gpa": [
+        47.3,
+        196.3
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        120.928305,
+        152.481768
+      ],
+      "parameters": [
+        {
+          "difference": -0.44382071815729773,
+          "parameter": "V0",
+          "published": 175.9,
+          "published_error": 0.6,
+          "refit": 175.4561792818427,
+          "refit_error": 0.5221786996568926,
+          "relative_difference": 0.0025231422294331876,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 3.679330590475246,
+          "parameter": "K0",
+          "published": 245.0,
+          "published_error": 5.0,
+          "refit": 248.67933059047525,
+          "refit_error": 4.4205463150013795,
+          "relative_difference": 0.015017675879490799,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "This sensitivity fit uses the same 22 selected rows as the preferred record; it is not assigned a duplicate dataset.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/media/kubo-2006-georeslet.pdf",
+      "published_rmse_gpa": 1.3561285588251957,
+      "record_identifier": "mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2",
+      "reduced_chi_square": 1.0358363125552295,
+      "rmse_gpa": 0.749396935194924,
+      "selection": "fit_included=1",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Executable but deliberately non-default. It is the article's fixed-K0'=4 sensitivity result for the same data, not an independent experimental EOS.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -16004,9 +16613,9 @@
   ],
   "summary": {
     "not_refittable": 49,
-    "parity": 114,
+    "parity": 120,
     "parity_not_achieved": 18,
-    "similar": 45,
-    "total": 226
+    "similar": 46,
+    "total": 233
   }
 }

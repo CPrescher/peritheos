@@ -7,6 +7,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added seven primary-source-validated LitCurate EOS records from four papers:
+  two Kubo et al. (2000) Mg0.9Al0.2Si0.9O3 bridgmanite BM3 fits, two Kubo et
+  al. (2006) MgGeO3 post-perovskite sensitivity fits, two Matsui et al. (2012)
+  high-spin ferropericlase BM3-MGD models, and the Koemets et al. (2023) FA50
+  Pnma bridgmanite BM2. Complete source tables, phase-specific fit masks,
+  deterministic reproductions, pressure-scale provenance, and explicit
+  accept/hold/reject decisions for every same-paper LitCurate row are bundled.
 - Added a generated paper-level investigation ledger covering every audited
   primary source, including coefficient discrepancies, unavailable direct
   refits, and papers withheld or deferred without a production EOS record.

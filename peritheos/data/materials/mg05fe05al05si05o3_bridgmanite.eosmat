@@ -347,6 +347,94 @@
     "unresolved_issues": ["No covariance or fit-protocol detail is reported.", "No row-wise Au observations are published.", "The cold-compressed curve is a thermal-history reference, not an independently demonstrated equilibrium high-spin phase boundary."]
    },
    "notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope."
+  },
+  {
+   "identifier": "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4",
+   "label": "Koemets et al. (2023) single-crystal Pnma perovskite BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": ["Koemets", "Wang", "Koemets", "Ishii", "Liu", "McCammon", "Chanyshev", "Katsura", "Hanfland", "Chumakov", "Dubrovinsky"],
+    "year": 2023,
+    "title": "Crystal chemistry and compressibility of Fe0.5Mg0.5Al0.5Si0.5O3 and FeMg0.5Si0.5O3 silicate perovskites at pressures up to 95 GPa",
+    "source": "Frontiers in Chemistry",
+    "volume": "11",
+    "locator": "1258389",
+    "doi": "10.3389/fchem.2023.1258389"
+   },
+   "sample_composition": "Nominal Fe0.5Mg0.5Al0.5Si0.5O3 single crystals synthesized in a Kawai-type multi-anvil press. EPMA checked the recovered composition; synchrotron Mossbauer spectroscopy found approximately 16(4)% of total iron as Fe2+.",
+   "iron_speciation": "Approximately 16(4)% of total iron is Fe2+; the Fe3+ component occupies the large bicapped-prism A site in the Pnma perovskite. The authors observed no pressure-induced iron spin transition in this composition over the measured range.",
+   "eos": {"type": "BM2", "model": "birch_murnaghan_2", "parameters": {"V0": 171.2, "K0": 221.0}},
+   "parameter_errors": {"V0": 0.2, "K0": 3.0},
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 293.0,
+   "experimental_pressure_range_gpa": [10.8, 60.0],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [293.0, 293.0],
+   "experimental_configuration": {
+    "sample": "Pre-selected multi-anvil-synthesized Fe0.5Mg0.5Al0.5Si0.5O3 single crystals in BX90 diamond-anvil cells with rhenium gaskets.",
+    "pressure_medium": "neon",
+    "pressure_gauge": "Ne equation of state of Fei et al. (2007) above 6 GPa; the article used ruby fluorescence of Mao et al. (1986) only below 6 GPa.",
+    "diffraction": "Single-crystal synchrotron XRD at ESRF ID15B, 30 keV (0.4133 angstrom), MAR555 detector, omega scans, CrysAlisPro integration, and Jana2006/Superflip/SHELXT structure work.",
+    "fit_selection": "Sixteen Pnma observations from 10.8 to 60.0 GPa. The two Pnma refinements at 7.5 and 8.6 GPa lie within the reported 8+/-2 GPa transformation interval and are retained in the dataset but excluded from the phase-specific EOS fit."
+   },
+   "fit_datasets": ["mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv"],
+   "validity": {
+    "pressure_gpa": [10.8, 60.0],
+    "temperature_k": [293.0, 293.0],
+    "volume_ratio": [0.8306074766, 0.9571845794],
+    "notes": ["Bounds are the selected Pnma observation envelope, not a broader phase-stability field.", "V0 is extrapolated because the Pnma perovskite is not retained at ambient pressure.", "The 7.5 and 8.6 GPa measurements fall in the reported structural-transition interval and are outside this fit."]
+   },
+   "parameter_provenance": {
+    "equation": "Article Figure 4 caption and EOS discussion: second-order Birch-Murnaghan pressure-volume equation, equivalent to K0'=4.",
+    "V0": "Article Figure 4 caption: V0=171.2+/-0.2 angstrom^3 for the high-pressure Pnma Fe0.5Mg0.5Al0.5Si0.5O3 phase.",
+    "K0": "Article Figure 4 caption: K0=221+/-3 GPa for the high-pressure Pnma Fe0.5Mg0.5Al0.5Si0.5O3 phase. A later general discussion prints 212(3) GPa, but the composition-specific figure caption, plotted curve, and independently reproduced Table S3 fit support 221(3) GPa.",
+    "implicit_K0_prime": "Second-order Birch-Murnaghan definition fixes K0'=4.",
+    "fit_selection": "Supplementary Table S3 Pnma observations at 10.8-60.0 GPa; two refinements within the 8+/-2 GPa transition interval are excluded.",
+    "uncertainties": "Published parameter uncertainties are retained; confidence convention and covariance are not reported."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [{
+     "kind": "equation_of_state",
+     "material": "Ne",
+     "reference": {"authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"], "year": 2007, "title": "Toward an internally consistent pressure scale", "source": "Proceedings of the National Academy of Sciences", "volume": "104", "locator": "9182-9186", "doi": "10.1073/pnas.0609013104"},
+     "reference_eos_record": "neon_fcc_fei_2007_bm3_1",
+     "source_location": "Article high-pressure methods: Ne pressure medium and pressure determination above 6 GPa.",
+     "scope": "all selected EOS observations"
+    }],
+    "recalculation": {"status": "missing_calibrant_observations", "notes": "Supplementary Table S3 reports reduced pressures but no row-wise Ne volumes, so the pressure scale cannot be independently recalculated."},
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the open-access publisher article and its official Supplementary Table S3.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "cell_setting", "formula_units_per_cell", "iron_speciation", "equation", "parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "fit_selection", "validity", "pressure_calibration", "primary_data"],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.3389/fchem.2023.1258389",
+     "doi": "10.3389/fchem.2023.1258389",
+     "locations": ["publisher article Materials and methods and Figure 4 caption", "official Supplementary Table S3"],
+     "finding": "The source reports a phase-specific Pnma BM2 and complete single-crystal unit-cell measurements. The two lowest-pressure Pnma refinements occur within the stated transformation interval; selecting the 16 observations above that interval reproduces the published coefficients and uncertainties."
+    },
+    "primary_data_check": {"status": "bundled", "dataset_identifiers": ["mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv"], "finding": "All 18 Pnma Supplementary Table S3 rows are bundled with pressure, lattice parameters, conventional-cell volume, reported uncertainties, and explicit fit flags; 16 rows are selected."},
+    "independent_refit": {
+     "selection": "16 Pnma observations from 10.8 to 60.0 GPa",
+     "objective": "errors in variables using reported pressure and volume uncertainties",
+     "free_parameters": ["V0", "K0"],
+     "fixed_parameters": {"K0_prime": 4.0},
+     "refit_parameters": {"V0": 171.3069453112, "K0": 220.0083064600},
+     "refit_parameter_errors": {"V0": 0.2216889394, "K0": 3.02851157298},
+     "published_curve_pressure_rmse_gpa": 0.6776309819,
+     "refit_curve_pressure_rmse_gpa": 0.6717496251,
+     "result": "parity",
+     "notes": "The errors-in-variables coefficients agree with the published values within their quoted uncertainties. An unweighted pressure-space diagnostic gives V0=171.3058481114 angstrom^3 and K0=220.0209751528 GPa."
+    },
+    "unresolved_issues": ["No parameter covariance, confidence convention, numerical objective, weighting rule, software, or published fit statistic is reported.", "No row-wise Ne calibrant observations are published.", "Deposited CCDC structure files require interactive access; the existing equivalent Pbnm/Pnma FA50 material card is therefore reused without fabricating atom coordinates."]
+   },
+   "notes": "Accepted LitCurate record litcurate_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch."
   }
  ],
  "datasets": [
@@ -409,6 +497,34 @@
     "row_order": "Original worksheet order: all sample-1 rows followed by all sample-2 rows; duplicate and before/after pairs are retained.",
     "derived_flags": "Sample membership directly determines preferred and cold-compressed selections. The post-anneal subset transcribes the sample-1 red font identified by the workbook legend and article Figure 3 caption as measurements after current-step heating."
    }
+  },
+  {
+   "identifier": "mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv",
+   "kind": "pressure_volume_lattice",
+   "description": "Complete 293 K Pnma single-crystal refinements for Fe0.5Mg0.5Al0.5Si0.5O3 from official Supplementary Table S3. Sixteen observations above the 8+/-2 GPa transformation interval are selected for the BM2; the 7.5 and 8.6 GPa transition-region rows are retained with zero fit flags.",
+   "reference": {"authors": ["Koemets", "Wang", "Koemets", "Ishii", "Liu", "McCammon", "Chanyshev", "Katsura", "Hanfland", "Chumakov", "Dubrovinsky"], "year": 2023, "title": "Crystal chemistry and compressibility of Fe0.5Mg0.5Al0.5Si0.5O3 and FeMg0.5Si0.5O3 silicate perovskites at pressures up to 95 GPa", "source": "Frontiers in Chemistry supplementary material", "volume": "11", "locator": "Supplementary Table S3", "doi": "10.3389/fchem.2023.1258389"},
+   "source_location": "Official publisher Supplementary Table S3, all entries named FMAS_o_*.",
+   "source_url": "https://www.frontiersin.org/api/v4/articles/1258389/file/Data_Sheet_1.pdf/1258389_supplementary-materials_datasheets_1_pdf/2",
+   "columns": [
+    {"name": "source_order", "quantity": "transcription_order", "unit": "dimensionless", "role": "value"},
+    {"name": "run", "quantity": "source_filename", "unit": "dimensionless", "role": "value"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "lattice_a_angstrom"},
+    {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_b_uncertainty_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "lattice_b_angstrom"},
+    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "lattice_c_uncertainty_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "lattice_c_angstrom"},
+    {"name": "volume_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
+    {"name": "used_in_bm2_fit", "quantity": "fit_selection", "unit": "dimensionless", "role": "flag"}
+   ],
+   "resource": {"path": "datasets/fa50-bridgmanite-koemets-2023-supplement-table3.csv", "sha256": "d637d97275b4a7ba2e1ba0e0d5658082ff4e9cfb03ef320e4b859b781e8f47ba", "media_type": "text/csv"},
+   "used_by_eos_records": ["mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4"],
+   "uncertainty": {"reported_as": "parenthetical standard uncertainties for lattice and volume; pressure uncertainty reported parenthetically; confidence convention not otherwise stated", "pressure": "Every selected and excluded row reports 0.6 GPa.", "lattice_and_volume": "Transcribed directly from Supplementary Table S3.", "covariance": "not reported"},
+   "provenance": {"type": "direct_transcription_with_explicit_derived_fit_flag", "transcribed_on": "2026-09-05", "row_order": "Original multi-page Supplementary Table S3 order.", "derived_flags": "Rows at 7.5 and 8.6 GPa fall within the source-reported 8+/-2 GPa transformation interval and are excluded; all Pnma rows from 10.8 through 60.0 GPa are selected."}
   }
  ]
 }

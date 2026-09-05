@@ -458,6 +458,7 @@ PRESSURE_COLUMNS = {
     "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_dewaele_bm2_5": (
         "pressure_dewaele_2004_gpa"
     ),
+    "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression": ("pressure_ruby_gpa"),
 }
 
 VOLUME_COLUMNS = {
@@ -509,6 +510,13 @@ PHASE_FILTERS = {
     "silicon_x_anzellini_2019_vinet_1": {"phase": "X"},
     "sno2_hazen_1981_bm3_1": {"compound": "SnO2"},
     "geo2_rutile_hazen_1981_bm3_1": {"compound": "GeO2"},
+    "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1": {"used_in_published_fit": "1"},
+    "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2": {"used_in_published_fit": "1"},
+    "mggeo3_post_perovskite_kubo_2006_bm3_1": {"fit_included": "1"},
+    "mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2": {"fit_included": "1"},
+    "mg083fe017o_matsui_2012_bm3_mgd_1": {"fit_included": "1"},
+    "mg075fe025o_matsui_2012_bm3_mgd_1": {"fit_included": "1"},
+    "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4": {"used_in_bm2_fit": "1"},
 }
 
 
@@ -1671,15 +1679,15 @@ def _fit_record(
 
         parameter_names = ("V0", "K0", "K0_prime")
         parameter_start = np.asarray([published[name] for name in parameter_names])
-        parameter_bounds = [
-            _bounds(name, published[name]) for name in parameter_names
-        ]
+        parameter_bounds = [_bounds(name, published[name]) for name in parameter_names]
         lower = np.asarray([item[0] for item in parameter_bounds])
         upper = np.asarray([item[1] for item in parameter_bounds])
 
         def volume_residual(parameters: np.ndarray) -> np.ndarray:
             model = BM3(**dict(zip(parameter_names, parameters)))
-            return np.asarray(model.volume(series.pressure), dtype=float) - series.volume
+            return (
+                np.asarray(model.volume(series.pressure), dtype=float) - series.volume
+            )
 
         volume_fit = least_squares(
             volume_residual,
@@ -1725,8 +1733,7 @@ def _fit_record(
         )
         eiv_model = BM3(**dict(zip(parameter_names, eiv_fit.x[:3])))
         eiv_pressure_residual = (
-            np.asarray(eiv_model.pressure(series.volume), dtype=float)
-            - series.pressure
+            np.asarray(eiv_model.pressure(series.volume), dtype=float) - series.pressure
         )
 
         # Figure 3 overlays the authors' Table S1 points with the room-temperature
@@ -1793,18 +1800,14 @@ def _fit_record(
                 "pressure_sigma_gpa": pressure_sigma_upper_gpa,
                 "volume_sigma_a3_conventional_cell": volume_sigma_upper_a3,
                 "parameters": dict(zip(parameter_names, map(float, eiv_fit.x[:3]))),
-                "pressure_rmse_gpa": float(
-                    np.sqrt(np.mean(eiv_pressure_residual**2))
-                ),
+                "pressure_rmse_gpa": float(np.sqrt(np.mean(eiv_pressure_residual**2))),
                 "chi_square": float(np.sum(eiv_fit.fun**2)),
                 "degrees_of_freedom": int(series.pressure.size - 3),
                 "reduced_chi_square": float(
                     np.sum(eiv_fit.fun**2) / (series.pressure.size - 3)
                 ),
             },
-            "fixed_published_V0_all_rows": fit_summary(
-                fixed_v0_fit, series.pressure
-            ),
+            "fixed_published_V0_all_rows": fit_summary(fixed_v0_fit, series.pressure),
             "fixed_published_V0_pressure_at_least_40_gpa": fit_summary(
                 high_pressure_fit, series.pressure[high_pressure]
             ),
@@ -1829,9 +1832,7 @@ def _fit_record(
                     "rmse": float(
                         np.sqrt(np.mean(observation_minus_frost_atomic_volume**2))
                     ),
-                    "maximum": float(
-                        np.max(observation_minus_frost_atomic_volume)
-                    ),
+                    "maximum": float(np.max(observation_minus_frost_atomic_volume)),
                 },
                 "published_baty_minus_frost_curve_volume_atomic_a3": {
                     "mean": float(np.mean(published_minus_frost_atomic_volume)),
@@ -2430,7 +2431,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         if item.get("rmse_shock_velocity_km_s") is not None:
             rmse = f"—/{_fmt(item['rmse_shock_velocity_km_s'])} km/s"
         else:
-            rmse = f"{_fmt(item.get('published_rmse_gpa'))}/{_fmt(item.get('rmse_gpa'))}"
+            rmse = (
+                f"{_fmt(item.get('published_rmse_gpa'))}/{_fmt(item.get('rmse_gpa'))}"
+            )
         lines.append(
             f"| {record_label} | `{data}` | "
             f"{item.get('observations', '—')} | {'; '.join(params) or '—'} | "
