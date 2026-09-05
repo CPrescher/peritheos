@@ -56,7 +56,8 @@
   curves of transition metals in the Mbar range: Experiments and projector
   augmented-wave calculations. *Physical Review B*, 78, 104102.
   doi:10.1103/PhysRevB.78.104102. Peritheos uses the unconstrained Ag and Ni
-  fits in Table IV and regression rows from Table II.
+  fits in Table IV, regression rows from Table II, and the paper's hydrostatic
+  ruby calibration with `A = 1920 GPa` and `B = 9.61`.
 - Dewaele, A., Belonoshko, A. B., Garbarino, G., Occelli, F., Bouvier, P.,
   Hanfland, M. & Mezouar, M. (2012). High-pressure-high-temperature equation
   of state of KCl and KBr. *Physical Review B*, 85, 214105.
@@ -145,6 +146,13 @@
   Peritheos uses Table 1 and the Birch--Murnaghan result on page 198:
   `V0 = 260.79(4) angstrom^3`, `K0 = 227(2) GPa`, with `K0' = 6.5` assumed.
   [Primary article](https://msaweb.org/AmMin/AM64/AM64_196.pdf).
+- Lin, J.-F., Degtyareva, O., Prewitt, C. T., Dera, P., Sata, N., Gregoryanz,
+  E., Mao, H.-K. & Hemley, R. J. (2004). Crystal structure of a
+  high-pressure/high-temperature phase of alumina by in situ X-ray
+  diffraction. *Nature Materials*, 3, 389--393.
+  [doi:10.1038/nmat1121](https://doi.org/10.1038/nmat1121). The refined
+  113 GPa, 300 K `Pbcn` cell, coordinates, and four-formula-unit contents are
+  the structural source for the Rh2O3(II)-type alumina material.
 - Holland, T. J. B. & Powell, R. (2011). An improved and extended internally
   consistent thermodynamic dataset for phases of petrological interest,
   involving a new equation of state for solids. *Journal of Metamorphic
@@ -248,12 +256,44 @@
   [doi:10.1029/JB086iB12p11773](https://doi.org/10.1029/JB086iB12p11773).
   The B2 reference volume and error are converted from the reported
   extrapolated density; the derivative is fixed as in the source.
+- Schmidt, M. W., Finger, L. W., Angel, R. J. & Dinnebier, R. E. (1998).
+  Synthesis, crystal structure, and phase relations of AlSiO3OH, a
+  high-pressure hydrous phase. *American Mineralogist*, 83, 881--888.
+  [doi:10.2138/am-1998-7-820](https://doi.org/10.2138/am-1998-7-820).
+  Peritheos uses the hydrogen coordinate in Table 4 because the 2018
+  single-crystal deposit contains no refined hydrogen atom.
+- Schulze, K., Pamato, M. G., Kurnosov, A., Boffa Ballaran, T., Glazyrin, K.,
+  Pakhomova, A. & Marquardt, H. (2018). High-pressure single-crystal
+  structural analysis of AlSiO3OH phase egg. *American Mineralogist*, 103,
+  1975--1980.
+  [doi:10.2138/am-2018-6562](https://doi.org/10.2138/am-2018-6562).
+  Peritheos uses the this-study BM3 column and the 15 synchrotron rows in
+  Table 1; the adjacent column is a re-fit of Vanpeteghem et al. (2003), not a
+  second fit to the 2018 specimen.
+- Shi, W., Wei, W., Sun, N., Mao, Z. & Prakapenka, V. B. (2022). Thermal
+  equations of state of corundum and Rh2O3 (II)-type Al2O3 up to 153 GPa and
+  3400 K. *Journal of Geophysical Research: Solid Earth*, 127,
+  e2021JB023805. [doi:10.1029/2021JB023805](https://doi.org/10.1029/2021JB023805).
+  Peritheos uses Equations 1--6, the selected Rh2O3(II) model in Tables 1 and
+  3, and all 75 P--T--V rows in official Supporting Information Table S2.
 - Shieh, S. R., Mao, H.-K., Hemley, R. J. & Ming, L. C. (2000). In situ X-ray
   diffraction studies of dense hydrous magnesium silicates at mantle
   conditions. *Earth and Planetary Science Letters*, 177, 69--80.
   [doi:10.1016/S0012-821X(00)00033-9](https://doi.org/10.1016/S0012-821X(00)00033-9).
   Peritheos represents the joint BM2 modulus with separate AntA and AntB
   measured ambient volumes from Table 2.
+- Mookherjee, M., Panero, W. R., Wunder, B. & Jahn, S. (2019). Anomalous
+  elastic behavior of phase egg, AlSiO3(OH), at high pressures. *American
+  Mineralogist*, 104, 130--139.
+  [doi:10.2138/am-2019-6694](https://doi.org/10.2138/am-2019-6694).
+  Peritheos implements the static 0 K LP BM3 fit and bundles the official
+  supplementary LP P--V grid. The 2018 DOI is an accepted-manuscript alias,
+  not a second publication record.
+- Schmidt, M. W., Finger, L. W., Angel, R. J. & Dinnebier, R. E. (1998).
+  Synthesis, crystal structure, and phase relations of AlSiO3OH, a
+  high-pressure hydrous phase. *American Mineralogist*, 83, 881--888.
+  [doi:10.2138/am-1998-7-820](https://doi.org/10.2138/am-1998-7-820).
+  Table 4 supplies the phase-Egg P21/n structure, occupied sites, and `Z=4`.
 - Scott, H. P., Williams, Q. & Knittle, E. (2001). Stability and equation of
   state of Fe3C to 73 GPa: Implications for carbon in the Earth's core.
   *Geophysical Research Letters*, 28, 1875--1878.
@@ -289,6 +329,11 @@
   anharmonic coefficient. Peritheos follows the accompanying workbook
   calculation path when it differs from the typeset equations; see
   [Paper versus spreadsheet](equation-reference.md#paper-versus-spreadsheet).
+- Luo, B., Xiang, S., Li, X., Wu, Q., Liu, J., Li, J., Xian, G. & Wu, G.
+  (2023). Equation of state of MgO up to 345 GPa and 8500 K. *Physical Review
+  B*, 107, 134116. [doi:10.1103/PhysRevB.107.134116](https://doi.org/10.1103/PhysRevB.107.134116).
+  Peritheos implements Appendix B's executable 0 K Rydberg--Vinet plus absolute
+  thermal-pressure form and bundles Tables I--III.
 - Tange, Y., Nishihara, Y. & Tsuchiya, T. (2009). Unified analyses for P-V-T
   equation of state of MgO: A solution for pressure-scale problems in high
   P-T experiments. *Journal of Geophysical Research: Solid Earth*, 114,
@@ -300,11 +345,24 @@
   Earth*, 115, B12203. doi:10.1029/2010JB007959. The correction changes Figure
   11 only and does not alter the EOS equations, parameters, or regression table
   used by Peritheos.
+- Tsuchiya, T. (2003). First-principles prediction of the P-V-T equation of
+  state of gold and the 660-km discontinuity in Earth's mantle. *Journal of
+  Geophysical Research: Solid Earth*, 108(B10), 2462.
+  [doi:10.1029/2003JB002446](https://doi.org/10.1029/2003JB002446). Wang et al.
+  (2012) use this Au thermal EOS to calculate pressure from simultaneous Au
+  volume and temperature; the paired observations are bundled, but this
+  pressure standard is not yet executable in Peritheos.
 - Victor, A. C. (1962). Heat capacity of diamond at high temperatures.
   *Journal of Chemical Physics*, 36, 1903--1911.
   [doi:10.1063/1.1701288](https://doi.org/10.1063/1.1701288).
 - Vinet, P. and coauthors (1986, 1987). Universal/Rydberg equation of state for
   compressed solids.
+- Wang, F., Tange, Y., Irifune, T. & Funakoshi, K. (2012). P-V-T equation of
+  state of stishovite up to mid-lower mantle conditions. *Journal of
+  Geophysical Research: Solid Earth*, 117, B06209.
+  [doi:10.1029/2011JB009100](https://doi.org/10.1029/2011JB009100). Peritheos
+  represents the paper's presentation-leading Vinet-MGD fit, documents its
+  BM3-MGD alternative, and bundles all 56 Table 1 observations.
 - Yen, C. E., Williams, Q. & Kunz, M. (2020).
   Thermal pressure in the laser-heated diamond anvil cell: A quantitative study
   and implications for the density versus mineralogy correlation of the mantle.

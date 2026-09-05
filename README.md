@@ -26,6 +26,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   - Mie-Gruneisen-Debye
   - Mie-Gruneisen-Einstein
   - Linear thermal pressure
+  - Second-order temperature-compression thermal pressure
   - Holland-Powell thermal modified Tait
   - Multi-oscillator Gruneisen thermal pressure
 - P-V and P-V-T parameter fitting with covariance and diagnostics
@@ -37,7 +38,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Versioned material and EOS-record catalog with explicit literature provenance,
   calibration/data envelopes, extrapolation enabled by default, inversion, and
   measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 116-material/162-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 139-material/211-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and
@@ -52,8 +53,8 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   volume unit.
 - Holzapfel and energy-based thermal EOS implementations require molar volume in
   J bar^-1 mol^-1, which is equivalent to cm^3/mol divided by 10.
-- The volume-independent linear thermal-pressure correction uses the same
-  volume convention as its reference isotherm.
+- The linear and second-order Taylor thermal-pressure corrections use the same
+  volume convention as their reference isotherm.
 
 ## Installation
 

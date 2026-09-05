@@ -1,0 +1,307 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mgfe94o_rhombohedral",
+ "name": "Mw94 rhombohedral magnesiowustite",
+ "formula": "Mg0.058Fe0.942O",
+ "phase": "rhombohedrally distorted Mw94",
+ "aliases": [
+  "r-Mw94",
+  "rhomb-(Mg0.058Fe0.942)O",
+  "rhombohedral iron-rich magnesiowustite"
+ ],
+ "cell_contents": "One Mg0.058Fe0.942O formula unit (two atoms) on a primitive rhombohedral EOS basis; source atomic volumes and their uncertainties are multiplied by two for the executable EOS.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "RHOMBOHEDRAL",
+ "formula_units_per_cell": 1,
+ "atom_sites": [],
+ "peaks": [],
+ "source": {
+  "notes": "The source identifies a rhombohedral B1 distortion from splitting of 111 and 220 and indexes 003, 101, 102, 104, 110, and 105 reflections, but it does not state a unique space group, complete cell metric, or refined fractional coordinates. Those crystallographic fields are therefore not inferred. The executable EOS uses a one-formula-unit primitive volume basis obtained directly from the reported atomic volumes.",
+  "article_url": "https://authors.library.caltech.edu/records/3cdm5-rgv88/files/minerals-09-00762.pdf?download=1",
+  "article_sha256": "34238063c07d90e8cf3a00746420291735b7be0015735c30c715cb2edcc69898",
+  "supplement_url": "https://authors.library.caltech.edu/records/3cdm5-rgv88/files/minerals-09-00762-s001.zip?download=1",
+  "supplement_sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9"
+ },
+ "notes": "This material is separate from mgfe94o_b1 because the article fits the rhombohedral observations with an independent extrapolated V0, K0, and K0-prime. The 300 K EOS is not a spin-resolved parameterization: SMS points lie above the diffraction range and do not supply simultaneous volume observations for high-spin, low-spin, or mixed-spin branches.",
+ "eos_records": [
+  {
+   "identifier": "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1",
+   "label": "Dobrosavljevic et al. (2019), Mw94 rhombohedral BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": [
+     "Dobrosavljevic",
+     "Sturhahn",
+     "Jackson"
+    ],
+    "year": 2019,
+    "title": "Evaluating the Role of Iron-Rich (Mg,Fe)O in Ultralow Velocity Zones",
+    "source": "Minerals",
+    "volume": "9",
+    "locator": "762",
+    "doi": "10.3390/min9120762"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 19.18,
+     "K0": 217.0,
+     "K0_prime": 2.06
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.20,
+    "K0": 19.0,
+    "K0_prime": 0.22
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    34.5,
+    88.7
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "fit_datasets": [
+    "mgfe94o_dobrosavljevic_2019_table_s1_compression"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     34.5,
+     88.7
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.721794,
+     0.869343
+    ],
+    "notes": [
+     "V0 is a zero-pressure extrapolation for the high-pressure phase; it is not evidence that rhombohedral Mw94 is stable at ambient pressure.",
+     "The observed branch begins at 34.5 GPa after the B1-to-rhombohedral transition bracket of 30.1-34.5 GPa.",
+     "This is a structural branch, not a pure-spin phase-stability field."
+    ]
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "MINUTI",
+     "version": "2.0.0"
+    },
+    "dataset": "mgfe94o_dobrosavljevic_2019_table_s1_compression",
+    "selection": {
+     "included": "P16-P27 (12 rows at 34.5-88.7 GPa)",
+     "excluded": "All B1 observations, including the two pre-transition anomalous B1 rows"
+    },
+    "objective": "MINUTI weighted least squares in volume: chi2=sum((Vobs-Vmodel(P,T))^2/(sigmaV^2+(V/K*sigmaP)^2))/(N-n).",
+    "refined_parameters": [
+     "V0",
+     "K0",
+     "K0_prime"
+    ],
+    "fixed_parameters": [],
+    "priors": {},
+    "covariance_scaling": "MINUTI scales its inverse normal matrix by the minimized reduced chi-square; the article publishes marginal errors and error ellipses but no numerical covariance matrix.",
+    "statistics": {
+     "published_reduced_chi_square": 1.37,
+     "published_reduced_chi_square_uncertainty": 0.37
+    }
+   },
+   "parameter_provenance": {
+    "equation": "Article section 3.2, Table 1, and Supplementary Figure S2: third-order Birch-Murnaghan isothermal EOS fitted with MINUTI 2.0.0.",
+    "V0": "Article Table 1 and section 3.2: 9.59(10) A^3/atom, freely fitted and extrapolated; multiplied by two atoms per Mg0.058Fe0.942O formula unit.",
+    "K0": "Article section 3.2 and Table 1: K0T=217(19) GPa, freely fitted.",
+    "K0_prime": "Article section 3.2 and Table 1: K0T'=2.06(22), freely fitted with no stated prior.",
+    "volume_basis": "Supplementary Table S1 and Figure S2 label volume as A^3/atom. The explicit primitive EOS basis contains one Mg0.058Fe0.942O formula unit and two atoms, so V and sigmaV are multiplied by two without changing K0 or K0_prime. No unreported conventional-cell metric is required.",
+    "temperature_ref": "Supplementary Figure S2 identifies the isotherm as 300 K.",
+    "uncertainties": "Table S1 gives parenthetical pressure and volume errors. Pressure error is the reported difference among ruby determinations before and after diffraction; the source gives no confidence convention for volume or parameter errors."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference_calibration_record": "ruby_dewaele_2008",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Torrent",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2008,
+       "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+       "source": "Physical Review B",
+       "volume": "78",
+       "locator": "104102",
+       "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "source_location": "Article section 2.1 and Supplementary Table S1 caption",
+      "scope": "All Table S1 sample pressures",
+      "notes": "Ruby spectra were measured immediately before and after each diffraction measurement for two spheres. NaCl volumes served only as a secondary check where peaks were present."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact Dewaele et al. (2008) ruby scale is executable in Peritheos and the reported source-scale pressures suffice for an EOS refit, but raw row-wise R1 wavelengths are not published."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The open publisher article and official supplement were audited directly. The complete source-scale P-V table and the versioned MINUTI equation, weighting, and selection protocol support an independent Peritheos refit.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "spin_scope",
+     "equation",
+     "parameters",
+     "units",
+     "volume_basis",
+     "reference_state",
+     "published_uncertainties",
+     "fit_selection",
+     "fit_objective",
+     "validity",
+     "pressure_calibration",
+     "primary_observations",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.mdpi.com/2075-163X/9/12/762",
+     "repository_url": "https://authors.library.caltech.edu/records/3cdm5-rgv88",
+     "locations": [
+      "article sections 2.1, 3, and 3.2",
+      "article Table 1",
+      "official supplement Table S1 and Figure S2"
+     ],
+     "finding": "The source defines an independent 12-row, 300 K rhombohedral BM3 fit with V0, K0, and K0-prime all refined and no stated prior or fixed coefficient.",
+     "doi": "10.3390/min9120762",
+     "article_sha256": "34238063c07d90e8cf3a00746420291735b7be0015735c30c715cb2edcc69898",
+     "supplement_sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgfe94o_dobrosavljevic_2019_table_s1_compression"
+     ],
+     "source_locations": [
+      "official supplement Table S1"
+     ],
+     "finding": "All 28 printed rows are preserved in the shared dataset; all 12 rows identified as fully rhombohedral are selected for this fit."
+    },
+    "independent_refit": {
+     "selection": "used_in_rhombohedral_fit=1 (12 rows)",
+     "objective": "MINUTI isothermal effective-variance volume residuals without priors",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "fixed_parameters": [],
+     "priors": {},
+     "refit_parameters": {
+      "V0": 19.11914777,
+      "K0": 222.59443231,
+      "K0_prime": 1.99412734
+     },
+     "published_curve_pressure_rmse_gpa": 0.7281464042,
+     "refit_curve_pressure_rmse_gpa": 0.7332425435,
+     "published_curve_reduced_chi_square_on_rounded_rows": 1.4935919759,
+     "refit_reduced_chi_square_on_rounded_rows": 1.4380407809,
+     "result": "parity",
+     "notes": "Every refitted coefficient lies within the corresponding published marginal uncertainty. The rounded rows reproduce the normalized-residual pattern in Supplementary Figure S2; small statistic differences reflect rounding of pressure and atomic volume."
+    },
+    "excluded_branches": [
+     {
+      "branch": "mixed-spin rhombohedral Mw94 above 95 GPa",
+      "disposition": "not implemented",
+      "reason": "The 116.4 GPa SMS spectrum resolves approximately 37% low-spin iron, but no simultaneous P-V observation or complete spin-EOS parameterization is published."
+     },
+     {
+      "branch": "high-temperature B1 Mw94 model",
+      "disposition": "not implemented",
+      "reason": "Table 1's CMB model combines this work with thermal and velocity inputs from earlier studies; it is not an independently fitted EOS supported by this paper's complete primary P-V-T observations."
+     }
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS coefficients, phase selection, experiment, and pressure calibration",
+     "citation": "Dobrosavljevic et al. (2019), Minerals 9, 762",
+     "doi": "10.3390/min9120762"
+    },
+    {
+     "role": "complete P-V observations, row uncertainties, and normalized-residual figure",
+     "citation": "Dobrosavljevic et al. (2019), official Supplementary Table S1 and Figure S2",
+     "url": "https://authors.library.caltech.edu/records/3cdm5-rgv88/files/minerals-09-00762-s001.zip?download=1",
+     "sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9"
+    }
+   ],
+   "notes": "Published rhombohedral parameterization on the Dewaele-2008 ruby scale. V0 is stored on a two-atom, one-formula-unit primitive EOS basis because the source does not publish a complete conventional-cell metric. All three coefficients were free; no numerical covariance matrix is available."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mgfe94o_dobrosavljevic_2019_table_s1_compression",
+   "kind": "multiphase_pressure_volume",
+   "description": "All 28 P-V rows printed in official Supplementary Table S1, including the 16 B1 observations and 12 rhombohedral observations.",
+   "reference": {
+    "authors": [
+     "Dobrosavljevic",
+     "Sturhahn",
+     "Jackson"
+    ],
+    "year": 2019,
+    "title": "Evaluating the Role of Iron-Rich (Mg,Fe)O in Ultralow Velocity Zones",
+    "source": "Minerals",
+    "volume": "9",
+    "locator": "762",
+    "doi": "10.3390/min9120762"
+   },
+   "source_location": "Official supplement, Table S1",
+   "source_url": "https://authors.library.caltech.edu/records/3cdm5-rgv88/files/minerals-09-00762-s001.zip?download=1",
+   "source_container_sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9",
+   "source_table_sha256": "cddf4ecd41ac782db0fccf9efd13f17ec5972add831beb2dff664b2965f96a53",
+   "columns": [
+    {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
+    {"name": "measurement_id", "quantity": "measurement_identifier", "unit": "1", "role": "flag"},
+    {"name": "phase_branch", "quantity": "crystal_phase", "unit": "1", "role": "flag"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "atomic_volume_angstrom3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
+    {"name": "atomic_volume_uncertainty_angstrom3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "uncertainty", "of": "atomic_volume_angstrom3"},
+    {"name": "used_in_b1_fit", "quantity": "used_in_source_b1_fit", "unit": "1", "role": "flag"},
+    {"name": "used_in_rhombohedral_fit", "quantity": "used_in_source_rhombohedral_fit", "unit": "1", "role": "flag"},
+    {"name": "exclusion_reason", "quantity": "source_exclusion_reason", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mgfe94o-dobrosavljevic-2019-table-s1-compression.csv",
+    "sha256": "4392a86c0f923eac8ccd6464422024e40dfed44f51617281b62e5d84a35847c1",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1"
+   ],
+   "notes": "The paper describes 27 compression points, while Table S1 prints 28 rows because measurement P8 is split into P8a and P8b; no row is discarded. Parentheses are transcribed as absolute uncertainties in the last digits. The source calls these unit-cell volumes but labels and reports them in A^3/atom. Temperature 300 K follows the EOS figures."
+  }
+ ]
+}

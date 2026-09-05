@@ -800,6 +800,21 @@ def test_isothermal_eos_record_rejects_unsupported_temperature(temperature):
         AU_DORFMAN_2012.pressure(50.0, temperature)
 
 
+def test_static_zero_kelvin_isothermal_record_accepts_only_zero_temperature():
+    record = Material.from_eosmat(
+        get_material_document("phase_egg"),
+        record_identifiers=["phase_egg_mookherjee_2019_bm3_lp_1"],
+    ).eos_records[0]
+
+    assert record.reference_temperature == 0.0
+    assert record.pressure(196.0) == pytest.approx(14.72595528543105)
+    assert record.pressure(196.0, 0.0) == pytest.approx(14.72595528543105)
+    with pytest.raises(ValueError, match="isothermal 0 K"):
+        record.pressure(196.0, 1.0)
+    with pytest.raises(ValueError, match="greater than zero"):
+        record.pressure(196.0, -1.0)
+
+
 def test_pressure_uncertainty_propagates_parameters_volume_and_temperature():
     volume = 74.698 * 0.9
     baseline = MGO_TANGE_2009.pressure_with_uncertainty(volume, 3000.0)

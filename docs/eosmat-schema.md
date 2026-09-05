@@ -136,7 +136,7 @@ Each item in `eos_records` describes one source parameterization.
 | `experimental_pressure_range_gpa` | no | Two-element marginal pressure envelope. |
 | `pressure_range_status` | no | Provenance of the pressure envelope: `reported_exactly`, `reported_qualitatively`, `theoretical`, or `reference_parameterization`. |
 | `experimental_temperature_range_k` | no | Two-element marginal temperature envelope. |
-| `temperature_ref` | no | Reference-isotherm temperature in K. |
+| `temperature_ref` | no | Reference-isotherm temperature in K. Zero is allowed only for an explicitly static 0 K isothermal record; thermal and Hugoniot records require a positive temperature. |
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
 | `source_lineage` | no | Ordered sources and their roles when a record combines an earlier fit, final parameter table, implementation, correction, or experimental context. |
 | `pressure_calibration` | no | Audited pressure basis of the observations used for the fit, including resolvable links to reference EOS and optical-calibration records. |
@@ -302,6 +302,7 @@ Thermal `type` and `model` must likewise match:
 |---|---|---|
 | `AlphaKT` | `thermal_reference_state` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1` |
 | `LinearThermalPressure` | `linear_thermal_pressure` | `Tr`, `alpha_KT` |
+| `SecondOrderTaylorThermalPressure` | `second_order_taylor_thermal_pressure` | `Tr`, `eta0`, `c0`, `c1`, `c2`, `c3`, `c4`, `c5` |
 | `LogVolumeThermalPressure` | `log_volume_thermal_pressure` | `Tr`, `alpha_KT_ref`, `dK_dT_V` |
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
@@ -321,6 +322,11 @@ model identifier is the mechanism-oriented `thermal_reference_state`, and the
 corresponding Peritheos class is `ThermalReferenceStateEOS`. It evaluates a
 temperature-dependent reference volume and bulk modulus; it is not the
 constant-`alpha_KT` pressure increment represented by `LinearThermalPressure`.
+
+`SecondOrderTaylorThermalPressure` represents an absolute polynomial thermal
+pressure added to a cold curve. Its numeric `Tr` is the polynomial's
+temperature coordinate, not a claim that the reference EOS is an isotherm at
+that temperature.
 
 For the two double-Debye Helmholtz types, `Tr` is always written explicitly.
 `"Tr": null` means that the stored Vinet curve is the motionless-ion 0 K cold
@@ -422,8 +428,8 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 159
-bundled records are validated, with no deferred or pending record.
+`peritheos/data/primary-source-audit.json`. All 211 bundled records are
+validated, with no deferred or pending record.
 
 ## Complete EOS-only example
 

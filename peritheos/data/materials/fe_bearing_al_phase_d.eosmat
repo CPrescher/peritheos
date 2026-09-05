@@ -1,0 +1,667 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "fe_bearing_al_phase_d",
+ "name": "Fe-bearing Al-phase D",
+ "formula": "Al1.53Fe0.22Si0.86O6H3.33",
+ "phase": "partially cation-ordered Fe-bearing Al-phase D, P63 22 structural model",
+ "aliases": [
+  "Fe-bearing aluminous phase D",
+  "Fe-bearing Al-phase D"
+ ],
+ "cell_contents": "One analyzed Al1.53Fe0.22Si0.86O6H3.33 formula unit per conventional hexagonal cell (Z=1); the X-ray refined scattering model sums to Al1.506Fe0.217Si0.847O6 and does not locate H.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "HEXAGONAL",
+ "lattice": {
+  "a": 4.74653,
+  "b": 4.74653,
+  "c": 4.29002,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "P63 22",
+ "space_group_number": 182,
+ "atom_sites": [
+  {
+   "element": "Al",
+   "wyckoff": "2b",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.25,
+   "occupancy": 0.253,
+   "source_label": "Al2B",
+   "multiplicity": 2
+  },
+  {
+   "element": "Si",
+   "wyckoff": "2b",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.25,
+   "occupancy": 0.1422,
+   "source_label": "Si2B",
+   "multiplicity": 2
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "2b",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.25,
+   "occupancy": 0.0364,
+   "source_label": "Fe2B",
+   "multiplicity": 2
+  },
+  {
+   "element": "Al",
+   "wyckoff": "2c",
+   "x": 0.333333,
+   "y": 0.666667,
+   "z": 0.25,
+   "occupancy": 0.121,
+   "source_label": "Al2C",
+   "multiplicity": 2
+  },
+  {
+   "element": "Si",
+   "wyckoff": "2c",
+   "x": 0.333333,
+   "y": 0.666667,
+   "z": 0.25,
+   "occupancy": 0.0682,
+   "source_label": "Si2C",
+   "multiplicity": 2
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "2c",
+   "x": 0.333333,
+   "y": 0.666667,
+   "z": 0.25,
+   "occupancy": 0.0174,
+   "source_label": "Fe2C",
+   "multiplicity": 2
+  },
+  {
+   "element": "Al",
+   "wyckoff": "2d",
+   "x": 0.666667,
+   "y": 0.333333,
+   "z": 0.25,
+   "occupancy": 0.379,
+   "source_label": "Al2D",
+   "multiplicity": 2
+  },
+  {
+   "element": "Si",
+   "wyckoff": "2d",
+   "x": 0.666667,
+   "y": 0.333333,
+   "z": 0.25,
+   "occupancy": 0.213,
+   "source_label": "Si2D",
+   "multiplicity": 2
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "2d",
+   "x": 0.666667,
+   "y": 0.333333,
+   "z": 0.25,
+   "occupancy": 0.0545,
+   "source_label": "Fe2D",
+   "multiplicity": 2
+  },
+  {
+   "element": "O",
+   "x": 0.6667,
+   "y": 0.6667,
+   "z": 0.5,
+   "occupancy": 1.0,
+   "source_label": "O003",
+   "multiplicity": 6
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Criniti",
+    "Ishii",
+    "Kurnosov",
+    "Glazyrin",
+    "Husband",
+    "Boffa Ballaran"
+   ],
+   "year": 2023,
+   "title": "Structure and compressibility of Fe-bearing Al-phase D",
+   "source": "American Mineralogist",
+   "volume": "108",
+   "locator": "1764-1772",
+   "doi": "10.2138/am-2022-8559"
+  },
+  "structure_location": "Author-provided Figshare CIF, data_AlPhaseD_P6322",
+  "structure_url": "https://figshare.com/s/57ea586081085cf9b9ac",
+  "structure_file_sha256": "8448888b776c5c786f33b68a1735613921330a90bdf25aafe33a2f3fb0fa677e",
+  "structure_license": "CC BY 4.0",
+  "official_online_materials_location": "American Mineralogist deposit AM-23-98559, Supplementary Figures S1-S2",
+  "official_online_materials_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-2022-8559/downloadAsset/suppl/am-2022-8559_sm.pdf",
+  "official_online_materials_sha256": "d159d0d2cda43473df12072d98636a758b75a48d0001b9e52a8aaea39d7a2b3d"
+ },
+ "notes": "The in-house 293(2) K P63 22 refinement is used because the final article and abstract interpret diffuse scattering as evidence for partial cation ordering and present P63 22 as the structural model. The same deposited CIF also contains a P-31m refinement, and the article reports that Hamilton tests on merged and unmerged intensities give contradictory symmetry preferences; this ambiguity is preserved rather than hidden. Al, Si, and Fe were constrained to the EPMA fractions on each partially occupied cation site. Hydrogen was determined analytically but was not located by X-ray refinement and is therefore absent from atom_sites. The structural cell volume 83.703(6) A^3 and Z=1 are explicit in the deposited CIF. The executable EOS reference volumes are fitted values for this same conventional cell. This composition is distinct from the existing Mg-rich phase_d material.",
+ "eos_records": [
+  {
+   "identifier": "fe_bearing_al_phase_d_criniti_2023_bm3_1",
+   "label": "Criniti et al. (2023), pre-crossover BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": [
+     "Criniti",
+     "Ishii",
+     "Kurnosov",
+     "Glazyrin",
+     "Husband",
+     "Boffa Ballaran"
+    ],
+    "year": 2023,
+    "title": "Structure and compressibility of Fe-bearing Al-phase D",
+    "source": "American Mineralogist",
+    "volume": "108",
+    "locator": "1764-1772",
+    "doi": "10.2138/am-2022-8559"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 83.68,
+     "K0": 166.3,
+     "K0_prime": 4.46
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.02,
+    "K0": 1.5,
+    "K0_prime": 0.12
+   },
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 293.0,
+   "experimental_pressure_range_gpa": [
+    0.35,
+    37.92
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    291.0,
+    295.0
+   ],
+   "experimental_configuration": {
+    "sample": "single crystal of Al1.53(2)Fe0.22(1)Si0.86(1)O6H3.33(9)",
+    "pressure_medium": "helium loaded at 0.13 GPa",
+    "pressure_cell": "BX-90 diamond-anvil cells",
+    "diffraction": "single-crystal synchrotron X-ray diffraction at PETRA III P02.2",
+    "runs": "run 1 to 37.92 GPa and run 2 to 52.41 GPa; the room-temperature EOS uses all 21 rows at or below 38 GPa"
+   },
+   "fit_datasets": [
+    "fe_bearing_al_phase_d_criniti_2023_table1_compression"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     38.0
+    ],
+    "temperature_k": [
+     291.0,
+     295.0
+    ],
+    "volume_ratio": [
+     0.85207935,
+     1.0
+    ],
+    "notes": [
+     "Empirical room-temperature pre-crossover fit only; it does not represent the changed compression behavior above 38 GPa.",
+     "The paper places the broad Fe3+ spin crossover at approximately 30-65 GPa, so the fitted 0-38 GPa interval is not a rectangular high-spin phase-stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Final article, Equation of state section and Table 2: standard third-order Birch-Murnaghan EOS fitted with EosFit7c/EosFit7-GUI",
+    "V0": "Final article, Table 2, first BM3 row: freely fitted 83.68(2) A^3 conventional cell volume",
+    "K0": "Final article, abstract and Table 2, first BM3 row: fitted KT0=166.3(15) GPa",
+    "K0_prime": "Final article, abstract and Table 2, first BM3 row: fitted K'T0=4.46(12)",
+    "temperature_ref": "Author-provided CIF, all ambient structural blocks: 293(2) K",
+    "fit_selection": "Final article, Equation of state section and Table 2: both experimental runs at pressures no greater than 38 GPa; 21 Table 1 rows"
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Shen",
+        "Wang",
+        "Dewaele",
+        "Wu",
+        "Fratanduono",
+        "Eggert",
+        "Klotz",
+        "Dziubek",
+        "Loubeyre",
+        "Fat'yanov",
+        "Asimow",
+        "Mashimo",
+        "Wentzcovitch"
+       ],
+       "year": 2020,
+       "source": "High Pressure Research",
+       "doi": "10.1080/08957959.2020.1791107"
+      },
+      "source_location": "Final article, high-pressure methods and Table 1 note: IPPS-Ruby2020 fluorescence scale",
+      "scope": "all Table 1 compression observations",
+      "notes": "Each printed pressure is the mean of ruby values measured before and after the diffraction scan; sigma_P is their semi-difference."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 1 provides reduced mean pressures and semi-differences but not the two row-wise ruby R1 wavelengths. The source-scale EOS can be refitted, but exact pressure reduction cannot be rerun from primary calibrant observations."
+    },
+    "audit_date": "2026-09-05",
+    "notes": "The exact Shen et al. (2020) scale is identified, but IPPS-Ruby2020 is not currently an executable Peritheos calibration record."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystallography",
+     "formula_units_per_cell",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2022-8559",
+     "doi": "10.2138/am-2022-8559",
+     "locations": [
+      "final article, pages 1764-1772, especially Experimental methods, Table 1, Equation of state section, Figure 3, and Table 2",
+      "official American Mineralogist Online Materials AM-23-98559, Figures S1-S2",
+      "author-provided Figshare CIF, data_AlPhaseD_P6322"
+     ],
+     "finding": "The article's abstract, plotted curves, and phase-D comparison table privilege the freely fitted BM3 record, while Table 2 also reports a freely fitted Vinet alternative and ambient-volume-fixed variants. The BM3 and Vinet curves are stated to overlap over 0.0001-38 GPa. BM3 is therefore the canonical record and Vinet is retained as a published non-default alternative."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "fe_bearing_al_phase_d_criniti_2023_table1_compression"
+     ],
+     "source_locations": [
+      "final article, Table 1"
+     ],
+     "finding": "All 26 rows are bundled. The 21 rows at or below 38 GPa are flagged as the room-temperature BM3/Vinet fit selection; the five higher-pressure rows are retained as observations across the changed compression regime."
+    },
+    "independent_refit": {
+     "selection": "21 Table 1 rows with pressure <= 38 GPa",
+     "objective": "iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "refit_parameters": {
+      "V0": 83.68041718,
+      "K0": 166.25494346,
+      "K0_prime": 4.45597358
+     },
+     "published_curve_pressure_rmse_gpa": 0.1263776598,
+     "refit_curve_pressure_rmse_gpa": 0.1260394657,
+     "result": "parity",
+     "notes": "The refit reproduces every printed BM3 coefficient within its displayed rounding interval. The source reports no covariance matrix or fit statistic; the diagnostic refit covariance is not substituted for missing source covariance."
+    },
+    "unresolved_issues": [
+     "Table 2 heads the 0-38 GPa BM3/Vinet group 'Low-spin state EOS', although the prose describes compression before the Fe3+ high-to-low spin crossover and models the crossover separately; the label is recorded as a source contradiction and not used to redefine the branch.",
+     "The official supplemental PDF's title line incorrectly names the adjacent hydrous Al-bearing silica article, even though deposit number AM-23-98559 and Figures S1-S2 correspond to this paper.",
+     "No EOS parameter covariance matrix, confidence convention, or published fit statistic is provided."
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS parameters, primary compression observations, experimental scope, and pressure calibration",
+     "citation": "Criniti et al. (2023), American Mineralogist 108, 1764-1772",
+     "doi": "10.2138/am-2022-8559"
+    },
+    {
+     "role": "ambient structure, Z, exact 293(2) K reference, site occupancies, and coordinates",
+     "citation": "Criniti et al. author-provided Figshare CIF, data_AlPhaseD_P6322",
+     "url": "https://figshare.com/s/57ea586081085cf9b9ac",
+     "sha256": "8448888b776c5c786f33b68a1735613921330a90bdf25aafe33a2f3fb0fa677e"
+    }
+   ],
+   "notes": "Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention."
+  },
+  {
+   "identifier": "fe_bearing_al_phase_d_criniti_2023_vinet_2",
+   "label": "Criniti et al. (2023), pre-crossover Vinet alternative",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Criniti",
+     "Ishii",
+     "Kurnosov",
+     "Glazyrin",
+     "Husband",
+     "Boffa Ballaran"
+    ],
+    "year": 2023,
+    "title": "Structure and compressibility of Fe-bearing Al-phase D",
+    "source": "American Mineralogist",
+    "volume": "108",
+    "locator": "1764-1772",
+    "doi": "10.2138/am-2022-8559"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 83.68,
+     "K0": 165.5,
+     "K0_prime": 4.62
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.02,
+    "K0": 1.5,
+    "K0_prime": 0.12
+   },
+   "fixed_parameters": [],
+   "parameter_covariance": null,
+   "temperature_ref": 293.0,
+   "experimental_pressure_range_gpa": [
+    0.35,
+    37.92
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    291.0,
+    295.0
+   ],
+   "experimental_configuration": {
+    "sample": "single crystal of Al1.53(2)Fe0.22(1)Si0.86(1)O6H3.33(9)",
+    "pressure_medium": "helium loaded at 0.13 GPa",
+    "pressure_cell": "BX-90 diamond-anvil cells",
+    "diffraction": "single-crystal synchrotron X-ray diffraction at PETRA III P02.2",
+    "runs": "run 1 to 37.92 GPa and run 2 to 52.41 GPa; the room-temperature EOS uses all 21 rows at or below 38 GPa"
+   },
+   "fit_datasets": [
+    "fe_bearing_al_phase_d_criniti_2023_table1_compression"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     38.0
+    ],
+    "temperature_k": [
+     291.0,
+     295.0
+    ],
+    "volume_ratio": [
+     0.85207935,
+     1.0
+    ],
+    "notes": [
+     "Published alternative to the canonical BM3 fit over the same room-temperature pre-crossover observations.",
+     "Do not extrapolate through the changed compression behavior above 38 GPa."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Final article, Equation of state section and Table 2: standard Vinet EOS fitted with EosFit7c/EosFit7-GUI",
+    "V0": "Final article, Table 2, first Vinet row: freely fitted 83.68(2) A^3 conventional cell volume",
+    "K0": "Final article, Table 2, first Vinet row: fitted KT0=165.5(15) GPa",
+    "K0_prime": "Final article, Table 2, first Vinet row: fitted K'T0=4.62(12)",
+    "temperature_ref": "Author-provided CIF, all ambient structural blocks: 293(2) K",
+    "fit_selection": "Final article, Equation of state section and Table 2: both experimental runs at pressures no greater than 38 GPa; 21 Table 1 rows"
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Shen",
+        "Wang",
+        "Dewaele",
+        "Wu",
+        "Fratanduono",
+        "Eggert",
+        "Klotz",
+        "Dziubek",
+        "Loubeyre",
+        "Fat'yanov",
+        "Asimow",
+        "Mashimo",
+        "Wentzcovitch"
+       ],
+       "year": 2020,
+       "source": "High Pressure Research",
+       "doi": "10.1080/08957959.2020.1791107"
+      },
+      "source_location": "Final article, high-pressure methods and Table 1 note: IPPS-Ruby2020 fluorescence scale",
+      "scope": "all Table 1 compression observations",
+      "notes": "Each printed pressure is the mean of ruby values measured before and after the diffraction scan; sigma_P is their semi-difference."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 1 provides reduced mean pressures and semi-differences but not the two row-wise ruby R1 wavelengths. The source-scale EOS can be refitted, but exact pressure reduction cannot be rerun from primary calibrant observations."
+    },
+    "audit_date": "2026-09-05",
+    "notes": "The exact Shen et al. (2020) scale is identified, but IPPS-Ruby2020 is not currently an executable Peritheos calibration record."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystallography",
+     "formula_units_per_cell",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2022-8559",
+     "doi": "10.2138/am-2022-8559",
+     "locations": [
+      "final article, Equation of state section and Table 2",
+      "final article, Table 1",
+      "author-provided Figshare CIF, data_AlPhaseD_P6322"
+     ],
+     "finding": "This freely fitted Vinet parameterization is a genuine published alternative over the same 21 observations as BM3. The source states that the curves overlap over 0.0001-38 GPa but displays and summarizes BM3 preferentially, so Vinet is intentionally non-default."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "fe_bearing_al_phase_d_criniti_2023_table1_compression"
+     ],
+     "source_locations": [
+      "final article, Table 1"
+     ],
+     "finding": "All 26 rows are bundled, including the 21-row Vinet fit selection and the five higher-pressure observations excluded from this ordinary room-temperature fit."
+    },
+    "independent_refit": {
+     "selection": "21 Table 1 rows with pressure <= 38 GPa",
+     "objective": "iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "refit_parameters": {
+      "V0": 83.68347936,
+      "K0": 165.47809134,
+      "K0_prime": 4.62083697
+     },
+     "published_curve_pressure_rmse_gpa": 0.1237578966,
+     "refit_curve_pressure_rmse_gpa": 0.1233556777,
+     "result": "parity",
+     "notes": "The refit reproduces all published Vinet coefficients within their reported uncertainties and reproduces K0 and K0' within displayed rounding; fitted V0 differs by 0.0035 A^3, well inside the published 0.02 A^3 uncertainty."
+    },
+    "unresolved_issues": [
+     "The source gives no EOS parameter covariance matrix, confidence convention, or published fit statistic.",
+     "Table 2's 'Low-spin state EOS' heading conflicts with the prose's pre-crossover interpretation."
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "published Vinet parameters and primary compression observations",
+     "citation": "Criniti et al. (2023), American Mineralogist 108, 1764-1772",
+     "doi": "10.2138/am-2022-8559"
+    },
+    {
+     "role": "ambient structure, Z, and exact 293(2) K reference",
+     "citation": "Criniti et al. author-provided Figshare CIF, data_AlPhaseD_P6322",
+     "url": "https://figshare.com/s/57ea586081085cf9b9ac",
+     "sha256": "8448888b776c5c786f33b68a1735613921330a90bdf25aafe33a2f3fb0fa677e"
+    }
+   ],
+   "notes": "Published non-default alternative. The first Vinet row of Table 2 freely fits V0, K0, and K0'; the two ambient-volume-fixed variants are documented but not multiplied into additional executable records. Parenthetical errors are retained as generic published uncertainties because their confidence convention is not stated."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "fe_bearing_al_phase_d_criniti_2023_table1_compression",
+   "kind": "pressure_volume_lattice_parameters",
+   "description": "All 26 room-temperature single-crystal compression observations from both runs in Criniti et al. (2023), Table 1. The 21 rows at or below 38 GPa are flagged as the BM3/Vinet selection; five higher-pressure rows document the changed compression regime.",
+   "reference": {
+    "authors": [
+     "Criniti",
+     "Ishii",
+     "Kurnosov",
+     "Glazyrin",
+     "Husband",
+     "Boffa Ballaran"
+    ],
+    "year": 2023,
+    "title": "Structure and compressibility of Fe-bearing Al-phase D",
+    "source": "American Mineralogist",
+    "volume": "108",
+    "locator": "1764-1772",
+    "doi": "10.2138/am-2022-8559"
+   },
+   "source_location": "Final article, Table 1",
+   "source_url": "https://doi.org/10.2138/am-2022-8559",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_number",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_room_temperature_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_uncertainty_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/fe-bearing-al-phase-d-criniti-2023-table1-compression.csv",
+    "sha256": "b87e61f6d441d6685e677443b2527be112b400b14637c176301a1b4edd0901f3",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "fe_bearing_al_phase_d_criniti_2023_bm3_1",
+    "fe_bearing_al_phase_d_criniti_2023_vinet_2"
+   ],
+   "uncertainty": {
+    "pressure": "Table 1 defines sigma_P as the semi-difference of ruby pressures measured before and after each diffraction scan.",
+    "lattice_and_volume": "Parenthetical last-digit values are transcribed as generic published uncertainties because no confidence convention is stated."
+   },
+   "notes": "Rows remain in printed run order. No ambient zero-pressure row appears in Table 1. The source fit range is stated as room pressure to 38 GPa; all 17 run-1 rows and the four run-2 rows at 5.84, 9.23, 23.07, and 33.30 GPa reproduce the published coefficients under EosFit-style effective-variance weighting. The five run-2 rows from 40.75 to 52.41 GPa were excluded from the ordinary BM3/Vinet fits and used only in the separate spin-crossover treatment. Raw before/after ruby wavelengths are not published. A data license is not stated in the article."
+  }
+ ]
+}

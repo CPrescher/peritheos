@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-04",
+  "audit_date": "2026-09-05",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,10 +9,52 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 162,
-    "primary_source_validated": 162
+    "records": 211,
+    "primary_source_validated": 211
   },
   "records": [
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_reynard_1996_bm3_ruby_2",
+      "label": "Reynard et al. (1996), BM3, ruby pressure scale",
+      "doi": "10.2138/am-1996-1-206",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+      "primary_source_check": {
+        "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+        "locations": [
+          "Abstract, page 45",
+          "Table 1 and experimental methods, page 46",
+          "EOS method, page 47",
+          "Figure 3e, page 48",
+          "EOS discussion, page 49"
+        ],
+        "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=7.5(10) on the ruby-pressure assignment. At V=239.13 A^3 the stored curve gives 27.53 GPa, consistent with the Table 1 ruby value 27.8[5] GPa.",
+        "doi": "10.2138/am-1996-1-206"
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_reynard_1996_bm3_ice_vii_3",
+      "label": "Reynard et al. (1996), preferred BM3, ice-VII pressure scale",
+      "doi": "10.2138/am-1996-1-206",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+      "primary_source_check": {
+        "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+        "locations": [
+          "Abstract, page 45",
+          "Table 1 and experimental methods, page 46",
+          "EOS method, page 47",
+          "Figure 3f, page 48",
+          "EOS discussion, page 49"
+        ],
+        "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
+        "doi": "10.2138/am-1996-1-206"
+      }
+    },
     {
       "material": "akimotoite",
       "file": "akimotoite.eosmat",
@@ -28,6 +70,26 @@
           "Table 1"
         ],
         "doi": "10.1016/j.pepi.2021.106786"
+      }
+    },
+    {
+      "material": "al_bearing_phase_d",
+      "file": "al_bearing_phase_d.eosmat",
+      "record": "al_bearing_phase_d_xu_2020_bm3_300k",
+      "label": "Xu et al. (2020), 300 K gold-scale BM3",
+      "doi": "10.1029/2020gl088877",
+      "status": "primary_source_validated",
+      "note": "Checked against the final free-access publisher article and the complete numerical P-V-T workbook deposited by the corresponding author in EarthChem and linked by the article's Data Availability Statement. The official supporting-information record was identified but is not needed to recover the represented 300 K P-V EOS.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020GL088877",
+        "locations": [
+          "Materials and Methods",
+          "Section 3.1 and Table 1",
+          "Data Availability Statement",
+          "EarthChem DOI 10.26022/IEDA/111629, workbook Tables 1-3"
+        ],
+        "finding": "Xu et al. report a conventional-cell, 300 K third-order Birch-Murnaghan fit with V0=86.71 A^3 fixed, KT0=143 GPa, and KT0'=5.8 on the Tsuchiya-2003 gold pressure scale. The author-deposited workbook exposes all eight selected 300 K P-V states plus the retained high-temperature P-V-T observations.",
+        "doi": "10.1029/2020GL088877"
       }
     },
     {
@@ -81,6 +143,49 @@
         ],
         "finding": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
         "doi": "10.1103/physrevb.88.064107"
+      }
+    },
+    {
+      "material": "alumina",
+      "file": "alumina.eosmat",
+      "record": "alumina_shi_2022_bm3_mgd_2",
+      "label": "Shi et al. (2022), selected BM3-MGD corundum model 3",
+      "doi": "10.1029/2021jb023805",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the primary article and the checksummed official Zenodo supporting-information deposit; no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2021JB023805",
+        "locations": [
+          "main text, Equations 1-6, pages 3-4",
+          "main text, Table 1, page 4, selected corundum coefficients",
+          "main text, Table 2, page 6, three Debye-temperature sensitivity fits",
+          "Supporting Information, Figure S1, observations used to constrain the EOS",
+          "Supporting Information, Table S1, all corundum P-T-V observations",
+          "Supporting Information, Table S3, selected model used downstream"
+        ],
+        "finding": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
+        "doi": "10.1029/2021jb023805"
+      }
+    },
+    {
+      "material": "alumina_rh2o3_ii",
+      "file": "alumina_rh2o3_ii.eosmat",
+      "record": "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
+      "label": "Shi et al. (2022), selected BM3-MGD model 2",
+      "doi": "10.1029/2021jb023805",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2021JB023805",
+        "locations": [
+          "main text, Equations 1-6, pages 3-4",
+          "main text, Table 1, page 4, selected Rh2O3(II) coefficients",
+          "main text, Table 3, page 7, five q-sensitivity fits",
+          "Supporting Information, Table S2, all Rh2O3(II) P-T-V observations",
+          "Supporting Information, Table S3, selected model reproduced downstream"
+        ],
+        "finding": "The source reports a BM3 reference isotherm embedded in a full Mie-Gruneisen-Debye thermal EOS, not a stand-alone BM3. Of five Rh2O3(II) q-sensitivity fits, model 2 with q=1 is the selected parameterization used in Table 1 and Table S3. The table volumes are conventional Pbcn-cell volumes with Z=4.",
+        "doi": "10.1029/2021jb023805"
       }
     },
     {
@@ -187,7 +292,7 @@
       "label": "Somayazulu et al. (2023), BM3 + Berman thermal reference state",
       "doi": "10.1098/rsta.2022.0331",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, parameters, fixed quantities, EosFit7c fitting method, primary P-V-T table, and diffraction structure were checked against the article and official supplement.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
         "locations": [
@@ -207,7 +312,7 @@
       "label": "Somayazulu et al. (2023), BM3 + Berman public-data refit",
       "doi": "10.1098/rsta.2022.0331",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Primary dataset, equation choices, fixed quantities, and pressure calibration were checked against the article and official supplement; refitted values were independently reproduced with EosFit7c and Peritheos.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/",
         "locations": [
@@ -329,22 +434,44 @@
       }
     },
     {
-      "material": "ca_perovskite",
-      "file": "ca_perovskite.eosmat",
-      "record": "ca_perovskite_shim_2000_bm3_1",
-      "label": "Shim et al. (2000), cubic CaSiO3 BM3",
-      "doi": "10.1016/s0031-9201(00)00154-0",
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_saxena_1999_bm3_4",
+      "label": "Saxena et al. (1999), 300 K BM3 slice",
+      "doi": "10.2138/am-1999-0303",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Checked directly against the final American Mineralogist article and the author-uploaded journal PDF. LitCurate was used only for discovery. The publisher and author records expose no separate supplement.",
       "primary_source_check": {
-        "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_pepi_00.pdf",
+        "access_url": "https://doi.org/10.2138/am-1999-0303",
         "locations": [
-          "section 3",
-          "Table 1",
-          "Table 2, pages 334-335"
+          "Abstract and experimental technique, pages 226-227",
+          "Table 1 and results, page 227",
+          "Equation 5, page 229",
+          "Equations 14-20 and Tables 2-3, pages 228-231"
         ],
-        "finding": "The adopted unconstrained BM3 fit fixes V0=45.58 A^3 in Table 2, while the abstract explicitly reports V0=45.58+/-0.05 A^3. The reported V0 uncertainty is retained even though V0 was fixed in this fit.",
-        "doi": "10.1016/s0031-9201(00)00154-0"
+        "finding": "The article defines two high-temperature BM3 models that share the same 300 K isotherm. Tables 2 and 3 give V0=24.45 cm^3/mol and K0=260.51 GPa at 300 K, while the abstract and Equation 16 prescribe K'_300=4. This yields one non-duplicate static BM3 record on the source's Jamieson-1982 Pt pressure scale.",
+        "doi": "10.2138/am-1999-0303"
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_wolf_2015_vinet_mgd_4",
+      "label": "Wolf et al. (2015), reanalyzed Fe-free bridgmanite Vinet-MGD",
+      "doi": "10.1002/2015jb012108",
+      "status": "primary_source_validated",
+      "note": "Validated against the final Wolf et al. article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1002/2015JB012108",
+        "doi": "10.1002/2015JB012108",
+        "locations": [
+          "final Wolf et al. article, sections 3.1-3.4 and 4.2",
+          "final Wolf et al. article, equations 1-11 and Tables 2-4",
+          "final Wolf et al. article data-availability statement",
+          "corresponding-author data page, Table 2 machine-readable mirror",
+          "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Tange2012_lsq_fixdeb.in"
+        ],
+        "finding": "The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled."
       }
     },
     {
@@ -364,6 +491,135 @@
         ],
         "finding": "The authors report V0=45.37(8) A^3 and K0=281(4) GPa with K0'=4 assumed.",
         "doi": "10.1029/jb094ib12p17889"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_caracas_2005_bm3_3",
+      "label": "Caracas et al. (2005), static cubic Pm-3m BM3",
+      "doi": "10.1029/2004gl022144",
+      "status": "primary_source_validated",
+      "note": "The primary article and publisher HTML were audited directly. Exactly one cubic source parameterization is executable; all 18 Table 2 fits remain distinguished in the audit metadata.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+        "locations": [
+          "section 2, paragraphs 6-7",
+          "section 3, Table 1",
+          "section 4, equation 1 and paragraphs 11-17",
+          "Table 2 and footnote"
+        ],
+        "finding": "Table 2 contains nine phase-specific BM3 fits and nine phase-specific BM4 fits, not duplicate rows. The stored Pm-3m BM3 parameters reproduce the separately stated cubic density at 130 GPa (5.77 g/cm^3) after direct EOS inversion and formula-mass conversion.",
+        "doi": "10.1029/2004gl022144"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_kawai_2014_vinet_mgd_3",
+      "label": "Kawai and Tsuchiya (2014), cubic CaSiO3 Vinet-MGD",
+      "doi": "10.1002/2013jb010905",
+      "status": "primary_source_validated",
+      "note": "The preferred Vinet-MGD equation, parameters, reference state, volume basis, computational method, and model benchmark grid were checked against the final open-access primary publication and its explicitly cited Tange et al. formulation.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2013JB010905",
+        "locations": [
+          "Abstract",
+          "Section 2, pages 2802-2803",
+          "Section 4, pages 2803-2805",
+          "Figure 1",
+          "Table 1",
+          "Table 2",
+          "Figure 2"
+        ],
+        "finding": "The final article selects a 1000 K reference because cubic CaSiO3 is unstable at 300 K, plots the Vinet-MGD compression curves, and reports V0=46.17 A^3/formula unit, K0=203.95 GPa in the abstract, K0'=4.76, fixed theta0=1100 K, gamma0=1.576, and q=0.96. Its Table 1 isochors numerically support the abstract K0 despite the 203.5 GPa value extracted from Table 2. Section 2's printed 300-1500 K simulation range conflicts with Figure 2's calculated 1000-4000 K points.",
+        "doi": "10.1002/2013jb010905"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_shim_2000_dac_only_bm3_mgd_4",
+      "label": "Shim et al. (2000), DAC-only cubic CaSiO3 BM3-MGD alternative",
+      "doi": "10.1029/2000jb900183",
+      "status": "primary_source_validated",
+      "note": "The complete DAC-only alternative was checked against the author-hosted primary article. It is intentionally represented as a published non-preferred fit, separate from the article's selected combined DAC+LVP parameterization.",
+      "primary_source_check": {
+        "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_jgrb12383_2000.pdf",
+        "doi": "10.1029/2000jb900183",
+        "locations": [
+          "Section 2, pages 25956-25960",
+          "Equations 7-12, page 25962",
+          "Table 1 and Table 2, page 25963",
+          "Figure 7 and accompanying text, page 25964",
+          "Figure 8 and accompanying text, page 25965"
+        ],
+        "finding": "The article explicitly reports a separate unweighted fit to its DAC data alone: gamma0=2.00+/-0.08 and q=0.9+/-0.4, with V0, KT0, K'T0, and theta0 fixed. This alternative is distinct from the preferred combined-data result."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_shim_2000_bm3_1",
+      "label": "Shim et al. (2000), cubic CaSiO3 BM3",
+      "doi": "10.1016/s0031-9201(00)00154-0",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_pepi_00.pdf",
+        "locations": [
+          "section 3",
+          "Table 1",
+          "Table 2, pages 334-335"
+        ],
+        "finding": "The adopted unconstrained BM3 fit fixes V0=45.58 A^3 in Table 2, while the abstract explicitly reports V0=45.58+/-0.05 A^3. The reported V0 uncertainty is retained even though V0 was fixed in this fit.",
+        "doi": "10.1016/s0031-9201(00)00154-0"
+      }
+    },
+    {
+      "material": "cairo3_perovskite",
+      "file": "cairo3_perovskite.eosmat",
+      "record": "cairo3_perovskite_boffa_ballaran_2007_bm3_1",
+      "label": "Boffa Ballaran et al. (2007), CaIrO3 perovskite BM3",
+      "doi": "10.2138/am.2007.2715",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-uploaded copy of the final American Mineralogist article, with the complete printed Table 1 transcribed. LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases",
+        "source_version": "author-uploaded copy of the final published American Mineralogist pages",
+        "doi": "10.2138/am.2007.2715",
+        "locations": [
+          "Abstract",
+          "Experimental method",
+          "Results",
+          "Table 1",
+          "Table 2",
+          "Figures 1-2 and captions"
+        ],
+        "finding": "The source defines a standard zero-pressure BM3 fit for the Pbnm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located."
+      }
+    },
+    {
+      "material": "cairo3_post_perovskite",
+      "file": "cairo3_post_perovskite.eosmat",
+      "record": "cairo3_post_perovskite_boffa_ballaran_2007_bm3_1",
+      "label": "Boffa Ballaran et al. (2007), CaIrO3 post-perovskite BM3",
+      "doi": "10.2138/am.2007.2715",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-uploaded copy of the final American Mineralogist article, with the complete printed Table 1 transcribed. LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases",
+        "source_version": "author-uploaded copy of the final published American Mineralogist pages",
+        "doi": "10.2138/am.2007.2715",
+        "locations": [
+          "Abstract",
+          "Experimental method",
+          "Results",
+          "Table 1",
+          "Table 2",
+          "Figures 1-2 and captions"
+        ],
+        "finding": "The source defines a standard zero-pressure BM3 fit for the Cmcm conventional-cell volume, reports all three coefficients with standard deviations, excludes decompression data, and identifies the Mao et al. (1986) ruby scale. No separate supplement or machine-readable data attachment was located."
       }
     },
     {
@@ -414,6 +670,48 @@
           "Table 2, MGD reference-isotherm row"
         ],
         "doi": "10.2138/am-2020-7279"
+      }
+    },
+    {
+      "material": "calcium_germanate_perovskite",
+      "file": "calcium_germanate_perovskite.eosmat",
+      "record": "calcium_germanate_perovskite_ross_1999_bm3_1",
+      "label": "Ross and Angel (1999), single-crystal BM3",
+      "doi": "10.2138/am-1999-0309",
+      "status": "primary_source_validated",
+      "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",
+      "primary_source_check": {
+        "access_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
+        "locations": [
+          "Abstract",
+          "Experimental methods, journal page 278",
+          "Table 1, journal page 278",
+          "Results, journal page 279",
+          "Figure 1"
+        ],
+        "finding": "The source defines a 9-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.1.",
+        "doi": "10.2138/am-1999-0309"
+      }
+    },
+    {
+      "material": "calcium_titanate_perovskite",
+      "file": "calcium_titanate_perovskite.eosmat",
+      "record": "calcium_titanate_perovskite_ross_1999_bm3_1",
+      "label": "Ross and Angel (1999), single-crystal BM3",
+      "doi": "10.2138/am-1999-0309",
+      "status": "primary_source_validated",
+      "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",
+      "primary_source_check": {
+        "access_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
+        "locations": [
+          "Abstract",
+          "Experimental methods, journal page 278",
+          "Table 1, journal page 278",
+          "Results, journal page 279",
+          "Figure 1"
+        ],
+        "finding": "The source defines an 11-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.4.",
+        "doi": "10.2138/am-1999-0309"
       }
     },
     {
@@ -771,6 +1069,29 @@
       }
     },
     {
+      "material": "e_feooh_hc_low_spin",
+      "file": "e_feooh_hc_low_spin.eosmat",
+      "record": "e_feooh_hc_low_spin_thompson_2017_bm3_1",
+      "label": "Thompson et al. (2017), hydrogen-centered low-spin FM BM3",
+      "doi": "10.1002/2017jb014168",
+      "status": "primary_source_validated",
+      "note": "The final publisher article and its official five-page Supporting Information S1 were audited directly. Only the reproducible high-pressure volumetric BM3 fit is executable; elastic-tensor-derived moduli and velocity/density summaries are retained as benchmarks, not encoded as EOS regressions.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168",
+        "supplement_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014168&file=jgrb52198-sup-0001-2017JB014168-SI.pdf",
+        "supplement_sha256": "55653c46d1d48762fcf7a9ec2582ae91f4319ce8827075ba0a0ca3721be080f5",
+        "locations": [
+          "Methods, pages 5040-5041",
+          "Section 3.2 and displayed Birch-Murnaghan equation, page 5041",
+          "Table 2, page 5041",
+          "Table 3, page 5043",
+          "Supporting Information S1, Table S1, page 5"
+        ],
+        "finding": "Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.",
+        "doi": "10.1002/2017JB014168"
+      }
+    },
+    {
       "material": "fayalite",
       "file": "fayalite.eosmat",
       "record": "fayalite_b_jina_2021_bm3_1",
@@ -807,6 +1128,25 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "fe093o_rhombohedral",
+      "file": "fe093o_rhombohedral.eosmat",
+      "record": "fe093o_rhombohedral_jacobsen_2005_bm3_1",
+      "label": "Jacobsen et al. (2005), rhombohedral Fe0.93O constrained BM3",
+      "doi": "10.1107/s0909049505022326",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1107/S0909049505022326",
+        "locations": [
+          "Experiment, pages 577-578",
+          "Results section 3.1 and Table 1, pages 579-580",
+          "Figure 5, page 580"
+        ],
+        "finding": "The source's preferred rhombohedral Fe0.93O parameterization is the ambient-reference BM3 cross-check on all nine 27.7-51.1 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
+        "doi": "10.1107/S0909049505022326"
       }
     },
     {
@@ -861,6 +1201,44 @@
         ],
         "finding": "Figure 2 provides 13 readable Fe3S compression markers. They were digitized from the supplied primary paper; the constrained K0'=4 BM3 fit is the EOS variant represented by this record.",
         "doi": "10.2138/am-2000-11-1229"
+      }
+    },
+    {
+      "material": "fe_bearing_al_phase_d",
+      "file": "fe_bearing_al_phase_d.eosmat",
+      "record": "fe_bearing_al_phase_d_criniti_2023_bm3_1",
+      "label": "Criniti et al. (2023), pre-crossover BM3",
+      "doi": "10.2138/am-2022-8559",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2022-8559",
+        "doi": "10.2138/am-2022-8559",
+        "locations": [
+          "final article, pages 1764-1772, especially Experimental methods, Table 1, Equation of state section, Figure 3, and Table 2",
+          "official American Mineralogist Online Materials AM-23-98559, Figures S1-S2",
+          "author-provided Figshare CIF, data_AlPhaseD_P6322"
+        ],
+        "finding": "The article's abstract, plotted curves, and phase-D comparison table privilege the freely fitted BM3 record, while Table 2 also reports a freely fitted Vinet alternative and ambient-volume-fixed variants. The BM3 and Vinet curves are stated to overlap over 0.0001-38 GPa. BM3 is therefore the canonical record and Vinet is retained as a published non-default alternative."
+      }
+    },
+    {
+      "material": "fe_bearing_al_phase_d",
+      "file": "fe_bearing_al_phase_d.eosmat",
+      "record": "fe_bearing_al_phase_d_criniti_2023_vinet_2",
+      "label": "Criniti et al. (2023), pre-crossover Vinet alternative",
+      "doi": "10.2138/am-2022-8559",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2022-8559",
+        "doi": "10.2138/am-2022-8559",
+        "locations": [
+          "final article, Equation of state section and Table 2",
+          "final article, Table 1",
+          "author-provided Figshare CIF, data_AlPhaseD_P6322"
+        ],
+        "finding": "This freely fitted Vinet parameterization is a genuine published alternative over the same 21 observations as BM3. The source states that the curves overlap over 0.0001-38 GPa but displays and summarizes BM3 preferentially, so Vinet is intentionally non-default."
       }
     },
     {
@@ -921,6 +1299,25 @@
       }
     },
     {
+      "material": "feo",
+      "file": "feo.eosmat",
+      "record": "fe093o_b1_jacobsen_2005_bm3_1",
+      "label": "Jacobsen et al. (2005), cubic Fe0.93O constrained BM3",
+      "doi": "10.1107/s0909049505022326",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1107/S0909049505022326",
+        "locations": [
+          "Experiment, pages 577-578",
+          "Results section 3.1 and Table 1, pages 579-580",
+          "Figure 5, page 580"
+        ],
+        "finding": "The source reports a cubic B1 Fe0.93O BM3 fit to the seven 0-22.8 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
+        "doi": "10.1107/S0909049505022326"
+      }
+    },
+    {
       "material": "feo_b8_2",
       "file": "feo_b8_2.eosmat",
       "record": "feo_b8_2_fischer_2011_bm3_1",
@@ -937,6 +1334,25 @@
         ],
         "finding": "Fixed values in italics and fitted uncertainties were preserved.",
         "doi": "10.1016/j.epsl.2011.02.025"
+      }
+    },
+    {
+      "material": "ferropericlase_fe27",
+      "file": "ferropericlase_fe27.eosmat",
+      "record": "ferropericlase_fe27_jacobsen_2002_bm3_1",
+      "label": "Jacobsen et al. (2002), Fe27 error-weighted BM3",
+      "doi": "10.1029/2001jb000490",
+      "status": "primary_source_validated",
+      "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+        "doi": "10.1029/2001JB000490",
+        "locations": [
+          "Paragraphs 23-26",
+          "Tables 1 and 5-6",
+          "Figures 5-6"
+        ],
+        "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 10 Fe27 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."
       }
     },
     {
@@ -1019,7 +1435,7 @@
       "label": "Dewaele et al. (2004), revised-ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
         "locations": [
@@ -1037,7 +1453,7 @@
       "label": "Takemura and Dewaele (2008), Dorogokupets-ruby Vinet",
       "doi": "10.1103/physrevb.78.104119",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.104119/fulltext",
         "locations": [
@@ -1137,7 +1553,7 @@
       "label": "Fratanduono et al. (2021), ramp-derived 298 K Vinet",
       "doi": "10.1126/science.abh0364",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, conventional-cell conversion, parameters, reference temperature, uncertainties, and experimental scope checked against the primary publication.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1126/science.abh0364",
         "locations": [
@@ -1458,16 +1874,15 @@
       "status": "primary_source_validated",
       "note": "Equation, parameters, units, molar-to-cell conversion, P-T range, temperature convention, Pt pressure basis, complete two-dataset fit scope, and Debye-temperature convention checked against the primary paper, Dewaele et al. (2012) Table I, and the author-deposited high-temperature table.",
       "primary_source_check": {
-        "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
+        "access_url": "https://doi.org/10.1103/PhysRevB.104.094107",
         "locations": [
-          "Methods, effective KCl temperature and Pt pressure basis",
-          "Section III and Equations 1-4",
-          "Table I and Figure 3",
-          "Supplemental Table A1; author-deposited SuppTable_KCl.csv",
-          "Dewaele et al. (2012), Table I"
+          "Methods",
+          "Equations 1-4",
+          "Table I",
+          "Supplemental Table A1"
         ],
-        "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K. It simultaneously fits all Dewaele et al. (2012) room-temperature B2 data and the 155 new high-temperature rows. Equations 3-4 leave theta(V) implicit; the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.",
-        "doi": "10.1103/physrevb.104.094107"
+        "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K; the high-P-T pressures use Dorogokupets-Oganov Pt. Equations 3-4 give gamma(V) and the full Debye energy but do not print theta(V); the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.",
+        "doi": "10.1103/PhysRevB.104.094107"
       }
     },
     {
@@ -1546,6 +1961,44 @@
       }
     },
     {
+      "material": "magnesiowustite_fe56",
+      "file": "magnesiowustite_fe56.eosmat",
+      "record": "magnesiowustite_fe56_jacobsen_2002_bm3_1",
+      "label": "Jacobsen et al. (2002), Fe56 error-weighted BM3",
+      "doi": "10.1029/2001jb000490",
+      "status": "primary_source_validated",
+      "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+        "doi": "10.1029/2001JB000490",
+        "locations": [
+          "Paragraphs 23-26",
+          "Tables 1 and 4 and 6",
+          "Figures 5-6"
+        ],
+        "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 11 Fe56 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."
+      }
+    },
+    {
+      "material": "magnesiowustite_fe75",
+      "file": "magnesiowustite_fe75.eosmat",
+      "record": "magnesiowustite_fe75_jacobsen_2002_bm3_1",
+      "label": "Jacobsen et al. (2002), Fe75 error-weighted BM3",
+      "doi": "10.1029/2001jb000490",
+      "status": "primary_source_validated",
+      "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+        "doi": "10.1029/2001JB000490",
+        "locations": [
+          "Paragraphs 23-26",
+          "Tables 1 and 5-6",
+          "Figures 5-6"
+        ],
+        "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 7 Fe75 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."
+      }
+    },
+    {
       "material": "magnesite",
       "file": "magnesite.eosmat",
       "record": "magnesite_ross_1997_bm3_1",
@@ -1562,6 +2015,49 @@
         ],
         "finding": "The unconstrained BM3 fit is represented. The alternative fit with K0'=4 fixed is not stored in this record.",
         "doi": "10.2138/am-1997-7-805"
+      }
+    },
+    {
+      "material": "magnesite",
+      "file": "magnesite.eosmat",
+      "record": "magnesite_vocadlo_1999_bm3_2",
+      "label": "Vocadlo (1999), static GGA BM3",
+      "doi": "10.2138/am-1999-1017",
+      "status": "primary_source_validated",
+      "note": "The complete five-page primary article was audited directly. Its equation, coefficients, 30-atom cell basis, calculated E-V table, and pressure reproduction support an executable static BM3 record despite the explicitly documented Table 1 unit-label error.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-1999-1017",
+        "locations": [
+          "Abstract, page 1627",
+          "Simulation techniques, page 1628",
+          "Results and printed energy equation, page 1628",
+          "Table 1 and Figure 1, page 1628",
+          "Table 2, page 1629",
+          "phase-transition qualification, page 1630"
+        ],
+        "finding": "The published BM3 parameters reproduce every Table 1 pressure to 0.00011 GPa or better. An independent four-parameter fit of the printed energy-volume rows on their internally required 30-atom-cell basis gives V0=287.492 A^3, K0=98.921 GPa, and K0_prime=4.27911, within the published precision and coefficient errors.",
+        "doi": "10.2138/am-1999-1017"
+      }
+    },
+    {
+      "material": "magnesite",
+      "file": "magnesite.eosmat",
+      "record": "magnesite_yu_2024_bm3_mgd_3",
+      "label": "Yu et al. (2024), BM3-MGD",
+      "doi": "10.1029/2023jb028026",
+      "status": "primary_source_validated",
+      "note": "The primary article, its complete official Table S1 data deposit, the exact thermal equations, conventional-cell basis, phase and composition scope, Pt pressure scale, and an independent Peritheos refit were audited directly.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2023JB028026",
+        "locations": [
+          "Experiments, pages 2-3",
+          "Results, Equations 1 and 4-8, pages 4-6",
+          "Table 1, page 5",
+          "Data Availability Statement",
+          "official author data deposit, doi:10.5281/zenodo.8399354, Table S1"
+        ],
+        "finding": "The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.",
+        "doi": "10.1029/2023JB028026"
       }
     },
     {
@@ -1635,6 +2131,203 @@
       }
     },
     {
+      "material": "mg0215fe0762vac0023o_b1",
+      "file": "mg0215fe0762vac0023o_b1.eosmat",
+      "record": "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
+      "label": "Finkelstein et al. (2017), Mw78 cubic helium BM3",
+      "doi": "10.2138/am-2017-5966",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2017-5966",
+        "doi": "10.2138/am-2017-5966",
+        "locations": [
+          "final article, pages 1709-1713, especially Experimental procedures, Room pressure, Phase stability, Equations of state, and Table 3",
+          "official American Mineralogist deposit AM-17-85966, 5966_supp.pdf",
+          "official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx"
+        ],
+        "finding": "The defect-normalized specimen remains metrically cubic in helium through 55.5 GPa. The authors fit all 17 cubic-cell observations with their explicitly printed BM3 equation, an ambient V0 prior, and free K0 and K0_prime."
+      }
+    },
+    {
+      "material": "mg0215fe0762vac0023o_b1",
+      "file": "mg0215fe0762vac0023o_b1.eosmat",
+      "record": "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
+      "label": "Finkelstein et al. (2017), Mw78 low-pressure cubic neon BM3",
+      "doi": "10.2138/am-2017-5966",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2017-5966",
+        "doi": "10.2138/am-2017-5966",
+        "locations": [
+          "final article, pages 1710-1713, Experimental procedures, Phase stability, Equations of state, and Table 3",
+          "official American Mineralogist deposit AM-17-85966, 5966_supp.pdf",
+          "official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx"
+        ],
+        "finding": "The first five neon observations remain cubic-indexable through 19.244 GPa and define a separate BM3 fit with both V0 and K0_prime priors. The higher-pressure rows are increasingly hexagonally distorted and are not part of this executable record."
+      }
+    },
+    {
+      "material": "mg05fe05al05si05o3_bridgmanite",
+      "file": "mg05fe05al05si05o3_bridgmanite.eosmat",
+      "record": "mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1",
+      "label": "Zhu et al. (2020), sample 1 preferred all-observation BM2",
+      "doi": "10.1029/2020jb019964",
+      "status": "primary_source_validated",
+      "note": "Validated against the publisher article and the article's official Zenodo v2 raw-data deposit.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2020JB019964",
+        "doi": "10.1029/2020JB019964",
+        "locations": [
+          "publisher article experimental methods, EOS discussion, Figure 3, and data-availability statement",
+          "official Zenodo v2 files latticeparameters.xlsx, EoS-Ffplot-bulkv.xlsx, EPMA.xlsx, and DFTEoS.xlsx"
+        ],
+        "finding": "The source defines three reproducible experimental BM2 fits: the preferred 23-row sample-1 curve, an 11-row after-current-step-anneal sample-1 comparison, and a 21-row cold-compressed sample-2 comparison. Spectroscopy demonstrates gradual Fe-Al exchange and a mixed-spin population, not a separately fitted fully low-spin branch."
+      }
+    },
+    {
+      "material": "mg05fe05al05si05o3_bridgmanite",
+      "file": "mg05fe05al05si05o3_bridgmanite.eosmat",
+      "record": "mg05fe05al05si05o3_bridgmanite_zhu_2020_post_anneal_bm2_2",
+      "label": "Zhu et al. (2020), sample 1 after-current-step-anneal subset BM2",
+      "doi": "10.1029/2020jb019964",
+      "status": "primary_source_validated",
+      "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2020JB019964",
+        "doi": "10.1029/2020JB019964",
+        "locations": [
+          "publisher article EOS discussion and Figure 3",
+          "official Zenodo v2 latticeparameters.xlsx"
+        ],
+        "finding": "The article explicitly reports the 11-row after-current-step-anneal comparison fit. It is a selection from the same gradual mixed-spin sample-1 trajectory, not a distinct low-spin EOS branch."
+      }
+    },
+    {
+      "material": "mg05fe05al05si05o3_bridgmanite",
+      "file": "mg05fe05al05si05o3_bridgmanite.eosmat",
+      "record": "mg05fe05al05si05o3_bridgmanite_zhu_2020_cold_compressed_bm2_3",
+      "label": "Zhu et al. (2020), sample 2 cold-compressed BM2",
+      "doi": "10.1029/2020jb019964",
+      "status": "primary_source_validated",
+      "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2020JB019964",
+        "doi": "10.1029/2020JB019964",
+        "locations": [
+          "publisher article EOS discussion and Figure 3",
+          "official Zenodo v2 latticeparameters.xlsx"
+        ],
+        "finding": "The article explicitly reports a 21-row BM2 for cold-compressed sample 2 and describes it as the original-ordering reference where cation exchange and spin transition are not expected."
+      }
+    },
+    {
+      "material": "mg073fe027o",
+      "file": "mg073fe027o.eosmat",
+      "record": "mg073fe027o_jacobsen_2005_bm3_1",
+      "label": "Jacobsen et al. (2005), (Mg0.73Fe0.27)O BM3",
+      "doi": "10.1107/s0909049505022326",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1107/S0909049505022326",
+        "locations": [
+          "Experiment, pages 577-578",
+          "Table 1, page 580",
+          "Results section 3.2 and Figures 6-7, pages 581-582"
+        ],
+        "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
+        "doi": "10.1107/S0909049505022326"
+      }
+    },
+    {
+      "material": "mg087fe013sio3_bridgmanite",
+      "file": "mg087fe013sio3_bridgmanite.eosmat",
+      "record": "mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1",
+      "label": "Wolf et al. (2015), 13% Fe bridgmanite Vinet-MGD",
+      "doi": "10.1002/2015jb012108",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1002/2015JB012108",
+        "doi": "10.1002/2015JB012108",
+        "locations": [
+          "final article, sections 2.1-2.3, 3.1-3.4, and 4.2",
+          "final article, equations 1-11 and Tables 1, 3, and 4",
+          "final article, Appendices A-B and data-availability statement",
+          "corresponding-author data page, Table 1 machine-readable mirror",
+          "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Wolf2014_lsq_fixdeb.in"
+        ],
+        "finding": "The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit."
+      }
+    },
+    {
+      "material": "mg095al010si095o3_bridgmanite",
+      "file": "mg095al010si095o3_bridgmanite.eosmat",
+      "record": "mg095al010si095o3_bridgmanite_daniel_2004_bm2_1",
+      "label": "Daniel et al. (2004), Al.05-Pv BM2",
+      "doi": "10.1029/2004gl020213",
+      "status": "primary_source_validated",
+      "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM2 parity under pressure-uncertainty weighting.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
+        "doi": "10.1029/2004GL020213",
+        "locations": [
+          "article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13",
+          "official Wiley grl18465-sup-0001-README.txt",
+          "official Wiley grl18465-sup-0002-TABLE1.txt",
+          "Jackson et al. (2004), doi:10.1029/2004GL019918, same-batch sample description and Table 1"
+        ],
+        "finding": "The source defines two conventional-cell room-temperature EOS fits to one Fe-free Al.05-Pv specimen: a preferred two-free-parameter BM2 and a three-free-parameter BM3. Both use the complete 42-row table and the same explicit mixed ruby/neon pressure coordinate.",
+        "official_auxiliary_readme_sha256": "816470aa2c394a62ace9406bf2677abeac0ffe0e42ead7009c3421dde8d0c10d",
+        "official_auxiliary_table_sha256": "492cfcfc883014fba90295a6cfd8c3fad5e3a0f240abee46fa93a86728e739d4"
+      }
+    },
+    {
+      "material": "mg095al010si095o3_bridgmanite",
+      "file": "mg095al010si095o3_bridgmanite.eosmat",
+      "record": "mg095al010si095o3_bridgmanite_daniel_2004_bm3_2",
+      "label": "Daniel et al. (2004), Al.05-Pv BM3",
+      "doi": "10.1029/2004gl020213",
+      "status": "primary_source_validated",
+      "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM3 parity under pressure-uncertainty weighting.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
+        "doi": "10.1029/2004GL020213",
+        "locations": [
+          "article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13",
+          "official Wiley grl18465-sup-0001-README.txt",
+          "official Wiley grl18465-sup-0002-TABLE1.txt",
+          "Jackson et al. (2004), doi:10.1029/2004GL019918, same-batch sample description and Table 1"
+        ],
+        "finding": "The source defines two conventional-cell room-temperature EOS fits to one Fe-free Al.05-Pv specimen: a preferred two-free-parameter BM2 and a three-free-parameter BM3. Both use the complete 42-row table and the same explicit mixed ruby/neon pressure coordinate.",
+        "official_auxiliary_readme_sha256": "816470aa2c394a62ace9406bf2677abeac0ffe0e42ead7009c3421dde8d0c10d",
+        "official_auxiliary_table_sha256": "492cfcfc883014fba90295a6cfd8c3fad5e3a0f240abee46fa93a86728e739d4"
+      }
+    },
+    {
+      "material": "mg09fe01sio3_bridgmanite",
+      "file": "mg09fe01sio3_bridgmanite.eosmat",
+      "record": "mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1",
+      "label": "Mao et al. (2015), post-transition B-site Fe3+ low-spin BM3",
+      "doi": "10.1002/2015gl064400",
+      "status": "primary_source_validated",
+      "note": "Validated against the final publisher article, official Wiley Supporting Information S1, and the cited same-batch Lin et al. (2012) characterization. LitCurate was used for discovery only.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1002/2015GL064400",
+        "doi": "10.1002/2015GL064400",
+        "locations": [
+          "final article, pages 4335-4342, especially Experiments and Results",
+          "official Wiley attachment grl53012-sup-0001-supinfo.doc, Texts S1-S2, Figure S5, and Tables S1-S2",
+          "Lin et al. (2012), doi:10.2138/am.2012.4000, Experimental methods and Figure 1 caption for same-batch Pbnm lattice and spectroscopy context"
+        ],
+        "finding": "The source fully defines one executable post-transition isothermal EOS for Pv10: a standard third-order Birch-Murnaghan pressure-volume fit to all observations above 25 GPa, with conventional Pbnm-cell V0=162.6(+/-0.3) A^3, KT0=284(+/-4) GPa, and fixed KT0'=4. The high-spin branch is discussed and was used to model the transition, but its fitted parameters are not printed and it is therefore not added.",
+        "article_sha256": "13269b3b921b5c9608812667e8a9a333285ade378e0d22ace9a2bfc6430201cc",
+        "official_supporting_information_sha256": "dd35edb13babbd7ff7a5b6f0c2b4106463d04e8e8a49d779bcfb3e093a5b40b5"
+      }
+    },
+    {
       "material": "mg7si2o8",
       "file": "mg7si2o8.eosmat",
       "record": "mg7si2o8_crichton_2002_bm3_1",
@@ -1672,13 +2365,57 @@
       }
     },
     {
+      "material": "mgfe94o_b1",
+      "file": "mgfe94o_b1.eosmat",
+      "record": "mgfe94o_b1_dobrosavljevic_2019_bm3_1",
+      "label": "Dobrosavljevic et al. (2019), Mw94 B1 BM3",
+      "doi": "10.3390/min9120762",
+      "status": "primary_source_validated",
+      "note": "The open publisher article and official supplement were audited directly. The complete source-scale P-V table and the versioned MINUTI equation, weighting, prior, and selection protocol support an independent Peritheos refit.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/12/762",
+        "repository_url": "https://authors.library.caltech.edu/records/3cdm5-rgv88",
+        "locations": [
+          "article sections 2.1, 3, and 3.1",
+          "article Figure 1 and Table 1",
+          "official supplement Table S1"
+        ],
+        "finding": "The source defines a 14-row, 300 K B1 BM3 fit with all three EOS coefficients refined, K0-prime constrained by a 3.8+/-0.3 prior, and two explicitly excluded pre-transition B1 observations.",
+        "doi": "10.3390/min9120762",
+        "article_sha256": "34238063c07d90e8cf3a00746420291735b7be0015735c30c715cb2edcc69898",
+        "supplement_sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9"
+      }
+    },
+    {
+      "material": "mgfe94o_rhombohedral",
+      "file": "mgfe94o_rhombohedral.eosmat",
+      "record": "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1",
+      "label": "Dobrosavljevic et al. (2019), Mw94 rhombohedral BM3",
+      "doi": "10.3390/min9120762",
+      "status": "primary_source_validated",
+      "note": "The open publisher article and official supplement were audited directly. The complete source-scale P-V table and the versioned MINUTI equation, weighting, and selection protocol support an independent Peritheos refit.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/12/762",
+        "repository_url": "https://authors.library.caltech.edu/records/3cdm5-rgv88",
+        "locations": [
+          "article sections 2.1, 3, and 3.2",
+          "article Table 1",
+          "official supplement Table S1 and Figure S2"
+        ],
+        "finding": "The source defines an independent 12-row, 300 K rhombohedral BM3 fit with V0, K0, and K0-prime all refined and no stated prior or fixed coefficient.",
+        "doi": "10.3390/min9120762",
+        "article_sha256": "34238063c07d90e8cf3a00746420291735b7be0015735c30c715cb2edcc69898",
+        "supplement_sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9"
+      }
+    },
+    {
       "material": "mgo",
       "file": "mgo.eosmat",
       "record": "mgo_b1_tange_2009_vinet",
       "label": "Tange et al. (2009), pressure-scale-free Fit3 Vinet-MGD",
       "doi": "10.1029/2008jb005813",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, parameters, reference state, uncertainties, and data envelope checked against the primary publication.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2008JB005813",
         "locations": [
@@ -1727,6 +2464,67 @@
     {
       "material": "mgo",
       "file": "mgo.eosmat",
+      "record": "mgo_li_2006_bm3_absolute_acoustic",
+      "label": "Li et al. (2006), acoustic absolute-pressure BM3",
+      "doi": "10.1029/2005jb004251",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final free-access publisher article, including the equation images, complete HTML tables, and official tab-delimited supplements for Tables 1 and 2. LitCurate was used only for discovery. The Table 1 supplement duplicates the primary observations bundled here; Table 2 is a literature-comparison summary rather than additional primary observations.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251",
+        "locations": [
+          "Abstract and Sections 1-2",
+          "Table 1 and Equations 1-4 in Section 3",
+          "Table 2 and Sections 4-5",
+          "Official tab-delimited supplements for Tables 1 and 2"
+        ],
+        "finding": "Li et al. report a new absolute 300 K MgO BM3 pressure scale, not a direct pressure-volume BM3 regression. Its conventional-cell V0 is measured by XRD; its isothermal K0 and K0' follow exactly from the preferred decompression acoustic finite-strain fit and the printed Equation 4 conversion.",
+        "doi": "10.1029/2005jb004251"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_jacobsen_2008_bm3_kcl_mao1978",
+      "label": "Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3",
+      "doi": "10.2138/am.2008.2988",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final American Mineralogist article and its complete printed tables. LitCurate was used only for discovery. The journal and author-hosted article records expose no separate official supplement.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am.2008.2988",
+        "locations": [
+          "Abstract and introduction, pages 1823-1824",
+          "Experimental methods, page 1824",
+          "Tables 1-2 and Figure 2, page 1825",
+          "BM3 definition and Figure 3, pages 1825-1826"
+        ],
+        "finding": "The KCl series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on the Mao-1978 ruby scale. The preferred three-parameter result is V0=74.698(7) A^3, KT0=164.1(9) GPa, and K'=4.05(4).",
+        "doi": "10.2138/am.2008.2988"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_jacobsen_2008_bm3_helium_mao1986",
+      "label": "Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3",
+      "doi": "10.2138/am.2008.2988",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the final American Mineralogist article and its complete printed tables. LitCurate was used only for discovery. The journal and author-hosted article records expose no separate official supplement.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am.2008.2988",
+        "locations": [
+          "Abstract and introduction, pages 1823-1824",
+          "Experimental methods, page 1824",
+          "Table 1 and Figure 2, page 1825",
+          "BM3 definition, alternative fits, and Figure 3, pages 1825-1826",
+          "Ruby-scale derivation and Figure 4, page 1827"
+        ],
+        "finding": "The all-data helium series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on a Mao-1986-linked pressure coordinate. The Results section gives V0=74.687(6) A^3, KT0=159.6(6) GPa, and K'=3.74(3). The calculated Zha-scale pressure column is not an independent fitted Jacobsen EOS.",
+        "doi": "10.2138/am.2008.2988"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
       "record": "mgo_shen_2026_vinet_3",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
@@ -1749,6 +2547,27 @@
     {
       "material": "mgo",
       "file": "mgo.eosmat",
+      "record": "mgo_b1_luo_2023_vinet_thermal_5",
+      "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
+      "doi": "10.1103/physrevb.107.134116",
+      "status": "primary_source_validated",
+      "note": "The zero-temperature Vinet convention, mass-to-cell volume conversion, absolute polynomial thermal pressure, parameters, uncertainties, B1 identity, stated model range, shock pressure basis, and tabulated P-V-T reproduction were checked against the primary article.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
+        "locations": [
+          "Equations (1)-(6), pages 2-3",
+          "Table I and Section II.B, pages 3-6",
+          "Section III, page 6",
+          "Tables II-III, pages 8-9",
+          "Appendices A-B, pages 9-10"
+        ],
+        "finding": "The executable source form is a 0 K Rydberg-Vinet cold curve plus the absolute second-order Taylor thermal pressure in Equations (B1)-(B2). Calling the record simply Vinet would omit the thermal EOS that produces the published P-V-T scale.",
+        "doi": "10.1103/physrevb.107.134116"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
       "record": "mgo_sokolova_2013_holzapfel_4",
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
       "doi": "10.1016/j.rgg.2013.01.005",
@@ -1764,6 +2583,26 @@
         ],
         "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
         "doi": "10.1016/j.rgg.2013.01.005"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_dewaele_2000_bm3_mgd_5",
+      "label": "Dewaele et al. (2000), BM3-MGD",
+      "doi": "10.1029/1999jb900364",
+      "status": "primary_source_validated",
+      "note": "Equation convention, parameter provenance, reference state, MgO cell-volume basis, all 61 primary rows, Pt pressure calibration, and experimental envelope were checked against the primary article. The DOI is authored by Dewaele et al. (2000), not Fei et al.; Fei (1999) supplies comparison data used in the paper's combined room-temperature fit.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/1999JB900364",
+        "locations": [
+          "Experimental section and Table 2",
+          "Equation 1 and Table 3",
+          "Equations 2-8, Figure 4, and Tables 4-5",
+          "Abstract and conclusion"
+        ],
+        "finding": "The article's reproducible preferred result is one B1-MgO BM3-MGD EOS with V0=74.71 A^3, K0=161 GPa, K0'=3.94, theta0=800 K, gamma0=1.45, and q=0.8. Alternative Murnaghan, Vinet, logarithmic, and constrained BM3 rows in Table 3 quantify room-temperature extrapolation sensitivity and are not additional recommended thermal parameterizations.",
+        "doi": "10.1029/1999jb900364"
       }
     },
     {
@@ -1800,6 +2639,72 @@
           "EOS parameter table"
         ],
         "doi": "10.1038/srep22652"
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_ono_2006_anderson_bm2_3",
+      "label": "Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)",
+      "doi": "10.2138/am.2006.2118",
+      "status": "primary_source_validated",
+      "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+        "source_version": "final published American Mineralogist pages",
+        "doi": "10.2138/am.2006.2118",
+        "locations": [
+          "Abstract",
+          "Experimental methods",
+          "Results and printed EOS equation",
+          "Tables 1-3",
+          "Figure 2 and caption"
+        ],
+        "finding": "The source defines a standard Eulerian BM3 at 300 K, fixes K0_prime=4 and V0=162.86 A^3, fits K0 separately on three named gold pressure scales, and prints every sample and calibrant lattice observation. The Anderson-scale fit is represented exactly by BM2."
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_ono_2006_jamieson_bm2_4",
+      "label": "Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)",
+      "doi": "10.2138/am.2006.2118",
+      "status": "primary_source_validated",
+      "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+        "source_version": "final published American Mineralogist pages",
+        "doi": "10.2138/am.2006.2118",
+        "locations": [
+          "Abstract",
+          "Experimental methods",
+          "Results and printed EOS equation",
+          "Tables 1-3",
+          "Figure 2 and caption"
+        ],
+        "finding": "The source reports the same constrained BM3/BM2 fit separately on the Jamieson et al. (1982) gold scale, with all six source pressures and calibrant lattice parameters printed."
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_ono_2006_dewaele_bm2_5",
+      "label": "Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)",
+      "doi": "10.2138/am.2006.2118",
+      "status": "primary_source_validated",
+      "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+        "source_version": "final published American Mineralogist pages",
+        "doi": "10.2138/am.2006.2118",
+        "locations": [
+          "Abstract",
+          "Experimental methods",
+          "Results and printed EOS equation",
+          "Tables 1-3",
+          "Figure 2 and caption"
+        ],
+        "finding": "The source reports the same constrained BM3/BM2 fit separately on the Dewaele et al. (2004) gold scale, with all six source pressures and calibrant lattice parameters printed."
       }
     },
     {
@@ -1880,6 +2785,51 @@
         ],
         "finding": "The source plots 16 relative-volume observations and identifies a BM3 curve with K0=307 GPa and K0'=6.2. This separate record is the reproducible Peritheos errors-in-variables fit to all digitized marker centers with measured V0 fixed; it is not presented as a published coefficient set.",
         "doi": "10.1088/0953-8984/13/11/303"
+      }
+    },
+    {
+      "material": "na088al099fe013si094o4_calcium_ferrite",
+      "file": "na088al099fe013si094o4_calcium_ferrite.eosmat",
+      "record": "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1",
+      "label": "Qin et al. (2023), Fe-bearing CF BM3",
+      "doi": "10.2138/am-2022-8432",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article and official MSA deposit AM-23-128432. The published BM3 coefficients reproduce the complete printed compression table to 0.3887 GPa pressure RMSE; the missing row-wise pressure uncertainties and exact EosFit7c weight configuration prevent coefficient-level refit parity and are not inferred.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2022-8432",
+        "locations": [
+          "article Materials and methods, pages 2332-2333",
+          "article EOS discussion, page 2333",
+          "official Online Materials Tables S4 and S5",
+          "official deposit AM-23-128432"
+        ],
+        "finding": "The source fully defines a room-temperature, three-free-parameter standard Eulerian BM3 fit for the Fe-bearing Na0.88Al0.99Fe0.13Si0.94O4 sample. Volumes are Pbnm conventional-cell values with Z=4. The official deposit does not include an exact Fe-bearing positional refinement, so the material's structural proxy is explicitly qualified.",
+        "doi": "10.2138/am-2022-8432",
+        "official_deposit_sha256": "465ff9b139fba3c60539f4bf1e0a86d877a716ab4522cefca682dd1f4fa1f07d",
+        "supplement_sha256": "f78e80d89fb11bb070cc3757c554e01adab3d4dcbf1ace93c2fc166aa5f3d1c7"
+      }
+    },
+    {
+      "material": "na093al102si100o4_calcium_ferrite",
+      "file": "na093al102si100o4_calcium_ferrite.eosmat",
+      "record": "na093al102si100o4_calcium_ferrite_qin_2023_bm3_1",
+      "label": "Qin et al. (2023), Fe-free CF BM3",
+      "doi": "10.2138/am-2022-8432",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article and official MSA deposit AM-23-128432. The published BM3 coefficients reproduce the complete printed compression table to 0.3263 GPa pressure RMSE; the missing row-wise pressure uncertainties and exact EosFit7c weight configuration prevent coefficient-level refit parity and are not inferred.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2022-8432",
+        "locations": [
+          "article Materials and methods, pages 2332-2333",
+          "article EOS discussion, page 2333",
+          "official Online Materials Tables S3 and S5",
+          "official deposit AM-23-128432, 8432qin.cif"
+        ],
+        "finding": "The source fully defines a room-temperature, three-free-parameter standard Eulerian BM3 fit for the Fe-free Na0.93Al1.02Si1.00O4 sample. Volumes are Pbnm conventional-cell values with Z=4.",
+        "doi": "10.2138/am-2022-8432",
+        "official_deposit_sha256": "465ff9b139fba3c60539f4bf1e0a86d877a716ab4522cefca682dd1f4fa1f07d",
+        "supplement_sha256": "f78e80d89fb11bb070cc3757c554e01adab3d4dcbf1ace93c2fc166aa5f3d1c7",
+        "cif_sha256": "18b3a58bcefba6797dfee976025604f8165ada6678a8113e0918e37eb7fc03cc"
       }
     },
     {
@@ -2027,15 +2977,15 @@
       "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
       "doi": "10.1103/physrevb.39.11820",
       "status": "primary_source_validated",
-      "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
+      "note": "The primary table and source fitting protocol were checked directly. The stored coefficients are explicitly identified as a new Peritheos table-only refit, not as Hemley et al.'s published thermally reduced coefficients.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.39.11820",
         "locations": [
           "Table I, page 11823",
           "Equation-of-state discussion and Figure 4, pages 11823-11824"
         ],
-        "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.",
-        "doi": "10.1103/physrevb.39.11820"
+        "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The paper's own BM3 coefficients instead describe data reduced to 0 K, include the earlier Finger et al. low-pressure series, and therefore are not a direct fit to Table I alone.",
+        "doi": "10.1103/PhysRevB.39.11820"
       }
     },
     {
@@ -2265,6 +3215,49 @@
       }
     },
     {
+      "material": "phase_egg",
+      "file": "phase_egg.eosmat",
+      "record": "phase_egg_schulze_2018_bm3_1",
+      "label": "Schulze et al. (2018), single-crystal BM3",
+      "doi": "10.2138/am-2018-6562",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted author manuscript and official MSA deposit. The final article's Table 2 is internally inconsistent about the K0-prime error: the table prints 1.2, whereas the abstract and EOS prose print 1.3. The tabulated parameter error is stored and the discrepancy is not silently averaged.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2018-6562",
+        "locations": [
+          "Methods, sample synthesis and characterization",
+          "Methods, high-pressure experiments",
+          "Results, compressibility of Phase Egg",
+          "Tables 1-2",
+          "official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf"
+        ],
+        "finding": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
+        "doi": "10.2138/am-2018-6562",
+        "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
+        "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97"
+      }
+    },
+    {
+      "material": "phase_egg",
+      "file": "phase_egg.eosmat",
+      "record": "phase_egg_mookherjee_2019_bm3_lp_1",
+      "label": "Mookherjee et al. (2019), static LP BM3",
+      "doi": "10.2138/am-2019-6694",
+      "status": "primary_source_validated",
+      "note": "Validated from the final publication, its official MSA supplement, and the cited primary crystallographic refinement; LitCurate was used only as a discovery lead.",
+      "primary_source_check": {
+        "access_url": "https://par.nsf.gov/servlets/purl/10089001",
+        "locations": [
+          "article footer and bibliographic header, page 130",
+          "Methods, pages 131-132",
+          "equations (1)-(2) and equation-of-state discussion, pages 132-133",
+          "official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block"
+        ],
+        "finding": "The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.",
+        "doi": "10.2138/am-2019-6694"
+      }
+    },
+    {
       "material": "platinum",
       "file": "platinum.eosmat",
       "record": "platinum_holmes_1989_vinet_1",
@@ -2313,7 +3306,7 @@
       "label": "Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale",
       "doi": "10.1103/physrevb.75.024115",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, all Pt coefficients, units, reference state, oscillator multiplicity, and printed isochors were checked against the primary paper.",
       "primary_source_check": {
         "access_url": "https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf",
         "locations": [
@@ -2322,7 +3315,7 @@
           "Table VI, Pt isochors"
         ],
         "finding": "The paper supplies a complete, directly implementable Pt Vinet plus four-oscillator Helmholtz EOS. Evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
-        "doi": "10.1103/physrevb.75.024115"
+        "doi": "10.1103/PhysRevB.75.024115"
       }
     },
     {
@@ -2663,6 +3656,26 @@
         ],
         "finding": "The combined BM3 fit uses the new single-crystal quartz-calibrated observations in Table 1 and the laser-annealed NaCl-calibrated powder observations in Table 2. Both tables are bundled with lattice parameters, conventional-cell volumes, pressure-standard volumes, and printed uncertainties.",
         "doi": "10.2138/am-2003-2-307"
+      }
+    },
+    {
+      "material": "sio2_stv_andr",
+      "file": "sio2_stv_andr.eosmat",
+      "record": "sio2_stv_andr_wang_2012_vinet_mgd_2",
+      "label": "Wang et al. (2012), principal Vinet-MGD presentation",
+      "doi": "10.1029/2011jb009100",
+      "status": "primary_source_validated",
+      "note": "Equation, parameters, reference state, uncertainties, material identity, calibration, complete observations, and numerical values were checked against the primary publication; LitCurate was used only to discover the DOI.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2011JB009100",
+        "locations": [
+          "Equations 1-8 and analytical methods, paragraphs 9 and 13-14",
+          "Tables 1-3",
+          "Experimental procedures, paragraphs 6-8",
+          "Discussion, paragraph 24"
+        ],
+        "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
+        "doi": "10.1029/2011JB009100"
       }
     },
     {

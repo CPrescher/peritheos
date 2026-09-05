@@ -384,6 +384,484 @@
      "finding": "All 12 MgSiO3 bridgmanite lattice-parameter and unit-cell-volume observations printed in Table 1 and supplied by the publisher as tab-delimited supporting data."
     }
    }
+  },
+  {
+   "label": "Saxena et al. (1999), 300 K BM3 slice",
+   "reference": {
+    "authors": [
+     "Saxena",
+     "Dubrovinsky",
+     "Tutti",
+     "Le Bihan"
+    ],
+    "year": 1999,
+    "title": "Equation of state of MgSiO3 with the perovskite structure based on experimental measurement",
+    "source": "American Mineralogist",
+    "volume": "84",
+    "locator": "226-232",
+    "doi": "10.2138/am-1999-0303"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 162.4007,
+     "K0": 260.51,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    82.5
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "temperature_ref": 300.0,
+   "identifier": "bridgmanite_saxena_1999_bm3_4",
+   "fit_datasets": [
+    "bridgmanite_saxena_1999_table1_pvt"
+   ],
+   "parameter_provenance": {
+    "equation": "Equation 5, page 229: standard third-order Birch-Murnaghan finite-strain pressure equation with the isothermal K_T and K'_T at the chosen temperature.",
+    "V0": "Tables 2 and 3, pages 228 and 231: the calculated one-atmosphere 300 K molar volume is 24.45 cm^3/mol. It is converted with the exact Avogadro constant to the conventional Pbnm bridgmanite cell with Z=4, giving 162.4007 A^3.",
+    "K0": "Tables 2 and 3, pages 228 and 231: K_T=260.51 GPa at 300 K. The abstract rounds the same 300 K value to 261 GPa.",
+    "K0_prime": "Abstract, page 226, and Equation 16, page 230: K'_300=4. The value is prescribed by the published temperature-dependent model and is fixed in this 300 K slice.",
+    "volume_basis": "The article reports formula-molar MgSiO3 volumes in cm^3/mol. The existing orthorhombic Pbnm bridgmanite conventional cell has four MgSiO3 formula units, so both the reference and observation conversions use Z=4.",
+    "temperature_ref": "The executable slice uses the source's explicitly tabulated 300 K reference. The source calls its ambient-volume table a one-atmosphere calculation and its elastic coefficients zero-pressure quantities; at the article's printed precision both define the conventional 300 K zero-pressure BM3 reference."
+   },
+   "notes": "Published 300 K isotherm of the two high-temperature Birch-Murnaghan models, which coincide at 300 K. The full Model 1 and Model 2 parameterizations are intentionally not represented: they require the article's quadratic temperature laws for thermal expansivity and compressibility together with its temperature-dependent K'_T convention, which the current Peritheos thermal reference-state model cannot encode exactly. The executable record is therefore restricted to 300 K and is not the default bridgmanite EOS. The natural-enstatite starting material contained less than 1% Al and Fe; the authors identify the transformed phase and reported volumes as MgSiO3 perovskite. No EOS-parameter errors, confidence convention, covariance, residual statistic, or fit weights are published.",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     82.5
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "The upper pressure bound is the highest 300 K observation in the authors' Table 1; the complete new P-V-T table extends to 109.1 GPa and 1485 K.",
+     "The lower bound includes the published zero-pressure reference state. It is not a phase-stability boundary.",
+     "Do not use this static slice as either of the source's high-temperature Model 1 or Model 2 curves."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Jamieson",
+        "Fritz",
+        "Manghnani"
+       ],
+       "year": 1982,
+       "title": "Pressure measurement at high temperature in X-ray diffraction studies: Gold as a primary standard",
+       "source": "High-Pressure Research in Geophysics",
+       "locator": "27-48"
+      },
+      "source_location": "Experimental technique, pages 226-227, and Table 1 footnote: pressures at room and high temperature were obtained from the Jamieson et al. (1982) platinum equation of state.",
+      "scope": "all 37 Table 1 observations"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The article identifies the Jamieson et al. platinum scale but does not tabulate the simultaneous Pt volumes or lattice parameters. The exact Jamieson platinum model is also not bundled, so observation-level pressure recalculation is not possible from the primary article."
+    },
+    "audit_date": "2026-09-05",
+    "notes": "Table 1 reports only reduced pressures. Its footnote states that points with pressure error greater than 0.5 GPa were rejected; it does not give retained-row pressure uncertainties."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final American Mineralogist article and the author-uploaded journal PDF. LitCurate was used only for discovery. The publisher and author records expose no separate supplement.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-1999-0303",
+     "locations": [
+      "Abstract and experimental technique, pages 226-227",
+      "Table 1 and results, page 227",
+      "Equation 5, page 229",
+      "Equations 14-20 and Tables 2-3, pages 228-231"
+     ],
+     "finding": "The article defines two high-temperature BM3 models that share the same 300 K isotherm. Tables 2 and 3 give V0=24.45 cm^3/mol and K0=260.51 GPa at 300 K, while the abstract and Equation 16 prescribe K'_300=4. This yields one non-duplicate static BM3 record on the source's Jamieson-1982 Pt pressure scale.",
+     "doi": "10.2138/am-1999-0303"
+    },
+    "reported_parameterizations": [
+     {
+      "role": "model_1_not_executable",
+      "thermal_expansivity": "Equation 14",
+      "compressibility": "Equation 17",
+      "K0_prime_temperature_law": "Equation 16",
+      "disposition": "Not stored because the current thermal schema cannot represent the complete source convention exactly."
+     },
+     {
+      "role": "model_2_not_executable",
+      "thermal_expansivity": "Equation 20",
+      "compressibility": "Equation 17",
+      "K0_prime_temperature_law": "Equation 16",
+      "disposition": "Not stored because the current thermal schema cannot represent the complete source convention exactly."
+     }
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the highest 300 K Table 1 observation, V=19.846 cm^3/mol, the stored BM3 predicts 82.5577 GPa versus the printed 82.5 GPa. The 0.0577 GPa difference is below the article's 0.5 GPa pressure-error rejection threshold and is consistent with the printed V0 precision.",
+     "independent_300_k_refit": {
+      "status": "parity_accepted",
+      "purpose": "Diagnostic reproduction of the represented static slice, not a reconstruction of either published full thermal regression.",
+      "source_subset": "The ten Table 1 observations printed at 300 K.",
+      "model": "Standard third-order Birch-Murnaghan pressure equation (Equation 5), with K0_prime fixed at the published 300 K value of 4.",
+      "free_parameters": [
+       "V0",
+       "K0"
+      ],
+      "residual_definition": "Nonlinear least squares in molar volume: [V_model(P_i)-V_i]/sigma_V_i. V_model was obtained by numerically inverting the represented BM3 pressure equation for each observed pressure.",
+      "uncertainty_treatment": "The parenthesized molar-volume uncertainties printed for the ten rows were used as relative weights. Their confidence convention is unpublished, so the fit does not promote its diagnostic covariance to source-reported parameter uncertainty.",
+      "pressure_uncertainty_treatment": "No pressure weights were used because retained-row pressure uncertainties are not printed. The stated 0.5 GPa cutoff is a rejection threshold, not a common pressure sigma.",
+      "result": {
+       "V0_molar_cm3_mol": 24.44757948,
+       "V0_cell_angstrom3": 162.38464327,
+       "K0_gpa": 260.48766286,
+       "reduced_chi_square_if_printed_volume_uncertainties_are_1sigma": 0.00110423827,
+       "unscaled_linearized_standard_error_V0_cell_angstrom3": 0.2142853,
+       "unscaled_linearized_standard_error_K0_gpa": 2.62311623
+      },
+      "published_parity": {
+       "published_V0_cell_angstrom3": 162.4007,
+       "delta_V0_cell_angstrom3": -0.01605673,
+       "absolute_relative_delta_V0_percent": 0.0098871,
+       "published_K0_gpa": 260.51,
+       "delta_K0_gpa": -0.02233714,
+       "absolute_relative_delta_K0_percent": 0.00857439
+      },
+      "assessment": "Both fitted coefficients differ from the published slice by less than 0.01% and by far less than the diagnostic unscaled linearized standard errors. The ten-row 300 K subset therefore independently reproduces the represented slice to scientifically acceptable parity."
+     },
+     "limitation": "The article's fitted data combine the 37 new Table 1 observations with earlier literature data that are not reprinted, and it gives no weights, residual objective, covariance, or parameter-error convention. The diagnostic ten-row 300 K refit reproduces the stored slice, but an independent source-protocol reconstruction of the full thermal/literature regression remains impossible from this DOI alone."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "bridgmanite_saxena_1999_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, all 37 new P-V-T observations"
+     ],
+     "finding": "All 37 primary P-V-T rows printed in Table 1 are bundled with their parenthesized molar-volume uncertainties. The paper does not publish the simultaneous Pt observations, retained-row pressure uncertainties, or individual temperature errors; it only states the pressure-error rejection threshold and a common thermocouple error bound."
+    }
+   }
+  },
+  {
+   "identifier": "bridgmanite_wolf_2015_vinet_mgd_4",
+   "label": "Wolf et al. (2015), reanalyzed Fe-free bridgmanite Vinet-MGD",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Wolf",
+     "Jackson",
+     "Dera",
+     "Prakapenka"
+    ],
+    "year": 2015,
+    "title": "The thermal equation of state of (Mg,Fe)SiO3 bridgmanite (perovskite) and implications for lower mantle structures",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "120",
+    "locator": "7460-7489",
+    "doi": "10.1002/2015JB012108"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 162.12,
+     "K0": 262.3,
+     "K0_prime": 4.044
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.13,
+    "K0": 3.2,
+    "K0_prime": 0.075
+   },
+   "parameter_error_confidence": 0.68,
+   "fixed_parameters": [],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1000.0,
+     "gamma0": 1.675,
+     "q": 1.39,
+     "n": 5.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.045,
+     "q": 0.16,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "rt_eos.K0_prime",
+     "gamma0",
+     "q"
+    ],
+    "matrix": [
+     [
+      0.00000383061519207,
+      -0.00601250533478,
+      0.000124771228871,
+      -0.0000105688570338,
+      -0.0000501042111232
+     ],
+     [
+      -0.00601250533478,
+      10.24,
+      -0.2304,
+      -0.01008,
+      -0.01024
+     ],
+     [
+      0.000124771228871,
+      -0.2304,
+      0.005625,
+      0.00091125,
+      0.00288
+     ],
+     [
+      -0.0000105688570338,
+      -0.01008,
+      0.00091125,
+      0.002025,
+      0.00684
+     ],
+     [
+      -0.0000501042111232,
+      -0.01024,
+      0.00288,
+      0.00684,
+      0.0256
+     ]
+    ]
+   },
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    27.96,
+    108.51
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    2430.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     27.96,
+     108.51
+    ],
+    "temperature_k": [
+     300.0,
+     2430.0
+    ],
+    "volume_ratio": [
+     0.79015544,
+     0.92684431
+    ],
+    "notes": [
+     "Marginal envelope of the 42 reanalyzed observations; the sampled P-T paths are not a rectangular phase-stability guarantee.",
+     "This is Wolf et al.'s reanalysis of Tange et al. (2012), not the original Tange BM3-MGD or Vinet-MGD parameterization."
+    ]
+   },
+   "experimental_configuration": {
+    "sample": "Fe-free MgSiO3 bridgmanite data originally measured by Tange et al. (2012)",
+    "groups": "27 sintered-diamond multianvil, 6 room-temperature DAC, and 9 laser-heated DAC observations",
+    "pressure_calibration": "Tange et al. (2009) MgO scale",
+    "reanalysis": "same PVT-tool equations, priors, staged fit, and empirical uncertainty adjustment used for the Wolf et al. 13% Fe data"
+   },
+   "fit_datasets": [
+    "bridgmanite_wolf_2015_table2_pvt"
+   ],
+   "parameter_provenance": {
+    "equation": "Final Wolf et al. article, equations 1-6: 300 K Vinet reference isotherm plus reference-subtracted Mie-Gruneisen-Debye thermal pressure",
+    "V0": "Final Wolf et al. article, Table 3, 0% Fe column: fitted 162.12(13) angstrom^3 conventional Z=4 cell; prior 162.5 +/- 0.2 angstrom^3",
+    "K0": "Final Wolf et al. article, Table 3, 0% Fe column: fitted K0T=262.3(32) GPa",
+    "K0_prime": "Final Wolf et al. article, Table 3, 0% Fe column: fitted K0T'=4.044(75)",
+    "Tr": "Final Wolf et al. article, equation 1: thermal pressure referenced to 300 K",
+    "theta0": "Final Wolf et al. article, section 3.3 and Table 3 note: fixed to 1000 K after a preliminary Fe-free fit gave 991 +/- 77 K",
+    "gamma0": "Final Wolf et al. article, Table 3, 0% Fe column: fitted 1.675(45), with prior 1 +/- 1",
+    "q": "Final Wolf et al. article, Table 3, 0% Fe column: fitted 1.39(16), with prior 1 +/- 1",
+    "n": "Final article, equation 3 definition CVmax=3 kB Ncell and PVT-tool input natom=20 for the Z=4 cell; exactly equivalent to n=5 per formula unit in Peritheos",
+    "parameter_covariance": "Reconstructed from the 68% parameter errors in final Table 3 and the complete 0% Fe correlation matrix in final Table 4. The V0 row and column are converted from cell-volume units to Peritheos's internal molar-volume unit using N_A*1e-25/Z; all reported correlations are preserved."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "MgO",
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "title": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
+       "source": "Journal of Geophysical Research: Solid Earth",
+       "volume": "114",
+       "locator": "B03208",
+       "doi": "10.1029/2008JB005813"
+      },
+      "source_location": "Final Wolf et al. article, sections 3.1 and Table 3 note; final Table 2 supplies paired MgO volumes",
+      "scope": "all 42 reanalyzed Table 2 observations",
+      "reference_eos_record": "mgo_b1_tange_2009_vinet"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The exact Tange et al. (2009) MgO Vinet-MGD scale is executable, and every paired MgO unit-cell volume, uncertainty, and temperature is bundled."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final Wolf et al. article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1002/2015JB012108",
+     "doi": "10.1002/2015JB012108",
+     "locations": [
+      "final Wolf et al. article, sections 3.1-3.4 and 4.2",
+      "final Wolf et al. article, equations 1-11 and Tables 2-4",
+      "final Wolf et al. article data-availability statement",
+      "corresponding-author data page, Table 2 machine-readable mirror",
+      "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Tange2012_lsq_fixdeb.in"
+     ],
+     "finding": "The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "bridgmanite_wolf_2015_table2_pvt"
+     ],
+     "source_locations": [
+      "final Wolf et al. article, Table 2",
+      "corresponding-author machine-readable Table 2"
+     ],
+     "finding": "All 42 reanalyzed observations are bundled in source order, with reduced pressure and total propagated uncertainty, temperature and uncertainty, bridgmanite cell volume and uncertainty, and paired MgO cell volume and uncertainty."
+    },
+    "independent_refit": {
+     "selection": "all 42 Table 2 rows",
+     "objective": "joint weighted pressure residuals using the final printed total pressure uncertainties, plus the published independent Gaussian priors on V0, gamma0, and q; theta0 fixed to 1000 K",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime",
+      "gamma0",
+      "q"
+     ],
+     "refit_parameters": {
+      "V0": 162.12798543,
+      "K0": 262.21990748,
+      "K0_prime": 4.04745932,
+      "gamma0": 1.67933146,
+      "q": 1.41547507
+     },
+     "published_curve_pressure_rmse_gpa": 0.3027410708,
+     "refit_curve_pressure_rmse_gpa": 0.2986905827,
+     "result": "similar",
+     "notes": "The rounded-table diagnostic reproduces V0, K0, K0', and gamma0 within displayed rounding or a small fraction of their 68% intervals; q differs by 0.0255, only 0.16 of its reported interval. This is not substituted for the authors' iterative marker-volume error-model fit."
+    },
+    "unresolved_issues": [
+     "The publisher record exposes no separate supporting-information file; the final article states that the analyzed data are included in its tables, and the corresponding author supplies exact machine-readable mirrors of Tables 1-5.",
+     "The corresponding-author plain-text Table 2 header mistakenly labels the last volume pair V_Ne; final article Table 2, section 3.1, and the PVT-tool input all identify those values as MgO, which is retained here.",
+     "The source's ideal lattice mixing model for arbitrary Fe content is a separate compositional interpolation and is not represented as another single-composition EOS record."
+    ]
+   },
+   "source_lineage": [
+    {
+     "role": "final reanalyzed equations, parameters, correlations, uncertainty treatment, and pressure calibration",
+     "citation": "Wolf et al. (2015), Journal of Geophysical Research: Solid Earth 120, 7460-7489",
+     "doi": "10.1002/2015JB012108"
+    },
+    {
+     "role": "original Fe-free MgSiO3 bridgmanite P-V-T observations",
+     "citation": "Tange et al. (2012), Journal of Geophysical Research: Solid Earth 117, B06201",
+     "doi": "10.1029/2011JB008988"
+    },
+    {
+     "role": "machine-readable mirror of final Wolf et al. Table 2",
+     "citation": "Aaron S. Wolf, Wolf2015 Table 2",
+     "url": "https://aswolf.github.io/data/Wolf2015/tbl2.txt",
+     "sha256": "30e76256dbf22d014425109cf6c4611e8d6012598ffd38be2babec682bd8e8c9"
+    },
+    {
+     "role": "author implementation and exact model/fitting configuration cross-check",
+     "citation": "aswolf/pvt-tool",
+     "url": "https://github.com/aswolf/pvt-tool",
+     "commit": "1a7243a39a21afa90a2951a0cdcd2a668602720f"
+    }
+   ],
+   "notes": "Published Fe-free comparison record from Wolf et al.'s homogeneous reanalysis, deliberately separate from the original Tange et al. BM3-MGD and Vinet-MGD records. V0, K0, K0', gamma0, and q were fitted; Tr=300 K, theta0=1000 K, and the 20-atom conventional-cell count were fixed. The complete five-parameter covariance is reconstructed from Tables 3-4 rather than treating strongly correlated errors as independent. Table 5 provides an independent source-output check: at 108.7 GPa and 2429 K the implementation gives density 5.17 g/cm3, gamma=1.22, and Cv/(3Nk)=0.9839 at printed precision, and KS=603.81 GPa versus the printed 603.7 GPa (a 0.11 GPa difference attributable to rounded coefficients)."
   }
  ],
  "format": "peritheos.material",
@@ -644,6 +1122,164 @@
    },
    "used_by_eos_records": [
     "bridgmanite_vanpeteghem_2006_bm2_3"
+   ]
+  },
+  {
+   "identifier": "bridgmanite_saxena_1999_table1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 37 MgSiO3-perovskite P-V-T observations printed in Saxena et al. (1999) Table 1.",
+   "source_location": "Table 1, page 227",
+   "source_url": "https://doi.org/10.2138/am-1999-0303",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_from_platinum_eos",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_mol"
+    }
+   ],
+   "resource": {
+    "path": "datasets/bridgmanite-saxena-1999-table1-pvt.csv",
+    "sha256": "3302d133854a5c52f6d69821f0f9f304241cea8dbb92171d1803a8fb6d99eff9",
+    "media_type": "text/csv"
+   },
+   "notes": "The primary table reports formula-molar MgSiO3 volume. Parenthesized last-digit volume uncertainties are preserved, but the paper does not identify their confidence convention. The pressure footnote says that pressures were determined from the Jamieson et al. (1982) Pt EOS and points with error greater than 0.5 GPa were rejected; no retained-row pressure errors or Pt observations are tabulated. Thermocouple errors are stated to be less than +/-10 K, without row-specific values or a confidence convention. Ten rows are at 300 K; only those rows directly benchmark the executable static slice. The full published thermal analysis also used earlier literature data that are not reprinted in this article.",
+   "reference": {
+    "authors": [
+     "Saxena",
+     "Dubrovinsky",
+     "Tutti",
+     "Le Bihan"
+    ],
+    "year": 1999,
+    "title": "Equation of state of MgSiO3 with the perovskite structure based on experimental measurement",
+    "source": "American Mineralogist",
+    "volume": "84",
+    "locator": "226-232",
+    "doi": "10.2138/am-1999-0303"
+   },
+   "used_by_eos_records": [
+    "bridgmanite_saxena_1999_bm3_4"
+   ]
+  },
+  {
+   "identifier": "bridgmanite_wolf_2015_table2_pvt",
+   "kind": "pressure_volume_temperature_with_calibrant",
+   "description": "All 42 Fe-free MgSiO3 bridgmanite observations reanalyzed in final Table 2, including paired MgO marker volumes and the final adjusted uncertainties used by the published fit.",
+   "source_location": "Final article Table 2 and corresponding-author machine-readable Table 2",
+   "source_url": "https://aswolf.github.io/data/Wolf2015/tbl2.txt",
+   "source_file_sha256": "30e76256dbf22d014425109cf6c4611e8d6012598ffd38be2babec682bd8e8c9",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "measurement_group",
+     "quantity": "measurement_uncertainty_group",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_from_mgo_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_total_uncertainty_gpa",
+     "quantity": "pressure_from_mgo_scale",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "bridgmanite_unit_cell_volume_a3",
+     "quantity": "bridgmanite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "bridgmanite_unit_cell_volume_uncertainty_a3",
+     "quantity": "bridgmanite_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "bridgmanite_unit_cell_volume_a3"
+    },
+    {
+     "name": "mgo_unit_cell_volume_a3",
+     "quantity": "mgo_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "mgo_unit_cell_volume_uncertainty_a3",
+     "quantity": "mgo_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "mgo_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/bridgmanite-wolf-2015-table2-pvt.csv",
+    "sha256": "9bf59dee8dcd228402e9bd640fec0c5bf926b3b567139ad11065708a50e3e015",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "confidence_convention": "The article labels parenthetical entries as errors in trailing digits and Table 3 parameter errors as 68% confidence intervals. Table 2 pressure uncertainties are the final propagated effective uncertainties after the authors' empirical group-wise error adjustment.",
+    "covariance": "No observation-level covariance matrix is published."
+   },
+   "notes": "Measurement group 1 contains 27 sintered-diamond multianvil observations, group 2 contains 6 room-temperature DAC observations, and group 3 contains 9 laser-heated DAC observations. The corresponding-author text header says V_Ne, but final Table 2, section 3.1, and the fitting input identify the paired marker as MgO.",
+   "reference": {
+    "authors": [
+     "Wolf",
+     "Jackson",
+     "Dera",
+     "Prakapenka"
+    ],
+    "year": 2015,
+    "title": "The thermal equation of state of (Mg,Fe)SiO3 bridgmanite (perovskite) and implications for lower mantle structures",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "120",
+    "locator": "Table 2, 7469",
+    "doi": "10.1002/2015JB012108"
+   },
+   "used_by_eos_records": [
+    "bridgmanite_wolf_2015_vinet_mgd_4"
    ]
   }
  ]

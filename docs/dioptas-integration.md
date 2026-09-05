@@ -63,17 +63,17 @@ material and removes the unsupported Fei-FeO and Hixson-W reductions. It also
 excludes the Martinez global HT-BM3 reduction because its fitted reference
 volume is omitted and its remaining coefficients are not reproducible from the
 printed data under the documented equations.
-Peritheos-native aragonite BM2, B2-KCl P-V-T, and Correa and Benedict diamond
-Helmholtz records, plus two explicitly derived Dewaele-anchored diamond
-compositions, plus the Campbell-Heinz RbCl-B2 record, bring the distributed
-catalog to 116 materials and 162 EOS
-records; they have primary-publication provenance rather than fabricated
-Dioptas migration sources.
+Peritheos-native records add aragonite, B2-KCl, RbCl-B2, diamond, MgO, CaSiO3,
+stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina models. Together
+with two explicitly derived Dewaele-anchored diamond compositions, these bring
+the distributed catalog to 139 materials and 211 EOS records. Native records
+carry primary-publication provenance rather than fabricated Dioptas migration
+sources.
 
 ```python
 from peritheos import get_material_document, list_material_documents
 
-print(len(list_material_documents()))  # 116
+print(len(list_material_documents()))  # 139
 gold = get_material_document("gold")
 print(len(gold["eos_records"]))
 ```
@@ -98,7 +98,7 @@ new or edited records so the scientific choice is visible without consulting
 the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
-marks all 162 bundled records `primary_source_validated`; no record remains
+marks all 211 bundled records `primary_source_validated`; no record remains
 pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.

@@ -25,8 +25,9 @@ use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
     DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz,
     LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
-    MultiOscillatorGruneisen, ReferenceStateEos, ReferenceVolumeLaw, SokolovaParameters,
-    ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState,
+    MultiOscillatorGruneisen, ReferenceStateEos, ReferenceVolumeLaw,
+    SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
+    ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -508,6 +509,8 @@ pub enum ThermalModel {
     LinearThermalPressure(LinearThermalPressure<IsothermalModel>),
     /// Logarithmic-volume thermal pressure.
     LogVolumeThermalPressure(LogVolumeThermalPressure<IsothermalModel>),
+    /// Absolute bivariate second-order Taylor thermal pressure.
+    SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<IsothermalModel>),
     /// Mie--Gruneisen--Debye EOS.
     MieGruneisenDebye(MieGruneisenDebye<IsothermalModel>),
     /// Mie--Gruneisen--Einstein EOS.
@@ -529,6 +532,7 @@ macro_rules! dispatch_thermal {
             ThermalModel::DorogokupetsOganov2007($model) => $expression,
             ThermalModel::LinearThermalPressure($model) => $expression,
             ThermalModel::LogVolumeThermalPressure($model) => $expression,
+            ThermalModel::SecondOrderTaylorThermalPressure($model) => $expression,
             ThermalModel::MieGruneisenDebye($model) => $expression,
             ThermalModel::MieGruneisenEinstein($model) => $expression,
             ThermalModel::MultiOscillatorGruneisen($model) => $expression,
@@ -551,6 +555,7 @@ impl ThermalModel {
             Self::DorogokupetsOganov2007(_) => "dorogokupets_oganov_2007",
             Self::LinearThermalPressure(_) => "linear_thermal_pressure",
             Self::LogVolumeThermalPressure(_) => "log_volume_thermal_pressure",
+            Self::SecondOrderTaylorThermalPressure(_) => "second_order_taylor_thermal_pressure",
             Self::MieGruneisenDebye(_) => "mie_gruneisen_debye",
             Self::MieGruneisenEinstein(_) => "mie_gruneisen_einstein",
             Self::MultiOscillatorGruneisen(_) => "multi_oscillator_gruneisen_thermal_pressure",
@@ -652,6 +657,9 @@ impl LoadedEos {
                 ThermalModel::DorogokupetsOganov2007(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LinearThermalPressure(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LogVolumeThermalPressure(value) => value.rt_eos.model_identifier(),
+                ThermalModel::SecondOrderTaylorThermalPressure(value) => {
+                    value.rt_eos.model_identifier()
+                }
                 ThermalModel::MieGruneisenDebye(value) => value.rt_eos.model_identifier(),
                 ThermalModel::MieGruneisenEinstein(value) => value.rt_eos.model_identifier(),
                 ThermalModel::MultiOscillatorGruneisen(value) => value.rt_eos.model_identifier(),
@@ -2410,8 +2418,14 @@ fn build_record(
             .and_then(|state| state.temperature_k)
             .unwrap_or(300.0),
     });
-    if !reference_temperature.is_finite() || reference_temperature <= 0.0 {
-        return Err("temperature_ref must be positive and finite".to_owned());
+    if !reference_temperature.is_finite()
+        || reference_temperature < 0.0
+        || (reference_temperature == 0.0 && !matches!(eos, LoadedEos::Isothermal(_)))
+    {
+        return Err(
+            "temperature_ref must be positive and finite, except for a static 0 K isothermal record"
+                .to_owned(),
+        );
     }
     let default_category = if is_hugoniot {
         "hugoniot"
@@ -2482,6 +2496,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "DorogokupetsOganov2007" => "dorogokupets_oganov_2007",
             "LinearThermalPressure" => "linear_thermal_pressure",
             "LogVolumeThermalPressure" => "log_volume_thermal_pressure",
+            "SecondOrderTaylorThermalPressure" => "second_order_taylor_thermal_pressure",
             "MieGruneisenDebye" => "mie_gruneisen_debye",
             "MieGruneisenEinstein" => "mie_gruneisen_einstein",
             "MultiOscillatorGruneisen" | "Sokolova2016" => {
@@ -2722,6 +2737,21 @@ fn build_thermal(
             check_type(component, "LogVolumeThermalPressure")?;
             LogVolumeThermalPressure::new(reference, p("Tr")?, p("alpha_KT_ref")?, p("dK_dT_V")?)
                 .map(ThermalModel::LogVolumeThermalPressure)
+        }
+        "second_order_taylor_thermal_pressure" => {
+            check_type(component, "SecondOrderTaylorThermalPressure")?;
+            SecondOrderTaylorThermalPressure::new(
+                reference,
+                p("Tr")?,
+                p("eta0")?,
+                p("c0")?,
+                p("c1")?,
+                p("c2")?,
+                p("c3")?,
+                p("c4")?,
+                p("c5")?,
+            )
+            .map(ThermalModel::SecondOrderTaylorThermalPressure)
         }
         "thermal_reference_state" => {
             check_type(component, "AlphaKT")?;

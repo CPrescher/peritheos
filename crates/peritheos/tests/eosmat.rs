@@ -90,6 +90,24 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
 }
 
 #[test]
+fn static_isothermal_record_accepts_zero_kelvin_reference_temperature() {
+    let source = simple_document().replace(
+        "\"default\": true,",
+        "\"default\": true, \"equation_kind\": \"isothermal\", \"temperature_ref\": 0.0,",
+    );
+    let material = load_eosmat_str(&source).unwrap();
+    let record = material.record("test_bm3").unwrap();
+
+    assert!(record.reference_temperature.abs() < f64::EPSILON);
+    assert!(record.pressure(9.0, 0.0).unwrap().is_finite());
+
+    let error =
+        load_eosmat_str(&source.replace("\"temperature_ref\": 0.0", "\"temperature_ref\": -1.0"))
+            .unwrap_err();
+    assert!(error.to_string().contains("static 0 K isothermal"));
+}
+
+#[test]
 fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
     let Some(material) = load_bundled_material("diamond.eosmat") else {
         return;
@@ -128,6 +146,76 @@ fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
     assert!(isothermal
         .volume_with_dac_confinement(cold_pressure, temperature, f_dac)
         .is_err());
+}
+
+#[test]
+fn qin_2023_calcium_ferrite_records_load_and_reproduce_high_pressure_states() {
+    let cases = [
+        (
+            "na093al102si100o4_calcium_ferrite.eosmat",
+            "na093al102si100o4_calcium_ferrite_qin_2023_bm3_1",
+            207.3,
+            40.609_612_068_923_79,
+        ),
+        (
+            "na088al099fe013si094o4_calcium_ferrite.eosmat",
+            "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1",
+            206.6,
+            43.209_378_809_850_9,
+        ),
+    ];
+
+    for (filename, identifier, volume, expected_pressure) in cases {
+        let material = load_bundled_material(filename).unwrap();
+        let record = material.record(identifier).unwrap();
+
+        assert_eq!(
+            record.eos.isothermal_model_identifier(),
+            "birch_murnaghan_3"
+        );
+        assert_close(
+            record.pressure(volume, 293.0).unwrap(),
+            expected_pressure,
+            1.0e-12,
+        );
+        assert_close(
+            record.volume(expected_pressure, 293.0).unwrap(),
+            volume,
+            1.0e-12,
+        );
+    }
+}
+
+#[test]
+fn luo_mgo_eosmat_preserves_absolute_thermal_pressure() {
+    let Some(material) = load_bundled_material("mgo.eosmat") else {
+        return;
+    };
+    let record = material.record("mgo_b1_luo_2023_vinet_thermal_5").unwrap();
+    let ambient_cell_volume = 74.569_767_758_6;
+    let table_volume = ambient_cell_volume * (1.0 - 0.42);
+
+    assert_eq!(record.eos.isothermal_model_identifier(), "vinet");
+    assert_eq!(
+        record.eos.thermal_model_identifier(),
+        Some("second_order_taylor_thermal_pressure")
+    );
+    assert_close(
+        record.pressure(table_volume, 8500.0).unwrap(),
+        342.01,
+        1.5 / 342.01,
+    );
+
+    let cold_reference_volume = 74.074_102_512_3;
+    let baseline = record.pressure(cold_reference_volume, 300.0).unwrap();
+    assert!(baseline.abs() > 1.0e-3);
+    assert_close(
+        record
+            .thermal_pressure_increment(table_volume, 300.0)
+            .unwrap(),
+        0.0,
+        1.0e-12,
+    );
 }
 
 #[test]
@@ -771,6 +859,12 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                     let pressure = record.pressure(8.0 * 4.43, 5000.0).unwrap();
                     assert!((pressure - 202.628_115_197_741_86).abs() < 1.0e-7);
                 }
+                (
+                    "mgo_b1_luo_2023_vinet_thermal_5",
+                    Some("second_order_taylor_thermal_pressure"),
+                ) => {
+                    assert_close(pressure, 0.785_335_88, 1.0e-8);
+                }
                 (_, _) => {
                     assert!(pressure.abs() < 1.0e-8, "reference pressure was {pressure}");
                 }
@@ -778,7 +872,7 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         }
     }
 
-    assert_eq!(paths.len(), 115);
-    assert_eq!(records, 160);
-    assert_eq!(thermal_records, 38);
+    assert_eq!(paths.len(), 139);
+    assert_eq!(records, 211);
+    assert_eq!(thermal_records, 49);
 }

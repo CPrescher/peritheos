@@ -41,6 +41,7 @@ from peritheos.eos.thermal import (
     MieGruneisenDebye,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
+    SecondOrderTaylorThermalPressure,
     Tange2009Debye,
     ThermalModifiedTait,
     ThermalReferenceStateEOS,
@@ -367,8 +368,15 @@ class EOSRecord:
         if temperature is None:
             temperature = self.reference_temperature
         values = np.asarray(temperature, dtype=float)
-        if not np.all(np.isfinite(values)) or np.any(values <= 0.0):
-            raise MaterialError("Temperature must be finite and greater than zero")
+        if self.is_thermal or self.is_hugoniot:
+            invalid_minimum = values <= 0.0
+        else:
+            invalid_minimum = values < 0.0
+        if not np.all(np.isfinite(values)) or np.any(invalid_minimum):
+            raise MaterialError(
+                "Temperature must be finite and nonnegative for an isothermal EOS; "
+                "thermal and Hugoniot records require a value greater than zero"
+            )
         if not self.is_thermal and not np.allclose(
             values, self.reference_temperature, rtol=0.0, atol=1.0e-8
         ):
@@ -1142,6 +1150,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "DorogokupetsOganov2007": "dorogokupets_oganov_2007",
         "LinearThermalPressure": "linear_thermal_pressure",
         "LogVolumeThermalPressure": "log_volume_thermal_pressure",
+        "SecondOrderTaylorThermalPressure": ("second_order_taylor_thermal_pressure"),
         "ThermalReferenceStateEOS": "thermal_reference_state",
         "MieGruneisenDebye": "mie_gruneisen_debye",
         "MieGruneisenEinstein": "mie_gruneisen_einstein",
@@ -1173,6 +1182,7 @@ _MODEL_CLASSES = MappingProxyType(
             DorogokupetsOganov2007,
             LinearThermalPressure,
             LogVolumeThermalPressure,
+            SecondOrderTaylorThermalPressure,
             ThermalReferenceStateEOS,
             MieGruneisenDebye,
             MieGruneisenEinstein,
@@ -1201,6 +1211,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "dorogokupets_oganov_2007": "DorogokupetsOganov2007",
         "linear_thermal_pressure": "LinearThermalPressure",
         "log_volume_thermal_pressure": "LogVolumeThermalPressure",
+        "second_order_taylor_thermal_pressure": ("SecondOrderTaylorThermalPressure"),
         "thermal_reference_state": "AlphaKT",
         "mie_gruneisen_debye": "MieGruneisenDebye",
         "mie_gruneisen_einstein": "MieGruneisenEinstein",

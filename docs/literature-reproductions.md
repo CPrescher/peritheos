@@ -25,6 +25,315 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+<a id="casio3-caracas-2005"></a>
+
+## CaSiO3 perovskite: Caracas et al. (2005)
+
+### Source identity and equation convention
+
+The primary source is Caracas, Wentzcovitch, Price, and Brodholt,
+*CaSiO3 perovskite at lower mantle pressures*, Geophysical Research Letters
+**32**, L06306 (2005),
+[doi:10.1029/2004GL022144](https://doi.org/10.1029/2004GL022144). The audit used
+the publisher HTML and the UCL author-deposited five-page article. Neither page
+lists supporting information or a data attachment.
+
+This is a static-lattice, zero-Kelvin first-principles study, not an experimental
+pressure calibration. Section 4 defines the Eulerian strain
+
+\[
+f=\frac{1}{2}\left[\left(\frac{V_0}{V}\right)^{2/3}-1\right]
+\]
+
+and identifies the Table 2 fits as third- and fourth-order Birch--Murnaghan.
+In Peritheos notation their pressure forms are
+
+\[
+P_{\mathrm{BM3}}=3K_0f(1+2f)^{5/2}
+\left[1+\frac{3}{2}(K'_0-4)f\right]
+\]
+
+and
+
+\[
+P_{\mathrm{BM4}}=3K_0f(1+2f)^{5/2}
+\left[1+\frac{3}{2}(K'_0-4)f
++\frac{3}{2}\left(K_0K''_0+(K'_0-4)(K'_0-3)+\frac{35}{9}\right)f^2\right].
+\]
+
+Thus a BM3 row does not have a missing free `K0_double_prime`: truncation fixes
+its implied value to
+
+\[
+K''_0=-\frac{(K'_0-4)(K'_0-3)+35/9}{K_0}.
+\]
+
+That derived value must not be confused with the independently fitted and much
+less negative `K0_double_prime` printed in the BM4 block.
+
+### Resolution of all Table 2 rows
+
+LitCurate's repeated rows correspond to 18 distinct source parameterizations:
+nine crystallographic distortions, each fitted once as BM3 and once as BM4.
+Volumes are the paper's `V0/Z`, in A^3 per CaSiO3 formula unit. The final BM3
+column below is derived from the truncation identity above; every BM4 `K0''`
+is directly source-reported in GPa^-1.
+
+| Structure | Glazer tilt | BM3 `V0`, `K0`, `K0'` | BM3 implied `K0''` | BM4 `V0`, `K0`, `K0'`, `K0''` |
+|---|---|---|---:|---|
+| Pm-3m | a0a0a0 | 44.579, 250, 4.098 | -0.015985972 | 44.588, 248, 4.206, -0.002 |
+| I4/mcm | a0a0c- | 44.537, 249, 4.090 | -0.016012004 | 44.547, 247, 4.213, -0.002 |
+| Imma | a0b-b- | 44.567, 249, 4.094 | -0.016031024 | 44.576, 247, 4.218, -0.002 |
+| R-3c | a-a-a- | 44.821, 247, 4.100 | -0.016189834 | 44.832, 244, 4.236, -0.002 |
+| P4/mbm | a0a0c+ | 44.629, 247, 4.124 | -0.016308765 | 44.641, 244, 4.261, -0.002 |
+| I4/mmm | a0b+b+ | 44.599, 250, 4.103 | -0.016009992 | 44.609, 248, 4.219, -0.002 |
+| Im-3 | a+a+a+ | 44.600, 250, 4.104 | -0.016014820 | 44.610, 247, 4.229, -0.002 |
+| P42/nmc | a+a+c- | 44.576, 248, 4.092 | -0.016086100 | 44.566, 251, 3.977, -0.001 |
+| Pnma | a-b+a- | 44.576, 249, 4.104 | -0.016079136 | 44.588, 246, 4.248, -0.002 |
+
+These are not interchangeable composition variants. Pm-3m is the ideal cubic
+parent; the other eight rows represent distinct tilted structures. The paper
+finds Pm-3m dynamically unstable throughout the investigated static pressure
+range and identifies I4/mcm as the lowest-energy static configuration. It does
+not publish the optimized atomic coordinates required for new diffraction-ready
+low-symmetry material records.
+
+### Selected record and numerical reproduction
+
+The one executable addition is `ca_perovskite_caracas_2005_bm3_3`, the Pm-3m
+BM3 fit (`V0 = 44.579 A^3`, `K0 = 250 GPa`, `K0' = 4.098`). It belongs in the
+existing cubic `ca_perovskite` material because Pm-3m has one formula unit in
+its primitive conventional cell, so the source's `V0/Z` is directly the public
+cell volume. The low-symmetry rows do not belong in that material. The cubic
+BM4 row is retained as explicit alternative-fit metadata rather than being
+misrepresented as a duplicate or added as a second record in this focused
+change.
+
+As an independent check, inversion of the published BM3 equation at 130 GPa
+gives `V = 33.436317 A^3`. Using the CaSiO3 formula mass and one formula unit per
+cell gives `rho = 5.76885 g/cm^3`, reproducing the paper's separately stated
+`5.77 g/cm^3` cubic density. The zero-pressure conversion gives
+`4.32690 g/cm^3`, consistent with the paper's truncated `4.32 g/cm^3` statement.
+
+The underlying first-principles energy-volume points, coefficient uncertainties,
+fit weights, residuals, and covariance are not published. Table 2's stated
+calculation uncertainty of about 20 meV per molecule describes the energy scale,
+not an uncertainty on `V0`, `K0`, `K0'`, or `K0''`; the coefficient errors remain
+explicitly unavailable. Consequently no source-faithful coefficient refit is
+possible; the refit ledger classifies this record as
+`theoretical_parameterization_only` and `not_refittable` rather than digitizing
+or synthesizing observations.
+## Stishovite, Wang et al. (2012)
+
+### Source, observations, and calibration
+
+- Primary article: F. Wang, Y. Tange, T. Irifune, and K. Funakoshi,
+  *P-V-T equation of state of stishovite up to mid-lower mantle conditions*,
+  *Journal of Geophysical Research: Solid Earth* **117**, B06209 (2012),
+  [doi:10.1029/2011JB009100](https://doi.org/10.1029/2011JB009100).
+- Primary data: all 56 rows of Table 1, spanning 16.85--54.5 GPa and
+  300--1700 K. The bundled CSV preserves the stishovite lattice parameters and
+  conventional-cell volumes, simultaneous Au volumes, and all printed
+  parenthetical estimated standard deviations. The publisher also lists
+  tab-delimited supplements for Tables 2--4; these contain fitted parameters
+  and calculated P-V-T/thermoelastic grids rather than additional observations.
+- Pressure calibration: each pressure was calculated from simultaneous Au
+  volume and temperature with the Tsuchiya (2003) Au thermal EOS,
+  [doi:10.1029/2003JB002446](https://doi.org/10.1029/2003JB002446). The paired
+  calibrant observations are preserved, but that Au EOS is not yet executable
+  in Peritheos, so exact pressure re-reduction is recorded as pending rather
+  than approximated with a different gold scale.
+
+The sample is pure, Al-free SiO2 stishovite. The diffraction cell is the
+existing rutile-type tetragonal `P42/mnm`, `Z = 2` structure in
+`sio2_stv_andr.eosmat`; therefore the Table 1 conventional-cell volume is the
+model volume without a crystallographic conversion.
+
+### Model choice and numerical reproduction
+
+The paper fits one Mie--Gruneisen--Debye thermal formulation with two alternative
+300 K reference curves. The implemented record uses the Vinet curve because
+Figure 2 plots it and Tables 3--4 list it first. The authors do not claim that
+it is statistically preferred: they say both Vinet and BM3 reproduce the data
+and agree within analytical uncertainty. To keep this audit to one executable
+literature record, the complete BM3 coefficients are retained in the Vinet
+record's notes.
+
+For `x = V/V0`, the stored thermal law is exactly equations (4)--(8), with
+
+\[
+\gamma=\gamma_0\{1+a(x^b-1)\},\qquad
+\Theta=\Theta_0\exp\left[-\gamma_0\left((1-a)\ln x+
+\frac{a}{b}(x^b-1)\right)\right],
+\]
+
+and a Debye thermal-pressure increment referenced to 300 K. The atom count is
+`n = 3` per SiO2 formula unit. Table 2 fixes `V0 = 46.55 Å³` and `a = 1`, and
+reports the Vinet solution `K0 = 292(2) GPa`, `K0' = 5.01(12)`,
+`theta0 = 1130(110) K`, `gamma0 = 1.67(7)`, and `b = 3.0(4)`. The alternative
+BM3 solution is `K0 = 294(2) GPa`, `K0' = 4.85(12)`,
+`theta0 = 1130(100) K`, `gamma0 = 1.66(7)`, and `b = 2.9(4)`, with the same
+fixed `V0` and `a`.
+
+The fixed `V0` is the rounded form of the separately reported recovered-sample
+measurement `46.553(19) Å³`; it has no fit uncertainty because it was held
+fixed, although the underlying ambient measurement does have an uncertainty.
+
+The published Vinet coefficients reproduce the Table 3 values: at
+`V/V0 = 0.98` and 1000 K Peritheos gives 11.103 GPa versus 11.11 GPa, and at
+`V/V0 = 1` and 3000 K it gives 22.619 GPa versus 22.62 GPa. Across all 56
+observations the printed curve has a pressure RMSE of 0.213 GPa. An independent
+errors-in-variables refit using the printed pressure and volume uncertainties,
+with `V0`, `Tr`, `a`, and `n` fixed, gives `K0 = 294.68 GPa`, `K0' = 4.879`,
+`theta0 = 1134.7 K`, `gamma0 = 1.6555`, and `b = 3.0469`; every coefficient is
+within the combined two-standard-deviation interval of the published value.
+
+Several measurements lie beyond the cited stishovite--CaCl2-type boundary, but
+no transition was observed on the experimental timescale. The authors report
+that excluding those points leaves the fit unchanged. Consequently the stored
+P-T bounds describe the observations, not a rectangular phase-stability field.
+
+## Corundum and Rh2O3(II)-type Al2O3: Shi et al. (2022)
+
+### Source classification and equation
+
+Shi et al., *Thermal Equations of State of Corundum and Rh2O3 (II)-Type
+Al2O3 up to 153 GPa and 3400 K*, Journal of Geophysical Research: Solid Earth
+**127**, e2021JB023805 (2022),
+[doi:10.1029/2021JB023805](https://doi.org/10.1029/2021JB023805), is the
+primary EOS source. Its [official Zenodo deposit](https://doi.org/10.5281/zenodo.5771198)
+contains the Supporting Information under CC BY 4.0.
+
+The LitCurate discovery result is not a scientifically correct record model.
+The paper does not report six interchangeable, isothermal BM3 equations. It
+uses the following full Mie--Gruneisen--Debye equation, with a 300 K BM3 cold
+term:
+
+\[
+P(V,T)=P_{300}(V)+\frac{\gamma(V)}{V}
+\left[E_D(V,T)-E_D(V,300\ \mathrm{K})\right],
+\]
+
+\[
+\gamma(V)=\gamma_0(V/V_0)^q,\qquad
+\theta(V)=\theta_0\exp[-(\gamma(V)-\gamma_0)/q].
+\]
+
+Equation 2 is algebraically third-order Birch--Murnaghan even though the prose
+calls it Murnaghan. Every fit fixes `K0' = 4`, so the cold curve numerically
+reduces to BM2. Equation 4 uses `n = 5` atoms per Al2O3 formula unit. This maps
+exactly to `BM3 + MieGruneisenDebye` with
+`debye_temperature_law: integrated_gruneisen`.
+
+The apparent multiple records are sensitivity trials. Main Tables 2 and 3
+contain three corundum trial-Debye-temperature fits and five Rh2O3(II)
+trial-`q` fits:
+
+| Phase/model | `K0` (GPa) | `K0'` | `V0` (A^3/cell) | `theta0` (K) | `gamma0` | `q` |
+|---|---:|---:|---:|---:|---:|---:|
+| corundum M1 | 245(1) | 4 fixed | 255.1 fixed | 500 fixed | 1.21(6) | 0.7(3) |
+| corundum M2 | 245(1) | 4 fixed | 255.1 fixed | 800 fixed | 1.26(6) | 0.7(3) |
+| corundum M3, selected | 246(1) | 4 fixed | 255.1 fixed | 1100 fixed | 1.32(7) | 0.8(4) |
+| Rh2O3(II) M1 | 253(6) | 4 fixed | 165.5(7) | 600(200) | 1.33(5) | 0.6 fixed |
+| Rh2O3(II) M2, selected | 256(6) | 4 fixed | 165.2(7) | 600(200) | 1.47(5) | 1.0 fixed |
+| Rh2O3(II) M3 | 259(6) | 4 fixed | 164.8(7) | 600(200) | 1.62(6) | 1.4 fixed |
+| Rh2O3(II) M4 | 262(6) | 4 fixed | 164.5(6) | 600(200) | 1.79(7) | 1.8 fixed |
+| Rh2O3(II) M5 | 262(6) | 4 fixed | 164.2(6) | 500(200) | 1.97(7) | 2.2 fixed |
+
+Main Table 1 and Supporting Information Table S3 select corundum M3 and
+Rh2O3(II) M2 for downstream calculations. Table 1 prints a corundum `K0`
+error of 2 GPa while Table 2 prints 1 GPa for the same central value; this
+internal discrepancy is one reason not to materialize the sensitivity table
+as a set of equivalent EOS records. Peritheos adds exactly two records from
+this article: selected corundum M3 in `alumina.eosmat` and selected
+Rh2O3(II) M2 in its phase-specific material. The other six rows remain
+documented sensitivity trials rather than executable alternatives.
+
+### Identity, data, and calibration
+
+Rh2O3(II)-type alumina is a distinct orthorhombic `Pbcn` (#60) polymorph, so it
+does not belong in the existing corundum `alumina.eosmat` material. The
+separate `alumina_rh2o3_ii.eosmat` structure follows Lin et al. (2004) at
+113 GPa and 300 K and contains four Al2O3 formula units. Consequently the EOS
+`V0 = 165.2(7) A^3` is a conventional-cell value, equivalent to
+41.30 A^3/formula unit and 24.871 cm^3/mol. It is a high-pressure fit
+extrapolated to zero pressure, not an observed ambient cell.
+
+All 75 corundum P--T--V rows from Supporting Information Table S1 are bundled
+in `alumina-shi-2022-table-s1-pvt.csv`, including every printed pressure,
+temperature, and volume uncertainty. The table groups 59 rows under Pt
+pressures, including the fixed ambient reference row, and 16 under NaCl
+pressures. The dataset keeps this calibrant identity. The paper reports that
+NaCl and Pt pressures agree within 1 GPa from 35 to 67 GPa up to 3000 K, but
+neither row-wise calibrant volumes nor a separate numerical NaCl
+parameterization are published. Calibrant-level recalculation is therefore
+unavailable even though the reduced sample pressures are complete.
+
+All 75 Pt-calibrated Rh2O3(II) P--T--V rows from Supporting Information Table
+S2 are bundled in `alumina-rh2o3-ii-shi-2022-table-s2-pvt.csv`, including every
+printed pressure, temperature, and volume uncertainty. The source does not
+state an uncertainty confidence convention or publish a coefficient
+covariance matrix; errors from both tables are therefore retained as generic
+uncertainties. No row-wise Pt lattice parameters are published. Pressures use
+the self-consistent Fei et al. (2007) Pt thermal scale, so observation-level
+recalculation is not possible from the supplement alone.
+
+The article describes the EOS as extending to 153 GPa and 3400 K. Table S2
+also prints two identical 156.7(4.0) GPa, 3670(370) K Rh2O3(II) volumes, while
+the main text identifies that state as the onset of CaIrO3-type Al2O3. The
+rows are retained and flagged, but the executable record conservatively keeps
+the authors' 153 GPa and 3400 K scope.
+
+### Numerical reproduction and refit
+
+For selected corundum M3, Peritheos fixes the conventional six-formula-unit
+cell `V0 = 255.1 A^3`, `K0' = 4`, `theta0 = 1100 K`, `Tr = 300 K`, and `n = 5`
+exactly as reported, and varies `K0`, `gamma0`, and `q`. The source does not
+state its weighting objective. An ordinary nonlinear least-squares fit of
+pressure residuals at all 75 printed volume-temperature states independently
+recovers the selected coefficients:
+
+| Parameter | Published | Peritheos unweighted refit |
+|---|---:|---:|
+| `K0` (GPa) | 246 +/- 2 | 246.308 +/- 1.333 |
+| `gamma0` | 1.32 +/- 0.07 | 1.35931 +/- 0.06725 |
+| `q` | 0.8 +/- 0.4 | 0.800868 +/- 0.35270 |
+
+The published corundum parameterization has a 1.23305 GPa pressure RMSE on
+Table S1; the refit RMSE is 1.19139 GPa. All three free coefficients agree
+within the published uncertainties. An errors-in-variables fit using the
+printed pressure and volume uncertainties drives `q` close to zero, so the
+successful comparison is recorded specifically as unweighted
+pressure-residual parity and is not presented as knowledge of an unpublished
+weighting scheme. The executable record retains the published coefficients.
+
+At 300 K the thermal increment vanishes. The selected cold curve gives
+`P(129.8 A^3, 300 K) = 100.1123 GPa`, reproducing the first Table S2 value
+`100.0(1.0) GPa`. At the independent heated state `V = 125.5 A^3` and
+`T = 1560 K`, it gives 130.7277 GPa versus `129.6(2.0) GPa`. Across all 75
+printed rows, the published parameterization has a pressure RMSE of
+1.1434 GPa.
+
+The generic Peritheos errors-in-variables refit uses all 75 rows, pressure and
+volume uncertainties, and the published fixed values `K0' = 4`, `q = 1`,
+`Tr = 300 K`, and `n = 5`. Temperature uncertainties are not used because the
+source omits them for every 300 K row and for the 710 K row.
+
+| Parameter | Published | Peritheos refit |
+|---|---:|---:|
+| `V0` (A^3/cell) | 165.2 +/- 0.7 | 167.194 +/- 1.813 |
+| `K0` (GPa) | 256 +/- 6 | 239.415 +/- 14.703 |
+| `theta0` (K) | 600 +/- 200 | 766.258 +/- 572.847 |
+| `gamma0` | 1.47 +/- 0.05 | 1.5502 +/- 0.1622 |
+
+The refit pressure RMSE is 0.8660 GPa and reduced chi-square is 0.152. Every
+coefficient agrees within the combined two-standard-deviation uncertainty,
+but `theta0` differs by 27.7%, so the campaign classifies the result as
+`similar` rather than strict parity. Unpublished weighting, covariance,
+temperature-error handling, or additional point selection can explain the
+remaining coefficient tradeoff; the published parameterization remains the
+executable record.
+
 ## C01: boron carbide, Somayazulu et al. (2023)
 
 ### Sources and model
@@ -504,6 +813,85 @@ uncertainty, so `cscl_campbell_1994_bm3_1` remains classified as `parity`.
 The residual central-value difference is documented as a fit-protocol
 qualification, not missing-data parity.
 
+<a id="phase-egg-mookherjee-2019"></a>
+
+## Phase Egg: Mookherjee et al. (2019)
+
+### Publication identity and scientific scope
+
+The publication of record is Mookherjee, Panero, Wunder, and Jahn,
+*Anomalous elastic behavior of phase egg, AlSiO3(OH), at high pressures*,
+*American Mineralogist* **104**, 130--139 (2019),
+[doi:10.2138/am-2019-6694](https://doi.org/10.2138/am-2019-6694). The separate
+[10.2138/am-2018-6694](https://doi.org/10.2138/am-2018-6694) registration
+resolves to the accepted manuscript. That manuscript labels itself a preprint
+and instructs readers to cite the final 2019 DOI. Peritheos therefore creates
+one literature EOS record under the 2019 DOI and retains the 2018 identifier
+only in `source_lineage` as a discovery alias.
+
+The implemented record is the ordered low-pressure proton configuration,
+phase Egg (LP), with composition `AlSiO3(OH)` (`AlSiO4H`). Its diffraction
+structure is independently sourced to Schmidt et al. (1998),
+[doi:10.2138/am-1998-7-820](https://doi.org/10.2138/am-1998-7-820), Table 4:
+monoclinic `P21/n` (the alternate setting of `P21/c`, number 14),
+`a=7.14409 A`, `b=4.33462 A`, `c=6.95253 A`, `beta=98.396 deg`,
+`V=212.99 A^3`, and `Z=4`. Seven fully occupied general `4e` sites reproduce
+four `AlSiO4H` formula units. This measured structural cell is retained
+separately from the static-DFT EOS reference cell.
+
+Mookherjee et al. calculated the primitive cell with GGA-PAW/VASP, an 800 eV
+cutoff, a 6 by 9 by 6 k-point mesh, and the stated van der Waals correction.
+For primitive monoclinic `P21/c`, that calculation cell is also the
+conventional `Z=4` cell used by Peritheos. The source fits total energy to
+
+\[
+E=E_0+\frac{9}{2}K_0V_0\left[f_V^2+(K'_0-4)f_V^3\right],\qquad
+f_V=\frac{1}{2}\left[\left(\frac{V_0}{V}\right)^{2/3}-1\right],
+\]
+
+whose negative volume derivative is the standard third-order
+Birch--Murnaghan pressure equation. The LP fit reports
+`V0=210.21+/-0.14 A^3`, `K0=164.4+/-1.8 GPa`, and
+`K0'=7.14+/-0.24`; all three were fitted. The source does not define the
+confidence convention or publish covariance. It describes these calculations
+as static conditions (0 K), so the record uses a 0 K reference isotherm rather
+than relabeling it as a room-temperature EOS.
+
+### Supplement and numerical reproduction
+
+The [official MSA data deposit](https://www.minsocam.org/MSA/AmMin/TOC/2019/Jan2019_data/AM-19-16694.zip)
+contains `6694_supp.xlsx`. Supplementary Table 1 reports 11 LP volumes from
+220 to 180 `A^3` and corresponding static pressures from -6.4 to 43.7 GPa;
+no row uncertainties are given. The separate five-row HP block and elastic
+tensor are outside this one-record EOS dataset.
+
+At the paper's proton-transfer volume `V=196 A^3`, the published LP
+coefficients calculate `P=14.725955 GPa`, reproducing the workbook's
+`14.7 GPa` to its 0.1 GPa printed precision. Across all 11 LP rows, the
+published curve has a pressure RMSE of `0.03011 GPa` and a maximum absolute
+residual of `0.04836 GPa`.
+
+An independent unweighted BM3 pressure-residual fit gives:
+
+| Parameter | Publication | Diagnostic P-V refit | Difference |
+|---|---:|---:|---:|
+| `V0` (A^3) | 210.21 +/- 0.14 | 210.21760 | +0.00760 |
+| `K0` (GPa) | 164.4 +/- 1.8 | 164.83396 | +0.43396 |
+| `K0'` | 7.14 +/- 0.24 | 7.08137 | -0.05863 |
+
+The refit RMSE is `0.02339 GPa`; every coefficient agrees within its published
+error. This is a strong curve-level check, but not an exact reconstruction of
+the authors' regression: the source fitted total energies, while the deposited
+workbook omits those energies, row uncertainties, objective, weights,
+covariance, fitting-software details, and fit statistic. The refit ledger
+therefore records that limitation explicitly.
+
+The article defines LP below the approximately 15 GPa proton transfer. Its
+supplement continues the LP starting configuration metastably to 43.7 GPa.
+Peritheos preserves every row but limits the preferred LP validity branch to
+-6.4--15 GPa at 0 K. The separately published HP parameterization is neither
+merged with LP nor added as a second record in this publication-scoped change.
+
 <a id="coo-clendenen-1966"></a>
 
 ## CoO: Clendenen and Drickamer (1966)
@@ -915,3 +1303,290 @@ or preprocessing. Exact coefficient parity requires the authors' numerical
 P--V array, row mask, and fitting weights; the published parameterization
 remains the default library EOS, while the separately labeled refit record
 provides the direct all-marker Peritheos result.
+
+## Luo et al. (2023) MgO
+
+### Source, identity, and equation
+
+The primary source is Luo et al., *Equation of state of MgO up to 345 GPa and
+8500 K*, *Physical Review B* **107**, 134116 (2023),
+[doi:10.1103/PhysRevB.107.134116](https://doi.org/10.1103/PhysRevB.107.134116).
+The sample is stoichiometric B1 (NaCl-structure) MgO/periclase, represented by
+the conventional cubic cell with four MgO formula units. The paper gives an
+initial density of `3.590(4) g/cm3` and globally optimizes a zero-pressure,
+zero-temperature specific volume `V0K = 0.2767(1) cm3/g`, bulk modulus
+`B0 = 169.8(5) GPa`, and pressure derivative `B' = 4.501(7)`. Using the
+paper's MgO molar mass, the cold specific volume is
+`74.0741025123 A3/conventional cell`; the ambient initial density corresponds
+to `74.5697677586 A3/conventional cell`.
+
+The catalog record is not a static Vinet fit. It implements Appendix B's
+executable pressure scale,
+
+\[
+P(V,T)=P_{\mathrm{Vinet},0K}(V)+c_0+c_1\delta\eta+c_2\delta T
++\tfrac12c_3\delta\eta^2+\tfrac12c_4\delta T^2
++\tfrac12c_5\delta\eta\delta T,
+\]
+
+where `eta = 1 - V/V0K`, `delta eta = eta - 0.02`, and
+`delta T = T - 300 K`. The printed coefficients are `c0=0.5096 GPa`,
+`c1=-13.4246 GPa`, `c2=6.3295e-3 GPa/K`, `c3=36.2194 GPa`,
+`c4=5.4705e-8 GPa/K2`, and `c5=3.2238e-3 GPa/K`. No uncertainties are
+reported for these six coefficients. The three cold-curve uncertainties have
+an unstated confidence convention and no published covariance.
+
+The paper's Equations (1)--(6) give the underlying quasi-Debye Helmholtz
+construction, but not the numerical longitudinal- and shear-wave velocity
+fits needed to reconstruct its effective sound velocity and Debye-temperature
+law. The Appendix-B polynomial is therefore the complete independently
+executable form supported by the primary article. The APS article record has
+no linked official supplement or machine-readable deposit.
+
+### Data reproduction and refit boundary
+
+Peritheos bundles all five new shock states from Table I and all 576 derived
+P-V-T values in Tables II--III. Re-evaluating the printed Appendix-B equation
+at the table coordinates gives `0.484096 GPa` RMS and `1.435303 GPa` maximum
+absolute pressure residual. For example, the state at ambient compression
+`0.42` and `8500 K` is reproduced within that documented sub-GPa consistency
+at the table's printed `342.01 GPa`. The table was generated from the fuller
+quasi-Debye calculation, so exact equality after decimal rounding is neither
+claimed nor expected.
+
+A diagnostic unweighted least-squares fit of only `c0`--`c5` to that derived
+grid gives `(1.423975, -17.564509, 0.006092604, 45.696538,
+8.377914e-8, 0.004084916)` and lowers the RMS only to `0.445789 GPa`. This is a
+fit to model output, not to primary observations, and is not stored as another
+EOS record. An observation-level refit is not possible from the publication:
+the global optimization selected data from multiple earlier studies, while
+the complete row set, unpublished sound-velocity fits, objective weights, and
+covariance are unavailable. The refit ledger records that precise limitation
+rather than circularly fitting the authors' derived table.
+
+Table I pressure is independently checkable from the Rankine--Hugoniot
+relation `P=rho0*D*up`; all five printed pressures are recovered within
+`0.6 GPa`. Shots 2, 3, and 5 use impedance matching to the stated Ta or Pt
+flyer Hugoniots, while shots 1 and 4 use measured particle velocity. The
+published `0--345 GPa` and `300--8500 K` limits are retained as the stated
+pressure-scale domain, not as a rectangular observation envelope or a B1
+phase-stability claim.
+<a id="mgo-dewaele-2000"></a>
+
+## MgO: Dewaele et al. (2000)
+
+### Authority, identity, and represented equation
+
+The discovery lead attributed DOI
+[10.1029/1999JB900364](https://doi.org/10.1029/1999JB900364) to Fei et al., but
+the version of record is Dewaele, Fiquet, Andrault, and Hausermann (2000),
+*P-V-T equation of state of periclase from synchrotron radiation
+measurements*. Fei (1999) is an input to the paper's combined room-temperature
+comparison, not the author of this DOI.
+
+The single implemented record is the paper's preferred complete P-V-T model:
+
+\[
+P(V,T)=P_{BM3}(V,300\,\mathrm{K})+
+\frac{10^{-4}\gamma(V)}{V}\left[E_D(V,T)-E_D(V,300\,\mathrm{K})\right],
+\]
+
+with `V` in cubic angstroms per mole-equivalent formula-unit basis inside the
+engine, `gamma(V) = gamma0 (V/V0)^q`, and
+`theta(V) = theta0 exp[(gamma0-gamma(V))/q]`. This is Peritheos's explicit
+`integrated_gruneisen` convention. The conventional crystallographic MgO
+volumes in the material document contain four formula units and are converted
+by the material wrapper.
+
+The stored source parameters are `V0 = 74.71(3) A^3`, `K0 = 161(1) GPa`,
+`K0' = 3.94 +/- 0.2`, `theta0 = 800(50) K`, `gamma0 = 1.45(10)`, and
+`q = 0.8(5)`, with `n = 2`. The provenance is staged: `V0` and `K0` are
+adopted ambient/acoustic constraints; `K0'` is obtained from the combined 300 K
+data and then fixed in the thermal analysis; `theta0` is obtained from ambient
+heat-capacity data; `gamma0` is constrained by the zero-pressure thermal-pressure
+intercept and then fixed; and `q` is constrained by the pressure dependence.
+Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 rows are
+extrapolation-sensitivity comparisons and are deliberately not represented as
+additional full P-V-T records.
+
+The source is internally inconsistent about the uncertainty on `K0'`: the
+fit discussion gives a formal `+/-0.06` (rounded to `(5)` in Table 3) and an
+expanded `+/-0.2` after propagating pressure errors; the abstract repeats
+`+/-0.2`, whereas the conclusion prints `+/-0.3` without explanation. The
+record stores `+/-0.2` because it is tied explicitly to the paper's pressure
+uncertainty analysis and is repeated in the abstract; all three printed values
+remain documented here and in the record provenance.
+
+### Primary observations and pressure basis
+
+Dataset `mgo_dewaele_2000_table2_pvt` contains every Table 2 observation: 41
+laser-heated rows and 20 rows at 300 K, spanning 0--53 GPa and 300--2474 K.
+Each row retains MgO conventional-cell volume and the simultaneously measured
+Pt lattice parameter. Parenthesized pressure and volume errors are transcribed
+as printed; the paper assigns +/-200 K to heated temperatures. No official
+supplement or machine-readable deposit accompanies the article.
+
+Pressure was reduced from Pt using the Jamieson, Fritz, and Manghnani (1982)
+shock-Hugoniot/Debye P-V-T scale. The paper gives the row-wise Pt lattice
+parameters and the pressure-error law
+
+\[
+\Delta P = 0.03P + 0.0004(T-300),
+\]
+
+for pressure in GPa and temperature in kelvin. The exact Jamieson Pt
+implementation is not presently bundled as an executable reference EOS, so
+the source-scale pressure values are preserved and the calibration is marked
+`reference_eos_not_bundled`; no substitute scale is inferred.
+
+### Independent value and refit
+
+The room-temperature discussion reports that the BM3 curve reaches 145 GPa at
+`V/V0 = 0.667`. Direct evaluation of the stored record gives 144.947 GPa, a
+0.053 GPa difference attributable to the source's integer rounding.
+
+For an observation-level check, the automated campaign fits `q` to the 41
+heated Table 2 rows while holding `V0`, `K0`, `K0'`, `theta0`, `gamma0`, `Tr`,
+and `n` at their source-staged values. It uses the complete positive row-wise
+P, V, and T uncertainties in an errors-in-variables objective.
+
+| Quantity | Published | Current-study refit |
+|---|---:|---:|
+| `gamma0` | 1.45 +/- 0.10 | 1.45 fixed, following the source's staged procedure |
+| `q` | 0.80 +/- 0.50 | 0.847 +/- 0.122 |
+| Pressure RMSE | 0.952 GPa for the published curve | 0.950 GPa |
+| Reduced chi-square | -- | 0.925 |
+
+The refitted `q` agrees within combined two-standard-deviation uncertainty and
+the numerical similarity limit, so the ledger classifies the result as
+`parity`. It is a
+conditional current-study reproduction: the source's thermal analysis also
+uses Fei (1999) observations that are not reprinted in Dewaele et al. Exact
+coefficient identity from the 41 new rows alone is therefore neither expected
+nor claimed. The published parameters, not the refit, remain the executable
+literature record.
+## CaSiO3 perovskite: Kawai and Tsuchiya (2014)
+
+The primary source is Kawai and Tsuchiya, *P-V-T equation of state of cubic
+CaSiO3 perovskite from first-principles computation*, JGR Solid Earth **119**,
+2801--2809, [doi:10.1002/2013JB010905](https://doi.org/10.1002/2013JB010905).
+It reports LDA first-principles molecular-dynamics calculations for ideal
+cubic `Pm-3m` CaSiO3 and fits both Vinet and third-order Birch--Murnaghan
+reference isotherms. Peritheos stores only the preferred Vinet branch, which
+is the curve plotted in Figure 2 and the parameterization summarized in the
+abstract.
+
+The complete stored thermal EOS is a Vinet reference isotherm at 1000 K with
+`V0 = 46.17 A^3/formula unit`, `K0 = 203.95 GPa`, and `K0' = 4.76`, plus a
+constant-`q` Mie--Gruneisen--Debye increment with fixed `theta0 = 1100 K`,
+`gamma0 = 1.576`, `q = 0.96`, and `n = 5`. The article says it follows the
+Tange et al. (2009) procedure; their equations 4--10 define
+`gamma(V) = gamma0 (V/V0)^q`, the thermodynamically integrated Debye
+temperature, and thermal pressure relative to the reference temperature.
+Because cubic `Pm-3m` CaSiO3 has one formula unit per conventional cell, the
+reported formula-unit volume is also the public conventional-cell volume.
+
+The underlying calculations used LDA in PWSCF, Vanderbilt pseudopotentials
+for Ca and O and a Troullier--Martins pseudopotential for Si, a 50 Ry cutoff,
+and canonical-ensemble FPMD with 1 fs steps. The 80-atom `2x2x1`
+tetragonal-conventional-cell supercell was constrained to cubic metrics and
+sampled on a `2x2x2` Monkhorst--Pack grid. Each state was equilibrated for
+1 ps and normally averaged for the next 5 ps. The methods sentence prints a
+300--1500 K simulation range, but Figure 2 explicitly shows calculated points
+at 1000, 2000, 3000, and 4000 K. With no raw state table available, this
+internal temperature-range inconsistency cannot be resolved; the executable
+range follows the unambiguous plotted and tabulated 1000--4000 K EOS output.
+Figure 1 supplies one convergence benchmark near 15 GPa and 2000 K: the
+`2x2x2` sampling gives diagonal stresses of 15.3, 15.5, and 15.2 GPa, whereas
+Gamma-only sampling gives 16.0, 16.1, and 14.6 GPa. Because the corresponding
+volume is not printed, these values test k-point convergence but cannot serve
+as a row in an EOS refit.
+
+There is a source discrepancy in `K0`. The abstract prints 203.95 GPa, while
+the PDF text layer and later comparison tables render Table 2 as 203.5 GPa.
+The article's 60 one-decimal Table 1 isochors resolve the executable value:
+203.95 GPa gives an RMSE of 0.03734 GPa and maximum absolute difference of
+0.09071 GPa. At `V/V0 = 0.70` and 4000 K, it gives 184.4177 GPa, which rounds
+to the published 184.5 GPa. Using 203.5 GPa increases the grid RMSE to
+0.20047 GPa and gives 184.0565 GPa at that endpoint. The benchmark-consistent
+abstract value is therefore retained, with the conflicting Table 2 extraction
+recorded in provenance.
+
+The publisher exposes no supporting data file, and the numerical FPMD stress
+averages appear only as Figure 2 markers. The bundled dataset
+`ca_perovskite_kawai_2014_table1_isochors` contains every printed Table 1
+benchmark but is explicitly classified as a fitted-model grid, not as primary
+observations. A direct independent refit is consequently not possible and no
+synthetic refit record is created. The record's 0--150 GPa, 1000--4000 K
+numerical envelope follows the stated pressure limit and published grid; the
+paper's warning that the low-pressure/high-temperature corner may be outside
+the cubic stability field or near melting remains attached to the validity
+metadata.
+## Phase Egg: Schulze et al. (2018)
+
+### Source identity, structure, and the two printed BM3 sets
+
+The record follows [Schulze et al. (2018)](https://doi.org/10.2138/am-2018-6562)
+and the official MSA deposit `AM-18-126562`. The analyzed S5050 crystal is
+printed as `Al0.98(1)Si0.92(1)O3OH1.39(5)`. The deposit writes the same
+composition as `Al0.98(1) Si0.92(1) H1.39(5) O4`, so the canonical record
+formula is `Al0.98Si0.92H1.39O4`; the hydroxyl notation does not mean O4.39.
+The ideal phase name remains `AlSiO3OH`.
+
+The deposited ambient structure is the conventional monoclinic `P21/n` cell,
+space-group number 14, with `Z = 4`, `a = 7.1835(2) A`, `b = 4.3287(2) A`,
+`c = 6.9672(2) A`, `beta = 98.202(2) deg`, and `V = 214.431(13) A^3`.
+All Al, Si, and O coordinates come from that single-crystal refinement. The
+authors report that fixed and refined Al/Si occupancies were indistinguishable
+and adopt the fully occupied model. Its site multiplicities therefore expand
+to ideal Al4Si4O16 per cell even though the analyzed central composition is
+Al3.92Si3.68H5.56O16. The 2018 CIF contains no hydrogen atom; the H coordinate
+used in the article's structural drawing and in Peritheos is explicitly traced
+to Schmidt et al. (1998), Table 4. It is not represented as a 2018 refinement.
+
+Table 2 contains two BM3 parameter sets because it compares different data,
+not because the 2018 single-crystal observations have two alternative fits:
+
+| Table 2 column | Data represented | `V0` (A^3/cell) | `K0` (GPa) | `K0'` |
+|---|---|---:|---:|---:|
+| This study | 15 synchrotron single-crystal rows | 214.08(17) | 153(8) | 8.6(1.2) |
+| Vanpeteghem refitted | Vanpeteghem et al. (2003) powder rows | 211.41(11) | 155(5) | 6.7(5) |
+
+Only the first is stored as `phase_egg_schulze_2018_bm3_1`. The comparison
+reduction is source-lineage evidence, not a second Phase Egg EOS contributed by
+this audit. The source's abstract and EOS prose give the first set's `K0'`
+error as 1.3 while Table 2 gives 1.2; Peritheos retains the tabulated 1.2 and
+records the contradiction. All three coefficients were fitted in EosFit7c;
+none was fixed or adopted. The paper does not state a confidence level or
+publish a covariance matrix.
+
+### Numerical reproduction and calibration scope
+
+The complete 16-row Table 1 transcription is embedded. The authors exclude
+the in-house ambient point to avoid an inter-technique bias, leaving the 15
+synchrotron observations from 1.09 to 23.33 GPa for the EOS fit. With the
+standard Eulerian third-order Birch--Murnaghan equation, the rounded published
+coefficients predict 23.0656 GPa at the final `V = 193.75 A^3` state, compared
+with 23.33 GPa observed. Their pressure RMSE over the 15 fitted rows is 0.2270
+GPa and the maximum absolute residual is 0.4535 GPa.
+
+An independent errors-in-variables refit uses the printed pressure and volume
+uncertainties and `absolute_sigma=True`:
+
+| Parameter | Published | Peritheos refit |
+|---|---:|---:|
+| `V0` (A^3/cell) | 214.08 +/- 0.17 | 214.0811 +/- 0.0747 |
+| `K0` (GPa) | 153 +/- 8 | 152.8459 +/- 3.4520 |
+| `K0'` | 8.6 +/- 1.2 | 8.5975 +/- 0.5104 |
+
+The refit has a 0.2117 GPa pressure RMSE and reduced chi-square 5.486; every
+coefficient agrees within combined two-standard-deviation uncertainty, so the
+campaign classifies it as `parity`. The fitted `V0` is a zero-pressure
+extrapolation and need not equal the separately measured ambient structure
+volume.
+
+Pressures were assigned from ruby R1 fluorescence using Dewaele et al. (2008),
+with neon as the pressure medium. The corresponding `A = 1920 GPa`, `B = 9.61`
+power-law calibration is bundled as `ruby_dewaele_2008`. Observation-level
+pressure re-reduction is not possible because neither Table 1 nor the deposit
+provides the row-wise ruby wavelengths.

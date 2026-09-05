@@ -36,7 +36,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 fit is the default. The Duffy et al. (1995) multimegabar and Shen and Smith (2026) Cu-referenced fits remain available as alternatives.",
+ "notes": "MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 fit is the default. The Duffy et al. (1995) multimegabar, Luo et al. (2023) shock- and sound-velocity-constrained thermal, and Shen and Smith (2026) Cu-referenced fits remain available as alternatives.",
  "peaks": [],
  "eos_records": [
   {
@@ -353,6 +353,622 @@
    }
   },
   {
+   "label": "Li et al. (2006), acoustic absolute-pressure BM3",
+   "reference": {
+    "authors": [
+     "Li",
+     "Woody",
+     "Kung"
+    ],
+    "year": 2006,
+    "title": "Elasticity of MgO to 11 GPa with an independent absolute pressure scale: Implications for pressure calibration",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "111",
+    "locator": "B11206",
+    "doi": "10.1029/2005JB004251"
+   },
+   "record_kind": "published",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.702,
+     "K0": 161.1767340842165,
+     "K0_prime": 4.237911491402006
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.026,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    10.95
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "temperature_ref": 300.0,
+   "identifier": "mgo_li_2006_bm3_absolute_acoustic",
+   "fit_datasets": [
+    "mgo_li_2006_table1_elasticity"
+   ],
+   "parameter_provenance": {
+    "equation": "Equation 3 uses epsilon=[1-(rho/rho0)^(2/3)]/2=[1-(V0/V)^(2/3)]/2 and P=-3*K0T*epsilon*(1-2*epsilon)^(5/2)*[1+3*(4-K0T')*epsilon/2]. With f=-epsilon, this is exactly the standard third-order Birch-Murnaghan pressure equation used by Peritheos.",
+    "V0": "Table 1 footnote reports V0=74.702(26) A^3. Section 3 states that MgO specific volume was refined from five diffraction lines; for B1 MgO this is the conventional cubic Fm-3m cell with Z=4. V0 is an independently measured reference value, not a coefficient varied in a pressure-volume BM3 regression.",
+    "K0": "Abstract and Section 4 report the preferred decompression acoustic finite-strain fit K0S=163.5(11) GPa. Equation 4 converts this to K0T=K0S/(1+alpha*gamma*T), using the paper's adopted alpha=3.12e-5 K^-1, gamma=1.54, and T=300 K, giving 161.1767340842165 GPa.",
+    "K0_prime": "Equation 4 gives K0T'=[K0S'+q*alpha*gamma*T-gamma*T*(dK0T/dT)/K0T]/(1+alpha*gamma*T). Using the preferred K0S'=4.20, q=1.3, dK0T/dT=-0.028 GPa/K, and the derived K0T gives 4.237911491402006.",
+    "temperature_ref": "The abstract, Sections 2-5, and Figures 3 and 6 identify the represented isotherm as 300 K. High-pressure measurements were collected after the annealed sample had cooled and stabilized at room temperature.",
+    "volume_basis": "Table 1 reports the MgO unit-cell reference volume, and Section 3 derives specific volume from the 111, 200, 220, 311, and 222 reflections of the cubic B1 lattice. The represented Fm-3m conventional cell contains four MgO formula units."
+   },
+   "notes": "This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. The authors first fit measured acoustic velocities and density with third-order finite-strain equations to obtain adiabatic moduli, convert the preferred decompression fit to isothermal K0T and K0T' with Equation 4, and then calculate pressure from volume with BM3 Equation 3. Table 1 pressures are therefore EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     10.95
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "The upper bound is the largest calculated sample pressure printed in Table 1; the title rounds this to 11 GPa.",
+     "The range is experimental coverage of stable B1 MgO, not a phase boundary or an endorsement of higher-pressure extrapolation."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "reference": {
+       "authors": [
+        "Li",
+        "Woody",
+        "Kung"
+       ],
+       "year": 2006,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/2005JB004251"
+      },
+      "source_location": "Sections 2-3 and Equations 1-4; simultaneous ultrasonic interferometry, X-ray diffraction, and X-ray imaging determine density, acoustic velocity, and sample pressure without a secondary pressure standard",
+      "scope": "all 17 Table 1 states"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The represented BM3 is itself the absolute acoustic-diffraction pressure scale. NaCl was present only for comparison and was not used to calibrate the stored EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final free-access publisher article, including the equation images, complete HTML tables, and official tab-delimited supplements for Tables 1 and 2. LitCurate was used only for discovery. The Table 1 supplement duplicates the primary observations bundled here; Table 2 is a literature-comparison summary rather than additional primary observations.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "parameter_derivation",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fitted_fixed_adopted_status",
+     "parameter_covariance",
+     "validity",
+     "absolute_pressure_method",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251",
+     "locations": [
+      "Abstract and Sections 1-2",
+      "Table 1 and Equations 1-4 in Section 3",
+      "Table 2 and Sections 4-5",
+      "Official tab-delimited supplements for Tables 1 and 2"
+     ],
+     "finding": "Li et al. report a new absolute 300 K MgO BM3 pressure scale, not a direct pressure-volume BM3 regression. Its conventional-cell V0 is measured by XRD; its isothermal K0 and K0' follow exactly from the preferred decompression acoustic finite-strain fit and the printed Equation 4 conversion.",
+     "doi": "10.1029/2005jb004251"
+    },
+    "reported_parameterizations": [
+     {
+      "role": "preferred_decompression_acoustic_fit",
+      "K0S_gpa": 163.5,
+      "K0S_standard_deviation_gpa": 1.1,
+      "K0S_prime": 4.2,
+      "K0S_prime_standard_deviation": 0.1,
+      "G0_gpa": 129.8,
+      "G0_standard_deviation_gpa": 0.6,
+      "G0_prime": 2.42,
+      "G0_prime_standard_deviation": 0.06,
+      "p_wave_rms_misfit_km_s": 0.02,
+      "s_wave_rms_misfit_km_s": 0.015
+     },
+     {
+      "role": "all_data_acoustic_fit",
+      "K0S_gpa": 163.4,
+      "K0S_standard_deviation_gpa": 1.0,
+      "K0S_prime": 4.22,
+      "K0S_prime_standard_deviation": 0.1,
+      "G0_gpa": 129.5,
+      "G0_standard_deviation_gpa": 0.7,
+      "G0_prime": 2.44,
+      "G0_prime_standard_deviation": 0.06,
+      "p_wave_rms_misfit_km_s": 0.02,
+      "s_wave_rms_misfit_km_s": 0.017
+     }
+    ],
+    "isothermal_parameter_derivation": {
+     "inputs": {
+      "K0S_gpa": 163.5,
+      "K0S_prime": 4.2,
+      "alpha_per_k": 3.12e-05,
+      "gamma0": 1.54,
+      "q": 1.3,
+      "dK0T_dT_gpa_per_k": -0.028,
+      "temperature_k": 300.0
+     },
+     "outputs": {
+      "K0T_gpa": 161.1767340842165,
+      "K0T_prime": 4.237911491402006
+     },
+     "uncertainty": "The acoustic-fit errors are one standard deviation, but the source gives no uncertainties or covariance for alpha, gamma, q, or dK0T/dT and no propagated K0T/K0T' uncertainty. None is inferred."
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "preferred decompression K0S",
+      "abstract_and_section_4": "163.5(11) GPa",
+      "table_2": "163.6(11) GPa",
+      "resolution": "The stored isothermal derivation uses 163.5 GPa because the abstract and narrative results agree on that value; the conflicting Table 2 value is retained here rather than silently averaged."
+     },
+     {
+      "field": "fourth initial-compression Table 1 volume ratio",
+      "table_1": "V/V0=0.962, density=3.696(6) g/cm^3, Pcal=6.23(14) GPa",
+      "finding": "The printed ratio is not mutually consistent with the row density and the published BM3 pressure at the displayed precision. It is retained verbatim; no correction is inferred."
+     }
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the Table 1 endpoint V/V0=0.942, the stored BM3 predicts 10.9321 GPa versus the printed calculated pressure 10.95(15) GPa.",
+     "reference_state_check": "The stored equation gives P(V0)=0 and K(V0)=K0T; inverse pressure-volume evaluation is tested across the reported branch.",
+     "independent_acoustic_refit_check": "An unweighted simultaneous nonlinear least-squares fit of Equations 1-2 to the ten decompression density/VP/VS rows plus the independently reported ambient density/VP/VS anchor gives K0S=163.5115 GPa, K0S'=4.15807, G0=129.7175 GPa, and G0'=2.39724. All four recover the preferred published coefficients within their reported one-standard-deviation errors. Equation 4 then gives K0T=161.1881 GPa and K0T'=4.19657, differing from the stored source-derived values by 0.0113 GPa and 0.0413, respectively. The high-pressure-row RMS residuals are 0.02165 km/s for VP and 0.01474 km/s for VS, versus the paper's rounded 0.02 and 0.015 km/s.",
+     "refit_status": "not_directly_refittable_as_pressure_volume",
+     "limitation": "Table 1 pressure was calculated from the same acoustic-derived BM3 and is not an independent pressure coordinate. Regressing those Pcal-V/V0 pairs would be circular and would also be limited by ratios printed to only three decimals. The paper does not state an observation-weighting rule or fitting software; the deterministic audit fit therefore uses ordinary unweighted velocity residuals and is evidence of coefficient recovery within published uncertainty, not a claim to reproduce the authors' covariance calculation."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgo_li_2006_table1_elasticity"
+     ],
+     "source_locations": [
+      "Section 2 paragraph 5 ambient density and acoustic velocities",
+      "Table 1 and official tab-delimited Table 1 supplement, all 17 rows and footnote"
+     ],
+     "finding": "All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations."
+    }
+   }
+  },
+  {
+   "label": "Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3",
+   "reference": {
+    "authors": [
+     "Jacobsen",
+     "Holl",
+     "Adams",
+     "Fischer",
+     "Martin",
+     "Bina",
+     "Lin",
+     "Prakapenka",
+     "Kubo",
+     "Dera"
+    ],
+    "year": 2008,
+    "title": "Compression of single-crystal magnesium oxide to 118 GPa and a ruby pressure gauge for helium pressure media",
+    "source": "American Mineralogist",
+    "volume": "93",
+    "locator": "1823-1828",
+    "doi": "10.2138/am.2008.2988"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.698,
+     "K0": 164.1,
+     "K0_prime": 4.05
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.007,
+    "K0": 0.9,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    86.6
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "temperature_ref": 300.0,
+   "identifier": "mgo_jacobsen_2008_bm3_kcl_mao1978",
+   "fit_datasets": [
+    "mgo_jacobsen_2008_table2_kcl_compression"
+   ],
+   "parameter_provenance": {
+    "equation": "Results and discussion, pages 1825-1826, and Figure 3: third-order Birch-Murnaghan EOS with F=P/[3f(1+2f)^(5/2)] and f=[(V0/V)^(2/3)-1]/2.",
+    "V0": "Results and discussion, page 1825: preferred three-parameter KCl-medium fit V0=74.698(7) A^3; the experimental ambient anchor is the 74.698(3) A^3 Table 1 value from Jacobsen et al. (2002).",
+    "K0": "Results and discussion, page 1825: preferred three-parameter KCl-medium fit KT0=164.1(9) GPa.",
+    "K0_prime": "Results and discussion, page 1825: preferred three-parameter KCl-medium fit K'=4.05(4).",
+    "volume_basis": "Table 2 and the cell-refinement discussion report cubic single-crystal MgO unit-cell volumes. The represented B1 Fm-3m conventional cell has Z=4.",
+    "temperature_ref": "The article describes static room-temperature compression and explicitly discusses the experiment at 300 K; 300 K is a nominal reference, not a row-wise measured sample temperature."
+   },
+   "notes": "Published three-parameter BM3 fit to the non-hydrostatic KCl-medium series using the Mao et al. (1978) non-hydrostatic ruby scale. The fitted V0 was not fixed. Table 2 contains 26 high-pressure observations; the ambient V0 anchor is printed in Table 1 and attributed to Jacobsen et al. (2002). The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective. The 300 K reference is nominal room temperature. This pressure-scale-specific fit is retained separately from the companion helium/Mao-1986 fit.",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     86.6
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "The pressure bound is the reported KCl-medium observation range plus the ambient reference state, not a hydrostatic validity claim or a phase boundary.",
+     "The source explicitly describes the KCl experiment as non-hydrostatic."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Bell",
+        "Shaner",
+        "Steinberg"
+       ],
+       "year": 1978,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/1.325277"
+      },
+      "source_location": "Table 2 footnote and results, page 1825; non-hydrostatic ruby-scale pressures from Mao et al. (1978)",
+      "scope": "all 26 KCl-medium compression observations",
+      "reference_calibration_record": "ruby_mao_1978"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The exact Mao-1978 power-law ruby scale is executable, and every reported source-scale pressure can be inverted to its normalized R1 wavelength ratio for pressure-scale conversion."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final American Mineralogist article and its complete printed tables. LitCurate was used only for discovery. The journal and author-hosted article records expose no separate official supplement.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am.2008.2988",
+     "locations": [
+      "Abstract and introduction, pages 1823-1824",
+      "Experimental methods, page 1824",
+      "Tables 1-2 and Figure 2, page 1825",
+      "BM3 definition and Figure 3, pages 1825-1826"
+     ],
+     "finding": "The KCl series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on the Mao-1978 ruby scale. The preferred three-parameter result is V0=74.698(7) A^3, KT0=164.1(9) GPa, and K'=4.05(4).",
+     "doi": "10.2138/am.2008.2988"
+    },
+    "reported_parameterizations": [
+     {
+      "role": "preferred_three_parameter_kcl_fit",
+      "V0_a3": 74.698,
+      "V0_error_a3": 0.007,
+      "K0_gpa": 164.1,
+      "K0_error_gpa": 0.9,
+      "K0_prime": 4.05,
+      "K0_prime_error": 0.04,
+      "fixed_parameters": []
+     },
+     {
+      "role": "ambient_anchor_excluded_sensitivity_fit",
+      "V0_a3": 74.73,
+      "V0_error_a3": 0.08,
+      "K0_gpa": 163.0,
+      "K0_error_gpa": 2.0,
+      "K0_prime": 4.08,
+      "K0_prime_error": 0.07,
+      "fixed_parameters": []
+     },
+     {
+      "role": "zha_K0_prime_fixed_sensitivity_fit",
+      "V0_a3": 74.69,
+      "V0_error_a3": 0.04,
+      "K0_gpa": 164.6,
+      "K0_error_gpa": 0.7,
+      "K0_prime": 4.03,
+      "K0_prime_error": null,
+      "fixed_parameters": [
+       "K0_prime"
+      ]
+     }
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the Table 2 endpoint V=55.792 A^3, the stored BM3 predicts 86.6703 GPa versus the printed 86.6 GPa.",
+     "independent_refit_check": "A Peritheos errors-in-variables refit of all 26 Table 2 rows, using the printed pressure and volume standard deviations and fixing the independently measured V0=74.698 A^3, gives K0=164.1036 GPa and K0'=4.05239. This reproduces the preferred coefficients within printed precision; it is a deterministic audit fit, not a replacement record.",
+     "limitation": "The authors do not identify their fitting software, exact objective, covariance convention, or weighting of the ambient anchor, so the published parameter covariance cannot be reconstructed."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgo_jacobsen_2008_table2_kcl_compression",
+      "mgo_jacobsen_2008_table1_helium_compression"
+     ],
+     "source_locations": [
+      "Table 2, all 26 KCl-medium rows",
+      "Table 1 ambient V0 anchor"
+     ],
+     "finding": "All 26 KCl-medium pressure-volume rows and their printed standard deviations are bundled. The separately bundled Table 1 resource preserves the shared experimental ambient-volume anchor."
+    }
+   }
+  },
+  {
+   "label": "Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3",
+   "reference": {
+    "authors": [
+     "Jacobsen",
+     "Holl",
+     "Adams",
+     "Fischer",
+     "Martin",
+     "Bina",
+     "Lin",
+     "Prakapenka",
+     "Kubo",
+     "Dera"
+    ],
+    "year": 2008,
+    "title": "Compression of single-crystal magnesium oxide to 118 GPa and a ruby pressure gauge for helium pressure media",
+    "source": "American Mineralogist",
+    "volume": "93",
+    "locator": "1823-1828",
+    "doi": "10.2138/am.2008.2988"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.687,
+     "K0": 159.6,
+     "K0_prime": 3.74
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.006,
+    "K0": 0.6,
+    "K0_prime": 0.03
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    111.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "temperature_ref": 300.0,
+   "identifier": "mgo_jacobsen_2008_bm3_helium_mao1986",
+   "fit_datasets": [
+    "mgo_jacobsen_2008_table1_helium_compression"
+   ],
+   "parameter_provenance": {
+    "equation": "Results and discussion, pages 1825-1826, and Figure 3: third-order Birch-Murnaghan EOS with F=P/[3f(1+2f)^(5/2)] and f=[(V0/V)^(2/3)-1]/2.",
+    "V0": "Results and discussion, page 1826: all-three-runs fit V0=74.687(6) A^3. The abstract instead prints 74.697(6) A^3, while the separately described ruby-only sensitivity fit gives 74.697(7) A^3; this record follows the unambiguous Results value for the all-data fit.",
+    "K0": "Abstract, Results, and Figures 2-4: all-data helium fit KT0=159.6(6) GPa.",
+    "K0_prime": "Abstract, Results, and Figures 2-4: all-data helium fit K'=3.74(3).",
+    "volume_basis": "Table 1 and the cell-refinement discussion report cubic single-crystal MgO unit-cell volumes. The represented B1 Fm-3m conventional cell has Z=4.",
+    "temperature_ref": "The article describes static room-temperature compression and explicitly discusses the experiment at 300 K; 300 K is a nominal reference, not a row-wise measured sample temperature."
+   },
+   "notes": "Published three-parameter BM3 fit to all three helium-medium runs using Mao et al. (1986) quasi-hydrostatic ruby pressures through 85 GPa and six Sun et al. (2005) diamond-Raman pressures calibrated against that ruby scale at higher compression. The 111.0 GPa upper bound is the maximum pressure actually used by this BM3; the paper's 118.1 GPa headline value is the same final volume recalculated from the Zha et al. (2000) MgO scale. The Zha-derived pressure column is preserved as provenance but is not a separate Jacobsen MgO EOS because it is calculated from the already-defined Zha pressure scale. The paper reports no parameter covariance, no confidence level for the parenthesized parameter errors, and no exact fitting software or residual objective.",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     111.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "The pressure bound is the actual Mao-1986/Sun pressure coordinate used by this fit, not the 118.1 GPa Zha-scale recalculation of the last row.",
+     "The authors interpret the low K0' either as a possible MgO compression change above 40 GPa or as evidence that the Mao-1986 ruby gauge requires adjustment in helium; this record preserves the reported fit without endorsing either interpretation."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Table 1 footnote and results, pages 1824-1825; quasi-hydrostatic ruby-scale pressures from Mao et al. (1986)",
+      "scope": "45 non-ambient Table 1 rows through 85.0 GPa",
+      "reference_calibration_record": "ruby_mao_1986"
+     },
+     {
+      "kind": "other_optical_gauge",
+      "reference": {
+       "authors": [
+        "Sun",
+        "Ruoff",
+        "Stupian"
+       ],
+       "year": 2005,
+       "title": "Convenient pressure gauge for multimegabar pressures calibrated to 300 GPa",
+       "source": "Appl. Phys. Lett.",
+       "volume": "86",
+       "locator": "014103"
+      },
+      "source_location": "Results and Table 1 section footnote, pages 1824-1825; Equation 4a of Sun et al. (2005), calibrated against Mao et al. (1986)",
+      "scope": "six highest-pressure run-3 rows, 89.0-111.0 GPa",
+      "notes": "The source reports the reduced diamond-Raman pressures and assigns each a 2.0 GPa standard deviation, but does not tabulate the measured Raman shifts."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_model_not_supported",
+     "notes": "The Mao-1986 ruby rows are exactly convertible and their normalized R1 shifts are printed. Exact observation-level recalculation of the six highest rows is unavailable because the Sun et al. (2005) diamond-Raman model is not bundled and the measured Raman shifts are not reported."
+    },
+    "audit_date": "2026-09-05",
+    "notes": "This is a mixed-marker fit on one Mao-1986-linked pressure coordinate: ruby fluorescence for 45 rows and a diamond-Raman gauge calibrated against Mao-1986 for the six highest-pressure rows."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final American Mineralogist article and its complete printed tables. LitCurate was used only for discovery. The journal and author-hosted article records expose no separate official supplement.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am.2008.2988",
+     "locations": [
+      "Abstract and introduction, pages 1823-1824",
+      "Experimental methods, page 1824",
+      "Table 1 and Figure 2, page 1825",
+      "BM3 definition, alternative fits, and Figure 3, pages 1825-1826",
+      "Ruby-scale derivation and Figure 4, page 1827"
+     ],
+     "finding": "The all-data helium series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on a Mao-1986-linked pressure coordinate. The Results section gives V0=74.687(6) A^3, KT0=159.6(6) GPa, and K'=3.74(3). The calculated Zha-scale pressure column is not an independent fitted Jacobsen EOS.",
+     "doi": "10.2138/am.2008.2988"
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "preferred all-data helium V0",
+      "abstract": "74.697(6) A^3",
+      "results": "74.687(6) A^3",
+      "resolution": "Use 74.687(6) A^3 because the Results section explicitly assigns it to the three-parameter fit of all three Table 1 runs. The nearby 74.697 value is independently assigned to the ruby-only sensitivity fit as 74.697(7) A^3, making the abstract value an isolated inconsistency rather than an unresolved fit definition."
+     },
+     {
+      "field": "fixed-K0 sensitivity-fit V0 unit",
+      "results": "V0=74.695(6) GPa",
+      "resolution": "Interpret the printed GPa as a unit typo and preserve 74.695(6) A^3 in the non-executable sensitivity metadata: V0 is the volume parameter, and the neighboring preferred and ruby-only fits report it in A^3."
+     }
+    ],
+    "reported_parameterizations": [
+     {
+      "role": "preferred_all_three_runs_fit",
+      "V0_a3": 74.687,
+      "V0_error_a3": 0.006,
+      "K0_gpa": 159.6,
+      "K0_error_gpa": 0.6,
+      "K0_prime": 3.74,
+      "K0_prime_error": 0.03,
+      "fixed_parameters": []
+     },
+     {
+      "role": "ruby_only_sensitivity_fit",
+      "V0_a3": 74.697,
+      "V0_error_a3": 0.007,
+      "K0_gpa": 159.5,
+      "K0_error_gpa": 0.6,
+      "K0_prime": 3.74,
+      "K0_prime_error": 0.03,
+      "fixed_parameters": []
+     },
+     {
+      "role": "K0_fixed_sensitivity_fit",
+      "V0_a3": 74.695,
+      "V0_error_a3": 0.006,
+      "K0_gpa": 160.2,
+      "K0_error_gpa": null,
+      "K0_prime": 3.709,
+      "K0_prime_error": 0.008,
+      "fixed_parameters": [
+       "K0"
+      ]
+     }
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the last Table 1 volume V=52.239 A^3, the stored BM3 predicts 110.7638 GPa versus the 111.0 GPa pressure used by the fit.",
+     "independent_refit_check": "A Peritheos errors-in-variables refit of all 51 non-ambient Table 1 rows, using the printed pressure and volume standard deviations and fixing the independently measured V0=74.698 A^3, gives K0=159.3536 GPa and K0'=3.74517. Both reproduce the preferred coefficients within the paper's reported errors; it is a deterministic audit fit, not a replacement record.",
+     "limitation": "The authors do not identify their fitting software, exact objective, covariance convention, or weighting of the ambient anchor, so the published free-V0 solution and covariance cannot be regenerated bit-for-bit from the printed table."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgo_jacobsen_2008_table1_helium_compression"
+     ],
+     "source_locations": [
+      "Table 1, ambient anchor and all 51 helium-medium rows"
+     ],
+     "finding": "All 52 printed rows are bundled, preserving run identifiers, normalized ruby shifts, the mixed ruby/diamond pressure marker, reported-pressure and volume standard deviations, and the Zha-2000 MgO-scale recalculations."
+    }
+   }
+  },
+  {
    "label": "Shen and Smith (2026), Cu-referenced Vinet",
    "reference": {
     "authors": [
@@ -455,6 +1071,225 @@
       "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
      ],
      "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+    }
+   }
+  },
+  {
+   "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
+   "reference": {
+    "authors": [
+     "Luo",
+     "Xiang",
+     "Li",
+     "Wu",
+     "Liu",
+     "Li",
+     "Xian",
+     "Wu"
+    ],
+    "year": 2023,
+    "title": "Equation of state of MgO up to 345 GPa and 8500 K",
+    "source": "Phys. Rev. B",
+    "volume": "107",
+    "locator": "134116",
+    "doi": "10.1103/PhysRevB.107.134116"
+   },
+   "equation_kind": "thermal",
+   "record_kind": "published",
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 74.0741025123,
+     "K0": 169.8,
+     "K0_prime": 4.501
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.0267705466,
+    "K0": 0.5,
+    "K0_prime": 0.007
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "SecondOrderTaylorThermalPressure",
+    "model": "second_order_taylor_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "eta0": 0.02,
+     "c0": 0.5096,
+     "c1": -13.4246,
+     "c2": 0.0063295,
+     "c3": 36.2194,
+     "c4": 5.4705e-08,
+     "c5": 0.0032238
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "eta0": null,
+     "c0": null,
+     "c1": null,
+     "c2": null,
+     "c3": null,
+     "c4": null,
+     "c5": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "eta0"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    345.0
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "experimental_temperature_range_k": [
+    300.0,
+    8500.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     345.0
+    ],
+    "temperature_k": [
+     300.0,
+     8500.0
+    ],
+    "volume_ratio": [
+     0.563747,
+     1.006692
+    ],
+    "notes": [
+     "Pressure and temperature bounds are the authors' stated range for the derived pressure-scale equation, not a rectangular experimental-data envelope or a phase boundary.",
+     "The volume-ratio bounds convert the Tables II-III ambient compression range through the measured initial density and the fitted 0 K cold reference volume."
+    ]
+   },
+   "fit_datasets": [
+    "mgo_luo_2023_table1_shock"
+   ],
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Section III, page 6: V0K = 0.2767 +/- 0.0001 cm^3/g at zero pressure and zero temperature; converted with 40.304 g/mol MgO and Z=4 to the conventional B1 cell",
+     "K0": "Section III, page 6: B0 = 169.8 +/- 0.5 GPa at zero pressure and zero temperature",
+     "K0_prime": "Section III, page 6: B' = 4.501 +/- 0.007 at zero pressure and zero temperature"
+    },
+    "thermal_correction": {
+     "Tr": "Appendix B, Equation (B2), page 10: 300 K Taylor expansion coordinate",
+     "eta0": "Appendix B, Equation (B2), page 10: compression expansion coordinate 0.02",
+     "c0": "Appendix B, Equation (B2), page 10",
+     "c1": "Appendix B, Equation (B2), page 10",
+     "c2": "Appendix B, Equation (B2), page 10",
+     "c3": "Appendix B, Equation (B2), page 10",
+     "c4": "Appendix B, Equation (B2), page 10",
+     "c5": "Appendix B, Equation (B2), page 10"
+    }
+   },
+   "volume": {
+    "reference_value": 74.0741025123,
+    "public_to_model_scale": 1.0,
+    "model_unit": "angstrom^3/conventional_unit_cell"
+   },
+   "notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; the three reported temperatures span 3088-5676 K. The full quasi-Debye Helmholtz construction in Equations (1)-(6) is not independently reconstructable from the article because the numerical longitudinal- and shear-velocity versus density fits needed for the Debye-temperature law are not published. The authors therefore supply Equations (B1)-(B2) as the derived executable P-V-T form. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
+   "identifier": "mgo_b1_luo_2023_vinet_thermal_5",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Luo",
+        "Xiang",
+        "Li",
+        "Wu",
+        "Liu",
+        "Li",
+        "Xian",
+        "Wu"
+       ],
+       "year": 2023,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.107.134116"
+      },
+      "source_location": "Equations (7)-(10), Table I, and Section II.B.2",
+      "scope": "Hugoniot P-V-T and sound-velocity constraints",
+      "notes": "Pressure follows the Rankine-Hugoniot relations from measured shock and particle velocities. Shots 2, 3, and 5 obtain particle velocity by impedance matching to the printed Ta or Pt flyer Hugoniots; Shots 1 and 4 use Doppler-pin measurements."
+     },
+     {
+      "kind": "ultrasonic",
+      "reference": {
+       "authors": [
+        "Kono",
+        "Irifune",
+        "Higo",
+        "Inoue",
+        "Barnhoorn"
+       ],
+       "year": 2010,
+       "source": "Phys. Earth Planet. Inter.",
+       "volume": "183",
+       "locator": "196",
+       "doi": "10.1016/j.pepi.2010.03.010"
+      },
+      "source_location": "Section II.B.2 and Appendix A",
+      "scope": "Room-temperature pressure-scale-independent sound-velocity constraints"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The five new Table I shock states are bundled and their reduced pressures can be checked, but the complete global fit also selects observations from multiple earlier publications and requires unpublished sound-velocity-density fit coefficients and the detailed objective implementation."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The zero-temperature Vinet convention, mass-to-cell volume conversion, absolute polynomial thermal pressure, parameters, uncertainties, B1 identity, stated model range, shock pressure basis, and tabulated P-V-T reproduction were checked against the primary article.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
+     "locations": [
+      "Equations (1)-(6), pages 2-3",
+      "Table I and Section II.B, pages 3-6",
+      "Section III, page 6",
+      "Tables II-III, pages 8-9",
+      "Appendices A-B, pages 9-10"
+     ],
+     "finding": "The executable source form is a 0 K Rydberg-Vinet cold curve plus the absolute second-order Taylor thermal pressure in Equations (B1)-(B2). Calling the record simply Vinet would omit the thermal EOS that produces the published P-V-T scale.",
+     "doi": "10.1103/physrevb.107.134116"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "mgo_luo_2023_table1_shock",
+      "mgo_luo_2023_tables2_3_pvt_grid"
+     ],
+     "source_locations": [
+      "Table I, page 5",
+      "Tables II-III, pages 8-9"
+     ],
+     "finding": "All five new shock experiments and all 576 published derived P-V-T grid values are bundled. Earlier literature observations selected for the global optimization are cited but not reproduced row by row in this article."
+    },
+    "reproduction": {
+     "method": "Independent evaluation of Equations (B1)-(B2) using the printed cold and thermal coefficients, with Tables II-III compression converted using rho0=3.590 g/cm^3",
+     "states": 576,
+     "rmse_gpa": 0.484096,
+     "max_abs_residual_gpa": 1.435303,
+     "note": "The table is generated from the full quasi-Debye free energy and the Appendix-B polynomial is stated to be consistent with it, so sub-GPa RMS rather than printed-rounding equality is the appropriate check. A diagnostic least-squares refit of c0-c5 to the tabulated derived grid lowers RMSE only to 0.445789 GPa; it is not a refit to primary observations and is not stored as an EOS record."
     }
    }
   },
@@ -660,6 +1495,175 @@
      }
     }
    ]
+  },
+  {
+   "label": "Dewaele et al. (2000), BM3-MGD",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Fiquet",
+     "Andrault",
+     "Hausermann"
+    ],
+    "year": 2000,
+    "title": "P-V-T equation of state of periclase from synchrotron radiation measurements",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "105",
+    "locator": "2869-2877",
+    "doi": "10.1029/1999JB900364"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.71,
+     "K0": 161.0,
+     "K0_prime": 3.94
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.03,
+    "K0": 1.0,
+    "K0_prime": 0.2
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 800.0,
+     "gamma0": 1.45,
+     "q": 0.8,
+     "n": 2.0
+    },
+    "debye_temperature_law": "integrated_gruneisen",
+    "model": "mie_gruneisen_debye",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 50.0,
+     "gamma0": 0.1,
+     "q": 0.5,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "n"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    53.0
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2474.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     53.0
+    ],
+    "temperature_k": [
+     300.0,
+     2474.0
+    ],
+    "notes": [
+     "Validated only for B1 periclase over the measured P-T envelope; the article does not claim a phase transition in this range.",
+     "The highest tabulated temperature is 2474 K; the abstract rounds the experimental limit to 2500 K."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Fixed in the room-temperature fits to the 74.71(3) A^3 average of prior ambient measurements (discussion preceding Table 3).",
+    "K0": "Fixed in the preferred BM3 fit to the adopted acoustic value 161(1) GPa (discussion preceding Table 3).",
+    "K0_prime": "Fitted to the combined room-temperature diffraction data: the text gives the formal result as 3.94 +/- 0.06 (Table 3 rounds it to 3.94(5)), and pressure-error propagation expands it to 3.94 +/- 0.2, repeated in the abstract. The conclusion instead prints +/-0.3 without explanation. The explicit propagated +/-0.2 value is stored, and K0' is held fixed in the thermal analysis.",
+    "Tr": "The thermal pressure is referenced to the 300 K BM3 isotherm in Section 4.2 and Figure 4.",
+    "theta0": "800 +/- 50 K, obtained by fitting the Debye heat-capacity expression to the Anderson and Zou (1989) ambient-pressure thermodynamic data and then adopted in the P-V-T model.",
+    "gamma0": "1.45 +/- 0.1, constrained from the zero-pressure thermal-pressure intercept in Section 4.2 and then fixed while q was determined from its pressure dependence.",
+    "q": "0.8 +/- 0.5, constrained from the compression dependence of thermal pressure in Section 4.2.",
+    "n": "Fixed to two atoms per MgO formula unit in the Debye energy expression."
+   },
+   "fit_datasets": [
+    "mgo_dewaele_2000_table2_pvt"
+   ],
+   "notes": "Preferred complete P-V-T parameterization from Table 5 and the conclusion: a 300 K third-order Birch-Murnaghan reference isotherm plus quasi-harmonic Mie-Gruneisen-Debye thermal pressure. The implemented theta(V) relation follows exactly from d ln(theta)/d ln(V)=-gamma with gamma=gamma0(V/V0)^q, i.e. the integrated-Gruneisen law. Table 3's Murnaghan, Vinet, logarithmic, and alternate constrained BM3 fits are room-temperature extrapolation comparisons, not separate preferred P-V-T records, and are therefore not added. The static coefficients were obtained from a staged combined-data analysis that included earlier published room-temperature measurements; the bundled Table 2 contains all 61 new observations from this study. The K0' uncertainty is internally inconsistent: formal +/-0.06 in the text (0.05 after Table 3 rounding), pressure-propagated +/-0.2 in the text and abstract, and unexplained +/-0.3 in the conclusion; the stored +/-0.2 follows the explicit error analysis. No official supplement or machine-readable data deposit accompanies the article.",
+   "identifier": "mgo_dewaele_2000_bm3_mgd_5",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Jamieson",
+        "Fritz",
+        "Manghnani"
+       ],
+       "year": 1982,
+       "title": "Pressure measurement at high temperature in X-ray diffraction studies: Gold as a primary standard",
+       "source": "High-Pressure Research in Geophysics",
+       "locator": "27-48"
+      },
+      "source_location": "Experimental section and pressure-error discussion; platinum lattice parameters were converted with the Jamieson et al. shock-Hugoniot/Debye P-V-T EOS.",
+      "scope": "all nonzero-pressure Table 2 observations",
+      "notes": "Table 2 preserves the row-wise Pt lattice parameter and temperature used in the reduction."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "The source identifies the platinum calibration and publishes the required row-wise Pt lattice parameters and temperatures, but the exact Jamieson et al. (1982) platinum P-V-T implementation is not bundled as an executable Peritheos reference record. Reported source-scale pressures are retained without silent recalibration."
+    },
+    "audit_date": "2026-09-04",
+    "notes": "Pressure uncertainty is defined by Delta P = 0.03 P + 0.0004(T-300), with P in GPa and T in K. Parenthesized Table 2 values are retained verbatim; the 0.8 and 0.0 GPa rows have no printed parenthesized pressure uncertainty."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation convention, parameter provenance, reference state, MgO cell-volume basis, all 61 primary rows, Pt pressure calibration, and experimental envelope were checked against the primary article. The DOI is authored by Dewaele et al. (2000), not Fei et al.; Fei (1999) supplies comparison data used in the paper's combined room-temperature fit.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fitted_fixed_adopted_status",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/1999JB900364",
+     "locations": [
+      "Experimental section and Table 2",
+      "Equation 1 and Table 3",
+      "Equations 2-8, Figure 4, and Tables 4-5",
+      "Abstract and conclusion"
+     ],
+     "finding": "The article's reproducible preferred result is one B1-MgO BM3-MGD EOS with V0=74.71 A^3, K0=161 GPa, K0'=3.94, theta0=800 K, gamma0=1.45, and q=0.8. Alternative Murnaghan, Vinet, logarithmic, and constrained BM3 rows in Table 3 quantify room-temperature extrapolation sensitivity and are not additional recommended thermal parameterizations.",
+     "doi": "10.1029/1999jb900364"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "mgo_dewaele_2000_table2_pvt"
+     ],
+     "source_locations": [
+      "Table 2, all 61 rows"
+     ],
+     "finding": "All printed P-V-T observations are transcribed with MgO conventional-cell volume, platinum lattice parameter, and the displayed uncertainties. There is no separate official supplement or data deposit."
+    }
+   }
   }
  ],
  "format": "peritheos.material",
@@ -670,6 +1674,283 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "mgo_luo_2023_table1_shock",
+   "kind": "shock_hugoniot_pvt_sound_velocity",
+   "description": "All five new MgO shock experiments in Table I, including reported one-sigma Hugoniot and sound-velocity errors and two-sigma temperature errors.",
+   "reference": {
+    "authors": [
+     "Luo",
+     "Xiang",
+     "Li",
+     "Wu",
+     "Liu",
+     "Li",
+     "Xian",
+     "Wu"
+    ],
+    "year": 2023,
+    "source": "Phys. Rev. B",
+    "volume": "107",
+    "locator": "134116",
+    "doi": "10.1103/PhysRevB.107.134116"
+   },
+   "source_location": "Table I, page 5",
+   "source_url": "https://doi.org/10.1103/PhysRevB.107.134116",
+   "columns": [
+    {
+     "name": "shot_number",
+     "quantity": "shot_number",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_material_code",
+     "quantity": "flyer_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_velocity_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_sigma_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "particle_velocity_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "particle_velocity_sigma_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "particle_velocity_km_s"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_sigma_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "density_g_cm3"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_2sigma_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "euler_sound_velocity_km_s",
+     "quantity": "euler_sound_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "euler_sound_velocity_sigma_km_s",
+     "quantity": "euler_sound_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "euler_sound_velocity_km_s"
+    }
+   ],
+   "rows": [
+    [
+     1,
+     1,
+     6.54,
+     12.94,
+     0.11,
+     4.62,
+     0.03,
+     5.58,
+     0.03,
+     215,
+     2,
+     4228,
+     152,
+     null,
+     null
+    ],
+    [
+     2,
+     2,
+     7.2,
+     13.88,
+     0.1,
+     5.31,
+     0.03,
+     5.82,
+     0.03,
+     265,
+     3,
+     5676,
+     202,
+     16.96,
+     0.1
+    ],
+    [
+     3,
+     1,
+     7.5,
+     13.64,
+     0.1,
+     5.13,
+     0.03,
+     5.76,
+     0.03,
+     251,
+     3,
+     5274,
+     190,
+     16.68,
+     0.1
+    ],
+    [
+     4,
+     1,
+     5.36,
+     11.5,
+     0.06,
+     3.69,
+     0.02,
+     5.29,
+     0.02,
+     152,
+     1,
+     null,
+     null,
+     null,
+     null
+    ],
+    [
+     5,
+     1,
+     5.91,
+     12.11,
+     0.06,
+     4.06,
+     0.02,
+     5.4,
+     0.02,
+     176,
+     1,
+     3088,
+     106,
+     15.66,
+     0.06
+    ]
+   ],
+   "used_by_eos_records": [
+    "mgo_b1_luo_2023_vinet_thermal_5"
+   ],
+   "uncertainty": {
+    "hugoniot_and_sound_velocity": "one_standard_deviation",
+    "temperature": "two_standard_deviations",
+    "covariance": "not_reported"
+   },
+   "notes": "flyer_material_code 1 denotes Ta and 2 denotes Pt. The flyer velocity is reported without a row-wise error; the electromagnetic measurement accuracy is stated as better than 0.5%. The common initial MgO density is 3.590 +/- 0.004 g/cm^3 at one sigma."
+  },
+  {
+   "identifier": "mgo_luo_2023_tables2_3_pvt_grid",
+   "kind": "published_eos_grid",
+   "description": "All 576 pressures tabulated from the authors' full quasi-Debye free-energy EOS over the printed compression-temperature grid.",
+   "reference": {
+    "authors": [
+     "Luo",
+     "Xiang",
+     "Li",
+     "Wu",
+     "Liu",
+     "Li",
+     "Xian",
+     "Wu"
+    ],
+    "year": 2023,
+    "source": "Phys. Rev. B",
+    "volume": "107",
+    "locator": "134116",
+    "doi": "10.1103/PhysRevB.107.134116"
+   },
+   "source_location": "Tables II-III, pages 8-9",
+   "source_url": "https://doi.org/10.1103/PhysRevB.107.134116",
+   "columns": [
+    {
+     "name": "compression_ambient",
+     "quantity": "one_minus_volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-luo-2023-tables2-3-pvt.csv",
+    "sha256": "c631868deb0a7894bc15e6c2555af53531f9cac66c894dec6ea0e06da894ac4d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_b1_luo_2023_vinet_thermal_5"
+   ],
+   "notes": "Tables II-III use compression 1-V/V0 with the ambient initial sample volume V0=1/rho0, while Appendix B uses eta=1-V/V0K with the fitted zero-temperature cold volume V0K. These are calculated EOS values, not independent experimental observations."
+  },
   {
    "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
    "kind": "simultaneous_unit_cell_volumes",
@@ -737,6 +2018,294 @@
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
   },
   {
+   "identifier": "mgo_li_2006_table1_elasticity",
+   "kind": "compression_density_velocity_elastic_moduli",
+   "description": "The ambient density and acoustic velocities reported in Section 2 plus all 17 MgO states printed in Table 1, preserving the compression path, relative volume, density, P- and S-wave velocities, adiabatic bulk and shear moduli, calculated absolute pressure, and all parenthesized uncertainties.",
+   "reference": {
+    "authors": [
+     "Li",
+     "Woody",
+     "Kung"
+    ],
+    "year": 2006,
+    "title": "Elasticity of MgO to 11 GPa with an independent absolute pressure scale: Implications for pressure calibration",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "111",
+    "locator": "B11206",
+    "doi": "10.1029/2005JB004251"
+   },
+   "source_location": "Section 2 paragraph 5 ambient measurements; official tab-delimited Table 1 supplement and article Table 1 footnote",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2005JB004251&file=jgrb14836-sup-0001-t01.txt",
+   "columns": [
+    {
+     "name": "experimental_path",
+     "quantity": "compression_path",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_over_reference_volume",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_standard_deviation_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "density_g_cm3"
+    },
+    {
+     "name": "p_wave_velocity_km_s",
+     "quantity": "p_wave_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "p_wave_velocity_standard_deviation_km_s",
+     "quantity": "p_wave_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "p_wave_velocity_km_s"
+    },
+    {
+     "name": "s_wave_velocity_km_s",
+     "quantity": "s_wave_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "s_wave_velocity_standard_deviation_km_s",
+     "quantity": "s_wave_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "s_wave_velocity_km_s"
+    },
+    {
+     "name": "adiabatic_bulk_modulus_gpa",
+     "quantity": "adiabatic_bulk_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "adiabatic_bulk_modulus_standard_deviation_gpa",
+     "quantity": "adiabatic_bulk_modulus",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "adiabatic_bulk_modulus_gpa"
+    },
+    {
+     "name": "shear_modulus_gpa",
+     "quantity": "shear_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "shear_modulus_standard_deviation_gpa",
+     "quantity": "shear_modulus",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "shear_modulus_gpa"
+    },
+    {
+     "name": "calculated_absolute_pressure_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "calculated_absolute_pressure_standard_deviation_gpa",
+     "quantity": "calculated_pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "calculated_absolute_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-li-2006-table1-elasticity.csv",
+    "sha256": "d7bf9bbd77dfcf086d64e0297566f6d9168eefb52a1f889ee7678f83c1c1f2f5",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_li_2006_bm3_absolute_acoustic"
+   ],
+   "uncertainty": {
+    "reported_as": "one_standard_deviation_from_error_propagation",
+    "volume_ratio": "Table 1 gives no row-wise parenthesized error; its footnote states that refined unit-cell-volume error is less than 0.05%.",
+    "parameter_covariance": "not_reported"
+   },
+   "notes": "The ambient row transcribes Section 2 paragraph 5: Archimedes bulk density 3.566(5) g/cm^3 and ambient VP=9.74(1), VS=6.00(1) km/s; unavailable moduli and pressure fields remain blank rather than being inferred. The other rows are a lossless field-wise transcription of the official publisher Table 1 file. The first seven high-pressure rows are the initial room-temperature compression. The remaining ten are decompression measurements collected at room temperature after annealing at up to 800 degC. Pcal is calculated from the acoustic-derived BM3 and must not be treated as an independent pressure observation for a volumetric refit. The fourth initial-compression row is retained exactly as printed even though its V/V0=0.962 is internally inconsistent with its density and Pcal columns. The Table 1 footnote reports the conventional-cell reference V0=74.702(26) A^3 separately; it is stored on the EOS record rather than duplicated as a synthetic data row."
+  },
+  {
+   "identifier": "mgo_jacobsen_2008_table1_helium_compression",
+   "kind": "pressure_volume_with_optical_calibrant",
+   "description": "The ambient-volume anchor and all 51 single-crystal MgO helium-medium compression observations printed in Table 1, retaining normalized ruby shifts, the mixed pressure-marker lineage, reported uncertainties, and calculated Zha-2000 MgO-scale pressures.",
+   "reference": {
+    "authors": [
+     "Jacobsen",
+     "Holl",
+     "Adams",
+     "Fischer",
+     "Martin",
+     "Bina",
+     "Lin",
+     "Prakapenka",
+     "Kubo",
+     "Dera"
+    ],
+    "year": 2008,
+    "title": "Compression of single-crystal magnesium oxide to 118 GPa and a ruby pressure gauge for helium pressure media",
+    "source": "American Mineralogist",
+    "volume": "93",
+    "locator": "1823-1828",
+    "doi": "10.2138/am.2008.2988"
+   },
+   "source_location": "Table 1, journal page 1825",
+   "source_url": "https://www.jsg.utexas.edu/lin/files/JacobsenMgOAM2008.pdf",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_marker",
+     "quantity": "pressure_marker_and_scale",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ruby_r1_relative_shift",
+     "quantity": "delta_lambda_over_lambda0",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "reported_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "reported_pressure_standard_deviation_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "reported_pressure_gpa"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "zha_2000_mgo_scale_pressure_gpa",
+     "quantity": "calculated_alternative_pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-jacobsen-2008-table1-helium-compression.csv",
+    "sha256": "64ca448a2382dc4121c2bb53868ac71ce86b6c8a126384a08bcc3424206d36da",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_jacobsen_2008_bm3_kcl_mao1978",
+    "mgo_jacobsen_2008_bm3_helium_mao1986"
+   ],
+   "uncertainty": {
+    "pressure_and_volume": "one_standard_deviation",
+    "zha_2000_mgo_scale_pressure": "not_reported",
+    "parameter_covariance": "not_reported"
+   },
+   "notes": "The ambient row is attributed by the source to single-crystal diffraction from Jacobsen et al. (2002) and is the reference-volume anchor used for both Jacobsen et al. (2008) fits. The other 51 rows belong to helium runs 1-3 and underlie the helium/Mao-1986 record only. The first 45 high-pressure rows use Mao et al. (1986) ruby pressures; the last six use Equation 4a of Sun et al. (2005), calibrated against Mao-1986, with an assumed 2.0 GPa standard deviation. The calculated Zha et al. (2000) pressure column is retained verbatim but is not treated as an independent observation or a newly fitted EOS. Blank ruby shifts and uncertainties are source omissions, not zeros."
+  },
+  {
+   "identifier": "mgo_jacobsen_2008_table2_kcl_compression",
+   "kind": "pressure_volume",
+   "description": "All 26 single-crystal MgO compression observations printed in Table 2 for the non-hydrostatic KCl pressure medium and Mao et al. (1978) ruby scale.",
+   "reference": {
+    "authors": [
+     "Jacobsen",
+     "Holl",
+     "Adams",
+     "Fischer",
+     "Martin",
+     "Bina",
+     "Lin",
+     "Prakapenka",
+     "Kubo",
+     "Dera"
+    ],
+    "year": 2008,
+    "title": "Compression of single-crystal magnesium oxide to 118 GPa and a ruby pressure gauge for helium pressure media",
+    "source": "American Mineralogist",
+    "volume": "93",
+    "locator": "1823-1828",
+    "doi": "10.2138/am.2008.2988"
+   },
+   "source_location": "Table 2, journal page 1825",
+   "source_url": "https://www.jsg.utexas.edu/lin/files/JacobsenMgOAM2008.pdf",
+   "columns": [
+    {
+     "name": "reported_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "reported_pressure_standard_deviation_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "reported_pressure_gpa"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-jacobsen-2008-table2-kcl-compression.csv",
+    "sha256": "ee6bf930521cd62a1a67f603d95ff29963a85c8b854f8db35286fb35d136fca7",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_jacobsen_2008_bm3_kcl_mao1978"
+   ],
+   "uncertainty": {
+    "pressure_and_volume": "one_standard_deviation",
+    "parameter_covariance": "not_reported"
+   },
+   "notes": "Table 2 identifies all parenthesized pressure and volume uncertainties as standard deviations. Pressures use the Mao et al. (1978) non-hydrostatic ruby scale. The table does not repeat the ambient V0 anchor, which is printed in Table 1 and separately preserved in the companion helium-table resource."
+  },
+  {
    "identifier": "mgo_speziale_2001_table1_compression",
    "kind": "pressure_volume",
    "description": "All 32 room-temperature MgO compression observations printed in Table 1, retaining the methanol-ethanol and helium pressure-medium series.",
@@ -798,7 +2367,11 @@
    "kind": "pressure_molar_volume_digitized",
    "description": "Seventeen clearly distinguishable markers from the filled-circle current-study MgO series in Figure 2, including the ambient reference point. Filled triangles and all open shock-compression symbols were excluded. Experimental error bars are included only where their stems and caps are separable; blank error fields do not mean zero error.",
    "reference": {
-    "authors": ["Duffy", "Hemley", "Mao"],
+    "authors": [
+     "Duffy",
+     "Hemley",
+     "Mao"
+    ],
     "year": 1995,
     "source": "Phys. Rev. Lett.",
     "volume": "74",
@@ -807,24 +2380,181 @@
    },
    "source_location": "Figure 2, filled-circle present static-compression series",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "molar_volume_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
-    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
-    {"name": "pressure_error_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "molar_volume_error_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_per_mol"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "molar_volume_digitization_uncertainty_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_per_mol"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_per_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "molar_volume_error_cm3_per_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_per_mol"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "molar_volume_digitization_uncertainty_cm3_per_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_per_mol"
+    }
    ],
-   "resource": {"path": "datasets/mgo-duffy-1995-figure2-digitized.csv", "sha256": "9f4191e950481361efec4d855036b00216a98fe318cede2857e052920d7ce11c", "media_type": "text/csv"},
-   "used_by_eos_records": ["mgo_duffy_1995_bm3_1"],
+   "resource": {
+    "path": "datasets/mgo-duffy-1995-figure2-digitized.csv",
+    "sha256": "9f4191e950481361efec4d855036b00216a98fe318cede2857e052920d7ce11c",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_duffy_1995_bm3_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Extracted the 600 dpi one-bit journal page image from the locally archived PDF; separated visually identifiable filled circles from filled triangles and open shock symbols; calibrated marker centers against the printed axes. Experimental error bars were measured only where stems and terminal caps were unambiguous.",
     "source_pdf_sha256": "a2c33151213f983fddee09b98824d6ba93b53ae8a6dcd974bad8bc51d4372bb7",
-    "axis_calibration_pixels_600dpi": {"molar_volume": [[970.0, 11.0], [1305.0, 10.0]], "pressure": [[2146.0, 0.0], [1864.0, 50.0]]},
-    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 5.2032, "published_bm3_max_abs_pressure_residual_gpa": 10.7702},
+    "axis_calibration_pixels_600dpi": {
+     "molar_volume": [
+      [
+       970.0,
+       11.0
+      ],
+      [
+       1305.0,
+       10.0
+      ]
+     ],
+     "pressure": [
+      [
+       2146.0,
+       0.0
+      ],
+      [
+       1864.0,
+       50.0
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_bm3_rms_pressure_residual_gpa": 5.2032,
+     "published_bm3_max_abs_pressure_residual_gpa": 10.7702
+    },
     "digitized_on": "2026-09-03"
    }
+  },
+  {
+   "identifier": "mgo_dewaele_2000_table2_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 61 MgO P-V-T observations printed in Table 2, including 41 laser-heated and 20 room-temperature rows, with simultaneous platinum lattice parameters.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Fiquet",
+     "Andrault",
+     "Hausermann"
+    ],
+    "year": 2000,
+    "title": "P-V-T equation of state of periclase from synchrotron radiation measurements",
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "105",
+    "locator": "2869-2877",
+    "doi": "10.1029/1999JB900364"
+   },
+   "source_location": "Table 2, journal page 2872",
+   "source_url": "https://doi.org/10.1029/1999JB900364",
+   "columns": [
+    {
+     "name": "series",
+     "quantity": "measurement_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "pt_lattice_parameter_a",
+     "quantity": "calibrant_lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "mgo_unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "mgo_unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "mgo_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-dewaele-2000-table2-pvt.csv",
+    "sha256": "22c993b8a0ae8ddbe77ef533ecf442a502b591e569bc10cd2ddaf50f6cc4d0ed",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_dewaele_2000_bm3_mgd_5"
+   ],
+   "uncertainty": {
+    "temperature": "Table 2 assigns +/-200 K to the laser-heated measurements; no temperature uncertainty is printed for the 300 K rows.",
+    "pressure": "Parenthesized uncertainties are printed in Table 2 and follow Delta P = 0.03 P + 0.0004(T-300), with P in GPa and T in K.",
+    "volume": "Parenthesized last-digit uncertainties are calculated by GSAS, as stated in the Table 2 footnote."
+   },
+   "notes": "MgO volumes are conventional cubic Fm-3m cell volumes (Z=4), not molar or per-formula-unit volumes. The missing Pt entry at 0.0 GPa and missing pressure-uncertainty entries at 0.8 and 0.0 GPa are preserved as unavailable rather than inferred. The table is the primary publication's complete new dataset; earlier Fiquet, Fei, and Utsumi observations used in parts of the authors' combined analysis are separate literature datasets and are not silently merged here."
   }
  ]
 }

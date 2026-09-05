@@ -23,7 +23,7 @@ from typing import Any
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
-REPORT_AUDIT_DATE = "2026-09-04"
+REPORT_AUDIT_DATE = "2026-09-05"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
 REPORT = ROOT / "peritheos" / "data" / "primary-source-audit.json"
@@ -48,7 +48,19 @@ DERIVED_REFIT_RECORDS = {
     "neon_fcc_hemley_1989_bm3_refit",
 }
 
-CURRENT_SOURCE_AUDIT_RECORDS = {"rbcl_b2_campbell_1994_bm3_1"}
+CURRENT_SOURCE_AUDIT_RECORDS = {
+    "akimotoite_reynard_1996_bm3_ice_vii_3",
+    "akimotoite_reynard_1996_bm3_ruby_2",
+    "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
+    "mgo_b1_luo_2023_vinet_thermal_5",
+    "mgo_dewaele_2000_bm3_mgd_5",
+    "ca_perovskite_caracas_2005_bm3_3",
+    "ca_perovskite_kawai_2014_vinet_mgd_3",
+    "phase_egg_mookherjee_2019_bm3_lp_1",
+    "phase_egg_schulze_2018_bm3_1",
+    "rbcl_b2_campbell_1994_bm3_1",
+    "sio2_stv_andr_wang_2012_vinet_mgd_2",
+}
 
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
@@ -2893,10 +2905,10 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     previous = result.get("scientific_validation") or {}
     migration = previous.get("migration_source")
     primary_data_check = previous.get("primary_data_check")
+    reproduction = previous.get("reproduction")
     audit_date = (
         REPORT_AUDIT_DATE
-        if result["identifier"]
-        in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
+        if result["identifier"] in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
         else CATALOG_AUDIT_DATE
         if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
         else AUDIT_DATE
@@ -2962,7 +2974,33 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation["migration_source"] = migration
     if primary_data_check is not None:
         validation["primary_data_check"] = primary_data_check
+    for extension in (
+        "reported_parameterizations",
+        "parameterization_resolution",
+        "reported_inconsistencies",
+    ):
+        if extension in previous:
+            validation[extension] = previous[extension]
     result["scientific_validation"] = validation
+
+    if result["identifier"] == "ca_perovskite_caracas_2005_bm3_3":
+        result["scientific_validation"]["note"] = (
+            "The primary article and publisher HTML were audited directly. "
+            "Exactly one cubic source parameterization is executable; all 18 "
+            "Table 2 fits remain distinguished in the audit metadata."
+        )
+        result["scientific_validation"]["verified_fields"] = [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallography",
+            "published_uncertainties",
+            "validity",
+            "source_parameterizations",
+            "numerical_reproduction",
+        ]
 
     if result["identifier"] == "kcl_b2_tateno_2019_vinet_4":
         result["scientific_validation"]["note"] = (
@@ -2974,6 +3012,14 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         result["scientific_validation"]["verified_fields"].append(
             "pressure_calibration"
         )
+
+    if result["identifier"] == "mgo_b1_luo_2023_vinet_thermal_5":
+        result["scientific_validation"]["note"] = previous["note"]
+        result["scientific_validation"]["verified_fields"] = previous[
+            "verified_fields"
+        ]
+        if reproduction is not None:
+            result["scientific_validation"]["reproduction"] = reproduction
 
     if result["identifier"] == "kcl_b2_chidester_2021_bm3_5":
         result["scientific_validation"]["note"] = (
@@ -3000,9 +3046,35 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             "not_recommended_for_quantitative_use"
         )
         result["scientific_validation"]["audit_date"] = REPORT_AUDIT_DATE
-        result["scientific_validation"]["verified_fields"].append(
-            "fit_reproducibility"
+        result["scientific_validation"]["verified_fields"].append("fit_reproducibility")
+
+    if result["identifier"] == "phase_egg_schulze_2018_bm3_1":
+        result["scientific_validation"]["note"] = (
+            "Validated against the accepted author manuscript and official MSA "
+            "deposit. The final article's Table 2 is internally inconsistent about "
+            "the K0-prime error: the table prints 1.2, whereas the abstract and EOS "
+            "prose print 1.3. The tabulated parameter error is stored and the "
+            "discrepancy is not silently averaged."
         )
+        result["scientific_validation"]["verified_fields"] = [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "cell_setting",
+            "formula_units_per_cell",
+            "structure",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+        ]
+        if "numerical_reproduction" in previous:
+            result["scientific_validation"]["numerical_reproduction"] = previous[
+                "numerical_reproduction"
+            ]
 
     if result["identifier"] == "graphite_hanfland_1989_murnaghan_1":
         result["parameter_errors"] = dict(result["parameter_errors"])
@@ -3167,8 +3239,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 162:
-        raise ValueError(f"Expected 162 EOS records, found {len(entries)}")
+    if len(entries) != 211:
+        raise ValueError(f"Expected 211 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
@@ -3217,5 +3289,123 @@ def main() -> None:
     print(json.dumps(report["summary"], sort_keys=True))
 
 
+def aggregate_existing_audits() -> None:
+    """Rebuild aggregate audit files without rewriting curated material records."""
+    entries: list[dict[str, Any]] = []
+    pressure_calibrations: list[dict[str, Any]] = []
+    for path in sorted(MATERIALS.glob("*.eosmat")):
+        document = json.loads(path.read_text(encoding="utf-8"))
+        for record in document["eos_records"]:
+            check = record.get("scientific_validation")
+            if not isinstance(check, dict) or "status" not in check:
+                raise ValueError(
+                    f"{path.name}:{record.get('identifier')} has no existing audit"
+                )
+            entry = {
+                "material": document["identifier"],
+                "file": path.name,
+                "record": record["identifier"],
+                "label": record["label"],
+                "doi": normalized_doi(record.get("reference")),
+                "status": check["status"],
+                "note": check["note"],
+                "primary_source_check": check["primary_source_check"],
+            }
+            if "usage_recommendation" in check:
+                entry["usage_recommendation"] = check["usage_recommendation"]
+            entries.append(entry)
+            pressure_calibrations.append(record["pressure_calibration"])
+
+    counts = Counter(entry["status"] for entry in entries)
+    if "pending_primary_source_check" in counts:
+        raise ValueError("Primary-source audit left pending records")
+
+    report = {
+        "format": "peritheos.primary-source-audit",
+        "format_version": 1,
+        "audit_date": REPORT_AUDIT_DATE,
+        "policy": {
+            "scientific_authority": "primary publications and official supplements",
+            "external_catalogs": (
+                "External software catalogs are not used as scientific authority. "
+                "Dioptas supplied migration/file provenance only."
+            ),
+            "validated_definition": (
+                "Equation, all stored parameters, units, reference state, phase, "
+                "published errors when available, and represented validity/data "
+                "range traced to primary evidence."
+            ),
+            "deferred_behavior": (
+                "retained for interchange; rejected by Material.from_eosmat"
+            ),
+        },
+        "summary": {"records": len(entries), **dict(sorted(counts.items()))},
+        "records": entries,
+    }
+    REPORT.write_text(
+        json.dumps(report, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
+
+    manifest_path = MATERIALS / "manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest["materials"] = len(list(MATERIALS.glob("*.eosmat")))
+    manifest["eos_records"] = len(entries)
+    manifest["scientific_validation"] = {
+        "audit_date": REPORT_AUDIT_DATE,
+        "report": "../primary-source-audit.json",
+        "counts": dict(sorted(counts.items())),
+        "policy": (
+            "Only primary_source_validated records are executable; deferred records "
+            "remain available for lossless catalog interchange."
+        ),
+    }
+    pressure_statuses = Counter(
+        calibration["status"] for calibration in pressure_calibrations
+    )
+    recalculation_statuses = Counter(
+        calibration["recalculation"]["status"]
+        for calibration in pressure_calibrations
+    )
+    manifest["pressure_calibration"] = {
+        "audit_date": REPORT_AUDIT_DATE,
+        "status_counts": {
+            status: pressure_statuses[status]
+            for status in (
+                "resolved",
+                "partially_resolved",
+                "not_applicable",
+                "unresolved",
+            )
+        },
+        "recalculation_counts": dict(sorted(recalculation_statuses.items())),
+        "resolvable_reference_eos_uses": sum(
+            "reference_eos_record" in method
+            for calibration in pressure_calibrations
+            for method in calibration["methods"]
+        ),
+        "resolvable_reference_calibration_uses": sum(
+            "reference_calibration_record" in method
+            for calibration in pressure_calibrations
+            for method in calibration["methods"]
+        ),
+        "policy": (
+            "Exact EOS and ruby-scale links resolve to executable bundled records. "
+            "Unsupported or ambiguous calibrations are recorded explicitly and are "
+            "never replaced by an approximate pressure scale."
+        ),
+    }
+    manifest_path.write_text(
+        json.dumps(manifest, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
+        encoding="utf-8",
+    )
+    print(json.dumps(report["summary"], sort_keys=True))
+
+
 if __name__ == "__main__":
-    main()
+    import sys
+
+    if sys.argv[1:] == ["--aggregate-only"]:
+        aggregate_existing_audits()
+    else:
+        main()

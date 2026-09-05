@@ -45,6 +45,13 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "mgo_b1_luo_2023_vinet_thermal_5": (
+        "The five bundled Table I rows are only the new shock subset of a global "
+        "quasi-Debye fit. The complete earlier-study observations, numerical "
+        "sound-velocity-density fits, objective weights, and covariance are not "
+        "published; Tables II-III are derived EOS output and cannot serve as "
+        "independent refit observations."
+    ),
     "platinum_holmes_1989_vinet_1": (
         "The bundled rows are shock-Hugoniot qualification experiments; the stored "
         "equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be "
@@ -72,6 +79,12 @@ INDIRECT_DATA = {
         "300 K reference part of a combined thermal fit, but the record does not "
         "represent the source's thermal correction needed to refit those rows."
     ),
+    "mgo_li_2006_bm3_absolute_acoustic": (
+        "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not "
+        "independent pressure-volume observations. The source-derived isothermal "
+        "coefficients are instead validated by the bundled velocity-density data "
+        "and the dedicated acoustic finite-strain reproduction."
+    ),
 }
 
 SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
@@ -95,6 +108,25 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "akimotoite_reynard_1996_bm3_ruby_2": (
+        "Direct Table 1 reproduction of the ruby-pressure fit with K0 fixed at "
+        "the source-adopted 212 GPa. The source says its parameter uncertainties "
+        "account for pressure and volume errors, but it does not publish the exact "
+        "objective or covariance. Ruby brackets are fluorescence-line-width "
+        "estimates rather than stated one-sigma errors and are absent at the two "
+        "ambient anchors, so the reproducible Peritheos fit uses all 16 rows, "
+        "unweighted pressure residuals, and the reported one-sigma volume errors."
+    ),
+    "akimotoite_reynard_1996_bm3_ice_vii_3": (
+        "Direct Table 1 reproduction of the authors' preferred ice-VII-pressure "
+        "fit with K0 fixed at the source-adopted 212 GPa. Table 1 prints 12 "
+        "finite-pressure Pi values and Figure 3f supplies two zero-pressure "
+        "ambient anchors. The source does not publish its exact objective or "
+        "covariance; ice-pressure brackets are maximum-gradient estimates rather "
+        "than stated one-sigma errors and are absent at the two ambient anchors, "
+        "so the reproducible Peritheos fit uses unweighted pressure residuals and "
+        "the reported one-sigma volume errors."
+    ),
     "cscl_campbell_1994_bm3_1": (
         "Complete source-data reproduction: Table 1 contains a distinct 13-row "
         "CsCl block, not the RbCl rows previously attached to this material. The "
@@ -151,6 +183,14 @@ FIT_QUALIFICATIONS = {
         "[dedicated Mo2C reproduction]"
         "(literature-reproductions.md#mo2c-haines-2001)."
     ),
+    "mgo_dewaele_2000_bm3_mgd_5": (
+        "Conditional current-study thermal reproduction: the 41 heated Table 2 "
+        "rows constrain q while V0, K0, K0', theta0, gamma0, Tr, and n are held "
+        "to the source's staged/adopted values. Dewaele et al.'s published "
+        "thermal analysis additionally used Fei (1999) observations that are not "
+        "reprinted in this article, so exact parameter parity is not required from "
+        "the new current-study rows alone."
+    ),
     "neon_fcc_fei_2007_bm3_1": (
         "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, "
         "ref. 45), Finger et al. (1981, ref. 47), and their new observations. The "
@@ -167,6 +207,17 @@ FIT_QUALIFICATIONS = {
         "Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain "
         "unavailable. V0 and thermal coefficients are held fixed, and the available "
         "subset is fitted without weights."
+    ),
+    "phase_egg_mookherjee_2019_bm3_lp_1": (
+        "Curve-level diagnostic reproduction: Supplementary Table 1 provides all "
+        "11 static LP pressure-volume points and they recover the published BM3 "
+        "coefficients within the printed parameter uncertainties. The publication "
+        "fitted total energy versus volume, however, and the deposited workbook does "
+        "not include those energies, row uncertainties, regression weights, objective, "
+        "covariance, or fit statistic. This pressure-residual refit therefore validates "
+        "the published pressure curve but cannot reconstruct the source energy-fit "
+        "protocol exactly. See the dedicated phase-Egg reproduction in "
+        "literature-reproductions.md."
     ),
     "rbcl_b2_campbell_1994_bm3_1": (
         "Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted "
@@ -336,6 +387,12 @@ INVESTIGATION_NOTES = {
 
 # Dataset choices that cannot be inferred uniquely from generic quantity metadata.
 PRESSURE_COLUMNS = {
+    "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ruby_2": (
+        "ruby_pressure_gpa"
+    ),
+    "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ice_vii_3": (
+        "ice_vii_pressure_gpa"
+    ),
     "neon_hemley_1989_table1_compression": "pressure_gpa",
     "neon_hemley_1989_table1_fei_recalculated": "pressure_gpa_dewaele_2004",
     "aluminum_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
@@ -354,6 +411,15 @@ PRESSURE_COLUMNS = {
     "bridgmanite_tange_2012_table1_pvt#BM3": "pressure_bm3_gpa",
     "bridgmanite_tange_2012_table1_pvt#Vinet": "pressure_vinet_gpa",
     "mgfe_perovskite_knittle_1987_table2_compression": ("pressure_after_heating_gpa"),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_anderson_bm2_3": (
+        "pressure_anderson_1989_gpa"
+    ),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_jamieson_bm2_4": (
+        "pressure_jamieson_1982_gpa"
+    ),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_dewaele_bm2_5": (
+        "pressure_dewaele_2004_gpa"
+    ),
 }
 
 VOLUME_COLUMNS = {
@@ -383,6 +449,10 @@ VOLUME_COLUMNS = {
     "silicon_carbide_b3_miozzi_2018_data_set_s1_eos": ("sic_unit_cell_volume_a3"),
     "titanium_alpha_dewaele_2015_table4_compression": "lattice_a_angstrom",
     "titanium_omega_dewaele_2015_table4_compression": "lattice_a_angstrom",
+    "bridgmanite_wolf_2015_table2_pvt": "bridgmanite_unit_cell_volume_a3",
+    "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt": (
+        "bridgmanite_unit_cell_volume_a3"
+    ),
 }
 
 PHASE_FILTERS = {
@@ -390,6 +460,7 @@ PHASE_FILTERS = {
     "cao_b2_richet_1988_bm3_1": {"phase": "B2", "used_in_eos_fit": "yes"},
     "phase_d_ant_a_shieh_2000_bm2_1": {"sample": "1"},
     "phase_d_ant_b_shieh_2000_bm2_1": {"sample": "2"},
+    "phase_egg_schulze_2018_bm3_1": {"used_in_published_fit": "1"},
     "forsterite_finkelstein_2014_bm3_1": {
         "phase": "forsterite_I",
         "used_in_forsterite_i_eos_fit": "yes",
@@ -446,7 +517,10 @@ def _value_columns(dataset: dict[str, Any]) -> list[dict[str, Any]]:
     return [column for column in dataset["columns"] if column["role"] == "value"]
 
 
-def _pressure_column(dataset: dict[str, Any], model_type: str) -> str:
+def _pressure_column(dataset: dict[str, Any], model_type: str, record_id: str) -> str:
+    key = f"{dataset['identifier']}#{record_id}"
+    if key in PRESSURE_COLUMNS:
+        return PRESSURE_COLUMNS[key]
     key = f"{dataset['identifier']}#{model_type}"
     if key in PRESSURE_COLUMNS:
         return PRESSURE_COLUMNS[key]
@@ -674,7 +748,7 @@ def _series(
     if dataset["identifier"] == "silicon_anzellini_2019_tables1_4_6_7_compression":
         pressure_name = "pressure_gold_gpa|pressure_tungsten_gpa|pressure_ruby_gpa"
     else:
-        pressure_name = _pressure_column(dataset, model_type)
+        pressure_name = _pressure_column(dataset, model_type, record["identifier"])
     volume_name = _volume_column(dataset, record["identifier"])
     temperature_name = _temperature_column(dataset)
     columns = _column_map(dataset)
@@ -702,6 +776,14 @@ def _series(
     else:
         pressure = np.array([_number(row.get(pressure_name)) for row in rows])
         pressure_unit = columns[pressure_name]["unit"]
+        if record["identifier"] == "akimotoite_reynard_1996_bm3_ice_vii_3":
+            # Table 1 leaves Pi blank for the two ambient measurements, while
+            # Figure 3f plots both as zero-pressure anchors on the ice-VII scale.
+            ruby_pressure = np.array(
+                [_number(row.get("ruby_pressure_gpa")) for row in rows]
+            )
+            ambient = ~np.isfinite(pressure) & (ruby_pressure == 0.0)
+            pressure[ambient] = 0.0
     pressure *= _pressure_factor(pressure_unit)
     raw_volume = np.array([_number(row.get(volume_name)) for row in rows])
     volume, volume_factor = _volume_values(
@@ -1053,6 +1135,11 @@ def _fit_record(
         assert series.temperature is not None
         heated = series.temperature > 300.0
         series = _masked_series(series, heated, "41 heated rows")
+
+    if record_id == "mgo_dewaele_2000_bm3_mgd_5":
+        assert series.temperature is not None
+        heated = series.temperature > 300.0
+        series = _masked_series(series, heated, "41 heated Table 2 rows")
 
     if record_id == "ice_vi_bezacier_2014_bm2_1":
         assert series.temperature is not None

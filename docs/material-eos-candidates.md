@@ -16,7 +16,7 @@ not published). Crystal structure and EOS provenance are audited separately;
 an EOS is not accepted into the library with only a phase name or nominal
 formula.
 
-The current baseline is 116 material files and 162 EOS records. The model
+The current baseline is 139 material files and 211 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,
@@ -38,6 +38,49 @@ normal primary-source, units, uncertainty, phase, and numerical reproduction
 audit.
 
 ## A — review first
+
+### Audited discovery lead — MgO/periclase, Dewaele et al. (2000)
+
+**Status: accepted and implemented (2026-09-04) as one record.**
+
+- **Identity correction:** DOI
+  [10.1029/1999JB900364](https://doi.org/10.1029/1999JB900364) is Dewaele,
+  Fiquet, Andrault, and Hausermann (2000), not Fei et al. Fei (1999) is one of
+  the comparison datasets used in the paper's combined room-temperature
+  analysis.
+- **Authoritative model:** the recommended full P-V-T result is a 300 K BM3
+  reference isotherm (`V0 = 74.71 A^3`, `K0 = 161 GPa`, `K0' = 3.94`) plus
+  integrated-Gruneisen MGD thermal pressure (`theta0 = 800 K`,
+  `gamma0 = 1.45`, `q = 0.8`, `n = 2`).
+- **Why one record:** Table 3's Murnaghan, Vinet, logarithmic, and alternate
+  constrained BM3 rows are room-temperature extrapolation comparisons. They
+  are not separate preferred P-V-T parameterizations and are not promoted to
+  duplicate executable records.
+- **Primary data and calibration:** all 61 Table 2 rows are bundled, including
+  the simultaneous Pt lattice parameters. Pressures use the Jamieson et al.
+  (1982) Pt shock-Hugoniot/Debye scale. That exact Pt implementation is not yet
+  a bundled reference record, so the calibration is explicit but not silently
+  recalculated.
+- **Reproduction:** the stored BM3 gives 144.947 GPa at `V/V0 = 0.667`, versus
+  the paper's 145 GPa. An errors-in-variables refit to the 41 new heated rows,
+  with the source's staged/adopted quantities including `gamma0` fixed, gives
+  `q = 0.847(122)`, within combined two-sigma uncertainty of the reported
+  value. See the
+  [full reproduction](literature-reproductions.md#mgo-dewaele-2000).
+### Stishovite: lower-mantle Vinet-MGD
+
+**Status: accepted and implemented (2026-09-04).**
+
+- **Source:** Wang et al. (2012), [P-V-T equation of state of stishovite up to
+  mid-lower mantle conditions](https://doi.org/10.1029/2011JB009100).
+- **Implemented scope:** one Vinet-MGD record and all 56 Table 1 P-V-T
+  observations, including simultaneous Au volumes and printed uncertainties.
+  The equally successful BM3-MGD coefficients are preserved as the documented
+  alternative; the source does not explicitly prefer either cold curve.
+- **Audit result:** the existing asymptotic-power-law MGD model exactly matches
+  equations (4)--(8), reproduces two independent Table 3 values, and recovers
+  all fitted coefficients within combined two-standard-deviation intervals.
+  Exact pressure re-reduction awaits an executable Tsuchiya (2003) Au EOS.
 
 ### C01 — Boron carbide B4C: add the thermal branch
 

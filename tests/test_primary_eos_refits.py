@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 162
+    assert len(identifiers) == len(set(identifiers)) == 211
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 162, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 211, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 82,
-        "similar": 33,
-        "parity_not_achieved": 8,
-        "not_refittable": 39,
+        "parity": 109,
+        "similar": 41,
+        "parity_not_achieved": 18,
+        "not_refittable": 43,
     }
     assert all(
         item.get("reason")
@@ -48,8 +48,43 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     by_identifier = {item["record_identifier"]: item for item in ledger["records"]}
     markdown = MARKDOWN_PATH.read_text(encoding="utf-8")
 
+    luo = by_identifier["mgo_b1_luo_2023_vinet_thermal_5"]
+    assert luo["status"] == "not_refittable"
+    assert luo["dataset_identifiers"] == ["mgo_luo_2023_table1_shock"]
+    assert "derived EOS output" in luo["reason"]
+    reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
+    reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
+    assert reynard_ruby["status"] == reynard_ice["status"] == "parity"
+    assert reynard_ruby["observations"] == 16
+    assert reynard_ice["observations"] == 14
+    assert reynard_ruby["columns"]["pressure"] == "ruby_pressure_gpa"
+    assert reynard_ice["columns"]["pressure"] == "ice_vii_pressure_gpa"
+    assert reynard_ruby["fixed_parameters"] == reynard_ice["fixed_parameters"] == ["K0"]
+    assert [item["refit"] for item in reynard_ruby["parameters"]] == pytest.approx(
+        [262.421420404, 6.915511476]
+    )
+    assert [item["refit"] for item in reynard_ice["parameters"]] == pytest.approx(
+        [262.580091892, 5.055863026]
+    )
+    assert "same 16-row compression/decompression experiment" in reynard_ruby[
+        "source_notes"
+    ]
+    assert "distinct fit" in reynard_ice["source_notes"]
+
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
     assert by_identifier["kcl_campbell_1991_bm2_1"]["status"] == "parity"
+    phase_egg = by_identifier["phase_egg_mookherjee_2019_bm3_lp_1"]
+    assert phase_egg["status"] == "parity"
+    assert phase_egg["observations"] == 11
+    assert phase_egg["published_rmse_gpa"] == pytest.approx(0.03011320577)
+    assert phase_egg["rmse_gpa"] == pytest.approx(0.02339254240)
+    assert [item["refit"] for item in phase_egg["parameters"]] == pytest.approx(
+        [210.2176007194, 164.8339602796, 7.0813721266]
+    )
+    assert (
+        "cannot reconstruct the source energy-fit protocol"
+        in phase_egg["qualification"]
+    )
     walker = by_identifier["kcl_walker_2002_bm3_2"]
     assert walker["status"] == "similar"
     assert walker["free_parameters"] == [
@@ -124,6 +159,16 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert hemley["status"] == "parity"
     assert hemley["observations"] == 21
     assert hemley["free_parameters"] == ["K0", "K0_prime"]
+    stishovite = by_identifier["sio2_stv_andr_wang_2012_vinet_mgd_2"]
+    assert stishovite["status"] == "parity"
+    assert stishovite["observations"] == 56
+    assert stishovite["objective"] == "errors_in_variables"
+    assert stishovite["fixed_parameters"] == ["V0", "Tr", "a", "n"]
+    assert [item["refit"] for item in stishovite["parameters"]] == pytest.approx(
+        [294.6773736503, 4.8789956491, 1134.709214856, 1.6555196866,
+         3.0469258011]
+    )
+    assert all(item["within_combined_2sigma"] for item in stishovite["parameters"])
     mo2c = by_identifier["molybenum_carbide_mo2c_haines_2001_bm3_1"]
     assert mo2c["status"] == "similar"
     assert mo2c["observations"] == 16
@@ -132,13 +177,9 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert [item["refit"] for item in mo2c["parameters"]] == pytest.approx(
         [325.874185450, 4.909198583]
     )
-    assert all(
-        item["within_combined_2sigma"] for item in mo2c["parameters"]
-    )
+    assert all(item["within_combined_2sigma"] for item in mo2c["parameters"])
     assert "Corrected source-scope reproduction" in mo2c["qualification"]
-    mo2c_refit = by_identifier[
-        "molybenum_carbide_mo2c_haines_2001_bm3_refit"
-    ]
+    mo2c_refit = by_identifier["molybenum_carbide_mo2c_haines_2001_bm3_refit"]
     assert mo2c_refit["status"] == "parity"
     assert mo2c_refit["observations"] == 16
     assert mo2c_refit["fixed_parameters"] == ["V0"]
@@ -165,6 +206,52 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [17.6967334851, 5.2026008383]
     )
     assert "Complete source-data reproduction" in cscl["qualification"]
+    dewaele_mgo = by_identifier["mgo_dewaele_2000_bm3_mgd_5"]
+    assert dewaele_mgo["status"] == "parity"
+    assert dewaele_mgo["observations"] == 41
+    assert dewaele_mgo["selection"] == "41 heated Table 2 rows"
+    assert dewaele_mgo["free_parameters"] == ["q"]
+    assert dewaele_mgo["fixed_parameters"] == [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "gamma0",
+        "n",
+    ]
+    assert dewaele_mgo["parameters"][0]["refit"] == pytest.approx(0.847089125)
+    assert "Conditional current-study thermal reproduction" in (
+        dewaele_mgo["qualification"]
+    )
+    phase_egg = by_identifier["phase_egg_schulze_2018_bm3_1"]
+    assert phase_egg["status"] == "parity"
+    assert phase_egg["observations"] == 15
+    assert phase_egg["selection"] == "used_in_published_fit=1"
+    assert phase_egg["dataset_identifiers"] == [
+        "phase_egg_schulze_2018_table1_compression"
+    ]
+    assert [item["refit"] for item in phase_egg["parameters"]] == pytest.approx(
+        [214.0810595, 152.8459201, 8.597514758]
+    )
+    assert phase_egg["reduced_chi_square"] == pytest.approx(5.486063469)
+    rh2o3 = by_identifier["alumina_rh2o3_ii_shi_2022_bm3_mgd_1"]
+    assert rh2o3["status"] == "similar"
+    assert rh2o3["observations"] == 75
+    assert rh2o3["dataset_identifiers"] == ["alumina_rh2o3_ii_shi_2022_table_s2_pvt"]
+    assert rh2o3["fixed_parameters"] == ["K0_prime", "Tr", "q", "n"]
+    assert rh2o3["free_parameters"] == [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "theta0",
+        "gamma0",
+    ]
+    assert [item["refit"] for item in rh2o3["parameters"]] == pytest.approx(
+        [167.1940050282, 239.4153140110, 766.2583682877, 1.5502121628]
+    )
+    assert rh2o3["published_rmse_gpa"] == pytest.approx(1.1433652954)
+    assert rh2o3["rmse_gpa"] == pytest.approx(0.8659771871)
+    assert all(item["within_combined_2sigma"] for item in rh2o3["parameters"])
     coo = by_identifier["coo_clendenen_1966_murnaghan_1"]
     assert coo["status"] == "parity_not_achieved"
     tradeoff = coo["coefficient_tradeoff_diagnostic"]
@@ -226,7 +313,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 41
+    assert markdown.count("### `") == len(explained) == 59
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

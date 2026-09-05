@@ -36,7 +36,7 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters the curated pressure-scale
 convenience catalog. This compact executable catalog is distinct from the full
-115-document shared material library described below. Each
+139-document shared material library described below. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
 canonical executable format-3 material document. Optional crystallographic
@@ -65,7 +65,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 116 bundled
+`list_material_documents()` returns the identifiers of all 117 bundled
 materials. `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
@@ -98,7 +98,7 @@ from peritheos import (
 )
 ```
 
-Six published ruby R1 calibrations and two diamond-anvil Raman-edge
+Seven published ruby R1 calibrations and two diamond-anvil Raman-edge
 calibrations are bundled with their equations, coefficients, provenance, and
 validity metadata. Ruby supports wavelength, wavelength shift, and normalized
 wavelength ratio; diamond Raman supports wavenumber and normalized wavenumber
@@ -125,11 +125,9 @@ by scientific preference; callers should restrict `target_nodes` to a suitable
 standard or internally consistent family and verify the common validity range.
 
 Transferred Dioptas records have completed a primary-source classification,
-and native primary-sourced records have been added for aragonite BM2, the
-B2-KCl P-V-T pressure calibration, and the Correa and Benedict diamond
-Helmholtz models, including derived variants anchored to the experimental
-Dewaele 298 K Vinet isotherm, together with a primary-sourced Campbell-Heinz
-RbCl-B2 record. All 162 bundled records are
+and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 211
+bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
 `require_primary_validation=False` and select records with
@@ -280,6 +278,7 @@ from peritheos.eos.thermal import (
     MieGruneisenDebye,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
+    SecondOrderTaylorThermalPressure,
     Tange2009Debye,
     ThermalModifiedTait,
     ThermalReferenceStateEOS,
@@ -293,6 +292,7 @@ Thermal constructor signatures are:
 | `DoubleDebyeHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_1_0, a_1, b_1`, followed by optional `n, alpha0, Ve, kappa, phi0` |
 | `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0` |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
+| `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen"` |
@@ -302,12 +302,15 @@ Thermal constructor signatures are:
 | `Tange2009Debye` | `Tr, theta0, gamma0, a, b, n` |
 
 The Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure
-classes accept any `EosBase` reference. `LogVolumeThermalPressure` requires
-`V0`; thermal modified Tait requires `ModifiedTait`; and
+classes accept any `EosBase` reference. `LogVolumeThermalPressure` and
+`SecondOrderTaylorThermalPressure` require `V0`; thermal modified Tait requires `ModifiedTait`; and
 `ThermalReferenceStateEOS` requires a reference that reconstructs through
 `V0` and `K0`. Energy-based thermal classes require molar volume in
-`J bar^-1 mol^-1`; `LinearThermalPressure` and `ThermalReferenceStateEOS`
-inherit any volume unit consistent with their reference EOS.
+`J bar^-1 mol^-1`; `LinearThermalPressure`,
+`SecondOrderTaylorThermalPressure`, and `ThermalReferenceStateEOS` inherit any
+volume unit consistent with their reference EOS. The second-order Taylor model
+adds absolute thermal pressure to a cold curve; its pressure need not vanish at
+`Tr`, although `thermal_pressure_increment()` is zero there by definition.
 The double-Debye Helmholtz classes instead require a `Vinet` object representing
 the classical 0 K cold curve. Their `thermal_pressure()` is the absolute
 non-cold contribution, including zero-point pressure, rather than a difference

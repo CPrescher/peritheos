@@ -2,6 +2,7 @@
  "format_version": 3,
  "name": "MgSiO3 post-perovskite",
  "formula": "MgSiO3",
+ "phase": "post-perovskite, CaIrO3-type orthorhombic Cmcm",
  "symmetry": "ORTHORHOMBIC",
  "lattice": {
   "a": 2.7129228447,
@@ -272,6 +273,385 @@
      "finding": "All 35 experimental MgSiO3 post-perovskite P-V-T observations in Supplementary Table S1, including four source pressure-model reductions and simultaneous MgO measurements."
     }
    }
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_ono_2006_anderson_bm2_3",
+   "label": "Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)",
+   "reference": {
+    "authors": ["Ono", "Kikegawa", "Ohishi"],
+    "year": 2006,
+    "title": "Equation of state of CaIrO3-type MgSiO3 up to 144 GPa",
+    "source": "American Mineralogist",
+    "volume": "91",
+    "locator": "475-478",
+    "doi": "10.2138/am.2006.2118"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "temperature_ref": 300.0,
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_pressure_range_gpa": [116.1, 144.4],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [116.1, 144.4],
+    "temperature_k": [300.0, 300.0],
+    "notes": [
+     "The pressure interval is the marginal range of the six Anderson-et-al.-gold-scale observations, not an extrapolation range for the zero-pressure reference parameters.",
+     "The source reports that the CaIrO3-type phase remained stable over its 116-144 GPa experimental range and was difficult to measure below 110 GPa because it is metastable there."
+    ]
+   },
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {"V0": 162.86, "K0": 237.0}
+   },
+   "parameter_errors": {"V0": null, "K0": 1.0},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": ["V0"],
+   "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+   "experimental_configuration": {
+    "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
+    "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
+    "pressure_medium": "NaCl",
+    "pressure_gauge": "gold powder mixed with the sample",
+    "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
+    "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
+   },
+   "parameter_provenance": {
+    "equation": "Journal page 476: the printed third-order Birch-Murnaghan equation uses x=(V/V0)^(1/3), with P=(3/2)K0(x^-7-x^-5)[1+(3/4)(K0_prime-4)(x^-2-1)]. Fixing K0_prime=4 makes the executable curve exactly BM2.",
+    "V0": "Journal page 477 and Table 3: 162.86 A^3, fixed; adopted from the 0 K LDA calculation of Oganov and Ono (2004), not measured at ambient pressure.",
+    "K0": "Results prose and Table 3, journal page 477: 237(1) GPa for pressures reduced with the Anderson et al. (1989) gold standard.",
+    "K0_prime": "Results prose and Table 3, journal page 477: fixed at 4; represented implicitly by BM2 rather than as a fitted parameter.",
+    "reference_state": "The fit is described as a 300 K isothermal EOS with a zero-pressure V0 and K0, extrapolated from 116.1-144.4 GPa data. V0 itself was adopted from a 0 K LDA calculation.",
+    "fit_selection_and_weighting": "Experimental methods and Results: all six Table 2 P-V observations were used in a weighted least-squares fit with the method cited to Angel (2000); the article does not publish the exact objective or covariance matrix.",
+    "uncertainties": "Table 3 gives K0 as 237(1) GPa but does not identify the confidence convention. V0 and K0_prime were fixed. Numerical parameter covariance is not published."
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS equation, constrained coefficients, observations, experimental range, and pressure-scale variant",
+     "citation": "Ono, Kikegawa, and Ohishi (2006), American Mineralogist 91, 475-478",
+     "doi": "10.2138/am.2006.2118"
+    },
+    {
+     "role": "adopted fixed zero-pressure LDA volume as cited by the EOS publication",
+     "citation": "Oganov and Ono (2004), Nature 430, 445-448",
+     "doi": "10.1038/nature02701"
+    }
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference_eos_record": "gold_anderson_1989_bm3_1",
+      "reference": {
+       "authors": ["Anderson", "Isaak", "Yamamoto"],
+       "year": 1989,
+       "title": "Anharmonicity and the equation of state for gold",
+       "source": "Journal of Applied Physics",
+       "volume": "65",
+       "locator": "1534-1543",
+       "doi": "10.1063/1.342969"
+      },
+      "source_location": "Experimental methods, page 476; Results, Figure 2, and Tables 2-3, page 477",
+      "scope": "Anderson pressure column in all six Table 2 rows"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The Anderson et al. gold EOS is executable and all six rounded gold lattice parameters and their printed errors are bundled. Recalculation from rounded a values is approximate because the source does not print additional digits."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "composition", "phase", "structure", "cell_volume_and_z", "equation", "parameters", "fixed_parameter_status", "units", "reference_state", "published_uncertainties", "covariance_availability", "experimental_range", "pressure_calibration", "primary_data", "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+     "source_version": "final published American Mineralogist pages",
+     "doi": "10.2138/am.2006.2118",
+     "locations": ["Abstract", "Experimental methods", "Results and printed EOS equation", "Tables 1-3", "Figure 2 and caption"],
+     "finding": "The source defines a standard Eulerian BM3 at 300 K, fixes K0_prime=4 and V0=162.86 A^3, fits K0 separately on three named gold pressure scales, and prints every sample and calibrant lattice observation. The Anderson-scale fit is represented exactly by BM2."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+     "source_locations": ["Table 2, journal page 477"],
+     "finding": "All six 300 K observations are bundled with gold lattice parameters, all three published pressure reductions, MgSiO3 lattice parameters, cell volumes, printed errors, and fit inclusion."
+    },
+    "independent_numerical_check": {
+     "method": "Direct BM2 evaluation from the printed V0 and K0 against all six Anderson-scale Table 2 P-V rows.",
+     "pressure_rmse_gpa": 1.4316084629,
+     "maximum_absolute_pressure_residual_gpa": 2.4683531256,
+     "first_source_state": {"volume_a3": 123.26, "source_pressure_gpa": 116.1, "calculated_pressure_gpa": 115.433064},
+     "high_pressure_source_state": {"volume_a3": 117.91, "source_pressure_gpa": 144.4, "calculated_pressure_gpa": 146.310593}
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Diagnostic iteratively reweighted pressure residual fit using printed pressure errors and volume errors propagated through dP/dV; the paper's exact Angel (2000) weighting configuration is not stated, so this is not substituted for the published record.",
+     "parameters": {"V0_fixed": 162.86, "K0": 237.18599457, "K0_prime_fixed": 4.0}
+    },
+    "reported_inconsistencies": [
+     "Figure 2 captions the Anderson curve as K0=236(1) GPa, while the abstract, Results prose, and Table 3 report 237(1) GPa. The repeated prose/table value is stored; the caption-only value is not added as a duplicate EOS.",
+     "Results prose says Z=2, whereas the Table 1 note explicitly says Cmcm Z=4 and the listed conventional-cell sites have multiplicities 4, 4, 4, and 8. Peritheos uses the conventional Cmcm cell and Z=4; Z=2 is consistent only with a primitive-cell count.",
+     "Table 2 prints MgSiO3 a=2.250(3) A in row 3, inconsistent with b, c, and V=120.11(22) A^3; a near 2.450 A would be required. The printed 2.250 value is preserved, and EOS reproduction uses the independently printed volume."
+    ],
+    "unresolved_issues": [
+     "The article does not state the confidence convention of the parenthetical K0 errors and publishes no parameter covariance matrix.",
+     "The exact weighted-least-squares objective and weights used by the cited Angel (2000) program are not printed.",
+     "The fixed 162.86 A^3 zero-pressure volume was adopted from a 0 K LDA calculation even though the experimental isotherm and reported K0 are at 300 K."
+    ]
+   },
+   "notes": "Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_ono_2006_jamieson_bm2_4",
+   "label": "Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)",
+   "reference": {
+    "authors": ["Ono", "Kikegawa", "Ohishi"],
+    "year": 2006,
+    "title": "Equation of state of CaIrO3-type MgSiO3 up to 144 GPa",
+    "source": "American Mineralogist",
+    "volume": "91",
+    "locator": "475-478",
+    "doi": "10.2138/am.2006.2118"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "temperature_ref": 300.0,
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_pressure_range_gpa": [111.5, 137.0],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [111.5, 137.0],
+    "temperature_k": [300.0, 300.0],
+    "notes": ["The pressure interval is the marginal range of the same six observations reduced with the Jamieson et al. gold scale; it is not a separate experiment or phase-stability boundary."]
+   },
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {"V0": 162.86, "K0": 226.0}
+   },
+   "parameter_errors": {"V0": null, "K0": 1.0},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": ["V0"],
+   "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+   "experimental_configuration": {
+    "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
+    "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
+    "pressure_medium": "NaCl",
+    "pressure_gauge": "gold powder mixed with the sample",
+    "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
+    "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
+   },
+   "parameter_provenance": {
+    "equation": "Journal page 476: the printed standard Eulerian third-order Birch-Murnaghan equation; fixed K0_prime=4 reduces it exactly to BM2.",
+    "V0": "Journal page 477 and Table 3: 162.86 A^3, fixed and adopted from Oganov and Ono (2004) LDA.",
+    "K0": "Results prose and Table 3, journal page 477: 226(1) GPa for pressures reduced with the Jamieson et al. (1982) gold standard.",
+    "K0_prime": "Results prose and Table 3, journal page 477: fixed at 4 and implicit in BM2.",
+    "reference_state": "The fit is described as a 300 K isothermal EOS with zero-pressure reference parameters extrapolated from 111.5-137.0 GPa data; fixed V0 comes from 0 K LDA.",
+    "fit_selection_and_weighting": "All six Table 2 observations; weighted least squares cited to Angel (2000), with exact objective and covariance unreported.",
+    "uncertainties": "Table 3 gives K0 as 226(1) GPa without a confidence convention; V0 and K0_prime were fixed; covariance is not published."
+   },
+   "source_lineage": [
+    {"role": "published EOS equation, constrained coefficients, observations, experimental range, and pressure-scale variant", "citation": "Ono, Kikegawa, and Ohishi (2006), American Mineralogist 91, 475-478", "doi": "10.2138/am.2006.2118"},
+    {"role": "adopted fixed zero-pressure LDA volume as cited by the EOS publication", "citation": "Oganov and Ono (2004), Nature 430, 445-448", "doi": "10.1038/nature02701"}
+   ],
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": ["Jamieson", "Fritz", "Manghnani"],
+       "year": 1982,
+       "title": "Pressure measurement at high temperature in X-ray diffraction studies: gold as a primary standard",
+       "source": "High-Pressure Research in Geophysics",
+       "locator": "27-48"
+      },
+      "source_location": "Experimental methods, page 476; Results, Figure 2, and Tables 2-3, page 477",
+      "scope": "Jamieson pressure column in all six Table 2 rows"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "All six rounded gold lattice parameters are bundled, but the exact Jamieson et al. (1982) gold P-V-T model is not an executable bundled record. Published source-scale pressures are retained."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["composition", "phase", "structure", "cell_volume_and_z", "equation", "parameters", "fixed_parameter_status", "units", "reference_state", "published_uncertainties", "covariance_availability", "experimental_range", "pressure_calibration", "primary_data", "numerical_reproduction"],
+    "primary_source_check": {
+     "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+     "source_version": "final published American Mineralogist pages",
+     "doi": "10.2138/am.2006.2118",
+     "locations": ["Abstract", "Experimental methods", "Results and printed EOS equation", "Tables 1-3", "Figure 2 and caption"],
+     "finding": "The source reports the same constrained BM3/BM2 fit separately on the Jamieson et al. (1982) gold scale, with all six source pressures and calibrant lattice parameters printed."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+     "source_locations": ["Table 2, journal page 477"],
+     "finding": "All six 300 K observations and all three published pressure-scale reductions are bundled from Table 2."
+    },
+    "independent_numerical_check": {
+     "method": "Direct BM2 evaluation against all six Jamieson-scale Table 2 P-V rows.",
+     "pressure_rmse_gpa": 1.7431148814,
+     "maximum_absolute_pressure_residual_gpa": 2.9002017147,
+     "first_source_state": {"volume_a3": 123.26, "source_pressure_gpa": 111.5, "calculated_pressure_gpa": 110.075411},
+     "high_pressure_source_state": {"volume_a3": 117.91, "source_pressure_gpa": 137.0, "calculated_pressure_gpa": 139.519806}
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Diagnostic iteratively reweighted pressure residual fit using printed pressure and propagated volume errors; exact source weighting is not stated.",
+     "parameters": {"V0_fixed": 162.86, "K0": 226.81325417, "K0_prime_fixed": 4.0}
+    },
+    "reported_inconsistencies": [
+     "Figure 2 captions the Jamieson curve as K0=225(1) GPa, while Results prose and Table 3 report 226(1) GPa. The repeated prose/table value is stored; the caption-only value is not added as a duplicate EOS.",
+     "Results prose says Z=2, whereas the Table 1 note and conventional Cmcm site multiplicities establish Z=4.",
+     "Table 2 row 3 prints MgSiO3 a=2.250(3) A, inconsistent with the independently printed cell volume; the typo is preserved and the volume column is used for EOS reproduction."
+    ],
+    "unresolved_issues": [
+     "The exact Jamieson et al. (1982) gold EOS is not bundled as an executable reference record.",
+     "The K0 error confidence convention, covariance matrix, and exact Angel (2000) weighting configuration are not published.",
+     "The fixed zero-pressure V0 is a 0 K LDA value used in a 300 K experimental isotherm."
+    ]
+   },
+   "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_ono_2006_dewaele_bm2_5",
+   "label": "Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)",
+   "reference": {
+    "authors": ["Ono", "Kikegawa", "Ohishi"],
+    "year": 2006,
+    "title": "Equation of state of CaIrO3-type MgSiO3 up to 144 GPa",
+    "source": "American Mineralogist",
+    "volume": "91",
+    "locator": "475-478",
+    "doi": "10.2138/am.2006.2118"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "temperature_ref": 300.0,
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_pressure_range_gpa": [121.4, 151.1],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [121.4, 151.1],
+    "temperature_k": [300.0, 300.0],
+    "notes": ["The paper title's 144 GPa upper bound uses the Anderson scale; the same highest-pressure observation is 151.1 GPa on the Dewaele scale."]
+   },
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {"V0": 162.86, "K0": 248.0}
+   },
+   "parameter_errors": {"V0": null, "K0": 1.0},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": ["V0"],
+   "fit_datasets": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+   "experimental_configuration": {
+    "starting_material": "synthetic MgSiO3 enstatite ground to less than a few micrometers",
+    "sample_phase": "CaIrO3-type MgSiO3 synthesized above 120 GPa by laser heating to about 1500-2500 K, then slowly returned to 300 K",
+    "pressure_medium": "NaCl",
+    "pressure_gauge": "gold powder mixed with the sample",
+    "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at Photon Factory BL13A and SPring-8 BL10XU",
+    "annealing": "YAG-laser heated after each pressure change to reduce differential stress"
+   },
+   "parameter_provenance": {
+    "equation": "Journal page 476: the printed standard Eulerian third-order Birch-Murnaghan equation; fixed K0_prime=4 reduces it exactly to BM2.",
+    "V0": "Journal page 477 and Table 3: 162.86 A^3, fixed and adopted from Oganov and Ono (2004) LDA.",
+    "K0": "Results prose and Table 3, journal page 477: 248(1) GPa for pressures reduced with the Dewaele et al. (2004) gold standard.",
+    "K0_prime": "Results prose and Table 3, journal page 477: fixed at 4 and implicit in BM2.",
+    "reference_state": "The fit is described as a 300 K isothermal EOS with zero-pressure reference parameters extrapolated from 121.4-151.1 GPa data; fixed V0 comes from 0 K LDA.",
+    "fit_selection_and_weighting": "All six Table 2 observations; weighted least squares cited to Angel (2000), with exact objective and covariance unreported.",
+    "uncertainties": "Table 3 gives K0 as 248(1) GPa without a confidence convention; V0 and K0_prime were fixed; covariance is not published."
+   },
+   "source_lineage": [
+    {"role": "published EOS equation, constrained coefficients, observations, experimental range, and pressure-scale variant", "citation": "Ono, Kikegawa, and Ohishi (2006), American Mineralogist 91, 475-478", "doi": "10.2138/am.2006.2118"},
+    {"role": "adopted fixed zero-pressure LDA volume as cited by the EOS publication", "citation": "Oganov and Ono (2004), Nature 430, 445-448", "doi": "10.1038/nature02701"}
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference_eos_record": "gold_dewaele_2004_vinet_5",
+      "reference": {
+       "authors": ["Dewaele", "Loubeyre", "Mezouar"],
+       "year": 2004,
+       "title": "Equations of state of six metals above 94 GPa",
+       "source": "Physical Review B",
+       "volume": "70",
+       "locator": "094112",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Experimental methods, page 476; Results and Tables 2-3, page 477",
+      "scope": "Dewaele pressure column in all six Table 2 rows"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The exact Dewaele et al. gold EOS is executable and all six rounded gold lattice parameters are bundled; recomputed pressures agree with Table 2 within 0.07 GPa."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["composition", "phase", "structure", "cell_volume_and_z", "equation", "parameters", "fixed_parameter_status", "units", "reference_state", "published_uncertainties", "covariance_availability", "experimental_range", "pressure_calibration", "primary_data", "numerical_reproduction"],
+    "primary_source_check": {
+     "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+     "source_version": "final published American Mineralogist pages",
+     "doi": "10.2138/am.2006.2118",
+     "locations": ["Abstract", "Experimental methods", "Results and printed EOS equation", "Tables 1-3", "Figure 2 and caption"],
+     "finding": "The source reports the same constrained BM3/BM2 fit separately on the Dewaele et al. (2004) gold scale, with all six source pressures and calibrant lattice parameters printed."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": ["mgsio3_post_perovskite_ono_2006_table2_compression"],
+     "source_locations": ["Table 2, journal page 477"],
+     "finding": "All six 300 K observations and all three published pressure-scale reductions are bundled from Table 2."
+    },
+    "independent_numerical_check": {
+     "method": "Direct BM2 evaluation against all six Dewaele-scale Table 2 P-V rows.",
+     "pressure_rmse_gpa": 1.4859096032,
+     "maximum_absolute_pressure_residual_gpa": 2.6365045365,
+     "first_source_state": {"volume_a3": 123.26, "source_pressure_gpa": 121.4, "calculated_pressure_gpa": 120.790717},
+     "high_pressure_source_state": {"volume_a3": 117.91, "source_pressure_gpa": 151.1, "calculated_pressure_gpa": 153.10138},
+     "rounded_gold_lattice_recalculation": {"maximum_absolute_pressure_difference_gpa": 0.062045}
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Diagnostic iteratively reweighted pressure residual fit using printed pressure and propagated volume errors; exact source weighting is not stated.",
+     "parameters": {"V0_fixed": 162.86, "K0": 248.04644766, "K0_prime_fixed": 4.0}
+    },
+    "reported_inconsistencies": [
+     "The paper title and abstract use the Anderson-scale 144 GPa maximum, whereas Table 2 reports the same last observation as 151.1 GPa on the Dewaele scale.",
+     "Results prose says Z=2, whereas the Table 1 note and conventional Cmcm site multiplicities establish Z=4.",
+     "Table 2 row 3 prints MgSiO3 a=2.250(3) A, inconsistent with the independently printed cell volume; the typo is preserved and the volume column is used for EOS reproduction."
+    ],
+    "unresolved_issues": [
+     "The K0 error confidence convention, covariance matrix, and exact Angel (2000) weighting configuration are not published.",
+     "The fixed zero-pressure V0 is a 0 K LDA value used in a 300 K experimental isotherm."
+    ]
+   },
+   "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4."
   }
  ],
  "format": "peritheos.material",
@@ -282,6 +662,63 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "mgsio3_post_perovskite_ono_2006_table2_compression",
+   "kind": "pressure_volume_temperature_lattice_parameters",
+   "description": "All six 300 K CaIrO3-type MgSiO3 compression observations in Table 2, including the gold calibrant lattice parameter and the Anderson, Jamieson, and Dewaele gold-scale pressure reductions.",
+   "reference": {
+    "authors": ["Ono", "Kikegawa", "Ohishi"],
+    "year": 2006,
+    "title": "Equation of state of CaIrO3-type MgSiO3 up to 144 GPa",
+    "source": "American Mineralogist",
+    "volume": "91",
+    "locator": "475-478",
+    "doi": "10.2138/am.2006.2118"
+   },
+   "source_location": "Table 2, journal page 477",
+   "source_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
+   "license": "not stated by source",
+   "columns": [
+    {"name": "measurement", "quantity": "measurement_sequence", "unit": "1", "role": "flag"},
+    {"name": "gold_lattice_a_angstrom", "quantity": "gold_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "gold_lattice_a_uncertainty_angstrom", "quantity": "gold_lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "gold_lattice_a_angstrom"},
+    {"name": "pressure_anderson_1989_gpa", "quantity": "pressure_anderson_1989_gold_scale", "unit": "GPa", "role": "value"},
+    {"name": "pressure_anderson_1989_uncertainty_gpa", "quantity": "pressure_anderson_1989_gold_scale", "unit": "GPa", "role": "uncertainty", "of": "pressure_anderson_1989_gpa"},
+    {"name": "pressure_jamieson_1982_gpa", "quantity": "pressure_jamieson_1982_gold_scale", "unit": "GPa", "role": "value"},
+    {"name": "pressure_jamieson_1982_uncertainty_gpa", "quantity": "pressure_jamieson_1982_gold_scale", "unit": "GPa", "role": "uncertainty", "of": "pressure_jamieson_1982_gpa"},
+    {"name": "pressure_dewaele_2004_gpa", "quantity": "pressure_dewaele_2004_gold_scale", "unit": "GPa", "role": "value"},
+    {"name": "pressure_dewaele_2004_uncertainty_gpa", "quantity": "pressure_dewaele_2004_gold_scale", "unit": "GPa", "role": "uncertainty", "of": "pressure_dewaele_2004_gpa"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "mgsio3_lattice_a_angstrom", "quantity": "mgsio3_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "mgsio3_lattice_a_uncertainty_angstrom", "quantity": "mgsio3_lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "mgsio3_lattice_a_angstrom"},
+    {"name": "mgsio3_lattice_b_angstrom", "quantity": "mgsio3_lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "mgsio3_lattice_b_uncertainty_angstrom", "quantity": "mgsio3_lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "mgsio3_lattice_b_angstrom"},
+    {"name": "mgsio3_lattice_c_angstrom", "quantity": "mgsio3_lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "mgsio3_lattice_c_uncertainty_angstrom", "quantity": "mgsio3_lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "mgsio3_lattice_c_angstrom"},
+    {"name": "mgsio3_unit_cell_volume_a3", "quantity": "mgsio3_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "mgsio3_unit_cell_volume_uncertainty_a3", "quantity": "mgsio3_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "mgsio3_unit_cell_volume_a3"},
+    {"name": "fit_included", "quantity": "published_fit_selection", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-ono-2006-table2-compression.csv",
+    "sha256": "6ebd1e402c43d31054990344aa387730b488ef702b152d57f3376b940e49042d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_ono_2006_anderson_bm2_3",
+    "mgsio3_post_perovskite_ono_2006_jamieson_bm2_4",
+    "mgsio3_post_perovskite_ono_2006_dewaele_bm2_5"
+   ],
+   "uncertainty": {
+    "type": "generic published parenthetical error",
+    "covariance": "not reported",
+    "source_location": "Table 2 note and Results, journal page 477",
+    "notes": "The table note calls parenthetical values errors of lattice parameters without naming a confidence convention. The Results state that pressure error based on the gold diffraction lattice parameters was less than 0.5 GPa."
+   },
+   "quality_control": {
+    "reported_typographical_inconsistency": "Row 3 prints MgSiO3 a=2.250(3) A; b*c*a=110.28 A^3, inconsistent with the independently printed V=120.11(22) A^3. The source value is preserved rather than silently changed."
+   }
+  },
   {
    "identifier": "mgsio3_post_perovskite_sakai_2016_table_s1_pvt",
    "kind": "pressure_volume_temperature_lattice_parameters",

@@ -5,6 +5,8 @@
  "aliases": [
   "Corundum"
  ],
+ "phase": "corundum, trigonal R-3c (hexagonal setting)",
+ "cell_contents": "Al12O18 (6 Al2O3 formula units) in the conventional hexagonal R-3c cell",
  "symmetry": "HEXAGONAL",
  "lattice": {
   "a": 4.762813,
@@ -188,6 +190,198 @@
      }
     }
    ]
+  },
+  {
+   "label": "Shi et al. (2022), selected BM3-MGD corundum model 3",
+   "reference": {
+    "authors": [
+     "Shi",
+     "Wei",
+     "Sun",
+     "Mao",
+     "Prakapenka"
+    ],
+    "year": 2022,
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "127",
+    "locator": "e2021JB023805",
+    "doi": "10.1029/2021JB023805"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 255.1,
+     "K0": 246.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.0,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    97.7
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2980.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1100.0,
+     "gamma0": 1.32,
+     "q": 0.8,
+     "n": 5.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.07,
+     "q": 0.4,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "fit_datasets": [
+    "alumina_shi_2022_table_s1_pvt"
+   ],
+   "default": false,
+   "notes": "Published corundum model 3 selected in main Table 1 and Supporting Information Table S3: a third-order Birch-Murnaghan 300 K reference isotherm plus Mie-Gruneisen-Debye thermal pressure. The prose calls the cold term Murnaghan, but Equation 2 is algebraically BM3; fixed K0'=4 makes its cold curve numerically BM2. Equations 3-6 define Delta Pth=gamma/V [E_D(V,T)-E_D(V,300 K)], gamma=gamma0(V/V0)^q, and theta=theta0 exp[-(gamma-gamma0)/q], with n=5 atoms per Al2O3 formula unit. V0=255.1 A^3 is the fixed conventional six-formula-unit hexagonal corundum cell from Lutterotti and Scardi (1990); K0, gamma0, and q were fitted, while K0', V0, theta0, Tr, and n were fixed. Main Table 1 reports K0=246(2) GPa for the selected model, whereas sensitivity Table 2 reports 246(1) GPa; the selected-table uncertainty is retained and the discrepancy is explicit. Table 2's 500 K and 800 K Debye-temperature trials are sensitivity fits, not additional preferred records. All 75 Table S1 observations are bundled: 59 are grouped under Pt pressures (including the fixed 0 GPa reference row) and 16 under NaCl pressures. The source does not state an uncertainty confidence convention or coefficient covariance matrix. An independent unweighted Peritheos fit of pressure residuals at all 75 printed V-T states, with the published fixed parameters, returns K0=246.3083 GPa, gamma0=1.35931, and q=0.800868; all reproduce the published coefficients within their reported uncertainties. The published curve has a 1.23305 GPa pressure RMSE and the refit has a 1.19139 GPa RMSE. Weighting by the tabulated coordinate uncertainties does not recover q, so the parity result is specifically identified as an unweighted pressure-residual reproduction rather than an undocumented reconstruction of the authors' weighting.",
+   "identifier": "alumina_shi_2022_bm3_mgd_2",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Shi et al. (2022), experiments and Supporting Information Table S1",
+     "scope": "59 Table S1 rows grouped under pressure determined by Pt, including the fixed ambient reference row"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Shi et al. (2022), experiments, Figure S2, and Supporting Information Table S1",
+      "scope": "16 Table S1 rows grouped under pressure determined by NaCl",
+      "notes": "The article states that these NaCl pressures were checked against the Fei et al. Pt scale and differed by less than 1 GPa from 35 to 67 GPa up to 3000 K, but it does not identify a separate numerical NaCl EOS parameterization."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table S1 provides reduced sample pressures and the calibrant identity, but not row-wise Pt or NaCl lattice parameters or volumes. The mixed pressure reduction therefore cannot be rerun from the supplement alone."
+    },
+    "audit_date": "2026-09-05",
+    "notes": "The tabulated reduced pressures are sufficient to reproduce the published Al2O3 fit; calibrant-level pressure recalculation is not possible."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the primary article and the checksummed official Zenodo supporting-information deposit; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "fit_protocol"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/2021JB023805",
+     "locations": [
+      "main text, Equations 1-6, pages 3-4",
+      "main text, Table 1, page 4, selected corundum coefficients",
+      "main text, Table 2, page 6, three Debye-temperature sensitivity fits",
+      "Supporting Information, Figure S1, observations used to constrain the EOS",
+      "Supporting Information, Table S1, all corundum P-T-V observations",
+      "Supporting Information, Table S3, selected model used downstream"
+     ],
+     "finding": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
+     "doi": "10.1029/2021jb023805"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "alumina_shi_2022_table_s1_pvt"
+     ],
+     "source_locations": [
+      "Official Supporting Information, Figure S1 and Table S1"
+     ],
+     "official_package": {
+      "doi": "10.5281/zenodo.5771198",
+      "filename": "Al2O3-Supporting information-v17.docx",
+      "md5": "da9d62e3e5b10f1a775b24d50b6c617b"
+     },
+     "finding": "All 75 corundum P-T-V rows are bundled with every printed parenthetical uncertainty and their Pt-versus-NaCl pressure-calibrant grouping. The two horizontal table blocks are normalized without deduplication or inferred values."
+    }
+   },
+   "parameter_provenance": {
+    "V0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fixed conventional six-formula-unit corundum cell from Lutterotti and Scardi (1990)",
+    "K0": "Shi et al. (2022), main Table 1 selected model; fitted, with the selected-table 2 GPa uncertainty retained over Table 2's discrepant 1 GPa value",
+    "K0_prime": "Shi et al. (2022), Equations 1-2 and main Tables 1-2; fixed at 4",
+    "thermal.Tr": "Shi et al. (2022), Equations 1 and 3 and the 300 K reference data",
+    "thermal.theta0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fixed at 1100 K",
+    "thermal.gamma0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fitted",
+    "thermal.q": "Shi et al. (2022), main Table 1 and Table 2 model 3; fitted",
+    "thermal.n": "Shi et al. (2022), text following Equation 4; five atoms per Al2O3 formula unit",
+    "equation": "Shi et al. (2022), Equations 1-6; BM3 reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
+   },
+   "source_lineage": [
+    {
+     "role": "thermal EOS equations, selected coefficients, complete observations, and phase context",
+     "citation": "Shi et al. (2022), main article and Supporting Information",
+     "doi": "10.1029/2021JB023805"
+    },
+    {
+     "role": "fixed ambient conventional corundum-cell volume",
+     "citation": "Lutterotti and Scardi (1990), as cited in Shi et al. (2022) Table 1 footnote"
+    }
+   ]
   }
  ],
  "format": "peritheos.material",
@@ -250,6 +444,88 @@
    ],
    "notes": "The paper does not print row-wise uncertainties. It states that the unit-cell volume plotted and fitted is V=a^2*c*sqrt(3)/2.",
    "source_url": "https://doi.org/10.1103/PhysRevB.88.064107"
+  },
+  {
+   "identifier": "alumina_shi_2022_table_s1_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 75 corundum P-T-V observations in official Supporting Information Table S1, retaining the Pt-versus-NaCl pressure-calibrant grouping.",
+   "reference": {
+    "authors": [
+     "Shi",
+     "Wei",
+     "Sun",
+     "Mao",
+     "Prakapenka"
+    ],
+    "year": 2022,
+    "source": "J. Geophys. Res. Solid Earth Supporting Information",
+    "doi": "10.1029/2021JB023805"
+   },
+   "source_location": "Official Supporting Information, Figure S1 and Table S1",
+   "source_url": "https://zenodo.org/records/5771198",
+   "license": "CC BY 4.0",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "pressure_calibrant",
+     "quantity": "pressure_calibrant",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/alumina-shi-2022-table-s1-pvt.csv",
+    "sha256": "6cadd48205681b8b04a157bcbe157a869cbcddf922ec0723dc1ffb948d5ca88a",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "alumina_shi_2022_bm3_mgd_2"
+   ],
+   "notes": "Table S1 prints two horizontal blocks. Rows are normalized as the complete left block, then the Pt-calibrated right block, then the NaCl-calibrated right block. Parenthetical last-digit errors are expanded but retained as generic uncertainties because the source does not state their statistical confidence. The fixed 0 GPa, 300 K, 255.1 A^3 reference row and all other 300 K rows have no printed temperature uncertainty; the ambient row also has no printed pressure or volume uncertainty. Blank uncertainties remain blank, and no value is inferred. Figure S1 identifies these observations as the data used to constrain the thermal EOS."
   }
  ]
 }

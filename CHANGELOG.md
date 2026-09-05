@@ -7,6 +7,53 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added the Luo et al. (2023) B1-MgO pressure scale as a 0 K Vinet curve plus
+  the published absolute second-order thermal-pressure polynomial, with all
+  five new shock states and the complete 576-value Tables II--III P-V-T grid.
+- Added the primary-source-audited Dewaele et al. (2000) B1-MgO BM3-MGD EOS
+  and all 61 P-V-T observations from its Table 2. The record preserves the
+  Jamieson platinum pressure basis, distinguishes adopted, fitted, and fixed
+  quantities, reproduces the paper's 145 GPa BM3 benchmark at `V/V0=0.667`,
+  and recovers `q` within combined two-sigma uncertainty from the 41 new heated
+  rows with `gamma0` fixed as in the source's staged procedure. The paper's
+  Murnaghan, Vinet, logarithmic, and alternate
+  BM3 rows are documented as comparison fits rather than duplicate EOS records.
+- Added a primary-source-validated Vinet--Mie--Gruneisen--Debye EOS for cubic
+  CaSiO3 perovskite from Kawai and Tsuchiya (2014), together with all 60
+  published Table 1 isochor benchmarks, explicit computational provenance,
+  source inconsistencies, and a documented raw-data/refit limitation.
+- Added the Wang et al. (2012) stishovite Vinet-Mie--Gruneisen--Debye EOS and
+  all 56 Table 1 P-V-T observations with simultaneous Au calibrant volumes and
+  printed uncertainties. The source's equally successful BM3 alternative,
+  300 K thermal reference correction, Tsuchiya (2003) Au calibration lineage,
+  numerical Table 3 checks, and an errors-in-variables parity refit are fully
+  documented.
+- Added the two distinct Reynard et al. (1996) MgSiO3-akimotoite BM3 fits on
+  the ruby-fluorescence and preferred ice-VII pressure assignments, together
+  with all 16 Table 1 unit-cell observations, paired ice-VII calibrant volumes,
+  pressure-scale provenance, independent high-pressure reproductions, and
+  parity-checked refits with the published 212 GPa bulk modulus held fixed.
+- Added the Schulze et al. (2018) Phase Egg single-crystal BM3 EOS and all 16
+  printed compression rows, with the excluded ambient observation flagged and
+  the 15-row fit independently reproduced. The record distinguishes the
+  analyzed `Al0.98Si0.92H1.39O4` composition from the ideal `AlSiO3OH`
+  structural model, traces the hydrogen coordinate to Schmidt et al. (1998),
+  and explains why the paper's Vanpeteghem-data refit is not a second EOS for
+  the 2018 specimen. The Dewaele et al. (2008) ruby calibration used by the
+  experiment is now executable and linked explicitly.
+- Added one primary-sourced static 0 K Phase Egg LP BM3 record from Mookherjee
+  et al. (2019), including the official 11-row supplementary P-V grid,
+  diffraction-ready Schmidt et al. (1998) structure, published-value
+  reproduction, and diagnostic coefficient-parity refit. The canonical final
+  DOI is `10.2138/am-2019-6694`; the 2018 accepted-manuscript DOI is retained
+  only as source lineage to prevent a duplicate publication record.
+- Added the selected Shi et al. (2022) Rh2O3(II)-type Al2O3 BM3-MGD thermal
+  EOS as a distinct `Pbcn` phase, with all 75 official supplementary P-T-V
+  observations, published uncertainties, Pt pressure-scale provenance,
+  source-state reproduction, and an independent errors-in-variables refit.
+  The audit documents all eight corundum/Rh2O3(II) sensitivity fits and avoids
+  treating LitCurate's flattened BM3 rows as independent isothermal records.
+
 - Added the Campbell and Heinz (1994) RbCl-B2 BM3 material, including all 24
   Table 1 observations and a parity-checked refit. Corrected the CsCl resource,
   which had mistakenly contained an incomplete subset of the RbCl table, and
@@ -29,10 +76,10 @@ All notable changes to Peritheos are documented here. The project follows
   formula units, and molar mass are cross-validated. Structured derivation
   metadata covers coefficients obtained from SESAME or published tables.
 - Added a bundled executable pressure-calibration library for the Mao (1978),
-  Mao--Xu--Bell (1986), Dewaele (2004), Holzapfel (2005), and
+  Mao--Xu--Bell (1986), Dewaele (2004, 2008), Holzapfel (2005), and
   Dorogokupets--Oganov (2007), and IPPS-Ruby2020 ruby R1 scales in Python and
   Rust, together with the Akahama--Kawamura (2006) and Eremets et al. (2023)
-  diamond-anvil Raman-edge scales. All 33
+  diamond-anvil Raman-edge scales. All 34
   identified ruby-calibrated material records now link to an exact calibration
   identifier. Public APIs convert ruby scales through the R1 wavelength ratio,
   diamond scales through the Raman wavenumber ratio, transform XRD pressure

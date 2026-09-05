@@ -1,0 +1,410 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "e_feooh_hc_low_spin",
+ "name": "Epsilon-FeOOH, hydrogen-centered low-spin phase",
+ "formula": "FeOOH",
+ "phase": "hydrogen-centered Pnnm low-spin epsilon-FeOOH",
+  "aliases": [
+   "epsilon-FeOOH HC",
+   "hydrogen-bond-symmetric epsilon-FeOOH",
+  "Pnnm low-spin epsilon-FeOOH"
+  ],
+ "cell_contents": "Two FeOOH formula units in the conventional orthorhombic Pnnm cell (Fe2O4H2).",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 4.518,
+  "b": 3.983,
+  "c": 2.666,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "Pnnm",
+ "space_group_number": 58,
+ "atom_sites": [
+  {
+   "element": "Fe",
+   "wyckoff": "2a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "4g",
+   "x": 0.348,
+   "y": 0.235,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "H",
+   "wyckoff": "2d",
+   "x": 0.5,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Insixiengmay",
+    "Stixrude"
+   ],
+   "year": 2023,
+   "title": "Hydrogen bond symmetrization and high-spin to low-spin transition of epsilon-FeOOH at the pressure of Earth's lower mantle",
+   "source": "American Mineralogist",
+   "volume": "108",
+   "locator": "2209-2218",
+   "doi": "10.2138/am-2022-8839"
+  },
+  "structure_location": "Table 1, Pnnm row at 50 GPa static pressure",
+  "structure_url": "https://msaweb.org/MSA/AmMin/TOC/2023/open_access/AM108P2209.pdf",
+  "coordinate_transform": "The source uses the P21nm subgroup origin and prints Fe=(0,0.25,0), H=(0.5,0.25,0), O1=(0.348,0.485,0), and O2=(0.651,0.015,0). Subtracting 0.25 from y places Fe on standard Pnnm 2a and H on 2d; source O1 and O2 then merge into one symmetry-equivalent 4g site represented by (0.348,0.235,0).",
+  "notes": "The diffraction structure is the 50 GPa static Pnnm low-spin calculation of Insixiengmay and Stixrude (2023). It supplies a complete phase-specific positional model because Thompson et al. (2017) publish lattice metrics and bond geometry but not fractional atomic coordinates. The structure calculation uses a different exchange-correlation treatment and magnetic ordering from the Thompson volumetric EOS, so its 47.975 A^3 cell is retained as a diffraction reference rather than forced onto the EOS curve."
+ },
+ "notes": "This material is separate from e_feooh, whose reference structure is the hydrogen-off-center P21nm phase. The Pnnm site multiplicities give Fe2O4H2 (Z=2).",
+ "eos_records": [
+  {
+   "label": "Thompson et al. (2017), hydrogen-centered low-spin FM BM3",
+   "identifier": "e_feooh_hc_low_spin_thompson_2017_bm3_1",
+   "equation_kind": "isothermal",
+   "record_kind": "published",
+   "reference": {
+    "authors": [
+     "Thompson",
+     "Campbell",
+     "Tsuchiya"
+    ],
+    "year": 2017,
+    "title": "Elasticity of epsilon-FeOOH: Seismic implications for Earth's lower mantle",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "5038-5047",
+    "doi": "10.1002/2017JB014168"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 58.62,
+     "K0": 223.0,
+     "K0_prime": 4.07
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.05,
+    "K0": 2.0,
+    "K0_prime": 0.03
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [],
+   "fit_datasets": [
+    "epsilon_feooh_thompson_2017_supplement_table_s1"
+   ],
+   "experimental_pressure_range_gpa": [
+    30.0,
+    140.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "temperature_ref": 0.0,
+   "validity": {
+    "pressure_gpa": [
+     30.0,
+     140.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "volume_ratio": [
+     0.7233026270897305,
+     0.89798703514159
+    ],
+    "notes": [
+     "The record is a static 0 K first-principles isotherm, not an experimental room-temperature EOS.",
+     "The represented branch is the hydrogen-centered Pnnm, low-spin ferromagnetic structure fitted over 30-140 GPa.",
+     "The pressure and volume bounds follow the authors' stated fit interval and the rounded Table S1 endpoints; they are not a finite-temperature phase-stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Thompson et al. (2017), Table 2, HC (30-140 GPa) self-consistent-U row: 58.62(5) A^3 per conventional Z=2 unit cell; fitted freely.",
+    "K0": "Thompson et al. (2017), Table 2, HC (30-140 GPa) self-consistent-U row: 223(2) GPa.",
+    "K0_prime": "Thompson et al. (2017), Table 2, HC (30-140 GPa) self-consistent-U row: 4.07(3).",
+    "equation": "Thompson et al. (2017), section 3.2, displayed pressure equation: standard Eulerian finite-strain third-order Birch-Murnaghan pressure EOS.",
+    "volume_basis": "The article identifies V as unit-cell volume; the official supplement Table S1 labels the same values as unit-cell volume in A^3. The Pnnm epsilon-FeOOH cell has Z=2.",
+    "reference_state": "Static DFT at 0 K and ambient-pressure extrapolated V0; the fit observations span 30-140 GPa.",
+    "uncertainties": "Table 2 defines parentheses as uncertainties on the last digit but does not state their confidence level, fitting weights, covariance matrix, or fit statistic."
+   },
+   "fit_protocol": {
+    "selection": "Hydrogen-centered optimized structures from 30 to 140 GPa, treated separately from the 0-20 GPa hydrogen-off-center structures.",
+    "method": "Calculated optimized volumes from self-consistent GGA+U calculations fitted to the third-order Birch-Murnaghan pressure equation.",
+    "free_parameters": [
+     "V0",
+     "K0",
+     "K0_prime"
+    ],
+    "weights": null,
+    "covariance": null,
+    "fit_statistic": null
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Thompson",
+        "Campbell",
+        "Tsuchiya"
+       ],
+       "year": 2017,
+       "source": "Journal of Geophysical Research: Solid Earth",
+       "doi": "10.1002/2017JB014168"
+      },
+      "source_location": "Methods and section 3.2",
+      "scope": "Static pressures and optimized cell volumes calculated with Quantum ESPRESSO using PBE GGA and a self-consistent Hubbard U."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure marker or empirical pressure scale is involved in the theoretical P-V observations."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The final publisher article and its official five-page Supporting Information S1 were audited directly. Only the reproducible high-pressure volumetric BM3 fit is executable; elastic-tensor-derived moduli and velocity/density summaries are retained as benchmarks, not encoded as EOS regressions.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "spin_state",
+     "magnetic_order",
+     "crystallography",
+     "volume_basis",
+     "published_uncertainties",
+     "covariance_availability",
+     "validity",
+     "pressure_calibration",
+     "primary_observations",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168",
+     "supplement_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014168&file=jgrb52198-sup-0001-2017JB014168-SI.pdf",
+     "supplement_sha256": "55653c46d1d48762fcf7a9ec2582ae91f4319ce8827075ba0a0ca3721be080f5",
+     "locations": [
+      "Methods, pages 5040-5041",
+      "Section 3.2 and displayed Birch-Murnaghan equation, page 5041",
+      "Table 2, page 5041",
+      "Table 3, page 5043",
+      "Supporting Information S1, Table S1, page 5"
+     ],
+     "finding": "Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.",
+     "doi": "10.1002/2017JB014168"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "epsilon_feooh_thompson_2017_supplement_table_s1"
+     ],
+     "source_locations": [
+      "Official Supporting Information S1, Table S1, page 5"
+     ],
+     "finding": "All 17 printed static GGA+U structural rows are transcribed. The 12 rows at 30.01-139.99 GPa represent the unambiguous HC fit interval; the five lower-pressure rows are retained to expose the HOC/transition region and its unresolved parameter/data contradiction. Row-level uncertainties are not reported."
+    },
+    "reported_parameterizations": [
+     {
+      "branch": "hydrogen off-center (HOC)",
+      "pressure_range_gpa": [
+       0.0,
+       20.0
+      ],
+      "structure": "P21nm",
+      "spin_state": "low spin",
+      "magnetic_order": "ferromagnetic",
+      "parameters": {
+       "V0": 57.43,
+       "K0": 188.0,
+       "K0_prime": 5.19
+      },
+      "disposition": "excluded",
+      "reason": "With the printed BM3 convention, V0=57.43 A^3 predicts negative pressure for the supplement's 0.01 GPa, 59.88 A^3 row. As an inconsistency diagnostic, the printed HOC curve has a 7.765 GPa pressure RMSE across the five 0.01-20.01 GPa Table S1 rows; those rows are not claimed as a source-faithful HOC refit because Table S1 bond lengths are already centered from 10 GPa onward. No coefficient is inferred or corrected."
+     },
+     {
+      "branch": "hydrogen centered (HC)",
+      "pressure_range_gpa": [
+       30.0,
+       140.0
+      ],
+      "structure": "Pnnm",
+      "spin_state": "low spin",
+      "magnetic_order": "ferromagnetic",
+      "parameters": {
+       "V0": 58.62,
+       "K0": 223.0,
+       "K0_prime": 4.07
+      },
+      "disposition": "selected"
+     }
+    ],
+    "numerical_reproduction": {
+     "published_curve_on_rounded_hc_rows": {
+      "observations": 12,
+      "pressure_rmse_gpa": 0.10819370267208199,
+      "max_abs_pressure_residual_gpa": 0.1696839117523723
+     },
+     "diagnostic_unweighted_pressure_refit": {
+      "objective": "Unweighted pressure residuals on the 12 rounded HC Table S1 rows; diagnostic only because source weights and unrounded inputs are unavailable.",
+      "V0": 58.61201868,
+      "K0": 223.41827131,
+      "K0_prime": 4.0665353,
+      "pressure_rmse_gpa": 0.09518132012604023,
+      "disposition": "No refit record is created; the source-reported parameters remain executable."
+     },
+     "independent_density_benchmarks": [
+      {
+       "pressure_gpa": 60.0,
+       "published_density_g_cm3": 6.055,
+       "calculated_density_g_cm3": 6.054377515118619,
+       "source_location": "Table 3"
+      },
+      {
+       "pressure_gpa": 90.0,
+       "published_density_g_cm3": 6.428,
+       "calculated_density_g_cm3": 6.429976076586873,
+       "source_location": "Table 3"
+      }
+     ]
+    },
+    "elastic_density_boundary": {
+     "finding": "Table 3 bulk and shear moduli and sound velocities are Voigt-Reuss-Hill aggregates derived from the calculated elastic tensor. They are not volumetric EOS coefficients or observations and are not used in the BM3 refit. Table 3 density values are used only as independent curve benchmarks."
+    },
+    "unresolved_issues": [
+     "The paper does not state the confidence convention for Table 2 parameter errors and publishes no covariance matrix, fit weights, fit statistic, or unrounded optimized P-V table.",
+     "The HOC Table 2 V0 conflicts with Supporting Information Table S1; that branch is deliberately not bundled as an executable record.",
+     "Table 2 labels the HOC fit interval as 0-20 GPa, while Table S1 has O-H equal to half the O-to-O distance from 10 GPa onward; the exact metastable HOC row selection is therefore not recoverable from the printed supplement."
+    ]
+   },
+   "notes": "This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "epsilon_feooh_thompson_2017_supplement_table_s1",
+   "kind": "theoretical_pressure_volume_structure",
+   "description": "All 17 static self-consistent GGA+U structural rows printed in Supporting Information Table S1, including the 12 high-pressure hydrogen-centered observations relevant to the executable BM3 record.",
+   "reference": {
+    "authors": [
+     "Thompson",
+     "Campbell",
+     "Tsuchiya"
+    ],
+    "year": 2017,
+    "title": "Elasticity of epsilon-FeOOH: Seismic implications for Earth's lower mantle",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "122",
+    "locator": "5038-5047",
+    "doi": "10.1002/2017JB014168"
+   },
+   "source_location": "Official Supporting Information S1, Table S1, page 5",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2017JB014168&file=jgrb52198-sup-0001-2017JB014168-SI.pdf",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "feo6_volume_a3",
+     "quantity": "polyhedral_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "o_o_distance_a",
+     "quantity": "oxygen_oxygen_distance",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "o_h_distance_a",
+     "quantity": "oxygen_hydrogen_distance",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "o_h_o_angle_deg",
+     "quantity": "oxygen_hydrogen_oxygen_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_a",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/epsilon-feooh-thompson-2017-supplement-table-s1.csv",
+    "sha256": "c5a1a5ab81804d41d4f3b2d34e2bbe007d28b8b63bbabf03e5106abdcb970b47",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "e_feooh_hc_low_spin_thompson_2017_bm3_1"
+   ],
+   "uncertainty": {
+    "status": "not_reported",
+    "notes": "Table S1 gives rounded values without row-level pressure, volume, lattice, bond-length, or angle uncertainties."
+   },
+   "provenance": {
+    "type": "verbatim_table_transcription",
+    "transcribed_on": "2026-09-05",
+    "source_pdf_sha256": "55653c46d1d48762fcf7a9ec2582ae91f4319ce8827075ba0a0ca3721be080f5",
+    "selection_for_executable_record": "Rows with printed pressures 30.01-139.99 GPa (12 rows); lower-pressure rows are retained for complete table provenance and HOC contradiction auditing."
+   },
+   "notes": "Column headings and values are transcribed from Table S1. The source describes these as static GGA+U DFT results. No row is treated as an experimental observation or pressure-calibrant measurement."
+  }
+ ]
+}
