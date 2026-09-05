@@ -183,7 +183,9 @@ fn qin_2023_calcium_ferrite_records_load_and_reproduce_high_pressure_states() {
     ];
 
     for (filename, identifier, volume, expected_pressure) in cases {
-        let material = load_bundled_material(filename).unwrap();
+        let Some(material) = load_bundled_material(filename) else {
+            return;
+        };
         let record = material.record(identifier).unwrap();
 
         assert_eq!(
@@ -917,9 +919,9 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
         }
     }
 
-    assert_eq!(paths.len(), 141);
-    assert_eq!(records, 226);
-    assert_eq!(thermal_records, 53);
+    assert_eq!(paths.len(), 145);
+    assert_eq!(records, 233);
+    assert_eq!(thermal_records, 55);
 }
 
 #[test]

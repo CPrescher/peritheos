@@ -2170,7 +2170,8 @@ def test_luo_2023_mgo_complete_thermal_eos_and_primary_tables():
         if dataset["identifier"] == "mgo_luo_2023_tables2_3_pvt_grid"
     )
     resource = Path("peritheos/data").joinpath(grid["resource"]["path"])
-    rows = list(csv.DictReader(resource.open(encoding="utf-8")))
+    with resource.open(encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
     assert len(rows) == 576
     assert rows[0] == {
         "compression_ambient": "0.02",
@@ -2208,7 +2209,13 @@ def test_luo_2023_mgo_complete_thermal_eos_and_primary_tables():
         ]
     )
     target_thermal_pressure = published_pressures - record.eos.rt_eos.pressure(volumes)
-    coefficients, *_ = np.linalg.lstsq(design, target_thermal_pressure, rcond=None)
+    # Normalize the mixed dimensionless/K/K^2 columns before solving. This
+    # avoids overflow in older supported NumPy/LAPACK combinations.
+    column_scales = np.linalg.norm(design, axis=0)
+    scaled_coefficients, *_ = np.linalg.lstsq(
+        design / column_scales, target_thermal_pressure, rcond=None
+    )
+    coefficients = scaled_coefficients / column_scales
     assert coefficients == pytest.approx(
         [
             1.42397479,
@@ -2219,7 +2226,9 @@ def test_luo_2023_mgo_complete_thermal_eos_and_primary_tables():
             0.00408491607,
         ]
     )
-    diagnostic_residuals = design @ coefficients - target_thermal_pressure
+    diagnostic_residuals = (
+        np.sum(design * coefficients, axis=1) - target_thermal_pressure
+    )
     assert np.sqrt(np.mean(diagnostic_residuals**2)) == pytest.approx(0.4457892496)
 
 

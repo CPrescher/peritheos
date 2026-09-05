@@ -47,8 +47,7 @@ def test_published_litcurate_candidate_ledger_is_internally_consistent():
     identifiers = [record["identifier"] for record in records]
     assert len(identifiers) == len(set(identifiers)) == 1309
     assert all(
-        record["publication"]["doi"] != "10.2138/am-2024-9562"
-        for record in records
+        record["publication"]["doi"] != "10.2138/am-2024-9562" for record in records
     )
     assert all("evidence" not in record["litcurate"] for record in records)
 

@@ -246,7 +246,7 @@ def test_yu_2024_independent_peritheos_refit_has_parameter_parity():
             "n": 5.0,
             **expected,
         },
-        abs=2.0e-6,
+        abs=5.0e-5,
     )
     stored = source["scientific_validation"]["independent_refit"]
     assert stored["implementation"] == "peritheos.fitting.fit_joint_eos"

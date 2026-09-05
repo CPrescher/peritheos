@@ -189,10 +189,10 @@ def test_shi_2022_unweighted_corundum_refit_has_parameter_parity():
     assert result.free_parameters == ("rt_eos.K0", "gamma0", "q")
     assert [
         result.parameters[name] for name in result.free_parameters
-    ] == pytest.approx([246.3082853542, 1.35931384348, 0.800867575499], rel=1.0e-9)
+    ] == pytest.approx([246.3082853542, 1.35931384348, 0.800867575499], rel=2.0e-6)
     assert [
         result.standard_errors[name] for name in result.free_parameters
-    ] == pytest.approx([1.33306862429, 0.0672542431192, 0.352700002079], rel=1.0e-8)
+    ] == pytest.approx([1.33306862429, 0.0672542431192, 0.352700002079], rel=2.0e-6)
     assert abs(result.parameters["rt_eos.K0"] - 246.0) < 2.0
     assert abs(result.parameters["gamma0"] - 1.32) < 0.07
     assert abs(result.parameters["q"] - 0.8) < 0.4

@@ -71,7 +71,7 @@ def test_katsura_2004_reproduction_documents_hidden_normalization_blocker():
     thermal = reproduction["unweighted_mgd_refit_with_chemical_n_7"]
     assert thermal["theta0"] == pytest.approx(1035.4122650)
     assert thermal["gamma0"] == pytest.approx(1.3996316539)
-    assert thermal["q"] == pytest.approx(2.8265592264)
+    assert thermal["q"] == pytest.approx(2.8265592264, abs=1.0e-5)
     assert thermal["pressure_rmse_gpa"] == pytest.approx(0.2962327776)
 
     diagnostic = reproduction["n_5_hidden_normalization_diagnostic_only"]

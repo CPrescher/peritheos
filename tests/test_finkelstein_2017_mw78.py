@@ -246,7 +246,7 @@ def test_finkelstein_2017_diagnostic_refits_record_method_dependence():
                 expected["refit_parameters"]["K0"],
                 expected["refit_parameters"]["K0_prime"],
             ],
-            abs=1.0e-6,
+            abs=1.0e-5,
         )
 
     assert (

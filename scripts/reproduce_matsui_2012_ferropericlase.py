@@ -77,9 +77,7 @@ def diagnostics(material_identifier: str) -> Diagnostics:
     predicted = np.array(
         [
             loaded.pressure(volume, temperature, check_validity=False)
-            for volume, temperature in zip(
-                data["volume"], data["temperature"], strict=True
-            )
+            for volume, temperature in zip(data["volume"], data["temperature"])
         ],
         dtype=float,
     )

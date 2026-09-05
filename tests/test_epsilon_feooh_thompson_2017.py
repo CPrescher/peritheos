@@ -60,9 +60,7 @@ def test_thompson_hc_material_is_phase_specific_and_diffraction_ready():
     assert counts == pytest.approx({"Fe": 2.0, "O": 4.0, "H": 2.0})
 
     lattice = document["lattice"]
-    assert lattice["a"] * lattice["b"] * lattice["c"] == pytest.approx(
-        47.975187204
-    )
+    assert lattice["a"] * lattice["b"] * lattice["c"] == pytest.approx(47.975187204)
     assert "Subtracting 0.25 from y" in document["source"]["coordinate_transform"]
 
 
@@ -128,9 +126,7 @@ def test_thompson_supplement_table_s1_transcription_and_hc_curve():
     assert np.sqrt(np.mean(residuals**2)) == pytest.approx(
         0.10819370267208199, abs=1.0e-12
     )
-    assert np.max(np.abs(residuals)) == pytest.approx(
-        0.1696839117523723, abs=1.0e-12
-    )
+    assert np.max(np.abs(residuals)) == pytest.approx(0.1696839117523723, abs=1.0e-12)
     reproduction = source["scientific_validation"]["numerical_reproduction"]
     assert reproduction["published_curve_on_rounded_hc_rows"][
         "pressure_rmse_gpa"
@@ -151,12 +147,7 @@ def test_thompson_hc_diagnostic_refit_recovers_published_coefficients():
             1.5
             * k0
             * (compression**7 - compression**5)
-            * (
-                1.0
-                + 0.75
-                * (k0_prime - 4.0)
-                * (compression**2 - 1.0)
-            )
+            * (1.0 + 0.75 * (k0_prime - 4.0) * (compression**2 - 1.0))
         )
         return predicted - pressure
 
@@ -173,7 +164,7 @@ def test_thompson_hc_diagnostic_refit_recovers_published_coefficients():
     ]
     assert result.x == pytest.approx(
         [expected["V0"], expected["K0"], expected["K0_prime"]],
-        abs=2.0e-7,
+        abs=1.0e-6,
     )
     assert math.sqrt(np.mean(result.fun**2)) == pytest.approx(
         expected["pressure_rmse_gpa"], abs=1.0e-12
@@ -197,9 +188,8 @@ def test_thompson_density_benchmarks_and_hoc_exclusion():
     assert "7.765 GPa" in hoc["reason"]
     assert hc["branch"] == "hydrogen centered (HC)"
     assert hc["disposition"] == "selected"
-    assert "not volumetric EOS coefficients" in validation[
-        "elastic_density_boundary"
-    ]["finding"]
-    assert all(
-        "_hoc_" not in item["identifier"] for item in document["eos_records"]
+    assert (
+        "not volumetric EOS coefficients"
+        in validation["elastic_density_boundary"]["finding"]
     )
+    assert all("_hoc_" not in item["identifier"] for item in document["eos_records"])

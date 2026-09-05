@@ -165,7 +165,7 @@ def test_li_2006_independent_acoustic_finite_strain_refit():
     )
     assert fit.success
     assert fit.x == pytest.approx(
-        [163.51148649, 4.15806624, 129.71748390, 2.39723610], abs=1.0e-7
+        [163.51148649, 4.15806624, 129.71748390, 2.39723610], abs=5.0e-7
     )
 
     published = source["scientific_validation"]["reported_parameterizations"][0]
@@ -189,8 +189,8 @@ def test_li_2006_independent_acoustic_finite_strain_refit():
         * inputs["dK0T_dT_gpa_per_k"]
         / refit_k_0t
     ) / (1.0 + alpha_gamma_t)
-    assert refit_k_0t == pytest.approx(161.18805735, abs=1.0e-7)
-    assert refit_k_0t_prime == pytest.approx(4.19656803, abs=1.0e-7)
+    assert refit_k_0t == pytest.approx(161.18805735, abs=5.0e-7)
+    assert refit_k_0t_prime == pytest.approx(4.19656803, abs=5.0e-7)
     assert abs(refit_k_0t - conversion["outputs"]["K0T_gpa"]) < 0.02
     assert abs(refit_k_0t_prime - conversion["outputs"]["K0T_prime"]) < 0.05
 

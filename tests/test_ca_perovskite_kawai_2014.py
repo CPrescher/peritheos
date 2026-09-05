@@ -14,7 +14,9 @@ IDENTIFIER = "ca_perovskite_kawai_2014_vinet_mgd_3"
 def _source_and_record():
     document = get_material_document("ca_perovskite")
     source = next(
-        record for record in document["eos_records"] if record["identifier"] == IDENTIFIER
+        record
+        for record in document["eos_records"]
+        if record["identifier"] == IDENTIFIER
     )
     record = Material.from_eosmat(
         document, record_identifiers=[IDENTIFIER]
@@ -89,9 +91,7 @@ def test_kawai_2014_table1_isochors_and_round_trip():
     assert np.max(np.abs(residuals)) < 0.1
 
     volume = record.volume(100.0, 2500.0, check_validity=True)
-    assert record.pressure(volume, 2500.0, check_validity=True) == pytest.approx(
-        100.0
-    )
+    assert record.pressure(volume, 2500.0, check_validity=True) == pytest.approx(100.0)
     assert source["fit_datasets"] == []
     assert (
         source["scientific_validation"]["primary_data_check"]["status"]

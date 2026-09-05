@@ -3051,9 +3051,7 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
 
     if result["identifier"] == "mgo_b1_luo_2023_vinet_thermal_5":
         result["scientific_validation"]["note"] = previous["note"]
-        result["scientific_validation"]["verified_fields"] = previous[
-            "verified_fields"
-        ]
+        result["scientific_validation"]["verified_fields"] = previous["verified_fields"]
         if reproduction is not None:
             result["scientific_validation"]["reproduction"] = reproduction
 
@@ -3400,8 +3398,7 @@ def aggregate_existing_audits() -> None:
         calibration["status"] for calibration in pressure_calibrations
     )
     recalculation_statuses = Counter(
-        calibration["recalculation"]["status"]
-        for calibration in pressure_calibrations
+        calibration["recalculation"]["status"] for calibration in pressure_calibrations
     )
     manifest["pressure_calibration"] = {
         "audit_date": REPORT_AUDIT_DATE,

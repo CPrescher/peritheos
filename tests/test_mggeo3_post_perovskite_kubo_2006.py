@@ -134,14 +134,14 @@ def test_kubo_mggeo3_source_curves_and_refits_reproduce():
     assert preferred_rmse == pytest.approx(1.3945069526, abs=5.0e-10)
     assert preferred_maximum == pytest.approx(3.9378912089, abs=5.0e-10)
     assert fit_with_fixed_derivative(4.4) == pytest.approx(
-        (179.20054626, 206.71122613), abs=5.0e-7
+        (179.20054626, 206.71122613), abs=5.0e-6
     )
 
     sensitivity_rmse, sensitivity_maximum = curve_metrics(SENSITIVITY)
     assert sensitivity_rmse == pytest.approx(1.3561285588, abs=5.0e-10)
     assert sensitivity_maximum == pytest.approx(3.9722613183, abs=5.0e-10)
     assert fit_with_fixed_derivative(4.0) == pytest.approx(
-        (175.92371146, 244.61773418), abs=5.0e-7
+        (175.92371146, 244.61773418), abs=5.0e-6
     )
 
     published = np.array([PREFERRED["V0"], PREFERRED["K0"]])

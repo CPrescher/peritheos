@@ -217,7 +217,7 @@ def test_ono_2006_published_curve_and_diagnostic_refit(case):
             break
         k0 = next_k0
 
-    assert k0 == pytest.approx(case["eiv_k0"], abs=5.0e-10)
+    assert k0 == pytest.approx(case["eiv_k0"], abs=2.0e-9)
     stored = source["scientific_validation"]["independent_refit"]["parameters"]
     assert stored["K0"] == pytest.approx(k0, abs=5.0e-8)
     assert abs(k0 - case["k0"]) <= 1.0

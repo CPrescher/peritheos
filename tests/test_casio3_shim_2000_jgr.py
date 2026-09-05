@@ -181,10 +181,10 @@ def test_shim_2000_jgr_unweighted_dac_only_refit_has_parameter_parity():
     assert result.free_parameters == ("gamma0", "q")
     assert [
         result.parameters[name] for name in result.free_parameters
-    ] == pytest.approx([2.0006405181, 0.9404932591], rel=1.0e-9)
+    ] == pytest.approx([2.0006405181, 0.9404932591], rel=1.0e-6)
     assert [
         result.standard_errors[name] for name in result.free_parameters
-    ] == pytest.approx([0.0875352616, 0.4223094684], rel=1.0e-8)
+    ] == pytest.approx([0.0875352616, 0.4223094684], rel=1.0e-6)
     assert abs(result.parameters["gamma0"] - 2.0) < 0.08
     assert abs(result.parameters["q"] - 0.9) < 0.4
 

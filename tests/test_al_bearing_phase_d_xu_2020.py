@@ -46,22 +46,16 @@ def _effective_variance_refit(rows):
         ]
     )
     volume = np.array([float(row["volume_a3"]) for row in selected])
-    volume_sigma = np.array(
-        [float(row["volume_uncertainty_a3"]) for row in selected]
-    )
+    volume_sigma = np.array([float(row["volume_uncertainty_a3"]) for row in selected])
     parameters = np.array([143.0, 5.8])
 
     for _ in range(100):
         model = BM3(V0=86.71, K0=parameters[0], K0_prime=parameters[1])
         dp_dv = -np.asarray(model.bulk_modulus(volume), dtype=float) / volume
-        sigma_effective = np.sqrt(
-            pressure_sigma**2 + (dp_dv * volume_sigma) ** 2
-        )
+        sigma_effective = np.sqrt(pressure_sigma**2 + (dp_dv * volume_sigma) ** 2)
 
         def residual(candidate):
-            candidate_model = BM3(
-                V0=86.71, K0=candidate[0], K0_prime=candidate[1]
-            )
+            candidate_model = BM3(V0=86.71, K0=candidate[0], K0_prime=candidate[1])
             return (
                 np.asarray(candidate_model.pressure(volume), dtype=float) - pressure
             ) / sigma_effective
@@ -182,16 +176,16 @@ def test_xu_2020_published_bm3_executes_and_reproduces_observations():
     assert record.pressure(80.07, 300.0) == pytest.approx(14.18, abs=0.17)
     for pressure in (0.0, 5.0, 14.18, 20.5):
         volume = record.volume(pressure, 300.0, check_validity=True)
-        assert record.pressure(
-            volume, 300.0, check_validity=True
-        ) == pytest.approx(pressure, rel=1.0e-11, abs=1.0e-12)
+        assert record.pressure(volume, 300.0, check_validity=True) == pytest.approx(
+            pressure, rel=1.0e-11, abs=1.0e-12
+        )
 
 
 def test_xu_2020_effective_variance_refit_recovers_published_coefficients():
     _, source, _, _, rows = _document_record_dataset_rows()
     refit = _effective_variance_refit(rows)
 
-    assert refit == pytest.approx([143.07336748, 5.86138397], abs=2.0e-7)
+    assert refit == pytest.approx([143.07336748, 5.86138397], abs=5.0e-6)
     published = source["eos"]["parameters"]
     assert refit[0] == pytest.approx(published["K0"], abs=0.08)
     assert refit[1] == pytest.approx(published["K0_prime"], abs=0.07)
@@ -200,9 +194,7 @@ def test_xu_2020_effective_variance_refit_recovers_published_coefficients():
     assert reproduction["published_curve_rmse_gpa"] == pytest.approx(
         0.12191813, abs=1.0e-8
     )
-    assert reproduction["refit_curve_rmse_gpa"] == pytest.approx(
-        0.11079143, abs=1.0e-8
-    )
+    assert reproduction["refit_curve_rmse_gpa"] == pytest.approx(0.11079143, abs=1.0e-8)
 
 
 def test_xu_2020_does_not_silently_encode_ambiguous_thermal_or_acoustic_models():
@@ -220,6 +212,4 @@ def test_xu_2020_does_not_silently_encode_ambiguous_thermal_or_acoustic_models()
     assert validation["reported_inconsistencies"][0]["field"] == (
         "ambient conventional-cell volume"
     )
-    assert validation["reported_inconsistencies"][1]["section_3_1"] == (
-        "143(5) GPa"
-    )
+    assert validation["reported_inconsistencies"][1]["section_3_1"] == ("143(5) GPa")

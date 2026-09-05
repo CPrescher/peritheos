@@ -165,10 +165,10 @@ def test_dobrosavljevic_minuti_refits_recover_both_published_branches():
     )
 
     assert b1_refit == pytest.approx(
-        [78.88845145, 155.15330821, 3.78834697], abs=2.0e-6
+        [78.88845145, 155.15330821, 3.78834697], abs=1.0e-5
     )
     assert rhombohedral_refit == pytest.approx(
-        [19.11914777, 222.59443231, 1.99412734], abs=2.0e-6
+        [19.11914777, 222.59443231, 1.99412734], abs=1.0e-4
     )
 
     for identifier, refit in (

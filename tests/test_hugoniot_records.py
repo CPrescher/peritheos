@@ -682,9 +682,7 @@ def test_linear_us_up_ordinary_least_squares_recovers_parameters():
 def test_bundled_single_phase_hugoniot_records():
     mgo_document = get_material_document("mgo")
     mgo = Material.from_eosmat(mgo_document)
-    mgo_hugoniot = mgo.get_eos_record(
-        "mgo_b1_duffy_ahrens_1995_hugoniot_5"
-    )
+    mgo_hugoniot = mgo.get_eos_record("mgo_b1_duffy_ahrens_1995_hugoniot_5")
     assert mgo.phase == "B1 (periclase)"
     assert mgo_hugoniot.loading_path == "principal"
     assert mgo_hugoniot.branch_kind == "untransformed"
@@ -699,9 +697,7 @@ def test_bundled_single_phase_hugoniot_records():
 
     nio_document = get_material_document("nickel_oxide")
     nio = Material.from_eosmat(nio_document)
-    nio_hugoniot = nio.get_eos_record(
-        "nickel_oxide_noguchi_1999_linear_hugoniot_2"
-    )
+    nio_hugoniot = nio.get_eos_record("nickel_oxide_noguchi_1999_linear_hugoniot_2")
     assert nio.phase == "rhombohedral B1"
     assert nio_hugoniot.loading_path == "principal"
     assert nio_hugoniot.branch_kind == "untransformed"

@@ -52,9 +52,7 @@ def main() -> None:
                 ),
                 "symmetry": document.get("symmetry", ""),
                 "space_group": document.get("space_group", ""),
-                "formula_units_per_cell": document.get(
-                    "formula_units_per_cell", ""
-                ),
+                "formula_units_per_cell": document.get("formula_units_per_cell", ""),
                 "equation_kinds": ";".join(kinds),
                 "eos_record_count": len(document["eos_records"]),
                 "input_file": input_path.relative_to(ROOT).as_posix(),

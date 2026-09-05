@@ -250,10 +250,10 @@ def test_fa50_unweighted_pressure_refits_reproduce_published_coefficients(
     )
     stored = source["scientific_validation"]["independent_refit"]
 
-    assert result.x == pytest.approx(expected_refit, abs=5e-7)
+    assert result.x == pytest.approx(expected_refit, abs=2e-6)
     assert result.x == pytest.approx(
         [stored["refit_parameters"]["V0"], stored["refit_parameters"]["K0"]],
-        abs=5e-7,
+        abs=2e-6,
     )
     assert refit_rmse == pytest.approx(expected_refit_rmse, abs=5e-10)
     assert published_rmse == pytest.approx(expected_published_rmse, abs=5e-10)

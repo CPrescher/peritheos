@@ -237,7 +237,7 @@ jobs:
             --python 3.13 \
             --with "${wheel}" \
             python -c \
-            "from importlib import resources; from peritheos import Material, get_material_document, list_material_documents; from peritheos.eos.rt import BM3; assert resources.files('peritheos').joinpath('py.typed').is_file(); assert BM3(10, 120, 4).pressure(9) > 0; assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 7"
+            "from importlib import resources; from peritheos import Material, get_material_document, list_material_documents; from peritheos.eos.rt import BM3; assert resources.files('peritheos').joinpath('py.typed').is_file(); assert BM3(10, 120, 4).pressure(9) > 0; assert len(list_material_documents()) == 145; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 7"
 
   free-threaded:
     name: Free-threaded Python 3.14
@@ -340,4 +340,4 @@ jobs:
           uv venv --python 3.13 "${RUNNER_TEMP}/peritheos-smoke"
           uv pip install --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" dist/*.whl
           cd "${RUNNER_TEMP}"
-          "${RUNNER_TEMP}/peritheos-smoke/bin/python" -c "from importlib import resources; from peritheos import Material, get_material_document, list_material_documents; assert resources.files('peritheos').joinpath('py.typed').is_file(); assert len(list_material_documents()) == 115; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 7"
+          "${RUNNER_TEMP}/peritheos-smoke/bin/python" -c "from importlib import resources; from peritheos import Material, get_material_document, list_material_documents; assert resources.files('peritheos').joinpath('py.typed').is_file(); assert len(list_material_documents()) == 145; assert len(Material.from_eosmat(get_material_document('gold')).eos_records) == 7"

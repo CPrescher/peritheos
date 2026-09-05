@@ -26,6 +26,7 @@ CASES = {
         "observed_max": 0.2163884252,
         "table_rmse": 0.0054742591,
         "table_max": 0.0139179342,
+        "phase": "high-spin B1 ferropericlase",
     },
     "mg075fe025o": {
         "record": "mg075fe025o_matsui_2012_bm3_mgd_1",
@@ -43,6 +44,7 @@ CASES = {
         "observed_max": 0.2669266040,
         "table_rmse": 0.0028967125,
         "table_max": 0.0052404910,
+        "phase": "B1 ferropericlase",
     },
 }
 
@@ -55,7 +57,7 @@ def test_matsui_records_preserve_published_parameters_and_reference_state(
     document = get_material_document(material_identifier)
     record = document["eos_records"][0]
 
-    assert document["phase"] == "high-spin B1 ferropericlase"
+    assert document["phase"] == expected["phase"]
     assert document["space_group"] == "Fm-3m"
     assert document["space_group_number"] == 225
     assert document["formula_units_per_cell"] == 4

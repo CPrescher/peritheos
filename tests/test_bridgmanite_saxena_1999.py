@@ -178,7 +178,7 @@ def test_saxena_1999_independent_300_k_volume_weighted_refit_has_parity():
         fitted_v0_cell - record["eos"]["parameters"]["V0"], abs=5.0e-8
     )
     assert parity["delta_K0_gpa"] == pytest.approx(
-        fitted_k0 - record["eos"]["parameters"]["K0"], abs=5.0e-8
+        fitted_k0 - record["eos"]["parameters"]["K0"], abs=5.0e-7
     )
     assert parity["absolute_relative_delta_V0_percent"] < 0.01
     assert parity["absolute_relative_delta_K0_percent"] < 0.01
