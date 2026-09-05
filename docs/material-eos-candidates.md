@@ -135,19 +135,31 @@ audit.
 
 ### C02 — Cubic boron nitride: add the thermal branch
 
+**Status: accepted and implemented (2026-09-05).**
+
 - **Change:** extend the existing `boron_nitride` (c-BN) material.
 - **Source:** Datchi et al. (2007), [Equation of state of cubic boron nitride at
   high pressures and temperatures](https://doi.org/10.1103/PhysRevB.75.214104).
 - **Published scope:** 295 K compression to 160 GPa and 500--900 K data to
   80 GPa. The paper gives a Vinet + Debye-Gruneisen parameter set, including
   `theta0 = 1700 K`, `gamma0 = 1.04(2)`, and `q = 4(1.5)`.
-- **Likely mapping:** the existing 295 K `Vinet` record plus
-  `MieGruneisenDebye` referenced to 295 K.
-- **Effort/risk:** low-to-medium. The paper tabulates its Vinet component as a
-  0 K/static curve, whereas Peritheos's generic MGD wrapper is referenced to a
-  measured isotherm. Reproduce the paper numerically before deciding whether
-  the existing 295 K curve can be composed directly or whether a cold-curve
-  adapter is needed.
+- **Resolved mapping:** a distinct 0 K Vinet curve (`V0,0 = 5.9026(4)
+  A^3/atom`, `B0,0 = 397(2) GPa`, `B0,0' = 3.62(5)`) plus integrated-
+  Gruneisen MGD with `thermal_pressure_reference = absolute_zero`. The existing
+  295 K Vinet record is retained separately and is not reused as the cold
+  curve.
+- **Reproduction:** the published coefficients reproduce Table VI's
+  `V(P=0,300 K) = 5.9055 A^3/atom` to the printed last digit and give a 0.584
+  GPa pressure RMSE on all 66 Table IV states, matching the reported 0.6 GPa.
+  A q-only unweighted pressure-residual refit gives `q = 7.35(1.89)`, less than
+  two combined standard deviations from `4(1.5)`; row rounding and source
+  weights are not published, so this diagnostic does not replace Table V.
+- **Scope and provenance:** Table IV is bundled in full. The record documents
+  zinc-blende `F-43m` c-BN, the per-atom-to-eight-atom-cell conversion, H2005
+  ruby calibration, modified SrB4O7:Sm2+ high-temperature scale, and the 4He
+  EOS route above 100 GPa. Exact observation-level pressure recalculation is
+  blocked by absent marker shifts and helium volumes. The printed table states
+  no explicit data-reuse license.
 
 ### C03 — Epsilon-FeOOH: replace/augment the static record with P-V-T
 

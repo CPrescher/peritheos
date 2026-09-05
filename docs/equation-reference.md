@@ -531,13 +531,28 @@ with continuous limit
 \qquad q=0.
 \]
 
-For either oscillator model,
+By default, either oscillator model uses the reference-temperature baseline
 
 \[
 \Delta P_{\mathrm{th}}
 =10^{-4}\frac{\gamma(V)}{V}
 \left[E(V,T)-E(V,T_r)\right].
 \]
+
+`MieGruneisenDebye` also accepts
+`thermal_pressure_reference="absolute_zero"` for publications whose supplied
+mechanical curve is explicitly a 0 K cold curve. In that mode,
+
+\[
+P_{\mathrm{th}}(V,T)=10^{-4}\frac{\gamma(V)}{V}E_D(V,T),
+\qquad P_{\mathrm{th}}(V,0)=0,
+\]
+
+and total pressure is $P_c(V)+P_{\mathrm{th}}(V,T)$. `Tr` remains a positive
+API reference for temperature inversion and for
+`thermal_pressure_increment(V,T)`, which subtracts the absolute pressure at
+`Tr`. Datchi et al. (2007), Equations (2)--(4) and Table V, use this convention
+for c-BN. The default `reference_temperature` behavior is unchanged.
 
 The third-order Debye function and Debye energy are
 
@@ -555,7 +570,8 @@ E_E(V,T)=\frac{3nR\Theta(V)}
 \]
 
 Zero-point energy is omitted from these two public vibrational-energy models;
-it cancels from the referenced thermal pressure in any case. Constant-volume
+it cancels from referenced thermal pressure and is excluded from the
+absolute-zero convention's source definition. Constant-volume
 heat capacity is evaluated as $C_V=(\partial E/\partial T)_V$.
 
 ### Variable-exponent Debye-temperature law

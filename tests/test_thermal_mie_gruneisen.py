@@ -42,6 +42,43 @@ def test_thermal_pressure_sign(eos):
     assert eos.thermal_pressure(eos.rt_eos.V0, 200.0) < 0.0
 
 
+def test_absolute_zero_pressure_reference_uses_full_vibrational_pressure():
+    eos = MieGruneisenDebye(
+        BM3(1.0, 160.0, 4.0),
+        300.0,
+        800.0,
+        1.5,
+        1.0,
+        2.0,
+        thermal_pressure_reference="absolute_zero",
+    )
+    volume = 0.9
+
+    assert eos.thermal_pressure(volume, 300.0) == pytest.approx(
+        eos.vibrational_pressure(volume, 300.0)
+    )
+    assert eos.thermal_pressure_increment(volume, 300.0) == pytest.approx(0.0)
+    assert eos.thermal_pressure_increment(volume, 1800.0) == pytest.approx(
+        eos.vibrational_pressure(volume, 1800.0)
+        - eos.vibrational_pressure(volume, 300.0)
+    )
+    assert eos.configuration_values()["thermal_pressure_reference"] == "absolute_zero"
+
+
+@pytest.mark.parametrize("value", ["zero", "cold_curve", None])
+def test_invalid_thermal_pressure_reference_is_rejected(value):
+    with pytest.raises(ValueError, match="thermal_pressure_reference"):
+        MieGruneisenDebye(
+            BM3(1.0, 160.0, 4.0),
+            300.0,
+            800.0,
+            1.5,
+            1.0,
+            2.0,
+            thermal_pressure_reference=value,
+        )
+
+
 def test_pressure_broadcasting(eos):
     volumes = eos.rt_eos.V0 * np.array([[0.8], [1.0]])
     temperatures = np.array([[500.0, 1000.0, 2000.0]])

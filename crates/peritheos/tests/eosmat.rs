@@ -855,6 +855,16 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                 assert!(pressure > 0.0);
                 continue;
             }
+            if record
+                .document
+                .pointer("/thermal/thermal_pressure_reference")
+                .and_then(serde_json::Value::as_str)
+                == Some("absolute_zero")
+            {
+                assert!(pressure.is_finite());
+                assert!(pressure > 0.0);
+                continue;
+            }
             match (
                 record.identifier.as_str(),
                 record.eos.thermal_model_identifier(),
@@ -892,4 +902,26 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
     assert_eq!(paths.len(), 141);
     assert_eq!(records, 223);
     assert_eq!(thermal_records, 50);
+}
+
+#[test]
+fn datchi_cbn_absolute_mgd_reproduces_table_vi_volume() {
+    let Some(material) = load_bundled_material("boron_nitride.eosmat") else {
+        return;
+    };
+    let record = material
+        .eos_records
+        .iter()
+        .find(|record| record.identifier == "boron_nitride_datchi_2007_vinet_mgd_2")
+        .unwrap();
+
+    let atomic_volume = record.volume(0.0, 300.0).unwrap() / 8.0;
+    assert!((atomic_volume - 5.9055).abs() < 1.0e-5);
+    assert_eq!(
+        record
+            .document
+            .pointer("/thermal/thermal_pressure_reference")
+            .and_then(serde_json::Value::as_str),
+        Some("absolute_zero")
+    );
 }

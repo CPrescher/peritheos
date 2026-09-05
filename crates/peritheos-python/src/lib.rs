@@ -19,7 +19,7 @@ use peritheos::thermal::{
     DorogokupetsOganov2007Parameters, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
     ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalReferenceState,
+    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use pyo3::exceptions::PyRuntimeError;
@@ -523,7 +523,8 @@ impl PyThermalEos {
     #[staticmethod]
     #[pyo3(signature = (
         rt_eos, tr, theta0, gamma0, q, n,
-        debye_temperature_law="integrated_gruneisen"
+        debye_temperature_law="integrated_gruneisen",
+        thermal_pressure_reference="reference_temperature"
     ))]
     fn mie_gruneisen_debye(
         rt_eos: PyRef<'_, PyRtEos>,
@@ -533,6 +534,7 @@ impl PyThermalEos {
         q: f64,
         n: f64,
         debye_temperature_law: &str,
+        thermal_pressure_reference: &str,
     ) -> PyResult<Self> {
         let law = match debye_temperature_law {
             "integrated_gruneisen" => DebyeTemperatureLaw::IntegratedGruneisen,
@@ -543,9 +545,18 @@ impl PyThermalEos {
                 ));
             }
         };
+        let pressure_reference = match thermal_pressure_reference {
+            "reference_temperature" => ThermalPressureReference::ReferenceTemperature,
+            "absolute_zero" => ThermalPressureReference::AbsoluteZero,
+            _ => {
+                return Err(python_validation_error(
+                    "thermal_pressure_reference must be 'reference_temperature' or 'absolute_zero'",
+                ));
+            }
+        };
         Ok(Self {
             model: ThermalModel::MieGruneisenDebye(
-                MieGruneisenDebye::new_with_temperature_law(
+                MieGruneisenDebye::new_with_conventions(
                     rt_eos.model,
                     tr,
                     theta0,
@@ -553,6 +564,7 @@ impl PyThermalEos {
                     q,
                     n,
                     law,
+                    pressure_reference,
                 )
                 .map_err(to_python_error)?,
             ),

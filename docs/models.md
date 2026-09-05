@@ -64,7 +64,7 @@ correction instead inherits the reference EOS volume convention.
 |---|---|---|---|
 | [`DoubleDebyeHelmholtz`](equation-reference.md#double-debye-helmholtz) | `Vinet` 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; three sets of `theta_*0`, `a_*`, `b_*`; optional `n`, `alpha0`, `Ve`, `kappa`, `phi0`, `Tr` | double Debye + $T^2$ |
 | [`DoubleDebyeLogMomentHelmholtz`](equation-reference.md#logarithmic-moment-double-debye-variant) | `Vinet` 0 K cold curve, or reference isotherm when `Tr` is set | `Vp`; cutoff A, cutoff B, and `theta_0` parameter triples; optional `n`, `anharmonic_a`, `phi0`, `Tr` | logarithmic-moment double Debye + $T^2$ |
-| [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law` | Debye |
+| [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law`, `thermal_pressure_reference` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
 | [`DorogokupetsOganov2007`](equation-reference.md#dorogokupets-oganov-2007-four-oscillator-model) | any `EosBase` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect parameters | generalized Bose + Einstein |
@@ -99,6 +99,8 @@ paper equations alone to reproduce Peritheos values; see
   Its `debye_temperature_law` defaults to `integrated_gruneisen`; select
   `variable_exponent` only for scales that explicitly publish
   $\Theta_D=\Theta_0(V/V_0)^{-\gamma(V)}$.
+  `thermal_pressure_reference` defaults to `reference_temperature`; use
+  `absolute_zero` only when the wrapped curve is explicitly a 0 K cold curve.
 - Use Mie-Gruneisen-Einstein for an inexpensive single-frequency approximation.
 - Use `Tange2009Debye` for the publication-specific Tange MgO Gruneisen law.
 - Use `DorogokupetsOganov2007` only for the paper's complete four-oscillator
