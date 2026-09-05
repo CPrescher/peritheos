@@ -48,6 +48,65 @@
   }
  ],
  "notes": "Publication-scoped fp25 material. The two executable records are the pure high-spin and low-spin thermal BM3 end members only. The mixed-spin interpolation, spin-fraction surface, geotherm projection, and anomalous crossover elastic response are preserved as explicitly excluded scope because Peritheos does not implement that coupled crossover model and the source does not tabulate P_HS and P_LS.",
+ "spin_crossover": {
+  "status": "non_executable_audit_reconstruction",
+  "fraction_thresholds": {
+   "high_spin_maximum_n_ls": 0.05,
+   "low_spin_minimum_n_ls": 0.95
+  },
+  "per_temperature_gpa": [
+   {
+    "temperature_k": 300,
+    "last_high_spin_observation": 54.6,
+    "first_crossover_observation": 55.2,
+    "first_low_spin_observation": 81.5
+   },
+   {
+    "temperature_k": 1200,
+    "last_high_spin_observation": 68.5,
+    "first_crossover_observation": 73.7,
+    "first_low_spin_observation": 100.0
+   },
+   {
+    "temperature_k": 1500,
+    "last_high_spin_observation": 78.3,
+    "first_crossover_observation": 81.9,
+    "first_low_spin_observation": 123.3
+   },
+   {
+    "temperature_k": 1800,
+    "last_high_spin_observation": 82.7,
+    "first_crossover_observation": 85.2,
+    "first_low_spin_observation": 124.6
+   },
+   {
+    "temperature_k": 2000,
+    "last_high_spin_observation": 85.4,
+    "first_crossover_observation": 86.8,
+    "first_low_spin_observation": null,
+    "completion_status": "not_reached_by_138.6_gpa_table_limit"
+   }
+  ],
+  "interpretation": "Values are discrete Table S1 observation bounds reconstructed from the corrected published pure-state curves. A gap between the last high-spin and first crossover pressure reflects sampling, not an unobserved sharp boundary; likewise the first low-spin value is the first measured row meeting n_LS>=0.95.",
+  "reported_context": {
+   "main_text_300_k_approximate_crossover_gpa": [
+    50.0,
+    75.0
+   ],
+   "lower_mantle_geotherm": {
+    "begins": {
+     "pressure_gpa": 70.0,
+     "temperature_k": 2200.0,
+     "depth_km": 1700.0
+    },
+    "completes": {
+     "pressure_gpa": 125.0,
+     "temperature_k": 2400.0,
+     "depth_km": 2700.0
+    }
+   }
+  }
+ },
  "peaks": [],
  "eos_records": [
   {

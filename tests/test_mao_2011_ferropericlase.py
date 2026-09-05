@@ -210,6 +210,41 @@ def test_mao_2011_complete_table_checksum_and_reconstructed_ranges():
         "inferred_first_low_spin_pressure_gpa"
     ] == {key: value["low_spin_from"] for key, value in ranges.items()}
 
+    top_level = get_material_document(MATERIAL_ID)["spin_crossover"]
+    assert top_level["fraction_thresholds"] == {
+        "high_spin_maximum_n_ls": 0.05,
+        "low_spin_minimum_n_ls": 0.95,
+    }
+    assert top_level["per_temperature_gpa"] == [
+        {
+            "temperature_k": int(temperature),
+            "last_high_spin_observation": values["high_spin_through"],
+            "first_crossover_observation": values["crossover_from"],
+            "first_low_spin_observation": values["low_spin_from"],
+            **(
+                {"completion_status": "not_reached_by_138.6_gpa_table_limit"}
+                if temperature == "2000"
+                else {}
+            ),
+        }
+        for temperature, values in ranges.items()
+    ]
+    assert top_level["reported_context"][
+        "main_text_300_k_approximate_crossover_gpa"
+    ] == [50.0, 75.0]
+    assert top_level["reported_context"]["lower_mantle_geotherm"] == {
+        "begins": {
+            "pressure_gpa": 70.0,
+            "temperature_k": 2200.0,
+            "depth_km": 1700.0,
+        },
+        "completes": {
+            "pressure_gpa": 125.0,
+            "temperature_k": 2400.0,
+            "depth_km": 2700.0,
+        },
+    }
+
 
 def test_mao_2011_spin_fractions_and_row_flags_are_reproducible():
     rows = load_rows()
