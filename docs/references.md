@@ -229,6 +229,16 @@
   fcc data and labels that cross-phase scope explicitly.
 - Murnaghan, F. D. (1944). The compressibility of media under extreme
   pressures. *Proceedings of the National Academy of Sciences*, 30, 244-247.
+- Noguchi, M., Komabayashi, T., Hirose, K. & Ohishi, Y. (2013).
+  High-temperature compression experiments of CaSiO3 perovskite to lowermost
+  mantle conditions and its thermal equation of state. *Physics and Chemistry
+  of Minerals*, 40, 81--91.
+  [doi:10.1007/s00269-012-0549-1](https://doi.org/10.1007/s00269-012-0549-1).
+  Peritheos uses the preferred Fei-Pt-scale model 1: equations (1)--(5), the
+  Table 1 experimental/fit selection, and Tables 2--3. The 700 K BM2 reference
+  and cubic phase assignment are retained without mixing any 300 K CaSiO3
+  record; the table itself is not redistributed because no reusable data
+  license is stated.
 - Noguchi, Y., Uchino, M., Hikosaka, H., Kusaba, K., Fukuoka, K., Mashimo, T.
   & Syono, Y. (1998). Shock compression of NiO to 130 GPa. *The Review of
   High Pressure Science and Technology*, 7, 832--834.

@@ -1522,6 +1522,95 @@ numerical envelope follows the stated pressure limit and published grid; the
 paper's warning that the low-pressure/high-temperature corner may be outside
 the cubic stability field or near melting remains attached to the validity
 metadata.
+
+## C04: CaSiO3 perovskite, Noguchi et al. (2013)
+
+The primary source is Noguchi, Komabayashi, Hirose, and Ohishi,
+*High-temperature compression experiments of CaSiO3 perovskite to lowermost
+mantle conditions and its thermal equation of state*, *Physics and Chemistry
+of Minerals* **40**, 81--91,
+[doi:10.1007/s00269-012-0549-1](https://doi.org/10.1007/s00269-012-0549-1).
+The complete article was checked through institutional Springer access.
+
+### Identity, reference state, and equation
+
+The starting material was pure CaSiO3 glass, mixed with Pt at 9:1 by weight;
+Pt was the pressure standard and laser absorber. The source assigns every
+accepted observation to cubic Ca-perovskite. It reports no peak splitting and
+finds essentially identical 200-peak shapes at 700 and 1600 K. Three 700 K
+observations with anomalously broad peaks are explicitly rejected. This is not
+a room-temperature EOS: the authors deliberately set `Tr = 700 K`, above the
+cubic transition, to avoid the tetragonal/cubic mixing in earlier work.
+
+Equations (1)--(5) are represented directly as a second-order
+Birch--Murnaghan reference isotherm plus referenced Mie--Gruneisen--Debye
+thermal pressure:
+
+`P(V,T) = P_BM2(V; V700, K700) + gamma(V)/V * [E_D(V,T)-E_D(V,700 K)]`,
+
+with `gamma(V) = gamma700*(V/V700)^q`. The paper writes the equivalent
+integrated relation
+`theta = theta700*exp[(gamma700-gamma(V))/q]`. Equation (4) defines `n` as the
+number of atoms per formula unit, hence `n = 5`. Model 1 in Table 2 gives
+`V700 = 46.5(1) A^3`, `K700 = 207(4) GPa`, implicit `K0' = 4`,
+`theta700 = 1300(500) K`, `gamma700 = 2.7(3)`, and `q = 1.2(8)`.
+
+The paper calls `V` the cubic unit-cell volume. The established `Pm-3m`
+CaSiO3 cell contains one formula unit, so the source value is simultaneously
+`46.5 A^3/cell` and `46.5 A^3/formula unit`. Peritheos converts that public
+cell volume to molar volume only inside the Debye-energy calculation. The
+article does not refine atomic positions; the material's existing ideal
+`Pm-3m` diffraction model is reused without attributing it to this experiment.
+
+### Pressure scale, scope, and alternatives
+
+Preferred model 1 uses Pt 111 and 200 spacings with Fei et al. (2004),
+[doi:10.1016/j.pepi.2003.09.018](https://doi.org/10.1016/j.pepi.2003.09.018).
+Table 1 also prints the same states reduced with Holmes et al. (1989), but that
+scale produces the distinct model 3 (`V700 = 45.8 A^3`, `K700 = 238 GPa`,
+`gamma700 = 2.8`, `q = 2.1`) and is not mixed into the production record.
+Model 2 fixes `theta700 = 1000 K`; model 4 uses a different thermodynamic
+thermal-pressure equation. Neither is promoted as a duplicate C04 record.
+
+The measured table spans 51.3--127.2 GPa. The source describes the nominal
+thermal scope as 700--2300 K; printed temperatures span 697--2278 K because
+the 697--704 K external-heating series is treated as a single 700 K isotherm.
+Executable validity follows the reported 700--2300 K cubic scope and the
+observed pressure extrema. It is a marginal experimental envelope, not a
+rectangular phase-stability claim. The paper does not define the confidence
+level of its printed parameter errors and publishes no covariance matrix.
+
+### Independent refit and redistribution limit
+
+A complete local audit transcription of Table 1 contained 54 rows. The staged
+source selection leaves nine externally heated rows for the 700 K BM2 fit and
+42 laser-heated rows for the thermal fit; the three broad-peak rows are not
+used. With no source-stated weighting rule, unweighted pressure-residual fits
+through Peritheos provide the least-assumptive comparison:
+
+| Parameter | Published model 1 | Peritheos staged refit |
+|---|---:|---:|
+| `V700` (A^3/cell) | 46.5 +/- 0.1 | 46.50049 +/- 0.13399 |
+| `K700` (GPa) | 207 +/- 4 | 207.36877 +/- 3.53803 |
+| `theta700` (K) | 1300 +/- 500 | 1292.42481 +/- 528.87816 |
+| `gamma700` | 2.7 +/- 0.3 | 2.72149 +/- 0.29823 |
+| `q` | 1.2 +/- 0.8 | 1.26461 +/- 0.77855 |
+
+The BM2 pressure RMSE is 0.47281 GPa. The thermal-stage RMSE is 1.22099 GPa;
+the rounded published parameters give 1.22277 GPa over the same 42 rows. This
+is parameter and error-magnitude parity. The published coefficients remain
+the executable record; no refit record is created.
+
+The subscription article gives no reusable data license. Following the
+repository's redistribution policy, the complete numeric table and local
+audit transcription are not committed. The reproduction script therefore
+checks the shipped parameterization itself, including the exactly zero
+thermal increment at 700 K and the article's independently reported 300 K
+extrapolation (`V300 = 45.8 A^3`, `K300 = 225 GPa`). Rounded model-1
+coefficients give `45.7896 A^3` and `226.47 GPa`; the small bulk-modulus
+difference is consistent with propagating coefficients printed to only two or
+three significant digits.
+
 ## Phase Egg: Schulze et al. (2018)
 
 ### Source identity, structure, and the two printed BM3 sets
