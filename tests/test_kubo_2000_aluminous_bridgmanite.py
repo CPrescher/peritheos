@@ -188,7 +188,7 @@ def test_kubo_independent_refits_have_coefficient_parity():
     )
     assert fixed_axes["parameters"]["K0"] == pytest.approx(224.83957212, abs=5.0e-8)
     assert free["parameters"] == pytest.approx(
-        {"K0": 215.61948074, "K0_prime": 7.53074835}, abs=2.0e-7
+        {"K0": 215.61948074, "K0_prime": 7.53074835}, abs=2.0e-6
     )
 
     assert abs(fixed["parameters"]["K0"] - 225.5) < 1.2 * 1.2

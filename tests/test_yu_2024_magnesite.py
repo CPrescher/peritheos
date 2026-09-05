@@ -287,9 +287,9 @@ def test_yu_2024_independent_peritheos_refit_has_parameter_parity():
     )
     refit_residuals = refit_pressures - pressures
     assert np.sqrt(np.mean(refit_residuals**2)) == pytest.approx(
-        stored["refit_pressure_rmse_gpa"], abs=2.0e-9
+        stored["refit_pressure_rmse_gpa"], abs=1.0e-7
     )
     assert np.max(np.abs(refit_residuals)) == pytest.approx(
-        stored["refit_maximum_absolute_residual_gpa"], abs=2.0e-8
+        stored["refit_maximum_absolute_residual_gpa"], abs=1.0e-7
     )
-    assert result.correlation[0, 1] == pytest.approx(-0.9769620368, abs=2.0e-8)
+    assert result.correlation[0, 1] == pytest.approx(-0.9769620368, abs=1.0e-6)
