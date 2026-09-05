@@ -1,0 +1,354 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg090fe009al0005ca0005sio3_post_perovskite",
+ "name": "Natural-orthopyroxene-derived (Mg,Fe)SiO3 post-perovskite",
+ "formula": "Mg0.90Fe0.09Al0.005Ca0.005SiO3",
+ "phase": "CaIrO3-type orthorhombic Cmcm post-perovskite synthesized from natural orthopyroxene; the product composition was not measured separately from coexisting perovskite",
+ "aliases": [
+  "9 mol.% FeSiO3 post-perovskite",
+  "Shieh natural (Mg,Fe)SiO3 post-perovskite"
+ ],
+ "cell_contents": "The EOS volumes use the conventional CaIrO3-type Cmcm cell with Z=4. The displayed formula is the electron-microprobe starting composition (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6 normalized to one Si; it is a bulk-composition label, not a phase-specific site-occupancy refinement of the coexisting post-perovskite product.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 2.478,
+  "b": 8.198,
+  "c": 6.132,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Cmcm",
+ "space_group_number": 63,
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Shieh",
+    "Duffy",
+    "Kubo",
+    "Shen",
+    "Prakapenka",
+    "Sata",
+    "Hirose",
+    "Ohishi"
+   ],
+   "year": 2006,
+   "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
+   "source": "Proceedings of the National Academy of Sciences of the United States of America",
+   "volume": "103",
+   "locator": "3039-3043",
+   "doi": "10.1073/pnas.0506811103"
+  },
+  "structure_location": "Figure 1 caption identifies Cmcm and gives the measured 106(2) GPa conventional cell a=2.478(7), b=8.198(23), c=6.132(10) A; the CaIrO3-type conventional cell has Z=4.",
+  "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1413868/",
+  "author_pdf_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shieh_pnas_06.pdf",
+  "author_pdf_sha256": "a52430c01097b8cb00eef8425803227e5f5f0336dd4c36090ccb8fcdc7d84849",
+  "figure_2_extracted_jpeg_sha256": "0e95d7388f795ca96081ff796c4d9bd5deefde67163e4ecd6fc691055e8d04d4"
+ },
+ "notes": "The lattice is the directly reported post-perovskite cell at 106(2) GPa, whose product volume is 124.5694 A^3 and agrees with the highest-pressure digitized Figure 2 point (124.571 A^3). Atomic sites are intentionally omitted: the paper identifies the CaIrO3-type Cmcm structure but does not refine the coexisting product's phase-specific composition, Fe/Al/Ca partitioning, or site occupancies. The EOS reference volume is the fitted zero-pressure conventional-cell volume and is not substituted for the measured high-pressure lattice.",
+ "eos_records": [
+  {
+   "identifier": "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1",
+   "label": "Shieh et al. (2006), natural-composition post-perovskite BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Shieh",
+     "Duffy",
+     "Kubo",
+     "Shen",
+     "Prakapenka",
+     "Sata",
+     "Hirose",
+     "Ohishi"
+    ],
+    "year": 2006,
+    "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
+    "source": "Proceedings of the National Academy of Sciences of the United States of America",
+    "volume": "103",
+    "locator": "3039-3043",
+    "doi": "10.1073/pnas.0506811103"
+   },
+   "sample_composition": "Natural orthopyroxene starting material: (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6 by electron microprobe, normalized as Mg0.90Fe0.09Al0.005Ca0.005SiO3; coexisting post-perovskite was not analyzed separately",
+   "temperature_ref": 300.0,
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_pressure_range_gpa": [12.0, 106.0],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [12.0, 106.0],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.7554335961, 0.9503820497],
+    "notes": [
+     "The pressure bounds are the article's stated 300 K post-perovskite P-V observation range and are not a broader phase-stability guarantee.",
+     "The post-perovskite was measured metastably during decompression without reheating; below about 32 GPa its diffraction intensity declined markedly."
+    ]
+   },
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 164.9,
+     "K0": 219.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.6,
+    "K0": 5.0
+   },
+   "parameter_error_confidence": 0.682689492137,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "fit_datasets": [
+    "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_figure2_digitized"
+   ],
+   "experimental_configuration": {
+    "starting_material": "natural orthopyroxene with electron-microprobe composition (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6",
+    "sample_phase": "coexisting CaIrO3-type post-perovskite and Pbnm perovskite synthesized in the first experiment, then measured at 300 K during decompression",
+    "pressure_medium": "10 wt.% platinum mixed with the sample and cryogenic argon surrounding it",
+    "pressure_gauge": "platinum internal standard using Holmes et al. (1989)",
+    "diffraction": "angle-dispersive synchrotron powder X-ray diffraction at APS GeoSoilEnviroCARS beamline 13-ID-D",
+    "thermal_history": "heated initially at 1880(50) K for 36 minutes and through additional cycles at 1700-1800 K, then decompressed without additional heating"
+   },
+   "parameter_provenance": {
+    "equation": "Figure 2 caption calls the solid curve a second-order Eulerian finite-strain fit and states K0_prime=4.0; this is exactly the Peritheos BM2 convention.",
+    "V0": "Abstract, Results, Figure 2 annotation, and Table 1: fitted ambient-pressure conventional-cell volume 164.9(6) A^3.",
+    "K0": "Abstract, Results, Figure 2 annotation, and Table 1: fitted zero-pressure bulk modulus 219(5) GPa.",
+    "K0_prime": "Results, Figure 2 caption and annotation, and Table 1: fixed at 4.0 and represented implicitly by BM2.",
+    "uncertainties": "Results states that all parenthetical uncertainties are 1 sigma. No parameter covariance is published.",
+    "fit_selection_and_weighting": "All 14 filled-circle post-perovskite P-V observations plotted in Figure 2 are treated as the published-fit series. The paper does not state the regression objective or weights, so the Peritheos parity refit is explicitly unweighted and diagnostic."
+   },
+   "source_lineage": [
+    {
+     "role": "published EOS coefficients, uncertainties, experimental range, starting composition, phase assignment, pressure standard, and plotted observations",
+     "citation": "Shieh et al. (2006), PNAS 103, 3039-3043",
+     "doi": "10.1073/pnas.0506811103",
+     "locations": [
+      "Abstract",
+      "Results and Discussion",
+      "Figure 1 caption",
+      "Figure 2 and caption",
+      "Table 1",
+      "Experimental Methods"
+     ]
+    }
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference_eos_record": "platinum_holmes_1989_vinet_1",
+      "reference": {
+       "authors": ["Holmes", "Moriarty", "Gathers", "Nellis"],
+       "year": 1989,
+       "title": "The equation of state of platinum to 660 GPa (6.6 Mbar)",
+       "source": "Journal of Applied Physics",
+       "volume": "66",
+       "locator": "2962-2967",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Experimental Methods, pressure-standard paragraph and first-experiment description; reference 26",
+      "scope": "the first experiment's 300 K decompression P-V series plotted as filled circles in Figure 2"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The Holmes platinum EOS is executable, but the article does not publish row-wise Pt lattice parameters or volumes. The digitized source-scale pressures therefore cannot be independently recalculated from calibrant observations."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final PNAS article and its complete Figure 2 filled-circle series. The figure-only observations support parameter and derived-state parity, while absent raw values, experimental errors, calibration volumes, phase-specific chemistry, fit weights, and covariance remain explicit limitations.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "starting_composition",
+     "phase",
+     "structure_type",
+     "conventional_cell_basis",
+     "equation",
+     "parameters",
+     "fixed_parameter_status",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "experimental_range",
+     "pressure_calibration",
+     "complete_plotted_primary_data",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1413868/",
+     "source_version": "final PNAS volume 103, issue 9 article; author-hosted PDF checksum recorded in material source metadata",
+     "doi": "10.1073/pnas.0506811103",
+     "locations": [
+      "Abstract",
+      "Results and Discussion, pages 3039-3041",
+      "Figure 1 caption",
+      "Figure 2 and caption",
+      "Table 1",
+      "Experimental Methods, pages 3041-3043"
+     ],
+     "finding": "The source fully defines a 300 K second-order Eulerian finite-strain EOS with V0 and K0 free and K0_prime fixed at 4. It plots all 14 natural-orthopyroxene-derived post-perovskite observations as filled circles but provides no numerical observation table or supporting information."
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-05",
+     "digitized_dataset_identifiers": [
+      "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_figure2_digitized"
+     ],
+     "source_locations": ["Figure 2, filled-circle post-perovskite series"],
+     "finding": "All 14 plotted post-perovskite marker centers are bundled with their source-image pixel coordinates, conservative digitization uncertainties, axis calibration, source PDF checksum, and extracted-figure checksum."
+    },
+    "numerical_reproduction": {
+     "method": "Direct BM2 evaluation from the published V0=164.9 A^3 and K0=219 GPa against all 14 digitized Figure 2 observations.",
+     "pressure_rmse_gpa": 1.2881240230,
+     "maximum_absolute_pressure_residual_gpa": 2.7496079338,
+     "bulk_modulus_at_100_gpa": {
+      "published_from_article_gpa": 575.0,
+      "published_uncertainty_gpa": 15.0,
+      "peritheos_curve_gpa": 575.2079434686
+     },
+     "bulk_modulus_at_120_gpa": {
+      "published_from_article_gpa": 641.0,
+      "published_uncertainty_gpa": 17.0,
+      "peritheos_curve_gpa": 641.1518061148
+     },
+     "highest_pressure_cross_check": {
+      "figure_1_lattice_product_a3": 124.569397008,
+      "figure_2_digitized_volume_a3": 124.571,
+      "absolute_difference_a3": 0.001602992
+     }
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Unweighted pressure-residual BM2 fit to all 14 digitized Figure 2 observations, with V0 and K0 free. Digitization uncertainties are not treated as experimental errors.",
+     "parameters": {
+      "V0": 164.60842068,
+      "K0": 221.62625098
+     },
+     "standard_errors": {
+      "V0": 0.73432093,
+      "K0": 6.01516185
+     },
+     "parameter_correlation": -0.9872470560,
+     "pressure_rmse_gpa": 1.2750509184,
+     "maximum_absolute_pressure_residual_gpa": 2.5412248033,
+     "finding": "Both refitted coefficients fall within the published 1-sigma intervals. The strong anticorrelation is consistent with the tradeoff discussed by the authors."
+    },
+    "unresolved_issues": [
+     "The observation values and experimental error bars are not tabulated; only digitized central marker positions are bundled.",
+     "Row-wise platinum calibrant volumes are not published, preventing observation-level pressure recalculation.",
+     "The exact regression objective, weights, and parameter covariance are not published.",
+     "The product coexisted with perovskite and was not chemically analyzed separately, so the normalized starting composition must not be interpreted as a measured post-perovskite site composition.",
+     "The paper gives the CaIrO3-type Cmcm cell but no phase-specific atomic coordinates or Fe/Al/Ca site occupancies."
+    ]
+   },
+   "notes": "This composition-specific experimental record is distinct from pure-MgSiO3 post-perovskite records. It is executable as the paper's preferred BM2 within the 12-106 GPa observation envelope. The alternative illustrative K0_prime=4.4 fit (V0=166.2(7) A^3, K0=198(5) GPa) is provenance metadata, not a duplicate preferred record."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_figure2_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "All 14 filled-circle 300 K post-perovskite pressure-volume observations digitized from Figure 2.",
+   "reference": {
+    "authors": [
+     "Shieh",
+     "Duffy",
+     "Kubo",
+     "Shen",
+     "Prakapenka",
+     "Sata",
+     "Hirose",
+     "Ohishi"
+    ],
+    "year": 2006,
+    "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
+    "source": "Proceedings of the National Academy of Sciences of the United States of America",
+    "volume": "103",
+    "locator": "Figure 2",
+    "doi": "10.1073/pnas.0506811103"
+   },
+   "source_location": "Figure 2, filled-circle post-perovskite series",
+   "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shieh_pnas_06.pdf",
+   "columns": [
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "unit_cell_volume_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "unit_cell_volume_a3"},
+    {"name": "source_marker_x_pixel", "quantity": "source_figure_horizontal_coordinate", "unit": "pixel", "role": "value"},
+    {"name": "source_marker_y_pixel", "quantity": "source_figure_vertical_coordinate", "unit": "pixel", "role": "value"},
+    {"name": "used_in_published_fit", "quantity": "fit_selection", "unit": "dimensionless", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mg090fe009al0005ca0005sio3-post-perovskite-shieh-2006-figure2-digitized.csv",
+    "sha256": "9f1e1ce35ee0f56b950dd1f8b4875681db947ba61f69e91a2f38a005a4792382",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1"
+   ],
+   "uncertainty": {
+    "digitization_only": true,
+    "pressure_gpa": 0.16,
+    "volume_a3": 0.10,
+    "notes": "Conservative approximately 1.5-pixel center-location plus axis-calibration bounds. These are digitization uncertainties only and must not be interpreted as the unreported experimental uncertainties."
+   },
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Extracted the 1350-by-1013 grayscale Figure 2 JPEG embedded in the final PDF. Filled-circle centers were located as local maxima of the Euclidean distance transform of pixels below grayscale 80, restricted to the post-perovskite curve, then checked against both axial-ratio inset series and the independently printed 106 GPa lattice.",
+    "source_pdf_sha256": "a52430c01097b8cb00eef8425803227e5f5f0336dd4c36090ccb8fcdc7d84849",
+    "source_figure_sha256": "0e95d7388f795ca96081ff796c4d9bd5deefde67163e4ecd6fc691055e8d04d4",
+    "source_figure_dimensions_pixels": [1350, 1013],
+    "axis_calibration_pixels": {
+     "pressure": [
+      [127.0, 0.0],
+      [315.0, 20.0],
+      [502.5, 40.0],
+      [690.5, 60.0],
+      [878.5, 80.0],
+      [1066.5, 100.0],
+      [1254.5, 120.0]
+     ],
+     "volume": [
+      [9.5, 170.0],
+      [172.5, 160.0],
+      [335.5, 150.0],
+      [498.5, 140.0],
+      [661.5, 130.0],
+      [824.5, 120.0]
+     ],
+     "least_squares_mapping": {
+      "pressure_gpa": "0.10643351*x_pixel - 13.50754492",
+      "volume_a3": "-0.0613496933*y_pixel + 170.582822"
+     }
+    },
+    "quality_control": {
+     "marker_count": 14,
+     "reported_pressure_range_gpa": [12.0, 106.0],
+     "digitized_pressure_range_gpa": [12.036, 105.911],
+     "published_bm2_pressure_rmse_gpa": 1.2881240230,
+     "published_bm2_max_abs_pressure_residual_gpa": 2.7496079338,
+     "unweighted_bm2_refit": {
+      "V0": 164.60842068,
+      "K0": 221.62625098,
+      "pressure_rmse_gpa": 1.2750509184
+     },
+     "highest_pressure_figure_1_volume_difference_a3": 0.001602992
+    },
+    "digitized_on": "2026-09-05"
+   }
+  }
+ ]
+}
