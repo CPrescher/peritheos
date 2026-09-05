@@ -9,11 +9,11 @@ aluminum,Aluminum,Al,Aluminum,material name plus crystal structure,CUBIC,Fm-3m,4
 aragonite,Aragonite,CaCO3,Aragonite,material name plus crystal structure,ORTHORHOMBIC,Pmcn,4,thermal,1,peritheos/data/materials/aragonite.eosmat
 argon_hcp,Argon,Ar,Argon,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/argon_hcp.eosmat
 b4c,B4C,B4C,rhombohedral B4C,top-level phase field,HEXAGONAL,R-3m,9,thermal,3,peritheos/data/materials/b4c.eosmat
-boron_nitride,Boron Nitride,BN,Boron Nitride,material name plus crystal structure,CUBIC,F-43m,4,isothermal,1,peritheos/data/materials/boron_nitride.eosmat
+boron_nitride,Boron Nitride,BN,cubic zinc-blende,top-level phase field,CUBIC,F-43m,4,isothermal;thermal,2,peritheos/data/materials/boron_nitride.eosmat
 boron_nitride_hexagonal,Boron nitride (hexagonal),BN,Boron nitride (hexagonal),material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/boron_nitride_hexagonal.eosmat
 boron_phosphide,Boron phosphide,BP,Boron phosphide,material name plus crystal structure,CUBIC,F-43m,4,isothermal,1,peritheos/data/materials/boron_phosphide.eosmat
 bridgmanite,Bridgmanite,MgSiO3,Bridgmanite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,thermal;isothermal,5,peritheos/data/materials/bridgmanite.eosmat
-ca_perovskite,Ca-perovskite,CaSiO3,Ca-perovskite,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal;thermal,6,peritheos/data/materials/ca_perovskite.eosmat
+ca_perovskite,Ca-perovskite,CaSiO3,Ca-perovskite,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal;thermal,7,peritheos/data/materials/ca_perovskite.eosmat
 ca_perovskite_tetragonal,Tetragonal CaSiO3 perovskite (davemaoite),CaSiO3,"pure tetragonal CaSiO3 perovskite (davemaoite), I4/mcm",top-level phase field,TETRAGONAL,I4/mcm,4,isothermal,1,peritheos/data/materials/ca_perovskite_tetragonal.eosmat
 cairo3_perovskite,CaIrO3 perovskite,CaIrO3,"perovskite-type, orthorhombic Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/cairo3_perovskite.eosmat
 cairo3_post_perovskite,CaIrO3 post-perovskite,CaIrO3,"post-perovskite-type, orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/cairo3_post_perovskite.eosmat
@@ -32,7 +32,7 @@ coo,CoO,CoO,CoO,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,
 copper,Copper,Cu,Copper,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,2,peritheos/data/materials/copper.eosmat
 cscl,CsCl,CsCl,"B2 (CsCl-type), cubic Pm-3m",top-level phase field,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/cscl.eosmat
 diamond,Diamond,C,Diamond,material name plus crystal structure,CUBIC,Fd-3m,8,isothermal;thermal,7,peritheos/data/materials/diamond.eosmat
-e_feooh,E-FeOOH,FeOOH,E-FeOOH,material name plus crystal structure,ORTHORHOMBIC,P21nm,2,isothermal,1,peritheos/data/materials/e_feooh.eosmat
+e_feooh,E-FeOOH,FeOOH,hydrogen-off-center P21nm epsilon-FeOOH,top-level phase field,ORTHORHOMBIC,P21nm,2,isothermal;thermal,2,peritheos/data/materials/e_feooh.eosmat
 e_feooh_hc_low_spin,"Epsilon-FeOOH, hydrogen-centered low-spin phase",FeOOH,hydrogen-centered Pnnm low-spin epsilon-FeOOH,top-level phase field,ORTHORHOMBIC,Pnnm,2,isothermal,1,peritheos/data/materials/e_feooh_hc_low_spin.eosmat
 fayalite,Fayalite,Fe2SiO4,Fayalite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/fayalite.eosmat
 fe,Fe,Fe,Fe,material name plus crystal structure,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/fe.eosmat

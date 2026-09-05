@@ -47,12 +47,12 @@ remain supported as explicit compatibility lookups, preserving their prior
 parameters and numerical results when a primary-source audit found that the
 new canonical record is not identical. They are intentionally omitted from
 `list_materials()`, `list_eos_records()`, and search results, whose deterministic
-contents are exactly the bundled 141-material/223-record collection.
+contents are exactly the bundled 141-material/226-record collection.
 
 The migration audit covered all 37 historical convenience records: 9 have an
 equation-identical canonical counterpart, 17 have a counterpart whose audited
 parameters, reference state, or equation composition differs, and 11 have no
-record in the bundled 223-record collection. Consequently, the old names are not
+record in the bundled 226-record collection. Consequently, the old names are not
 blindly redirected to scientifically different records. Their compatibility
 objects remain numerically stable; all new discovery and canonical-identifier
 lookups use document-built objects. An exhaustive internal manifest is tested

@@ -7,6 +7,20 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added a primary-source-validated absolute-zero Vinet-MGD EOS for cubic boron
+  nitride from Datchi et al. (2007). The explicit absolute thermal-pressure
+  baseline reproduces all 66 Table IV states at 0.584 GPa RMSE and the paper's
+  independent 300 K zero-pressure volume.
+- Added Suzuki's (2016) epsilon-FeOOH BM3 thermal EOS with an explicit
+  reference-temperature linear-expansivity convention, all 33 Table 1 P-V-T
+  observations, and a refit recovering every free coefficient within 0.40
+  published standard deviations.
+- Added Noguchi et al.'s (2013) non-default 700 K BM2-MGD CaSiO3 perovskite
+  EOS, preserving its cubic-phase domain, Fei et al. Pt calibration, and
+  staged-refit parity without redistributing the subscription-only table.
+- Audited Katsura et al.'s (2004) 127-row ringwoodite dataset and documented
+  why its thermal EOS remains excluded: the published coefficients cannot be
+  reproduced with the chemically required seven-atom normalization.
 - Added Fu et al. (2024) BM2 and BM3 records for Fe-Al-bearing bridgmanite,
   with the complete 22-row primary compression dataset, Au pressure-scale
   provenance, independent reproduction, and record-specific tests.

@@ -90,6 +90,7 @@ pub type MieGruneisenDebye<R> = MieGruneisen<R, true>;
 /// Mie--Gruneisen--Einstein thermal equation of state.
 pub type MieGruneisenEinstein<R> = MieGruneisen<R, false>;
 
+#[allow(clippy::too_many_arguments)]
 fn new_mie_gruneisen<R, const DEBYE: bool>(
     rt_eos: R,
     tr: f64,

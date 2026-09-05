@@ -526,6 +526,7 @@ impl PyThermalEos {
         debye_temperature_law="integrated_gruneisen",
         thermal_pressure_reference="reference_temperature"
     ))]
+    #[allow(clippy::too_many_arguments)]
     fn mie_gruneisen_debye(
         rt_eos: PyRef<'_, PyRtEos>,
         tr: f64,

@@ -1320,7 +1320,7 @@
       "degrees_of_freedom": 36,
       "experimental_pressure_range_gpa": [
         0.0,
-        160.0
+        162.5
       ],
       "experimental_temperature_range_k": null,
       "fit_kind": "isothermal_pv",
@@ -1382,8 +1382,83 @@
       "selection": "all rows; reference-T rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell; the unsupported K0=500 record was removed.",
+      "source_notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell. The fitted range is described as 160 GPa in prose; Table IV's highest row is 162.5 GPa. The unsupported migrated K0=500 record was removed.",
       "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "cubic_boron_nitride_datchi_2007_table4_pvt"
+      ],
+      "degrees_of_freedom": 65,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        162.5
+      ],
+      "experimental_temperature_range_k": [
+        295.0,
+        948.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "gamma0",
+        "n"
+      ],
+      "free_parameters": [
+        "q"
+      ],
+      "label": "Datchi et al. (2007), 0 K Vinet + MGD",
+      "material_identifier": "boron_nitride",
+      "model": "Vinet",
+      "objective": "pressure_residuals",
+      "observations": 66,
+      "observed_pressure_range_gpa": [
+        0.0,
+        162.5
+      ],
+      "observed_temperature_range_k": [
+        295.0,
+        948.0
+      ],
+      "observed_volume_range": [
+        36.424,
+        47.616
+      ],
+      "parameters": [
+        {
+          "difference": 2.241101590337089,
+          "parameter": "q",
+          "published": 4.0,
+          "published_error": 1.5,
+          "refit": 6.241101590337089,
+          "refit_error": 1.9742157547609855,
+          "relative_difference": 0.5602753975842723,
+          "similar": false,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 66 printed P-V-T rows are bundled. The lattice parameter is retained at the table's higher precision and used to reconstruct V=a^3/8 for reproduction and refitting.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://arxiv.org/abs/cond-mat/0702656",
+      "published_rmse_gpa": 0.5889497931361527,
+      "record_identifier": "boron_nitride_datchi_2007_vinet_mgd_2",
+      "reduced_chi_square": 0.35608623021469105,
+      "rmse_gpa": 0.5921916786838086,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "This is not the existing 295 K Vinet record with a reference-subtracted thermal increment. Datchi et al. explicitly define Pth(V,T)=0 at 0 K and Table V supplies a distinct 0 K cold Vinet curve. Peritheos therefore uses thermal_pressure_reference=absolute_zero while keeping Tr=295 K only as the public default temperature and for reference-relative diagnostics. At the printed Table IV lattice parameters, the published coefficients give a 0.584 GPa pressure RMSE, reproducing the paper's stated 0.6 GPa. A q-only unweighted pressure-residual refit gives q=7.35(1.89); the discrepancy from 4(1.5) is less than two combined standard deviations and is plausibly affected by rounded P/a rows and the unpublished regression weights. Section IV's gamma_th0=1.04(1) conflicts with final Table V's 1.04(2); this record follows the final parameter table. The source states that parenthetical errors are fit standard deviations, not absolute uncertainties; pressure-scale uncertainty dominates and coefficient covariance is not published.",
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -2338,6 +2413,31 @@
       "solver_success": true,
       "source_notes": "Room-temperature unconstrained BM3 fit for cubic CaSiO3 perovskite: V0=45.58+/-0.05 A^3 (fixed in the Table 2 fit), K0=236+/-4 GPa, and K0'=3.9+/-0.2. Uncertainties are one standard deviation; the published V0 uncertainty is retained despite its fixed fit status. Data extend to 108 GPa.",
       "status": "similar"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        51.3,
+        127.2
+      ],
+      "experimental_temperature_range_k": [
+        700.0,
+        2300.0
+      ],
+      "fixed_parameters": [
+        "Tr",
+        "n"
+      ],
+      "label": "Noguchi et al. (2013), cubic CaSiO3 700 K BM2-MGD",
+      "material_identifier": "ca_perovskite",
+      "model": "BM2",
+      "primary_data_finding": "Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
+      "reason": "Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license.",
+      "record_identifier": "ca_perovskite_noguchi_2013_bm2_mgd_1",
+      "source_notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). No open data license, fit covariance, weighting rule, or parameter-error confidence convention is published.",
+      "status": "not_refittable"
     },
     {
       "dataset_identifiers": [],
@@ -4043,6 +4143,124 @@
       "record_identifier": "e_feooh_gleason_2008_bm2_1",
       "source_notes": "Gleason et al. report V0 = 66.3 +/- 0.5 A^3 and K0 = 158 +/- 5 GPa; K0' is fixed to 4 by the second-order Birch-Murnaghan equation.",
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "cell_volume_a3"
+      },
+      "dataset_identifiers": [
+        "epsilon_feooh_suzuki_2016_table1_pvt"
+      ],
+      "degrees_of_freedom": 28,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        11.07
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        700.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "Tr"
+      ],
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
+      "label": "Suzuki (2016), BM3 thermal reference state",
+      "material_identifier": "e_feooh",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 33,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        11.07
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        700.0
+      ],
+      "observed_volume_range": [
+        62.19,
+        66.278
+      ],
+      "parameters": [
+        {
+          "difference": -2.70516275031369,
+          "parameter": "rt_eos.K0",
+          "published": 135.0,
+          "published_error": 3.0,
+          "refit": 132.2948372496863,
+          "refit_error": 6.436715796348928e-11,
+          "relative_difference": 0.02003824259491622,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.7617987569734073,
+          "parameter": "rt_eos.K0_prime",
+          "published": 6.1,
+          "published_error": 0.9,
+          "refit": 6.861798756973407,
+          "refit_error": 0.0061887390074661375,
+          "relative_difference": 0.12488504212678808,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 4.412845500814006e-06,
+          "parameter": "alpha0",
+          "published": 2.6e-05,
+          "published_error": 7e-06,
+          "refit": 3.0412845500814004e-05,
+          "refit_error": 5.089818923191499e-05,
+          "relative_difference": 0.16972482695438487,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 1.1709429976012186e-08,
+          "parameter": "alpha1",
+          "published": 1e-07,
+          "published_error": 3e-08,
+          "refit": 1.1170942997601218e-07,
+          "refit_error": 2.4282015212479566e-07,
+          "relative_difference": 0.11709429976012187,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.010913243804416196,
+          "parameter": "dK_dT",
+          "published": -0.05,
+          "published_error": 0.02,
+          "refit": -0.0609132438044162,
+          "refit_error": 0.1620030288469084,
+          "relative_difference": 0.21826487608832393,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 33 printed pressure, temperature, lattice-parameter, and conventional-cell-volume rows are transcribed with every reported one-standard-deviation uncertainty. No supplementary or machine-readable data are exposed by J-STAGE.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf",
+      "published_rmse_gpa": 0.10201978513163779,
+      "record_identifier": "e_feooh_suzuki_2016_bm3_thermal_2",
+      "reduced_chi_square": 0.010105674904282585,
+      "rmse_gpa": 0.09143599681900522,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published high-temperature BM3 parameterization. The source reports no EosFit7c version, numerical weights, full covariance, or scalar fit statistic. The Table 1 transcription is retained at printed precision; its source page states copyright 2016 Japan Association of Mineralogical Sciences and exposes no open data license.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -15785,10 +16003,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 48,
-    "parity": 113,
+    "not_refittable": 49,
+    "parity": 114,
     "parity_not_achieved": 18,
-    "similar": 44,
-    "total": 223
+    "similar": 45,
+    "total": 226
   }
 }

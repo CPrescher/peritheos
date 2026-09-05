@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 223,
-    "primary_source_validated": 223
+    "records": 226,
+    "primary_source_validated": 226
   },
   "records": [
     {
@@ -338,9 +338,31 @@
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
         "locations": [
-          "Equation 2",
-          "Table II",
-          "Figures 2 and 3"
+          "Section II",
+          "Table I",
+          "Figure 1 caption",
+          "Table IV"
+        ],
+        "doi": "10.1103/physrevb.75.214104"
+      }
+    },
+    {
+      "material": "boron_nitride",
+      "file": "boron_nitride.eosmat",
+      "record": "boron_nitride_datchi_2007_vinet_mgd_2",
+      "label": "Datchi et al. (2007), 0 K Vinet + MGD",
+      "doi": "10.1103/physrevb.75.214104",
+      "status": "primary_source_validated",
+      "note": "The author-posted primary manuscript was checked for the equation baseline, fixed/fitted coefficients, uncertainties, phase and volume basis, calibration, complete Table IV observations, and numerical reproduction.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/abs/cond-mat/0702656",
+        "publication_url": "https://doi.org/10.1103/PhysRevB.75.214104",
+        "locations": [
+          "Section II",
+          "Equations 1-4",
+          "Table IV",
+          "Table V",
+          "Figure 4"
         ],
         "doi": "10.1103/physrevb.75.214104"
       }
@@ -574,6 +596,26 @@
         ],
         "finding": "The adopted unconstrained BM3 fit fixes V0=45.58 A^3 in Table 2, while the abstract explicitly reports V0=45.58+/-0.05 A^3. The reported V0 uncertainty is retained even though V0 was fixed in this fit.",
         "doi": "10.1016/s0031-9201(00)00154-0"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_noguchi_2013_bm2_mgd_1",
+      "label": "Noguchi et al. (2013), cubic CaSiO3 700 K BM2-MGD",
+      "doi": "10.1007/s00269-012-0549-1",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the complete primary publication obtained through institutional Springer access; no other CaSiO3 EOS record was used as scientific authority or combined with this parameterization.",
+      "primary_source_check": {
+        "access_url": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
+        "locations": [
+          "experimental procedures, journal pages 82-83",
+          "Table 1 and phase-selection discussion, journal pages 84-85",
+          "equations (1)-(5), journal page 86",
+          "Tables 2-3, journal page 87"
+        ],
+        "finding": "Preferred model 1 is a 700 K BM2 reference isotherm plus constant-q Mie-Gruneisen-Debye thermal pressure for pure, cubic CaSiO3 on the Fei et al. (2004) Pt scale. V is a one-formula-unit cubic-cell volume; Tr=700 K, n=5, and all five fitted coefficients and printed errors were verified directly.",
+        "doi": "10.1007/s00269-012-0549-1"
       }
     },
     {
@@ -1106,6 +1148,27 @@
           "goethite and epsilon-FeOOH parameter tables"
         ],
         "doi": "10.2138/am.2008.2942"
+      }
+    },
+    {
+      "material": "e_feooh",
+      "file": "e_feooh.eosmat",
+      "record": "e_feooh_suzuki_2016_bm3_thermal_2",
+      "label": "Suzuki (2016), BM3 thermal reference state",
+      "doi": "10.2465/jmps.160719c",
+      "status": "primary_source_validated",
+      "note": "The final J-STAGE article, its displayed equations, both tables, and all 33 printed P-V-T observations were audited directly. The reference-temperature form of the linear expansivity required an explicit Peritheos configuration distinct from alpha0+alpha1*T.",
+      "primary_source_check": {
+        "access_url": "https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf",
+        "article_sha256": "0066dfbd7b3ab45ce7aae866aef24978c63571a433651ae470912cd0cc8b0289",
+        "locations": [
+          "Experimental Methods, pages 420-421",
+          "Table 1 and Figure 1, page 421",
+          "Equation 1, temperature relations, and Table 2, page 422",
+          "compression and phase discussion, pages 422-423"
+        ],
+        "finding": "The source reports a conventional-cell BM3 high-temperature EOS for low-pressure InOOH-type epsilon-FeOOH. It fixes V0,300, fits five elastic/thermal coefficients, and defines alpha0 at T0 through alpha(T)=a0+a1(T-T0).",
+        "doi": "10.2465/jmps.160719c"
       }
     },
     {

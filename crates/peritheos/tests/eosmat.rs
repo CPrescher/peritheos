@@ -160,7 +160,7 @@ fn bundled_suzuki_epsilon_feooh_uses_reference_temperature_expansivity() {
     assert_close(record.pressure(66.278, 300.0).unwrap(), 0.0, 1.0e-12);
     assert_close(
         record.pressure(62.63, 700.0).unwrap(),
-        10.833562803310029,
+        10.833_562_803_310_029,
         1.0e-11,
     );
 }
@@ -811,6 +811,7 @@ fn canonical_hugoniot_record_loads_as_an_executable_eos_path() {
 }
 
 #[test]
+#[allow(clippy::too_many_lines)]
 fn all_bundled_material_records_load_and_round_trip_through_rust() {
     let materials_directory = materials_directory();
     if !materials_directory.is_dir() {
@@ -917,8 +918,8 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
     }
 
     assert_eq!(paths.len(), 141);
-    assert_eq!(records, 223);
-    assert_eq!(thermal_records, 50);
+    assert_eq!(records, 226);
+    assert_eq!(thermal_records, 53);
 }
 
 #[test]
