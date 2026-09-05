@@ -1,0 +1,22 @@
+{
+  "format": "peritheos.nonproduction-paper-investigations",
+  "format_version": 1,
+  "papers": [
+    {
+      "citation": "Katsura et al. (2004), Mg2SiO4 ringwoodite",
+      "doi": "10.1029/2004JB003094",
+      "outcome": "withheld_unreproduced",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions.md#ringwoodite-katsura-2004",
+      "reason": "All 127 official Table 2 observations were transcribed, but the published BM3-MGD coefficients miss them by 1.890 GPa RMSE when the chemically required n=7 atoms per formula unit is used. A refit moves gamma0 far outside its reported uncertainty, while an unphysical and unpublished n=5 normalization fits much better. The hidden normalization, Debye-temperature law, and energy/volume convention remain unresolved, so no production EOS was added."
+    },
+    {
+      "citation": "Wang et al. (2026), KAlSi3O8 liebermannite and K-hollandite II",
+      "doi": "10.2138/am-2024-9562",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-04",
+      "evidence": "material-eos-candidates.md",
+      "reason": "The deposited temperature-indexed BM3 curves can be reproduced, but they are derived grids rather than primary fit observations. Their V0(T), K0(T), and K0-prime(T) behavior is not faithfully represented by the current thermal wrapper, and the primary methods, uncertainty/covariance information, exact reference-state convention, and authoritative symmetry-reduced structures were unavailable. The candidate remains deliberately non-executable."
+    }
+  ]
+}

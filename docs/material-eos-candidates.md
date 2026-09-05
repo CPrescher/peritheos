@@ -462,6 +462,26 @@ production EOS record added.**
   parameter identifiability, inversion behavior, and serialization contract
   have been designed.
 
+### C21 — KAlSi3O8 liebermannite and K-hollandite II
+
+**Status: audited and deferred (2026-09-04); no executable record created.**
+
+- **Source:** Wang et al. (2026),
+  [doi:10.2138/am-2024-9562](https://doi.org/10.2138/am-2024-9562).
+- **What worked:** independent BM3 fits reproduce the deposited, rounded
+  temperature-indexed pressure-volume grids.
+- **Why it remains out:** the grids are derived curves rather than primary fit
+  observations; the fitted `V0`, `K0`, and `K0_prime` all vary with
+  temperature in a way the current thermal wrapper cannot represent. The
+  accessible deposit also does not resolve the exact reference-state method,
+  parameter uncertainties/covariance, or authoritative symmetry-reduced
+  structures. Encoding individual temperature slices as separate static EOS
+  records would misrepresent the paper.
+- **Disposition:** retain only as a deferred investigation. Reconsider when a
+  source-faithful temperature-continuous model and the missing primary-method
+  evidence are available. It is listed explicitly in the
+  [paper investigation ledger](paper-investigation-ledger.md).
+
 ## Proposed one-by-one review order
 
 1. C01 B4C thermal extension

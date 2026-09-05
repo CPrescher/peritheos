@@ -54,6 +54,9 @@ The documentation is organized around scientific workflows:
 - [Units and reference states](units.md) explains the deliberately strict
   thermal volume convention.
 - [Validation](validation.md) describes the numerical and literature checks.
+- [Paper investigation ledger](paper-investigation-ledger.md) gives the final
+  disposition of every primary paper reviewed, including unreproduced,
+  unavailable-data, withheld, and deferred cases.
 - [Primary EOS refit validation](primary-eos-refits.md) reports a fit attempt
   for every bundled material record and lists all coefficient-parity failures.
 - [API reference](api.md) is a compact import and method reference.

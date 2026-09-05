@@ -7,6 +7,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added a generated paper-level investigation ledger covering every audited
+  primary source, including coefficient discrepancies, unavailable direct
+  refits, and papers withheld or deferred without a production EOS record.
+
 - Added a primary-source-validated absolute-zero Vinet-MGD EOS for cubic boron
   nitride from Datchi et al. (2007). The explicit absolute thermal-pressure
   baseline reproduces all 66 Table IV states at 0.584 GPa RMSE and the paper's
