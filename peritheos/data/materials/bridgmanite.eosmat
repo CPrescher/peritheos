@@ -606,6 +606,206 @@
      "conclusion": "All three independent free-parameter estimates are within 0.15 printed sigma of Table 6, and the 0.3278 GPa residual standard deviation is within 0.02 GPa of the source's rounded 0.34 GPa."
     }
    }
+  },
+  {
+   "label": "Wang et al. (1994), BM3 thermal reference state",
+   "reference": {
+    "authors": [
+     "Yanbin Wang",
+     "Donald J. Weidner",
+     "Robert C. Liebermann",
+     "Yusheng Zhao"
+    ],
+    "year": 1994,
+    "title": "P-V-T equation of state of (Mg,Fe)SiO3 perovskite: Constraints on composition of the lower mantle",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "83",
+    "locator": "13-40",
+    "doi": "10.1016/0031-9201(94)90109-0"
+   },
+   "temperature_ref": 300.0,
+   "equation_kind": "thermal",
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    10.88
+   ],
+   "experimental_temperature_range_k": [
+    295.0,
+    1276.0
+   ],
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 162.2953463,
+     "K0": 261.0,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.004,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "reference_volume_law": "integrated_expansivity",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 1.647e-05,
+     "alpha1": 8.21e-09,
+     "dK_dT": -0.0209
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 1.8e-06,
+     "alpha1": 3.37e-09,
+     "dK_dT": 0.0102
+    },
+    "parameter_covariance": null,
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "fit_datasets": [
+    "bridgmanite_wang_1994_table3_pvt"
+   ],
+   "notes": "Exact implementation of Wang et al. equation (3) and the Birch-Murnaghan row of Table 5 for pure MgSiO3 perovskite. K_T(1,300)=261 GPa and K'_T=4 were assumed; alpha(1,T)=a+b*T and K_T(1,T) varies linearly with temperature. The source fitted normalized volumes because diffraction zero-point offsets differed among runs. It does not publish a single absolute V(1,300), so this executable record anchors the normalized EOS to the most precise Table 3 angle-dispersive observation, 162.280(4) A^3 at 295 K, propagated to 300 K with the published thermal law; the resulting V0=162.2953463 A^3 is derived and fixed, not a Wang fit coefficient. The paper reports neither the exact least-squares weighting nor parameter covariance. Its separate average across Murnaghan, BM3, and Mie-Gruneisen fits is not encoded as an EOS because it mixes model families.",
+   "identifier": "bridgmanite_wang_1994_bm3_5",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Decker"
+       ],
+       "year": 1971,
+       "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+       "source": "Journal of Applied Physics",
+       "volume": "42",
+       "locator": "3239-3244"
+      },
+      "source_location": "Experimental method, P-V-T equations of state, and error analysis",
+      "scope": "all nonambient Table 3 MgSiO3 observations",
+      "notes": "NaCl served as both pressure standard and pressure medium. Wang et al. report a maximum pressure error of about 0.2 GPa and discuss the systematic uncertainty of the Decker scale."
+     },
+     {
+      "kind": "ambient_pressure",
+      "source_location": "Table 3 angle-dispersive data and experimental method",
+      "scope": "ambient-pressure observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "The exact Decker (1971) NaCl EOS is not bundled, and Table 3 publishes reduced pressures without the row-wise NaCl lattice observations needed for recalculation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0001,
+     10.88
+    ],
+    "temperature_k": [
+     295.0,
+     1276.0
+    ],
+    "volume_ratio": [
+     0.968,
+     1.0021
+    ],
+    "notes": [
+     "The numerical envelope is the pure-MgSiO3 Table 3 measurement domain, not a phase-stability guarantee.",
+     "The experiments are outside the equilibrium stability field, but Raman recovery tests showed the pure MgSiO3 perovskite data to be reversible; the Fe-bearing measurements were irreversible and are excluded.",
+     "Data collected below 620 K during first heating after load changes were discarded for nonhydrostatic stress; the low-temperature Table 3 rows retained here are cooling or later-heating observations."
+    ]
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated directly against the primary publication, including Table 3, equations (1)-(4), Figures 8-11, Table 5, and the error analysis. The BM3 curve is executable and independently refitted; the unreported original weighting is preserved as a methodological limitation.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction",
+     "independent_refit"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/0031-9201(94)90109-0",
+     "locations": [
+      "P-V-T equations of state and equation (1), journal pages 23-25",
+      "Table 3, journal pages 26-27",
+      "Data selection and Figures 9-10, journal pages 29-30",
+      "Equations (2)-(4), Figure 11, and Table 5, journal pages 30-32",
+      "Error analysis, journal pages 33-34"
+     ],
+     "finding": "The source publishes three thermal EOS families. The BM3-specific Table 5 row gives dK/dT=-0.0209(102) GPa/K, a=1.647(180)e-5 K^-1, and b=0.821(337)e-8 K^-2 with K0=261 GPa and K0_prime=4 fixed. Only reversible pure-MgSiO3 data are scientifically valid for this record.",
+     "doi": "10.1016/0031-9201(94)90109-0",
+     "source_artifact": {
+      "sha256": "c8660f02e0fcf088a66b70e6b90f6e447fca75fa244349ec57fc1c81c3dabd9c",
+      "pages": 28
+     }
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "bridgmanite_wang_1994_table3_pvt"
+     ],
+     "source_locations": [
+      "Table 3, journal pages 26-27"
+     ],
+     "finding": "All 79 pure-MgSiO3 P-T-V rows in Table 3 are bundled with run-specific normalization volumes and printed pressure and volume uncertainties; the five irreversible Fe-bearing ambient rows are deliberately outside this pure-composition dataset."
+    },
+    "numerical_reproduction": {
+     "observations": 79,
+     "published_curve_normalized_volume_rmse": 0.001089602,
+     "published_curve_normalized_volume_max_abs_residual": 0.0026844891,
+     "published_curve_pressure_rmse_gpa": 0.314687317,
+     "published_curve_pressure_residual_standard_deviation_gpa": 0.3186617031
+    },
+    "independent_refit": {
+     "software": "Peritheos thermal_reference_state volume evaluations with SciPy least_squares optimization",
+     "selection": "all 79 pure-MgSiO3 Table 3 rows; each measured volume divided by its explicitly stored experimental-block normalization volume",
+     "objective": "normalized-volume residuals divided by the corresponding printed volume uncertainty",
+     "objective_limitation": "Wang et al. show propagated volume, pressure, and systematic error bars but do not state the exact regression weights. This independent objective is reproducible and uses the printed row-wise volume uncertainties; it is not asserted to be the authors' undocumented objective.",
+     "parameters": {
+      "alpha0": 1.72505473e-05,
+      "alpha1": 9.13713021e-09,
+      "dK_dT": -0.0226636347
+     },
+     "published_parameter_sigma_offsets": {
+      "alpha0": 0.43363741,
+      "alpha1": 0.27511282,
+      "dK_dT": -0.17290537
+     },
+     "raw_normalized_volume_rmse": 0.0011094185,
+     "raw_pressure_rmse_gpa": 0.3200285279,
+     "tolerances": {
+      "parameters": "each independently refitted free parameter must lie within the corresponding Table 5 printed 1-sigma uncertainty",
+      "published_curve_normalized_volume_rmse": 0.0012
+     },
+     "conclusion": "The independent uncertainty-weighted refit recovers all three BM3 thermal coefficients within 0.44 of their printed 1-sigma errors."
+    }
+   }
   }
  ],
  "format": "peritheos.material",
@@ -891,7 +1091,7 @@
     "sha256": "48af346ab6224affa1e207d49ee86166475982944da27e815abf7ba2a2a08ff1",
     "media_type": "text/csv"
    },
-   "notes": "Pressure, temperature, conventional-cell volume, and parenthesized printed uncertainties are transcribed. Wang's angle-dispersive and Run 3A, 5A, and 8 ambient measurements define four normalization blocks; Runs 3B and 5B continue the corresponding A blocks. The source prints ambient pressure as 10^-4 GPa. All 79 pure-MgSiO3 rows enter Funamori's combined fit with equal pressure-residual weight.",
+   "notes": "Pressure, temperature, conventional-cell volume, and parenthesized printed uncertainties are transcribed. Wang's angle-dispersive and Run 3A, 5A, and 8 ambient measurements define four normalization blocks; Runs 3B and 5B continue the corresponding A blocks. The source prints ambient pressure as 10^-4 GPa. All 79 pure-MgSiO3 rows support Wang's thermal EOS and enter Funamori's later combined fit with equal pressure-residual weight.",
    "reference": {
     "authors": ["Wang", "Weidner", "Liebermann", "Zhao"],
     "year": 1994,
@@ -902,7 +1102,8 @@
     "doi": "10.1016/0031-9201(94)90109-0"
    },
    "used_by_eos_records": [
-    "bridgmanite_funamori_1996_bm3_4"
+    "bridgmanite_funamori_1996_bm3_4",
+    "bridgmanite_wang_1994_bm3_5"
    ]
   },
   {
