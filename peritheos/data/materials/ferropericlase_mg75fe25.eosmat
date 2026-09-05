@@ -1,0 +1,317 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "ferropericlase_mg75fe25",
+ "name": "(Mg0.75Fe0.25)O ferropericlase",
+ "formula": "Mg0.75Fe0.25O",
+ "aliases": [
+  "Fp25",
+  "(Mg0.75,Fe0.25)O",
+  "magnesiowustite with 25 mol% FeO"
+ ],
+ "phase": "high-spin B1 (NaCl-type) ferropericlase, cubic Fm-3m",
+ "cell_contents": "4 (Mg0.75Fe0.25)O formula units per conventional rocksalt cell",
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.2427,
+  "b": 4.2427,
+  "c": 4.2427,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.75
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 0.25
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  }
+ ],
+ "peaks": [],
+ "notes": "Matsui et al. identify the synthesized stoichiometric sample as B1-NaCl ferropericlase and report the ambient cubic lattice parameter a=4.2427(2) A. The Fm-3m conventional-cell sites are the standard crystallographic realization of that named B1 structure; mixed Mg/Fe occupancy gives Mg3FeO4 and Z=4. The fitted EOS V0=76.372(16) A^3 differs slightly from the directly observed ambient Table 2 volume 76.368(13) A^3 and from a^3 because the printed lattice parameter is rounded.",
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Matsui",
+    "Ito",
+    "Yamazaki",
+    "Yoshino",
+    "Guo",
+    "Shan",
+    "Higo",
+    "Funakoshi"
+   ],
+   "year": 2012,
+   "source": "American Mineralogist",
+   "volume": "97",
+   "locator": "176-183",
+   "doi": "10.2138/am.2012.3937"
+  },
+  "structure_location": "Experiments, page 177: B1-NaCl structure and ambient lattice parameters; standard B1 conventional-cell setting"
+ },
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "eos_records": [
+  {
+   "identifier": "ferropericlase_mg75fe25_matsui_2012_bm3_mgd_1",
+   "label": "Matsui et al. (2012), high-spin BM3-MGD",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Ito",
+     "Yamazaki",
+     "Yoshino",
+     "Guo",
+     "Shan",
+     "Higo",
+     "Funakoshi"
+    ],
+    "year": 2012,
+    "title": "Static compression of (Mg0.83,Fe0.17)O and (Mg0.75,Fe0.25)O ferropericlase up to 58 GPa at 300, 700, and 1100 K",
+    "source": "American Mineralogist",
+    "volume": "97",
+    "locator": "176-183",
+    "doi": "10.2138/am.2012.3937"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 76.372,
+     "K0": 160.0,
+     "K0_prime": 4.22
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.016,
+    "K0": null,
+    "K0_prime": 0.03
+   },
+   "fixed_parameters": [
+    "K0"
+   ],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 500.0,
+     "gamma0": 1.64,
+     "q": 0.7,
+     "n": 2.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.04,
+     "q": 0.2,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "n"
+    ]
+   },
+   "fit_datasets": [
+    "ferropericlase_mg75fe25_matsui_2012_table2_pvt"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    46.21
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    1100.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     46.21
+    ],
+    "temperature_k": [
+     300.0,
+     1100.0
+    ],
+    "notes": [
+     "The executable envelope is limited to the 30 Table 2 rows below 47 GPa that the authors used for the high-spin EOS fit.",
+     "The marginal P-T bounds do not imply a rectangular phase-stability field; the source reports spin-transition onset at 48.1-52.3 GPa at 300 K, 50.3-54.3 GPa at 700 K, and 47.4-51.4 GPa at 1100 K.",
+     "Table 2 rows through 57.85 GPa are preserved for provenance but excluded from the fit and executable validity envelope."
+    ]
+   },
+   "default": true,
+   "notes": "Equations 1-6 define a 300 K third-order Birch-Murnaghan reference isotherm plus relative Mie-Gruneisen-Debye thermal pressure: gamma=gamma0(V/V0)^q and theta=theta0 exp[(gamma0-gamma)/q], with n=2 atoms per formula unit. K0T=160 GPa and theta0=500 K were fixed; V0, K0T', gamma0, and q were fitted in stages. The source does not state a confidence convention for parenthetical errors or publish coefficient covariance. All 39 observations are bundled; only the 30 rows below 47 GPa belong to the published high-spin fit. The stored parameterization gives 0.1426 GPa pressure RMSE across those rows and reproduces the paper's printed calculated pressures within 0.006 GPa. An independent unweighted staged refit gives V0=76.37279 A^3 and K0'=4.22184 at 300 K, then gamma0=1.64550 and q=0.74501 using the published cold curve; all refitted values agree with the published values within their printed uncertainties.",
+   "parameter_provenance": {
+    "V0": "Matsui et al. (2012), Table 3, page 179; fitted conventional four-formula-unit cell volume at 300 K and 0 GPa",
+    "K0": "Matsui et al. (2012), page 179 and Table 3; fixed at 160 GPa from prior MgO measurements",
+    "K0_prime": "Matsui et al. (2012), Table 3; fitted to Table 2 300 K observations below 47 GPa",
+    "thermal.Tr": "Matsui et al. (2012), Equations 1 and 3; thermal pressure is referenced to 300 K",
+    "thermal.theta0": "Matsui et al. (2012), page 179 and Table 3; fixed at 500 K based on earlier ferropericlase estimates",
+    "thermal.gamma0": "Matsui et al. (2012), Table 3; fitted to 700 and 1100 K Table 2 observations below 47 GPa",
+    "thermal.q": "Matsui et al. (2012), Table 3; fitted to 700 and 1100 K Table 2 observations below 47 GPa",
+    "thermal.n": "Matsui et al. (2012), text following Equation 5; fixed at two atoms per (Mg,Fe)O formula unit",
+    "equation": "Matsui et al. (2012), Equations 1-6, pages 178-179; BM3 plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Matsui"
+       ],
+       "year": 2010,
+       "title": "High temperature and high pressure equation of state of gold",
+       "source": "Journal of Physics: Conference Series",
+       "volume": "215",
+       "locator": "012197",
+       "doi": "10.1088/1742-6596/215/1/012197"
+      },
+      "source_location": "Matsui et al. (2012), Experiments, page 177; Au powder mixed with ferropericlase and reduced with the Matsui (2010) T-P-V EOS",
+      "scope": "all non-ambient Table 2 observations",
+      "notes": "Table 2 publishes the paired Au V/V0 observation and temperature for every pressure point."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "The row-wise Au compression ratios and temperatures are bundled, but the Matsui (2010) Au thermal EOS is not an executable Peritheos reference record. Source-scale pressures are preserved without recalibration."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked against the final American Mineralogist article supplied by the user; the official issue page lists no deposit item for this paper, and no secondary catalog was used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am.2012.3937",
+     "locations": [
+      "Experiments, page 177: synthesis, B1-NaCl structure, Au calibration, diffraction method, and ambient lattice",
+      "Equations 1-6, pages 178-179: complete BM3-MGD definition and volume-dependent gamma and theta conventions",
+      "Table 2, page 179: all 39 sample and Au compression observations",
+      "Table 3, page 179: optimized parameters and fixed values",
+      "High-spin to low-spin transition, page 180: temperature-specific transition intervals"
+     ],
+     "finding": "The source publishes a high-spin BM3-MGD EOS for this exact stoichiometric composition. V is the conventional cubic cell volume, the thermal energy is molar per formula unit with n=2, and the fitted data are explicitly restricted to pressures below 47 GPa.",
+     "doi": "10.2138/am.2012.3937"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "ferropericlase_mg75fe25_matsui_2012_table2_pvt"
+     ],
+     "source_locations": [
+      "Primary article, Table 2, page 179"
+     ],
+     "finding": "All 39 printed rows are bundled with sample-volume, Au-compression, and pressure uncertainties; 30 rows below 47 GPa are flagged as used by the published high-spin fit."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "material identity, EOS equations and coefficients, observations, and high-spin range",
+     "citation": "Matsui et al. (2012), American Mineralogist 97, 176-183",
+     "doi": "10.2138/am.2012.3937"
+    },
+    {
+     "role": "Au pressure calibration applied to the observations",
+     "citation": "Matsui (2010), Journal of Physics: Conference Series 215, 012197",
+     "doi": "10.1088/1742-6596/215/1/012197"
+    }
+   ]
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "ferropericlase_mg75fe25_matsui_2012_table2_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "All 39 (Mg0.75Fe0.25)O and paired Au compression observations printed in primary-article Table 2.",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Ito",
+     "Yamazaki",
+     "Yoshino",
+     "Guo",
+     "Shan",
+     "Higo",
+     "Funakoshi"
+    ],
+    "year": 2012,
+    "source": "American Mineralogist",
+    "volume": "97",
+    "locator": "176-183",
+    "doi": "10.2138/am.2012.3937"
+   },
+   "source_location": "Primary article, Table 2, page 179",
+   "source_url": "https://doi.org/10.2138/am.2012.3937",
+   "columns": [
+    {"name": "source_order", "quantity": "source_order", "unit": "1", "role": "flag"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3"},
+    {"name": "gold_volume_ratio", "quantity": "calibrant_volume_ratio", "unit": "1", "role": "value"},
+    {"name": "gold_volume_ratio_uncertainty", "quantity": "calibrant_volume_ratio", "unit": "1", "role": "uncertainty", "of": "gold_volume_ratio"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "calculated_pressure_gpa", "quantity": "calculated_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_residual_gpa", "quantity": "pressure_residual", "unit": "GPa", "role": "value"},
+    {"name": "used_in_published_fit", "quantity": "fit_selection", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/ferropericlase-mg75fe25-matsui-2012-table2-pvt.csv",
+    "sha256": "22c7a9930b69528f635593e376c8124daf1e6e004a8727acc9cc10c768384cf8",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ferropericlase_mg75fe25_matsui_2012_bm3_mgd_1"
+   ],
+   "uncertainty": {
+    "reported_as": "parenthetical uncertainty; confidence convention not stated",
+    "covariance": "not_reported"
+   },
+   "notes": "Values and parenthetical uncertainties are transcribed verbatim. The ambient pressure and Au-ratio rows have no printed uncertainties. calculated_pressure_gpa and pressure_residual_gpa are the authors' Table 2 values, not recomputed columns."
+  }
+ ]
+}
