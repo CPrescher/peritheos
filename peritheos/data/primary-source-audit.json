@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 221,
-    "primary_source_validated": 221
+    "records": 223,
+    "primary_source_validated": 223
   },
   "records": [
     {
@@ -2693,6 +2693,25 @@
       }
     },
     {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
+      "label": "Duffy and Ahrens (1995), B1 principal Hugoniot",
+      "doi": "10.1029/94jb02065",
+      "status": "primary_source_validated",
+      "note": "The phase-specific linear relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper.",
+      "primary_source_check": {
+        "access_url": "https://duffy.princeton.edu/document/27",
+        "locations": [
+          "page 529, abstract, linear relation and 14-133 GPa range",
+          "page 530, average bulk density",
+          "page 533, Tables 3-4 and least-squares discussion"
+        ],
+        "finding": "The source reports Us=6.87(10)+1.24(4)up for low-porosity polycrystalline MgO, with parenthesized values defined as one standard deviation. No phase transition is assigned within the fitted interval.",
+        "doi": "10.1029/94JB02065"
+      }
+    },
+    {
       "material": "mgsio3_post_perovskite",
       "file": "mgsio3_post_perovskite.eosmat",
       "record": "mgsio3_post_perovskite_mosenfelder_2009_bm3_1",
@@ -3109,6 +3128,24 @@
         ],
         "finding": "The official open primary conference paper documents the same team's sample reference lattice and shock-to-300 K reduction. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
         "doi": "10.1016/s0022-3697(98)00296-0"
+      }
+    },
+    {
+      "material": "nickel_oxide",
+      "file": "nickel_oxide.eosmat",
+      "record": "nickel_oxide_noguchi_1999_linear_hugoniot_2",
+      "label": "Noguchi et al. (1999), derived B1 principal Hugoniot",
+      "doi": "10.1016/s0022-3697(98)00296-0",
+      "status": "primary_source_validated",
+      "note": "The eight final-state observations, initial density, phase interpretation, and locally derived OLS relation were checked against the primary Table 1 data. The coefficients are not quoted by the paper.",
+      "primary_source_check": {
+        "access_url": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
+        "locations": [
+          "Noguchi et al. (1998), pages 832-834, sample and shock method",
+          "Noguchi et al. (1999), Table 1, journal page 510"
+        ],
+        "finding": "All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.",
+        "doi": "10.1016/S0022-3697(98)00296-0"
       }
     },
     {

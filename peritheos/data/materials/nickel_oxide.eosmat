@@ -6,6 +6,7 @@
   "antiferromagnetic NiO"
  ],
  "formula": "NiO",
+ "phase": "rhombohedral B1",
  "symmetry": "TRIGONAL",
  "lattice": {
   "a": 2.9544109669,
@@ -36,7 +37,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "The room-temperature antiferromagnetic R-3m structure follows Slack, J. Appl. Phys. 31, 1571-1582 (1960), doi:10.1063/1.1735895. Hexagonal axes were normalized to the shock study's measured pseudo-cubic reference volume.",
+ "notes": "The room-temperature antiferromagnetic R-3m structure follows Slack, J. Appl. Phys. 31, 1571-1582 (1960), doi:10.1063/1.1735895. Hexagonal axes were normalized to the shock study's measured pseudo-cubic reference volume. The linear Noguchi et al. shock record is a separate constrained principal Hugoniot path for the untransformed final B1 states; resolved elastic-precursor states are excluded from that fit.",
  "peaks": [],
  "eos_records": [
   {
@@ -152,6 +153,262 @@
      "finding": "All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states."
     }
    }
+  },
+  {
+   "identifier": "nickel_oxide_noguchi_1999_linear_hugoniot_2",
+   "label": "Noguchi et al. (1999), derived B1 principal Hugoniot",
+   "reference": {
+    "authors": [
+     "Noguchi",
+     "Uchino",
+     "Hikosaka",
+     "Atou",
+     "Kusaba",
+     "Fukuoka",
+     "Mashimo",
+     "Syono"
+    ],
+    "year": 1999,
+    "source": "J. Phys. Chem. Solids",
+    "volume": "60",
+    "locator": "509-514",
+    "details": "Table 1, journal page 510",
+    "doi": "10.1016/S0022-3697(98)00296-0"
+   },
+   "record_kind": "derived",
+   "derivation": {
+    "source_kind": "published_table",
+    "source_identifier": "nickel_oxide_noguchi_1999_table1_shock",
+    "method": "Ordinary least squares of final shock velocity on final particle velocity for all eight experiments; resolved HEL columns were excluded.",
+    "sampling_domain": {
+     "particle_velocity_km_s": [
+      0.431,
+      2.547
+     ],
+     "pressure_gpa": [
+      17.7,
+      147.6
+     ]
+    },
+    "software": {
+     "name": "Peritheos fit_linear_us_up",
+     "version": "0.6.0",
+     "version_date": "2026-09-04"
+    },
+    "access_and_licensing": "The fit uses the primary Table 1 transcription already bundled with this material. Coefficients and fit diagnostics are derived facts; the source table's redistribution status remains separately documented."
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos fit_linear_us_up",
+     "version": "0.6.0",
+     "version_date": "2026-09-04"
+    },
+    "dataset": "nickel_oxide_noguchi_1999_table1_shock",
+    "selection": {
+     "included_rows": 8,
+     "particle_velocity_column": "final_particle_velocity_km_s",
+     "shock_velocity_column": "final_shock_velocity_km_s",
+     "excluded_columns": [
+      "hel_particle_velocity_km_s",
+      "hel_shock_velocity_km_s"
+     ]
+    },
+    "objective": "ordinary_least_squares_vertical_shock_velocity_residuals",
+    "weights": [],
+    "refined_parameters": [
+     "c0",
+     "s"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "rho0",
+     "P0"
+    ],
+    "covariance_scaling": "Residual variance RSS/(n-2); source does not print row-wise velocity uncertainties.",
+    "statistics": {
+     "observations": 8,
+     "degrees_of_freedom": 6,
+     "chi_square": 0.0247635521,
+     "reduced_chi_square": 0.004127258683,
+     "shock_velocity_rmse_km_s": 0.05563671461,
+     "parameter_correlation_c0_s": -0.903956439
+    },
+    "reproduction": {
+     "audit_date": "2026-09-04",
+     "result": "Peritheos 0.6.0 native fit reproduced the stored coefficients and covariance."
+    }
+   },
+   "equation_kind": "hugoniot",
+   "loading_path": "principal",
+   "branch_kind": "untransformed",
+   "default_for": "hugoniot",
+   "initial_state": {
+    "phase": "rhombohedral B1",
+    "material_identifier": "nickel_oxide",
+    "temperature_k": 298.15,
+    "temperature_basis": "Conventional numeric normalization of the source's room-temperature initial state; 298.15 K is not quoted as a measured value.",
+    "pressure_gpa": 0.0,
+    "density_g_cm3": 6.781,
+    "density_standard_deviation_g_cm3": 0.003,
+    "xray_density_g_cm3": 6.808,
+    "xray_density_standard_deviation_g_cm3": 0.004
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 3.0,
+    "molar_mass_g_mol": 74.6928
+   },
+   "branch_domain": {
+    "particle_velocity_km_s": [
+     0.431,
+     2.547
+    ],
+    "kind": "experimental_coverage",
+    "boundary_status": "reported_exactly",
+    "notes": [
+     "Limits are the extrema of the eight included final-state Table 1 observations, not phase boundaries.",
+     "Resolved Hugoniot elastic-limit states are separate precursor measurements and are not part of this fitted branch."
+    ]
+   },
+   "eos": {
+    "type": "LinearUsUpHugoniot",
+    "model": "linear_us_up_hugoniot",
+    "parameters": {
+     "V0": 54.8725759195,
+     "rho0": 6.781,
+     "c0": 5.3549770536,
+     "s": 1.2137281492,
+     "P0": 0.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "rho0": 0.003,
+    "c0": 0.0531157378,
+    "s": 0.02956091343,
+    "P0": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": {
+    "parameter_order": [
+     "c0",
+     "s"
+    ],
+    "matrix": [
+     [
+      0.0028212816024,
+      -0.0014193469559
+     ],
+     [
+      -0.0014193469559,
+      0.00087384760293
+     ]
+    ]
+   },
+   "fixed_parameters": [
+    "V0",
+    "rho0",
+    "P0"
+   ],
+   "experimental_pressure_range_gpa": [
+    17.7,
+    147.6
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.15,
+    298.15
+   ],
+   "validity": {
+    "pressure_gpa": [
+     17.1,
+     147.7
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "volume_ratio": [
+     0.6984,
+     0.9267
+    ],
+    "notes": [
+     "The operational pressure envelope includes the fitted line at both observed particle-velocity endpoints; the exact source pressure extrema remain in experimental_pressure_range_gpa.",
+     "The temperature bounds describe the normalized precursor state, not a constant-temperature shock path."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Derived from measured bulk rho0=6.781 g/cm3, three NiO formula units, molar mass 74.6928 g/mol, and the exact Avogadro constant; it is not the equilibrium-EOS V0.",
+    "rho0": "Noguchi et al. (1999), experimental section; measured bulk density 6.781(3) g/cm3. The separately reported X-ray density is not used in the jump conditions.",
+    "c0": "Peritheos 0.6.0 OLS fit to all eight Table 1 final-state Us-up pairs.",
+    "s": "Peritheos 0.6.0 OLS fit to all eight Table 1 final-state Us-up pairs.",
+    "P0": "Ambient-pressure principal-Hugoniot initial state."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Noguchi",
+        "Uchino",
+        "Hikosaka",
+        "Atou",
+        "Kusaba",
+        "Fukuoka",
+        "Mashimo",
+        "Syono"
+       ],
+       "year": 1999,
+       "source": "J. Phys. Chem. Solids",
+       "doi": "10.1016/S0022-3697(98)00296-0"
+      },
+      "source_location": "Table 1 and Rankine-Hugoniot reduction",
+      "scope": "Principal shock Hugoniot; pressure follows from measured shock and particle velocities."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No external static pressure calibration is used."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The eight final-state observations, initial density, phase interpretation, and locally derived OLS relation were checked against the primary Table 1 data. The coefficients are not quoted by the paper.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "derived_parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "fit_selection",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
+     "locations": [
+      "Noguchi et al. (1998), pages 832-834, sample and shock method",
+      "Noguchi et al. (1999), Table 1, journal page 510"
+     ],
+     "finding": "All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.",
+     "doi": "10.1016/S0022-3697(98)00296-0"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "nickel_oxide_noguchi_1999_table1_shock"
+     ],
+     "source_locations": [
+      "Table 1, journal page 510"
+     ],
+     "finding": "All eight final-state Us-up pairs are fitted; three separately resolved HEL state pairs remain bundled but are explicitly excluded."
+    }
+   },
+   "notes": "Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error."
   }
  ],
  "format": "peritheos.material",
@@ -266,7 +523,8 @@
     "doi": "10.1016/S0022-3697(98)00296-0"
    },
    "used_by_eos_records": [
-    "nickel_oxide_noguchi_1999_bm3_1"
+    "nickel_oxide_noguchi_1999_bm3_1",
+    "nickel_oxide_noguchi_1999_linear_hugoniot_2"
    ]
   }
  ]

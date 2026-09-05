@@ -2,6 +2,7 @@
  "format_version": 3,
  "name": "MgO",
  "formula": "MgO",
+ "phase": "B1 (periclase)",
  "aliases": [
   "Magnesia",
   "Periclase"
@@ -36,7 +37,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 fit is the default. The Duffy et al. (1995) multimegabar, Luo et al. (2023) shock- and sound-velocity-constrained thermal, and Shen and Smith (2026) Cu-referenced fits remain available as alternatives.",
+ "notes": "MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 fit is the default. The Duffy et al. (1995) multimegabar, Luo et al. (2023) shock- and sound-velocity-constrained thermal, and Shen and Smith (2026) Cu-referenced fits remain available as alternatives. The Duffy and Ahrens (1995) record is a separate constrained principal Hugoniot path for untransformed B1 MgO, not an equilibrium P-V-T surface.",
  "peaks": [],
  "eos_records": [
   {
@@ -1664,6 +1665,167 @@
      "finding": "All printed P-V-T observations are transcribed with MgO conventional-cell volume, platinum lattice parameter, and the displayed uncertainties. There is no separate official supplement or data deposit."
     }
    }
+  },
+  {
+   "identifier": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
+   "label": "Duffy and Ahrens (1995), B1 principal Hugoniot",
+   "reference": {
+    "authors": [
+     "Duffy",
+     "Ahrens"
+    ],
+    "year": 1995,
+    "source": "J. Geophys. Res. Solid Earth",
+    "volume": "100",
+    "locator": "529-542",
+    "details": "Equation-of-state discussion and Tables 3-4, journal pages 533-534",
+    "doi": "10.1029/94JB02065"
+   },
+   "record_kind": "published",
+   "equation_kind": "hugoniot",
+   "loading_path": "principal",
+   "branch_kind": "untransformed",
+   "default_for": "hugoniot",
+   "initial_state": {
+    "phase": "B1 (periclase)",
+    "material_identifier": "mgo",
+    "temperature_k": 298.15,
+    "temperature_basis": "Conventional numeric normalization of the source's room-temperature initial state; 298.15 K is not quoted as a measured value.",
+    "pressure_gpa": 0.0,
+    "density_g_cm3": 3.562,
+    "density_standard_deviation_g_cm3": 0.006
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 40.304
+   },
+   "branch_domain": {
+    "particle_velocity_km_s": [
+     0.5228,
+     3.3768
+    ],
+    "kind": "recommended",
+    "boundary_status": "inferred",
+    "notes": [
+     "Particle-velocity limits are obtained by inverting the published rounded 14-133 GPa calibration range with the published linear relation.",
+     "These limits describe single-phase experimental coverage, not phase boundaries; the elastic precursor is outside this hydrodynamic branch."
+    ]
+   },
+   "eos": {
+    "type": "LinearUsUpHugoniot",
+    "model": "linear_us_up_hugoniot",
+    "parameters": {
+     "V0": 75.1559422385,
+     "rho0": 3.562,
+     "c0": 6.87,
+     "s": 1.24,
+     "P0": 0.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "rho0": 0.006,
+    "c0": 0.1,
+    "s": 0.04,
+    "P0": null
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0",
+    "rho0",
+    "P0"
+   ],
+   "experimental_pressure_range_gpa": [
+    14.0,
+    133.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.15,
+    298.15
+   ],
+   "validity": {
+    "pressure_gpa": [
+     14.0,
+     133.0
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "volume_ratio": [
+     0.6945,
+     0.9306
+    ],
+    "notes": [
+     "The temperature bounds describe the normalized precursor state, not a constant-temperature shock path."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Derived from rho0=3.562 g/cm3, four MgO formula units, molar mass 40.304 g/mol, and the exact Avogadro constant; it is not the equilibrium-EOS V0.",
+    "rho0": "Duffy and Ahrens (1995), page 530 and Table 4, page 533; measured average bulk density 3.562(6) g/cm3.",
+    "c0": "Duffy and Ahrens (1995), abstract and Table 4, page 533; quoted linear Us-up fit.",
+    "s": "Duffy and Ahrens (1995), abstract and Table 4, page 533; quoted linear Us-up fit.",
+    "P0": "Ambient-pressure principal-Hugoniot initial state."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Duffy",
+        "Ahrens"
+       ],
+       "year": 1995,
+       "source": "J. Geophys. Res. Solid Earth",
+       "doi": "10.1029/94JB02065"
+      },
+      "source_location": "Tables 3-4 and Rankine-Hugoniot reduction",
+      "scope": "Principal shock Hugoniot; pressure follows from measured shock and particle velocities."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No external static pressure calibration is used."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The phase-specific linear relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://duffy.princeton.edu/document/27",
+     "locations": [
+      "page 529, abstract, linear relation and 14-133 GPa range",
+      "page 530, average bulk density",
+      "page 533, Tables 3-4 and least-squares discussion"
+     ],
+     "finding": "The source reports Us=6.87(10)+1.24(4)up for low-porosity polycrystalline MgO, with parenthesized values defined as one standard deviation. No phase transition is assigned within the fitted interval.",
+     "doi": "10.1029/94JB02065"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-04",
+     "source_locations": [
+      "Tables 3-4, journal page 533"
+     ],
+     "finding": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified."
+    }
+   },
+   "notes": "Constrained principal Hugoniot for the B1 phase only. This is not an equilibrium EOS or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty."
   }
  ],
  "format": "peritheos.material",

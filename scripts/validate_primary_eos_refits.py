@@ -28,7 +28,7 @@ from peritheos import get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
 from peritheos.eos.rt import BM2, BM3, BM4, Murnaghan, Vinet
 from peritheos.eos.thermal import ThermalReferenceStateEOS
-from peritheos.fitting import fit_joint_eos, fit_rt_eos
+from peritheos.fitting import fit_joint_eos, fit_linear_us_up, fit_rt_eos
 from peritheos.materials import Material
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -957,6 +957,12 @@ def _configuration(record: dict[str, Any]) -> dict[str, Any]:
 
 
 def _published_parameters(record: dict[str, Any], thermal: bool) -> dict[str, float]:
+    if record["eos"]["type"] == "LinearUsUpHugoniot":
+        return {
+            name: float(value)
+            for name, value in record["eos"]["parameters"].items()
+            if name in {"c0", "s"}
+        }
     values = {
         name: float(value)
         for name, value in record["eos"]["parameters"].items()
@@ -1098,6 +1104,66 @@ def _fit_record(
     dataset_identifiers = [dataset["identifier"]]
     if record_id in COMBINED_FIT_DATASET_RECORDS:
         dataset, dataset_identifiers = _combined_fit_dataset(document, record)
+    if record["eos"]["type"] == "LinearUsUpHugoniot":
+        selection = record.get("fit_provenance", {}).get("selection", {})
+        particle_column = selection.get("particle_velocity_column")
+        shock_column = selection.get("shock_velocity_column")
+        if not particle_column or not shock_column:
+            return {
+                "status": "not_refittable",
+                "dataset_identifiers": dataset_identifiers,
+                "reason": (
+                    "The published relation has no redistributable row-level "
+                    "dataset and explicit Us-up column selection."
+                ),
+            }
+        rows = _load_rows(dataset)
+        particle = np.asarray([_number(row.get(particle_column)) for row in rows])
+        shock = np.asarray([_number(row.get(shock_column)) for row in rows])
+        selected = np.isfinite(particle) & np.isfinite(shock)
+        particle = particle[selected]
+        shock = shock[selected]
+        parameters = record["eos"]["parameters"]
+        result = fit_linear_us_up(
+            particle_velocity=particle,
+            shock_velocity=shock,
+            V0=float(parameters["V0"]),
+            rho0=float(parameters["rho0"]),
+            P0=float(parameters["P0"]),
+        )
+        status, comparisons = _compare(record, result, False, 1.0)
+        residuals = np.asarray(result.residuals, dtype=float)
+        return {
+            "status": status,
+            "dataset_identifiers": dataset_identifiers,
+            "observations": int(particle.size),
+            "selection": (
+                f"finite {particle_column} and {shock_column}; "
+                f"{int(particle.size)} rows"
+            ),
+            "observed_particle_velocity_range_km_s": [
+                float(np.min(particle)),
+                float(np.max(particle)),
+            ],
+            "observed_shock_velocity_range_km_s": [
+                float(np.min(shock)),
+                float(np.max(shock)),
+            ],
+            "columns": {
+                "particle_velocity": particle_column,
+                "shock_velocity": shock_column,
+            },
+            "fit_kind": "linear_us_up_hugoniot",
+            "objective": "shock_velocity_residuals",
+            "absolute_sigma": False,
+            "free_parameters": list(result.free_parameters),
+            "parameters": comparisons,
+            "rmse_shock_velocity_km_s": float(np.sqrt(np.mean(residuals**2))),
+            "reduced_chi_square": float(result.reduced_chi_square),
+            "degrees_of_freedom": int(result.degrees_of_freedom),
+            "solver_success": bool(result.success),
+            "solver_message": str(result.message),
+        }
     if record_id in INDIRECT_DATA:
         return {
             "status": "not_refittable",
@@ -2332,12 +2398,14 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "plot data are labeled `plot_only` and should be interpreted less strictly.",
         "A record-specific qualification is shown where the checked-in rows cover ",
         "only a subset of the source fit or source-fixed coefficients must be preserved.",
+        "For linear Hugoniot refits the reported RMSE is in shock-velocity km/s; ",
+        "equilibrium-EOS curve/refit RMSE values are in GPa.",
         "Regenerate the ledger with `uv run python scripts/validate_primary_eos_refits.py`; ",
         "use `--check` in continuous integration to detect stale generated files.",
         "",
         "## Records",
         "",
-        "| Record | Data | n | Published → Peritheos refit | Curve/refit RMSE (GPa) | Outcome |",
+        "| Record | Data | n | Published → Peritheos refit | Curve/refit RMSE (GPa unless labeled) | Outcome |",
         "|---|---|---:|---|---:|---|",
     ]
     for item in ledger["records"]:
@@ -2359,7 +2427,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         record_label = f"`{item['record_identifier']}`"
         if item.get("primary_source"):
             record_label = f"[{record_label}]({item['primary_source']})"
-        rmse = f"{_fmt(item.get('published_rmse_gpa'))}/{_fmt(item.get('rmse_gpa'))}"
+        if item.get("rmse_shock_velocity_km_s") is not None:
+            rmse = f"—/{_fmt(item['rmse_shock_velocity_km_s'])} km/s"
+        else:
+            rmse = f"{_fmt(item.get('published_rmse_gpa'))}/{_fmt(item.get('rmse_gpa'))}"
         lines.append(
             f"| {record_label} | `{data}` | "
             f"{item.get('observations', '—')} | {'; '.join(params) or '—'} | "
