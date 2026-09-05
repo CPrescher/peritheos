@@ -164,6 +164,8 @@ audit.
 
 ### C04 — CaSiO3 perovskite: add a lower-mantle thermal record
 
+**Status: accepted and implemented (2026-09-05).**
+
 - **Change:** extend the existing `ca_perovskite` material.
 - **Source:** Noguchi et al. (2013), [High-temperature compression experiments
   of CaSiO3 perovskite to lowermost mantle conditions and its thermal equation
@@ -175,6 +177,20 @@ audit.
   `Tr = 700 K` rather than silently converting to 300 K.
 - **Effort/risk:** low. Validate the cell/formula-unit convention and do not
   merge parameters with the existing Shim or Mao 300 K records.
+- **Audit result:** preferred model 1 is represented as one non-default,
+  pure-composition cubic record on the Fei et al. (2004) Pt scale. Equations
+  (1)--(5), Tables 1--3, the `Z=1` pseudo-cubic volume basis, all coefficient
+  errors, and the three rejected broad-peak observations were checked against
+  the complete primary article. The Holmes-scale and non-MGD alternatives are
+  provenance only and are not separate production records.
+- **Reproduction:** an unweighted staged Peritheos refit to a local Table 1
+  transcription gives `V0 = 46.5005 A^3`, `K0 = 207.369 GPa`,
+  `theta0 = 1292.4 K`, `gamma0 = 2.7215`, and `q = 1.2646`, reproducing all
+  published model-1 coefficients and their error magnitudes. The complete
+  table is not redistributed because the subscription article states no
+  reusable data license; the production reproduction script instead checks
+  the published equation, reference state, and reported 300 K extrapolation.
+  See the [full reproduction](literature-reproductions.md#c04-casio3-perovskite-noguchi-et-al-2013).
 
 ### C05 — Mg2SiO4 ringwoodite: add the thermal branch
 

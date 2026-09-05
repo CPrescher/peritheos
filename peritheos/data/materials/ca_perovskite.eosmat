@@ -40,7 +40,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by the literature EOS records; Caracas et al. is a static 0 K DFT branch, Mao et al. and Shim et al. provide room-temperature experiments, and Kawai-Tsuchiya, Sun et al., and the explicitly non-preferred Shim et al. JGR DAC-only alternative provide thermal parameterizations. The Sun et al. record applies only to the high-temperature cubic phase.",
+ "notes": "Consolidated from the equivalent cubic CaSiO3 perovskite cards in the beamline JCPDS collection. The ideal Pm-3m aristotype is shared by the literature EOS records; Caracas et al. is a static 0 K DFT branch, Mao et al. and Shim et al. provide room-temperature experiments, and Kawai-Tsuchiya, Noguchi et al., Sun et al., and the explicitly non-preferred Shim et al. JGR DAC-only alternative provide thermal parameterizations. The Noguchi and Sun records apply only to the high-temperature cubic phase; Noguchi's 700 K reference isotherm is preserved exactly and is not combined with a 300 K record.",
  "peaks": [],
  "eos_records": [
   {
@@ -928,6 +928,232 @@
      }
     }
    ]
+  },
+  {
+   "label": "Noguchi et al. (2013), cubic CaSiO3 700 K BM2-MGD",
+   "reference": {
+    "authors": [
+     "Noguchi",
+     "Komabayashi",
+     "Hirose",
+     "Ohishi"
+    ],
+    "year": 2013,
+    "title": "High-temperature compression experiments of CaSiO3 perovskite to lowermost mantle conditions and its thermal equation of state",
+    "source": "Physics and Chemistry of Minerals",
+    "volume": "40",
+    "locator": "81-91",
+    "doi": "10.1007/s00269-012-0549-1"
+   },
+   "identifier": "ca_perovskite_noguchi_2013_bm2_mgd_1",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "default": false,
+   "temperature_ref": 700.0,
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 46.5,
+     "K0": 207.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.1,
+    "K0": 4.0
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "implicit_parameters": {
+    "K0_prime": 4.0
+   },
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 700.0,
+     "theta0": 1300.0,
+     "gamma0": 2.7,
+     "q": 1.2,
+     "n": 5.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 500.0,
+     "gamma0": 0.3,
+     "q": 0.8,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "n"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    51.3,
+    127.2
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    700.0,
+    2300.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     51.3,
+     127.2
+    ],
+    "temperature_k": [
+     700.0,
+     2300.0
+    ],
+    "notes": [
+     "The bounds follow the reported experimental scope and Table 1 pressure extrema; they are an observed marginal envelope, not a claim that every pressure-temperature combination was measured.",
+     "The source assigns all fitted observations to cubic Ca-perovskite. The 700 K isotherm is intentionally retained as the model reference and is not converted to or combined with a 300 K tetragonal or metastable-cubic record."
+    ]
+   },
+   "phase_selection": {
+    "composition": "pure CaSiO3 glass starting material mixed with Pt at 9:1 sample-to-Pt by weight",
+    "assigned_phase": "cubic CaSiO3 perovskite",
+    "evidence": "No peak splitting was observed; the 200-peak FWHM and matching 700 K and 1600 K patterns support the source's cubic assignment. Three broadened 700 K rows were excluded from fitting.",
+    "cell_basis": "one-formula-unit pseudo-cubic cell (Z=1)",
+    "crystallography_scope": "The article assigns the cubic phase from diffraction peak shapes but does not refine atomic positions. This record reuses the material's established ideal Pm-3m crystallographic model without attributing that structural refinement to Noguchi et al."
+   },
+   "experimental_configuration": {
+    "pressure_cell": "diamond-anvil cell with 150 micrometre beveled culets and NaCl insulation/pressure medium",
+    "pressure_gauge": "Pt 111 and 200 lattice spacings reduced with Fei et al. (2004)",
+    "diffraction": "angle-dispersive synchrotron X-ray diffraction at SPring-8 BL10XU; approximately 0.41 A wavelength and 15 micrometre beam",
+    "temperature_measurement": "spectroradiometry with 10 percent uncertainty for laser heating; R-type thermocouple with less than 15 K uncertainty for external heating"
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Noguchi et al. (2013), equation (2) and Table 2 model 1: V700,1bar=46.5(1) A^3 unit-cell volume",
+     "K0": "Noguchi et al. (2013), equation (2) and Table 2 model 1: K700,1bar=207(4) GPa",
+     "K0_prime": "Noguchi et al. (2013), second-order Birch-Murnaghan equation (2) and Table 3: fixed at 4"
+    },
+    "thermal_correction": {
+     "Tr": "Noguchi et al. (2013), equations (1) and (3): 700 K reference temperature",
+     "theta0": "Noguchi et al. (2013), equation (5) and Table 2 model 1: theta700,1bar=1300(500) K",
+     "gamma0": "Noguchi et al. (2013), equations (3) and (5) and Table 2 model 1: gamma700,1bar=2.7(3)",
+     "q": "Noguchi et al. (2013), equation (5) and Table 2 model 1: q700,1bar=1.2(8)",
+     "n": "Noguchi et al. (2013), equation (4): number of atoms per formula unit; n=5 for CaSiO3"
+    },
+    "additional": {
+     "volume_basis": "The source calls V the cubic unit-cell volume. The Pm-3m cell contains one CaSiO3 formula unit, so 46.5 A^3/cell is also 46.5 A^3/formula unit; Peritheos performs the molar conversion internally for Debye energy.",
+     "uncertainty_semantics": "The article prints parenthetical/plus-minus parameter errors but does not identify their confidence level or publish covariance; confidence and covariance therefore remain null."
+    }
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Li",
+        "Hirose",
+        "Minarik",
+        "Van Orman",
+        "Sanloup",
+        "van Westrenen",
+        "Komabayashi",
+        "Funakoshi"
+       ],
+       "year": 2004,
+       "title": "A critical evaluation of pressure scales at high temperatures by in situ X-ray diffraction measurements",
+       "source": "Physics of the Earth and Planetary Interiors",
+       "volume": "143-144",
+       "locator": "515-526",
+       "doi": "10.1016/j.pepi.2003.09.018"
+      },
+      "source_location": "Experimental procedures, journal page 82; Table 1 Fei-pressure and Pt-lattice columns",
+      "scope": "all preferred model-1 P-V-T observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Table 1 prints row-wise Pt lattice parameters and temperatures, but the Fei et al. (2004) Pt pressure scale is not yet an executable bundled record. The Holmes et al. (1989) pressures and model 3 are retained as a documented alternative only and are not mixed into this preferred Fei-scale record."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the complete primary publication obtained through institutional Springer access; no other CaSiO3 EOS record was used as scientific authority or combined with this parameterization.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "volume_basis",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "crystallography"
+    ],
+    "primary_source_check": {
+     "access_url": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
+     "locations": [
+      "experimental procedures, journal pages 82-83",
+      "Table 1 and phase-selection discussion, journal pages 84-85",
+      "equations (1)-(5), journal page 86",
+      "Tables 2-3, journal page 87"
+     ],
+     "finding": "Preferred model 1 is a 700 K BM2 reference isotherm plus constant-q Mie-Gruneisen-Debye thermal pressure for pure, cubic CaSiO3 on the Fei et al. (2004) Pt scale. V is a one-formula-unit cubic-cell volume; Tr=700 K, n=5, and all five fitted coefficients and printed errors were verified directly.",
+     "doi": "10.1007/s00269-012-0549-1"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 1, journal pages 84-85"
+     ],
+     "finding": "Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license."
+    },
+    "independent_refit": {
+     "result": "parity",
+     "data": "Local audit transcription of Table 1; 9 accepted external-heating rows for the 700 K BM2 stage and 42 laser-heated rows for the MGD stage. The three rows footnoted for broad 200 peaks were excluded.",
+     "method": "Unweighted pressure-residual fits using Peritheos fit_rt_eos and fit_thermal_eos. This is the only non-invented objective because the paper does not state fit weights or the confidence convention for its printed errors.",
+     "reference_isotherm_result": {
+      "V0_a3": 46.500486344,
+      "K0_gpa": 207.368770748,
+      "V0_standard_error_a3": 0.133985207,
+      "K0_standard_error_gpa": 3.538027129,
+      "pressure_rmse_gpa": 0.472809105
+     },
+     "thermal_result": {
+      "theta0_k": 1292.424812413,
+      "gamma0": 2.721487009,
+      "q": 1.264614238,
+      "theta0_standard_error_k": 528.878160179,
+      "gamma0_standard_error": 0.298232257,
+      "q_standard_error": 0.778552138,
+      "pressure_rmse_gpa": 1.220993277
+     },
+     "finding": "Both staged refits reproduce every published free coefficient within rounding and reproduce the printed parameter-error magnitudes closely. The published parameterization gives 1.222765067 GPa RMSE on the 42 high-temperature rows."
+    },
+    "excluded_alternatives": [
+     {
+      "name": "model 2",
+      "reason": "Same Fei scale and 700 K BM2, but theta0=1000 K is fixed; model 1 is the unconstrained preferred parameterization requested for C04."
+     },
+     {
+      "name": "model 3",
+      "reason": "Uses the incompatible Holmes et al. (1989) Pt scale and a different 700 K BM2; retained only as calibration sensitivity metadata."
+     },
+     {
+      "name": "model 4",
+      "reason": "Uses a distinct thermodynamic thermal-pressure equation rather than the requested MGD model."
+     }
+    ]
+   },
+   "fit_datasets": [],
+   "notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). No open data license, fit covariance, weighting rule, or parameter-error confidence convention is published."
   },
   {
    "label": "Sun et al. (2016), cubic CaSiO3 BM3-MGD",
