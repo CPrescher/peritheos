@@ -1,0 +1,151 @@
+{
+ "format_version": 3,
+ "name": "Tetragonal CaSiO3 perovskite (davemaoite)",
+ "formula": "CaSiO3",
+ "aliases": [
+  "Davemaoite",
+  "Tetragonal Ca-perovskite"
+ ],
+ "symmetry": "TETRAGONAL",
+ "formula_units_per_cell": 4,
+ "space_group": "I4/mcm",
+ "space_group_number": 140,
+ "phase": "pure tetragonal CaSiO3 perovskite (davemaoite), I4/mcm",
+ "cell_contents": "4 CaSiO3 formula units per conventional I4/mcm unit cell",
+ "notes": "Pure tetragonal CaSiO3 perovskite. The conventional I4/mcm cell has Z=4; published Sun et al. parameters normalized to Z=1 are multiplied by four only where volume is concerned.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "label": "Sun et al. (2022), 300 K tetragonal CaSiO3 BM3 (K0' fixed)",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Bian",
+     "Zhang",
+     "Lin",
+     "Prakapenka",
+     "Mao"
+    ],
+    "year": 2022,
+    "title": "High-pressure experimental study of tetragonal CaSiO3-perovskite to 200 GPa",
+    "source": "American Mineralogist",
+    "volume": "107",
+    "locator": "110-115",
+    "doi": "10.2138/am-2021-7913"
+   },
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    21.5,
+    199.2
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     30.0,
+     150.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Intended Peritheos application range is 30-150 GPa at 300 K, within the direct 21.5-199.2 GPa P-V coverage.",
+     "This is the quenched tetragonal I4/mcm phase; it is not a thermal EOS or a cubic-phase parameterization."
+    ]
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 182.4,
+     "K0": 229.0,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.8,
+    "K0": 4.0,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "parameter_provenance": {
+    "V0": "Sun et al. (2022), Table 2 fixed-K0' fit: 45.6(2) A^3 at published normalized Z=1, multiplied by 4 for the conventional I4/mcm Z=4 cell",
+    "K0": "Sun et al. (2022), Table 2 fixed-K0' fit: 229(4) GPa",
+    "K0_prime": "Sun et al. (2022), Table 2: fixed at 4",
+    "additional": {
+     "alternate_free_fit": "Table 2 also reports V0=45.6(4) A^3 per formula unit, K0=227(21) GPa, and K0'=4.0(3); Peritheos uses the better-constrained fixed-derivative fit."
+    }
+   },
+   "notes": "Selected fixed-K0'=4 BM3 fit: the published Z=1 V0=45.6(2) A^3 is stored as 182.4(8) A^3 for the conventional Z=4 I4/mcm cell, while K0=229(4) GPa is unchanged. The direct 300 K P-V data span 21.5-199.2 GPa; routine use is intentionally limited to 30-150 GPa. The paper does not publish parameter covariance or a confidence convention for the parenthetical errors.",
+   "identifier": "ca_perovskite_tetragonal_sun_2022_bm3_1",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci. USA",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental methods and Table 2; Pt pressure standard with literature results reanalyzed on the Fei et al. self-consistent scale",
+      "scope": "all fitted tetragonal CaSiO3 observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "The Fei et al. Pt thermal EOS is identified exactly, but is not yet a bundled .eosmat record; the paper reports reduced pressures rather than the row-wise Pt volumes needed for exact pressure recalculation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+     "locations": [
+      "Birch-Murnaghan equation and Z normalization, pages 111-112",
+      "Table 1, page 112",
+      "Table 2, page 112",
+      "phase assignment and temperature discussion, pages 110-113"
+     ],
+     "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell; the fitted modulus, direct data range, 300 K phase, Fei et al. Pt pressure scale, and lack of published covariance are retained.",
+     "doi": "10.2138/am-2021-7913"
+    }
+   }
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "ca_perovskite_tetragonal",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

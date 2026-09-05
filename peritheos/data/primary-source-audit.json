@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 217,
-    "primary_source_validated": 217
+    "records": 221,
+    "primary_source_validated": 221
   },
   "records": [
     {
@@ -574,6 +574,46 @@
         ],
         "finding": "The adopted unconstrained BM3 fit fixes V0=45.58 A^3 in Table 2, while the abstract explicitly reports V0=45.58+/-0.05 A^3. The reported V0 uncertainty is retained even though V0 was fixed in this fit.",
         "doi": "10.1016/s0031-9201(00)00154-0"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_sun_2016_bm3_3",
+      "label": "Sun et al. (2016), cubic CaSiO3 BM3-MGD",
+      "doi": "10.1002/2016jb013062",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
+        "locations": [
+          "experimental phase, Pt pressure standard, and range, pages 4878-4879",
+          "equations (1)-(6), pages 4879-4880",
+          "Table 1, pages 4880-4881",
+          "Table 2 model 1, page 4882"
+        ],
+        "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. The 300 K cubic isotherm is retained only as the model reference state.",
+        "doi": "10.1002/2016jb013062"
+      }
+    },
+    {
+      "material": "ca_perovskite_tetragonal",
+      "file": "ca_perovskite_tetragonal.eosmat",
+      "record": "ca_perovskite_tetragonal_sun_2022_bm3_1",
+      "label": "Sun et al. (2022), 300 K tetragonal CaSiO3 BM3 (K0' fixed)",
+      "doi": "10.2138/am-2021-7913",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
+        "locations": [
+          "Birch-Murnaghan equation and Z normalization, pages 111-112",
+          "Table 1, page 112",
+          "Table 2, page 112",
+          "phase assignment and temperature discussion, pages 110-113"
+        ],
+        "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell; the fitted modulus, direct data range, 300 K phase, Fei et al. Pt pressure scale, and lack of published covariance are retained.",
+        "doi": "10.2138/am-2021-7913"
       }
     },
     {
@@ -2261,6 +2301,52 @@
           "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Wolf2014_lsq_fixdeb.in"
         ],
         "finding": "The executable record is the complete published 300 K Vinet plus integrated constant-q MGD model for the measured 13% Fe composition. It is not a room-temperature slice of the thermal fit."
+      }
+    },
+    {
+      "material": "mg088fe010al014si090o3_bridgmanite",
+      "file": "mg088fe010al014si090o3_bridgmanite.eosmat",
+      "record": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1",
+      "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM2",
+      "doi": "10.2138/am-2023-8969",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM2 parameters reproduce the 64.6 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.7195 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2023-8969",
+        "locations": [
+          "article Experimental details, pages 873-874",
+          "article EOS discussion and Table 1, pages 874-875",
+          "official Online Materials Table S1",
+          "official deposit AM-24-58969, 8969fu.cif"
+        ],
+        "finding": "The source fully defines a room-temperature standard Eulerian BM2 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; K0_prime is fixed to 4.",
+        "doi": "10.2138/am-2023-8969",
+        "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
+        "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
+        "cif_sha256": "b21f73e3e9a0b24e07ec990505df038b3293b18895351e57dde2fc9ff8e47145"
+      }
+    },
+    {
+      "material": "mg088fe010al014si090o3_bridgmanite",
+      "file": "mg088fe010al014si090o3_bridgmanite.eosmat",
+      "record": "mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2",
+      "label": "Fu et al. (2024), Fe10-Al14 bridgmanite BM3",
+      "doi": "10.2138/am-2023-8969",
+      "status": "primary_source_validated",
+      "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM3 parameters reproduce the 4.2 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.9291 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.2138/am-2023-8969",
+        "locations": [
+          "article Experimental details, pages 873-874",
+          "article EOS discussion and Table 1, pages 874-875",
+          "official Online Materials Table S1",
+          "official deposit AM-24-58969, 8969fu.cif"
+        ],
+        "finding": "The source fully defines a room-temperature standard Eulerian BM3 fit for the Fe10-Al14 bridgmanite unit cell. V0 is a zero-pressure extrapolation on the conventional Pbnm Z=4 cell basis; V0, K0, and K0_prime were fitted.",
+        "doi": "10.2138/am-2023-8969",
+        "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
+        "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
+        "cif_sha256": "b21f73e3e9a0b24e07ec990505df038b3293b18895351e57dde2fc9ff8e47145"
       }
     },
     {

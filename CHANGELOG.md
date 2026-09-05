@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added primary-source-validated Sun et al. (2016, 2022) CaSiO3-perovskite
+  records: a 300 K tetragonal I4/mcm BM3 isotherm with the published Z=1
+  volume converted to the conventional Z=4 cell, and a high-temperature cubic
+  Pm-3m BM3-Mie-Gruneisen-Debye EOS with explicit metastable-reference-state,
+  phase-validity, and Fei et al. Pt pressure-scale metadata.
 - Added the Luo et al. (2023) B1-MgO pressure scale as a 0 K Vinet curve plus
   the published absolute second-order thermal-pressure polynomial, with all
   five new shock states and the complete 576-value Tables II--III P-V-T grid.
