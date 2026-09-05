@@ -12,10 +12,18 @@ from __future__ import annotations
 
 import csv
 import json
+import warnings
 from pathlib import Path
 
 import numpy as np
-from scipy import odr
+
+with warnings.catch_warnings():
+    warnings.filterwarnings(
+        "ignore",
+        message=r"`scipy\.odr` is deprecated.*",
+        category=DeprecationWarning,
+    )
+    from scipy import odr
 
 ROOT = Path(__file__).parents[1]
 DATA = (
