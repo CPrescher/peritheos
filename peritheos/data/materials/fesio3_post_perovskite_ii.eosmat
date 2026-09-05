@@ -1,0 +1,52 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "fesio3_post_perovskite_ii",
+ "name": "Iron silicate post-perovskite II",
+ "formula": "FeSiO3",
+ "phase": "Cmmm post-perovskite-II (PPv-II), high-spin antiferromagnetic",
+ "aliases": ["FeSiO3 PPv-II", "Cohen-Lin FeSiO3 Cmmm phase"],
+ "cell_contents": "Four FeSiO3 formula units in the conventional C-centered orthorhombic Cmmm cell.",
+ "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {"a": 10.082, "b": 5.478, "c": 2.495, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+ "formula_units_per_cell": 4,
+ "space_group": "Cmmm",
+ "space_group_number": 65,
+ "atom_sites": [
+  {"element": "Fe", "wyckoff": "4e", "site_multiplicity": 4, "x": 0.25, "y": 0.25, "z": 0.0, "occupancy": 1.0, "source_label": "Fe"},
+  {"element": "Si", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0, "source_label": "Si1"},
+  {"element": "Si", "wyckoff": "2c", "site_multiplicity": 2, "x": 0.5, "y": 0.0, "z": 0.5, "occupancy": 1.0, "source_label": "Si2"},
+  {"element": "O", "wyckoff": "4i", "site_multiplicity": 4, "x": 0.0, "y": 0.702, "z": 0.0, "occupancy": 1.0, "source_label": "O1"},
+  {"element": "O", "wyckoff": "4h", "site_multiplicity": 4, "x": 0.336, "y": 0.0, "z": 0.5, "occupancy": 1.0, "source_label": "O2"},
+  {"element": "O", "wyckoff": "4h", "site_multiplicity": 4, "x": 0.115, "y": 0.0, "z": 0.5, "occupancy": 1.0, "source_label": "O3"}
+ ],
+ "peaks": [],
+ "source": {"structure_reference": {"authors": ["Cohen", "Lin"], "year": 2014, "title": "Prediction of a potential high-pressure structure of FeSiO3", "source": "Physical Review B", "volume": "90", "locator": "140102(R)", "doi": "10.1103/PhysRevB.90.140102"}, "structure_location": "Table I, GGA+U PPv-II structure at 100 GPa", "article_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf", "article_sha256": "c4bd0265b83f2859c3bb2158f91dd20be064771a03cabbcb6bb164ad4ea5a711"},
+ "notes": "The lattice and coordinates are the source's 100 GPa Cmmm structure. The paper reports a low-pressure displacive change to C2/m below about 10.8 GPa; this card and EOS retain the fitted PPv-II lineage but must not be interpreted as proof that Cmmm persists over the entire mathematical fit interval.",
+ "eos_records": [
+  {
+   "identifier": "fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1",
+   "label": "Cohen and Lin (2014), static GGA+U FeSiO3 PPv-II Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {"authors": ["Cohen", "Lin"], "year": 2014, "title": "Prediction of a potential high-pressure structure of FeSiO3", "source": "Physical Review B", "volume": "90", "locator": "140102(R)", "doi": "10.1103/PhysRevB.90.140102"},
+   "sample_composition": "Stoichiometric FeSiO3 PPv-II; static high-spin antiferromagnetic GGA+U model crystal.",
+   "eos": {"type": "Vinet", "model": "vinet", "parameters": {"V0": 181.8, "K0": 195.0, "K0_prime": 4.67}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [-10.0, 150.0],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+   "validity": {"pressure_gpa": [-10.0, 150.0], "temperature_k": [0.0, 0.0], "volume_ratio": [0.703885, 1.060675], "notes": ["Static 0 K GGA+U fit interval, not a Cmmm phase-stability field.", "The source reports a displacive Cmmm-to-C2/m distortion at low pressure; use the Cmmm structure specifically near the 100 GPa tabulated state.", "The eight energy calculations correspond to -10 through 150 GPa."]},
+   "parameter_provenance": {"equation": "Table III: Vinet EOS fitted to static E(V) data.", "V0": "Table III: 45.45 A3 per FeSiO3, multiplied by Z=4 to 181.8 A3.", "K0": "Table III: 195 GPa.", "K0_prime": "Table III: 4.67.", "uncertainties": "No coefficient uncertainties or covariance are published.", "method": "Quantum ESPRESSO PAW-PBE GGA+U, U=6.0 eV, 20-atom cell, 4x4x4 k mesh, 80 Ry cutoff; high-spin antiferromagnetic state."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Computational methods", "scope": "static total-energy calculations"}], "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Validated against the primary article, the complete Table I structure, and independent Table III Vinet checkpoints.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "crystal_system", "space_group", "formula_units_per_cell", "atom_sites", "equation", "parameters", "units", "reference_state", "theoretical_method", "pressure_range", "independent_source_checkpoints"], "primary_source_check": {"access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf", "doi": "10.1103/PhysRevB.90.140102", "locations": ["Table I", "Computational methods", "Figure 3", "Table III"], "finding": "The paper introduces Cmmm PPv-II and reports its full 100 GPa structure and a separate Vinet fit."}, "primary_data_check": {"status": "parameterization_and_independent_table_checkpoints", "audit_date": "2026-09-05", "source_locations": ["Figure 3", "Table III"], "finding": "The energy-volume grid is plot-only; Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44."}, "independent_refit": {"classification": "parity", "method": "Direct evaluation and inversion of the published Vinet coefficients at 100 GPa.", "parameters": {"V100_a3_per_formula": 34.50403207, "K100_gpa": 580.58038881, "K100_prime": 3.44257916}, "finding": "All values agree with the rounded source checkpoints (34.49 A3, 580 GPa, 3.44)."}},
+   "notes": "No default structural stability beyond the source's high-pressure Cmmm state is implied."
+  }
+ ]
+}

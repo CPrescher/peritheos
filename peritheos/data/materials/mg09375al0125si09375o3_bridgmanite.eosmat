@@ -1,0 +1,178 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg09375al0125si09375o3_bridgmanite",
+ "name": "6.25 mol.% charge-coupled Al bridgmanite model",
+ "formula": "Mg0.9375Al0.125Si0.9375O3",
+ "phase": "orthorhombic Pbnm perovskite model crystal",
+ "aliases": [
+  "CCM 6.25 mol.% Al2O3 perovskite"
+ ],
+ "cell_contents": "Four normalized formula units on the conventional Pbnm EOS basis; the source calculation used an 80-atom cell (16 normalized units).",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Akber-Knutson",
+    "Steinle-Neumann",
+    "Asimow"
+   ],
+   "year": 2005,
+   "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
+   "source": "Geophysical Research Letters",
+   "volume": "32",
+   "locator": "L14303",
+   "doi": "10.1029/2005GL023192"
+  },
+  "structure_location": "Section 2 defines the substituted 80-atom model and phase topology but publishes no relaxed lattice parameters or atomic coordinates.",
+  "article_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+  "article_pdf_sha256": "afd6f4823b8401e1d3a298aa6477b9a52d429d39a64c79df223febc495a5a09c"
+ },
+ "notes": "This is a static model-crystal identity, not a natural composition. No diffraction structure is inferred because the paper does not publish the relaxed coordinates or zero-pressure lattice.",
+ "eos_records": [
+  {
+   "identifier": "mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3",
+   "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Akber-Knutson",
+     "Steinle-Neumann",
+     "Asimow"
+    ],
+    "year": 2005,
+    "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
+    "source": "Geophysical Research Letters",
+    "volume": "32",
+    "locator": "L14303",
+    "doi": "10.1029/2005GL023192"
+   },
+   "sample_composition": "Static 0 K CCM model with 6.25 mol.% Al2O3 substitution; Table 1 values are normalized to an approximately five-atom formula basis.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 167.44,
+     "K0": 232,
+     "K0_prime": 3.86
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0,
+   "experimental_pressure_range_gpa": [
+    -10.30191002,
+    229.07072548
+   ],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {
+   "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 100.4853
+   },
+   "validity": {
+    "pressure_gpa": [
+     -10.30191002,
+     229.07072548
+    ],
+    "temperature_k": [
+     0,
+     0
+    ],
+    "volume_ratio": [
+     0.65,
+     1.05
+    ],
+    "notes": [
+     "Static 0 K GGA model-crystal fit; not an experimental stability field.",
+     "The source internal-energy grid spans approximately 105% to 65% of V0 and reaches just above 200 GPa."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
+    "V0": "Table 1 perovskite CCM 6.25 mol.% row: 41.86 A^3 on the normalized approximately five-atom basis; multiplied by four for the executable conventional-cell basis.",
+    "K0": "Table 1: 232 GPa.",
+    "K0_prime": "Table 1: 3.86.",
+    "uncertainties": "The source reports no coefficient uncertainties or covariance.",
+    "method": "Static VASP GGA calculations; fixed-volume cell-shape, atomic-position, and electronic-wavefunction optimization; 1000 eV cutoff."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Section 2, Computational Technique",
+      "scope": "static total-energy calculations"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the author-deposited published article and its source Table 1.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "substitution_mechanism",
+     "phase",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "theoretical_method",
+     "volume_range"
+    ],
+    "primary_source_check": {
+     "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+     "doi": "10.1029/2005GL023192",
+     "locations": [
+      "Section 2, paragraphs 6-8",
+      "Table 1"
+     ],
+     "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Section 2, paragraph 8",
+      "Table 1"
+     ],
+     "finding": "The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "Independent evaluation of the standard BM3 pressure at the source-stated lower volume boundary V/V0=0.65.",
+     "parameters": {
+      "volume_ratio": 0.65,
+      "pressure_gpa": 229.07072548
+     },
+     "finding": "The evaluated pressure is above 200 GPa, reproducing the independently stated calculation-envelope endpoint 'just above 200 GPa'."
+    }
+   },
+   "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check."
+  }
+ ]
+}

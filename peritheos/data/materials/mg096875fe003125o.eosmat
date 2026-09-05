@@ -1,0 +1,304 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg096875fe003125o",
+ "name": "(Mg0.96875Fe0.03125)O B1 ferropericlase",
+ "formula": "Mg0.96875Fe0.03125O",
+ "phase": "B1 ferropericlase",
+ "aliases": [
+  "B1 (Mg,Fe)O",
+  "magnesiowüstite"
+ ],
+ "cell_contents": "Four formula units per conventional rocksalt cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.20192655,
+  "b": 4.20192655,
+  "c": 4.20192655,
+  "alpha": 90,
+  "beta": 90,
+  "gamma": 90
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.96875,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.03125,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1,
+   "site_multiplicity": 4
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Marcondes",
+    "Zheng",
+    "Wentzcovitch"
+   ],
+   "year": 2020,
+   "title": "Phonon dispersion throughout the iron spin crossover in ferropericlase",
+   "source": "Physical Review B",
+   "volume": "102",
+   "locator": "104112",
+   "doi": "10.1103/PhysRevB.102.104112"
+  },
+  "structure_location": "B1 rocksalt structure used in the source EOS calculation or experiment"
+ },
+ "notes": "Static 3Fp 64-atom supercell parameterization; the average conventional-cell structure represents one isolated Fe in a 2x2x2 supercell.",
+ "eos_records": [
+  {
+   "identifier": "mg096875fe003125o_marcondes_2020_hs_bm3_1",
+   "label": "Marcondes et al. (2020), 3Fp high-spin static BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": [
+     "Marcondes",
+     "Zheng",
+     "Wentzcovitch"
+    ],
+    "year": 2020,
+    "title": "Phonon dispersion throughout the iron spin crossover in ferropericlase",
+    "source": "Physical Review B",
+    "volume": "102",
+    "locator": "104112",
+    "doi": "10.1103/PhysRevB.102.104112"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.19,
+     "K0": 170.3,
+     "K0_prime": 4.15
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 41.289625
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     135
+    ],
+    "temperature_k": [
+     0,
+     0
+    ],
+    "notes": [
+     "Static LSDA+Usc HS branch for one isolated Fe in a 64-atom supercell.",
+     "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Computational methods: energy-volume curve fitted to a third-order finite-strain equation of state.",
+    "V0": "Table I: 74.19 A^3 per conventional B1 cell.",
+    "K0": "Table I: 170.3 GPa.",
+    "K0_prime": "Table I: 4.15.",
+    "model": "Static LSDA+Usc, self-consistent and structurally consistent Hubbard U, Quantum ESPRESSO, 80 Ry cutoff, shifted 2x2x2 k mesh."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Computational method",
+      "scope": "static LSDA+Usc energy-volume curve"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "atomic_configuration",
+     "spin_state",
+     "equation",
+     "parameters",
+     "units",
+     "theoretical_method",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://arxiv.org/pdf/2003.12348",
+     "doi": "10.1103/PhysRevB.102.104112",
+     "locations": [
+      "Computational method",
+      "Table I"
+     ],
+     "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table I"
+     ],
+     "finding": "The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve."
+    }
+   }
+  },
+  {
+   "identifier": "mg096875fe003125o_marcondes_2020_ls_bm3_2",
+   "label": "Marcondes et al. (2020), 3Fp low-spin static BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marcondes",
+     "Zheng",
+     "Wentzcovitch"
+    ],
+    "year": 2020,
+    "title": "Phonon dispersion throughout the iron spin crossover in ferropericlase",
+    "source": "Physical Review B",
+    "volume": "102",
+    "locator": "104112",
+    "doi": "10.1103/PhysRevB.102.104112"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 73.66,
+     "K0": 172.1,
+     "K0_prime": 4.15
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 41.289625
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     135
+    ],
+    "temperature_k": [
+     0,
+     0
+    ],
+    "notes": [
+     "Static LSDA+Usc LS branch for one isolated Fe in a 64-atom supercell.",
+     "The bound follows the pressure range used for the source phonon calculations; the unpublished energy-volume grid may span a different interval."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Computational methods: energy-volume curve fitted to a third-order finite-strain equation of state.",
+    "V0": "Table I: 73.66 A^3 per conventional B1 cell.",
+    "K0": "Table I: 172.1 GPa.",
+    "K0_prime": "Table I: 4.15.",
+    "model": "Static LSDA+Usc, self-consistent and structurally consistent Hubbard U, Quantum ESPRESSO, 80 Ry cutoff, shifted 2x2x2 k mesh."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Computational method",
+      "scope": "static LSDA+Usc energy-volume curve"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "atomic_configuration",
+     "spin_state",
+     "equation",
+     "parameters",
+     "units",
+     "theoretical_method",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://arxiv.org/pdf/2003.12348",
+     "doi": "10.1103/PhysRevB.102.104112",
+     "locations": [
+      "Computational method",
+      "Table I"
+     ],
+     "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table I"
+     ],
+     "finding": "The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve."
+    }
+   }
+  }
+ ]
+}

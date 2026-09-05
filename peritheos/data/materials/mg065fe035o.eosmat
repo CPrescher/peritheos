@@ -1,0 +1,338 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg065fe035o",
+ "name": "(Mg0.65Fe0.35)O B1 ferropericlase",
+ "formula": "Mg0.65Fe0.35O",
+ "phase": "B1 ferropericlase",
+ "aliases": [
+  "B1 (Mg,Fe)O",
+  "magnesiowüstite"
+ ],
+ "cell_contents": "Four formula units per conventional rocksalt cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.25616177,
+  "b": 4.25616177,
+  "c": 4.25616177,
+  "alpha": 90,
+  "beta": 90,
+  "gamma": 90
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.65,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.35,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1,
+   "site_multiplicity": 4
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Solomatova",
+    "Jackson",
+    "Sturhahn",
+    "Wicks",
+    "Zhao",
+    "Toellner",
+    "Kalkan",
+    "Steinhardt"
+   ],
+   "year": 2016,
+   "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+   "source": "American Mineralogist",
+   "volume": "101",
+   "locator": "1084-1093",
+   "doi": "10.2138/am-2016-5510"
+  },
+  "structure_location": "B1 assignment in the introduction and X-ray diffraction results"
+ },
+ "notes": "The EOS records are paired high-spin and low-spin reference branches from coupled MINUTI spin-crossover fits. The current executable catalog does not implement the population mixer.",
+ "eos_records": [
+  {
+   "identifier": "mg065fe035o_solomatova_2016_hs_bm3_reference_1",
+   "label": "Solomatova et al. (2016), hs BM3 reference branch",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
+    "year": 2016,
+    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+    "source": "American Mineralogist",
+    "volume": "101",
+    "locator": "1084-1093",
+    "doi": "10.2138/am-2016-5510"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 77.1,
+     "K0": 162,
+     "K0_prime": 3.99
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.12,
+    "K0": 3,
+    "K0_prime": 0.15
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 51.343
+   },
+   "spin_crossover_context": {
+    "branch": "high_spin_reference",
+    "transition_pressure_gpa": 63.7,
+    "transition_pressure_sigma_gpa": null,
+    "transition_width_20_80_gpa": 13.3,
+    "mixer_implemented": false
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     140
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "HS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+     "Transition midpoint 63.7 GPa; reported 20-80% crossover width 13.3 GPa."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+    "V0": "Table 7 HS column: 77.1 A^3 per conventional B1 cell.",
+    "K0": "Table 7 HS column: 162 GPa.",
+    "K0_prime": "Table 7 high-spin K0' column.",
+    "original_dataset": "Solomatova et al. refit the P-V data of Chen et al. (2012), DOI 10.1029/2012JB009162.",
+    "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+   },
+   "pressure_calibration": {
+   "status": "unresolved",
+   "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "spin_branch",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "fit_relationship",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+     "doi": "10.2138/am-2016-5510",
+     "locations": [
+      "Tables 1-3",
+      "Table 7",
+      "Figures 3 and 6-10"
+     ],
+     "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 7"
+     ],
+     "finding": "The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription."
+    }
+   }
+  },
+  {
+   "identifier": "mg065fe035o_solomatova_2016_ls_bm3_reference_2",
+   "label": "Solomatova et al. (2016), ls BM3 reference branch",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
+    "year": 2016,
+    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+    "source": "American Mineralogist",
+    "volume": "101",
+    "locator": "1084-1093",
+    "doi": "10.2138/am-2016-5510"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 73.77,
+     "K0": 171,
+     "K0_prime": 4
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.69,
+    "K0": 9,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 51.343
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin_reference",
+    "transition_pressure_gpa": 63.7,
+    "transition_pressure_sigma_gpa": null,
+    "transition_width_20_80_gpa": 13.3,
+    "mixer_implemented": false
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     140
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "LS BM3 reference branch from the coupled MINUTI spin-crossover fit; it is not the physical mixed-spin curve through the transition.",
+     "Transition midpoint 63.7 GPa; reported 20-80% crossover width 13.3 GPa."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Table 7 and MINUTI discussion: third-order Birch-Murnaghan high-spin and low-spin reference branches in a coupled spin-crossover fit.",
+    "V0": "Table 7 LS column: 73.77 A^3 per conventional B1 cell.",
+    "K0": "Table 7 LS column: 171 GPa.",
+    "K0_prime": "Table 7: low-spin K0' fixed to 4.",
+    "original_dataset": "Solomatova et al. refit the P-V data of Chen et al. (2012), DOI 10.1029/2012JB009162.",
+    "fit_relationship": "The paired branches, transition pressure, and transition width form one source spin-crossover model; Peritheos currently stores only the independently executable reference branches."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The current paper refits published P-V data and does not reprint row-wise calibrant observations."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "spin_branch",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "fit_relationship",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+     "doi": "10.2138/am-2016-5510",
+     "locations": [
+      "Tables 1-3",
+      "Table 7",
+      "Figures 3 and 6-10"
+     ],
+     "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 7"
+     ],
+     "finding": "The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription."
+    }
+   }
+  }
+ ]
+}

@@ -78,7 +78,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 155 bundled
+`list_material_documents()` returns the identifiers of all 182 bundled
 materials. `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
@@ -139,7 +139,7 @@ standard or internally consistent family and verify the common validity range.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 253
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 353
 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with

@@ -1319,6 +1319,97 @@
      "finding": "The published thermal-EOS coefficients are transcribed directly. The article's P-V-T table is not redistributed because no open table-data license was identified."
     }
    }
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_preferred_bm3", "label": "Wang et al. (1996), preferred room-temperature BM3", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Wang", "Weidner", "Guyot"], "year": 1996, "title": "Thermal equation of state of CaSiO3 perovskite", "source": "Journal of Geophysical Research: Solid Earth", "volume": "101", "locator": "661-672", "doi": "10.1029/95JB03254"},
+   "sample_composition": "CaSiO3 perovskite synthesized in situ from synthetic high-purity wollastonite.",
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.58, "K0": 232.0, "K0_prime": 4.8}}, "parameter_errors": {"V0": 0.04, "K0": 8.0, "K0_prime": 0.3}, "parameter_error_confidence": 0.68, "parameter_covariance": null, "fixed_parameters": ["K0_prime"], "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [2.66, 10.07], "pressure_range_status": "reported_exactly", "experimental_temperature_range_k": [300.0, 306.0], "fit_datasets": ["ca_perovskite_wang_1996_table1_room_temperature"], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+   "validity": {"pressure_gpa": [2.66, 10.07], "temperature_k": [300.0, 306.0], "volume_ratio": [0.961606, 0.987934], "notes": ["The cubic phase is metastable at room temperature; observations below 2 GPa were excluded because amorphization and differential stress invalidate a state-function EOS."]},
+   "parameter_provenance": {"equation": "Equation (1), third-order Birch-Murnaghan.", "V0": "Abstract, room-temperature compression discussion, and Table 2 Isothermal row: 45.58(4) A3.", "K0": "Same locations: 232(8) GPa.", "K0_prime": "Adopted/fixed at 4.8 from the authors' equal-weight reanalysis of Mao et al. (1989); its 0.3 uncertainty is retained as provenance."},
+   "pressure_calibration": {"status": "resolved", "methods": [{"kind": "equation_of_state", "material": "NaCl", "reference": {"authors": ["Decker"], "year": 1971, "title": "High-pressure equation of state for NaCl, KCl, and CsCl", "source": "Journal of Applied Physics", "volume": "42", "locator": "3239-3244", "doi": "10.1063/1.1660714"}, "source_location": "Experimental Procedure", "scope": "SAM-85 measurements"}], "recalculation": {"status": "missing_calibrant_observations", "notes": "The reduced pressures and differential stresses are printed, but row-wise NaCl lattice parameters are not."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Primary equation, table, fit exclusions, parameters, and room-temperature observations checked directly.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity", "pressure_calibration", "primary_data", "numerical_reproduction"], "primary_source_check": {"access_url": "https://doi.org/10.1029/95JB03254", "doi": "10.1029/95jb03254", "locations": ["Equation (1)", "Table 1 Run 13", "Room Temperature Compression", "Table 2"], "finding": "The preferred low-pressure fit fixes K0'=4.8 from the authors' Mao-data reanalysis and excludes the two sub-2-GPa amorphizing observations."}, "primary_data_check": {"status": "complete_fit_subset", "audit_date": "2026-09-05", "dataset_identifiers": ["ca_perovskite_wang_1996_table1_room_temperature"], "finding": "All 14 room-temperature Run-13 states are bundled; the two source-excluded sub-2-GPa rows remain flagged rather than deleted."}}
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_mao_equal_weight_bm3", "label": "Wang et al. (1996), equal-weight Mao-data BM3 reanalysis", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Wang", "Weidner", "Guyot"], "year": 1996, "title": "Thermal equation of state of CaSiO3 perovskite", "source": "Journal of Geophysical Research: Solid Earth", "volume": "101", "locator": "661-672", "doi": "10.1029/95JB03254"},
+   "sample_composition": "CaSiO3 perovskite observations of Mao et al. (1989), reanalyzed in this source with remaining data equally weighted after excluding the sub-1-GPa anomalous-volume points.",
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.71, "K0": 244.0, "K0_prime": 4.8}}, "parameter_errors": {"V0": 0.12, "K0": 12.0, "K0_prime": 0.3}, "parameter_error_confidence": 0.68, "parameter_covariance": null, "fixed_parameters": [], "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [1.2, 134.0], "pressure_range_status": "reported_qualitatively", "experimental_temperature_range_k": [300.0, 300.0], "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+   "validity": {"pressure_gpa": [1.2, 134.0], "temperature_k": [300.0, 300.0], "notes": ["A source-reported sensitivity reanalysis of a cited primary dataset, not Wang et al.'s preferred new-data fit."]},
+   "parameter_provenance": {"equation": "Equation (1), BM3.", "parameters": "Room Temperature Compression discussion and Figure 4 dotted curve.", "fit_selection": "Mao et al. data above the anomalous sub-1-GPa region, with equal weights."},
+   "pressure_calibration": {"status": "unresolved", "methods": [], "recalculation": {"status": "not_possible", "notes": "This source reanalyzes already reduced Mao et al. pressures and does not repeat the calibrant observations."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Explicit independent reanalysis retained as a sensitivity record.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fit_selection", "numerical_reproduction"], "primary_source_check": {"access_url": "https://doi.org/10.1029/95JB03254", "doi": "10.1029/95jb03254", "locations": ["Room Temperature Compression", "Figure 4"], "finding": "The authors explicitly refit Mao et al.'s data equally and report all three BM3 coefficients."}, "primary_data_check": {"status": "complete_external_primary_table", "audit_date": "2026-09-05", "dataset_identifiers": ["ca_perovskite_mao_1989_table1_compression"], "finding": "The separate bundled Mao Table 1 permits an unweighted reproduction close to the rounded source fit."}}
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_mao_pressure_weighted_all_bm3", "label": "Wang et al. (1996), pressure-weighted all-Mao-data BM3 sensitivity", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Wang", "Weidner", "Guyot"], "year": 1996, "title": "Thermal equation of state of CaSiO3 perovskite", "source": "Journal of Geophysical Research: Solid Earth", "volume": "101", "locator": "661-672", "doi": "10.1029/95JB03254"},
+   "sample_composition": "All Mao et al. (1989) CaSiO3-perovskite data with reported pressure-uncertainty weighting, including likely amorphized low-pressure points.",
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.3, "K0": 282.0, "K0_prime": 4.0}}, "parameter_errors": {"V0": 0.5, "K0": 8.0, "K0_prime": 0.2}, "parameter_error_confidence": 0.68, "parameter_covariance": null, "fixed_parameters": [], "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [0.0, 134.0], "pressure_range_status": "reported_exactly", "experimental_temperature_range_k": [300.0, 300.0], "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+   "validity": {"pressure_gpa": [0.0, 134.0], "temperature_k": [300.0, 300.0], "notes": ["Diagnostic sensitivity fit intentionally includes points the authors argue are contaminated by amorphization; it is not preferred for physical use."]},
+   "parameter_provenance": {"equation": "Equation (1), BM3.", "parameters": "Room Temperature Compression discussion.", "fit_selection": "All Mao et al. data weighted by their printed pressure uncertainties."},
+   "pressure_calibration": {"status": "unresolved", "methods": [], "recalculation": {"status": "not_possible", "notes": "Reanalysis of reduced external pressures."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Explicit non-preferred sensitivity fit, preserved with its contaminated-point warning.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fit_selection", "numerical_reproduction"], "primary_source_check": {"access_url": "https://doi.org/10.1029/95JB03254", "doi": "10.1029/95jb03254", "locations": ["Room Temperature Compression"], "finding": "The paper reports this weighted all-data fit immediately before explaining why the low-pressure rows should be excluded."}, "primary_data_check": {"status": "complete_external_primary_table", "audit_date": "2026-09-05", "dataset_identifiers": ["ca_perovskite_mao_1989_table1_compression"], "finding": "All printed Mao observations are already bundled; exact coefficient parity depends on the unreported legacy regression objective."}}
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_mao_pressure_weighted_no_sub1gpa_bm3", "label": "Wang et al. (1996), pressure-weighted Mao-data BM3 excluding sub-1-GPa points", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Wang", "Weidner", "Guyot"], "year": 1996, "title": "Thermal equation of state of CaSiO3 perovskite", "source": "Journal of Geophysical Research: Solid Earth", "volume": "101", "locator": "661-672", "doi": "10.1029/95JB03254"},
+   "sample_composition": "Mao et al. (1989) CaSiO3-perovskite data weighted by pressure uncertainties after excluding anomalous lower-volume points below 1 GPa.",
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.47, "K0": 268.0, "K0_prime": 4.3}}, "parameter_errors": {"V0": 0.06, "K0": 8.0, "K0_prime": 0.2}, "parameter_error_confidence": 0.68, "parameter_covariance": null, "fixed_parameters": [], "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [1.2, 134.0], "pressure_range_status": "reported_qualitatively", "experimental_temperature_range_k": [300.0, 300.0], "fit_datasets": ["ca_perovskite_mao_1989_table1_compression"], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162},
+   "validity": {"pressure_gpa": [1.2, 134.0], "temperature_k": [300.0, 300.0], "notes": ["Sensitivity fit demonstrating the bias from amorphized sub-1-GPa data; not the paper's preferred combined interpretation."]},
+   "parameter_provenance": {"equation": "Equation (1), BM3.", "parameters": "Room Temperature Compression discussion.", "fit_selection": "Mao et al. data with the lower-volume sub-1-GPa points excluded and the remaining pressures uncertainty-weighted."},
+   "pressure_calibration": {"status": "unresolved", "methods": [], "recalculation": {"status": "not_possible", "notes": "Reanalysis of reduced external pressures."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Explicit source sensitivity fit with distinct row mask.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fit_selection", "numerical_reproduction"], "primary_source_check": {"access_url": "https://doi.org/10.1029/95JB03254", "doi": "10.1029/95jb03254", "locations": ["Room Temperature Compression"], "finding": "The authors explicitly report the changed three-parameter fit after removing anomalous sub-1-GPa points."}, "primary_data_check": {"status": "complete_external_primary_table", "audit_date": "2026-09-05", "dataset_identifiers": ["ca_perovskite_mao_1989_table1_compression"], "finding": "The Mao table is bundled; legacy weighting details prevent bitwise coefficient recovery."}}
+  },
+  {
+   "identifier": "ca_perovskite_chizmeshya_1996_lapw7_static_bm3", "label": "Chizmeshya et al. (1996), LAPW(7) static BM3", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Chizmeshya", "Wolf", "McMillan"], "year": 1996, "title": "First-principles calculation of the equation-of-state, stability, and polar optic modes of CaSiO3 perovskite", "source": "Geophysical Research Letters", "volume": "23", "locator": "2725-2728", "doi": "10.1029/96GL02624"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.04, "K0": 241.8, "K0_prime": 4.15}}, "parameter_errors": {"V0": null, "K0": null, "K0_prime": null}, "parameter_error_confidence": null, "parameter_covariance": null, "fixed_parameters": [], "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [0.0, 140.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [0.0, 0.0], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162}, "validity": {"pressure_gpa": [0.0, 140.0], "temperature_k": [0.0, 0.0], "notes": ["Ideal cubic static-lattice branch; the source also finds rotational instability of the cubic structure."]},
+   "parameter_provenance": {"equation": "Third-order Birch-Murnaghan fit to computed energy-volume results.", "parameters": "Table 1, LAPW(7) row.", "method": "Seven-point all-electron LAPW static calculation."}, "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Computational method and Table 1"}], "recalculation": {"status": "not_applicable", "notes": "First-principles energy-volume calculation."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Source table and BM3 identity verified; coefficient grid is not published.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "theoretical_method"], "primary_source_check": {"access_url": "https://doi.org/10.1029/96GL02624", "doi": "10.1029/96gl02624", "locations": ["Table 1", "EOS discussion"], "finding": "Independent seven-point LAPW static BM3 fit."}, "primary_data_check": {"status": "theoretical_parameterization_only", "audit_date": "2026-09-05", "finding": "Coefficients are tabulated; energy-volume points and weights are unavailable."}, "related_correction": {"doi": "10.1029/97GL02812", "year": 1998, "note": "The formal one-page correction is linked by the publisher; later EOS comparisons retain the preferred coefficients."}}
+  },
+  {
+   "identifier": "ca_perovskite_chizmeshya_1996_lapw8_static_bm3", "label": "Chizmeshya et al. (1996), LAPW(8) static BM3", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Chizmeshya", "Wolf", "McMillan"], "year": 1996, "title": "First-principles calculation of the equation-of-state, stability, and polar optic modes of CaSiO3 perovskite", "source": "Geophysical Research Letters", "volume": "23", "locator": "2725-2728", "doi": "10.1029/96GL02624"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.02, "K0": 241.0, "K0_prime": 4.16}}, "parameter_errors": {"V0": null, "K0": null, "K0_prime": null}, "fixed_parameters": [], "temperature_ref": 0.0, "experimental_pressure_range_gpa": [0.0, 140.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [0.0, 0.0], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162}, "validity": {"pressure_gpa": [0.0, 140.0], "temperature_k": [0.0, 0.0], "notes": ["Ideal cubic static-lattice convergence branch."]},
+   "parameter_provenance": {"equation": "Third-order Birch-Murnaghan.", "parameters": "Table 1, LAPW(8) row.", "method": "Eight-point LAPW convergence fit."}, "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Table 1"}], "recalculation": {"status": "not_applicable", "notes": "First-principles fit."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Direct source-table transcription.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "theoretical_method"], "primary_source_check": {"access_url": "https://doi.org/10.1029/96GL02624", "doi": "10.1029/96gl02624", "locations": ["Table 1"], "finding": "Independent eight-point LAPW static BM3 convergence fit."}, "primary_data_check": {"status": "theoretical_parameterization_only", "audit_date": "2026-09-05", "finding": "No E-V grid is published."}, "related_correction": {"doi": "10.1029/97GL02812", "year": 1998}}
+  },
+  {
+   "identifier": "ca_perovskite_chizmeshya_1996_lapw9_static_bm3", "label": "Chizmeshya et al. (1996), LAPW(9) static BM3", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Chizmeshya", "Wolf", "McMillan"], "year": 1996, "title": "First-principles calculation of the equation-of-state, stability, and polar optic modes of CaSiO3 perovskite", "source": "Geophysical Research Letters", "volume": "23", "locator": "2725-2728", "doi": "10.1029/96GL02624"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.06, "K0": 238.2, "K0_prime": 4.18}}, "parameter_errors": {"V0": null, "K0": null, "K0_prime": null}, "fixed_parameters": [], "temperature_ref": 0.0, "experimental_pressure_range_gpa": [0.0, 140.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [0.0, 0.0], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162}, "validity": {"pressure_gpa": [0.0, 140.0], "temperature_k": [0.0, 0.0], "notes": ["Final nine-point ideal-cubic static-lattice branch before thermal correction."]},
+   "parameter_provenance": {"equation": "Third-order Birch-Murnaghan.", "parameters": "Table 1, LAPW(9) row.", "method": "Final nine-point LAPW static fit."}, "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Table 1"}], "recalculation": {"status": "not_applicable", "notes": "First-principles fit."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Direct source-table transcription.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "theoretical_method"], "primary_source_check": {"access_url": "https://doi.org/10.1029/96GL02624", "doi": "10.1029/96gl02624", "locations": ["Table 1"], "finding": "Independent nine-point LAPW static BM3 fit used for the thermal correction."}, "primary_data_check": {"status": "theoretical_parameterization_only", "audit_date": "2026-09-05", "finding": "No E-V grid is published."}, "related_correction": {"doi": "10.1029/97GL02812", "year": 1998}}
+  },
+  {
+   "identifier": "ca_perovskite_chizmeshya_1996_lapw9_300k_kp4_bm3", "label": "Chizmeshya et al. (1996), thermally corrected LAPW(9) BM3 with K0'=4", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Chizmeshya", "Wolf", "McMillan"], "year": 1996, "title": "First-principles calculation of the equation-of-state, stability, and polar optic modes of CaSiO3 perovskite", "source": "Geophysical Research Letters", "volume": "23", "locator": "2725-2728", "doi": "10.1029/96GL02624"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.55, "K0": 237.9, "K0_prime": 4.0}}, "parameter_errors": {"V0": null, "K0": null, "K0_prime": null}, "fixed_parameters": ["K0_prime"], "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 140.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162}, "validity": {"pressure_gpa": [0.0, 140.0], "temperature_k": [300.0, 300.0], "notes": ["Thermally corrected ideal-cubic model; constrained K0'=4 sensitivity fit."]},
+   "parameter_provenance": {"equation": "Third-order Birch-Murnaghan.", "parameters": "Table 2, LAPW(9)* row.", "method": "Static LAPW(9) energy-volume relation corrected to 300 K; star denotes constrained K0'=4."}, "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Thermal-correction discussion and Table 2"}], "recalculation": {"status": "not_applicable", "notes": "Theoretical parameterization."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Complete constrained 300 K coefficients transcribed.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "fixed_parameters", "units", "reference_state", "phase", "theoretical_method"], "primary_source_check": {"access_url": "https://doi.org/10.1029/96GL02624", "doi": "10.1029/96gl02624", "locations": ["Table 2"], "finding": "Source-reported constrained thermally corrected fit, separate from the unconstrained preferred row."}, "primary_data_check": {"status": "theoretical_parameterization_only", "audit_date": "2026-09-05", "finding": "Thermally corrected E-V points are not published."}, "related_correction": {"doi": "10.1029/97GL02812", "year": 1998}}
+  },
+  {
+   "identifier": "ca_perovskite_chizmeshya_1996_lapw9_300k_bm3", "label": "Chizmeshya et al. (1996), preferred thermally corrected LAPW(9) 300 K BM3", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Chizmeshya", "Wolf", "McMillan"], "year": 1996, "title": "First-principles calculation of the equation-of-state, stability, and polar optic modes of CaSiO3 perovskite", "source": "Geophysical Research Letters", "volume": "23", "locator": "2725-2728", "doi": "10.1029/96GL02624"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 45.62, "K0": 227.0, "K0_prime": 4.29}}, "parameter_errors": {"V0": null, "K0": null, "K0_prime": null}, "fixed_parameters": [], "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 140.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0], "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.162}, "validity": {"pressure_gpa": [0.0, 140.0], "temperature_k": [300.0, 300.0], "notes": ["Preferred thermally corrected ideal-cubic model; cubic CaSiO3 is dynamically unstable to octahedral rotations in the source calculation."]},
+   "parameter_provenance": {"equation": "Third-order Birch-Murnaghan.", "parameters": "Abstract and Table 2, unconstrained LAPW(9) row.", "method": "300 K lattice-vibrational correction applied to the final nine-point static calculation."}, "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Thermal-correction discussion and Table 2"}], "recalculation": {"status": "not_applicable", "notes": "Theoretical parameterization."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Preferred coefficients corroborated by the primary abstract and later published EOS comparison.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "theoretical_method", "independent_corroboration"], "primary_source_check": {"access_url": "https://doi.org/10.1029/96GL02624", "doi": "10.1029/96gl02624", "locations": ["Abstract", "Table 2"], "finding": "The source's preferred thermally corrected fit is V0=45.62 A3, K0=227 GPa, K0'=4.29; Akber-Knutson et al. (2002), Table 2, independently repeats the same corrected set."}, "primary_data_check": {"status": "theoretical_parameterization_only", "audit_date": "2026-09-05", "finding": "The coefficients are complete but the corrected E-V grid is not published."}, "related_correction": {"doi": "10.1029/97GL02812", "year": 1998, "note": "Publisher-linked formal correction; the preferred EOS triple is unchanged in the later source comparison."}}
+  },
+  {
+   "identifier": "ca_perovskite_holland_2013_cpv_modified_tait", "label": "Holland et al. (2013), cpv modified Tait", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Holland", "Hudson", "Powell", "Harte"], "year": 2013, "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle", "source": "Journal of Petrology", "volume": "54", "locator": "1901-1920", "doi": "10.1093/petrology/egt035"},
+   "eos": {"type": "ModifiedTait", "model": "modified_tait", "parameters": {"V0": 45.58179739, "K0": 236.0, "K0_prime": 3.9, "K0_double_prime": -0.016}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null}, "fixed_parameters": [], "temperature_ref": 298.15, "experimental_pressure_range_gpa": [0.0001, 30.0], "pressure_range_status": "reference_parameterization", "experimental_temperature_range_k": [298.15, 298.15],
+   "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
+   "validity": {"pressure_gpa": [0.0001, 30.0], "temperature_k": [298.15, 298.15], "notes": ["Cubic CaSiO3-perovskite thermodynamic endmember; the low-pressure reference is extrapolated."]},
+   "parameter_provenance": {"parameters": "Article Table 1 and official tc-ds62 cpv block.", "unit_conversion": "V0=2.745 J/bar/mol, K0=2360 kbar, K0''=-0.00160 kbar^-1; converted to A3 for Z=1 and GPa units."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "self_consistent", "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact", "scope": "self-consistent thermodynamic endmember reference isotherm", "notes": "This database endmember parameterization does not use an experimental pressure gauge."}], "recalculation": {"status": "not_applicable", "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Complete four-coefficient modified-Tait endmember.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "volume_basis", "reference_state"], "primary_source_check": {"access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf", "doi": "10.1093/petrology/egt035", "locations": ["Table 1", "Thermodynamic data section"], "finding": "The cpv endmember is a distinct modified-Tait reference isotherm."}, "primary_data_check": {"status": "official_parameter_artifact", "audit_date": "2026-09-05", "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip", "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c", "finding": "The official tc-ds62 cpv block provides all four coefficients."}}
   }
  ],
  "format": "peritheos.material",
@@ -1628,6 +1719,80 @@
     "ca_perovskite_kawai_2014_vinet_mgd_3"
    ],
    "notes": "Pressures and compression coordinates are transcribed verbatim. volume_ratio=1-compression and volume_a3_per_formula_unit=46.17*volume_ratio are transparent derived convenience columns. These are fitted-EOS values, not the raw FPMD stress observations plotted in Figure 2, and are excluded from fit_datasets."
+  },
+  {
+   "identifier": "ca_perovskite_wang_1996_table1_room_temperature",
+   "kind": "pressure_volume_temperature",
+   "description": "All 14 room-temperature observations in Wang et al. (1996), Table 1, run 13; the source excludes the two sub-2-GPa points from its preferred fit.",
+   "reference": {
+    "authors": [
+     "Wang",
+     "Weidner",
+     "Guyot"
+    ],
+    "year": 1996,
+    "title": "Thermal equation of state of CaSiO3 perovskite",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "101",
+    "locator": "661-672",
+    "doi": "10.1029/95JB03254"
+   },
+   "source_location": "Table 1, run 13, journal page 665",
+   "source_url": "https://doi.org/10.1029/95JB03254",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "differential_stress_gpa",
+     "quantity": "differential_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "fit_inclusion",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-wang-1996-table1-room-temperature.csv",
+    "sha256": "71f8f01e5149e140e66251dbc3ff2c0e2a7d02aede82deae8d1f79cd2823d446",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_wang_1996_preferred_bm3"
+   ],
+   "notes": "The 12 observations at 2.66-10.07 GPa have fit_included=1. The two lower-pressure states have fit_included=0 because the authors attribute their high differential stress to amorphization and explicitly omit them. Pressures and temperatures are transcribed at the precision printed in Table 1."
   }
  ]
 }

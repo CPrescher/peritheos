@@ -1,0 +1,198 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg0875fe0125o",
+ "name": "(Mg0.875Fe0.125)O B1 ferropericlase",
+ "formula": "Mg0.875Fe0.125O",
+ "phase": "B1 ferropericlase",
+ "aliases": [
+  "B1 (Mg,Fe)O",
+  "magnesiowüstite"
+ ],
+ "cell_contents": "Four formula units per conventional rocksalt cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.28676284,
+  "b": 4.28676284,
+  "c": 4.28676284,
+  "alpha": 90,
+  "beta": 90,
+  "gamma": 90
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.875,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.125,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1,
+   "site_multiplicity": 4
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Leonov",
+    "Ponomareva",
+    "Nazarov",
+    "Abrikosov"
+   ],
+   "year": 2017,
+   "title": "Pressure-induced spin-state transition of iron in magnesiowüstite (Fe,Mg)O",
+   "source": "Physical Review B",
+   "volume": "96",
+   "locator": "075136",
+   "doi": "10.1103/PhysRevB.96.075136"
+  },
+  "structure_location": "B1 rocksalt structure used in the source EOS calculation or experiment"
+ },
+ "notes": "Average B1 solid-solution structure for the source's eight-formula-unit DFT+DMFT supercell. The EOS is a high-spin theoretical branch, not an experimental ambient structure.",
+ "eos_records": [
+  {
+   "identifier": "mg0875fe0125o_leonov_2017_hs_bm3_1",
+   "label": "(Mg0.875Fe0.125)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": [
+     "Leonov",
+     "Ponomareva",
+     "Nazarov",
+     "Abrikosov"
+    ],
+    "year": 2017,
+    "title": "Pressure-induced spin-state transition of iron in magnesiowüstite (Fe,Mg)O",
+    "source": "Physical Review B",
+    "volume": "96",
+    "locator": "075136",
+    "doi": "10.1103/PhysRevB.96.075136"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 78.7749926186,
+     "K0": 159,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 1160,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 44.2465
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     21
+    ],
+    "temperature_k": [
+     1160,
+     1160
+    ],
+    "notes": [
+     "High-spin paramagnetic B1 branch; the upper bound is the source's calculated HS-LS transition midpoint, not an experimental stability limit.",
+     "Static-ion DFT+DMFT EOS at an electronic temperature of 1160 K."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Methods: third-order Birch-Murnaghan fit to the DFT+DMFT total-energy results.",
+    "V0": "Table I: 132.9 bohr^3/formula unit, converted to a conventional Z=4 cell with the exact Bohr definition.",
+    "K0": "Table I high-spin column: 159 GPa.",
+    "K0_prime": "Table I: fixed to 4.1 for every composition.",
+    "fit_selection": "High-spin volume region fitted separately from the low-spin region; the numerical energy-volume grid is not deposited."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Methods and Table I",
+      "scope": "DFT+DMFT energy-volume calculation"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "reference_state",
+     "theoretical_method",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+     "doi": "10.1103/PhysRevB.96.075136",
+     "locations": [
+      "Methods",
+      "Table I",
+      "Figures 1-4"
+     ],
+     "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table I",
+      "Figures 1-2"
+     ],
+     "finding": "Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit."
+    }
+   }
+  }
+ ]
+}

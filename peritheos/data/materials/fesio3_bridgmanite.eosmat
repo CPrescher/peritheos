@@ -1,0 +1,58 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "fesio3_bridgmanite",
+ "name": "Iron silicate perovskite",
+ "formula": "FeSiO3",
+ "phase": "orthorhombic perovskite (Pv), high-spin antiferromagnetic",
+ "aliases": ["FeSiO3 bridgmanite", "FeSiO3 Pv"],
+ "cell_contents": "Four FeSiO3 formula units (20 atoms) on the conventional orthorhombic EOS basis. The source used a 20-atom calculation cell but did not tabulate its zero-pressure lattice or coordinates.",
+ "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+ "symmetry": "ORTHORHOMBIC",
+ "formula_units_per_cell": 4,
+ "atom_sites": [],
+ "peaks": [],
+ "source": {
+  "structure_reference": {"authors": ["Cohen", "Lin"], "year": 2014, "title": "Prediction of a potential high-pressure structure of FeSiO3", "source": "Physical Review B", "volume": "90", "locator": "140102(R)", "doi": "10.1103/PhysRevB.90.140102"},
+  "structure_location": "Methods and discussion surrounding Tables I and III: Pv calculations used a 20-atom cell; no Pv lattice or coordinates are tabulated.",
+  "article_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
+  "article_sha256": "c4bd0265b83f2859c3bb2158f91dd20be064771a03cabbcb6bb164ad4ea5a711"
+ },
+ "notes": "The phase name follows the source's Pv label. A more specific space-group setting and atomic coordinates are not inferred from unstated information. Table III reports volume per FeSiO3; all stored volumes are multiplied by four to match the conventional 20-atom cell basis.",
+ "eos_records": [
+  {
+   "identifier": "fesio3_bridgmanite_cohen_lin_2014_vinet_1",
+   "label": "Cohen and Lin (2014), static GGA+U FeSiO3 Pv Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {"authors": ["Cohen", "Lin"], "year": 2014, "title": "Prediction of a potential high-pressure structure of FeSiO3", "source": "Physical Review B", "volume": "90", "locator": "140102(R)", "doi": "10.1103/PhysRevB.90.140102"},
+   "sample_composition": "Stoichiometric FeSiO3 perovskite; static high-spin antiferromagnetic GGA+U model crystal.",
+   "eos": {"type": "Vinet", "model": "vinet", "parameters": {"V0": 177.24, "K0": 225.0, "K0_prime": 4.42}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [-10.0, 150.0],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+   "validity": {"pressure_gpa": [-10.0, 150.0], "temperature_k": [0.0, 0.0], "volume_ratio": [0.718447, 1.050881], "notes": ["Static 0 K GGA+U curve; it is not an experimental ambient-pressure stability field.", "The source energy grid corresponds to -10, 0, 25, 50, 75, 100, 125, and 150 GPa."]},
+   "parameter_provenance": {"equation": "Table III explicitly identifies a Vinet EOS fitted to the static E(V) data.", "V0": "Table III: 44.31 A3 per FeSiO3, multiplied by Z=4 to 177.24 A3 for the executable conventional-cell basis.", "K0": "Table III: 225 GPa.", "K0_prime": "Table III: 4.42.", "uncertainties": "The source publishes no coefficient uncertainties or covariance.", "method": "Quantum ESPRESSO PAW-PBE GGA+U, U=6.0 eV, 20-atom cell, 4x4x4 k mesh, 80 Ry cutoff; high-spin antiferromagnetic state."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Computational methods", "scope": "static total-energy calculations"}], "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Validated against the authoritative article and independent 100 GPa Vinet checkpoints printed in Table III.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "reference_state", "theoretical_method", "pressure_range", "independent_source_checkpoints"], "primary_source_check": {"access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf", "doi": "10.1103/PhysRevB.90.140102", "locations": ["Computational methods", "Figure 3", "Table III"], "finding": "The paper reports a separate static Vinet fit for FeSiO3 Pv."}, "primary_data_check": {"status": "parameterization_and_independent_table_checkpoints", "audit_date": "2026-09-05", "source_locations": ["Figure 3", "Table III"], "finding": "The eight energy-volume observations are plot-only, but Table III independently prints V100=34.27 A3/FeSiO3, K100=597 GPa, and K100'=3.34; the stored curve reproduces all three after rounding."}, "independent_refit": {"classification": "parity", "method": "Direct evaluation and inversion of the published Vinet coefficients at 100 GPa.", "parameters": {"V100_a3_per_formula": 34.28075129, "K100_gpa": 596.88962244, "K100_prime": 3.33886142}, "finding": "All values round to the source Table III checkpoints 34.27 A3, 597 GPa, and 3.34."}},
+   "notes": "No numerical energy-volume grid was deposited; the independent Table III 100 GPa volume and modulus triplet provides a stronger equation-convention check than digitizing the small Figure 3 panel."
+  },
+  {
+   "identifier": "fesio3_bridgmanite_holland_2013_fpv_modified_tait", "label": "Holland et al. (2013), fpv modified Tait", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Holland", "Hudson", "Powell", "Harte"], "year": 2013, "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle", "source": "Journal of Petrology", "volume": "54", "locator": "1901-1920", "doi": "10.1093/petrology/egt035"},
+   "eos": {"type": "ModifiedTait", "model": "modified_tait", "parameters": {"V0": 169.24214173, "K0": 281.0, "K0_prime": 4.14, "K0_double_prime": -0.016}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null}, "fixed_parameters": [], "temperature_ref": 298.15, "experimental_pressure_range_gpa": [0.0001, 30.0], "pressure_range_status": "reference_parameterization", "experimental_temperature_range_k": [298.15, 298.15],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+   "validity": {"pressure_gpa": [0.0001, 30.0], "temperature_k": [298.15, 298.15], "notes": ["Ideal FeSiO3 perovskite thermodynamic endmember, not an ambient stable phase or individual experiment."]},
+   "parameter_provenance": {"parameters": "Article Table 1 and official tc-ds62 fpv block.", "unit_conversion": "Primary artifact V0=2.548 J/bar/mol (correcting LitCurate's 2.534 transcription), K0=2810 kbar, K0''=-0.00160 kbar^-1; converted to executable units and Z=4."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "self_consistent", "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact", "scope": "self-consistent thermodynamic endmember reference isotherm", "notes": "This database endmember parameterization does not use an experimental pressure gauge."}], "recalculation": {"status": "not_applicable", "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Complete modified-Tait row; the official artifact resolves a LitCurate V0 transcription error.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "volume_basis", "reference_state"], "primary_source_check": {"access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf", "doi": "10.1093/petrology/egt035", "locations": ["Table 1", "Thermodynamic data section"], "finding": "The fpv endmember is a distinct modified-Tait reference isotherm."}, "primary_data_check": {"status": "official_parameter_artifact", "audit_date": "2026-09-05", "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip", "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c", "finding": "The official tc-ds62 fpv block provides all four coefficients."}}
+  }
+ ]
+}

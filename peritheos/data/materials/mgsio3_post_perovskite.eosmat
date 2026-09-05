@@ -652,6 +652,160 @@
     ]
    },
    "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_akber_knutson_2005_gga_bm3",
+   "label": "Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Akber-Knutson",
+     "Steinle-Neumann",
+     "Asimow"
+    ],
+    "year": 2005,
+    "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
+    "source": "Geophysical Research Letters",
+    "volume": "32",
+    "locator": "L14303",
+    "doi": "10.1029/2005GL023192"
+   },
+   "sample_composition": "Pure MgSiO3 CaIrO3-type post-perovskite static GGA control.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 167.32,
+     "K0": 204,
+     "K0_prime": 4.18
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0,
+   "experimental_pressure_range_gpa": [
+    -8.98923166,
+    218.08849812
+   ],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {
+   "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     -8.98923166,
+     218.08849812
+    ],
+    "temperature_k": [
+     0,
+     0
+    ],
+    "volume_ratio": [
+     0.65,
+     1.05
+    ],
+    "notes": [
+     "Static 0 K GGA calculation envelope; not an experimental stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
+    "V0": "Table 1, post-perovskite None row: 41.83 A^3 on the normalized five-atom basis; multiplied by four.",
+    "K0": "Table 1: 204 GPa.",
+    "K0_prime": "Table 1: 4.18.",
+    "uncertainties": "Not reported.",
+    "method": "Static VASP GGA, 1000 eV cutoff, fully relaxed at fixed volume."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Section 2"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable"
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the author-deposited published article.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "theoretical_method",
+     "volume_range"
+    ],
+    "primary_source_check": {
+     "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+     "doi": "10.1029/2005GL023192",
+     "locations": [
+      "Section 2",
+      "Table 1"
+     ],
+     "finding": "Table 1 reports the pure post-perovskite static GGA BM3."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "finding": "The E(V) rows, weights, residuals, and covariance are not tabulated."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "BM3 pressure evaluated at the source-stated V/V0=0.65 endpoint.",
+     "parameters": {
+      "volume_ratio": 0.65,
+      "pressure_gpa": 218.08849812
+     },
+     "finding": "The result is above 200 GPa, consistent with the independent source statement that the calculation range reaches just above 200 GPa."
+    }
+   },
+   "notes": "Source-specific theoretical comparison; it does not replace experimental records."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
+   "label": "Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3",
+   "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Zhang", "Wentzcovitch"], "year": 2022, "title": "Anharmonic thermodynamic properties and phase boundary across the postperovskite transition in MgSiO3", "source": "Physical Review B", "volume": "106", "locator": "054103", "doi": "10.1103/PhysRevB.106.054103"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 160.08, "K0": 227.43, "K0_prime": 4.24}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null}, "fixed_parameters": [],
+   "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 160.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+   "validity": {"pressure_gpa": [0.0, 160.0], "temperature_k": [300.0, 300.0], "notes": ["Anharmonic phonon-quasiparticle LDA reference isotherm; not an experimental ambient stability field."]},
+   "parameter_provenance": {"equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).", "parameters": "Table I, PPv LDA row at 300 K.", "volume_conversion": "40.02 A3 per MgSiO3 multiplied by Z=4."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Section II"}], "recalculation": {"status": "not_applicable", "notes": "First-principles anharmonic free-energy EOS."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Exact Table I coefficient transcription and executable BM3 round trip.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/2204.13159", "doi": "10.1103/PhysRevB.106.054103", "locations": ["Sections II-III", "Figure 2", "Table I"], "finding": "The primary manuscript reports a separate 300 K PHQ-LDA BM3 for PPv."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "Five F(V) states per temperature are described and plotted but not numerically deposited."}}
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3",
+   "label": "Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3",
+   "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Zhang", "Wentzcovitch"], "year": 2022, "title": "Anharmonic thermodynamic properties and phase boundary across the postperovskite transition in MgSiO3", "source": "Physical Review B", "volume": "106", "locator": "054103", "doi": "10.1103/PhysRevB.106.054103"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 170.24, "K0": 194.91, "K0_prime": 4.24}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null}, "fixed_parameters": [],
+   "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 160.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+   "validity": {"pressure_gpa": [0.0, 160.0], "temperature_k": [300.0, 300.0], "notes": ["Anharmonic phonon-quasiparticle PBE reference isotherm; not an experimental ambient stability field."]},
+   "parameter_provenance": {"equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).", "parameters": "Table I, PPv PBE row at 300 K.", "volume_conversion": "42.56 A3 per MgSiO3 multiplied by Z=4."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Section II"}], "recalculation": {"status": "not_applicable", "notes": "First-principles anharmonic free-energy EOS."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Exact Table I coefficient transcription and executable BM3 round trip.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/2204.13159", "doi": "10.1103/PhysRevB.106.054103", "locations": ["Sections II-III", "Figure 2", "Table I"], "finding": "The primary manuscript reports a separate 300 K PHQ-PBE BM3 for PPv."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "Five F(V) states per temperature are described and plotted but not numerically deposited."}}
   }
  ],
  "format": "peritheos.material",

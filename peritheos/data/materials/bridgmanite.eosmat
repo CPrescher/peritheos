@@ -1460,6 +1460,404 @@
     }
    },
    "notes": "All three coefficients were fitted by the authors; none is marked fixed. Parenthetical uncertainties are preserved, while the confidence convention and covariance are not reported for this room-temperature fit."
+  },
+  {
+   "identifier": "bridgmanite_metsue_2012_static_bm3_1",
+   "label": "Metsue and Tsuchiya (2012), pure MgSiO3 static BM3 control",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": ["Metsue", "Tsuchiya"],
+    "year": 2012,
+    "title": "Thermodynamic properties of (Mg,Fe2+)SiO3 perovskite at the lower-mantle pressures and temperatures: an internally consistent LSDA+U study",
+    "source": "Geophysical Journal International",
+    "volume": "190",
+    "locator": "310-322",
+    "doi": "10.1111/j.1365-246X.2012.05511.x"
+   },
+   "sample_composition": "Pure MgSiO3 Pbnm perovskite static control calculation reported with the six Fe-bearing supercell fits.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {"V0": 161.216424307, "K0": 258.7857, "K0_prime": 3.94}
+   },
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": ["K0_prime"],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [0.0, 150.0],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.3875},
+   "validity": {"pressure_gpa": [0.0, 150.0], "temperature_k": [0.0, 0.0], "notes": ["Static 0 K control used by the source to quantify the effect of 6.25 mol.% Fe2+.", "This source-specific control is not made the catalog default and does not replace experimental bridgmanite records."]},
+   "parameter_provenance": {"equation": "Section 3.2: third-order Birch-Murnaghan pressure-volume and energy-volume fit with K0' fixed to 3.94.", "V0": "Table 1(c): 24.2717 cm3/mol; converted using the exact Avogadro constant to 161.216424307 A3 for Z=4.", "K0": "Table 1(c): 258.7857 GPa.", "K0_prime": "Table 1 note and Section 3.2: fixed at 3.94.", "uncertainties": "No coefficient errors or covariance are reported."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Methods", "scope": "static first-principles control calculation"}], "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Validated against the official full-text article, Table 1(c), and Section 3.2.", "audit_date": "2026-09-05", "verified_fields": ["composition", "phase", "equation", "parameters", "fixed_parameters", "units", "reference_state", "pressure_range", "theoretical_method", "control_relationship"], "primary_source_check": {"access_url": "https://academic.oup.com/gji/article/190/1/310/598134", "doi": "10.1111/j.1365-246X.2012.05511.x", "locations": ["Table 1(c)", "Section 3.2"], "finding": "The study reports its own pure-MgSiO3 control alongside the six Fe-bearing fits and uses it to derive composition trends."}, "primary_data_check": {"status": "parameterization_and_pressure_grid_only", "audit_date": "2026-09-05", "source_locations": ["Methods", "Table 1(c)", "Section 3.2"], "finding": "The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated."}, "independent_refit": {"classification": "not_refittable", "method": "Source-specific parameterization and cross-composition trend checks; the energy-volume grid is unavailable.", "finding": "The control reproduces the source's reported Fe-content bulk-modulus trends when compared with the model-1 HS and LS fits."}},
+   "notes": "A source-generated static comparison record. It is distinct by method and reference state from previously cataloged experimental MgSiO3 EOS records."
+  },
+  {
+   "identifier": "bridgmanite_akber_knutson_2005_gga_bm3",
+   "label": "Akber-Knutson et al. (2005), pure-MgSiO3 static GGA BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Akber-Knutson",
+     "Steinle-Neumann",
+     "Asimow"
+    ],
+    "year": 2005,
+    "title": "Effect of Al on the sharpness of the MgSiO3 perovskite to post-perovskite phase transition",
+    "source": "Geophysical Research Letters",
+    "volume": "32",
+    "locator": "L14303",
+    "doi": "10.1029/2005GL023192"
+   },
+   "sample_composition": "Pure MgSiO3 Pbnm perovskite static GGA control.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 167,
+     "K0": 235,
+     "K0_prime": 3.84
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0,
+   "experimental_pressure_range_gpa": [
+    -10.440117,
+    230.833063
+   ],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {
+   "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     -10.440117,
+     230.833063
+    ],
+    "temperature_k": [
+     0,
+     0
+    ],
+    "volume_ratio": [
+     0.65,
+     1.05
+    ],
+    "notes": [
+     "Static 0 K GGA calculation envelope; not an experimental stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 2: internal energy versus volume fitted to the third-order Birch-Murnaghan equation.",
+    "V0": "Table 1, perovskite None row: 41.75 A^3 on the normalized five-atom basis; multiplied by four.",
+    "K0": "Table 1: 235 GPa.",
+    "K0_prime": "Table 1: 3.84.",
+    "uncertainties": "Not reported.",
+    "method": "Static VASP GGA, 1000 eV cutoff, fully relaxed at fixed volume."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Section 2"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable"
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the author-deposited published article.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "theoretical_method",
+     "volume_range"
+    ],
+    "primary_source_check": {
+     "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+     "doi": "10.1029/2005GL023192",
+     "locations": [
+      "Section 2",
+      "Table 1"
+     ],
+     "finding": "Table 1 reports the pure perovskite static GGA BM3."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "finding": "The E(V) rows, weights, residuals, and covariance are not tabulated."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "BM3 pressure evaluated at the source-stated V/V0=0.65 endpoint.",
+     "parameters": {
+      "volume_ratio": 0.65,
+      "pressure_gpa": 230.833063
+     },
+     "finding": "The result is above 200 GPa, consistent with the independent source statement that the calculation range reaches just above 200 GPa."
+    }
+   },
+   "notes": "Source-specific theoretical comparison; it does not replace the experimental catalog default."
+  }
+  ,
+  {
+   "identifier": "bridgmanite_chantel_2012_bm3_mgd",
+   "label": "Chantel et al. (2012), MgSiO3 thermoelastic BM3-MGD model",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Chantel",
+     "Frost",
+     "McCammon",
+     "Jing",
+     "Wang"
+    ],
+    "year": 2012,
+    "title": "Acoustic velocities of pure and iron-bearing magnesium silicate perovskite measured to 25 GPa and 1200 K",
+    "source": "Geophysical Research Letters",
+    "volume": "39",
+    "locator": "L19307",
+    "doi": "10.1029/2012GL053075"
+   },
+   "sample_composition": "Hot-pressed polycrystalline pure MgSiO3 perovskite; room-temperature coefficients combined with the source-adopted thermal model.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 162.2014560815,
+     "K0": 252,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 1,
+    "K0_prime": 0.1
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "parameters": {
+     "Tr": 300,
+     "theta0": 901,
+     "gamma0": 1.44,
+     "q": 1.4,
+     "n": 5
+    }
+   },
+   "thermal_parameter_errors": {
+    "Tr": null,
+    "theta0": null,
+    "gamma0": null,
+    "q": null,
+    "n": null
+   },
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    0,
+    21.9
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300,
+    1200
+   ],
+   "fit_datasets": [
+    "bridgmanite_chantel_2012_table1_density_velocity"
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     25
+    ],
+    "temperature_k": [
+     300,
+     1200
+    ],
+    "volume_ratio": [
+     0.9,
+     1
+    ],
+    "notes": [
+     "Table 3 thermoelastic model tested against this study's high-temperature acoustic measurements; do not extrapolate it as an experimental fit across the full lower mantle."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3, paragraph 15: third-order Eulerian finite-strain cold compression plus a Mie-Gruneisen thermal contribution following Stixrude et al. (2007).",
+    "V0": "Table 3: 24.42 cm^3/mol, converted using exact N_A and Z=4 to 162.2014560815 A^3.",
+    "K0": "Table 3: K_T=252 GPa, sourced from the combined room-temperature fit in Table 2.",
+    "K0_prime": "Table 3: 4.1.",
+    "thermal": "Table 3: theta0=901 K, gamma0=1.44, q=1.4; n=5 atoms per MgSiO3.",
+    "uncertainties": "Table 2 gives K=252(1) GPa and K'=4.1(1); the source does not state the confidence convention or covariance."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "source": "Journal of Applied Physics",
+       "volume": "65",
+       "locator": "1534-1543",
+       "doi": "10.1063/1.342969"
+      },
+      "source_location": "Methods, paragraph 9"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The source table gives reduced pressures but not row-wise Au volumes."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the openly deposited final article and its complete pure-MgSiO3 Table 1 observations.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "thermal_parameters",
+     "primary_data",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://zenodo.org/records/3653697",
+     "doi": "10.1029/2012GL053075",
+     "locations": [
+      "Methods",
+      "Table 1",
+      "Tables 2-3",
+      "Section 3 paragraphs 13-16"
+     ],
+     "finding": "Table 3 explicitly defines the executable MgSiO3 thermoelastic parameter set."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "bridgmanite_chantel_2012_table1_density_velocity"
+     ],
+     "source_locations": [
+      "Table 1, all eleven Mg-Pv rows"
+     ],
+     "finding": "All Mg-Pv pressures, temperatures, densities, P-wave and S-wave velocities, and printed uncertainties are transcribed."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "Direct 300 K BM3 evaluation against the nine source P-density states after converting V0 from Table 3.",
+     "parameters": {
+      "pressure_rmse_gpa": 0.62846311,
+      "maximum_absolute_pressure_residual_gpa": 1.16597993
+     },
+     "finding": "The source curve tracks all Table 1 states; an exact coefficient refit is inappropriate because K_T=252 GPa derives from the combined acoustic fit rather than a P-V-only regression."
+    }
+   },
+   "notes": "The stored pressure surface excludes Table 3 shear coefficients G, G', and eta, which do not enter the supported MGD pressure equation."
+  },
+  {
+   "identifier": "bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
+   "label": "Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {"authors": ["Zhang", "Wentzcovitch"], "year": 2022, "title": "Anharmonic thermodynamic properties and phase boundary across the postperovskite transition in MgSiO3", "source": "Physical Review B", "volume": "106", "locator": "054103", "doi": "10.1103/PhysRevB.106.054103"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 160.6, "K0": 255.72, "K0_prime": 3.91}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [0.0, 160.0],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+   "validity": {"pressure_gpa": [0.0, 160.0], "temperature_k": [300.0, 300.0], "notes": ["Anharmonic phonon-quasiparticle LDA reference isotherm; this is not an experimental stability field."]},
+   "parameter_provenance": {"equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).", "parameters": "Table I, Pv LDA row at 300 K.", "volume_conversion": "40.15 A3 per MgSiO3 multiplied by crystallographic Z=4."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Section II"}], "recalculation": {"status": "not_applicable", "notes": "First-principles anharmonic free-energy EOS."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Exact Table I coefficient transcription and executable BM3 round trip.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/2204.13159", "doi": "10.1103/PhysRevB.106.054103", "locations": ["Sections II-III", "Figure 2", "Table I"], "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited."}}
+  },
+  {
+   "identifier": "bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3",
+   "label": "Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {"authors": ["Zhang", "Wentzcovitch"], "year": 2022, "title": "Anharmonic thermodynamic properties and phase boundary across the postperovskite transition in MgSiO3", "source": "Physical Review B", "volume": "106", "locator": "054103", "doi": "10.1103/PhysRevB.106.054103"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 169.76, "K0": 226.47, "K0_prime": 3.89}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [0.0, 160.0],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+   "validity": {"pressure_gpa": [0.0, 160.0], "temperature_k": [300.0, 300.0], "notes": ["Anharmonic phonon-quasiparticle PBE reference isotherm; this is not an experimental stability field."]},
+   "parameter_provenance": {"equation": "Section III identifies a third-order Birch-Murnaghan fit to F(V,T).", "parameters": "Table I, Pv PBE row at 300 K.", "volume_conversion": "42.44 A3 per MgSiO3 multiplied by crystallographic Z=4."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Section II"}], "recalculation": {"status": "not_applicable", "notes": "First-principles anharmonic free-energy EOS."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Exact Table I coefficient transcription and executable BM3 round trip.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/2204.13159", "doi": "10.1103/PhysRevB.106.054103", "locations": ["Sections II-III", "Figure 2", "Table I"], "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited."}}
+  },
+  {
+   "identifier": "bridgmanite_mao_1991_bm2_1", "label": "Mao et al. (1991), MgSiO3 K0'=4 fit", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Mao", "Hemley", "Fei", "Shu", "Chen", "Jephcoat", "Wu", "Bassett"], "year": 1991, "title": "Effect of pressure, temperature, and composition on lattice parameters and density of (Fe,Mg)SiO3-perovskites to 30 GPa", "source": "Journal of Geophysical Research: Solid Earth", "volume": "96", "locator": "8069-8079", "doi": "10.1029/91JB00176"},
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 162.49, "K0": 261.0, "K0_prime": 4.0}},
+   "parameter_errors": {"V0": null, "K0": 4.0, "K0_prime": null}, "parameter_error_confidence": null, "parameter_covariance": null, "fixed_parameters": ["K0_prime"],
+   "temperature_ref": 298.0, "experimental_pressure_range_gpa": [0.0, 30.0], "pressure_range_status": "reported_qualitatively", "experimental_temperature_range_k": [298.0, 298.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+   "parameter_provenance": {"equation": "The 298 K isotherms use a Birch-Murnaghan fit with K0'=4 fixed.", "parameters": "Source composition-specific V0=162.49 A3 and shared K0=261(4) GPa, K0'=4."},
+   "pressure_calibration": {"status": "unresolved", "methods": [], "recalculation": {"status": "missing_calibrant_observations", "notes": "The accessible primary record does not expose row-wise calibrant observables."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "fixed_parameters", "volume_basis"], "primary_source_check": {"access_url": "https://doi.org/10.1029/91JB00176", "doi": "10.1029/91JB00176", "locations": ["Abstract", "298 K isotherm results"], "finding": "Three composition-specific V0 values share one statistically indistinguishable constrained modulus."}, "primary_data_check": {"status": "parameterization_only", "audit_date": "2026-09-05", "finding": "No accessible numerical pressure-volume table was available; no graphical points were fabricated."}}
+  },
+  {
+   "identifier": "bridgmanite_holland_2013_mpv_modified_tait", "label": "Holland et al. (2013), mpv modified Tait", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Holland", "Hudson", "Powell", "Harte"], "year": 2013, "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle", "source": "Journal of Petrology", "volume": "54", "locator": "1901-1920", "doi": "10.1093/petrology/egt035"},
+   "eos": {"type": "ModifiedTait", "model": "modified_tait", "parameters": {"V0": 162.40072077, "K0": 251.0, "K0_prime": 4.14, "K0_double_prime": -0.016}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null}, "fixed_parameters": [], "temperature_ref": 298.15,
+   "experimental_pressure_range_gpa": [0.0001, 30.0], "pressure_range_status": "reference_parameterization", "experimental_temperature_range_k": [298.15, 298.15],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 100.387},
+   "validity": {"pressure_gpa": [0.0001, 30.0], "temperature_k": [298.15, 298.15], "notes": ["298 K reference isotherm of the tc-ds62 thermodynamic endmember; not an individual experimental fit."]},
+   "parameter_provenance": {"parameters": "Article Table 1 and official tc-ds62 mpv block.", "unit_conversion": "V0=2.445 J/bar/mol =24.45 cm3/mol, converted to A3 and Z=4; K0=2510 kbar; K0''=-0.00160 kbar^-1."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "self_consistent", "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact", "scope": "self-consistent thermodynamic endmember reference isotherm", "notes": "This database endmember parameterization does not use an experimental pressure gauge."}], "recalculation": {"status": "not_applicable", "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Complete four-coefficient modified-Tait row recovered from the article's official THERMOCALC artifact and executed numerically.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "volume_basis", "reference_state"], "primary_source_check": {"access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf", "doi": "10.1093/petrology/egt035", "locations": ["Table 1", "Thermodynamic data section"], "finding": "The mpv endmember is a genuine modified-Tait reference isotherm."}, "primary_data_check": {"status": "official_parameter_artifact", "audit_date": "2026-09-05", "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip", "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c", "finding": "The official tc-ds62 mpv block provides V0, K0, K0', and K0'' without model-family conversion."}}
   }
  ],
  "format": "peritheos.material",
@@ -1470,6 +1868,110 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "bridgmanite_chantel_2012_table1_density_velocity",
+   "kind": "pressure_temperature_density_velocity",
+   "description": "All eleven pure-MgSiO3 perovskite rows from Chantel et al. Table 1, including the two high-temperature observations.",
+   "source_location": "Table 1, Mg-Pv block",
+   "source_url": "https://zenodo.org/records/3653697",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "gold_scale_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_sigma_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "density_g_cm3"
+    },
+    {
+     "name": "vp_km_s",
+     "quantity": "compressional_wave_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vp_sigma_km_s",
+     "quantity": "compressional_wave_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "vp_km_s"
+    },
+    {
+     "name": "vs_km_s",
+     "quantity": "shear_wave_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vs_sigma_km_s",
+     "quantity": "shear_wave_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "vs_km_s"
+    },
+    {
+     "name": "room_temperature_fit_included",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/bridgmanite-chantel-2012-table1-density-velocity.csv",
+    "sha256": "ea823b81c0285ccf10a159a21802d5f17ad29394ea195afad8c1ab88c87cbfb5",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "source_article_pdf_sha256": "002fd74618e3c423a200a227cf0ca18d3c149c6c6a41f9fd70da9e3bb9f84122"
+   },
+   "uncertainty": {
+    "confidence_convention": "Parenthetical source precision is transcribed as the final-digit uncertainty; its statistical convention is not explicitly stated.",
+    "pressure": "No row-level pressure uncertainties are printed."
+   },
+   "reference": {
+    "authors": [
+     "Chantel",
+     "Frost",
+     "McCammon",
+     "Jing",
+     "Wang"
+    ],
+    "year": 2012,
+    "title": "Acoustic velocities of pure and iron-bearing magnesium silicate perovskite measured to 25 GPa and 1200 K",
+    "source": "Geophysical Research Letters",
+    "volume": "39",
+    "locator": "L19307",
+    "doi": "10.1029/2012GL053075"
+   },
+   "used_by_eos_records": [
+    "bridgmanite_chantel_2012_bm3_mgd"
+   ]
+  }
+  ,
   {
    "identifier": "bridgmanite_katsura_2009_corrected_table1_pvt",
    "kind": "pressure_volume_temperature_compression_ratios",

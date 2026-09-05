@@ -159,6 +159,20 @@
      }
     }
    ]
+  },
+  {
+   "identifier": "seifertite_driver_2010_qmc_300k_vinet",
+   "label": "Driver et al. (2010), QMC 300 K Vinet",
+   "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"], "year": 2010, "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica", "source": "Proceedings of the National Academy of Sciences", "volume": "107", "locator": "9519-9524", "doi": "10.1073/pnas.0912130107"},
+   "eos": {"type": "Vinet", "model": "vinet", "parameters": {"V0": 91.75597334, "K0": 329.0, "K0_prime": 4.1}},
+   "parameter_errors": {"V0": 0.05927388, "K0": 4.0, "K0_prime": 0.1}, "fixed_parameters": [],
+   "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 220.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 60.083},
+   "validity": {"pressure_gpa": [0.0, 220.0], "temperature_k": [300.0, 300.0], "notes": ["QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2."]},
+   "parameter_provenance": {"equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.", "parameters": "Table 1, alpha-PbO2 QMC column.", "volume_conversion": "154.8(1) bohr3 per SiO2 converted to A3 and multiplied by Z=4."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Methods"}], "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "uncertainties", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/1001.2066", "doi": "10.1073/pnas.0912130107", "locations": ["Equations of States section", "Figure 1c", "Table 1"], "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."}}
   }
  ],
  "format": "peritheos.material",

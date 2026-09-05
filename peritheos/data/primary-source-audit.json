@@ -9,10 +9,87 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 253,
-    "primary_source_validated": 253
+    "records": 353,
+    "primary_source_validated": 353
   },
   "records": [
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_karki_2002_static_bm4_1",
+      "label": "Karki and Wentzcovitch (2002), static LDA BM4",
+      "doi": "10.1029/2001jb000702",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article; LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+        "doi": "10.1029/2001JB000702",
+        "locations": [
+          "Section 2",
+          "Section 3.2",
+          "Table 3",
+          "Figure 3"
+        ],
+        "finding": "The source explicitly identifies a fourth-order finite-strain fit and prints all four zero-pressure static coefficients."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_karki_2002_300k_bm4_2",
+      "label": "Karki and Wentzcovitch (2002), 300 K QHA BM4",
+      "doi": "10.1029/2001jb000702",
+      "status": "primary_source_validated",
+      "note": "Validated against Sections 2 and 3.2, Table 3, and Figure 3 of the primary article.",
+      "primary_source_check": {
+        "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+        "doi": "10.1029/2001JB000702",
+        "locations": [
+          "Section 3.2",
+          "Table 3",
+          "Figure 3"
+        ],
+        "finding": "All four zero-pressure coefficients of the 300 K BM4 isotherm are printed in Table 3."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_karki_2002_1000k_bm4_3",
+      "label": "Karki and Wentzcovitch (2002), 1000 K QHA BM4",
+      "doi": "10.1029/2001jb000702",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article; LitCurate was discovery-only.",
+      "primary_source_check": {
+        "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+        "doi": "10.1029/2001JB000702",
+        "locations": [
+          "Section 3.2",
+          "Table 3",
+          "Figure 3"
+        ],
+        "finding": "All four zero-pressure coefficients of the 1000 K BM4 isotherm are printed in Table 3."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_karki_2002_2000k_bm4_4",
+      "label": "Karki and Wentzcovitch (2002), 2000 K QHA BM4",
+      "doi": "10.1029/2001jb000702",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article; LitCurate was discovery-only.",
+      "primary_source_check": {
+        "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+        "doi": "10.1029/2001JB000702",
+        "locations": [
+          "Section 3.2",
+          "Table 3",
+          "Figure 3"
+        ],
+        "finding": "All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3, with the source's general QHA limitation stated in the surrounding text."
+      }
+    },
     {
       "material": "akimotoite",
       "file": "akimotoite.eosmat",
@@ -73,6 +150,60 @@
       }
     },
     {
+      "material": "al2o3_perovskite",
+      "file": "al2o3_perovskite.eosmat",
+      "record": "al2o3_perovskite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+      }
+    },
+    {
+      "material": "al2o3_perovskite",
+      "file": "al2o3_perovskite.eosmat",
+      "record": "al2o3_perovskite_holland_2013_apv_modified_tait",
+      "label": "Holland et al. (2013), apv modified Tait",
+      "doi": "10.1093/petrology/egt035",
+      "status": "primary_source_validated",
+      "note": "Complete four-coefficient modified-Tait endmember.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+        "doi": "10.1093/petrology/egt035",
+        "locations": [
+          "Table 1",
+          "Thermodynamic data section"
+        ],
+        "finding": "The apv endmember is a distinct modified-Tait reference isotherm."
+      }
+    },
+    {
+      "material": "al2o3_post_perovskite",
+      "file": "al2o3_post_perovskite.eosmat",
+      "record": "al2o3_post_perovskite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+      }
+    },
+    {
       "material": "al_bearing_phase_d",
       "file": "al_bearing_phase_d.eosmat",
       "record": "al_bearing_phase_d_xu_2020_bm3_300k",
@@ -123,6 +254,25 @@
           "third-order Birch-Murnaghan fit"
         ],
         "doi": "10.1107/s0021889897000861"
+      }
+    },
+    {
+      "material": "alpha_quartz",
+      "file": "alpha_quartz.eosmat",
+      "record": "alpha_quartz_driver_2010_qmc_300k_vinet",
+      "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "doi": "10.1073/pnas.0912130107",
+      "status": "primary_source_validated",
+      "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/1001.2066",
+        "doi": "10.1073/pnas.0912130107",
+        "locations": [
+          "Equations of States section",
+          "Figure 1a",
+          "Table 1"
+        ],
+        "finding": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate."
       }
     },
     {
@@ -572,6 +722,136 @@
       }
     },
     {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_metsue_2012_static_bm3_1",
+      "label": "Metsue and Tsuchiya (2012), pure MgSiO3 static BM3 control",
+      "doi": "10.1111/j.1365-246x.2012.05511.x",
+      "status": "primary_source_validated",
+      "note": "Validated against the official full-text article, Table 1(c), and Section 3.2.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
+        "doi": "10.1111/j.1365-246X.2012.05511.x",
+        "locations": [
+          "Table 1(c)",
+          "Section 3.2"
+        ],
+        "finding": "The study reports its own pure-MgSiO3 control alongside the six Fe-bearing fits and uses it to derive composition trends."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), pure-MgSiO3 static GGA BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2",
+          "Table 1"
+        ],
+        "finding": "Table 1 reports the pure perovskite static GGA BM3."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_chantel_2012_bm3_mgd",
+      "label": "Chantel et al. (2012), MgSiO3 thermoelastic BM3-MGD model",
+      "doi": "10.1029/2012gl053075",
+      "status": "primary_source_validated",
+      "note": "Validated against the openly deposited final article and its complete pure-MgSiO3 Table 1 observations.",
+      "primary_source_check": {
+        "access_url": "https://zenodo.org/records/3653697",
+        "doi": "10.1029/2012GL053075",
+        "locations": [
+          "Methods",
+          "Table 1",
+          "Tables 2-3",
+          "Section 3 paragraphs 13-16"
+        ],
+        "finding": "Table 3 explicitly defines the executable MgSiO3 thermoelastic parameter set."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
+      "label": "Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3",
+      "doi": "10.1103/physrevb.106.054103",
+      "status": "primary_source_validated",
+      "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2204.13159",
+        "doi": "10.1103/PhysRevB.106.054103",
+        "locations": [
+          "Sections II-III",
+          "Figure 2",
+          "Table I"
+        ],
+        "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3",
+      "label": "Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3",
+      "doi": "10.1103/physrevb.106.054103",
+      "status": "primary_source_validated",
+      "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2204.13159",
+        "doi": "10.1103/PhysRevB.106.054103",
+        "locations": [
+          "Sections II-III",
+          "Figure 2",
+          "Table I"
+        ],
+        "finding": "The primary manuscript reports separate 300 K PHQ-LDA and PHQ-PBE BM3 fits for Pv and PPv."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_mao_1991_bm2_1",
+      "label": "Mao et al. (1991), MgSiO3 K0'=4 fit",
+      "doi": "10.1029/91jb00176",
+      "status": "primary_source_validated",
+      "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/91JB00176",
+        "doi": "10.1029/91JB00176",
+        "locations": [
+          "Abstract",
+          "298 K isotherm results"
+        ],
+        "finding": "Three composition-specific V0 values share one statistically indistinguishable constrained modulus."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_holland_2013_mpv_modified_tait",
+      "label": "Holland et al. (2013), mpv modified Tait",
+      "doi": "10.1093/petrology/egt035",
+      "status": "primary_source_validated",
+      "note": "Complete four-coefficient modified-Tait row recovered from the article's official THERMOCALC artifact and executed numerically.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+        "doi": "10.1093/petrology/egt035",
+        "locations": [
+          "Table 1",
+          "Thermodynamic data section"
+        ],
+        "finding": "The mpv endmember is a genuine modified-Tait reference isotherm."
+      }
+    },
+    {
       "material": "ca0988mg0918fe0078mn0016c2o6_dolomite",
       "file": "ca0988mg0918fe0078mn0016c2o6_dolomite.eosmat",
       "record": "ca0988mg0918fe0078mn0016c2o6_dolomite_mao_2011_bm3_1",
@@ -770,6 +1050,183 @@
         ],
         "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. The 300 K cubic isotherm is retained only as the model reference state.",
         "doi": "10.1002/2016jb013062"
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_wang_1996_preferred_bm3",
+      "label": "Wang et al. (1996), preferred room-temperature BM3",
+      "doi": "10.1029/95jb03254",
+      "status": "primary_source_validated",
+      "note": "Primary equation, table, fit exclusions, parameters, and room-temperature observations checked directly.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/95JB03254",
+        "doi": "10.1029/95jb03254",
+        "locations": [
+          "Equation (1)",
+          "Table 1 Run 13",
+          "Room Temperature Compression",
+          "Table 2"
+        ],
+        "finding": "The preferred low-pressure fit fixes K0'=4.8 from the authors' Mao-data reanalysis and excludes the two sub-2-GPa amorphizing observations."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_wang_1996_mao_equal_weight_bm3",
+      "label": "Wang et al. (1996), equal-weight Mao-data BM3 reanalysis",
+      "doi": "10.1029/95jb03254",
+      "status": "primary_source_validated",
+      "note": "Explicit independent reanalysis retained as a sensitivity record.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/95JB03254",
+        "doi": "10.1029/95jb03254",
+        "locations": [
+          "Room Temperature Compression",
+          "Figure 4"
+        ],
+        "finding": "The authors explicitly refit Mao et al.'s data equally and report all three BM3 coefficients."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_wang_1996_mao_pressure_weighted_all_bm3",
+      "label": "Wang et al. (1996), pressure-weighted all-Mao-data BM3 sensitivity",
+      "doi": "10.1029/95jb03254",
+      "status": "primary_source_validated",
+      "note": "Explicit non-preferred sensitivity fit, preserved with its contaminated-point warning.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/95JB03254",
+        "doi": "10.1029/95jb03254",
+        "locations": [
+          "Room Temperature Compression"
+        ],
+        "finding": "The paper reports this weighted all-data fit immediately before explaining why the low-pressure rows should be excluded."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_wang_1996_mao_pressure_weighted_no_sub1gpa_bm3",
+      "label": "Wang et al. (1996), pressure-weighted Mao-data BM3 excluding sub-1-GPa points",
+      "doi": "10.1029/95jb03254",
+      "status": "primary_source_validated",
+      "note": "Explicit source sensitivity fit with distinct row mask.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/95JB03254",
+        "doi": "10.1029/95jb03254",
+        "locations": [
+          "Room Temperature Compression"
+        ],
+        "finding": "The authors explicitly report the changed three-parameter fit after removing anomalous sub-1-GPa points."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_chizmeshya_1996_lapw7_static_bm3",
+      "label": "Chizmeshya et al. (1996), LAPW(7) static BM3",
+      "doi": "10.1029/96gl02624",
+      "status": "primary_source_validated",
+      "note": "Source table and BM3 identity verified; coefficient grid is not published.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/96GL02624",
+        "doi": "10.1029/96gl02624",
+        "locations": [
+          "Table 1",
+          "EOS discussion"
+        ],
+        "finding": "Independent seven-point LAPW static BM3 fit."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_chizmeshya_1996_lapw8_static_bm3",
+      "label": "Chizmeshya et al. (1996), LAPW(8) static BM3",
+      "doi": "10.1029/96gl02624",
+      "status": "primary_source_validated",
+      "note": "Direct source-table transcription.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/96GL02624",
+        "doi": "10.1029/96gl02624",
+        "locations": [
+          "Table 1"
+        ],
+        "finding": "Independent eight-point LAPW static BM3 convergence fit."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_chizmeshya_1996_lapw9_static_bm3",
+      "label": "Chizmeshya et al. (1996), LAPW(9) static BM3",
+      "doi": "10.1029/96gl02624",
+      "status": "primary_source_validated",
+      "note": "Direct source-table transcription.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/96GL02624",
+        "doi": "10.1029/96gl02624",
+        "locations": [
+          "Table 1"
+        ],
+        "finding": "Independent nine-point LAPW static BM3 fit used for the thermal correction."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_chizmeshya_1996_lapw9_300k_kp4_bm3",
+      "label": "Chizmeshya et al. (1996), thermally corrected LAPW(9) BM3 with K0'=4",
+      "doi": "10.1029/96gl02624",
+      "status": "primary_source_validated",
+      "note": "Complete constrained 300 K coefficients transcribed.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/96GL02624",
+        "doi": "10.1029/96gl02624",
+        "locations": [
+          "Table 2"
+        ],
+        "finding": "Source-reported constrained thermally corrected fit, separate from the unconstrained preferred row."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_chizmeshya_1996_lapw9_300k_bm3",
+      "label": "Chizmeshya et al. (1996), preferred thermally corrected LAPW(9) 300 K BM3",
+      "doi": "10.1029/96gl02624",
+      "status": "primary_source_validated",
+      "note": "Preferred coefficients corroborated by the primary abstract and later published EOS comparison.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/96GL02624",
+        "doi": "10.1029/96gl02624",
+        "locations": [
+          "Abstract",
+          "Table 2"
+        ],
+        "finding": "The source's preferred thermally corrected fit is V0=45.62 A3, K0=227 GPa, K0'=4.29; Akber-Knutson et al. (2002), Table 2, independently repeats the same corrected set."
+      }
+    },
+    {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_holland_2013_cpv_modified_tait",
+      "label": "Holland et al. (2013), cpv modified Tait",
+      "doi": "10.1093/petrology/egt035",
+      "status": "primary_source_validated",
+      "note": "Complete four-coefficient modified-Tait endmember.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+        "doi": "10.1093/petrology/egt035",
+        "locations": [
+          "Table 1",
+          "Thermodynamic data section"
+        ],
+        "finding": "The cpv endmember is a distinct modified-Tait reference isotherm."
       }
     },
     {
@@ -1133,6 +1590,44 @@
         ],
         "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).",
         "doi": "10.1029/94jb00127"
+      }
+    },
+    {
+      "material": "delta_alooh",
+      "file": "delta_alooh.eosmat",
+      "record": "delta_alooh_vanpeteghem_2002_bm2_1",
+      "label": "Vanpeteghem et al. (2002), K0'=4 fit",
+      "doi": "10.1029/2001gl014224",
+      "status": "primary_source_validated",
+      "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2001GL014224",
+        "doi": "10.1029/2001GL014224",
+        "locations": [
+          "Abstract",
+          "Table 1",
+          "Table 2"
+        ],
+        "finding": "The paper publishes both a constrained and an unconstrained fit to the same nine-point dataset."
+      }
+    },
+    {
+      "material": "delta_alooh",
+      "file": "delta_alooh.eosmat",
+      "record": "delta_alooh_vanpeteghem_2002_bm3_2",
+      "label": "Vanpeteghem et al. (2002), unconstrained BM3",
+      "doi": "10.1029/2001gl014224",
+      "status": "primary_source_validated",
+      "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2001GL014224",
+        "doi": "10.1029/2001GL014224",
+        "locations": [
+          "Abstract",
+          "Table 1",
+          "Table 2"
+        ],
+        "finding": "The unconstrained 228(7)/7(1) row is a genuine published sensitivity fit, not a separate phase."
       }
     },
     {
@@ -1555,6 +2050,43 @@
       }
     },
     {
+      "material": "feo",
+      "file": "feo.eosmat",
+      "record": "feo_leonov_2017_hs_bm3_1",
+      "label": "Leonov et al. (2017), FeO high-spin DFT+DMFT BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against author-repository primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I",
+          "Figures 1-4"
+        ],
+        "finding": "Complete high-spin BM3 after formula-unit volume conversion; low-spin row rejected because low-spin V0 is absent."
+      }
+    },
+    {
+      "material": "feo",
+      "file": "feo.eosmat",
+      "record": "feo_holland_2013_fper_modified_tait",
+      "label": "Holland et al. (2013), fper modified Tait",
+      "doi": "10.1093/petrology/egt035",
+      "status": "primary_source_validated",
+      "note": "Complete four-coefficient modified-Tait endmember.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+        "doi": "10.1093/petrology/egt035",
+        "locations": [
+          "Table 1",
+          "Thermodynamic data section"
+        ],
+        "finding": "The fper endmember is a distinct modified-Tait reference isotherm."
+      }
+    },
+    {
       "material": "feo_b8_2",
       "file": "feo_b8_2.eosmat",
       "record": "feo_b8_2_fischer_2011_bm3_1",
@@ -1607,6 +2139,83 @@
           "orthorhombic FeS VI constrained BM3 fit"
         ],
         "doi": "10.2138/am.2006.2347"
+      }
+    },
+    {
+      "material": "fesio3_bridgmanite",
+      "file": "fesio3_bridgmanite.eosmat",
+      "record": "fesio3_bridgmanite_cohen_lin_2014_vinet_1",
+      "label": "Cohen and Lin (2014), static GGA+U FeSiO3 Pv Vinet",
+      "doi": "10.1103/physrevb.90.140102",
+      "status": "primary_source_validated",
+      "note": "Validated against the authoritative article and independent 100 GPa Vinet checkpoints printed in Table III.",
+      "primary_source_check": {
+        "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
+        "doi": "10.1103/PhysRevB.90.140102",
+        "locations": [
+          "Computational methods",
+          "Figure 3",
+          "Table III"
+        ],
+        "finding": "The paper reports a separate static Vinet fit for FeSiO3 Pv."
+      }
+    },
+    {
+      "material": "fesio3_bridgmanite",
+      "file": "fesio3_bridgmanite.eosmat",
+      "record": "fesio3_bridgmanite_holland_2013_fpv_modified_tait",
+      "label": "Holland et al. (2013), fpv modified Tait",
+      "doi": "10.1093/petrology/egt035",
+      "status": "primary_source_validated",
+      "note": "Complete modified-Tait row; the official artifact resolves a LitCurate V0 transcription error.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+        "doi": "10.1093/petrology/egt035",
+        "locations": [
+          "Table 1",
+          "Thermodynamic data section"
+        ],
+        "finding": "The fpv endmember is a distinct modified-Tait reference isotherm."
+      }
+    },
+    {
+      "material": "fesio3_post_perovskite",
+      "file": "fesio3_post_perovskite.eosmat",
+      "record": "fesio3_post_perovskite_cohen_lin_2014_vinet_1",
+      "label": "Cohen and Lin (2014), static GGA+U FeSiO3 PPv Vinet",
+      "doi": "10.1103/physrevb.90.140102",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article, its 100 GPa structure, and independent Table III Vinet checkpoints.",
+      "primary_source_check": {
+        "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
+        "doi": "10.1103/PhysRevB.90.140102",
+        "locations": [
+          "Table I",
+          "Computational methods",
+          "Figure 3",
+          "Table III"
+        ],
+        "finding": "The paper reports a separate static Vinet fit and complete 100 GPa structure for FeSiO3 PPv."
+      }
+    },
+    {
+      "material": "fesio3_post_perovskite_ii",
+      "file": "fesio3_post_perovskite_ii.eosmat",
+      "record": "fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1",
+      "label": "Cohen and Lin (2014), static GGA+U FeSiO3 PPv-II Vinet",
+      "doi": "10.1103/physrevb.90.140102",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article, the complete Table I structure, and independent Table III Vinet checkpoints.",
+      "primary_source_check": {
+        "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
+        "doi": "10.1103/PhysRevB.90.140102",
+        "locations": [
+          "Table I",
+          "Computational methods",
+          "Figure 3",
+          "Table III"
+        ],
+        "finding": "The paper introduces Cmmm PPv-II and reports its full 100 GPa structure and a separate Vinet fit."
       }
     },
     {
@@ -2369,6 +2978,25 @@
       }
     },
     {
+      "material": "mg0125fe0875o",
+      "file": "mg0125fe0875o.eosmat",
+      "record": "mg0125fe0875o_leonov_2017_hs_bm3_1",
+      "label": "(Mg0.125Fe0.875)O B1 magnesiowustite, Leonov et al. (2017) high-spin BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I",
+          "Figures 1-4"
+        ],
+        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
+      }
+    },
+    {
       "material": "mg0215fe0762vac0023o_b1",
       "file": "mg0215fe0762vac0023o_b1.eosmat",
       "record": "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
@@ -2404,6 +3032,82 @@
           "official American Mineralogist deposit AM-17-85966, HarvestTable 2.pdf and HarvestTable 2.xlsx"
         ],
         "finding": "The first five neon observations remain cubic-indexable through 19.244 GPa and define a separate BM3 fit with both V0 and K0_prime priors. The higher-pressure rows are increasingly hexagonally distorted and are not part of this executable record."
+      }
+    },
+    {
+      "material": "mg025fe075o",
+      "file": "mg025fe075o.eosmat",
+      "record": "mg025fe075o_leonov_2017_hs_bm3_1",
+      "label": "(Mg0.25Fe0.75)O B1 magnesiowustite, Leonov et al. (2017) high-spin BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I",
+          "Figures 1-4"
+        ],
+        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
+      }
+    },
+    {
+      "material": "mg0375fe0625o",
+      "file": "mg0375fe0625o.eosmat",
+      "record": "mg0375fe0625o_leonov_2017_hs_bm3_1",
+      "label": "(Mg0.375Fe0.625)O B1 magnesiowustite, Leonov et al. (2017) high-spin BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I",
+          "Figures 1-4"
+        ],
+        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
+      }
+    },
+    {
+      "material": "mg0490fe0483ti0027o",
+      "file": "mg0490fe0483ti0027o.eosmat",
+      "record": "mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), hs BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg0490fe0483ti0027o",
+      "file": "mg0490fe0483ti0027o.eosmat",
+      "record": "mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), ls BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
       }
     },
     {
@@ -2476,6 +3180,158 @@
           "official Supplementary Table S3"
         ],
         "finding": "The source reports a phase-specific Pnma BM2 and complete single-crystal unit-cell measurements. The two lowest-pressure Pnma refinements occur within the stated transformation interval; selecting the 16 observations above that interval reproduces the published coefficients and uncertainties."
+      }
+    },
+    {
+      "material": "mg05fe05o",
+      "file": "mg05fe05o.eosmat",
+      "record": "mg05fe05o_leonov_2017_hs_bm3_1",
+      "label": "(Mg0.5Fe0.5)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I",
+          "Figures 1-4"
+        ],
+        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
+      }
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), fei hs BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), fei ls BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3",
+      "label": "Solomatova et al. (2016), zhuravlev hs BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
+      "label": "Solomatova et al. (2016), zhuravlev ls BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg0625fe0375o",
+      "file": "mg0625fe0375o.eosmat",
+      "record": "mg0625fe0375o_leonov_2017_hs_bm3_1",
+      "label": "(Mg0.625Fe0.375)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I",
+          "Figures 1-4"
+        ],
+        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
+      }
+    },
+    {
+      "material": "mg065fe035o",
+      "file": "mg065fe035o.eosmat",
+      "record": "mg065fe035o_solomatova_2016_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), hs BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg065fe035o",
+      "file": "mg065fe035o.eosmat",
+      "record": "mg065fe035o_solomatova_2016_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), ls BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
       }
     },
     {
@@ -2558,6 +3414,58 @@
       }
     },
     {
+      "material": "mg075fe025o",
+      "file": "mg075fe025o.eosmat",
+      "record": "mg075fe025o_leonov_2017_hs_bm3_1",
+      "label": "Leonov et al. (2017), Mg0.75Fe0.25O high-spin DFT+DMFT BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against author-repository primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I"
+        ],
+        "finding": "Complete HS BM3; LS V0 absent so paired LitCurate row rejected."
+      }
+    },
+    {
+      "material": "mg075fe025o",
+      "file": "mg075fe025o.eosmat",
+      "record": "mg075fe025o_solomatova_2016_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against author-hosted primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Table 7"
+        ],
+        "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+      }
+    },
+    {
+      "material": "mg075fe025o",
+      "file": "mg075fe025o.eosmat",
+      "record": "mg075fe025o_solomatova_2016_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against author-hosted primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Table 7"
+        ],
+        "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+      }
+    },
+    {
       "material": "mg080fe020o",
       "file": "mg080fe020o.eosmat",
       "record": "mg080fe020o_speziale_2007_high_spin_bm3_1",
@@ -2578,6 +3486,24 @@
       }
     },
     {
+      "material": "mg080fe020sio3_bridgmanite",
+      "file": "mg080fe020sio3_bridgmanite.eosmat",
+      "record": "mg080fe020sio3_bridgmanite_mao_1991_bm2_1",
+      "label": "Mao et al. (1991), Fe20 bridgmanite K0'=4 fit",
+      "doi": "10.1029/91jb00176",
+      "status": "primary_source_validated",
+      "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/91JB00176",
+        "doi": "10.1029/91JB00176",
+        "locations": [
+          "Abstract",
+          "298 K isotherm results"
+        ],
+        "finding": "Three composition-specific V0 values share one statistically indistinguishable constrained modulus."
+      }
+    },
+    {
       "material": "mg083fe017o",
       "file": "mg083fe017o.eosmat",
       "record": "mg083fe017o_matsui_2012_bm3_mgd_1",
@@ -2595,6 +3521,59 @@
           "High-spin to low-spin transition, page 180"
         ],
         "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.83Fe0.17)O, fitted only below 47 GPa."
+      }
+    },
+    {
+      "material": "mg083fe017o",
+      "file": "mg083fe017o.eosmat",
+      "record": "mg083fe017o_solomatova_2016_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against author-hosted primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Table 7"
+        ],
+        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+      }
+    },
+    {
+      "material": "mg083fe017o",
+      "file": "mg083fe017o.eosmat",
+      "record": "mg083fe017o_solomatova_2016_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against author-hosted primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Table 7"
+        ],
+        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+      }
+    },
+    {
+      "material": "mg0875fe0125o",
+      "file": "mg0875fe0125o.eosmat",
+      "record": "mg0875fe0125o_leonov_2017_hs_bm3_1",
+      "label": "(Mg0.875Fe0.125)O B1 ferropericlase, Leonov et al. (2017) high-spin BM3",
+      "doi": "10.1103/physrevb.96.075136",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-repository primary PDF; LitCurate was used only for discovery and row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+        "doi": "10.1103/PhysRevB.96.075136",
+        "locations": [
+          "Methods",
+          "Table I",
+          "Figures 1-4"
+        ],
+        "finding": "Table I supplies a complete high-spin BM3 parameterization after converting its formula-unit volume; the corresponding low-spin row has no reported low-spin V0 and was rejected."
       }
     },
     {
@@ -2723,6 +3702,297 @@
       }
     },
     {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_solomatova_2016_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), hs BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_solomatova_2016_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), ls BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Tables 1-3",
+          "Table 7",
+          "Figures 3 and 6-10"
+        ],
+        "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg09375al0125si09375o3_bridgmanite",
+      "file": "mg09375al0125si09375o3_bridgmanite.eosmat",
+      "record": "mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+      }
+    },
+    {
+      "material": "mg09375al0125si09375o3_post_perovskite",
+      "file": "mg09375al0125si09375o3_post_perovskite.eosmat",
+      "record": "mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA CCM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+      }
+    },
+    {
+      "material": "mg09375fe00625o",
+      "file": "mg09375fe00625o.eosmat",
+      "record": "mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1",
+      "label": "Marcondes et al. (2020), 6Fp 11nn hs static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg09375fe00625o",
+      "file": "mg09375fe00625o.eosmat",
+      "record": "mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2",
+      "label": "Marcondes et al. (2020), 6Fp 11nn ls static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg09375fe00625o",
+      "file": "mg09375fe00625o.eosmat",
+      "record": "mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3",
+      "label": "Marcondes et al. (2020), 6Fp 11nn ms static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg09375fe00625o",
+      "file": "mg09375fe00625o.eosmat",
+      "record": "mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4",
+      "label": "Marcondes et al. (2020), 6Fp 2nn hs static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg09375fe00625o",
+      "file": "mg09375fe00625o.eosmat",
+      "record": "mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5",
+      "label": "Marcondes et al. (2020), 6Fp 2nn ls static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg09375fe00625o",
+      "file": "mg09375fe00625o.eosmat",
+      "record": "mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6",
+      "label": "Marcondes et al. (2020), 6Fp 2nn ms static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg09375fe00625sio3_bridgmanite",
+      "file": "mg09375fe00625sio3_bridgmanite.eosmat",
+      "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3",
+      "label": "Metsue and Tsuchiya (2012), high-spin model 1 static BM3",
+      "doi": "10.1111/j.1365-246x.2012.05511.x",
+      "status": "primary_source_validated",
+      "note": "Validated against the official full-text article and Table 1.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
+        "doi": "10.1111/j.1365-246X.2012.05511.x",
+        "locations": [
+          "Methods",
+          "Table 1(a)",
+          "Section 3.2"
+        ],
+        "finding": "Table 1 reports this model-specific HS fit and the authors select model 1 for thermodynamic calculations."
+      }
+    },
+    {
+      "material": "mg09375fe00625sio3_bridgmanite",
+      "file": "mg09375fe00625sio3_bridgmanite.eosmat",
+      "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3",
+      "label": "Metsue and Tsuchiya (2012), high-spin model 2 static BM3",
+      "doi": "10.1111/j.1365-246x.2012.05511.x",
+      "status": "primary_source_validated",
+      "note": "Source-reported model-2 HS sensitivity configuration.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
+        "doi": "10.1111/j.1365-246X.2012.05511.x",
+        "locations": [
+          "Table 1(a)",
+          "Section 3.2"
+        ],
+        "finding": "Distinct model-2 supercell parameterization, retained as a non-default sensitivity record."
+      }
+    },
+    {
+      "material": "mg09375fe00625sio3_bridgmanite",
+      "file": "mg09375fe00625sio3_bridgmanite.eosmat",
+      "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3",
+      "label": "Metsue and Tsuchiya (2012), high-spin model 3 static BM3",
+      "doi": "10.1111/j.1365-246x.2012.05511.x",
+      "status": "primary_source_validated",
+      "note": "Source-reported model-3 HS sensitivity configuration.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
+        "doi": "10.1111/j.1365-246X.2012.05511.x",
+        "locations": [
+          "Table 1(a)",
+          "Section 3.2"
+        ],
+        "finding": "Distinct model-3 supercell parameterization, retained as a non-default sensitivity record."
+      }
+    },
+    {
+      "material": "mg09375fe00625sio3_bridgmanite",
+      "file": "mg09375fe00625sio3_bridgmanite.eosmat",
+      "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3",
+      "label": "Metsue and Tsuchiya (2012), low-spin model 1 static BM3",
+      "doi": "10.1111/j.1365-246x.2012.05511.x",
+      "status": "primary_source_validated",
+      "note": "Source-reported LS model-1 metastable comparison, explicitly non-default.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
+        "doi": "10.1111/j.1365-246X.2012.05511.x",
+        "locations": [
+          "Table 1(b)",
+          "Sections 3.1-3.3"
+        ],
+        "finding": "The LS curve is source-reported but explicitly unstable; it is retained with a metastability warning rather than made default."
+      }
+    },
+    {
+      "material": "mg09375fe00625sio3_bridgmanite",
+      "file": "mg09375fe00625sio3_bridgmanite.eosmat",
+      "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3",
+      "label": "Metsue and Tsuchiya (2012), low-spin model 2 static BM3",
+      "doi": "10.1111/j.1365-246x.2012.05511.x",
+      "status": "primary_source_validated",
+      "note": "Source-reported LS model-2 metastable sensitivity configuration.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
+        "doi": "10.1111/j.1365-246X.2012.05511.x",
+        "locations": [
+          "Table 1(b)",
+          "Sections 3.1-3.3"
+        ],
+        "finding": "Distinct source-reported LS model-2 configuration; explicitly non-equilibrium."
+      }
+    },
+    {
+      "material": "mg09375fe00625sio3_bridgmanite",
+      "file": "mg09375fe00625sio3_bridgmanite.eosmat",
+      "record": "mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3",
+      "label": "Metsue and Tsuchiya (2012), low-spin model 3 static BM3",
+      "doi": "10.1111/j.1365-246x.2012.05511.x",
+      "status": "primary_source_validated",
+      "note": "Source-reported LS model-3 metastable sensitivity configuration.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
+        "doi": "10.1111/j.1365-246X.2012.05511.x",
+        "locations": [
+          "Table 1(b)",
+          "Sections 3.1-3.3"
+        ],
+        "finding": "Distinct source-reported LS model-3 configuration; explicitly non-equilibrium."
+      }
+    },
+    {
       "material": "mg095al010si095o3_bridgmanite",
       "file": "mg095al010si095o3_bridgmanite.eosmat",
       "record": "mg095al010si095o3_bridgmanite_daniel_2004_bm2_1",
@@ -2764,6 +4034,78 @@
         "finding": "The source defines two conventional-cell room-temperature EOS fits to one Fe-free Al.05-Pv specimen: a preferred two-free-parameter BM2 and a three-free-parameter BM3. Both use the complete 42-row table and the same explicit mixed ruby/neon pressure coordinate.",
         "official_auxiliary_readme_sha256": "816470aa2c394a62ace9406bf2677abeac0ffe0e42ead7009c3421dde8d0c10d",
         "official_auxiliary_table_sha256": "492cfcfc883014fba90295a6cfd8c3fad5e3a0f240abee46fa93a86728e739d4"
+      }
+    },
+    {
+      "material": "mg096875fe003125o",
+      "file": "mg096875fe003125o.eosmat",
+      "record": "mg096875fe003125o_marcondes_2020_hs_bm3_1",
+      "label": "Marcondes et al. (2020), 3Fp high-spin static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg096875fe003125o",
+      "file": "mg096875fe003125o.eosmat",
+      "record": "mg096875fe003125o_marcondes_2020_ls_bm3_2",
+      "label": "Marcondes et al. (2020), 3Fp low-spin static BM3",
+      "doi": "10.1103/physrevb.102.104112",
+      "status": "primary_source_validated",
+      "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2003.12348",
+        "doi": "10.1103/PhysRevB.102.104112",
+        "locations": [
+          "Computational method",
+          "Table I"
+        ],
+        "finding": "The complete static BM3 parameters belong to distinct iron-neighbor and spin configurations, not arbitrary run splits."
+      }
+    },
+    {
+      "material": "mg0991fe0008mn0001co3_magnesite",
+      "file": "mg0991fe0008mn0001co3_magnesite.eosmat",
+      "record": "mg0991fe0008mn0001co3_redfern_1993_bm2_1",
+      "label": "Redfern et al. (1993), K0' fixed to 4",
+      "doi": "10.1029/93gl02507",
+      "status": "primary_source_validated",
+      "note": "Primary publisher abstract and source-reported coefficient table checked; executable BM3 checkpoints independently reproduced.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/93GL02507",
+        "doi": "10.1029/93GL02507",
+        "locations": [
+          "Abstract",
+          "reported EOS results"
+        ],
+        "finding": "The constrained and unconstrained fits are distinct published sensitivity parameterizations of the same specimen."
+      }
+    },
+    {
+      "material": "mg0991fe0008mn0001co3_magnesite",
+      "file": "mg0991fe0008mn0001co3_magnesite.eosmat",
+      "record": "mg0991fe0008mn0001co3_redfern_1993_bm3_2",
+      "label": "Redfern et al. (1993), unconstrained BM3",
+      "doi": "10.1029/93gl02507",
+      "status": "primary_source_validated",
+      "note": "Primary publisher abstract and source-reported coefficient table checked; executable BM3 checkpoints independently reproduced.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/93GL02507",
+        "doi": "10.1029/93GL02507",
+        "locations": [
+          "Abstract",
+          "reported EOS results"
+        ],
+        "finding": "The unconstrained fit is a genuine alternative published EOS, not a phase split."
       }
     },
     {
@@ -2828,6 +4170,24 @@
       }
     },
     {
+      "material": "mg09fe01sio3_bridgmanite",
+      "file": "mg09fe01sio3_bridgmanite.eosmat",
+      "record": "mg09fe01sio3_bridgmanite_mao_1991_bm2_2",
+      "label": "Mao et al. (1991), Fe10 bridgmanite K0'=4 fit",
+      "doi": "10.1029/91jb00176",
+      "status": "primary_source_validated",
+      "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/91JB00176",
+        "doi": "10.1029/91JB00176",
+        "locations": [
+          "Abstract",
+          "298 K isotherm results"
+        ],
+        "finding": "Three composition-specific V0 values share one statistically indistinguishable constrained modulus."
+      }
+    },
+    {
       "material": "mg7si2o8",
       "file": "mg7si2o8.eosmat",
       "record": "mg7si2o8_crichton_2002_bm3_1",
@@ -2843,6 +4203,78 @@
         ],
         "finding": "Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.",
         "doi": "10.2138/am-2002-2-316"
+      }
+    },
+    {
+      "material": "mgal00625h00625si09375o3_bridgmanite",
+      "file": "mgal00625h00625si09375o3_bridgmanite.eosmat",
+      "record": "mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA AlHM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+      }
+    },
+    {
+      "material": "mgal00625h00625si09375o3_post_perovskite",
+      "file": "mgal00625h00625si09375o3_post_perovskite.eosmat",
+      "record": "mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA AlHM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+      }
+    },
+    {
+      "material": "mgal0125si0875o29375_bridgmanite",
+      "file": "mgal0125si0875o29375_bridgmanite.eosmat",
+      "record": "mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA OVM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
+      }
+    },
+    {
+      "material": "mgal0125si0875o29375_post_perovskite",
+      "file": "mgal0125si0875o29375_post_perovskite.eosmat",
+      "record": "mgal0125si0875o29375_post_perovskite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), static GGA OVM BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article and its source Table 1.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2, paragraphs 6-8",
+          "Table 1"
+        ],
+        "finding": "The article explicitly reports this distinct static GGA BM3 parameterization and its normalized volume basis."
       }
     },
     {
@@ -2904,6 +4336,40 @@
         ],
         "finding": "This record is the fit-specific MW60 second-order result in Table 1, not the paper's separate global composition model. V0 error is propagated from the primary ambient lattice measurement.",
         "doi": "10.1029/jb094ib03p03037"
+      }
+    },
+    {
+      "material": "mgfe60o",
+      "file": "mgfe60o.eosmat",
+      "record": "mgfe60o_solomatova_2016_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against author-hosted primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Table 7"
+        ],
+        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+      }
+    },
+    {
+      "material": "mgfe60o",
+      "file": "mgfe60o.eosmat",
+      "record": "mgfe60o_solomatova_2016_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+      "doi": "10.2138/am-2016-5510",
+      "status": "primary_source_validated",
+      "note": "Validated against author-hosted primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+        "doi": "10.2138/am-2016-5510",
+        "locations": [
+          "Table 7"
+        ],
+        "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
       }
     },
     {
@@ -3210,6 +4676,264 @@
       }
     },
     {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_ecp_large_core_static_bm3",
+      "label": "Oganov and Dorogokupets (2003), GGA-ECP large-core static BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Equation and Table I were checked directly against the primary article.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Sections II-III",
+          "Equations (3)-(4)",
+          "Table I"
+        ],
+        "finding": "This is one of four separately calculated static BM3 fits; it is not the citation-only experimental row."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_ecp_small_core_static_bm3",
+      "label": "Oganov and Dorogokupets (2003), GGA-ECP small-core static BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-I transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Equations (3)-(4)",
+          "Table I"
+        ],
+        "finding": "Independent small-core ECP static fit."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_paw_large_core_static_bm3",
+      "label": "Oganov and Dorogokupets (2003), GGA-PAW large-core static BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-I transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Equations (3)-(4)",
+          "Table I"
+        ],
+        "finding": "Independent large-core PAW static fit."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_paw_small_core_static_bm3",
+      "label": "Oganov and Dorogokupets (2003), GGA-PAW small-core static BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Table-I coefficients checked against eight independent Table-III pressures.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Equations (3)-(4)",
+          "Tables I and III"
+        ],
+        "finding": "Independent small-core PAW static fit; the citation-only experimental row was excluded."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_pressure_corrected_static_bm3",
+      "label": "Oganov and Dorogokupets (2003), pressure-corrected static GGA-PAW BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-V transcription with shifted Table-III curve check.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Section VI",
+          "Figure 5",
+          "Table V"
+        ],
+        "finding": "Separate pressure-corrected static BM3, distinct from the unshifted Table-I static fits and the zero-point 0 K row."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_pressure_corrected_0k_bm3",
+      "label": "Oganov and Dorogokupets (2003), pressure-corrected 0 K BM3 with zero-point energy",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-V transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Section VI",
+          "Table V"
+        ],
+        "finding": "The 0 K row includes zero-point energy and is physically distinct from Static."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_pressure_corrected_298k_bm3",
+      "label": "Oganov and Dorogokupets (2003), pressure-corrected 298 K BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-V transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Section VI",
+          "Figure 5",
+          "Table V"
+        ],
+        "finding": "Pressure-corrected theoretical 298 K BM3."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_pressure_corrected_1000k_bm3",
+      "label": "Oganov and Dorogokupets (2003), pressure-corrected 1000 K BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-V transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Section VI",
+          "Table V"
+        ],
+        "finding": "Pressure-corrected theoretical 1000 K BM3."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_pressure_corrected_2000k_bm3",
+      "label": "Oganov and Dorogokupets (2003), pressure-corrected 2000 K BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-V transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Section VI",
+          "Table V"
+        ],
+        "finding": "Pressure-corrected theoretical 2000 K BM3."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_pressure_corrected_3000k_bm3",
+      "label": "Oganov and Dorogokupets (2003), pressure-corrected 3000 K BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-V transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Section VI",
+          "Figure 5",
+          "Table V"
+        ],
+        "finding": "Pressure-corrected theoretical 3000 K BM3; compared in Figure 5 with experimental extrapolation."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_oganov_2003_pressure_corrected_4000k_bm3",
+      "label": "Oganov and Dorogokupets (2003), pressure-corrected 4000 K BM3",
+      "doi": "10.1103/physrevb.67.224110",
+      "status": "primary_source_validated",
+      "note": "Direct Table-V transcription.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
+        "doi": "10.1103/physrevb.67.224110",
+        "locations": [
+          "Section VI",
+          "Table V"
+        ],
+        "finding": "Pressure-corrected theoretical 4000 K BM3."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_lee_wan_2008_lda_static_bm3",
+      "label": "Lee and Wan (2008), LDA 0 K BM3",
+      "doi": "10.1103/physrevb.78.224103",
+      "status": "primary_source_validated",
+      "note": "The coefficients, volume basis, and BM3 identity were checked directly in the APS article and the converted curve was numerically cross-checked against the paper's pressure-difference polynomial.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.224103/fulltext",
+        "doi": "10.1103/physrevb.78.224103",
+        "locations": [
+          "Section III",
+          "Section IV.A",
+          "Figures 1 and 4"
+        ],
+        "finding": "Independent source-computed LDA EOS, paired with but not derived from the GGA fit."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_lee_wan_2008_gga_static_bm3",
+      "label": "Lee and Wan (2008), GGA 0 K BM3",
+      "doi": "10.1103/physrevb.78.224103",
+      "status": "primary_source_validated",
+      "note": "The coefficients, volume basis, and BM3 identity were checked directly in the APS article and the converted curve was numerically cross-checked against the paper's pressure-difference polynomial.",
+      "primary_source_check": {
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.224103/fulltext",
+        "doi": "10.1103/physrevb.78.224103",
+        "locations": [
+          "Section III",
+          "Section IV.A",
+          "Figures 1 and 4"
+        ],
+        "finding": "Independent source-computed GGA EOS using pseudopotentials matched to the LDA branch except for exchange correlation."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_holland_2013_per_modified_tait",
+      "label": "Holland et al. (2013), per modified Tait",
+      "doi": "10.1093/petrology/egt035",
+      "status": "primary_source_validated",
+      "note": "Complete four-coefficient modified-Tait endmember.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+        "doi": "10.1093/petrology/egt035",
+        "locations": [
+          "Table 1",
+          "Thermodynamic data section"
+        ],
+        "finding": "The per endmember is a distinct modified-Tait reference isotherm."
+      }
+    },
+    {
       "material": "mgsio3_post_perovskite",
       "file": "mgsio3_post_perovskite.eosmat",
       "record": "mgsio3_post_perovskite_mosenfelder_2009_bm3_1",
@@ -3309,6 +5033,62 @@
           "Figure 2 and caption"
         ],
         "finding": "The source reports the same constrained BM3/BM2 fit separately on the Dewaele et al. (2004) gold scale, with all six source pressures and calibrant lattice parameters printed."
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_akber_knutson_2005_gga_bm3",
+      "label": "Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3",
+      "doi": "10.1029/2005gl023192",
+      "status": "primary_source_validated",
+      "note": "Validated against the author-deposited published article.",
+      "primary_source_check": {
+        "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
+        "doi": "10.1029/2005GL023192",
+        "locations": [
+          "Section 2",
+          "Table 1"
+        ],
+        "finding": "Table 1 reports the pure post-perovskite static GGA BM3."
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
+      "label": "Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3",
+      "doi": "10.1103/physrevb.106.054103",
+      "status": "primary_source_validated",
+      "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2204.13159",
+        "doi": "10.1103/PhysRevB.106.054103",
+        "locations": [
+          "Sections II-III",
+          "Figure 2",
+          "Table I"
+        ],
+        "finding": "The primary manuscript reports a separate 300 K PHQ-LDA BM3 for PPv."
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3",
+      "label": "Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3",
+      "doi": "10.1103/physrevb.106.054103",
+      "status": "primary_source_validated",
+      "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/2204.13159",
+        "doi": "10.1103/PhysRevB.106.054103",
+        "locations": [
+          "Sections II-III",
+          "Figure 2",
+          "Table I"
+        ],
+        "finding": "The primary manuscript reports a separate 300 K PHQ-PBE BM3 for PPv."
       }
     },
     {
@@ -4325,6 +6105,25 @@
       }
     },
     {
+      "material": "seifertite",
+      "file": "seifertite.eosmat",
+      "record": "seifertite_driver_2010_qmc_300k_vinet",
+      "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "doi": "10.1073/pnas.0912130107",
+      "status": "primary_source_validated",
+      "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/1001.2066",
+        "doi": "10.1073/pnas.0912130107",
+        "locations": [
+          "Equations of States section",
+          "Figure 1c",
+          "Table 1"
+        ],
+        "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly."
+      }
+    },
+    {
       "material": "silica_cacl2",
       "file": "silica_cacl2.eosmat",
       "record": "silica_cacl2_sun_2019_bm2_1",
@@ -4521,6 +6320,43 @@
         ],
         "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
         "doi": "10.1029/2011JB009100"
+      }
+    },
+    {
+      "material": "sio2_stv_andr",
+      "file": "sio2_stv_andr.eosmat",
+      "record": "sio2_stv_andr_driver_2010_qmc_300k_vinet",
+      "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "doi": "10.1073/pnas.0912130107",
+      "status": "primary_source_validated",
+      "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
+      "primary_source_check": {
+        "access_url": "https://arxiv.org/pdf/1001.2066",
+        "doi": "10.1073/pnas.0912130107",
+        "locations": [
+          "Equations of States section",
+          "Figure 1b",
+          "Table 1"
+        ],
+        "finding": "The source reports the QMC 300 K stishovite Vinet row directly."
+      }
+    },
+    {
+      "material": "sio2_stv_andr",
+      "file": "sio2_stv_andr.eosmat",
+      "record": "sio2_stv_andr_holland_2013_stv_modified_tait",
+      "label": "Holland et al. (2013), stv modified Tait",
+      "doi": "10.1093/petrology/egt035",
+      "status": "primary_source_validated",
+      "note": "Complete four-coefficient modified-Tait endmember.",
+      "primary_source_check": {
+        "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+        "doi": "10.1093/petrology/egt035",
+        "locations": [
+          "Table 1",
+          "Thermodynamic data section"
+        ],
+        "finding": "The stv endmember is a distinct modified-Tait reference isotherm."
       }
     },
     {

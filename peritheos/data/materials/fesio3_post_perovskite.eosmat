@@ -1,0 +1,50 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "fesio3_post_perovskite",
+ "name": "Iron silicate post-perovskite",
+ "formula": "FeSiO3",
+ "phase": "CaIrO3-type post-perovskite (PPv), high-spin antiferromagnetic",
+ "aliases": ["FeSiO3 PPv", "FeSiO3 post-perovskite"],
+ "cell_contents": "Four FeSiO3 formula units in the conventional orthorhombic Cmcm cell.",
+ "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {"a": 2.508, "b": 8.614, "c": 6.283, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+ "formula_units_per_cell": 4,
+ "space_group": "Cmcm",
+ "space_group_number": 63,
+ "atom_sites": [
+  {"element": "Fe", "wyckoff": "4c", "site_multiplicity": 4, "x": 0.0, "y": 0.743, "z": 0.25, "occupancy": 1.0, "source_label": "Fe"},
+  {"element": "Si", "wyckoff": "4a", "site_multiplicity": 4, "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0, "source_label": "Si"},
+  {"element": "O", "wyckoff": "4c", "site_multiplicity": 4, "x": 0.0, "y": 0.058, "z": 0.25, "occupancy": 1.0, "source_label": "O1"},
+  {"element": "O", "wyckoff": "8f", "site_multiplicity": 8, "x": 0.0, "y": 0.368, "z": 0.048, "occupancy": 1.0, "source_label": "O2"}
+ ],
+ "peaks": [],
+ "source": {"structure_reference": {"authors": ["Cohen", "Lin"], "year": 2014, "title": "Prediction of a potential high-pressure structure of FeSiO3", "source": "Physical Review B", "volume": "90", "locator": "140102(R)", "doi": "10.1103/PhysRevB.90.140102"}, "structure_location": "Table I, GGA+U FeSiO3 PPv structure at 100 GPa", "article_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf", "article_sha256": "c4bd0265b83f2859c3bb2158f91dd20be064771a03cabbcb6bb164ad4ea5a711"},
+ "notes": "The lattice and coordinates are the source's 100 GPa GGA+U structure, not an ambient cell. Table III volumes are per FeSiO3 and are multiplied by four for the executable conventional-cell EOS basis.",
+ "eos_records": [
+  {
+   "identifier": "fesio3_post_perovskite_cohen_lin_2014_vinet_1",
+   "label": "Cohen and Lin (2014), static GGA+U FeSiO3 PPv Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {"authors": ["Cohen", "Lin"], "year": 2014, "title": "Prediction of a potential high-pressure structure of FeSiO3", "source": "Physical Review B", "volume": "90", "locator": "140102(R)", "doi": "10.1103/PhysRevB.90.140102"},
+   "sample_composition": "Stoichiometric FeSiO3 post-perovskite; static high-spin antiferromagnetic GGA+U model crystal.",
+   "eos": {"type": "Vinet", "model": "vinet", "parameters": {"V0": 179.6, "K0": 189.0, "K0_prime": 4.73}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [-10.0, 150.0],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 131.928},
+   "validity": {"pressure_gpa": [-10.0, 150.0], "temperature_k": [0.0, 0.0], "volume_ratio": [0.700886, 1.063137], "notes": ["Static 0 K GGA+U curve, not an experimental stability field.", "The source energy grid corresponds to -10 through 150 GPa at eight specified pressures."]},
+   "parameter_provenance": {"equation": "Table III: Vinet EOS fitted to static E(V) data.", "V0": "Table III: 44.90 A3 per FeSiO3, multiplied by Z=4 to 179.6 A3.", "K0": "Table III: 189 GPa.", "K0_prime": "Table III: 4.73.", "uncertainties": "No coefficient uncertainties or covariance are published.", "method": "Quantum ESPRESSO PAW-PBE GGA+U, U=6.0 eV, 20-atom cell, 4x4x4 k mesh, 80 Ry cutoff; high-spin antiferromagnetic state."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Computational methods", "scope": "static total-energy calculations"}], "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Validated against the primary article, its 100 GPa structure, and independent Table III Vinet checkpoints.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "crystal_system", "space_group", "formula_units_per_cell", "equation", "parameters", "units", "reference_state", "theoretical_method", "pressure_range", "independent_source_checkpoints"], "primary_source_check": {"access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf", "doi": "10.1103/PhysRevB.90.140102", "locations": ["Table I", "Computational methods", "Figure 3", "Table III"], "finding": "The paper reports a separate static Vinet fit and complete 100 GPa structure for FeSiO3 PPv."}, "primary_data_check": {"status": "parameterization_and_independent_table_checkpoints", "audit_date": "2026-09-05", "source_locations": ["Figure 3", "Table III"], "finding": "The energy-volume observations are plot-only; Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47."}, "independent_refit": {"classification": "parity", "method": "Direct evaluation and inversion of the published Vinet coefficients at 100 GPa.", "parameters": {"V100_a3_per_formula": 33.94964929, "K100_gpa": 577.87062193, "K100_prime": 3.46807678}, "finding": "V100 and K100' round to the printed values; K100 differs by 1.13 GPa (0.20%) at the source's integer coefficient precision."}},
+   "notes": "The small K100 rounding discrepancy is consistent with Table III's integer K0 and K100 values."
+  }
+ ]
+}

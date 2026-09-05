@@ -125,6 +125,20 @@
      "finding": "All 23 alpha-quartz unit-cell observations printed in Table 1, including the simultaneously measured fluorite volumes used to determine pressure."
     }
    }
+  },
+  {
+   "identifier": "alpha_quartz_driver_2010_qmc_300k_vinet",
+   "label": "Driver et al. (2010), QMC 300 K Vinet",
+   "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"], "year": 2010, "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica", "source": "Proceedings of the National Academy of Sciences", "volume": "107", "locator": "9519-9524", "doi": "10.1073/pnas.0912130107"},
+   "eos": {"type": "Vinet", "model": "vinet", "parameters": {"V0": 112.91675014, "K0": 32.0, "K0_prime": 7.0}},
+   "parameter_errors": {"V0": 0.88910827, "K0": 6.0, "K0_prime": 1.0}, "fixed_parameters": [],
+   "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 40.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 60.083},
+   "validity": {"pressure_gpa": [0.0, 40.0], "temperature_k": [300.0, 300.0], "notes": ["QMC plus quasiharmonic phonons; quartz is metastable above its transition."]},
+   "parameter_provenance": {"equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.", "parameters": "Table 1, quartz QMC column.", "volume_conversion": "254(2) bohr3 per SiO2 multiplied by (0.529177210903 A/bohr)^3 and Z=3."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Methods"}], "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "uncertainties", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/1001.2066", "doi": "10.1073/pnas.0912130107", "locations": ["Equations of States section", "Figure 1a", "Table 1"], "finding": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."}}
   }
  ],
  "format": "peritheos.material",

@@ -98,6 +98,13 @@ INDIRECT_DATA = {
         "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
         "provide enough degrees of freedom for the generic refit campaign."
     ),
+    "bridgmanite_chantel_2012_bm3_mgd": (
+        "The bundled density and acoustic-velocity observations validate the "
+        "published thermoelastic pressure surface in the dedicated Chantel "
+        "reproduction. The stored K0 and K0-prime come from the source's combined "
+        "acoustic fit, so these rows are not independent observations for a generic "
+        "pressure-volume coefficient refit."
+    ),
 }
 
 SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
@@ -480,6 +487,12 @@ PRESSURE_COLUMNS = {
         "pressure_dewaele_2004_gpa"
     ),
     "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression": ("pressure_ruby_gpa"),
+    "mgo_oganov_2003_table3_pv#mgo_oganov_2003_paw_small_core_static_bm3": (
+        "static_pressure_gpa"
+    ),
+    "mgo_oganov_2003_table3_pv#mgo_oganov_2003_pressure_corrected_static_bm3": (
+        "pressure_corrected_gpa"
+    ),
 }
 
 VOLUME_COLUMNS = {

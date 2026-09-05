@@ -220,9 +220,137 @@
      "limitation": "The midpoint pressure precision is an explicit deterministic audit choice, not a reconstruction of undocumented EOS-FIT weights; the source publishes no covariance or confidence convention."
     }
    }
+  },
+  {
+   "identifier": "feo_leonov_2017_hs_bm3_1",
+   "label": "Leonov et al. (2017), FeO high-spin DFT+DMFT BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Leonov",
+     "Ponomareva",
+     "Nazarov",
+     "Abrikosov"
+    ],
+    "year": 2017,
+    "title": "Pressure-induced spin-state transition of iron in magnesiowüstite (Fe,Mg)O",
+    "source": "Physical Review B",
+    "volume": "96",
+    "locator": "075136",
+    "doi": "10.1103/PhysRevB.96.075136"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 85.4136676926,
+     "K0": 142,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 1160,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 71.844
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     73
+    ],
+    "temperature_k": [
+     1160,
+     1160
+    ],
+    "notes": [
+     "High-spin paramagnetic B1 branch; upper bound is the source transition midpoint.",
+     "Static-ion DFT+DMFT EOS at electronic temperature 1160 K."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Methods: third-order Birch-Murnaghan fit to DFT+DMFT total energies.",
+    "V0": "Table I: 144.1 bohr^3/formula unit; converted to conventional Z=4 cell.",
+    "K0": "Table I high-spin column: 142 GPa.",
+    "K0_prime": "Fixed to 4.1.",
+    "fit_selection": "High-spin volume region. Numerical energy-volume grid not deposited."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Methods and Table I",
+      "scope": "DFT+DMFT"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental scale."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against author-repository primary PDF.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "reference_state",
+     "theoretical_method",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+     "doi": "10.1103/PhysRevB.96.075136",
+     "locations": [
+      "Methods",
+      "Table I",
+      "Figures 1-4"
+     ],
+     "finding": "Complete high-spin BM3 after formula-unit volume conversion; low-spin row rejected because low-spin V0 is absent."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table I",
+      "Figures 1-2"
+     ],
+     "finding": "Independent equation checkpoints verify transcription without claiming a refit."
+    }
+   }
+  },
+  {
+   "identifier": "feo_holland_2013_fper_modified_tait", "label": "Holland et al. (2013), fper modified Tait", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Holland", "Hudson", "Powell", "Harte"], "year": 2013, "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle", "source": "Journal of Petrology", "volume": "54", "locator": "1901-1920", "doi": "10.1093/petrology/egt035"},
+   "eos": {"type": "ModifiedTait", "model": "modified_tait", "parameters": {"V0": 80.1044046, "K0": 152.0, "K0_prime": 4.9, "K0_double_prime": -0.032}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null}, "fixed_parameters": [], "temperature_ref": 298.15, "experimental_pressure_range_gpa": [0.0001, 30.0], "pressure_range_status": "reference_parameterization", "experimental_temperature_range_k": [298.15, 298.15],
+   "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 71.844},
+   "validity": {"pressure_gpa": [0.0001, 30.0], "temperature_k": [298.15, 298.15], "notes": ["Ideal FeO B1 thermodynamic endmember; not a stoichiometry claim for natural wustite."]},
+   "parameter_provenance": {"parameters": "Article Table 1 and official tc-ds62 fper block.", "unit_conversion": "V0=1.206 J/bar/mol, K0=1520 kbar, K0''=-0.00320 kbar^-1; converted to executable units and Z=4."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "self_consistent", "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact", "scope": "self-consistent thermodynamic endmember reference isotherm", "notes": "This database endmember parameterization does not use an experimental pressure gauge."}], "recalculation": {"status": "not_applicable", "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Complete four-coefficient modified-Tait endmember.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "volume_basis", "reference_state"], "primary_source_check": {"access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf", "doi": "10.1093/petrology/egt035", "locations": ["Table 1", "Thermodynamic data section"], "finding": "The fper endmember is a distinct modified-Tait reference isotherm."}, "primary_data_check": {"status": "official_parameter_artifact", "audit_date": "2026-09-05", "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip", "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c", "finding": "The official tc-ds62 fper block provides all four coefficients."}}
   }
  ],
- "format": "peritheos.material",
+"format": "peritheos.material",
  "identifier": "feo",
  "units": {
   "pressure": "GPa",

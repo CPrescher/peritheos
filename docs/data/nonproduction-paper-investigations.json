@@ -49,6 +49,38 @@
       "investigation_date": "2026-09-04",
       "evidence": "material-eos-candidates.md",
       "reason": "The deposited temperature-indexed BM3 curves can be reproduced, but they are derived grids rather than primary fit observations. Their V0(T), K0(T), and K0-prime(T) behavior is not faithfully represented by the current thermal wrapper, and the primary methods, uncertainty/covariance information, exact reference-state convention, and authoritative symmetry-reduced structures were unavailable. The candidate remains deliberately non-executable."
+    },
+    {
+      "citation": "Caracas and Cohen (2005), MgSiO3-FeSiO3-Al2O3 pv/ppv chemistry",
+      "doi": "10.1029/2005GL023164",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/caracas-cohen-2005-chemistry.md",
+      "reason": "All 16 LitCurate rows are held because the primary parameter table was unavailable and the accessible abstract does not establish the EOS equation, volume basis, or magnetic/electronic branch identities. No coefficients were promoted from discovery-only evidence."
+    },
+    {
+      "citation": "Karki and Stixrude (1999), lower-mantle elastic moduli",
+      "doi": "10.1029/1999JB900069",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/oganov-wang-chizmeshya-karki-eos-audit.md#karki-and-stixrude-1999-0-accepted-5-rejected",
+      "reason": "The five source rows are finite-strain fits of elastic moduli M(P), not pressure-volume equations of state, and they contain no V0. Encoding them as volumetric BM records would be scientifically false, so all five were rejected from production."
+    },
+    {
+      "citation": "Shukla et al. (2016), Fe3+- and Al-bearing bridgmanite",
+      "doi": "10.1002/2016GL069332",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/shukla-2016-ferric-al-bridgmanite.md",
+      "reason": "Three composition-specific calculated rows are held because the primary article prints V0, K0, and K0-prime but never identifies the analytical cold-compression equation. Three further rows are comparisons owned by cited primary papers."
+    },
+    {
+      "citation": "Xiao et al. (2013), cubic and 6H SrSiO3",
+      "doi": "10.2138/am.2013.4470",
+      "outcome": "deferred_batch_boundary",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/xiao-2013-srsio3.md",
+      "reason": "The experimental cubic and two static-GGA SrSiO3 fits are complete and defensible, but the exact +100 batch target was already reached by the preceding complete paper family. All three are documented together and deliberately queued for the next batch rather than partially imported; two comparison rows are citation traces."
     }
   ]
 }

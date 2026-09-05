@@ -626,9 +626,340 @@
     ]
    },
    "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case."
+  },
+  {
+   "identifier": "mg075fe025o_leonov_2017_hs_bm3_1",
+   "label": "Leonov et al. (2017), Mg0.75Fe0.25O high-spin DFT+DMFT BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Leonov",
+     "Ponomareva",
+     "Nazarov",
+     "Abrikosov"
+    ],
+    "year": 2017,
+    "title": "Pressure-induced spin-state transition of iron in magnesiowüstite (Fe,Mg)O",
+    "source": "Physical Review B",
+    "volume": "96",
+    "locator": "075136",
+    "doi": "10.1103/PhysRevB.96.075136"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 79.3084575799,
+     "K0": 151,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 1160,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 48.189
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     52
+    ],
+    "temperature_k": [
+     1160,
+     1160
+    ],
+    "notes": [
+     "High-spin paramagnetic B1 branch; upper bound is the source transition midpoint."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Third-order Birch-Murnaghan fit to DFT+DMFT total energies.",
+    "V0": "Table I: 133.8 bohr^3/formula unit; converted to conventional Z=4 cell.",
+    "K0": "Table I HS: 151 GPa.",
+    "K0_prime": "Fixed 4.1."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Methods and Table I",
+      "scope": "DFT+DMFT"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental scale."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against author-repository primary PDF.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "theoretical_method",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+     "doi": "10.1103/PhysRevB.96.075136",
+     "locations": [
+      "Methods",
+      "Table I"
+     ],
+     "finding": "Complete HS BM3; LS V0 absent so paired LitCurate row rejected."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table I",
+      "Figure 2"
+     ],
+     "finding": "Independent checkpoints only; no grid deposited."
+    }
+   }
+  }
+,
+  {
+   "identifier": "mg075fe025o_solomatova_2016_hs_bm3_reference_1",
+   "label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
+    "year": 2016,
+    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+    "source": "American Mineralogist",
+    "volume": "101",
+    "locator": "1084-1093",
+    "doi": "10.2138/am-2016-5510"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 76.34,
+     "K0": 160,
+     "K0_prime": 4.28
+    }
+   },
+   "parameter_errors": {
+    "V0": 0,
+    "K0": 1,
+    "K0_prime": 0.06
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 48.189
+   },
+   "spin_crossover_context": {
+    "branch": "high_spin_reference",
+    "transition_pressure_gpa": 62.6,
+    "transition_width_20_80_gpa": 15.9,
+    "mixer_implemented": false
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     140
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Table 7 paired BM3 reference branches.",
+    "V0": "Table 7: 76.34 A^3.",
+    "K0": "Table 7: 160 GPa.",
+    "K0_prime": "Table 7 HS value.",
+    "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
+   },
+   "pressure_calibration": {
+   "status": "unresolved",
+   "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Row-wise calibrants not reprinted."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+     "doi": "10.2138/am-2016-5510",
+     "locations": [
+      "Table 7"
+     ],
+     "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 7"
+     ],
+     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+    }
+   }
+  }
+,
+  {
+   "identifier": "mg075fe025o_solomatova_2016_ls_bm3_reference_2",
+   "label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
+    "year": 2016,
+    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+    "source": "American Mineralogist",
+    "volume": "101",
+    "locator": "1084-1093",
+    "doi": "10.2138/am-2016-5510"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 73.74,
+     "K0": 174,
+     "K0_prime": 4
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.19,
+    "K0": 2,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 300,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 48.189
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin_reference",
+    "transition_pressure_gpa": 62.6,
+    "transition_width_20_80_gpa": 15.9,
+    "mixer_implemented": false
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     140
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Table 7 paired BM3 reference branches.",
+    "V0": "Table 7: 73.74 A^3.",
+    "K0": "Table 7: 174 GPa.",
+    "K0_prime": "Fixed to 4.",
+    "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Row-wise calibrants not reprinted."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+     "doi": "10.2138/am-2016-5510",
+     "locations": [
+      "Table 7"
+     ],
+     "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 7"
+     ],
+     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+    }
+   }
   }
  ],
- "datasets": [
+"datasets": [
   {
    "identifier": "mg075fe025o_matsui_2012_table2_pvt",
    "kind": "calibrated_pressure_volume_temperature",

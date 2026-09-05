@@ -31,6 +31,7 @@ OUTCOME_LABELS = {
     "direct_refit_unavailable": "Direct refit unavailable",
     "withheld_unreproduced": "Withheld: could not reproduce",
     "deferred_incomplete_model": "Deferred: incomplete source/model mapping",
+    "deferred_batch_boundary": "Deferred: complete family queued for next batch",
 }
 
 CITATION_OVERRIDES = {

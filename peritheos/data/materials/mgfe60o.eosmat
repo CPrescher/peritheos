@@ -184,9 +184,232 @@
     "K0": "Richet et al. (1989), Table 1, MW60 this-work static fit",
     "equation": "Richet et al. (1989), Table 1 footnote and equation (1): second-order Eulerian finite strain with K0'=4"
    }
+  },
+  {
+   "identifier": "mgfe60o_solomatova_2016_hs_bm3_reference_1",
+   "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
+    "year": 2016,
+    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+    "source": "American Mineralogist",
+    "volume": "101",
+    "locator": "1084-1093",
+    "doi": "10.2138/am-2016-5510"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 77.9,
+     "K0": 159,
+     "K0_prime": 3.82
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.04,
+    "K0": 2,
+    "K0_prime": 0.14
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 59.228
+   },
+   "spin_crossover_context": {
+    "branch": "high_spin_reference",
+    "transition_pressure_gpa": 78.6,
+    "transition_width_20_80_gpa": 25.1,
+    "mixer_implemented": false
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     140
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Table 7 paired BM3 reference branches.",
+    "V0": "Table 7: 77.9 A^3.",
+    "K0": "Table 7: 159 GPa.",
+    "K0_prime": "Table 7 HS value.",
+    "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
+   },
+   "pressure_calibration": {
+   "status": "unresolved",
+   "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Row-wise calibrants not reprinted."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+     "doi": "10.2138/am-2016-5510",
+     "locations": [
+      "Table 7"
+     ],
+     "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 7"
+     ],
+     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+    }
+   }
+  }
+,
+  {
+   "identifier": "mgfe60o_solomatova_2016_ls_bm3_reference_2",
+   "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
+    "year": 2016,
+    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+    "source": "American Mineralogist",
+    "volume": "101",
+    "locator": "1084-1093",
+    "doi": "10.2138/am-2016-5510"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 73.83,
+     "K0": 169,
+     "K0_prime": 4
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.84,
+    "K0": 9,
+    "K0_prime": null
+   },
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 300,
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 59.228
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin_reference",
+    "transition_pressure_gpa": 78.6,
+    "transition_width_20_80_gpa": 25.1,
+    "mixer_implemented": false
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     140
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Table 7 paired BM3 reference branches.",
+    "V0": "Table 7: 73.83 A^3.",
+    "K0": "Table 7: 169 GPa.",
+    "K0_prime": "Fixed to 4.",
+    "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Row-wise calibrants not reprinted."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "units",
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+     "doi": "10.2138/am-2016-5510",
+     "locations": [
+      "Table 7"
+     ],
+     "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 7"
+     ],
+     "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
+    }
+   }
   }
  ],
- "atom_sites": [
+"atom_sites": [
   {
    "element": "Mg",
    "wyckoff": "4a",

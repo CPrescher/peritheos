@@ -19,11 +19,12 @@ def test_paper_investigation_ledger_is_complete_and_current():
         for row in audit
     }
 
-    assert len(paper_keys) == 158
-    assert len(nonproduction) == 6
+    assert len(paper_keys) == 176
+    assert len(nonproduction) == 10
     assert {row["outcome"] for row in nonproduction} == {
         "withheld_unreproduced",
         "deferred_incomplete_model",
+        "deferred_batch_boundary",
         "direct_refit_unavailable",
     }
     subprocess.run(
@@ -32,9 +33,9 @@ def test_paper_investigation_ledger_is_complete_and_current():
         check=True,
     )
     ledger = LEDGER_PATH.read_text(encoding="utf-8")
-    assert "**164 primary papers**" in ledger
-    assert "| Reproduced | 118 |" in ledger
-    assert "| Coefficient parity not achieved | 9 |" in ledger
-    assert "| Direct refit unavailable | 25 |" in ledger
+    assert "**186 primary papers**" in ledger
+    assert "| Reproduced | 120 |" in ledger
+    assert "| Coefficient parity not achieved | 10 |" in ledger
+    assert "| Direct refit unavailable | 39 |" in ledger
     assert "Katsura et al. (2004)" in ledger
     assert "Wang et al. (2026)" in ledger

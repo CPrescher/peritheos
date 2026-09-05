@@ -49,6 +49,495 @@
  "peaks": [],
  "eos_records": [
   {
+   "identifier": "akimotoite_karki_2002_static_bm4_1",
+   "label": "Karki and Wentzcovitch (2002), static LDA BM4",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Karki",
+     "Wentzcovitch"
+    ],
+    "year": 2002,
+    "title": "First-principles lattice dynamics and thermoelasticity of MgSiO3 ilmenite at high pressure",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "107",
+    "locator": "2267",
+    "doi": "10.1029/2001JB000702"
+   },
+   "sample_composition": "Stoichiometric MgSiO3 ilmenite; static 0 K LDA calculation.",
+   "eos": {
+    "type": "BM4",
+    "model": "birch_murnaghan_4",
+    "parameters": {
+     "V0": 261.66,
+     "K0": 210.0,
+     "K0_prime": 4.57,
+     "K0_double_prime": -0.041
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "K0_double_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    -11.0,
+    33.0
+   ],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {
+   "kind": "formula_units",
+    "formula_units": 6.0,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     -11.0,
+     33.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "notes": [
+     "Static-lattice parameterization; the pressure bounds are the paper's stated calculation regime, not a phase-stability field.",
+     "The source reports volume per MgSiO3 formula unit; values are multiplied by Z=6 for this conventional hexagonal-cell document."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.2 states that fourth-order finite-strain equations were fitted to calculated free energy versus volume at each temperature; this maps to the Eulerian fourth-order Birch-Murnaghan EOS.",
+    "V0": "Table 3: 43.61 A3 per formula unit for the static lattice; stored as 261.66 A3 for the Z=6 conventional hexagonal cell.",
+    "K0": "Table 3: KT=210 GPa at zero pressure.",
+    "K0_prime": "Table 3: dKT/dP=4.57 at zero pressure.",
+    "K0_double_prime": "Table 3: d2KT/dP2=-0.041 GPa^-1 at zero pressure."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Section 2",
+      "scope": "static LDA energy-volume and DFPT calculations"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies to the static first-principles calculation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the primary article; LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "theoretical_method",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+     "doi": "10.1029/2001JB000702",
+     "locations": [
+      "Section 2",
+      "Section 3.2",
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "The source explicitly identifies a fourth-order finite-strain fit and prints all four zero-pressure static coefficients."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "Complete BM4 coefficients are tabulated, but the underlying free-energy-volume grid is shown only graphically and is not deposited."
+    }
+   },
+   "notes": "Non-default theoretical record; the catalog's experimental Siersch et al. record remains the equilibrium default."
+  },
+  {
+   "identifier": "akimotoite_karki_2002_300k_bm4_2",
+   "label": "Karki and Wentzcovitch (2002), 300 K QHA BM4",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Karki",
+     "Wentzcovitch"
+    ],
+    "year": 2002,
+    "title": "First-principles lattice dynamics and thermoelasticity of MgSiO3 ilmenite at high pressure",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "107",
+    "locator": "2267",
+    "doi": "10.1029/2001JB000702"
+   },
+   "sample_composition": "Stoichiometric MgSiO3 ilmenite; 300 K quasiharmonic LDA isotherm.",
+   "eos": {
+    "type": "BM4",
+    "model": "birch_murnaghan_4",
+    "parameters": {
+     "V0": 265.2,
+     "K0": 201.0,
+     "K0_prime": 4.64,
+     "K0_double_prime": -0.042
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "K0_double_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    -11.0,
+    33.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+   "kind": "formula_units",
+    "formula_units": 6.0,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     -11.0,
+     33.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Quasiharmonic isotherm within the paper's stated calculation pressure regime; this is not an experimental fit or a phase-stability field.",
+     "The source reports volume per formula unit; the stored V0 is converted to the Z=6 conventional-cell basis."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
+    "V0": "Table 3: 44.20 A3 per formula unit at 300 K; stored as 265.20 A3 for Z=6.",
+    "K0": "Table 3: KT=201 GPa.",
+    "K0_prime": "Table 3: dKT/dP=4.64.",
+    "K0_double_prime": "Table 3: d2KT/dP2=-0.042 GPa^-1."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Sections 2 and 3.2",
+      "scope": "LDA/DFPT quasiharmonic free-energy calculation"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against Sections 2 and 3.2, Table 3, and Figure 3 of the primary article.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "temperature_ref",
+     "theoretical_method",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+     "doi": "10.1029/2001JB000702",
+     "locations": [
+      "Section 3.2",
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "All four zero-pressure coefficients of the 300 K BM4 isotherm are printed in Table 3."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "The fitted coefficients and curve are published, but the numerical free-energy-volume grid is unavailable."
+    }
+   },
+   "notes": "Non-default theoretical 300 K isotherm; do not substitute it for the catalog's experimental equilibrium default."
+  },
+  {
+   "identifier": "akimotoite_karki_2002_1000k_bm4_3",
+   "label": "Karki and Wentzcovitch (2002), 1000 K QHA BM4",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Karki",
+     "Wentzcovitch"
+    ],
+    "year": 2002,
+    "title": "First-principles lattice dynamics and thermoelasticity of MgSiO3 ilmenite at high pressure",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "107",
+    "locator": "2267",
+    "doi": "10.1029/2001JB000702"
+   },
+   "sample_composition": "Stoichiometric MgSiO3 ilmenite; 1000 K quasiharmonic LDA isotherm.",
+   "eos": {
+    "type": "BM4",
+    "model": "birch_murnaghan_4",
+    "parameters": {
+     "V0": 270.18,
+     "K0": 182.0,
+     "K0_prime": 4.86,
+     "K0_double_prime": -0.051
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "K0_double_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 1000.0,
+   "experimental_pressure_range_gpa": [
+    -11.0,
+    33.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    1000.0,
+    1000.0
+   ],
+   "volume_basis": {
+   "kind": "formula_units",
+    "formula_units": 6.0,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     -11.0,
+     33.0
+    ],
+    "temperature_k": [
+     1000.0,
+     1000.0
+    ],
+    "notes": [
+     "Quasiharmonic isotherm within the stated calculation regime; it is not an experimental fit or a stability-field claim.",
+     "The source's per-formula volume is multiplied by six for this material document."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
+    "V0": "Table 3: 45.03 A3 per formula unit at 1000 K; stored as 270.18 A3 for Z=6.",
+    "K0": "Table 3: KT=182 GPa.",
+    "K0_prime": "Table 3: dKT/dP=4.86.",
+    "K0_double_prime": "Table 3: d2KT/dP2=-0.051 GPa^-1."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Sections 2 and 3.2",
+      "scope": "LDA/DFPT quasiharmonic free-energy calculation"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the primary article; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "temperature_ref",
+     "theoretical_method",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+     "doi": "10.1029/2001JB000702",
+     "locations": [
+      "Section 3.2",
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "All four zero-pressure coefficients of the 1000 K BM4 isotherm are printed in Table 3."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable."
+    }
+   },
+   "notes": "Non-default temperature-specific theoretical isotherm."
+  },
+  {
+   "identifier": "akimotoite_karki_2002_2000k_bm4_4",
+   "label": "Karki and Wentzcovitch (2002), 2000 K QHA BM4",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Karki",
+     "Wentzcovitch"
+    ],
+    "year": 2002,
+    "title": "First-principles lattice dynamics and thermoelasticity of MgSiO3 ilmenite at high pressure",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "107",
+    "locator": "2267",
+    "doi": "10.1029/2001JB000702"
+   },
+   "sample_composition": "Stoichiometric MgSiO3 ilmenite; 2000 K quasiharmonic LDA isotherm.",
+   "eos": {
+    "type": "BM4",
+    "model": "birch_murnaghan_4",
+    "parameters": {
+     "V0": 291.54,
+     "K0": 153.0,
+     "K0_prime": 5.2,
+     "K0_double_prime": -0.067
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "K0_double_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 2000.0,
+   "experimental_pressure_range_gpa": [
+    -11.0,
+    33.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    2000.0,
+    2000.0
+   ],
+   "volume_basis": {
+   "kind": "formula_units",
+    "formula_units": 6.0,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     -11.0,
+     33.0
+    ],
+    "temperature_k": [
+     2000.0,
+     2000.0
+    ],
+    "notes": [
+     "High-temperature QHA isotherm; the authors explicitly warn that quasiharmonic accuracy generally degrades at high temperature and zero pressure.",
+     "The pressure bounds report the calculation regime and are not a phase-stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
+    "V0": "Table 3: 48.59 A3 per formula unit at 2000 K; stored as 291.54 A3 for Z=6.",
+    "K0": "Table 3: KT=153 GPa.",
+    "K0_prime": "Table 3: dKT/dP=5.20.",
+    "K0_double_prime": "Table 3: d2KT/dP2=-0.067 GPa^-1."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Sections 2 and 3.2",
+      "scope": "LDA/DFPT quasiharmonic free-energy calculation"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the primary article; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "temperature_ref",
+     "theoretical_method",
+     "validity",
+     "source_limitations"
+    ],
+    "primary_source_check": {
+     "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+     "doi": "10.1029/2001JB000702",
+     "locations": [
+      "Section 3.2",
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3, with the source's general QHA limitation stated in the surrounding text."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Table 3",
+      "Figure 3"
+     ],
+     "finding": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable."
+    }
+   },
+   "notes": "Non-default high-temperature theoretical isotherm; extrapolation toward zero pressure should respect the paper's QHA warning."
+  },
+  {
    "label": "Reynard et al. (1996), BM3, ruby pressure scale",
    "reference": {
     "authors": [

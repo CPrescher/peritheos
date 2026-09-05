@@ -296,6 +296,31 @@
      "finding": "All 56 Table 1 observations are bundled with data identifiers, temperature, pressure, tetragonal lattice parameters, conventional-cell volume, simultaneous Au volume, and every printed parenthetical e.s.d. The publisher's supplement endpoint was unavailable to this audit client, so the transcription was verified against the complete official HTML rendering of Table 1."
     }
    }
+  },
+  {
+   "identifier": "sio2_stv_andr_driver_2010_qmc_300k_vinet",
+   "label": "Driver et al. (2010), QMC 300 K Vinet",
+   "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"], "year": 2010, "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica", "source": "Proceedings of the National Academy of Sciences", "volume": "107", "locator": "9519-9524", "doi": "10.1073/pnas.0912130107"},
+   "eos": {"type": "Vinet", "model": "vinet", "parameters": {"V0": 47.12273825, "K0": 305.0, "K0_prime": 3.7}},
+   "parameter_errors": {"V0": 0.11854777, "K0": 20.0, "K0_prime": 0.6}, "fixed_parameters": [],
+   "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 45.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0],
+   "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
+   "validity": {"pressure_gpa": [0.0, 45.0], "temperature_k": [300.0, 300.0], "notes": ["Restricted to the rutile stishovite side of the source's continuous stishovite-CaCl2 sequence."]},
+   "parameter_provenance": {"equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.", "parameters": "Table 1, stishovite QMC column.", "volume_conversion": "159.0(4) bohr3 per SiO2 converted to A3 and multiplied by Z=2."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Methods"}], "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "uncertainties", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/1001.2066", "doi": "10.1073/pnas.0912130107", "locations": ["Equations of States section", "Figure 1b", "Table 1"], "finding": "The source reports the QMC 300 K stishovite Vinet row directly."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."}}
+  },
+  {
+   "identifier": "sio2_stv_andr_holland_2013_stv_modified_tait", "label": "Holland et al. (2013), stv modified Tait", "record_kind": "published", "equation_kind": "isothermal",
+   "reference": {"authors": ["Holland", "Hudson", "Powell", "Harte"], "year": 2013, "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle", "source": "Journal of Petrology", "volume": "54", "locator": "1901-1920", "doi": "10.1093/petrology/egt035"},
+   "eos": {"type": "ModifiedTait", "model": "modified_tait", "parameters": {"V0": 46.52830466, "K0": 309.0, "K0_prime": 4.6, "K0_double_prime": -0.015}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null}, "fixed_parameters": [], "temperature_ref": 298.15, "experimental_pressure_range_gpa": [0.0001, 30.0], "pressure_range_status": "reference_parameterization", "experimental_temperature_range_k": [298.15, 298.15],
+   "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
+   "validity": {"pressure_gpa": [0.0001, 30.0], "temperature_k": [298.15, 298.15], "notes": ["Stishovite thermodynamic endmember reference isotherm."]},
+   "parameter_provenance": {"parameters": "Article Table 1 and official tc-ds62 stv block.", "unit_conversion": "V0=1.401 J/bar/mol, K0=3090 kbar, K0''=-0.00150 kbar^-1; converted to executable units and Z=2."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "self_consistent", "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact", "scope": "self-consistent thermodynamic endmember reference isotherm", "notes": "This database endmember parameterization does not use an experimental pressure gauge."}], "recalculation": {"status": "not_applicable", "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Complete four-coefficient modified-Tait endmember.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "volume_basis", "reference_state"], "primary_source_check": {"access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf", "doi": "10.1093/petrology/egt035", "locations": ["Table 1", "Thermodynamic data section"], "finding": "The stv endmember is a distinct modified-Tait reference isotherm."}, "primary_data_check": {"status": "official_parameter_artifact", "audit_date": "2026-09-05", "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip", "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c", "finding": "The official tc-ds62 stv block provides all four coefficients."}}
   }
  ],
  "datasets": [

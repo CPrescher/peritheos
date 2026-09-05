@@ -72,7 +72,10 @@ def test_mao_material_identity_structure_basis_and_source_scope():
         "10.1007/BF00308114"
     )
 
-    assert len(document["eos_records"]) == 1
+    assert (
+        sum(record["reference"]["doi"] == DOI for record in document["eos_records"])
+        == 1
+    )
     assert source["reference"]["doi"] == DOI
     assert "low-spin" in source["label"]
     assert "B-site Fe3+ is low spin" in source["iron_speciation"]
