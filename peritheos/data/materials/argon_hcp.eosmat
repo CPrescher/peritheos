@@ -125,7 +125,13 @@
    "kind": "pressure_volume_ratio_digitized",
    "description": "Nine experimental hcp-argon observations digitized from Figure 3 with the plotted asymmetric volume error bars. Digitization uncertainty is retained separately; the non-experimental fitted reference marker at P=0 and V/V0=1 is excluded.",
    "reference": {
-    "authors": ["Wittlinger", "Fischer", "Werner", "Schneider", "Schulz"],
+    "authors": [
+     "Wittlinger",
+     "Fischer",
+     "Werner",
+     "Schneider",
+     "Schulz"
+    ],
     "year": 1997,
     "source": "Acta Crystallogr. B",
     "volume": "53",
@@ -135,24 +141,105 @@
    "source_location": "Figure 3",
    "source_url": "https://onlinelibrary.wiley.com/doi/epdf/10.1107/S0108768197005739",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "volume_ratio_error_minus", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"},
-    {"name": "volume_ratio_error_plus", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"},
-    {"name": "volume_error_minus_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
-    {"name": "volume_error_plus_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio_error_minus",
+     "quantity": "relative_volume",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    },
+    {
+     "name": "volume_ratio_error_plus",
+     "quantity": "relative_volume",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    },
+    {
+     "name": "volume_error_minus_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "volume_error_plus_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    }
    ],
-   "resource": {"path": "datasets/argon-hcp-wittlinger-1997-figure3-digitized.csv", "sha256": "904297ff79c1bda82820341c87856216395e2daf3d70216209a2185c55efd0c6", "media_type": "text/csv"},
-   "used_by_eos_records": ["argon_hcp_wittlinger_1997_bm2_1"],
+   "resource": {
+    "path": "datasets/argon-hcp-wittlinger-1997-figure3-digitized.csv",
+    "sha256": "904297ff79c1bda82820341c87856216395e2daf3d70216209a2185c55efd0c6",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "argon_hcp_wittlinger_1997_bm2_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Captured the institutionally accessible Wiley ePDF at enlarged scale, calibrated the printed axes, digitized marker centers, and digitized the upper and lower caps of each visible vertical error bar. Volumes use the paper's fitted V0=78 A^3.",
     "source_figure_sha256": "04eeb8e0bff25533d3358e3904ad6444ba09c244336dbbe27f3014d8bd496481",
-    "axis_calibration_pixels_source_figure": {"pressure": [[826.0, 0.0], [1163.0, 10.0]], "volume_ratio": [[79.0, 1.0], [412.0, 0.5]]},
-    "quality_control": {"published_bm2_rms_pressure_residual_gpa": 0.7723, "published_bm2_max_abs_pressure_residual_gpa": 1.3077},
+    "axis_calibration_pixels_source_figure": {
+     "pressure": [
+      [
+       826.0,
+       0.0
+      ],
+      [
+       1163.0,
+       10.0
+      ]
+     ],
+     "volume_ratio": [
+      [
+       79.0,
+       1.0
+      ],
+      [
+       412.0,
+       0.5
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_bm2_rms_pressure_residual_gpa": 0.7723,
+     "published_bm2_max_abs_pressure_residual_gpa": 1.3077
+    },
     "digitized_on": "2026-09-03"
    }
   }

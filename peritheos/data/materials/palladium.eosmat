@@ -28,6 +28,664 @@
  "peaks": [],
  "eos_records": [
   {
+   "label": "Baty et al. (2024), 0 K DFT BM3",
+   "reference": {
+    "authors": [
+     "Baty",
+     "Burakovsky",
+     "Luscher",
+     "Anzellini",
+     "Errandonea"
+    ],
+    "year": 2024,
+    "source": "J. Appl. Phys.",
+    "volume": "135",
+    "locator": "075103",
+    "doi": "10.1063/5.0179469"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 58.4668,
+     "K0": 195.0,
+     "K0_prime": 5.1
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.5,
+    "K0_prime": 0.1
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "pressure_range_status": "theoretical",
+   "notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.",
+   "identifier": "palladium_baty_2024_bm3_dft_2",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Baty",
+        "Burakovsky",
+        "Luscher",
+        "Anzellini",
+        "Errandonea"
+       ],
+       "year": 2024,
+       "source": "J. Appl. Phys.",
+       "doi": "10.1063/5.0179469"
+      },
+      "source_location": "Cold-curve calculation and Figure 3"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This theoretical EOS has no experimental pressure-reference EOS."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication and official supplement.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1063/5.0179469",
+     "locations": [
+      "Cold-curve calculation",
+      "Figure 3",
+      "Supplementary Table S3"
+     ],
+     "finding": "The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.",
+     "doi": "10.1063/5.0179469"
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-04",
+     "source_locations": [
+      "Cold-curve calculation",
+      "Figure 3",
+      "Supplementary Table S3"
+     ],
+     "finding": "The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes."
+    }
+   }
+  },
+  {
+   "label": "Guigue et al. (2020), Vinet",
+   "reference": {
+    "authors": [
+     "Guigue",
+     "Geneste",
+     "Leridon",
+     "Loubeyre"
+    ],
+    "year": 2020,
+    "source": "J. Appl. Phys.",
+    "volume": "127",
+    "locator": "075901",
+    "doi": "10.1063/1.5138697"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 59.0,
+     "K0": 162.0,
+     "K0_prime": 6.2
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": 0.16,
+    "K0": 2.0,
+    "K0_prime": 0.9
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    5.0,
+    65.0
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_qualitatively",
+   "notes": "Room-temperature Vinet fit to pure Pd compressed in neon during the Pd-hydride study. The paper reports V0=14.75(4) A^3/atom, K0=162(2) GPa, and K0'=6.2(9); the stored conventional-cell V0 is multiplied by four. Frost et al. identify 65 GPa as the maximum pressure of the Guigue pure-Pd study; the article title's 100 GPa refers to the broader hydride study, not the pure-Pd EOS range.",
+   "identifier": "palladium_guigue_2020_vinet_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Torrent",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2008,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "source_location": "Experimental methods; gold pressure marker"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Experimental methods; ruby below 40 GPa",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The pure-Pd fit observations and their row-wise gold or ruby calibration inputs are not published numerically."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1063/1.5138697",
+     "locations": [
+      "Experimental methods",
+      "Pure-Pd compression discussion",
+      "Pure-Pd EOS figure"
+     ],
+     "finding": "The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.",
+     "doi": "10.1063/1.5138697"
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-04",
+     "source_locations": [
+      "Pure-Pd EOS figure"
+     ],
+     "finding": "The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed."
+    }
+   }
+  },
+  {
+   "label": "Fedotenko et al. (2020), BM3",
+   "reference": {
+    "authors": [
+     "Fedotenko",
+     "Dubrovinsky",
+     "Khandarkhaeva",
+     "Chariton",
+     "Koemets",
+     "Koemets",
+     "Hanfland",
+     "Dubrovinskaia"
+    ],
+    "year": 2020,
+    "source": "J. Alloys Compd.",
+    "volume": "844",
+    "locator": "156179",
+    "doi": "10.1016/j.jallcom.2020.156179"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 58.868,
+     "K0": 157.0,
+     "K0_prime": 9.9
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.002,
+    "K0": 3.0,
+    "K0_prime": 0.4
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    31.2
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "notes": "Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.",
+   "identifier": "palladium_fedotenko_2020_bm3_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci.",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental methods and Table 1 caption; neon pressure marker"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact Fei et al. neon source is identified, but the row-wise neon volumes required to recalculate pressure are not published in Table 1."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the author-provided publication copy embedded in the first author's thesis.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.jallcom.2020.156179",
+     "locations": [
+      "Section 3.1",
+      "Table 1",
+      "Equation 1",
+      "Figure 1",
+      "Table 2"
+     ],
+     "finding": "Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.",
+     "doi": "10.1016/j.jallcom.2020.156179"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "palladium_fedotenko_2020_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1"
+     ],
+     "finding": "All 15 printed pure-Pd pressure and conventional-cell-volume observations and their printed uncertainties are bundled."
+    }
+   }
+  },
+  {
+   "label": "Fedotenko et al. (2020), constrained BM2",
+   "reference": {
+    "authors": [
+     "Fedotenko",
+     "Dubrovinsky",
+     "Khandarkhaeva",
+     "Chariton",
+     "Koemets",
+     "Koemets",
+     "Hanfland",
+     "Dubrovinskaia"
+    ],
+    "year": 2020,
+    "source": "J. Alloys Compd.",
+    "volume": "844",
+    "locator": "156179",
+    "doi": "10.1016/j.jallcom.2020.156179"
+   },
+   "eos": {
+    "type": "BM2",
+    "parameters": {
+     "V0": 58.868,
+     "K0": 203.0
+    },
+    "model": "birch_murnaghan_2"
+   },
+   "parameter_errors": {
+    "V0": 0.002,
+    "K0": 3.0
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    31.2
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency.",
+   "identifier": "palladium_fedotenko_2020_bm2_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proc. Natl. Acad. Sci.",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental methods and Table 1 caption; neon pressure marker"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact Fei et al. neon source is identified, but the row-wise neon volumes required to recalculate pressure are not published in Table 1."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the author-provided publication copy embedded in the first author's thesis.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.jallcom.2020.156179",
+     "locations": [
+      "Section 3.1",
+      "Table 1",
+      "Table 2"
+     ],
+     "finding": "Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.",
+     "doi": "10.1016/j.jallcom.2020.156179"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "palladium_fedotenko_2020_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1"
+     ],
+     "finding": "All 15 printed pure-Pd pressure and conventional-cell-volume observations and their printed uncertainties are bundled."
+    }
+   }
+  },
+  {
+   "label": "Frost et al. (2023), Vinet",
+   "reference": {
+    "authors": [
+     "Frost",
+     "Smith",
+     "McBride",
+     "Smith",
+     "Glenzer"
+    ],
+    "year": 2023,
+    "source": "J. Appl. Phys.",
+    "volume": "134",
+    "locator": "035901",
+    "doi": "10.1063/5.0161038"
+   },
+   "eos": {
+    "type": "Vinet",
+    "parameters": {
+     "V0": 58.678,
+     "K0": 189.3,
+     "K0_prime": 5.473
+    },
+    "model": "vinet"
+   },
+   "parameter_errors": {
+    "V0": 0.073,
+    "K0": 3.0,
+    "K0_prime": 0.063
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    182.0
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.",
+   "identifier": "palladium_frost_2023_vinet_1",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Methods and Figure 1 caption; tungsten marker for Runs 1 and 2",
+      "reference_eos_record": "tungsten_dewaele_2004_vinet_2"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorfman",
+        "Prakapenka",
+        "Meng",
+        "Duffy"
+       ],
+       "year": 2012,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/2012JB009292"
+      },
+      "source_location": "Methods and Figure 1 caption; gold marker for Run 3"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The pressure standards and all 93 sample P-V observations are identified, but recalculation still requires the row-wise tungsten and gold marker volumes; the supplement reports only the resulting pressures."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1063/5.0161038",
+     "locations": [
+      "Abstract",
+      "Methods, page 035901-2",
+      "Table I",
+      "Figure 1 and caption",
+      "Results and discussion",
+      "Data availability",
+      "Supplementary Section II.A and Tables I-III"
+     ],
+     "finding": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
+     "doi": "10.1063/5.0161038"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "palladium_frost_2023_tables_i_iii_compression"
+     ],
+     "source_locations": [
+      "Supplementary Section II.A",
+      "Supplementary Tables I-III"
+     ],
+     "finding": "All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters."
+    }
+   }
+  },
+  {
+   "label": "Frost et al. (2023), BM3",
+   "reference": {
+    "authors": [
+     "Frost",
+     "Smith",
+     "McBride",
+     "Smith",
+     "Glenzer"
+    ],
+    "year": 2023,
+    "source": "J. Appl. Phys.",
+    "volume": "134",
+    "locator": "035901",
+    "doi": "10.1063/5.0161038"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 58.588,
+     "K0": 197.5,
+     "K0_prime": 4.996
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": 0.076,
+    "K0": 3.3,
+    "K0_prime": 0.066
+   },
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    182.0
+   ],
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_exactly",
+   "notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).",
+   "identifier": "palladium_frost_2023_bm3_2",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Mezouar"
+       ],
+       "year": 2004,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Methods and Figure 1 caption; tungsten marker for Runs 1 and 2",
+      "reference_eos_record": "tungsten_dewaele_2004_vinet_2"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Dorfman",
+        "Prakapenka",
+        "Meng",
+        "Duffy"
+       ],
+       "year": 2012,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/2012JB009292"
+      },
+      "source_location": "Methods and Figure 1 caption; gold marker for Run 3"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The pressure standards and all 93 sample P-V observations are identified, but recalculation still requires the row-wise tungsten and gold marker volumes; the supplement reports only the resulting pressures."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1063/5.0161038",
+     "locations": [
+      "Methods, page 035901-2",
+      "Table I",
+      "Figure 1 and caption",
+      "Results and discussion",
+      "Data availability",
+      "Supplementary Section II.A and Tables I-III"
+     ],
+     "finding": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
+     "doi": "10.1063/5.0161038"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "palladium_frost_2023_tables_i_iii_compression"
+     ],
+     "source_locations": [
+      "Supplementary Section II.A",
+      "Supplementary Tables I-III"
+     ],
+     "finding": "All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters."
+    }
+   }
+  },
+  {
    "label": "Baty et al. (2024), BM3",
    "reference": {
     "authors": [
@@ -136,11 +794,176 @@
  ],
  "datasets": [
   {
+   "identifier": "palladium_frost_2023_tables_i_iii_compression",
+   "kind": "pressure_volume",
+   "description": "All 93 hydrogen-free room-temperature Pd-in-neon compression observations from supplementary Tables I-III: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows.",
+   "reference": {
+    "authors": [
+     "Frost",
+     "Smith",
+     "McBride",
+     "Smith",
+     "Glenzer"
+    ],
+    "year": 2023,
+    "source": "J. Appl. Phys.",
+    "volume": "134",
+    "locator": "035901",
+    "doi": "10.1063/5.0161038"
+   },
+   "source_location": "Supplementary Section II.A, Tables I-III",
+   "source_url": "https://doi.org/10.1063/5.0161038",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty"
+    },
+    {
+     "name": "lattice_parameter_a",
+     "quantity": "cubic_lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "lattice_parameter_error_a",
+     "quantity": "cubic_lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty"
+    },
+    {
+     "name": "volume_error_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty"
+    },
+    {
+     "name": "loading",
+     "quantity": "experimental_run",
+     "unit": "identifier",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_marker",
+     "quantity": "pressure_marker",
+     "unit": "identifier",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/palladium-frost-2023-tables-i-iii-compression.csv",
+    "sha256": "92e4ece39614b1a9f980bff32ae3986083b06bd9673ef0e615f4d27bd39fa75c",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "palladium_frost_2023_vinet_1",
+    "palladium_frost_2023_bm3_2"
+   ],
+   "uncertainty": {
+    "pressure_error_gpa": 0.1,
+    "volume_error_propagation": "sigma_V = 3 * a^2 * sigma_a for the cubic conventional cell",
+    "source_location": "Main article Methods and supplementary Tables I-III"
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Transcribed pressure, cubic lattice parameter, lattice-parameter uncertainty, loading, and pressure marker from supplementary Tables I-III; calculated V=a^3 and sigma_V=3*a^2*sigma_a without rounding intermediate values.",
+    "source_pdf_sha256": "7e47e13580ecc7faec0a372347217e860aee65c6e32cc279a2c6e66651653f3b",
+    "source_archive_sha256": "7f03394af010c3eaa6b4346ac6ed0e2273ff86f28ba1cf910471d564873ae015",
+    "transcribed_on": "2026-09-04"
+   },
+   "notes": "The independent ambient powder value a=3.89088(2) A is reported separately from Tables I-III and is not included in this 93-row fit dataset. BX18 and BX32 use tungsten pressure markers; the high-pressure loading uses gold."
+  },
+  {
+   "identifier": "palladium_fedotenko_2020_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 15 pure-palladium room-temperature compression observations transcribed from Fedotenko et al. Table 1, including the printed pressure and conventional-cell-volume uncertainties.",
+   "reference": {
+    "authors": [
+     "Fedotenko",
+     "Dubrovinsky",
+     "Khandarkhaeva",
+     "Chariton",
+     "Koemets",
+     "Koemets",
+     "Hanfland",
+     "Dubrovinskaia"
+    ],
+    "year": 2020,
+    "source": "J. Alloys Compd.",
+    "volume": "844",
+    "locator": "156179",
+    "doi": "10.1016/j.jallcom.2020.156179"
+   },
+   "source_location": "Table 1",
+   "source_url": "https://epub.uni-bayreuth.de/id/eprint/5724/1/Thesis_Fedotenko.pdf",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty"
+    }
+   ],
+   "resource": {
+    "path": "datasets/palladium-fedotenko-2020-table1-compression.csv",
+    "sha256": "1711e9f0bae4905cb18fbb8abce1ee79f9c1127cc718962a95350fefe7e065b1",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "palladium_fedotenko_2020_bm3_1",
+    "palladium_fedotenko_2020_bm2_2"
+   ],
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Transcribed Table 1 pressure, pressure uncertainty, fcc conventional-cell volume, and volume uncertainty without conversion.",
+    "source_pdf_sha256": "740517e54c21e6b777aec575151f67d287d5755a0906eedfa85370a19df054c5",
+    "transcribed_on": "2026-09-04"
+   },
+   "notes": "The ambient row has no printed pressure uncertainty, represented by a blank CSV field rather than zero. The dataset is shared by the published BM3 and constrained BM2 records."
+  },
+  {
    "identifier": "palladium_baty_2024_table_s1_compression",
    "kind": "pressure_volume",
    "description": "All 78 palladium compression observations transcribed from supplementary Table S1. The published atomic volumes are retained and converted to the four-atom conventional fcc cell used by the EOS record.",
    "reference": {
-    "authors": ["Baty", "Burakovsky", "Luscher", "Anzellini", "Errandonea"],
+    "authors": [
+     "Baty",
+     "Burakovsky",
+     "Luscher",
+     "Anzellini",
+     "Errandonea"
+    ],
     "year": 2024,
     "source": "J. Appl. Phys.",
     "volume": "135",
@@ -150,16 +973,40 @@
    "source_location": "Supplementary Table S1",
    "source_url": "https://doi.org/10.60893/figshare.jap.c.7021680",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    }
    ],
-   "resource": {"path": "datasets/palladium-baty-2024-table-s1-compression.csv", "sha256": "513835bba914f6fa1f02646901e0453edda808c6da7bc425fbb71c8cf1c99829", "media_type": "text/csv"},
-   "used_by_eos_records": ["palladium_baty_2024_bm3_1"],
+   "resource": {
+    "path": "datasets/palladium-baty-2024-table-s1-compression.csv",
+    "sha256": "513835bba914f6fa1f02646901e0453edda808c6da7bc425fbb71c8cf1c99829",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "palladium_baty_2024_bm3_1"
+   ],
    "uncertainty": {
     "lattice_parameter_error_upper_bound_angstrom": 0.003,
     "atomic_volume_error_upper_bound_a3": 0.01,
-    "pressure_error_range_gpa": [0.06, 0.12],
+    "pressure_error_range_gpa": [
+     0.06,
+     0.12
+    ],
     "scope": "Global limits reported for the dataset; the supplement does not assign row-wise uncertainty values.",
     "source_location": "Supplementary methods immediately before Table S1"
    },

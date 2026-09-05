@@ -720,7 +720,7 @@
      ],
      "reason": "The preferred bold Table 3 protocol fits only K0 and K0' to the room-temperature data before fitting alpha0; V0 is the held fictive reference. The italic row is the separate simultaneous fit.",
      "primary_reference": {
-     "doi": "10.2138/am-2002-0701",
+      "doi": "10.2138/am-2002-0701",
       "location": "Equation BE1, Tables 2-3, and pages 807-810"
      }
     },
@@ -1269,15 +1269,16 @@
      "thermal_model_convention"
     ],
     "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/PhysRevB.104.094107",
+     "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
      "locations": [
-      "Methods",
-      "Equations 1-4",
-      "Table I",
-      "Supplemental Table A1"
+      "Methods, effective KCl temperature and Pt pressure basis",
+      "Section III and Equations 1-4",
+      "Table I and Figure 3",
+      "Supplemental Table A1; author-deposited SuppTable_KCl.csv",
+      "Dewaele et al. (2012), Table I"
      ],
-     "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K; the high-P-T pressures use Dorogokupets-Oganov Pt. Equations 3-4 give gamma(V) and the full Debye energy but do not print theta(V); the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.",
-     "doi": "10.1103/PhysRevB.104.094107"
+     "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K. It simultaneously fits all Dewaele et al. (2012) room-temperature B2 data and the 155 new high-temperature rows. Equations 3-4 leave theta(V) implicit; the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.",
+     "doi": "10.1103/physrevb.104.094107"
     },
     "primary_data_check": {
      "status": "bundled",

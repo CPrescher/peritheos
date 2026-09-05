@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 211
+    assert len(identifiers) == len(set(identifiers)) == 217
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 211, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 217, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 109,
-        "similar": 41,
+        "parity": 111,
+        "similar": 43,
         "parity_not_achieved": 18,
-        "not_refittable": 43,
+        "not_refittable": 45,
     }
     assert all(
         item.get("reason")
@@ -188,6 +188,93 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [325.8744132414, 4.9091866068]
     )
     assert "Explicit Peritheos refit record" in mo2c_refit["qualification"]
+    palladium = by_identifier["palladium_baty_2024_bm3_1"]
+    assert palladium["status"] == "parity_not_achieved"
+    assert palladium["observations"] == 78
+    assert "dedicated palladium reproduction" in palladium["qualification"]
+    palladium_diagnostic = palladium["fit_protocol_diagnostic"]
+    assert palladium_diagnostic[
+        "source_table_rows_verified_against_official_latex"
+    ] == 78
+    assert palladium_diagnostic["source_equation"] == (
+        "standard third-order Birch-Murnaghan, Equation (1)"
+    )
+    assert palladium_diagnostic["unweighted_volume_all_rows"][
+        "parameters"
+    ] == pytest.approx(
+        {"V0": 59.470126905, "K0": 178.823784858, "K0_prime": 5.009936202}
+    )
+    assert palladium_diagnostic["fixed_published_V0_all_rows"][
+        "parameters"
+    ] == pytest.approx(
+        {"V0": 58.88, "K0": 207.476522488, "K0_prime": 4.296362911}
+    )
+    assert palladium_diagnostic[
+        "fixed_published_V0_pressure_at_least_40_gpa"
+    ]["parameters"] == pytest.approx(
+        {"V0": 58.88, "K0": 193.664031670, "K0_prime": 5.024310596}
+    )
+    assert palladium_diagnostic["upper_bound_errors_in_variables_all_rows"][
+        "reduced_chi_square"
+    ] == pytest.approx(8.107727533)
+    frost_cross_check = palladium_diagnostic["frost_2023_vinet_cross_check"]
+    assert frost_cross_check["parameters"] == pytest.approx(
+        {"V0": 58.678, "K0": 189.3, "K0_prime": 5.473}
+    )
+    assert frost_cross_check["pressure_residual_rmse_gpa"] == pytest.approx(
+        2.039354740
+    )
+    assert frost_cross_check["observation_minus_curve_volume_atomic_a3"] == (
+        pytest.approx(
+            {
+                "rows_positive": 77,
+                "mean": 0.076869666,
+                "rmse": 0.093553190,
+                "maximum": 0.200033281,
+            }
+        )
+    )
+    assert palladium_diagnostic["table_monotonicity"] == pytest.approx(
+        {
+            "adjacent_volume_increases_after_sorting_by_pressure": 12,
+            "largest_increase_a3_conventional_cell": 0.1678738,
+        }
+    )
+    fedotenko_bm3 = by_identifier["palladium_fedotenko_2020_bm3_1"]
+    assert fedotenko_bm3["status"] == "parity"
+    assert fedotenko_bm3["observations"] == 15
+    assert [item["refit"] for item in fedotenko_bm3["parameters"]] == (
+        pytest.approx([58.853666470, 158.668115182, 9.783509441])
+    )
+    fedotenko_bm2 = by_identifier["palladium_fedotenko_2020_bm2_2"]
+    assert fedotenko_bm2["status"] == "parity"
+    assert [item["refit"] for item in fedotenko_bm2["parameters"]] == (
+        pytest.approx([202.667325846])
+    )
+    assert by_identifier["palladium_baty_2024_bm3_dft_2"]["status"] == (
+        "not_refittable"
+    )
+    assert by_identifier["palladium_guigue_2020_vinet_1"]["status"] == (
+        "not_refittable"
+    )
+    frost_vinet = by_identifier["palladium_frost_2023_vinet_1"]
+    assert frost_vinet["status"] == "similar"
+    assert frost_vinet["observations"] == 93
+    assert frost_vinet["dataset_identifiers"] == [
+        "palladium_frost_2023_tables_i_iii_compression"
+    ]
+    assert [item["refit"] for item in frost_vinet["parameters"]] == pytest.approx(
+        [58.766517848, 184.190604957, 5.603711668]
+    )
+    frost_bm3 = by_identifier["palladium_frost_2023_bm3_2"]
+    assert frost_bm3["status"] == "similar"
+    assert frost_bm3["observations"] == 93
+    assert frost_bm3["dataset_identifiers"] == [
+        "palladium_frost_2023_tables_i_iii_compression"
+    ]
+    assert [item["refit"] for item in frost_bm3["parameters"]] == pytest.approx(
+        [58.684580564, 191.476720898, 5.147381676]
+    )
     rbcl = by_identifier["rbcl_b2_campbell_1994_bm3_1"]
     assert rbcl["status"] == "parity"
     assert rbcl["observations"] == 24
@@ -313,7 +400,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 59
+    assert markdown.count("### `") == len(explained) == 61
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

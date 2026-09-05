@@ -83,7 +83,21 @@
      {
       "kind": "ruby_fluorescence",
       "reference": {
-       "authors": ["Shen", "Wang", "Dewaele", "Wu", "Fratanduono", "Eggert", "Klotz", "Dziuket", "Loubeyre", "Fat'yanov", "Asimow", "Mashimo", "Wentzcovitch"],
+       "authors": [
+        "Shen",
+        "Wang",
+        "Dewaele",
+        "Wu",
+        "Fratanduono",
+        "Eggert",
+        "Klotz",
+        "Dziuket",
+        "Loubeyre",
+        "Fat'yanov",
+        "Asimow",
+        "Mashimo",
+        "Wentzcovitch"
+       ],
        "year": 2020,
        "source": "High Pressure Research",
        "doi": "10.1080/08957959.2020.1791107"
@@ -146,7 +160,17 @@
    "kind": "pressure_volume_ratio_digitized",
    "description": "Thirty-six separable hBN volume observations digitized from Figure 5(c). The paper's maximum pressure uncertainty is retained as an upper bound; experimental volume uncertainties cannot be recovered from panel (c), while digitization uncertainty is recorded separately.",
    "reference": {
-    "authors": ["Muhammad", "Mezouar", "Garbarino", "Poręba", "Confalonieri", "Ceppatelli", "Serrano-Ruiz", "Peruzzini", "Datchi"],
+    "authors": [
+     "Muhammad",
+     "Mezouar",
+     "Garbarino",
+     "Poręba",
+     "Confalonieri",
+     "Ceppatelli",
+     "Serrano-Ruiz",
+     "Peruzzini",
+     "Datchi"
+    ],
     "year": 2024,
     "source": "Nanoscale",
     "volume": "16",
@@ -155,21 +179,84 @@
    },
    "source_location": "Figure 5(c), filled blue circles labeled This work",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "pressure_uncertainty_upper_bound_gpa", "quantity": "pressure", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "1", "role": "uncertainty", "of": "volume_ratio"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_upper_bound_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    }
    ],
-   "resource": {"path": "datasets/hexagonal-boron-nitride-muhammad-2024-figure5c-digitized.csv", "sha256": "eb8c717f83f37c38f6acedd2d1c82504840f98b19ddda6de05f3892244ed649d", "media_type": "text/csv"},
-   "used_by_eos_records": ["boron_nitride_hexagonal_muhammad_2024_bm3_1"],
+   "resource": {
+    "path": "datasets/hexagonal-boron-nitride-muhammad-2024-figure5c-digitized.csv",
+    "sha256": "eb8c717f83f37c38f6acedd2d1c82504840f98b19ddda6de05f3892244ed649d",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "boron_nitride_hexagonal_muhammad_2024_bm3_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Reconstructed the source-resolution Figure 5 from PMC image tiles, calibrated the printed axes in panel (c), and digitized the centers of separable filled blue-circle markers. Volumes were converted from V/V0 using the fitted conventional-cell V0.",
     "source_figure_sha256": "e983fb616ff4bc051ecffc88f56000e56d76d26e0f81d5bbf97abae9f41d1942",
-    "axis_calibration_pixels_source_figure": {"pressure": [[1208.0, 0.0], [1778.0, 8.0]], "volume_ratio": [[29.0, 1.0], [987.0, 0.84]]},
-    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.1027, "published_bm3_max_abs_pressure_residual_gpa": 0.4109},
+    "axis_calibration_pixels_source_figure": {
+     "pressure": [
+      [
+       1208.0,
+       0.0
+      ],
+      [
+       1778.0,
+       8.0
+      ]
+     ],
+     "volume_ratio": [
+      [
+       29.0,
+       1.0
+      ],
+      [
+       987.0,
+       0.84
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_bm3_rms_pressure_residual_gpa": 0.1027,
+     "published_bm3_max_abs_pressure_residual_gpa": 0.4109
+    },
     "digitized_on": "2026-09-03"
    },
    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11079860/"

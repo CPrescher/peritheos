@@ -151,7 +151,14 @@
    "kind": "pressure_lattice_volume_digitized",
    "description": "Eighteen plotted room-temperature PrO2 fluorite compression observations digitized from Figure 3b; cell volumes are calculated as a^3 from the plotted cubic lattice parameter.",
    "reference": {
-    "authors": ["Gerward", "Staun Olsen", "Petit", "Vaitheeswaran", "Kanchana", "Svane"],
+    "authors": [
+     "Gerward",
+     "Staun Olsen",
+     "Petit",
+     "Vaitheeswaran",
+     "Kanchana",
+     "Svane"
+    ],
     "year": 2005,
     "source": "J. Alloys Compd.",
     "volume": "400",
@@ -160,20 +167,77 @@
    },
    "source_location": "Figure 3b, filled-square experimental series",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "lattice_parameter_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
-    {"name": "volume_angstrom3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "lattice_parameter_digitization_uncertainty_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "uncertainty", "of": "lattice_parameter_angstrom"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "lattice_parameter_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "volume_angstrom3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_parameter_digitization_uncertainty_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_parameter_angstrom"
+    }
    ],
-   "resource": {"path": "datasets/praseodymium-dioxide-gerward-2005-figure3b-digitized.csv", "sha256": "fab0d397b00c50a1b17b57533aacf98c3120aa221a81c793f5bd69727eebf6f6", "media_type": "text/csv"},
-   "used_by_eos_records": ["praseodymium_dioxide_gerward_2005_bm3_1"],
+   "resource": {
+    "path": "datasets/praseodymium-dioxide-gerward-2005-figure3b-digitized.csv",
+    "sha256": "fab0d397b00c50a1b17b57533aacf98c3120aa221a81c793f5bd69727eebf6f6",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "praseodymium_dioxide_gerward_2005_bm3_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Extracted the 600 dpi one-bit figure stencil from the locally archived PDF; located filled-square centers by distance-transform maxima; applied affine axis calibration; calculated V=a^3.",
     "source_pdf_sha256": "57e8f02dc98dcd52201957071ca2404ce46d0e4471099dde22baffbd3b7e167e",
-    "axis_calibration_pixels_600dpi": {"pressure": [[241.0, 0.0], [1821.0, 20.0]], "lattice_parameter": [[1530.0, 5.42], [1636.0, 5.40]]},
-    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.1778, "published_bm3_max_abs_pressure_residual_gpa": 0.3515},
+    "axis_calibration_pixels_600dpi": {
+     "pressure": [
+      [
+       241.0,
+       0.0
+      ],
+      [
+       1821.0,
+       20.0
+      ]
+     ],
+     "lattice_parameter": [
+      [
+       1530.0,
+       5.42
+      ],
+      [
+       1636.0,
+       5.4
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_bm3_rms_pressure_residual_gpa": 0.1778,
+     "published_bm3_max_abs_pressure_residual_gpa": 0.3515
+    },
     "digitized_on": "2026-09-03"
    }
   }

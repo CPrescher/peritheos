@@ -197,7 +197,10 @@
    "kind": "pressure_volume_ratio_digitized",
    "description": "Fifteen visually resolved markers from the 17 new single-crystal compression measurements plotted as closed symbols in Figure 2b. The plotted finite-strain coordinates were transformed back to pressure and V/V0; overlapping markers cannot be separated from the figure.",
    "reference": {
-    "authors": ["Angel", "Jackson"],
+    "authors": [
+     "Angel",
+     "Jackson"
+    ],
     "year": 2002,
     "source": "Am. Mineral.",
     "volume": "87",
@@ -206,24 +209,66 @@
    },
    "source_location": "Figure 2b, closed-symbol new compression series",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "dimensionless", "role": "uncertainty", "of": "volume_ratio"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    }
    ],
    "resource": {
     "path": "datasets/orthoenstatite-angel-jackson-2002-figure2b-digitized.csv",
     "sha256": "0b82b983333a96f184b0da0630202db69fbc67fdc16bb7c1e3d0bee46fd4f959",
     "media_type": "text/csv"
    },
-   "used_by_eos_records": ["orthoenstatite_angel_2002_bm3_1"],
+   "used_by_eos_records": [
+    "orthoenstatite_angel_2002_bm3_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Rasterized the locally archived publication PDF at 300 dpi; detected closed-square centers by distance-transform maxima; calibrated the Eulerian-strain and normalized-stress axes; converted f and F to V/V0 and pressure using the definitions printed in the article.",
     "source_pdf_sha256": "faf82ffefcc3d1230687bbea74ae0c3c3c03daae561778f22be2452a227a450e",
     "axis_calibration_pixels_300dpi": {
-     "eulerian_strain": [[378.0, 0.0], [542.0, 0.005]],
-     "normalized_stress_gpa": [[1549.0, 95.0], [1443.0, 100.0]]
+     "eulerian_strain": [
+      [
+       378.0,
+       0.0
+      ],
+      [
+       542.0,
+       0.005
+      ]
+     ],
+     "normalized_stress_gpa": [
+      [
+       1549.0,
+       95.0
+      ],
+      [
+       1443.0,
+       100.0
+      ]
+     ]
     },
     "transformation": {
      "volume_ratio": "(1 + 2 f)^(-3/2)",

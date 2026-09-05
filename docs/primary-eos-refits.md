@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **211** EOS records. **109** achieve uncertainty parity, **41** are numerically similar, **[18](#parity-not-achieved)** do not achieve parity, **43** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **217** EOS records. **111** achieve uncertainty parity, **43** are numerically similar, **[18](#parity-not-achieved)** do not achieve parity, **45** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -131,7 +131,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`kcl_walker_2002_bm3_2`](https://www.researchgate.net/publication/231182054_Thermal_equations_of_state_for_B1_and_B2_KCl) | `kcl_walker_2002_table2_pvt` | 39 | `rt_eos.K0` 23.7 → 23.7754; `rt_eos.K0_prime` 4.4 → 4.41587; `alpha_KT` 0.00275 → 0.00276625 | 0.104581/0.103477 | [similar](#investigation-kcl_walker_2002_bm3_2) — Source-protocol reproduction: the preferred bold Table 3 result is staged, not a simultaneous four-parameter fit. V0 is held at the published fictive reference, K0 and K0' are fitted to the eight 23-24 degC rows, and alpha_KT is then fitted to all 39 P-V-T rows. |
 | [`kcl_b2_dewaele_2012_vinet_3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext) | `kcl_dewaele_2012_table1_compression` | 123 | `rt_eos.K0` 17.2 → 17.2499; `rt_eos.K0_prime` 5.89 → 5.8731 | 0.819344/0.800253 | [similar](#investigation-kcl_b2_dewaele_2012_vinet_3) |
 | [`kcl_b2_tateno_2019_vinet_4`](https://doi.org/10.2138/am-2019-6779) | `kcl_tateno_2019_table_s1_pvt` | 39 | `rt_eos.K0` 18.3 → 18.3446; `rt_eos.K0_prime` 5.6 → 5.60096; `gamma0` 2.3 → 2.29519; `q` 0.8 → 0.8249 | 0.72623/0.569397 | parity — Corrected final-publication reproduction: the model uses the final gamma0=2.3 and q=0.8 coefficients, Equation 6's integrated-Gruneisen Debye law, and the correctly aligned official MSA Supplemental Table S1 workbook. See the [dedicated Tateno reproduction](literature-reproductions.md#kcl-tateno-2019). |
-| [`kcl_b2_chidester_2021_bm3_5`](https://doi.org/10.1103/PhysRevB.104.094107) | `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` | 278 | `rt_eos.V0` 53.1373 → 53.2036; `rt_eos.K0` 24 → 23.9721; `rt_eos.K0_prime` 4.56 → 4.55798; `gamma0` 2.9 → 2.91714; `q` 1 → 0.965243 | 1.30258/1.26278 | parity — Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021). |
+| [`kcl_b2_chidester_2021_bm3_5`](https://link.aps.org/accepted/10.1103/PhysRevB.104.094107) | `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` | 278 | `rt_eos.V0` 53.1373 → 53.2036; `rt_eos.K0` 24 → 23.9721; `rt_eos.K0_prime` 4.56 → 4.55798; `gamma0` 2.9 → 2.91714; `q` 1 → 0.965243 | 1.30258/1.26278 | parity — Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021). |
 | [`kcl_b1_dewaele_2012_vinet_1`](https://doi.org/10.1103/PhysRevB.85.214105) | `kcl_b1_dewaele_2012_table2_compression` | 30 | `V0` 249.44 → 249.379; `K0` 17.1 → 17.3253 | 0.0554449/0.0534777 | [similar](#investigation-kcl_b1_dewaele_2012_vinet_1) |
 | [`lead_fcc_fortes_2019_bm4_1`](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | `parameterization_only` | — | — | —/— | not_refittable — Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations. |
 | [`li_hanfland_1999_vinet_1`](https://doi.org/10.1016/S0038-1098(99)00322-1) | `lithium_hanfland_1999_table1_compression` | 26 | `K0` 11.32 → 11.3157; `K0_prime` 3.62 → 3.61677 | 0.036204/0.0338053 | parity |
@@ -195,7 +195,13 @@ use `--check` in continuous integration to detect stale generated files.
 | [`nis_campbell_1993_bm3_1`](https://doi.org/10.1016/0022-3697(93)90106-2) | `nis_campbell_1993_table1_compression` | 16 | `K0` 156 → 163.325; `K0_prime` 4.4 → 3.86225 | 2.00649/1.87679 | parity |
 | [`orthoenstatite_angel_2002_bm3_1`](https://web.gps.caltech.edu/~jackson/pdf/Angel_Jackson_AmMin02_87_558.pdf) | `orthoenstatite_angel_jackson_2002_figure2b_digitized` | 15 | `V0` 832.5 → 832.409; `K0` 105.8 → 112.899; `K0_prime` 8.5 → 7.9081 | 0.225605/0.00873423 | parity |
 | [`osmium_takemura_2004_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext) | `osmium_takemura_2004_table1_compression` | 28 | `V0` 27.9766 → 27.9621; `K0` 395 → 403.522; `K0_prime` 4.5 → 4.25301 | 0.194387/0.140997 | parity |
-| [`palladium_baty_2024_bm3_1`](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_table_s1_compression` | 78 | `V0` 58.88 → 59.9603; `K0` 190 → 152.057; `K0_prime` 5.3 → 6.09936 | 1.27312/0.704337 | [parity_not_achieved](#investigation-palladium_baty_2024_bm3_1) |
+| [`palladium_baty_2024_bm3_dft_2`](https://doi.org/10.1063/5.0179469) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes. |
+| [`palladium_guigue_2020_vinet_1`](https://doi.org/10.1063/1.5138697) | `plot_only` | — | — | —/— | not_refittable — The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed. |
+| [`palladium_fedotenko_2020_bm3_1`](https://doi.org/10.1016/j.jallcom.2020.156179) | `palladium_fedotenko_2020_table1_compression` | 15 | `V0` 58.868 → 58.8537; `K0` 157 → 158.668; `K0_prime` 9.9 → 9.78351 | 0.0885327/0.0749532 | parity |
+| [`palladium_fedotenko_2020_bm2_2`](https://doi.org/10.1016/j.jallcom.2020.156179) | `palladium_fedotenko_2020_table1_compression` | 15 | `K0` 203 → 202.667 | 0.934246/0.93349 | parity |
+| [`palladium_frost_2023_vinet_1`](https://doi.org/10.1063/5.0161038) | `palladium_frost_2023_tables_i_iii_compression` | 93 | `V0` 58.678 → 58.7665; `K0` 189.3 → 184.191; `K0_prime` 5.473 → 5.60371 | 0.771992/0.276359 | [similar](#investigation-palladium_frost_2023_vinet_1) — Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve). |
+| [`palladium_frost_2023_bm3_2`](https://doi.org/10.1063/5.0161038) | `palladium_frost_2023_tables_i_iii_compression` | 93 | `V0` 58.588 → 58.6846; `K0` 197.5 → 191.477; `K0_prime` 4.996 → 5.14738 | 0.845419/0.293082 | [similar](#investigation-palladium_frost_2023_bm3_2) — Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve). |
+| [`palladium_baty_2024_bm3_1`](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_table_s1_compression` | 78 | `V0` 58.88 → 59.9603; `K0` 190 → 152.057; `K0_prime` 5.3 → 6.09936 | 1.27312/0.704337 | [parity_not_achieved](#investigation-palladium_baty_2024_bm3_1) — Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024). |
 | [`pbs_b1_knorr_2003_bm3_1`](https://arxiv.org/abs/cond-mat/0210013) | `lead_sulfide_knorr_2003_figure2_digitized` | 33 | `V0` 207.895 → 207.859; `K0` 51 → 50.6492; `K0_prime` 4.3 → 4.71011 | 0.0263763/0.0106853 | parity |
 | [`perovskite_orthorhombic_knittle_1987_bm3_1`](https://www.science.org/doi/epdf/10.1126/science.235.4789.668) | `mgfe_perovskite_knittle_1987_table2_compression` | 5 | `V0` 162.77 → 165.729; `K0` 266 → 194.747; `K0_prime` 3.9 → 5.49081 | 2.8805/1.4557 | [similar](#investigation-perovskite_orthorhombic_knittle_1987_bm3_1) |
 | [`phase_d_ant_a_shieh_2000_bm2_1`](https://doi.org/10.1016/S0012-821X(00)00033-9) | `phase_d_shieh_2000_table2_pv` | 6 | `K0` 134 → 139.465 | 1.26057/0.746702 | parity |
@@ -340,7 +346,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **59** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **61** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -1281,6 +1287,50 @@ the missing source fit detail is recovered.
 - The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-palladium_frost_2023_vinet_1"></a>
+
+### `palladium_frost_2023_vinet_1`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `palladium_frost_2023_tables_i_iii_compression` with 93 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 58.678 | 58.7665 ± 0.0144758 | 0.15% | yes | yes |
+| `K0` | 189.3 | 184.191 ± 0.612883 | 2.70% | yes | yes |
+| `K0_prime` | 5.473 | 5.60371 ± 0.0138133 | 2.39% | no | yes |
+
+**Fit diagnostics.** Observed pressure range: 2.99-181.79 GPa; source-declared range: 0-182 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.771992/0.276359 GPa; reduced chi-square: 19.0491; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters.
+
+**Registered source-fit note.** Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.
+
+**Assessment and likely origin.**
+- The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-palladium_frost_2023_bm3_2"></a>
+
+### `palladium_frost_2023_bm3_2`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `palladium_frost_2023_tables_i_iii_compression` with 93 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 58.588 | 58.6846 ± 0.0140851 | 0.16% | yes | yes |
+| `K0` | 197.5 | 191.477 ± 0.621865 | 3.05% | yes | yes |
+| `K0_prime` | 4.996 | 5.14738 ± 0.0139251 | 3.03% | no | yes |
+
+**Fit diagnostics.** Observed pressure range: 2.99-181.79 GPa; source-declared range: 0-182 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.845419/0.293082 GPa; reduced chi-square: 22.0796; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters.
+
+**Registered source-fit note.** Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).
+
+**Assessment and likely origin.**
+- The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
 <a id="investigation-palladium_baty_2024_bm3_1"></a>
 
 ### `palladium_baty_2024_bm3_1`
@@ -1300,7 +1350,7 @@ the missing source fit detail is recovered.
 **Registered source-fit note.** Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.
 
 **Assessment and likely origin.**
-- The complete supplementary table is present, yet the published curve fits the checked rows substantially less well than the refit and K0 changes by about 20%. This makes source row selection, run grouping, pressure-scale treatment, or the fitted residual variable more likely than transcription rounding. The publication's exact fitting script or row mask is needed.
+- The official supplementary LaTeX source confirms every bundled Table S1 value, and Equation (1) is the same standard BM3 used by Peritheos. The published curve has a 1.273 GPa pressure RMSE, versus 0.704 GPa for the all-row pressure refit. Baty et al.'s Figure 3 Frost Vinet curve also lies below 77 of the 78 Table S1 observations, with a 2.039 GPa pressure-equivalent RMSE; this confirms that the visible cross-study offset is real rather than a plotting impression. Changing to volume residuals or a deliberately generous errors-in-variables diagnostic moves K0 toward 190 GPa but does not recover all three published coefficients. Fixing the measured V0 and using only rows at or above 40 GPa gives K0=193.66 GPa and K0'=5.02, but the paper states a 0-80 GPa fit and supplies no basis for that selection. The discrepancy is therefore most consistent with undocumented weighting, constraints, row selection, or a source-side reduction inconsistency, not transcription, unit conversion, rounding, or EOS formalism. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024).
 
 <a id="investigation-perovskite_orthorhombic_knittle_1987_bm3_1"></a>
 
@@ -1650,6 +1700,8 @@ the missing source fit detail is recovered.
 - `nacl_b2_shen_2026_vinet_2`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `nickel_oxide_noguchi_1999_bm3_1`: The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs.
 - `niobium_sokolova_2013_holzapfel_2`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
+- `palladium_baty_2024_bm3_dft_2`: The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes.
+- `palladium_guigue_2020_vinet_1`: The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed.
 - `platinum_holmes_1989_vinet_1`: The bundled rows are shock-Hugoniot qualification experiments; the stored equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be refitted directly to those rows.
 - `platinum_shen_2026_vinet_2`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `platinum_dorogokupets_oganov_2007_vinet_4`: This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations.

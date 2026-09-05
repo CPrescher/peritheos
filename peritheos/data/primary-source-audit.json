@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 211,
-    "primary_source_validated": 211
+    "records": 217,
+    "primary_source_validated": 217
   },
   "records": [
     {
@@ -1874,15 +1874,16 @@
       "status": "primary_source_validated",
       "note": "Equation, parameters, units, molar-to-cell conversion, P-T range, temperature convention, Pt pressure basis, complete two-dataset fit scope, and Debye-temperature convention checked against the primary paper, Dewaele et al. (2012) Table I, and the author-deposited high-temperature table.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.104.094107",
+        "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.104.094107",
         "locations": [
-          "Methods",
-          "Equations 1-4",
-          "Table I",
-          "Supplemental Table A1"
+          "Methods, effective KCl temperature and Pt pressure basis",
+          "Section III and Equations 1-4",
+          "Table I and Figure 3",
+          "Supplemental Table A1; author-deposited SuppTable_KCl.csv",
+          "Dewaele et al. (2012), Table I"
         ],
-        "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K; the high-P-T pressures use Dorogokupets-Oganov Pt. Equations 3-4 give gamma(V) and the full Debye energy but do not print theta(V); the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.",
-        "doi": "10.1103/PhysRevB.104.094107"
+        "finding": "The preferred BM3+MGD fit reports V0=32.0(3) cm^3/mol, K0=24(1) GPa, K0'=4.56(5), gamma0=2.9(4), q=1.0(1), and fixed thetaD=235 K. It simultaneously fits all Dewaele et al. (2012) room-temperature B2 data and the 155 new high-temperature rows. Equations 3-4 leave theta(V) implicit; the thermodynamically integrated constant-q relation reproduces all five coefficients and the reported 1.6 GPa high-temperature RMSE.",
+        "doi": "10.1103/physrevb.104.094107"
       }
     },
     {
@@ -2977,15 +2978,15 @@
       "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
       "doi": "10.1103/physrevb.39.11820",
       "status": "primary_source_validated",
-      "note": "The primary table and source fitting protocol were checked directly. The stored coefficients are explicitly identified as a new Peritheos table-only refit, not as Hemley et al.'s published thermally reduced coefficients.",
+      "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.39.11820",
         "locations": [
           "Table I, page 11823",
           "Equation-of-state discussion and Figure 4, pages 11823-11824"
         ],
-        "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The paper's own BM3 coefficients instead describe data reduced to 0 K, include the earlier Finger et al. low-pressure series, and therefore are not a direct fit to Table I alone.",
-        "doi": "10.1103/PhysRevB.39.11820"
+        "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.",
+        "doi": "10.1103/physrevb.39.11820"
       }
     },
     {
@@ -3118,6 +3119,129 @@
         ],
         "finding": "The paper fixes relative V0 to unity; the absolute hcp cell follows its stated ambient lattice parameters.",
         "doi": "10.1103/physrevb.70.012101"
+      }
+    },
+    {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_baty_2024_bm3_dft_2",
+      "label": "Baty et al. (2024), 0 K DFT BM3",
+      "doi": "10.1063/5.0179469",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication and official supplement.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1063/5.0179469",
+        "locations": [
+          "Cold-curve calculation",
+          "Figure 3",
+          "Supplementary Table S3"
+        ],
+        "finding": "The article identifies a separate 0 K DFT BM3 cold curve. Supplementary Table S3 evaluates that curve alongside five literature EOS parameterizations; it is not a table of observations used in the experimental fit.",
+        "doi": "10.1063/5.0179469"
+      }
+    },
+    {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_guigue_2020_vinet_1",
+      "label": "Guigue et al. (2020), Vinet",
+      "doi": "10.1063/1.5138697",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1063/1.5138697",
+        "locations": [
+          "Experimental methods",
+          "Pure-Pd compression discussion",
+          "Pure-Pd EOS figure"
+        ],
+        "finding": "The source reports a room-temperature Vinet EOS for pure fcc Pd compressed in neon, separately from the hydride results.",
+        "doi": "10.1063/1.5138697"
+      }
+    },
+    {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_fedotenko_2020_bm3_1",
+      "label": "Fedotenko et al. (2020), BM3",
+      "doi": "10.1016/j.jallcom.2020.156179",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the author-provided publication copy embedded in the first author's thesis.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.jallcom.2020.156179",
+        "locations": [
+          "Section 3.1",
+          "Table 1",
+          "Equation 1",
+          "Figure 1",
+          "Table 2"
+        ],
+        "finding": "Table 1 supplies 15 pure-Pd P-V observations. Section 3.1 and Figure 1 report the BM3 parameters; the isolated 58.863 value in Table 2 conflicts with three occurrences of 58.868 and is treated as a typographical inconsistency.",
+        "doi": "10.1016/j.jallcom.2020.156179"
+      }
+    },
+    {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_fedotenko_2020_bm2_2",
+      "label": "Fedotenko et al. (2020), constrained BM2",
+      "doi": "10.1016/j.jallcom.2020.156179",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the author-provided publication copy embedded in the first author's thesis.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.jallcom.2020.156179",
+        "locations": [
+          "Section 3.1",
+          "Table 1",
+          "Table 2"
+        ],
+        "finding": "Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.",
+        "doi": "10.1016/j.jallcom.2020.156179"
+      }
+    },
+    {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_frost_2023_vinet_1",
+      "label": "Frost et al. (2023), Vinet",
+      "doi": "10.1063/5.0161038",
+      "status": "primary_source_validated",
+      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1063/5.0161038",
+        "locations": [
+          "Abstract",
+          "Methods, page 035901-2",
+          "Table I",
+          "Figure 1 and caption",
+          "Results and discussion",
+          "Data availability",
+          "Supplementary Section II.A and Tables I-III"
+        ],
+        "finding": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
+        "doi": "10.1063/5.0161038"
+      }
+    },
+    {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_frost_2023_bm3_2",
+      "label": "Frost et al. (2023), BM3",
+      "doi": "10.1063/5.0161038",
+      "status": "primary_source_validated",
+      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1063/5.0161038",
+        "locations": [
+          "Methods, page 035901-2",
+          "Table I",
+          "Figure 1 and caption",
+          "Results and discussion",
+          "Data availability",
+          "Supplementary Section II.A and Tables I-III"
+        ],
+        "finding": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
+        "doi": "10.1063/5.0161038"
       }
     },
     {

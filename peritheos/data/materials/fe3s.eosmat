@@ -188,7 +188,11 @@
      {
       "kind": "equation_of_state",
       "reference": {
-       "authors": ["Anderson", "Isaak", "Yamamoto"],
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
        "year": 1989,
        "source": "J. Appl. Phys.",
        "volume": "65",
@@ -201,7 +205,9 @@
      {
       "kind": "equation_of_state",
       "reference": {
-       "authors": ["Birch"],
+       "authors": [
+        "Birch"
+       ],
        "year": 1978,
        "source": "J. Geophys. Res.",
        "volume": "83",
@@ -215,7 +221,7 @@
      "status": "ready",
      "notes": "The primary Anderson gold EOS is bundled and monotonic; the digitized source-scale pressures can be inverted for approximate pressure-scale conversion. Raw Au lattice parameters were not published."
     },
-   "audit_date": "2026-09-03",
+    "audit_date": "2026-09-03",
     "notes": "NaCl pressures were generally lower than Au pressures; above the NaCl B1-B2 transition near 29 GPa, pressure was calculated from Au alone."
    },
    "scientific_validation": {
@@ -229,9 +235,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2000-11-1229",
@@ -302,7 +306,12 @@
    "kind": "pressure_volume_digitized",
    "description": "Thirteen Fe3S room-temperature compression markers digitized from Figure 2. The solid BM3 fit curve was not sampled as data.",
    "reference": {
-    "authors": ["Fei", "Li", "Bertka", "Prewitt"],
+    "authors": [
+     "Fei",
+     "Li",
+     "Bertka",
+     "Prewitt"
+    ],
     "year": 2000,
     "source": "American Mineralogist",
     "volume": "85",
@@ -312,17 +321,41 @@
    "source_location": "Figure 2, journal page 1833",
    "source_url": "https://doi.org/10.2138/am-2000-11-1229",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_digitization_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    }
    ],
    "resource": {
     "path": "datasets/fe3s-fei-2000-figure2-digitized.csv",
     "sha256": "24da84d561d828293853457e213b5a0af97f13dc00d19e5dc74a962305902aec",
     "media_type": "text/csv"
    },
-   "used_by_eos_records": ["fe3s_fei_2000_bm3_1"],
+   "used_by_eos_records": [
+    "fe3s_fei_2000_bm3_1"
+   ],
    "uncertainty": {
     "published_error_bars": "none plotted",
     "scope": "The paper cautions that non-hydrostatic deviatoric stress may affect the fitted bulk modulus, but does not publish row-wise experimental uncertainties in Figure 2."
@@ -332,8 +365,32 @@
     "method": "Rendered the supplied primary PDF at 300 dpi, calibrated the linear pressure and volume axes from major ticks, and digitized only solid-circle marker centers.",
     "source_pdf_sha256": "7c7213038597849b5771b87f04c4bd982a6697099e72853ebc9f3c88e526d0de",
     "source_figure_sha256": "59f841dc430fe841e8c94101ec13db7fe8510eba986726b5e729d73697a7d31e",
-    "axis_calibration_pixels_source_figure": {"pressure": [[354.5, 0.0], [1044.5, 40.0]], "volume": [[320.5, 370.0], [708.5, 320.0]]},
-    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.9921, "published_bm3_max_abs_pressure_residual_gpa": 1.9745},
+    "axis_calibration_pixels_source_figure": {
+     "pressure": [
+      [
+       354.5,
+       0.0
+      ],
+      [
+       1044.5,
+       40.0
+      ]
+     ],
+     "volume": [
+      [
+       320.5,
+       370.0
+      ],
+      [
+       708.5,
+       320.0
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_bm3_rms_pressure_residual_gpa": 0.9921,
+     "published_bm3_max_abs_pressure_residual_gpa": 1.9745
+    },
     "digitized_on": "2026-09-04"
    }
   }

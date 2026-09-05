@@ -22,6 +22,7 @@ from types import SimpleNamespace
 from typing import Any
 
 import numpy as np
+from scipy.optimize import least_squares
 
 from peritheos import get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
@@ -191,6 +192,31 @@ FIT_QUALIFICATIONS = {
         "reprinted in this article, so exact parameter parity is not required from "
         "the new current-study rows alone."
     ),
+    "palladium_baty_2024_bm3_1": (
+        "Complete-table reproduction with unresolved source-fit discrepancy: all "
+        "78 official Table S1 rows and the printed BM3 equation are reproduced, "
+        "but reasonable pressure-, volume-, and errors-in-variables objectives do "
+        "not jointly recover the published coefficients. See the [dedicated "
+        "palladium reproduction]"
+        "(literature-reproductions.md#palladium-baty-2024)."
+    ),
+    "palladium_frost_2023_vinet_1": (
+        "Complete-table reproduction: all 93 Pd rows from supplementary Tables "
+        "I-III are fitted with the source-stated 0.1 GPa pressure errors and "
+        "volume errors propagated from the tabulated lattice-parameter errors. "
+        "The result is numerically similar, but K0' is just outside combined "
+        "two-sigma parity and the source does not publish enough detail to recover "
+        "its precise weighting convention. See the [dedicated Frost reproduction]"
+        "(literature-reproductions.md#what-the-frost-paper-and-supplement-resolve)."
+    ),
+    "palladium_frost_2023_bm3_2": (
+        "Complete-table reproduction: the alternative BM3 is fitted to the same "
+        "93 supplementary Pd rows with the source-stated pressure and volume "
+        "uncertainties. The result is numerically similar, but K0' is just outside "
+        "combined two-sigma parity and the exact source weighting convention is "
+        "not reported. See the [dedicated Frost reproduction]"
+        "(literature-reproductions.md#what-the-frost-paper-and-supplement-resolve)."
+    ),
     "neon_fcc_fei_2007_bm3_1": (
         "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, "
         "ref. 45), Finger et al. (1981, ref. 47), and their new observations. The "
@@ -349,11 +375,23 @@ INVESTIGATION_NOTES = {
         "Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001)."
     ),
     "palladium_baty_2024_bm3_1": (
-        "The complete supplementary table is present, yet the published curve fits "
-        "the checked rows substantially less well than the refit and K0 changes by "
-        "about 20%. This makes source row selection, run grouping, pressure-scale "
-        "treatment, or the fitted residual variable more likely than transcription "
-        "rounding. The publication's exact fitting script or row mask is needed."
+        "The official supplementary LaTeX source confirms every bundled Table S1 "
+        "value, and Equation (1) is the same standard BM3 used by Peritheos. The "
+        "published curve has a 1.273 GPa pressure RMSE, versus 0.704 GPa for the "
+        "all-row pressure refit. Baty et al.'s Figure 3 Frost Vinet curve also "
+        "lies below 77 of the 78 Table S1 observations, with a 2.039 GPa pressure-"
+        "equivalent RMSE; this confirms that the visible cross-study offset is "
+        "real rather than a plotting impression. Changing to volume residuals or "
+        "a deliberately "
+        "generous errors-in-variables diagnostic moves K0 toward 190 GPa but does "
+        "not recover all three published coefficients. Fixing the measured V0 and "
+        "using only rows at or above 40 GPa gives K0=193.66 GPa and K0'=5.02, but "
+        "the paper states a 0-80 GPa fit and supplies no basis for that selection. "
+        "The discrepancy is therefore most consistent with undocumented weighting, "
+        "constraints, row selection, or a source-side reduction inconsistency, not "
+        "transcription, unit conversion, rounding, or EOS formalism. See the "
+        "[dedicated palladium reproduction]"
+        "(literature-reproductions.md#palladium-baty-2024)."
     ),
     "silicon_vii_anzellini_2019_vinet_1": (
         "Si-VII is observed only at 46-94 GPa, so all three zero-pressure Vinet "
@@ -1531,6 +1569,218 @@ def _fit_record(
                 "Homoscedastic Gaussian pressure residuals with variance estimated "
                 "from the unconstrained fit."
             ),
+        }
+    if record_id == "palladium_baty_2024_bm3_1":
+        published = {
+            name: float(record["eos"]["parameters"][name])
+            for name in ("V0", "K0", "K0_prime")
+        }
+        fixed_v0_fit = fit_rt_eos(
+            BM3,
+            volume=series.volume,
+            pressure=series.pressure,
+            initial={"K0": published["K0"], "K0_prime": published["K0_prime"]},
+            fixed={"V0": published["V0"]},
+            bounds={
+                "K0": _bounds("K0", published["K0"]),
+                "K0_prime": _bounds("K0_prime", published["K0_prime"]),
+            },
+            absolute_sigma=True,
+            max_nfev=5000,
+        )
+        high_pressure = series.pressure >= 40.0
+        high_pressure_fit = fit_rt_eos(
+            BM3,
+            volume=series.volume[high_pressure],
+            pressure=series.pressure[high_pressure],
+            initial={"K0": published["K0"], "K0_prime": published["K0_prime"]},
+            fixed={"V0": published["V0"]},
+            bounds={
+                "K0": _bounds("K0", published["K0"]),
+                "K0_prime": _bounds("K0_prime", published["K0_prime"]),
+            },
+            absolute_sigma=True,
+            max_nfev=5000,
+        )
+
+        parameter_names = ("V0", "K0", "K0_prime")
+        parameter_start = np.asarray([published[name] for name in parameter_names])
+        parameter_bounds = [
+            _bounds(name, published[name]) for name in parameter_names
+        ]
+        lower = np.asarray([item[0] for item in parameter_bounds])
+        upper = np.asarray([item[1] for item in parameter_bounds])
+
+        def volume_residual(parameters: np.ndarray) -> np.ndarray:
+            model = BM3(**dict(zip(parameter_names, parameters)))
+            return np.asarray(model.volume(series.pressure), dtype=float) - series.volume
+
+        volume_fit = least_squares(
+            volume_residual,
+            parameter_start,
+            bounds=(lower, upper),
+            max_nfev=5000,
+        )
+        volume_model = BM3(**dict(zip(parameter_names, volume_fit.x)))
+        volume_fit_pressure_residual = (
+            np.asarray(volume_model.pressure(series.volume), dtype=float)
+            - series.pressure
+        )
+
+        # Table S1 gives only dataset-wide upper bounds, not row-wise sigmas.
+        # Applying both maxima to every row is deliberately generous and is
+        # reported as a sensitivity test rather than the undocumented source fit.
+        pressure_sigma_upper_gpa = 0.12
+        volume_sigma_upper_a3 = 4.0 * 0.01
+
+        def upper_bound_eiv_residual(values: np.ndarray) -> np.ndarray:
+            parameters = values[:3]
+            latent_volume = values[3:]
+            model = BM3(**dict(zip(parameter_names, parameters)))
+            return np.concatenate(
+                (
+                    (
+                        np.asarray(model.pressure(latent_volume), dtype=float)
+                        - series.pressure
+                    )
+                    / pressure_sigma_upper_gpa,
+                    (latent_volume - series.volume) / volume_sigma_upper_a3,
+                )
+            )
+
+        eiv_fit = least_squares(
+            upper_bound_eiv_residual,
+            np.concatenate((parameter_start, series.volume)),
+            bounds=(
+                np.concatenate((lower, 0.5 * series.volume)),
+                np.concatenate((upper, 1.5 * series.volume)),
+            ),
+            max_nfev=5000,
+        )
+        eiv_model = BM3(**dict(zip(parameter_names, eiv_fit.x[:3])))
+        eiv_pressure_residual = (
+            np.asarray(eiv_model.pressure(series.volume), dtype=float)
+            - series.pressure
+        )
+
+        # Figure 3 overlays the authors' Table S1 points with the room-temperature
+        # Frost et al. (2023) Vinet curve. The caption prints K0 and K0', while
+        # supplementary Table S3 supplies the corresponding atomic V0.
+        frost_parameters = {"V0": 58.678, "K0": 189.3, "K0_prime": 5.473}
+        frost_model = Vinet(**frost_parameters)
+        frost_pressure_residual = (
+            np.asarray(frost_model.pressure(series.volume), dtype=float)
+            - series.pressure
+        )
+        frost_curve_volume = np.asarray(
+            frost_model.volume(series.pressure), dtype=float
+        )
+        observation_minus_frost_atomic_volume = (
+            series.volume - frost_curve_volume
+        ) / 4.0
+        published_model = BM3(**published)
+        published_curve_volume = np.asarray(
+            published_model.volume(series.pressure), dtype=float
+        )
+        published_minus_frost_atomic_volume = (
+            published_curve_volume - frost_curve_volume
+        ) / 4.0
+
+        order = np.argsort(series.pressure)
+        sorted_volume = series.volume[order]
+        volume_increases = np.diff(sorted_volume) > 0.0
+
+        def fit_summary(fit: Any, selected_pressure: np.ndarray) -> dict[str, Any]:
+            fit_residual = np.asarray(fit.residuals, dtype=float)
+            return {
+                "observations": int(selected_pressure.size),
+                "parameters": {
+                    name: float(fit.parameters[name])
+                    for name in ("V0", "K0", "K0_prime")
+                },
+                "pressure_rmse_gpa": float(np.sqrt(np.mean(fit_residual**2))),
+            }
+
+        outcome["fit_protocol_diagnostic"] = {
+            "source_equation": "standard third-order Birch-Murnaghan, Equation (1)",
+            "source_table_rows_verified_against_official_latex": 78,
+            "published_curve": {
+                "parameters": published,
+                "pressure_rmse_gpa": float(published_rmse),
+            },
+            "unweighted_pressure_all_rows": fit_summary(result, series.pressure),
+            "unweighted_volume_all_rows": {
+                "observations": int(series.pressure.size),
+                "parameters": dict(zip(parameter_names, map(float, volume_fit.x))),
+                "volume_rmse_a3_conventional_cell": float(
+                    np.sqrt(np.mean(volume_fit.fun**2))
+                ),
+                "pressure_rmse_gpa": float(
+                    np.sqrt(np.mean(volume_fit_pressure_residual**2))
+                ),
+            },
+            "upper_bound_errors_in_variables_all_rows": {
+                "purpose": (
+                    "Sensitivity test using the maximum stated uncertainty at every "
+                    "row; the source does not provide row-wise sigmas."
+                ),
+                "pressure_sigma_gpa": pressure_sigma_upper_gpa,
+                "volume_sigma_a3_conventional_cell": volume_sigma_upper_a3,
+                "parameters": dict(zip(parameter_names, map(float, eiv_fit.x[:3]))),
+                "pressure_rmse_gpa": float(
+                    np.sqrt(np.mean(eiv_pressure_residual**2))
+                ),
+                "chi_square": float(np.sum(eiv_fit.fun**2)),
+                "degrees_of_freedom": int(series.pressure.size - 3),
+                "reduced_chi_square": float(
+                    np.sum(eiv_fit.fun**2) / (series.pressure.size - 3)
+                ),
+            },
+            "fixed_published_V0_all_rows": fit_summary(
+                fixed_v0_fit, series.pressure
+            ),
+            "fixed_published_V0_pressure_at_least_40_gpa": fit_summary(
+                high_pressure_fit, series.pressure[high_pressure]
+            ),
+            "frost_2023_vinet_cross_check": {
+                "purpose": (
+                    "Reproduce the room-temperature Frost et al. Vinet curve "
+                    "overlaid in Baty et al. Figure 3; individual Frost observations "
+                    "are not plotted there."
+                ),
+                "parameters": frost_parameters,
+                "pressure_residual_curve_minus_observation_mean_gpa": float(
+                    np.mean(frost_pressure_residual)
+                ),
+                "pressure_residual_rmse_gpa": float(
+                    np.sqrt(np.mean(frost_pressure_residual**2))
+                ),
+                "observation_minus_curve_volume_atomic_a3": {
+                    "rows_positive": int(
+                        np.count_nonzero(observation_minus_frost_atomic_volume > 0.0)
+                    ),
+                    "mean": float(np.mean(observation_minus_frost_atomic_volume)),
+                    "rmse": float(
+                        np.sqrt(np.mean(observation_minus_frost_atomic_volume**2))
+                    ),
+                    "maximum": float(
+                        np.max(observation_minus_frost_atomic_volume)
+                    ),
+                },
+                "published_baty_minus_frost_curve_volume_atomic_a3": {
+                    "mean": float(np.mean(published_minus_frost_atomic_volume)),
+                    "minimum": float(np.min(published_minus_frost_atomic_volume)),
+                    "maximum": float(np.max(published_minus_frost_atomic_volume)),
+                },
+            },
+            "table_monotonicity": {
+                "adjacent_volume_increases_after_sorting_by_pressure": int(
+                    np.count_nonzero(volume_increases)
+                ),
+                "largest_increase_a3_conventional_cell": float(
+                    np.max(np.diff(sorted_volume)[volume_increases])
+                ),
+            },
         }
     if chidester_high_temperature is not None:
         high_temperature_refit_pressure = result.model.pressure(

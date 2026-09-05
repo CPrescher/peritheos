@@ -168,7 +168,13 @@
    "kind": "pressure_lattice_volume",
    "description": "All 59 rhenium compression observations from Table III, preserving the three runs and their ruby, helium, or tungsten pressure gauges. Conventional hcp-cell volumes are calculated from the published a and c lattice parameters.",
    "reference": {
-    "authors": ["Anzellini", "Dewaele", "Occelli", "Loubeyre", "Mezouar"],
+    "authors": [
+     "Anzellini",
+     "Dewaele",
+     "Occelli",
+     "Loubeyre",
+     "Mezouar"
+    ],
     "year": 2014,
     "source": "J. Appl. Phys.",
     "volume": "115",
@@ -178,19 +184,63 @@
    "source_location": "Table III",
    "source_url": "https://doi.org/10.1063/1.4863300",
    "columns": [
-    {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_gauge", "quantity": "pressure_gauge", "unit": "1", "role": "flag"},
-    {"name": "tungsten_lattice_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
-    {"name": "rhenium_lattice_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
-    {"name": "rhenium_lattice_c_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"}
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gauge",
+     "quantity": "pressure_gauge",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "tungsten_lattice_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "rhenium_lattice_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "rhenium_lattice_c_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    }
    ],
-   "resource": {"path": "datasets/rhenium-anzellini-2014-table3-compression.csv", "sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f", "media_type": "text/csv"},
-   "used_by_eos_records": ["rhenium_anzellini_2014_vinet_1"],
+   "resource": {
+    "path": "datasets/rhenium-anzellini-2014-table3-compression.csv",
+    "sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "rhenium_anzellini_2014_vinet_1"
+   ],
    "uncertainty": {
     "lattice_parameter_error_upper_bound_angstrom": 0.003,
-    "pressure_error_range_gpa": [0.05, 2.0],
+    "pressure_error_range_gpa": [
+     0.05,
+     2.0
+    ],
     "scope": "Global limits reported for the dataset: pressure uncertainty rises from 0.05 GPa at 1 GPa to approximately 2 GPa at 150 GPa; no row-wise interpolation was invented.",
     "source_location": "Table III caption"
    },
@@ -198,7 +248,10 @@
     "type": "transcribed_from_table",
     "method": "Transcribed Table III and calculated each conventional hcp-cell volume as sqrt(3)/2 times a squared times c.",
     "source_pdf_sha256": "4975ba6e1e17c0ab7bd27938d8ca3be59fb282283c981e62e99be782518514d5",
-    "quality_control": {"published_vinet_rms_pressure_residual_gpa": 0.6132, "published_vinet_max_abs_pressure_residual_gpa": 2.4202},
+    "quality_control": {
+     "published_vinet_rms_pressure_residual_gpa": 0.6132,
+     "published_vinet_max_abs_pressure_residual_gpa": 2.4202
+    },
     "transcribed_on": "2026-09-03"
    }
   }

@@ -137,14 +137,6 @@
      "finding": "The Table 6 isotherms are BM2 fits with K0'=4 assumed. Regressing their printed V0,T values gives a mean expansion coefficient of 6.484e-5 K^-1, reproducing the Table 7 value 6.5(1)e-5 K^-1. Unweighted and error-weighted regressions of the printed K0,T values give -0.01969 and -0.01702 GPa/K, bracketing the reported -0.018(2) GPa/K. The fit-specific 298 K K0 error is retained; the conflicting summary error printed in the prose and Table 7 is recorded explicitly.",
      "doi": "10.2138/am-1996-5-608"
     },
-    "reported_inconsistencies": [
-     {
-      "field": "parameter_errors.K0",
-      "table_6": "3.48 GPa",
-      "text_and_table_7": "approximately 4.3 GPa",
-      "resolution": "Retain 3.48 GPa because it is the fit-specific sigma K0,T printed in Table 6 alongside V0=227.5(8) A^3."
-     }
-    ],
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-03",
@@ -155,7 +147,15 @@
       "Table 3, pages 616-617"
      ],
      "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-    }
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "parameter_errors.K0",
+      "table_6": "3.48 GPa",
+      "text_and_table_7": "approximately 4.3 GPa",
+      "resolution": "Retain 3.48 GPa because it is the fit-specific sigma K0,T printed in Table 6 alongside V0=227.5(8) A^3."
+     }
+    ]
    },
    "thermal": {
     "type": "AlphaKT",

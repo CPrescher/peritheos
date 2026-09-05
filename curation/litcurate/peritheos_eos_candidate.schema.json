@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://peritheos.readthedocs.io/schemas/litcurate-eos-candidate-v1.json",
+  "title": "Peritheos EOS candidate extraction",
+  "type": "object",
+  "required": ["eos_entries"],
+  "properties": {
+    "eos_entries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "material",
+          "record_scope",
+          "origin",
+          "equation",
+          "parameters",
+          "evidence_locations",
+          "conflicts",
+          "blockers"
+        ],
+        "properties": {
+          "material": {
+            "type": "object",
+            "required": ["phase", "composition"],
+            "properties": {
+              "name": {"type": ["string", "null"]},
+              "phase": {"type": ["string", "null"]},
+              "composition": {"type": ["string", "null"]},
+              "structure": {"type": ["string", "null"]},
+              "space_group": {"type": ["string", "null"]},
+              "formula_units_per_cell": {"type": ["number", "null"]},
+              "volume_basis": {
+                "enum": [
+                  "conventional_unit_cell",
+                  "primitive_cell",
+                  "formula_unit",
+                  "atom",
+                  "molar",
+                  "density_derived",
+                  "unknown",
+                  null
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "record_scope": {
+            "enum": ["isothermal", "thermal", "hugoniot", "unresolved"]
+          },
+          "origin": {
+            "enum": ["source_reported", "citation_reported", "unknown"]
+          },
+          "equation": {
+            "type": "object",
+            "required": [
+              "reported_name",
+              "family",
+              "order",
+              "equation_number",
+              "equation_text",
+              "mapping_status"
+            ],
+            "properties": {
+              "reported_name": {"type": ["string", "null"]},
+              "family": {"type": ["string", "null"]},
+              "order": {"type": ["integer", "null"]},
+              "equation_number": {"type": ["string", "null"]},
+              "equation_text": {"type": ["string", "null"]},
+              "mapping_status": {
+                "enum": [
+                  "existing_family_candidate",
+                  "needs_adapter",
+                  "new_family_candidate",
+                  "unresolved"
+                ]
+              }
+            },
+            "additionalProperties": false
+          },
+          "parameters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "reported_value",
+                "unit",
+                "determination",
+                "source_location"
+              ],
+              "properties": {
+                "name": {"type": "string"},
+                "reported_value": {"type": ["string", "number", "null"]},
+                "unit": {"type": ["string", "null"]},
+                "determination": {
+                  "enum": [
+                    "fitted",
+                    "fixed",
+                    "adopted",
+                    "measured",
+                    "derived",
+                    "unknown"
+                  ]
+                },
+                "uncertainty": {"type": ["string", "number", "null"]},
+                "uncertainty_convention": {"type": ["string", "null"]},
+                "source_location": {"type": ["string", "null"]}
+              },
+              "additionalProperties": false
+            }
+          },
+          "reference_state": {
+            "type": "object",
+            "properties": {
+              "temperature": {"type": ["string", "number", "null"]},
+              "temperature_unit": {"type": ["string", "null"]},
+              "pressure": {"type": ["string", "number", "null"]},
+              "pressure_unit": {"type": ["string", "null"]},
+              "cold_curve_or_reference_isotherm": {
+                "enum": ["cold_curve", "reference_isotherm", "unknown", null]
+              }
+            },
+            "additionalProperties": false
+          },
+          "reported_range": {
+            "type": "object",
+            "properties": {
+              "pressure": {"type": ["string", "null"]},
+              "temperature": {"type": ["string", "null"]},
+              "volume": {"type": ["string", "null"]},
+              "source_location": {"type": ["string", "null"]}
+            },
+            "additionalProperties": false
+          },
+          "pressure_calibration": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["kind", "reference", "source_location"],
+              "properties": {
+                "kind": {"type": ["string", "null"]},
+                "reference": {"type": ["string", "null"]},
+                "source_location": {"type": ["string", "null"]},
+                "rowwise_observations_available": {
+                  "type": ["boolean", "null"]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "primary_data": {
+            "type": "object",
+            "required": ["availability", "locations"],
+            "properties": {
+              "availability": {
+                "enum": [
+                  "machine_readable",
+                  "printed_table",
+                  "figure_only",
+                  "not_found",
+                  "unknown"
+                ]
+              },
+              "locations": {"type": "array", "items": {"type": "string"}},
+              "repository_url": {"type": ["string", "null"]},
+              "license": {"type": ["string", "null"]}
+            },
+            "additionalProperties": false
+          },
+          "evidence_locations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["field", "locator", "excerpt"],
+              "properties": {
+                "field": {"type": "string"},
+                "locator": {"type": "string"},
+                "excerpt": {"type": "string"}
+              },
+              "additionalProperties": false
+            }
+          },
+          "conflicts": {"type": "array", "items": {"type": "string"}},
+          "blockers": {"type": "array", "items": {"type": "string"}}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

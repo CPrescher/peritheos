@@ -201,7 +201,13 @@
    "kind": "pressure_molar_volume_digitized",
    "description": "Fourteen plotted FeH2 observations digitized from Figure 3. The paper's stated experimental uncertainties (2% in pressure and 0.05 cm^3/mol in volume) are included separately from digitization uncertainty; the caption notes that the rendered error bars do not exceed the marker size.",
    "reference": {
-    "authors": ["Pépin", "Dewaele", "Geneste", "Loubeyre", "Mezouar"],
+    "authors": [
+     "Pépin",
+     "Dewaele",
+     "Geneste",
+     "Loubeyre",
+     "Mezouar"
+    ],
     "year": 2014,
     "source": "Phys. Rev. Lett.",
     "volume": "113",
@@ -210,23 +216,98 @@
    },
    "source_location": "Figure 3, green downward triangles",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "molar_volume_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "pressure_error_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "molar_volume_error_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_per_mol"},
-    {"name": "volume_error_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "molar_volume_digitization_uncertainty_cm3_per_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "uncertainty", "of": "molar_volume_cm3_per_mol"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_per_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "molar_volume_error_cm3_per_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_per_mol"
+    },
+    {
+     "name": "volume_error_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "molar_volume_digitization_uncertainty_cm3_per_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_per_mol"
+    }
    ],
-   "resource": {"path": "datasets/feh2-pepin-2014-figure3-digitized.csv", "sha256": "1ded4e978d2bb66b63611927ca495482f688ec884893ba9ecb5ad69cabec89c9", "media_type": "text/csv"},
-   "used_by_eos_records": ["feh2_p_pin_2014_vinet_1"],
+   "resource": {
+    "path": "datasets/feh2-pepin-2014-figure3-digitized.csv",
+    "sha256": "1ded4e978d2bb66b63611927ca495482f688ec884893ba9ecb5ad69cabec89c9",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "feh2_p_pin_2014_vinet_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Extracted vector triangle coordinates from the official APS PDF and calibrated them against the printed axes. Molar volumes were converted to the represented Z=4 conventional cell with the exact molar-to-particle conversion.",
     "source_pdf_sha256": "3960a74d0505da682219e4f6feb344db6820b9055cd2517004334f9a11ebac6c",
-    "axis_calibration_pixels_600dpi": {"pressure": [[875.5, 0.0], [2208.5, 160.0]], "molar_volume": [[686.5, 9.0], [1205.0, 7.0]]},
-    "quality_control": {"published_vinet_rms_pressure_residual_gpa": 1.3808, "published_vinet_max_abs_pressure_residual_gpa": 3.4713},
+    "axis_calibration_pixels_600dpi": {
+     "pressure": [
+      [
+       875.5,
+       0.0
+      ],
+      [
+       2208.5,
+       160.0
+      ]
+     ],
+     "molar_volume": [
+      [
+       686.5,
+       9.0
+      ],
+      [
+       1205.0,
+       7.0
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_vinet_rms_pressure_residual_gpa": 1.3808,
+     "published_vinet_max_abs_pressure_residual_gpa": 3.4713
+    },
     "digitized_on": "2026-09-03"
    },
    "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext"

@@ -149,7 +149,11 @@
    "kind": "pressure_volume_ratio_digitized",
    "description": "Twenty-one plotted 300 K cementite compression observations digitized from Figure 3. Experimental pressure and volume error bars are included where their endpoints are separable; blank error fields mean that no defensible bar extent could be recovered, not zero error. The open temperature-quenched point was excluded.",
    "reference": {
-    "authors": ["Scott", "Williams", "Knittle"],
+    "authors": [
+     "Scott",
+     "Williams",
+     "Knittle"
+    ],
     "year": 2001,
     "source": "Geophys. Res. Lett.",
     "volume": "28",
@@ -158,21 +162,85 @@
    },
    "source_location": "Figure 3, filled-symbol 300 K compression series",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
-    {"name": "pressure_error_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_ratio_error", "quantity": "relative_volume", "unit": "dimensionless", "role": "uncertainty", "of": "volume_ratio"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "dimensionless", "role": "uncertainty", "of": "volume_ratio"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_error_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_error",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    }
    ],
-   "resource": {"path": "datasets/cementite-scott-2001-figure3-digitized.csv", "sha256": "bf198807ec30f0b978d73e6d31791e07677ba8c8d393ff706e5875d6039e5b19", "media_type": "text/csv"},
-   "used_by_eos_records": ["cementite_scott_2001_bm3_1"],
+   "resource": {
+    "path": "datasets/cementite-scott-2001-figure3-digitized.csv",
+    "sha256": "bf198807ec30f0b978d73e6d31791e07677ba8c8d393ff706e5875d6039e5b19",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "cementite_scott_2001_bm3_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Extracted the 300 dpi one-bit journal page image from the locally archived PDF; located filled-marker centers by distance-transform maxima; calibrated against the printed axes. For visually separable error bars, straight vertical and horizontal stems and their terminal caps were isolated locally and converted to symmetric plotted uncertainties.",
     "source_pdf_sha256": "abca7f6489523e6c6148cc721e3a79fa942fd444bae873bd9abd1c52871ae7e9",
-    "axis_calibration_pixels_300dpi": {"volume_ratio": [[283.0, 1.0], [412.0, 0.95]], "pressure": [[837.0, 0.0], [768.0, 10.0]]},
-    "quality_control": {"published_bm3_rms_pressure_residual_gpa": 1.6574, "published_bm3_max_abs_pressure_residual_gpa": 3.9486},
+    "axis_calibration_pixels_300dpi": {
+     "volume_ratio": [
+      [
+       283.0,
+       1.0
+      ],
+      [
+       412.0,
+       0.95
+      ]
+     ],
+     "pressure": [
+      [
+       837.0,
+       0.0
+      ],
+      [
+       768.0,
+       10.0
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_bm3_rms_pressure_residual_gpa": 1.6574,
+     "published_bm3_max_abs_pressure_residual_gpa": 3.9486
+    },
     "digitized_on": "2026-09-03"
    }
   }

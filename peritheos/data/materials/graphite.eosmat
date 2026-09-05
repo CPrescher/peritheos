@@ -141,7 +141,11 @@
    "kind": "pressure_volume_ratio_digitized",
    "description": "Ten plotted 300 K graphite pressure-volume observations digitized from Figure 2.",
    "reference": {
-    "authors": ["Hanfland", "Beister", "Syassen"],
+    "authors": [
+     "Hanfland",
+     "Beister",
+     "Syassen"
+    ],
     "year": 1989,
     "source": "Phys. Rev. B",
     "volume": "39",
@@ -150,24 +154,66 @@
    },
    "source_location": "Figure 2, solid-circle experimental series",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_ratio_digitization_uncertainty", "quantity": "relative_volume", "unit": "dimensionless", "role": "uncertainty", "of": "volume_ratio"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_ratio_digitization_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "uncertainty",
+     "of": "volume_ratio"
+    }
    ],
    "resource": {
     "path": "datasets/graphite-hanfland-1989-figure2-digitized.csv",
     "sha256": "cf0ef03884ae28212c8c6b49880a1bc5dadd87181b26c7f149a0b68e63f9e77a",
     "media_type": "text/csv"
    },
-   "used_by_eos_records": ["graphite_hanfland_1989_murnaghan_1"],
+   "used_by_eos_records": [
+    "graphite_hanfland_1989_murnaghan_1"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Rasterized the locally archived publication PDF at 300 dpi, located the solid-marker centers by distance-transform maxima, and calibrated against the printed axes. The clipped ambient marker was set to the known plotted origin (V/V0=1, P=0).",
     "source_pdf_sha256": "300a6b03af667f71a27fc7c269e7a928af57d4b846bded25feaefa0e37b1089e",
     "axis_calibration_pixels_300dpi": {
-     "volume_ratio": [[442.0, 0.85], [1136.0, 1.0]],
-     "pressure": [[2771.0, 0.0], [2697.0, 2.0]]
+     "volume_ratio": [
+      [
+       442.0,
+       0.85
+      ],
+      [
+       1136.0,
+       1.0
+      ]
+     ],
+     "pressure": [
+      [
+       2771.0,
+       0.0
+      ],
+      [
+       2697.0,
+       2.0
+      ]
+     ]
     },
     "quality_control": {
      "published_murnaghan_rms_pressure_residual_gpa": 0.3429,

@@ -60,6 +60,12 @@ CURRENT_SOURCE_AUDIT_RECORDS = {
     "phase_egg_schulze_2018_bm3_1",
     "rbcl_b2_campbell_1994_bm3_1",
     "sio2_stv_andr_wang_2012_vinet_mgd_2",
+    "palladium_baty_2024_bm3_dft_2",
+    "palladium_guigue_2020_vinet_1",
+    "palladium_fedotenko_2020_bm3_1",
+    "palladium_fedotenko_2020_bm2_2",
+    "palladium_frost_2023_vinet_1",
+    "palladium_frost_2023_bm3_2",
 }
 
 
@@ -3239,8 +3245,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 211:
-        raise ValueError(f"Expected 211 EOS records, found {len(entries)}")
+    if len(entries) != 217:
+        raise ValueError(f"Expected 217 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
