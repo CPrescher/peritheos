@@ -3,6 +3,38 @@
   "format_version": 1,
   "papers": [
     {
+      "citation": "Sherman et al. (1993), stishovite and modified-fluorite SiO2",
+      "doi": "10.1029/93JB00783",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/sherman-1993-stishovite.md",
+      "reason": "The accessible primary abstract reports a static HF-LCAO stishovite BM3 parameterization, but the calculated energy-volume grid is confined to an inaccessible figure and the abstract conflicts with body values extracted by LitCurate. The modified-fluorite candidate also has an unresolved conventional-cell basis. Both source fits are therefore documented but withheld, and ten comparison values are retained only as citation traces."
+    },
+    {
+      "citation": "Xu et al. (2024), Al-bearing superhydrous phase B",
+      "doi": "10.1029/2023GL107818",
+      "outcome": "withheld_unreproduced",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/xu-2024-al-bearing-superhydrous-phase-b.md",
+      "reason": "The official EarthChem archive contains all 45 P-T-V rows, but none of the four published Birch-Murnaghan parameterizations reproduces those observations: direct refits shift K0 by roughly 18-32 GPa and K0-prime substantially. Three additional rows are coupled acoustic-elasticity fits rather than standalone P(V) equations, and three are citation-only comparisons. No production EOS was added."
+    },
+    {
+      "citation": "Funamori et al. (1996), MgSiO3 perovskite thermoelasticity",
+      "doi": "10.1029/95JB03732",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/funamori-1996-mgsio3-perovskite.md",
+      "reason": "The two apparent LitCurate records are run-specific ambient-volume normalizations of a single combined thermal EOS, not two independently fitted equations. Both adopt K0=261 GPa and K0-prime=4 from Mao et al. (1991), while the source's executable thermal parameterization is not represented by either split candidate. No production EOS was added."
+    },
+    {
+      "citation": "Zhang and Weidner (1999), Al-enriched silicate perovskite",
+      "doi": "10.1126/science.284.5415.782",
+      "outcome": "direct_refit_unavailable",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/zhang-weidner-1999-aluminous-perovskite.md",
+      "reason": "The three apparent records describe separate runs on the same 5 mol% Al2O3 sample, correctly normalized as Mg0.95Al0.10Si0.95O3, but the closed primary article exposes neither a numerical P-V-T table nor a recoverable pressure-volume figure. The extracted coefficients have no source uncertainties or independent observations with which to verify the run fits, so all three remain on hold and five comparison rows are citation traces."
+    },
+    {
       "citation": "Katsura et al. (2004), Mg2SiO4 ringwoodite",
       "doi": "10.1029/2004JB003094",
       "outcome": "withheld_unreproduced",

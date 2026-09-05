@@ -86,14 +86,35 @@ INDIRECT_DATA = {
         "coefficients are instead validated by the bundled velocity-density data "
         "and the dedicated acoustic finite-strain reproduction."
     ),
+    "mgal2o4_cafe2o4_funamori_1998_bm2_1": (
+        "The primary article reports only the ambient and compressed endpoint for "
+        "this polymorph. Those two states reproduce the published fixed-V0, "
+        "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
+        "provide enough degrees of freedom for the generic refit campaign."
+    ),
+    "mgal2o4_cati2o4_funamori_1998_bm2_1": (
+        "The primary article reports only the ambient and compressed endpoint for "
+        "this polymorph. Those two states reproduce the published fixed-V0, "
+        "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
+        "provide enough degrees of freedom for the generic refit campaign."
+    ),
 }
 
 SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
 
-# The Fei et al. neon points are digitized from a plot with no experimental
-# error bars. The stored uncertainties describe the digitization, not the
-# weights used in the paper's least-squares fit.
-UNWEIGHTED_DATASETS = {"neon_fei_2007_figure5_digitized"}
+# These plot-only observations do not provide numerical experimental error
+# bars. The stored uncertainties describe digitization, not the weights used
+# in the papers' least-squares fits.
+UNWEIGHTED_DATASETS = {
+    "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized",
+    "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",
+    "mg075fe025o_mao_2011_figure1_300k_digitized",
+    "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized",
+    "mg090fe009al0005ca0005sio3_shieh_2006_figure2_pv_digitized",
+    "namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized",
+    "namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized",
+    "neon_fei_2007_figure5_digitized",
+}
 
 COMBINED_FIT_DATASET_RECORDS = {
     "cscl_campbell_1994_bm3_1",
@@ -489,6 +510,7 @@ VOLUME_COLUMNS = {
     "titanium_alpha_dewaele_2015_table4_compression": "lattice_a_angstrom",
     "titanium_omega_dewaele_2015_table4_compression": "lattice_a_angstrom",
     "bridgmanite_wolf_2015_table2_pvt": "bridgmanite_unit_cell_volume_a3",
+    "bridgmanite_katsura_2009_corrected_table1_pvt": "bridgmanite_v_v0",
     "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt": (
         "bridgmanite_unit_cell_volume_a3"
     ),
@@ -500,6 +522,15 @@ PHASE_FILTERS = {
     "phase_d_ant_a_shieh_2000_bm2_1": {"sample": "1"},
     "phase_d_ant_b_shieh_2000_bm2_1": {"sample": "2"},
     "phase_egg_schulze_2018_bm3_1": {"used_in_published_fit": "1"},
+    "mg075fe025o_mao_2011_high_spin_bm3_1": {"used_in_high_spin_fit": "1"},
+    "mg075fe025o_mao_2011_low_spin_bm3_1": {"used_in_low_spin_fit": "1"},
+    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1": {
+        "high_spin_fit_included": "1"
+    },
+    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2": {
+        "low_spin_fit_included": "1"
+    },
+    "mg080fe020o_speziale_2007_high_spin_bm3_1": {"fit_included": "1"},
     "forsterite_finkelstein_2014_bm3_1": {
         "phase": "forsterite_I",
         "used_in_forsterite_i_eos_fit": "yes",

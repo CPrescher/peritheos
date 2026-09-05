@@ -44,7 +44,7 @@ CASES = {
         "observed_max": 0.2669266040,
         "table_rmse": 0.0028967125,
         "table_max": 0.0052404910,
-        "phase": "high-spin B1 ferropericlase",
+        "phase": "B1 ferropericlase",
     },
 }
 

@@ -1,0 +1,138 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg090fe009al0005ca0005sio3_bridgmanite",
+ "name": "Natural Fe9 bridgmanite",
+ "formula": "Mg0.90Fe0.09Al0.005Ca0.005SiO3",
+ "phase": "orthorhombic perovskite (bridgmanite), Pbnm",
+ "aliases": ["Shieh natural pyroxene perovskite", "9 mol.% FeSiO3 bridgmanite"],
+ "cell_contents": "Four normalized Mg0.90Fe0.09Al0.005Ca0.005SiO3 formula units per conventional Pbnm cell (Z=4). The atom_sites are an explicitly labeled pure-MgSiO3 positional-topology proxy; the experiment did not refine Fe, Al, or Ca site partitioning.",
+ "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {"a": 4.7855081152, "b": 4.9385386156, "c": 6.9097076657, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [
+  {"element": "Mg", "wyckoff": "4c", "site_multiplicity": 4, "x": 0.974, "y": 0.063, "z": 0.25, "occupancy": 1.0, "source_label": "pure-MgSiO3 topology proxy Mg"},
+  {"element": "Si", "wyckoff": "4b", "site_multiplicity": 4, "x": 0.0, "y": 0.5, "z": 0.0, "occupancy": 1.0, "source_label": "pure-MgSiO3 topology proxy Si"},
+  {"element": "O", "wyckoff": "4c", "site_multiplicity": 4, "x": 0.096, "y": 0.477, "z": 0.25, "occupancy": 1.0, "source_label": "pure-MgSiO3 topology proxy O1"},
+  {"element": "O", "wyckoff": "8d", "site_multiplicity": 8, "x": 0.696, "y": 0.291, "z": 0.056, "occupancy": 1.0, "source_label": "pure-MgSiO3 topology proxy O2"}
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {"authors": ["Yagi", "Mao", "Bell"], "year": 1978, "title": "Structure and crystal chemistry of perovskite-type MgSiO3", "source": "Physics and Chemistry of Minerals", "volume": "3", "locator": "97-110", "doi": "10.1007/BF00308114"},
+  "structure_location": "Pure MgSiO3 Pbnm positional topology used by the bundled bridgmanite material (COD 9005757); lattice isotropically scaled to the measured Shieh et al. V0.",
+  "topology_proxy": true,
+  "topology_proxy_scope": "Positions and Wyckoff topology only; no Fe/Al/Ca site occupancies or scattering partition are inferred."
+ },
+ "notes": "The sample is the Pbnm phase coexisting with Cmcm post-perovskite after laser-heated synthesis from natural orthopyroxene. The 163.3(1) A^3 recovered-sample volume is measured, but no composition-specific positional refinement or trace-site partition is published; pure-MgSiO3 positions are therefore an explicit topology proxy.",
+ "eos_records": [
+  {
+   "identifier": "mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1",
+   "label": "Shieh et al. (2006), coexisting perovskite BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
+    "year": 2006,
+    "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
+    "source": "Proceedings of the National Academy of Sciences",
+    "volume": "103",
+    "locator": "3039-3043",
+    "doi": "10.1073/pnas.0506811103"
+   },
+   "sample_composition": "Natural orthopyroxene starting material (Mg1.80Fe0.18Al0.01Ca0.01)Si2O6; normalized Mg0.90Fe0.09Al0.005Ca0.005SiO3; pv and ppv coexisted after synthesis.",
+   "eos": {"type": "BM3", "model": "birch_murnaghan_3", "parameters": {"V0": 163.3, "K0": 255.0, "K0_prime": 3.7}},
+   "parameter_errors": {"V0": 0.1, "K0": 10.0, "K0_prime": null},
+   "parameter_error_confidence": 0.6826894921370859,
+   "fixed_parameters": ["V0", "K0_prime"],
+   "parameter_covariance": null,
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [0.0, 106.0],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_configuration": {
+    "sample": "Pbnm pv coexisting with Cmcm ppv after laser heating; V0 measured from recovered material.",
+    "pressure_medium": "argon or NaCl depending on run",
+    "pressure_cell": "symmetric diamond-anvil cells with 150 micrometre beveled culets and rhenium gaskets",
+    "pressure_gauge": "internal Pt, Au, or NaCl standards using Holmes et al. (1989), Shim et al. (2002), and Sata et al. (2002), respectively",
+    "diffraction": "angle-dispersive synchrotron XRD at GSECARS 13-ID-D and SPring-8 BL10XU",
+    "path": "300 K decompression without additional heating after synthesis"
+   },
+   "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_pv_digitized"],
+   "validity": {
+    "pressure_gpa": [0.0, 106.0],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.771164, 1.0],
+    "notes": ["Only the recovered V0 and 83-106 GPa coexisting-phase observations constrain this fit; the interval between them is an interpolation, not a densely sampled dataset."]
+   },
+   "parameter_provenance": {
+    "equation": "Results and Table 1: Birch-Murnaghan fit to the coexisting pv observations.",
+    "V0": "Results and Table 1: 163.3(1) A^3 measured from the recovered sample and held in the high-pressure fit.",
+    "K0": "Table 1: 255(10) GPa.",
+    "K0_prime": "Table 1: fixed at 3.7.",
+    "uncertainties": "Results states that parenthetical values are one-sigma uncertainties.",
+    "fit_selection": "Results: pv pressure-volume data at 83-106 GPa together with the recovered-sample V0."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {"kind": "equation_of_state", "material": "Pt", "reference": {"authors": ["Holmes", "Moriarty", "Gathers", "Nellis"], "year": 1989, "source": "Journal of Applied Physics", "volume": "66", "locator": "2962-2967", "doi": "10.1063/1.344177"}, "source_location": "Experimental Methods and reference 26"},
+     {"kind": "equation_of_state", "material": "Au", "reference": {"authors": ["Shim", "Duffy", "Takemura"], "year": 2002, "source": "Earth and Planetary Science Letters", "volume": "203", "locator": "729-739", "doi": "10.1016/S0012-821X(02)00917-2"}, "source_location": "Experimental Methods and reference 27"},
+     {"kind": "equation_of_state", "material": "NaCl", "reference": {"authors": ["Sata", "Shen", "Rivers", "Sutton"], "year": 2002, "source": "Physical Review B", "volume": "65", "locator": "104114", "doi": "10.1103/PhysRevB.65.104114"}, "source_location": "Experimental Methods and reference 28"}
+    ],
+    "recalculation": {"status": "missing_calibrant_observations", "notes": "No row-wise calibrant observations or marker-to-calibrant assignment is published."},
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the open-access primary article; LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "crystal_system", "cell_setting", "formula_units_per_cell", "equation", "parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "validity", "pressure_calibration", "primary_data"],
+    "primary_source_check": {"access_url": "https://doi.org/10.1073/pnas.0506811103", "doi": "10.1073/pnas.0506811103", "locations": ["Results, page 3040", "Figure 2", "Table 1"], "finding": "The coexisting pv EOS uses measured recovered V0=163.3(1) A^3, K0=255(10) GPa, and fixed K0'=3.7."},
+    "primary_data_check": {"status": "plot_only", "audit_date": "2026-09-05", "digitized_dataset_identifiers": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_pv_digitized"], "source_locations": ["Figure 2, open-circle pv observations; recovered ambient V0"], "finding": "Eleven separable high-pressure open-circle markers and the recovered ambient V0 are bundled; no numerical P-V table accompanies the article."},
+    "independent_refit": {
+     "method": "unweighted pressure residuals on recovered V0 plus 11 digitized high-pressure pv markers; V0=163.3 A^3 and K0'=3.7 fixed, K0 free",
+     "parameters": {"V0": 163.3, "K0": 253.83836311, "K0_prime": 3.7},
+     "published_curve_pressure_rmse_gpa": 1.22419480,
+     "refit_pressure_rmse_gpa": 1.15220569,
+     "assessment": "The one-parameter refit reproduces K0 within the printed one-sigma uncertainty."
+    }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg090fe009al0005ca0005sio3_shieh_2006_figure2_pv_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "The recovered ambient pv volume and eleven separable high-pressure open-circle pv marker centers from Figure 2. Literature symbols and filled ppv circles were excluded.",
+   "reference": {"authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"], "year": 2006, "source": "Proceedings of the National Academy of Sciences", "volume": "103", "locator": "3039-3043", "doi": "10.1073/pnas.0506811103"},
+   "source_location": "Figure 2, open-circle pv observations, plus recovered V0 stated in Results",
+   "columns": [
+    {"name": "observation_index", "quantity": "index", "unit": "dimensionless", "role": "value"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
+    {"name": "fit_included", "quantity": "fit_selection", "unit": "boolean", "role": "flag"},
+    {"name": "loading_path", "quantity": "experimental_path", "unit": "text", "role": "flag"},
+    {"name": "phase", "quantity": "phase", "unit": "text", "role": "flag"},
+    {"name": "source_marker", "quantity": "plot_marker", "unit": "text", "role": "flag"}
+   ],
+   "resource": {"path": "datasets/mg090fe009al0005ca0005sio3-shieh-2006-figure2-pv-digitized.csv", "sha256": "32e871601c21aec074bc134426f29791f14879b120cdb96b7b54866bbd8222ac", "media_type": "text/csv"},
+   "used_by_eos_records": ["mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1"],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Rendered the open-access primary PDF at 400 dpi, cropped Figure 2, calibrated linear axes against 20 GPa x-axis and 10 A^3 y-axis ticks, and manually separated open pv circles from filled ppv circles and literature symbols. The ambient value is the recovered-sample V0 printed in the text rather than a raster-derived point.",
+    "source_pdf_sha256": "a52430c01097b8cb00eef8425803227e5f5f0336dd4c36090ccb8fcdc7d84849",
+    "source_figure_crop_sha256": "8eeb03d09c6592d4c54db25695456f1917ba458268c6dd61f00c845f68e93530",
+    "axis_calibration_pixels_400dpi_crop": {"pressure": [[520.5, 0.0], [771.5, 20.0]], "volume": [[773.5, 170.0], [991.0, 160.0]]},
+    "digitization_uncertainty": "High-pressure raster centers use conservative uniform bounds of 0.50 GPa and 0.15 A^3; the ambient V0 retains the source's 0.1 A^3 one-sigma uncertainty and is not digitized.",
+    "quality_control": {"published_bm3_pressure_rmse_gpa": 1.22419480, "published_bm3_max_abs_pressure_residual_gpa": 2.58596542, "fixed_V0_and_k0_prime_refit_K0_gpa": 253.83836311},
+    "digitized_on": "2026-09-05"
+   }
+  }
+ ]
+}

@@ -1,0 +1,197 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "ca0988mg0918fe0078mn0016c2o6_dolomite",
+ "name": "Natural Fe-bearing dolomite",
+ "formula": "Ca0.988Mg0.918Fe0.078Mn0.016C2O6",
+ "phase": "trigonal ferroan dolomite, R-3",
+ "aliases": ["Mao et al. Windham Fe-dolomite", "Dolomite-I"],
+ "cell_contents": "Three Ca0.988Mg0.918Fe0.078Mn0.016C2O6 formula units per conventional hexagonal R-3 cell (Z=3).",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "TRIGONAL",
+ "lattice": {
+  "a": 4.8126,
+  "b": 4.8126,
+  "c": 16.0413,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 120.0
+ },
+ "formula_units_per_cell": 3,
+ "space_group": "R-3",
+ "space_group_number": 148,
+ "atom_sites": [],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
+   "year": 2011,
+   "title": "Dolomite III: A new candidate lower mantle carbonate",
+   "source": "Geophysical Research Letters",
+   "volume": "38",
+   "locator": "L22303",
+   "doi": "10.1029/2011GL049519"
+  },
+  "structure_location": "Experimental Procedure, paragraph 5: ambient a0=4.8126(8) A and c0=16.0413(18) A; Results identifies the starting phase as trigonal dolomite."
+ },
+ "notes": "The source measured a natural Windham, Vermont specimen by electron microprobe. No composition-specific atomic-position refinement is reported, so atom_sites is intentionally empty. The ambient lattice gives 321.7583 A^3, independently confirming the published EOS cell basis and V0=321.77 A^3.",
+ "eos_records": [
+  {
+   "identifier": "ca0988mg0918fe0078mn0016c2o6_dolomite_mao_2011_bm3_1",
+   "label": "Mao et al. (2011), natural Fe-dolomite 300 K BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
+    "year": 2011,
+    "title": "Dolomite III: A new candidate lower mantle carbonate",
+    "source": "Geophysical Research Letters",
+    "volume": "38",
+    "locator": "L22303",
+    "doi": "10.1029/2011GL049519"
+   },
+   "sample_composition": "Natural Fe-dolomite from Windham, Vermont; electron-microprobe composition Ca0.988Mg0.918Fe0.078Mn0.016(CO3)2; a minor PbS impurity remained unreacted.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {"V0": 321.77, "K0": 94.1, "K0_prime": 4.0}
+   },
+   "parameter_errors": {"V0": 0.06, "K0": 0.4, "K0_prime": null},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": ["K0_prime"],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [0.0, 17.0],
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
+   "experimental_configuration": {
+    "sample": "Fine powder mixed with 5 wt.% Pt; natural composition measured by electron microprobe",
+    "pressure_medium": "Ne",
+    "pressure_cell": "symmetric diamond-anvil cell with 200 micrometre diamonds and Re gasket",
+    "pressure_gauge": "Pt pressure calibrant using Fei et al. (2007)",
+    "diffraction": "angle-dispersive synchrotron XRD at GSECARS, Advanced Photon Source",
+    "path": "room-temperature compression; patterns collected every 2-3 GPa before the approximately 17 GPa transition"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 3.0,
+    "molar_mass_g_mol": 187.159972
+   },
+   "validity": {
+    "pressure_gpa": [0.0, 17.0],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.876329, 1.0],
+    "notes": ["Bounded at the observed room-temperature transition to Fe-dolomite-II near 17 GPa."]
+   },
+   "parameter_provenance": {
+    "equation": "Discussion paragraph 11: third-order Birch-Murnaghan equation of state.",
+    "V0": "Discussion paragraph 11: V0=321.77(+/-0.06) A^3.",
+    "K0": "Discussion paragraph 11: K0=94.1(+/-0.4) GPa.",
+    "K0_prime": "Discussion paragraph 11: fixed at 4.",
+    "temperature_ref": "Figure 3 and Discussion identify the cell volumes as 300 K.",
+    "fit_selection": "Low-pressure trigonal Fe-dolomite observations before the approximately 17 GPa transition."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference": {
+       "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental Procedure, paragraph 5",
+      "scope": "all observations"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Figure 3 provides neither row-wise Pt volumes nor a numerical P-V table, so the reported pressures cannot be independently recalculated."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and candidate enumeration.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "cell_basis", "equation", "parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "validity", "pressure_calibration", "primary_data"],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+     "doi": "10.1029/2011GL049519",
+     "locations": ["Experimental Procedure, paragraphs 5-6", "Discussion, paragraphs 10-11", "Figure 3"],
+     "finding": "The source explicitly reports the composition-specific 300 K trigonal Fe-dolomite BM3 with V0 and K0 fitted and K0'=4 fixed."
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-05",
+     "digitized_dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
+     "source_locations": ["Figure 3a, open-diamond observations"],
+     "finding": "Seven separable marker centers are bundled; the article and auxiliary files provide no numerical pressure-volume table."
+    },
+    "independent_refit": {
+     "method": "Figure-marker audit with unweighted pressure residuals; V0 and K0 free and K0'=4 fixed",
+     "parameters": {"V0": 320.64634937, "K0": 98.63544265, "K0_prime": 4.0},
+     "published_curve_pressure_rmse_gpa": 0.39915983,
+     "published_curve_pressure_max_abs_residual_gpa": 0.69344567,
+     "assessment": "The low-resolution raster does not reproduce the source regression weights or the very small printed errors, but all seven markers follow the published curve within 0.70 GPa; the digitized refit is diagnostic and does not replace the source coefficients."
+    }
+   },
+   "notes": "Parenthetical parameter errors are preserved as printed; the confidence convention, covariance, row-wise uncertainties, and source fitting weights are not reported."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",
+   "kind": "digitized_pressure_volume",
+   "description": "Seven separable open-diamond centers for trigonal Fe-dolomite digitized from publisher Figure 3a.",
+   "source_location": "Figure 3a",
+   "source_url": "https://doi.org/10.1029/2011GL049519",
+   "reference": {
+    "authors": ["Mao", "Armentrout", "Rainey", "Manning", "Dera", "Prakapenka", "Kavner"],
+    "year": 2011,
+    "title": "Dolomite III: A new candidate lower mantle carbonate",
+    "source": "Geophysical Research Letters",
+    "volume": "38",
+    "locator": "L22303",
+    "doi": "10.1029/2011GL049519"
+   },
+   "columns": [
+    {"name": "point_id", "quantity": "source_marker", "unit": "1", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "volume_a3_conventional_cell", "quantity": "unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "pixel_x", "quantity": "source_figure_x", "unit": "pixel", "role": "value"},
+    {"name": "pixel_y", "quantity": "source_figure_y", "unit": "pixel", "role": "value"},
+    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "bound", "of": "pressure_gpa"},
+    {"name": "volume_digitization_uncertainty_a3", "quantity": "unit_cell_volume", "unit": "angstrom^3", "role": "bound", "of": "volume_a3_conventional_cell"},
+    {"name": "fit_included", "quantity": "digitized_curve_audit_selection", "unit": "1", "role": "flag"},
+    {"name": "notes", "quantity": "observation_note", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/ca0988mg0918fe0078mn0016c2o6-mao-2011-figure3-fe-dolomite-digitized.csv",
+    "sha256": "cd7e22cce57c621402ecba2f577ca87aea697b3e31698d46ce20871cc8c0c4d5",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "digitized_from_figure",
+    "source_figure": "Figure 3a",
+    "source_figure_sha256": "cb20211a4551d2ec74a1ece62ec9c65754e63f1331cac5c57498d43bb6b388fe",
+    "source_figure_dimensions_px": [370, 512],
+    "axis_calibration": "x: 0 GPa at pixel 79.0 with 3.225 px/GPa; y: 320 A^3 at pixel 25.0 with 51 px per 40 A^3",
+    "notes": "Uniform digitization bounds represent approximately one source pixel; they are not experimental standard deviations."
+   },
+   "used_by_eos_records": ["ca0988mg0918fe0078mn0016c2o6_dolomite_mao_2011_bm3_1"]
+  }
+ ]
+}

@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 233,
-    "primary_source_validated": 233
+    "records": 253,
+    "primary_source_validated": 253
   },
   "records": [
     {
@@ -478,6 +478,43 @@
     {
       "material": "bridgmanite",
       "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_katsura_2009_bm3",
+      "label": "Katsura et al. (2009), preferred 300 K BM3",
+      "doi": "10.1029/2008gl035658",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article and its formal corrigendum. LitCurate was discovery-only.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2008GL035658",
+        "doi": "10.1029/2008GL035658",
+        "locations": [
+          "original article abstract and paragraphs 5-18",
+          "original article equations 1-8",
+          "corrigendum corrected Table 1, doi:10.1029/2009GL039318"
+        ],
+        "finding": "The paper reports a preferred free-K0/free-K0-prime BM3 and a same-data K0-fixed sensitivity fit. The formal correction replaces the erroneous original table while explicitly stating that the EOS parameters are unchanged."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_katsura_2009_bm3_k0_fixed",
+      "label": "Katsura et al. (2009), K0-fixed 300 K BM3 sensitivity fit",
+      "doi": "10.1029/2008gl035658",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article and formal corrigendum; this is a source-generated same-data sensitivity fit, not a LitCurate reconstruction.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2008GL035658",
+        "doi": "10.1029/2008GL035658",
+        "locations": [
+          "original article section 4.1, paragraph 12",
+          "corrigendum corrected Table 1, doi:10.1029/2009GL039318"
+        ],
+        "finding": "The source explicitly reports K'_T0=4.1(2) after refitting its own dataset with K_T0 assumed to be 253 GPa."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
       "record": "bridgmanite_wolf_2015_vinet_mgd_4",
       "label": "Wolf et al. (2015), reanalyzed Fe-free bridgmanite Vinet-MGD",
       "doi": "10.1002/2015jb012108",
@@ -494,6 +531,103 @@
           "PVT-tool commit 1a7243a39a21afa90a2951a0cdcd2a668602720f, VinetEos.m, MieGrunDebyeHotEos.m, debyePowerLaw.m, and fit_Tange2012_lsq_fixdeb.in"
         ],
         "finding": "The record is the complete Wolf et al. reanalysis of Fe-free MgSiO3 observations: a 300 K Vinet isotherm and integrated constant-q MGD correction. It remains distinct from both original Tange et al. records already bundled."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_criniti_2021_absolute_bm3",
+      "label": "Criniti et al. (2021), primary absolute-pressure BM3",
+      "doi": "10.1029/2020jb020967",
+      "status": "primary_source_validated",
+      "note": "Checked against the open-access final article and the authors' Figshare measurement workbook; LitCurate was used only to identify the candidate set.",
+      "primary_source_check": {
+        "access_url": "https://epub.uni-bayreuth.de/5769/1/2020JB020967.pdf",
+        "doi": "10.1029/2020JB020967",
+        "locations": [
+          "Section 3.3, Equation 3",
+          "Table 1",
+          "Figshare dataset 10.6084/m9.figshare.14265176.v1"
+        ],
+        "finding": "Equation 3 is an executable volumetric BM3 pressure equation. It is distinct from the third-order finite-strain fits to K_S and G in Table 2."
+      }
+    },
+    {
+      "material": "bridgmanite",
+      "file": "bridgmanite.eosmat",
+      "record": "bridgmanite_fiquet_2000_bm3_1",
+      "label": "Fiquet et al. (2000), post-heating 298 K BM3",
+      "doi": "10.1029/1999gl008397",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the publisher primary article and exact Table 1 room-temperature rows.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/1999GL008397",
+        "doi": "10.1029/1999GL008397",
+        "locations": [
+          "Experimental section",
+          "Table 1",
+          "Section 3.3 and Table 3"
+        ],
+        "finding": "The source distinguishes a 25-point post-heating 298 K BM3 from global P-V-T inversions combining different datasets."
+      }
+    },
+    {
+      "material": "ca0988mg0918fe0078mn0016c2o6_dolomite",
+      "file": "ca0988mg0918fe0078mn0016c2o6_dolomite.eosmat",
+      "record": "ca0988mg0918fe0078mn0016c2o6_dolomite_mao_2011_bm3_1",
+      "label": "Mao et al. (2011), natural Fe-dolomite 300 K BM3",
+      "doi": "10.1029/2011gl049519",
+      "status": "primary_source_validated",
+      "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and candidate enumeration.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+        "doi": "10.1029/2011GL049519",
+        "locations": [
+          "Experimental Procedure, paragraphs 5-6",
+          "Discussion, paragraphs 10-11",
+          "Figure 3"
+        ],
+        "finding": "The source explicitly reports the composition-specific 300 K trigonal Fe-dolomite BM3 with V0 and K0 fitted and K0'=4 fixed."
+      }
+    },
+    {
+      "material": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii",
+      "file": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii.eosmat",
+      "record": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1",
+      "label": "Mao et al. (2011), dolomite-III high-spin branch BM3",
+      "doi": "10.1029/2011gl049519",
+      "status": "primary_source_validated",
+      "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and enumeration.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+        "doi": "10.1029/2011GL049519",
+        "locations": [
+          "Results, paragraphs 8-9",
+          "Discussion, paragraphs 10-11",
+          "Figure 3",
+          "auxiliary Table S1"
+        ],
+        "finding": "The primary source reports a composition-specific high-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed, while explicitly warning that V0 is unknown and strongly trades off with K0 and K0'."
+      }
+    },
+    {
+      "material": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii",
+      "file": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii.eosmat",
+      "record": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2",
+      "label": "Mao et al. (2011), dolomite-III low-spin branch BM3",
+      "doi": "10.1029/2011gl049519",
+      "status": "primary_source_validated",
+      "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and enumeration.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+        "doi": "10.1029/2011GL049519",
+        "locations": [
+          "Results, paragraphs 8-9",
+          "Discussion, paragraphs 10-11",
+          "Figure 3",
+          "auxiliary Table S1"
+        ],
+        "finding": "The primary source reports a composition-specific low-spin dolomite-III BM3 with V0 and K0 fitted and K0'=4 fixed and explicitly warns of the high-pressure extrapolation tradeoff."
       }
     },
     {
@@ -2384,6 +2518,66 @@
       }
     },
     {
+      "material": "mg075fe025o",
+      "file": "mg075fe025o.eosmat",
+      "record": "mg075fe025o_mao_2011_high_spin_bm3_1",
+      "label": "Mao et al. (2011), 300 K high-spin reference BM3",
+      "doi": "10.1029/2011gl049915",
+      "status": "primary_source_validated",
+      "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
+      "primary_source_check": {
+        "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
+        "doi": "10.1029/2011GL049915",
+        "locations": [
+          "corrected article, Experiments paragraphs 4-5",
+          "corrected article, Results paragraphs 6-7",
+          "corrected Figure 1",
+          "Correction DOI 10.1029/2011GL050814"
+        ],
+        "finding": "The corrected source defines a 300 K high-spin BM3 reference curve with V0 fixed at 76.34 A^3, K0=162(1) GPa, and K0'=4 fixed."
+      }
+    },
+    {
+      "material": "mg075fe025o",
+      "file": "mg075fe025o.eosmat",
+      "record": "mg075fe025o_mao_2011_low_spin_bm3_1",
+      "label": "Mao et al. (2011), 300 K low-spin reference BM3",
+      "doi": "10.1029/2011gl049915",
+      "status": "primary_source_validated",
+      "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
+      "primary_source_check": {
+        "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
+        "doi": "10.1029/2011GL049915",
+        "locations": [
+          "corrected article, Experiments paragraphs 4-5",
+          "corrected article, Results paragraphs 6-7",
+          "corrected Figure 1",
+          "Correction DOI 10.1029/2011GL050814"
+        ],
+        "finding": "The corrected source defines a 300 K low-spin BM3 reference curve with V0=74.4(6) A^3, K0=166(7) GPa, and K0'=4 fixed."
+      }
+    },
+    {
+      "material": "mg080fe020o",
+      "file": "mg080fe020o.eosmat",
+      "record": "mg080fe020o_speziale_2007_high_spin_bm3_1",
+      "label": "Speziale et al. (2007), (Mg0.80Fe0.20)O high-spin BM3",
+      "doi": "10.1029/2006jb004730",
+      "status": "primary_source_validated",
+      "note": "Checked directly against the complete primary article, its Table 1, and the source-defined below-40-GPa selection.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2006JB004730",
+        "doi": "10.1029/2006JB004730",
+        "locations": [
+          "Experiment, section 2",
+          "Results, section 3.2, paragraph 9",
+          "Table 1",
+          "Figures 3-4"
+        ],
+        "finding": "The source reports one composition-specific, three-parameter high-spin Birch-Murnaghan fit to its Fe20 data below 40 GPa."
+      }
+    },
+    {
       "material": "mg083fe017o",
       "file": "mg083fe017o.eosmat",
       "record": "mg083fe017o_matsui_2012_bm3_mgd_1",
@@ -2468,6 +2662,64 @@
         "official_deposit_sha256": "233c82ae898dc31e6cb6be410abe70203cabe83fc2ebc5dcfb794413e73a2332",
         "supplement_sha256": "4797e61cc4f31ccc7b08e421d776422a5631edc2387191643d95ea17f44ce559",
         "cif_sha256": "b21f73e3e9a0b24e07ec990505df038b3293b18895351e57dde2fc9ff8e47145"
+      }
+    },
+    {
+      "material": "mg090fe009al0005ca0005sio3_bridgmanite",
+      "file": "mg090fe009al0005ca0005sio3_bridgmanite.eosmat",
+      "record": "mg090fe009al0005ca0005sio3_bridgmanite_shieh_2006_bm3_1",
+      "label": "Shieh et al. (2006), coexisting perovskite BM3",
+      "doi": "10.1073/pnas.0506811103",
+      "status": "primary_source_validated",
+      "note": "Validated against the open-access primary article; LitCurate was used only for discovery.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1073/pnas.0506811103",
+        "doi": "10.1073/pnas.0506811103",
+        "locations": [
+          "Results, page 3040",
+          "Figure 2",
+          "Table 1"
+        ],
+        "finding": "The coexisting pv EOS uses measured recovered V0=163.3(1) A^3, K0=255(10) GPa, and fixed K0'=3.7."
+      }
+    },
+    {
+      "material": "mg090fe009al0005ca0005sio3_post_perovskite",
+      "file": "mg090fe009al0005ca0005sio3_post_perovskite.eosmat",
+      "record": "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1",
+      "label": "Shieh et al. (2006), preferred second-order Eulerian finite-strain fit",
+      "doi": "10.1073/pnas.0506811103",
+      "status": "primary_source_validated",
+      "note": "Validated against the open-access primary article; LitCurate was used only to discover and enumerate candidates.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1073/pnas.0506811103",
+        "doi": "10.1073/pnas.0506811103",
+        "locations": [
+          "abstract",
+          "Results and Discussion, pages 3039-3041",
+          "Figure 2 and Table 1",
+          "Experimental Methods, pages 3041-3043"
+        ],
+        "finding": "The preferred experimental ppv equation is a second-order Eulerian finite-strain fit with V0=164.9(6) A^3, K0=219(5) GPa, and implicit fixed K0'=4."
+      }
+    },
+    {
+      "material": "mg090fe009al0005ca0005sio3_post_perovskite",
+      "file": "mg090fe009al0005ca0005sio3_post_perovskite.eosmat",
+      "record": "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2",
+      "label": "Shieh et al. (2006), K0'=4.4 sensitivity BM3",
+      "doi": "10.1073/pnas.0506811103",
+      "status": "primary_source_validated",
+      "note": "Source-preserved nonpreferred sensitivity fit, independently checked against the digitized primary observations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1073/pnas.0506811103",
+        "doi": "10.1073/pnas.0506811103",
+        "locations": [
+          "Results, page 3040",
+          "Figure 2",
+          "Table 1"
+        ],
+        "finding": "The paper explicitly reports this K0'=4.4 constrained alternative to show V0-K0-K0' tradeoff; it is not the preferred curve."
       }
     },
     {
@@ -2591,6 +2843,48 @@
         ],
         "finding": "Table 1 provides the complete pressure, a, c, and conventional-cell-volume series with estimated standard deviations; Table 2 provides the fitted volume and axial EOS parameters.",
         "doi": "10.2138/am-2002-2-316"
+      }
+    },
+    {
+      "material": "mgal2o4_cafe2o4",
+      "file": "mgal2o4_cafe2o4.eosmat",
+      "record": "mgal2o4_cafe2o4_funamori_1998_bm2_1",
+      "label": "Funamori et al. (1998), CaFe2O4-type MgAl2O4 BM2",
+      "doi": "10.1029/98jb01575",
+      "status": "primary_source_validated",
+      "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
+        "doi": "10.1029/98JB01575",
+        "locations": [
+          "Experimental method",
+          "Table 1",
+          "Section 3.1",
+          "Section 3.3",
+          "Figure 4"
+        ],
+        "finding": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and derive a separate second-order Birch EOS from its recovered ambient and in-situ high-pressure cells; this is a phase parameterization, not an arbitrary run split."
+      }
+    },
+    {
+      "material": "mgal2o4_cati2o4",
+      "file": "mgal2o4_cati2o4.eosmat",
+      "record": "mgal2o4_cati2o4_funamori_1998_bm2_1",
+      "label": "Funamori et al. (1998), CaTi2O4-type MgAl2O4 BM2",
+      "doi": "10.1029/98jb01575",
+      "status": "primary_source_validated",
+      "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
+        "doi": "10.1029/98JB01575",
+        "locations": [
+          "Experimental method",
+          "Table 1",
+          "Sections 3.2-3.3",
+          "Table 2",
+          "Figure 4"
+        ],
+        "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure, and the authors derive a separate second-order Birch EOS from its run-4 ambient and high-pressure cells; this is a phase parameterization, not an arbitrary run split."
       }
     },
     {
@@ -3018,6 +3312,66 @@
       }
     },
     {
+      "material": "mgsioh6_365a_phase",
+      "file": "mgsioh6_365a_phase.eosmat",
+      "record": "mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1",
+      "label": "Mookherjee et al. (2015), preferred experimental BM3",
+      "doi": "10.2138/am-2015-5312",
+      "status": "primary_source_validated",
+      "note": "Validated against the primary article and official MSA supplemental tables; LitCurate was discovery-only.",
+      "primary_source_check": {
+        "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
+        "doi": "10.2138/am-2015-5312",
+        "locations": [
+          "Abstract",
+          "Experimental and computational methods",
+          "Equations 1-3",
+          "Table 2",
+          "Figure 3"
+        ],
+        "finding": "The paper identifies exact MgSi(OH)6, P21, Z=2 and reports this BM3 as the preferred experimental description."
+      }
+    },
+    {
+      "material": "mgsioh6_365a_phase",
+      "file": "mgsioh6_365a_phase.eosmat",
+      "record": "mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2",
+      "label": "Mookherjee et al. (2015), experimental BM4 sensitivity fit",
+      "doi": "10.2138/am-2015-5312",
+      "status": "primary_source_validated",
+      "note": "Validated against Equations 1-3, Table 2, Figure 3d, and the official supplemental table.",
+      "primary_source_check": {
+        "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
+        "doi": "10.2138/am-2015-5312",
+        "locations": [
+          "Equations 1-3",
+          "Table 2",
+          "Figure 3d"
+        ],
+        "finding": "The complete BM4 parameters are source-reported; LitCurate omitted K0' and K0''."
+      }
+    },
+    {
+      "material": "mgsioh6_365a_phase",
+      "file": "mgsioh6_365a_phase.eosmat",
+      "record": "mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3",
+      "label": "Mookherjee et al. (2015), static GGA model-crystal BM4",
+      "doi": "10.2138/am-2015-5312",
+      "status": "primary_source_validated",
+      "note": "Validated independently against the primary paper's equations, computational methods, Table 2, and Figure 3a.",
+      "primary_source_check": {
+        "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
+        "doi": "10.2138/am-2015-5312",
+        "locations": [
+          "First-principles simulation",
+          "Equations 1-3",
+          "Table 2",
+          "Figure 3a"
+        ],
+        "finding": "This is a separate theoretical BM4 parameterization of the stoichiometric P21 model crystal, not another fit to the experimental P-V table."
+      }
+    },
+    {
       "material": "molybdenum",
       "file": "molybdenum.eosmat",
       "record": "molybdenum_shen_2026_vinet_1",
@@ -3240,6 +3594,46 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "namg2al5sio12_cf",
+      "file": "namg2al5sio12_cf.eosmat",
+      "record": "namg2al5sio12_cf_kawai_2012_bm3_1",
+      "label": "Kawai and Tsuchiya (2012), NaMg2Al5SiO12 CF static-LDA BM3",
+      "doi": "10.2138/am.2012.3915",
+      "status": "primary_source_validated",
+      "note": "Validated against the final typeset MSA article. The conventional-cell conversion and BM3 convention reproduce the vector-digitized Figure 2d curve.",
+      "primary_source_check": {
+        "access_url": "https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf",
+        "doi": "10.2138/am.2012.3915",
+        "locations": [
+          "structure-model discussion, pages 305-307",
+          "Figure 2d and caption, page 307",
+          "first-principles details and Table 1, page 308"
+        ],
+        "finding": "The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 calcium-ferrite type Pbnm. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.",
+        "publisher_pdf_sha256": "8273dc07c0ba3dca62724d490e035e945ee6c4123d7c6319f140afc44c7ec089"
+      }
+    },
+    {
+      "material": "namg2al5sio12_nal",
+      "file": "namg2al5sio12_nal.eosmat",
+      "record": "namg2al5sio12_nal_kawai_2012_bm3_1",
+      "label": "Kawai and Tsuchiya (2012), NaMg2Al5SiO12 NAL static-LDA BM3",
+      "doi": "10.2138/am.2012.3915",
+      "status": "primary_source_validated",
+      "note": "Validated against the final typeset MSA article. The conventional-cell conversion and BM3 convention reproduce the vector-digitized Figure 2c curve.",
+      "primary_source_check": {
+        "access_url": "https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf",
+        "doi": "10.2138/am.2012.3915",
+        "locations": [
+          "structure-model discussion, pages 305-307",
+          "Figure 2c and caption, page 307",
+          "first-principles details and Table 1, page 308"
+        ],
+        "finding": "The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 NAL. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.",
+        "publisher_pdf_sha256": "8273dc07c0ba3dca62724d490e035e945ee6c4123d7c6319f140afc44c7ec089"
       }
     },
     {

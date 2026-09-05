@@ -25,22 +25,30 @@ produce an executable record.
 
 ## Summary
 
-The register covers **150 primary papers**: **148** support the 233 audited catalog records and **2** were investigated without adding a production record.
+The register covers **164 primary papers**: **158** support the 253 audited catalog records and **6** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 110 |
-| Partly reproduced | 3 |
+| Reproduced | 118 |
+| Partly reproduced | 4 |
 | Mixed: reproduced and discrepant records | 3 |
 | Coefficient parity not achieved | 9 |
-| Direct refit unavailable | 23 |
-| Withheld: could not reproduce | 1 |
-| Deferred: incomplete source/model mapping | 1 |
+| Direct refit unavailable | 25 |
+| Withheld: could not reproduce | 2 |
+| Deferred: incomplete source/model mapping | 3 |
 
 ## Withheld or deferred papers
+
+### [Funamori et al. (1996), MgSiO3 perovskite thermoelasticity](https://doi.org/10.1029/95JB03732)
+
+**Outcome:** Deferred: incomplete source/model mapping (2026-09-05).
+
+The two apparent LitCurate records are run-specific ambient-volume normalizations of a single combined thermal EOS, not two independently fitted equations. Both adopt K0=261 GPa and K0-prime=4 from Mao et al. (1991), while the source's executable thermal parameterization is not represented by either split candidate. No production EOS was added.
+
+Evidence: [literature-reproductions/funamori-1996-mgsio3-perovskite.md](literature-reproductions/funamori-1996-mgsio3-perovskite.md).
 
 ### [Katsura et al. (2004), Mg2SiO4 ringwoodite](https://doi.org/10.1029/2004JB003094)
 
@@ -50,6 +58,14 @@ All 127 official Table 2 observations were transcribed, but the published BM3-MG
 
 Evidence: [literature-reproductions.md#ringwoodite-katsura-2004](literature-reproductions.md#ringwoodite-katsura-2004).
 
+### [Sherman et al. (1993), stishovite and modified-fluorite SiO2](https://doi.org/10.1029/93JB00783)
+
+**Outcome:** Deferred: incomplete source/model mapping (2026-09-05).
+
+The accessible primary abstract reports a static HF-LCAO stishovite BM3 parameterization, but the calculated energy-volume grid is confined to an inaccessible figure and the abstract conflicts with body values extracted by LitCurate. The modified-fluorite candidate also has an unresolved conventional-cell basis. Both source fits are therefore documented but withheld, and ten comparison values are retained only as citation traces.
+
+Evidence: [literature-reproductions/sherman-1993-stishovite.md](literature-reproductions/sherman-1993-stishovite.md).
+
 ### [Wang et al. (2026), KAlSi3O8 liebermannite and K-hollandite II](https://doi.org/10.2138/am-2024-9562)
 
 **Outcome:** Deferred: incomplete source/model mapping (2026-09-04).
@@ -57,6 +73,22 @@ Evidence: [literature-reproductions.md#ringwoodite-katsura-2004](literature-repr
 The deposited temperature-indexed BM3 curves can be reproduced, but they are derived grids rather than primary fit observations. Their V0(T), K0(T), and K0-prime(T) behavior is not faithfully represented by the current thermal wrapper, and the primary methods, uncertainty/covariance information, exact reference-state convention, and authoritative symmetry-reduced structures were unavailable. The candidate remains deliberately non-executable.
 
 Evidence: [material-eos-candidates.md](material-eos-candidates.md).
+
+### [Xu et al. (2024), Al-bearing superhydrous phase B](https://doi.org/10.1029/2023GL107818)
+
+**Outcome:** Withheld: could not reproduce (2026-09-05).
+
+The official EarthChem archive contains all 45 P-T-V rows, but none of the four published Birch-Murnaghan parameterizations reproduces those observations: direct refits shift K0 by roughly 18-32 GPa and K0-prime substantially. Three additional rows are coupled acoustic-elasticity fits rather than standalone P(V) equations, and three are citation-only comparisons. No production EOS was added.
+
+Evidence: [literature-reproductions/xu-2024-al-bearing-superhydrous-phase-b.md](literature-reproductions/xu-2024-al-bearing-superhydrous-phase-b.md).
+
+### [Zhang and Weidner (1999), Al-enriched silicate perovskite](https://doi.org/10.1126/science.284.5415.782)
+
+**Outcome:** Direct refit unavailable (2026-09-05).
+
+The three apparent records describe separate runs on the same 5 mol% Al2O3 sample, correctly normalized as Mg0.95Al0.10Si0.95O3, but the closed primary article exposes neither a numerical P-V-T table nor a recoverable pressure-volume figure. The extracted coefficients have no source uncertainties or independent observations with which to verify the run fits, so all three remain on hold and five comparison rows are citation traces.
+
+Evidence: [literature-reproductions/zhang-weidner-1999-aluminous-perovskite.md](literature-reproductions/zhang-weidner-1999-aluminous-perovskite.md).
 
 ## Papers with coefficient discrepancies
 
@@ -91,7 +123,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **28 papers** contain 49 records for which a
+These **30 papers** contain 49 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -109,12 +141,14 @@ have other records that were reproduced.
 | [Dorogokupets and Oganov (2007)](https://doi.org/10.1103/physrevb.75.024115) | `platinum_dorogokupets_oganov_2007_vinet_4` | This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations. |
 | [Duffy and Ahrens (1995)](https://doi.org/10.1029/94jb02065) | `mgo_b1_duffy_ahrens_1995_hugoniot_5` | The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified. |
 | [Fortes (2019)](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | `lead_fcc_fortes_2019_bm4_1` | Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations. |
+| [Funamori et al. (1998)](https://doi.org/10.1029/98jb01575) | `mgal2o4_cafe2o4_funamori_1998_bm2_1`, `mgal2o4_cati2o4_funamori_1998_bm2_1` | The primary article reports only the ambient and compressed endpoint for this polymorph. Those two states reproduce the published fixed-V0, fixed-K0-prime curve in the dedicated Funamori reproduction, but do not provide enough degrees of freedom for the generic refit campaign. |
 | [Gleason et al. (2008)](https://doi.org/10.2138/am.2008.2942) | `e_feooh_gleason_2008_bm2_1` | Only 1 observation(s) lie at the reference temperature for 2 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
 | [Guigue et al. (2020)](https://doi.org/10.1063/1.5138697) | `palladium_guigue_2020_vinet_1` | The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed. |
 | [Holmes et al. (1989)](https://doi.org/10.1063/1.344177) | `platinum_holmes_1989_vinet_1` | The bundled rows are shock-Hugoniot qualification experiments; the stored equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be refitted directly to those rows. |
 | [Kawai and Tsuchiya (2014)](https://doi.org/10.1002/2013jb010905) | `ca_perovskite_kawai_2014_vinet_mgd_3` | The publisher page exposes no supporting-information or data file, and the article plots but does not tabulate the underlying FPMD P-V-T stress averages. A direct refit is therefore impossible. All 60 printed Table 1 fitted-isotherm benchmark states are bundled separately for numerical reproduction; they are model values, not primary observations. |
 | [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | `mgo_li_2006_bm3_absolute_acoustic` | The Table 1 pressures are outputs of the stored acoustic-derived BM3, not independent pressure-volume observations. The source-derived isothermal coefficients are instead validated by the bundled velocity-density data and the dedicated acoustic finite-strain reproduction. |
 | [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | `mgo_b1_luo_2023_vinet_thermal_5` | The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations. |
+| [Mookherjee et al. (2015)](https://doi.org/10.2138/am-2015-5312) | `mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3` | The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled. |
 | [Mosenfelder et al. (2009)](https://doi.org/10.1029/2008jb005900) | `mgsio3_post_perovskite_mosenfelder_2009_bm3_1` | The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature. |
 | [Muñoz and Kunc (1993)](https://doi.org/10.1088/0953-8984/5/33/010) | `indium_nitride_munoz_1993_murnaghan_1` | This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters. |
 | [Noguchi et al. (1999)](https://doi.org/10.1016/s0022-3697(98)00296-0) | `nickel_oxide_noguchi_1999_bm3_1` | The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs. |
@@ -160,6 +194,7 @@ the primary-source and refit ledgers.
 | [Clendenen and Drickamer (1966)](https://doi.org/10.1063/1.1726610) | Coefficient parity not achieved | 1 | 1 parity not achieved | 1 bundled |
 | [Correa et al. (2008)](https://doi.org/10.1103/physrevb.78.024101) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Crichton et al. (2002)](https://doi.org/10.2138/am-2002-2-316) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Criniti et al. (2021)](https://doi.org/10.1029/2020jb020967) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Criniti et al. (2023)](https://doi.org/10.2138/am-2022-8559) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Cynn and Yoo (1999)](https://doi.org/10.1103/physrevb.59.8526) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Daniel et al. (2004)](https://doi.org/10.1029/2004gl020213) | Reproduced | 2 | 2 parity | 2 bundled |
@@ -183,12 +218,15 @@ the primary-source and refit ledgers.
 | [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Reproduced | 3 | 2 parity; 1 similar | 3 plot only/digitized |
 | [Finkelstein et al. (2014)](https://doi.org/10.2138/am.2014.4526) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Finkelstein et al. (2017)](https://doi.org/10.2138/am-2017-5966) | Coefficient parity not achieved | 2 | 2 parity not achieved | 2 bundled |
+| [Fiquet et al. (2000)](https://doi.org/10.1029/1999gl008397) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Fortes (2019)](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Frank et al. (2004)](https://doi.org/10.1016/j.gca.2003.12.007) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Fratanduono et al. (2021)](https://doi.org/10.1126/science.abh0364) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Frost et al. (2023)](https://doi.org/10.1063/5.0161038) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Fu et al. (2024)](https://doi.org/10.2138/am-2023-8969) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Fujihisa and Takemura (1996)](https://doi.org/10.1103/physrevb.54.5) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
+| [Funamori et al. (1996), MgSiO3 perovskite thermoelasticity](https://doi.org/10.1029/95JB03732) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Funamori et al. (1998)](https://doi.org/10.1029/98jb01575) | Direct refit unavailable | 2 | 2 direct refit unavailable | 2 bundled |
 | [Gerward et al. (2005)](https://doi.org/10.1016/j.jallcom.2005.04.008) | Reproduced | 2 | 1 parity; 1 similar | 2 plot only/digitized |
 | [Gleason et al. (2008)](https://doi.org/10.2138/am.2008.2942) | Coefficient parity not achieved | 2 | 1 parity not achieved; 1 direct refit unavailable | 2 bundled |
 | [Guigue et al. (2020)](https://doi.org/10.1063/1.5138697) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 plot only/digitized |
@@ -205,7 +243,9 @@ the primary-source and refit ledgers.
 | [Jacobsen et al. (2005)](https://doi.org/10.1107/s0909049505022326) | Mixed: reproduced and discrepant records | 3 | 1 parity; 2 parity not achieved | 3 bundled |
 | [Jacobsen et al. (2008)](https://doi.org/10.2138/am.2008.2988) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Katsura et al. (2004), Mg2SiO4 ringwoodite](https://doi.org/10.1029/2004JB003094) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
+| [Katsura et al. (2009)](https://doi.org/10.1029/2008gl035658) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Katsura et al. (2009)](https://doi.org/10.1029/2009gl038107) | Coefficient parity not achieved | 1 | 1 parity not achieved | 1 bundled |
+| [Kawai and Tsuchiya (2012)](https://doi.org/10.2138/am.2012.3915) | Reproduced | 2 | 2 similar | 2 plot only/digitized |
 | [Kawai and Tsuchiya (2014)](https://doi.org/10.1002/2013jb010905) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Knittle and Jeanloz (1987)](https://doi.org/10.1126/science.235.4789.668) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Knorr et al. (2003)](https://doi.org/10.1140/epjb/e2003-00034-6) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
@@ -221,6 +261,8 @@ the primary-source and refit ledgers.
 | [Mao et al. (1974)](https://doi.org/10.1029/jb079i008p01165) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Mao et al. (1989)](https://doi.org/10.1029/jb094ib12p17889) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Mao et al. (1990)](https://doi.org/10.1029/jb095ib13p21737) | Reproduced | 1 | 1 similar | 1 bundled |
+| [Mao et al. (2011)](https://doi.org/10.1029/2011gl049519) | Reproduced | 3 | 2 parity; 1 similar | 3 plot only/digitized |
+| [Mao et al. (2011)](https://doi.org/10.1029/2011gl049915) | Reproduced | 2 | 2 parity |  |
 | [Mao et al. (2015)](https://doi.org/10.1002/2015gl064400) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Martinez et al. (1996)](https://doi.org/10.2138/am-1996-5-608) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Matsui et al. (2012)](https://doi.org/10.2138/am.2012.3937) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
@@ -228,6 +270,7 @@ the primary-source and refit ledgers.
 | [Meng et al. (1994)](https://doi.org/10.1007/bf00203299) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Milani et al. (2015)](https://doi.org/10.1016/j.lithos.2015.03.017) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Miozzi et al. (2018)](https://doi.org/10.1029/2018je005582) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
+| [Mookherjee et al. (2015)](https://doi.org/10.2138/am-2015-5312) | Partly reproduced | 3 | 1 parity; 1 similar; 1 direct refit unavailable |  |
 | [Mookherjee et al. (2019)](https://doi.org/10.2138/am-2019-6694) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Mosenfelder et al. (2009)](https://doi.org/10.1029/2008jb005900) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Muhammad et al. (2024)](https://doi.org/10.1039/d4nr00093e) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
@@ -254,14 +297,17 @@ the primary-source and refit ledgers.
 | [Schulze et al. (2018)](https://doi.org/10.2138/am-2018-6562) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Scott et al. (2001)](https://doi.org/10.1029/2000gl012606) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Direct refit unavailable | 10 | 10 direct refit unavailable | 10 bundled |
+| [Sherman et al. (1993), stishovite and modified-fluorite SiO2](https://doi.org/10.1029/93JB00783) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Shi et al. (2022)](https://doi.org/10.1029/2021jb023805) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Shieh et al. (2000)](https://doi.org/10.1016/s0012-821x(00)00033-9) | Reproduced | 2 | 2 parity | 2 bundled |
+| [Shieh et al. (2006)](https://doi.org/10.1073/pnas.0506811103) | Reproduced | 3 | 3 parity | 3 plot only/digitized |
 | [Shim et al. (2000)](https://doi.org/10.1029/2000jb900183) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Shim et al. (2000)](https://doi.org/10.1016/s0031-9201(00)00154-0) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Siersch et al. (2021)](https://doi.org/10.1016/j.pepi.2021.106786) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Sokolova et al. (2013)](https://doi.org/10.1016/j.rgg.2013.01.005) | Direct refit unavailable | 11 | 11 direct refit unavailable | 11 parameterization only |
 | [Somayazulu et al. (2023)](https://doi.org/10.1098/rsta.2022.0331) | Mixed: reproduced and discrepant records | 3 | 1 parity; 1 similar; 1 parity not achieved | 3 bundled |
 | [Speziale et al. (2001)](https://doi.org/10.1029/2000jb900318) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Speziale et al. (2007)](https://doi.org/10.1029/2006jb004730) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Stinton et al. (2014)](https://doi.org/10.1103/physrevb.90.134105) | Reproduced | 2 | 2 parity | 2 plot only/digitized |
 | [Sun et al. (2016)](https://doi.org/10.1002/2016jb013062) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Sun et al. (2019)](https://doi.org/10.1029/2019jb017853) | Reproduced | 2 | 2 similar | 2 bundled |
@@ -282,8 +328,10 @@ the primary-source and refit ledgers.
 | [Wittlinger et al. (1997)](https://doi.org/10.1107/s0108768197005739) | Reproduced | 1 | 1 similar | 1 plot only/digitized |
 | [Wolf et al. (2015)](https://doi.org/10.1002/2015jb012108) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Xu et al. (2020)](https://doi.org/10.1029/2020gl088877) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Xu et al. (2024), Al-bearing superhydrous phase B](https://doi.org/10.1029/2023GL107818) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Yagi et al. (1992)](https://doi.org/10.1016/0031-9201(92)90063-2) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Yu et al. (2024)](https://doi.org/10.1029/2023jb028026) | Reproduced | 1 | 1 similar | 1 bundled |
+| [Zhang and Weidner (1999), Al-enriched silicate perovskite](https://doi.org/10.1126/science.284.5415.782) | Direct refit unavailable | 0 | no production record | investigation evidence only |
 | [Zhao et al. (1997)](https://doi.org/10.1029/96gl03769) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Zhu et al. (2020)](https://doi.org/10.1029/2020jb019964) | Reproduced | 3 | 3 parity | 3 bundled |
 

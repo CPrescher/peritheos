@@ -16,7 +16,7 @@ not published). Crystal structure and EOS provenance are audited separately;
 an EOS is not accepted into the library with only a phase name or nominal
 formula.
 
-The current baseline is 145 material files and 233 EOS records. The model
+The current baseline is 155 material files and 253 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,

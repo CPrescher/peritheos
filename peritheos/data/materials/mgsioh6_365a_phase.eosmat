@@ -1,0 +1,208 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mgsioh6_365a_phase",
+ "name": "MgSi(OH)6 3.65 A phase",
+ "formula": "MgSiH6O6",
+ "phase": "monoclinic hydroxide perovskite 3.65 A phase, P21",
+ "aliases": ["3.65 A phase", "3.65 angstrom phase", "MgSi(OH)6", "hydroxide perovskite"],
+ "cell_contents": "Two MgSi(OH)6 formula units (28 atoms) in the primitive monoclinic P21 cell. All sites below are a fully occupied P21 positional-topology proxy from the Wunder et al. (2012) model crystal, rescaled to that study's high-precision experimental ambient lattice; the 2015 powder experiment used Le Bail refinement and did not refine atomic coordinates.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "MONOCLINIC",
+ "lattice": {
+  "a": 5.1131,
+  "b": 5.1898,
+  "c": 7.3303,
+  "alpha": 90.0,
+  "beta": 90.03,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 2,
+ "space_group": "P21",
+ "space_group_number": 4,
+ "atom_sites": [
+  {"element": "Mg", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.747, "y": 0.499, "z": 0.249, "occupancy": 1.0, "source_label": "Mg topology proxy"},
+  {"element": "Si", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.251, "y": 0.999, "z": 0.249, "occupancy": 1.0, "source_label": "Si topology proxy"},
+  {"element": "O", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.384, "y": 0.980, "z": 0.479, "occupancy": 1.0, "source_label": "O1 topology proxy"},
+  {"element": "O", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.882, "y": 0.528, "z": 0.980, "occupancy": 1.0, "source_label": "O2 topology proxy"},
+  {"element": "O", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.902, "y": 0.809, "z": 0.689, "occupancy": 1.0, "source_label": "O3 topology proxy"},
+  {"element": "O", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.447, "y": 0.654, "z": 0.823, "occupancy": 1.0, "source_label": "O4 topology proxy"},
+  {"element": "O", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.942, "y": 0.844, "z": 0.320, "occupancy": 1.0, "source_label": "O5 topology proxy"},
+  {"element": "O", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.392, "y": 0.688, "z": 0.194, "occupancy": 1.0, "source_label": "O6 topology proxy"},
+  {"element": "H", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.493, "y": 0.144, "z": 0.495, "occupancy": 1.0, "source_label": "H1 topology proxy"},
+  {"element": "H", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.997, "y": 0.368, "z": 0.992, "occupancy": 1.0, "source_label": "H2 topology proxy"},
+  {"element": "H", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.268, "y": 0.538, "z": 0.237, "occupancy": 1.0, "source_label": "H3 topology proxy"},
+  {"element": "H", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.796, "y": 0.969, "z": 0.277, "occupancy": 1.0, "source_label": "H4 topology proxy"},
+  {"element": "H", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.907, "y": 0.825, "z": 0.547, "occupancy": 1.0, "source_label": "H5 topology proxy"},
+  {"element": "H", "wyckoff": "2a", "site_multiplicity": 2, "x": 0.425, "y": 0.653, "z": 0.963, "occupancy": 1.0, "source_label": "H6 topology proxy"}
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": ["Wunder", "Welch", "Boffa Ballaran", "Pawley"],
+   "year": 2012,
+   "title": "Synthesis, stability, and structure of MgSi(OH)6: A new hydrous phase",
+   "source": "American Mineralogist",
+   "volume": "97",
+   "doi": "10.2138/am.2012.4022"
+  },
+  "structure_location": "Mookherjee et al. (2015), Introduction and Results; topology proxy coordinates from COD 9016723 associated with Wunder et al. (2012)",
+  "structure_url": "https://www.crystallography.net/cod/9016723.cif",
+  "structure_cif_sha256": "3105f8b0b8be687a1ed738c957b299679df83966c602e229b975579e6a79d79f",
+  "topology_proxy": true,
+  "topology_proxy_scope": "Fractional-coordinate and P21 site topology only; the lattice is the experimental ambient cell fixed in the 2015 EOS fits."
+ },
+ "notes": "The 3.65 A name refers to the intense (002) diffraction peak, not a cubic lattice parameter. The source describes an A-site-vacant hydroxide perovskite framework of alternating Mg(OH)6 and Si(OH)6 octahedra. Nominal MgSi(OH)6 is retained: electron-microprobe Mg/Si=1.02+/-0.06 and thermogravimetric water=34+/-3 wt.% support the ideal composition. The EOS sample contained traces to about 10% 10 A phase in some illuminated regions. The experimental and GGA reference volumes are intentionally different.",
+ "eos_records": [
+  {
+   "identifier": "mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1",
+   "label": "Mookherjee et al. (2015), preferred experimental BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "default_for": "equilibrium",
+   "reference": {
+    "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"],
+    "year": 2015,
+    "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity",
+    "source": "American Mineralogist",
+    "volume": "100",
+    "locator": "2199-2208",
+    "doi": "10.2138/am-2015-5312"
+   },
+   "sample_composition": "Nominal MgSi(OH)6 3.65 A phase synthesized at 10 GPa and 425 degrees C for 77 h; Mg/Si=1.02+/-0.06 (43 crystals) and water=34+/-3 wt.%.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {"V0": 194.52, "K0": 83.0, "K0_prime": 4.9}
+   },
+   "parameter_errors": {"V0": 0.02, "K0": 1.0, "K0_prime": 0.2},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": ["V0"],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [0.0, 41.0],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
+   "experimental_configuration": {
+    "sample": "Polycrystalline synthesized MgSi(OH)6 with minor 10 A phase in some illuminated regions",
+    "pressure_medium": "Ne",
+    "pressure_cell": "symmetric diamond-anvil cells, 300 micrometre culets, Re gaskets",
+    "pressure_gauge": "ruby R1 fluorescence (all runs), with Au cross-check in experiment I",
+    "diffraction": "angle-dispersive synchrotron XRD at PETRA III P02.2",
+    "path": "ambient-temperature compression and decompression in three runs"
+   },
+   "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+   "validity": {
+    "pressure_gpa": [0.0, 41.0],
+    "temperature_k": [300.0, 300.0],
+    "volume_ratio": [0.767993, 1.002622],
+    "notes": ["The range is the measured room-temperature envelope, including decompression to ambient pressure; it is not a thermodynamic stability field.", "The 3.65 A phase is expected to form from the 10 A phase near 9-10 GPa but was retained metastably below that pressure."]
+   },
+   "parameter_provenance": {
+    "equation": "Equations 1-3 and Table 2: third-order Birch finite-strain EOS (BM3).",
+    "V0": "Table 2: 194.52(2) A3, fixed to the high-precision value measured on the same material by Wunder et al. (2012).",
+    "K0": "Table 2: 83(1) GPa.",
+    "K0_prime": "Table 2: 4.9(2). The abstract instead prints +/-0.1; the detailed parameter table is authoritative here.",
+    "uncertainties": "Parenthetical/plus-minus errors are published without an explicit confidence convention; V0 was fixed rather than freely refined.",
+    "fit_selection": "The source describes third- and fourth-order fits to the experimental data and deposits all 95 P-V observations, but does not publish a machine-readable row mask, weights, covariance, or regression objective."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {"kind": "ruby_fluorescence", "reference": {"authors": ["Mao", "Xu", "Bell"], "year": 1986, "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions", "source": "Journal of Geophysical Research", "volume": "91", "doi": "10.1029/JB091iB05p04673"}, "source_location": "Experimental methods and Table 1", "scope": "all three experiments"},
+     {"kind": "equation_of_state", "material": "Au", "reference": {"authors": ["Heinz", "Jeanloz"], "year": 1984, "source": "Journal of Applied Physics", "volume": "55"}, "source_location": "Experimental methods", "scope": "selected observations in experiment I; used as cross-check"}
+    ],
+    "recalculation": {"status": "missing_calibrant_observations", "notes": "The supplement gives corrected sample pressures but no row-wise ruby wavelengths or Au lattice parameters."},
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the primary article and official MSA supplemental tables; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
+    "verified_fields": ["canonical_doi", "composition", "phase", "crystal_system", "space_group", "formula_units_per_cell", "equation", "parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "validity", "pressure_calibration", "primary_data"],
+    "primary_source_check": {"access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf", "doi": "10.2138/am-2015-5312", "locations": ["Abstract", "Experimental and computational methods", "Equations 1-3", "Table 2", "Figure 3"], "finding": "The paper identifies exact MgSi(OH)6, P21, Z=2 and reports this BM3 as the preferred experimental description."},
+    "primary_data_check": {"status": "complete_official_table", "audit_date": "2026-09-05", "dataset_identifiers": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"], "source_locations": ["Official deposit AM-15-105312, Supplemental Table 1"], "finding": "All 95 reported P-V observations, including experiment and loading path, are bundled verbatim."}
+   },
+   "notes": "Preferred source fit. Table 2's K0' uncertainty (0.2) is stored instead of the abstract's inconsistent 0.1."
+  },
+  {
+   "identifier": "mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2",
+   "label": "Mookherjee et al. (2015), experimental BM4 sensitivity fit",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"], "year": 2015,
+    "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity", "source": "American Mineralogist", "volume": "100", "locator": "2199-2208", "doi": "10.2138/am-2015-5312"
+   },
+   "sample_composition": "Same nominal MgSi(OH)6 experimental dataset as the preferred BM3 record.",
+   "eos": {"type": "BM4", "model": "birch_murnaghan_4", "parameters": {"V0": 194.52, "K0": 77.0, "K0_prime": 7.9, "K0_double_prime": -0.7}},
+   "parameter_errors": {"V0": 0.02, "K0": 2.0, "K0_prime": 0.8, "K0_double_prime": 0.2},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": ["V0"],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [0.0, 41.0],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [300.0, 300.0],
+   "fit_datasets": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"],
+   "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+   "validity": {"pressure_gpa": [0.0, 41.0], "temperature_k": [300.0, 300.0], "volume_ratio": [0.767993, 1.002622], "notes": ["Higher-order sensitivity parameterization of the same experimental observations, not the paper's preferred EOS.", "Do not extrapolate K0'' outside the measured compression envelope."]},
+   "parameter_provenance": {"equation": "Equations 1-3 and Table 2: fourth-order Birch finite-strain EOS (BM4).", "V0": "Table 2: 194.52(2) A3, fixed.", "K0": "Table 2: 77(+/-2.0) GPa.", "K0_prime": "Table 2: 7.9(8).", "K0_double_prime": "Table 2: -0.7(2) GPa^-1.", "fit_selection": "Same deposited 95-point experimental P-V series as the BM3; retained separately because the source explicitly reports the full higher-order coefficient set."},
+   "pressure_calibration": {"status": "partially_resolved", "methods": [{"kind": "ruby_fluorescence", "reference": {"authors": ["Mao", "Xu", "Bell"], "year": 1986, "source": "Journal of Geophysical Research", "volume": "91", "doi": "10.1029/JB091iB05p04673"}, "source_location": "Experimental methods and Table 1", "scope": "all observations"}], "recalculation": {"status": "missing_calibrant_observations", "notes": "No row-wise ruby wavelengths or Au lattice parameters are deposited."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Validated against Equations 1-3, Table 2, Figure 3d, and the official supplemental table.", "audit_date": "2026-09-05", "verified_fields": ["equation", "parameters", "fixed_parameters", "units", "published_uncertainties", "validity", "primary_data", "fit_relationship"], "primary_source_check": {"access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf", "doi": "10.2138/am-2015-5312", "locations": ["Equations 1-3", "Table 2", "Figure 3d"], "finding": "The complete BM4 parameters are source-reported; LitCurate omitted K0' and K0''."}, "primary_data_check": {"status": "complete_official_table", "audit_date": "2026-09-05", "dataset_identifiers": ["mgsioh6_365a_mookherjee_2015_supplement_table1_pv"], "finding": "The BM4 sensitivity fit shares the full official experimental P-V table with BM3."}},
+   "notes": "Sensitivity record only; intentionally has no default_for. Its K0, K0', and K0'' are strongly covariant and the source does not publish covariance."
+  },
+  {
+   "identifier": "mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3",
+   "label": "Mookherjee et al. (2015), static GGA model-crystal BM4",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"], "year": 2015,
+    "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity", "source": "American Mineralogist", "volume": "100", "locator": "2199-2208", "doi": "10.2138/am-2015-5312"
+   },
+   "sample_composition": "Stoichiometric MgSi(OH)6 primitive P21 model crystal; static 0 K PAW-GGA calculation.",
+   "eos": {"type": "BM4", "model": "birch_murnaghan_4", "parameters": {"V0": 202.02, "K0": 80.0, "K0_prime": 3.4, "K0_double_prime": -0.05}},
+   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [-8.0, 115.0],
+   "pressure_range_status": "theoretical",
+   "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 154.433},
+   "validity": {"pressure_gpa": [-8.0, 115.0], "temperature_k": [0.0, 0.0], "volume_ratio": [0.594001, 1.138501], "notes": ["Static PAW-GGA model-crystal curve; it is not an experimental ambient-temperature fit.", "The numerical energy-volume grid is not tabulated; the bounds conservatively follow the green Figure 3a calculation markers."]},
+   "parameter_provenance": {"equation": "Table 2 labels the first-principles result fourth-order; Equations 1-3 define the BM4 convention.", "V0": "Table 2, first-principles simulation: 202.02 A3.", "K0": "Table 2: 80 GPa.", "K0_prime": "Table 2: 3.4.", "K0_double_prime": "Table 2: -0.05 GPa^-1.", "model": "Methods: PAW-GGA in VASP, 1000 eV cutoff, 2x2x2 Monkhorst-Pack grid, P21 primitive cell; total energies converged within 5 meV/atom."},
+   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "First-principles simulation methods", "scope": "static GGA energy-volume calculation"}], "recalculation": {"status": "not_applicable", "notes": "No experimental pressure calibration applies to a static first-principles model."}, "audit_date": "2026-09-05"},
+   "scientific_validation": {"status": "primary_source_validated", "note": "Validated independently against the primary paper's equations, computational methods, Table 2, and Figure 3a.", "audit_date": "2026-09-05", "verified_fields": ["composition", "phase", "equation", "parameters", "units", "reference_state", "theoretical_method", "source_curve"], "primary_source_check": {"access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf", "doi": "10.2138/am-2015-5312", "locations": ["First-principles simulation", "Equations 1-3", "Table 2", "Figure 3a"], "finding": "This is a separate theoretical BM4 parameterization of the stoichiometric P21 model crystal, not another fit to the experimental P-V table."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "source_locations": ["Table 2", "Figure 3a"], "finding": "The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled."}},
+   "notes": "Clearly distinct theoretical record. No default_for is assigned; the preferred catalog equilibrium record is the experimental BM3."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mgsioh6_365a_mookherjee_2015_supplement_table1_pv",
+   "kind": "experimental_pressure_volume",
+   "description": "All unit-cell pressure-volume observations for experiments I-III, including compression and decompression paths, transcribed from the official MSA supplement.",
+   "source_location": "Deposit AM-15-105312, 5312_supp1.pdf, Supplemental Table 1",
+   "source_url": "https://msaweb.org/MSA/AmMin/TOC/2015/Oct2015_data/AM-15-105312.zip",
+   "reference": {"authors": ["Mookherjee", "Speziale", "Marquardt", "Jahn", "Wunder", "Koch-Muller", "Liermann"], "year": 2015, "title": "Equation of state and elasticity of the 3.65 A phase: Implications for the X-discontinuity", "source": "American Mineralogist", "volume": "100", "locator": "2199-2208", "doi": "10.2138/am-2015-5312"},
+   "columns": [
+    {"name": "point_id", "quantity": "source_observation", "unit": "1", "role": "flag"},
+    {"name": "experiment", "quantity": "experimental_run", "unit": "1", "role": "flag"},
+    {"name": "path", "quantity": "pressure_path", "unit": "1", "role": "flag"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_sigma_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "volume_a3_conventional_cell", "quantity": "unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "volume_sigma_a3", "quantity": "unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+   ],
+   "resource": {"path": "datasets/mgsioh6-365a-mookherjee-2015-supplement-table1-pv.csv", "sha256": "85484dad4825baeea039b488f42f17ab42b3a5de341f4406c97b46ea24dd748e", "media_type": "text/csv"},
+   "provenance": {"type": "transcribed_from_official_supplement", "deposit_identifier": "AM-15-105312", "supplement_pdf_sha256": "aa12c93568e4157db69306ba292389d3ea5d2461c5394b6cdd5e5bdbc8abbe96", "notes": "Values and printed uncertainties are preserved. Blank pressure uncertainties are the two source rows at nominal 0.0 GPa for which no pressure uncertainty is printed. The first ambient row precedes the experiment-I label in the table and is marked ambient rather than assigned to a run."},
+   "used_by_eos_records": ["mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1", "mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2"]
+  }
+ ]
+}
