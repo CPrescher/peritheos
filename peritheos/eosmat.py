@@ -714,6 +714,7 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     f"{location}.thermal.model does not match thermal.type"
                 )
             debye_temperature_law = thermal.get("debye_temperature_law")
+            thermal_pressure_reference = thermal.get("thermal_pressure_reference")
             if thermal_type == "MieGruneisenDebye":
                 if debye_temperature_law is not None and (
                     not isinstance(debye_temperature_law, str)
@@ -723,9 +724,22 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
                     raise EosmatError(
                         f"{location}.thermal.debye_temperature_law is invalid"
                     )
+                if thermal_pressure_reference is not None and (
+                    not isinstance(thermal_pressure_reference, str)
+                    or thermal_pressure_reference
+                    not in {"reference_temperature", "absolute_zero"}
+                ):
+                    raise EosmatError(
+                        f"{location}.thermal.thermal_pressure_reference is invalid"
+                    )
             elif debye_temperature_law is not None:
                 raise EosmatError(
                     f"{location}.thermal.debye_temperature_law requires "
+                    "MieGruneisenDebye"
+                )
+            elif thermal_pressure_reference is not None:
+                raise EosmatError(
+                    f"{location}.thermal.thermal_pressure_reference requires "
                     "MieGruneisenDebye"
                 )
             thermal_expansion_law = thermal.get("thermal_expansion_law")

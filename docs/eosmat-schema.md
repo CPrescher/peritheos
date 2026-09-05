@@ -137,7 +137,7 @@ Each item in `eos_records` describes one source parameterization.
 | `experimental_pressure_range_gpa` | no | Two-element marginal pressure envelope. |
 | `pressure_range_status` | no | Provenance of the pressure envelope: `reported_exactly`, `reported_qualitatively`, `theoretical`, or `reference_parameterization`. |
 | `experimental_temperature_range_k` | no | Two-element marginal temperature envelope. |
-| `temperature_ref` | no | Reference-isotherm temperature in K. Zero is allowed only for an explicitly static 0 K isothermal record; thermal and Hugoniot records require a positive temperature. |
+| `temperature_ref` | no | Record reference/default temperature in K. It is normally the reference isotherm; an explicitly absolute-cold-curve thermal model documents its separate pressure baseline. Zero is allowed only for a static 0 K isothermal record; thermal and Hugoniot records require a positive temperature. |
 | `parameter_provenance` | no | Field-level table, equation, page, or supplement provenance. |
 | `source_lineage` | no | Ordered sources and their roles when a record combines an earlier fit, final parameter table, implementation, correction, or experimental context. |
 | `pressure_calibration` | no | Audited pressure basis of the observations used for the fit, including resolvable links to reference EOS and optical-calibration records. |
@@ -410,6 +410,17 @@ must not silently replace `variable_exponent` with the integrated default.
 
 The complete equations and the distinction between the two laws are in the
 [thermal equation reference](equation-reference.md#mie-gruneisen-debye-and-einstein).
+
+### MGD thermal-pressure baseline
+
+`MieGruneisenDebye` also accepts the fixed field
+`thermal_pressure_reference`. Its default, `reference_temperature`, adds the
+Debye energy difference $E(V,T)-E(V,T_r)$ to a measured reference isotherm.
+The alternative `absolute_zero` adds $E(V,T)$ to an explicitly 0 K cold curve.
+These conventions are not interchangeable: a record using `absolute_zero`
+must trace its cold coefficients and baseline directly to the source. `Tr`
+remains positive and records the API's reference/default temperature even
+when it is not subtracted from total thermal pressure.
 
 ## Scientific validation status
 

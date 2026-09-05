@@ -333,6 +333,42 @@ fn debye_temperature_laws_are_explicit_and_distinct() {
 }
 
 #[test]
+fn absolute_zero_mie_gruneisen_adds_full_vibrational_pressure() {
+    use peritheos::thermal::ThermalPressureReference;
+
+    let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
+    let model = MieGruneisenDebye::new_with_conventions(
+        reference,
+        300.0,
+        800.0,
+        1.5,
+        1.0,
+        2.0,
+        DebyeTemperatureLaw::IntegratedGruneisen,
+        ThermalPressureReference::AbsoluteZero,
+    )
+    .unwrap();
+    let volume = 0.9;
+
+    assert_close(
+        model.thermal_pressure(volume, 300.0).unwrap(),
+        model.vibrational_pressure(volume, 300.0).unwrap(),
+        1.0e-13,
+    );
+    assert_close(
+        model.thermal_pressure_increment(volume, 300.0).unwrap(),
+        0.0,
+        1.0e-13,
+    );
+    assert_close(
+        model.thermal_pressure_increment(volume, 1800.0).unwrap(),
+        model.vibrational_pressure(volume, 1800.0).unwrap()
+            - model.vibrational_pressure(volume, 300.0).unwrap(),
+        1.0e-13,
+    );
+}
+
+#[test]
 fn simple_thermal_pressure_models_preserve_reference_state() {
     let reference = BM3::new(1.0, 160.0, 4.0).unwrap();
     let linear = LinearThermalPressure::new(reference, 300.0, 0.002).unwrap();

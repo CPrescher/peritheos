@@ -27,7 +27,7 @@ use crate::thermal::{
     LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
     MultiOscillatorGruneisen, ReferenceStateEos, ReferenceVolumeLaw,
     SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
-    ThermalReferenceState,
+    ThermalPressureReference, ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -1152,6 +1152,7 @@ struct RawComponent {
     #[serde(default)]
     parameters: HashMap<String, Option<f64>>,
     debye_temperature_law: Option<String>,
+    thermal_pressure_reference: Option<String>,
     thermal_expansion_law: Option<String>,
     reference_volume_law: Option<String>,
     #[serde(default)]
@@ -2614,6 +2615,7 @@ fn check_type(component: &RawComponent, expected: &str) -> Result<(), String> {
 fn configuration<'a>(component: &'a RawComponent, name: &str) -> Option<&'a str> {
     match name {
         "debye_temperature_law" => component.debye_temperature_law.as_deref(),
+        "thermal_pressure_reference" => component.thermal_pressure_reference.as_deref(),
         "thermal_expansion_law" => component.thermal_expansion_law.as_deref(),
         "reference_volume_law" => component.reference_volume_law.as_deref(),
         _ => None,
@@ -2794,7 +2796,14 @@ fn build_thermal(
                 "variable_exponent" => DebyeTemperatureLaw::VariableExponent,
                 value => return Err(format!("unknown debye_temperature_law {value:?}")),
             };
-            MieGruneisenDebye::new_with_temperature_law(
+            let pressure_reference = match configuration(component, "thermal_pressure_reference")
+                .unwrap_or("reference_temperature")
+            {
+                "reference_temperature" => ThermalPressureReference::ReferenceTemperature,
+                "absolute_zero" => ThermalPressureReference::AbsoluteZero,
+                value => return Err(format!("unknown thermal_pressure_reference {value:?}")),
+            };
+            MieGruneisenDebye::new_with_conventions(
                 reference,
                 p("Tr")?,
                 p("theta0")?,
@@ -2802,6 +2811,7 @@ fn build_thermal(
                 p("q")?,
                 p("n")?,
                 law,
+                pressure_reference,
             )
             .map(ThermalModel::MieGruneisenDebye)
         }

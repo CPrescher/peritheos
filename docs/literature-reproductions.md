@@ -334,6 +334,90 @@ temperature-error handling, or additional point selection can explain the
 remaining coefficient tradeoff; the published parameterization remains the
 executable record.
 
+## C02: cubic boron nitride, Datchi et al. (2007)
+
+### Primary evidence and equation convention
+
+The source is Datchi, Dewaele, Le Godec, and Loubeyre, *Equation of state of
+cubic boron nitride at high pressures and temperatures*, Physical Review B
+**75**, 214104 (2007),
+[doi:10.1103/PhysRevB.75.214104](https://doi.org/10.1103/PhysRevB.75.214104).
+The equation and data were audited in the author-posted
+[arXiv manuscript](https://arxiv.org/abs/cond-mat/0702656): Section II,
+Equations (1)--(4), Tables IV--V, and Figure 4.
+
+The source explicitly defines
+
+\[
+P(V,T)=P_0(V)+P_{th}(V,T), \qquad P_{th}(V,0)=0.
+\]
+
+Table V's Vinet parameters are consequently a 0 K cold curve, not the Table I
+295 K isotherm. On Peritheos's conventional-cell public volume basis they are
+`V0 = 5.9026 * 8 = 47.2208 A^3`, `K0 = 397 GPa`, and `K0_prime = 3.62`.
+The thermal term uses `theta0 = 1700 K`, `gamma0 = 1.04`, `q = 4`, and `n = 2`
+atoms per BN formula unit. The source definitions
+`gamma=-d ln(theta)/d ln(V)` and `gamma=gamma0(V/V0)^q` require the integrated
+characteristic-temperature law
+
+\[
+\theta(V)=\theta_0\exp[(\gamma_0-\gamma(V))/q].
+\]
+
+The production record therefore uses `thermal_pressure_reference =
+"absolute_zero"`. Its positive `Tr = 295 K` is only the record's default and
+the baseline for explicitly requested thermal-pressure increments; it is not
+subtracted from total pressure. Composing the old 295 K Vinet record with a
+reference-subtracted MGD wrapper would be a different parameterization.
+
+### Data, refit, and numerical checks
+
+All 66 Table IV rows are bundled as
+`cubic_boron_nitride_datchi_2007_table4_pvt`: 38 rows at 295 K, 21
+simultaneous high-pressure/high-temperature rows, and seven ambient-pressure
+thermal-expansion rows. The reproduction uses `V=a^3/8`, rather than the
+table's more coarsely rounded printed atomic-volume column. The paper reports
+an average lattice-parameter uncertainty of `5e-4 A` and temperature
+uncertainty of `+/-5 K`, but no row-wise errors or regression weights.
+
+| Calculation | Result |
+|---|---:|
+| Published Table V curve, all 66 rows | pressure RMSE `0.5838 GPa` |
+| Paper's reported Figure 4/Section V statistic | pressure rms `0.6 GPa` |
+| Published curve, `P=0`, 300 K | `5.90550 A^3/atom` |
+| Independent Table VI value, `P=0`, 300 K | `5.9055 A^3/atom` |
+| Peritheos unweighted pressure-residual refit, q only | `q=7.35 +/- 1.89`; RMSE `0.5654 GPa` |
+
+The refit holds every quantity that the paper says was fixed: the cold Vinet
+coefficients, `theta0`, `gamma0`, and `n`. Its q discrepancy is less than two
+combined standard deviations from the published `4 +/- 1.5`. Because the
+primary table is rounded and the objective, weights, covariance, and unrounded
+inputs are not published, the diagnostic refit is not promoted as an EOS
+record and does not replace Table V. Run it with:
+
+```bash
+python scripts/reproduce_datchi_2007_cbn.py
+```
+
+### Scope and pressure calibration
+
+The phase is zinc-blende c-BN, `F-43m` (#216), with four BN formula units per
+conventional cubic cell; the article defines atomic volume as `a^3/8` and
+reports no transition during 295 K compression. The experiment reaches 162.5
+GPa at 295 K, 84.2 GPa at 600 K, 54.2 GPa at 900 K, and 948 K only at ambient
+pressure, so the marginal bounds are not a rectangular validated domain.
+
+Reported pressures are on Holzapfel's 2005 ruby scale. Heated points use a
+SrB4O7:Sm2+ calibration adjusted to that scale; 295 K points above 100 GPa use
+the Dewaele et al. 4He EOS with an H2005 correction. The printed source omits
+the row-wise marker shifts and helium volumes, preventing exact recalculation.
+Parenthetical coefficient errors are fit standard deviations, not absolute
+uncertainties; the authors identify pressure calibration as dominant and
+estimate a 3% spread among plausible ruby scales at 160 GPa. No coefficient
+covariance or explicit data-reuse license is stated. Section IV prints
+`gamma_th0=1.04(1)`, while the final parameter set in Table V prints
+`1.04(2)`; the production record conservatively follows final Table V.
+
 ## C01: boron carbide, Somayazulu et al. (2023)
 
 ### Sources and model

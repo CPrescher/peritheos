@@ -47,7 +47,9 @@
 - Datchi, F., Dewaele, A., Le Godec, Y. & Loubeyre, P. (2007). Equation of
   state of cubic boron nitride at high pressures and temperatures. *Physical
   Review B*, 75, 214104. doi:10.1103/PhysRevB.75.214104. Peritheos uses the
-  295 K Vinet fit from Table I and the volume convention in Figure 1.
+  295 K Vinet fit from Table I and the distinct 0 K Vinet plus absolute Debye
+  thermal-pressure parameterization from Equations 2--4 and Table V. All 66
+  Table IV P-V-T observations are bundled.
 - Dewaele, A., Datchi, F., Loubeyre, P. & Mezouar, M. (2008). High
   pressure-high temperature equations of state of neon and diamond. *Physical
   Review B*, 77, 094106. doi:10.1103/PhysRevB.77.094106. The diamond entry

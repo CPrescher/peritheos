@@ -52,6 +52,16 @@ pub enum DebyeTemperatureLaw {
     VariableExponent,
 }
 
+/// Supported thermal-pressure baselines for Mie--Gruneisen--Debye models.
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub enum ThermalPressureReference {
+    /// Subtract the Debye energy at the configured reference temperature.
+    #[default]
+    ReferenceTemperature,
+    /// Add the full positive-temperature Debye pressure to a 0 K cold curve.
+    AbsoluteZero,
+}
+
 /// Shared representation underlying the public Debye and Einstein aliases.
 #[doc(hidden)]
 #[derive(Clone, Copy, Debug, PartialEq)]
@@ -70,6 +80,8 @@ pub struct MieGruneisen<R, const DEBYE: bool> {
     pub n: f64,
     /// Debye-temperature convention; Einstein models use the integrated law.
     pub debye_temperature_law: DebyeTemperatureLaw,
+    /// Thermal-pressure baseline; Einstein models use the reference temperature.
+    pub thermal_pressure_reference: ThermalPressureReference,
 }
 
 /// Mie--Gruneisen--Debye thermal equation of state.
@@ -86,6 +98,7 @@ fn new_mie_gruneisen<R, const DEBYE: bool>(
     q: f64,
     n: f64,
     debye_temperature_law: DebyeTemperatureLaw,
+    thermal_pressure_reference: ThermalPressureReference,
 ) -> EosResult<MieGruneisen<R, DEBYE>> {
     Ok(MieGruneisen {
         rt_eos,
@@ -95,6 +108,7 @@ fn new_mie_gruneisen<R, const DEBYE: bool>(
         q: finite_parameter(q, "q")?,
         n: positive_parameter(n, "n")?,
         debye_temperature_law,
+        thermal_pressure_reference,
     })
 }
 
@@ -116,6 +130,7 @@ where
             q,
             n,
             DebyeTemperatureLaw::IntegratedGruneisen,
+            ThermalPressureReference::ReferenceTemperature,
         )
     }
 
@@ -133,7 +148,44 @@ where
         n: f64,
         debye_temperature_law: DebyeTemperatureLaw,
     ) -> EosResult<Self> {
-        new_mie_gruneisen(rt_eos, tr, theta0, gamma0, q, n, debye_temperature_law)
+        new_mie_gruneisen(
+            rt_eos,
+            tr,
+            theta0,
+            gamma0,
+            q,
+            n,
+            debye_temperature_law,
+            ThermalPressureReference::ReferenceTemperature,
+        )
+    }
+
+    /// Construct a model with explicit Debye-temperature and pressure baselines.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid or non-finite thermal parameters.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new_with_conventions(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        q: f64,
+        n: f64,
+        debye_temperature_law: DebyeTemperatureLaw,
+        thermal_pressure_reference: ThermalPressureReference,
+    ) -> EosResult<Self> {
+        new_mie_gruneisen(
+            rt_eos,
+            tr,
+            theta0,
+            gamma0,
+            q,
+            n,
+            debye_temperature_law,
+            thermal_pressure_reference,
+        )
     }
 }
 
@@ -155,6 +207,7 @@ where
             q,
             n,
             DebyeTemperatureLaw::IntegratedGruneisen,
+            ThermalPressureReference::ReferenceTemperature,
         )
     }
 }
@@ -298,9 +351,25 @@ where
     fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         let volume = positive_state(volume, "volume")?;
         let temperature = positive_state(temperature, "temperature")?;
-        let energy_difference =
-            self.thermal_energy(volume, temperature)? - self.thermal_energy(volume, self.tr)?;
+        let energy_difference = match self.thermal_pressure_reference {
+            ThermalPressureReference::ReferenceTemperature => {
+                self.thermal_energy(volume, temperature)? - self.thermal_energy(volume, self.tr)?
+            }
+            ThermalPressureReference::AbsoluteZero => self.thermal_energy(volume, temperature)?,
+        };
         finite_result(self.volume_gruneisen_parameter(volume)? * energy_difference / volume / 1.0e4)
+    }
+
+    fn thermal_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        match self.thermal_pressure_reference {
+            ThermalPressureReference::ReferenceTemperature => {
+                self.thermal_pressure(volume, temperature)
+            }
+            ThermalPressureReference::AbsoluteZero => finite_result(
+                self.thermal_pressure(volume, temperature)?
+                    - self.thermal_pressure(volume, self.tr)?,
+            ),
+        }
     }
 }
 

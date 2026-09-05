@@ -236,7 +236,9 @@ class MieGruneisenDebye(_MieGruneisenBase):
     ``Delta P = gamma(V) / V * (E_D(V, T) - E_D(V, Tr))``,
 
     where ``E_D`` is the Debye vibrational energy and ``gamma(V) = gamma0 *
-    (V/V0)**q``. ``debye_temperature_law`` selects either the conventional
+    (V/V0)**q``. ``thermal_pressure_reference="absolute_zero"`` instead uses
+    ``P_th = gamma(V) E_D(V, T) / V`` so that the supplied isothermal EOS is a
+    0 K cold curve. ``debye_temperature_law`` selects either the conventional
     thermodynamically integrated relation (the default) or the direct
     variable-exponent relation printed by Fei et al. (2007).
 
@@ -253,8 +255,12 @@ class MieGruneisenDebye(_MieGruneisenBase):
     doi:10.1073/pnas.0609013104
     """
 
-    _constructor_configuration_names: tuple[str, ...] = ("debye_temperature_law",)
+    _constructor_configuration_names: tuple[str, ...] = (
+        "debye_temperature_law",
+        "thermal_pressure_reference",
+    )
     _DEBYE_TEMPERATURE_LAWS = {"integrated_gruneisen", "variable_exponent"}
+    _THERMAL_PRESSURE_REFERENCES = {"reference_temperature", "absolute_zero"}
 
     def __init__(
         self,
@@ -265,6 +271,7 @@ class MieGruneisenDebye(_MieGruneisenBase):
         q: float,
         n: float,
         debye_temperature_law: str = "integrated_gruneisen",
+        thermal_pressure_reference: str = "reference_temperature",
     ) -> None:
         super().__init__(rt_eos, Tr, theta0, gamma0, q, n)
         if (
@@ -276,6 +283,15 @@ class MieGruneisenDebye(_MieGruneisenBase):
                 "'variable_exponent'"
             )
         self.debye_temperature_law = debye_temperature_law
+        if (
+            not isinstance(thermal_pressure_reference, str)
+            or thermal_pressure_reference not in self._THERMAL_PRESSURE_REFERENCES
+        ):
+            raise EosValidationError(
+                "thermal_pressure_reference must be 'reference_temperature' or "
+                "'absolute_zero'"
+            )
+        self.thermal_pressure_reference = thermal_pressure_reference
         reference_native = _native_for_exact_model(rt_eos)
         if reference_native is not None and type(self) is MieGruneisenDebye:
             from peritheos import _rust
@@ -288,7 +304,40 @@ class MieGruneisenDebye(_MieGruneisenBase):
                 self.q,
                 self.n,
                 self.debye_temperature_law,
+                self.thermal_pressure_reference,
             )
+
+    def configuration_values(self) -> dict[str, str]:
+        """Return non-numeric choices, omitting the default pressure baseline."""
+        if type(self) is not MieGruneisenDebye:
+            return super().configuration_values()
+        configuration = {"debye_temperature_law": self.debye_temperature_law}
+        if self.thermal_pressure_reference != "reference_temperature":
+            configuration["thermal_pressure_reference"] = (
+                self.thermal_pressure_reference
+            )
+        return configuration
+
+    def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return referenced or absolute-zero Debye thermal pressure in GPa."""
+        if self.thermal_pressure_reference == "reference_temperature":
+            return super().thermal_pressure(V, T)
+        return self.vibrational_pressure(V, T)
+
+    def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return pressure above the configured ``Tr`` isotherm in GPa."""
+        if self.thermal_pressure_reference == "reference_temperature":
+            return self.thermal_pressure(V, T)
+        native = getattr(self, "_native", None)
+        if native is not None:
+            volumes, temperatures = self._broadcast_state(V, T)
+            return self._native_evaluate(
+                "thermal_pressure_increment", volumes, temperatures
+            )
+        increment = np.asarray(
+            self.vibrational_pressure(V, T), dtype=float
+        ) - np.asarray(self.vibrational_pressure(V, self.Tr), dtype=float)
+        return self._scalar_or_array(increment)
 
     def characteristic_temperature(self, V: NumericType) -> NumericType:
         """Return Debye temperature using the selected volume relation."""

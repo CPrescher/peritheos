@@ -1350,6 +1350,7 @@ def _eosmat_component(eos: EquationOfState) -> dict[str, Any]:
         # Kept at the established location for Dioptas format-3 readers.
         for name in (
             "debye_temperature_law",
+            "thermal_pressure_reference",
             "thermal_expansion_law",
             "reference_volume_law",
         ):
@@ -2007,6 +2008,7 @@ def _material_from_eosmat(
                 configuration = dict(thermal_component.get("configuration", {}))
                 for name in (
                     "debye_temperature_law",
+                    "thermal_pressure_reference",
                     "thermal_expansion_law",
                     "reference_volume_law",
                 ):

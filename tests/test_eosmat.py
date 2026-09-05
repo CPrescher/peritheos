@@ -2579,6 +2579,11 @@ def test_normative_schema_is_bundled():
         "integrated_gruneisen",
         "variable_exponent",
     ]
+    assert thermal["thermal_pressure_reference"]["default"] == "reference_temperature"
+    assert thermal["thermal_pressure_reference"]["enum"] == [
+        "reference_temperature",
+        "absolute_zero",
+    ]
     assert thermal["reference_volume_law"]["enum"] == [
         "integrated_expansivity",
         "linear_temperature",
@@ -2735,6 +2740,27 @@ def test_eosmat_debye_temperature_law_defaults_and_validation():
     fei["debye_temperature_law"] = "variable_exponent"
     fei["type"] = "AlphaKT"
     fei["model"] = "thermal_reference_state"
+    with pytest.raises(ValueError, match="requires MieGruneisenDebye"):
+        validate_eosmat_document(document)
+
+
+def test_eosmat_thermal_pressure_reference_defaults_and_validation():
+    document = get_material_document("boron_nitride")
+    thermal = next(
+        record["thermal"]
+        for record in document["eos_records"]
+        if record["identifier"] == "boron_nitride_datchi_2007_vinet_mgd_2"
+    )
+    assert thermal["thermal_pressure_reference"] == "absolute_zero"
+    validate_eosmat_document(document)
+
+    thermal["thermal_pressure_reference"] = "unknown"
+    with pytest.raises(ValueError, match="thermal_pressure_reference is invalid"):
+        validate_eosmat_document(document)
+
+    thermal["thermal_pressure_reference"] = "absolute_zero"
+    thermal["type"] = "AlphaKT"
+    thermal["model"] = "thermal_reference_state"
     with pytest.raises(ValueError, match="requires MieGruneisenDebye"):
         validate_eosmat_document(document)
 

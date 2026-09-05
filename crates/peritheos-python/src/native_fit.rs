@@ -351,7 +351,7 @@ impl ThermalModel {
                     .rt_eos
                     .with_parameters(&reference_names, &reference_values)?;
                 Self::MieGruneisenDebye(
-                    MieGruneisenDebye::new_with_temperature_law(
+                    MieGruneisenDebye::new_with_conventions(
                         reference,
                         value(names, values, "Tr", model.tr),
                         value(names, values, "theta0", model.theta0),
@@ -359,6 +359,7 @@ impl ThermalModel {
                         value(names, values, "q", model.q),
                         value(names, values, "n", model.n),
                         model.debye_temperature_law,
+                        model.thermal_pressure_reference,
                     )
                     .map_err(FitError::from)?,
                 )

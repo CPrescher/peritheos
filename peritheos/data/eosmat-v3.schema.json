@@ -350,6 +350,11 @@
           "default": "integrated_gruneisen",
           "description": "Characteristic-temperature relation for MieGruneisenDebye. Omission means integrated_gruneisen; JSON Schema defaults are annotations and do not insert the field."
         },
+        "thermal_pressure_reference": {
+          "enum": ["reference_temperature", "absolute_zero"],
+          "default": "reference_temperature",
+          "description": "Pressure baseline for MieGruneisenDebye. reference_temperature subtracts E(V,Tr); absolute_zero adds the unreferenced Debye thermal pressure to a 0 K cold curve."
+        },
         "thermal_expansion_law": {
           "enum": ["constant", "linear_temperature"],
           "default": "constant",
@@ -368,7 +373,7 @@
                 {"type": "number", "exclusiveMinimum": 0},
                 {"type": "null"}
               ],
-              "description": "Reference-isotherm temperature in K. For absolute Helmholtz cold-curve models, null means that no reference subtraction is applied."
+              "description": "Thermal-model reference temperature in K. For MieGruneisenDebye absolute_zero it anchors reference-relative increments but is not subtracted from total pressure. For absolute Helmholtz cold-curve models, null means that no reference subtraction is applied."
             }
           },
           "additionalProperties": {"type": "number"}

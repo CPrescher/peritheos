@@ -2,11 +2,12 @@
  "format_version": 3,
  "name": "Boron Nitride",
  "formula": "BN",
+ "phase": "cubic zinc-blende",
  "symmetry": "CUBIC",
  "lattice": {
-  "a": 3.6159,
-  "b": 3.6159,
-  "c": 3.6159,
+  "a": 3.6152,
+  "b": 3.6152,
+  "c": 3.6152,
   "alpha": 90.0,
   "beta": 90.0,
   "gamma": 90.0
@@ -14,6 +15,25 @@
  "formula_units_per_cell": 4,
  "space_group": "F-43m",
  "space_group_number": 216,
+ "structure_reference": {
+  "authors": [
+   "Datchi",
+   "Dewaele",
+   "Le Godec",
+   "Loubeyre"
+  ],
+  "year": 2007,
+  "title": "Equation of state of cubic boron nitride at high pressures and temperatures",
+  "source": "Phys. Rev. B",
+  "volume": "75",
+  "locator": "214104",
+  "doi": "10.1103/PhysRevB.75.214104",
+  "locations": [
+   "Section III",
+   "Figure 1 caption"
+  ],
+  "notes": "The source confirms zinc-blende F-43m c-BN and a0=3.6152(2) A at 295 K. The B 4a and N 4c sites are the conventional zinc-blende setting."
+ },
  "atom_sites": [
   {
    "element": "B",
@@ -32,7 +52,7 @@
    "occupancy": 1.0
   }
  ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/BN-cubic.jcpds",
+ "notes": "The original card was imported 12.08.2026 from JCPDS/dac_user_jcpds/BN-cubic.jcpds. The reference lattice was updated to Datchi et al.'s measured a0=3.6152(2) A at 295 K; Section III independently confirms zinc-blende F-43m c-BN. The conventional zinc-blende Wyckoff sites give four BN formula units per cell.",
  "peaks": [],
  "eos_records": [
   {
@@ -69,9 +89,9 @@
    ],
    "experimental_pressure_range_gpa": [
     0.0,
-    160.0
+    162.5
    ],
-   "notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell; the unsupported K0=500 record was removed.",
+   "notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell. The fitted range is described as 160 GPa in prose; Table IV's highest row is 162.5 GPa. The unsupported migrated K0=500 record was removed.",
    "identifier": "boron_nitride_datchi_2007_vinet_1",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -106,14 +126,14 @@
     ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "notes": "The reported sample pressure-volume rows are bundled. Exact observation-level recalculation is still incomplete because the paper does not print the row-wise ruby wavelengths, SrB4O7:Sm2+ shifts, or helium volumes needed to distinguish and rerun the mixed pressure-reduction paths."
     },
     "audit_date": "2026-09-03"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -126,9 +146,10 @@
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
      "locations": [
-      "Equation 2",
-      "Table II",
-      "Figures 2 and 3"
+      "Section II",
+      "Table I",
+      "Figure 1 caption",
+      "Table IV"
      ],
      "doi": "10.1103/physrevb.75.214104"
     },
@@ -149,6 +170,217 @@
      ],
      "finding": "All 66 c-BN P-V-T observations printed in Table IV, including the 295 K compression series to 162.5 GPa and high-temperature observations to 948 K."
     }
+   }
+  },
+  {
+   "label": "Datchi et al. (2007), 0 K Vinet + MGD",
+   "reference": {
+    "authors": [
+     "Datchi",
+     "Dewaele",
+     "Le Godec",
+     "Loubeyre"
+    ],
+    "year": 2007,
+    "source": "Phys. Rev. B",
+    "volume": "75",
+    "locator": "214104",
+    "doi": "10.1103/PhysRevB.75.214104"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 47.2208,
+     "K0": 397.0,
+     "K0_prime": 3.62
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.0032,
+    "K0": 2.0,
+    "K0_prime": 0.05
+   },
+   "parameter_error_confidence": null,
+   "uncertainties": {
+    "reported_as": "Parenthetical last-digit parameter errors are standard deviations of the fits, not absolute uncertainties.",
+    "source_conflict": "Section IV gives gamma_th0=1.04(1), whereas the final P-V-T parameter set in Table V gives 1.04(2); the production record follows final Table V.",
+    "covariance": "not reported",
+    "absolute_scale": "The authors state that pressure-scale uncertainty dominates and estimate a 3% spread among plausible ruby scales at 160 GPa."
+   },
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 295.0,
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "thermal_pressure_reference": "absolute_zero",
+    "parameters": {
+     "Tr": 295.0,
+     "theta0": 1700.0,
+     "gamma0": 1.04,
+     "q": 4.0,
+     "n": 2.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.02,
+     "q": 1.5,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "n"
+    ]
+   },
+   "volume": {
+    "reference_value": 47.2208,
+    "public_to_model_scale": 0.0150553519,
+    "model_unit": "J bar^-1 mol^-1"
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    162.5
+   ],
+   "experimental_temperature_range_k": [
+    295.0,
+    948.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     162.5
+    ],
+    "temperature_k": [
+     295.0,
+     948.0
+    ],
+    "volume_ratio": [
+     0.77125,
+     1.00844
+    ],
+    "notes": [
+     "Marginal envelope of Table IV; 295 K compression reaches 162.5 GPa, whereas heated compression reaches 900 K and 84.2 GPa and the 948 K observation is at ambient pressure.",
+     "The record represents zinc-blende c-BN only; no transition was observed in the 295 K compression range."
+    ]
+   },
+   "fit_datasets": [
+    "cubic_boron_nitride_datchi_2007_table4_pvt"
+   ],
+   "phase_scope": "cubic zinc-blende BN, space group F-43m, conventional cubic cell with Z=4 BN (8 atoms)",
+   "sample_composition": {
+    "nominal_formula": "BN",
+    "material": "single crystals selected from a c-BN powder batch by sharp first-order TO and LO Raman bands",
+    "qualification": "The paper reports c-BN without a chemical analysis; no substitution or mixed phase is inferred."
+   },
+   "parameter_provenance": {
+    "V0": "Section IV and Table V: V0,0=5.9026(4) A^3/atom from the ambient-pressure thermal-expansion fit, multiplied by 8 atoms per conventional cell",
+    "K0": "Section IV and Table V: B0,0=397(2) GPa, obtained by adding the cited 2 GPa 0-to-300 K correction to the 295 K Vinet modulus",
+    "K0_prime": "Section IV and Table V: B0,0'=3.62(5), fixed equal to the 295 K Vinet value",
+    "thermal.Tr": "Section III and Table IV: 295 K is the measured room-temperature series and is retained as the record's default/reporting temperature; absolute_zero means it is not subtracted from the total thermal pressure",
+    "thermal.theta0": "Section IV, Equation 3, and Table V: theta0=1700 K adopted from infrared and heat-capacity literature; no uncertainty is reported",
+    "thermal.gamma0": "Section V and Table V: gamma_th0=1.04(2), fixed during the q-only P-V-T fit",
+    "thermal.q": "Section V and Table V: q=4(1.5), the only varied parameter in the final P-V-T fit",
+    "thermal.n": "Equation 3 is the three-mode Debye energy per mole of atoms; n=2 on Peritheos's per-mole-BN volume basis",
+    "equation": "Equations 2-4 and Section V: 0 K Vinet cold pressure plus absolute Debye vibrational pressure, with gamma=gamma0(V/V0)^q and theta obtained by integrating gamma=-d ln(theta)/d ln(V)"
+   },
+   "notes": "This is not the existing 295 K Vinet record with a reference-subtracted thermal increment. Datchi et al. explicitly define Pth(V,T)=0 at 0 K and Table V supplies a distinct 0 K cold Vinet curve. Peritheos therefore uses thermal_pressure_reference=absolute_zero while keeping Tr=295 K only as the public default temperature and for reference-relative diagnostics. At the printed Table IV lattice parameters, the published coefficients give a 0.584 GPa pressure RMSE, reproducing the paper's stated 0.6 GPa. A q-only unweighted pressure-residual refit gives q=7.35(1.89); the discrepancy from 4(1.5) is less than two combined standard deviations and is plausibly affected by rounded P/a rows and the unpublished regression weights. Section IV's gamma_th0=1.04(1) conflicts with final Table V's 1.04(2); this record follows the final parameter table. The source states that parenthetical errors are fit standard deviations, not absolute uncertainties; pressure-scale uncertainty dominates and coefficient covariance is not published.",
+   "identifier": "boron_nitride_datchi_2007_vinet_mgd_2",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Holzapfel"
+       ],
+       "year": 2005,
+       "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+       "source": "High Pressure Research",
+       "doi": "10.1080/09511920500147501"
+      },
+      "source_location": "Section II: reported pressures are placed on the H2005 ruby scale",
+      "reference_calibration_record": "ruby_holzapfel_2005"
+     },
+     {
+      "kind": "other_optical_gauge",
+      "material": "SrB4O7:Sm2+",
+      "source_location": "Section II: high-temperature pressure marker; its original Mao-ruby-based calibration was modified to match H2005",
+      "scope": "heated observations"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "4He",
+      "reference": {
+       "authors": [
+        "Dewaele et al."
+       ],
+       "year": 2003,
+       "source": "Phys. Rev. B",
+       "doi": "10.1103/PhysRevB.67.094112"
+      },
+      "source_location": "Section II: 295 K measurements above 100 GPa, with correction to the H2005 ruby scale",
+      "scope": "highest-pressure 295 K observations"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table IV reports sample P-V-T states but not row-wise ruby wavelengths, SrB4O7:Sm2+ shifts, or helium volumes, so the mixed marker reductions cannot be rerun observation by observation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The author-posted primary manuscript was checked for the equation baseline, fixed/fitted coefficients, uncertainties, phase and volume basis, calibration, complete Table IV observations, and numerical reproduction.",
+    "audit_date": "2026-09-05",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "volume_basis",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://arxiv.org/abs/cond-mat/0702656",
+     "publication_url": "https://doi.org/10.1103/PhysRevB.75.214104",
+     "locations": [
+      "Section II",
+      "Equations 1-4",
+      "Table IV",
+      "Table V",
+      "Figure 4"
+     ],
+     "doi": "10.1103/physrevb.75.214104"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "cubic_boron_nitride_datchi_2007_table4_pvt"
+     ],
+     "source_locations": [
+      "Table IV, journal page 214104-5"
+     ],
+     "finding": "All 66 printed P-V-T rows are bundled. The lattice parameter is retained at the table's higher precision and used to reconstruct V=a^3/8 for reproduction and refitting."
+    },
+    "unresolved_issues": [
+     "Section IV prints gamma_th0=1.04(1), while final Table V prints 1.04(2); the final table is authoritative here.",
+     "The regression objective, weights, unrounded observations, and parameter covariance are not published.",
+     "Exact pressure re-reduction is unavailable without the row-wise optical-marker shifts and helium volumes."
+    ]
    }
   }
  ],
@@ -197,7 +429,8 @@
     "sha256": "02e13a8ad885a0eda249f64bcec0695a2257688c8a4fc283f2fe14c8e2e766f8",
     "media_type": "text/csv"
    },
-   "notes": "The article states a relative lattice-parameter uncertainty of approximately +/-3e-4 and a temperature uncertainty of +/-5 K; it does not provide rowwise error columns. Pressure uncertainty grows with pressure and depends on the H05 ruby-scale calibration described in the article.",
+   "notes": "Rows are transcribed from the printed Table IV. The paper states an average absolute lattice-parameter uncertainty of 5e-4 A and a sample-temperature uncertainty of +/-5 K; it does not provide row-wise error columns or regression weights. The source estimates the spread among plausible ruby scales as 3% at 160 GPa. No explicit data-reuse license is stated for the printed table.",
+   "license": "not stated by source",
    "reference": {
     "authors": [
      "Datchi",
@@ -212,7 +445,8 @@
     "doi": "10.1103/PhysRevB.75.214104"
    },
    "used_by_eos_records": [
-    "boron_nitride_datchi_2007_vinet_1"
+    "boron_nitride_datchi_2007_vinet_1",
+    "boron_nitride_datchi_2007_vinet_mgd_2"
    ]
   }
  ]
