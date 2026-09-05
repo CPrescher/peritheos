@@ -1337,6 +1337,69 @@ flyer Hugoniots, while shots 1 and 4 use measured particle velocity. The
 published `0--345 GPa` and `300--8500 K` limits are retained as the stated
 pressure-scale domain, not as a rectangular observation envelope or a B1
 phase-stability claim.
+<a id="mgo-fei-1999"></a>
+
+## MgO: Fei (1999)
+
+The primary source is Yingwei Fei, *Effects of temperature and composition on
+the bulk modulus of (Mg,Fe)O*, American Mineralogist **84**, 272--276,
+[doi:10.2138/am-1999-0308](https://doi.org/10.2138/am-1999-0308). This DOI was
+previously cited by the Dewaele et al. (2000) record but had no independent
+Fei EOS record.
+
+Three distinct source BM3 isotherms are now represented. The preferred 300 K
+quasi-hydrostatic result has `K0 = 160 +/- 2 GPa` and fixed `K0' = 4.15`; the
+1100 K result has `K0 = 135 +/- 3 GPa` and fixed `K0' = 4.2`; and the
+stress-affected 300 K comparison has `K0 = 185 +/- 7 GPa` and `K0' = 4`.
+The last is retained for provenance but explicitly marked not recommended for
+quantitative use because Fei attributes its approximately 15% higher apparent
+modulus to deviatoric stress. The 1100 K entry is a single isotherm, not a
+continuous thermal EOS.
+
+Table 2's four Fe-bearing `(Mg,Fe)O` and FeO rows are values imported from
+earlier studies, not new Fei (1999) observation-level fits, so they are not
+duplicated here. The paper's linear `K0 = 161 - 15 X_Fe` composition trend is
+a regression across those literature summaries rather than a standalone
+pressure-volume EOS and is likewise not encoded as an MgO record.
+
+Table 1 is complete and supplies 62 MgO observations: 19 at 300 K in a neon
+pressure medium, 16 at 1100 K, and 27 at 300 K under nonhydrostatic
+conditions. The two new 300 K datasets and the previously bundled 1100 K
+dataset preserve all printed pressure and molar-volume values and every
+displayed uncertainty. Missing ambient-row uncertainties, high-pressure NaCl
+values above its B1-B2 transition, and temperature uncertainties are left
+unavailable rather than inferred. The same 1100 K rows have two legitimate
+uses: Fei's own BM3 fit uses the NaCl-derived pressures, whereas Dewaele et al.
+later explicitly select the gold-derived pressures for their Debye comparison.
+
+For executable volume bases, the directly measured zero-pressure molar volumes
+are held fixed: `11.26 cm^3/mol` at 300 K and `11.63 cm^3/mol` at 1100 K.
+They are converted to conventional B1 cells with `Z = 4`, giving `74.79068`
+and `77.248277 A^3`, respectively. Fei does not report a separate fitted `V0`,
+parameter covariance, confidence convention, or exact least-squares residual
+objective, so these limits and the adopted-volume provenance are recorded
+explicitly.
+
+The independent checks use an unweighted pressure-residual BM3 regression with
+only `K0` free. `V0` and the printed `K0'` are held fixed. For the
+nonhydrostatic series, the pressure selection follows the experimental method:
+NaCl through 27.62 GPa, then gold above the approximately 29 GPa NaCl
+transition.
+
+| Isotherm | Published `K0` | Independent `K0` | Published/refit RMSE |
+|---|---:|---:|---:|
+| 300 K, neon | 160 +/- 2 GPa | 159.0137 +/- 0.7483 GPa | 0.29651/0.28316 GPa |
+| 1100 K, NaCl | 135 +/- 3 GPa | 136.5811 +/- 0.7803 GPa | 0.36410/0.32261 GPa |
+| 300 K, nonhydrostatic | 185 +/- 7 GPa | 184.8324 +/- 0.7687 GPa | 0.67992/0.67930 GPa |
+
+All three independent coefficients lie within 0.53 of the corresponding
+published uncertainty, supplying quantitative observation-level parity while
+keeping the source coefficients as the executable literature values. The
+NaCl and gold reference equations are identified, but Table 1 does not print
+the calibrant lattice parameters needed for an independent pressure
+recalculation; calibration status is therefore `partially_resolved` rather
+than silently reassigned.
+
 <a id="mgo-dewaele-2000"></a>
 
 ## MgO: Dewaele et al. (2000)

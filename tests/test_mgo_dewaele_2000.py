@@ -95,7 +95,10 @@ def test_fei_1999_resource_contains_complete_1100_k_isotherm():
     rows = list(csv.DictReader(payload.decode("utf-8").splitlines()))
 
     assert hashlib.sha256(payload).hexdigest() == dataset["resource"]["sha256"]
-    assert dataset["used_by_eos_records"] == [record["identifier"]]
+    assert dataset["used_by_eos_records"] == [
+        record["identifier"],
+        "mgo_fei_1999_bm3_1100k_nacl",
+    ]
     assert dataset["provenance"]["source_pdf_sha256"] == (
         "98f44f1a44c5b0bcfd18baa84a460e36d53d46f5512e67b636b085e7bf9c0ac3"
     )

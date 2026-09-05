@@ -1497,6 +1497,537 @@
    ]
   },
   {
+   "label": "Fei (1999), 300 K hydrostatic BM3",
+   "reference": {
+    "authors": [
+     "Fei"
+    ],
+    "year": 1999,
+    "title": "Effects of temperature and composition on the bulk modulus of (Mg,Fe)O",
+    "source": "Am. Mineral.",
+    "volume": "84",
+    "locator": "272-276",
+    "doi": "10.2138/am-1999-0308"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.79068,
+     "K0": 160.0,
+     "K0_prime": 4.15
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 2.0,
+    "K0_prime": null
+   },
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    23.22
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     23.22
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "B1 MgO measured at 300 K in a neon pressure medium; the source describes the series as quasi-hydrostatic above 5 GPa.",
+     "The upper bound is the maximum pressure in the complete hydrostatic Table 1 series, not a phase boundary."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Fixed for the executable isotherm to the 11.26 cm^3/mol zero-pressure MgO observation in the same Table 1 series, converted to the conventional Z=4 B1 cell. The source does not report a separate fitted V0 or its uncertainty.",
+    "K0": "160 +/- 2 GPa from the least-squares BM3 fit to the 300 K neon-medium observations, reported in the results, Table 2, and Figure 3.",
+    "K0_prime": "Fixed to 4.15 as stated in the 300 K hydrostatic results and Table 2 note."
+   },
+   "fit_datasets": [
+    "mgo_fei_1999_table1_300k_ne"
+   ],
+   "notes": "Preferred Fei (1999) room-temperature MgO result. The sample chamber used neon as the pressure medium while NaCl mixed with MgO supplied the pressure scale. Molar volumes are converted to the conventional cubic Fm-3m cell with Z=4. The source reports no covariance, confidence convention for parameter errors, exact least-squares residual objective, or separate fitted V0; the directly observed zero-pressure volume is therefore held fixed and its provenance is explicit. Table 2's Fe-bearing compositions are parameter summaries imported from earlier studies, not additional Fei (1999) observation-level fits, and the cross-composition K0 trend is not a standalone P-V EOS.",
+   "identifier": "mgo_fei_1999_bm3_300k_ne",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Birch"
+       ],
+       "year": 1978,
+       "title": "Finite strain isotherm and velocities for single-crystal and polycrystalline NaCl at high pressures and 300 K",
+       "source": "J. Geophys. Res.",
+       "volume": "83",
+       "locator": "1257-1268"
+      },
+      "source_location": "Experimental procedures and Table 1, journal pages 273-274",
+      "scope": "all 19 MgO observations in the 300 K neon-medium series",
+      "notes": "Neon is the pressure medium; pressures are calculated from simultaneously measured NaCl."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 1 publishes the reduced NaCl pressures but not the row-wise NaCl lattice parameters required to rerun the Birch (1978) pressure reduction."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final free-access American Mineralogist article, including Table 1 and Figures 2-3. The complete hydrostatic observations reproduce the published bulk modulus within its stated uncertainty.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fitted_fixed_adopted_status",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction",
+     "independent_refit"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.msaweb.org/MSA/AmMin/TOC/Articles_Free/1999/Fei_p272-276_99.pdf",
+     "locations": [
+      "Abstract and experimental procedures, journal pages 272-273",
+      "Table 1 and 300 K hydrostatic results, journal page 274",
+      "Figures 2-3 and discussion, journal pages 273-275"
+     ],
+     "finding": "The preferred room-temperature result is a BM3 isotherm with K0=160 +/- 2 GPa and K0'=4.15 fixed, based on the complete 19-row 300 K neon-medium series.",
+     "doi": "10.2138/am-1999-0308"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "mgo_fei_1999_table1_300k_ne"
+     ],
+     "source_locations": [
+      "Table 1, complete 19-row 300 K neon-medium block"
+     ],
+     "finding": "All 19 printed NaCl-pressure and MgO-volume observations and every displayed uncertainty are transcribed; unavailable ambient-row uncertainties are left blank."
+    },
+    "numerical_reproduction": {
+     "observations": 19,
+     "selection": "All 19 rows in the 300 K neon-medium block of Table 1, using the printed NaCl pressure column.",
+     "published_curve_rmse_gpa": 0.296511166,
+     "refit_curve_rmse_gpa": 0.283161068
+    },
+    "independent_refit": {
+     "implementation": "explicit BM3 least-squares regression",
+     "objective": "unweighted pressure residuals",
+     "fixed_parameters": {
+      "V0_molar_cm3_mol": 11.26,
+      "K0_prime": 4.15
+     },
+     "free_parameters": [
+      "K0"
+     ],
+     "parameters": {
+      "K0": 159.013715338
+     },
+     "standard_errors": {
+      "K0": 0.748283375
+     },
+     "published": {
+      "K0": 160.0,
+      "K0_error": 2.0
+     },
+     "degrees_of_freedom": 18,
+     "conclusion": "The independent coefficient differs from the published K0 by 0.986 GPa, or 0.49 of the published uncertainty."
+    }
+   }
+  },
+  {
+   "label": "Fei (1999), 1100 K BM3",
+   "reference": {
+    "authors": [
+     "Fei"
+    ],
+    "year": 1999,
+    "title": "Effects of temperature and composition on the bulk modulus of (Mg,Fe)O",
+    "source": "Am. Mineral.",
+    "volume": "84",
+    "locator": "272-276",
+    "doi": "10.2138/am-1999-0308"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 77.248277,
+     "K0": 135.0,
+     "K0_prime": 4.2
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 3.0,
+    "K0_prime": null
+   },
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "temperature_ref": 1100.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    24.02
+   ],
+   "experimental_temperature_range_k": [
+    1100.0,
+    1100.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     24.02
+    ],
+    "temperature_k": [
+     1100.0,
+     1100.0
+    ],
+    "notes": [
+     "B1 MgO measured at 1100 K in a NaCl pressure medium.",
+     "This is a single high-temperature reference isotherm, not a continuous thermal EOS."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Fixed for the executable isotherm to the 11.63 cm^3/mol zero-pressure observation in the same Table 1 series, converted to the conventional Z=4 B1 cell. The source does not report a separate fitted V0 or its uncertainty.",
+    "K0": "135 +/- 3 GPa from the least-squares BM3 fit to the 1100 K observations, reported in the abstract, results, Table 2, and Figure 3.",
+    "K0_prime": "Fixed to 4.2 as printed for the 1100 K MgO fit in Table 2; the source does not report an uncertainty."
+   },
+   "fit_datasets": [
+    "mgo_fei_1999_table1_1100k"
+   ],
+   "notes": "Fei's 1100 K MgO BM3 isotherm. Fei's own fit uses the NaCl pressure column over its sub-transition pressure range; Dewaele et al. (2000) later select the gold pressure column from the same observations for their thermal-pressure comparison. Molar volumes are converted to the conventional cubic Fm-3m cell with Z=4. The source reports no covariance, temperature uncertainty, confidence convention, exact residual objective, or separate fitted V0.",
+   "identifier": "mgo_fei_1999_bm3_1100k_nacl",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Birch"
+       ],
+       "year": 1978,
+       "title": "Finite strain isotherm and velocities for single-crystal and polycrystalline NaCl at high pressures and 300 K",
+       "source": "J. Geophys. Res.",
+       "volume": "83",
+       "locator": "1257-1268"
+      },
+      "source_location": "Experimental procedures, Table 1, and Figure 3, journal pages 273-275",
+      "scope": "all 16 observations in Fei's 1100 K BM3 fit",
+      "notes": "The fit uses the printed NaCl-derived pressures; gold-derived pressures are preserved for calibration comparison and Dewaele's later reuse."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "title": "Anharmonicity and the equation of state for gold",
+       "source": "J. Appl. Phys.",
+       "volume": "65",
+       "locator": "1534-1543"
+      },
+      "source_location": "Experimental procedures and Table 1, journal pages 273-274",
+      "scope": "parallel pressure estimates retained for all 16 observations but not selected for Fei's own BM3 coefficient",
+      "notes": "The gold pressure column is retained as primary-source calibration provenance."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 1 publishes reduced NaCl and gold pressures but not the row-wise calibrant lattice parameters required to rerun either pressure reduction."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final free-access American Mineralogist article. The complete 1100 K observations reproduce the published bulk modulus within its stated uncertainty when the source's NaCl pressure column is used.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fitted_fixed_adopted_status",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction",
+     "independent_refit"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.msaweb.org/MSA/AmMin/TOC/Articles_Free/1999/Fei_p272-276_99.pdf",
+     "locations": [
+      "Abstract and experimental procedures, journal pages 272-273",
+      "Table 1 and 1100 K results, journal pages 274-275",
+      "Table 2 and Figure 3, journal pages 274-275"
+     ],
+     "finding": "The paper reports a distinct 1100 K BM3 isotherm with K0=135 +/- 3 GPa and K0'=4.2 fixed, based on the complete 16-row NaCl-medium series.",
+     "doi": "10.2138/am-1999-0308"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "mgo_fei_1999_table1_1100k"
+     ],
+     "source_locations": [
+      "Table 1, complete 16-row 1100 K NaCl-medium block"
+     ],
+     "finding": "All 16 printed NaCl- and gold-pressure estimates, MgO molar volumes, and every displayed uncertainty are transcribed; unavailable ambient-row and temperature uncertainties are left blank."
+    },
+    "numerical_reproduction": {
+     "observations": 16,
+     "selection": "All 16 rows in the 1100 K block of Table 1, using Fei's NaCl-derived pressure column.",
+     "published_curve_rmse_gpa": 0.364102633,
+     "refit_curve_rmse_gpa": 0.322614115
+    },
+    "independent_refit": {
+     "implementation": "explicit BM3 least-squares regression",
+     "objective": "unweighted pressure residuals",
+     "fixed_parameters": {
+      "V0_molar_cm3_mol": 11.63,
+      "K0_prime": 4.2
+     },
+     "free_parameters": [
+      "K0"
+     ],
+     "parameters": {
+      "K0": 136.581065899
+     },
+     "standard_errors": {
+      "K0": 0.780252062
+     },
+     "published": {
+      "K0": 135.0,
+      "K0_error": 3.0
+     },
+     "degrees_of_freedom": 15,
+     "conclusion": "The independent coefficient differs from the published K0 by 1.581 GPa, or 0.53 of the published uncertainty."
+    }
+   }
+  },
+  {
+   "label": "Fei (1999), 300 K nonhydrostatic BM3",
+   "reference": {
+    "authors": [
+     "Fei"
+    ],
+    "year": 1999,
+    "title": "Effects of temperature and composition on the bulk modulus of (Mg,Fe)O",
+    "source": "Am. Mineral.",
+    "volume": "84",
+    "locator": "272-276",
+    "doi": "10.2138/am-1999-0308"
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.79068,
+     "K0": 185.0,
+     "K0_prime": 4.0
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 7.0,
+    "K0_prime": null
+   },
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.03,
+    65.32
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     65.32
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "B1 MgO measured without a pressure medium; the source attributes the elevated bulk modulus to deviatoric stress.",
+     "Retained for provenance and stress-effect comparisons, not recommended as a hydrostatic MgO EOS."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Fixed for the executable comparison curve to the 11.26 cm^3/mol ambient MgO volume measured in Fei's companion hydrostatic series, converted to the conventional Z=4 B1 cell. The nonhydrostatic block itself begins at 0.03 GPa and the source does not report a separate fitted V0.",
+    "K0": "185 +/- 7 GPa from the least-squares BM3 fit to the 300 K nonhydrostatic observations, reported in the abstract, results, and Figure 2.",
+    "K0_prime": "Reported as 4 without uncertainty. It is treated as fixed because the source reports only the K0 fit uncertainty and Figure 2 labels the constrained K0 curve; the paper does not publish covariance or an independent K0' uncertainty."
+   },
+   "fit_datasets": [
+    "mgo_fei_1999_table1_300k_nonhydrostatic"
+   ],
+   "notes": "Published stress-affected comparison fit, intentionally separate from Fei's preferred neon-medium result. The source states that deviatoric stress significantly affects the measured lattice parameters and makes the apparent modulus about 15% larger. The refit uses NaCl pressures through 27.62 GPa and gold pressures above the NaCl B1-B2 transition, following the experimental procedure. Molar volumes are converted to the conventional cubic Fm-3m cell with Z=4.",
+   "identifier": "mgo_fei_1999_bm3_300k_nonhydrostatic",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Birch"
+       ],
+       "year": 1978,
+       "title": "Finite strain isotherm and velocities for single-crystal and polycrystalline NaCl at high pressures and 300 K",
+       "source": "J. Geophys. Res.",
+       "volume": "83",
+       "locator": "1257-1268"
+      },
+      "source_location": "Experimental procedures and Table 1, journal pages 273-274",
+      "scope": "300 K nonhydrostatic observations below the approximately 29 GPa NaCl B1-B2 transition"
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "title": "Anharmonicity and the equation of state for gold",
+       "source": "J. Appl. Phys.",
+       "volume": "65",
+       "locator": "1534-1543"
+      },
+      "source_location": "Experimental procedures and Table 1, journal pages 273-274",
+      "scope": "300 K nonhydrostatic observations above the approximately 29 GPa NaCl B1-B2 transition",
+      "notes": "Fei states that pressures at higher pressure were calculated from gold only."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 1 publishes reduced NaCl and gold pressures but not the row-wise calibrant lattice parameters required to rerun either pressure reduction."
+    },
+    "audit_date": "2026-09-04"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final free-access American Mineralogist article. The complete nonhydrostatic observations reproduce the published bulk modulus, but the source itself attributes that modulus to deviatoric stress.",
+    "audit_date": "2026-09-04",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fitted_fixed_adopted_status",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction",
+     "independent_refit"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.msaweb.org/MSA/AmMin/TOC/Articles_Free/1999/Fei_p272-276_99.pdf",
+     "locations": [
+      "Abstract and experimental procedures, journal pages 272-273",
+      "Table 1 and nonhydrostatic results, journal pages 273-274",
+      "Figure 2 and stress discussion, journal pages 273-275"
+     ],
+     "finding": "The paper reports a distinct stress-affected 300 K BM3 curve with K0=185 +/- 7 GPa and K0'=4, based on all 27 no-pressure-medium observations.",
+     "doi": "10.2138/am-1999-0308"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-04",
+     "dataset_identifiers": [
+      "mgo_fei_1999_table1_300k_nonhydrostatic"
+     ],
+     "source_locations": [
+      "Table 1, complete 27-row 300 K NaCl-medium block"
+     ],
+     "finding": "All 27 printed NaCl- and gold-pressure entries, MgO molar volumes, and displayed uncertainties are transcribed; the unavailable NaCl entries above the B1-B2 transition remain blank."
+    },
+    "numerical_reproduction": {
+     "observations": 27,
+     "selection": "All 27 rows in the 300 K nonhydrostatic block of Table 1; NaCl pressures are used through 27.62 GPa and gold pressures for the 11 higher-pressure rows.",
+     "published_curve_rmse_gpa": 0.679922305,
+     "refit_curve_rmse_gpa": 0.679301371
+    },
+    "independent_refit": {
+     "implementation": "explicit BM3 least-squares regression",
+     "objective": "unweighted pressure residuals",
+     "fixed_parameters": {
+      "V0_molar_cm3_mol": 11.26,
+      "K0_prime": 4.0
+     },
+     "free_parameters": [
+      "K0"
+     ],
+     "parameters": {
+      "K0": 184.832371646
+     },
+     "standard_errors": {
+      "K0": 0.768696882
+     },
+     "published": {
+      "K0": 185.0,
+      "K0_error": 7.0
+     },
+     "degrees_of_freedom": 26,
+     "conclusion": "The independent coefficient differs from the published K0 by 0.168 GPa, or 0.024 of the published uncertainty."
+    },
+    "usage_recommendation": "not_recommended_for_quantitative_use"
+   }
+  },
+  {
    "label": "Dewaele et al. (2000), BM3-MGD",
    "reference": {
     "authors": [
@@ -2612,9 +3143,164 @@
    "notes": "MgO volumes are conventional cubic Fm-3m cell volumes (Z=4), not molar or per-formula-unit volumes. The missing Pt entry at 0.0 GPa and missing pressure-uncertainty entries at 0.8 and 0.0 GPa are preserved as unavailable rather than inferred. The table is the primary publication's complete new dataset; earlier Fiquet and Utsumi observations used in parts of the authors' combined analysis remain separate literature datasets and are not silently merged here."
   },
   {
+   "identifier": "mgo_fei_1999_table1_300k_ne",
+   "kind": "pressure_volume_temperature",
+   "description": "Complete 19-row quasi-hydrostatic MgO compression series measured at 300 K with neon as the pressure medium and NaCl as the pressure calibrant.",
+   "reference": {
+    "authors": [
+     "Fei"
+    ],
+    "year": 1999,
+    "title": "Effects of temperature and composition on the bulk modulus of (Mg,Fe)O",
+    "source": "Am. Mineral.",
+    "volume": "84",
+    "locator": "272-276",
+    "doi": "10.2138/am-1999-0308"
+   },
+   "source_location": "Table 1, left block, journal page 274",
+   "source_url": "https://www.msaweb.org/MSA/AmMin/TOC/Articles_Free/1999/Fei_p272-276_99.pdf",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "nacl_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "nacl_pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "nacl_pressure_gpa"
+    },
+    {
+     "name": "mgo_molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "mgo_molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "mgo_molar_volume_cm3_mol"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-fei-1999-table1-300k-ne.csv",
+    "sha256": "d596636a19359483fcc4778ce0440d0d617a2e500923546eb59d0ee5a50404c5",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_fei_1999_bm3_300k_ne"
+   ],
+   "uncertainty": {
+    "temperature": "The source identifies room temperature as 300 K and reports no numerical temperature uncertainty.",
+    "pressure": "Parenthesized last digits are transcribed from the NaCl pressure column. The zero-pressure row has no printed uncertainty.",
+    "volume": "Parenthesized last digits are transcribed from Table 1. The zero-pressure row has no printed uncertainty."
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "source_pdf_sha256": "98f44f1a44c5b0bcfd18baa84a460e36d53d46f5512e67b636b085e7bf9c0ac3",
+    "transcription_scope": "All 19 rows in the T=300 K, neon-medium block of Table 1."
+   },
+   "notes": "Volumes are the printed MgO molar volumes, not crystallographic cell volumes. Neon provides the quasi-hydrostatic environment; NaCl diffraction provides the pressure scale."
+  },
+  {
+   "identifier": "mgo_fei_1999_table1_300k_nonhydrostatic",
+   "kind": "pressure_volume_temperature",
+   "description": "Complete 27-row nonhydrostatic MgO compression series measured at 300 K, retaining both printed NaCl- and gold-derived pressures.",
+   "reference": {
+    "authors": [
+     "Fei"
+    ],
+    "year": 1999,
+    "title": "Effects of temperature and composition on the bulk modulus of (Mg,Fe)O",
+    "source": "Am. Mineral.",
+    "volume": "84",
+    "locator": "272-276",
+    "doi": "10.2138/am-1999-0308"
+   },
+   "source_location": "Table 1, right block, journal page 274",
+   "source_url": "https://www.msaweb.org/MSA/AmMin/TOC/Articles_Free/1999/Fei_p272-276_99.pdf",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "nacl_pressure_gpa",
+     "quantity": "calibrant_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "nacl_pressure_uncertainty_gpa",
+     "quantity": "calibrant_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "nacl_pressure_gpa"
+    },
+    {
+     "name": "gold_pressure_gpa",
+     "quantity": "calibrant_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_pressure_uncertainty_gpa",
+     "quantity": "calibrant_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "gold_pressure_gpa"
+    },
+    {
+     "name": "mgo_molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "mgo_molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "mgo_molar_volume_cm3_mol"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-fei-1999-table1-300k-nonhydrostatic.csv",
+    "sha256": "292aa2343bd31678abd9bf95c8fbb3668246633b525b2284afda2ee8bf51f009",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_fei_1999_bm3_300k_nonhydrostatic"
+   ],
+   "uncertainty": {
+    "temperature": "The source identifies room temperature as 300 K and reports no numerical temperature uncertainty.",
+    "pressure": "Parenthesized last digits are transcribed independently for the NaCl- and gold-derived pressure columns. NaCl values are unavailable above its B1-B2 transition.",
+    "volume": "Parenthesized last digits are transcribed from Table 1."
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "source_pdf_sha256": "98f44f1a44c5b0bcfd18baa84a460e36d53d46f5512e67b636b085e7bf9c0ac3",
+    "transcription_scope": "All 27 rows in the T=300 K, NaCl-medium block of Table 1."
+   },
+   "notes": "Volumes are the printed MgO molar volumes, not crystallographic cell volumes. The source describes this series as nonhydrostatic and attributes its elevated apparent bulk modulus to deviatoric stress."
+  },
+  {
    "identifier": "mgo_fei_1999_table1_1100k",
    "kind": "pressure_volume_temperature",
-   "description": "Complete 16-row MgO isotherm measured at 1100 K in a NaCl pressure medium, retaining both NaCl- and Au-derived pressures; Dewaele et al. (2000) explicitly use the Au pressure column in their thermal-pressure analysis.",
+   "description": "Complete 16-row MgO isotherm measured at 1100 K in a NaCl pressure medium, retaining both NaCl- and Au-derived pressures; Fei's BM3 fit uses NaCl pressures and Dewaele et al. (2000) later select the Au column.",
    "reference": {
     "authors": [
      "Fei"
@@ -2681,7 +3367,8 @@
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
-    "mgo_dewaele_2000_bm3_mgd_5"
+    "mgo_dewaele_2000_bm3_mgd_5",
+    "mgo_fei_1999_bm3_1100k_nacl"
    ],
    "uncertainty": {
     "temperature": "Fei states that temperature was measured with a Pt-Pt13%Rh thermocouple but does not report a numerical temperature uncertainty.",
@@ -2693,7 +3380,7 @@
     "source_pdf_sha256": "98f44f1a44c5b0bcfd18baa84a460e36d53d46f5512e67b636b085e7bf9c0ac3",
     "transcription_scope": "All 16 rows in the T=1100 K, NaCl-medium block of Table 1."
    },
-   "notes": "Volumes are the printed molar volumes, not crystallographic cell volumes. Dewaele et al. (2000), Section 4.1.1 and Figures 3-4, specify the Au-calibrated Fei observations for comparison with their own high-temperature measurements. No temperature error or ambient-row pressure/volume error is inferred."
+   "notes": "Volumes are the printed molar volumes, not crystallographic cell volumes. Fei's own 1100 K BM3 fit uses NaCl-derived pressures; Dewaele et al. (2000), Section 4.1.1 and Figures 3-4, specify the Au-calibrated values for comparison with their high-temperature measurements. No temperature error or ambient-row pressure/volume error is inferred."
   }
  ]
 }
