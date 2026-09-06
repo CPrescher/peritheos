@@ -130,20 +130,23 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the author-deposited published article and its source Table 1.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "substitution_mechanism",
+     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "volume_range"
     ],
     "primary_source_check": {
      "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
-     "doi": "10.1029/2005gl023192",
+     "doi": "10.1029/2005GL023192",
      "locations": [
       "Section 2, paragraphs 6-8",
       "Table 1"
@@ -158,6 +161,15 @@
       "Table 1"
      ],
      "finding": "The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "Independent evaluation of the standard BM3 pressure at the source-stated lower volume boundary V/V0=0.65.",
+     "parameters": {
+      "volume_ratio": 0.65,
+      "pressure_gpa": 211.30790612
+     },
+     "finding": "The evaluated pressure is above 200 GPa, reproducing the independently stated calculation-envelope endpoint 'just above 200 GPa'."
     }
    },
    "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check."
@@ -248,16 +260,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Complete four-coefficient modified-Tait endmember.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "volume_basis",
+     "reference_state"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",

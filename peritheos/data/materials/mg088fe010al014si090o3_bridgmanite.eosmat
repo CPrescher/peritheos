@@ -251,16 +251,23 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM2 parameters reproduce the 64.6 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.7195 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
+     "structure",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_preference"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2023-8969",
@@ -287,6 +294,35 @@
       "official 8969fu.cif blocks P1-P22"
      ],
      "finding": "All 22 recoverable pressures, lattice parameters, conventional-cell volumes, and 1-sigma uncertainties are bundled. Table S1 and the CIF are both retained where their printed lattice values differ. Row-wise Au calibrant volumes and the two individual platelet volume series plotted in Figure S2 are not published."
+    },
+    "numerical_reproduction": {
+     "published_state": {
+      "pressure_gpa": 64.6,
+      "pressure_sd_gpa": 0.6,
+      "volume_a3": 136.29
+     },
+     "calculated_pressure_gpa": 64.4560123693,
+     "absolute_difference_gpa": 0.1439876307,
+     "tolerance_gpa": 0.6,
+     "tolerance_basis": "The source reports 64.6(6) GPa for the final CIF volume; the calculated pressure differs by less than that printed 1-sigma pressure uncertainty."
+    },
+    "published_curve_diagnostic": {
+     "rows": 22,
+     "pressure_rmse_gpa": 0.7195012696,
+     "max_abs_pressure_residual_gpa": 1.4607777344,
+     "status": "fit_input_limited",
+     "unweighted_pressure_refit": {
+      "V0": 164.2462213204,
+      "K0": 239.9953226085,
+      "pressure_rmse_gpa": 0.3840757281
+     },
+     "pressure_sigma_weighted_refit": {
+      "V0": 164.4291163439,
+      "K0": 237.0704862154,
+      "pressure_rmse_gpa": 0.411409395,
+      "reduced_chi_square": 1.0780949218
+     },
+     "finding": "The diagnostic evaluates the rounded published coefficients against the deposited CIF volumes. It is not an exact source refit because the article does not disclose the complete numerical EosFit input series or weight configuration."
     },
     "reported_inconsistencies": [
      {
@@ -449,16 +485,23 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM3 parameters reproduce the 4.2 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.9291 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
+     "structure",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_preference"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2023-8969",
@@ -485,6 +528,37 @@
       "official 8969fu.cif blocks P1-P22"
      ],
      "finding": "All 22 recoverable pressures, lattice parameters, conventional-cell volumes, and 1-sigma uncertainties are bundled. Table S1 and the CIF are both retained where their printed lattice values differ. Row-wise Au calibrant volumes and the two individual platelet volume series plotted in Figure S2 are not published."
+    },
+    "numerical_reproduction": {
+     "published_state": {
+      "pressure_gpa": 4.2,
+      "pressure_sd_gpa": 0.1,
+      "volume_a3": 161.7
+     },
+     "calculated_pressure_gpa": 4.2628529138,
+     "absolute_difference_gpa": 0.0628529138,
+     "tolerance_gpa": 0.1,
+     "tolerance_basis": "The source reports 4.2(1) GPa for the first CIF volume; the calculated pressure differs by less than that printed 1-sigma pressure uncertainty."
+    },
+    "published_curve_diagnostic": {
+     "rows": 22,
+     "pressure_rmse_gpa": 0.9290848204,
+     "max_abs_pressure_residual_gpa": 1.9358848929,
+     "status": "fit_input_limited",
+     "unweighted_pressure_refit": {
+      "V0": 164.576987606,
+      "K0": 228.086292725,
+      "K0_prime": 4.4142425782,
+      "pressure_rmse_gpa": 0.3539016965
+     },
+     "pressure_sigma_weighted_refit": {
+      "V0": 164.6424457894,
+      "K0": 225.8726101207,
+      "K0_prime": 4.4968498002,
+      "pressure_rmse_gpa": 0.3552363705,
+      "reduced_chi_square": 0.673572537
+     },
+     "finding": "The diagnostic evaluates the rounded published coefficients against the deposited CIF volumes. It is not an exact source refit because the article does not disclose the complete numerical EosFit input series or weight configuration."
     },
     "reported_inconsistencies": [
      {

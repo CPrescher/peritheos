@@ -234,16 +234,25 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_selection",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1107/S0909049505022326",
@@ -253,7 +262,7 @@
       "Figure 5, page 580"
      ],
      "finding": "The source reports a cubic B1 Fe0.93O BM3 fit to the seven 0-22.8 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
-     "doi": "10.1107/s0909049505022326"
+     "doi": "10.1107/S0909049505022326"
     },
     "primary_data_check": {
      "status": "bundled",
@@ -265,6 +274,31 @@
       "Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"
      ],
      "finding": "The complete multiphase table is transcribed, including all seven cubic Fe0.93O lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns."
+    },
+    "numerical_reproduction": {
+     "published_curve_pressure_rmse_gpa": 0.1199987974,
+     "published_curve_max_abs_residual_gpa": 0.1874971095,
+     "independent_refit": {
+      "model": "Third-order Birch-Murnaghan with K0_prime fixed at 4.0",
+      "selection": "The seven Table 1 rows flagged fe093o_b1_fit_included=1.",
+      "objective": "Effective-variance pressure residuals using propagated V=a^3 standard deviations and 0.075 GPa as the midpoint of the source's stated 0.05-0.1 GPa pressure precision range.",
+      "free_parameters": [
+       "V0",
+       "K0"
+      ],
+      "fixed_parameters": [
+       "K0_prime"
+      ],
+      "parameters": {
+       "V0": 79.40783326,
+       "K0": 145.80527709,
+       "K0_prime": 4.0
+      },
+      "reduced_chi_square": 0.3723687521,
+      "raw_pressure_rmse_gpa": 0.1080364246,
+      "conclusion": "Both free coefficients reproduce the published values within their reported uncertainties."
+     },
+     "limitation": "The midpoint pressure precision is an explicit deterministic audit choice, not a reconstruction of undocumented EOS-FIT weights; the source publishes no covariance or confidence convention."
     }
    }
   },
@@ -350,20 +384,23 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against author-repository primary PDF.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
-     "doi": "10.1103/physrevb.96.075136",
+     "doi": "10.1103/PhysRevB.96.075136",
      "locations": [
       "Methods",
       "Table I",
@@ -468,16 +505,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Complete four-coefficient modified-Tait endmember.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "volume_basis",
+     "reference_state"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",

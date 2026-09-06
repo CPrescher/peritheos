@@ -209,20 +209,28 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
+     "volume_basis",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "fit_selection",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction",
+     "independent_refit"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
-     "doi": "10.1029/2001jb000490",
+     "doi": "10.1029/2001JB000490",
      "locations": [
       "Paragraphs 23-26",
       "Tables 1 and 5-6",
@@ -240,6 +248,23 @@
       "Table 5"
      ],
      "finding": "All 10 printed Fe27 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly."
+    },
+    "numerical_reproduction": {
+     "observations": 10,
+     "published_curve_rmse_gpa": 0.0057383539,
+     "published_curve_max_abs_residual_gpa": 0.0090052559,
+     "quartz_recalculation_rmse_gpa": 0.0056029636,
+     "quartz_recalculation_max_abs_residual_gpa": 0.0081263206
+    },
+    "independent_refit": {
+     "objective": "Effective-variance pressure residuals combining tabulated pressure and lattice-parameter standard deviations; the ambient pressure has no printed standard deviation.",
+     "parameters": {
+      "V0": 76.33633739,
+      "K0": 158.41974587,
+      "K0_prime": 5.48425764
+     },
+     "reduced_chi_square": 0.537087966,
+     "conclusion": "The independent refit recovers every published coefficient within its printed standard deviation."
     }
    },
    "notes": "The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation."

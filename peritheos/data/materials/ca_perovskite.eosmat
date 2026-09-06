@@ -210,7 +210,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "The primary article and publisher HTML were audited directly. Exactly one cubic source parameterization is executable; all 18 Table 2 fits remain distinguished in the audit metadata.",
-    "audit_date": "2026-09-05",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
@@ -518,8 +518,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "note": "The preferred Vinet-MGD equation, parameters, reference state, volume basis, computational method, and model benchmark grid were checked against the final open-access primary publication and its explicitly cited Tange et al. formulation.",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
@@ -527,7 +527,9 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "volume_basis"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2013JB010905",
@@ -709,16 +711,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The complete DAC-only alternative was checked against the author-hosted primary article. It is intentionally represented as a published non-preferred fit, separate from the article's selected combined DAC+LVP parameterization.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
+     "fixed_free_parameters",
      "units",
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "pressure_calibration",
+     "volume_basis"
     ],
     "primary_source_check": {
      "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_jgrb12383_2000.pdf",
@@ -742,7 +748,46 @@
       "Table 1, journal page 25963"
      ],
      "finding": "All 34 DAC P-V-T observations used for the DAC-only alternative are bundled with their printed 1-sigma pressure, volume, and temperature uncertainties and experiment-medium provenance."
-    }
+    },
+    "independent_refit": {
+     "selection": "all 34 Table 1 DAC observations",
+     "objective": "unweighted pressure residuals, matching the source statement that no weighting was used",
+     "free_parameters": [
+      "gamma0",
+      "q"
+     ],
+     "fixed_parameters": {
+      "V0_cm3_per_mol": 27.45,
+      "K0_gpa": 236.0,
+      "K0_prime": 3.9,
+      "Tr_k": 300.0,
+      "theta0_k": 1000.0,
+      "n_atoms_per_formula_unit": 5.0
+     },
+     "refit_parameters": {
+      "gamma0": 2.0006405181,
+      "q": 0.9404932591
+     },
+     "refit_standard_errors": {
+      "gamma0": 0.0875352616,
+      "q": 0.4223094684
+     },
+     "published_curve_pressure_rmse_gpa": 1.05194403,
+     "refit_curve_pressure_rmse_gpa": 1.0511631566,
+     "result": "parity",
+     "notes": "Both refitted coefficients agree with the published DAC-only values within displayed precision or their reported 1-sigma intervals."
+    },
+    "excluded_preferred_combined_fit": {
+     "parameters": {
+      "gamma0": 1.92,
+      "q": 0.6
+     },
+     "reason": "The preferred result combines the 34 Table 1 DAC rows with Wang et al. (1996) LVP observations that are only plotted in this article and are not provided numerically in an official supplement. It therefore fails the complete-checksummed-dataset rule and is not represented by this record."
+    },
+    "unresolved_issues": [
+     "The source publishes no coefficient covariance matrix.",
+     "Row-wise Pt volumes are unavailable, so the reported Holmes-scale pressures cannot be independently reduced from calibrant observations."
+    ]
    },
    "source_lineage": [
     {
@@ -1037,16 +1082,19 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Independently checked against the complete primary publication obtained through institutional Springer access; no other CaSiO3 EOS record was used as scientific authority or combined with this parameterization.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "volume_basis",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "crystallography"
     ],
     "primary_source_check": {
      "access_url": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
@@ -1066,7 +1114,43 @@
       "Table 1, journal pages 84-85"
      ],
      "finding": "Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license."
-    }
+    },
+    "independent_refit": {
+     "result": "parity",
+     "data": "Local audit transcription of Table 1; 9 accepted external-heating rows for the 700 K BM2 stage and 42 laser-heated rows for the MGD stage. The three rows footnoted for broad 200 peaks were excluded.",
+     "method": "Unweighted pressure-residual fits using Peritheos fit_rt_eos and fit_thermal_eos. This is the only non-invented objective because the paper does not state fit weights or the confidence convention for its printed errors.",
+     "reference_isotherm_result": {
+      "V0_a3": 46.500486344,
+      "K0_gpa": 207.368770748,
+      "V0_standard_error_a3": 0.133985207,
+      "K0_standard_error_gpa": 3.538027129,
+      "pressure_rmse_gpa": 0.472809105
+     },
+     "thermal_result": {
+      "theta0_k": 1292.424812413,
+      "gamma0": 2.721487009,
+      "q": 1.264614238,
+      "theta0_standard_error_k": 528.878160179,
+      "gamma0_standard_error": 0.298232257,
+      "q_standard_error": 0.778552138,
+      "pressure_rmse_gpa": 1.220993277
+     },
+     "finding": "Both staged refits reproduce every published free coefficient within rounding and reproduce the printed parameter-error magnitudes closely. The published parameterization gives 1.222765067 GPa RMSE on the 42 high-temperature rows."
+    },
+    "excluded_alternatives": [
+     {
+      "name": "model 2",
+      "reason": "Same Fei scale and 700 K BM2, but theta0=1000 K is fixed; model 1 is the unconstrained preferred parameterization requested for C04."
+     },
+     {
+      "name": "model 3",
+      "reason": "Uses the incompatible Holmes et al. (1989) Pt scale and a different 700 K BM2; retained only as calibration sensitivity metadata."
+     },
+     {
+      "name": "model 4",
+      "reason": "Uses a distinct thermodynamic thermal-pressure equation rather than the requested MGD model."
+     }
+    ]
    },
    "fit_datasets": [],
    "notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). No open data license, fit covariance, weighting rule, or parameter-error confidence convention is published."
@@ -1203,7 +1287,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
     "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
@@ -1212,7 +1296,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
@@ -1343,8 +1428,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Primary equation, table, fit exclusions, parameters, and room-temperature observations checked directly.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1352,7 +1437,10 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1458,8 +1546,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Explicit independent reanalysis retained as a sensitivity record.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1467,7 +1555,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1571,8 +1660,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Explicit non-preferred sensitivity fit, preserved with its contaminated-point warning.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1580,7 +1669,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1683,8 +1773,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Explicit source sensitivity fit with distinct row mask.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1692,7 +1782,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1796,16 +1887,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Source table and BM3 identity verified; coefficient grid is not published.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -1820,6 +1910,11 @@
      "status": "theoretical_parameterization_only",
      "audit_date": "2026-09-05",
      "finding": "Coefficients are tabulated; energy-volume points and weights are unavailable."
+    },
+    "related_correction": {
+     "doi": "10.1029/97GL02812",
+     "year": 1998,
+     "note": "The formal one-page correction is linked by the publisher; later EOS comparisons retain the preferred coefficients."
     }
    }
   },
@@ -1905,16 +2000,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct source-table transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -1928,6 +2022,10 @@
      "status": "theoretical_parameterization_only",
      "audit_date": "2026-09-05",
      "finding": "No E-V grid is published."
+    },
+    "related_correction": {
+     "doi": "10.1029/97GL02812",
+     "year": 1998
     }
    }
   },
@@ -2013,16 +2111,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct source-table transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2036,6 +2133,10 @@
      "status": "theoretical_parameterization_only",
      "audit_date": "2026-09-05",
      "finding": "No E-V grid is published."
+    },
+    "related_correction": {
+     "doi": "10.1029/97GL02812",
+     "year": 1998
     }
    }
   },
@@ -2123,16 +2224,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Complete constrained 300 K coefficients transcribed.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2146,6 +2247,10 @@
      "status": "theoretical_parameterization_only",
      "audit_date": "2026-09-05",
      "finding": "Thermally corrected E-V points are not published."
+    },
+    "related_correction": {
+     "doi": "10.1029/97GL02812",
+     "year": 1998
     }
    }
   },
@@ -2231,16 +2336,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Preferred coefficients corroborated by the primary abstract and later published EOS comparison.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "independent_corroboration"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2255,6 +2360,11 @@
      "status": "theoretical_parameterization_only",
      "audit_date": "2026-09-05",
      "finding": "The coefficients are complete but the corrected E-V grid is not published."
+    },
+    "related_correction": {
+     "doi": "10.1029/97GL02812",
+     "year": 1998,
+     "note": "Publisher-linked formal correction; the preferred EOS triple is unchanged in the later source comparison."
     }
    }
   },
@@ -2344,16 +2454,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Complete four-coefficient modified-Tait endmember.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "volume_basis",
+     "reference_state"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",

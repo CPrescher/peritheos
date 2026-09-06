@@ -179,20 +179,26 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and candidate enumeration.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_basis",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
-     "doi": "10.1029/2011gl049519",
+     "doi": "10.1029/2011GL049519",
      "locations": [
       "Experimental Procedure, paragraphs 5-6",
       "Discussion, paragraphs 10-11",
@@ -210,6 +216,17 @@
       "Figure 3a, open-diamond observations"
      ],
      "finding": "Seven separable marker centers are bundled; the article and auxiliary files provide no numerical pressure-volume table."
+    },
+    "independent_refit": {
+     "method": "Figure-marker audit with unweighted pressure residuals; V0 and K0 free and K0'=4 fixed",
+     "parameters": {
+      "V0": 320.64634937,
+      "K0": 98.63544265,
+      "K0_prime": 4.0
+     },
+     "published_curve_pressure_rmse_gpa": 0.39915983,
+     "published_curve_pressure_max_abs_residual_gpa": 0.69344567,
+     "assessment": "The low-resolution raster does not reproduce the source regression weights or the very small printed errors, but all seven markers follow the published curve within 0.70 GPa; the digitized refit is diagnostic and does not replace the source coefficients."
     }
    },
    "notes": "Parenthetical parameter errors are preserved as printed; the confidence convention, covariance, row-wise uncertainties, and source fitting weights are not reported."

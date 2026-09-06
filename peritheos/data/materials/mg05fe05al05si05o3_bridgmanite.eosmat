@@ -181,20 +181,29 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the publisher article and the article's official Zenodo v2 raw-data deposit.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
+     "spin_state",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2020JB019964",
-     "doi": "10.1029/2020jb019964",
+     "doi": "10.1029/2020JB019964",
      "locations": [
       "publisher article experimental methods, EOS discussion, Figure 3, and data-availability statement",
       "official Zenodo v2 files latticeparameters.xlsx, EoS-Ffplot-bulkv.xlsx, EPMA.xlsx, and DFTEoS.xlsx"
@@ -207,7 +216,32 @@
       "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"
      ],
      "finding": "All 44 official XRD rows are bundled with P, a, b, c, V, reported uncertainties, grain identity, thermal history, and explicit fit-selection flags."
-    }
+    },
+    "independent_refit": {
+     "selection": "all 23 sample-1 observations",
+     "objective": "unweighted least squares in pressure residuals using the standard BM2 pressure equation",
+     "free_parameters": [
+      "V0",
+      "K0"
+     ],
+     "fixed_parameters": {
+      "K0_prime": 4.0
+     },
+     "refit_parameters": {
+      "V0": 172.0737222855,
+      "K0": 229.479739359
+     },
+     "published_curve_pressure_rmse_gpa": 0.9577399457,
+     "refit_curve_pressure_rmse_gpa": 0.9545433388,
+     "result": "parity",
+     "notes": "The independent refit rounds to published V0=172.1 and lies within published K0=229+/-4 GPa. The source does not identify its numerical objective, weighting, software, covariance, or fit statistic, so this diagnostic is not asserted to reconstruct the authors' exact optimization protocol."
+    },
+    "unresolved_issues": [
+     "No parameter covariance, confidence convention, fit objective, weighting rule, software, or published fit statistic is reported.",
+     "The two analyzed synthesis compositions are not mapped to the individual XRD grains.",
+     "No row-wise Au observations are published for pressure-scale recalculation.",
+     "The DFT workbook contains complete energy-volume values and a reported fit, but the source states only energy-volume fitting and does not identify the exact energy equation/order; no executable DFT EOS is inferred."
+    ]
    },
    "notes": "Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch."
   },
@@ -334,20 +368,25 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
+     "spin_state",
      "equation",
      "parameters",
-     "units",
-     "reference_state",
-     "phase",
+     "fixed_parameters",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2020JB019964",
-     "doi": "10.1029/2020jb019964",
+     "doi": "10.1029/2020JB019964",
      "locations": [
       "publisher article EOS discussion and Figure 3",
       "official Zenodo v2 latticeparameters.xlsx"
@@ -360,7 +399,31 @@
       "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"
      ],
      "finding": "All selected rows and all excluded before-current-step-anneal rows are bundled with explicit flags."
-    }
+    },
+    "independent_refit": {
+     "selection": "11 sample-1 observations measured after current-step laser annealing",
+     "objective": "unweighted least squares in pressure residuals using standard BM2",
+     "free_parameters": [
+      "V0",
+      "K0"
+     ],
+     "fixed_parameters": {
+      "K0_prime": 4.0
+     },
+     "refit_parameters": {
+      "V0": 172.0370217144,
+      "K0": 230.0026422447
+     },
+     "published_curve_pressure_rmse_gpa": 0.9990515601,
+     "refit_curve_pressure_rmse_gpa": 0.9935784693,
+     "result": "parity",
+     "notes": "Both refitted coefficients round to the published values. The source does not report its objective, weighting, software, covariance, or fit statistic."
+    },
+    "unresolved_issues": [
+     "No covariance or fit-protocol detail is reported.",
+     "No row-wise Au observations are published.",
+     "The selected rows do not isolate a pure spin state."
+    ]
    },
    "notes": "Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch."
   },
@@ -487,20 +550,25 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
+     "spin_state",
      "equation",
      "parameters",
-     "units",
-     "reference_state",
-     "phase",
+     "fixed_parameters",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2020JB019964",
-     "doi": "10.1029/2020jb019964",
+     "doi": "10.1029/2020JB019964",
      "locations": [
       "publisher article EOS discussion and Figure 3",
       "official Zenodo v2 latticeparameters.xlsx"
@@ -513,7 +581,31 @@
       "mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters"
      ],
      "finding": "All 21 selected sample-2 observations are bundled."
-    }
+    },
+    "independent_refit": {
+     "selection": "all 21 cold-compressed sample-2 observations",
+     "objective": "unweighted least squares in pressure residuals using standard BM2",
+     "free_parameters": [
+      "V0",
+      "K0"
+     ],
+     "fixed_parameters": {
+      "K0_prime": 4.0
+     },
+     "refit_parameters": {
+      "V0": 170.7468795339,
+      "K0": 240.0511433144
+     },
+     "published_curve_pressure_rmse_gpa": 0.6882434168,
+     "refit_curve_pressure_rmse_gpa": 0.6707208695,
+     "result": "parity",
+     "notes": "Both refitted coefficients agree with the published values and uncertainties. The source does not report its objective, weighting, software, covariance, or fit statistic."
+    },
+    "unresolved_issues": [
+     "No covariance or fit-protocol detail is reported.",
+     "No row-wise Au observations are published.",
+     "The cold-compressed curve is a thermal-history reference, not an independently demonstrated equilibrium high-spin phase boundary."
+    ]
    },
    "notes": "Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope."
   },
@@ -642,16 +734,25 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the open-access publisher article and its official Supplementary Table S3.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
+     "iron_speciation",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.3389/fchem.2023.1258389",
@@ -668,7 +769,35 @@
       "mg05fe05al05si05o3_bridgmanite_koemets_2023_table_s3_pv"
      ],
      "finding": "All 18 Pnma Supplementary Table S3 rows are bundled with pressure, lattice parameters, conventional-cell volume, reported uncertainties, and explicit fit flags; 16 rows are selected."
-    }
+    },
+    "independent_refit": {
+     "selection": "16 Pnma observations from 10.8 to 60.0 GPa",
+     "objective": "errors in variables using reported pressure and volume uncertainties",
+     "free_parameters": [
+      "V0",
+      "K0"
+     ],
+     "fixed_parameters": {
+      "K0_prime": 4.0
+     },
+     "refit_parameters": {
+      "V0": 171.3069453112,
+      "K0": 220.00830646
+     },
+     "refit_parameter_errors": {
+      "V0": 0.2216889394,
+      "K0": 3.02851157298
+     },
+     "published_curve_pressure_rmse_gpa": 0.6776309819,
+     "refit_curve_pressure_rmse_gpa": 0.6717496251,
+     "result": "parity",
+     "notes": "The errors-in-variables coefficients agree with the published values within their quoted uncertainties. An unweighted pressure-space diagnostic gives V0=171.3058481114 angstrom^3 and K0=220.0209751528 GPa."
+    },
+    "unresolved_issues": [
+     "No parameter covariance, confidence convention, numerical objective, weighting rule, software, or published fit statistic is reported.",
+     "No row-wise Ne calibrant observations are published.",
+     "Deposited CCDC structure files require interactive access; the existing equivalent Pbnm/Pnma FA50 material card is therefore reused without fabricating atom coordinates."
+    ]
    },
    "notes": "Accepted LitCurate record litcurate_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch."
   }

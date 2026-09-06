@@ -258,20 +258,31 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM2 parity under pressure-uncertainty weighting.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystal_system",
+     "cell_setting",
+     "formula_units_per_cell",
      "equation",
      "parameters",
+     "free_parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "parameter_correlation",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "independent_refit"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
-     "doi": "10.1029/2004gl020213",
+     "doi": "10.1029/2004GL020213",
      "locations": [
       "article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13",
       "official Wiley grl18465-sup-0001-README.txt",
@@ -292,7 +303,40 @@
       "official Wiley grl18465-sup-0002-TABLE1.txt, Table 1"
      ],
      "finding": "All 42 printed pressure, pressure-error, a-b-c lattice, lattice-error, conventional-cell-volume, and volume-error observations are directly transcribed. All rows are selected because the source reports no exclusions."
-    }
+    },
+    "numerical_reproduction": {
+     "observations": 42,
+     "published_curve_pressure_rmse_gpa": 0.5986176369,
+     "published_curve_max_abs_pressure_residual_gpa": 1.8190284258,
+     "independent_refit": {
+      "objective": "least-squares pressure residuals divided by the row pressure uncertainties expanded from the auxiliary table's last-digit error columns",
+      "free_parameters": [
+       "V0",
+       "K0"
+      ],
+      "fixed_parameters": {
+       "K0_prime": 4.0
+      },
+      "parameters": {
+       "V0": 163.23191791,
+       "K0": 251.98496449
+      },
+      "scaled_standard_errors": {
+       "V0": 0.00847082,
+       "K0": 1.30420339
+      },
+      "correlation_V0_K0": -0.46622237,
+      "reduced_chi_square": 2.1776535235,
+      "conclusion": "parity",
+      "notes": "Rounded observations recover both coefficients within 0.4 published standard deviations; scaled refit errors round to the reported 0.008 A^3 and 1.3 GPa, and the refit correlation is close to the reported -0.45. The article names a weighting scheme but does not print its objective, so this matching reconstruction is not asserted to be the authors' exact software implementation."
+     }
+    },
+    "unresolved_issues": [
+     "The article does not identify fit software or state the algebraic weighting objective; the pressure-uncertainty-weighted reconstruction is selected because it reproduces coefficients, errors, and correlation from the rounded table.",
+     "No row-wise ruby shifts or neon lattice parameters are published, so pressures cannot be independently recalculated.",
+     "No Al site occupancies or specimen fractional coordinates are published; the material stores an explicit MgSiO3 positional-topology proxy only.",
+     "The auxiliary files do not state a data reuse license."
+    ]
    },
    "source_lineage": [
     {
@@ -454,20 +498,30 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM3 parity under pressure-uncertainty weighting.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystal_system",
+     "cell_setting",
+     "formula_units_per_cell",
      "equation",
      "parameters",
+     "free_parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "independent_refit"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
-     "doi": "10.1029/2004gl020213",
+     "doi": "10.1029/2004GL020213",
      "locations": [
       "article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13",
       "official Wiley grl18465-sup-0001-README.txt",
@@ -488,7 +542,41 @@
       "official Wiley grl18465-sup-0002-TABLE1.txt, Table 1"
      ],
      "finding": "All 42 printed pressure, pressure-error, a-b-c lattice, lattice-error, conventional-cell-volume, and volume-error observations are directly transcribed. All rows are selected because the source reports no exclusions."
-    }
+    },
+    "numerical_reproduction": {
+     "observations": 42,
+     "published_curve_pressure_rmse_gpa": 0.5990070581,
+     "published_curve_max_abs_pressure_residual_gpa": 1.8092065727,
+     "independent_refit": {
+      "objective": "least-squares pressure residuals divided by the row pressure uncertainties expanded from the auxiliary table's last-digit error columns",
+      "free_parameters": [
+       "V0",
+       "K0",
+       "K0_prime"
+      ],
+      "fixed_parameters": {},
+      "parameters": {
+       "V0": 163.23220727,
+       "K0": 251.83536437,
+       "K0_prime": 4.01758767
+      },
+      "scaled_standard_errors": {
+       "V0": 0.00967836,
+       "K0": 2.6609949,
+       "K0_prime": 0.27172321
+      },
+      "reduced_chi_square": 2.2332506076,
+      "conclusion": "parity",
+      "notes": "Rounded observations recover all three coefficients well within the published one-sigma errors; scaled refit errors round to the reported 0.01 A^3, 2.7 GPa, and 0.3. The article names a weighting scheme but does not print its objective, so this matching reconstruction is not asserted to be the authors' exact software implementation."
+     }
+    },
+    "unresolved_issues": [
+     "The article does not identify fit software or state the algebraic weighting objective; the pressure-uncertainty-weighted reconstruction is selected because it reproduces coefficients and errors from the rounded table.",
+     "The BM3 parameter covariance and correlations are not published.",
+     "No row-wise ruby shifts or neon lattice parameters are published, so pressures cannot be independently recalculated.",
+     "No Al site occupancies or specimen fractional coordinates are published; the material stores an explicit MgSiO3 positional-topology proxy only.",
+     "The auxiliary files do not state a data reuse license."
+    ]
    },
    "source_lineage": [
     {

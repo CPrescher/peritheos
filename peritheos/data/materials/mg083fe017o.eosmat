@@ -224,7 +224,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -340,16 +340,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -452,16 +452,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",

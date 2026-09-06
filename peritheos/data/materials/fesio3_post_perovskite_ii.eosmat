@@ -200,20 +200,27 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the primary article, the complete Table I structure, and independent Table III Vinet checkpoints.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystal_system",
+     "space_group",
+     "formula_units_per_cell",
+     "atom_sites",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "pressure_range",
+     "independent_source_checkpoints"
     ],
     "primary_source_check": {
      "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
-     "doi": "10.1103/physrevb.90.140102",
+     "doi": "10.1103/PhysRevB.90.140102",
      "locations": [
       "Table I",
       "Computational methods",
@@ -230,6 +237,16 @@
       "Table III"
      ],
      "finding": "The energy-volume grid is plot-only; Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44."
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Direct evaluation and inversion of the published Vinet coefficients at 100 GPa.",
+     "parameters": {
+      "V100_a3_per_formula": 34.50403207,
+      "K100_gpa": 580.58038881,
+      "K100_prime": 3.44257916
+     },
+     "finding": "All values agree with the rounded source checkpoints (34.49 A3, 580 GPa, 3.44)."
     }
    },
    "notes": "No default structural stability beyond the source's high-pressure Cmmm state is implied."

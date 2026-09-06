@@ -169,20 +169,27 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and enumeration.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_basis",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_selection_limitation"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
-     "doi": "10.1029/2011gl049519",
+     "doi": "10.1029/2011GL049519",
      "locations": [
       "Results, paragraphs 8-9",
       "Discussion, paragraphs 10-11",
@@ -201,6 +208,22 @@
       "Figure 3b, larger-volume open-circle branch"
      ],
      "finding": "Seven separable larger-volume markers are bundled. No numerical phase-III P-V table is supplied by the article or auxiliary files."
+    },
+    "independent_refit": {
+     "method": "Unweighted diagnostic refits to digitized Figure 3 marker centers with K0'=4 fixed; both pressure and volume objectives are reported because source weights and objective are unavailable.",
+     "published_curve_pressure_rmse_gpa": 2.9550574,
+     "published_curve_volume_rmse_a3": 1.90504412,
+     "pressure_objective_parameters": {
+      "V0": 239.66589277,
+      "K0": 172.34398738,
+      "K0_prime": 4.0
+     },
+     "volume_objective_parameters": {
+      "V0": 237.68620755,
+      "K0": 184.47868223,
+      "K0_prime": 4.0
+     },
+     "assessment": "The printed curve is consistent with the plotted branch at raster resolution, and the two unconstrained objectives expose the large extrapolation tradeoff described by the authors. These diagnostics validate curve identity but do not reconstruct undocumented source weights."
     }
    },
    "notes": "No default_for is assigned because this is a bounded, metastable high-spin reference branch of a high-pressure phase."
@@ -332,20 +355,27 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and enumeration.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_basis",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_selection_limitation"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
-     "doi": "10.1029/2011gl049519",
+     "doi": "10.1029/2011GL049519",
      "locations": [
       "Results, paragraphs 8-9",
       "Discussion, paragraphs 10-11",
@@ -364,6 +394,22 @@
       "Figure 3b, lower-volume compression and decompression branch"
      ],
      "finding": "Eighteen separable lower-volume markers are bundled. No numerical phase-III P-V table is supplied by the article or auxiliary files."
+    },
+    "independent_refit": {
+     "method": "Unweighted diagnostic refits to digitized Figure 3 marker centers with K0'=4 fixed; both pressure and volume objectives are reported because source weights and objective are unavailable.",
+     "published_curve_pressure_rmse_gpa": 2.91520954,
+     "published_curve_volume_rmse_a3": 1.22683803,
+     "pressure_objective_parameters": {
+      "V0": 228.73882646,
+      "K0": 209.40441908,
+      "K0_prime": 4.0
+     },
+     "volume_objective_parameters": {
+      "V0": 228.21183257,
+      "K0": 212.76391156,
+      "K0_prime": 4.0
+     },
+     "assessment": "The published curve follows the lower-volume plotted branch within 1.95 A^3, while unconstrained refits move along the severe V0-K0 tradeoff expected from extrapolating a 46-84 GPa dataset to zero pressure. The source coefficients are preserved rather than replaced by a raster-dependent optimum."
     }
    },
    "notes": "No default_for is assigned because this is a bounded, metastable low-spin reference branch of a high-pressure phase."

@@ -134,20 +134,22 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the primary article; LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
+     "theoretical_method",
      "validity"
     ],
     "primary_source_check": {
      "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-     "doi": "10.1029/2001jb000702",
+     "doi": "10.1029/2001JB000702",
      "locations": [
       "Section 2",
       "Section 3.2",
@@ -258,20 +260,19 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against Sections 2 and 3.2, Table 3, and Figure 3 of the primary article.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
+     "temperature_ref",
+     "theoretical_method",
      "validity"
     ],
     "primary_source_check": {
      "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-     "doi": "10.1029/2001jb000702",
+     "doi": "10.1029/2001JB000702",
      "locations": [
       "Section 3.2",
       "Table 3",
@@ -381,20 +382,19 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the primary article; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
+     "temperature_ref",
+     "theoretical_method",
      "validity"
     ],
     "primary_source_check": {
      "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-     "doi": "10.1029/2001jb000702",
+     "doi": "10.1029/2001JB000702",
      "locations": [
       "Section 3.2",
       "Table 3",
@@ -504,20 +504,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the primary article; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "temperature_ref",
+     "theoretical_method",
+     "validity",
+     "source_limitations"
     ],
     "primary_source_check": {
      "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-     "doi": "10.1029/2001jb000702",
+     "doi": "10.1029/2001JB000702",
      "locations": [
       "Section 3.2",
       "Table 3",
@@ -612,16 +612,19 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "crystallographic_basis",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
@@ -635,6 +638,14 @@
      "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=7.5(10) on the ruby-pressure assignment. At V=239.13 A^3 the stored curve gives 27.53 GPa, consistent with the Table 1 ruby value 27.8[5] GPa.",
      "doi": "10.2138/am-1996-1-206"
     },
+    "reported_inconsistencies": [
+     {
+      "field": "Table 1 row Pr=0.95 GPa",
+      "lattice_derived_volume_a3": 260.7321,
+      "reported_volume_a3": 260.49,
+      "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
+     }
+    ],
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-04",
@@ -645,15 +656,7 @@
       "Table 1, page 46"
      ],
      "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including compression/decompression direction, both reported pressure assignments, cell parameters, conventional-cell volumes, reported uncertainties, reflection counts, and ice-VII calibrant volumes. All 16 rows have ruby pressures and were used for this refit."
-    },
-    "reported_inconsistencies": [
-     {
-      "field": "Table 1 row Pr=0.95 GPa",
-      "lattice_derived_volume_a3": 260.7321,
-      "reported_volume_a3": 260.49,
-      "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
-     }
-    ]
+    }
    }
   },
   {
@@ -747,16 +750,19 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "crystallographic_basis",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
@@ -770,6 +776,14 @@
      "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
      "doi": "10.2138/am-1996-1-206"
     },
+    "reported_inconsistencies": [
+     {
+      "field": "Table 1 row Pr=0.95 GPa",
+      "lattice_derived_volume_a3": 260.7321,
+      "reported_volume_a3": 260.49,
+      "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
+     }
+    ],
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-04",
@@ -780,15 +794,7 @@
       "Table 1, page 46"
      ],
      "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including 12 printed finite-pressure Pi values and the two ambient measurements plotted at zero pressure in Figure 3f, both reported pressure assignments, cell parameters, conventional-cell volumes, uncertainties, reflection counts, and ice-VII calibrant volumes."
-    },
-    "reported_inconsistencies": [
-     {
-      "field": "Table 1 row Pr=0.95 GPa",
-      "lattice_derived_volume_a3": 260.7321,
-      "reported_volume_a3": 260.49,
-      "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
-     }
-    ]
+    }
    }
   },
   {

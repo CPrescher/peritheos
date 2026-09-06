@@ -158,16 +158,26 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_selection",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1107/S0909049505022326",
@@ -177,7 +187,7 @@
       "Results section 3.2 and Figures 6-7, pages 581-582"
      ],
      "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
-     "doi": "10.1107/s0909049505022326"
+     "doi": "10.1107/S0909049505022326"
     },
     "primary_data_check": {
      "status": "bundled",
@@ -189,6 +199,30 @@
       "Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"
      ],
      "finding": "The complete multiphase table is transcribed, including all 16 Fe27 cubic lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns."
+    },
+    "numerical_reproduction": {
+     "published_curve_pressure_rmse_gpa": 0.1939114407,
+     "published_curve_max_abs_residual_gpa": 0.4161484547,
+     "independent_refit": {
+      "model": "Third-order Birch-Murnaghan",
+      "selection": "All 16 Table 1 rows, flagged mg073fe027o_fit_included=1.",
+      "objective": "Effective-variance pressure residuals using propagated V=a^3 standard deviations and 0.075 GPa as the midpoint of the source's stated 0.05-0.1 GPa pressure precision range.",
+      "free_parameters": [
+       "V0",
+       "K0",
+       "K0_prime"
+      ],
+      "fixed_parameters": [],
+      "parameters": {
+       "V0": 77.3036882,
+       "K0": 154.85488377,
+       "K0_prime": 3.97082563
+      },
+      "reduced_chi_square": 0.6601309155,
+      "raw_pressure_rmse_gpa": 0.2055089515,
+      "conclusion": "All three free coefficients reproduce the published values within their reported uncertainties."
+     },
+     "limitation": "The midpoint pressure precision is an explicit deterministic audit choice, not a reconstruction of undocumented EOS-FIT weights; the source publishes no covariance or confidence convention."
     }
    }
   }

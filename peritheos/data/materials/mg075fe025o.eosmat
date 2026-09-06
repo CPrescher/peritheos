@@ -224,7 +224,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -382,20 +382,26 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "spin_branch",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
-     "doi": "10.1029/2011gl049915",
+     "doi": "10.1029/2011GL049915",
      "locations": [
       "corrected article, Experiments paragraphs 4-5",
       "corrected article, Results paragraphs 6-7",
@@ -414,7 +420,26 @@
       "corrected Figure 1, black 300 K open circles"
      ],
      "finding": "All 42 visible 300 K Figure 1 markers are digitized; 15 below 50 GPa select the high-spin fit and 18 above 75 GPa select the low-spin fit, while nine crossover points remain explicit exclusions."
-    }
+    },
+    "independent_refit": {
+     "selection": "15 digitized 300 K observations at or below 48.4 GPa",
+     "objective": "unweighted pressure residuals; V0=76.34 A^3 and K0'=4 fixed",
+     "free_parameters": [
+      "K0"
+     ],
+     "refit_parameters": {
+      "K0": 163.0460834465
+     },
+     "published_curve_pressure_rmse_gpa": 0.2491706696,
+     "refit_curve_pressure_rmse_gpa": 0.1470033065,
+     "result": "parity_within_figure_digitization",
+     "notes": "The fitted K0 differs from the source by 1.05 GPa, comparable to the printed 1 GPa parameter uncertainty and the finite marker/line width. Restricting the pure high-spin subset to <=45 GPa gives K0=162.70 GPa."
+    },
+    "unresolved_issues": [
+     "The source gives no fit covariance, numerical objective, or weighting details.",
+     "The official Wiley Table S1 and Text S1 attachments were listed on the publisher page but returned HTTP 403 during this audit; Figure 1 digitization is therefore used instead of claiming a table transcription.",
+     "The source prints +/-0.01 A^3 next to the fixed high-spin V0 without defining how that uncertainty was propagated."
+    ]
    },
    "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case."
   },
@@ -540,20 +565,26 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "spin_branch",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
-     "doi": "10.1029/2011gl049915",
+     "doi": "10.1029/2011GL049915",
      "locations": [
       "corrected article, Experiments paragraphs 4-5",
       "corrected article, Results paragraphs 6-7",
@@ -572,7 +603,27 @@
       "corrected Figure 1, black 300 K open circles"
      ],
      "finding": "All 42 visible 300 K Figure 1 markers are digitized; 15 below 50 GPa select the high-spin fit and 18 above 75 GPa select the low-spin fit, while nine crossover points remain explicit exclusions."
-    }
+    },
+    "independent_refit": {
+     "selection": "18 digitized 300 K observations at or above 76.1 GPa",
+     "objective": "unweighted pressure residuals; K0'=4 fixed",
+     "free_parameters": [
+      "V0",
+      "K0"
+     ],
+     "refit_parameters": {
+      "V0": 74.47146131,
+      "K0": 165.6618754184
+     },
+     "published_curve_pressure_rmse_gpa": 0.4942818332,
+     "refit_curve_pressure_rmse_gpa": 0.3970692304,
+     "result": "parity_within_figure_digitization",
+     "notes": "Both free coefficients are recovered well inside the printed uncertainties from the digitized primary figure."
+    },
+    "unresolved_issues": [
+     "The source gives no fit covariance, numerical objective, or weighting details.",
+     "The official Wiley Table S1 and Text S1 attachments were listed on the publisher page but returned HTTP 403 during this audit; Figure 1 digitization is therefore used instead of claiming a table transcription."
+    ]
    },
    "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case."
   },
@@ -654,20 +705,18 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against author-repository primary PDF.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
-     "doi": "10.1103/physrevb.96.075136",
+     "doi": "10.1103/PhysRevB.96.075136",
      "locations": [
       "Methods",
       "Table I"
@@ -766,16 +815,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -878,16 +927,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against author-hosted primary PDF.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "spin_branch",
+     "fit_relationship",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",

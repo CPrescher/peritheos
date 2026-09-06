@@ -244,6 +244,11 @@ pub struct Morse3 {
 
 impl Morse3 {
     /// Construct a three-dimensional Morse EOS.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error when a parameter is non-finite, `V0` or `K0` is not
+    /// positive, or `K0_prime` makes the Morse expression singular.
     pub fn new(v0: f64, k0: f64, k0_prime: f64) -> EosResult<Self> {
         let model = Self {
             v0: positive_parameter(v0, "V0")?,
@@ -300,6 +305,10 @@ macro_rules! sun_morse_model {
 
         impl $name {
             #[doc = "Construct the Sun--Morse equation of state."]
+            #[doc = ""]
+            #[doc = "# Errors"]
+            #[doc = ""]
+            #[doc = "Returns an error when a parameter is non-finite, `V0` or `K0` is not positive, or `K0_prime` makes the Sun--Morse expression singular."]
             pub fn new(v0: f64, k0: f64, k0_prime: f64) -> EosResult<Self> {
                 let model = Self {
                     v0: positive_parameter(v0, "V0")?,

@@ -119,8 +119,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
@@ -233,8 +233,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
@@ -242,7 +242,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
@@ -330,8 +331,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
@@ -339,7 +340,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.104119/fulltext",
@@ -796,7 +798,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -1121,8 +1124,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation, conventional-cell conversion, parameters, reference temperature, uncertainties, and experimental scope checked against the primary publication.",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1130,7 +1133,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1126/science.abh0364",

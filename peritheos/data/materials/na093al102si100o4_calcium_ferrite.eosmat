@@ -266,16 +266,22 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final article and official MSA deposit AM-23-128432. The published BM3 coefficients reproduce the complete printed compression table to 0.3263 GPa pressure RMSE; the missing row-wise pressure uncertainties and exact EosFit7c weight configuration prevent coefficient-level refit parity and are not inferred.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
+     "structure",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2022-8432",
@@ -301,6 +307,34 @@
       "Official Online Materials Table S3"
      ],
      "finding": "All 22 printed pressure, lattice-parameter, conventional-cell-volume, and parenthetical uncertainty rows are bundled verbatim. No pressure uncertainty or row-wise temperature is published."
+    },
+    "numerical_reproduction": {
+     "published_state": {
+      "pressure_gpa": 41.0,
+      "volume_a3": 207.3
+     },
+     "calculated_pressure_gpa": 40.6096120689,
+     "absolute_difference_gpa": 0.3903879311,
+     "tolerance_gpa": 0.65,
+     "tolerance_basis": "The largest absolute pressure residual over all 22 Table S3 rows under the rounded published coefficients is 0.6439 GPa."
+    },
+    "refit_reproduction": {
+     "status": "fit_protocol_limited",
+     "published_curve_pressure_rmse_gpa": 0.3262782699,
+     "published_curve_max_abs_pressure_residual_gpa": 0.6438583996,
+     "unweighted_pressure_refit": {
+      "V0": 242.01380087,
+      "K0": 209.58508871,
+      "K0_prime": 3.10358803,
+      "rmse_gpa": 0.2748883201
+     },
+     "volume_uncertainty_weighted_refit": {
+      "V0": 242.02730168,
+      "K0": 208.87612578,
+      "K0_prime": 3.1368374,
+      "reduced_chi_square": 1.1189465363
+     },
+     "finding": "The article reports error-weighted EosFit7c regression but publishes no pressure uncertainties, covariance matrix, or detailed weight settings. Both documented diagnostic refits use all rows and remain separate from the published record."
     },
     "reported_inconsistencies": [
      {

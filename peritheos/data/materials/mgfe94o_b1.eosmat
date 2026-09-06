@@ -205,16 +205,26 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The open publisher article and official supplement were audited directly. The complete source-scale P-V table and the versioned MINUTI equation, weighting, prior, and selection protocol support an independent Peritheos refit.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "spin_scope",
      "equation",
      "parameters",
      "units",
+     "volume_basis",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "fit_selection",
+     "fit_objective",
+     "parameter_prior",
+     "validity",
+     "pressure_calibration",
+     "primary_observations",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://www.mdpi.com/2075-163X/9/12/762",
@@ -239,7 +249,38 @@
       "official supplement Table S1"
      ],
      "finding": "All 28 printed rows are preserved. Fourteen B1 rows are selected, the two anomalous B1 rows are retained with explicit exclusion reasons, and all 12 rhombohedral rows remain in the shared dataset."
-    }
+    },
+    "independent_refit": {
+     "selection": "used_in_b1_fit=1 (14 rows)",
+     "objective": "MINUTI isothermal effective-variance volume residuals with the source K0-prime prior and N/n prior weighting",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "fixed_parameters": [],
+     "priors": {
+      "K0_prime": "3.8+/-0.3"
+     },
+     "refit_parameters": {
+      "V0": 78.88845145,
+      "K0": 155.15330821,
+      "K0_prime": 3.78834697
+     },
+     "published_curve_pressure_rmse_gpa": 0.2405614709,
+     "refit_curve_pressure_rmse_gpa": 0.2419797575,
+     "published_curve_reduced_chi_square_on_rounded_rows": 0.7685863615,
+     "refit_reduced_chi_square_on_rounded_rows": 0.7657158603,
+     "result": "parity",
+     "notes": "Every refitted coefficient lies within the corresponding published marginal uncertainty. Small statistic differences are expected because Table S1 rounds pressure and atomic volume while MINUTI used the underlying reductions."
+    },
+    "excluded_branches": [
+     {
+      "branch": "spin-resolved Mw94 EOS",
+      "disposition": "not implemented",
+      "reason": "SMS constrains magnetic and spin populations at 95.4, 97.0, and 116.4 GPa, but the diffraction P-V table ends at 88.7 GPa and contains no spin-resolved volume observations."
+     }
+    ]
    },
    "source_lineage": [
     {

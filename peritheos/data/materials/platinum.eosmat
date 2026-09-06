@@ -438,7 +438,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -638,8 +639,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation, all Pt coefficients, units, reference state, oscillator multiplicity, and printed isochors were checked against the primary paper.",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
@@ -647,7 +648,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf",
@@ -657,7 +659,7 @@
       "Table VI, Pt isochors"
      ],
      "finding": "The paper supplies a complete, directly implementable Pt Vinet plus four-oscillator Helmholtz EOS. Evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
-     "doi": "10.1103/physrevb.75.024115"
+     "doi": "10.1103/PhysRevB.75.024115"
     },
     "primary_data_check": {
      "status": "parameterization_only",

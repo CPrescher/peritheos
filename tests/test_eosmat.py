@@ -210,7 +210,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         date
         for identifier, date in audit_dates.items()
         if identifier not in current_audit_identifiers
-    } == {"2026-09-01", "2026-09-05"}
+    } == {"2026-09-01", "2026-09-03", "2026-09-04", "2026-09-05"}
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
     )
@@ -273,8 +273,19 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in native_records
         if record["scientific_validation"]["audit_date"] == "2026-09-05"
     }
-    assert len(overnight_identifiers) == 373
-    assert native_identifiers == legacy_native_identifiers | overnight_identifiers
+    batch_identifiers = (
+        native_identifiers - legacy_native_identifiers - overnight_identifiers
+    )
+    assert len(overnight_identifiers) == 173
+    assert len(batch_identifiers) == 200
+    assert {audit_dates[identifier] for identifier in batch_identifiers} == {
+        "2026-09-01",
+        "2026-09-03",
+        "2026-09-04",
+    }
+    assert native_identifiers == (
+        legacy_native_identifiers | overnight_identifiers | batch_identifiers
+    )
     assert {
         record["scientific_validation"]["migration_source"]["version"]
         for record in migrated_records
@@ -787,6 +798,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-03",
         "2026-09-04",
         "2026-09-05",
+        "2026-09-06",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")

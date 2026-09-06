@@ -242,16 +242,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The complete five-page primary article was audited directly. Its equation, coefficients, 30-atom cell basis, calculated E-V table, and pressure reproduction support an executable static BM3 record despite the explicitly documented Table 1 unit-label error.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
+     "volume_basis",
      "reference_state",
      "phase",
+     "crystallography",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-1999-1017",
@@ -428,16 +432,22 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The primary article, its complete official Table S1 data deposit, the exact thermal equations, conventional-cell basis, phase and composition scope, Pt pressure scale, and an independent Peritheos refit were audited directly.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
+     "volume_basis",
      "reference_state",
+     "composition",
      "phase",
+     "pressure_scale",
+     "temperature_model",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2023JB028026",
@@ -449,7 +459,7 @@
       "official author data deposit, doi:10.5281/zenodo.8399354, Table S1"
      ],
      "finding": "The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.",
-     "doi": "10.1029/2023jb028026"
+     "doi": "10.1029/2023JB028026"
     },
     "primary_data_check": {
      "status": "bundled",
@@ -461,6 +471,39 @@
       "official author data deposit, doi:10.5281/zenodo.8399354, data.docx, Table S1"
      ],
      "finding": "All 74 printed P-T-a-c-V rows and every parenthetical uncertainty are bundled in source order. The anomalous source-order row 5 is preserved verbatim: a=4.508 A and c=14.310 A imply 251.85 A^3, not the printed V=246.96 A^3 used by the EOS fit."
+    },
+    "independent_refit": {
+     "implementation": "peritheos.fitting.fit_joint_eos",
+     "selection": "all 74 official Table S1 rows, using the printed volume column",
+     "objective": "unweighted pressure residuals",
+     "fixed_parameters": {
+      "rt_eos.V0_a3_per_conventional_cell": 280.71,
+      "Tr_k": 300.0,
+      "n_atoms_per_formula_unit": 5.0,
+      "debye_temperature_law": "integrated_gruneisen"
+     },
+     "parameters": {
+      "rt_eos.K0": 105.63974787587165,
+      "rt_eos.K0_prime": 4.477101605441763,
+      "theta0": 657.5642321101462,
+      "gamma0": 1.9735760309784676,
+      "q": 1.3229215647013208
+     },
+     "standard_errors": {
+      "rt_eos.K0": 1.4236750278265324,
+      "rt_eos.K0_prime": 0.09263345033733188,
+      "theta0": 246.67508064933432,
+      "gamma0": 0.21354018578534056,
+      "q": 0.37029010599848894
+     },
+     "observations": 74,
+     "degrees_of_freedom": 69,
+     "published_curve_pressure_rmse_gpa": 1.0304556630476074,
+     "published_curve_maximum_absolute_residual_gpa": 2.8019396360871553,
+     "refit_pressure_rmse_gpa": 0.6996660457848404,
+     "refit_maximum_absolute_residual_gpa": 1.715217567092708,
+     "parity_tolerance": "Every refitted free parameter must lie within twice the corresponding published parenthetical error; the largest normalized difference is 1.410 for q.",
+     "finding": "All five free coefficients satisfy the declared two-parenthetical-error tolerance. The strong K0-K0_prime correlation (-0.977), the unreported source weighting, and rounding of the printed rows explain why the diagnostic refit is not expected to reproduce every central value exactly."
     }
    }
   }

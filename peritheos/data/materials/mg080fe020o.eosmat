@@ -175,20 +175,29 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the complete primary article, its Table 1, and the source-defined below-40-GPa selection.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_selection",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2006JB004730",
-     "doi": "10.1029/2006jb004730",
+     "doi": "10.1029/2006JB004730",
      "locations": [
       "Experiment, section 2",
       "Results, section 3.2, paragraph 9",
@@ -207,6 +216,14 @@
       "Table 1, all 30 (Mg0.80Fe0.20)O rows"
      ],
      "finding": "Every printed pressure, volume, uncertainty, and compression/decompression flag is transcribed; 18 rows below 40 GPa are selected and all 12 transition-region rows are explicit exclusions."
+    },
+    "numerical_reproduction": {
+     "published_curve_pressure_rmse_gpa": 1.2608936698,
+     "published_curve_max_abs_residual_gpa": 2.3658848633,
+     "published_curve_effective_sigma_rms": 0.7034358017,
+     "published_curve_max_abs_effective_sigma": 1.6445166568,
+     "conclusion": "All 18 selected Table 1 observations lie within 1.65 combined pressure/volume standard deviations of the rounded published curve.",
+     "limitation": "A naive unweighted pressure-space refit gives strongly covariant coefficients and does not reconstruct the source values. The source does not publish its weights, covariance, objective, or fitting software, so curve parity against the reported observational uncertainties is the reproducible result."
     }
    },
    "notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported."

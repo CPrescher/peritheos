@@ -132,8 +132,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation, parameters, reference state, uncertainties, and data envelope checked against the primary publication.",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
@@ -269,8 +269,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation, parameters, reference state, uncertainties, and data envelope checked against the primary publication.",
+    "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
      "parameters",
@@ -278,7 +278,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2008JB005813",
@@ -591,16 +592,25 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the final free-access publisher article, including the equation images, complete HTML tables, and official tab-delimited supplements for Tables 1 and 2. LitCurate was used only for discovery. The Table 1 supplement duplicates the primary observations bundled here; Table 2 is a literature-comparison summary rather than additional primary observations.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
+     "parameter_derivation",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fitted_fixed_adopted_status",
+     "parameter_covariance",
+     "validity",
+     "absolute_pressure_method",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251",
@@ -612,18 +622,6 @@
      ],
      "finding": "Li et al. report a new absolute 300 K MgO BM3 pressure scale, not a direct pressure-volume BM3 regression. Its conventional-cell V0 is measured by XRD; its isothermal K0 and K0' follow exactly from the preferred decompression acoustic finite-strain fit and the printed Equation 4 conversion.",
      "doi": "10.1029/2005jb004251"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "mgo_li_2006_table1_elasticity"
-     ],
-     "source_locations": [
-      "Section 2 paragraph 5 ambient density and acoustic velocities",
-      "Table 1 and official tab-delimited Table 1 supplement, all 17 rows and footnote"
-     ],
-     "finding": "All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations."
     },
     "reported_parameterizations": [
      {
@@ -653,6 +651,22 @@
       "s_wave_rms_misfit_km_s": 0.017
      }
     ],
+    "isothermal_parameter_derivation": {
+     "inputs": {
+      "K0S_gpa": 163.5,
+      "K0S_prime": 4.2,
+      "alpha_per_k": 3.12e-05,
+      "gamma0": 1.54,
+      "q": 1.3,
+      "dK0T_dT_gpa_per_k": -0.028,
+      "temperature_k": 300.0
+     },
+     "outputs": {
+      "K0T_gpa": 161.1767340842165,
+      "K0T_prime": 4.237911491402006
+     },
+     "uncertainty": "The acoustic-fit errors are one standard deviation, but the source gives no uncertainties or covariance for alpha, gamma, q, or dK0T/dT and no propagated K0T/K0T' uncertainty. None is inferred."
+    },
     "reported_inconsistencies": [
      {
       "field": "preferred decompression K0S",
@@ -665,7 +679,26 @@
       "table_1": "V/V0=0.962, density=3.696(6) g/cm^3, Pcal=6.23(14) GPa",
       "finding": "The printed ratio is not mutually consistent with the row density and the published BM3 pressure at the displayed precision. It is retained verbatim; no correction is inferred."
      }
-    ]
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the Table 1 endpoint V/V0=0.942, the stored BM3 predicts 10.9321 GPa versus the printed calculated pressure 10.95(15) GPa.",
+     "reference_state_check": "The stored equation gives P(V0)=0 and K(V0)=K0T; inverse pressure-volume evaluation is tested across the reported branch.",
+     "independent_acoustic_refit_check": "An unweighted simultaneous nonlinear least-squares fit of Equations 1-2 to the ten decompression density/VP/VS rows plus the independently reported ambient density/VP/VS anchor gives K0S=163.5115 GPa, K0S'=4.15807, G0=129.7175 GPa, and G0'=2.39724. All four recover the preferred published coefficients within their reported one-standard-deviation errors. Equation 4 then gives K0T=161.1881 GPa and K0T'=4.19657, differing from the stored source-derived values by 0.0113 GPa and 0.0413, respectively. The high-pressure-row RMS residuals are 0.02165 km/s for VP and 0.01474 km/s for VS, versus the paper's rounded 0.02 and 0.015 km/s.",
+     "refit_status": "not_directly_refittable_as_pressure_volume",
+     "limitation": "Table 1 pressure was calculated from the same acoustic-derived BM3 and is not an independent pressure coordinate. Regressing those Pcal-V/V0 pairs would be circular and would also be limited by ratios printed to only three decimals. The paper does not state an observation-weighting rule or fitting software; the deterministic audit fit therefore uses ordinary unweighted velocity residuals and is evidence of coefficient recovery within published uncertainty, not a claim to reproduce the authors' covariance calculation."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgo_li_2006_table1_elasticity"
+     ],
+     "source_locations": [
+      "Section 2 paragraph 5 ambient density and acoustic velocities",
+      "Table 1 and official tab-delimited Table 1 supplement, all 17 rows and footnote"
+     ],
+     "finding": "All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations."
+    }
    }
   },
   {
@@ -773,16 +806,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the final American Mineralogist article and its complete printed tables. LitCurate was used only for discovery. The journal and author-hosted article records expose no separate official supplement.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am.2008.2988",
@@ -794,19 +835,6 @@
      ],
      "finding": "The KCl series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on the Mao-1978 ruby scale. The preferred three-parameter result is V0=74.698(7) A^3, KT0=164.1(9) GPa, and K'=4.05(4).",
      "doi": "10.2138/am.2008.2988"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "mgo_jacobsen_2008_table2_kcl_compression",
-      "mgo_jacobsen_2008_table1_helium_compression"
-     ],
-     "source_locations": [
-      "Table 2, all 26 KCl-medium rows",
-      "Table 1 ambient V0 anchor"
-     ],
-     "finding": "All 26 KCl-medium pressure-volume rows and their printed standard deviations are bundled. The separately bundled Table 1 resource preserves the shared experimental ambient-volume anchor."
     },
     "reported_parameterizations": [
      {
@@ -841,7 +869,25 @@
        "K0_prime"
       ]
      }
-    ]
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the Table 2 endpoint V=55.792 A^3, the stored BM3 predicts 86.6703 GPa versus the printed 86.6 GPa.",
+     "independent_refit_check": "A Peritheos errors-in-variables refit of all 26 Table 2 rows, using the printed pressure and volume standard deviations and fixing the independently measured V0=74.698 A^3, gives K0=164.1036 GPa and K0'=4.05239. This reproduces the preferred coefficients within printed precision; it is a deterministic audit fit, not a replacement record.",
+     "limitation": "The authors do not identify their fitting software, exact objective, covariance convention, or weighting of the ambient anchor, so the published parameter covariance cannot be reconstructed."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgo_jacobsen_2008_table2_kcl_compression",
+      "mgo_jacobsen_2008_table1_helium_compression"
+     ],
+     "source_locations": [
+      "Table 2, all 26 KCl-medium rows",
+      "Table 1 ambient V0 anchor"
+     ],
+     "finding": "All 26 KCl-medium pressure-volume rows and their printed standard deviations are bundled. The separately bundled Table 1 resource preserves the shared experimental ambient-volume anchor."
+    }
    }
   },
   {
@@ -967,16 +1013,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the final American Mineralogist article and its complete printed tables. LitCurate was used only for discovery. The journal and author-hosted article records expose no separate official supplement.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am.2008.2988",
@@ -990,17 +1044,19 @@
      "finding": "The all-data helium series is a B1-MgO, conventional-cell (Z=4), nominal-300 K BM3 fit on a Mao-1986-linked pressure coordinate. The Results section gives V0=74.687(6) A^3, KT0=159.6(6) GPa, and K'=3.74(3). The calculated Zha-scale pressure column is not an independent fitted Jacobsen EOS.",
      "doi": "10.2138/am.2008.2988"
     },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "mgo_jacobsen_2008_table1_helium_compression"
-     ],
-     "source_locations": [
-      "Table 1, ambient anchor and all 51 helium-medium rows"
-     ],
-     "finding": "All 52 printed rows are bundled, preserving run identifiers, normalized ruby shifts, the mixed ruby/diamond pressure marker, reported-pressure and volume standard deviations, and the Zha-2000 MgO-scale recalculations."
-    },
+    "reported_inconsistencies": [
+     {
+      "field": "preferred all-data helium V0",
+      "abstract": "74.697(6) A^3",
+      "results": "74.687(6) A^3",
+      "resolution": "Use 74.687(6) A^3 because the Results section explicitly assigns it to the three-parameter fit of all three Table 1 runs. The nearby 74.697 value is independently assigned to the ruby-only sensitivity fit as 74.697(7) A^3, making the abstract value an isolated inconsistency rather than an unresolved fit definition."
+     },
+     {
+      "field": "fixed-K0 sensitivity-fit V0 unit",
+      "results": "V0=74.695(6) GPa",
+      "resolution": "Interpret the printed GPa as a unit typo and preserve 74.695(6) A^3 in the non-executable sensitivity metadata: V0 is the volume parameter, and the neighboring preferred and ruby-only fits report it in A^3."
+     }
+    ],
     "reported_parameterizations": [
      {
       "role": "preferred_all_three_runs_fit",
@@ -1035,19 +1091,22 @@
       ]
      }
     ],
-    "reported_inconsistencies": [
-     {
-      "field": "preferred all-data helium V0",
-      "abstract": "74.697(6) A^3",
-      "results": "74.687(6) A^3",
-      "resolution": "Use 74.687(6) A^3 because the Results section explicitly assigns it to the three-parameter fit of all three Table 1 runs. The nearby 74.697 value is independently assigned to the ruby-only sensitivity fit as 74.697(7) A^3, making the abstract value an isolated inconsistency rather than an unresolved fit definition."
-     },
-     {
-      "field": "fixed-K0 sensitivity-fit V0 unit",
-      "results": "V0=74.695(6) GPa",
-      "resolution": "Interpret the printed GPa as a unit typo and preserve 74.695(6) A^3 in the non-executable sensitivity metadata: V0 is the volume parameter, and the neighboring preferred and ruby-only fits report it in A^3."
-     }
-    ]
+    "numerical_reproduction": {
+     "published_curve_check": "At the last Table 1 volume V=52.239 A^3, the stored BM3 predicts 110.7638 GPa versus the 111.0 GPa pressure used by the fit.",
+     "independent_refit_check": "A Peritheos errors-in-variables refit of all 51 non-ambient Table 1 rows, using the printed pressure and volume standard deviations and fixing the independently measured V0=74.698 A^3, gives K0=159.3536 GPa and K0'=3.74517. Both reproduce the preferred coefficients within the paper's reported errors; it is a deterministic audit fit, not a replacement record.",
+     "limitation": "The authors do not identify their fitting software, exact objective, covariance convention, or weighting of the ambient anchor, so the published free-V0 solution and covariance cannot be regenerated bit-for-bit from the printed table."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mgo_jacobsen_2008_table1_helium_compression"
+     ],
+     "source_locations": [
+      "Table 1, ambient anchor and all 51 helium-medium rows"
+     ],
+     "finding": "All 52 printed rows are bundled, preserving run identifiers, normalized ruby shifts, the mixed ruby/diamond pressure marker, reported-pressure and volume standard deviations, and the Zha-2000 MgO-scale recalculations."
+    }
    }
   },
   {
@@ -1121,7 +1180,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -1328,7 +1388,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "The zero-temperature Vinet convention, mass-to-cell volume conversion, absolute polynomial thermal pressure, parameters, uncertainties, B1 identity, stated model range, shock pressure basis, and tabulated P-V-T reproduction were checked against the primary article.",
-    "audit_date": "2026-09-05",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1705,16 +1765,22 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "note": "Equation convention, parameter provenance, reference state, MgO cell-volume basis, all 61 primary rows, Pt pressure calibration, and experimental envelope were checked against the primary article. The DOI is authored by Dewaele et al. (2000), not Fei et al.; Fei (1999) supplies comparison data used in the paper's combined room-temperature fit.",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fitted_fixed_adopted_status",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/1999JB900364",
@@ -1724,7 +1790,7 @@
       "Equations 2-8, Figure 4, and Tables 4-5",
       "Abstract and conclusion"
      ],
-     "finding": "The article's preferred result is the B1-MgO BM3-MGD EOS with V0=74.71 A^3, K0=161 GPa, K0'=3.94, theta0=800 K, gamma0=1.45, and q=0.8. The four other Table 3 rows are explicit source fits of the same combined 300 K observations and are retained only as nonpreferred model-sensitivity isotherms.",
+     "finding": "The article's reproducible preferred result is one B1-MgO BM3-MGD EOS with V0=74.71 A^3, K0=161 GPa, K0'=3.94, theta0=800 K, gamma0=1.45, and q=0.8. Alternative Murnaghan, Vinet, logarithmic, and constrained BM3 rows in Table 3 quantify room-temperature extrapolation sensitivity and are not additional recommended thermal parameterizations.",
      "doi": "10.1029/1999jb900364"
     },
     "primary_data_check": {
@@ -1825,8 +1891,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The phase-specific linear relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper.",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
@@ -2341,8 +2407,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The phase-specific linear relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper.",
+    "audit_date": "2026-09-04",
     "verified_fields": [
      "equation",
      "parameters",
@@ -2360,7 +2426,7 @@
       "page 533, Tables 3-4 and least-squares discussion"
      ],
      "finding": "The source reports Us=6.87(10)+1.24(4)up for low-porosity polycrystalline MgO, with parenthesized values defined as one standard deviation. No phase transition is assigned within the fitted interval.",
-     "doi": "10.1029/94jb02065"
+     "doi": "10.1029/94JB02065"
     },
     "primary_data_check": {
      "status": "parameterization_only",
@@ -2456,16 +2522,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Equation and Table I were checked directly against the primary article.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -2569,16 +2634,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-I transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -2677,16 +2741,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-I transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -2788,16 +2851,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Table-I coefficients checked against eight independent Table-III pressures.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -2902,16 +2965,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-V transcription with shifted Table-III curve check.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -3014,16 +3077,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-V transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -3121,16 +3183,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-V transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -3229,16 +3290,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-V transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -3336,16 +3396,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-V transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -3443,16 +3502,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-V transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -3551,16 +3609,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Direct Table-V transcription.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext",
@@ -3662,16 +3719,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The coefficients, volume basis, and BM3 identity were checked directly in the APS article and the converted curve was numerically cross-checked against the paper's pressure-difference polynomial.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "unit_conversion",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.224103/fulltext",
@@ -3774,16 +3832,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The coefficients, volume basis, and BM3 identity were checked directly in the APS article and the converted curve was numerically cross-checked against the paper's pressure-difference polynomial.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "unit_conversion",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.224103/fulltext",
@@ -3888,16 +3947,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Complete four-coefficient modified-Tait endmember.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "volume_basis",
+     "reference_state"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",

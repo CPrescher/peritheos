@@ -261,16 +261,21 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final typeset MSA article. The conventional-cell conversion and BM3 convention reproduce the vector-digitized Figure 2d curve.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf",
@@ -293,6 +298,17 @@
       "Figure 2d, dark-blue current-study triangles"
      ],
      "finding": "All eight visible current-study markers were extracted from PDF vector geometry. Earlier-study comparison markers were excluded."
+    },
+    "numerical_reproduction": {
+     "published_curve_volume_rmse_a3": 0.15178736886,
+     "published_curve_max_abs_volume_residual_a3": 0.198344317864,
+     "volume_residual_refit": {
+      "V0": 233.944765268382,
+      "K0": 213.205584668798,
+      "K0_prime": 4.132190010213,
+      "rmse_a3": 0.030775628572
+     },
+     "finding": "The digitized curve independently confirms equation order, volume basis, and rounded coefficients. The refit is diagnostic only because the original grid and fitting protocol are not published."
     },
     "reported_inconsistencies": [
      {

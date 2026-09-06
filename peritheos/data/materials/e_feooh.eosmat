@@ -281,16 +281,23 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The final J-STAGE article, its displayed equations, both tables, and all 33 printed P-V-T observations were audited directly. The reference-temperature form of the linear expansivity required an explicit Peritheos configuration distinct from alpha0+alpha1*T.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "crystallography",
+     "volume_basis",
      "published_uncertainties",
-     "validity"
+     "covariance_availability",
+     "validity",
+     "pressure_calibration",
+     "primary_observations",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf",
@@ -314,6 +321,34 @@
       "Article Table 1, page 421"
      ],
      "finding": "All 33 printed pressure, temperature, lattice-parameter, and conventional-cell-volume rows are transcribed with every reported one-standard-deviation uncertainty. No supplementary or machine-readable data are exposed by J-STAGE."
+    },
+    "numerical_reproduction": {
+     "published_curve_on_table1_rows": {
+      "observations": 33,
+      "pressure_rmse_gpa": 0.10201978513163779,
+      "max_abs_pressure_residual_gpa": 0.24320535477927407,
+      "high_temperature_benchmark": {
+       "pressure_gpa": 11.07,
+       "temperature_k": 700.0,
+       "volume_a3": 62.63,
+       "calculated_pressure_gpa": 10.833562803310029
+      }
+     },
+     "diagnostic_peritheos_errors_in_variables_refit": {
+      "objective": "Joint pressure-volume errors-in-variables fit to the 32 finite-pressure Table 1 rows using reported pressure and volume standard deviations; temperature errors were not reported. The ambient row fixes V0,300 and has no printed pressure error, so it is not a separate residual.",
+      "V0_fixed_a3": 66.278,
+      "K0_gpa": 133.8165711071433,
+      "K0_prime": 6.3907975324331465,
+      "alpha0_per_k": 2.708878779423724e-05,
+      "alpha1_per_k2": 1.040910723643e-07,
+      "dK_dT_gpa_per_k": -0.05081473555989552,
+      "reduced_chi_square": 0.49305844611466604,
+      "raw_pressure_rmse_gpa": 0.09607800313639715,
+      "qualification": "All five refitted coefficients lie within the corresponding published one-standard-deviation intervals. The source's precise EosFit weighting, unrounded inputs, covariance, and fit statistic are unavailable, so this is a parity diagnostic rather than a replacement EOS record."
+     }
+    },
+    "phase_boundary": {
+     "finding": "This record remains on e_feooh, the hydrogen-off-center P21nm material. It is not goethite alpha-FeOOH and is not merged with the separate e_feooh_hc_low_spin high-pressure Pnnm material."
     }
    },
    "notes": "Published high-temperature BM3 parameterization. The source reports no EosFit7c version, numerical weights, full covariance, or scalar fit statistic. The Table 1 transcription is retained at printed precision; its source page states copyright 2016 Japan Association of Mineralogical Sciences and exposes no open data license."

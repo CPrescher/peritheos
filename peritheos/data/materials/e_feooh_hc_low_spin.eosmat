@@ -189,16 +189,25 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The final publisher article and its official five-page Supporting Information S1 were audited directly. Only the reproducible high-pressure volumetric BM3 fit is executable; elastic-tensor-derived moduli and velocity/density summaries are retained as benchmarks, not encoded as EOS regressions.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "spin_state",
+     "magnetic_order",
+     "crystallography",
+     "volume_basis",
      "published_uncertainties",
-     "validity"
+     "covariance_availability",
+     "validity",
+     "pressure_calibration",
+     "primary_observations",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168",
@@ -212,7 +221,7 @@
       "Supporting Information S1, Table S1, page 5"
      ],
      "finding": "Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.",
-     "doi": "10.1002/2017jb014168"
+     "doi": "10.1002/2017JB014168"
     },
     "primary_data_check": {
      "status": "bundled",
@@ -259,6 +268,43 @@
       },
       "disposition": "selected"
      }
+    ],
+    "numerical_reproduction": {
+     "published_curve_on_rounded_hc_rows": {
+      "observations": 12,
+      "pressure_rmse_gpa": 0.10819370267208199,
+      "max_abs_pressure_residual_gpa": 0.1696839117523723
+     },
+     "diagnostic_unweighted_pressure_refit": {
+      "objective": "Unweighted pressure residuals on the 12 rounded HC Table S1 rows; diagnostic only because source weights and unrounded inputs are unavailable.",
+      "V0": 58.61201868,
+      "K0": 223.41827131,
+      "K0_prime": 4.0665353,
+      "pressure_rmse_gpa": 0.09518132012604023,
+      "disposition": "No refit record is created; the source-reported parameters remain executable."
+     },
+     "independent_density_benchmarks": [
+      {
+       "pressure_gpa": 60.0,
+       "published_density_g_cm3": 6.055,
+       "calculated_density_g_cm3": 6.054377515118619,
+       "source_location": "Table 3"
+      },
+      {
+       "pressure_gpa": 90.0,
+       "published_density_g_cm3": 6.428,
+       "calculated_density_g_cm3": 6.429976076586873,
+       "source_location": "Table 3"
+      }
+     ]
+    },
+    "elastic_density_boundary": {
+     "finding": "Table 3 bulk and shear moduli and sound velocities are Voigt-Reuss-Hill aggregates derived from the calculated elastic tensor. They are not volumetric EOS coefficients or observations and are not used in the BM3 refit. Table 3 density values are used only as independent curve benchmarks."
+    },
+    "unresolved_issues": [
+     "The paper does not state the confidence convention for Table 2 parameter errors and publishes no covariance matrix, fit weights, fit statistic, or unrounded optimized P-V table.",
+     "The HOC Table 2 V0 conflicts with Supporting Information Table S1; that branch is deliberately not bundled as an executable record.",
+     "Table 2 labels the HOC fit interval as 0-20 GPa, while Table S1 has O-H equal to half the O-to-O distance from 10 GPa onward; the exact metastable HOC row selection is therefore not recoverable from the printed supplement."
     ]
    },
    "notes": "This record represents only the volumetric BM3 fit for the hydrogen-centered low-spin ferromagnetic Pnnm branch. The paper's self-consistent Hubbard U changes with pressure; it is part of the computational protocol, not an EOS coefficient. Table 3 elastic moduli and velocities come from stress-strain elastic tensors and Voigt-Reuss-Hill averaging and are not substituted for the volumetric K0 or K0'. All three BM3 parameters were fitted. Published parameter errors are retained, but their confidence level and covariance are unavailable."

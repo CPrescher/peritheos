@@ -133,7 +133,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
@@ -339,16 +339,19 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The author-posted primary manuscript was checked for the equation baseline, fixed/fitted coefficients, uncertainties, phase and volume basis, calibration, complete Table IV observations, and numerical reproduction.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "volume_basis",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/abs/cond-mat/0702656",
@@ -372,7 +375,12 @@
       "Table IV, journal page 214104-5"
      ],
      "finding": "All 66 printed P-V-T rows are bundled. The lattice parameter is retained at the table's higher precision and used to reconstruct V=a^3/8 for reproduction and refitting."
-    }
+    },
+    "unresolved_issues": [
+     "Section IV prints gamma_th0=1.04(1), while final Table V prints 1.04(2); the final table is authoritative here.",
+     "The regression objective, weights, unrounded observations, and parameter covariance are not published.",
+     "Exact pressure re-reduction is unavailable without the row-wise optical-marker shifts and helium volumes."
+    ]
    }
   }
  ],

@@ -175,20 +175,26 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_basis",
      "equation",
      "parameters",
+     "fixed_parameter_status",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
-     "doi": "10.1029/98jb01575",
+     "doi": "10.1029/98JB01575",
      "locations": [
       "Experimental method",
       "Table 1",
@@ -208,6 +214,16 @@
       "Section 3.1 and Table 1"
      ],
      "finding": "The two source states are bundled from printed pressure and lattice values; the nonzero-pressure volume and its propagated uncertainty are calculated transparently from the printed axes."
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Fixed-V0 BM2 solution from the rounded high-pressure lattice product, with K0'=4 implicit in BM2.",
+     "parameters": {
+      "V0": 240.3,
+      "K0": 211.43687148
+     },
+     "published_curve_pressure_residual_gpa": -0.06901118,
+     "finding": "The refitted K0 differs from the published value by 0.44 GPa, much less than the printed 6 GPa standard uncertainty."
     }
    },
    "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4."

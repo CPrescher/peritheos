@@ -232,20 +232,29 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final publisher article, official Wiley Supporting Information S1, and the cited same-batch Lin et al. (2012) characterization. LitCurate was used for discovery only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystal_system",
+     "cell_setting",
+     "formula_units_per_cell",
+     "spin_branch",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1002/2015GL064400",
-     "doi": "10.1002/2015gl064400",
+     "doi": "10.1002/2015GL064400",
      "locations": [
       "final article, pages 4335-4342, especially Experiments and Results",
       "official Wiley attachment grl53012-sup-0001-supinfo.doc, Texts S1-S2, Figure S5, and Tables S1-S2",
@@ -265,7 +274,52 @@
       "official Wiley Supporting Information S1, Table S1"
      ],
      "finding": "All 97 printed P, Pstd, conventional-cell V, and Vstd observations from three runs are bundled, including all 28 laser-annealing flags and the measured ambient high-spin anchor. The explicit above-25-GPa rule selects 63 low-spin rows for the published EOS."
-    }
+    },
+    "numerical_reproduction": {
+     "states": [
+      {
+       "source_pressure_gpa": 80.7,
+       "source_volume_a3": 134.04,
+       "source_pressure_standard_deviation_gpa": 1.6,
+       "calculated_pressure_gpa": 80.7786155467,
+       "absolute_difference_gpa": 0.0786155467
+      },
+      {
+       "source_pressure_gpa": 125.6,
+       "source_volume_a3": 125.06,
+       "source_pressure_standard_deviation_gpa": 2.6,
+       "calculated_pressure_gpa": 126.1842681245,
+       "absolute_difference_gpa": 0.5842681245
+      }
+     ],
+     "tolerance_basis": "Each independent high-pressure Table S1 state is reproduced within its printed pressure standard deviation using only the rounded published coefficients."
+    },
+    "independent_refit": {
+     "selection": "63 Table S1 observations with reported pressure >25 GPa",
+     "objective": "diagnostic iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2",
+     "free_parameters": [
+      "V0",
+      "K0"
+     ],
+     "fixed_parameters": {
+      "K0_prime": 4.0
+     },
+     "refit_parameters": {
+      "V0": 162.5849494078,
+      "K0": 283.9449500278
+     },
+     "published_curve_pressure_rmse_gpa": 0.4607032343,
+     "refit_curve_pressure_rmse_gpa": 0.4622988013,
+     "result": "parity",
+     "notes": "The diagnostic refit recovers both printed free coefficients within their rounding intervals. The publication gives neither its numerical objective nor weighting details, software, covariance matrix, or fit statistic, so the effective-variance reconstruction is not asserted to be the authors' exact fit protocol and its covariance is not substituted for missing source covariance."
+    },
+    "unresolved_issues": [
+     "No numerical parameter covariance is recoverable. Supporting Figure S5 shows only a graphical 1-sigma K0-V0 confidence ellipse.",
+     "The source does not state fit software, objective, weighting details, or a fit statistic.",
+     "Supporting Text S2 says a high-spin EOS was fitted below the transition onset, but neither the article nor official supplement prints its coefficients; no executable high-spin record is inferred.",
+     "The 2015 source reports approximately 20% of total Fe as B-site Fe3+ and approximately 80% as A-site Fe2+, but does not publish crystallographic site occupancies or a charge-balanced site formula.",
+     "The supporting-information attachment does not state a data reuse license."
+    ]
    },
    "source_lineage": [
     {
@@ -358,20 +412,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "volume_basis"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/91JB00176",
-     "doi": "10.1029/91jb00176",
+     "doi": "10.1029/91JB00176",
      "locations": [
       "Abstract",
       "298 K isotherm results"

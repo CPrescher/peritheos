@@ -333,16 +333,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the primary article and official MSA supplemental tables; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystal_system",
+     "space_group",
+     "formula_units_per_cell",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
@@ -486,16 +494,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against Equations 1-3, Table 2, Figure 3d, and the official supplemental table.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
-     "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "primary_data",
+     "fit_relationship"
     ],
     "primary_source_check": {
      "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",
@@ -614,16 +623,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated independently against the primary paper's equations, computational methods, Table 2, and Figure 3a.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "source_curve"
     ],
     "primary_source_check": {
      "access_url": "https://rruff.info/doclib/am/vol100/AM100_2199.pdf",

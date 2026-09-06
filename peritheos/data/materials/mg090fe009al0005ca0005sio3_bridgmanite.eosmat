@@ -246,16 +246,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the open-access primary article; LitCurate was used only for discovery.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "crystal_system",
+     "cell_setting",
+     "formula_units_per_cell",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1073/pnas.0506811103",
@@ -277,6 +285,17 @@
       "Figure 2, open-circle pv observations; recovered ambient V0"
      ],
      "finding": "Eleven separable high-pressure open-circle markers and the recovered ambient V0 are bundled; no numerical P-V table accompanies the article."
+    },
+    "independent_refit": {
+     "method": "unweighted pressure residuals on recovered V0 plus 11 digitized high-pressure pv markers; V0=163.3 A^3 and K0'=3.7 fixed, K0 free",
+     "parameters": {
+      "V0": 163.3,
+      "K0": 253.83836311,
+      "K0_prime": 3.7
+     },
+     "published_curve_pressure_rmse_gpa": 1.2241948,
+     "refit_pressure_rmse_gpa": 1.15220569,
+     "assessment": "The one-parameter refit reproduces K0 within the printed one-sigma uncertainty."
     }
    }
   }

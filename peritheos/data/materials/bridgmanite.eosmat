@@ -487,16 +487,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the final American Mineralogist article and the author-uploaded journal PDF. LitCurate was used only for discovery. The publisher and author records expose no separate supplement.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-1999-0303",
@@ -508,17 +516,6 @@
      ],
      "finding": "The article defines two high-temperature BM3 models that share the same 300 K isotherm. Tables 2 and 3 give V0=24.45 cm^3/mol and K0=260.51 GPa at 300 K, while the abstract and Equation 16 prescribe K'_300=4. This yields one non-duplicate static BM3 record on the source's Jamieson-1982 Pt pressure scale.",
      "doi": "10.2138/am-1999-0303"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "bridgmanite_saxena_1999_table1_pvt"
-     ],
-     "source_locations": [
-      "Table 1, all 37 new P-V-T observations"
-     ],
-     "finding": "All 37 primary P-V-T rows printed in Table 1 are bundled with their parenthesized molar-volume uncertainties. The paper does not publish the simultaneous Pt observations, retained-row pressure uncertainties, or individual temperature errors; it only states the pressure-error rejection threshold and a common thermocouple error bound."
     },
     "reported_parameterizations": [
      {
@@ -535,7 +532,52 @@
       "K0_prime_temperature_law": "Equation 16",
       "disposition": "Not stored because the current thermal schema cannot represent the complete source convention exactly."
      }
-    ]
+    ],
+    "numerical_reproduction": {
+     "published_curve_check": "At the highest 300 K Table 1 observation, V=19.846 cm^3/mol, the stored BM3 predicts 82.5577 GPa versus the printed 82.5 GPa. The 0.0577 GPa difference is below the article's 0.5 GPa pressure-error rejection threshold and is consistent with the printed V0 precision.",
+     "independent_300_k_refit": {
+      "status": "parity_accepted",
+      "purpose": "Diagnostic reproduction of the represented static slice, not a reconstruction of either published full thermal regression.",
+      "source_subset": "The ten Table 1 observations printed at 300 K.",
+      "model": "Standard third-order Birch-Murnaghan pressure equation (Equation 5), with K0_prime fixed at the published 300 K value of 4.",
+      "free_parameters": [
+       "V0",
+       "K0"
+      ],
+      "residual_definition": "Nonlinear least squares in molar volume: [V_model(P_i)-V_i]/sigma_V_i. V_model was obtained by numerically inverting the represented BM3 pressure equation for each observed pressure.",
+      "uncertainty_treatment": "The parenthesized molar-volume uncertainties printed for the ten rows were used as relative weights. Their confidence convention is unpublished, so the fit does not promote its diagnostic covariance to source-reported parameter uncertainty.",
+      "pressure_uncertainty_treatment": "No pressure weights were used because retained-row pressure uncertainties are not printed. The stated 0.5 GPa cutoff is a rejection threshold, not a common pressure sigma.",
+      "result": {
+       "V0_molar_cm3_mol": 24.44757948,
+       "V0_cell_angstrom3": 162.38464327,
+       "K0_gpa": 260.48766286,
+       "reduced_chi_square_if_printed_volume_uncertainties_are_1sigma": 0.00110423827,
+       "unscaled_linearized_standard_error_V0_cell_angstrom3": 0.2142853,
+       "unscaled_linearized_standard_error_K0_gpa": 2.62311623
+      },
+      "published_parity": {
+       "published_V0_cell_angstrom3": 162.4007,
+       "delta_V0_cell_angstrom3": -0.01605673,
+       "absolute_relative_delta_V0_percent": 0.0098871,
+       "published_K0_gpa": 260.51,
+       "delta_K0_gpa": -0.02233714,
+       "absolute_relative_delta_K0_percent": 0.00857439
+      },
+      "assessment": "Both fitted coefficients differ from the published slice by less than 0.01% and by far less than the diagnostic unscaled linearized standard errors. The ten-row 300 K subset therefore independently reproduces the represented slice to scientifically acceptable parity."
+     },
+     "limitation": "The article's fitted data combine the 37 new Table 1 observations with earlier literature data that are not reprinted, and it gives no weights, residual objective, covariance, or parameter-error convention. The diagnostic ten-row 300 K refit reproduces the stored slice, but an independent source-protocol reconstruction of the full thermal/literature regression remains impossible from this DOI alone."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "bridgmanite_saxena_1999_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, all 37 new P-V-T observations"
+     ],
+     "finding": "All 37 primary P-V-T rows printed in Table 1 are bundled with their parenthesized molar-volume uncertainties. The paper does not publish the simultaneous Pt observations, retained-row pressure uncertainties, or individual temperature errors; it only states the pressure-error rejection threshold and a common thermocouple error bound."
+    }
    }
   },
   {
@@ -671,20 +713,28 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the primary article and its formal corrigendum. LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "corrigendum"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2008GL035658",
-     "doi": "10.1029/2008gl035658",
+     "doi": "10.1029/2008GL035658",
      "locations": [
       "original article abstract and paragraphs 5-18",
       "original article equations 1-8",
@@ -703,6 +753,24 @@
       "publisher file grl26199-sup-0001-t01.txt"
      ],
      "finding": "All 89 corrected P-V-T rows are bundled in source order with apparatus, MgO and bridgmanite compression ratios, reduced mean pressure, and printed uncertainties."
+    },
+    "numerical_reproduction": {
+     "selection": "the nine rows at 300-308 K, evaluated as the article's ambient-temperature subset",
+     "published_curve_pressure_rmse_gpa": 0.3202084026,
+     "published_curve_max_absolute_pressure_residual_gpa": 0.5699353837,
+     "conditional_refit": {
+      "model": "BM3 with K0_prime fixed to the published 3.8 and V0 represented by the corrected V/V0 ratio",
+      "fitted_K0_gpa": 255.5075102,
+      "delta_from_published_K0_gpa": -0.4924898,
+      "result": "within the published 2 GPa interval"
+     },
+     "unconstrained_rounded_table_diagnostic": {
+      "K0_gpa": 261.43727288,
+      "K0_prime": 3.40489198,
+      "pressure_rmse_gpa": 0.2467898048
+     },
+     "result": "curve_data_parity_accepted",
+     "notes": "The source does not publish fit weights, covariance, or unrounded corrected observations. Because K0 and K0-prime are strongly correlated over this pressure interval, a two-parameter refit to four-decimal V/V0 values shifts along the tradeoff direction; the conditional coefficient check and direct published-curve residual are used for parity rather than replacing the authors' coefficients."
     },
     "reported_parameterizations": [
      {
@@ -733,6 +801,10 @@
       "anderson_gruneisen_delta_T": 6.5,
       "anderson_gruneisen_delta_T_error": 0.5
      }
+    ],
+    "unresolved_issues": [
+     "The paper gives no fit weights, parameter covariance, or confidence convention for parenthesized EOS errors.",
+     "The article's complete thermal formulation also reports a temperature-dependent bulk modulus and thermal-expansion law; this record intentionally exposes only its exact executable 300 K BM3 slice."
     ]
    },
    "notes": "Preferred source-reported room-temperature BM3 for pure MgSiO3 bridgmanite. The formal corrigendum corrects Table 1 but states that no EOS parameters change. The static record is separate from the article's MGD and high-temperature-BM formulations and is not made the material default."
@@ -840,20 +912,21 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the primary article and formal corrigendum; this is a source-generated same-data sensitivity fit, not a LitCurate reconstruction.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
      "equation",
      "parameters",
-     "units",
+     "fixed_parameters",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "primary_data",
+     "corrigendum"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2008GL035658",
-     "doi": "10.1029/2008gl035658",
+     "doi": "10.1029/2008GL035658",
      "locations": [
       "original article section 4.1, paragraph 12",
       "corrigendum corrected Table 1, doi:10.1029/2009GL039318"
@@ -866,6 +939,15 @@
      "dataset_identifiers": [
       "bridgmanite_katsura_2009_corrected_table1_pvt"
      ]
+    },
+    "numerical_reproduction": {
+     "selection": "the nine corrected Table 1 rows at 300-308 K",
+     "model": "BM3 with K0 fixed to 253 GPa; pressure-uncertainty-weighted residuals",
+     "fitted_K0_prime": 4.12823286,
+     "delta_from_published_K0_prime": 0.02823286,
+     "published_curve_pressure_rmse_gpa": 0.4699782114,
+     "result": "parity_accepted",
+     "notes": "The independent rounded-table estimate differs by 0.14 of the published K0-prime interval."
     }
    },
    "notes": "Source-generated K0-fixed sensitivity fit to the same corrected data as the preferred companion record. It is retained because LitCurate independently proposed this exact parameterization and the primary paper explicitly reports it."
@@ -1056,20 +1138,28 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final Wolf et al. article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "parameter_covariance",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1002/2015JB012108",
-     "doi": "10.1002/2015jb012108",
+     "doi": "10.1002/2015JB012108",
      "locations": [
       "final Wolf et al. article, sections 3.1-3.4 and 4.2",
       "final Wolf et al. article, equations 1-11 and Tables 2-4",
@@ -1090,7 +1180,34 @@
       "corresponding-author machine-readable Table 2"
      ],
      "finding": "All 42 reanalyzed observations are bundled in source order, with reduced pressure and total propagated uncertainty, temperature and uncertainty, bridgmanite cell volume and uncertainty, and paired MgO cell volume and uncertainty."
-    }
+    },
+    "independent_refit": {
+     "selection": "all 42 Table 2 rows",
+     "objective": "joint weighted pressure residuals using the final printed total pressure uncertainties, plus the published independent Gaussian priors on V0, gamma0, and q; theta0 fixed to 1000 K",
+     "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime",
+      "gamma0",
+      "q"
+     ],
+     "refit_parameters": {
+      "V0": 162.12798543,
+      "K0": 262.21990748,
+      "K0_prime": 4.04745932,
+      "gamma0": 1.67933146,
+      "q": 1.41547507
+     },
+     "published_curve_pressure_rmse_gpa": 0.3027410708,
+     "refit_curve_pressure_rmse_gpa": 0.2986905827,
+     "result": "similar",
+     "notes": "The rounded-table diagnostic reproduces V0, K0, K0', and gamma0 within displayed rounding or a small fraction of their 68% intervals; q differs by 0.0255, only 0.16 of its reported interval. This is not substituted for the authors' iterative marker-volume error-model fit."
+    },
+    "unresolved_issues": [
+     "The publisher record exposes no separate supporting-information file; the final article states that the analyzed data are included in its tables, and the corresponding author supplies exact machine-readable mirrors of Tables 1-5.",
+     "The corresponding-author plain-text Table 2 header mistakenly labels the last volume pair V_Ne; final article Table 2, section 3.1, and the PVT-tool input all identify those values as MgO, which is retained here.",
+     "The source's ideal lattice mixing model for arbitrary Fe content is a separate compositional interpolation and is not represented as another single-composition EOS record."
+    ]
    },
    "source_lineage": [
     {
@@ -1208,20 +1325,26 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked against the open-access final article and the authors' Figshare measurement workbook; LitCurate was used only to identify the candidate set.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://epub.uni-bayreuth.de/5769/1/2020JB020967.pdf",
-     "doi": "10.1029/2020jb020967",
+     "doi": "10.1029/2020JB020967",
      "locations": [
       "Section 3.3, Equation 3",
       "Table 1",
@@ -1240,6 +1363,12 @@
       "author Figshare workbook sound velocity data.xlsx"
      ],
      "finding": "All 14 reported pressure-point densities and one-standard-deviation uncertainties are bundled, with conventional-cell volumes independently reconstructed from density."
+    },
+    "numerical_reproduction": {
+     "published_curve_pressure_rmse_gpa": 0.0658748178,
+     "published_curve_max_absolute_pressure_residual_gpa": 0.2434557113,
+     "result": "curve_data_parity_accepted",
+     "notes": "The direct BM3 pressure evaluation agrees with the rounded Table 1 pressure-density series. The maximum occurs at the 78.8 GPa row, whose density is printed to only 0.01 g/cm3."
     }
    },
    "notes": "The source calls K_TR0 and K'_TR0 a primary pressure scale. The reference cell volume is recovered transparently from the source's ambient density rather than copied from LitCurate. No covariance is published."
@@ -1355,20 +1484,28 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Checked directly against the publisher primary article and exact Table 1 room-temperature rows.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_setting",
+     "formula_units_per_cell",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "fit_selection",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/1999GL008397",
-     "doi": "10.1029/1999gl008397",
+     "doi": "10.1029/1999GL008397",
      "locations": [
       "Experimental section",
       "Table 1",
@@ -1386,6 +1523,18 @@
       "Table 1, all 25 rows at 298 K"
      ],
      "finding": "Every printed 298 K pressure, volume, and parenthetical uncertainty is transcribed exactly."
+    },
+    "numerical_reproduction": {
+     "published_curve_pressure_rmse_gpa": 0.7070408617,
+     "published_curve_max_abs_residual_gpa": 1.5822694033,
+     "fixed_V0_diagnostic": {
+      "V0": 162.27,
+      "K0": 253.32441736,
+      "K0_prime": 3.91619023,
+      "pressure_rmse_gpa": 0.6837616952
+     },
+     "result": "parameter_and_curve_parity_accepted",
+     "notes": "Holding the precisely reported V0 only for the deterministic audit recovers K0 and K0' well inside their published uncertainties. An all-free unweighted fit is also reported by the reproduction script because the exact generalized-least-squares covariance is unavailable."
     }
    },
    "notes": "All three coefficients were fitted by the authors; none is marked fixed. Parenthetical uncertainties are preserved, while the confidence convention and covariance are not reported for this room-temperature fit."
@@ -1476,20 +1625,23 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the official full-text article, Table 1(c), and Section 3.2.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "composition",
+     "phase",
      "equation",
      "parameters",
+     "fixed_parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "pressure_range",
+     "theoretical_method",
+     "control_relationship"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-     "doi": "10.1111/j.1365-246x.2012.05511.x",
+     "doi": "10.1111/j.1365-246X.2012.05511.x",
      "locations": [
       "Table 1(c)",
       "Section 3.2"
@@ -1505,6 +1657,11 @@
       "Section 3.2"
      ],
      "finding": "The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated."
+    },
+    "independent_refit": {
+     "classification": "not_refittable",
+     "method": "Source-specific parameterization and cross-composition trend checks; the energy-volume grid is unavailable.",
+     "finding": "The control reproduces the source's reported Fe-content bulk-modulus trends when compared with the model-1 HS and LS fits."
     }
    },
    "notes": "A source-generated static comparison record. It is distinct by method and reference state from previously cataloged experimental MgSiO3 EOS records."
@@ -1596,20 +1753,22 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the author-deposited published article.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "volume_range"
     ],
     "primary_source_check": {
      "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
-     "doi": "10.1029/2005gl023192",
+     "doi": "10.1029/2005GL023192",
      "locations": [
       "Section 2",
       "Table 1"
@@ -1620,6 +1779,15 @@
      "status": "parameterization_only",
      "audit_date": "2026-09-05",
      "finding": "The E(V) rows, weights, residuals, and covariance are not tabulated."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "BM3 pressure evaluated at the source-stated V/V0=0.65 endpoint.",
+     "parameters": {
+      "volume_ratio": 0.65,
+      "pressure_gpa": 230.833063
+     },
+     "finding": "The result is above 200 GPa, consistent with the independent source statement that the calculation range reaches just above 200 GPa."
     }
    },
    "notes": "Source-specific theoretical comparison; it does not replace the experimental catalog default."
@@ -1752,20 +1920,23 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the openly deposited final article and its complete pure-MgSiO3 Table 1 observations.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "thermal_parameters",
+     "primary_data",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://zenodo.org/records/3653697",
-     "doi": "10.1029/2012gl053075",
+     "doi": "10.1029/2012GL053075",
      "locations": [
       "Methods",
       "Table 1",
@@ -1784,6 +1955,15 @@
       "Table 1, all eleven Mg-Pv rows"
      ],
      "finding": "All Mg-Pv pressures, temperatures, densities, P-wave and S-wave velocities, and printed uncertainties are transcribed."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "Direct 300 K BM3 evaluation against the nine source P-density states after converting V0 from Table 3.",
+     "parameters": {
+      "pressure_rmse_gpa": 0.62846311,
+      "maximum_absolute_pressure_residual_gpa": 1.16597993
+     },
+     "finding": "The source curve tracks all Table 1 states; an exact coefficient refit is inappropriate because K_T=252 GPa derives from the combined acoustic fit rather than a P-V-only regression."
     }
    },
    "notes": "The stored pressure surface excludes Table 3 shear coefficients G, G', and eta, which do not enter the supported MGD pressure equation."
@@ -1869,20 +2049,21 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
-     "units",
+     "volume_basis",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/2204.13159",
-     "doi": "10.1103/physrevb.106.054103",
+     "doi": "10.1103/PhysRevB.106.054103",
      "locations": [
       "Sections II-III",
       "Figure 2",
@@ -1978,20 +2159,21 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
-     "units",
+     "volume_basis",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/2204.13159",
-     "doi": "10.1103/physrevb.106.054103",
+     "doi": "10.1103/PhysRevB.106.054103",
      "locations": [
       "Sections II-III",
       "Figure 2",
@@ -2078,20 +2260,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "volume_basis"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/91JB00176",
-     "doi": "10.1029/91jb00176",
+     "doi": "10.1029/91JB00176",
      "locations": [
       "Abstract",
       "298 K isotherm results"
@@ -2191,16 +2373,17 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Complete four-coefficient modified-Tait row recovered from the article's official THERMOCALC artifact and executed numerically.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "volume_basis",
+     "reference_state"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",

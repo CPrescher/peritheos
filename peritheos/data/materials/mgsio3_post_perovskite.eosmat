@@ -396,16 +396,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "composition",
+     "phase",
+     "structure",
+     "cell_volume_and_z",
      "equation",
      "parameters",
+     "fixed_parameter_status",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "covariance_availability",
+     "experimental_range",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
@@ -431,10 +439,39 @@
      ],
      "finding": "All six 300 K observations are bundled with gold lattice parameters, all three published pressure reductions, MgSiO3 lattice parameters, cell volumes, printed errors, and fit inclusion."
     },
+    "independent_numerical_check": {
+     "method": "Direct BM2 evaluation from the printed V0 and K0 against all six Anderson-scale Table 2 P-V rows.",
+     "pressure_rmse_gpa": 1.4316084629,
+     "maximum_absolute_pressure_residual_gpa": 2.4683531256,
+     "first_source_state": {
+      "volume_a3": 123.26,
+      "source_pressure_gpa": 116.1,
+      "calculated_pressure_gpa": 115.433064
+     },
+     "high_pressure_source_state": {
+      "volume_a3": 117.91,
+      "source_pressure_gpa": 144.4,
+      "calculated_pressure_gpa": 146.310593
+     }
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Diagnostic iteratively reweighted pressure residual fit using printed pressure errors and volume errors propagated through dP/dV; the paper's exact Angel (2000) weighting configuration is not stated, so this is not substituted for the published record.",
+     "parameters": {
+      "V0_fixed": 162.86,
+      "K0": 237.18599457,
+      "K0_prime_fixed": 4.0
+     }
+    },
     "reported_inconsistencies": [
      "Figure 2 captions the Anderson curve as K0=236(1) GPa, while the abstract, Results prose, and Table 3 report 237(1) GPa. The repeated prose/table value is stored; the caption-only value is not added as a duplicate EOS.",
      "Results prose says Z=2, whereas the Table 1 note explicitly says Cmcm Z=4 and the listed conventional-cell sites have multiplicities 4, 4, 4, and 8. Peritheos uses the conventional Cmcm cell and Z=4; Z=2 is consistent only with a primitive-cell count.",
      "Table 2 prints MgSiO3 a=2.250(3) A in row 3, inconsistent with b, c, and V=120.11(22) A^3; a near 2.450 A would be required. The printed 2.250 value is preserved, and EOS reproduction uses the independently printed volume."
+    ],
+    "unresolved_issues": [
+     "The article does not state the confidence convention of the parenthetical K0 errors and publishes no parameter covariance matrix.",
+     "The exact weighted-least-squares objective and weights used by the cited Angel (2000) program are not printed.",
+     "The fixed 162.86 A^3 zero-pressure volume was adopted from a 0 K LDA calculation even though the experimental isotherm and reported K0 are at 300 K."
     ]
    },
    "notes": "Pure MgSiO3 CaIrO3-type post-perovskite, not CaIrO3 composition or bridgmanite. The conventional Cmcm volume contains four MgSiO3 formula units. This pressure-scale-specific record is distinct from the later Mosenfelder and Sakai parameterizations."
@@ -557,16 +594,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "composition",
+     "phase",
+     "structure",
+     "cell_volume_and_z",
      "equation",
      "parameters",
+     "fixed_parameter_status",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "covariance_availability",
+     "experimental_range",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
@@ -592,10 +637,39 @@
      ],
      "finding": "All six 300 K observations and all three published pressure-scale reductions are bundled from Table 2."
     },
+    "independent_numerical_check": {
+     "method": "Direct BM2 evaluation against all six Jamieson-scale Table 2 P-V rows.",
+     "pressure_rmse_gpa": 1.7431148814,
+     "maximum_absolute_pressure_residual_gpa": 2.9002017147,
+     "first_source_state": {
+      "volume_a3": 123.26,
+      "source_pressure_gpa": 111.5,
+      "calculated_pressure_gpa": 110.075411
+     },
+     "high_pressure_source_state": {
+      "volume_a3": 117.91,
+      "source_pressure_gpa": 137.0,
+      "calculated_pressure_gpa": 139.519806
+     }
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Diagnostic iteratively reweighted pressure residual fit using printed pressure and propagated volume errors; exact source weighting is not stated.",
+     "parameters": {
+      "V0_fixed": 162.86,
+      "K0": 226.81325417,
+      "K0_prime_fixed": 4.0
+     }
+    },
     "reported_inconsistencies": [
      "Figure 2 captions the Jamieson curve as K0=225(1) GPa, while Results prose and Table 3 report 226(1) GPa. The repeated prose/table value is stored; the caption-only value is not added as a duplicate EOS.",
      "Results prose says Z=2, whereas the Table 1 note and conventional Cmcm site multiplicities establish Z=4.",
      "Table 2 row 3 prints MgSiO3 a=2.250(3) A, inconsistent with the independently printed cell volume; the typo is preserved and the volume column is used for EOS reproduction."
+    ],
+    "unresolved_issues": [
+     "The exact Jamieson et al. (1982) gold EOS is not bundled as an executable reference record.",
+     "The K0 error confidence convention, covariance matrix, and exact Angel (2000) weighting configuration are not published.",
+     "The fixed zero-pressure V0 is a 0 K LDA value used in a 300 K experimental isotherm."
     ]
    },
    "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4."
@@ -721,16 +795,24 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the final American Mineralogist PDF; discovery metadata was not used as scientific authority.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "composition",
+     "phase",
+     "structure",
+     "cell_volume_and_z",
      "equation",
      "parameters",
+     "fixed_parameter_status",
      "units",
      "reference_state",
-     "phase",
      "published_uncertainties",
-     "validity"
+     "covariance_availability",
+     "experimental_range",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://rruff.info/doclib/am/vol91/AM91_475.pdf",
@@ -756,10 +838,41 @@
      ],
      "finding": "All six 300 K observations and all three published pressure-scale reductions are bundled from Table 2."
     },
+    "independent_numerical_check": {
+     "method": "Direct BM2 evaluation against all six Dewaele-scale Table 2 P-V rows.",
+     "pressure_rmse_gpa": 1.4859096032,
+     "maximum_absolute_pressure_residual_gpa": 2.6365045365,
+     "first_source_state": {
+      "volume_a3": 123.26,
+      "source_pressure_gpa": 121.4,
+      "calculated_pressure_gpa": 120.790717
+     },
+     "high_pressure_source_state": {
+      "volume_a3": 117.91,
+      "source_pressure_gpa": 151.1,
+      "calculated_pressure_gpa": 153.10138
+     },
+     "rounded_gold_lattice_recalculation": {
+      "maximum_absolute_pressure_difference_gpa": 0.062045
+     }
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Diagnostic iteratively reweighted pressure residual fit using printed pressure and propagated volume errors; exact source weighting is not stated.",
+     "parameters": {
+      "V0_fixed": 162.86,
+      "K0": 248.04644766,
+      "K0_prime_fixed": 4.0
+     }
+    },
     "reported_inconsistencies": [
      "The paper title and abstract use the Anderson-scale 144 GPa maximum, whereas Table 2 reports the same last observation as 151.1 GPa on the Dewaele scale.",
      "Results prose says Z=2, whereas the Table 1 note and conventional Cmcm site multiplicities establish Z=4.",
      "Table 2 row 3 prints MgSiO3 a=2.250(3) A, inconsistent with the independently printed cell volume; the typo is preserved and the volume column is used for EOS reproduction."
+    ],
+    "unresolved_issues": [
+     "The K0 error confidence convention, covariance matrix, and exact Angel (2000) weighting configuration are not published.",
+     "The fixed zero-pressure V0 is a 0 K LDA value used in a 300 K experimental isotherm."
     ]
    },
    "notes": "Pressure-scale alternative for the same six pure-MgSiO3 post-perovskite observations; not a separate sample. The conventional Cmcm cell has Z=4."
@@ -851,20 +964,22 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Validated against the author-deposited published article.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method",
+     "volume_range"
     ],
     "primary_source_check": {
      "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
-     "doi": "10.1029/2005gl023192",
+     "doi": "10.1029/2005GL023192",
      "locations": [
       "Section 2",
       "Table 1"
@@ -875,6 +990,15 @@
      "status": "parameterization_only",
      "audit_date": "2026-09-05",
      "finding": "The E(V) rows, weights, residuals, and covariance are not tabulated."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "BM3 pressure evaluated at the source-stated V/V0=0.65 endpoint.",
+     "parameters": {
+      "volume_ratio": 0.65,
+      "pressure_gpa": 218.08849812
+     },
+     "finding": "The result is above 200 GPa, consistent with the independent source statement that the calculation range reaches just above 200 GPa."
     }
    },
    "notes": "Source-specific theoretical comparison; it does not replace experimental records."
@@ -960,20 +1084,21 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
-     "units",
+     "volume_basis",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/2204.13159",
-     "doi": "10.1103/physrevb.106.054103",
+     "doi": "10.1103/PhysRevB.106.054103",
      "locations": [
       "Sections II-III",
       "Figure 2",
@@ -1069,20 +1194,21 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
      "equation",
      "parameters",
-     "units",
+     "volume_basis",
      "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
+     "theoretical_method"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/2204.13159",
-     "doi": "10.1103/physrevb.106.054103",
+     "doi": "10.1103/PhysRevB.106.054103",
      "locations": [
       "Sections II-III",
       "Figure 2",
