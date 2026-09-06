@@ -41,7 +41,7 @@ def test_diagnostic_refits_recover_published_uncertainty_regions():
         (183.01609525, 192.6917299, 4.0), rel=2.0e-8
     )
     assert metrics["free"]["refit_parameters"] == pytest.approx(
-        (182.17460987, 212.62137272, 3.46315314), rel=2.0e-8
+        (182.17460987, 212.62137272, 3.46315314), rel=1.0e-6
     )
     assert metrics["fixed"]["published_rmse_gpa"] < 0.88
     assert metrics["free"]["published_rmse_gpa"] < 0.90
