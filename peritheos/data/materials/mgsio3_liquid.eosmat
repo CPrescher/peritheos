@@ -1,0 +1,151 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mgsio3_liquid",
+ "name": "Liquid MgSiO3",
+ "formula": "MgSiO3",
+ "phase": "MgSiO3 liquid",
+ "aliases": [
+  "molten MgSiO3",
+  "MgSiO3 melt"
+ ],
+ "cell_contents": "Liquid EOS volumes are expressed per MgSiO3 formula unit; no crystallographic unit cell is implied.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "formula_units_per_cell": 1,
+ "atom_sites": [],
+ "peaks": [],
+ "notes": "A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.",
+ "eos_records": [
+  {
+   "identifier": "mgsio3_liquid_akins_2004_adiabatic_bm3",
+   "label": "Akins et al. (2004), candidate liquid MgSiO3 adiabatic BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Akins",
+     "Luo",
+     "Asimow",
+     "Ahrens"
+    ],
+    "year": 2004,
+    "title": "Shock-induced melting of MgSiO3 perovskite and implications for melts in Earth's lowermost mantle",
+    "source": "Geophysical Research Letters",
+    "volume": "31",
+    "locator": "L14612",
+    "doi": "10.1029/2004GL020237"
+   },
+   "sample_composition": "Stoichiometric MgSiO3 high-pressure melt candidate constrained by shock states from MgSiO3 glass and enstatite starting materials.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 45.29797155879917,
+     "K0": 125.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 298.15,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    206.0
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "experimental_temperature_range_k": [
+    298.15,
+    298.15
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     206.0
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "notes": [
+     "This executable BM3 is the source's zero-pressure reference isentrope for its candidate high-pressure melt EOS, not an ambient liquid isotherm.",
+     "The source's Gruneisen, heat-capacity, and transition-energy terms are not implied by this cold/reference-curve record."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Paragraph 4 and the electronic-data-supplement method define candidate Hugoniots as Mie-Gruneisen offsets from third-order Birch-Murnaghan isentropes.",
+    "V0": "Paragraph 4 reports rho0=3.68 g/cm3. M/rho0/N_A with M=100.387 g/mol gives 45.29797155879917 A3 per formula unit.",
+    "K0": "Paragraph 4: K0S=125 GPa.",
+    "K0_prime": "Paragraph 4: K0S'=4.0.",
+    "thermodynamic_basis": "K0 and K0_prime are adiabatic/isentrope coefficients. The schema's isothermal token identifies the executable equilibrium BM3 family because it has no separate adiabatic enum."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "source_location": "Paragraphs 3-4 and electronic data supplement",
+      "scope": "Candidate high-pressure melt EOS constrained by new MgSiO3 glass and enstatite shock states to 206 GPa."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The publication deposits reduced Hugoniot states, but the executable record is the authors' candidate reference isentrope rather than an independent refit of those states."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final primary article and its described electronic supplement; LitCurate was discovery-only.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "volume_basis",
+     "thermodynamic_basis"
+    ],
+    "primary_source_check": {
+     "access_url": "https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf",
+     "doi": "10.1029/2004GL020237",
+     "locations": [
+      "Paragraphs 3-4",
+      "Electronic data supplement Table 2",
+      "Electronic data supplement Appendix"
+     ],
+     "finding": "The paper reports a complete source-owned candidate liquid reference isentrope; LitCurate omitted the recoverable reference volume."
+    },
+    "primary_data_check": {
+     "status": "supporting_information_available",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Electronic data supplement Table 1",
+      "Electronic data supplement Table 2",
+      "Electronic data supplement Appendix"
+     ],
+     "finding": "The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting."
+    }
+   },
+   "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text."
+  }
+ ],
+ "datasets": []
+}

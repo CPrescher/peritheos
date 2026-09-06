@@ -23,7 +23,7 @@ from typing import Any
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
-REPORT_AUDIT_DATE = "2026-09-05"
+REPORT_AUDIT_DATE = "2026-09-06"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
 REPORT = ROOT / "peritheos" / "data" / "primary-source-audit.json"
@@ -3273,8 +3273,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 553:
-        raise ValueError(f"Expected 553 EOS records, found {len(entries)}")
+    if len(entries) != 612:
+        raise ValueError(f"Expected 612 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

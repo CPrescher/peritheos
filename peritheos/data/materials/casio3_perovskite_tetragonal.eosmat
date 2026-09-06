@@ -1,0 +1,174 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "casio3_perovskite_tetragonal",
+ "name": "Tetragonal CaSiO3 perovskite",
+ "formula": "CaSiO3",
+ "phase": "room-temperature tetragonal CaSiO3 perovskite",
+ "aliases": [
+  "tetragonal davemaoite",
+  "tetragonal Ca-perovskite"
+ ],
+ "symmetry": "TETRAGONAL",
+ "formula_units_per_cell": 1,
+ "cell_contents": "The EOS volume follows the source's one-formula-unit P4/mmm pseudocell indexing. The diffraction data do not uniquely distinguish P4/mmm from an octahedrally rotated tetragonal supercell.",
+ "atom_sites": [],
+ "peaks": [],
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "notes": "Shim et al. (2002) resolve tetragonal splitting above 20 GPa but explicitly leave the exact space group open. No unique atomic model, lattice metric, or ambient structure is inferred.",
+ "eos_records": [
+  {
+   "identifier": "casio3_perovskite_tetragonal_shim_2002_bm3_1",
+   "label": "Shim et al. (2002), tetragonal CaSiO3 BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Shim",
+     "Jeanloz",
+     "Duffy"
+    ],
+    "year": 2002,
+    "title": "Tetragonal structure of CaSiO3 perovskite above 20 GPa",
+    "source": "Geophysical Research Letters",
+    "volume": "29",
+    "locator": "2166",
+    "doi": "10.1029/2002GL016148"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 45.58,
+     "K0": 255.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 5.0,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": 0.6826894921370859,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    19.7,
+    45.8
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 116.161
+   },
+   "validity": {
+    "pressure_gpa": [
+     19.7,
+     45.8
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "The measurements were made after laser annealing and temperature quench; the paper does not establish this tetragonal structure as the simultaneous high-temperature phase.",
+     "V0 is an adopted zero-pressure extrapolation because CaSiO3 perovskite is not recovered as this phase at ambient conditions."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Paragraph 10: Birch-Murnaghan compression fit.",
+    "V0": "Paragraph 10: 45.58 A^3 adopted from Wang et al. (1996).",
+    "K0": "Abstract and paragraph 10: K0T=255+/-5 GPa.",
+    "K0_prime": "Abstract and paragraph 10: K0T'=4 fixed.",
+    "uncertainties": "The paper states that error bars are one standard deviation; no parameter covariance or regression weights are published."
+   },
+   "source_lineage": [
+    {
+     "role": "tetragonal diffraction observations and EOS fit",
+     "citation": "Shim, Jeanloz, and Duffy (2002), paragraphs 7-10",
+     "doi": "10.1029/2002GL016148"
+    },
+    {
+     "role": "adopted zero-pressure volume",
+     "citation": "Wang, Weidner, and Guyot (1996), JGR 101, 661-672",
+     "doi": "10.1029/95JB03254"
+    }
+   ],
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "source": "Journal of Applied Physics",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Experimental technique, paragraph 4: Pt internal pressure standard",
+      "reference_eos_record": "platinum_holmes_1989_vinet_1"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Experimental technique, paragraph 4",
+      "scope": "Ruby chips at sample edges were used as a secondary calibrant; the exact ruby scale is not identified."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The exact Pt EOS is executable, but the article does not tabulate row-wise Pt volumes and temperatures."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the author-hosted version of record; LitCurate was used only as a discovery lead.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://geoweb.princeton.edu/archival/duffy/shim_grl_o2.pdf",
+     "doi": "10.1029/2002gl016148",
+     "locations": [
+      "abstract",
+      "paragraphs 4-10",
+      "Figure 2"
+     ],
+     "finding": "Six diffraction images at 19.7-45.8 GPa support a source-owned BM3 fit with adopted V0 and K0' and fitted K0=255(5) GPa. Rows 408-409 in LitCurate are incomplete literature comparisons, not additional fits by this paper."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_figure_only",
+     "audit_date": "2026-09-06",
+     "finding": "The six pressures and plotted volume/c-axis-ratio observations appear in Figure 2, but numerical cell volumes are not tabulated; no pseudo-precision was introduced by digitizing the small four-page rendering."
+    }
+   },
+   "notes": "The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals."
+  }
+ ],
+ "datasets": []
+}

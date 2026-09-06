@@ -47,6 +47,12 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "fesio3_liquid_sun_2019_2500k_bm4_1": (
+        "The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, "
+        "rather than the numerical table, identifies the liquid states used by the "
+        "source fit, so the table is a checkpoint resource and not an asserted exact "
+        "regression input."
+    ),
     "coesite_v_bykova_2018_am05_static_bm3_refit": (
         "Table 10 contains only one coesite-V pressure-volume anchor, which is "
         "sufficient to verify the published-parameter reconstruction but not to "

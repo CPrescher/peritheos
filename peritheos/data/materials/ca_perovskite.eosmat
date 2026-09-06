@@ -3449,11 +3449,283 @@
      "source_locations": [
       "Online Materials Table S3"
      ],
-     "finding": "The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity."
+    "finding": "The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity."
     }
    }
-  }
- ],
+  },
+  {
+   "identifier": "ca_perovskite_karki_crain_1998_static_bm3",
+   "label": "Karki and Crain (1998), static cubic CaSiO3 BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Karki",
+     "Crain"
+    ],
+    "year": 1998,
+    "title": "First-principles determination of elastic properties of CaSiO3 perovskite at lower mantle pressures",
+    "source": "Geophysical Research Letters",
+    "volume": "25",
+    "locator": "2741-2744",
+    "doi": "10.1029/98GL51952"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 45.34,
+     "K0": 241.0,
+     "K0_prime": 4.14
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    140.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 116.161
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     140.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "notes": [
+     "Static-lattice LDA plane-wave pseudopotential result for the ideal cubic Pm-3m branch.",
+     "The 0-140 GPa range is the calculation range, not an experimental stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Equation-of-state section: third-order finite-strain/Birch-Murnaghan fit to calculated energy-volume states.",
+    "parameters": "Source EOS result: V0=45.34 A^3 per CaSiO3, K0=241 GPa, and K0'=4.14.",
+    "volume_basis": "The ideal cubic Pm-3m cell contains one CaSiO3 formula unit.",
+    "uncertainties": "No EOS coefficient uncertainties, covariance, weights, or underlying energy-volume table are published."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Computational methods and equation-of-state section",
+      "scope": "Static LDA plane-wave pseudopotential total-energy calculations."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale is involved."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the authors' institutional repository record and the source-reported equation/coefficients; later compilations were used only as cross-checks.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://repository.lsu.edu/geo_pubs/1504/",
+     "doi": "10.1029/98gl51952",
+     "locations": [
+      "article equation-of-state section",
+      "authors' repository abstract and bibliographic record"
+     ],
+     "finding": "The paper reports a complete static cubic CaSiO3 third-order EOS through 140 GPa. The coefficients are phase-specific and source-owned; comparison rows in the same article are not copied as new records."
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-06",
+     "finding": "The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance."
+    }
+   },
+   "notes": "LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literature comparisons and are represented, where independently audited, under their own primary publications rather than under this DOI."
+  },
+  {
+   "identifier": "ca_perovskite_ono_2013_bm3_log_thermal",
+   "label": "Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Ono"
+    ],
+    "year": 2013,
+    "title": "Elastic Properties of CaSiO3 Perovskite from ab initio Molecular Dynamics",
+    "source": "Entropy",
+    "volume": "15",
+    "locator": "4300-4309",
+    "doi": "10.3390/e15104300"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 45.58,
+     "K0": 236.0,
+     "K0_prime": 3.9
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "thermal": {
+    "type": "LogVolumeThermalPressure",
+    "model": "log_volume_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha_KT_ref": 0.0083,
+     "dK_dT_V": -0.0031
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha_KT_ref": 0.0003,
+     "dK_dT_V": 0.0031
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    15.0,
+    175.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    2000.0,
+    4000.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 116.161
+   },
+   "validity": {
+    "pressure_gpa": [
+     15.0,
+     175.0
+    ],
+    "temperature_k": [
+     2000.0,
+     4000.0
+    ],
+    "notes": [
+     "The rectangular envelope covers the stated 27 AIMD pressure-temperature conditions; it is not a phase-boundary model.",
+     "The static 300 K BM3 coefficients are adopted from Shim et al. (2000); the source-owned contribution is the fitted thermal-pressure term."
+    ]
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Equation (8) and Table 1: 45.58 A^3, adopted from Shim et al. (2000).",
+     "K0": "Equation (8) and Table 1: 236 GPa, adopted from Shim et al. (2000).",
+     "K0_prime": "Equation (8) and Table 1: 3.9, adopted from Shim et al. (2000)."
+    },
+    "thermal_correction": {
+     "Tr": "Equation (9) and Table 1: T0=300 K.",
+     "alpha_KT_ref": "Table 1: alpha*K_T=0.0083(3) GPa/K from least-squares fitting of the high-temperature AIMD states.",
+     "dK_dT_V": "Table 1: (dK_T/dT)_V=-0.0031(31) GPa/K from least-squares fitting of the high-temperature AIMD states."
+    },
+    "additional": {
+     "equation": "Equation (9): [alpha*K_T(V0,T) + (dK_T/dT)_V ln(V0/V)](T-T0).",
+     "uncertainties": "Parenthetical thermal-coefficient errors are stored as printed; the source gives no confidence level or covariance."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "thermal-pressure equation, AIMD states, and fitted thermal coefficients",
+     "citation": "Ono (2013), Equations (7)-(9) and Table 1",
+     "doi": "10.3390/e15104300"
+    },
+    {
+     "role": "adopted 300 K BM3 reference isotherm",
+     "citation": "Shim et al. (2000), Phys. Earth Planet. Inter. 120, 327-338",
+     "doi": "10.1016/S0031-9201(00)00154-0"
+    }
+   ],
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Section 2 and Section 3",
+      "scope": "GGA-PAW NVT AIMD stresses corrected to the adopted experimental reference EOS."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The source fits corrected theoretical stresses rather than calibrant observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated from the final open-access primary article; the adopted static and source-owned thermal terms are explicitly separated.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "source_lineage"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.mdpi.com/1099-4300/15/10/4300",
+     "doi": "10.3390/e15104300",
+     "locations": [
+      "Methods, Section 2",
+      "Equations (7)-(9), Section 3",
+      "Table 1"
+     ],
+     "finding": "The article publishes an exact thermal-pressure equation supported by two source-fitted coefficients. The LitCurate row captures only the adopted static BM3 term, so this record preserves both attribution layers."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-06",
+     "finding": "The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance."
+    }
+   },
+   "notes": "This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here."
+   }
+  ],
  "format": "peritheos.material",
  "identifier": "ca_perovskite",
  "units": {

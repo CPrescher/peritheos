@@ -400,6 +400,31 @@
     {
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
+        0.0,
+        130.0
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fixed_parameters": [
+        "V0",
+        "K_infinity_prime"
+      ],
+      "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
+      "material_identifier": "akimotoite",
+      "model": "RydbergStacey",
+      "primary_data_finding": "Complete coefficients are printed, but no consolidated observation-level fit dataset and weights are deposited.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://doi.org/10.1016/j.rgg.2015.01.011",
+      "reason": "Complete coefficients are printed, but no consolidated observation-level fit dataset and weights are deposited.",
+      "record_identifier": "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
+      "source_notes": "Accepted corrected mapping for LitCurate source row 869 (litcurate_8acd9ecf5854a501).",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
         -9.06596104,
         211.30790612
       ],
@@ -1198,6 +1223,38 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "aluminum",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "aluminum_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), FLEUR PBE BM3",
+      "material_identifier": "aluminum",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "aluminum_lejaeghere_2016_fleur_pbe_bm3",
+      "source_notes": "Static 0 K FLEUR 0.26 all-electron LAPW (+lo), scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": false,
       "columns": {
         "pressure": "pressure_gpa",
@@ -1666,6 +1723,22 @@
     },
     {
       "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "barium_bcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "barium_bcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
         80.0
@@ -1700,6 +1773,38 @@
       "reason": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.",
       "record_identifier": "be_sun_2010_sms3_1",
       "source_notes": "Table 2 SMS3 same-data model sensitivity. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "beryllium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "beryllium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "bismuth_a7",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "bismuth_a7_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -3163,6 +3268,53 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        130.0
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fixed_parameters": [
+        "V0",
+        "K_infinity_prime"
+      ],
+      "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
+      "material_identifier": "bridgmanite",
+      "model": "RydbergStacey",
+      "primary_data_finding": "The complete optimized coefficients are tabulated, while the heterogeneous literature fit observations and weights are not deposited as one machine-readable dataset.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://doi.org/10.1016/j.rgg.2015.01.011",
+      "reason": "The complete optimized coefficients are tabulated, while the heterogeneous literature fit observations and weights are not deposited as one machine-readable dataset.",
+      "record_identifier": "bridgmanite_dorogokupets_2015_298k_rydberg_stacey",
+      "source_notes": "Accepted corrected mapping for LitCurate source row 867 (litcurate_7828334f1795f436).",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        140.0
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fixed_parameters": [],
+      "label": "Hamahata et al. (2000), 300 K MD BM3",
+      "material_identifier": "bridgmanite",
+      "model": "BM3",
+      "primary_data_finding": "The complete fit coefficients are printed; the simulated 300 K volumes are plotted but not tabulated, so no pseudo-observations were digitized.",
+      "primary_data_status": "parameterization_and_plot_only",
+      "primary_source": "https://www.jstage.jst.go.jp/article/jmps/95/8/95_8_236/_pdf/-char/en",
+      "reason": "The complete fit coefficients are printed; the simulated 300 K volumes are plotted but not tabulated, so no pseudo-observations were digitized.",
+      "record_identifier": "bridgmanite_hamahata_2000_md_300k_bm3",
+      "source_notes": "Accepted LitCurate source row 314 (litcurate_d6b5cf68e4b9f829) after recovering V0 transparently from the primary source's rho0. Row 315 is a Funamori et al. citation and is not duplicated.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -4391,6 +4543,55 @@
     {
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
+        0.0,
+        140.0
+      ],
+      "experimental_temperature_range_k": [
+        0.0,
+        0.0
+      ],
+      "fixed_parameters": [],
+      "label": "Karki and Crain (1998), static cubic CaSiO3 BM3",
+      "material_identifier": "ca_perovskite",
+      "model": "BM3",
+      "primary_data_finding": "The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance.",
+      "primary_data_status": "theoretical_parameterization_only",
+      "primary_source": "https://repository.lsu.edu/geo_pubs/1504/",
+      "reason": "The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance.",
+      "record_identifier": "ca_perovskite_karki_crain_1998_static_bm3",
+      "source_notes": "LitCurate row 186 is retained as the source-owned fit. Rows 187-191 are literature comparisons and are represented, where independently audited, under their own primary publications rather than under this DOI.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        15.0,
+        175.0
+      ],
+      "experimental_temperature_range_k": [
+        2000.0,
+        4000.0
+      ],
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr"
+      ],
+      "label": "Ono (2013), cubic CaSiO3 BM3 plus logarithmic-volume thermal pressure",
+      "material_identifier": "ca_perovskite",
+      "model": "BM3",
+      "primary_data_finding": "The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance.",
+      "primary_data_status": "source_parameterization_only",
+      "primary_source": "https://www.mdpi.com/1099-4300/15/10/4300",
+      "reason": "The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance.",
+      "record_identifier": "ca_perovskite_ono_2013_bm3_log_thermal",
+      "source_notes": "This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
         21.5,
         199.2
       ],
@@ -4560,6 +4761,22 @@
       "reason": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.",
       "record_identifier": "ca_sun_2010_sms3_1",
       "source_notes": "Table 2 SMS3 same-data model sensitivity. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "cadmium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "cadmium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -5074,6 +5291,22 @@
       "solver_success": true,
       "source_notes": "Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.",
       "status": "similar"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "calcium_fcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "calcium_fcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -5744,6 +5977,31 @@
     {
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
+        19.7,
+        45.8
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "label": "Shim et al. (2002), tetragonal CaSiO3 BM3",
+      "material_identifier": "casio3_perovskite_tetragonal",
+      "model": "BM3",
+      "primary_data_finding": "The six pressures and plotted volume/c-axis-ratio observations appear in Figure 2, but numerical cell volumes are not tabulated; no pseudo-precision was introduced by digitizing the small four-page rendering.",
+      "primary_data_status": "parameterization_and_figure_only",
+      "primary_source": "https://geoweb.princeton.edu/archival/duffy/shim_grl_o2.pdf",
+      "reason": "The six pressures and plotted volume/c-axis-ratio observations appear in Figure 2, but numerical cell volumes are not tabulated; no pseudo-precision was introduced by digitizing the small four-page rendering.",
+      "record_identifier": "casio3_perovskite_tetragonal_shim_2002_bm3_1",
+      "source_notes": "The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
         0.0,
         100.0
       ],
@@ -5933,6 +6191,22 @@
       "status": "similar"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "cesium_bcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "cesium_bcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_w_gpa",
@@ -6016,6 +6290,22 @@
       "solver_success": true,
       "source_notes": "Table 3 experimental helium-medium BM3 fit. The bcc phase remains observed to 131 GPa at room temperature.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "chromium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "chromium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted. The source requires antiferromagnetic spin polarization for Cr.",
+      "status": "not_refittable"
     },
     {
       "dataset_identifiers": [],
@@ -6129,6 +6419,22 @@
       "solver_success": true,
       "source_notes": "Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "cobalt_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "cobalt_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted. The source requires ferromagnetic spin polarization for Co.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -6551,6 +6857,22 @@
       "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
       "record_identifier": "copper_sokolova_2013_holzapfel_2",
       "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "copper",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "copper_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -7445,6 +7767,38 @@
       "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
       "record_identifier": "fe_shen_2026_vinet_1",
       "source_notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 2.5 GPa and K0' +/- 0.5. The bcc phase data extend to 15.5 GPa.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "fe",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "fe_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted. The source requires ferromagnetic spin polarization for Fe.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), FLEUR PBE BM3",
+      "material_identifier": "fe",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "fe_lejaeghere_2016_fleur_pbe_bm3",
+      "source_notes": "Static 0 K FLEUR 0.26 all-electron LAPW (+lo), scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted. The source requires ferromagnetic spin polarization for Fe.",
       "status": "not_refittable"
     },
     {
@@ -8454,6 +8808,30 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [
+        "fesio3_liquid_sun_2019_table1_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        296.11
+      ],
+      "experimental_temperature_range_k": [
+        2500.0,
+        2500.0
+      ],
+      "fixed_parameters": [],
+      "label": "Sun et al. (2019), liquid FeSiO3 2500 K BM4 reference",
+      "material_identifier": "fesio3_liquid",
+      "model": "BM4",
+      "primary_data_finding": "All 46 printed P-V-T states and pressure standard errors are transcribed. Figure 1, rather than Table 1, distinguishes liquid states used in the fit from nonliquid simulations, so the bundled table is a source-data/checkpoint resource rather than an asserted exact regression input.",
+      "primary_data_status": "bundled_mixed_state_grid",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018GL081421",
+      "reason": "The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, rather than the numerical table, identifies the liquid states used by the source fit, so the table is a checkpoint resource and not an asserted exact regression input.",
+      "record_identifier": "fesio3_liquid_sun_2019_2500k_bm4_1",
+      "source_notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm.",
+      "status": "not_refittable"
+    },
+    {
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         -10.0,
@@ -8565,6 +8943,22 @@
       "solver_success": true,
       "source_notes": "Fit to single-crystal compression data through 48 GPa in helium. The measured V0=290.1(1) A^3 was fixed while K0 and K0_prime were refined.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "gallium_alpha",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "gallium_alpha_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -9157,6 +9551,22 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "gold",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "gold_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -9240,6 +9650,22 @@
       "solver_success": true,
       "source_notes": "Hydrostatic powder-XRD fit for hexagonal graphite. Valid only below the observed room-temperature transformation near 14 GPa.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "hafnium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "hafnium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -9661,6 +10087,22 @@
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "indium_bct",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "indium_bct_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
       "fixed_parameters": [
         "V0"
       ],
@@ -9694,6 +10136,22 @@
       "reason": "The bundled rows are all heated states. The stored coefficients are the 300 K reference part of a combined thermal fit, but the record does not represent the source's thermal correction needed to refit those rows.",
       "record_identifier": "iridium_anzellini_2025_bm3_1",
       "source_notes": "Experimental 300 K isotherm combined with resistive- and laser-heating data; fcc Ir remained stable to 101 GPa and 5600 K in the investigated range.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "iridium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "iridium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -10934,6 +11392,22 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "lead_fcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "lead_fcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -11284,6 +11758,38 @@
       "reason": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.",
       "record_identifier": "lii_sun_2010_sms3_1",
       "source_notes": "Table 2 SMS3 same-data model sensitivity. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "lithium_9r",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "lithium_9r_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "lutetium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "lutetium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -11908,6 +12414,22 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "magnesium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "magnesium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -12048,6 +12570,38 @@
       "solver_success": true,
       "source_notes": "The high-pressure fit fixed V0 to the independent ambient structure value.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "manganese_fcc_afm",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "manganese_fcc_afm_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted. The source requires antiferromagnetic spin polarization for Mn. The source deliberately uses a simpler antiferromagnetic fcc Mn model instead of complex alpha-Mn; K0-prime=-0.21 is source-reported and must not be extrapolated beyond the fitted volume window.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "mercury_bct_dft",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "mercury_bct_dft_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "dataset_identifiers": [],
@@ -17612,6 +18166,28 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        206.0
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fixed_parameters": [],
+      "label": "Akins et al. (2004), candidate liquid MgSiO3 adiabatic BM3",
+      "material_identifier": "mgsio3_liquid",
+      "model": "BM3",
+      "primary_data_finding": "The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting.",
+      "primary_data_status": "supporting_information_available",
+      "primary_source": "https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf",
+      "reason": "The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting.",
+      "record_identifier": "mgsio3_liquid_akins_2004_adiabatic_bm3",
+      "source_notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text.",
+      "status": "not_refittable"
+    },
+    {
       "dataset_identifiers": [
         "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
       ],
@@ -18063,6 +18639,31 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        130.0
+      ],
+      "experimental_temperature_range_k": [
+        298.15,
+        298.15
+      ],
+      "fixed_parameters": [
+        "V0",
+        "K_infinity_prime"
+      ],
+      "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
+      "material_identifier": "mgsio3_post_perovskite",
+      "model": "RydbergStacey",
+      "primary_data_finding": "Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://doi.org/10.1016/j.rgg.2015.01.011",
+      "reason": "Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together.",
+      "record_identifier": "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey",
+      "source_notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309).",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -18370,6 +18971,22 @@
       "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
       "record_identifier": "molybdenum_sokolova_2013_holzapfel_2",
       "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "molybdenum",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "molybdenum_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -19741,6 +20358,22 @@
       "status": "similar"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "nickel",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "nickel_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted. The source requires ferromagnetic spin polarization for Ni.",
+      "status": "not_refittable"
+    },
+    {
       "dataset_identifiers": [
         "nickel_oxide_noguchi_1999_table1_shock"
       ],
@@ -19933,6 +20566,22 @@
       "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
       "record_identifier": "niobium_sokolova_2013_holzapfel_2",
       "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "niobium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "niobium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -20185,6 +20834,22 @@
       "solver_success": true,
       "source_notes": null,
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "osmium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "osmium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "dataset_identifiers": [],
@@ -20624,25 +21289,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -20714,6 +21379,22 @@
       "solver_success": true,
       "source_notes": "Experimental 0-80 GPa BM3 fit; published V0=14.72(4) A^3/atom is multiplied by four atoms in the conventional fcc cell.",
       "status": "parity_not_achieved"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "palladium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "palladium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "dataset_identifiers": [],
@@ -21601,6 +22282,54 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "platinum",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "platinum_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "polonium_simple_cubic",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "potassium_bcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "potassium_bcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -22217,6 +22946,22 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "rhenium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "rhenium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -22300,6 +23045,22 @@
       "solver_success": true,
       "source_notes": "Experimental helium-medium Vinet fit over 0-55 GPa; fcc Rh remains stable throughout the measured range.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "rhodium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "rhodium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -22390,6 +23151,22 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "rubidium_bcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "rubidium_bcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -22473,6 +23250,38 @@
       "solver_success": true,
       "source_notes": "Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).",
       "status": "similar"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "ruthenium",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "ruthenium_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "scandium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "scandium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -23310,6 +24119,22 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "silver",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "silver_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -23923,6 +24748,22 @@
     },
     {
       "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "sodium_9r",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "sodium_9r_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
         590.0
@@ -24257,6 +25098,22 @@
     },
     {
       "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "strontium_fcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "strontium_fcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
         180.0
@@ -24432,6 +25289,38 @@
     },
     {
       "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "tantalum",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "tantalum_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "technetium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "technetium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
         100.0
@@ -24466,6 +25355,22 @@
       "reason": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.",
       "record_identifier": "th_sun_2010_sms3_1",
       "source_notes": "Table 2 SMS3 same-data model sensitivity. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "thallium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "thallium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -24523,6 +25428,22 @@
       "reason": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.",
       "record_identifier": "ti_sun_2010_mrs3_1",
       "source_notes": "Table 2 MRS3 same-data model sensitivity. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "tin_alpha",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "tin_alpha_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -24602,6 +25523,22 @@
       "solver_success": true,
       "source_notes": "Low-pressure alpha-phase Vinet fit; K0' was fixed at 4.",
       "status": "parity"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "titanium_alpha",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "titanium_alpha_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -24872,6 +25809,22 @@
     },
     {
       "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "tungsten",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "tungsten_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
         100.0
@@ -24906,6 +25859,22 @@
       "reason": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.",
       "record_identifier": "v_sun_2010_sms3_1",
       "source_notes": "Table 2 SMS3 same-data model sensitivity. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "vanadium_bcc",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "vanadium_bcc_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -25082,6 +26051,38 @@
       "reason": "Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.",
       "record_identifier": "wollastonite_sagatova_2021_gga_300k_vinet",
       "source_notes": null,
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "yttrium_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "yttrium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "zinc_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "zinc_hcp_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
       "status": "not_refittable"
     },
     {
@@ -25376,6 +26377,22 @@
       "status": "parity"
     },
     {
+      "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [],
+      "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
+      "material_identifier": "zirconium_alpha",
+      "model": "BM3",
+      "primary_data_finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://archive.materialscloud.org/record/2023.133",
+      "reason": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.",
+      "record_identifier": "zirconium_alpha_lejaeghere_2016_wien2k_pbe_bm3",
+      "source_notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted.",
+      "status": "not_refittable"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -25628,10 +26645,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 327,
+    "not_refittable": 386,
     "parity": 144,
     "parity_not_achieved": 21,
     "similar": 61,
-    "total": 553
+    "total": 612
   }
 }

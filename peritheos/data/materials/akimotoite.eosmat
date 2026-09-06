@@ -889,6 +889,136 @@
      "finding": "All 54 crystal-specific MgSiO3 akimotoite observations (27 pressure points for each of crystals X1 and X2) printed in Table 2 and used for the combined BM3 fit."
     }
    }
+  },
+  {
+   "identifier": "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
+   "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dorogokupets",
+     "Dymshits",
+     "Sokolova",
+     "Danilov",
+     "Litasov"
+    ],
+    "year": 2015,
+    "title": "The equations of state of forsterite, wadsleyite, ringwoodite, akimotoite, MgSiO3-perovskite, and postperovskite and phase diagram for the Mg2SiO4 system at pressures of up to 130 GPa",
+    "source": "Russian Geology and Geophysics",
+    "volume": "56",
+    "locator": "172-189",
+    "doi": "10.1016/j.rgg.2015.01.011"
+   },
+   "sample_composition": "Stoichiometric MgSiO3 akimotoite thermodynamic reference phase; joint optimization of literature thermochemical, elastic, and P-V-T data.",
+   "eos": {
+    "type": "RydbergStacey",
+    "model": "rydberg_stacey",
+    "parameters": {
+     "V0": 262.53122652018516,
+     "K0": 215.3,
+     "K0_prime": 4.91,
+     "K_infinity_prime": 1.6666666666666667
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "K_infinity_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K_infinity_prime"
+   ],
+   "temperature_ref": 298.15,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    130.0
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "experimental_temperature_range_k": [
+    298.15,
+    298.15
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 6.0,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     130.0
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "notes": [
+     "Reference isotherm of the source's larger Helmholtz model; this range is the study's calculation envelope, not an akimotoite stability field."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Equation (2), exactly mapped to Rydberg-Stacey with K_infinity_prime=k/3.",
+    "V0": "Table 1: 26.35 cm3/mol, converted with exact N_A and Z=6 to 262.53122652018516 A3.",
+    "K0": "Table 1: 215.3 GPa.",
+    "K0_prime": "Table 1: 4.91.",
+    "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "source_location": "Equations of state section and Table 1",
+      "scope": "Joint optimization after cross-calibration of the cited literature measurements."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Complete row-wise raw calibrant measurements are not deposited in this synthesis paper."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the final primary article; LitCurate was discovery-only.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "volume_basis",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.rgg.2015.01.011",
+     "doi": "10.1016/j.rgg.2015.01.011",
+     "locations": [
+      "Equations (1)-(5)",
+      "Table 1",
+      "MgSiO3-akimotoite subsection"
+     ],
+     "finding": "The primary paper supplies a complete k=5 generalized Rydberg isotherm; the discovery ledger's Birch label is incorrect."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Table 1",
+      "Figures 6-7"
+     ],
+     "finding": "Complete coefficients are printed, but no consolidated observation-level fit dataset and weights are deposited."
+    }
+   },
+   "notes": "Accepted corrected mapping for LitCurate source row 869 (litcurate_8acd9ecf5854a501)."
   }
  ],
  "format": "peritheos.material",

@@ -5,14 +5,14 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 257 bundled material documents and 553 EOS records pass the
+separate. All 285 bundled material documents and 612 EOS records pass the
 format-3 validator. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 553 bundled records. Every record is
+The primary-source audit covers all 612 bundled records. Every record is
 `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -29,12 +29,12 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 553
+fit for every record with sufficient direct observations and documents all 612
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 114 uncertainty-parity matches and 45
-additional numerically similar results. [Eighteen direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 49 records cannot be
+diagnostics. The current campaign finds 144 uncertainty-parity matches and 61
+additional numerically similar results. [Twenty-one direct refits](primary-eos-refits.md#parity-not-achieved) do not
+recover at least one published coefficient, while 386 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
 machine-readable results are in
