@@ -1,0 +1,314 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "klb1_ferropericlase",
+ "name": "KLB-1 ferropericlase",
+ "formula": "(Mg,Fe)O",
+ "phase": "B1 ferropericlase separated from KLB-1 pyrolite",
+ "aliases": [
+  "KLB-1 Fp",
+  "pyrolitic ferropericlase"
+ ],
+ "cell_contents": "Four (Mg,Fe)O formula units per conventional B1 cell; composition changes slightly with coexisting-phase partitioning.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [],
+ "peaks": [],
+ "notes": "The source resolves separate room-temperature high-spin and low-spin compression branches. The high-temperature data show no resolvable abrupt volume contraction and are parameterized from the high-spin reference branch.",
+ "eos_records": [
+  {
+   "identifier": "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
+   "label": "Ricolleau et al. (2009), KLB-1 high-spin ferropericlase thermal BM2",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Ricolleau",
+     "Fei",
+     "Cottrell",
+     "Watson",
+     "Deng",
+     "Zhang",
+     "Fiquet",
+     "Auzende",
+     "Roskosz",
+     "Morard",
+     "Prakapenka"
+    ],
+    "year": 2009,
+    "title": "Density profile of pyrolite under the lower mantle conditions",
+    "source": "Geophysical Research Letters",
+    "volume": "36",
+    "locator": "L06302",
+    "doi": "10.1029/2008GL036759"
+   },
+   "sample_composition": "Pyrolitic ferropericlase; high-temperature behavior is stated to be reproduced by approximately (Mg0.80Fe0.20)O.",
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 76.44,
+     "K0": 158.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.02,
+    "K0": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0"
+   ],
+   "temperature_ref": 300.0,
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "reference_volume_law": "integrated_expansivity",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 2.2e-05,
+     "alpha1": 3.61e-08,
+     "dK_dT": -0.034
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 2e-06,
+     "alpha1": 2.7e-09,
+     "dK_dT": 0.001
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    30.0,
+    112.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    2569.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     30.0,
+     112.0
+    ],
+    "temperature_k": [
+     300.0,
+     2569.0
+    ],
+    "notes": [
+     "High-spin reference branch used for the smooth high-temperature pyrolitic ferropericlase EOS.",
+     "No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3: high-temperature Birch-Murnaghan with K0'=4 fixed, represented by BM2 plus AlphaKT.",
+    "parameters": "Table 1, high-spin ferropericlase row; K0 fixed to 158 GPa from Fei et al. (2007).",
+    "thermal_law": "Table 1 alpha0, alpha1 and dK/dT with alpha(T)=alpha0+alpha1*T."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental Procedure; Au pressure marker"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The official Table S1 was not bundled in this audit."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
+     "doi": "10.1029/2008gl036759",
+     "locations": [
+      "Experimental Procedure",
+      "Section 3",
+      "Table 1",
+      "Figure 1"
+     ],
+     "finding": "Independent high-spin reference thermal BM2 fit."
+    },
+    "primary_data_check": {
+     "status": "supplement_available_not_bundled",
+     "audit_date": "2026-09-05",
+     "finding": "The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit."
+    }
+   }
+  },
+  {
+   "identifier": "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
+   "label": "Ricolleau et al. (2009), KLB-1 low-spin ferropericlase 300 K BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Ricolleau",
+     "Fei",
+     "Cottrell",
+     "Watson",
+     "Deng",
+     "Zhang",
+     "Fiquet",
+     "Auzende",
+     "Roskosz",
+     "Morard",
+     "Prakapenka"
+    ],
+    "year": 2009,
+    "title": "Density profile of pyrolite under the lower mantle conditions",
+    "source": "Geophysical Research Letters",
+    "volume": "36",
+    "locator": "L06302",
+    "doi": "10.1029/2008GL036759"
+   },
+   "sample_composition": "Low-spin branch of pyrolitic ferropericlase at room temperature.",
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 74.04,
+     "K0": 170.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.02,
+    "K0": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    50.0,
+    112.0
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     50.0,
+     112.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Room-temperature low-spin branch above the observed volume contraction near 50 GPa.",
+     "No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3: Birch-Murnaghan with K0'=4 fixed, represented by BM2.",
+    "parameters": "Table 1, low-spin ferropericlase row; K0 fixed to 170 GPa from Fei et al. (2007)."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Experimental Procedure; Au pressure marker"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The official Table S1 was not bundled in this audit."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
+     "doi": "10.1029/2008gl036759",
+     "locations": [
+      "Experimental Procedure",
+      "Section 3",
+      "Table 1",
+      "Figure 1"
+     ],
+     "finding": "Independent room-temperature low-spin BM2 branch."
+    },
+    "primary_data_check": {
+     "status": "supplement_available_not_bundled",
+     "audit_date": "2026-09-05",
+     "finding": "The source reports the P-V observations in Table S1; this record preserves the Table 1 fit."
+    }
+   }
+  }
+ ],
+ "datasets": []
+}

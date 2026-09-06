@@ -58,7 +58,12 @@ def test_every_historical_record_has_an_explicit_audited_disposition():
 
 def test_material_text_name_formula_phase_and_alias_discovery():
     assert identifiers(search_materials(name="lithium fluoride")) == ("lif_b1",)
-    assert identifiers(search_materials(formula="MgO")) == ("mgo",)
+    assert identifiers(search_materials(formula="MgO")) == (
+        "mgo",
+        "mgo_b2",
+        "mgo_liquid",
+        "mgo_sun_2010_legacy",
+    )
     assert "zinc_oxide_wurtzite" in identifiers(search_materials(phase="wurtzite"))
     assert "mgo" in identifiers(search_materials(alias="periclase"))
     assert identifiers(search_materials("post aragonite Pmmn")) == (
@@ -174,7 +179,7 @@ def test_search_rejects_ambiguous_or_invalid_range_options(options, message):
 
 def test_validation_status_filter_and_ordering_are_deterministic():
     records = search_eos_records(validation_status=("primary_source_validated",))
-    assert len(records) == 353
+    assert len(records) == 553
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

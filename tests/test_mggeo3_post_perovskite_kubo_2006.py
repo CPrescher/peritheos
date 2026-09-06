@@ -57,7 +57,7 @@ def test_kubo_mggeo3_phase_structure_and_record_selection():
     assert cell_contents == {"Mg": 4.0, "Ge": 4.0, "O": 12.0}
 
     records = {record["identifier"]: record for record in document["eos_records"]}
-    assert set(records) == {PREFERRED_IDENTIFIER, SENSITIVITY_IDENTIFIER}
+    assert {PREFERRED_IDENTIFIER, SENSITIVITY_IDENTIFIER} <= set(records)
     assert records[PREFERRED_IDENTIFIER]["default"] is True
     assert records[PREFERRED_IDENTIFIER]["default_for"] == "equilibrium"
     assert records[SENSITIVITY_IDENTIFIER]["default"] is False
@@ -170,6 +170,8 @@ def test_kubo_mggeo3_peritheos_and_pt_pressure_scale_are_executable():
     assert pt_maximum == pytest.approx(0.4452120107, abs=5.0e-10)
     available_records = set(list_eos_record_documents())
     for record in document["eos_records"]:
+        if record["identifier"] not in {PREFERRED_IDENTIFIER, SENSITIVITY_IDENTIFIER}:
+            continue
         method = record["pressure_calibration"]["methods"][0]
         assert method["reference_eos_record"] == "platinum_holmes_1989_vinet_1"
         assert method["reference_eos_record"] in available_records

@@ -209,21 +209,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_relationship",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -372,21 +367,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-hosted primary PDF; LitCurate was used only for discovery and same-DOI row enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_relationship",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -415,23 +405,65 @@
   }
  ],
  "datasets": [
- {
+  {
    "identifier": "mg0490fe0483ti0027o_solomatova_2016_table1_pv",
    "kind": "static_compression",
    "description": "All 45 Fp48 pressure-volume observations from primary Table 1.",
    "reference": {
-    "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
     "year": 2016,
     "source": "American Mineralogist",
     "doi": "10.2138/am-2016-5510"
    },
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_sigma_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "volume_sigma_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "standard_deviation", "of": "volume_a3_conventional_cell"},
-    {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
-    {"name": "density_sigma_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "standard_deviation", "of": "density_g_cm3"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sigma_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "density_sigma_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "density_g_cm3"
+    }
    ],
    "resource": {
     "path": "datasets/mg0490fe0483ti0027o-solomatova-2016-table1-pv.csv",
@@ -449,17 +481,53 @@
    "kind": "derived_eos_grid",
    "description": "Complete 0-140 GPa spin-crossover EOS grid printed in primary Table 3.",
    "reference": {
-    "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+    "authors": [
+     "Solomatova",
+     "Jackson",
+     "Sturhahn",
+     "Wicks",
+     "Zhao",
+     "Toellner",
+     "Kalkan",
+     "Steinhardt"
+    ],
     "year": 2016,
     "source": "American Mineralogist",
     "doi": "10.2138/am-2016-5510"
    },
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "volume_sigma_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "standard_deviation", "of": "volume_a3_conventional_cell"},
-    {"name": "bulk_modulus_gpa", "quantity": "isothermal_bulk_modulus", "unit": "GPa", "role": "value"},
-    {"name": "bulk_modulus_sigma_gpa", "quantity": "isothermal_bulk_modulus", "unit": "GPa", "role": "standard_deviation", "of": "bulk_modulus_gpa"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "bulk_modulus_gpa",
+     "quantity": "isothermal_bulk_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "bulk_modulus_sigma_gpa",
+     "quantity": "isothermal_bulk_modulus",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "bulk_modulus_gpa"
+    }
    ],
    "resource": {
     "path": "datasets/mg0490fe0483ti0027o-solomatova-2016-table3-crossover-grid.csv",

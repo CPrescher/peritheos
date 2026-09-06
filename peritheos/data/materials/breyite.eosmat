@@ -1,0 +1,139 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "breyite",
+ "name": "Breyite",
+ "formula": "CaSiO3",
+ "phase": "triclinic breyite",
+ "aliases": [
+  "walstromite-structured CaSiO3"
+ ],
+ "cell_contents": "Six CaSiO3 formula units on the conventional P-1 cell basis used for the source EOS.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "TRICLINIC",
+ "formula_units_per_cell": 6,
+ "space_group": "P-1",
+ "space_group_number": 2,
+ "atom_sites": [],
+ "peaks": [],
+ "notes": "Crystallographic starting data came from COD; coordinates are not republished in the article.",
+ "eos_records": [
+  {
+   "identifier": "breyite_sagatova_2021_gga_300k_vinet",
+   "label": "Sagatova et al. (2021), breyite GGA 300 K Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sagatova",
+     "Shatskiy",
+     "Sagatov",
+     "Litasov"
+    ],
+    "year": 2021,
+    "title": "Phase Relations in CaSiO3 System up to 100 GPa and 2500 K",
+    "source": "Geochemistry International",
+    "volume": "59",
+    "locator": "791-800",
+    "doi": "10.1134/S0016702921080073"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 380.069,
+     "K0": 70.38,
+     "K0_prime": 4.3
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    100.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 6.0,
+    "molar_mass_g_mol": 116.162
+   },
+   "validity": {
+    "pressure_gpa": [
+     4.0,
+     8.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "The source predicts breyite stability between about 4 and 8 GPa at 300 K."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Vinet EOS, Methods.",
+    "parameters": "Table 2, this-work GGA breyite row.",
+    "method": "PBE-GGA quasi-harmonic free-energy calculation at room temperature."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Methods"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "First-principles pressure-volume relation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021",
+     "doi": "10.1134/s0016702921080073",
+     "locations": [
+      "Methods",
+      "Table 2",
+      "Phase relations"
+     ],
+     "finding": "Complete source-owned GGA room-temperature Vinet fit."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "finding": "Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated."
+    }
+   }
+  }
+ ]
+}

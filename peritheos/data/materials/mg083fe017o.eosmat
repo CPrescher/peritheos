@@ -224,7 +224,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -330,8 +330,8 @@
     "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
    },
    "pressure_calibration": {
-   "status": "unresolved",
-   "methods": [],
+    "status": "unresolved",
+    "methods": [],
     "recalculation": {
      "status": "missing_calibrant_observations",
      "notes": "Row-wise calibrants not reprinted."
@@ -340,16 +340,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -368,8 +368,7 @@
      "finding": "Independent BM3 checkpoints verify transcription; underlying rows are not reprinted."
     }
    }
-  }
-,
+  },
   {
    "identifier": "mg083fe017o_solomatova_2016_ls_bm3_reference_2",
    "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
@@ -453,16 +452,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -483,7 +482,7 @@
    }
   }
  ],
-"datasets": [
+ "datasets": [
   {
    "identifier": "mg083fe017o_matsui_2012_table1_pvt",
    "kind": "calibrated_pressure_volume_temperature",

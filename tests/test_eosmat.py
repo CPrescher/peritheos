@@ -92,9 +92,9 @@ def test_complete_material_library_is_bundled_and_valid():
     identifiers = list_material_documents()
     documents = [get_material_document(identifier) for identifier in identifiers]
 
-    assert len(identifiers) == 182
-    assert len(set(identifiers)) == 182
-    assert sum(len(document["eos_records"]) for document in documents) == 353
+    assert len(identifiers) == 257
+    assert len(set(identifiers)) == 257
+    assert sum(len(document["eos_records"]) for document in documents) == 553
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 353
+    assert len({record["identifier"] for record in records}) == 553
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 353
+    assert statuses.count("primary_source_validated") == 553
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -273,7 +273,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in native_records
         if record["scientific_validation"]["audit_date"] == "2026-09-05"
     }
-    assert len(overnight_identifiers) == 173
+    assert len(overnight_identifiers) == 373
     assert native_identifiers == legacy_native_identifiers | overnight_identifiers
     assert {
         record["scientific_validation"]["migration_source"]["version"]
@@ -302,8 +302,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 353,
-        "primary_source_validated": 353,
+        "records": 553,
+        "primary_source_validated": 553,
     }
     assert report["audit_date"] == "2026-09-05"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -778,7 +778,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 353
+    assert len(records) == 553
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -845,7 +845,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 353
+    assert checked == 553
     assert failures == []
 
 
@@ -1027,7 +1027,11 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
     molybdenum_carbide_refit = molybdenum_carbide_records[
         "molybenum_carbide_mo2c_haines_2001_bm3_refit"
     ]
-    platinum = get_material_document("platinum")["eos_records"][0]
+    platinum = next(
+        record
+        for record in get_material_document("platinum")["eos_records"]
+        if record["identifier"] == "platinum_holmes_1989_vinet_1"
+    )
     alumina = get_material_document("alumina")["eos_records"][0]
     cobalt = get_material_document("cobalt_hcp")["eos_records"][0]
     niobium = get_material_document("niobium")["eos_records"][0]
@@ -1216,7 +1220,7 @@ def test_phase_egg_record_preserves_composition_structure_and_fit_scope():
     assert "not refined" in hydrogen["coordinate_provenance"]
     assert "Al3.92Si3.68H5.56O16" in document["notes"]
 
-    assert len(document["eos_records"]) == 2
+    assert len(document["eos_records"]) == 3
     source = next(
         record
         for record in document["eos_records"]
@@ -1732,7 +1736,7 @@ def test_phase_egg_2019_lp_bm3_primary_source_record_and_supplement():
     assert document["space_group"] == "P21/n"
     assert document["space_group_number"] == 14
     assert document["formula_units_per_cell"] == 4
-    assert len(document["eos_records"]) == 2
+    assert len(document["eos_records"]) == 3
     assert {site["wyckoff"] for site in document["atom_sites"]} == {"4e"}
     assert {
         element: 4
@@ -1784,7 +1788,7 @@ def test_phase_egg_2019_lp_bm3_primary_source_record_and_supplement():
         for material_id in list_material_documents()
         for record in get_material_document(material_id)["eos_records"]
     ]
-    assert canonical_record_dois.count("10.2138/am-2019-6694") == 1
+    assert canonical_record_dois.count("10.2138/am-2019-6694") == 2
     assert "10.2138/am-2018-6694" not in canonical_record_dois
 
     dataset = next(
@@ -2596,7 +2600,7 @@ def test_normative_schema_is_bundled():
         "linear_temperature",
         "berman",
     ]
-    assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 11
+    assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 15
     assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 13
 
 
@@ -2817,8 +2821,8 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert manifest["source"]["version"] == "0.10.0"
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
-    assert manifest["materials"] == 182
-    assert manifest["eos_records"] == 353
+    assert manifest["materials"] == 257
+    assert manifest["eos_records"] == 553
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-05"
 
 

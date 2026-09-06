@@ -1,0 +1,127 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "srsio3_6h_perovskite",
+ "name": "6H SrSiO3 perovskite",
+ "formula": "SrSiO3",
+ "phase": "6H hexagonal perovskite, P63/mmc",
+ "aliases": [
+  "6H-SrSiO3"
+ ],
+ "cell_contents": "Six SrSiO3 formula units per conventional hexagonal P63/mmc cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "HEXAGONAL",
+ "formula_units_per_cell": 6,
+ "space_group": "P63/mmc",
+ "space_group_number": 194,
+ "peaks": [],
+ "notes": "Static-GGA 6H polymorph. The EOS paper reports the fitted conventional-cell V0 but does not provide a complete zero-pressure structural coordinate set, so no lattice or atom-site values are inferred.",
+ "eos_records": [
+  {
+   "identifier": "srsio3_6h_xiao_2013_gga_bm2_1",
+   "label": "Xiao et al. (2013), static-GGA 6H SrSiO3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Xiao",
+     "Tan",
+     "Zhou",
+     "Liu",
+     "Xu"
+    ],
+    "year": 2013,
+    "title": "Cubic perovskite polymorph of strontium metasilicate at high pressures",
+    "source": "American Mineralogist",
+    "volume": "98",
+    "locator": "2096-2104",
+    "doi": "10.2138/am.2013.4470"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 311.23,
+     "K0": 183.8,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.1,
+    "K0": 0.6,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    40.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 6.0,
+    "molar_mass_g_mol": 163.702
+   },
+   "parameter_provenance": {
+    "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
+    "parameters": "Static-GGA 6H fit: V0=311.23(10) A3, K0=183.8(6) GPa, K0'=4 fixed."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Computational methods: CASTEP GGA, ultrasoft pseudopotentials"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Static first-principles EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am.2013.4470",
+     "doi": "10.2138/am.2013.4470",
+     "locations": [
+      "Computational methods",
+      "Results",
+      "Figure 5"
+     ],
+     "finding": "A distinct static-GGA 6H EOS is published."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "finding": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced."
+    }
+   }
+  }
+ ]
+}

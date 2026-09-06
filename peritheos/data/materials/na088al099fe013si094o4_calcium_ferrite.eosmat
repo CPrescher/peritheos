@@ -28,20 +28,99 @@
  "space_group": "Pbnm",
  "space_group_number": 62,
  "atom_sites": [
-  {"element": "Na", "wyckoff": "4c", "x": 0.6577, "y": 0.7607, "z": 0.75, "occupancy": 1.0, "source_label": "Na1"},
-  {"element": "O", "wyckoff": "4c", "x": 0.3540, "y": 0.7010, "z": 0.75, "occupancy": 1.0, "source_label": "O1"},
-  {"element": "O", "wyckoff": "4c", "x": 0.5149, "y": 0.8888, "z": 0.25, "occupancy": 1.0, "source_label": "O2"},
-  {"element": "O", "wyckoff": "4c", "x": 0.2112, "y": 0.4714, "z": 0.25, "occupancy": 1.0, "source_label": "O3"},
-  {"element": "O", "wyckoff": "4c", "x": 0.5735, "y": 0.5743, "z": 0.25, "occupancy": 1.0, "source_label": "O4"},
-  {"element": "Si", "wyckoff": "4c", "x": 0.60096, "y": 1.0834, "z": 0.25, "occupancy": 0.5, "source_label": "Si1"},
-  {"element": "Al", "wyckoff": "4c", "x": 0.60096, "y": 1.0834, "z": 0.25, "occupancy": 0.5, "source_label": "Al1"},
-  {"element": "Si", "wyckoff": "4c", "x": 0.38909, "y": 0.5584, "z": 0.25, "occupancy": 0.5, "source_label": "Si2"},
-  {"element": "Al", "wyckoff": "4c", "x": 0.38909, "y": 0.5584, "z": 0.25, "occupancy": 0.5, "source_label": "Al2"}
+  {
+   "element": "Na",
+   "wyckoff": "4c",
+   "x": 0.6577,
+   "y": 0.7607,
+   "z": 0.75,
+   "occupancy": 1.0,
+   "source_label": "Na1"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.354,
+   "y": 0.701,
+   "z": 0.75,
+   "occupancy": 1.0,
+   "source_label": "O1"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.5149,
+   "y": 0.8888,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "O2"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.2112,
+   "y": 0.4714,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "O3"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.5735,
+   "y": 0.5743,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "O4"
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4c",
+   "x": 0.60096,
+   "y": 1.0834,
+   "z": 0.25,
+   "occupancy": 0.5,
+   "source_label": "Si1"
+  },
+  {
+   "element": "Al",
+   "wyckoff": "4c",
+   "x": 0.60096,
+   "y": 1.0834,
+   "z": 0.25,
+   "occupancy": 0.5,
+   "source_label": "Al1"
+  },
+  {
+   "element": "Si",
+   "wyckoff": "4c",
+   "x": 0.38909,
+   "y": 0.5584,
+   "z": 0.25,
+   "occupancy": 0.5,
+   "source_label": "Si2"
+  },
+  {
+   "element": "Al",
+   "wyckoff": "4c",
+   "x": 0.38909,
+   "y": 0.5584,
+   "z": 0.25,
+   "occupancy": 0.5,
+   "source_label": "Al2"
+  }
  ],
  "peaks": [],
  "source": {
   "structure_reference": {
-   "authors": ["Qin", "Wu", "Xue", "Zhang", "Wu", "Jacobsen"],
+   "authors": [
+    "Qin",
+    "Wu",
+    "Xue",
+    "Zhang",
+    "Wu",
+    "Jacobsen"
+   ],
    "year": 2023,
    "title": "Crystal structure of calcium-ferrite type NaAlSiO4 up to 45 GPa",
    "source": "American Mineralogist",
@@ -61,7 +140,14 @@
    "identifier": "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1",
    "label": "Qin et al. (2023), Fe-bearing CF BM3",
    "reference": {
-    "authors": ["Qin", "Wu", "Xue", "Zhang", "Wu", "Jacobsen"],
+    "authors": [
+     "Qin",
+     "Wu",
+     "Xue",
+     "Zhang",
+     "Wu",
+     "Jacobsen"
+    ],
     "year": 2023,
     "title": "Crystal structure of calcium-ferrite type NaAlSiO4 up to 45 GPa",
     "source": "American Mineralogist",
@@ -76,20 +162,43 @@
    "eos": {
     "type": "BM3",
     "model": "birch_murnaghan_3",
-    "parameters": {"V0": 244.2, "K0": 211.0, "K0_prime": 2.6}
+    "parameters": {
+     "V0": 244.2,
+     "K0": 211.0,
+     "K0_prime": 2.6
+    }
    },
-   "parameter_errors": {"V0": 0.2, "K0": 6.0, "K0_prime": 0.3},
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 6.0,
+    "K0_prime": 0.3
+   },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
    "fixed_parameters": [],
    "temperature_ref": 293.0,
-   "experimental_pressure_range_gpa": [0.0001, 44.0],
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    44.0
+   ],
    "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [293.0, 293.0],
+   "experimental_temperature_range_k": [
+    293.0,
+    293.0
+   ],
    "validity": {
-    "pressure_gpa": [0.0001, 44.0],
-    "temperature_k": [293.0, 293.0],
-    "volume_ratio": [0.8460278460, 0.9991809992],
+    "pressure_gpa": [
+     0.0001,
+     44.0
+    ],
+    "temperature_k": [
+     293.0,
+     293.0
+    ],
+    "volume_ratio": [
+     0.846027846,
+     0.9991809992
+    ],
     "notes": [
      "The pressure and volume-ratio bounds are the Table S4 observation envelope, not a broader phase-stability guarantee.",
      "All measurements are described as room temperature; 293 K is the explicit temperature of the companion official CIF measurement, and no row-wise temperatures are published."
@@ -101,7 +210,9 @@
     "pressure_gauge": "platinum foil using Fei et al. (2007)",
     "diffraction": "single-crystal synchrotron X-ray diffraction at APS beamline 13-BM-C"
    },
-   "fit_datasets": ["na088al099fe013si094o4_qin_2023_table_s4_pv"],
+   "fit_datasets": [
+    "na088al099fe013si094o4_qin_2023_table_s4_pv"
+   ],
    "parameter_provenance": {
     "equation": "Article pages 2332-2333 and official Online Materials Table S5: third-order Birch-Murnaghan EOS fitted with EosFit7c",
     "V0": "Article abstract and page 2333; Online Materials Table S5, this-study Fe-bearing column: 244.2(2) A^3 fitted Pbnm conventional-cell volume",
@@ -115,13 +226,18 @@
      "role": "published_parameterization_observations_composition_and_crystal_system",
      "citation": "Qin et al. (2023), article and official deposit AM-23-128432",
      "doi": "10.2138/am-2022-8432",
-     "locations": ["article pages 2332-2333", "Online Materials Tables S4 and S5"]
+     "locations": [
+      "article pages 2332-2333",
+      "Online Materials Tables S4 and S5"
+     ]
     },
     {
      "role": "isostructural_positional_proxy",
      "citation": "Qin et al. (2023), official deposited Fe-free 1.7 GPa CIF block",
      "doi": "10.2138/am-2022-8432",
-     "locations": ["AM-23-128432, 8432qin.cif, data_p1_caicium_ferrite_phase"]
+     "locations": [
+      "AM-23-128432, 8432qin.cif, data_p1_caicium_ferrite_phase"
+     ]
     }
    ],
    "pressure_calibration": {
@@ -131,7 +247,14 @@
       "kind": "equation_of_state",
       "material": "Pt",
       "reference": {
-       "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
        "year": 2007,
        "source": "Proceedings of the National Academy of Sciences",
        "volume": "104",
@@ -151,10 +274,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article and official MSA deposit AM-23-128432. The published BM3 coefficients reproduce the complete printed compression table to 0.3887 GPa pressure RMSE; the missing row-wise pressure uncertainties and exact EosFit7c weight configuration prevent coefficient-level refit parity and are not inferred.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "equation", "parameters", "units", "reference_state", "phase", "composition", "cell_setting", "formula_units_per_cell", "published_uncertainties", "validity", "pressure_calibration", "primary_data"
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2022-8432",
@@ -172,29 +301,20 @@
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-05",
-     "dataset_identifiers": ["na088al099fe013si094o4_qin_2023_table_s4_pv"],
-     "source_locations": ["Official Online Materials Table S4"],
+     "dataset_identifiers": [
+      "na088al099fe013si094o4_qin_2023_table_s4_pv"
+     ],
+     "source_locations": [
+      "Official Online Materials Table S4"
+     ],
      "finding": "All 10 printed pressure, lattice-parameter, conventional-cell-volume, and parenthetical uncertainty rows are bundled verbatim. No pressure uncertainty or row-wise temperature is published."
-    },
-    "numerical_reproduction": {
-     "published_state": {"pressure_gpa": 44.0, "volume_a3": 206.6},
-     "calculated_pressure_gpa": 43.2093788099,
-     "absolute_difference_gpa": 0.7906211901,
-     "tolerance_gpa": 0.80,
-     "tolerance_basis": "The largest absolute pressure residual over all 10 Table S4 rows under the rounded published coefficients is 0.7907 GPa."
-    },
-    "refit_reproduction": {
-     "status": "fit_protocol_limited",
-     "published_curve_pressure_rmse_gpa": 0.3887326933,
-     "published_curve_max_abs_pressure_residual_gpa": 0.7906211901,
-     "unweighted_pressure_refit": {"V0": 244.32647529, "K0": 205.77556818, "K0_prime": 2.91664775, "rmse_gpa": 0.3305645286},
-     "volume_uncertainty_weighted_refit": {"V0": 244.05732255, "K0": 201.29958179, "K0_prime": 3.10715360, "reduced_chi_square": 0.5361142089},
-     "finding": "The article reports error-weighted EosFit7c regression but publishes no pressure uncertainties, covariance matrix, or detailed weight settings. Both documented diagnostic refits use all rows and remain separate from the published record."
     },
     "reported_inconsistencies": [
      {
       "field": "Table S4 superscript a",
-      "source_values": ["1.7 GPa marked with superscript a"],
+      "source_values": [
+       "1.7 GPa marked with superscript a"
+      ],
       "finding": "No definition for this superscript is printed in the Online Materials; the marker is retained as source_note_a without interpretation."
      }
     ]
@@ -208,7 +328,14 @@
    "kind": "pressure_volume_lattice_parameters",
    "description": "All 10 room-temperature Fe-bearing CF sample observations printed in Online Materials Table S4.",
    "reference": {
-    "authors": ["Qin", "Wu", "Xue", "Zhang", "Wu", "Jacobsen"],
+    "authors": [
+     "Qin",
+     "Wu",
+     "Xue",
+     "Zhang",
+     "Wu",
+     "Jacobsen"
+    ],
     "year": 2023,
     "title": "Crystal structure of calcium-ferrite type NaAlSiO4 up to 45 GPa",
     "source": "American Mineralogist Online Materials",
@@ -219,24 +346,85 @@
    "source_location": "Official deposit AM-23-128432, 8432_supp.pdf, Table S4",
    "source_url": "https://msaweb.org/MSA/AmMin/TOC/2023/Dec2023_data/AM-23-128432.zip",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "a_angstrom"},
-    {"name": "b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
-    {"name": "b_uncertainty_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "b_angstrom"},
-    {"name": "c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "c_uncertainty_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "c_angstrom"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "volume_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
-    {"name": "used_in_published_fit", "quantity": "fit_selection", "unit": "dimensionless", "role": "flag"},
-    {"name": "source_note_a", "quantity": "unresolved_source_superscript_a", "unit": "dimensionless", "role": "flag"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "b_uncertainty_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "b_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_uncertainty_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "used_in_published_fit",
+     "quantity": "fit_selection",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_note_a",
+     "quantity": "unresolved_source_superscript_a",
+     "unit": "dimensionless",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/na088al099fe013si094o4-qin-2023-table-s4-pv.csv",
     "sha256": "44ed46a6c00a7ea5715af87fcf1e55c5ae1c80acaecf3230c5205d8754e6ab0c",
     "media_type": "text/csv"
    },
-   "used_by_eos_records": ["na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1"],
+   "used_by_eos_records": [
+    "na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1"
+   ],
    "uncertainty": {
     "parenthetical_values": "Retained exactly as printed; the source does not identify their confidence convention.",
     "pressure": "not reported",

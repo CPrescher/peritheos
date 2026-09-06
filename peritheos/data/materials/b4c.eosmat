@@ -653,14 +653,13 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-03",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "crystal_structure",
      "published_uncertainties",
      "validity"
     ],
@@ -683,33 +682,6 @@
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "b4c.json"
     },
-    "reported_inconsistencies": [
-     {
-      "field": "eos.order",
-      "abstract": "third-order Birch-Murnaghan",
-      "figure_1_caption": "second-order Birch-Murnaghan",
-      "resolution": "Retain BM3 because K0'=3.3(1), which is incompatible with a conventional BM2 fit where K0'=4 is fixed."
-     },
-     {
-      "field": "thermal.parameters.theta0",
-      "figure_4_caption": "1425 K (fixed)",
-      "main_table_1": "1450 K (fixed)",
-      "supplement": "1425 K (fixed, repeated in the fit description and Figure 1 caption)",
-      "resolution": "Use 1425 K because it is repeated in the main figure caption and official supplement; treat the single 1450 K table entry as a typographical inconsistency."
-     },
-     {
-      "field": "thermal.parameters.gamma0_and_q",
-      "main_article": "gamma0=0.8 fixed; q=2.1 varied",
-      "supplement_figure_1": "gamma0=0.95(5), q=2.1 described as best; gamma0=0.8 is plotted with q=2.8",
-      "resolution": "Use the final peer-reviewed article pair gamma0=0.8 and q=2.1. At the official heated data's printed V and T, this pair gives a pressure RMSE of 1.39 GPa and chi-squared per observation of 0.961. A full Peritheos P-V-T errors-in-variables refit with gamma0 fixed gives q=1.050(519), so the refit is documented as a diagnostic rather than promoted over the published pair."
-     },
-     {
-      "field": "thermal.parameters.Tr",
-      "main_article": "300 K reference isotherm",
-      "supplement": "T0=298 K",
-      "resolution": "Use the supplement's explicit 298 K calculation reference; 300 K is retained as the nominal lower experimental temperature."
-     }
-    ],
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-03",
@@ -720,7 +692,15 @@
       "official supplementary material, Table 4"
      ],
      "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-    }
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "eos.order",
+      "abstract": "third-order Birch-Murnaghan",
+      "figure_1_caption": "second-order Birch-Murnaghan",
+      "resolution": "Retain BM3 because K0'=3.3(1), which is incompatible with a conventional BM2 fit where K0'=4 is fixed."
+     }
+    ]
    }
   },
   {
@@ -822,17 +802,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, parameters, fixed quantities, EosFit7c fitting method, primary P-V-T table, and diffraction structure were checked against the article and official supplement.",
-    "audit_date": "2026-09-03",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "crystal_structure",
      "published_uncertainties",
-     "primary_dataset",
      "validity"
     ],
     "primary_source_check": {
@@ -1058,17 +1036,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary dataset, equation choices, fixed quantities, and pressure calibration were checked against the article and official supplement; refitted values were independently reproduced with EosFit7c and Peritheos.",
-    "audit_date": "2026-09-03",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
+     "parameters",
      "units",
      "reference_state",
      "phase",
-     "crystal_structure",
-     "primary_dataset",
-     "fit_configuration",
-     "refitted_parameters",
+     "published_uncertainties",
      "validity"
     ],
     "primary_source_check": {

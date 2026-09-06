@@ -1,0 +1,210 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg092fe008o",
+ "name": "(Mg0.92Fe0.08)O B1 ferropericlase",
+ "formula": "Mg0.92Fe0.08O",
+ "phase": "B1 ferropericlase",
+ "aliases": [
+  "B1 (Mg,Fe)O",
+  "ferropericlase"
+ ],
+ "cell_contents": "Four formula units per conventional rocksalt cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.1996,
+  "b": 4.1996,
+  "c": 4.1996,
+  "alpha": 90,
+  "beta": 90,
+  "gamma": 90
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.92,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.08,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1,
+   "site_multiplicity": 4
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Yang",
+    "Tong",
+    "Lin",
+    "Okuchi",
+    "Tomioka"
+   ],
+   "year": 2015,
+   "title": "Elasticity of Ferropericlase across the Spin Crossover in the Earth's Lower Mantle",
+   "source": "Scientific Reports",
+   "volume": "5",
+   "locator": "17188",
+   "doi": "10.1038/srep17188"
+  },
+  "structure_location": "Methods: ambient single-crystal XRD cell parameter and B1 ferropericlase assignment"
+ },
+ "notes": "The executable record is the high-spin BM3 reference branch of a coupled spin-crossover model. The source low-spin branch is held because no independently executable low-spin V0 is reported.",
+ "eos_records": [
+  {
+   "identifier": "mg092fe008o_yang_2015_hs_bm3_reference",
+   "label": "Yang et al. (2015), high-spin BM3 reference branch",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Yang",
+     "Tong",
+     "Lin",
+     "Okuchi",
+     "Tomioka"
+    ],
+    "year": 2015,
+    "title": "Elasticity of Ferropericlase across the Spin Crossover in the Earth's Lower Mantle",
+    "source": "Scientific Reports",
+    "volume": "5",
+    "locator": "17188",
+    "doi": "10.1038/srep17188"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.06683401593601,
+     "K0": 152.5,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.021165568192,
+    "K0": 2.4,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 42.8272
+   },
+   "spin_crossover_context": {
+    "branch": "high_spin_reference",
+    "transition_pressure_gpa": 50,
+    "transition_pressure_sigma_gpa": null,
+    "transition_width_20_80_gpa": 20,
+    "mixer_implemented": false
+   },
+   "validity": {
+    "pressure_gpa": [
+     0,
+     40
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Pure high-spin reference branch; it is not the measured mixed-spin curve between 40 and 60 GPa.",
+     "The source reports the spin transition as a 40-60 GPa interval rather than a fitted midpoint uncertainty."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Results and Supplementary Equations 1-5: third-order Eulerian finite-strain/Birch-Murnaghan high-spin reference EOS in a coupled spin model.",
+    "V0": "Computed as a^3 from the Methods ambient cubic cell parameter a=4.1996(4) A; the linearized 1-sigma propagation is 3 a^2 sigma_a.",
+    "K0": "Results: KT0=152.5(2.4) GPa for the high-spin state.",
+    "K0_prime": "Results: KT0'=4.1(0.2) for the high-spin state.",
+    "fit_relationship": "The source also reports a low-spin K0 and fixed K0', but not a separate low-spin V0; that incomplete branch is not stored."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": "Au pressure scale; exact EOS citation unresolved",
+      "source_location": "Methods: Au powder calibrant for XRD"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Methods: ruby spheres for BLS/ISS"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The article identifies Au and ruby pressure standards but does not provide the row-wise calibrant observables required for recalculation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.nature.com/articles/srep17188",
+     "doi": "10.1038/srep17188",
+     "locations": [
+      "Results and Discussion, page 2",
+      "Methods, page 7",
+      "Supplementary Equations 1-5 and Figures S1-S3"
+     ],
+     "finding": "The article supplies a complete high-spin BM3 reference branch when the reported ambient cell measurement is used for V0; the low-spin branch lacks its own V0."
+    },
+    "primary_data_check": {
+     "status": "source_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Results and Discussion",
+      "Methods",
+      "Supplementary Figures S1-S3"
+     ],
+     "finding": "No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients."
+    }
+   }
+  }
+ ]
+}

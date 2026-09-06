@@ -11,8 +11,9 @@ use peritheos::fit::{
 };
 use peritheos::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use peritheos::isothermal::{
-    holzapfel_bulk_modulus_derivative_analytical, Holzapfel, ModifiedTait, Murnaghan,
-    NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2, BM3, BM4,
+    holzapfel_bulk_modulus_derivative_analytical, Holzapfel, ModifiedTait, Morse3, Murnaghan,
+    NaturalStrain2, NaturalStrain3, NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet,
+    BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
@@ -36,11 +37,15 @@ enum RtModel {
     BM2(BM2),
     BM3(BM3),
     BM4(BM4),
+    Morse3(Morse3),
     Murnaghan(Murnaghan),
     ModifiedTait(ModifiedTait),
     NaturalStrain2(NaturalStrain2),
     NaturalStrain3(NaturalStrain3),
     NaturalStrain4(NaturalStrain4),
+    RydbergStacey(RydbergStacey),
+    SunMorse3(SunMorse3),
+    SunMorse4(SunMorse4),
     Vinet(Vinet),
     Holzapfel(Holzapfel),
 }
@@ -51,11 +56,15 @@ impl RtModel {
             Self::BM2(_) => "BM2",
             Self::BM3(_) => "BM3",
             Self::BM4(_) => "BM4",
+            Self::Morse3(_) => "Morse3",
             Self::Murnaghan(_) => "Murnaghan",
             Self::ModifiedTait(_) => "ModifiedTait",
             Self::NaturalStrain2(_) => "NaturalStrain2",
             Self::NaturalStrain3(_) => "NaturalStrain3",
             Self::NaturalStrain4(_) => "NaturalStrain4",
+            Self::RydbergStacey(_) => "RydbergStacey",
+            Self::SunMorse3(_) => "SunMorse3",
+            Self::SunMorse4(_) => "SunMorse4",
             Self::Vinet(_) => "Vinet",
             Self::Holzapfel(_) => "Holzapfel",
         }
@@ -68,11 +77,15 @@ impl IsothermalEos for RtModel {
             Self::BM2(model) => model.reference_volume(),
             Self::BM3(model) => model.reference_volume(),
             Self::BM4(model) => model.reference_volume(),
+            Self::Morse3(model) => model.reference_volume(),
             Self::Murnaghan(model) => model.reference_volume(),
             Self::ModifiedTait(model) => model.reference_volume(),
             Self::NaturalStrain2(model) => model.reference_volume(),
             Self::NaturalStrain3(model) => model.reference_volume(),
             Self::NaturalStrain4(model) => model.reference_volume(),
+            Self::RydbergStacey(model) => model.reference_volume(),
+            Self::SunMorse3(model) => model.reference_volume(),
+            Self::SunMorse4(model) => model.reference_volume(),
             Self::Vinet(model) => model.reference_volume(),
             Self::Holzapfel(model) => model.reference_volume(),
         }
@@ -83,11 +96,15 @@ impl IsothermalEos for RtModel {
             Self::BM2(model) => model.pressure(volume),
             Self::BM3(model) => model.pressure(volume),
             Self::BM4(model) => model.pressure(volume),
+            Self::Morse3(model) => model.pressure(volume),
             Self::Murnaghan(model) => model.pressure(volume),
             Self::ModifiedTait(model) => model.pressure(volume),
             Self::NaturalStrain2(model) => model.pressure(volume),
             Self::NaturalStrain3(model) => model.pressure(volume),
             Self::NaturalStrain4(model) => model.pressure(volume),
+            Self::RydbergStacey(model) => model.pressure(volume),
+            Self::SunMorse3(model) => model.pressure(volume),
+            Self::SunMorse4(model) => model.pressure(volume),
             Self::Vinet(model) => model.pressure(volume),
             Self::Holzapfel(model) => model.pressure(volume),
         }
@@ -98,11 +115,15 @@ impl IsothermalEos for RtModel {
             Self::BM2(model) => model.bulk_modulus(volume),
             Self::BM3(model) => model.bulk_modulus(volume),
             Self::BM4(model) => model.bulk_modulus(volume),
+            Self::Morse3(model) => model.bulk_modulus(volume),
             Self::Murnaghan(model) => model.bulk_modulus(volume),
             Self::ModifiedTait(model) => model.bulk_modulus(volume),
             Self::NaturalStrain2(model) => model.bulk_modulus(volume),
             Self::NaturalStrain3(model) => model.bulk_modulus(volume),
             Self::NaturalStrain4(model) => model.bulk_modulus(volume),
+            Self::RydbergStacey(model) => model.bulk_modulus(volume),
+            Self::SunMorse3(model) => model.bulk_modulus(volume),
+            Self::SunMorse4(model) => model.bulk_modulus(volume),
             Self::Vinet(model) => model.bulk_modulus(volume),
             Self::Holzapfel(model) => model.bulk_modulus(volume),
         }
@@ -115,11 +136,15 @@ impl ReferenceStateEos for RtModel {
             Self::BM2(model) => model.k0,
             Self::BM3(model) => model.k0,
             Self::BM4(model) => model.k0,
+            Self::Morse3(model) => model.k0,
             Self::Murnaghan(model) => model.k0,
             Self::ModifiedTait(model) => model.k0,
             Self::NaturalStrain2(model) => model.k0,
             Self::NaturalStrain3(model) => model.k0,
             Self::NaturalStrain4(model) => model.k0,
+            Self::RydbergStacey(model) => model.k0,
+            Self::SunMorse3(model) => model.k0,
+            Self::SunMorse4(model) => model.k0,
             Self::Vinet(model) => model.k0,
             Self::Holzapfel(model) => model.k0,
         }
@@ -131,6 +156,9 @@ impl ReferenceStateEos for RtModel {
             Self::BM3(model) => BM3::new(volume, bulk_modulus, model.k0_prime).map(Self::BM3),
             Self::BM4(model) => {
                 BM4::new(volume, bulk_modulus, model.k0_prime, model.k0_double_prime).map(Self::BM4)
+            }
+            Self::Morse3(model) => {
+                Morse3::new(volume, bulk_modulus, model.k0_prime).map(Self::Morse3)
             }
             Self::Murnaghan(model) => {
                 Murnaghan::new(volume, bulk_modulus, model.k0_prime).map(Self::Murnaghan)
@@ -148,6 +176,16 @@ impl ReferenceStateEos for RtModel {
             Self::NaturalStrain4(model) => {
                 NaturalStrain4::new(volume, bulk_modulus, model.k0_prime, model.k0_double_prime)
                     .map(Self::NaturalStrain4)
+            }
+            Self::RydbergStacey(model) => {
+                RydbergStacey::new(volume, bulk_modulus, model.k0_prime, model.k_infinity_prime)
+                    .map(Self::RydbergStacey)
+            }
+            Self::SunMorse3(model) => {
+                SunMorse3::new(volume, bulk_modulus, model.k0_prime).map(Self::SunMorse3)
+            }
+            Self::SunMorse4(model) => {
+                SunMorse4::new(volume, bulk_modulus, model.k0_prime).map(Self::SunMorse4)
             }
             Self::Vinet(model) => Vinet::new(volume, bulk_modulus, model.k0_prime).map(Self::Vinet),
             Self::Holzapfel(model) => {
@@ -203,6 +241,13 @@ impl PyRtEos {
     }
 
     #[staticmethod]
+    fn morse3(v0: f64, k0: f64, k0_prime: f64) -> PyResult<Self> {
+        Ok(Self {
+            model: RtModel::Morse3(Morse3::new(v0, k0, k0_prime).map_err(to_python_error)?),
+        })
+    }
+
+    #[staticmethod]
     fn modified_tait(v0: f64, k0: f64, k0_prime: f64, k0_double_prime: f64) -> PyResult<Self> {
         Ok(Self {
             model: RtModel::ModifiedTait(
@@ -233,6 +278,29 @@ impl PyRtEos {
             model: RtModel::NaturalStrain4(
                 NaturalStrain4::new(v0, k0, k0_prime, k0_double_prime).map_err(to_python_error)?,
             ),
+        })
+    }
+
+    #[staticmethod]
+    fn rydberg_stacey(v0: f64, k0: f64, k0_prime: f64, k_infinity_prime: f64) -> PyResult<Self> {
+        Ok(Self {
+            model: RtModel::RydbergStacey(
+                RydbergStacey::new(v0, k0, k0_prime, k_infinity_prime).map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    fn sun_morse3(v0: f64, k0: f64, k0_prime: f64) -> PyResult<Self> {
+        Ok(Self {
+            model: RtModel::SunMorse3(SunMorse3::new(v0, k0, k0_prime).map_err(to_python_error)?),
+        })
+    }
+
+    #[staticmethod]
+    fn sun_morse4(v0: f64, k0: f64, k0_prime: f64) -> PyResult<Self> {
+        Ok(Self {
+            model: RtModel::SunMorse4(SunMorse4::new(v0, k0, k0_prime).map_err(to_python_error)?),
         })
     }
 

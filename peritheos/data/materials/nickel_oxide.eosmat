@@ -376,15 +376,15 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The eight final-state observations, initial density, phase interpretation, and locally derived OLS relation were checked against the primary Table 1 data. The coefficients are not quoted by the paper.",
-    "audit_date": "2026-09-04",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
-     "derived_parameters",
+     "parameters",
      "units",
      "reference_state",
      "phase",
-     "fit_selection",
+     "published_uncertainties",
      "validity"
     ],
     "primary_source_check": {
@@ -394,7 +394,7 @@
       "Noguchi et al. (1999), Table 1, journal page 510"
      ],
      "finding": "All eight final shock states remain on the source's untransformed rocksalt/B1 interpretation. The paper reports pressure and volume errors below about 2% but no row-wise shock- or particle-velocity uncertainties, so the stored coefficient errors are residual-scaled OLS standard errors.",
-     "doi": "10.1016/S0022-3697(98)00296-0"
+     "doi": "10.1016/s0022-3697(98)00296-0"
     },
     "primary_data_check": {
      "status": "bundled",

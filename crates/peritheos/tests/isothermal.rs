@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
 use peritheos::isothermal::{
-    Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
-    BM3, BM4,
+    Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4,
+    RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::{EosError, IsothermalEos};
 use serde::Deserialize;
@@ -38,6 +38,7 @@ fn model_from_parameters(model: &str, parameters: &HashMap<String, f64>) -> Box<
         "BM3" => Box::new(BM3::new(p("V0"), p("K0"), p("K0_prime")).unwrap()),
         "BM4" => Box::new(BM4::new(p("V0"), p("K0"), p("K0_prime"), p("K0_double_prime")).unwrap()),
         "Murnaghan" => Box::new(Murnaghan::new(p("V0"), p("K0"), p("K0_prime")).unwrap()),
+        "Morse3" => Box::new(Morse3::new(p("V0"), p("K0"), p("K0_prime")).unwrap()),
         "ModifiedTait" => Box::new(
             ModifiedTait::new(p("V0"), p("K0"), p("K0_prime"), p("K0_double_prime")).unwrap(),
         ),
@@ -46,6 +47,11 @@ fn model_from_parameters(model: &str, parameters: &HashMap<String, f64>) -> Box<
         "NaturalStrain4" => Box::new(
             NaturalStrain4::new(p("V0"), p("K0"), p("K0_prime"), p("K0_double_prime")).unwrap(),
         ),
+        "RydbergStacey" => Box::new(
+            RydbergStacey::new(p("V0"), p("K0"), p("K0_prime"), p("K_infinity_prime")).unwrap(),
+        ),
+        "SunMorse3" => Box::new(SunMorse3::new(p("V0"), p("K0"), p("K0_prime")).unwrap()),
+        "SunMorse4" => Box::new(SunMorse4::new(p("V0"), p("K0"), p("K0_prime")).unwrap()),
         "Vinet" => Box::new(Vinet::new(p("V0"), p("K0"), p("K0_prime")).unwrap()),
         "Holzapfel" => {
             Box::new(Holzapfel::new(p("V0"), p("K0"), p("K0_prime"), p("n"), p("Z")).unwrap())
@@ -68,6 +74,10 @@ fn shared_literature_pressure_cases_match() {
                 | "Murnaghan"
                 | "NaturalStrain3"
                 | "ModifiedTait"
+                | "RydbergStacey"
+                | "Morse3"
+                | "SunMorse3"
+                | "SunMorse4"
                 | "Vinet"
                 | "Holzapfel"
         );
@@ -142,10 +152,14 @@ fn representative_models() -> Vec<Box<dyn IsothermalEos>> {
         Box::new(BM3::new(10.0, 120.0, 4.3).unwrap()),
         Box::new(BM4::new(10.0, 120.0, 4.3, -0.02).unwrap()),
         Box::new(Murnaghan::new(10.0, 120.0, 4.3).unwrap()),
+        Box::new(Morse3::new(10.0, 120.0, 4.3).unwrap()),
         Box::new(ModifiedTait::new(10.0, 120.0, 4.3, -0.02).unwrap()),
         Box::new(NaturalStrain2::new(10.0, 120.0).unwrap()),
         Box::new(NaturalStrain3::new(10.0, 120.0, 4.3).unwrap()),
         Box::new(NaturalStrain4::new(10.0, 120.0, 4.3, -0.02).unwrap()),
+        Box::new(RydbergStacey::new(10.0, 120.0, 4.3, 5.0 / 3.0).unwrap()),
+        Box::new(SunMorse3::new(10.0, 120.0, 4.3).unwrap()),
+        Box::new(SunMorse4::new(10.0, 120.0, 4.3).unwrap()),
         Box::new(Vinet::new(10.0, 120.0, 4.3).unwrap()),
         Box::new(Holzapfel::new(0.3414, 441.5, 3.9, 1.0, 6.0).unwrap()),
     ]

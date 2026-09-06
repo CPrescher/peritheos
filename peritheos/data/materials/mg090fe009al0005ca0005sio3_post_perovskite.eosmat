@@ -72,7 +72,13 @@
  "peaks": [],
  "source": {
   "structure_reference": {
-   "authors": ["Murakami", "Hirose", "Kawamura", "Sata", "Ohishi"],
+   "authors": [
+    "Murakami",
+    "Hirose",
+    "Kawamura",
+    "Sata",
+    "Ohishi"
+   ],
    "year": 2004,
    "title": "Post-perovskite phase transition in MgSiO3",
    "source": "Science",
@@ -93,7 +99,16 @@
    "equation_kind": "isothermal",
    "default_for": "equilibrium",
    "reference": {
-    "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
+    "authors": [
+     "Shieh",
+     "Duffy",
+     "Kubo",
+     "Shen",
+     "Prakapenka",
+     "Sata",
+     "Hirose",
+     "Ohishi"
+    ],
     "year": 2006,
     "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
     "source": "Proceedings of the National Academy of Sciences",
@@ -110,7 +125,9 @@
      "K0": 219.0
     }
    },
-   "implicit_parameters": {"K0_prime": 4.0},
+   "implicit_parameters": {
+    "K0_prime": 4.0
+   },
    "parameter_errors": {
     "V0": 0.6,
     "K0": 5.0
@@ -119,9 +136,15 @@
    "fixed_parameters": [],
    "parameter_covariance": null,
    "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [12.0, 106.0],
+   "experimental_pressure_range_gpa": [
+    12.0,
+    106.0
+   ],
    "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
    "experimental_configuration": {
     "sample": "Natural orthopyroxene transformed by laser heating; coexisting Pbnm pv and Cmcm ppv were followed on room-temperature decompression.",
     "pressure_medium": "argon or NaCl depending on run; Pt mixtures and NaCl also served as laser absorber/insulation",
@@ -130,11 +153,22 @@
     "diffraction": "angle-dispersive synchrotron XRD at GSECARS 13-ID-D and SPring-8 BL10XU",
     "path": "300 K decompression without additional heating after synthesis"
    },
-   "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"],
+   "fit_datasets": [
+    "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"
+   ],
    "validity": {
-    "pressure_gpa": [12.0, 106.0],
-    "temperature_k": [300.0, 300.0],
-    "volume_ratio": [0.755039, 0.950539],
+    "pressure_gpa": [
+     12.0,
+     106.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.755039,
+     0.950539
+    ],
     "notes": [
      "The range is the measured metastable decompression envelope, not a thermodynamic phase-stability field.",
      "The long extrapolation from the measured range to zero pressure makes V0 and K0 strongly correlated; the authors therefore fixed K0'=4."
@@ -154,19 +188,54 @@
      {
       "kind": "equation_of_state",
       "material": "Pt",
-      "reference": {"authors": ["Holmes", "Moriarty", "Gathers", "Nellis"], "year": 1989, "source": "Journal of Applied Physics", "volume": "66", "locator": "2962-2967", "doi": "10.1063/1.344177"},
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "source": "Journal of Applied Physics",
+       "volume": "66",
+       "locator": "2962-2967",
+       "doi": "10.1063/1.344177"
+      },
       "source_location": "Experimental Methods and reference 26"
      },
      {
       "kind": "equation_of_state",
       "material": "Au",
-      "reference": {"authors": ["Shim", "Duffy", "Takemura"], "year": 2002, "source": "Earth and Planetary Science Letters", "volume": "203", "locator": "729-739", "doi": "10.1016/S0012-821X(02)00917-2"},
+      "reference": {
+       "authors": [
+        "Shim",
+        "Duffy",
+        "Takemura"
+       ],
+       "year": 2002,
+       "source": "Earth and Planetary Science Letters",
+       "volume": "203",
+       "locator": "729-739",
+       "doi": "10.1016/S0012-821X(02)00917-2"
+      },
       "source_location": "Experimental Methods and reference 27"
      },
      {
       "kind": "equation_of_state",
       "material": "NaCl",
-      "reference": {"authors": ["Sata", "Shen", "Rivers", "Sutton"], "year": 2002, "source": "Physical Review B", "volume": "65", "locator": "104114", "doi": "10.1103/PhysRevB.65.104114"},
+      "reference": {
+       "authors": [
+        "Sata",
+        "Shen",
+        "Rivers",
+        "Sutton"
+       ],
+       "year": 2002,
+       "source": "Physical Review B",
+       "volume": "65",
+       "locator": "104114",
+       "doi": "10.1103/PhysRevB.65.104114"
+      },
       "source_location": "Experimental Methods and reference 28"
      }
     ],
@@ -178,28 +247,38 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the open-access primary article; LitCurate was used only to discover and enumerate candidates.",
-    "audit_date": "2026-09-05",
-    "verified_fields": ["canonical_doi", "composition", "phase", "crystal_system", "cell_setting", "formula_units_per_cell", "equation", "parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "validity", "pressure_calibration", "primary_data"],
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1073/pnas.0506811103",
      "doi": "10.1073/pnas.0506811103",
-     "locations": ["abstract", "Results and Discussion, pages 3039-3041", "Figure 2 and Table 1", "Experimental Methods, pages 3041-3043"],
+     "locations": [
+      "abstract",
+      "Results and Discussion, pages 3039-3041",
+      "Figure 2 and Table 1",
+      "Experimental Methods, pages 3041-3043"
+     ],
      "finding": "The preferred experimental ppv equation is a second-order Eulerian finite-strain fit with V0=164.9(6) A^3, K0=219(5) GPa, and implicit fixed K0'=4."
     },
     "primary_data_check": {
      "status": "plot_only",
      "audit_date": "2026-09-05",
-     "digitized_dataset_identifiers": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"],
-     "source_locations": ["Figure 2, filled-circle ppv observations"],
+     "digitized_dataset_identifiers": [
+      "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"
+     ],
+     "source_locations": [
+      "Figure 2, filled-circle ppv observations"
+     ],
      "finding": "Thirteen separable filled-circle marker centers are bundled from Figure 2. No numerical P-V table accompanies the article."
-    },
-    "independent_refit": {
-     "method": "unweighted pressure residuals on all 13 digitized ppv markers with V0 and K0 free and K0'=4 implicit",
-     "parameters": {"V0": 164.78775093, "K0": 219.92599574, "K0_prime": 4.0},
-     "published_curve_pressure_rmse_gpa": 1.29515019,
-     "refit_pressure_rmse_gpa": 1.29382188,
-     "assessment": "Both free coefficients reproduce the published values within their one-sigma uncertainties; figure resolution and unavailable source regression weights limit stronger equivalence claims."
     }
    }
   },
@@ -209,7 +288,16 @@
    "record_kind": "published",
    "equation_kind": "isothermal",
    "reference": {
-    "authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"],
+    "authors": [
+     "Shieh",
+     "Duffy",
+     "Kubo",
+     "Shen",
+     "Prakapenka",
+     "Sata",
+     "Hirose",
+     "Ohishi"
+    ],
     "year": 2006,
     "title": "Equation of state of the postperovskite phase synthesized from a natural (Mg,Fe)SiO3 orthopyroxene",
     "source": "Proceedings of the National Academy of Sciences",
@@ -221,22 +309,51 @@
    "eos": {
     "type": "BM3",
     "model": "birch_murnaghan_3",
-    "parameters": {"V0": 166.2, "K0": 198.0, "K0_prime": 4.4}
+    "parameters": {
+     "V0": 166.2,
+     "K0": 198.0,
+     "K0_prime": 4.4
+    }
    },
-   "parameter_errors": {"V0": 0.7, "K0": 5.0, "K0_prime": null},
+   "parameter_errors": {
+    "V0": 0.7,
+    "K0": 5.0,
+    "K0_prime": null
+   },
    "parameter_error_confidence": 0.6826894921370859,
-   "fixed_parameters": ["K0_prime"],
+   "fixed_parameters": [
+    "K0_prime"
+   ],
    "parameter_covariance": null,
    "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [12.0, 106.0],
+   "experimental_pressure_range_gpa": [
+    12.0,
+    106.0
+   ],
    "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [300.0, 300.0],
-   "fit_datasets": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "fit_datasets": [
+    "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"
+   ],
    "validity": {
-    "pressure_gpa": [12.0, 106.0],
-    "temperature_k": [300.0, 300.0],
-    "volume_ratio": [0.749133, 0.943057],
-    "notes": ["Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default."]
+    "pressure_gpa": [
+     12.0,
+     106.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.749133,
+     0.943057
+    ],
+    "notes": [
+     "Nonpreferred parameter-tradeoff sensitivity fit; use the BM2 record by default."
+    ]
    },
    "parameter_provenance": {
     "equation": "Results, page 3040: alternative constrained third-order Birch-Murnaghan parameterization used to illustrate tradeoffs.",
@@ -248,26 +365,99 @@
    "pressure_calibration": {
     "status": "partially_resolved",
     "methods": [
-     {"kind": "equation_of_state", "material": "Pt", "reference": {"authors": ["Holmes", "Moriarty", "Gathers", "Nellis"], "year": 1989, "source": "Journal of Applied Physics", "volume": "66", "locator": "2962-2967", "doi": "10.1063/1.344177"}, "source_location": "Experimental Methods and reference 26"},
-     {"kind": "equation_of_state", "material": "Au", "reference": {"authors": ["Shim", "Duffy", "Takemura"], "year": 2002, "source": "Earth and Planetary Science Letters", "volume": "203", "locator": "729-739", "doi": "10.1016/S0012-821X(02)00917-2"}, "source_location": "Experimental Methods and reference 27"},
-     {"kind": "equation_of_state", "material": "NaCl", "reference": {"authors": ["Sata", "Shen", "Rivers", "Sutton"], "year": 2002, "source": "Physical Review B", "volume": "65", "locator": "104114", "doi": "10.1103/PhysRevB.65.104114"}, "source_location": "Experimental Methods and reference 28"}
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "source": "Journal of Applied Physics",
+       "volume": "66",
+       "locator": "2962-2967",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Experimental Methods and reference 26"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Shim",
+        "Duffy",
+        "Takemura"
+       ],
+       "year": 2002,
+       "source": "Earth and Planetary Science Letters",
+       "volume": "203",
+       "locator": "729-739",
+       "doi": "10.1016/S0012-821X(02)00917-2"
+      },
+      "source_location": "Experimental Methods and reference 27"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "Sata",
+        "Shen",
+        "Rivers",
+        "Sutton"
+       ],
+       "year": 2002,
+       "source": "Physical Review B",
+       "volume": "65",
+       "locator": "104114",
+       "doi": "10.1103/PhysRevB.65.104114"
+      },
+      "source_location": "Experimental Methods and reference 28"
+     }
     ],
-    "recalculation": {"status": "missing_calibrant_observations", "notes": "No row-wise calibrant observations or marker-to-calibrant assignment is published."},
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No row-wise calibrant observations or marker-to-calibrant assignment is published."
+    },
     "audit_date": "2026-09-05"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Source-preserved nonpreferred sensitivity fit, independently checked against the digitized primary observations.",
-    "audit_date": "2026-09-05",
-    "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "validity", "primary_data"],
-    "primary_source_check": {"access_url": "https://doi.org/10.1073/pnas.0506811103", "doi": "10.1073/pnas.0506811103", "locations": ["Results, page 3040", "Figure 2", "Table 1"], "finding": "The paper explicitly reports this K0'=4.4 constrained alternative to show V0-K0-K0' tradeoff; it is not the preferred curve."},
-    "primary_data_check": {"status": "plot_only", "audit_date": "2026-09-05", "digitized_dataset_identifiers": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"], "source_locations": ["Figure 2, filled-circle ppv observations"], "finding": "The same 13 digitized ppv marker centers constrain both published parameterizations."},
-    "independent_refit": {
-     "method": "unweighted pressure residuals on all 13 digitized ppv markers with V0 and K0 free and K0'=4.4 fixed",
-     "parameters": {"V0": 165.64694843, "K0": 201.69342250, "K0_prime": 4.4},
-     "published_curve_pressure_rmse_gpa": 1.36847131,
-     "refit_pressure_rmse_gpa": 1.33414379,
-     "assessment": "The digitized refit reproduces V0 and K0 within the printed one-sigma uncertainties."
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1073/pnas.0506811103",
+     "doi": "10.1073/pnas.0506811103",
+     "locations": [
+      "Results, page 3040",
+      "Figure 2",
+      "Table 1"
+     ],
+     "finding": "The paper explicitly reports this K0'=4.4 constrained alternative to show V0-K0-K0' tradeoff; it is not the preferred curve."
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-05",
+     "digitized_dataset_identifiers": [
+      "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized"
+     ],
+     "source_locations": [
+      "Figure 2, filled-circle ppv observations"
+     ],
+     "finding": "The same 13 digitized ppv marker centers constrain both published parameterizations."
     }
    },
    "notes": "This record corrects LitCurate's suggested BM2 mapping: a fixed K0'=4.4 requires BM3. It is retained only as an author-reported sensitivity fit."
@@ -278,29 +468,125 @@
    "identifier": "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized",
    "kind": "pressure_volume_digitized",
    "description": "Thirteen separable filled-circle ppv marker centers from Figure 2. The ambient arrow labeled Theory and literature symbols were excluded.",
-   "reference": {"authors": ["Shieh", "Duffy", "Kubo", "Shen", "Prakapenka", "Sata", "Hirose", "Ohishi"], "year": 2006, "source": "Proceedings of the National Academy of Sciences", "volume": "103", "locator": "3039-3043", "doi": "10.1073/pnas.0506811103"},
+   "reference": {
+    "authors": [
+     "Shieh",
+     "Duffy",
+     "Kubo",
+     "Shen",
+     "Prakapenka",
+     "Sata",
+     "Hirose",
+     "Ohishi"
+    ],
+    "year": 2006,
+    "source": "Proceedings of the National Academy of Sciences",
+    "volume": "103",
+    "locator": "3039-3043",
+    "doi": "10.1073/pnas.0506811103"
+   },
    "source_location": "Figure 2, filled-circle ppv observations",
    "columns": [
-    {"name": "observation_index", "quantity": "index", "unit": "dimensionless", "role": "value"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
-    {"name": "fit_included", "quantity": "fit_selection", "unit": "boolean", "role": "flag"},
-    {"name": "loading_path", "quantity": "experimental_path", "unit": "text", "role": "flag"},
-    {"name": "phase", "quantity": "phase", "unit": "text", "role": "flag"},
-    {"name": "source_marker", "quantity": "plot_marker", "unit": "text", "role": "flag"}
+    {
+     "name": "observation_index",
+     "quantity": "index",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_digitization_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "fit_selection",
+     "unit": "boolean",
+     "role": "flag"
+    },
+    {
+     "name": "loading_path",
+     "quantity": "experimental_path",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "source_marker",
+     "quantity": "plot_marker",
+     "unit": "text",
+     "role": "flag"
+    }
    ],
-   "resource": {"path": "datasets/mg090fe009al0005ca0005sio3-shieh-2006-figure2-ppv-digitized.csv", "sha256": "617855e6a062074a7a7ac763c7786f239a4156ad1953ef7fd7f7961a3185a1e1", "media_type": "text/csv"},
-   "used_by_eos_records": ["mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1", "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2"],
+   "resource": {
+    "path": "datasets/mg090fe009al0005ca0005sio3-shieh-2006-figure2-ppv-digitized.csv",
+    "sha256": "617855e6a062074a7a7ac763c7786f239a4156ad1953ef7fd7f7961a3185a1e1",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm2_1",
+    "mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Rendered the open-access primary PDF at 400 dpi, cropped Figure 2, calibrated linear axes against 20 GPa x-axis and 10 A^3 y-axis ticks, and manually separated filled ppv circles from open pv circles and literature symbols. Marker centers were estimated from the raster; plotted experimental error bars were not transcribed as numerical source uncertainties.",
     "source_pdf_sha256": "a52430c01097b8cb00eef8425803227e5f5f0336dd4c36090ccb8fcdc7d84849",
     "source_figure_crop_sha256": "8eeb03d09c6592d4c54db25695456f1917ba458268c6dd61f00c845f68e93530",
-    "axis_calibration_pixels_400dpi_crop": {"pressure": [[520.5, 0.0], [771.5, 20.0]], "volume": [[773.5, 170.0], [991.0, 160.0]]},
+    "axis_calibration_pixels_400dpi_crop": {
+     "pressure": [
+      [
+       520.5,
+       0.0
+      ],
+      [
+       771.5,
+       20.0
+      ]
+     ],
+     "volume": [
+      [
+       773.5,
+       170.0
+      ],
+      [
+       991.0,
+       160.0
+      ]
+     ]
+    },
     "digitization_uncertainty": "Conservative uniform center-picking bounds of 0.50 GPa and 0.15 A^3; these are not the authors' experimental uncertainties.",
-    "quality_control": {"published_bm2_pressure_rmse_gpa": 1.29515019, "published_bm2_max_abs_pressure_residual_gpa": 2.41209768, "fixed_k0_prime_4_refit_V0_a3": 164.78775093, "fixed_k0_prime_4_refit_K0_gpa": 219.92599574},
+    "quality_control": {
+     "published_bm2_pressure_rmse_gpa": 1.29515019,
+     "published_bm2_max_abs_pressure_residual_gpa": 2.41209768,
+     "fixed_k0_prime_4_refit_V0_a3": 164.78775093,
+     "fixed_k0_prime_4_refit_K0_gpa": 219.92599574
+    },
     "digitized_on": "2026-09-05"
    }
   }

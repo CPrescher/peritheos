@@ -296,28 +296,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_setting",
-     "formula_units_per_cell",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "parameter_covariance",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1002/2015JB012108",
-     "doi": "10.1002/2015JB012108",
+     "doi": "10.1002/2015jb012108",
      "locations": [
       "final article, sections 2.1-2.3, 3.1-3.4, and 4.2",
       "final article, equations 1-11 and Tables 1, 3, and 4",
@@ -338,34 +330,7 @@
       "corresponding-author machine-readable Table 1"
      ],
      "finding": "All 153 observations are bundled in source order: 49 measurements at 300 K and 104 laser-heated measurements, with reduced pressure and total propagated uncertainty, temperature and uncertainty, bridgmanite cell volume and uncertainty, and paired Ne cell volume and uncertainty."
-    },
-    "independent_refit": {
-     "selection": "all 153 Table 1 rows",
-     "objective": "joint weighted pressure residuals using the final printed total pressure uncertainties, plus the published independent Gaussian priors on V0, gamma0, and q; theta0 fixed to 1000 K",
-     "free_parameters": [
-      "V0",
-      "K0",
-      "K0_prime",
-      "gamma0",
-      "q"
-     ],
-     "refit_parameters": {
-      "V0": 163.16078947,
-      "K0": 243.8308391,
-      "K0_prime": 4.15944883,
-      "gamma0": 1.40147771,
-      "q": 0.55884896
-     },
-     "published_curve_pressure_rmse_gpa": 1.9496990046,
-     "result": "parity",
-     "notes": "This independently evaluates the rounded published P-V-T table and final effective pressure errors. It reproduces every displayed coefficient within rounding or far inside its 68% interval, but it is not substituted for the authors' iterative marker-volume error-model fit."
-    },
-    "unresolved_issues": [
-     "The publisher record exposes no separate supporting-information file; the final article states that the analyzed data are included in its tables, and the corresponding author supplies exact machine-readable mirrors of Tables 1-5.",
-     "The exact Dewaele et al. (2008) Ne thermal pressure scale is identified and all paired calibrant observations are available, but that calibration record is not bundled in Peritheos.",
-     "The article does not publish a positional refinement for the exact 13% Fe specimen; diffraction metadata therefore use an explicitly labeled near-composition structural proxy.",
-     "The article's equation 13 ideal lattice mixing model for arbitrary Fe content is a separate compositional interpolation and is not represented as another single-composition EOS record."
-    ]
+    }
    },
    "source_lineage": [
     {

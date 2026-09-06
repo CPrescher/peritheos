@@ -1,0 +1,267 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "csbr_sun_2010_legacy",
+ "name": "CsBr legacy compression aggregate (Sun 2010)",
+ "formula": "CsBr",
+ "phase": "legacy multi-source compression aggregate; phase unresolved",
+ "aliases": [
+  "CsBr"
+ ],
+ "cell_contents": "One chemical formula unit; no crystallographic conventional cell is inferred.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "formula_units_per_cell": 1,
+ "atom_sites": [],
+ "peaks": [],
+ "source": {
+  "article_url": "https://doi.org/10.1515/zna-2010-1-202",
+  "article_sha256": "57b6c4ff8b59dcc3734aa9507de0f62610839363a8e5ae790ed8f71e6fa66db4",
+  "parameter_table": "sun-2010-table2-morse-eos-parameters.csv",
+  "parameter_table_sha256": "e71613962b7df52559b8633546a7513b902ce1b5d8d4a7666e0476464123ca68"
+ },
+ "notes": "Separate phase-unresolved card for historical universal-EOS benchmark fits; it must not be merged with a specific crystallographic phase or used as a modern pressure standard.",
+ "eos_records": [
+  {
+   "identifier": "csbr_sun_2010_sms4_1",
+   "label": "Sun et al. (2010), CsBr SMS4 legacy benchmark",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Wu",
+     "Guo",
+     "Cai"
+    ],
+    "year": 2010,
+    "title": "Two Universal Equations of State for Solids",
+    "source": "Zeitschrift fuer Naturforschung A",
+    "volume": "65",
+    "locator": "34-44",
+    "doi": "10.1515/zna-2010-1-202"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 212.809451
+   },
+   "eos": {
+    "type": "SunMorse4",
+    "model": "sun_morse_4",
+    "parameters": {
+     "V0": 79.58963748964247,
+     "K0": 21.905,
+     "K0_prime": 4.0533
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    55.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     55.0
+    ],
+    "notes": [
+     "This is the exact source fit range, not a verified single-phase stability range.",
+     "The source does not republish row-level volumes, weights, or pressure calibrations."
+    ]
+   },
+   "notes": "Table 2 SMS4 preferred benchmark family. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Exact row-wise legacy observations and their pressure calibrations are not republished."
+    },
+    "audit_date": "2026-09-05",
+    "notes": "No pressure scale is inferred from the compiled material label or publication era."
+   },
+   "parameter_provenance": {
+    "source_solid": "CsBr",
+    "table_prefix": "sms4",
+    "V0": "Table 2, experimental molar volume converted with exact Avogadro constant",
+    "K0": "Table 2, SMS4",
+    "K0_prime": "Table 2, SMS4",
+    "fit_range": "Table 1",
+    "mean_pressure_error_gpa": 0.277
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+     "locations": [
+      "Equations (3)-(15)",
+      "Tables 1-2"
+     ],
+     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+     "doi": "10.1515/zna-2010-1-202"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Tables 1-2; cited legacy compression compilations"
+     ],
+     "finding": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation, fit, and coefficients",
+     "citation": "Sun et al. (2010), equations (6)-(9), Tables 1-2 (SMS4)",
+     "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "legacy normalized-compression observations",
+     "citation": "Kennedy and Keeler (1972), except the source's separately cited H2, W, and NaCl datasets"
+    }
+   ]
+  },
+  {
+   "identifier": "csbr_sun_2010_sms3_1",
+   "label": "Sun et al. (2010), CsBr SMS3 legacy benchmark",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Wu",
+     "Guo",
+     "Cai"
+    ],
+    "year": 2010,
+    "title": "Two Universal Equations of State for Solids",
+    "source": "Zeitschrift fuer Naturforschung A",
+    "volume": "65",
+    "locator": "34-44",
+    "doi": "10.1515/zna-2010-1-202"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 212.809451
+   },
+   "eos": {
+    "type": "SunMorse3",
+    "model": "sun_morse_3",
+    "parameters": {
+     "V0": 79.58963748964247,
+     "K0": 21.687,
+     "K0_prime": 4.1912
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    55.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     55.0
+    ],
+    "notes": [
+     "This is the exact source fit range, not a verified single-phase stability range.",
+     "The source does not republish row-level volumes, weights, or pressure calibrations."
+    ]
+   },
+   "notes": "Table 2 SMS3 same-data model sensitivity. The source fits a legacy normalized-compression compilation and reports no parameter uncertainties or covariance. The material card is phase-unresolved because the article does not preserve phase-resolved observation lineage.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Exact row-wise legacy observations and their pressure calibrations are not republished."
+    },
+    "audit_date": "2026-09-05",
+    "notes": "No pressure scale is inferred from the compiled material label or publication era."
+   },
+   "parameter_provenance": {
+    "source_solid": "CsBr",
+    "table_prefix": "sms3",
+    "V0": "Table 2, experimental molar volume converted with exact Avogadro constant",
+    "K0": "Table 2, SMS3",
+    "K0_prime": "Table 2, SMS3",
+    "fit_range": "Table 1",
+    "mean_pressure_error_gpa": 0.456
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+     "locations": [
+      "Equations (3)-(15)",
+      "Tables 1-2"
+     ],
+     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+     "doi": "10.1515/zna-2010-1-202"
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Tables 1-2; cited legacy compression compilations"
+     ],
+     "finding": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation, fit, and coefficients",
+     "citation": "Sun et al. (2010), equations (6)-(9), Tables 1-2 (SMS3)",
+     "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "legacy normalized-compression observations",
+     "citation": "Kennedy and Keeler (1972), except the source's separately cited H2, W, and NaCl datasets"
+    }
+   ]
+  }
+ ]
+}

@@ -213,6 +213,131 @@ impl IsothermalEos for Murnaghan {
     }
 }
 
+fn morse3_terms(v0: f64, k0: f64, k0_prime: f64, volume: f64) -> EosResult<(f64, f64)> {
+    let volume = positive_state(volume, "volume")?;
+    let x = (volume / v0).cbrt();
+    let beta = k0_prime - 1.0;
+    if beta.abs() <= f64::EPSILON {
+        return Err(EosError::InvalidParameter {
+            name: "K0_prime",
+            reason: "Morse3 requires K0_prime != 1",
+        });
+    }
+    let exponential = (beta * (1.0 - x)).exp();
+    let pressure = 3.0 * k0 / (beta * x.powi(2)) * (exponential * exponential - exponential);
+    let bulk_modulus = k0 / beta
+        * (2.0 / x.powi(2) * (exponential * exponential - exponential)
+            + beta / x * (2.0 * exponential * exponential - exponential));
+    Ok((pressure, bulk_modulus))
+}
+
+/// Three-dimensional Morse-potential equation of state.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Morse3 {
+    /// Reference volume.
+    pub v0: f64,
+    /// Reference bulk modulus.
+    pub k0: f64,
+    /// Reference pressure derivative of the bulk modulus.
+    pub k0_prime: f64,
+}
+
+impl Morse3 {
+    /// Construct a three-dimensional Morse EOS.
+    pub fn new(v0: f64, k0: f64, k0_prime: f64) -> EosResult<Self> {
+        let model = Self {
+            v0: positive_parameter(v0, "V0")?,
+            k0: positive_parameter(k0, "K0")?,
+            k0_prime: finite_parameter(k0_prime, "K0_prime")?,
+        };
+        morse3_terms(model.v0, model.k0, model.k0_prime, model.v0)?;
+        Ok(model)
+    }
+}
+
+impl IsothermalEos for Morse3 {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        finite_result(morse3_terms(self.v0, self.k0, self.k0_prime, volume)?.0)
+    }
+
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        finite_result(morse3_terms(self.v0, self.k0, self.k0_prime, volume)?.1)
+    }
+}
+
+fn sun_morse_terms(n: f64, v0: f64, k0: f64, k0_prime: f64, volume: f64) -> EosResult<(f64, f64)> {
+    let volume = positive_state(volume, "volume")?;
+    let x = (volume / v0).powf(1.0 / n);
+    let alpha = (n * k0_prime + 1.0) / 3.0;
+    if alpha.abs() <= f64::EPSILON {
+        return Err(EosError::InvalidParameter {
+            name: "K0_prime",
+            reason: "Sun-Morse requires (n*K0_prime+1)/3 != 0",
+        });
+    }
+    let exponential = (alpha * (1.0 - x)).exp();
+    let pressure = n * k0 / alpha * (exponential * exponential - exponential);
+    let bulk_modulus = k0 * x * (2.0 * exponential * exponential - exponential);
+    Ok((pressure, bulk_modulus))
+}
+
+macro_rules! sun_morse_model {
+    ($name:ident, $n:expr, $doc:literal) => {
+        #[doc = $doc]
+        #[derive(Clone, Copy, Debug, PartialEq)]
+        pub struct $name {
+            /// Reference volume.
+            pub v0: f64,
+            /// Reference bulk modulus.
+            pub k0: f64,
+            /// Reference pressure derivative of the bulk modulus.
+            pub k0_prime: f64,
+        }
+
+        impl $name {
+            #[doc = "Construct the Sun--Morse equation of state."]
+            pub fn new(v0: f64, k0: f64, k0_prime: f64) -> EosResult<Self> {
+                let model = Self {
+                    v0: positive_parameter(v0, "V0")?,
+                    k0: positive_parameter(k0, "K0")?,
+                    k0_prime: finite_parameter(k0_prime, "K0_prime")?,
+                };
+                sun_morse_terms($n, model.v0, model.k0, model.k0_prime, model.v0)?;
+                Ok(model)
+            }
+        }
+
+        impl IsothermalEos for $name {
+            fn reference_volume(&self) -> f64 {
+                self.v0
+            }
+
+            fn pressure(&self, volume: f64) -> EosResult<f64> {
+                finite_result(sun_morse_terms($n, self.v0, self.k0, self.k0_prime, volume)?.0)
+            }
+
+            fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+                finite_result(sun_morse_terms($n, self.v0, self.k0, self.k0_prime, volume)?.1)
+            }
+        }
+    };
+}
+
+sun_morse_model!(
+    SunMorse3,
+    3.0,
+    "Sun Jiu-Xun--Morse equation of state with n=3."
+);
+sun_morse_model!(
+    SunMorse4,
+    4.0,
+    "Sun Jiu-Xun--Morse equation of state with n=4."
+);
+
 fn natural_strain_pressure(v0: f64, k0: f64, a: f64, b: f64, volume: f64) -> EosResult<f64> {
     let volume = positive_state(volume, "volume")?;
     let strain = (v0 / volume).ln() / 3.0;
@@ -493,6 +618,68 @@ impl IsothermalEos for Vinet {
             self.k0 / compression.powi(2)
                 * (1.0 + (eta * compression + 1.0) * (1.0 - compression))
                 * (eta * (1.0 - compression)).exp(),
+        )
+    }
+}
+
+/// Generalized Rydberg--Stacey equation of state.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct RydbergStacey {
+    /// Reference volume.
+    pub v0: f64,
+    /// Reference bulk modulus.
+    pub k0: f64,
+    /// Reference pressure derivative of the bulk modulus.
+    pub k0_prime: f64,
+    /// Limiting pressure derivative of the bulk modulus at infinite pressure.
+    pub k_infinity_prime: f64,
+}
+
+impl RydbergStacey {
+    /// Construct a generalized Rydberg--Stacey model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid or non-finite constructor parameters.
+    pub fn new(v0: f64, k0: f64, k0_prime: f64, k_infinity_prime: f64) -> EosResult<Self> {
+        Ok(Self {
+            v0: positive_parameter(v0, "V0")?,
+            k0: positive_parameter(k0, "K0")?,
+            k0_prime: finite_parameter(k0_prime, "K0_prime")?,
+            k_infinity_prime: finite_parameter(k_infinity_prime, "K_infinity_prime")?,
+        })
+    }
+}
+
+impl IsothermalEos for RydbergStacey {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let compression = (volume / self.v0).cbrt();
+        let exponent = 1.5 * self.k0_prime - 3.0 * self.k_infinity_prime + 0.5;
+        finite_result(
+            3.0 * self.k0
+                * compression.powf(-3.0 * self.k_infinity_prime)
+                * (1.0 - compression)
+                * (exponent * (1.0 - compression)).exp(),
+        )
+    }
+
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let compression = (volume / self.v0).cbrt();
+        let one_minus_compression = 1.0 - compression;
+        let exponent = 1.5 * self.k0_prime - 3.0 * self.k_infinity_prime + 0.5;
+        finite_result(
+            self.k0
+                * compression.powf(-3.0 * self.k_infinity_prime)
+                * (exponent * one_minus_compression).exp()
+                * (compression
+                    + 3.0 * self.k_infinity_prime * one_minus_compression
+                    + exponent * compression * one_minus_compression),
         )
     }
 }

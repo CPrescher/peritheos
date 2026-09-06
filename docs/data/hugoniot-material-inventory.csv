@@ -1,8 +1,11 @@
 material_identifier,material_name,formula,represented_phase_or_polymorph,phase_identity_source,symmetry,space_group,formula_units_per_cell,equation_kinds,eos_record_count,input_file
+ag_sun_2010_legacy,Ag legacy compression aggregate (Sun 2010),Ag,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/ag_sun_2010_legacy.eosmat
 akimotoite,Akimotoite,MgSiO3,ilmenite-type (akimotoite),top-level phase field,TRIGONAL,R-3,6,isothermal,7,peritheos/data/materials/akimotoite.eosmat
 al2o3_perovskite,Al2O3 perovskite model crystal,Al2O3,hypothetical orthorhombic Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/al2o3_perovskite.eosmat
 al2o3_post_perovskite,Al2O3 post-perovskite model crystal,Al2O3,hypothetical CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/al2o3_post_perovskite.eosmat
+al2o3_sun_2010_legacy,Al2O3 legacy compression aggregate (Sun 2010),Al2O3,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/al2o3_sun_2010_legacy.eosmat
 al_bearing_phase_d,Al-bearing phase D,Mg0.90Al0.64Si1.29H3.10O6,"Al-bearing trigonal phase D, P-31m",top-level phase field,HEXAGONAL,P-31m,1,isothermal,1,peritheos/data/materials/al_bearing_phase_d.eosmat
+al_sun_2010_legacy,Al legacy compression aggregate (Sun 2010),Al,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/al_sun_2010_legacy.eosmat
 almandine,Almandine,Fe3Al2Si3O12,Almandine,material name plus crystal structure,CUBIC,Ia-3d,8,isothermal,1,peritheos/data/materials/almandine.eosmat
 alpha_quartz,Alpha quartz,SiO2,Alpha quartz,material name plus crystal structure,TRIGONAL,P3221,3,isothermal,2,peritheos/data/materials/alpha_quartz.eosmat
 alumina,Alumina,Al2O3,"corundum, trigonal R-3c (hexagonal setting)",top-level phase field,HEXAGONAL,R-3c,6,isothermal;thermal,2,peritheos/data/materials/alumina.eosmat
@@ -10,37 +13,57 @@ alumina_rh2o3_ii,Rh2O3(II)-type alumina,Al2O3,"Rh2O3(II)-type, orthorhombic Pbcn
 aluminum,Aluminum,Al,Aluminum,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,2,peritheos/data/materials/aluminum.eosmat
 aragonite,Aragonite,CaCO3,Aragonite,material name plus crystal structure,ORTHORHOMBIC,Pmcn,4,thermal,1,peritheos/data/materials/aragonite.eosmat
 argon_hcp,Argon,Ar,Argon,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/argon_hcp.eosmat
+au_sun_2010_legacy,Au legacy compression aggregate (Sun 2010),Au,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/au_sun_2010_legacy.eosmat
 b4c,B4C,B4C,rhombohedral B4C,top-level phase field,HEXAGONAL,R-3m,9,thermal,3,peritheos/data/materials/b4c.eosmat
+be_sun_2010_legacy,Be legacy compression aggregate (Sun 2010),Be,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/be_sun_2010_legacy.eosmat
 boron_nitride,Boron Nitride,BN,cubic zinc-blende,top-level phase field,CUBIC,F-43m,4,isothermal;thermal,2,peritheos/data/materials/boron_nitride.eosmat
 boron_nitride_hexagonal,Boron nitride (hexagonal),BN,Boron nitride (hexagonal),material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/boron_nitride_hexagonal.eosmat
 boron_phosphide,Boron phosphide,BP,Boron phosphide,material name plus crystal structure,CUBIC,F-43m,4,isothermal,1,peritheos/data/materials/boron_phosphide.eosmat
-bridgmanite,Bridgmanite,MgSiO3,Bridgmanite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,thermal;isothermal,16,peritheos/data/materials/bridgmanite.eosmat
+breyite,Breyite,CaSiO3,triclinic breyite,top-level phase field,TRICLINIC,P-1,6,isothermal,1,peritheos/data/materials/breyite.eosmat
+bridgmanite,Bridgmanite,MgSiO3,Bridgmanite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,thermal;isothermal,23,peritheos/data/materials/bridgmanite.eosmat
 ca0988mg0918fe0078mn0016c2o6_dolomite,Natural Fe-bearing dolomite,Ca0.988Mg0.918Fe0.078Mn0.016C2O6,"trigonal ferroan dolomite, R-3",top-level phase field,TRIGONAL,R-3,3,isothermal,1,peritheos/data/materials/ca0988mg0918fe0078mn0016c2o6_dolomite.eosmat
 ca0988mg0918fe0078mn0016c2o6_dolomite_iii,Natural Fe-bearing dolomite-III,Ca0.988Mg0.918Fe0.078Mn0.016C2O6,"monoclinic Fe-dolomite-III indexing cell, structure unresolved",top-level phase field,MONOCLINIC,,3,isothermal,2,peritheos/data/materials/ca0988mg0918fe0078mn0016c2o6_dolomite_iii.eosmat
-ca_perovskite,Ca-perovskite,CaSiO3,Ca-perovskite,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal;thermal,17,peritheos/data/materials/ca_perovskite.eosmat
-ca_perovskite_tetragonal,Tetragonal CaSiO3 perovskite (davemaoite),CaSiO3,"pure tetragonal CaSiO3 perovskite (davemaoite), I4/mcm",top-level phase field,TETRAGONAL,I4/mcm,4,isothermal,1,peritheos/data/materials/ca_perovskite_tetragonal.eosmat
+ca_perovskite,Ca-perovskite,CaSiO3,Ca-perovskite,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal;thermal,25,peritheos/data/materials/ca_perovskite.eosmat
+ca_perovskite_tetragonal,Tetragonal CaSiO3 perovskite (davemaoite),CaSiO3,"pure tetragonal CaSiO3 perovskite (davemaoite), I4/mcm",top-level phase field,TETRAGONAL,I4/mcm,4,isothermal,6,peritheos/data/materials/ca_perovskite_tetragonal.eosmat
+ca_sun_2010_legacy,Ca legacy compression aggregate (Sun 2010),Ca,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/ca_sun_2010_legacy.eosmat
 cairo3_perovskite,CaIrO3 perovskite,CaIrO3,"perovskite-type, orthorhombic Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/cairo3_perovskite.eosmat
-cairo3_post_perovskite,CaIrO3 post-perovskite,CaIrO3,"post-perovskite-type, orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/cairo3_post_perovskite.eosmat
+cairo3_post_perovskite,CaIrO3 post-perovskite,CaIrO3,"post-perovskite-type, orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,2,peritheos/data/materials/cairo3_post_perovskite.eosmat
 calcite,Calcite,CaCO3,Calcite,material name plus crystal structure,TRIGONAL,R-3c,6,isothermal,1,peritheos/data/materials/calcite.eosmat
 calcium_carbonate_post_aragonite,Calcium carbonate (post-aragonite Pmmn),CaCO3,Calcium carbonate (post-aragonite Pmmn),material name plus crystal structure,ORTHORHOMBIC,Pmmn,2,isothermal;thermal,2,peritheos/data/materials/calcium_carbonate_post_aragonite.eosmat
 calcium_germanate_perovskite,Calcium germanate perovskite,CaGeO3,orthorhombic GdFeO3-type perovskite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/calcium_germanate_perovskite.eosmat
 calcium_titanate_perovskite,Calcium titanate perovskite,CaTiO3,orthorhombic GdFeO3-type perovskite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/calcium_titanate_perovskite.eosmat
 cao,CaO,CaO,CaO,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/cao.eosmat
 cao_b2,CaO-b2,CaO,CaO-b2,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/cao_b2.eosmat
+casio2o5_titanite,Titanite-structured CaSi2O5,CaSi2O5,monoclinic titanite-structured CaSi2O5,top-level phase field,MONOCLINIC,C2/c,4,isothermal,1,peritheos/data/materials/casio2o5_titanite.eosmat
+casio3_perovskite_i4mmm,I4/mmm CaSiO3 perovskite,CaSiO3,"static CaSiO3 perovskite tilt branch, I4/mmm (a0b+b+)",top-level phase field,TETRAGONAL,I4/mmm,,isothermal,2,peritheos/data/materials/casio3_perovskite_i4mmm.eosmat
+casio3_perovskite_im3,Im-3 CaSiO3 perovskite,CaSiO3,"static CaSiO3 perovskite tilt branch, Im-3 (a+a+a+)",top-level phase field,CUBIC,Im-3,,isothermal,2,peritheos/data/materials/casio3_perovskite_im3.eosmat
+casio3_perovskite_imma,Imma CaSiO3 perovskite,CaSiO3,"static CaSiO3 perovskite tilt branch, Imma (a0b-b-)",top-level phase field,ORTHORHOMBIC,Imma,,isothermal,2,peritheos/data/materials/casio3_perovskite_imma.eosmat
+casio3_perovskite_p42nmc,P42/nmc CaSiO3 perovskite,CaSiO3,"static CaSiO3 perovskite tilt branch, P42/nmc (a+a+c-)",top-level phase field,TETRAGONAL,P42/nmc,,isothermal,2,peritheos/data/materials/casio3_perovskite_p42nmc.eosmat
+casio3_perovskite_p4mbm,P4/mbm CaSiO3 perovskite,CaSiO3,"static CaSiO3 perovskite tilt branch, P4/mbm (a0a0c+)",top-level phase field,TETRAGONAL,P4/mbm,,isothermal,2,peritheos/data/materials/casio3_perovskite_p4mbm.eosmat
+casio3_perovskite_pnma,Pnma CaSiO3 perovskite,CaSiO3,"static CaSiO3 perovskite tilt branch, Pnma (a-b+a-)",top-level phase field,ORTHORHOMBIC,Pnma,,isothermal,2,peritheos/data/materials/casio3_perovskite_pnma.eosmat
+casio3_perovskite_r3c,R-3c CaSiO3 perovskite,CaSiO3,"static CaSiO3 perovskite tilt branch, R-3c (a-a-a-)",top-level phase field,TRIGONAL,R-3c,,isothermal,2,peritheos/data/materials/casio3_perovskite_r3c.eosmat
+cd_sun_2010_legacy,Cd legacy compression aggregate (Sun 2010),Cd,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/cd_sun_2010_legacy.eosmat
 cementite,Cementite,Fe3C,Cementite,material name plus crystal structure,ORTHORHOMBIC,Pnma,4,isothermal,1,peritheos/data/materials/cementite.eosmat
 cerium_dioxide,Cerium dioxide (fluorite),CeO2,Cerium dioxide (fluorite),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/cerium_dioxide.eosmat
 chromium,Chromium,Cr,Chromium,material name plus crystal structure,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/chromium.eosmat
+co_sun_2010_legacy,Co legacy compression aggregate (Sun 2010),Co,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/co_sun_2010_legacy.eosmat
 cobalt_hcp,Cobalt,Co,Cobalt,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/cobalt_hcp.eosmat
-coesite,Coesite,SiO2,Coesite,material name plus crystal structure,MONOCLINIC,C2/c,16,isothermal,1,peritheos/data/materials/coesite.eosmat
+coesite,Coesite,SiO2,Coesite,material name plus crystal structure,MONOCLINIC,C2/c,16,isothermal,2,peritheos/data/materials/coesite.eosmat
+coesite_iv,Coesite-IV,SiO2,triclinic coesite-IV,top-level phase field,TRICLINIC,P-1,16,isothermal,1,peritheos/data/materials/coesite_iv.eosmat
+coesite_v,Coesite-V,SiO2,triclinic coesite-V,top-level phase field,TRICLINIC,P-1,16,isothermal,1,peritheos/data/materials/coesite_v.eosmat
 coo,CoO,CoO,CoO,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/coo.eosmat
-copper,Copper,Cu,Copper,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,2,peritheos/data/materials/copper.eosmat
+copper,Copper,Cu,Copper,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,3,peritheos/data/materials/copper.eosmat
+cr_sun_2010_legacy,Cr legacy compression aggregate (Sun 2010),Cr,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/cr_sun_2010_legacy.eosmat
+csbr_sun_2010_legacy,CsBr legacy compression aggregate (Sun 2010),CsBr,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/csbr_sun_2010_legacy.eosmat
 cscl,CsCl,CsCl,"B2 (CsCl-type), cubic Pm-3m",top-level phase field,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/cscl.eosmat
+cu_sun_2010_legacy,Cu legacy compression aggregate (Sun 2010),Cu,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/cu_sun_2010_legacy.eosmat
 delta_alooh,delta-AlOOH,AlOOH,"delta-AlOOH, orthorhombic P21nm",top-level phase field,ORTHORHOMBIC,P21nm,2,isothermal,2,peritheos/data/materials/delta_alooh.eosmat
 diamond,Diamond,C,Diamond,material name plus crystal structure,CUBIC,Fd-3m,8,isothermal;thermal,7,peritheos/data/materials/diamond.eosmat
 e_feooh,E-FeOOH,FeOOH,hydrogen-off-center P21nm epsilon-FeOOH,top-level phase field,ORTHORHOMBIC,P21nm,2,isothermal;thermal,2,peritheos/data/materials/e_feooh.eosmat
 e_feooh_hc_low_spin,"Epsilon-FeOOH, hydrogen-centered low-spin phase",FeOOH,hydrogen-centered Pnnm low-spin epsilon-FeOOH,top-level phase field,ORTHORHOMBIC,Pnnm,2,isothermal,1,peritheos/data/materials/e_feooh_hc_low_spin.eosmat
 fayalite,Fayalite,Fe2SiO4,Fayalite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/fayalite.eosmat
 fe,Fe,Fe,Fe,material name plus crystal structure,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/fe.eosmat
+fe088sio3_bridgmanite,A-site-deficient iron bridgmanite,Fe0.88SiO3,ferric-iron-stabilized Pbnm bridgmanite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/fe088sio3_bridgmanite.eosmat
 fe093o_rhombohedral,Fe0.93O (rhombohedrally distorted B1),Fe0.93O,"rhombohedrally distorted B1 Fe0.93O, equivalent hexagonal cell",top-level phase field,TRIGONAL,,3,isothermal,1,peritheos/data/materials/fe093o_rhombohedral.eosmat
 fe2o3,Fe2O3,Fe2O3,Fe2O3,material name plus crystal structure,HEXAGONAL,R-3c,6,isothermal,1,peritheos/data/materials/fe2o3.eosmat
 fe3o4,Fe3O4,Fe3O4,"magnetite, cubic inverse-spinel Fd-3m",top-level phase field,CUBIC,Fd-3m,8,isothermal,1,peritheos/data/materials/fe3o4.eosmat
@@ -58,22 +81,35 @@ fesio3_post_perovskite_ii,Iron silicate post-perovskite II,FeSiO3,"Cmmm post-per
 forsterite,Forsterite,Mg2SiO4,Forsterite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/forsterite.eosmat
 geo2_rutile,GeO2,GeO2,GeO2,material name plus crystal structure,TETRAGONAL,P42/mnm,2,isothermal,1,peritheos/data/materials/geo2_rutile.eosmat
 goethite,Goethite,FeOOH,Goethite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/goethite.eosmat
-gold,Gold,Au,Gold,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,7,peritheos/data/materials/gold.eosmat
+gold,Gold,Au,Gold,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,9,peritheos/data/materials/gold.eosmat
 graphite,Graphite,C,Graphite,material name plus crystal structure,HEXAGONAL,P63/mmc,4,isothermal,1,peritheos/data/materials/graphite.eosmat
 ice_vi,Ice VI,H2O,Ice VI,material name plus crystal structure,TETRAGONAL,P42/nmc,10,thermal,1,peritheos/data/materials/ice_vi.eosmat
 ice_vii,Ice VII,H2O,Ice VII,material name plus crystal structure,CUBIC,Pn-3m,2,thermal;isothermal,2,peritheos/data/materials/ice_vii.eosmat
 iceviii,Ice VIII (D2O),D2O,Ice VIII (D2O),material name plus crystal structure,TETRAGONAL,I41/amd,8,isothermal,1,peritheos/data/materials/iceviii.eosmat
+in_sun_2010_legacy,In legacy compression aggregate (Sun 2010),In,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/in_sun_2010_legacy.eosmat
 indium_nitride,Indium Nitride,InN,Indium Nitride,material name plus crystal structure,HEXAGONAL,P63mc,2,isothermal,1,peritheos/data/materials/indium_nitride.eosmat
 iridium,Iridium,Ir,Iridium,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/iridium.eosmat
-iron,Iron,Fe,Iron,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,2,peritheos/data/materials/iron.eosmat
+iron,Iron,Fe,Iron,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,3,peritheos/data/materials/iron.eosmat
 iron_carbide_fe7c3,Iron carbide (orthorhombic Fe7C3),Fe7C3,Iron carbide (orthorhombic Fe7C3),material name plus crystal structure,ORTHORHOMBIC,Pbca,8,isothermal,1,peritheos/data/materials/iron_carbide_fe7c3.eosmat
+k_sun_2010_legacy,K legacy compression aggregate (Sun 2010),K,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/k_sun_2010_legacy.eosmat
 kbr_b1,Potassium bromide (B1),KBr,Potassium bromide (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/kbr_b1.eosmat
 kbr_b2,Potassium bromide (B2),KBr,Potassium bromide (B2),material name plus crystal structure,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/kbr_b2.eosmat
 kcl,Potassium chloride (B2),KCl,Potassium chloride (B2),material name plus crystal structure,CUBIC,Pm-3m,1,isothermal;thermal,5,peritheos/data/materials/kcl.eosmat
 kcl_b1,Potassium chloride (B1),KCl,Potassium chloride (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/kcl_b1.eosmat
+kf_sun_2010_legacy,KF legacy compression aggregate (Sun 2010),KF,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/kf_sun_2010_legacy.eosmat
+ki_sun_2010_legacy,KI legacy compression aggregate (Sun 2010),KI,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/ki_sun_2010_legacy.eosmat
+klb1_ca_perovskite,KLB-1 Ca-perovskite,CaSiO3,Ca-perovskite separated from KLB-1 pyrolite,top-level phase field,CUBIC,Pm-3m,1,thermal,1,peritheos/data/materials/klb1_ca_perovskite.eosmat
+klb1_ferropericlase,KLB-1 ferropericlase,"(Mg,Fe)O",B1 ferropericlase separated from KLB-1 pyrolite,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,2,peritheos/data/materials/klb1_ferropericlase.eosmat
+klb1_mg_perovskite,KLB-1 Mg-perovskite,"(Mg,Fe,Al)(Si,Al)O3",orthorhombic bridgmanite separated from KLB-1 pyrolite,top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/klb1_mg_perovskite.eosmat
+larnite,Larnite,Ca2SiO4,monoclinic beta-Ca2SiO4 larnite,top-level phase field,MONOCLINIC,P21/c,4,isothermal,1,peritheos/data/materials/larnite.eosmat
 lead_fcc,Lead (fcc),Pb,Lead (fcc),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/lead_fcc.eosmat
 li_bcc,Li,Li,bcc structure; EOS fit spans bcc and fcc Li,top-level phase field,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/li_bcc.eosmat
+li_sun_2010_legacy,Li legacy compression aggregate (Sun 2010),Li,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/li_sun_2010_legacy.eosmat
+libr_sun_2010_legacy,LiBr legacy compression aggregate (Sun 2010),LiBr,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/libr_sun_2010_legacy.eosmat
+licl_sun_2010_legacy,LiCl legacy compression aggregate (Sun 2010),LiCl,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/licl_sun_2010_legacy.eosmat
 lif_b1,Lithium fluoride (B1),LiF,Lithium fluoride (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/lif_b1.eosmat
+lif_sun_2010_legacy,LiF legacy compression aggregate (Sun 2010),LiF,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/lif_sun_2010_legacy.eosmat
+lii_sun_2010_legacy,LiI legacy compression aggregate (Sun 2010),LiI,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/lii_sun_2010_legacy.eosmat
 magnesiowustite_fe56,Fe56 magnesiowustite,Mg0.423Fe0.541O,"cation-deficient rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/magnesiowustite_fe56.eosmat
 magnesiowustite_fe75,Fe75 magnesiowustite,Mg0.240Fe0.717O,"cation-deficient rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/magnesiowustite_fe75.eosmat
 magnesite,Magnesite,MgCO3,"magnesite, rhombohedral R-3c",top-level phase field,HEXAGONAL,R-3c,6,isothermal;thermal,3,peritheos/data/materials/magnesite.eosmat
@@ -93,15 +129,18 @@ mg0625fe0375o,(Mg0.625Fe0.375)O B1 ferropericlase,Mg0.625Fe0.375O,B1 ferropericl
 mg065fe035o,(Mg0.65Fe0.35)O B1 ferropericlase,Mg0.65Fe0.35O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg065fe035o.eosmat
 mg073fe027o,(Mg0.73Fe0.27)O magnesiowustite,Mg0.73Fe0.27O,cubic B1 magnesiowustite,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg073fe027o.eosmat
 mg075fe025o,(Mg0.75Fe0.25)O B1 ferropericlase,Mg0.75Fe0.25O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,6,peritheos/data/materials/mg075fe025o.eosmat
+mg075fe025sio3_bridgmanite,25 mol.% FeSiO3 bridgmanite model,Mg0.75Fe0.25SiO3,Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg075fe025sio3_bridgmanite.eosmat
 mg080fe020o,(Mg0.80Fe0.20)O high-spin ferropericlase,Mg0.80Fe0.20O,high-spin B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg080fe020o.eosmat
 mg080fe020sio3_bridgmanite,(Mg0.8Fe0.2)SiO3 bridgmanite,Mg0.8Fe0.2SiO3,orthorhombic Fe-bearing bridgmanite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg080fe020sio3_bridgmanite.eosmat
 mg083fe017o,(Mg0.83Fe0.17)O high-spin ferropericlase,Mg0.83Fe0.17O,high-spin B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,3,peritheos/data/materials/mg083fe017o.eosmat
 mg0875fe0125o,(Mg0.875Fe0.125)O B1 ferropericlase,Mg0.875Fe0.125O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0875fe0125o.eosmat
 mg087fe013sio3_bridgmanite,13% Fe-bearing bridgmanite,Mg0.87Fe0.13SiO3,"ferrous iron-bearing bridgmanite, orthorhombic Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat
-mg088fe010al014si090o3_bridgmanite,Fe10-Al14 bridgmanite,Mg0.88Fe0.10Al0.14Si0.90O3,"Pbnm (Al,Fe)-bearing bridgmanite, synthesis run 5K2667",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat
+mg088fe010al014si090o3_bridgmanite,Fe10-Al14 bridgmanite,Mg0.88Fe0.10Al0.14Si0.90O3,"Pbnm (Al,Fe)-bearing bridgmanite, synthesis run 5K2667",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,4,peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat
 mg090fe009al0005ca0005sio3_bridgmanite,Natural Fe9 bridgmanite,Mg0.90Fe0.09Al0.005Ca0.005SiO3,"orthorhombic perovskite (bridgmanite), Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg090fe009al0005ca0005sio3_bridgmanite.eosmat
 mg090fe009al0005ca0005sio3_post_perovskite,Natural Fe9 post-perovskite,Mg0.90Fe0.09Al0.005Ca0.005SiO3,"orthorhombic CaIrO3-type post-perovskite, Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,2,peritheos/data/materials/mg090fe009al0005ca0005sio3_post_perovskite.eosmat
 mg090fe010o,(Mg0.90Fe0.10)O B1 ferropericlase,Mg0.90Fe0.10O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg090fe010o.eosmat
+mg092fe008o,(Mg0.92Fe0.08)O B1 ferropericlase,Mg0.92Fe0.08O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg092fe008o.eosmat
+mg092fe008sio3_bridgmanite,(Mg0.92Fe0.08)SiO3 bridgmanite,Mg0.92Fe0.08SiO3,orthorhombic Pbnm/Pnma Fe-bearing silicate perovskite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg092fe008sio3_bridgmanite.eosmat
 mg09375al0125si09375o3_bridgmanite,6.25 mol.% charge-coupled Al bridgmanite model,Mg0.9375Al0.125Si0.9375O3,orthorhombic Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg09375al0125si09375o3_bridgmanite.eosmat
 mg09375al0125si09375o3_post_perovskite,6.25 mol.% charge-coupled Al post-perovskite model,Mg0.9375Al0.125Si0.9375O3,CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/mg09375al0125si09375o3_post_perovskite.eosmat
 mg09375fe00625o,(Mg0.9375Fe0.0625)O B1 ferropericlase,Mg0.9375Fe0.0625O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,6,peritheos/data/materials/mg09375fe00625o.eosmat
@@ -112,6 +151,7 @@ mg0991fe0008mn0001co3_magnesite,Natural magnesite (Harwood 2212),Mg0.991Fe0.008M
 mg09al02si09o3_bridgmanite,Mg0.9Al0.2Si0.9O3 aluminous bridgmanite,Mg0.9Al0.2Si0.9O3,"orthorhombic aluminous silicate perovskite, synthesis run en90G3",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg09al02si09o3_bridgmanite.eosmat
 mg09fe01sio3_bridgmanite,(Mg0.9Fe0.1)SiO3 bridgmanite (Pv10),Mg0.9Fe0.1SiO3,"orthorhombic Pbnm Fe-bearing bridgmanite, Pv10 sample",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg09fe01sio3_bridgmanite.eosmat
 mg7si2o8,Phase A,Mg7Si2O14H6,Phase A,material name plus crystal structure,HEXAGONAL,P63,2,isothermal,1,peritheos/data/materials/mg7si2o8.eosmat
+mg_sun_2010_legacy,Mg legacy compression aggregate (Sun 2010),Mg,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/mg_sun_2010_legacy.eosmat
 mgal00625h00625si09375o3_bridgmanite,3.125 mol.% hydrous Al bridgmanite model,MgAl0.0625H0.0625Si0.9375O3,hydrous AlH-substituted Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mgal00625h00625si09375o3_bridgmanite.eosmat
 mgal00625h00625si09375o3_post_perovskite,3.125 mol.% hydrous Al post-perovskite model,MgAl0.0625H0.0625Si0.9375O3,hydrous AlH-substituted CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/mgal00625h00625si09375o3_post_perovskite.eosmat
 mgal0125si0875o29375_bridgmanite,6.25 mol.% oxygen-vacancy Al bridgmanite model,MgAl0.125Si0.875O2.9375,oxygen-vacancy Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mgal0125si0875o29375_bridgmanite.eosmat
@@ -121,21 +161,33 @@ mgal2o4_cati2o4,MgAl2O4 calcium-titanate phase,MgAl2O4,"calcium-titanate-type or
 mgfe60o,(Mg0.4Fe0.6)O (MW60),Mg0.4Fe0.6O,"rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,3,peritheos/data/materials/mgfe60o.eosmat
 mgfe94o_b1,Mw94 magnesiowustite B1,Mg0.058Fe0.942O,cubic B1 Mw94 before the rhombohedral distortion,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mgfe94o_b1.eosmat
 mgfe94o_rhombohedral,Mw94 rhombohedral magnesiowustite,Mg0.058Fe0.942O,rhombohedrally distorted Mw94,top-level phase field,RHOMBOHEDRAL,,1,isothermal,1,peritheos/data/materials/mgfe94o_rhombohedral.eosmat
-mggeo3_post_perovskite,MgGeO3 post-perovskite,MgGeO3,"post-perovskite, CaIrO3-type orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,2,peritheos/data/materials/mggeo3_post_perovskite.eosmat
-mgo,MgO,MgO,B1 (periclase),top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal;hugoniot,25,peritheos/data/materials/mgo.eosmat
-mgsio3_post_perovskite,MgSiO3 post-perovskite,MgSiO3,"post-perovskite, CaIrO3-type orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,thermal;isothermal,8,peritheos/data/materials/mgsio3_post_perovskite.eosmat
+mggeo3_post_perovskite,MgGeO3 post-perovskite,MgGeO3,"post-perovskite, CaIrO3-type orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,4,peritheos/data/materials/mggeo3_post_perovskite.eosmat
+mgo,MgO,MgO,B1 (periclase),top-level phase field,CUBIC,Fm-3m,4,isothermal;thermal;hugoniot,36,peritheos/data/materials/mgo.eosmat
+mgo_b2,B2 MgO,MgO,B2 cesium-chloride-type MgO,top-level phase field,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/mgo_b2.eosmat
+mgo_liquid,Liquid MgO,MgO,MgO liquid,top-level phase field,,,1,isothermal,1,peritheos/data/materials/mgo_liquid.eosmat
+mgo_sun_2010_legacy,MgO legacy compression aggregate (Sun 2010),MgO,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/mgo_sun_2010_legacy.eosmat
+mgsio3_post_perovskite,MgSiO3 post-perovskite,MgSiO3,"post-perovskite, CaIrO3-type orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,thermal;isothermal,12,peritheos/data/materials/mgsio3_post_perovskite.eosmat
 mgsioh6_365a_phase,MgSi(OH)6 3.65 A phase,MgSiH6O6,"monoclinic hydroxide perovskite 3.65 A phase, P21",top-level phase field,MONOCLINIC,P21,2,isothermal,3,peritheos/data/materials/mgsioh6_365a_phase.eosmat
-molybdenum,Molybdenum,Mo,Molybdenum,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,2,peritheos/data/materials/molybdenum.eosmat
+mo_sun_2010_legacy,Mo legacy compression aggregate (Sun 2010),Mo,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/mo_sun_2010_legacy.eosmat
+molybdenum,Molybdenum,Mo,Molybdenum,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,3,peritheos/data/materials/molybdenum.eosmat
 molybenum_carbide_mo2c,Molybdenum carbide Mo2C,Mo2C,Molybdenum carbide Mo2C,material name plus crystal structure,ORTHORHOMBIC,Pbcn,4,isothermal,2,peritheos/data/materials/molybenum_carbide_mo2c.eosmat
 na088al099fe013si094o4_calcium_ferrite,Na0.88Al0.99Fe0.13Si0.94O4 (calcium-ferrite type),Na0.88Al0.99Fe0.13Si0.94O4,"Fe-bearing calcium-ferrite-type phase, synthesis run 5K2681",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/na088al099fe013si094o4_calcium_ferrite.eosmat
 na093al102si100o4_calcium_ferrite,Na0.93Al1.02Si1.00O4 (calcium-ferrite type),Na0.93Al1.02Si1.00O4,"Fe-free calcium-ferrite-type phase, synthesis run 5K2124",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/na093al102si100o4_calcium_ferrite.eosmat
+na_sun_2010_legacy,Na legacy compression aggregate (Sun 2010),Na,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/na_sun_2010_legacy.eosmat
 naalsi2o6,NaAlSi2O6,NaAlSi2O6,NaAlSi2O6,material name plus crystal structure,MONOCLINIC,C2/c,4,isothermal,1,peritheos/data/materials/naalsi2o6.eosmat
 naalsio4_calcium_ferrite,NaAlSiO4 (calcium-ferrite type),NaAlSiO4,NaAlSiO4 (calcium-ferrite type),material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/naalsio4_calcium_ferrite.eosmat
+nabr_sun_2010_legacy,NaBr legacy compression aggregate (Sun 2010),NaBr,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/nabr_sun_2010_legacy.eosmat
 nacl_b1,NaCl (B1),NaCl,NaCl (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/nacl_b1.eosmat
-nacl_b2,NaCl,NaCl,NaCl,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal,2,peritheos/data/materials/nacl_b2.eosmat
+nacl_b2,NaCl,NaCl,NaCl,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal,3,peritheos/data/materials/nacl_b2.eosmat
+nacl_sun_2010_legacy,NaCl legacy compression aggregate (Sun 2010),NaCl,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/nacl_sun_2010_legacy.eosmat
+naf_sun_2010_legacy,NaF legacy compression aggregate (Sun 2010),NaF,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/naf_sun_2010_legacy.eosmat
+nai_sun_2010_legacy,NaI legacy compression aggregate (Sun 2010),NaI,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/nai_sun_2010_legacy.eosmat
 namg2al5sio12_cf,NaMg2Al5SiO12 calcium-ferrite phase,NaMg2Al5SiO12,"calcium-ferrite-type (CF) phase, orthorhombic Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,1.3333333333333333,isothermal,1,peritheos/data/materials/namg2al5sio12_cf.eosmat
 namg2al5sio12_nal,NaMg2Al5SiO12 NAL phase,NaMg2Al5SiO12,"new aluminous (NAL) phase, hexagonal P63/m",top-level phase field,HEXAGONAL,P63/m,1,isothermal,1,peritheos/data/materials/namg2al5sio12_nal.eosmat
+nb_sun_2010_legacy,Nb legacy compression aggregate (Sun 2010),Nb,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/nb_sun_2010_legacy.eosmat
+nd_sun_2010_legacy,Nd legacy compression aggregate (Sun 2010),Nd,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/nd_sun_2010_legacy.eosmat
 neon_fcc,Neon (fcc),Ne,Neon (fcc),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,3,peritheos/data/materials/neon_fcc.eosmat
+ni_sun_2010_legacy,Ni legacy compression aggregate (Sun 2010),Ni,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/ni_sun_2010_legacy.eosmat
 nickel,Nickel,Ni,Nickel,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/nickel.eosmat
 nickel_oxide,Nickel oxide (rhombohedral B1),NiO,rhombohedral B1,top-level phase field,TRIGONAL,R-3m,3,isothermal;hugoniot,2,peritheos/data/materials/nickel_oxide.eosmat
 niobium,Niobium,Nb,Niobium,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,2,peritheos/data/materials/niobium.eosmat
@@ -143,15 +195,25 @@ nis,NiS,NiS,"metastable NiAs-type, hexagonal P63/mmc",top-level phase field,HEXA
 orthoenstatite,Orthoenstatite,MgSiO3,Orthoenstatite,material name plus crystal structure,ORTHORHOMBIC,Pbca,16,isothermal,1,peritheos/data/materials/orthoenstatite.eosmat
 osmium,Osmium,Os,Osmium,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/osmium.eosmat
 palladium,Palladium,Pd,Palladium,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,7,peritheos/data/materials/palladium.eosmat
+pb_sun_2010_legacy,Pb legacy compression aggregate (Sun 2010),Pb,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/pb_sun_2010_legacy.eosmat
 pbs_b1,PbS_B1,PbS,PbS_B1,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/pbs_b1.eosmat
+pd_sun_2010_legacy,Pd legacy compression aggregate (Sun 2010),Pd,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/pd_sun_2010_legacy.eosmat
 perovskite_orthorhombic,(Mg0.88Fe0.12)SiO3 perovskite,Mg0.88Fe0.12SiO3,(Mg0.88Fe0.12)SiO3 perovskite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/perovskite_orthorhombic.eosmat
 phase_d,PHASE D,Mg1.11Si1.89H2.22O6,Fe-bearing hexagonal phase D derived from antigorite,top-level phase field,HEXAGONAL,P-31m,1,isothermal,2,peritheos/data/materials/phase_d.eosmat
-phase_egg,Phase Egg,Al0.98Si0.92H1.39O4,"monoclinic Al-bearing hydrous phase Egg, sample S5050",top-level phase field,MONOCLINIC,P21/n,4,isothermal,2,peritheos/data/materials/phase_egg.eosmat
-platinum,Platinum,Pt,Platinum,material name plus crystal structure,CUBIC,Fm-3m,4,thermal;isothermal,4,peritheos/data/materials/platinum.eosmat
+phase_egg,Phase Egg,Al0.98Si0.92H1.39O4,"monoclinic Al-bearing hydrous phase Egg, sample S5050",top-level phase field,MONOCLINIC,P21/n,4,isothermal,3,peritheos/data/materials/phase_egg.eosmat
+phase_h,Phase H,MgSiO4H2,ordered model-1 phase H,top-level phase field,MONOCLINIC,P2/m,1,isothermal,1,peritheos/data/materials/phase_h.eosmat
+platinum,Platinum,Pt,Platinum,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,6,peritheos/data/materials/platinum.eosmat
 praseodymium_dioxide,Praseodymium dioxide (fluorite),PrO2,Praseodymium dioxide (fluorite),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/praseodymium_dioxide.eosmat
+pseudowollastonite,Pseudowollastonite,CaSiO3,monoclinic pseudowollastonite,top-level phase field,MONOCLINIC,C2/c,12,isothermal,1,peritheos/data/materials/pseudowollastonite.eosmat
+pt_sun_2010_legacy,Pt legacy compression aggregate (Sun 2010),Pt,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/pt_sun_2010_legacy.eosmat
 pyrope,Pyrope,Mg3Al2Si3O12,Pyrope,material name plus crystal structure,CUBIC,Ia-3d,8,isothermal,1,peritheos/data/materials/pyrope.eosmat
+rb_sun_2010_legacy,Rb legacy compression aggregate (Sun 2010),Rb,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/rb_sun_2010_legacy.eosmat
+rbbr_sun_2010_legacy,RbBr legacy compression aggregate (Sun 2010),RbBr,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/rbbr_sun_2010_legacy.eosmat
 rbcl,Rubidium chloride (B2),RbCl,"B2 (CsCl-type), cubic Pm-3m",top-level phase field,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/rbcl.eosmat
-rhenium,Rhenium,Re,Rhenium,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/rhenium.eosmat
+rbcl_sun_2010_legacy,RbCl legacy compression aggregate (Sun 2010),RbCl,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/rbcl_sun_2010_legacy.eosmat
+rbf_sun_2010_legacy,RbF legacy compression aggregate (Sun 2010),RbF,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/rbf_sun_2010_legacy.eosmat
+rbi_sun_2010_legacy,RbI legacy compression aggregate (Sun 2010),RbI,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/rbi_sun_2010_legacy.eosmat
+rhenium,Rhenium,Re,Rhenium,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,2,peritheos/data/materials/rhenium.eosmat
 rhodium,Rhodium,Rh,Rhodium,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/rhodium.eosmat
 ringwoodite,Ringwoodite,Mg2SiO4,Ringwoodite,material name plus crystal structure,CUBIC,Fd-3m,8,isothermal,1,peritheos/data/materials/ringwoodite.eosmat
 ruthenium,Ruthenium,Ru,Ruthenium,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/ruthenium.eosmat
@@ -164,20 +226,33 @@ silicon_v,"Silicon (Si-V, simple hexagonal)",Si,"Silicon (Si-V, simple hexagonal
 silicon_vii,"Silicon (Si-VII, hcp)",Si,"Silicon (Si-VII, hcp)",material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/silicon_vii.eosmat
 silicon_x,"Silicon (Si-X, fcc)",Si,"Silicon (Si-X, fcc)",material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/silicon_x.eosmat
 silver,Silver,Ag,Silver,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,2,peritheos/data/materials/silver.eosmat
-sio2_stv_andr,SiO2 stishovite,SiO2,SiO2 stishovite,material name plus crystal structure,TETRAGONAL,P42/mnm,2,isothermal;thermal,4,peritheos/data/materials/sio2_stv_andr.eosmat
+sio2_stv_andr,SiO2 stishovite,SiO2,SiO2 stishovite,material name plus crystal structure,TETRAGONAL,P42/mnm,2,isothermal;thermal,7,peritheos/data/materials/sio2_stv_andr.eosmat
+sn_sun_2010_legacy,Sn legacy compression aggregate (Sun 2010),Sn,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/sn_sun_2010_legacy.eosmat
 sno2,SnO2,SnO2,SnO2,material name plus crystal structure,TETRAGONAL,P42/mnm,2,isothermal,1,peritheos/data/materials/sno2.eosmat
 sno2_cubic_27gpa,SnO2 Pa-3 (26.6 GPa pattern),SnO2,high-pressure cubic Pa-3 SnO2,top-level phase field,CUBIC,Pa-3,4,isothermal,1,peritheos/data/materials/sno2_cubic_27gpa.eosmat
 sno2_pa_3_at_48gpa,SnO2_Pa-3 at 48GPa,SnO2,high-pressure cubic Pa-3 SnO2,top-level phase field,CUBIC,Pa-3,4,isothermal,1,peritheos/data/materials/sno2_pa_3_at_48gpa.eosmat
+solid_h2_sun_2010_legacy,n-H2 legacy compression aggregate (Sun 2010),H2,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/solid_h2_sun_2010_legacy.eosmat
 sro,SrO (B1),SrO,"B1 (NaCl-type), cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/sro.eosmat
 sro_b2,SrO (B2),SrO,"B2 (CsCl-type), cubic Pm-3m",top-level phase field,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/sro_b2.eosmat
+srsio3_6h_perovskite,6H SrSiO3 perovskite,SrSiO3,"6H hexagonal perovskite, P63/mmc",top-level phase field,HEXAGONAL,P63/mmc,6,isothermal,1,peritheos/data/materials/srsio3_6h_perovskite.eosmat
+srsio3_cubic_perovskite,Cubic SrSiO3 perovskite,SrSiO3,"cubic perovskite, Pm-3m",top-level phase field,CUBIC,Pm-3m,1,isothermal,2,peritheos/data/materials/srsio3_cubic_perovskite.eosmat
+ta_sun_2010_legacy,Ta legacy compression aggregate (Sun 2010),Ta,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/ta_sun_2010_legacy.eosmat
 tantalum,Tantalum,Ta,Tantalum,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,3,peritheos/data/materials/tantalum.eosmat
+th_sun_2010_legacy,Th legacy compression aggregate (Sun 2010),Th,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/th_sun_2010_legacy.eosmat
+ti_sun_2010_legacy,Ti legacy compression aggregate (Sun 2010),Ti,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/ti_sun_2010_legacy.eosmat
 titanium_alpha,Titanium (alpha),Ti,Titanium (alpha),material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/titanium_alpha.eosmat
 titanium_omega,Titanium (omega),Ti,Titanium (omega),material name plus crystal structure,HEXAGONAL,P6/mmm,3,isothermal,1,peritheos/data/materials/titanium_omega.eosmat
-tungsten,Tungsten,W,Tungsten,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,3,peritheos/data/materials/tungsten.eosmat
+tl_sun_2010_legacy,Tl legacy compression aggregate (Sun 2010),Tl,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/tl_sun_2010_legacy.eosmat
+tungsten,Tungsten,W,Tungsten,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,4,peritheos/data/materials/tungsten.eosmat
+v_sun_2010_legacy,V legacy compression aggregate (Sun 2010),V,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/v_sun_2010_legacy.eosmat
+w_sun_2010_legacy,W legacy compression aggregate (Sun 2010),W,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/w_sun_2010_legacy.eosmat
 wadsleyite,Wadsleyite,Mg2SiO4,Wadsleyite,material name plus crystal structure,ORTHORHOMBIC,Imma,8,thermal,1,peritheos/data/materials/wadsleyite.eosmat
+wollastonite,Wollastonite,CaSiO3,triclinic wollastonite,top-level phase field,TRICLINIC,P-1,6,isothermal,1,peritheos/data/materials/wollastonite.eosmat
 zinc_oxide_rocksalt,Zinc oxide (rocksalt B1),ZnO,Zinc oxide (rocksalt B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/zinc_oxide_rocksalt.eosmat
 zinc_oxide_wurtzite,Zinc oxide (wurtzite B4),ZnO,Zinc oxide (wurtzite B4),material name plus crystal structure,HEXAGONAL,P63mc,2,isothermal,1,peritheos/data/materials/zinc_oxide_wurtzite.eosmat
 zircon,Zircon,ZrSiO4,Zircon,material name plus crystal structure,TETRAGONAL,I41/amd,4,isothermal,1,peritheos/data/materials/zircon.eosmat
 zirconium_alpha,Zirconium (alpha),Zr,Zirconium (alpha),material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/zirconium_alpha.eosmat
 zirconium_beta,Zirconium (beta),Zr,Zirconium (beta),material name plus crystal structure,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/zirconium_beta.eosmat
 zirconium_omega,Zirconium (omega),Zr,Zirconium (omega),material name plus crystal structure,HEXAGONAL,P6/mmm,3,isothermal,1,peritheos/data/materials/zirconium_omega.eosmat
+zn_sun_2010_legacy,Zn legacy compression aggregate (Sun 2010),Zn,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,3,peritheos/data/materials/zn_sun_2010_legacy.eosmat
+zr_sun_2010_legacy,Zr legacy compression aggregate (Sun 2010),Zr,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/zr_sun_2010_legacy.eosmat

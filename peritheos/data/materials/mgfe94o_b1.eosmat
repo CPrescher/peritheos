@@ -157,7 +157,7 @@
     },
     "covariance_scaling": "MINUTI scales its inverse normal matrix by the minimized reduced chi-square; the article publishes marginal errors and error ellipses but no numerical covariance matrix.",
     "statistics": {
-     "published_reduced_chi_square_with_prior": 0.70,
+     "published_reduced_chi_square_with_prior": 0.7,
      "published_reduced_chi_square_uncertainty_with_prior": 0.23,
      "published_reduced_chi_square_without_prior": 0.74,
      "published_reduced_chi_square_uncertainty_without_prior": 0.25
@@ -205,26 +205,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The open publisher article and official supplement were audited directly. The complete source-scale P-V table and the versioned MINUTI equation, weighting, prior, and selection protocol support an independent Peritheos refit.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_scope",
      "equation",
      "parameters",
      "units",
-     "volume_basis",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_selection",
-     "fit_objective",
-     "parameter_prior",
-     "validity",
-     "pressure_calibration",
-     "primary_observations",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.mdpi.com/2075-163X/9/12/762",
@@ -249,38 +239,7 @@
       "official supplement Table S1"
      ],
      "finding": "All 28 printed rows are preserved. Fourteen B1 rows are selected, the two anomalous B1 rows are retained with explicit exclusion reasons, and all 12 rhombohedral rows remain in the shared dataset."
-    },
-    "independent_refit": {
-     "selection": "used_in_b1_fit=1 (14 rows)",
-     "objective": "MINUTI isothermal effective-variance volume residuals with the source K0-prime prior and N/n prior weighting",
-     "free_parameters": [
-      "V0",
-      "K0",
-      "K0_prime"
-     ],
-     "fixed_parameters": [],
-     "priors": {
-      "K0_prime": "3.8+/-0.3"
-     },
-     "refit_parameters": {
-      "V0": 78.88845145,
-      "K0": 155.15330821,
-      "K0_prime": 3.78834697
-     },
-     "published_curve_pressure_rmse_gpa": 0.2405614709,
-     "refit_curve_pressure_rmse_gpa": 0.2419797575,
-     "published_curve_reduced_chi_square_on_rounded_rows": 0.7685863615,
-     "refit_reduced_chi_square_on_rounded_rows": 0.7657158603,
-     "result": "parity",
-     "notes": "Every refitted coefficient lies within the corresponding published marginal uncertainty. Small statistic differences are expected because Table S1 rounds pressure and atomic volume while MINUTI used the underlying reductions."
-    },
-    "excluded_branches": [
-     {
-      "branch": "spin-resolved Mw94 EOS",
-      "disposition": "not implemented",
-      "reason": "SMS constrains magnetic and spin populations at 95.4, 97.0, and 116.4 GPa, but the diffraction P-V table ends at 88.7 GPa and contains no spin-resolved volume observations."
-     }
-    ]
+    }
    },
    "source_lineage": [
     {
@@ -321,17 +280,74 @@
    "source_container_sha256": "b936a7aecff8ce9eaf65b51fd1433fe32d5bd4d93837c7d726c83e158c3958e9",
    "source_table_sha256": "cddf4ecd41ac782db0fccf9efd13f17ec5972add831beb2dff664b2965f96a53",
    "columns": [
-    {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
-    {"name": "measurement_id", "quantity": "measurement_identifier", "unit": "1", "role": "flag"},
-    {"name": "phase_branch", "quantity": "crystal_phase", "unit": "1", "role": "flag"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "atomic_volume_angstrom3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
-    {"name": "atomic_volume_uncertainty_angstrom3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "uncertainty", "of": "atomic_volume_angstrom3"},
-    {"name": "used_in_b1_fit", "quantity": "used_in_source_b1_fit", "unit": "1", "role": "flag"},
-    {"name": "used_in_rhombohedral_fit", "quantity": "used_in_source_rhombohedral_fit", "unit": "1", "role": "flag"},
-    {"name": "exclusion_reason", "quantity": "source_exclusion_reason", "unit": "1", "role": "flag"}
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "measurement_id",
+     "quantity": "measurement_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase_branch",
+     "quantity": "crystal_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "atomic_volume_angstrom3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_uncertainty_angstrom3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "uncertainty",
+     "of": "atomic_volume_angstrom3"
+    },
+    {
+     "name": "used_in_b1_fit",
+     "quantity": "used_in_source_b1_fit",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_rhombohedral_fit",
+     "quantity": "used_in_source_rhombohedral_fit",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "exclusion_reason",
+     "quantity": "source_exclusion_reason",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/mgfe94o-dobrosavljevic-2019-table-s1-compression.csv",

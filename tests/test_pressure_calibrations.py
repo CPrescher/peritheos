@@ -173,7 +173,7 @@ def test_every_declared_ruby_calibration_link_is_executable():
         for method in linked_methods
     )
     assert all(
-        calibration["status"] == "partially_resolved"
+        calibration["status"] in {"partially_resolved", "unresolved"}
         and calibration["recalculation"]["status"] != "ready"
         for calibration, _ in unlinked_uses
     )
@@ -516,7 +516,12 @@ def test_chidester_edge_restores_average_pt_temperature_and_is_reversible():
 
 def test_eosmat_rejects_invalid_calibration_links_and_missing_targets(monkeypatch):
     document = get_material_document("gold")
-    method = document["eos_records"][0]["pressure_calibration"]["methods"][0]
+    record = next(
+        item
+        for item in document["eos_records"]
+        if item["identifier"] == "gold_dewaele_2004_vinet_5"
+    )
+    method = record["pressure_calibration"]["methods"][0]
     method["reference_calibration_record"] = ""
     with pytest.raises(EosmatError, match="must be a non-empty string"):
         eosmat_module.validate_eosmat_document(document)
@@ -534,37 +539,40 @@ def test_eosmat_rejects_invalid_calibration_links_and_missing_targets(monkeypatc
 def test_eosmat_rejects_other_malformed_pressure_calibration_fields():
     base = get_material_document("gold")
 
+    def target(document):
+        return next(
+            item
+            for item in document["eos_records"]
+            if item["identifier"] == "gold_dewaele_2004_vinet_5"
+        )
+
     documents = []
     document = copy.deepcopy(base)
-    document["eos_records"][0]["pressure_calibration"]["methods"][0]["kind"] = "invalid"
+    target(document)["pressure_calibration"]["methods"][0]["kind"] = "invalid"
     documents.append(document)
 
     document = copy.deepcopy(base)
-    document["eos_records"][0]["pressure_calibration"]["methods"][0][
-        "source_location"
-    ] = ""
+    target(document)["pressure_calibration"]["methods"][0]["source_location"] = ""
     documents.append(document)
 
     document = copy.deepcopy(base)
-    document["eos_records"][0]["pressure_calibration"]["methods"][0]["reference"] = 3
+    target(document)["pressure_calibration"]["methods"][0]["reference"] = 3
     documents.append(document)
 
     document = copy.deepcopy(base)
-    method = document["eos_records"][0]["pressure_calibration"]["methods"][0]
+    method = target(document)["pressure_calibration"]["methods"][0]
     method["reference_eos_record"] = ""
     documents.append(document)
 
     document = copy.deepcopy(base)
-    method = document["eos_records"][0]["pressure_calibration"]["methods"][0]
+    method = target(document)["pressure_calibration"]["methods"][0]
     method["kind"] = "equation_of_state"
     method.pop("reference_calibration_record")
     method.pop("reference")
     documents.append(document)
 
     document = copy.deepcopy(base)
-    document["eos_records"][0]["pressure_calibration"]["recalculation"]["status"] = (
-        "invalid"
-    )
+    target(document)["pressure_calibration"]["recalculation"]["status"] = "invalid"
     documents.append(document)
 
     for document in documents:

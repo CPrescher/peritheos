@@ -26,7 +26,7 @@ from scipy.optimize import least_squares
 
 from peritheos import get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
-from peritheos.eos.rt import BM2, BM3, BM4, Murnaghan, Vinet
+from peritheos.eos.rt import BM2, BM3, BM4, Murnaghan, NaturalStrain3, Vinet
 from peritheos.eos.thermal import ThermalReferenceStateEOS
 from peritheos.fitting import fit_joint_eos, fit_linear_us_up, fit_rt_eos
 from peritheos.materials import Material
@@ -41,11 +41,17 @@ MODEL_CLASSES = {
     "BM3": BM3,
     "BM4": BM4,
     "Murnaghan": Murnaghan,
+    "NaturalStrain3": NaturalStrain3,
     "Vinet": Vinet,
 }
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "coesite_v_bykova_2018_am05_static_bm3_refit": (
+        "Table 10 contains only one coesite-V pressure-volume anchor, which is "
+        "sufficient to verify the published-parameter reconstruction but not to "
+        "independently refit its three BM3 coefficients."
+    ),
     "mgo_b1_luo_2023_vinet_thermal_5": (
         "The five bundled Table I rows are only the new shock subset of a global "
         "quasi-Debye fit. The complete earlier-study observations, numerical "
@@ -496,6 +502,8 @@ PRESSURE_COLUMNS = {
 }
 
 VOLUME_COLUMNS = {
+    "coesite_iv_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
+    "coesite_v_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
     "alumina_dewaele_2013_table1_compression": "a_a",
     "alpha_quartz_angel_1997_table1_compression": "unit_cell_volume_a3",
     # Table 1 normalizes both phases to the ambient B1 volume. Using the
@@ -780,6 +788,12 @@ def _volume_values(
     if "density" in quantity:
         if "sro_b2" in record["identifier"]:
             return v0 * 6.14 / values, math.nan
+        volume_basis = record.get("volume_basis", {})
+        molar_mass = volume_basis.get("molar_mass_g_mol")
+        basis_formula_units = volume_basis.get("formula_units")
+        if molar_mass is not None and basis_formula_units is not None:
+            factor = float(molar_mass) * float(basis_formula_units) / 0.602214076
+            return factor / values, math.nan
         raise ValueError("density-to-cell-volume conversion is not specified")
     if "molar_volume" in quantity:
         factor = formula_units / 0.602214076
@@ -2263,6 +2277,15 @@ def validate_all() -> dict[str, Any]:
                     "status": "not_refittable",
                     "dataset_identifiers": [],
                     "reason": check["finding"],
+                }
+            elif identifiers[0] not in datasets:
+                outcome = {
+                    "status": "not_refittable",
+                    "dataset_identifiers": identifiers,
+                    "reason": (
+                        "The record cites an external repository or source dataset "
+                        "that is not bundled as a row-level material dataset."
+                    ),
                 }
             else:
                 try:

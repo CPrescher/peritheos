@@ -1,0 +1,149 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "fe088sio3_bridgmanite",
+ "name": "A-site-deficient iron bridgmanite",
+ "formula": "Fe0.88SiO3",
+ "phase": "ferric-iron-stabilized Pbnm bridgmanite",
+ "aliases": [
+  "(Fe2+0.64Fe3+0.24)SiO3 bridgmanite",
+  "pure-iron bridgmanite of Ismailova et al."
+ ],
+ "cell_contents": "Four (Fe2+0.64(2)Fe3+0.24(2))Si1.00(3)O3 formula units per conventional orthorhombic cell; approximately 12% vacancies occupy the A site.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [],
+ "peaks": [],
+ "notes": "The compact formula records the measured total Fe occupancy. Charge state, uncertainties, and A-site vacancies are retained explicitly in cell_contents and record metadata; no stoichiometric FeSiO3 composition is inferred.",
+ "eos_records": [
+  {
+   "identifier": "fe088sio3_bridgmanite_ismailova_2016_300k_bm2",
+   "label": "Ismailova et al. (2016), Fe-deficient bridgmanite 300 K BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Ismailova",
+     "Bykova",
+     "Bykov",
+     "Cerantola",
+     "McCammon",
+     "Boffa Ballaran",
+     "Bobrov",
+     "Sinmyo",
+     "Dubrovinskaia",
+     "Glazyrin",
+     "Liermann",
+     "Kupenko",
+     "Hanfland",
+     "Prescher",
+     "Prakapenka",
+     "Svitlyk",
+     "Dubrovinsky"
+    ],
+    "year": 2016,
+    "title": "Stability of Fe,Al-bearing bridgmanite in the lower mantle and synthesis of pure Fe-bridgmanite",
+    "source": "Science Advances",
+    "volume": "2",
+    "locator": "e1600427",
+    "doi": "10.1126/sciadv.1600427"
+   },
+   "sample_composition": "(Fe2+0.64(2)Fe3+0.24(2))Si1.00(3)O3, with about 12% A-site vacancies.",
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 178.98,
+     "K0": 190.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.06,
+    "K0": 4.0
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    110.0
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 125.225
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     110.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Composition-specific vacancy-rich iron bridgmanite. The source synthesizes it between approximately 45 and 110 GPa; V0 is the fitted ambient extrapolation."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Figure 3 caption and Results: Birch-Murnaghan with K0'=4 fixed, represented by BM2.",
+    "parameters": "Results, Figure 3, and supplementary Table S3.",
+    "composition": "Single-crystal refinement and Moessbauer-constrained Fe valence reported by the source."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The EOS coefficients and sample states are primary-source verified, but this audit did not resolve a complete pressure-scale lineage and paired calibrant observations for numerical recalculation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4956391/",
+     "doi": "10.1126/sciadv.1600427",
+     "locations": [
+      "Results",
+      "Figure 3",
+      "Supplementary Table S3",
+      "Materials and Methods"
+     ],
+     "finding": "One complete source-owned BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite."
+    },
+    "primary_data_check": {
+     "status": "supplement_available_not_bundled",
+     "audit_date": "2026-09-05",
+     "finding": "The source supplies crystallographic and compressibility data in its supplement; the production record preserves the directly reported fitted parameterization."
+    }
+   }
+  }
+ ],
+ "datasets": []
+}

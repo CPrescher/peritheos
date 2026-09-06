@@ -186,6 +186,11 @@ def render() -> str:
         for paper in catalog_papers
         if any(record["status"] == "parity_not_achieved" for record in paper["records"])
     ]
+    discrepancy_record_count = sum(
+        record["status"] == "parity_not_achieved"
+        for paper in discrepancy_papers
+        for record in paper["records"]
+    )
     unavailable_papers = [
         paper
         for paper in catalog_papers
@@ -262,7 +267,8 @@ def render() -> str:
         [
             "## Papers with coefficient discrepancies",
             "",
-            f"These **{len(discrepancy_papers)} papers** account for all 18 records",
+            f"These **{len(discrepancy_papers)} papers** account for all "
+            f"{discrepancy_record_count} records",
             "classified as `parity_not_achieved`. Papers with other successful records",
             "are marked as mixed in the complete register.",
             "",

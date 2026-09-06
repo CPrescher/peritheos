@@ -205,24 +205,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystallography",
-     "formula_units_per_cell",
      "equation",
      "parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fixed_parameters",
-     "parameter_covariance",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2017-5966",
@@ -244,36 +236,6 @@
       "official deposit AM-17-85966, Table 2"
      ],
      "finding": "All 30 Table 2 rows are bundled: one ambient observation, 17 helium observations, and 12 neon observations. Both cubic and hexagonal indexing results, all printed uncertainties, and both ruby wavelengths are retained."
-    },
-    "numerical_reproduction": {
-     "published_curve_on_rounded_fit_rows": {
-      "observations": 17,
-      "pressure_rmse_gpa": 0.2779224099,
-      "maximum_absolute_pressure_residual_gpa": 0.5288116855
-     },
-     "published_135_8_gpa_density_benchmark": {
-      "source_value_g_cm3": 8.17,
-      "reproduced_value_g_cm3": 8.1667425918,
-      "volume_a3": 52.788547723,
-      "mass_basis": "nominal Mg0.22Fe0.78O with Z=4, matching the source calculation"
-     }
-    },
-    "independent_refit": {
-     "selection": "17 helium cubic-cell Table 2 rows",
-     "objective": "diagnostic iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2, plus the published Gaussian V0 prior",
-     "free_parameters": [
-      "V0",
-      "K0",
-      "K0_prime"
-     ],
-     "refit_parameters": {
-      "V0": 78.88229097,
-      "K0": 146.69244887,
-      "K0_prime": 4.13085052
-     },
-     "pressure_rmse_gpa": 0.2387738951,
-     "result": "near_parity",
-     "notes": "All diagnostic coefficients are within the source's 1-sigma parameter uncertainties. The paper does not state MINUTI's exact residual objective or treatment of P-V covariance, so this diagnostic is not promoted to a Peritheos refit record."
     },
     "reported_parameterizations": [
      {
@@ -310,12 +272,6 @@
       ],
       "reason": "No space group or atomic structure is established; the authors describe an increasingly hexagonal distortion correlated with nonhydrostatic stress, and the 58.7 A^3 V0 is for a three-formula-unit indexing cell rather than the four-formula-unit cubic cell."
      }
-    ],
-    "unresolved_issues": [
-     "The numerical EOS covariance matrices used for Figure 5 are not printed or deposited; parameter_covariance is therefore null.",
-     "The exact MINUTI version-2.0 residual objective, weights, and treatment of pressure-volume covariance are not stated in the article or official supplement.",
-     "The study establishes high-spin Fe2+ and tetrahedral high-spin Fe3+ at ambient pressure only; it does not resolve spin state along either compression run.",
-     "The paper's 135.8 GPa density reproduces only with the nominal Mg0.22Fe0.78O molar mass, not the defect-normalized Mg0.215Fe0.762□0.023O mass reported from the same study. This benchmark is retained as a source calculation, not used to redefine the material composition."
     ]
    },
    "source_lineage": [
@@ -366,7 +322,7 @@
    "parameter_errors": {
     "V0": 0.014,
     "K0": 1.0,
-    "K0_prime": 0.10
+    "K0_prime": 0.1
    },
    "parameter_error_confidence": null,
    "fixed_parameters": [],
@@ -449,24 +405,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystallography",
-     "formula_units_per_cell",
      "equation",
      "parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fixed_parameters",
-     "parameter_covariance",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2017-5966",
@@ -488,58 +436,7 @@
       "official deposit AM-17-85966, Table 2"
      ],
      "finding": "All 30 Table 2 rows are bundled. The five-row neon cubic fit selection and seven-row excluded neon hexagonal selection are explicit, and both cell indexings remain available for every pressure."
-    },
-    "numerical_reproduction": {
-     "published_curve_on_rounded_fit_rows": {
-      "observations": 5,
-      "pressure_rmse_gpa": 0.1182512894,
-      "maximum_absolute_pressure_residual_gpa": 0.1542757551
-     },
-     "published_135_8_gpa_density_benchmark": {
-      "source_value_g_cm3": 8.03,
-      "reproduced_value_g_cm3": 8.0371048201,
-      "volume_a3": 53.6400222094,
-      "mass_basis": "nominal Mg0.22Fe0.78O with Z=4, matching the source calculation"
-     }
-    },
-    "independent_refit": {
-     "selection": "five neon cubic-cell Table 2 rows from 1.314 through 19.244 GPa",
-     "objective": "diagnostic iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2, plus the published Gaussian V0 and K0_prime priors; the unprinted 19.244 GPa pressure uncertainty contributes no inferred pressure term",
-     "free_parameters": [
-      "V0",
-      "K0",
-      "K0_prime"
-     ],
-     "refit_parameters": {
-      "V0": 78.76818584,
-      "K0": 161.64662941,
-      "K0_prime": 3.99361735
-     },
-     "pressure_rmse_gpa": 0.1457227793,
-     "result": "method_dependent_near_parity",
-     "notes": "The diagnostic coefficients are within two source 1-sigma uncertainties, but the exact MINUTI objective is unpublished and the source rounds the five observations. This diagnostic is not promoted to a Peritheos refit record."
-    },
-    "excluded_hexagonal_parameterization": {
-     "V0_a3": 58.7,
-     "V0_error_a3": 0.4,
-     "K0_gpa": 176.8,
-     "K0_error_gpa": 1.1,
-     "K0_prime": 4.0,
-     "K0_prime_error": 0.10,
-     "K0_prime_prior": "4.0 +/- 0.1",
-     "fit_range_gpa": [
-      24.1,
-      53.3
-     ],
-     "volume_basis": "hexagonal indexing cell with V=sqrt(3)/2*a^2*c and three formula units; V_hex=3/4 V_cubic at the undistorted cubic limit",
-     "disposition": "excluded because no space group or atomic structure is established and the distortion tracks increasing differential stress"
-    },
-    "unresolved_issues": [
-     "The numerical EOS covariance matrices are not printed or deposited; parameter_covariance is therefore null.",
-     "The exact MINUTI version-2.0 residual objective, weights, and treatment of pressure-volume covariance are not stated in the article or official supplement.",
-     "The source prints no pressure uncertainty for the 19.244 GPa row; it is preserved as missing rather than inferred as zero from identical rounded ruby wavelengths.",
-     "Spin state was measured only at ambient pressure and remains unresolved along the neon compression path."
-    ]
+    }
    },
    "source_lineage": [
     {

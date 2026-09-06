@@ -194,6 +194,8 @@ def test_fu_pressure_calibration_resolves_to_bundled_gold_record():
     gold = load_eosmat(MATERIAL_PATH.with_name("gold.eosmat"))
     gold_record_ids = {record["identifier"] for record in gold["eos_records"]}
     for source in document["eos_records"]:
+        if source["reference"]["doi"].lower() != "10.2138/am-2023-8969":
+            continue
         calibration = source["pressure_calibration"]
         method = calibration["methods"][0]
         assert calibration["status"] == "resolved"

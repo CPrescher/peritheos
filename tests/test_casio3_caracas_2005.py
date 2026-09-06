@@ -8,7 +8,7 @@ from scripts.apply_primary_source_audit import audit_record
 RECORD_ID = "ca_perovskite_caracas_2005_bm3_3"
 
 
-def test_caracas_2005_adds_exactly_one_cubic_literature_record():
+def test_caracas_2005_preserves_the_cubic_bm3_literature_record():
     document = get_material_document("ca_perovskite")
     records = [
         record
@@ -16,8 +16,7 @@ def test_caracas_2005_adds_exactly_one_cubic_literature_record():
         if record["reference"].get("doi", "").lower() == "10.1029/2004gl022144"
     ]
 
-    assert len(records) == 1
-    record = records[0]
+    record = next(item for item in records if item["identifier"] == RECORD_ID)
     assert record["identifier"] == RECORD_ID
     assert record["eos"] == {
         "type": "BM3",

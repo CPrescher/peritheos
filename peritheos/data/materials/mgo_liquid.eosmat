@@ -1,0 +1,137 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mgo_liquid",
+ "name": "Liquid MgO",
+ "formula": "MgO",
+ "phase": "MgO liquid",
+ "aliases": [
+  "molten MgO",
+  "MgO melt"
+ ],
+ "cell_contents": "Liquid EOS volumes are expressed per MgO formula unit; no crystallographic unit cell is implied.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "formula_units_per_cell": 1,
+ "atom_sites": [],
+ "peaks": [],
+ "notes": "A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.",
+ "eos_records": [
+  {
+   "identifier": "mgo_liquid_ghosh_karki_2016_3000k_bm3_1",
+   "label": "Ghosh and Karki (2016), liquid MgO 3000 K BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Ghosh",
+     "Karki"
+    ],
+    "year": 2016,
+    "title": "Solid-liquid density and spin crossovers in (Mg, Fe)O system at deep mantle conditions",
+    "source": "Scientific Reports",
+    "volume": "6",
+    "locator": "37269",
+    "doi": "10.1038/srep37269"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 30.0,
+     "K0": 16.6,
+     "K0_prime": 6.14
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 3000.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    140.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    3000.0,
+    3000.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 40.304
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     140.0
+    ],
+    "temperature_k": [
+     3000.0,
+     3000.0
+    ],
+    "notes": [
+     "Reference isotherm for pure MgO liquid in the authors' broader composition-temperature equation.",
+     "Do not apply to crystalline B1 or B2 MgO."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Equation (2) discussion explicitly defines the T0=3000 K pure-liquid reference term as third-order Birch-Murnaghan.",
+    "parameters": "Results, page 3: V0=30.0 A3, K0=16.6 GPa, K0'=6.14.",
+    "volume_basis": "The reported volumes are per MgO formula unit; simulations used 64-atom and validation 216-atom supercells.",
+    "method": "Spin-polarized GGA-PAW first-principles molecular dynamics in the NVT ensemble."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Methods and Equation (2)",
+      "scope": "FPMD average pressure including the stated Pulay-stress correction."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure scale applies."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.nature.com/articles/srep37269.pdf",
+     "doi": "10.1038/srep37269",
+     "locations": [
+      "Equation (2) and following paragraph, page 3",
+      "Figure 3",
+      "Methods, page 7"
+     ],
+     "finding": "Complete source-owned 3000 K pure liquid MgO reference BM3."
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-05",
+     "finding": "The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced."
+    }
+   }
+  }
+ ],
+ "datasets": []
+}

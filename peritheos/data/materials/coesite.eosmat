@@ -159,6 +159,125 @@
      "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
+  },
+  {
+   "identifier": "coesite_i_iii_bykova_2018_300k_bm3",
+   "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Bykova",
+     "Bykov",
+     "Cernok",
+     "Tidholm",
+     "Simak",
+     "Hellman",
+     "Belov",
+     "Abrikosov",
+     "Liermann",
+     "Hanfland",
+     "Prakapenka",
+     "Prescher",
+     "Dubrovinskaia",
+     "Dubrovinsky"
+    ],
+    "year": 2018,
+    "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
+    "source": "Nature Communications",
+    "volume": "9",
+    "locator": "4789",
+    "doi": "10.1038/s41467-018-07265-z"
+   },
+   "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 547.2,
+     "K0": 103.0,
+     "K0_prime": 3.02
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.16,
+    "K0": 2.0,
+    "K0_prime": 0.15
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    30.3
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 16.0,
+    "molar_mass_g_mol": 60.083
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     30.3
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Effective compression branch across the minor coesite-I to II to III transitions, explicitly represented by one EOS in the source."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Results, Crystal structure of coesite-III: third-order Birch-Murnaghan.",
+    "parameters": "Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.",
+    "method": "Combined single-crystal XRD pressure-volume data for coesite-I, II, and III."
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "Neon diffraction and ruby were used for pressure estimation, but the exact calibration equation and paired marker observations are not published with the fit."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
+     "doi": "10.1038/s41467-018-07265-z",
+     "locations": [
+      "Results: Crystal structure of coesite-III",
+      "Figure 1 caption",
+      "Methods: X-ray diffraction"
+     ],
+     "finding": "One complete source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data."
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-05",
+     "finding": "The combined observations are plotted in Figure 1 but not supplied as a numerical table."
+    }
+   }
   }
  ],
  "format": "peritheos.material",

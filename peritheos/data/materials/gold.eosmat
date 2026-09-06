@@ -28,6 +28,146 @@
  "peaks": [],
  "eos_records": [
   {
+   "identifier": "gold_sakai_2025_rydberg_stacey_1",
+   "label": "Sakai et al. (2025), Au generalized Rydberg-Stacey scale",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Kadobayashi",
+     "Nakamoto",
+     "Dekura",
+     "Ishimatsu",
+     "Kawaguchi-Imada",
+     "Seto",
+     "Sekizawa",
+     "Nitta",
+     "Shimizu"
+    ],
+    "year": 2025,
+    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+    "source": "Communications Materials",
+    "volume": "6",
+    "locator": "68",
+    "doi": "10.1038/s43246-025-00792-5"
+   },
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.96657
+   },
+   "eos": {
+    "type": "RydbergStacey",
+    "model": "rydberg_stacey",
+    "parameters": {
+     "V0": 67.716,
+     "K0": 167,
+     "K0_prime": 5.78,
+     "K_infinity_prime": 1.6666666666666667
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": 0.004,
+    "K_infinity_prime": null
+   },
+   "parameter_error_confidence": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K_infinity_prime"
+   ],
+   "pressure_range_status": "reported_exactly",
+   "temperature_ref": 300,
+   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Sakai",
+        "Kadobayashi",
+        "Nakamoto",
+        "Dekura",
+        "Ishimatsu",
+        "Kawaguchi-Imada",
+        "Seto",
+        "Sekizawa",
+        "Nitta",
+        "Shimizu"
+       ],
+       "year": 2025,
+       "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+       "source": "Communications Materials",
+       "volume": "6",
+       "locator": "68",
+       "doi": "10.1038/s43246-025-00792-5"
+      },
+      "reference_eos_record": "copper_sakai_2025_rydberg_stacey_1",
+      "source_location": "Figure 1, Table 2, and Supplementary Table S8",
+      "scope": "Cross-calibration through the Sakai et al. Cu-anchored material network"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The exact Cu-anchored R-S pressure scale and the official simultaneous-volume workbooks are available."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
+     "locations": [
+      "Equation (1)",
+      "Table 2",
+      "Supplementary Data 1, Tables S8-S10",
+      "Official R-S EoS workbook"
+     ],
+     "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+     "doi": "10.1038/s43246-025-00792-5"
+    },
+    "primary_data_check": {
+     "status": "derived_output_only",
+     "audit_date": "2026-09-05",
+     "source_locations": [
+      "Supplementary Data 1, Table S9"
+     ],
+     "finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific fit, equation, and coefficients",
+     "citation": "Sakai et al. (2025), Equation (1), Table 2, and Supplementary Tables S8-S10",
+     "doi": "10.1038/s43246-025-00792-5"
+    },
+    {
+     "role": "official executable formula and curve checkpoint",
+     "citation": "Sakai et al. (2025), R-S EoS workbook and Supplementary Data 1 Table S9",
+     "doi": "10.1038/s43246-025-00792-5"
+    }
+   ],
+   "experimental_pressure_range_gpa": [
+    0,
+    368
+   ]
+  },
+  {
    "label": "Dewaele et al. (2004), revised-ruby Vinet",
    "reference": {
     "authors": [
@@ -93,8 +233,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
-    "audit_date": "2026-09-03",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -102,8 +242,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
@@ -191,8 +330,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
-    "audit_date": "2026-09-03",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -200,8 +339,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.104119/fulltext",
@@ -658,8 +796,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -984,8 +1121,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, conventional-cell conversion, parameters, reference temperature, uncertainties, and experimental scope checked against the primary publication.",
-    "audit_date": "2026-09-03",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -993,8 +1130,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1126/science.abh0364",
@@ -1023,6 +1159,129 @@
     "K0": "Table 1; 170.9 +/- 0.24 GPa",
     "K0_prime": "Table 1; 5.880 +/- 0.005"
    }
+  },
+  {
+   "identifier": "gold_zhu_2025_vinet_300k",
+   "label": "Zhu et al. (2025), internally consistent Au Vinet 300 K branch",
+   "reference": {
+    "authors": [
+     "Zhu",
+     "Ye",
+     "Sun",
+     "Katsura",
+     "Caracas"
+    ],
+    "year": 2025,
+    "title": "Internally consistent pressure-volume-temperature equations of state among platinum, gold, and MgO: Implications for phase transition boundaries in the mantle",
+    "source": "ESSOAr preprint",
+    "locator": "version 1",
+    "doi": "10.22541/essoar.176236186.65259830/v1"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 67.85,
+     "K0": 167.0,
+     "K0_prime": 5.897
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": 0.022
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    300.0
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 196.96657
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     300.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Executable 300 K reference isotherm of the wider source P-V-T pressure scale.",
+     "The generalized thermal and T-squared excess terms are documented but not silently approximated by this record."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Main-text Equation 1 and Table 1: Vinet 300 K reference isotherm.",
+    "V0": "Table 1: 67.85 A^3 per fcc conventional cell, adopted from Ye et al. (2017).",
+    "K0": "Table 1: 167 GPa, adopted from Ye et al. (2017).",
+    "K0_prime": "Table 1: 5.897(22), optimized in the internally consistent P-V-T model.",
+    "scope": "Only the exactly supported 300 K Vinet component is stored; generalized gamma(a,b) and excess beta0,m require a combined model not presently exposed by Peritheos."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "source_location": "Sections 2.1-2.3 and Table 1",
+      "notes": "Joint optimization to static compression, shock, thermal, elasticity, and heat-capacity constraints."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "This is itself a self-consistent pressure-standard parameterization."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
+     "doi": "10.22541/essoar.176236186.65259830/v1",
+     "locations": [
+      "Equation 1",
+      "Table 1",
+      "Sections 2.1-2.3"
+     ],
+     "finding": "Table 1 provides a complete Au 300 K Vinet branch within a larger source-owned P-V-T model."
+    },
+    "primary_data_check": {
+     "status": "external_repository",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "Mendeley Data 10.17632/6kxnhc2g73.3"
+     ],
+     "finding": "Optimization data and calculation scripts are published CC BY 4.0; this scoped record is validated against the parameter table and analytical Vinet implementation."
+    }
+   }
   }
  ],
  "format": "peritheos.material",
@@ -1034,11 +1293,78 @@
  },
  "datasets": [
   {
+   "identifier": "gold_sakai_2025_table_s9_rs_eos_grid",
+   "kind": "derived_pressure_volume_grid",
+   "description": "Official 26-row Table S9 Au compression grid calculated from the published Rydberg-Stacey coefficients; retained as an exact implementation checkpoint, not as independent fit input.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Kadobayashi",
+     "Nakamoto",
+     "Dekura",
+     "Ishimatsu",
+     "Kawaguchi-Imada",
+     "Seto",
+     "Sekizawa",
+     "Nitta",
+     "Shimizu"
+    ],
+    "year": 2025,
+    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+    "source": "Communications Materials",
+    "volume": "6",
+    "locator": "68",
+    "doi": "10.1038/s43246-025-00792-5"
+   },
+   "source_location": "Supplementary Data 1, Table S9",
+   "source_url": "https://doi.org/10.1038/s43246-025-00792-5",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "relative_volume",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-sakai-2025-table-s9-rs-eos-grid.csv",
+    "sha256": "c6ce297beef3b23e6be063b8809599323a7412bb5aa835bcaeb4293f16624a65",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_official_derived_table",
+    "official_workbook_sha256": "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9",
+    "notes": "Table S9 is formula-generated from Table 2 coefficients. It verifies transcription and equation implementation but cannot independently refit the coefficients."
+   },
+   "used_by_eos_records": [
+    "gold_sakai_2025_rydberg_stacey_1"
+   ]
+  },
+  {
    "identifier": "gold_fei_2007_figure1_digitized",
    "kind": "pressure_volume_digitized",
    "description": "Six new 300 K Au observations shown as open circles in Figure 1. No experimental error bars are plotted; digitization uncertainty is recorded separately.",
    "reference": {
-    "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+    "authors": [
+     "Fei",
+     "Ricolleau",
+     "Frank",
+     "Mibe",
+     "Shen",
+     "Prakapenka"
+    ],
     "year": 2007,
     "source": "Proc. Natl. Acad. Sci. USA",
     "volume": "104",
@@ -1047,19 +1373,71 @@
    },
    "source_location": "Figure 1, open circles labeled This study",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "pressure_digitization_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "volume_digitization_uncertainty_a3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_digitization_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    }
    ],
-   "resource": {"path": "datasets/gold-fei-2007-figure1-digitized.csv", "sha256": "a60e32e20bdc32de732c26d628628ef333817be97e571dfc209c516c3fc3f111", "media_type": "text/csv"},
-   "used_by_eos_records": ["gold_fei_2007_vinet_2"],
+   "resource": {
+    "path": "datasets/gold-fei-2007-figure1-digitized.csv",
+    "sha256": "a60e32e20bdc32de732c26d628628ef333817be97e571dfc209c516c3fc3f111",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_fei_2007_vinet_2"
+   ],
    "provenance": {
     "type": "digitized_from_figure",
     "method": "Reconstructed the source-resolution Figure 1 from PMC image tiles, calibrated the printed axes, and digitized the centers of the blue open-circle markers.",
     "source_figure_sha256": "5a23506778c0c2c2f669026ecf38841d69b20b89d2e8772a3227283fe1c20dcc",
-    "axis_calibration_pixels_source_figure": {"pressure": [[213.0, 0.0], [1600.0, 125.0]], "volume": [[87.0, 68.0], [1197.0, 50.0]]},
-    "quality_control": {"published_vinet_rms_pressure_residual_gpa": 1.4975, "published_vinet_max_abs_pressure_residual_gpa": 2.9209},
+    "axis_calibration_pixels_source_figure": {
+     "pressure": [
+      [
+       213.0,
+       0.0
+      ],
+      [
+       1600.0,
+       125.0
+      ]
+     ],
+     "volume": [
+      [
+       87.0,
+       68.0
+      ],
+      [
+       1197.0,
+       50.0
+      ]
+     ]
+    },
+    "quality_control": {
+     "published_vinet_rms_pressure_residual_gpa": 1.4975,
+     "published_vinet_max_abs_pressure_residual_gpa": 2.9209
+    },
     "digitized_on": "2026-09-03"
    },
    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/"

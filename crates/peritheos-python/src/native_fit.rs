@@ -6,8 +6,8 @@ use peritheos::fit::{
     StructuredLayout, ThermalObservations,
 };
 use peritheos::isothermal::{
-    Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
-    BM3, BM4,
+    Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4,
+    RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
@@ -90,6 +90,17 @@ impl RtModel {
                     .map_err(FitError::from)?,
                 )
             }
+            Self::Morse3(model) => {
+                ensure_names(names, &["V0", "K0", "K0_prime"], false)?;
+                Self::Morse3(
+                    Morse3::new(
+                        value(names, values, "V0", model.v0),
+                        value(names, values, "K0", model.k0),
+                        value(names, values, "K0_prime", model.k0_prime),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
             Self::Murnaghan(model) => {
                 ensure_names(names, &["V0", "K0", "K0_prime"], false)?;
                 Self::Murnaghan(
@@ -142,6 +153,40 @@ impl RtModel {
                         value(names, values, "K0", model.k0),
                         value(names, values, "K0_prime", model.k0_prime),
                         value(names, values, "K0_double_prime", model.k0_double_prime),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::RydbergStacey(model) => {
+                ensure_names(names, &["V0", "K0", "K0_prime", "K_infinity_prime"], false)?;
+                Self::RydbergStacey(
+                    RydbergStacey::new(
+                        value(names, values, "V0", model.v0),
+                        value(names, values, "K0", model.k0),
+                        value(names, values, "K0_prime", model.k0_prime),
+                        value(names, values, "K_infinity_prime", model.k_infinity_prime),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::SunMorse3(model) => {
+                ensure_names(names, &["V0", "K0", "K0_prime"], false)?;
+                Self::SunMorse3(
+                    SunMorse3::new(
+                        value(names, values, "V0", model.v0),
+                        value(names, values, "K0", model.k0),
+                        value(names, values, "K0_prime", model.k0_prime),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::SunMorse4(model) => {
+                ensure_names(names, &["V0", "K0", "K0_prime"], false)?;
+                Self::SunMorse4(
+                    SunMorse4::new(
+                        value(names, values, "V0", model.v0),
+                        value(names, values, "K0", model.k0),
+                        value(names, values, "K0_prime", model.k0_prime),
                     )
                     .map_err(FitError::from)?,
                 )

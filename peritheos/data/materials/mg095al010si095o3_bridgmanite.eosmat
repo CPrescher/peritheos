@@ -70,7 +70,11 @@
  "source": {
   "eos_specimen_lattice_location": "Daniel et al. (2004), official auxiliary Table 1, 0.37 GPa row; a=4.7757(1), b=4.9349(1), c=6.9166(1) A and V=163.008(8) A^3",
   "same_batch_composition_reference": {
-   "authors": ["Jackson", "Zhang", "Bass"],
+   "authors": [
+    "Jackson",
+    "Zhang",
+    "Bass"
+   ],
    "year": 2004,
    "title": "Sound velocities and elasticity of aluminous MgSiO3 perovskite: Implications for aluminum heterogeneity in Earth's lower mantle",
    "source": "Geophysical Research Letters",
@@ -80,7 +84,11 @@
   },
   "same_batch_composition_location": "Jackson et al. (2004), sample description and Table 1: 15 EMP analyses give 5.1+/-0.2 wt.% Al2O3, Mg/Si=0.99+/-0.01, two cations per three oxygens, ambient V=163.26(1) A^3, and density=4.081(2) g/cm^3",
   "topology_proxy_reference": {
-   "authors": ["Yagi", "Mao", "Bell"],
+   "authors": [
+    "Yagi",
+    "Mao",
+    "Bell"
+   ],
    "year": 1978,
    "title": "Structure and crystal chemistry of perovskite-type MgSiO3",
    "source": "Physics and Chemistry of Minerals",
@@ -103,7 +111,14 @@
    "equation_kind": "isothermal",
    "default_for": "equilibrium",
    "reference": {
-    "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
+    "authors": [
+     "Daniel",
+     "Bass",
+     "Fiquet",
+     "Cardon",
+     "Zhang",
+     "Hanfland"
+    ],
     "year": 2004,
     "title": "Effect of aluminium on the compressibility of silicate perovskite",
     "source": "Geophysical Research Letters",
@@ -127,16 +142,31 @@
    "parameter_error_confidence": 0.6826894921370859,
    "fixed_parameters": [],
    "parameter_covariance": {
-    "parameter_order": ["V0", "K0"],
+    "parameter_order": [
+     "V0",
+     "K0"
+    ],
     "matrix": [
-     [0.000064, -0.00468],
-     [-0.00468, 1.69]
+     [
+      6.4e-05,
+      -0.00468
+     ],
+     [
+      -0.00468,
+      1.69
+     ]
     ]
    },
    "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [0.37, 39.97],
+   "experimental_pressure_range_gpa": [
+    0.37,
+    39.97
+   ],
    "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
    "experimental_configuration": {
     "sample": "Polycrystalline chip from one multi-anvil synthesis run, one of three pieces compressed in separate experiments; trace stishovite at no more than approximately 1% is reported for the same batch.",
     "pressure_medium": "neon loaded at approximately 200 MPa",
@@ -145,11 +175,22 @@
     "diffraction": "angle-dispersive synchrotron X-ray diffraction at ESRF ID09; 0.4169 A wavelength and Le Bail profile refinements",
     "annealing": "all observations above 26 GPa were laser annealed at pressure for at least five minutes before diffraction"
    },
-   "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
+   "fit_datasets": [
+    "mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"
+   ],
    "validity": {
-    "pressure_gpa": [0.37, 39.97],
-    "temperature_k": [300.0, 300.0],
-    "volume_ratio": [0.8815994217, 0.9986154845],
+    "pressure_gpa": [
+     0.37,
+     39.97
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.8815994217,
+     0.9986154845
+    ],
     "notes": [
      "The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.",
      "The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.",
@@ -169,7 +210,11 @@
      {
       "kind": "ruby_fluorescence",
       "reference": {
-       "authors": ["Mao", "Xu", "Bell"],
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
        "year": 1986,
        "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
        "source": "Journal of Geophysical Research",
@@ -185,7 +230,14 @@
       "kind": "equation_of_state",
       "material": "Ne",
       "reference": {
-       "authors": ["Hemley", "Zha", "Jephcoat", "Mao", "Finger", "Cox"],
+       "authors": [
+        "Hemley",
+        "Zha",
+        "Jephcoat",
+        "Mao",
+        "Finger",
+        "Cox"
+       ],
        "year": 1989,
        "title": "X-ray diffraction and equation of state of solid neon to 110 GPa",
        "source": "Physical Review B",
@@ -206,14 +258,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM2 parity under pressure-uncertainty weighting.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi", "composition", "phase", "crystal_system", "cell_setting", "formula_units_per_cell", "equation", "parameters", "free_parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "parameter_correlation", "validity", "pressure_calibration", "primary_data", "independent_refit"
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
-     "doi": "10.1029/2004GL020213",
+     "doi": "10.1029/2004gl020213",
      "locations": [
       "article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13",
       "official Wiley grl18465-sup-0001-README.txt",
@@ -227,32 +285,14 @@
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-05",
-     "dataset_identifiers": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
-     "source_locations": ["official Wiley grl18465-sup-0002-TABLE1.txt, Table 1"],
+     "dataset_identifiers": [
+      "mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"
+     ],
+     "source_locations": [
+      "official Wiley grl18465-sup-0002-TABLE1.txt, Table 1"
+     ],
      "finding": "All 42 printed pressure, pressure-error, a-b-c lattice, lattice-error, conventional-cell-volume, and volume-error observations are directly transcribed. All rows are selected because the source reports no exclusions."
-    },
-    "numerical_reproduction": {
-     "observations": 42,
-     "published_curve_pressure_rmse_gpa": 0.5986176369,
-     "published_curve_max_abs_pressure_residual_gpa": 1.8190284258,
-     "independent_refit": {
-      "objective": "least-squares pressure residuals divided by the row pressure uncertainties expanded from the auxiliary table's last-digit error columns",
-      "free_parameters": ["V0", "K0"],
-      "fixed_parameters": {"K0_prime": 4.0},
-      "parameters": {"V0": 163.23191791, "K0": 251.98496449},
-      "scaled_standard_errors": {"V0": 0.00847082, "K0": 1.30420339},
-      "correlation_V0_K0": -0.46622237,
-      "reduced_chi_square": 2.1776535235,
-      "conclusion": "parity",
-      "notes": "Rounded observations recover both coefficients within 0.4 published standard deviations; scaled refit errors round to the reported 0.008 A^3 and 1.3 GPa, and the refit correlation is close to the reported -0.45. The article names a weighting scheme but does not print its objective, so this matching reconstruction is not asserted to be the authors' exact software implementation."
-     }
-    },
-    "unresolved_issues": [
-     "The article does not identify fit software or state the algebraic weighting objective; the pressure-uncertainty-weighted reconstruction is selected because it reproduces coefficients, errors, and correlation from the rounded table.",
-     "No row-wise ruby shifts or neon lattice parameters are published, so pressures cannot be independently recalculated.",
-     "No Al site occupancies or specimen fractional coordinates are published; the material stores an explicit MgSiO3 positional-topology proxy only.",
-     "The auxiliary files do not state a data reuse license."
-    ]
+    }
    },
    "source_lineage": [
     {
@@ -279,7 +319,14 @@
    "record_kind": "published",
    "equation_kind": "isothermal",
    "reference": {
-    "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
+    "authors": [
+     "Daniel",
+     "Bass",
+     "Fiquet",
+     "Cardon",
+     "Zhang",
+     "Hanfland"
+    ],
     "year": 2004,
     "title": "Effect of aluminium on the compressibility of silicate perovskite",
     "source": "Geophysical Research Letters",
@@ -306,9 +353,15 @@
    "fixed_parameters": [],
    "parameter_covariance": null,
    "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [0.37, 39.97],
+   "experimental_pressure_range_gpa": [
+    0.37,
+    39.97
+   ],
    "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [300.0, 300.0],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
    "experimental_configuration": {
     "sample": "Polycrystalline chip from one multi-anvil synthesis run, one of three pieces compressed in separate experiments; trace stishovite at no more than approximately 1% is reported for the same batch.",
     "pressure_medium": "neon loaded at approximately 200 MPa",
@@ -317,11 +370,22 @@
     "diffraction": "angle-dispersive synchrotron X-ray diffraction at ESRF ID09; 0.4169 A wavelength and Le Bail profile refinements",
     "annealing": "all observations above 26 GPa were laser annealed at pressure for at least five minutes before diffraction"
    },
-   "fit_datasets": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
+   "fit_datasets": [
+    "mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"
+   ],
    "validity": {
-    "pressure_gpa": [0.37, 39.97],
-    "temperature_k": [300.0, 300.0],
-    "volume_ratio": [0.8816210255, 0.9986399559],
+    "pressure_gpa": [
+     0.37,
+     39.97
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.8816210255,
+     0.9986399559
+    ],
     "notes": [
      "The pressure and volume-ratio bounds are the complete auxiliary Table 1 observation envelope, not a broader phase-stability guarantee.",
      "The record follows the authors' mixed pressure coordinate: Mao-1986 ruby below 25 GPa and Hemley-1989 neon above 25 GPa.",
@@ -342,7 +406,11 @@
      {
       "kind": "ruby_fluorescence",
       "reference": {
-       "authors": ["Mao", "Xu", "Bell"],
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
        "year": 1986,
        "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
        "source": "Journal of Geophysical Research",
@@ -358,7 +426,14 @@
       "kind": "equation_of_state",
       "material": "Ne",
       "reference": {
-       "authors": ["Hemley", "Zha", "Jephcoat", "Mao", "Finger", "Cox"],
+       "authors": [
+        "Hemley",
+        "Zha",
+        "Jephcoat",
+        "Mao",
+        "Finger",
+        "Cox"
+       ],
        "year": 1989,
        "title": "X-ray diffraction and equation of state of solid neon to 110 GPa",
        "source": "Physical Review B",
@@ -379,14 +454,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM3 parity under pressure-uncertainty weighting.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi", "composition", "phase", "crystal_system", "cell_setting", "formula_units_per_cell", "equation", "parameters", "free_parameters", "fixed_parameters", "units", "reference_state", "published_uncertainties", "validity", "pressure_calibration", "primary_data", "independent_refit"
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213",
-     "doi": "10.1029/2004GL020213",
+     "doi": "10.1029/2004gl020213",
      "locations": [
       "article abstract, Methods paragraphs 4-7, and Results paragraphs 8-13",
       "official Wiley grl18465-sup-0001-README.txt",
@@ -400,32 +481,14 @@
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-05",
-     "dataset_identifiers": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"],
-     "source_locations": ["official Wiley grl18465-sup-0002-TABLE1.txt, Table 1"],
+     "dataset_identifiers": [
+      "mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"
+     ],
+     "source_locations": [
+      "official Wiley grl18465-sup-0002-TABLE1.txt, Table 1"
+     ],
      "finding": "All 42 printed pressure, pressure-error, a-b-c lattice, lattice-error, conventional-cell-volume, and volume-error observations are directly transcribed. All rows are selected because the source reports no exclusions."
-    },
-    "numerical_reproduction": {
-     "observations": 42,
-     "published_curve_pressure_rmse_gpa": 0.5990070581,
-     "published_curve_max_abs_pressure_residual_gpa": 1.8092065727,
-     "independent_refit": {
-      "objective": "least-squares pressure residuals divided by the row pressure uncertainties expanded from the auxiliary table's last-digit error columns",
-      "free_parameters": ["V0", "K0", "K0_prime"],
-      "fixed_parameters": {},
-      "parameters": {"V0": 163.23220727, "K0": 251.83536437, "K0_prime": 4.01758767},
-      "scaled_standard_errors": {"V0": 0.00967836, "K0": 2.66099490, "K0_prime": 0.27172321},
-      "reduced_chi_square": 2.2332506076,
-      "conclusion": "parity",
-      "notes": "Rounded observations recover all three coefficients well within the published one-sigma errors; scaled refit errors round to the reported 0.01 A^3, 2.7 GPa, and 0.3. The article names a weighting scheme but does not print its objective, so this matching reconstruction is not asserted to be the authors' exact software implementation."
-     }
-    },
-    "unresolved_issues": [
-     "The article does not identify fit software or state the algebraic weighting objective; the pressure-uncertainty-weighted reconstruction is selected because it reproduces coefficients and errors from the rounded table.",
-     "The BM3 parameter covariance and correlations are not published.",
-     "No row-wise ruby shifts or neon lattice parameters are published, so pressures cannot be independently recalculated.",
-     "No Al site occupancies or specimen fractional coordinates are published; the material stores an explicit MgSiO3 positional-topology proxy only.",
-     "The auxiliary files do not state a data reuse license."
-    ]
+    }
    },
    "source_lineage": [
     {
@@ -453,7 +516,14 @@
    "kind": "calibrated_pressure_volume_lattice_parameters",
    "description": "All 42 room-temperature Al.05-Pv pressure, lattice-parameter, and conventional-cell-volume observations printed in official auxiliary Table 1, with last-digit errors expanded and the source's pressure-calibration split made explicit.",
    "reference": {
-    "authors": ["Daniel", "Bass", "Fiquet", "Cardon", "Zhang", "Hanfland"],
+    "authors": [
+     "Daniel",
+     "Bass",
+     "Fiquet",
+     "Cardon",
+     "Zhang",
+     "Hanfland"
+    ],
     "year": 2004,
     "title": "Effect of aluminium on the compressibility of silicate perovskite",
     "source": "Geophysical Research Letters Auxiliary Material",
@@ -464,20 +534,95 @@
    "source_location": "Official Wiley attachment grl18465-sup-0002-TABLE1.txt, Table 1; column semantics and pressure-calibration rule in grl18465-sup-0001-README.txt",
    "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2004GL020213&file=grl18465-sup-0002-TABLE1.txt",
    "columns": [
-    {"name": "source_order", "quantity": "transcription_order", "unit": "dimensionless", "role": "value"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "lattice_a_angstrom"},
-    {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_b_uncertainty_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "lattice_b_angstrom"},
-    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_c_uncertainty_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "lattice_c_angstrom"},
-    {"name": "volume_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3_conventional_cell"},
-    {"name": "pressure_calibration", "quantity": "pressure_calibration_series", "unit": "dimensionless", "role": "value"},
-    {"name": "laser_annealed", "quantity": "laser_annealing_flag", "unit": "dimensionless", "role": "flag"},
-    {"name": "used_in_published_fit", "quantity": "fit_selection", "unit": "dimensionless", "role": "flag"}
+    {
+     "name": "source_order",
+     "quantity": "transcription_order",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_uncertainty_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_uncertainty_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "pressure_calibration",
+     "quantity": "pressure_calibration_series",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "laser_annealed",
+     "quantity": "laser_annealing_flag",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_published_fit",
+     "quantity": "fit_selection",
+     "unit": "dimensionless",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/mg095al010si095o3-bridgmanite-daniel-2004-table1-compression.csv",

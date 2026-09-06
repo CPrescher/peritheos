@@ -286,7 +286,7 @@
        "doi": "10.1073/pnas.0609013104"
       },
       "source_location": "Shi et al. (2022), experiments and Supporting Information Table S1",
-     "scope": "59 Table S1 rows grouped under pressure determined by Pt, including the fixed ambient reference row"
+      "scope": "59 Table S1 rows grouped under pressure determined by Pt, including the fixed ambient reference row"
      },
      {
       "kind": "equation_of_state",
@@ -318,8 +318,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the primary article and the checksummed official Zenodo supporting-information deposit; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -327,8 +327,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "fit_protocol"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2021JB023805",

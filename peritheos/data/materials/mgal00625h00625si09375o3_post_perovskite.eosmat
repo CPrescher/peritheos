@@ -83,7 +83,7 @@
    ],
    "pressure_range_status": "theoretical",
    "volume_basis": {
-   "kind": "formula_units",
+    "kind": "formula_units",
     "formula_units": 4,
     "molar_mass_g_mol": 100.381
    },
@@ -130,23 +130,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-deposited published article and its source Table 1.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "substitution_mechanism",
-     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "theoretical_method",
-     "volume_range"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
-     "doi": "10.1029/2005GL023192",
+     "doi": "10.1029/2005gl023192",
      "locations": [
       "Section 2, paragraphs 6-8",
       "Table 1"
@@ -161,15 +158,6 @@
       "Table 1"
      ],
      "finding": "The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance."
-    },
-    "independent_refit": {
-     "classification": "similar",
-     "method": "Independent evaluation of the standard BM3 pressure at the source-stated lower volume boundary V/V0=0.65.",
-     "parameters": {
-      "volume_ratio": 0.65,
-      "pressure_gpa": 225.12123021
-     },
-     "finding": "The evaluated pressure is above 200 GPa, reproducing the independently stated calculation-envelope endpoint 'just above 200 GPa'."
     }
    },
    "notes": "No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check."

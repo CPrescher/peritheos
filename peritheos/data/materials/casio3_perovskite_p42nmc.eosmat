@@ -1,0 +1,301 @@
+{
+ "format_version": 3,
+ "name": "P42/nmc CaSiO3 perovskite",
+ "formula": "CaSiO3",
+ "aliases": [
+  "P42/nmc Ca-perovskite"
+ ],
+ "symmetry": "TETRAGONAL",
+ "formula_units_per_cell": null,
+ "space_group": "P42/nmc",
+ "space_group_number": 137,
+ "phase": "static CaSiO3 perovskite tilt branch, P42/nmc (a+a+c-)",
+ "cell_contents": "EOS volumes are normalized to one CaSiO3 formula unit; no conventional-cell lattice or coordinates are published.",
+ "notes": "Phase-specific indexing card for the P42/nmc a+a+c- static structure of Caracas et al. (2005). No lattice constants or fractional coordinates are inferred.",
+ "peaks": [],
+ "eos_records": [
+  {
+   "identifier": "casio3_perovskite_p42nmc_caracas_2005_bm3_1",
+   "label": "Caracas et al. (2005), static P42/nmc BM3",
+   "reference": {
+    "authors": [
+     "Caracas",
+     "Wentzcovitch",
+     "Price",
+     "Brodholt"
+    ],
+    "year": 2005,
+    "title": "CaSiO3 perovskite at lower mantle pressures",
+    "source": "Geophysical Research Letters",
+    "volume": "32",
+    "locator": "L06306",
+    "doi": "10.1029/2004GL022144"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 116.161
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 44.576,
+     "K0": 248,
+     "K0_prime": 4.092
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0,
+   "experimental_pressure_range_gpa": [
+    0,
+    160
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0,
+    0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0,
+     160
+    ],
+    "temperature_k": [
+     0,
+     0
+    ],
+    "notes": [
+     "Static-lattice DFT branch; the paper finds multiple nearly degenerate tilt structures and does not assert ambient metastability.",
+     "V0 is the source's explicitly normalized V0/Z value for one CaSiO3 formula unit."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 4 and Table 2: source-reported third-order Birch-Murnaghan fit.",
+    "parameters": "Table 2, P42/nmc column.",
+    "volume_basis": "Table 2 and paragraph 17 report V0/Z in A3 per CaSiO3 molecule."
+   },
+   "notes": "Static 0 K P42/nmc (a+a+c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same first-principles calculations; they are retained as explicit same-branch model alternatives. No coefficient errors, covariance, weights, or energy-volume rows are published. The Table 2 footnote's approximately 20 meV/molecule uncertainty is an energy accuracy estimate, not a parameter error.",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Caracas",
+        "Wentzcovitch",
+        "Price",
+        "Brodholt"
+       ],
+       "year": 2005,
+       "title": "CaSiO3 perovskite at lower mantle pressures",
+       "source": "Geophysical Research Letters",
+       "volume": "32",
+       "locator": "L06306",
+       "doi": "10.1029/2004GL022144"
+      },
+      "source_location": "Sections 2 and 4; static first-principles energy-volume calculations"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The theoretical EOS has no experimental pressure reference."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+     "doi": "10.1029/2004gl022144",
+     "locations": [
+      "Section 2",
+      "Table 1",
+      "Section 4",
+      "Table 2"
+     ],
+     "finding": "The P42/nmc BM3 row is an explicit source fit for the a+a+c- tilt branch."
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-05",
+     "finding": "The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific calculation, fit, and coefficients",
+     "citation": "Caracas et al. (2005), Section 4 and Table 2",
+     "doi": "10.1029/2004GL022144"
+    }
+   ]
+  },
+  {
+   "identifier": "casio3_perovskite_p42nmc_caracas_2005_bm4_2",
+   "label": "Caracas et al. (2005), static P42/nmc BM4",
+   "reference": {
+    "authors": [
+     "Caracas",
+     "Wentzcovitch",
+     "Price",
+     "Brodholt"
+    ],
+    "year": 2005,
+    "title": "CaSiO3 perovskite at lower mantle pressures",
+    "source": "Geophysical Research Letters",
+    "volume": "32",
+    "locator": "L06306",
+    "doi": "10.1029/2004GL022144"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1,
+    "molar_mass_g_mol": 116.161
+   },
+   "eos": {
+    "type": "BM4",
+    "model": "birch_murnaghan_4",
+    "parameters": {
+     "V0": 44.566,
+     "K0": 251,
+     "K0_prime": 3.977,
+     "K0_double_prime": -0.001
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "K0_double_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0,
+   "experimental_pressure_range_gpa": [
+    0,
+    160
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0,
+    0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0,
+     160
+    ],
+    "temperature_k": [
+     0,
+     0
+    ],
+    "notes": [
+     "Static-lattice DFT branch; the paper finds multiple nearly degenerate tilt structures and does not assert ambient metastability.",
+     "V0 is the source's explicitly normalized V0/Z value for one CaSiO3 formula unit."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 4 and Table 2: source-reported fourth-order Birch-Murnaghan fit.",
+    "parameters": "Table 2, P42/nmc column.",
+    "volume_basis": "Table 2 and paragraph 17 report V0/Z in A3 per CaSiO3 molecule."
+   },
+   "notes": "Static 0 K P42/nmc (a+a+c-) octahedral-tilt branch. The source publishes both BM3 and BM4 fits to the same first-principles calculations; they are retained as explicit same-branch model alternatives. No coefficient errors, covariance, weights, or energy-volume rows are published. The Table 2 footnote's approximately 20 meV/molecule uncertainty is an energy accuracy estimate, not a parameter error.",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Caracas",
+        "Wentzcovitch",
+        "Price",
+        "Brodholt"
+       ],
+       "year": 2005,
+       "title": "CaSiO3 perovskite at lower mantle pressures",
+       "source": "Geophysical Research Letters",
+       "volume": "32",
+       "locator": "L06306",
+       "doi": "10.1029/2004GL022144"
+      },
+      "source_location": "Sections 2 and 4; static first-principles energy-volume calculations"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The theoretical EOS has no experimental pressure reference."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144",
+     "doi": "10.1029/2004gl022144",
+     "locations": [
+      "Section 2",
+      "Table 1",
+      "Section 4",
+      "Table 2"
+     ],
+     "finding": "The P42/nmc BM4 row is an explicit source fit for the a+a+c- tilt branch."
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-05",
+     "finding": "The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific calculation, fit, and coefficients",
+     "citation": "Caracas et al. (2005), Section 4 and Table 2",
+     "doi": "10.1029/2004GL022144"
+    }
+   ]
+  }
+ ],
+ "format": "peritheos.material",
+ "identifier": "casio3_perovskite_p42nmc",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ }
+}

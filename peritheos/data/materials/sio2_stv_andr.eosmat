@@ -174,7 +174,12 @@
   {
    "label": "Wang et al. (2012), principal Vinet-MGD presentation",
    "reference": {
-    "authors": ["Wang", "Tange", "Irifune", "Funakoshi"],
+    "authors": [
+     "Wang",
+     "Tange",
+     "Irifune",
+     "Funakoshi"
+    ],
     "year": 2012,
     "source": "J. Geophys. Res. Solid Earth",
     "volume": "117",
@@ -197,7 +202,9 @@
     "K0": 2.0,
     "K0_prime": 0.12
    },
-   "fixed_parameters": ["V0"],
+   "fixed_parameters": [
+    "V0"
+   ],
    "temperature_ref": 300.0,
    "thermal": {
     "type": "AsymptoticPowerLawMieGruneisenDebye",
@@ -214,13 +221,25 @@
      "gamma0": 0.07,
      "b": 0.4
     },
-    "fixed_parameters": ["Tr", "a", "n"],
+    "fixed_parameters": [
+     "Tr",
+     "a",
+     "n"
+    ],
     "model": "asymptotic_power_law_mie_gruneisen_debye"
    },
-   "fit_datasets": ["stishovite_wang_2012_table1_pvt"],
-   "experimental_pressure_range_gpa": [16.85, 54.5],
+   "fit_datasets": [
+    "stishovite_wang_2012_table1_pvt"
+   ],
+   "experimental_pressure_range_gpa": [
+    16.85,
+    54.5
+   ],
    "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [300.0, 1700.0],
+   "experimental_temperature_range_k": [
+    300.0,
+    1700.0
+   ],
    "parameter_provenance": {
     "V0": "Table 2 and paragraphs 11 and 14; fixed at 46.55 A^3 after rounding the recovered ambient conventional-cell measurement 46.553(19) A^3",
     "K0": "Table 2, Morse-Rydberg (Vinet) column",
@@ -239,7 +258,9 @@
      {
       "kind": "equation_of_state",
       "reference": {
-       "authors": ["Tsuchiya"],
+       "authors": [
+        "Tsuchiya"
+       ],
        "year": 2003,
        "source": "J. Geophys. Res. Solid Earth",
        "volume": "108",
@@ -258,21 +279,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, parameters, reference state, uncertainties, material identity, calibration, complete observations, and numerical values were checked against the primary publication; LitCurate was used only to discover the DOI.",
-    "audit_date": "2026-09-04",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-05",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "volume_basis",
      "published_uncertainties",
-     "fixed_parameters",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2011JB009100",
@@ -283,12 +299,14 @@
       "Discussion, paragraph 24"
      ],
      "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
-     "doi": "10.1029/2011JB009100"
+     "doi": "10.1029/2011jb009100"
     },
     "primary_data_check": {
      "status": "bundled",
      "audit_date": "2026-09-04",
-     "dataset_identifiers": ["stishovite_wang_2012_table1_pvt"],
+     "dataset_identifiers": [
+      "stishovite_wang_2012_table1_pvt"
+     ],
      "source_locations": [
       "Primary article Table 1",
       "Publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt"
@@ -300,27 +318,592 @@
   {
    "identifier": "sio2_stv_andr_driver_2010_qmc_300k_vinet",
    "label": "Driver et al. (2010), QMC 300 K Vinet",
-   "record_kind": "published", "equation_kind": "isothermal",
-   "reference": {"authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"], "year": 2010, "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica", "source": "Proceedings of the National Academy of Sciences", "volume": "107", "locator": "9519-9524", "doi": "10.1073/pnas.0912130107"},
-   "eos": {"type": "Vinet", "model": "vinet", "parameters": {"V0": 47.12273825, "K0": 305.0, "K0_prime": 3.7}},
-   "parameter_errors": {"V0": 0.11854777, "K0": 20.0, "K0_prime": 0.6}, "fixed_parameters": [],
-   "temperature_ref": 300.0, "experimental_pressure_range_gpa": [0.0, 45.0], "pressure_range_status": "theoretical", "experimental_temperature_range_k": [300.0, 300.0],
-   "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
-   "validity": {"pressure_gpa": [0.0, 45.0], "temperature_k": [300.0, 300.0], "notes": ["Restricted to the rutile stishovite side of the source's continuous stishovite-CaCl2 sequence."]},
-   "parameter_provenance": {"equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.", "parameters": "Table 1, stishovite QMC column.", "volume_conversion": "159.0(4) bohr3 per SiO2 converted to A3 and multiplied by Z=2."},
-   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "ab_initio", "source_location": "Methods"}], "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."}, "audit_date": "2026-09-05"},
-   "scientific_validation": {"status": "primary_source_validated", "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "uncertainties", "volume_basis", "reference_state", "theoretical_method"], "primary_source_check": {"access_url": "https://arxiv.org/pdf/1001.2066", "doi": "10.1073/pnas.0912130107", "locations": ["Equations of States section", "Figure 1b", "Table 1"], "finding": "The source reports the QMC 300 K stishovite Vinet row directly."}, "primary_data_check": {"status": "parameterization_and_plot_only", "audit_date": "2026-09-05", "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."}}
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Driver",
+     "Cohen",
+     "Wu",
+     "Militzer",
+     "Lopez Rios",
+     "Towler",
+     "Needs",
+     "Wilkins"
+    ],
+    "year": 2010,
+    "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica",
+    "source": "Proceedings of the National Academy of Sciences",
+    "volume": "107",
+    "locator": "9519-9524",
+    "doi": "10.1073/pnas.0912130107"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 47.12273825,
+     "K0": 305.0,
+     "K0_prime": 3.7
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.11854777,
+    "K0": 20.0,
+    "K0_prime": 0.6
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    45.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2.0,
+    "molar_mass_g_mol": 60.083
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     45.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Restricted to the rutile stishovite side of the source's continuous stishovite-CaCl2 sequence."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
+    "parameters": "Table 1, stishovite QMC column.",
+    "volume_conversion": "159.0(4) bohr3 per SiO2 converted to A3 and multiplied by Z=2."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Methods"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Quantum Monte Carlo thermal EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://arxiv.org/pdf/1001.2066",
+     "doi": "10.1073/pnas.0912130107",
+     "locations": [
+      "Equations of States section",
+      "Figure 1b",
+      "Table 1"
+     ],
+     "finding": "The source reports the QMC 300 K stishovite Vinet row directly."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
+    }
+   }
   },
   {
-   "identifier": "sio2_stv_andr_holland_2013_stv_modified_tait", "label": "Holland et al. (2013), stv modified Tait", "record_kind": "published", "equation_kind": "isothermal",
-   "reference": {"authors": ["Holland", "Hudson", "Powell", "Harte"], "year": 2013, "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle", "source": "Journal of Petrology", "volume": "54", "locator": "1901-1920", "doi": "10.1093/petrology/egt035"},
-   "eos": {"type": "ModifiedTait", "model": "modified_tait", "parameters": {"V0": 46.52830466, "K0": 309.0, "K0_prime": 4.6, "K0_double_prime": -0.015}},
-   "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null}, "fixed_parameters": [], "temperature_ref": 298.15, "experimental_pressure_range_gpa": [0.0001, 30.0], "pressure_range_status": "reference_parameterization", "experimental_temperature_range_k": [298.15, 298.15],
-   "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 60.083},
-   "validity": {"pressure_gpa": [0.0001, 30.0], "temperature_k": [298.15, 298.15], "notes": ["Stishovite thermodynamic endmember reference isotherm."]},
-   "parameter_provenance": {"parameters": "Article Table 1 and official tc-ds62 stv block.", "unit_conversion": "V0=1.401 J/bar/mol, K0=3090 kbar, K0''=-0.00150 kbar^-1; converted to executable units and Z=2."},
-   "pressure_calibration": {"status": "not_applicable", "methods": [{"kind": "self_consistent", "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact", "scope": "self-consistent thermodynamic endmember reference isotherm", "notes": "This database endmember parameterization does not use an experimental pressure gauge."}], "recalculation": {"status": "not_applicable", "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."}, "audit_date": "2026-09-05"},
-   "scientific_validation": {"status": "primary_source_validated", "note": "Complete four-coefficient modified-Tait endmember.", "audit_date": "2026-09-05", "verified_fields": ["canonical_doi", "composition", "phase", "equation", "parameters", "units", "volume_basis", "reference_state"], "primary_source_check": {"access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf", "doi": "10.1093/petrology/egt035", "locations": ["Table 1", "Thermodynamic data section"], "finding": "The stv endmember is a distinct modified-Tait reference isotherm."}, "primary_data_check": {"status": "official_parameter_artifact", "audit_date": "2026-09-05", "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip", "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c", "finding": "The official tc-ds62 stv block provides all four coefficients."}}
+   "identifier": "sio2_stv_andr_holland_2013_stv_modified_tait",
+   "label": "Holland et al. (2013), stv modified Tait",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Holland",
+     "Hudson",
+     "Powell",
+     "Harte"
+    ],
+    "year": 2013,
+    "title": "New Thermodynamic Models and Calculated Phase Equilibria in NCFMAS for Basic and Ultrabasic Compositions through the Transition Zone into the Uppermost Lower Mantle",
+    "source": "Journal of Petrology",
+    "volume": "54",
+    "locator": "1901-1920",
+    "doi": "10.1093/petrology/egt035"
+   },
+   "eos": {
+    "type": "ModifiedTait",
+    "model": "modified_tait",
+    "parameters": {
+     "V0": 46.52830466,
+     "K0": 309.0,
+     "K0_prime": 4.6,
+     "K0_double_prime": -0.015
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null,
+    "K0_double_prime": null
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 298.15,
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    30.0
+   ],
+   "pressure_range_status": "reference_parameterization",
+   "experimental_temperature_range_k": [
+    298.15,
+    298.15
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2.0,
+    "molar_mass_g_mol": 60.083
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0001,
+     30.0
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "notes": [
+     "Stishovite thermodynamic endmember reference isotherm."
+    ]
+   },
+   "parameter_provenance": {
+    "parameters": "Article Table 1 and official tc-ds62 stv block.",
+    "unit_conversion": "V0=1.401 J/bar/mol, K0=3090 kbar, K0''=-0.00150 kbar^-1; converted to executable units and Z=2."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "self_consistent",
+      "source_location": "Thermodynamic data section and official tc-ds62 parameter artifact",
+      "scope": "self-consistent thermodynamic endmember reference isotherm",
+      "notes": "This database endmember parameterization does not use an experimental pressure gauge."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No separate experimental pressure calibration applies to the published thermodynamic-model coefficients."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
+     "doi": "10.1093/petrology/egt035",
+     "locations": [
+      "Table 1",
+      "Thermodynamic data section"
+     ],
+     "finding": "The stv endmember is a distinct modified-Tait reference isotherm."
+    },
+    "primary_data_check": {
+     "status": "official_parameter_artifact",
+     "audit_date": "2026-09-05",
+     "source_url": "https://hpxeosandthermocalc.org/wp-content/uploads/2025/05/tc-thermoinput-metabasite-2022-01-30.zip",
+     "sha256": "46fa2ecb4fccdeaf44984da81342455d10e920012ab8d6db35b0bc94a7e0781c",
+     "finding": "The official tc-ds62 stv block provides all four coefficients."
+    }
+   }
+  },
+  {
+   "identifier": "stishovite_akber_knutson_2002_vibc_300k_bm3",
+   "label": "Akber-Knutson et al. (2002), VIBC 300 K BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Akber-Knutson",
+     "Bukowinski",
+     "Matas"
+    ],
+    "year": 2002,
+    "title": "On the structure and compressibility of CaSiO3 perovskite",
+    "source": "Geophysical Research Letters",
+    "volume": "29",
+    "locator": "4-1-4-4",
+    "doi": "10.1029/2001GL013523"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 46.53,
+     "K0": 313.2,
+     "K0_prime": 4.4
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.01,
+    "K0": 1.9,
+    "K0_prime": 0.1
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    150.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2.0,
+    "molar_mass_g_mol": 60.083
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     150.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Rutile-type stishovite benchmark calculated with the same VIBC potential used for the CaSiO3 analysis."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Third-order Birch-Murnaghan.",
+    "parameters": "Table 1, VIBC row.",
+    "method": "Variational induced breathing plus parameterized Si-O covalent correction; thermally corrected to 300 K."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Method and Table 1",
+      "notes": "Variational induced-breathing theoretical potential."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Theoretical energy-volume calculation."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523",
+     "doi": "10.1029/2001gl013523",
+     "locations": [
+      "Table 1",
+      "Methods"
+     ],
+     "finding": "Complete source-owned 300 K stishovite VIBC coefficients."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-05",
+     "finding": "The paper tabulates coefficients but not the calculated energy-volume grid."
+    }
+   }
+  },
+  {
+   "identifier": "stishovite_zhang_bukowinski_1991_mpib_bm3",
+   "label": "Zhang and Bukowinski (1991), MPIB stishovite",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Zhang",
+     "Bukowinski"
+    ],
+    "year": 1991,
+    "title": "Modified potential-induced-breathing model of potentials between close-shell ions",
+    "source": "Physical Review B",
+    "volume": "44",
+    "locator": "2495-2503",
+    "doi": "10.1103/PhysRevB.44.2495"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 45.54,
+     "K0": 378.0,
+     "K0_prime": 6.4
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": 3.5
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    120.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2.0,
+    "molar_mass_g_mol": 60.083
+   },
+   "parameter_provenance": {
+    "equation": "Section III.C and Figure 11 provide the calculated finite-strain EOS.",
+    "parameters": "Table VI: V0=45.54 A3, K0=378 GPa, K0'=6.4+/-3.5.",
+    "reference_state": "Table VI does not restate temperature; 300 K follows the paper's Debye EOS and experimental comparison convention and is documented as inferred."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Sections II-III, MPIB model",
+      "notes": "Modified potential-induced-breathing theoretical model."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Theoretical EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext",
+     "doi": "10.1103/physrevb.44.2495",
+     "locations": [
+      "Section III.C",
+      "Figures 9-11",
+      "Table VI"
+     ],
+     "finding": "Complete stishovite coefficients."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "finding": "Calculated states are plotted but not tabulated."
+    }
+   }
+  },
+  {
+   "identifier": "stishovite_schoelmerich_2020_shock_300k_bm3",
+   "label": "Schoelmerich et al. (2020), shock-corrected 300 K BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Schoelmerich",
+     "Tschentscher",
+     "Bhat",
+     "Bolme",
+     "Cunningham",
+     "Farla",
+     "Galtier",
+     "Gleason",
+     "Harmand",
+     "Inubushi",
+     "Katagiri",
+     "Miyanishi",
+     "Nagler",
+     "Ozaki",
+     "Preston",
+     "Redmer",
+     "Smith",
+     "Tobase",
+     "Togashi",
+     "Tracy",
+     "Umeda",
+     "Wollenweber",
+     "Yabuuchi",
+     "Zastrau",
+     "Appel"
+    ],
+    "year": 2020,
+    "title": "Evidence of shock-compressed stishovite above 300 GPa",
+    "source": "Scientific Reports",
+    "volume": "10",
+    "locator": "10197",
+    "doi": "10.1038/s41598-020-66340-y"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 46.5,
+     "K0": 307.0,
+     "K0_prime": 4.66
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 4.0,
+    "K0_prime": 0.15
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    336.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2.0,
+    "molar_mass_g_mol": 60.083
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     336.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Shock-compression data were corrected at fixed volume to a 300 K isotherm before fitting. The dynamically retained rutile structure is metastable above equilibrium post-stishovite transitions."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Results, equation-of-state paragraph: third-order Birch-Murnaghan fit with EosFit.",
+    "parameters": "Results paragraph following equation (4); V0 is the measured ambient conventional-cell volume used by the fit.",
+    "fit_correction": "Thermal pressure calculated along the Hugoniot was subtracted at fixed volume to obtain the 300 K isotherm."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "reference": {
+       "authors": [
+        "Schoelmerich",
+        "Tschentscher",
+        "Bhat",
+        "et al."
+       ],
+       "year": 2020,
+       "source": "Scientific Reports",
+       "volume": "10",
+       "locator": "10197",
+       "doi": "10.1038/s41598-020-66340-y"
+      },
+      "source_location": "Results, equations (1)-(3), Table 1, and Methods",
+      "notes": "VISAR free-surface velocities and Rankine-Hugoniot relations determine pressure; hydrodynamic simulations support the compressed-state interpretation."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The source EOS is based on shock-wave observables rather than a static pressure gauge."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.nature.com/articles/s41598-020-66340-y",
+     "doi": "10.1038/s41598-020-66340-y",
+     "locations": [
+      "Results, equations (1)-(4)",
+      "Table 1",
+      "Figures 2-4",
+      "Methods"
+     ],
+     "finding": "One source-owned 300 K shock-corrected stishovite BM3 fit over 0-336 GPa."
+    },
+    "primary_data_check": {
+     "status": "primary_table_available_not_bundled",
+     "audit_date": "2026-09-05",
+     "finding": "Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification."
+    }
+   }
   }
  ],
  "datasets": [
@@ -458,7 +1041,12 @@
    "kind": "pressure_temperature_lattice_volume_with_pressure_standard",
    "description": "All 56 in situ stishovite P-V-T observations and simultaneous Au pressure-marker volumes used for the Wang et al. (2012) EOS fit.",
    "reference": {
-    "authors": ["Wang", "Tange", "Irifune", "Funakoshi"],
+    "authors": [
+     "Wang",
+     "Tange",
+     "Irifune",
+     "Funakoshi"
+    ],
     "year": 2012,
     "source": "J. Geophys. Res. Solid Earth",
     "volume": "117",
@@ -468,25 +1056,92 @@
    "source_location": "Primary article Table 1; publisher-listed tab-delimited supplement jgrb17202-sup-0001-t01.txt",
    "source_url": "https://doi.org/10.1029/2011JB009100",
    "columns": [
-    {"name": "data_number", "quantity": "observation_identifier", "unit": "1", "role": "flag"},
-    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_esd_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
-    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_a_esd_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_a_angstrom"},
-    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_c_esd_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_c_angstrom"},
-    {"name": "volume_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "volume_esd_a3_conventional_cell", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "standard_deviation", "of": "volume_a3_conventional_cell"},
-    {"name": "au_volume_a3_conventional_cell", "quantity": "pressure_standard_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "au_volume_esd_a3_conventional_cell", "quantity": "pressure_standard_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "standard_deviation", "of": "au_volume_a3_conventional_cell"}
+    {
+     "name": "data_number",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_esd_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_esd_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_esd_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_esd_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "au_volume_a3_conventional_cell",
+     "quantity": "pressure_standard_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_esd_a3_conventional_cell",
+     "quantity": "pressure_standard_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "au_volume_a3_conventional_cell"
+    }
    ],
    "resource": {
     "path": "datasets/stishovite-wang-2012-table1-pvt.csv",
     "sha256": "96a78c2c408ad945f5a5245c7270c927616a919f75de6508e531f00a4a34b251",
     "media_type": "text/csv"
    },
-   "used_by_eos_records": ["sio2_stv_andr_wang_2012_vinet_mgd_2"],
+   "used_by_eos_records": [
+    "sio2_stv_andr_wang_2012_vinet_mgd_2"
+   ],
    "uncertainty": {
     "reported_as": "parenthetical estimated standard deviations in the last printed digits",
     "covariance": "not_reported",
@@ -502,7 +1157,7 @@
      "published_vinet_mgd_max_abs_pressure_residual_gpa": 0.5501378,
      "unweighted_joint_refit": {
       "K0_gpa": 292.8961,
-      "K0_prime": 4.9770,
+      "K0_prime": 4.977,
       "theta0_k": 1133.8747,
       "gamma0": 1.66318,
       "b": 2.95754,

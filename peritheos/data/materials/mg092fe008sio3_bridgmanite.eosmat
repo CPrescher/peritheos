@@ -1,0 +1,282 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg092fe008sio3_bridgmanite",
+ "name": "(Mg0.92Fe0.08)SiO3 bridgmanite",
+ "formula": "Mg0.92Fe0.08SiO3",
+ "phase": "orthorhombic Pbnm/Pnma Fe-bearing silicate perovskite",
+ "aliases": [
+  "(Mg0.92Fe0.08)SiO3 perovskite",
+  "Mg#92 bridgmanite"
+ ],
+ "cell_contents": "Four nominal Mg0.92Fe0.08SiO3 formula units per conventional orthorhombic perovskite cell (Z=4).",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 4.787225023817376,
+  "b": 4.933492752395694,
+  "c": 6.907408674765027,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [],
+ "peaks": [],
+ "notes": "The displayed Pbnm cell uses the established Fe-bearing bridgmanite axial ratios scaled isotropically to the density-derived EOS V0. It is a display cell, not a structure refinement of the chemically impure natural starting material. Gong et al. refer their analyzed natural pyroxene to the nominal Mg#92 formula used by this EOS record.",
+ "eos_records": [
+  {
+   "identifier": "mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3",
+   "label": "Gong et al. (2004), shock-derived adiabatic BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Gong",
+     "Fei",
+     "Dai",
+     "Zhang",
+     "Jing"
+    ],
+    "year": 2004,
+    "title": "Equation of state and phase stability of mantle perovskite up to 140 GPa shock pressure and its geophysical implications",
+    "source": "Geophysical Research Letters",
+    "volume": "31",
+    "locator": "L04614",
+    "doi": "10.1029/2003GL019132"
+   },
+   "sample_composition": "Natural Damaping enstatite, referred by the authors to (Mg0.92Fe0.08)SiO3; the reported oxide analysis includes minor Al, Ca, and other elements.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 163.13738187176514,
+     "K0": 260.1,
+     "K0_prime": 4.18
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.9,
+    "K0_prime": 0.04
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 298.15,
+   "experimental_pressure_range_gpa": [
+    47.75,
+    140.64
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.15,
+    298.15
+   ],
+   "fit_datasets": [
+    "mg092fe008sio3_gong_2004_table1_shock"
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 102.9102
+   },
+   "validity": {
+    "pressure_gpa": [
+     47.75,
+     140.64
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "notes": [
+     "The coefficients define a zero-pressure reference isentrope reduced from high-temperature shock observations; 298.15 K is only the conventional numeric anchor for the reference state.",
+     "The first 47.75 GPa point is below the source's conservative >57.13 GPa perovskite assignment, and the source cautions that observations below 80 GPa may retain a small low-pressure-phase contribution."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.3 explicitly derives a third-order Eulerian finite-strain (Birch-Murnaghan) isentrope from the porosity-corrected shock states using a Mie-Gruneisen reduction.",
+    "parameters": "Section 3.3: K0S=260.1(9) GPa, K0S'=4.18(4), with rho0=4.19 g cm-3.",
+    "volume_basis": "V0 is calculated as Z M/(rho0 N_A), with Z=4 and nominal molar mass 102.9102 g mol-1, giving 163.13738187176514 A3.",
+    "thermodynamic_basis": "K0 and K0_prime are the source's adiabatic/isentrope coefficients K0S and K0S', not room-temperature isothermal K0T values. The schema's isothermal token denotes the executable equilibrium BM3 family because it has no separate adiabatic enum."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "shock_wave",
+      "source_location": "Section 2",
+      "scope": "All 13 symmetric-impact experiments",
+      "notes": "Particle velocity and pressure-density states were calculated by impedance matching; Cu and 93W flyers are identified row by row in Table 1."
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The source reports reduced states but not the complete flyer-standard state parameters needed to repeat the impedance match from raw timings."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2003GL019132",
+     "doi": "10.1029/2003gl019132",
+     "locations": [
+      "Sections 2 and 3.3",
+      "Table 1"
+     ],
+     "finding": "The paper reports one shock-reduced BM3 reference isentrope; the AIP conference version is the same experiment and was rejected as a duplicate."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "mg092fe008sio3_gong_2004_table1_shock"
+     ],
+     "finding": "All 13 printed shock states and their uncertainties are bundled."
+    }
+   },
+   "notes": "Accepted LitCurate source row 447. This equilibrium BM3 is the source's shock-reduced reference isentrope, not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm. The AIP proceedings DOI 10.1063/1.1780510 repeats this same data set and is not represented as a second record."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg092fe008sio3_gong_2004_table1_shock",
+   "kind": "shock_state",
+   "description": "All 13 shock experiments printed in Gong et al. Table 1, including initial density, flyer, velocities, Hugoniot pressure and density, and every printed uncertainty.",
+   "reference": {
+    "authors": [
+     "Gong",
+     "Fei",
+     "Dai",
+     "Zhang",
+     "Jing"
+    ],
+    "year": 2004,
+    "title": "Equation of state and phase stability of mantle perovskite up to 140 GPa shock pressure and its geophysical implications",
+    "source": "Geophysical Research Letters",
+    "volume": "31",
+    "locator": "Table 1, L04614",
+    "doi": "10.1029/2003GL019132"
+   },
+   "source_location": "Publisher full text, Table 1: Shock Wave Data and Calculated Hugoniot States",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2003GL019132",
+   "columns": [
+    {
+     "name": "initial_density_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "initial_density_uncertainty_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "initial_density_g_cm3"
+    },
+    {
+     "name": "flyer_material",
+     "quantity": "flyer_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_velocity_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "flyer_velocity_uncertainty_km_s",
+     "quantity": "flyer_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "flyer_velocity_km_s"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_uncertainty_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "particle_velocity_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "particle_velocity_uncertainty_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "particle_velocity_km_s"
+    },
+    {
+     "name": "hugoniot_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "hugoniot_pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "hugoniot_pressure_gpa"
+    },
+    {
+     "name": "hugoniot_density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "hugoniot_density_uncertainty_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "hugoniot_density_g_cm3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg092fe008sio3-gong-2004-table1-shock.csv",
+    "sha256": "7f7ceee2dd3a0e91bfc7d7556d89f9874d4db6c6ca98a81baba8ed617de1e4bc",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "notes": "Values and parenthesized uncertainties are transcribed verbatim from publisher HTML Table 1."
+   },
+   "used_by_eos_records": [
+    "mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3"
+   ]
+  }
+ ]
+}

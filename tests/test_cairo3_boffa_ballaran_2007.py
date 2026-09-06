@@ -83,8 +83,9 @@ def test_cairo3_polymorph_identity_and_published_record(material_identifier, cas
         cell_contents[site["element"]] += site["site_multiplicity"] * site["occupancy"]
     assert cell_contents == {"Ca": 4.0, "Ir": 4.0, "O": 12.0}
 
-    assert len(document["eos_records"]) == 1
-    record = document["eos_records"][0]
+    record = next(
+        item for item in document["eos_records"] if item["identifier"] == case["record"]
+    )
     assert record["identifier"] == case["record"]
     assert record["reference"]["doi"].lower() == DOI
     assert record["eos"] == {

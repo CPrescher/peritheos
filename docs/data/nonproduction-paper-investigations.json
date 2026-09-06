@@ -3,20 +3,36 @@
   "format_version": 1,
   "papers": [
     {
-      "citation": "Sherman et al. (1993), stishovite and modified-fluorite SiO2",
-      "doi": "10.1029/93JB00783",
+      "citation": "Caracas and Cohen (2005), MgSiO3-FeSiO3-Al2O3 pv/ppv chemistry",
+      "doi": "10.1029/2005GL023164",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-05",
-      "evidence": "literature-reproductions/sherman-1993-stishovite.md",
-      "reason": "The accessible primary abstract reports a static HF-LCAO stishovite BM3 parameterization, but the calculated energy-volume grid is confined to an inaccessible figure and the abstract conflicts with body values extracted by LitCurate. The modified-fluorite candidate also has an unresolved conventional-cell basis. Both source fits are therefore documented but withheld, and ten comparison values are retained only as citation traces."
+      "evidence": "literature-reproductions/caracas-cohen-2005-chemistry.md",
+      "reason": "All 16 LitCurate rows are held because the primary parameter table was unavailable and the accessible abstract does not establish the EOS equation, volume basis, or magnetic/electronic branch identities. No coefficients were promoted from discovery-only evidence."
     },
     {
-      "citation": "Xu et al. (2024), Al-bearing superhydrous phase B",
-      "doi": "10.1029/2023GL107818",
-      "outcome": "withheld_unreproduced",
+      "citation": "Chen et al. (2024), stishovite velocities",
+      "doi": "10.1029/2023GL107700",
+      "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-05",
-      "evidence": "literature-reproductions/xu-2024-al-bearing-superhydrous-phase-b.md",
-      "reason": "The official EarthChem archive contains all 45 P-T-V rows, but none of the four published Birch-Murnaghan parameterizations reproduces those observations: direct refits shift K0 by roughly 18-32 GPa and K0-prime substantially. Three additional rows are coupled acoustic-elasticity fits rather than standalone P(V) equations, and three are citation-only comparisons. No production EOS was added."
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The new results are acoustic velocities and modulus derivatives rather than a pressure-volume fit, and the extracted rows omit V0."
+    },
+    {
+      "citation": "Dewaele et al. (2005), high-pressure metrology abstract",
+      "doi": "10.1107/S0108767305096972",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/iucr-2005-s0108767305096972.md",
+      "reason": "Both LitCurate rows are publication-level misattributions: this DOI is a pressure-metrology abstract and does not report either claimed silicate EOS."
+    },
+    {
+      "citation": "Faust and Knittle (1994), natural chondrodite",
+      "doi": "10.1029/94GL01592",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-b-mineral-eos-audit.md",
+      "reason": "The real BM3 fit belongs to a natural F-rich sample whose exact reusable composition and site occupancies could not be established."
     },
     {
       "citation": "Funamori et al. (1996), MgSiO3 perovskite thermoelasticity",
@@ -27,36 +43,68 @@
       "reason": "The two apparent LitCurate records are run-specific ambient-volume normalizations of a single combined thermal EOS, not two independently fitted equations. Both adopt K0=261 GPa and K0-prime=4 from Mao et al. (1991), while the source's executable thermal parameterization is not represented by either split candidate. No production EOS was added."
     },
     {
-      "citation": "Zhang and Weidner (1999), Al-enriched silicate perovskite",
-      "doi": "10.1126/science.284.5415.782",
-      "outcome": "direct_refit_unavailable",
-      "investigation_date": "2026-09-05",
-      "evidence": "literature-reproductions/zhang-weidner-1999-aluminous-perovskite.md",
-      "reason": "The three apparent records describe separate runs on the same 5 mol% Al2O3 sample, correctly normalized as Mg0.95Al0.10Si0.95O3, but the closed primary article exposes neither a numerical P-V-T table nor a recoverable pressure-volume figure. The extracted coefficients have no source uncertainties or independent observations with which to verify the run fits, so all three remain on hold and five comparison rows are citation traces."
-    },
-    {
-      "citation": "Katsura et al. (2004), Mg2SiO4 ringwoodite",
-      "doi": "10.1029/2004JB003094",
-      "outcome": "withheld_unreproduced",
-      "investigation_date": "2026-09-05",
-      "evidence": "literature-reproductions.md#ringwoodite-katsura-2004",
-      "reason": "All 127 official Table 2 observations were transcribed, but the published BM3-MGD coefficients miss them by 1.890 GPa RMSE when the chemically required n=7 atoms per formula unit is used. A refit moves gamma0 far outside its reported uncertainty, while an unphysical and unpublished n=5 normalization fits much better. The hidden normalization, Debye-temperature law, and energy/volume convention remain unresolved, so no production EOS was added."
-    },
-    {
-      "citation": "Wang et al. (2026), KAlSi3O8 liebermannite and K-hollandite II",
-      "doi": "10.2138/am-2024-9562",
-      "outcome": "deferred_incomplete_model",
-      "investigation_date": "2026-09-04",
-      "evidence": "material-eos-candidates.md",
-      "reason": "The deposited temperature-indexed BM3 curves can be reproduced, but they are derived grids rather than primary fit observations. Their V0(T), K0(T), and K0-prime(T) behavior is not faithfully represented by the current thermal wrapper, and the primary methods, uncertainty/covariance information, exact reference-state convention, and authoritative symmetry-reduced structures were unavailable. The candidate remains deliberately non-executable."
-    },
-    {
-      "citation": "Caracas and Cohen (2005), MgSiO3-FeSiO3-Al2O3 pv/ppv chemistry",
-      "doi": "10.1029/2005GL023164",
+      "citation": "Haavik et al. (2000), defect-clustered wuestite",
+      "doi": "10.1039/B006026G",
       "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-05",
-      "evidence": "literature-reproductions/caracas-cohen-2005-chemistry.md",
-      "reason": "All 16 LitCurate rows are held because the primary parameter table was unavailable and the accessible abstract does not establish the EOS equation, volume basis, or magnetic/electronic branch identities. No coefficients were promoted from discovery-only evidence."
+      "evidence": "literature-reproductions/haavik-2000-wustite.md",
+      "reason": "The accessible primary evidence does not supply a complete executable coefficient set and reference volume for any source-owned branch."
+    },
+    {
+      "citation": "Hama and Suito (1998), Mg-Fe bridgmanite",
+      "doi": "10.1029/97JB03672",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The closed primary and incomplete thermal/model lineage do not support the apparent independent source branches."
+    },
+    {
+      "citation": "Inbar and Cohen (1995), MgO thermal properties",
+      "doi": "10.1029/95GL01086",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/inbar-cohen-1995-mgo.md",
+      "reason": "The source reports thermodynamic derivatives at four temperatures but no analytical pressure-volume EOS family or numerical P-V grid; BM3 would be an unsupported assignment."
+    },
+    {
+      "citation": "Isaak et al. (1990), calculated MgO properties",
+      "doi": "10.1029/JB095iB05p07055",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "All fourth-order discovery rows omit K0-double-prime and the third-order sensitivity omits V0; the inaccessible primary could not repair them."
+    },
+    {
+      "citation": "Ito et al. (2011), Kawai apparatus",
+      "doi": "10.4131/jshpreview.21.272",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The apparatus paper quotes two alternative modulus/derivative pairs but no V0 and does not fit an independent material EOS."
+    },
+    {
+      "citation": "Jackson et al. (1990), wuestite elasticity",
+      "doi": "10.1029/JB095iB13p21671",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The source rows are acoustic extrapolations that omit V0, not three independent pressure-volume fits."
+    },
+    {
+      "citation": "Jackson et al. (2006), ferropericlase elasticity",
+      "doi": "10.1029/2005JB004052",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/jackson-2006-ferropericlase-elasticity.md",
+      "reason": "The source-owned quantities are acoustic moduli and derivatives; the apparent EOS rows do not define independent pressure-volume fits."
+    },
+    {
+      "citation": "Jacobs and Oonk (2000), GGK MgO EOS",
+      "doi": "10.1039/A910247G",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/jacobs-oonk-2000-mgo.md",
+      "reason": "The source uses an unsupported GGK pressure law; its ambient derivative triple cannot be re-labelled as BM3."
     },
     {
       "citation": "Karki and Stixrude (1999), lower-mantle elastic moduli",
@@ -67,6 +115,110 @@
       "reason": "The five source rows are finite-strain fits of elastic moduli M(P), not pressure-volume equations of state, and they contain no V0. Encoding them as volumetric BM records would be scientifically false, so all five were rejected from production."
     },
     {
+      "citation": "Karki et al. (2001), MgSiO3 thermodynamic derivatives",
+      "doi": "10.1029/2001GL012910",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-b-mineral-eos-audit.md",
+      "reason": "The source prints derivative triples from quasiharmonic free energies but does not specify an executable analytical volume-EOS family."
+    },
+    {
+      "citation": "Katsura et al. (2004), Mg2SiO4 ringwoodite",
+      "doi": "10.1029/2004JB003094",
+      "outcome": "withheld_unreproduced",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions.md#ringwoodite-katsura-2004",
+      "reason": "All 127 official Table 2 observations were transcribed, but the published BM3-MGD coefficients miss them by 1.890 GPa RMSE when the chemically required n=7 atoms per formula unit is used. A refit moves gamma0 far outside its reported uncertainty, while an unphysical and unpublished n=5 normalization fits much better. The hidden normalization, Debye-temperature law, and energy/volume convention remain unresolved, so no production EOS was added."
+    },
+    {
+      "citation": "Lakshtanov et al. (2007), Al-H stishovite elasticity",
+      "doi": "10.2138/am.2007.2294",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/lakshtanov-2007-alh-stishovite-elasticity.md",
+      "reason": "The source's composition-specific elastic results do not include a complete source-defined volume EOS model."
+    },
+    {
+      "citation": "Matsui (2002), MgSiO3-Al2O3 simulations",
+      "doi": "10.2465/jmps.97.13",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The source calls the fits BM4 but reports only bulk moduli; V0, K0-prime, K0-double-prime, and fit observations are absent."
+    },
+    {
+      "citation": "Matsui et al. (1994), MgSiO3 simulations",
+      "doi": "10.1029/94GL01370",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The primary reports isolated volumes and moduli but no K0-prime or numerical pressure-volume grid for its stated BM3 reductions."
+    },
+    {
+      "citation": "Matsui et al. (2000), MgO pressure standard",
+      "doi": "10.2138/am-2000-2-308",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The complete-looking row remains held because the primary full text was unavailable and equation, reference state, and fit basis could not be audited."
+    },
+    {
+      "citation": "McCarthy and Harrison (1994), MgO bulk properties",
+      "doi": "10.1103/PhysRevB.49.8574",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/mccarthy-harrison-1994-mgo.md",
+      "reason": "The reported values are zero-pressure elastic bulk moduli from local distortion fits, not pressure-volume EOS parameterizations."
+    },
+    {
+      "citation": "Myhill (2022), anisotropic high-P-T EOS",
+      "doi": "10.1093/gji/ggac180",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/myhill-2022-anisotropic-eos.md",
+      "reason": "The source's coupled anisotropic SLB2005 tensor/thermal formulation is not representable by a scalar Peritheos volume EOS without changing its meaning."
+    },
+    {
+      "citation": "Pamato et al. (2016), NAL elasticity",
+      "doi": "10.1002/2016JB013136",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "Both rows are elastic finite-strain summaries missing the pressure derivatives required for the claimed BM4 mapping."
+    },
+    {
+      "citation": "Reichmann et al. (2008), MgO elasticity",
+      "doi": "10.2138/am.2008.2717",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The sole source row is an adiabatic acoustic bulk-modulus fit without compression V0, not a volumetric EOS."
+    },
+    {
+      "citation": "Satta et al. (2025), Fe-bearing delta-AlOOH elasticity",
+      "doi": "10.1007/s00269-025-01319-7",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/satta-2025-delta-alooh-elasticity.md",
+      "reason": "The source reports elastic-modulus finite-strain fits, not standalone volumetric P(V) equations with a complete reference state."
+    },
+    {
+      "citation": "Sherman et al. (1993), stishovite and modified-fluorite SiO2",
+      "doi": "10.1029/93JB00783",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/sherman-1993-stishovite.md",
+      "reason": "The accessible primary abstract reports a static HF-LCAO stishovite BM3 parameterization, but the calculated energy-volume grid is confined to an inaccessible figure and the abstract conflicts with body values extracted by LitCurate. The modified-fluorite candidate also has an unresolved conventional-cell basis. Both source fits are therefore documented but withheld, and ten comparison values are retained only as citation traces."
+    },
+    {
+      "citation": "Shieh et al. (2002), MgSiO3 post-perovskite",
+      "doi": "10.1103/PhysRevLett.89.255507",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-b-mineral-eos-audit.md",
+      "reason": "The source gives fixed K0 and fitted K0-prime but omits V0, preventing an executable EOS without importing a value from elsewhere."
+    },
+    {
       "citation": "Shukla et al. (2016), Fe3+- and Al-bearing bridgmanite",
       "doi": "10.1002/2016GL069332",
       "outcome": "deferred_incomplete_model",
@@ -75,12 +227,108 @@
       "reason": "Three composition-specific calculated rows are held because the primary article prints V0, K0, and K0-prime but never identifies the analytical cold-compression equation. Three further rows are comparisons owned by cited primary papers."
     },
     {
-      "citation": "Xiao et al. (2013), cubic and 6H SrSiO3",
-      "doi": "10.2138/am.2013.4470",
-      "outcome": "deferred_batch_boundary",
+      "citation": "Sinogeikin and Bass (1999), MgO elasticity",
+      "doi": "10.1103/PhysRevB.59.R14141",
+      "outcome": "deferred_incomplete_model",
       "investigation_date": "2026-09-05",
-      "evidence": "literature-reproductions/xiao-2013-srsio3.md",
-      "reason": "The experimental cubic and two static-GGA SrSiO3 fits are complete and defensible, but the exact +100 batch target was already reached by the preceding complete paper family. All three are documented together and deliberately queued for the next batch rather than partially imported; two comparison rows are citation traces."
+      "evidence": "literature-reproductions/tranche-b-mineral-eos-audit.md",
+      "reason": "The complete fourth-order elastic finite-strain coefficients omit V0; the reference volume cannot be reconstructed without invention."
+    },
+    {
+      "citation": "Sinogeikin et al. (2004), MgSiO3 elasticity",
+      "doi": "10.1029/2004GL019559",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/sinogeikin-2004-mgsio3-elasticity.md",
+      "reason": "The paper measures elastic properties and does not publish the complete independent volumetric EOS implied by the discovery rows."
+    },
+    {
+      "citation": "Sokolova et al. (2018), MgO-MgSiO3 spreadsheets",
+      "doi": "10.1080/08957959.2018.1465056",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The spreadsheet parameterizations use the same unsupported coupled Kunc/two-Einstein/Altshuler model and cannot be reduced to BM triplets."
+    },
+    {
+      "citation": "Sokolova et al. (2021), Ca-silicate EOS",
+      "doi": "10.3390/min11030322",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The coupled Kunc/two-Einstein/Altshuler Helmholtz model is not currently supported as one faithful Peritheos EOS."
+    },
+    {
+      "citation": "Taniguchi et al. (1995), Ca-silicate calculation models",
+      "doi": "10.2465/minerj.17.290",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/taniguchi-1995-casilicates.md",
+      "reason": "A calculated V0-K0-K0-prime triple is printed without identifying the analytical EOS or reference temperature, so no model is inferred."
+    },
+    {
+      "citation": "Tsuchiya et al. (2004), MgSiO3 phase transition",
+      "doi": "10.1016/j.epsl.2004.05.017",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tsuchiya-2004-mgsio3-phase-transition.md",
+      "reason": "Table 1 merges the uncertainty ranges of BM3 and Vinet fits without publishing either model's individual coefficients or the calculated P-V rows."
+    },
+    {
+      "citation": "Tsuchiya et al. (2004), post-perovskite elasticity",
+      "doi": "10.1029/2004GL020278",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tsuchiya-2004-post-perovskite-elasticity.md",
+      "reason": "The paper reports elastic tensors and quotes EOS summaries from a separate study; it does not own a complete executable P(V) fit."
+    },
+    {
+      "citation": "Wang et al. (2026), KAlSi3O8 liebermannite and K-hollandite II",
+      "doi": "10.2138/am-2024-9562",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-04",
+      "evidence": "material-eos-candidates.md",
+      "reason": "The deposited temperature-indexed BM3 curves can be reproduced, but they are derived grids rather than primary fit observations. Their V0(T), K0(T), and K0-prime(T) behavior is not faithfully represented by the current thermal wrapper, and the primary methods, uncertainty/covariance information, exact reference-state convention, and authoritative symmetry-reduced structures were unavailable. The candidate remains deliberately non-executable."
+    },
+    {
+      "citation": "Wentzcovitch et al. (1993), MgSiO3 molecular dynamics",
+      "doi": "10.1103/PhysRevLett.70.3947",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "The source reports modulus/derivative pairs but no equilibrium volume or numerical pressure-volume grid for an executable EOS."
+    },
+    {
+      "citation": "Wu et al. (2016), Fe-Al phase D elasticity",
+      "doi": "10.1002/2016JB013209",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/wu-2016-feal-phase-d.md",
+      "reason": "The extracted rows are acoustic finite-strain elasticity results rather than complete pressure-volume EOS parameterizations."
+    },
+    {
+      "citation": "Xu et al. (2024), Al-bearing superhydrous phase B",
+      "doi": "10.1029/2023GL107818",
+      "outcome": "withheld_unreproduced",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/xu-2024-al-bearing-superhydrous-phase-b.md",
+      "reason": "The official EarthChem archive contains all 45 P-T-V rows, but none of the four published Birch-Murnaghan parameterizations reproduces those observations: direct refits shift K0 by roughly 18-32 GPa and K0-prime substantially. Three additional rows are coupled acoustic-elasticity fits rather than standalone P(V) equations, and three are citation-only comparisons. No production EOS was added."
+    },
+    {
+      "citation": "Zhang and Weidner (1999), Al-enriched silicate perovskite",
+      "doi": "10.1126/science.284.5415.782",
+      "outcome": "direct_refit_unavailable",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/zhang-weidner-1999-aluminous-perovskite.md",
+      "reason": "The three apparent records describe separate runs on the same 5 mol% Al2O3 sample, correctly normalized as Mg0.95Al0.10Si0.95O3, but the closed primary article exposes neither a numerical P-V-T table nor a recoverable pressure-volume figure. The extracted coefficients have no source uncertainties or independent observations with which to verify the run fits, so all three remain on hold and five comparison rows are citation traces."
+    },
+    {
+      "citation": "Zhang et al. (2009), Mg-Fe silicate phase stability",
+      "doi": "10.1142/S0217979209053047",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-05",
+      "evidence": "literature-reproductions/tranche-c-zero-yield-audits.md",
+      "reason": "All purported BM4 branches omit K0-double-prime and the inaccessible primary could not resolve collapsed phase identities."
     }
   ]
 }

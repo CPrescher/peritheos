@@ -18,8 +18,8 @@ use serde_json::Value;
 
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
-    Holzapfel, ModifiedTait, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, Vinet, BM2,
-    BM3, BM4,
+    Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4,
+    RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
@@ -156,12 +156,20 @@ pub enum IsothermalModel {
     ModifiedTait(ModifiedTait),
     /// Murnaghan EOS.
     Murnaghan(Murnaghan),
+    /// Three-dimensional Morse-potential EOS.
+    Morse3(Morse3),
     /// Second-order natural-strain EOS.
     NaturalStrain2(NaturalStrain2),
     /// Third-order natural-strain EOS.
     NaturalStrain3(NaturalStrain3),
     /// Fourth-order natural-strain EOS.
     NaturalStrain4(NaturalStrain4),
+    /// Generalized Rydberg--Stacey EOS.
+    RydbergStacey(RydbergStacey),
+    /// Sun Jiu-Xun--Morse EOS with n=3.
+    SunMorse3(SunMorse3),
+    /// Sun Jiu-Xun--Morse EOS with n=4.
+    SunMorse4(SunMorse4),
     /// Vinet EOS.
     Vinet(Vinet),
 }
@@ -177,9 +185,13 @@ impl IsothermalModel {
             Self::Holzapfel(_) => "holzapfel",
             Self::ModifiedTait(_) => "modified_tait",
             Self::Murnaghan(_) => "murnaghan",
+            Self::Morse3(_) => "morse_3",
             Self::NaturalStrain2(_) => "natural_strain_2",
             Self::NaturalStrain3(_) => "natural_strain_3",
             Self::NaturalStrain4(_) => "natural_strain_4",
+            Self::RydbergStacey(_) => "rydberg_stacey",
+            Self::SunMorse3(_) => "sun_morse_3",
+            Self::SunMorse4(_) => "sun_morse_4",
             Self::Vinet(_) => "vinet",
         }
     }
@@ -194,9 +206,13 @@ impl IsothermalModel {
             Self::Holzapfel(_) => "Holzapfel",
             Self::ModifiedTait(_) => "ModifiedTait",
             Self::Murnaghan(_) => "Murnaghan",
+            Self::Morse3(_) => "Morse3",
             Self::NaturalStrain2(_) => "NaturalStrain2",
             Self::NaturalStrain3(_) => "NaturalStrain3",
             Self::NaturalStrain4(_) => "NaturalStrain4",
+            Self::RydbergStacey(_) => "RydbergStacey",
+            Self::SunMorse3(_) => "SunMorse3",
+            Self::SunMorse4(_) => "SunMorse4",
             Self::Vinet(_) => "Vinet",
         }
     }
@@ -211,9 +227,13 @@ macro_rules! dispatch_isothermal {
             IsothermalModel::Holzapfel($model) => $expression,
             IsothermalModel::ModifiedTait($model) => $expression,
             IsothermalModel::Murnaghan($model) => $expression,
+            IsothermalModel::Morse3($model) => $expression,
             IsothermalModel::NaturalStrain2($model) => $expression,
             IsothermalModel::NaturalStrain3($model) => $expression,
             IsothermalModel::NaturalStrain4($model) => $expression,
+            IsothermalModel::RydbergStacey($model) => $expression,
+            IsothermalModel::SunMorse3($model) => $expression,
+            IsothermalModel::SunMorse4($model) => $expression,
             IsothermalModel::Vinet($model) => $expression,
         }
     };
@@ -258,6 +278,9 @@ impl ReferenceStateEos for IsothermalModel {
             Self::Murnaghan(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::Murnaghan),
+            Self::Morse3(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::Morse3),
             Self::NaturalStrain2(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::NaturalStrain2),
@@ -267,6 +290,15 @@ impl ReferenceStateEos for IsothermalModel {
             Self::NaturalStrain4(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::NaturalStrain4),
+            Self::RydbergStacey(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::RydbergStacey),
+            Self::SunMorse3(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::SunMorse3),
+            Self::SunMorse4(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::SunMorse4),
             Self::Vinet(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::Vinet),
@@ -2514,9 +2546,13 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "Holzapfel" => "holzapfel",
             "ModifiedTait" => "modified_tait",
             "Murnaghan" => "murnaghan",
+            "Morse3" => "morse_3",
             "NaturalStrain2" => "natural_strain_2",
             "NaturalStrain3" => "natural_strain_3",
             "NaturalStrain4" => "natural_strain_4",
+            "RydbergStacey" => "rydberg_stacey",
+            "SunMorse3" => "sun_morse_3",
+            "SunMorse4" => "sun_morse_4",
             "Vinet" => "vinet",
             "LinearUsUpHugoniot" => "linear_us_up_hugoniot",
             _ => return Err(format!("unknown isothermal type {model_type:?}")),
@@ -2579,6 +2615,10 @@ fn build_isothermal(
             check_type(component, "Murnaghan")?;
             Murnaghan::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::Murnaghan)
         }
+        "morse_3" => {
+            check_type(component, "Morse3")?;
+            Morse3::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::Morse3)
+        }
         "natural_strain_2" => {
             check_type(component, "NaturalStrain2")?;
             NaturalStrain2::new(v0, p("K0")?).map(IsothermalModel::NaturalStrain2)
@@ -2591,6 +2631,19 @@ fn build_isothermal(
             check_type(component, "NaturalStrain4")?;
             NaturalStrain4::new(v0, p("K0")?, p("K0_prime")?, p("K0_double_prime")?)
                 .map(IsothermalModel::NaturalStrain4)
+        }
+        "rydberg_stacey" => {
+            check_type(component, "RydbergStacey")?;
+            RydbergStacey::new(v0, p("K0")?, p("K0_prime")?, p("K_infinity_prime")?)
+                .map(IsothermalModel::RydbergStacey)
+        }
+        "sun_morse_3" => {
+            check_type(component, "SunMorse3")?;
+            SunMorse3::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::SunMorse3)
+        }
+        "sun_morse_4" => {
+            check_type(component, "SunMorse4")?;
+            SunMorse4::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::SunMorse4)
         }
         "vinet" => {
             check_type(component, "Vinet")?;

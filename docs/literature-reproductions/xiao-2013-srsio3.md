@@ -11,19 +11,19 @@ three defensible EOS records: experimental cubic `Pm-3m` SrSiO3
 (`311.23(10)`, `183.8(6)`, `4` fixed). The experimental Table 1 has 17 rows,
 with the 6.2 GPa amorphizing point explicitly excluded from the fit.
 
-These three valid rows are **HOLD (batch boundary)** rather than partially or
-silently implemented: the preceding natural three-record Mao family exactly
-closed the settled +100 target. They remain a ready complete family for a
-future batch.
+These three valid rows were held at the previous batch boundary and are now
+implemented together as the first complete family of the next tranche. The
+experimental record links all 17 source rows and retains the explicitly
+excluded 6.2 GPa point rather than silently deleting it.
 
 ## LitCurate disposition
 
 | Row | Candidate | Disposition | Rationale |
 |---:|---|---|---|
-| 826 | `litcurate_ea2fac3fd93bdc94` | HOLD | Valid experimental cubic fit; deferred only by the exact batch boundary. |
-| 827 | `litcurate_968c1305823124d8` | HOLD | Valid static-GGA cubic fit; deferred with its complete family. |
-| 828 | `litcurate_066df1f097ee9c37` | HOLD | Valid static-GGA 6H fit; deferred with its complete family. |
+| 826 | `litcurate_ea2fac3fd93bdc94` | ACCEPT | Experimental cubic fit with complete Table 1 data and explicit fit selection. |
+| 827 | `litcurate_968c1305823124d8` | ACCEPT | Complete static-GGA cubic fit. |
+| 828 | `litcurate_066df1f097ee9c37` | ACCEPT | Complete static-GGA 6H fit on its six-formula-unit cell basis. |
 | 829 | `litcurate_54d86988e43e1882` | REJECT | MgSiO3 comparison belongs to its cited primary source. |
 | 830 | `litcurate_49c328eec3263a4f` | REJECT | CaSiO3 comparison belongs to its cited primary source. |
 
-Result: **0 production records, 3 held complete records, 2 rejected citation traces**.
+Result: **3 production records, 2 rejected citation traces**.

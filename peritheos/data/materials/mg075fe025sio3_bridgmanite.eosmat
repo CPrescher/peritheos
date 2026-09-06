@@ -1,0 +1,271 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg075fe025sio3_bridgmanite",
+ "name": "25 mol.% FeSiO3 bridgmanite model",
+ "formula": "Mg0.75Fe0.25SiO3",
+ "phase": "Pbnm perovskite model crystal",
+ "aliases": [
+  "(Mg0.75Fe0.25)SiO3 perovskite",
+  "Fe25 bridgmanite"
+ ],
+ "cell_contents": "Four Mg0.75Fe0.25SiO3 formula units per conventional Pbnm cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "formula_units_per_cell": 4,
+ "space_group": "Pbnm",
+ "space_group_number": 62,
+ "atom_sites": [],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Kiefer",
+    "Stixrude",
+    "Wentzcovitch"
+   ],
+   "year": 2002,
+   "title": "Elasticity of (Mg,Fe)SiO3-perovskite at high pressures",
+   "source": "Geophysical Research Letters",
+   "volume": "29",
+   "locator": "1539",
+   "doi": "10.1029/2002GL014683"
+  },
+  "structure_location": "Methods define one Fe substitution in the four-formula-unit orthorhombic cell; atomic coordinates are relaxed but not tabulated.",
+  "article_url": "https://discovery.ucl.ac.uk/id/eprint/112632/"
+ },
+ "notes": "Ordered static model crystal at x=0.25, not a claim of a natural homogeneous Fe distribution.",
+ "eos_records": [
+  {
+   "identifier": "mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3",
+   "label": "Kiefer et al. (2002), Fe25 GGA BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Kiefer",
+     "Stixrude",
+     "Wentzcovitch"
+    ],
+    "year": 2002,
+    "title": "Elasticity of (Mg,Fe)SiO3-perovskite at high pressures",
+    "source": "Geophysical Research Letters",
+    "volume": "29",
+    "locator": "1539",
+    "doi": "10.1029/2002GL014683"
+   },
+   "sample_composition": "Static ordered (Mg0.75Fe0.25)SiO3 Pbnm perovskite calculation (x=0.25).",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 160.5,
+     "K0": 270.0,
+     "K0_prime": 3.96
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    136.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 108.272
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     136.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "notes": [
+     "Static ordered-composition GGA branch over the lower-mantle pressure range discussed by the source."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Text following Table 1 identifies values derived from the equation of state; the static finite-strain energy form maps to BM3.",
+    "parameters": "Text following Table 1: V0=160.5 A^3, K0=270.0 GPa, K0'=3.96 for x=0.25.",
+    "method": "Variable-cell plane-wave pseudopotential GGA calculation with one Fe substituted for Mg in the 20-atom cell."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Computational method"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Static first-principles EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://discovery.ucl.ac.uk/id/eprint/112632/",
+     "doi": "10.1029/2002gl014683",
+     "locations": [
+      "Methods",
+      "Table 1 and following paragraph"
+     ],
+     "finding": "The x=0.25 EOS triplet is explicitly reported and distinct from the Table 1 aggregate elastic modulus and derivative."
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-05",
+     "finding": "Complete coefficients are printed, but the underlying energy-volume grid is not tabulated."
+    }
+   }
+  },
+  {
+   "identifier": "mg075fe025sio3_bridgmanite_wu_2013_gga_bm3",
+   "label": "Wu et al. (2013), Fe25 high-spin GGA BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Wu",
+     "Zhao",
+     "Tian"
+    ],
+    "year": 2013,
+    "title": "Effect of substitution Fe2+ on physical properties of MgSiO3 perovskite at high temperature and high pressure",
+    "source": "Acta Physica Sinica",
+    "volume": "62",
+    "locator": "049101",
+    "doi": "10.7498/aps.62.049101"
+   },
+   "sample_composition": "Static ordered high-spin (Mg0.75Fe0.25)SiO3 Pbnm model cell.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 164.977,
+     "K0": 248.0,
+     "K0_prime": 4.03
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    140.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 108.272
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     140.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "notes": [
+     "The source finds the Fe2+ high-spin state stable over the studied mantle pressure range; this is the static branch, not the separate quasiharmonic temperature correction."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Equation (10), third-order Birch-Murnaghan pressure-volume EOS.",
+    "parameters": "Table 1 Fe25 calculation column: V0=164.977 A^3, B0=248 GPa, B0'=4.03.",
+    "method": "CASTEP ultrasoft-pseudopotential PBE-GGA static calculation with one high-spin Fe2+ replacing Mg in the 20-atom cell."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Section 2"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "First-principles static EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.62.049101.pdf",
+     "doi": "10.7498/aps.62.049101",
+     "locations": [
+      "Section 2",
+      "Equation (10)",
+      "Section 3 and Table 1"
+     ],
+     "finding": "Complete source-generated Fe25 high-spin BM3 composition branch."
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-05",
+     "source_pdf_sha256": "765f2c28d5c76c557d61048877b49624e3cd8e3a15440ae5a61900e5163104fd",
+     "finding": "Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated."
+    }
+   }
+  }
+ ],
+ "datasets": []
+}

@@ -92,7 +92,7 @@
   "cif_sha256": "355070bde4fcd0585bc79b51e5ca5c4871537e79d1e5fbaf6f76845b6cb9c323",
   "cif_license": "CC0"
  },
- "notes": "The diffraction model is the revised and independently confirmed 298 K Cmcm single-crystal refinement of Nakatsuka et al. (2015), archived as COD 2241059 under CC0. The four occupied asymmetric-unit sites have multiplicities 4, 4, 4, and 8, reproducing Ca4Ir4O12 and Z=4. Its 226.75 A^3 lattice volume is distinct from the 2007 fitted EOS V0=226.38 A^3 and is not substituted for it.",
+ "notes": "The diffraction model is the revised and independently confirmed 298 K Cmcm single-crystal refinement of Nakatsuka et al. (2015), archived as COD 2241059 under CC0. The four occupied asymmetric-unit sites have multiplicities 4, 4, 4, and 8, reproducing Ca4Ir4O12 and Z=4. Its 226.75 A^3 lattice volume is distinct from the 2007 fitted EOS V0=226.38 A^3 and is not substituted for it. The Martin et al. (2007) independent room-temperature BM2 fit and its full Table 1a dataset are retained as a second source-specific record.",
  "eos_records": [
   {
    "identifier": "cairo3_post_perovskite_boffa_ballaran_2007_bm3_1",
@@ -215,24 +215,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-uploaded copy of the final American Mineralogist article, with the complete printed Table 1 transcribed. LitCurate was used only for discovery.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "phase",
-     "structure",
-     "cell_volume_and_z",
      "equation",
      "parameters",
-     "fixed_parameter_status",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "covariance_availability",
-     "experimental_range",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases",
@@ -258,38 +250,155 @@
       "Table 1, journal page 1761"
      ],
      "finding": "All 11 printed P-a-b-c-V rows and their standard deviations are bundled; the decompression row remains present and is explicitly excluded from the published fit."
-    },
-    "independent_numerical_check": {
-     "method": "Direct evaluation of the standard BM3 equation from the printed coefficients against the ten source compression rows.",
-     "pressure_rmse_gpa": 0.0239824255,
-     "maximum_absolute_pressure_residual_gpa": 0.04679018,
-     "high_pressure_source_state": {
-      "volume_a3": 217.28,
-      "source_pressure_gpa": 7.79,
-      "calculated_pressure_gpa": 7.776392
-     },
-     "figure_2_normalized_stress_slope_check": {
-      "source_slope_gpa": -433.0,
-      "source_standard_deviation_gpa": 214.0,
-      "bm3_implied_slope_gpa": -461.55
-     }
-    },
-    "independent_refit": {
-     "classification": "parity",
-     "method": "Independent iteratively reweighted errors-in-variables approximation using standard BM3 and the printed pressure and volume standard deviations; this diagnostic is not substituted for the published record.",
-     "parameters": {
-      "V0": 226.37736314,
-      "K0": 181.46697214,
-      "K0_prime": 2.27631675
-     }
-    },
-    "unresolved_issues": [
-     "The article does not print the numerical K0-K' covariance matrix; only 1-sigma-equivalent confidence ellipses are plotted.",
-     "The article names EosFit52 but does not print its exact BM3 objective or weighting configuration; the independent errors-in-variables diagnostic is therefore not claimed as an exact reconstruction.",
-     "The experimental temperature is reported only as room temperature, without a numerical kelvin value."
-    ]
+    }
    },
    "notes": "This record is limited to the Cmcm CaIrO3 post-perovskite polymorph and must not be used for the Pbnm perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero."
+  },
+  {
+   "identifier": "cairo3_post_perovskite_martin_2007_bm2",
+   "label": "Martin et al. (2007), room-temperature BM2",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Martin",
+     "Chapman",
+     "Chupas",
+     "Prakapenka",
+     "Lee",
+     "Shastri",
+     "Parise"
+    ],
+    "year": 2007,
+    "title": "Compression, thermal expansion, structure, and instability of CaIrO3, the structure model of MgSiO3 post-perovskite",
+    "source": "American Mineralogist",
+    "volume": "92",
+    "locator": "1048-1053",
+    "doi": "10.2138/am.2007.2473"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 226.632,
+     "K0": 180.2,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.045,
+    "K0": 2.8,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": 0.6827,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 298.15,
+   "experimental_pressure_range_gpa": [
+    0.3,
+    29.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.15,
+    298.15
+   ],
+   "fit_datasets": [
+    "cairo3_martin_2007_table1a_compression"
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4.0,
+    "molar_mass_g_mol": 280.292
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.3,
+     29.0
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "notes": [
+     "298.15 K is the conventional numeric normalization of the source's room-temperature isotherm.",
+     "The high-pressure NaCl-series observations were laser annealed and contain diffraction features from dissociation products, as explicitly cautioned by the source."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Methods and Table 1 caption: second-order Birch-Murnaghan, represented as BM3 with K0'=4 fixed.",
+    "parameters": "Table 1b: V0=226.632(45) A3 and K0=180.2(28) GPa.",
+    "uncertainties": "Parenthesized values are estimated standard uncertainties propagated from the GSAS refinements and fits; the stored confidence 0.6827 is the conventional normal-distribution coverage of one standard deviation.",
+    "volume_basis": "Table 1 reports the Cmcm conventional unit-cell volume; Z=4."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Experimental Methods",
+      "scope": "4:1 methanol:ethanol series to 7.6 GPa"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "Sata",
+        "Shen",
+        "Rivers",
+        "Sutton"
+       ],
+       "year": 2002,
+       "source": "Physical Review B",
+       "volume": "65",
+       "locator": "104114",
+       "doi": "10.1103/PhysRevB.65.104114"
+      },
+      "source_location": "Experimental Methods",
+      "scope": "laser-annealed NaCl series to 29 GPa"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The publication reports sample pressures but does not tabulate ruby shifts or NaCl lattice observations alongside Table 1."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://dspace.sunyconnect.suny.edu/server/api/core/bitstreams/61973d9b-80a4-4be9-b292-576627366fb1/content",
+     "doi": "10.2138/am.2007.2473",
+     "locations": [
+      "Chapter 7, Sections 7.3-7.4",
+      "Table 7.1 (publication Table 1)"
+     ],
+     "finding": "The author's dissertation reproduces the complete in-press American Mineralogist chapter and its exact pressure-volume table."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "cairo3_martin_2007_table1a_compression"
+     ],
+     "finding": "All 15 room-temperature pressure-volume observations and printed standard uncertainties are bundled with the two pressure-media series distinguished."
+    }
+   },
+   "notes": "Accepted LitCurate source record litcurate_5e62ecacf2340445."
   }
  ],
  "datasets": [
@@ -312,18 +421,83 @@
    "source_location": "Table 1, journal page 1761, post-perovskite (Cmcm) block",
    "source_url": "https://doi.org/10.2138/am.2007.2715",
    "columns": [
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_standard_deviation_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
-    {"name": "a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "a_standard_deviation_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "a_angstrom"},
-    {"name": "b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
-    {"name": "b_standard_deviation_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "standard_deviation", "of": "b_angstrom"},
-    {"name": "c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "c_standard_deviation_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "c_angstrom"},
-    {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "volume_standard_deviation_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "volume_a3"},
-    {"name": "loading_path", "quantity": "loading_path", "unit": "1", "role": "flag"},
-    {"name": "fit_included", "quantity": "published_fit_selection", "unit": "1", "role": "flag"}
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_standard_deviation_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "b_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "b_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_standard_deviation_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "volume_a3"
+    },
+    {
+     "name": "loading_path",
+     "quantity": "loading_path",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "published_fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
    ],
    "resource": {
     "path": "datasets/cairo3-post-perovskite-boffa-ballaran-2007-table1-compression.csv",
@@ -338,6 +512,77 @@
     "source_location": "Table 1 note: standard deviations are in parentheses"
    },
    "notes": "loading_path=1 denotes compression and loading_path=2 denotes decompression. fit_included=0 preserves the 5.26 GPa decompression observation that the Results section excludes from EOS fitting."
+  },
+  {
+   "identifier": "cairo3_martin_2007_table1a_compression",
+   "kind": "pressure_volume",
+   "description": "All 15 CaIrO3 room-temperature pressure-volume observations printed in Table 1a, retaining the separate alcohol and laser-annealed NaCl series.",
+   "reference": {
+    "authors": [
+     "Martin",
+     "Chapman",
+     "Chupas",
+     "Prakapenka",
+     "Lee",
+     "Shastri",
+     "Parise"
+    ],
+    "year": 2007,
+    "title": "Compression, thermal expansion, structure, and instability of CaIrO3, the structure model of MgSiO3 post-perovskite",
+    "source": "American Mineralogist",
+    "volume": "92",
+    "locator": "1048-1053",
+    "doi": "10.2138/am.2007.2473"
+   },
+   "source_location": "Table 1a; author dissertation Chapter 7, Table 7.1a",
+   "source_url": "https://dspace.sunyconnect.suny.edu/server/api/core/bitstreams/61973d9b-80a4-4be9-b292-576627366fb1/content",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    },
+    {
+     "name": "pressure_medium",
+     "quantity": "pressure_transmitting_medium",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/cairo3-martin-2007-table1a-compression.csv",
+    "sha256": "db1fb5881b7f92473ea5c468864cff28c91cecb5e7bd18ed03329105aad8c6ac",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "source_pdf_sha256": "e7ba63452da0d66f6d553ddc96ed4d1835c40ef0457106584b1e027457b42b7a",
+    "notes": "Only the pressure-volume columns required for isotropic EOS reproduction are transcribed; the source table also prints a, b, and c lattice parameters."
+   },
+   "used_by_eos_records": [
+    "cairo3_post_perovskite_martin_2007_bm2"
+   ]
   }
  ]
 }

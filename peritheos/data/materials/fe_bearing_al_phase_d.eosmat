@@ -279,21 +279,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystallography",
-     "formula_units_per_cell",
      "equation",
      "parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2022-8559",
@@ -315,30 +310,7 @@
       "final article, Table 1"
      ],
      "finding": "All 26 rows are bundled. The 21 rows at or below 38 GPa are flagged as the room-temperature BM3/Vinet fit selection; the five higher-pressure rows are retained as observations across the changed compression regime."
-    },
-    "independent_refit": {
-     "selection": "21 Table 1 rows with pressure <= 38 GPa",
-     "objective": "iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2",
-     "free_parameters": [
-      "V0",
-      "K0",
-      "K0_prime"
-     ],
-     "refit_parameters": {
-      "V0": 83.68041718,
-      "K0": 166.25494346,
-      "K0_prime": 4.45597358
-     },
-     "published_curve_pressure_rmse_gpa": 0.1263776598,
-     "refit_curve_pressure_rmse_gpa": 0.1260394657,
-     "result": "parity",
-     "notes": "The refit reproduces every printed BM3 coefficient within its displayed rounding interval. The source reports no covariance matrix or fit statistic; the diagnostic refit covariance is not substituted for missing source covariance."
-    },
-    "unresolved_issues": [
-     "Table 2 heads the 0-38 GPa BM3/Vinet group 'Low-spin state EOS', although the prose describes compression before the Fe3+ high-to-low spin crossover and models the crossover separately; the label is recorded as a source contradiction and not used to redefine the branch.",
-     "The official supplemental PDF's title line incorrectly names the adjacent hydrous Al-bearing silica article, even though deposit number AM-23-98559 and Figures S1-S2 correspond to this paper.",
-     "No EOS parameter covariance matrix, confidence convention, or published fit statistic is provided."
-    ]
+    }
    },
    "source_lineage": [
     {
@@ -477,21 +449,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystallography",
-     "formula_units_per_cell",
      "equation",
      "parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2022-8559",
@@ -513,29 +480,7 @@
       "final article, Table 1"
      ],
      "finding": "All 26 rows are bundled, including the 21-row Vinet fit selection and the five higher-pressure observations excluded from this ordinary room-temperature fit."
-    },
-    "independent_refit": {
-     "selection": "21 Table 1 rows with pressure <= 38 GPa",
-     "objective": "iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2",
-     "free_parameters": [
-      "V0",
-      "K0",
-      "K0_prime"
-     ],
-     "refit_parameters": {
-      "V0": 83.68347936,
-      "K0": 165.47809134,
-      "K0_prime": 4.62083697
-     },
-     "published_curve_pressure_rmse_gpa": 0.1237578966,
-     "refit_curve_pressure_rmse_gpa": 0.1233556777,
-     "result": "parity",
-     "notes": "The refit reproduces all published Vinet coefficients within their reported uncertainties and reproduces K0 and K0' within displayed rounding; fitted V0 differs by 0.0035 A^3, well inside the published 0.02 A^3 uncertainty."
-    },
-    "unresolved_issues": [
-     "The source gives no EOS parameter covariance matrix, confidence convention, or published fit statistic.",
-     "Table 2's 'Low-spin state EOS' heading conflicts with the prose's pre-crossover interpretation."
-    ]
+    }
    },
    "source_lineage": [
     {

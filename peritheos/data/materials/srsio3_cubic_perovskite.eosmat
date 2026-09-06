@@ -1,0 +1,356 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "srsio3_cubic_perovskite",
+ "name": "Cubic SrSiO3 perovskite",
+ "formula": "SrSiO3",
+ "phase": "cubic perovskite, Pm-3m",
+ "aliases": [
+  "cubic strontium metasilicate"
+ ],
+ "cell_contents": "One SrSiO3 formula unit per primitive cubic Pm-3m cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 3.6638,
+  "b": 3.6638,
+  "c": 3.6638,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "Pm-3m",
+ "space_group_number": 221,
+ "atom_sites": [
+  {
+   "element": "Sr",
+   "wyckoff": "1a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "1b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "3c",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.0,
+   "occupancy": 1.0
+  }
+ ],
+ "peaks": [],
+ "notes": "The experimental lattice parameter a0=3.6638 A is derived in the primary paper from the fitted V0. The ideal Pm-3m atom sites are fixed by symmetry.",
+ "eos_records": [
+  {
+   "identifier": "srsio3_cubic_xiao_2013_experimental_bm2_1",
+   "label": "Xiao et al. (2013), experimental cubic SrSiO3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Xiao",
+     "Tan",
+     "Zhou",
+     "Liu",
+     "Xu"
+    ],
+    "year": 2013,
+    "title": "Cubic perovskite polymorph of strontium metasilicate at high pressures",
+    "source": "American Mineralogist",
+    "volume": "98",
+    "locator": "2096-2104",
+    "doi": "10.2138/am.2013.4470"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 49.18,
+     "K0": 211.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.05,
+    "K0": 3.0,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    9.0,
+    37.8
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "fit_datasets": [
+    "srsio3_cubic_xiao_2013_table1_pv"
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 163.702
+   },
+   "parameter_provenance": {
+    "equation": "Results section prints the third-order Birch-Murnaghan pressure equation.",
+    "parameters": "Experimental fit: V0=49.18(5) A3, K0=211(3) GPa, K0'=4 fixed.",
+    "fit_selection": "Sixteen Table 1 rows from 9.0 to 37.8 GPa; the 6.2 GPa point was excluded because partial amorphization starts below 9 GPa."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Experimental methods"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 1 supplies calibrated pressure and uncertainty, not ruby wavelengths; the publication does not identify an executable ruby calibration."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am.2013.4470",
+     "doi": "10.2138/am.2013.4470",
+     "locations": [
+      "Experimental methods",
+      "Results",
+      "Table 1",
+      "Figure 5"
+     ],
+     "finding": "One experimental cubic BM2 parameterization is reported."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "srsio3_cubic_xiao_2013_table1_pv"
+     ],
+     "source_locations": [
+      "Table 1"
+     ],
+     "finding": "All 17 printed rows and the source-defined 16-row selection are retained."
+    }
+   }
+  },
+  {
+   "identifier": "srsio3_cubic_xiao_2013_gga_bm2_2",
+   "label": "Xiao et al. (2013), static-GGA cubic SrSiO3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Xiao",
+     "Tan",
+     "Zhou",
+     "Liu",
+     "Xu"
+    ],
+    "year": 2013,
+    "title": "Cubic perovskite polymorph of strontium metasilicate at high pressures",
+    "source": "American Mineralogist",
+    "volume": "98",
+    "locator": "2096-2104",
+    "doi": "10.2138/am.2013.4470"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 49.97,
+     "K0": 207.7,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.01,
+    "K0": 0.4,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    40.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 163.702
+   },
+   "parameter_provenance": {
+    "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
+    "parameters": "Static-GGA cubic fit: V0=49.97(1) A3, K0=207.7(4) GPa, K0'=4 fixed."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Computational methods: CASTEP GGA, ultrasoft pseudopotentials"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Static first-principles EOS."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am.2013.4470",
+     "doi": "10.2138/am.2013.4470",
+     "locations": [
+      "Computational methods",
+      "Results",
+      "Figure 5"
+     ],
+     "finding": "A distinct static-GGA cubic EOS is published."
+    },
+    "primary_data_check": {
+     "status": "parameterization_and_plot_only",
+     "audit_date": "2026-09-05",
+     "finding": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced."
+    }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "srsio3_cubic_xiao_2013_table1_pv",
+   "kind": "pressure_volume",
+   "description": "All 17 decompression rows in Xiao et al. Table 1, retaining the excluded 6.2 GPa observation explicitly.",
+   "source_location": "Table 1",
+   "source_url": "https://doi.org/10.2138/am.2013.4470",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "cubic_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "cubic_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "exclusion_reason",
+     "quantity": "fit_exclusion_reason",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/srsio3-xiao-2013-table1-pv.csv",
+    "sha256": "2cbdb31c1e4f5bd4ce8da0c4ea070055faafe8e05c11a53c0de0242e7ebbdb8c",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "reported_as": "Parenthetical trailing-digit uncertainties expanded verbatim.",
+    "covariance": "not_reported"
+   },
+   "reference": {
+    "authors": [
+     "Xiao",
+     "Tan",
+     "Zhou",
+     "Liu",
+     "Xu"
+    ],
+    "year": 2013,
+    "title": "Cubic perovskite polymorph of strontium metasilicate at high pressures",
+    "source": "American Mineralogist",
+    "volume": "98",
+    "locator": "Table 1",
+    "doi": "10.2138/am.2013.4470"
+   },
+   "used_by_eos_records": [
+    "srsio3_cubic_xiao_2013_experimental_bm2_1"
+   ]
+  }
+ ]
+}

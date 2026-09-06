@@ -145,6 +145,62 @@ K_T=K_0x^{-2}\exp[\eta(1-x)]
 \left[1+(1+\eta x)(1-x)\right].
 \]
 
+### Generalized Rydberg-Stacey
+
+The generalized Rydberg-Stacey model (`RydbergStacey`) introduces the
+adjustable infinite-pressure bulk-modulus derivative $K'_{\infty}$. Define
+
+\[
+x=\left(\frac{V}{V_0}\right)^{1/3},
+\qquad
+A=\frac{3}{2}K'_0-3K'_{\infty}+\frac{1}{2}.
+\]
+
+The pressure is
+
+\[
+P=3K_0x^{-3K'_{\infty}}(1-x)\exp[A(1-x)].
+\]
+
+The analytic bulk modulus is
+
+\[
+K_T=K_0x^{-3K'_{\infty}}\exp[A(1-x)]
+\left[x+3K'_{\infty}(1-x)+Ax(1-x)\right].
+\]
+
+At $K'_{\infty}=2/3$ this reduces exactly to the Vinet equation. Values such
+as $K'_{\infty}=5/3$ instead impose the thermodynamic high-pressure limit used
+by Stacey-style pressure scales.
+
+### Morse and Sun-Morse
+
+Sun et al. (2010) define $X=(V/V_0)^{1/n}$. Their ordinary three-dimensional
+Morse form (`Morse3`) uses $n=3$, $\beta=K'_0-1$, and
+
+\[
+P=\frac{3K_0}{\beta X^2}
+\left[\exp(2\beta(1-X))-\exp(\beta(1-X))\right].
+\]
+
+The volume-analytic Sun Jiu-Xun--Morse forms (`SunMorse3` and `SunMorse4`)
+instead use $n=3$ or $4$, $\alpha=(nK'_0+1)/3$, and
+
+\[
+P=\frac{nK_0}{\alpha}
+\left[\exp(2\alpha(1-X))-\exp(\alpha(1-X))\right].
+\]
+
+Their analytic bulk modulus is
+
+\[
+K_T=K_0X\left[2\exp(2\alpha(1-X))-\exp(\alpha(1-X))\right].
+\]
+
+These forms are implemented from equations 6--9 and 15 of Sun et al.,
+*Zeitschrift für Naturforschung A* **65**, 34--44 (2010),
+<https://doi.org/10.1515/zna-2010-1-202>.
+
 ### Modified Tait
 
 Let $v=V/V_0$ and define

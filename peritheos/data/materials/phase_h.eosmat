@@ -1,0 +1,235 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "phase_h",
+ "name": "Phase H",
+ "formula": "MgSiO4H2",
+ "phase": "ordered model-1 phase H",
+ "aliases": [
+  "MgSiO4H2 phase H"
+ ],
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "MONOCLINIC",
+ "lattice": {
+  "a": 4.786,
+  "b": 4.328,
+  "c": 2.848,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 93.3
+ },
+ "formula_units_per_cell": 1,
+ "space_group": "P2/m",
+ "space_group_number": 10,
+ "atom_sites": [],
+ "peaks": [],
+ "notes": "The structure and reference cell are the source's lowest-enthalpy ordered model-1 at static 0 K. Atomic coordinates are not copied because they are provided only in the paper's separate supplementary table.",
+ "eos_records": [
+  {
+   "identifier": "phase_h_tsuchiya_mookherjee_2015_gga_static_bm3",
+   "label": "Tsuchiya and Mookherjee (2015), ordered phase H static GGA BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Tsuchiya",
+     "Mookherjee"
+    ],
+    "year": 2015,
+    "title": "Crystal structure, equation of state, and elasticity of phase H (MgSiO4H2) at Earth's lower mantle pressures",
+    "source": "Scientific Reports",
+    "volume": "5",
+    "locator": "15534",
+    "doi": "10.1038/srep15534"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 58.9,
+     "K0": 147.5,
+     "K0_prime": 4.9
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 6.8,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    100.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "fit_datasets": [
+    "phase_h_tsuchiya_mookherjee_2015_table1_pv"
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 1.0,
+    "molar_mass_g_mol": 118.399
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     100.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "notes": [
+     "Ordered P2/m model-1 branch. The source separately plots a metastable symmetric-hydrogen-bond extension; it is not an independent fitted EOS."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Results identify the finite-strain Birch-Murnaghan formulation; freely fitted K0' makes this the third-order form.",
+    "parameters": "Results paragraph preceding Figure 2.",
+    "method": "Static 0 K GGA variable-cell first-principles calculations over 0-100 GPa."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "source_location": "Methods"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "The pressure-volume states are first-principles results rather than gauge-calibrated observations."
+    },
+    "audit_date": "2026-09-05"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.nature.com/articles/srep15534.pdf",
+     "doi": "10.1038/srep15534",
+     "locations": [
+      "Results, page 2",
+      "Figure 2",
+      "Table 1",
+      "Methods, page 5"
+     ],
+     "finding": "One complete BM3 fit for ordered model-1 phase H at static 0 K."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "phase_h_tsuchiya_mookherjee_2015_table1_pv"
+     ],
+     "finding": "All 12 source Table 1 pressure-lattice-density rows are transcribed; conventional-cell volume is derived as a*b*c*sin(gamma)."
+    }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "phase_h_tsuchiya_mookherjee_2015_table1_pv",
+   "kind": "theoretical_pressure_lattice_volume",
+   "description": "All 12 static 0 K ordered model-1 phase H pressure-density-lattice states in primary Table 1, with derived monoclinic unit-cell volume.",
+   "reference": {
+    "authors": [
+     "Tsuchiya",
+     "Mookherjee"
+    ],
+    "year": 2015,
+    "source": "Scientific Reports",
+    "volume": "5",
+    "locator": "15534",
+    "doi": "10.1038/srep15534"
+   },
+   "source_location": "Table 1, journal page 3",
+   "source_url": "https://www.nature.com/articles/srep15534.pdf",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "gamma_degree",
+     "quantity": "lattice_angle_gamma",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/phase-h-tsuchiya-mookherjee-2015-table1-pv.csv",
+    "sha256": "4ad82028fa5483acc94f7d1218f1b13176c25f178ebe3750cdfb11309a0ccaf4",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "phase_h_tsuchiya_mookherjee_2015_gga_static_bm3"
+   ],
+   "notes": "Volumes are recomputed from the printed lattice parameters and therefore inherit their three-decimal rounding; no row-wise uncertainties are reported.",
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Pressure, density, a, b, c, and gamma transcribed verbatim; volume derived as a*b*c*sin(gamma).",
+    "source_pdf_sha256": "e0aa50e616bc3f650b58f19079f0df2620926616fd0c28b18ff113cbece399ae",
+    "quality_control": {
+     "row_count": 12,
+     "published_bm3_pressure_rmse_gpa": 0.5462582,
+     "published_bm3_max_abs_pressure_residual_gpa": 1.1329615
+    },
+    "transcribed_on": "2026-09-05"
+   }
+  }
+ ]
+}

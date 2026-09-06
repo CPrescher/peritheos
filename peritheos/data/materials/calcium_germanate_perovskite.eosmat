@@ -5,7 +5,9 @@
  "name": "Calcium germanate perovskite",
  "formula": "CaGeO3",
  "phase": "orthorhombic GdFeO3-type perovskite",
- "aliases": ["CaGeO3 perovskite"],
+ "aliases": [
+  "CaGeO3 perovskite"
+ ],
  "cell_contents": "Four CaGeO3 formula units in the conventional orthorhombic Pbnm cell.",
  "units": {
   "pressure": "GPa",
@@ -65,7 +67,11 @@
  "peaks": [],
  "source": {
   "structure_reference": {
-   "authors": ["Sasaki", "Prewitt", "Liebermann"],
+   "authors": [
+    "Sasaki",
+    "Prewitt",
+    "Liebermann"
+   ],
    "year": 1983,
    "title": "The crystal structure of CaGeO3 perovskite and the crystal chemistry of the GdFeO3-type perovskites",
    "source": "American Mineralogist",
@@ -82,7 +88,10 @@
    "identifier": "calcium_germanate_perovskite_ross_1999_bm3_1",
    "label": "Ross and Angel (1999), single-crystal BM3",
    "reference": {
-    "authors": ["Ross", "Angel"],
+    "authors": [
+     "Ross",
+     "Angel"
+    ],
     "year": 1999,
     "title": "Compression of CaTiO3 and CaGeO3 perovskites",
     "source": "American Mineralogist",
@@ -111,9 +120,15 @@
    "parameter_covariance": null,
    "fixed_parameters": [],
    "temperature_ref": 298.0,
-   "experimental_pressure_range_gpa": [0.0001, 8.553],
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    8.553
+   ],
    "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [298.0, 298.0],
+   "experimental_temperature_range_k": [
+    298.0,
+    298.0
+   ],
    "fit_datasets": [
     "calcium_germanate_perovskite_ross_1999_table1_compression"
    ],
@@ -143,7 +158,12 @@
       "kind": "equation_of_state",
       "reference_eos_record": "alpha_quartz_angel_1997_bm3_1",
       "reference": {
-       "authors": ["Angel", "Allan", "Miletich", "Finger"],
+       "authors": [
+        "Angel",
+        "Allan",
+        "Miletich",
+        "Finger"
+       ],
        "year": 1997,
        "title": "The use of quartz as an internal pressure standard in high-pressure crystallography",
        "source": "Journal of Applied Crystallography",
@@ -163,9 +183,18 @@
     "audit_date": "2026-09-05"
    },
    "validity": {
-    "pressure_gpa": [0.0001, 8.553],
-    "temperature_k": [298.0, 298.0],
-    "volume_ratio": [0.961678531, 0.999970943],
+    "pressure_gpa": [
+     0.0001,
+     8.553
+    ],
+    "temperature_k": [
+     298.0,
+     298.0
+    ],
+    "volume_ratio": [
+     0.961678531,
+     0.999970943
+    ],
     "notes": [
      "The numerical range is the exact Table 1 measurement envelope, not a phase-stability guarantee.",
      "No phase transition was detected through 8.553 GPa; the source discusses possible transformation only above the measured interval.",
@@ -174,14 +203,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "equation", "parameters", "units", "reference_state", "phase",
-     "composition", "cell_setting", "formula_units_per_cell", "structure",
-     "published_uncertainties", "covariance_availability", "validity",
-     "pressure_calibration", "primary_data", "numerical_reproduction",
-     "independent_refit"
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
@@ -201,26 +232,10 @@
      "dataset_identifiers": [
       "calcium_germanate_perovskite_ross_1999_table1_compression"
      ],
-     "source_locations": ["Table 1, journal page 278"],
+     "source_locations": [
+      "Table 1, journal page 278"
+     ],
      "finding": "All 9 printed CaGeO3 pressure, lattice-parameter, conventional-cell-volume, and estimated-standard-deviation values are transcribed. Row-wise quartz volumes are not published."
-    },
-    "numerical_reproduction": {
-     "observations": 9,
-     "published_curve_rmse_gpa": 0.0191108763,
-     "published_curve_max_abs_residual_gpa": 0.0304503891,
-     "source_reported_max_abs_residual_gpa": 0.03,
-     "source_reported_weighted_chi_square": 1.1
-    },
-    "independent_refit": {
-     "objective": "effective-variance pressure residuals combining the reported pressure and volume estimated standard deviations; the ambient pressure has no printed error and is treated as fixed",
-     "parameters": {
-      "V0": 206.48942690,
-      "K0": 194.03279818,
-      "K0_prime": 6.09858913
-     },
-     "reduced_chi_square": 1.102859623,
-     "raw_pressure_rmse_gpa": 0.0191290050,
-     "conclusion": "The independent refit recovers every published coefficient within its printed uncertainty and reproduces the source's rounded weighted chi-square."
     }
    },
    "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaGeO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset."
@@ -234,17 +249,77 @@
    "source_location": "Table 1, journal page 278",
    "source_url": "https://doi.org/10.2138/am-1999-0309",
    "columns": [
-    {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
-    {"name": "pressure_gpa", "quantity": "pressure_from_quartz", "unit": "GPa", "role": "value"},
-    {"name": "pressure_sd_gpa", "quantity": "pressure_from_quartz", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
-    {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_a_sd_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_a_angstrom"},
-    {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_b_sd_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_b_angstrom"},
-    {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "lattice_c_sd_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "standard_deviation", "of": "lattice_c_angstrom"},
-    {"name": "unit_cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
-    {"name": "unit_cell_volume_sd_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "unit_cell_volume_a3"}
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure_from_quartz",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_sd_gpa",
+     "quantity": "pressure_from_quartz",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_sd_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_sd_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_sd_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "unit_cell_volume_sd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "unit_cell_volume_a3"
+    }
    ],
    "resource": {
     "path": "datasets/calcium-germanate-perovskite-ross-1999-table1-compression.csv",
@@ -253,7 +328,10 @@
    },
    "notes": "Parenthesized values are estimated standard deviations. The near-ambient 0.0001 GPa row has no printed pressure uncertainty, which is represented as missing rather than zero. The source does not publish the measured quartz volumes.",
    "reference": {
-    "authors": ["Ross", "Angel"],
+    "authors": [
+     "Ross",
+     "Angel"
+    ],
     "year": 1999,
     "source": "American Mineralogist",
     "volume": "84",
