@@ -33,8 +33,8 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert statuses == {
         "parity": 144,
         "similar": 61,
-        "parity_not_achieved": 21,
-        "not_refittable": 586,
+        "parity_not_achieved": 27,
+        "not_refittable": 580,
     }
     assert all(
         item.get("reason")
@@ -410,7 +410,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 82
+    assert markdown.count("### `") == len(explained) == 88
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **812** EOS records. **144** achieve uncertainty parity, **61** are numerically similar, **[21](#parity-not-achieved)** do not achieve parity, **586** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **812** EOS records. **144** achieve uncertainty parity, **61** are numerically similar, **[27](#parity-not-achieved)** do not achieve parity, **580** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -316,8 +316,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`gold_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`gold_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`gold_dewaele_2004_mao_ruby_vinet`](https://doi.org/10.1103/PhysRevB.70.094112) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`gold_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`gold_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`gold_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0_prime` 5.88 → 5.86027 | —/— | [parity_not_achieved](#investigation-gold_dorfman_2012_tange_mgo_k0_fixed_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
+| [`gold_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0` 167 → 178.713; `K0_prime` 5.84 → 5.46833 | —/— | [parity_not_achieved](#investigation-gold_dorfman_2012_tange_mgo_k0_free_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
 | [`graphite_hanfland_1989_murnaghan_1`](https://doi.org/10.1103/PhysRevB.39.12598) | `graphite_hanfland_1989_figure2_digitized` | 10 | `V0` 35.12 → 35.2896; `K0` 33.8 → 31.3506; `K0_prime` 8.9 → 9.14073 | 0.342942/0.153054 | parity |
 | [`hafnium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`hafnium_hcp_lejaeghere_2014_experimental_corrected_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
@@ -563,8 +563,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`molybdenum_lejaeghere_2014_experimental_corrected_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`molybdenum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`molybdenum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`molybdenum_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0_prime` 4.19 → 4.1381 | —/— | [parity_not_achieved](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
+| [`molybdenum_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0` 271 → 255.46; `K0_prime` 3.89 → 4.2951 | —/— | [parity_not_achieved](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
 | [`molybenum_carbide_mo2c_haines_2001_bm3_1`](https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf) | `molybdenum_carbide_haines_2001_figure2_digitized` | 16 | `K0` 307 → 325.874; `K0_prime` 6.2 → 4.9092 | 0.704038/0.374538 | [similar](#investigation-molybenum_carbide_mo2c_haines_2001_bm3_1) — Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001). |
 | [`molybenum_carbide_mo2c_haines_2001_bm3_refit`](https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf) | `molybdenum_carbide_haines_2001_figure2_digitized` | 16 | `K0` 325.874 → 325.874; `K0_prime` 4.9092 → 4.90919 | 0.617553/0.374538 | parity — Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001). |
 | [`na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1`](https://doi.org/10.2138/am-2022-8432) | `na088al099fe013si094o4_qin_2023_table_s4_pv` | 10 | `V0` 244.2 → 244.286; `K0` 211 → 205.215; `K0_prime` 2.6 → 2.93315 | 0.388733/0.228741 | parity |
@@ -662,8 +662,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`platinum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`platinum_dewaele_2004_mao_ruby_vinet`](https://doi.org/10.1103/PhysRevB.70.094112) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`platinum_dewaele_2004_revised_ruby_vinet`](https://doi.org/10.1103/PhysRevB.70.094112) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`platinum_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`platinum_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`platinum_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0_prime` 5.43 → 5.36541 | —/— | [parity_not_achieved](#investigation-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
+| [`platinum_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0` 280 → 294.309; `K0_prime` 5.29 → 4.89884 | —/— | [parity_not_achieved](#investigation-platinum_dorfman_2012_tange_mgo_k0_free_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
 | [`polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`potassium_bcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`potassium_bcc_lejaeghere_2014_experimental_corrected_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
@@ -857,6 +857,8 @@ use `--check` in continuous integration to detect stale generated files.
 - [`fe093o_b1_jacobsen_2005_bm3_1`](#investigation-fe093o_b1_jacobsen_2005_bm3_1): outside similarity limits (V0 79.41 → 59.7395)
 - [`ferropericlase_fe27_jacobsen_2002_bm3_1`](#investigation-ferropericlase_fe27_jacobsen_2002_bm3_1): outside similarity limits (V0 76.336 → 113.015; K0 158.4 → 37.1717)
 - [`goethite_gleason_2008_bm3_1`](#investigation-goethite_gleason_2008_bm3_1): outside similarity limits (rt_eos.K0 140.3 → 183.338; rt_eos.K0_prime 4.6 → 0)
+- [`gold_dorfman_2012_tange_mgo_k0_fixed_vinet`](#investigation-gold_dorfman_2012_tange_mgo_k0_fixed_vinet): outside similarity limits (K0_prime 5.88 → 5.86027)
+- [`gold_dorfman_2012_tange_mgo_k0_free_vinet`](#investigation-gold_dorfman_2012_tange_mgo_k0_free_vinet): outside similarity limits (K0 167 → 178.713; K0_prime 5.84 → 5.46833)
 - [`magnesiowustite_fe56_jacobsen_2002_bm3_1`](#investigation-magnesiowustite_fe56_jacobsen_2002_bm3_1): outside similarity limits (V0 77.453 → 113.002; K0 155.8 → 37.1669)
 - [`magnesiowustite_fe75_jacobsen_2002_bm3_1`](#investigation-magnesiowustite_fe75_jacobsen_2002_bm3_1): outside similarity limits (V0 78.082 → 113.014; K0 151.3 → 37.188)
 - [`mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1`](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1): outside similarity limits (V0 78.87 → 157.74; K0 148 → 337.791; K0_prime 4.09 → 9.6577)
@@ -867,7 +869,11 @@ use `--check` in continuous integration to detect stale generated files.
 - [`mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`](#investigation-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3): outside similarity limits (V0 163.137 → 231.512; K0 260.1 → 13.005; K0_prime 4.18 → 15.4726)
 - [`mgfe94o_b1_dobrosavljevic_2019_bm3_1`](#investigation-mgfe94o_b1_dobrosavljevic_2019_bm3_1): outside similarity limits (K0_prime 3.79 → 2.71444)
 - [`mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1`](#investigation-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1): outside similarity limits (K0 217 → 168.771)
+- [`molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet): outside similarity limits (K0_prime 4.19 → 4.1381)
+- [`molybdenum_dorfman_2012_tange_mgo_k0_free_vinet`](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet): outside similarity limits (K0 271 → 255.46; K0_prime 3.89 → 4.2951)
 - [`palladium_baty_2024_bm3_1`](#investigation-palladium_baty_2024_bm3_1): outside similarity limits (K0 190 → 152.057)
+- [`platinum_dorfman_2012_tange_mgo_k0_fixed_vinet`](#investigation-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet): outside similarity limits (K0_prime 5.43 → 5.36541)
+- [`platinum_dorfman_2012_tange_mgo_k0_free_vinet`](#investigation-platinum_dorfman_2012_tange_mgo_k0_free_vinet): outside similarity limits (K0 280 → 294.309; K0_prime 5.29 → 4.89884)
 - [`silicon_vii_anzellini_2019_vinet_1`](#investigation-silicon_vii_anzellini_2019_vinet_1): outside similarity limits (V0 28.6 → 41.6139; K0 96.9 → 4.845; K0_prime 4.01 → 9.10969)
 - [`sno2_cubic_27gpa_ono_2000_bm3_1`](#investigation-sno2_cubic_27gpa_ono_2000_bm3_1): outside similarity limits (K0 252 → 379.59; K0_prime 3.5 → 0)
 - [`sno2_pa_3_at_48gpa_ono_2000_bm3_1`](#investigation-sno2_pa_3_at_48gpa_ono_2000_bm3_1): outside similarity limits (K0 252 → 379.59; K0_prime 3.5 → 0)
@@ -946,7 +952,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **82** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **88** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -1502,6 +1508,45 @@ the missing source fit detail is recovered.
 - The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
 - The lowest checked pressure is 49.2069 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-gold_dorfman_2012_tange_mgo_k0_fixed_vinet"></a>
+
+### `gold_dorfman_2012_tange_mgo_k0_fixed_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `jgrb17272-sup-0002-txts01.pdf` with 165 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0_prime` | 5.88 | 5.86027 | 0.34% | — | no |
+
+**Fit diagnostics.** Observed pressure range: 34.4-242.6 GPa; source-declared range: 0-259 GPa; fit kind: `simultaneous_cocompression_vinet`; objective: `Dorfman Equation (3)`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `K0_prime`; source-fixed parameters: `V0, K0`.
+
+**Source/data scope.** The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.
+
+**Registered source-fit note.** Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-gold_dorfman_2012_tange_mgo_k0_free_vinet"></a>
+
+### `gold_dorfman_2012_tange_mgo_k0_free_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `jgrb17272-sup-0002-txts01.pdf` with 165 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 167 | 178.713 | 7.01% | — | no |
+| `K0_prime` | 5.84 | 5.46833 | 6.36% | — | no |
+
+**Fit diagnostics.** Observed pressure range: 34.4-242.6 GPa; source-declared range: 0-259 GPa; fit kind: `simultaneous_cocompression_vinet`; objective: `Dorfman Equation (3)`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.
+
+**Registered source-fit note.** Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
 
 <a id="investigation-ice_vii_bezacier_2014_bm2_1"></a>
 
@@ -2189,6 +2234,45 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The point estimate exceeds the numerical limit for `K0_double_prime`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 
+<a id="investigation-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet"></a>
+
+### `molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `jgrb17272-sup-0002-txts01.pdf` with 165 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0_prime` | 4.19 | 4.1381 | 1.24% | — | no |
+
+**Fit diagnostics.** Observed pressure range: 43.1-214.6 GPa; source-declared range: 0-207 GPa; fit kind: `simultaneous_cocompression_vinet`; objective: `Dorfman Equation (3)`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `K0_prime`; source-fixed parameters: `V0, K0`.
+
+**Source/data scope.** The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.
+
+**Registered source-fit note.** Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet"></a>
+
+### `molybdenum_dorfman_2012_tange_mgo_k0_free_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `jgrb17272-sup-0002-txts01.pdf` with 165 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 271 | 255.46 | 5.73% | — | no |
+| `K0_prime` | 3.89 | 4.2951 | 10.41% | — | no |
+
+**Fit diagnostics.** Observed pressure range: 43.1-214.6 GPa; source-declared range: 0-207 GPa; fit kind: `simultaneous_cocompression_vinet`; objective: `Dorfman Equation (3)`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.
+
+**Registered source-fit note.** Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
 <a id="investigation-molybenum_carbide_mo2c_haines_2001_bm3_1"></a>
 
 ### `molybenum_carbide_mo2c_haines_2001_bm3_1`
@@ -2387,6 +2471,45 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The magnitude is similar for `K0`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet"></a>
+
+### `platinum_dorfman_2012_tange_mgo_k0_fixed_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `jgrb17272-sup-0002-txts01.pdf` with 165 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0_prime` | 5.43 | 5.36541 | 1.19% | — | no |
+
+**Fit diagnostics.** Observed pressure range: 5.2-231.3 GPa; source-declared range: 0-226 GPa; fit kind: `simultaneous_cocompression_vinet`; objective: `Dorfman Equation (3)`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `K0_prime`; source-fixed parameters: `V0, K0`.
+
+**Source/data scope.** The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.
+
+**Registered source-fit note.** Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-platinum_dorfman_2012_tange_mgo_k0_free_vinet"></a>
+
+### `platinum_dorfman_2012_tange_mgo_k0_free_vinet`
+
+**Classification:** `parity_not_achieved`. **Model:** `Vinet`. **Data:** `jgrb17272-sup-0002-txts01.pdf` with 165 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 280 | 294.309 | 5.11% | — | no |
+| `K0_prime` | 5.29 | 4.89884 | 7.39% | — | no |
+
+**Fit diagnostics.** Observed pressure range: 5.2-231.3 GPa; source-declared range: 0-226 GPa; fit kind: `simultaneous_cocompression_vinet`; objective: `Dorfman Equation (3)`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.
+
+**Registered source-fit note.** Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
+
+**Assessment and likely origin.**
+- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
 
 <a id="investigation-ruthenium_anzellini_2019_bm3_1"></a>
 
@@ -2898,8 +3021,6 @@ the missing source fit detail is recovered.
 - `gold_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `gold_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `gold_dewaele_2004_mao_ruby_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `gold_dorfman_2012_tange_mgo_k0_fixed_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `gold_dorfman_2012_tange_mgo_k0_free_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `hafnium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
 - `hafnium_hcp_lejaeghere_2014_experimental_corrected_bm3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `in_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
@@ -3065,8 +3186,6 @@ the missing source fit detail is recovered.
 - `molybdenum_lejaeghere_2014_experimental_corrected_bm3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `molybdenum_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `molybdenum_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `molybdenum_dorfman_2012_tange_mgo_k0_free_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `na_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `na_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `naalsi2o6_zhao_1997_bm3_1`: Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent.
@@ -3134,8 +3253,6 @@ the missing source fit detail is recovered.
 - `platinum_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `platinum_dewaele_2004_mao_ruby_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `platinum_dewaele_2004_revised_ruby_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `platinum_dorfman_2012_tange_mgo_k0_fixed_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `platinum_dorfman_2012_tange_mgo_k0_free_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
 - `potassium_bcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
 - `potassium_bcc_lejaeghere_2014_experimental_corrected_bm3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.

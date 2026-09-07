@@ -10770,47 +10770,123 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "joint_system",
+      "dataset_identifiers": [
+        "jgrb17272-sup-0002-txts01.pdf"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         259.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "simultaneous_cocompression_vinet",
       "fixed_parameters": [
         "V0",
         "K0"
       ],
+      "free_parameters": [
+        "K0_prime"
+      ],
       "label": "Dorfman et al. (2012), Au K0-fixed Vinet",
       "material_identifier": "gold",
       "model": "Vinet",
-      "primary_data_finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
-      "primary_data_status": "parameterization_only",
+      "objective": "Dorfman Equation (3)",
+      "observations": 165,
+      "observed_pressure_range_gpa": [
+        34.4,
+        242.6
+      ],
+      "pair_count": 241,
+      "parameters": [
+        {
+          "difference": -0.019733491978438877,
+          "parameter": "K0_prime",
+          "published": 5.88,
+          "published_error": 0.02,
+          "refit": 5.860266508021561,
+          "refit_error": null,
+          "relative_difference": 0.0033560360507549113,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/2012JB009292",
-      "reason": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
+      "published_objective": 19.013986779601225,
+      "qualification": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
       "record_identifier": "gold_dorfman_2012_tange_mgo_k0_fixed_vinet",
-      "source_notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
-      "status": "not_refittable"
+      "refit_objective": 14.374656780006166,
+      "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "status": "parity_not_achieved"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "joint_system",
+      "dataset_identifiers": [
+        "jgrb17272-sup-0002-txts01.pdf"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         259.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "simultaneous_cocompression_vinet",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Dorfman et al. (2012), Au K0-free Vinet",
       "material_identifier": "gold",
       "model": "Vinet",
-      "primary_data_finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
-      "primary_data_status": "parameterization_only",
+      "objective": "Dorfman Equation (3)",
+      "observations": 165,
+      "observed_pressure_range_gpa": [
+        34.4,
+        242.6
+      ],
+      "pair_count": 241,
+      "parameters": [
+        {
+          "difference": 11.713195592628693,
+          "parameter": "K0",
+          "published": 167.0,
+          "published_error": 3.0,
+          "refit": 178.7131955926287,
+          "refit_error": null,
+          "relative_difference": 0.07013889576424368,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.37166793019622446,
+          "parameter": "K0_prime",
+          "published": 5.84,
+          "published_error": 0.02,
+          "refit": 5.468332069803775,
+          "refit_error": null,
+          "relative_difference": 0.06364176886921652,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/2012JB009292",
-      "reason": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
+      "published_objective": 15.454156500512681,
+      "qualification": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
       "record_identifier": "gold_dorfman_2012_tange_mgo_k0_free_vinet",
-      "source_notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
-      "status": "not_refittable"
+      "refit_objective": 12.197835855035798,
+      "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "status": "parity_not_achieved"
     },
     {
       "absolute_sigma": true,
@@ -20810,47 +20886,123 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "joint_system",
+      "dataset_identifiers": [
+        "jgrb17272-sup-0002-txts01.pdf"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         207.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "simultaneous_cocompression_vinet",
       "fixed_parameters": [
         "V0",
         "K0"
       ],
+      "free_parameters": [
+        "K0_prime"
+      ],
       "label": "Dorfman et al. (2012), Mo K0-fixed Vinet",
       "material_identifier": "molybdenum",
       "model": "Vinet",
-      "primary_data_finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
-      "primary_data_status": "parameterization_only",
+      "objective": "Dorfman Equation (3)",
+      "observations": 165,
+      "observed_pressure_range_gpa": [
+        43.1,
+        214.6
+      ],
+      "pair_count": 241,
+      "parameters": [
+        {
+          "difference": -0.05190194410977078,
+          "parameter": "K0_prime",
+          "published": 4.19,
+          "published_error": 0.02,
+          "refit": 4.13809805589023,
+          "refit_error": null,
+          "relative_difference": 0.012387098832880854,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/2012JB009292",
-      "reason": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
+      "published_objective": 19.013986779601225,
+      "qualification": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
       "record_identifier": "molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet",
-      "source_notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
-      "status": "not_refittable"
+      "refit_objective": 14.374656780006166,
+      "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "status": "parity_not_achieved"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "joint_system",
+      "dataset_identifiers": [
+        "jgrb17272-sup-0002-txts01.pdf"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         207.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "simultaneous_cocompression_vinet",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Dorfman et al. (2012), Mo K0-free Vinet",
       "material_identifier": "molybdenum",
       "model": "Vinet",
-      "primary_data_finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
-      "primary_data_status": "parameterization_only",
+      "objective": "Dorfman Equation (3)",
+      "observations": 165,
+      "observed_pressure_range_gpa": [
+        43.1,
+        214.6
+      ],
+      "pair_count": 241,
+      "parameters": [
+        {
+          "difference": -15.539824812975581,
+          "parameter": "K0",
+          "published": 271.0,
+          "published_error": 3.0,
+          "refit": 255.46017518702442,
+          "refit_error": null,
+          "relative_difference": 0.057342526985149744,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.4050992083395548,
+          "parameter": "K0_prime",
+          "published": 3.89,
+          "published_error": 0.09,
+          "refit": 4.295099208339555,
+          "refit_error": null,
+          "relative_difference": 0.10413861396903723,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/2012JB009292",
-      "reason": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
+      "published_objective": 15.454156500512681,
+      "qualification": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
       "record_identifier": "molybdenum_dorfman_2012_tange_mgo_k0_free_vinet",
-      "source_notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
-      "status": "not_refittable"
+      "refit_objective": 12.197835855035798,
+      "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "status": "parity_not_achieved"
     },
     {
       "absolute_sigma": true,
@@ -23399,25 +23551,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -24679,47 +24831,123 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "joint_system",
+      "dataset_identifiers": [
+        "jgrb17272-sup-0002-txts01.pdf"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         226.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "simultaneous_cocompression_vinet",
       "fixed_parameters": [
         "V0",
         "K0"
       ],
+      "free_parameters": [
+        "K0_prime"
+      ],
       "label": "Dorfman et al. (2012), Pt K0-fixed Vinet",
       "material_identifier": "platinum",
       "model": "Vinet",
-      "primary_data_finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
-      "primary_data_status": "parameterization_only",
+      "objective": "Dorfman Equation (3)",
+      "observations": 165,
+      "observed_pressure_range_gpa": [
+        5.2,
+        231.3
+      ],
+      "pair_count": 241,
+      "parameters": [
+        {
+          "difference": -0.06458570987652301,
+          "parameter": "K0_prime",
+          "published": 5.43,
+          "published_error": 0.02,
+          "refit": 5.365414290123477,
+          "refit_error": null,
+          "relative_difference": 0.011894237546320997,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/2012JB009292",
-      "reason": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
+      "published_objective": 19.013986779601225,
+      "qualification": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
       "record_identifier": "platinum_dorfman_2012_tange_mgo_k0_fixed_vinet",
-      "source_notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
-      "status": "not_refittable"
+      "refit_objective": 14.374656780006166,
+      "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "status": "parity_not_achieved"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "joint_system",
+      "dataset_identifiers": [
+        "jgrb17272-sup-0002-txts01.pdf"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         226.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "simultaneous_cocompression_vinet",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Dorfman et al. (2012), Pt K0-free Vinet",
       "material_identifier": "platinum",
       "model": "Vinet",
-      "primary_data_finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
-      "primary_data_status": "parameterization_only",
+      "objective": "Dorfman Equation (3)",
+      "observations": 165,
+      "observed_pressure_range_gpa": [
+        5.2,
+        231.3
+      ],
+      "pair_count": 241,
+      "parameters": [
+        {
+          "difference": 14.309329931859168,
+          "parameter": "K0",
+          "published": 280.0,
+          "published_error": 2.0,
+          "refit": 294.30932993185917,
+          "refit_error": null,
+          "relative_difference": 0.05110474975663989,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.3911550469693088,
+          "parameter": "K0_prime",
+          "published": 5.29,
+          "published_error": 0.07,
+          "refit": 4.898844953030691,
+          "refit_error": null,
+          "relative_difference": 0.07394235292425497,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/2012JB009292",
-      "reason": "Published coefficients are executable; this import does not claim a new refit of row-level observations.",
+      "published_objective": 15.454156500512681,
+      "qualification": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
       "record_identifier": "platinum_dorfman_2012_tange_mgo_k0_free_vinet",
-      "source_notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
-      "status": "not_refittable"
+      "refit_objective": 12.197835855035798,
+      "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
+      "status": "parity_not_achieved"
     },
     {
       "dataset_identifiers": [],
@@ -30482,9 +30710,9 @@
     }
   ],
   "summary": {
-    "not_refittable": 586,
+    "not_refittable": 580,
     "parity": 144,
-    "parity_not_achieved": 21,
+    "parity_not_achieved": 27,
     "similar": 61,
     "total": 812
   }

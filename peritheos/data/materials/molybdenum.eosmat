@@ -990,7 +990,7 @@
     0.0,
     207.0
    ],
-   "pressure_range_status": "reported_exactly",
+   "pressure_range_status": "reference_parameterization",
    "validity": {
     "pressure_gpa": [
      0.0,
@@ -1001,24 +1001,38 @@
      300.0
     ],
     "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+     "The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.",
+     "The available auxiliary rows containing Mo span 43.1-214.6 GPa in the source's printed derived pressures."
     ]
    },
-   "notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
+   "notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
      {
       "kind": "equation_of_state",
-      "source_location": "tange_2009_mgo_reference",
-      "reference": "Tange et al. (2009) MgO pressure scale"
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "title": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
+       "source": "Journal of Geophysical Research",
+       "doi": "10.1029/2008JB005813"
+      },
+      "reference_eos_record": "mgo_b1_tange_2009_vinet",
+      "source_location": "Dorfman et al. Section 3.2 and Table 2; Tange et al. (2009) Table 4, Fit 3 Vinet",
+      "scope": "Fixed 300 K MgO anchor for the coupled fit",
+      "notes": "V0=74.698 A^3, K0=160.6 GPa, and K0-prime=4.37."
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "status": "ready",
+     "notes": "A lossless, checksummed CSV transcription of the paired conventional-cell volumes is bundled. The original publisher PDF is not redistributed. The reproducer can verify and regenerate the CSV from that exact source file."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
     "V0": "Table 2",
@@ -1027,8 +1041,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+    "audit_date": "2026-09-07",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1036,33 +1050,83 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "fit_scope",
+     "primary_data",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2012JB009292",
      "doi": "10.1029/2012JB009292",
      "locations": [
-      "Equation (2)",
-      "Table 2"
+      "Table 1",
+      "Equations (2)-(3)",
+      "Section 3.2",
+      "Table 2",
+      "auxiliary Tables S1-S6"
      ],
-     "finding": "Table 2 prints conventional-cell V0 and fixed/free-K0 Vinet solutions for Au, Mo, and Pt."
+     "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "status": "bundled",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "Equation (2)",
-      "Table 2"
+      "auxiliary Tables S1-S6"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+     "dataset_identifiers": [
+      "dorfman_2012_tables_s1_s6_cocompression"
+     ],
+     "resource": "peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv",
+     "reproduction_resource": "docs/data/dorfman-2012-cocompression-refit.json",
+     "source_sha256": "d7f7214cae4dabb3aae8a8585df4af7ada7990cb36b83a42ed7ed97e9eef7f2a",
+     "observation_rows": 165,
+     "pair_count": 241,
+     "available_observation_pressure_range_gpa": [
+      43.1,
+      214.6
+     ],
+     "missing_run": "Run AN012 is listed in article Table 1 (Au + NaCl, no medium, 1-164 GPa) but is not present in auxiliary Tables S1-S6.",
+     "fit_mode": "fixed",
+     "objective": 14.374656780006166,
+     "published_objective": 19.013986779601225,
+     "record_parameter_comparison": {
+      "K0_prime": {
+       "difference": -0.05190194410977078,
+       "published": 4.19,
+       "refit": 4.13809805589023,
+       "relative_difference": -0.012387098832880854
+      }
+     }
     }
    },
    "source_lineage": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar, Equation (2), Table 2",
+     "role": "simultaneous-fit equation and published coefficients",
+     "citation": "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar, Equations (2)-(3), Section 3.2, and Table 2",
      "doi": "10.1029/2012JB009292"
+    },
+    {
+     "role": "paired conventional-cell volume observations",
+     "citation": "Dorfman et al. (2012), auxiliary Tables S1-S6",
+     "doi": "10.1029/2012JB009292",
+     "sha256": "d7f7214cae4dabb3aae8a8585df4af7ada7990cb36b83a42ed7ed97e9eef7f2a",
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0002-txts01.pdf"
+    },
+    {
+     "role": "fixed MgO pressure anchor",
+     "citation": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments, Table 4 Fit 3 Vinet",
+     "doi": "10.1029/2008JB005813"
+    },
+    {
+     "role": "published correction (Figure S3 caption only)",
+     "citation": "Correction to Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar",
+     "doi": "10.1029/2012JB009800"
     }
+   ],
+   "fit_datasets": [
+    "dorfman_2012_tables_s1_s6_cocompression"
    ]
   },
   {
@@ -1106,7 +1170,7 @@
     0.0,
     207.0
    ],
-   "pressure_range_status": "reported_exactly",
+   "pressure_range_status": "reference_parameterization",
    "validity": {
     "pressure_gpa": [
      0.0,
@@ -1117,24 +1181,38 @@
      300.0
     ],
     "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+     "The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.",
+     "The available auxiliary rows containing Mo span 43.1-214.6 GPa in the source's printed derived pressures."
     ]
    },
-   "notes": "Simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO EOS as reference. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments.",
+   "notes": "Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
      {
       "kind": "equation_of_state",
-      "source_location": "tange_2009_mgo_reference",
-      "reference": "Tange et al. (2009) MgO pressure scale"
+      "reference": {
+       "authors": [
+        "Tange",
+        "Nishihara",
+        "Tsuchiya"
+       ],
+       "year": 2009,
+       "title": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
+       "source": "Journal of Geophysical Research",
+       "doi": "10.1029/2008JB005813"
+      },
+      "reference_eos_record": "mgo_b1_tange_2009_vinet",
+      "source_location": "Dorfman et al. Section 3.2 and Table 2; Tange et al. (2009) Table 4, Fit 3 Vinet",
+      "scope": "Fixed 300 K MgO anchor for the coupled fit",
+      "notes": "V0=74.698 A^3, K0=160.6 GPa, and K0-prime=4.37."
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "status": "ready",
+     "notes": "A lossless, checksummed CSV transcription of the paired conventional-cell volumes is bundled. The original publisher PDF is not redistributed. The reproducer can verify and regenerate the CSV from that exact source file."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
     "V0": "Table 2",
@@ -1143,8 +1221,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+    "audit_date": "2026-09-07",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1152,33 +1230,89 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "fit_scope",
+     "primary_data",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2012JB009292",
      "doi": "10.1029/2012JB009292",
      "locations": [
-      "Equation (2)",
-      "Table 2"
+      "Table 1",
+      "Equations (2)-(3)",
+      "Section 3.2",
+      "Table 2",
+      "auxiliary Tables S1-S6"
      ],
-     "finding": "Table 2 prints conventional-cell V0 and fixed/free-K0 Vinet solutions for Au, Mo, and Pt."
+     "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "status": "bundled",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "Equation (2)",
-      "Table 2"
+      "auxiliary Tables S1-S6"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "finding": "The checksummed official PDF yields 165 rows, 368 volume values, and 241 simultaneous material pairs. A lossless CSV transcription is bundled under a scoped CC0 dedication. A literal Equation (3) refit converges but does not recover the printed Table 2 coefficients.",
+     "dataset_identifiers": [
+      "dorfman_2012_tables_s1_s6_cocompression"
+     ],
+     "resource": "peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv",
+     "reproduction_resource": "docs/data/dorfman-2012-cocompression-refit.json",
+     "source_sha256": "d7f7214cae4dabb3aae8a8585df4af7ada7990cb36b83a42ed7ed97e9eef7f2a",
+     "observation_rows": 165,
+     "pair_count": 241,
+     "available_observation_pressure_range_gpa": [
+      43.1,
+      214.6
+     ],
+     "missing_run": "Run AN012 is listed in article Table 1 (Au + NaCl, no medium, 1-164 GPa) but is not present in auxiliary Tables S1-S6.",
+     "fit_mode": "free",
+     "objective": 12.197835855035798,
+     "published_objective": 15.454156500512681,
+     "record_parameter_comparison": {
+      "K0": {
+       "difference": -15.539824812975581,
+       "published": 271.0,
+       "refit": 255.46017518702442,
+       "relative_difference": -0.057342526985149744
+      },
+      "K0_prime": {
+       "difference": 0.4050992083395548,
+       "published": 3.89,
+       "refit": 4.295099208339555,
+       "relative_difference": 0.10413861396903723
+      }
+     }
     }
    },
    "source_lineage": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar, Equation (2), Table 2",
+     "role": "simultaneous-fit equation and published coefficients",
+     "citation": "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar, Equations (2)-(3), Section 3.2, and Table 2",
      "doi": "10.1029/2012JB009292"
+    },
+    {
+     "role": "paired conventional-cell volume observations",
+     "citation": "Dorfman et al. (2012), auxiliary Tables S1-S6",
+     "doi": "10.1029/2012JB009292",
+     "sha256": "d7f7214cae4dabb3aae8a8585df4af7ada7990cb36b83a42ed7ed97e9eef7f2a",
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0002-txts01.pdf"
+    },
+    {
+     "role": "fixed MgO pressure anchor",
+     "citation": "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments, Table 4 Fit 3 Vinet",
+     "doi": "10.1029/2008JB005813"
+    },
+    {
+     "role": "published correction (Figure S3 caption only)",
+     "citation": "Correction to Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar",
+     "doi": "10.1029/2012JB009800"
     }
+   ],
+   "fit_datasets": [
+    "dorfman_2012_tables_s1_s6_cocompression"
    ]
   }
  ],
@@ -1315,6 +1449,118 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "dorfman_2012_tables_s1_s6_cocompression",
+   "kind": "simultaneous_unit_cell_volumes",
+   "description": "All 368 non-missing conventional-cell volume measurements from 165 aligned observations in auxiliary Tables S1-S6.",
+   "reference": {
+    "authors": [
+     "Dorfman",
+     "Prakapenka",
+     "Meng",
+     "Duffy"
+    ],
+    "year": 2012,
+    "title": "Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar",
+    "source": "Journal of Geophysical Research",
+    "doi": "10.1029/2012JB009292"
+   },
+   "source_location": "Auxiliary Tables S1-S6",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0002-txts01.pdf",
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Peritheos-created factual CSV transcription, normalization, column naming, and arrangement, solely to the extent contributors hold rights; excludes the article, publisher PDF, and all third-party rights.",
+   "columns": [
+    {
+     "name": "observation_index",
+     "quantity": "observation_index",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_pdf_page",
+     "quantity": "source_page",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experiment_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "row_in_run",
+     "quantity": "measurement_sequence",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "material",
+     "quantity": "material_identifier",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "volume_source_token",
+     "quantity": "source_token",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_standard_error_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_error",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "reported_pressure_source_token",
+     "quantity": "source_token",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "reported_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "single_peak_mgo",
+     "quantity": "single_peak_indicator",
+     "unit": "dimensionless",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/dorfman-2012-tables-s1-s6-cocompression.csv",
+    "sha256": "c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "lossless_text_table_transcription",
+    "official_supporting_pdf_sha256": "d7f7214cae4dabb3aae8a8585df4af7ada7990cb36b83a42ed7ed97e9eef7f2a",
+    "extractor": "Poppler pdftotext -tsv, pages 1-5"
+   },
+   "used_by_eos_records": [
+    "molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet",
+    "molybdenum_dorfman_2012_tange_mgo_k0_free_vinet"
+   ],
+   "notes": "Exact printed volume and pressure tokens are retained beside normalized numeric values. Reported pressures are source-derived EOS outputs used only for transcription checks, not fit observations. The three starred MgO single-peak measurements are retained. Run AN012 is listed in article Table 1 but absent from Tables S1-S6. The CC0 dedication is scoped by the adjacent LICENSE file and does not relicense the source article or PDF."
   }
  ]
 }

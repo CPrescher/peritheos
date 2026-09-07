@@ -48,8 +48,8 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 208 distinct primary datasets with 11,891 observation
-rows, represented by 227 material-document links to 260 EOS records.
+The current bundle contains 209 distinct primary datasets with 12,259 observation
+rows, represented by 230 material-document links to 266 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
 and phase entries while retaining the simultaneously measured Cu reference
@@ -59,6 +59,11 @@ SHA-256-checksummed CSV resources under `../datasets/`. Quantities and
 uncertainties retain the paper's reported conventions and units, including
 formula-unit volumes, molar volumes, densities, lattice parameters, and
 pressure-calibrant readings.
+
+Dataset-specific reuse terms are recorded in metadata. For the Dorfman et al.
+co-compression table, CC0 applies only to rights held by Peritheos contributors
+in the factual CSV transcription and arrangement; it does not relicense the
+publisher's article, auxiliary PDF, or third-party rights.
 
 Dataset links describe the observations associated with a record; they do not
 assert that every row entered the published regression. Row-selection details

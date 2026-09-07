@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -17,7 +18,17 @@ MATERIALS = ROOT / "peritheos" / "data" / "materials"
 DATASET = (
     ROOT / "peritheos" / "data" / "datasets" / "experimental-metal-eos-batch-200.csv"
 )
+DORFMAN_REFIT = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DORFMAN_DATASET = (
+    ROOT
+    / "peritheos"
+    / "data"
+    / "datasets"
+    / "dorfman-2012-tables-s1-s6-cocompression.csv"
+)
+DORFMAN_DATASET_ID = "dorfman_2012_tables_s1_s6_cocompression"
 AUDIT_DATE = "2026-09-06"
+DORFMAN_AUDIT_DATE = "2026-09-07"
 CM3_MOL_TO_A3_FORMULA = 1.6605390671738466
 
 DELTA_EXPERIMENT = """element,V0,K0,K0p
@@ -172,6 +183,87 @@ def reference(
         "title": title,
         "source": source,
         "doi": doi,
+    }
+
+
+def dorfman_dataset(
+    material: str, dor_ref: dict[str, Any], dor_refit: dict[str, Any]
+) -> dict[str, Any]:
+    record_ids = [
+        f"{material}_dorfman_2012_tange_mgo_k0_{mode}_vinet"
+        for mode in ("fixed", "free")
+    ]
+    columns = [
+        ("observation_index", "observation_index", "dimensionless", "flag"),
+        ("source_table", "source_table", "dimensionless", "flag"),
+        ("source_pdf_page", "source_page", "dimensionless", "flag"),
+        ("run", "experiment_identifier", "dimensionless", "flag"),
+        ("row_in_run", "measurement_sequence", "dimensionless", "flag"),
+        ("material", "material_identifier", "dimensionless", "flag"),
+        ("volume_source_token", "source_token", "dimensionless", "flag"),
+        (
+            "volume_a3_conventional_cell",
+            "volume",
+            "angstrom^3/conventional_unit_cell",
+            "value",
+        ),
+        (
+            "volume_standard_error_a3",
+            "volume",
+            "angstrom^3/conventional_unit_cell",
+            "standard_error",
+        ),
+        (
+            "reported_pressure_source_token",
+            "source_token",
+            "dimensionless",
+            "flag",
+        ),
+        ("reported_pressure_gpa", "pressure", "GPa", "value"),
+        ("single_peak_mgo", "single_peak_indicator", "dimensionless", "flag"),
+    ]
+    column_metadata = [
+        {"name": name, "quantity": quantity, "unit": unit, "role": role}
+        for name, quantity, unit, role in columns
+    ]
+    column_metadata[8]["of"] = "volume_a3_conventional_cell"
+    return {
+        "identifier": DORFMAN_DATASET_ID,
+        "kind": "simultaneous_unit_cell_volumes",
+        "description": (
+            "All 368 non-missing conventional-cell volume measurements from 165 "
+            "aligned observations in auxiliary Tables S1-S6."
+        ),
+        "reference": dor_ref,
+        "source_location": "Auxiliary Tables S1-S6",
+        "source_url": dor_refit["source"]["supporting_url"],
+        "license": "CC0-1.0",
+        "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+        "license_scope": (
+            "Peritheos-created factual CSV transcription, normalization, column naming, "
+            "and arrangement, solely to the extent contributors hold rights; excludes "
+            "the article, publisher PDF, and all third-party rights."
+        ),
+        "columns": column_metadata,
+        "resource": {
+            "path": "datasets/dorfman-2012-tables-s1-s6-cocompression.csv",
+            "sha256": hashlib.sha256(DORFMAN_DATASET.read_bytes()).hexdigest(),
+            "media_type": "text/csv",
+        },
+        "provenance": {
+            "type": "lossless_text_table_transcription",
+            "official_supporting_pdf_sha256": dor_refit["source"]["supporting_sha256"],
+            "extractor": "Poppler pdftotext -tsv, pages 1-5",
+        },
+        "used_by_eos_records": record_ids,
+        "notes": (
+            "Exact printed volume and pressure tokens are retained beside normalized "
+            "numeric values. Reported pressures are source-derived EOS outputs used only "
+            "for transcription checks, not fit observations. The three starred MgO "
+            "single-peak measurements are retained. Run AN012 is listed in article Table "
+            "1 but absent from Tables S1-S6. The CC0 dedication is scoped by the adjacent "
+            "LICENSE file and does not relicense the source article or PDF."
+        ),
     }
 
 
@@ -504,6 +596,21 @@ def build_records(
         "Journal of Geophysical Research",
         "10.1029/2012JB009292",
     )
+    dor_refit = json.loads(DORFMAN_REFIT.read_text(encoding="utf-8"))
+    tange_ref = reference(
+        ["Tange", "Nishihara", "Tsuchiya"],
+        2009,
+        "Unified analyses for P-V-T equation of state of MgO: A solution for pressure-scale problems in high P-T experiments",
+        "Journal of Geophysical Research",
+        "10.1029/2008JB005813",
+    )
+    correction_ref = reference(
+        ["Dorfman", "Prakapenka", "Meng", "Duffy"],
+        2012,
+        "Correction to Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to 2.5 Mbar",
+        "Journal of Geophysical Research",
+        "10.1029/2012JB009800",
+    )
     for row in rows(DORFMAN_2012):
         material = row["material"]
         for mode in ("fixed", "free"):
@@ -533,6 +640,146 @@ def build_records(
                 errors,
                 fixed,
             )
+            refit = dor_refit["fits"][mode]
+            comparison = refit["published_parameter_comparison"][row["solid"]]
+            source_range = dor_refit["selection"][
+                "printed_pressure_range_gpa_by_material"
+            ][row["solid"]]
+            rec["pressure_range_status"] = "reference_parameterization"
+            rec["validity"]["notes"] = [
+                "The 0-Pmax range follows the published Table 2 pressure-standard parameterization; it is not the observation envelope.",
+                f"The available auxiliary rows containing {row['solid']} span {source_range[0]}-{source_range[1]} GPa in the source's printed derived pressures.",
+            ]
+            rec["notes"] = (
+                "Published simultaneous co-compression pressure-standard fit using "
+                "the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K "
+                "anchor. Fixed- and free-K0 solutions are correlated alternatives, "
+                "not independent experiments. The coefficients remain the printed "
+                "Table 2 values: the independent source-row refit is a diagnostic "
+                "and does not overwrite them."
+            )
+            rec["fit_datasets"] = [DORFMAN_DATASET_ID]
+            rec["pressure_calibration"] = {
+                "status": "resolved",
+                "methods": [
+                    {
+                        "kind": "equation_of_state",
+                        "reference": tange_ref,
+                        "reference_eos_record": "mgo_b1_tange_2009_vinet",
+                        "source_location": (
+                            "Dorfman et al. Section 3.2 and Table 2; Tange et al. "
+                            "(2009) Table 4, Fit 3 Vinet"
+                        ),
+                        "scope": "Fixed 300 K MgO anchor for the coupled fit",
+                        "notes": "V0=74.698 A^3, K0=160.6 GPa, and K0-prime=4.37.",
+                    }
+                ],
+                "recalculation": {
+                    "status": "ready",
+                    "notes": (
+                        "A lossless, checksummed CSV transcription of the paired "
+                        "conventional-cell volumes is bundled. The original publisher "
+                        "PDF is not redistributed. The reproducer can verify and "
+                        "regenerate the CSV from that exact source file."
+                    ),
+                },
+                "audit_date": DORFMAN_AUDIT_DATE,
+            }
+            rec["scientific_validation"] = {
+                "status": "primary_source_validated",
+                "note": (
+                    "Equation, coefficients, simultaneous-fit objective, fixed MgO "
+                    "anchor, auxiliary paired-volume rows, correction, and fit "
+                    "reproducibility were checked directly. The available source "
+                    "rows do not reproduce the published coefficients."
+                ),
+                "audit_date": DORFMAN_AUDIT_DATE,
+                "verified_fields": [
+                    "equation",
+                    "parameters",
+                    "units",
+                    "reference_state",
+                    "phase",
+                    "published_uncertainties",
+                    "validity",
+                    "pressure_calibration",
+                    "fit_scope",
+                    "primary_data",
+                    "fit_reproducibility",
+                ],
+                "primary_source_check": {
+                    "access_url": "https://doi.org/10.1029/2012JB009292",
+                    "doi": dor_ref["doi"],
+                    "locations": [
+                        "Table 1",
+                        "Equations (2)-(3)",
+                        "Section 3.2",
+                        "Table 2",
+                        "auxiliary Tables S1-S6",
+                    ],
+                    "finding": (
+                        "The article defines a coupled pressure-difference objective "
+                        "and Table 2 prints the two correlated Vinet solutions. The "
+                        "official auxiliary PDF provides 165 aligned volume rows; "
+                        "AN012 is listed in Table 1 but absent from that PDF."
+                    ),
+                },
+                "primary_data_check": {
+                    "status": "bundled",
+                    "audit_date": DORFMAN_AUDIT_DATE,
+                    "source_locations": ["auxiliary Tables S1-S6"],
+                    "finding": (
+                        "The checksummed official PDF yields 165 rows, 368 volume "
+                        "values, and 241 simultaneous material pairs. A lossless CSV "
+                        "transcription is bundled under a scoped CC0 dedication. A "
+                        "literal Equation (3) refit converges but does not recover the "
+                        "printed Table 2 coefficients."
+                    ),
+                    "dataset_identifiers": [DORFMAN_DATASET_ID],
+                    "resource": (
+                        "peritheos/data/datasets/"
+                        "dorfman-2012-tables-s1-s6-cocompression.csv"
+                    ),
+                    "reproduction_resource": (
+                        "docs/data/dorfman-2012-cocompression-refit.json"
+                    ),
+                    "source_sha256": dor_refit["source"]["supporting_sha256"],
+                    "observation_rows": dor_refit["selection"]["observation_rows"],
+                    "pair_count": dor_refit["selection"]["pair_count"],
+                    "available_observation_pressure_range_gpa": source_range,
+                    "missing_run": dor_refit["selection"]["missing_run"],
+                    "fit_mode": mode,
+                    "objective": refit["objective"],
+                    "published_objective": refit["published_objective"],
+                    "record_parameter_comparison": comparison,
+                },
+            }
+            rec["source_lineage"] = [
+                {
+                    "role": "simultaneous-fit equation and published coefficients",
+                    "citation": (
+                        f"{dor_ref['title']}, Equations (2)-(3), Section 3.2, and Table 2"
+                    ),
+                    "doi": dor_ref["doi"],
+                },
+                {
+                    "role": "paired conventional-cell volume observations",
+                    "citation": "Dorfman et al. (2012), auxiliary Tables S1-S6",
+                    "doi": dor_ref["doi"],
+                    "sha256": dor_refit["source"]["supporting_sha256"],
+                    "access_url": dor_refit["source"]["supporting_url"],
+                },
+                {
+                    "role": "fixed MgO pressure anchor",
+                    "citation": f"{tange_ref['title']}, Table 4 Fit 3 Vinet",
+                    "doi": tange_ref["doi"],
+                },
+                {
+                    "role": "published correction (Figure S3 caption only)",
+                    "citation": correction_ref["title"],
+                    "doi": correction_ref["doi"],
+                },
+            ]
             add(result, material, rec)
 
     thermal_ref = reference(
@@ -683,6 +930,21 @@ def apply_records(
             for record in document["eos_records"]
             if record["identifier"] not in identifiers
         ] + additions
+        if material in {"gold", "molybdenum", "platinum"}:
+            dor_ref = next(
+                record["reference"]
+                for record in additions
+                if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]
+            )
+            dor_refit = json.loads(DORFMAN_REFIT.read_text(encoding="utf-8"))
+            datasets = [
+                dataset
+                for dataset in document.get("datasets", [])
+                if dataset["identifier"] != DORFMAN_DATASET_ID
+            ]
+            document["datasets"] = datasets + [
+                dorfman_dataset(material, dor_ref, dor_refit)
+            ]
         (MATERIALS / f"{material}.eosmat").write_text(
             json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
             encoding="utf-8",

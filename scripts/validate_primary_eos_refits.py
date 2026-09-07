@@ -35,6 +35,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
+DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -2249,6 +2250,61 @@ def _masked_series(series: Series, mask: np.ndarray, selection: str) -> Series:
     )
 
 
+def _dorfman_cocompression_outcome(
+    material_id: str, record: dict[str, Any]
+) -> dict[str, Any]:
+    summary = json.loads(DORFMAN_REFIT_JSON.read_text(encoding="utf-8"))
+    source_material = {"gold": "Au", "molybdenum": "Mo", "platinum": "Pt"}[
+        material_id
+    ]
+    mode = "fixed" if "_k0_fixed_" in record["identifier"] else "free"
+    fit = summary["fits"][mode]
+    comparisons = []
+    for name, comparison in fit["published_parameter_comparison"][
+        source_material
+    ].items():
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": comparison["published"],
+                "published_error": record["parameter_errors"].get(name),
+                "refit": comparison["refit"],
+                "refit_error": None,
+                "difference": comparison["difference"],
+                "relative_difference": abs(comparison["relative_difference"]),
+                "within_combined_2sigma": None,
+                "similar": False,
+            }
+        )
+    return {
+        "status": "parity_not_achieved",
+        "dataset_identifiers": [summary["source"]["supporting_filename"]],
+        "observations": summary["selection"]["observation_rows"],
+        "pair_count": summary["selection"]["pair_count"],
+        "fit_kind": "simultaneous_cocompression_vinet",
+        "objective": "Dorfman Equation (3)",
+        "published_objective": fit["published_objective"],
+        "refit_objective": fit["objective"],
+        "comparison_scope": "joint_system",
+        "parameters": comparisons,
+        "free_parameters": [item["parameter"] for item in comparisons],
+        "observed_pressure_range_gpa": summary["selection"][
+            "printed_pressure_range_gpa_by_material"
+        ][source_material],
+        "selection": summary["selection"]["rule"],
+        "solver_success": fit["success"],
+        "solver_message": fit["message"],
+        "qualification": (
+            "Complete reproduction of the rows available in official auxiliary "
+            "Tables S1-S6, using the source's coupled Equation (3) objective and "
+            "fixed Tange MgO anchor. The fit converges to a lower objective but "
+            "does not recover Table 2. Run AN012 is listed in article Table 1 yet "
+            "absent from the auxiliary PDF; unrounded inputs, row-selection detail, "
+            "fit code, and covariance are unavailable."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     for material_id in list_material_documents():
@@ -2285,7 +2341,9 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if not identifiers:
+            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+                outcome = _dorfman_cocompression_outcome(material_id, record)
+            elif not identifiers:
                 outcome = {
                     "status": "not_refittable",
                     "dataset_identifiers": [],
