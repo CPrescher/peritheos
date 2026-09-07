@@ -1,0 +1,250 @@
+{
+  "format": "peritheos.deltaproject-experimental-reference-source",
+  "format_version": 1,
+  "archive": {
+    "title": "Delta project — archive of old website",
+    "creator": "Stefaan Cottenier",
+    "published": "2023-08-29",
+    "url": "https://archive.materialscloud.org/record/2023.133",
+    "doi": "10.24435/materialscloud:5e-mv",
+    "license": "CC BY 4.0",
+    "files": {
+      "Delta project web site archive.zip": {
+        "md5": "0e6b6fe348c7ebbdae08aec791358c99",
+        "sha256": "a9e1e553ed76e60e7ab1673960f6919baa23ea3698e00395c3c5bda0a2a2179a"
+      },
+      "Delta_v3-1_0.zip": {
+        "md5": "cc6f98ae9e30c9ee0b6ea78cb8713dce",
+        "sha256": "c5634a973e35056a3e7484a545b92dfe69ab5edac5e0f418991451c4797ccb28"
+      },
+      "Delta_v3-1_0.zip/history.tar.gz": {
+        "md5": "e08f61ddf4212f8cb3cf8424d67798a2",
+        "sha256": "2449718b758e9eedf411df594c4551f05cbce6683100be5b358327b180ee28f7"
+      },
+      "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt": {
+        "md5": "1381034ff4d44955430f1a95a57690e6",
+        "sha256": "d51a80e1af9cd2d55557cb2f807a77743ff02fe875328c31e287b1db5da59cbe"
+      }
+    }
+  },
+  "method_publication": {
+    "authors": [
+      "Kurt Lejaeghere",
+      "Veronique Van Speybroeck",
+      "Guido Van Oost",
+      "Stefaan Cottenier"
+    ],
+    "year": 2014,
+    "title": "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals",
+    "doi": "10.1080/10408436.2013.772503",
+    "author_manuscript_url": "https://arxiv.org/abs/1204.2733",
+    "supplement_sha256": "fd829316caa4940fcf6a8448381903777d331a3f0305b9a04781802d9a60c1f9",
+    "supplement_license": "The arXiv item carries the arXiv perpetual non-exclusive license; only citations and independently stated facts are redistributed here. The exact exp.txt coefficient table is instead taken from the CC BY 4.0 Materials Cloud archive."
+  },
+  "selection": {
+    "description": "42 elemental-metal rows selected verbatim from the 58-row archived exp.txt comparison table",
+    "record_count": 42,
+    "archive_row_count": 58,
+    "dataset": "datasets/deltaproject-experimental-reference-parameters.csv",
+    "units": {
+      "V0": "angstrom^3/atom",
+      "B0": "GPa",
+      "B0_prime": "dimensionless"
+    }
+  },
+  "scientific_interpretation": {
+    "classification": "compiled_experimental_reference_parameterization",
+    "not_raw_observations": true,
+    "not_a_single_experimental_fit": true,
+    "equation": "Third-order Birch-Murnaghan energy/pressure curve constructed from the archived V0, B0, and B0-prime triplet for Delta comparisons.",
+    "comparison_domain": "The 2014 asymmetric Delta definition integrates the constructed reference curve over 0.94-1.06 times its V0. This is a comparison window, not experimental coverage or a phase-stability range.",
+    "temperature_state": "V0 and B0 are the review authors' derived static-lattice comparison values after approximate room-temperature and zero-point corrections. B0-prime was explicitly left uncorrected.",
+    "pressure_calibration": "Not applicable at record level: the three coefficients are heterogeneous literature properties, not a fit to one pressure-volume dataset.",
+    "refit_status": "not_possible",
+    "refit_reason": "Neither the archive nor the 2014 supplement supplies a unified row-level P-V dataset, uncertainties, covariance, pressure calibration, weighting, or selection rules for these constructed triplets."
+  },
+  "correction_method": {
+    "locations": [
+      "Lejaeghere et al. (2014), Section II.B, equations (7)-(13)",
+      "Lejaeghere et al. (2014) Supplementary Material, Tables 2.2-2.4"
+    ],
+    "V0": "The source removes an approximate 0-to-room-temperature expansion and a Debye zero-point volume shift from the compiled experimental volume.",
+    "B0": "The source applies a thermal-expansion correction and a Debye zero-point correction using the intrinsic BM3 B0*B2 relation.",
+    "B0_prime": "The source explicitly applies no thermal or zero-point correction because this higher-order property is too uncertain.",
+    "precision_limit": "The supplement prints rounded inputs and corrections, while exp.txt stores more digits. The archived coefficients can be transcribed exactly, but their extra digits cannot be independently regenerated from the printed supplement."
+  },
+  "upstream_recovery": {
+    "audit_date": "2026-09-07",
+    "scope": "Recovery of the property-level sources behind the 42 selected Delta comparison triplets. A recovered coefficient table or analytical pressure-volume relation is not relabeled as raw observations.",
+    "source_files_checked": {
+      "knittle_1995_handbook": {
+        "doi": "10.1029/RF002p0098",
+        "official_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/RF002p0098",
+        "public_copy_url": "https://web.archive.org/web/20240414161837id_/https://citeseerx.ist.psu.edu/document?repid=rep1&type=pdf&doi=eb44939bf2656c3f6d564188dcc9315d65a5c35a",
+        "sha256": "d4999a8461897ebd175b10f49c83112c786c29498c3a761f1b834e6fe7f7673b",
+        "locations": [
+          "chapter pages 98-142",
+          "Table 1, element rows on pages 122-131",
+          "references on pages 135-142"
+        ]
+      },
+      "anderson_swenson_1983_alkali_metals": {
+        "doi": "10.1103/PhysRevB.28.5395",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.28.5395/fulltext",
+        "sha256": "19098d7bef015c0ea62f4424da0bc4956d358ace76e587f66c0190efc5b15dd4",
+        "locations": [
+          "Tables II-IV: fitted isotherm summaries",
+          "Table VII: smooth P(V/V0) relations"
+        ]
+      },
+      "anderson_swenson_1985_lithium_cesium": {
+        "doi": "10.1103/PhysRevB.31.668",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.31.668/fulltext",
+        "sha256": "9d5f7ef51d0ed8c8c052ee3ceb8a2ebda91d0809e51499c0dca710016965aade",
+        "locations": [
+          "Tables I and III: fitted isotherm summaries",
+          "Table II: smoothed room-temperature and 4 K compression relations"
+        ]
+      },
+      "anderson_swenson_peterson_1990_alkaline_earths": {
+        "doi": "10.1103/PhysRevB.41.3329",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.41.3329/fulltext",
+        "sha256": "feb14826cc7412c0005b8c106233a7791aabb9c6eeaa9dceaf1b355de71be090",
+        "locations": [
+          "Table I: thermodynamic parameters and smoothed P-V relations for Ca, Sr, and Ba"
+        ]
+      },
+      "fujihisa_takemura_1995_manganese": {
+        "doi": "10.1103/PhysRevB.52.13257",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.52.13257/fulltext",
+        "sha256": "098f78cee90db9d963c5c525e20ba5505b6f3da9796e17f98d623c292b21dfcd",
+        "locations": [
+          "Figure 3 and its discussion: plotted P-V observations and Vinet fit"
+        ]
+      },
+      "price_rowe_nicklow_1971_gray_tin": {
+        "doi": "10.1103/PhysRevB.3.1268",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.3.1268/fulltext",
+        "sha256": "7d53a4dd1f6277831e214e322453ff6d3c5d6c45aed521ca498db59130840189",
+        "locations": [
+          "Table II: calculated elastic properties of alpha-Sn"
+        ]
+      },
+      "takemura_2004_osmium": {
+        "doi": "10.1103/PhysRevB.70.012101",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext",
+        "sha256": "ff6ac6c18e870ca956933c515ce0702e7d04d43bd78d9968db828329000003b2",
+        "locations": [
+          "Table I, page 012101-2: all 28 pressure-lattice/relative-volume observations",
+          "Figure 2 and adjoining text: BM3 fit variants"
+        ]
+      }
+    },
+    "property_findings": {
+      "V0": {
+        "status": "upstream_table_identified",
+        "finding": "Villars and Daams (1993) is a crystallographic structure/volume compilation, not a pressure-volume experiment. Supplementary Table 2.2 preserves the rounded ambient volumes and the applied thermal and zero-point shifts; no per-element raw compression observations exist in this branch."
+      },
+      "B0_default": {
+        "status": "secondary_table_recovered",
+        "finding": "Kittel Table 3 is the immediate source for 40 selected metals. The table itself identifies Gschneidner (1964), DOI 10.1016/S0081-1947(08)60518-4, as its principal compilation and Birch (1966) as an additional source, and explicitly advises consulting original references for research use. This branch is therefore not raw data."
+      },
+      "B0_Mn": {
+        "status": "published_fit_recovered_plot_only",
+        "finding": "Fujihisa and Takemura fit plotted alpha-Mn compression observations with a Vinet EOS and report B0=158+/-3 GPa and B0-prime=4.6+/-0.1. Delta takes the uncorrected B0=158 GPa from this paper but takes B0-prime=6.6 from Knittle's separate 1988 alpha-Mn entry. The paper prints no row-level P-V table, so the plot was not digitized."
+      },
+      "B0_Sn": {
+        "status": "derived_elastic_property_recovered",
+        "finding": "Price, Rowe, and Nicklow is a neutron lattice-dynamics/shell-model study of alpha-Sn, not a compression EOS. Its calculated Table II constants C11=0.690 and C12=0.293 in 10^12 dyn/cm^2 give (C11+2*C12)/3=0.425333... in the same units, or 42.5333... GPa, reproducing the 42.5 GPa input after rounding."
+      },
+      "B0_prime_default": {
+        "status": "30_of_32_values_reconstructed",
+        "dataset": "datasets/deltaproject-knittle-1995-b0prime-reconstruction.csv",
+        "finding": "Knittle Table 1 directly supplies, or supplies the entries whose arithmetic mean gives, 30 of the 32 default Delta B0-prime values. Fe=4.6 and Au=6.4 cannot be reproduced by a documented selection or simple mean of the listed rows. The reconstruction retains Knittle's reference numbers and phase warnings."
+      },
+      "B0_prime_Guinan_Steinberg": {
+        "status": "coefficient_source_identified_full_table_unavailable",
+        "finding": "The cited 1974 paper is an experimental/estimated elastic-modulus derivative compilation, not a row-level pressure-volume dataset. Its full coefficient table was not lawfully accessible during this audit, so the seven Delta values are retained only as supplement/archive coefficients."
+      },
+      "B0_prime_Sc": {
+        "status": "secondary_shock_compilation_only",
+        "finding": "Batsanov (1994) is a shock-compression monograph. No row-level Sc observations or transparent derivation for 2.8 were recovered; it remains a citation-level compiled coefficient."
+      },
+      "B0_prime_Os": {
+        "status": "row_level_data_recovered_and_refit",
+        "dataset": "datasets/osmium-takemura-2004-table1-compression.csv",
+        "record": "osmium_takemura_2004_bm3_1",
+        "finding": "All 28 Table I observations are already bundled. The independent errors-in-variables BM3 refit gives B0=403.522 GPa and B0-prime=4.253, within the paper's conservative 395+/-15 GPa and 4.5+/-0.5; an unweighted fixed-V0 fit to the 27 increasing-pressure run-A/run-B rows gives 395.566 GPa and 4.49887, reproducing the printed central fit from the rounded table. Delta nevertheless combines Takemura's B0-prime with a Kittel-derived B0 rather than using Takemura's fitted pair."
+      },
+      "B0_prime_Tl": {
+        "status": "citation_resolved_conflict_unresolved",
+        "finding": "The supplement cites Li et al., Four-parameter equation of state and determination of the thermal and mechanical properties of metals, DOI 10.1016/j.jallcom.2006.05.046, for Tl B0-prime=5.8. The paper is a 40-metal four-parameter EOS/property compilation, not an identified Tl P-V experiment. Archive exp.txt instead uses 3.0, which is exactly the Tl row in Knittle Table 1 (Vaidya and Kennedy ref. 201); the archive does not document this replacement."
+      }
+    },
+    "original_data_policy": "Only source-printed tables or author/publisher-hosted machine-readable observations are treated as recoverable data. Plots are not digitized, and paywalled or unavailable tables are not inferred."
+  },
+  "upstream_sources": {
+    "V0_all_selected_metals": {
+      "citation": "P. Villars and J. L. C. Daams, Atomic-environment classification of the chemical elements, Journal of Alloys and Compounds 197, 177-196 (1993)",
+      "doi": "10.1016/0925-8388(93)90041-K",
+      "role": "ambient/reference crystallographic volume tabulation used in Supplementary Table 2.2"
+    },
+    "B0_default": {
+      "citation": "C. Kittel, Introduction to Solid State Physics, 8th edition (2005)",
+      "role": "default bulk-modulus compilation used in Supplementary Table 2.3"
+    },
+    "B0_Mn": {
+      "citation": "H. Fujihisa and K. Takemura, Stability and the equation of state of alpha-manganese under ultrahigh pressure, Physical Review B 52, 13257-13260 (1995)",
+      "doi": "10.1103/PhysRevB.52.13257"
+    },
+    "B0_Sn": {
+      "citation": "D. L. Price, J. M. Rowe, and R. M. Nicklow, Physical Review B 3, 1268 (1971)",
+      "doi": "10.1103/PhysRevB.3.1268"
+    },
+    "B0_prime_default": {
+      "citation": "E. Knittle, Static Compression Measurements of Equations of State, in Mineral Physics & Crystallography: A Handbook of Physical Constants, pp. 98-142 (1995)",
+      "doi": "10.1029/RF002p0098"
+    },
+    "B0_prime_Sc": {
+      "citation": "S. S. Batsanov, Effects of Explosions on Materials: Modification and Synthesis under High-Pressure Shock Compression (1994)"
+    },
+    "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt": {
+      "citation": "M. W. Guinan and D. J. Steinberg, Pressure and temperature derivatives of the isotropic polycrystalline shear modulus for 65 elements, Journal of Physics and Chemistry of Solids 35, 1501-1512 (1974)",
+      "doi": "10.1016/S0022-3697(74)80278-7"
+    },
+    "B0_prime_Os": {
+      "citation": "K. Takemura, Physical Review B 70, 012101 (2004)",
+      "doi": "10.1103/PhysRevB.70.012101"
+    },
+    "B0_prime_Tl_printed": {
+      "citation": "J. H. Li, S. H. Liang, H. B. Guo, and B. X. Liu, Four-parameter equation of state and determination of the thermal and mechanical properties of metals, Journal of Alloys and Compounds 431, 23-31 (2007)",
+      "doi": "10.1016/j.jallcom.2006.05.046",
+      "role": "Supplementary Table 2.4 citation for printed Tl B0-prime=5.8; a multi-metal EOS/property compilation rather than an identified Tl compression dataset"
+    }
+  },
+  "known_conflicts": [
+    {
+      "element": "Tl",
+      "field": "B0_prime",
+      "archive_exp_txt": 3.0,
+      "2014_supplement_table_2_4": 5.8,
+      "resolution": "The executable record preserves the exact CC BY archive value and flags the conflict. It must not attribute 3.0 to the 2014 printed table or to Li et al. (2007) without further evidence."
+    },
+    {
+      "element": "Sr",
+      "field": "B0_prime_component",
+      "knittle_1995_table_1_ref_12": 2.47,
+      "anderson_1990_table_1": 2.41,
+      "resolution": "The Delta value 2.485 is exactly the mean of Knittle's printed 2.5 and 2.47 values. The reconstruction preserves that immediate-source arithmetic but flags that ref. 12 itself prints 2.41(5), not 2.47."
+    }
+  ],
+  "known_phase_mismatches": [
+    {
+      "element": "Sn",
+      "field": "B0_prime",
+      "delta_reference_phase": "alpha-Sn (gray tin, diamond structure)",
+      "knittle_component_phase": "beta-Sn (white tin, ambient body-centered tetragonal structure)",
+      "finding": "Delta's B0-prime=4.0 is the arithmetic mean of Knittle's 4.8, 4.9, and 2.3 beta-Sn entries, while Delta's V0 and B0 are for alpha-Sn. The resulting BM3 curve is a phase-mixed comparison construction."
+    }
+  ]
+}

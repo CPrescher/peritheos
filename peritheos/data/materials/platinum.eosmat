@@ -2075,6 +2075,171 @@
    "fit_datasets": [
     "dorfman_2012_tables_s1_s6_cocompression"
    ]
+  },
+  {
+   "identifier": "platinum_delta_archive_experimental_reference_bm3",
+   "label": "Delta archive (2023), Pt compiled experimental-reference BM3",
+   "record_kind": "derived",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Stefaan Cottenier"
+    ],
+    "year": 2023,
+    "title": "Delta project — archive of old website",
+    "source": "Materials Cloud Archive",
+    "doi": "10.24435/materialscloud:5e-mv"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 60.0886777052,
+     "K0": 285.5122223387,
+     "K0_prime": 5.18
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "pressure_range_status": "reference_parameterization",
+   "validity": {
+    "volume_ratio": [
+     0.94,
+     1.06
+    ],
+    "notes": [
+     "Historical Delta integration window for the constructed BM3 reference curve; not a measured pressure/volume envelope.",
+     "No phase-stability or extrapolation claim is made."
+    ]
+   },
+   "notes": "This is a derived Delta-comparison reference curve, not a fit to one experimental P-V dataset. V0, K0, and K0-prime were compiled from heterogeneous sources; the review authors approximately corrected V0 and K0 to a static-lattice 0 K comparison state and explicitly left K0-prime uncorrected.",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Heterogeneous property compilation documented in Lejaeghere et al. (2014) Supplementary Tables 2.2-2.4",
+      "scope": "derived comparison coefficients, not one pressure-volume experiment"
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "There are no row-level observations to re-reduce under a common pressure calibration."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "equation": "Lejaeghere et al. (2014), equation (2), and archived calcDelta.py: third-order Birch-Murnaghan construction.",
+    "V0": "Archived exp.txt exact corrected value in A^3/atom, multiplied by the material card's formula_units_per_cell; Supplementary Table 2.2 traces the ambient input to Villars and Daams (1993).",
+    "K0": "Archived exp.txt exact corrected value in GPa; Supplementary Table 2.3 traces the uncorrected input to C. Kittel, Introduction to Solid State Physics, 8th edition (2005).",
+    "K0_prime": "Archived exp.txt exact dimensionless value; the review applies no thermal or zero-point correction. Supplementary Table 2.4 cites M. W. Guinan and D. J. Steinberg, Pressure and temperature derivatives of the isotropic polycrystalline shear modulus for 65 elements, Journal of Physics and Chemistry of Solids 35, 1501-1512 (1974).",
+    "uncertainties": "The archive and review publish no uncertainty or covariance for the constructed triplet."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "canonical_archive_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "cell_normalization",
+     "comparison_window",
+     "archive_checksums",
+     "upstream_data_recovery"
+    ],
+    "primary_source_check": {
+     "access_url": "https://archive.materialscloud.org/record/2023.133",
+     "doi": "10.24435/materialscloud:5e-mv",
+     "locations": [
+      "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+      "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+     ],
+     "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+      "Lejaeghere et al. (2014) Supplementary Tables 2.2-2.4"
+     ],
+     "finding": "The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it."
+    },
+    "upstream_data_recovery": {
+     "audit_date": "2026-09-07",
+     "manifest": "datasets/deltaproject-experimental-reference-source.json",
+     "V0": {
+      "status": "upstream_table_identified",
+      "finding": "Villars and Daams (1993) is a crystallographic structure/volume compilation, not a pressure-volume experiment. Supplementary Table 2.2 preserves the rounded ambient volumes and the applied thermal and zero-point shifts; no per-element raw compression observations exist in this branch."
+     },
+     "K0": {
+      "status": "secondary_table_recovered",
+      "finding": "Kittel Table 3 is the immediate source for 40 selected metals. The table itself identifies Gschneidner (1964), DOI 10.1016/S0081-1947(08)60518-4, as its principal compilation and Birch (1966) as an additional source, and explicitly advises consulting original references for research use. This branch is therefore not raw data."
+     },
+     "K0_prime": {
+      "status": "coefficient_source_identified_full_table_unavailable",
+      "finding": "The cited 1974 paper is an experimental/estimated elastic-modulus derivative compilation, not a row-level pressure-volume dataset. Its full coefficient table was not lawfully accessible during this audit, so the seven Delta values are retained only as supplement/archive coefficients."
+     }
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "exact compiled-reference coefficients and comparison implementation",
+     "citation": "Delta project — archive of old website, 10.24435/materialscloud:5e-mv, Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+     "doi": "10.24435/materialscloud:5e-mv",
+     "url": "https://archive.materialscloud.org/record/2023.133",
+     "license": "CC BY 4.0",
+     "sha256": "d51a80e1af9cd2d55557cb2f807a77743ff02fe875328c31e287b1db5da59cbe"
+    },
+    {
+     "role": "BM3 equation, 0 K/zero-point correction method, and property-level source mapping",
+     "citation": "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals, Section II.B and Supplementary Tables 2.2-2.4",
+     "doi": "10.1080/10408436.2013.772503",
+     "url": "https://arxiv.org/abs/1204.2733"
+    },
+    {
+     "citation": "P. Villars and J. L. C. Daams, Atomic-environment classification of the chemical elements, Journal of Alloys and Compounds 197, 177-196 (1993)",
+     "doi": "10.1016/0925-8388(93)90041-K",
+     "role": "ambient crystallographic V0 input"
+    },
+    {
+     "citation": "C. Kittel, Introduction to Solid State Physics, 8th edition (2005)",
+     "role": "uncorrected B0 input"
+    },
+    {
+     "citation": "M. W. Guinan and D. J. Steinberg, Pressure and temperature derivatives of the isotropic polycrystalline shear modulus for 65 elements, Journal of Physics and Chemistry of Solids 35, 1501-1512 (1974)",
+     "doi": "10.1016/S0022-3697(74)80278-7",
+     "role": "uncorrected B0-prime input cited by the 2014 supplement"
+    }
+   ],
+   "derivation": {
+    "source_kind": "published_table",
+    "source_identifier": "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+    "source_version": "Delta calculation package 3.1, archived 2023-08-29",
+    "method": "Interpret the archived per-atom V0, B0, and B0-prime triplet as the third-order Birch-Murnaghan curve used by the Delta comparison scripts, then multiply V0 by the material card's formula_units_per_cell without changing pressure.",
+    "sampling_domain": {
+     "volume_ratio": [
+      0.94,
+      1.06
+     ],
+     "meaning": "historical asymmetric Delta comparison window, not experimental coverage"
+    },
+    "software": {
+     "name": "Peritheos",
+     "reproduction": "scripts/reproduce_deltaproject_experimental_reference.py"
+    },
+    "access_and_licensing": "The exact exp.txt coefficients are redistributed from the Materials Cloud archive under CC BY 4.0. The 2014 supplement is used for interpretation and citations, not copied as a dataset."
+   }
   }
  ],
  "format": "peritheos.material",

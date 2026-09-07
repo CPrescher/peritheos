@@ -3010,14 +3010,29 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation["migration_source"] = migration
     if primary_data_check is not None:
         validation["primary_data_check"] = primary_data_check
-    for extension in (
-        "reported_parameterizations",
-        "parameterization_resolution",
-        "reported_inconsistencies",
-    ):
-        if extension in previous:
-            validation[extension] = previous[extension]
+    core_validation_fields = {
+        "status",
+        "note",
+        "audit_date",
+        "verified_fields",
+        "primary_source_check",
+        "migration_source",
+        "primary_data_check",
+    }
+    for extension, value in previous.items():
+        if extension not in core_validation_fields:
+            # Source-specific numerical reproductions, excluded alternatives,
+            # and bounded unresolved issues must survive catalog-wide audits.
+            validation[extension] = value
     result["scientific_validation"] = validation
+
+    if "_delta_archive_experimental_reference_bm3" in result["identifier"]:
+        # Delta rows are heterogeneous reference-property compilations, not
+        # row-level P-V fits, so preserve their narrower source-specific claim.
+        result["scientific_validation"]["note"] = previous["note"]
+        result["scientific_validation"]["verified_fields"] = previous[
+            "verified_fields"
+        ]
 
     if result["identifier"] == "ca_perovskite_caracas_2005_bm3_3":
         result["scientific_validation"]["note"] = (

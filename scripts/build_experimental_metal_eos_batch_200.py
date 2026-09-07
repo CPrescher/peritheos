@@ -27,6 +27,20 @@ DORFMAN_DATASET = (
     / "dorfman-2012-tables-s1-s6-cocompression.csv"
 )
 DORFMAN_DATASET_ID = "dorfman_2012_tables_s1_s6_cocompression"
+DELTA_SOURCE = (
+    ROOT
+    / "peritheos"
+    / "data"
+    / "datasets"
+    / "deltaproject-experimental-reference-source.json"
+)
+DELTA_KNITTLE_RECONSTRUCTION = (
+    ROOT
+    / "peritheos"
+    / "data"
+    / "datasets"
+    / "deltaproject-knittle-1995-b0prime-reconstruction.csv"
+)
 AUDIT_DATE = "2026-09-06"
 DORFMAN_AUDIT_DATE = "2026-09-07"
 CM3_MOL_TO_A3_FORMULA = 1.6605390671738466
@@ -75,6 +89,73 @@ Tl,27.9937800663,37.4420913632,3.000
 Pb,29.8632199952,46.3406063802,5.335
 Bi,35.1255842981,32.0779415682,2.400
 """
+
+DELTA_K0_SOURCE_EXCEPTIONS = {
+    "Mn": "B0_Mn",
+    "Sn": "B0_Sn",
+}
+DELTA_K0P_SOURCE_EXCEPTIONS = {
+    "Sc": "B0_prime_Sc",
+    "Co": "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt",
+    "Ru": "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt",
+    "Rh": "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt",
+    "Hf": "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt",
+    "Re": "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt",
+    "Os": "B0_prime_Os",
+    "Ir": "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt",
+    "Pt": "B0_prime_Co_Ru_Rh_Hf_Re_Ir_Pt",
+    "Tl": "B0_prime_Tl_printed",
+}
+DELTA_K0_RECOVERY_KEYS = {
+    "Mn": "B0_Mn",
+    "Sn": "B0_Sn",
+}
+DELTA_K0P_RECOVERY_KEYS = {
+    "Sc": "B0_prime_Sc",
+    "Co": "B0_prime_Guinan_Steinberg",
+    "Ru": "B0_prime_Guinan_Steinberg",
+    "Rh": "B0_prime_Guinan_Steinberg",
+    "Hf": "B0_prime_Guinan_Steinberg",
+    "Re": "B0_prime_Guinan_Steinberg",
+    "Os": "B0_prime_Os",
+    "Ir": "B0_prime_Guinan_Steinberg",
+    "Pt": "B0_prime_Guinan_Steinberg",
+    "Tl": "B0_prime_Tl",
+}
+DELTA_ELEMENT_WARNINGS = {
+    "Mn": (
+        "The K0 and K0-prime inputs come from separate alpha-Mn fits: "
+        "Fujihisa and Takemura (1995) and the Knittle (1995) compilation, "
+        "respectively."
+    ),
+    "Fe": (
+        "The archived K0-prime=4.6 cannot be reproduced by a documented "
+        "selection or simple mean of the Fe values in Knittle (1995)."
+    ),
+    "Sn": (
+        "This curve is phase-mixed: V0 and K0 describe alpha-Sn, while "
+        "K0-prime=4.0 is the mean of three beta-Sn entries in Knittle (1995)."
+    ),
+    "Sr": (
+        "Knittle (1995) prints 2.47 for its Anderson et al. (1990) component, "
+        "but the original paper prints 2.41(5); the archived 2.485 preserves "
+        "the immediate-source arithmetic."
+    ),
+    "Os": (
+        "The complete Takemura (2004) P-V table is available and reproduces "
+        "K0-prime about 4.5, but this curve combines that derivative with a "
+        "separately compiled Kittel K0."
+    ),
+    "Au": (
+        "The archived K0-prime=6.4 cannot be reproduced by a documented "
+        "selection or simple mean of the Au values in Knittle (1995)."
+    ),
+    "Tl": (
+        "The archive's K0-prime=3.0 conflicts with 5.8 in the cited 2014 "
+        "Supplementary Table 2.4; the undocumented replacement matches the "
+        "Tl row in Knittle (1995)."
+    ),
+}
 
 SUN_LOW = """solid,pmax,VN_K0,VN_K0p,BN_K0,BN_K0p,MRS3_K0,MRS3_K0p,SMS3_K0,SMS3_K0p,SMS4_K0,SMS4_K0p
 Cu,34,140.95,4.798,141.46,4.572,141.47,4.691,141.47,4.711,141.38,4.722
@@ -436,40 +517,190 @@ def build_records(
     documents: dict[str, dict[str, Any]],
 ) -> dict[str, list[dict[str, Any]]]:
     result: dict[str, list[dict[str, Any]]] = {}
-    delta_ref = reference(
-        ["Lejaeghere", "Van Speybroeck", "Van Oost", "Cottenier"],
-        2014,
-        "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals",
-        "Critical Reviews in Solid State and Materials Sciences",
-        "10.1080/10408436.2013.772503",
-    )
+    delta_source = json.loads(DELTA_SOURCE.read_text(encoding="utf-8"))
+    delta_archive = delta_source["archive"]
+    delta_method = delta_source["method_publication"]
+    delta_upstream = delta_source["upstream_sources"]
+    delta_recovery = delta_source["upstream_recovery"]["property_findings"]
+    with DELTA_KNITTLE_RECONSTRUCTION.open(
+        encoding="utf-8", newline=""
+    ) as stream:
+        knittle_recovery = {row["element"]: row for row in csv.DictReader(stream)}
+    delta_ref = {
+        "authors": [delta_archive["creator"]],
+        "year": 2023,
+        "title": delta_archive["title"],
+        "source": "Materials Cloud Archive",
+        "doi": delta_archive["doi"],
+    }
     for row in rows(DELTA_EXPERIMENT):
         element = row["element"]
         material = ELEMENT_TO_MATERIAL[element]
         z = float(documents[material]["formula_units_per_cell"])
+        k0_source_key = DELTA_K0_SOURCE_EXCEPTIONS.get(element, "B0_default")
+        k0p_source_key = DELTA_K0P_SOURCE_EXCEPTIONS.get(
+            element, "B0_prime_default"
+        )
         rec = base_record(
-            f"{material}_lejaeghere_2014_experimental_corrected_bm3",
-            f"Lejaeghere et al. (2014), {element} experimental-corrected BM3",
+            f"{material}_delta_archive_experimental_reference_bm3",
+            f"Delta archive (2023), {element} compiled experimental-reference BM3",
             delta_ref,
             "BM3",
             "birch_murnaghan_3",
-            float(row["V0"]) * z,
+            round(float(row["V0"]) * z, 10),
             float(row["K0"]),
             float(row["K0p"]),
             0.0,
             0.0,
-            "Experimental reference parameters corrected for zero-point motion and room-temperature effects. Only the reference-state coefficients are published; the zero-width pressure envelope prevents implying an unreported high-pressure validation range.",
+            "This is a derived Delta-comparison reference curve, not a fit to one experimental P-V dataset. V0, K0, and K0-prime were compiled from heterogeneous sources; the review authors approximately corrected V0 and K0 to a static-lattice 0 K comparison state and explicitly left K0-prime uncorrected.",
             delta_ref["doi"],
             [
-                "official Delta-project archive exp.txt",
-                "reference-data methodology in Sections III-IV",
+                "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+                "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4",
             ],
-            "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime.",
-            "https://archive.materialscloud.org/record/2023.133",
-            calibration("unresolved", "compiled_experimental_reference"),
+            "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit.",
+            delta_archive["url"],
+            calibration("unresolved", "compiled_reference_parameterization"),
         )
+        rec["record_kind"] = "derived"
+        if warning := DELTA_ELEMENT_WARNINGS.get(element):
+            rec["notes"] += f" {warning}"
+        rec["derivation"] = {
+            "source_kind": "published_table",
+            "source_identifier": "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+            "source_version": "Delta calculation package 3.1, archived 2023-08-29",
+            "method": "Interpret the archived per-atom V0, B0, and B0-prime triplet as the third-order Birch-Murnaghan curve used by the Delta comparison scripts, then multiply V0 by the material card's formula_units_per_cell without changing pressure.",
+            "sampling_domain": {
+                "volume_ratio": [0.94, 1.06],
+                "meaning": "historical asymmetric Delta comparison window, not experimental coverage",
+            },
+            "software": {
+                "name": "Peritheos",
+                "reproduction": "scripts/reproduce_deltaproject_experimental_reference.py",
+            },
+            "access_and_licensing": "The exact exp.txt coefficients are redistributed from the Materials Cloud archive under CC BY 4.0. The 2014 supplement is used for interpretation and citations, not copied as a dataset.",
+        }
         rec["temperature_ref"] = 0.0
-        rec["validity"]["temperature_k"] = [0.0, 0.0]
+        rec.pop("experimental_pressure_range_gpa", None)
+        rec["pressure_range_status"] = "reference_parameterization"
+        rec["validity"] = {
+            "volume_ratio": [0.94, 1.06],
+            "notes": [
+                "Historical Delta integration window for the constructed BM3 reference curve; not a measured pressure/volume envelope.",
+                "No phase-stability or extrapolation claim is made.",
+            ],
+        }
+        rec["parameter_provenance"] = {
+            "equation": "Lejaeghere et al. (2014), equation (2), and archived calcDelta.py: third-order Birch-Murnaghan construction.",
+            "V0": "Archived exp.txt exact corrected value in A^3/atom, multiplied by the material card's formula_units_per_cell; Supplementary Table 2.2 traces the ambient input to Villars and Daams (1993).",
+            "K0": f"Archived exp.txt exact corrected value in GPa; Supplementary Table 2.3 traces the uncorrected input to {delta_upstream[k0_source_key]['citation']}.",
+            "K0_prime": f"Archived exp.txt exact dimensionless value; the review applies no thermal or zero-point correction. Supplementary Table 2.4 cites {delta_upstream[k0p_source_key]['citation']}.",
+            "uncertainties": "The archive and review publish no uncertainty or covariance for the constructed triplet.",
+        }
+        if element == "Tl":
+            rec["parameter_provenance"]["K0_prime"] += (
+                " The cited table prints 5.8, not the archive's 3.0; the origin of "
+                "the archived replacement is unresolved."
+            )
+        elif warning := DELTA_ELEMENT_WARNINGS.get(element):
+            rec["parameter_provenance"]["K0_prime"] += f" {warning}"
+        rec["pressure_calibration"] = {
+            "status": "not_applicable",
+            "methods": [
+                {
+                    "kind": "other",
+                    "source_location": "Heterogeneous property compilation documented in Lejaeghere et al. (2014) Supplementary Tables 2.2-2.4",
+                    "scope": "derived comparison coefficients, not one pressure-volume experiment",
+                }
+            ],
+            "recalculation": {
+                "status": "not_applicable",
+                "notes": "There are no row-level observations to re-reduce under a common pressure calibration.",
+            },
+            "audit_date": AUDIT_DATE,
+        }
+        rec["scientific_validation"]["verified_fields"] = [
+            "canonical_archive_doi",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "cell_normalization",
+            "comparison_window",
+            "archive_checksums",
+            "upstream_data_recovery",
+        ]
+        rec["scientific_validation"]["note"] = (
+            "Exact archived coefficients, BM3 construction, units, static-lattice "
+            "reference interpretation, source hierarchy, archive checksums, and "
+            "cell normalization were checked. This validation does not imply that "
+            "raw experimental observations or a reproducible experimental fit exist."
+        )
+        rec["scientific_validation"]["primary_data_check"] = {
+            "status": "parameterization_only",
+            "audit_date": AUDIT_DATE,
+            "source_locations": [
+                "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+                "Lejaeghere et al. (2014) Supplementary Tables 2.2-2.4",
+            ],
+            "finding": "The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.",
+        }
+        k0_recovery_key = DELTA_K0_RECOVERY_KEYS.get(element, "B0_default")
+        k0p_recovery_key = DELTA_K0P_RECOVERY_KEYS.get(
+            element, "B0_prime_default"
+        )
+        rec["scientific_validation"]["upstream_data_recovery"] = {
+            "audit_date": delta_source["upstream_recovery"]["audit_date"],
+            "manifest": "datasets/deltaproject-experimental-reference-source.json",
+            "V0": delta_recovery["V0"],
+            "K0": delta_recovery[k0_recovery_key],
+            "K0_prime": delta_recovery[k0p_recovery_key],
+        }
+        if k0p_recovery_key == "B0_prime_default":
+            rec["scientific_validation"]["upstream_data_recovery"]["K0_prime"] = {
+                **delta_recovery[k0p_recovery_key],
+                "element_reconstruction": knittle_recovery[element],
+            }
+        if element == "Sn":
+            rec["scientific_validation"]["upstream_data_recovery"][
+                "phase_mismatch"
+            ] = delta_source["known_phase_mismatches"][0]
+        if element == "Sr":
+            rec["scientific_validation"]["upstream_data_recovery"][
+                "source_conflict"
+            ] = next(
+                item
+                for item in delta_source["known_conflicts"]
+                if item["element"] == "Sr"
+            )
+        rec["source_lineage"] = [
+            {
+                "role": "exact compiled-reference coefficients and comparison implementation",
+                "citation": f"{delta_archive['title']}, {delta_archive['doi']}, Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+                "doi": delta_archive["doi"],
+                "url": delta_archive["url"],
+                "license": delta_archive["license"],
+                "sha256": delta_archive["files"]["Delta_v3-1_0.zip/history.tar.gz/history/exp.txt"]["sha256"],
+            },
+            {
+                "role": "BM3 equation, 0 K/zero-point correction method, and property-level source mapping",
+                "citation": f"{delta_method['title']}, Section II.B and Supplementary Tables 2.2-2.4",
+                "doi": delta_method["doi"],
+                "url": delta_method["author_manuscript_url"],
+            },
+            {
+                **delta_upstream["V0_all_selected_metals"],
+                "role": "ambient crystallographic V0 input",
+            },
+            {
+                **delta_upstream[k0_source_key],
+                "role": "uncorrected B0 input",
+            },
+            {
+                **delta_upstream[k0p_source_key],
+                "role": "uncorrected B0-prime input cited by the 2014 supplement",
+            },
+        ]
         add(result, material, rec)
 
     sun_ref = reference(
@@ -889,11 +1120,13 @@ def write_dataset(records_by_material: dict[str, list[dict[str, Any]]]) -> None:
                 family = (
                     "thermal_mixed"
                     if "zhang_2025" in identifier
-                    else "experimental_corrected"
-                    if "lejaeghere_2014" in identifier
+                    else "compiled_reference"
+                    if "delta_archive_experimental_reference" in identifier
                     else "experimental_fit"
                 )
                 validity = record["validity"]
+                pressure_range = validity.get("pressure_gpa", ["", ""])
+                temperature_range = validity.get("temperature_k", ["", ""])
                 params = record["eos"]["parameters"]
                 writer.writerow(
                     {
@@ -905,10 +1138,10 @@ def write_dataset(records_by_material: dict[str, list[dict[str, Any]]]) -> None:
                         "V0": params["V0"],
                         "K0": params["K0"],
                         "K0_prime": params["K0_prime"],
-                        "pressure_min_gpa": validity["pressure_gpa"][0],
-                        "pressure_max_gpa": validity["pressure_gpa"][1],
-                        "temperature_min_k": validity["temperature_k"][0],
-                        "temperature_max_k": validity["temperature_k"][1],
+                        "pressure_min_gpa": pressure_range[0],
+                        "pressure_max_gpa": pressure_range[1],
+                        "temperature_min_k": temperature_range[0],
+                        "temperature_max_k": temperature_range[1],
                         "reference_doi": record["reference"]["doi"],
                     }
                 )
@@ -929,6 +1162,9 @@ def apply_records(
             record
             for record in document["eos_records"]
             if record["identifier"] not in identifiers
+            and not record["identifier"].endswith(
+                "_lejaeghere_2014_experimental_corrected_bm3"
+            )
         ] + additions
         if material in {"gold", "molybdenum", "platinum"}:
             dor_ref = next(
