@@ -1,0 +1,331 @@
+{
+  "dataset_release": {
+    "filename": "dorfman-2012-tables-s1-s6-cocompression.csv",
+    "license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "scope": "Peritheos-created factual CSV transcription, normalization, column naming, and arrangement, solely to the extent contributors hold rights; the article, publisher PDF, and third-party rights are excluded.",
+    "sha256": "c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c"
+  },
+  "fits": {
+    "fixed": {
+      "degrees_of_freedom": 234,
+      "free_parameter_count": 7,
+      "message": "`ftol` termination condition is satisfied.",
+      "objective": 14.374656780006166,
+      "pair_count": 241,
+      "parameter_order": [
+        "Au.K0_prime",
+        "Mo.K0_prime",
+        "NaCl B2.K0",
+        "NaCl B2.K0_prime",
+        "Ne.K0",
+        "Ne.K0_prime",
+        "Pt.K0_prime"
+      ],
+      "parameters": {
+        "Au": {
+          "K0": 167.0,
+          "K0_prime": 5.860266508021561,
+          "V0": 67.85
+        },
+        "MgO": {
+          "K0": 160.6,
+          "K0_prime": 4.37,
+          "V0": 74.698
+        },
+        "Mo": {
+          "K0": 261.0,
+          "K0_prime": 4.13809805589023,
+          "V0": 31.17
+        },
+        "NaCl B2": {
+          "K0": 27.234152872958457,
+          "K0_prime": 5.425004307889782,
+          "V0": 41.35
+        },
+        "Ne": {
+          "K0": 0.9865881302302713,
+          "K0_prime": 8.579758562721421,
+          "V0": 88.967
+        },
+        "Pt": {
+          "K0": 277.0,
+          "K0_prime": 5.365414290123477,
+          "V0": 60.38
+        }
+      },
+      "published_objective": 19.013986779601225,
+      "published_parameter_comparison": {
+        "Au": {
+          "K0_prime": {
+            "difference": -0.019733491978438877,
+            "published": 5.88,
+            "refit": 5.860266508021561,
+            "relative_difference": -0.0033560360507549113
+          }
+        },
+        "Mo": {
+          "K0_prime": {
+            "difference": -0.05190194410977078,
+            "published": 4.19,
+            "refit": 4.13809805589023,
+            "relative_difference": -0.012387098832880854
+          }
+        },
+        "NaCl B2": {
+          "K0": {
+            "difference": 3.034152872958458,
+            "published": 24.2,
+            "refit": 27.234152872958457,
+            "relative_difference": 0.12537821789084538
+          },
+          "K0_prime": {
+            "difference": -0.3349956921102182,
+            "published": 5.76,
+            "refit": 5.425004307889782,
+            "relative_difference": -0.05815897432469066
+          }
+        },
+        "Ne": {
+          "K0": {
+            "difference": -0.05341186976972878,
+            "published": 1.04,
+            "refit": 0.9865881302302713,
+            "relative_difference": -0.05135756708627767
+          },
+          "K0_prime": {
+            "difference": 0.09975856272142103,
+            "published": 8.48,
+            "refit": 8.579758562721421,
+            "relative_difference": 0.011763981452997762
+          }
+        },
+        "Pt": {
+          "K0_prime": {
+            "difference": -0.06458570987652301,
+            "published": 5.43,
+            "refit": 5.365414290123477,
+            "relative_difference": -0.011894237546320997
+          }
+        }
+      },
+      "success": true
+    },
+    "free": {
+      "degrees_of_freedom": 231,
+      "free_parameter_count": 10,
+      "message": "`ftol` termination condition is satisfied.",
+      "objective": 12.197835855035798,
+      "pair_count": 241,
+      "parameter_order": [
+        "Au.K0",
+        "Au.K0_prime",
+        "Mo.K0",
+        "Mo.K0_prime",
+        "NaCl B2.K0",
+        "NaCl B2.K0_prime",
+        "Ne.K0",
+        "Ne.K0_prime",
+        "Pt.K0",
+        "Pt.K0_prime"
+      ],
+      "parameters": {
+        "Au": {
+          "K0": 178.7131955926287,
+          "K0_prime": 5.468332069803775,
+          "V0": 67.85
+        },
+        "MgO": {
+          "K0": 160.6,
+          "K0_prime": 4.37,
+          "V0": 74.698
+        },
+        "Mo": {
+          "K0": 255.46017518702442,
+          "K0_prime": 4.295099208339555,
+          "V0": 31.17
+        },
+        "NaCl B2": {
+          "K0": 29.098692593275466,
+          "K0_prime": 5.242519030219823,
+          "V0": 41.35
+        },
+        "Ne": {
+          "K0": 1.1100824408551875,
+          "K0_prime": 8.363432342069775,
+          "V0": 88.967
+        },
+        "Pt": {
+          "K0": 294.30932993185917,
+          "K0_prime": 4.898844953030691,
+          "V0": 60.38
+        }
+      },
+      "published_objective": 15.454156500512681,
+      "published_parameter_comparison": {
+        "Au": {
+          "K0": {
+            "difference": 11.713195592628693,
+            "published": 167.0,
+            "refit": 178.7131955926287,
+            "relative_difference": 0.07013889576424368
+          },
+          "K0_prime": {
+            "difference": -0.37166793019622446,
+            "published": 5.84,
+            "refit": 5.468332069803775,
+            "relative_difference": -0.06364176886921652
+          }
+        },
+        "Mo": {
+          "K0": {
+            "difference": -15.539824812975581,
+            "published": 271.0,
+            "refit": 255.46017518702442,
+            "relative_difference": -0.057342526985149744
+          },
+          "K0_prime": {
+            "difference": 0.4050992083395548,
+            "published": 3.89,
+            "refit": 4.295099208339555,
+            "relative_difference": 0.10413861396903723
+          }
+        },
+        "NaCl B2": {
+          "K0": {
+            "difference": 2.6986925932754673,
+            "published": 26.4,
+            "refit": 29.098692593275466,
+            "relative_difference": 0.1022232042907374
+          },
+          "K0_prime": {
+            "difference": -0.24748096978017742,
+            "published": 5.49,
+            "refit": 5.242519030219823,
+            "relative_difference": -0.045078500870706265
+          }
+        },
+        "Ne": {
+          "K0": {
+            "difference": 0.09008244085518746,
+            "published": 1.02,
+            "refit": 1.1100824408551875,
+            "relative_difference": 0.0883161184854779
+          },
+          "K0_prime": {
+            "difference": -0.1365676579302253,
+            "published": 8.5,
+            "refit": 8.363432342069775,
+            "relative_difference": -0.016066783285908857
+          }
+        },
+        "Pt": {
+          "K0": {
+            "difference": 14.309329931859168,
+            "published": 280.0,
+            "refit": 294.30932993185917,
+            "relative_difference": 0.05110474975663989
+          },
+          "K0_prime": {
+            "difference": -0.3911550469693088,
+            "published": 5.29,
+            "refit": 4.898844953030691,
+            "relative_difference": -0.07394235292425497
+          }
+        }
+      },
+      "success": true
+    }
+  },
+  "normalization": {
+    "formula_units_per_cell": {
+      "Au": 4,
+      "MgO": 4,
+      "Mo": 2,
+      "NaCl B2": 1,
+      "Ne": 4,
+      "Pt": 4
+    },
+    "temperature_k": 300.0,
+    "volume": "angstrom^3 per conventional unit cell"
+  },
+  "published_pressure_transcription_check": {
+    "max_abs_difference_gpa": 0.18238546658528776,
+    "parameter_set": "Table 2, K0 fixed for metals",
+    "prediction_count": 368,
+    "rms_difference_gpa": 0.04389158460146409
+  },
+  "reproduction": {
+    "extractor": "Poppler pdftotext -tsv, pages 1-5",
+    "interpretation": "All unordered material pairs present in each source row are fitted simultaneously. Printed pressures are used only for the independent transcription check, never as fit observations.",
+    "known_limitations": [
+      "Run AN012 is listed in article Table 1 but absent from Tables S1-S6.",
+      "The article supplies neither fit code nor a covariance matrix.",
+      "The published coefficients have a higher Equation (3) objective than the refit for both reported constraint modes."
+    ],
+    "optimizer": "scipy.optimize.least_squares(method='lm')",
+    "status": "source_rows_refitted_but_published_coefficients_not_reproduced"
+  },
+  "selection": {
+    "missing_run": "Run AN012 is listed in article Table 1 (Au + NaCl, no medium, 1-164 GPa) but is not present in auxiliary Tables S1-S6.",
+    "observation_rows": 165,
+    "pair_count": 241,
+    "printed_pressure_range_gpa_by_material": {
+      "Au": [
+        34.4,
+        242.6
+      ],
+      "MgO": [
+        4.6,
+        264.6
+      ],
+      "Mo": [
+        43.1,
+        214.6
+      ],
+      "NaCl B2": [
+        33.8,
+        261.1
+      ],
+      "Ne": [
+        23.3,
+        245.8
+      ],
+      "Pt": [
+        5.2,
+        231.3
+      ]
+    },
+    "rule": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+    "run_counts": {
+      "ANN11": 26,
+      "MMH12": 2,
+      "MMH6": 15,
+      "MNN11": 12,
+      "MNN13": 13,
+      "PMH6": 19,
+      "PMN3": 31,
+      "PMNN7": 16,
+      "PNH7": 31
+    },
+    "single_peak_mgo_rows_included": 3,
+    "volume_values": 368,
+    "weighting": "Equation (3): each pair contributes (P_a-P_b)^2/mean(P_a,P_b); the parenthetical volume precision is not an additional fit weight."
+  },
+  "source": {
+    "article_sha256": "1c9fe0f884fdb61f9d52d60308276d63dd434f27e59bcea2c74471566d0ec5e0",
+    "article_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/dorfman_jgr_12.pdf",
+    "correction_doi": "10.1029/2012JB009800",
+    "doi": "10.1029/2012JB009292",
+    "license": "No explicit reusable license was identified for the publisher PDF; it is not relicensed by the CSV CC0 dedication.",
+    "source_locations": [
+      "Equation (2)",
+      "Equation (3)",
+      "Table 2",
+      "Tables S1-S6"
+    ],
+    "supporting_filename": "jgrb17272-sup-0002-txts01.pdf",
+    "supporting_sha256": "d7f7214cae4dabb3aae8a8585df4af7ada7990cb36b83a42ed7ed97e9eef7f2a",
+    "supporting_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2012JB009292&file=jgrb17272-sup-0002-txts01.pdf"
+  }
+}

@@ -3068,6 +3068,12 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             ["pressure_calibration", "fit_scope", "thermal_model_convention"]
         )
 
+    if "_dorfman_2012_tange_mgo_k0_" in result["identifier"]:
+        result["scientific_validation"]["note"] = previous["note"]
+        result["scientific_validation"]["verified_fields"] = previous[
+            "verified_fields"
+        ]
+
     if result["identifier"] == "goethite_gleason_2008_bm3_1":
         result["scientific_validation"]["note"] = (
             "Independently checked against the cited primary publication and "
@@ -3273,8 +3279,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 612:
-        raise ValueError(f"Expected 612 EOS records, found {len(entries)}")
+    if len(entries) != 812:
+        raise ValueError(f"Expected 812 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

@@ -717,6 +717,456 @@
     }
    ],
    "notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted."
+  },
+  {
+   "identifier": "tungsten_lejaeghere_2014_experimental_corrected_bm3",
+   "label": "Lejaeghere et al. (2014), W experimental-corrected BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Lejaeghere",
+     "Van Speybroeck",
+     "Van Oost",
+     "Cottenier"
+    ],
+    "year": 2014,
+    "title": "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals",
+    "source": "Critical Reviews in Solid State and Materials Sciences",
+    "doi": "10.1080/10408436.2013.772503"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 31.5919461674,
+     "K0": 327.4742143494,
+     "K0_prime": 4.32
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 0.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    0.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     0.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Experimental reference parameters corrected for zero-point motion and room-temperature effects. Only the reference-state coefficients are published; the zero-width pressure envelope prevents implying an unreported high-pressure validation range.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [
+     {
+      "kind": "ambient_pressure",
+      "source_location": "compiled_experimental_reference"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "reference-data methodology in Sections III-IV",
+    "K0": "reference-data methodology in Sections III-IV",
+    "K0_prime": "reference-data methodology in Sections III-IV"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://archive.materialscloud.org/record/2023.133",
+     "doi": "10.1080/10408436.2013.772503",
+     "locations": [
+      "official Delta-project archive exp.txt",
+      "reference-data methodology in Sections III-IV"
+     ],
+     "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "official Delta-project archive exp.txt",
+      "reference-data methodology in Sections III-IV"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals, official Delta-project archive exp.txt, reference-data methodology in Sections III-IV",
+     "doi": "10.1080/10408436.2013.772503"
+    }
+   ]
+  },
+  {
+   "identifier": "tungsten_dewaele_2019_mao_vinet",
+   "label": "Dewaele (2019), W MAO-scale Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+    "source": "Minerals",
+    "doi": "10.3390/min9110684"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 31.724,
+     "K0": 298.3,
+     "K0_prime": 3.82
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.032,
+    "K0": 4.1,
+    "K0_prime": 0.11
+   },
+   "parameter_error_confidence": 0.95,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    155.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     155.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "mao_ruby_scale",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 1",
+    "K0": "Table 1",
+    "K0_prime": "Table 1"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+     "doi": "10.3390/min9110684",
+     "locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+     "doi": "10.3390/min9110684"
+    }
+   ]
+  },
+  {
+   "identifier": "tungsten_dewaele_2019_dor_vinet",
+   "label": "Dewaele (2019), W DOR-scale Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+    "source": "Minerals",
+    "doi": "10.3390/min9110684"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 31.716,
+     "K0": 298.6,
+     "K0_prime": 4.37
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.032,
+    "K0": 4.1,
+    "K0_prime": 0.11
+   },
+   "parameter_error_confidence": 0.95,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    155.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     155.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "dor_ruby_scale",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 1",
+    "K0": "Table 1",
+    "K0_prime": "Table 1"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+     "doi": "10.3390/min9110684",
+     "locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+     "doi": "10.3390/min9110684"
+    }
+   ]
+  },
+  {
+   "identifier": "tungsten_dewaele_2004_mao_ruby_vinet",
+   "label": "Dewaele et al. (2004), W mao ruby Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "title": "Equations of state of six metals above 94 GPa",
+    "source": "Physical Review B",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 31.724,
+     "K0": 298.3,
+     "K0_prime": 3.81
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 3.6,
+    "K0_prime": 0.1
+   },
+   "parameter_error_confidence": 0.95,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    144.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     144.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Static synchrotron X-ray compression fit. This record fills a pressure-scale variant absent from the existing catalog; the shared 0-144 GPa envelope is conservative relative to the six source data series.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "mao_ruby",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table II",
+    "K0": "Table II",
+    "K0_prime": "Table II"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+     "doi": "10.1103/PhysRevB.70.094112",
+     "locations": [
+      "Equation (2)",
+      "Table II"
+     ],
+     "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Equation (2)",
+      "Table II"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Equations of state of six metals above 94 GPa, Equation (2), Table II",
+     "doi": "10.1103/PhysRevB.70.094112"
+    }
+   ]
   }
  ],
  "format": "peritheos.material",

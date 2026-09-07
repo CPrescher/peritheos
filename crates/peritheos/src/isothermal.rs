@@ -578,6 +578,69 @@ impl IsothermalEos for ModifiedTait {
     }
 }
 
+/// Baonza pseudospinodal equation of state with the conventional fixed
+/// exponent beta = 0.85.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Baonza {
+    /// Reference volume.
+    pub v0: f64,
+    /// Reference bulk modulus.
+    pub k0: f64,
+    /// Reference pressure derivative of the bulk modulus.
+    pub k0_prime: f64,
+}
+
+impl Baonza {
+    /// Universal exponent used by the published three-parameter form.
+    pub const BETA: f64 = 0.85;
+
+    /// Construct a Baonza pseudospinodal model.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error unless `v0`, `k0`, and `k0_prime` are positive and finite.
+    pub fn new(v0: f64, k0: f64, k0_prime: f64) -> EosResult<Self> {
+        Ok(Self {
+            v0: positive_parameter(v0, "V0")?,
+            k0: positive_parameter(k0, "K0")?,
+            k0_prime: positive_parameter(k0_prime, "K0_prime")?,
+        })
+    }
+
+    fn terms(&self, volume: f64) -> EosResult<(f64, f64)> {
+        let volume = positive_state(volume, "volume")?;
+        let beta = Self::BETA;
+        let minus_spinodal_pressure = beta * self.k0 / self.k0_prime;
+        let kappa_star = minus_spinodal_pressure.powf(beta) / self.k0;
+        let base = minus_spinodal_pressure.powf(1.0 - beta)
+            - (1.0 - beta) * (volume / self.v0).ln() / kappa_star;
+        if !base.is_finite() || base <= 0.0 {
+            return Err(EosError::InvalidState {
+                name: "volume",
+                reason: "is outside the Baonza EOS pseudospinodal domain",
+            });
+        }
+        Ok((base, kappa_star))
+    }
+}
+
+impl IsothermalEos for Baonza {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        let (base, _) = self.terms(volume)?;
+        let minus_spinodal_pressure = Self::BETA * self.k0 / self.k0_prime;
+        finite_result(base.powf(1.0 / (1.0 - Self::BETA)) - minus_spinodal_pressure)
+    }
+
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        let (base, kappa_star) = self.terms(volume)?;
+        finite_result(base.powf(Self::BETA / (1.0 - Self::BETA)) / kappa_star)
+    }
+}
+
 /// Vinet equation of state.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct Vinet {

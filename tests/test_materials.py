@@ -69,8 +69,8 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 612
-    assert len(materials) == 285
+    assert len(records) == 812
+    assert len(materials) == 286
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
     assert [item.identifier for item in records] == sorted(
@@ -86,10 +86,21 @@ def test_catalog_listing_lookup_and_material_filter():
         "au_sun_2010_mrs3_1",
         "au_sun_2010_sms3_1",
         "au_sun_2010_sms4_1",
+        "au_sun_2010_low_bn",
+        "au_sun_2010_low_mrs3",
+        "au_sun_2010_low_sms3",
+        "au_sun_2010_low_sms4",
+        "au_sun_2010_low_vn",
         "gold_anderson_1989_bm3_1",
+        "gold_dewaele_2004_mao_ruby_vinet",
         "gold_dewaele_2004_vinet_5",
+        "gold_dewaele_2019_dor_vinet",
+        "gold_dewaele_2019_mao_vinet",
+        "gold_dorfman_2012_tange_mgo_k0_fixed_vinet",
+        "gold_dorfman_2012_tange_mgo_k0_free_vinet",
         "gold_fei_2007_vinet_2",
         "gold_fratanduono_2021_vinet_7",
+        "gold_lejaeghere_2014_experimental_corrected_bm3",
         "gold_lejaeghere_2016_wien2k_pbe_bm3",
         "gold_sakai_2025_rydberg_stacey_1",
         "gold_shen_2026_vinet_3",

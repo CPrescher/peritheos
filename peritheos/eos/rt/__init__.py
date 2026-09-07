@@ -2,6 +2,7 @@
 This module contains the room temperature equations of state (EOS) implementations.
 """
 
+from .baonza import Baonza
 from .bm import BM2, BM3, BM4
 from .holzapfel import Holzapfel
 from .murnaghan import Murnaghan
@@ -15,6 +16,7 @@ __all__ = [
     "BM2",
     "BM3",
     "BM4",
+    "Baonza",
     "Holzapfel",
     "ModifiedTait",
     "Murnaghan",

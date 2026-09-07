@@ -196,6 +196,11 @@ def render() -> str:
         for paper in catalog_papers
         if any(record["status"] == "not_refittable" for record in paper["records"])
     ]
+    unavailable_record_count = sum(
+        record["status"] == "not_refittable"
+        for paper in unavailable_papers
+        for record in paper["records"]
+    )
 
     lines = [
         "# Paper investigation ledger",
@@ -214,7 +219,8 @@ def render() -> str:
         "  could not be refitted directly from available row-level evidence.",
         "- **Coefficient parity not achieved:** the refit ran, but at least one",
         "  published coefficient was outside both the uncertainty and numerical",
-        "  similarity criteria. These are source-fit discrepancies, not software-run",
+        "  similarity criteria, or a coupled source-level objective had a demonstrably",
+        "  different optimum. These are source-fit discrepancies, not software-run",
         "  failures; the record may remain for faithful published-curve provenance.",
         "- **Direct refit unavailable:** the equation and parameters were audited, but",
         "  independent coefficient recovery was impossible because primary rows, an",
@@ -297,7 +303,8 @@ def render() -> str:
             "",
             "## Papers with unavailable direct refits",
             "",
-            f"These **{len(unavailable_papers)} papers** contain 49 records for which a",
+            f"These **{len(unavailable_papers)} papers** contain "
+            f"{unavailable_record_count} records for which a",
             "source-faithful coefficient refit could not be performed. A paper can also",
             "have other records that were reproduced.",
             "",
@@ -341,6 +348,9 @@ def render() -> str:
         "plot_only": "plot only/digitized",
         "parameterization_only": "parameterization only",
         "theoretical_parameterization_only": "theoretical parameterization only",
+        "external_primary_table_refitted": (
+            "external primary table (refitted; not redistributed)"
+        ),
     }
     for paper in papers:
         if paper["records"]:

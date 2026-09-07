@@ -1,8 +1,8 @@
 //! Built-in thermal equations of state and caloric models.
 
 use crate::isothermal::{
-    Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4,
-    RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
+    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use crate::quadrature::integrate;
 use crate::root::solve_temperature_function;
@@ -553,6 +553,7 @@ macro_rules! impl_four_parameter_reference_state {
 impl_two_parameter_reference_state!(BM2, BM2::new);
 impl_two_parameter_reference_state!(NaturalStrain2, NaturalStrain2::new);
 impl_three_parameter_reference_state!(BM3, BM3::new);
+impl_three_parameter_reference_state!(Baonza, Baonza::new);
 impl_three_parameter_reference_state!(Murnaghan, Murnaghan::new);
 impl_three_parameter_reference_state!(Morse3, Morse3::new);
 impl_three_parameter_reference_state!(NaturalStrain3, NaturalStrain3::new);

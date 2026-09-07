@@ -310,7 +310,10 @@ def test_sample_eos_normalization_selects_xrd_or_ruby_provenance_edge():
 
 def test_fei_gold_has_two_ruby_linked_gold_bridge_options():
     assert list_ruby_xrd_bridges("gold_fei_2007_vinet_2") == (
+        "gold_dewaele_2004_mao_ruby_vinet",
         "gold_dewaele_2004_vinet_5",
+        "gold_dewaele_2019_dor_vinet",
+        "gold_dewaele_2019_mao_vinet",
         "gold_takemura_2008_vinet_6",
     )
 

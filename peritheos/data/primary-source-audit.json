@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 612,
-    "primary_source_validated": 612
+    "records": 812,
+    "primary_source_validated": 812
   },
   "records": [
     {
@@ -65,6 +65,96 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "ag_sun_2010_legacy",
+      "file": "ag_sun_2010_legacy.eosmat",
+      "record": "ag_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Ag low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ag_sun_2010_legacy",
+      "file": "ag_sun_2010_legacy.eosmat",
+      "record": "ag_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Ag low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ag_sun_2010_legacy",
+      "file": "ag_sun_2010_legacy.eosmat",
+      "record": "ag_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Ag low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ag_sun_2010_legacy",
+      "file": "ag_sun_2010_legacy.eosmat",
+      "record": "ag_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Ag low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ag_sun_2010_legacy",
+      "file": "ag_sun_2010_legacy.eosmat",
+      "record": "ag_sun_2010_low_bn",
+      "label": "Sun et al. (2010), Ag low-pressure BN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -369,6 +459,78 @@
       }
     },
     {
+      "material": "al_sun_2010_legacy",
+      "file": "al_sun_2010_legacy.eosmat",
+      "record": "al_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Al low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "al_sun_2010_legacy",
+      "file": "al_sun_2010_legacy.eosmat",
+      "record": "al_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Al low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "al_sun_2010_legacy",
+      "file": "al_sun_2010_legacy.eosmat",
+      "record": "al_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Al low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "al_sun_2010_legacy",
+      "file": "al_sun_2010_legacy.eosmat",
+      "record": "al_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Al low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "almandine",
       "file": "almandine.eosmat",
       "record": "almandine_milani_2015_bm3_1",
@@ -558,6 +720,78 @@
       }
     },
     {
+      "material": "aluminum",
+      "file": "aluminum.eosmat",
+      "record": "aluminum_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Al experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "aluminum",
+      "file": "aluminum.eosmat",
+      "record": "aluminum_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Al MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "aluminum",
+      "file": "aluminum.eosmat",
+      "record": "aluminum_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Al DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "aluminum",
+      "file": "aluminum.eosmat",
+      "record": "aluminum_dewaele_2004_mao_ruby_vinet",
+      "label": "Dewaele et al. (2004), Al mao ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
       "material": "aragonite",
       "file": "aragonite.eosmat",
       "record": "aragonite_martinez_1996_bm2_2",
@@ -649,6 +883,96 @@
       }
     },
     {
+      "material": "au_sun_2010_legacy",
+      "file": "au_sun_2010_legacy.eosmat",
+      "record": "au_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Au low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "au_sun_2010_legacy",
+      "file": "au_sun_2010_legacy.eosmat",
+      "record": "au_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Au low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "au_sun_2010_legacy",
+      "file": "au_sun_2010_legacy.eosmat",
+      "record": "au_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Au low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "au_sun_2010_legacy",
+      "file": "au_sun_2010_legacy.eosmat",
+      "record": "au_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Au low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "au_sun_2010_legacy",
+      "file": "au_sun_2010_legacy.eosmat",
+      "record": "au_sun_2010_low_bn",
+      "label": "Sun et al. (2010), Au low-pressure BN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "b4c",
       "file": "b4c.eosmat",
       "record": "b4c_somayazulu_2023_bm3_1",
@@ -731,6 +1055,24 @@
       }
     },
     {
+      "material": "barium_bcc",
+      "file": "barium_bcc.eosmat",
+      "record": "barium_bcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ba experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "be_sun_2010_legacy",
       "file": "be_sun_2010_legacy.eosmat",
       "record": "be_sun_2010_sms4_1",
@@ -767,6 +1109,78 @@
       }
     },
     {
+      "material": "be_sun_2010_legacy",
+      "file": "be_sun_2010_legacy.eosmat",
+      "record": "be_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Be low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "be_sun_2010_legacy",
+      "file": "be_sun_2010_legacy.eosmat",
+      "record": "be_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Be low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "be_sun_2010_legacy",
+      "file": "be_sun_2010_legacy.eosmat",
+      "record": "be_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Be low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "be_sun_2010_legacy",
+      "file": "be_sun_2010_legacy.eosmat",
+      "record": "be_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Be low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "beryllium_hcp",
       "file": "beryllium_hcp.eosmat",
       "record": "beryllium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
@@ -785,6 +1199,42 @@
       }
     },
     {
+      "material": "beryllium_hcp",
+      "file": "beryllium_hcp.eosmat",
+      "record": "beryllium_hcp_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Be MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "beryllium_hcp",
+      "file": "beryllium_hcp.eosmat",
+      "record": "beryllium_hcp_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Be DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
       "material": "bismuth_a7",
       "file": "bismuth_a7.eosmat",
       "record": "bismuth_a7_lejaeghere_2016_wien2k_pbe_bm3",
@@ -800,6 +1250,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "bismuth_a7",
+      "file": "bismuth_a7.eosmat",
+      "record": "bismuth_a7_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Bi experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -2086,6 +2554,78 @@
       }
     },
     {
+      "material": "ca_sun_2010_legacy",
+      "file": "ca_sun_2010_legacy.eosmat",
+      "record": "ca_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Ca low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ca_sun_2010_legacy",
+      "file": "ca_sun_2010_legacy.eosmat",
+      "record": "ca_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Ca low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ca_sun_2010_legacy",
+      "file": "ca_sun_2010_legacy.eosmat",
+      "record": "ca_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Ca low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ca_sun_2010_legacy",
+      "file": "ca_sun_2010_legacy.eosmat",
+      "record": "ca_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Ca low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "cadmium_hcp",
       "file": "cadmium_hcp.eosmat",
       "record": "cadmium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
@@ -2101,6 +2641,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "cadmium_hcp",
+      "file": "cadmium_hcp.eosmat",
+      "record": "cadmium_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Cd experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -2233,6 +2791,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "calcium_fcc",
+      "file": "calcium_fcc.eosmat",
+      "record": "calcium_fcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ca experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -2671,6 +3247,78 @@
       }
     },
     {
+      "material": "cd_sun_2010_legacy",
+      "file": "cd_sun_2010_legacy.eosmat",
+      "record": "cd_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Cd low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cd_sun_2010_legacy",
+      "file": "cd_sun_2010_legacy.eosmat",
+      "record": "cd_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Cd low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cd_sun_2010_legacy",
+      "file": "cd_sun_2010_legacy.eosmat",
+      "record": "cd_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Cd low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cd_sun_2010_legacy",
+      "file": "cd_sun_2010_legacy.eosmat",
+      "record": "cd_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Cd low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "cementite",
       "file": "cementite.eosmat",
       "record": "cementite_scott_2001_bm3_1",
@@ -2728,6 +3376,24 @@
       }
     },
     {
+      "material": "cesium_bcc",
+      "file": "cesium_bcc.eosmat",
+      "record": "cesium_bcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Cs experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "chromium",
       "file": "chromium.eosmat",
       "record": "chromium_anzellini_2022_bm3_1",
@@ -2760,6 +3426,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "chromium",
+      "file": "chromium.eosmat",
+      "record": "chromium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Cr experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -2799,6 +3483,78 @@
       }
     },
     {
+      "material": "co_sun_2010_legacy",
+      "file": "co_sun_2010_legacy.eosmat",
+      "record": "co_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Co low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "co_sun_2010_legacy",
+      "file": "co_sun_2010_legacy.eosmat",
+      "record": "co_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Co low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "co_sun_2010_legacy",
+      "file": "co_sun_2010_legacy.eosmat",
+      "record": "co_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Co low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "co_sun_2010_legacy",
+      "file": "co_sun_2010_legacy.eosmat",
+      "record": "co_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Co low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "cobalt_hcp",
       "file": "cobalt_hcp.eosmat",
       "record": "cobalt_hcp_fujihisa_1996_vinet_1",
@@ -2832,6 +3588,60 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Co experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Co MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Co DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
       }
     },
     {
@@ -3005,6 +3815,78 @@
       }
     },
     {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Cu experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Cu MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Cu DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_dewaele_2004_mao_ruby_vinet",
+      "label": "Dewaele et al. (2004), Cu mao ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
       "material": "cr_sun_2010_legacy",
       "file": "cr_sun_2010_legacy.eosmat",
       "record": "cr_sun_2010_sms4_1",
@@ -3038,6 +3920,78 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "cr_sun_2010_legacy",
+      "file": "cr_sun_2010_legacy.eosmat",
+      "record": "cr_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Cr low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cr_sun_2010_legacy",
+      "file": "cr_sun_2010_legacy.eosmat",
+      "record": "cr_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Cr low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cr_sun_2010_legacy",
+      "file": "cr_sun_2010_legacy.eosmat",
+      "record": "cr_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Cr low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cr_sun_2010_legacy",
+      "file": "cr_sun_2010_legacy.eosmat",
+      "record": "cr_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Cr low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -3146,6 +4100,96 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "cu_sun_2010_legacy",
+      "file": "cu_sun_2010_legacy.eosmat",
+      "record": "cu_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Cu low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cu_sun_2010_legacy",
+      "file": "cu_sun_2010_legacy.eosmat",
+      "record": "cu_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Cu low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cu_sun_2010_legacy",
+      "file": "cu_sun_2010_legacy.eosmat",
+      "record": "cu_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Cu low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cu_sun_2010_legacy",
+      "file": "cu_sun_2010_legacy.eosmat",
+      "record": "cu_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Cu low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "cu_sun_2010_legacy",
+      "file": "cu_sun_2010_legacy.eosmat",
+      "record": "cu_sun_2010_low_bn",
+      "label": "Sun et al. (2010), Cu low-pressure BN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -3452,6 +4496,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Fe experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -4118,6 +5180,120 @@
       }
     },
     {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Au experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Au MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Au DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2004_mao_ruby_vinet",
+      "label": "Dewaele et al. (2004), Au mao ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dorfman_2012_tange_mgo_k0_fixed_vinet",
+      "label": "Dorfman et al. (2012), Au K0-fixed Vinet",
+      "doi": "10.1029/2012jb009292",
+      "status": "primary_source_validated",
+      "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2012JB009292",
+        "doi": "10.1029/2012JB009292",
+        "locations": [
+          "Table 1",
+          "Equations (2)-(3)",
+          "Section 3.2",
+          "Table 2",
+          "auxiliary Tables S1-S6"
+        ],
+        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dorfman_2012_tange_mgo_k0_free_vinet",
+      "label": "Dorfman et al. (2012), Au K0-free Vinet",
+      "doi": "10.1029/2012jb009292",
+      "status": "primary_source_validated",
+      "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2012JB009292",
+        "doi": "10.1029/2012JB009292",
+        "locations": [
+          "Table 1",
+          "Equations (2)-(3)",
+          "Section 3.2",
+          "Table 2",
+          "auxiliary Tables S1-S6"
+        ],
+        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+      }
+    },
+    {
       "material": "graphite",
       "file": "graphite.eosmat",
       "record": "graphite_hanfland_1989_murnaghan_1",
@@ -4151,6 +5327,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "hafnium_hcp",
+      "file": "hafnium_hcp.eosmat",
+      "record": "hafnium_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Hf experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -4266,6 +5460,78 @@
       }
     },
     {
+      "material": "in_sun_2010_legacy",
+      "file": "in_sun_2010_legacy.eosmat",
+      "record": "in_sun_2010_low_vn",
+      "label": "Sun et al. (2010), In low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "in_sun_2010_legacy",
+      "file": "in_sun_2010_legacy.eosmat",
+      "record": "in_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), In low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "in_sun_2010_legacy",
+      "file": "in_sun_2010_legacy.eosmat",
+      "record": "in_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), In low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "in_sun_2010_legacy",
+      "file": "in_sun_2010_legacy.eosmat",
+      "record": "in_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), In low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "indium_bct",
       "file": "indium_bct.eosmat",
       "record": "indium_bct_lejaeghere_2016_wien2k_pbe_bm3",
@@ -4281,6 +5547,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "indium_bct",
+      "file": "indium_bct.eosmat",
+      "record": "indium_bct_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), In experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -4336,6 +5620,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "iridium",
+      "file": "iridium.eosmat",
+      "record": "iridium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ir experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -4396,6 +5698,96 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Fe MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Fe DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_zhang_2025_fit1_birch_murnaghan_3_mgd",
+      "label": "Zhang et al. (2025), hcp-Fe Fit #1 BM3+MGD",
+      "doi": "10.3390/cryst15030221",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2073-4352/15/3/221",
+        "doi": "10.3390/cryst15030221",
+        "locations": [
+          "Equations (1)-(6)",
+          "Table 2"
+        ],
+        "finding": "Table 2 prints the complete BM3/Vinet plus Mie-Gruneisen-Debye coefficients, uncertainties, RMSE, and fit strategy."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
+      "label": "Zhang et al. (2025), hcp-Fe Fit #2 BM3+MGD",
+      "doi": "10.3390/cryst15030221",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2073-4352/15/3/221",
+        "doi": "10.3390/cryst15030221",
+        "locations": [
+          "Equations (1)-(6)",
+          "Table 2"
+        ],
+        "finding": "Table 2 prints the complete BM3/Vinet plus Mie-Gruneisen-Debye coefficients, uncertainties, RMSE, and fit strategy."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_zhang_2025_fit5_vinet_mgd",
+      "label": "Zhang et al. (2025), hcp-Fe Fit #5 Vinet+MGD",
+      "doi": "10.3390/cryst15030221",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2073-4352/15/3/221",
+        "doi": "10.3390/cryst15030221",
+        "locations": [
+          "Equations (1)-(6)",
+          "Table 2"
+        ],
+        "finding": "Table 2 prints the complete BM3/Vinet plus Mie-Gruneisen-Debye coefficients, uncertainties, RMSE, and fit strategy."
       }
     },
     {
@@ -4810,6 +6202,60 @@
       }
     },
     {
+      "material": "lead_fcc",
+      "file": "lead_fcc.eosmat",
+      "record": "lead_fcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Pb experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "lead_hcp",
+      "file": "lead_hcp.eosmat",
+      "record": "lead_hcp_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Pb MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "lead_hcp",
+      "file": "lead_hcp.eosmat",
+      "record": "lead_hcp_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Pb DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
       "material": "li_bcc",
       "file": "li_bcc.eosmat",
       "record": "li_hanfland_1999_vinet_1",
@@ -5047,6 +6493,24 @@
       }
     },
     {
+      "material": "lithium_9r",
+      "file": "lithium_9r.eosmat",
+      "record": "lithium_9r_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Li experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "lutetium_hcp",
       "file": "lutetium_hcp.eosmat",
       "record": "lutetium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
@@ -5217,6 +6681,24 @@
       }
     },
     {
+      "material": "magnesium_hcp",
+      "file": "magnesium_hcp.eosmat",
+      "record": "magnesium_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Mg experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "majorite",
       "file": "majorite.eosmat",
       "record": "majorite_yagi_1992_bm3_1",
@@ -5250,6 +6732,24 @@
           "EOS fit table"
         ],
         "doi": "10.1103/physrevb.103.014101"
+      }
+    },
+    {
+      "material": "manganese_alpha",
+      "file": "manganese_alpha.eosmat",
+      "record": "manganese_alpha_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Mn experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -6661,6 +8161,78 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "mg_sun_2010_legacy",
+      "file": "mg_sun_2010_legacy.eosmat",
+      "record": "mg_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Mg low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "mg_sun_2010_legacy",
+      "file": "mg_sun_2010_legacy.eosmat",
+      "record": "mg_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Mg low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "mg_sun_2010_legacy",
+      "file": "mg_sun_2010_legacy.eosmat",
+      "record": "mg_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Mg low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "mg_sun_2010_legacy",
+      "file": "mg_sun_2010_legacy.eosmat",
+      "record": "mg_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Mg low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -8102,6 +9674,96 @@
       }
     },
     {
+      "material": "mo_sun_2010_legacy",
+      "file": "mo_sun_2010_legacy.eosmat",
+      "record": "mo_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Mo low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "mo_sun_2010_legacy",
+      "file": "mo_sun_2010_legacy.eosmat",
+      "record": "mo_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Mo low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "mo_sun_2010_legacy",
+      "file": "mo_sun_2010_legacy.eosmat",
+      "record": "mo_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Mo low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "mo_sun_2010_legacy",
+      "file": "mo_sun_2010_legacy.eosmat",
+      "record": "mo_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Mo low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "mo_sun_2010_legacy",
+      "file": "mo_sun_2010_legacy.eosmat",
+      "record": "mo_sun_2010_low_bn",
+      "label": "Sun et al. (2010), Mo low-pressure BN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "molybdenum",
       "file": "molybdenum.eosmat",
       "record": "molybdenum_sakai_2025_rydberg_stacey_1",
@@ -8179,6 +9841,102 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Mo experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Mo MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Mo DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet",
+      "label": "Dorfman et al. (2012), Mo K0-fixed Vinet",
+      "doi": "10.1029/2012jb009292",
+      "status": "primary_source_validated",
+      "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2012JB009292",
+        "doi": "10.1029/2012JB009292",
+        "locations": [
+          "Table 1",
+          "Equations (2)-(3)",
+          "Section 3.2",
+          "Table 2",
+          "auxiliary Tables S1-S6"
+        ],
+        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dorfman_2012_tange_mgo_k0_free_vinet",
+      "label": "Dorfman et al. (2012), Mo K0-free Vinet",
+      "doi": "10.1029/2012jb009292",
+      "status": "primary_source_validated",
+      "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2012JB009292",
+        "doi": "10.1029/2012JB009292",
+        "locations": [
+          "Table 1",
+          "Equations (2)-(3)",
+          "Section 3.2",
+          "Table 2",
+          "auxiliary Tables S1-S6"
+        ],
+        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
       }
     },
     {
@@ -8641,6 +10399,78 @@
       }
     },
     {
+      "material": "nb_sun_2010_legacy",
+      "file": "nb_sun_2010_legacy.eosmat",
+      "record": "nb_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Nb low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "nb_sun_2010_legacy",
+      "file": "nb_sun_2010_legacy.eosmat",
+      "record": "nb_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Nb low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "nb_sun_2010_legacy",
+      "file": "nb_sun_2010_legacy.eosmat",
+      "record": "nb_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Nb low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "nb_sun_2010_legacy",
+      "file": "nb_sun_2010_legacy.eosmat",
+      "record": "nb_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Nb low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "nd_sun_2010_legacy",
       "file": "nd_sun_2010_legacy.eosmat",
       "record": "nd_sun_2010_sms4_1",
@@ -8769,6 +10599,78 @@
       }
     },
     {
+      "material": "ni_sun_2010_legacy",
+      "file": "ni_sun_2010_legacy.eosmat",
+      "record": "ni_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Ni low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ni_sun_2010_legacy",
+      "file": "ni_sun_2010_legacy.eosmat",
+      "record": "ni_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Ni low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ni_sun_2010_legacy",
+      "file": "ni_sun_2010_legacy.eosmat",
+      "record": "ni_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Ni low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ni_sun_2010_legacy",
+      "file": "ni_sun_2010_legacy.eosmat",
+      "record": "ni_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Ni low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "nickel",
       "file": "nickel.eosmat",
       "record": "nickel_dewaele_2008_vinet_1",
@@ -8801,6 +10703,60 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ni experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Ni MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Ni DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
       }
     },
     {
@@ -8898,6 +10854,24 @@
       }
     },
     {
+      "material": "niobium",
+      "file": "niobium.eosmat",
+      "record": "niobium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Nb experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "nis",
       "file": "nis.eosmat",
       "record": "nis_campbell_1993_bm3_1",
@@ -8970,6 +10944,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "osmium",
+      "file": "osmium.eosmat",
+      "record": "osmium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Os experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -9134,6 +11126,24 @@
       }
     },
     {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Pd experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "pb_sun_2010_legacy",
       "file": "pb_sun_2010_legacy.eosmat",
       "record": "pb_sun_2010_sms4_1",
@@ -9167,6 +11177,78 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "pb_sun_2010_legacy",
+      "file": "pb_sun_2010_legacy.eosmat",
+      "record": "pb_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Pb low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pb_sun_2010_legacy",
+      "file": "pb_sun_2010_legacy.eosmat",
+      "record": "pb_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Pb low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pb_sun_2010_legacy",
+      "file": "pb_sun_2010_legacy.eosmat",
+      "record": "pb_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Pb low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pb_sun_2010_legacy",
+      "file": "pb_sun_2010_legacy.eosmat",
+      "record": "pb_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Pb low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -9240,6 +11322,78 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "pd_sun_2010_legacy",
+      "file": "pd_sun_2010_legacy.eosmat",
+      "record": "pd_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Pd low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pd_sun_2010_legacy",
+      "file": "pd_sun_2010_legacy.eosmat",
+      "record": "pd_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Pd low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pd_sun_2010_legacy",
+      "file": "pd_sun_2010_legacy.eosmat",
+      "record": "pd_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Pd low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pd_sun_2010_legacy",
+      "file": "pd_sun_2010_legacy.eosmat",
+      "record": "pd_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Pd low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -9518,6 +11672,138 @@
       }
     },
     {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Pt experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Pt MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Pt DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2004_mao_ruby_vinet",
+      "label": "Dewaele et al. (2004), Pt mao ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2004_revised_ruby_vinet",
+      "label": "Dewaele et al. (2004), Pt revised ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dorfman_2012_tange_mgo_k0_fixed_vinet",
+      "label": "Dorfman et al. (2012), Pt K0-fixed Vinet",
+      "doi": "10.1029/2012jb009292",
+      "status": "primary_source_validated",
+      "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2012JB009292",
+        "doi": "10.1029/2012JB009292",
+        "locations": [
+          "Table 1",
+          "Equations (2)-(3)",
+          "Section 3.2",
+          "Table 2",
+          "auxiliary Tables S1-S6"
+        ],
+        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dorfman_2012_tange_mgo_k0_free_vinet",
+      "label": "Dorfman et al. (2012), Pt K0-free Vinet",
+      "doi": "10.1029/2012jb009292",
+      "status": "primary_source_validated",
+      "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2012JB009292",
+        "doi": "10.1029/2012JB009292",
+        "locations": [
+          "Table 1",
+          "Equations (2)-(3)",
+          "Section 3.2",
+          "Table 2",
+          "auxiliary Tables S1-S6"
+        ],
+        "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+      }
+    },
+    {
       "material": "polonium_simple_cubic",
       "file": "polonium_simple_cubic.eosmat",
       "record": "polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3",
@@ -9551,6 +11837,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "potassium_bcc",
+      "file": "potassium_bcc.eosmat",
+      "record": "potassium_bcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), K experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -9644,6 +11948,96 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "pt_sun_2010_legacy",
+      "file": "pt_sun_2010_legacy.eosmat",
+      "record": "pt_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Pt low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pt_sun_2010_legacy",
+      "file": "pt_sun_2010_legacy.eosmat",
+      "record": "pt_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Pt low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pt_sun_2010_legacy",
+      "file": "pt_sun_2010_legacy.eosmat",
+      "record": "pt_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Pt low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pt_sun_2010_legacy",
+      "file": "pt_sun_2010_legacy.eosmat",
+      "record": "pt_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Pt low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "pt_sun_2010_legacy",
+      "file": "pt_sun_2010_legacy.eosmat",
+      "record": "pt_sun_2010_low_bn",
+      "label": "Sun et al. (2010), Pt low-pressure BN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -9918,6 +12312,60 @@
       }
     },
     {
+      "material": "rhenium",
+      "file": "rhenium.eosmat",
+      "record": "rhenium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Re experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "rhenium",
+      "file": "rhenium.eosmat",
+      "record": "rhenium_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Re MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "rhenium",
+      "file": "rhenium.eosmat",
+      "record": "rhenium_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Re DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
       "material": "rhodium",
       "file": "rhodium.eosmat",
       "record": "rhodium_rodrigo_ramon_2024_vinet_1",
@@ -9953,6 +12401,24 @@
       }
     },
     {
+      "material": "rhodium",
+      "file": "rhodium.eosmat",
+      "record": "rhodium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Rh experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "ringwoodite",
       "file": "ringwoodite.eosmat",
       "record": "ringwoodite_meng_1994_bm3_1",
@@ -9984,6 +12450,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "rubidium_bcc",
+      "file": "rubidium_bcc.eosmat",
+      "record": "rubidium_bcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Rb experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -10022,6 +12506,24 @@
       }
     },
     {
+      "material": "ruthenium",
+      "file": "ruthenium.eosmat",
+      "record": "ruthenium_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ru experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "scandium_hcp",
       "file": "scandium_hcp.eosmat",
       "record": "scandium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
@@ -10037,6 +12539,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "scandium_hcp",
+      "file": "scandium_hcp.eosmat",
+      "record": "scandium_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Sc experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -10256,6 +12776,60 @@
       }
     },
     {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ag experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Ag MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Ag DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
       "material": "sio2_stv_andr",
       "file": "sio2_stv_andr.eosmat",
       "record": "sio2_stv_andr_andrault_2003_bm3_1",
@@ -10424,6 +12998,78 @@
       }
     },
     {
+      "material": "sn_sun_2010_legacy",
+      "file": "sn_sun_2010_legacy.eosmat",
+      "record": "sn_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Sn low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "sn_sun_2010_legacy",
+      "file": "sn_sun_2010_legacy.eosmat",
+      "record": "sn_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Sn low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "sn_sun_2010_legacy",
+      "file": "sn_sun_2010_legacy.eosmat",
+      "record": "sn_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Sn low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "sn_sun_2010_legacy",
+      "file": "sn_sun_2010_legacy.eosmat",
+      "record": "sn_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Sn low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "sno2",
       "file": "sno2.eosmat",
       "record": "sno2_hazen_1981_bm3_1",
@@ -10496,6 +13142,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "sodium_9r",
+      "file": "sodium_9r.eosmat",
+      "record": "sodium_9r_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Na experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -10667,6 +13331,24 @@
       }
     },
     {
+      "material": "strontium_fcc",
+      "file": "strontium_fcc.eosmat",
+      "record": "strontium_fcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Sr experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "ta_sun_2010_legacy",
       "file": "ta_sun_2010_legacy.eosmat",
       "record": "ta_sun_2010_sms4_1",
@@ -10718,6 +13400,96 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "ta_sun_2010_legacy",
+      "file": "ta_sun_2010_legacy.eosmat",
+      "record": "ta_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Ta low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ta_sun_2010_legacy",
+      "file": "ta_sun_2010_legacy.eosmat",
+      "record": "ta_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Ta low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ta_sun_2010_legacy",
+      "file": "ta_sun_2010_legacy.eosmat",
+      "record": "ta_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Ta low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ta_sun_2010_legacy",
+      "file": "ta_sun_2010_legacy.eosmat",
+      "record": "ta_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Ta low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ta_sun_2010_legacy",
+      "file": "ta_sun_2010_legacy.eosmat",
+      "record": "ta_sun_2010_low_bn",
+      "label": "Sun et al. (2010), Ta low-pressure BN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -10800,6 +13572,96 @@
       }
     },
     {
+      "material": "tantalum",
+      "file": "tantalum.eosmat",
+      "record": "tantalum_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ta experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "tantalum",
+      "file": "tantalum.eosmat",
+      "record": "tantalum_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Ta MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "tantalum",
+      "file": "tantalum.eosmat",
+      "record": "tantalum_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Ta DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "tantalum",
+      "file": "tantalum.eosmat",
+      "record": "tantalum_dewaele_2004_mao_ruby_vinet",
+      "label": "Dewaele et al. (2004), Ta mao ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "tantalum",
+      "file": "tantalum.eosmat",
+      "record": "tantalum_dewaele_2004_revised_ruby_vinet",
+      "label": "Dewaele et al. (2004), Ta revised ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
       "material": "technetium_hcp",
       "file": "technetium_hcp.eosmat",
       "record": "technetium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
@@ -10854,6 +13716,78 @@
       }
     },
     {
+      "material": "th_sun_2010_legacy",
+      "file": "th_sun_2010_legacy.eosmat",
+      "record": "th_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Th low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "th_sun_2010_legacy",
+      "file": "th_sun_2010_legacy.eosmat",
+      "record": "th_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Th low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "th_sun_2010_legacy",
+      "file": "th_sun_2010_legacy.eosmat",
+      "record": "th_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Th low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "th_sun_2010_legacy",
+      "file": "th_sun_2010_legacy.eosmat",
+      "record": "th_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Th low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "thallium_hcp",
       "file": "thallium_hcp.eosmat",
       "record": "thallium_hcp_lejaeghere_2016_wien2k_pbe_bm3",
@@ -10869,6 +13803,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "thallium_hcp",
+      "file": "thallium_hcp.eosmat",
+      "record": "thallium_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Tl experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -10926,6 +13878,78 @@
       }
     },
     {
+      "material": "ti_sun_2010_legacy",
+      "file": "ti_sun_2010_legacy.eosmat",
+      "record": "ti_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Ti low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ti_sun_2010_legacy",
+      "file": "ti_sun_2010_legacy.eosmat",
+      "record": "ti_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Ti low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ti_sun_2010_legacy",
+      "file": "ti_sun_2010_legacy.eosmat",
+      "record": "ti_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Ti low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "ti_sun_2010_legacy",
+      "file": "ti_sun_2010_legacy.eosmat",
+      "record": "ti_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Ti low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "tin_alpha",
       "file": "tin_alpha.eosmat",
       "record": "tin_alpha_lejaeghere_2016_wien2k_pbe_bm3",
@@ -10941,6 +13965,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "tin_alpha",
+      "file": "tin_alpha.eosmat",
+      "record": "tin_alpha_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Sn experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -10977,6 +14019,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "titanium_alpha",
+      "file": "titanium_alpha.eosmat",
+      "record": "titanium_alpha_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Ti experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -11031,6 +14091,78 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "tl_sun_2010_legacy",
+      "file": "tl_sun_2010_legacy.eosmat",
+      "record": "tl_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Tl low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "tl_sun_2010_legacy",
+      "file": "tl_sun_2010_legacy.eosmat",
+      "record": "tl_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Tl low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "tl_sun_2010_legacy",
+      "file": "tl_sun_2010_legacy.eosmat",
+      "record": "tl_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Tl low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "tl_sun_2010_legacy",
+      "file": "tl_sun_2010_legacy.eosmat",
+      "record": "tl_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Tl low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -11132,6 +14264,78 @@
       }
     },
     {
+      "material": "tungsten",
+      "file": "tungsten.eosmat",
+      "record": "tungsten_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), W experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "tungsten",
+      "file": "tungsten.eosmat",
+      "record": "tungsten_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), W MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "tungsten",
+      "file": "tungsten.eosmat",
+      "record": "tungsten_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), W DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "tungsten",
+      "file": "tungsten.eosmat",
+      "record": "tungsten_dewaele_2004_mao_ruby_vinet",
+      "label": "Dewaele et al. (2004), W mao ruby Vinet",
+      "doi": "10.1103/physrevb.70.094112",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
+        "doi": "10.1103/PhysRevB.70.094112",
+        "locations": [
+          "Equation (2)",
+          "Table II"
+        ],
+        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+      }
+    },
+    {
       "material": "v_sun_2010_legacy",
       "file": "v_sun_2010_legacy.eosmat",
       "record": "v_sun_2010_sms4_1",
@@ -11168,6 +14372,78 @@
       }
     },
     {
+      "material": "v_sun_2010_legacy",
+      "file": "v_sun_2010_legacy.eosmat",
+      "record": "v_sun_2010_low_vn",
+      "label": "Sun et al. (2010), V low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "v_sun_2010_legacy",
+      "file": "v_sun_2010_legacy.eosmat",
+      "record": "v_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), V low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "v_sun_2010_legacy",
+      "file": "v_sun_2010_legacy.eosmat",
+      "record": "v_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), V low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "v_sun_2010_legacy",
+      "file": "v_sun_2010_legacy.eosmat",
+      "record": "v_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), V low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "vanadium_bcc",
       "file": "vanadium_bcc.eosmat",
       "record": "vanadium_bcc_lejaeghere_2016_wien2k_pbe_bm3",
@@ -11183,6 +14459,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "vanadium_bcc",
+      "file": "vanadium_bcc.eosmat",
+      "record": "vanadium_bcc_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), V experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -11237,6 +14531,96 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "w_sun_2010_legacy",
+      "file": "w_sun_2010_legacy.eosmat",
+      "record": "w_sun_2010_low_vn",
+      "label": "Sun et al. (2010), W low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "w_sun_2010_legacy",
+      "file": "w_sun_2010_legacy.eosmat",
+      "record": "w_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), W low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "w_sun_2010_legacy",
+      "file": "w_sun_2010_legacy.eosmat",
+      "record": "w_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), W low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "w_sun_2010_legacy",
+      "file": "w_sun_2010_legacy.eosmat",
+      "record": "w_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), W low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "w_sun_2010_legacy",
+      "file": "w_sun_2010_legacy.eosmat",
+      "record": "w_sun_2010_low_bn",
+      "label": "Sun et al. (2010), W low-pressure BN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     },
     {
@@ -11296,6 +14680,24 @@
       }
     },
     {
+      "material": "yttrium_hcp",
+      "file": "yttrium_hcp.eosmat",
+      "record": "yttrium_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Y experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
       "material": "zinc_hcp",
       "file": "zinc_hcp.eosmat",
       "record": "zinc_hcp_lejaeghere_2016_wien2k_pbe_bm3",
@@ -11311,6 +14713,60 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Zn experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Zn MAO-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Zn DOR-scale Vinet",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
       }
     },
     {
@@ -11400,6 +14856,24 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
+      }
+    },
+    {
+      "material": "zirconium_alpha",
+      "file": "zirconium_alpha.eosmat",
+      "record": "zirconium_alpha_lejaeghere_2014_experimental_corrected_bm3",
+      "label": "Lejaeghere et al. (2014), Zr experimental-corrected BM3",
+      "doi": "10.1080/10408436.2013.772503",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.1080/10408436.2013.772503",
+        "locations": [
+          "official Delta-project archive exp.txt",
+          "reference-data methodology in Sections III-IV"
+        ],
+        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -11495,6 +14969,78 @@
       }
     },
     {
+      "material": "zn_sun_2010_legacy",
+      "file": "zn_sun_2010_legacy.eosmat",
+      "record": "zn_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Zn low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "zn_sun_2010_legacy",
+      "file": "zn_sun_2010_legacy.eosmat",
+      "record": "zn_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Zn low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "zn_sun_2010_legacy",
+      "file": "zn_sun_2010_legacy.eosmat",
+      "record": "zn_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Zn low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "zn_sun_2010_legacy",
+      "file": "zn_sun_2010_legacy.eosmat",
+      "record": "zn_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Zn low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
       "material": "zr_sun_2010_legacy",
       "file": "zr_sun_2010_legacy.eosmat",
       "record": "zr_sun_2010_sms4_1",
@@ -11528,6 +15074,78 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "zr_sun_2010_legacy",
+      "file": "zr_sun_2010_legacy.eosmat",
+      "record": "zr_sun_2010_low_vn",
+      "label": "Sun et al. (2010), Zr low-pressure VN",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "zr_sun_2010_legacy",
+      "file": "zr_sun_2010_legacy.eosmat",
+      "record": "zr_sun_2010_low_mrs3",
+      "label": "Sun et al. (2010), Zr low-pressure MRS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "zr_sun_2010_legacy",
+      "file": "zr_sun_2010_legacy.eosmat",
+      "record": "zr_sun_2010_low_sms3",
+      "label": "Sun et al. (2010), Zr low-pressure SMS3",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "zr_sun_2010_legacy",
+      "file": "zr_sun_2010_legacy.eosmat",
+      "record": "zr_sun_2010_low_sms4",
+      "label": "Sun et al. (2010), Zr low-pressure SMS4",
+      "doi": "10.1515/zna-2010-1-202",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": "10.1515/zna-2010-1-202",
+        "locations": [
+          "equations (3)-(15)",
+          "Table 3"
+        ],
+        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
       }
     }
   ]
