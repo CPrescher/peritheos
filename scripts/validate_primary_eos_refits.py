@@ -135,6 +135,7 @@ UNWEIGHTED_DATASETS = {
     "namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized",
     "namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized",
     "neon_fei_2007_figure5_digitized",
+    "iron_zhang_2025_tables_s1_s3_s4_pvt",
 }
 
 COMBINED_FIT_DATASET_RECORDS = {
@@ -151,6 +152,30 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
+        "Exact final-input reproduction, not a reconstruction of every upstream "
+        "reduction: the supplement deposits the 1,313 fit rows, but omits the "
+        "calibrant observations needed to recalculate 641 static pressures and the "
+        "documented interpolation procedure for most model-assigned dynamic "
+        "temperatures. Experimental P-V, derived temperatures, and ab-initio rows "
+        "remain explicitly separated in the bundled dataset."
+    ),
+    "iron_zhang_2025_fit2_birch_murnaghan_3_mgd": (
+        "Exact final-input reproduction, not a reconstruction of every upstream "
+        "reduction: the supplement deposits the 1,313 fit rows, but omits the "
+        "calibrant observations needed to recalculate 641 static pressures and the "
+        "documented interpolation procedure for most model-assigned dynamic "
+        "temperatures. Experimental P-V, derived temperatures, and ab-initio rows "
+        "remain explicitly separated in the bundled dataset."
+    ),
+    "iron_zhang_2025_fit5_vinet_mgd": (
+        "Exact final-input reproduction, not a reconstruction of every upstream "
+        "reduction: the supplement deposits the 1,313 fit rows, but omits the "
+        "calibrant observations needed to recalculate 641 static pressures and the "
+        "documented interpolation procedure for most model-assigned dynamic "
+        "temperatures. Experimental P-V, derived temperatures, and ab-initio rows "
+        "remain explicitly separated in the bundled dataset."
+    ),
     "akimotoite_reynard_1996_bm3_ruby_2": (
         "Direct Table 1 reproduction of the ruby-pressure fit with K0 fixed at "
         "the source-adopted 212 GPa. The source says its parameter uncertainties "
@@ -467,6 +492,7 @@ INVESTIGATION_NOTES = {
 
 # Dataset choices that cannot be inferred uniquely from generic quantity metadata.
 PRESSURE_COLUMNS = {
+    "iron_zhang_2025_tables_s1_s3_s4_pvt": "pressure_gpa_fit",
     "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ruby_2": (
         "ruby_pressure_gpa"
     ),
@@ -1304,6 +1330,8 @@ def _fit_record(
     if dataset["identifier"] in UNWEIGHTED_DATASETS:
         series.pressure_sigma = None
         series.volume_sigma = None
+    if dataset["identifier"] == "iron_zhang_2025_tables_s1_s3_s4_pvt":
+        source_protocol_unweighted = True
     material = Material.from_eosmat(document, record_identifiers=[record_id])
     executable = material.eos_records[0].eos
     thermal = isinstance(executable, ThermalEOS)
