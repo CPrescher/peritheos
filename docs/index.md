@@ -60,6 +60,8 @@ The documentation is organized around scientific workflows:
 - [Primary EOS refit validation](primary-eos-refits.md) reports a fit attempt
   for every bundled material record and lists all coefficient-parity failures.
 - [API reference](api.md) is a compact import and method reference.
+- [Loading observation datasets](datasets.md) covers typed columns, unit
+  conversion, uncertainty semantics, and packaged-resource integrity checks.
 - [API stability](api-stability.md) defines the compatibility contract.
 
 ## Scope

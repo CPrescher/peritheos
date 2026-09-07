@@ -5,6 +5,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Added a typed, checksum-verifying dataset loader for embedded and packaged
+  `.eosmat` observations, including unit-aware pressure-volume views and
+  uncertainty arrays, while retaining the raw `Material.datasets` mappings.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

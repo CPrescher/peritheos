@@ -13,7 +13,7 @@ import re
 from collections.abc import Iterable
 from dataclasses import asdict, dataclass, field
 from types import MappingProxyType
-from typing import Any, Mapping
+from typing import TYPE_CHECKING, Any, Mapping
 
 import numpy as np
 from scipy.constants import Avogadro, electron_volt
@@ -59,6 +59,9 @@ from peritheos.errors import (
 )
 from peritheos.hugoniot import HugoniotBase, HugoniotState, LinearUsUpHugoniot
 from peritheos.uncertainty import EOSUncertainty, PredictionUncertainty
+
+if TYPE_CHECKING:
+    from peritheos.datasets import Dataset
 
 
 def _validated_aliases(
@@ -1121,6 +1124,32 @@ class Material:
             f"available: {[record.identifier for record in self.eos_records]}."
             f"{hint}",
             operation="lookup_eos_record",
+            field="identifier",
+            context={"identifier": identifier, "material": self.identifier},
+        )
+
+    def get_dataset(self, identifier: str) -> Dataset:
+        """Load one observation dataset by its stable identifier.
+
+        The historical :attr:`datasets` tuple remains a collection of raw
+        mappings.  This method adds typed columns, package-resource loading,
+        and checksum verification without changing that representation.
+        """
+        from difflib import get_close_matches
+
+        from peritheos.datasets import Dataset
+        from peritheos.errors import DatasetLookupError
+
+        for metadata in self.datasets:
+            if metadata.get("identifier") == identifier:
+                return Dataset.from_mapping(metadata)
+        available = [str(item.get("identifier")) for item in self.datasets]
+        suggestions = get_close_matches(identifier, sorted(available), n=3, cutoff=0.5)
+        hint = f" Did you mean: {', '.join(suggestions)}?" if suggestions else ""
+        raise DatasetLookupError(
+            f"Unknown dataset {identifier!r} for {self.identifier!r}; "
+            f"available: {available}.{hint}",
+            operation="lookup_dataset",
             field="identifier",
             context={"identifier": identifier, "material": self.identifier},
         )

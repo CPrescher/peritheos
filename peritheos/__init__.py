@@ -11,6 +11,12 @@ from peritheos.catalog import (
     search_eos_records,
     search_materials,
 )
+from peritheos.datasets import (
+    Dataset,
+    DatasetColumn,
+    DatasetResource,
+    PressureVolumeData,
+)
 from peritheos.eos import EquationOfState
 from peritheos.eosmat import (
     EOSMAT_FORMAT,
@@ -27,6 +33,8 @@ from peritheos.eosmat import (
 )
 from peritheos.errors import (
     ConfigurationError,
+    DatasetError,
+    DatasetLookupError,
     EosError,
     EosmatError,
     EosNumericalError,
@@ -98,6 +106,11 @@ __all__ = [
     "CalibrationPathRecalculation",
     "CommonPressureCalibrationRoutes",
     "ConfigurationError",
+    "Dataset",
+    "DatasetColumn",
+    "DatasetError",
+    "DatasetLookupError",
+    "DatasetResource",
     "EOSMAT_FORMAT",
     "EOSMAT_FORMAT_VERSION",
     "EOSUncertainty",
@@ -126,6 +139,7 @@ __all__ = [
     "DiamondRamanCalibration",
     "Material",
     "PredictionUncertainty",
+    "PressureVolumeData",
     "PressureScaleRecalculation",
     "RubyFluorescenceCalibration",
     "RubyPressureScaleRecalculation",

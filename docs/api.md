@@ -19,12 +19,15 @@ codes, Rust error kinds, and source-chain examples.
 
 ```python
 from peritheos import (
+    Dataset,
+    DatasetColumn,
     EOSRecord,
     HugoniotBranchDomain,
     HugoniotInitialState,
     HugoniotRecord,
     HugoniotVolumeBasis,
     Material,
+    PressureVolumeData,
     get_eos_record,
     get_material,
     list_eos_records,
@@ -55,6 +58,43 @@ It stays in the common
 `Material.equilibrium_records` return convenient filtered views. Hugoniot
 records expose `shock_velocity()`, `particle_velocity()`, `density()`, and
 `specific_internal_energy_change()` in addition to `pressure()` and `volume()`.
+
+### Observation datasets
+
+`Material.datasets` remains the tuple of raw `.eosmat` mappings for backward
+compatibility. `Material.get_dataset(identifier)` is the convenient typed path:
+it loads embedded rows or packaged CSV resources, verifies packaged-resource
+SHA-256 checksums before parsing, and retains the source reference, source
+location, notes, column metadata, and EOS-record links.
+
+```python
+from peritheos import get_material
+
+coesite = get_material("coesite")
+dataset = coesite.get_dataset("coesite_levien_1981_table7_pv")
+pv = dataset.as_pressure_volume(pressure_unit="GPa")
+
+print(dataset.reference, dataset.source_location)
+print(pv.volume)          # angstrom^3, as declared by Table 7
+print(pv.pressure)        # converted from kbar to GPa
+print(pv.volume_sigma)    # source-declared standard deviations
+print(pv.pressure_sigma)  # first entry is NaN: no value was reported
+```
+
+`Dataset.columns` contains typed `DatasetColumn` metadata and `dataset[name]`
+returns a read-only NumPy array. When an archived CSV retains different source
+headings, those are available in `source_column_names`; values are mapped by
+the schema-defined column order. `values(name, unit=...)` converts compatible
+numeric columns, while `find_columns(quantity=..., role=...)` supports all
+other dataset kinds without imposing a table-specific model. For datasets with
+more than one pressure or volume series, pass `pressure_column=` or
+`volume_column=` to `as_pressure_volume()`. General uncertainty columns remain
+available as `pressure_uncertainty` and `volume_uncertainty`, accompanied by
+their declared roles; the `*_sigma` aliases are populated only when the schema
+explicitly marks the column as a standard deviation. This distinction avoids
+silently treating standard errors or confidence bounds as one-sigma errors.
+See [Loading observation datasets](datasets.md) for the complete workflow,
+supported unit families, integrity checks, and non-P-V column access.
 
 `search_materials()` and `search_eos_records()` accept typed filters for free
 text, name, alias, formula, phase, model family, DOI, author/reference,

@@ -127,8 +127,22 @@ class MaterialLookupError(PeritheosError, KeyError):
     default_code = "material.not_found"
 
 
+class DatasetError(ValidationError):
+    """A dataset cannot be loaded or represented as requested."""
+
+    default_code = "dataset.invalid"
+
+
+class DatasetLookupError(PeritheosError, KeyError):
+    """A requested dataset or dataset column does not exist."""
+
+    default_code = "dataset.not_found"
+
+
 __all__ = [
     "ConfigurationError",
+    "DatasetError",
+    "DatasetLookupError",
     "EosError",
     "EosNumericalError",
     "EosValidationError",

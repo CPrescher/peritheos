@@ -109,6 +109,24 @@ gold = search_eos_records(formula="Au", thermal=True, pressure_gpa=200.0)[0]
 hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
 ```
 
+Bundled observation tables have the same provenance-aware interface whether
+their rows are embedded in `.eosmat` or stored as packaged CSV resources. The
+resource checksum is verified automatically:
+
+```python
+coesite = get_material("coesite")
+dataset = coesite.get_dataset("coesite_levien_1981_table7_pv")
+pv = dataset.as_pressure_volume(pressure_unit="GPa")
+
+print(pv.volume, pv.pressure)
+print(pv.volume_sigma, pv.pressure_sigma)
+```
+
+The existing `Material.datasets` raw mappings remain available for consumers
+that need the serialized representation. See [Loading observation
+datasets](docs/datasets.md) for column discovery, supported conversions,
+uncertainty semantics, and resource-integrity behavior.
+
 The normal catalog API constructs all 286 materials and 813 records directly
 from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
