@@ -1456,6 +1456,428 @@
      "finding": "All printed P-V-T observations are transcribed with MgO conventional-cell volume, platinum lattice parameter, and the displayed uncertainties. There is no separate official supplement or data deposit."
     }
    }
+  },
+  {
+   "label": "Matsui et al. (2000), 300 K MD BM3",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Parker",
+     "Leslie"
+    ],
+    "year": 2000,
+    "title": "The MD simulation of the equation of state of MgO: Application as a pressure calibration standard at high temperature and high pressure",
+    "source": "American Mineralogist",
+    "volume": "85",
+    "locator": "312-316",
+    "doi": "10.2138/am-2000-2-308"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.6458805788525,
+     "K0": 160.5,
+     "K0_prime": 4.1
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.2,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    20.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "temperature_ref": 300.0,
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     20.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.9038,
+     1.0
+    ],
+    "notes": [
+     "The authors fitted this BM3 only to their 300 K MD states through 20 GPa; it is not their complete high-temperature calibration.",
+     "The range describes the published fit selection, not a B1 phase boundary or an extrapolation recommendation."
+    ]
+   },
+   "fit_datasets": [
+    "mgo_matsui_2000_table3_pvt"
+   ],
+   "parameter_provenance": {
+    "equation": "Page 315: third-order Birch-Murnaghan fit to the MD values at pressures up to 20 GPa.",
+    "V0": "Page 315 and Table 3 footnote: V0=11.2382 cm^3/mol at 300 K and 0 GPa; converted with Z=4 and the exact Avogadro constant to 74.6458805788525 A^3 per conventional B1 cell. The paper does not state whether V0 was fixed or refined in the BM3 regression.",
+    "K0": "Page 315: KT=160.5(2) GPa from the 0-20 GPa MD fit.",
+    "K0_prime": "Page 315: K'T=4.10(2) from the 0-20 GPa MD fit.",
+    "volume_basis": "Table 3 reports molar V/V0 for MgO; the stored reference volume represents the conventional Fm-3m B1 cell with Z=4.",
+    "temperature_ref": "Page 315 and Table 3: 300 K reference isotherm."
+   },
+   "volume": {
+    "reference_value": 74.6458805788525,
+    "public_to_model_scale": 1.0,
+    "model_unit": "angstrom^3/conventional_unit_cell"
+   },
+   "notes": "This record preserves only the source-published low-pressure 300 K BM3 parameterization. The prose says the fit yielded K0 and K0' and separately defines V0 as the simulated 300 K, 0 GPa molar volume, but does not state whether V0 was fixed or refined; fixed_parameters is empty because no EOS coefficient is explicitly reported fixed, not because all three are known to have been varied. Parenthetical errors are stored as printed, but the article gives no confidence convention or covariance. The source high-temperature EOS is a tabulated MD pressure scale rather than a complete analytic thermal equation; it is represented separately by the explicit Peritheos refit and is not silently reduced to this room-temperature record.",
+   "identifier": "mgo_b1_matsui_2000_bm3_300k",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Computer Simulation section, pages 313-314",
+      "scope": "all MD pressure states",
+      "notes": "Pressures are molecular-dynamics virials with a Wigner-Kirkwood quantum correction, not observations reduced against an external pressure calibrant."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "There is no external pressure scale to recalculate. Re-running the original simulation is outside this EOS-record reproduction and would additionally require the pressure-correction implementation cited to Matsui (1989)."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The printed BM3 convention, coefficients, reference state, volume basis, fit range, uncertainties, complete simulation potential, and all Table 3 values were checked directly against the final article.",
+    "audit_date": "2026-09-07",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "crystallography",
+     "formula_units_per_cell",
+     "published_uncertainties",
+     "fitted_fixed_adopted_status",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2000-2-308",
+     "locations": [
+      "Equations 1-5, pages 313-314",
+      "Tables 1-2, page 314",
+      "Figure 3 discussion and Table 3, page 315"
+     ],
+     "finding": "The only complete published analytic EOS is a standard 300 K BM3 fitted through 20 GPa. The proposed thermal calibration is the 72-state MD V/V0 table through 100 GPa and 3000 K; the thermal-expansion coefficients and the per-temperature fourth-order Birch-Murnaghan coefficients are not printed.",
+     "doi": "10.2138/am-2000-2-308"
+    },
+    "source_model_audit": {
+     "published_eos_parameter_status": {
+      "V0": "reported reference-state value; regression treatment not stated",
+      "K0": "fitted",
+      "K0_prime": "fitted"
+     },
+     "interaction_equation": "V_ij=q_i*q_j/r_ij-C_i*C_j/r_ij^6+f*(B_i+B_j)*exp((A_i+A_j-r_ij)/(B_i+B_j)), with f=1 kcal/(A mol).",
+     "breathing_equation": "U_bre=sum_i f*b_i*exp((A_i0-A_i)/b_i); only oxygen ions breathe.",
+     "table1_parameters": {
+      "magnesium": {
+       "charge_e": 1.65,
+       "A_angstrom": 1.08,
+       "B_angstrom": 0.052,
+       "C_angstrom3_kcal_half_mol_minus_half": 0.0
+      },
+      "oxygen": {
+       "charge_e": -1.65,
+       "A": "dynamic_breathing_radius",
+       "B_angstrom": 0.171,
+       "C_angstrom3_kcal_half_mol_minus_half": 26.4,
+       "b0_angstrom": 0.055,
+       "A0_angstrom": 2.21
+      },
+      "adopted_parameters": [
+       "B_Mg",
+       "C_Mg",
+       "C_O"
+      ],
+      "fitted_parameters": [
+       "q_O=-q_Mg",
+       "A_Mg",
+       "B_O",
+       "A0_O",
+       "b_O"
+      ]
+     },
+     "simulation_setup": {
+      "conventional_cells": 64,
+      "ions": 512,
+      "time_step_fs": 0.4,
+      "aging_steps_typical": 50000,
+      "production_steps_minimum": 80000,
+      "production_time_ps": 32.0,
+      "oxygen_breathing_mass_g_mol": 60.0
+     },
+     "quantum_pressure_correction": {
+      "status": "referenced_not_reprinted",
+      "description": "Wigner-Kirkwood free-energy correction using the Matsui (1989) technique; the numerical correction equation is not printed in this article."
+     }
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "mgo_matsui_2000_table3_pvt"
+     ],
+     "source_locations": [
+      "Table 3, page 315"
+     ],
+     "finding": "All 72 MD V/V0 states and all 16 printed experimental comparison values are transcribed. The article reports no state-wise uncertainty or covariance."
+    },
+    "reproduction": {
+     "method": "Independent standard BM3 evaluation at the five Table 3 MD states at 300 K and 0-20 GPa.",
+     "states": 5,
+     "pressure_residual_rmse_gpa": 0.008744268563302926,
+     "max_abs_residual_gpa": 0.01829082080574196,
+     "note": "Residuals are consistent with the four-decimal V/V0 transcription and the printed parameter precision."
+    }
+   }
+  },
+  {
+   "label": "Matsui et al. (2000), Table 3 BM3-Taylor thermal refit",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Parker",
+     "Leslie"
+    ],
+    "year": 2000,
+    "title": "The MD simulation of the equation of state of MgO: Application as a pressure calibration standard at high temperature and high pressure",
+    "source": "American Mineralogist",
+    "volume": "85",
+    "locator": "312-316",
+    "doi": "10.2138/am-2000-2-308"
+   },
+   "record_kind": "refit",
+   "derived_from_record": "mgo_b1_matsui_2000_bm3_300k",
+   "equation_kind": "thermal",
+   "fit_provenance": {
+    "software": {
+     "name": "NumPy",
+     "version": "2.4.2"
+    },
+    "dataset": "mgo_matsui_2000_table3_pvt",
+    "selection": {
+     "predicate": "row_kind == md",
+     "included_rows": 72,
+     "excluded_comparison_rows": 16
+    },
+    "objective": "unweighted_linear_least_squares_pressure_residuals_gpa",
+    "weights": [],
+    "refined_parameters": [
+     "c0",
+     "c1",
+     "c2",
+     "c3",
+     "c4",
+     "c5"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "K0",
+     "K0_prime",
+     "Tr",
+     "eta0"
+    ],
+    "covariance_scaling": "none; the deterministic MD grid has no reported observation uncertainties",
+    "statistics": {
+     "observations": 72,
+     "free_parameters": 6,
+     "pressure_residual_rmse_gpa": 0.2106462806006488,
+     "max_absolute_pressure_residual_gpa": 0.5638802265021639
+    },
+    "reproduction": {
+     "solver": "numpy.linalg.lstsq with rcond=None",
+     "script": "scripts/reproduce_matsui_2000_mgo.py"
+    }
+   },
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 74.6458805788525,
+     "K0": 160.5,
+     "K0_prime": 4.1
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "thermal": {
+    "type": "SecondOrderTaylorThermalPressure",
+    "model": "second_order_taylor_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "eta0": 0.0,
+     "c0": 0.07386893543210726,
+     "c1": -1.4801591767400717,
+     "c2": 0.00595762693677235,
+     "c3": -26.014846420934482,
+     "c4": 2.853824076021999e-07,
+     "c5": 2.2768336653423677e-06
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "eta0": null,
+     "c0": null,
+     "c1": null,
+     "c2": null,
+     "c3": null,
+     "c4": null,
+     "c5": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "eta0"
+    ]
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    100.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    300.0,
+    3000.0
+   ],
+   "temperature_ref": 300.0,
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     100.0
+    ],
+    "temperature_k": [
+     300.0,
+     3000.0
+    ],
+    "volume_ratio": [
+     0.7238,
+     1.1558
+    ],
+    "notes": [
+     "Bounds are the marginal limits of the 72-state rectangular MD table and are not an independently established B1 phase-stability boundary.",
+     "This polynomial is an interpolation-quality Peritheos refit to rounded source output, not the unpublished analytic model used to generate the MD states."
+    ]
+   },
+   "fit_datasets": [
+    "mgo_matsui_2000_table3_pvt"
+   ],
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Source-published 300 K BM3 record mgo_b1_matsui_2000_bm3_300k; fixed in this refit.",
+     "K0": "Source-published 300 K BM3 record mgo_b1_matsui_2000_bm3_300k; fixed in this refit.",
+     "K0_prime": "Source-published 300 K BM3 record mgo_b1_matsui_2000_bm3_300k; fixed in this refit."
+    },
+    "thermal_correction": {
+     "Tr": "Fixed to the 300 K temperature of the published reference isotherm.",
+     "eta0": "Fixed to zero so eta=1-V/V0 is expanded about the published reference volume.",
+     "c0": "Peritheos unweighted least-squares fit to all 72 Table 3 MD pressure states.",
+     "c1": "Peritheos unweighted least-squares fit to all 72 Table 3 MD pressure states.",
+     "c2": "Peritheos unweighted least-squares fit to all 72 Table 3 MD pressure states.",
+     "c3": "Peritheos unweighted least-squares fit to all 72 Table 3 MD pressure states.",
+     "c4": "Peritheos unweighted least-squares fit to all 72 Table 3 MD pressure states.",
+     "c5": "Peritheos unweighted least-squares fit to all 72 Table 3 MD pressure states."
+    },
+    "additional": {
+     "volume_basis": "Table 3 molar V/V0 converted to the conventional B1 cell with Z=4; ratios are unchanged by conversion."
+    }
+   },
+   "volume": {
+    "reference_value": 74.6458805788525,
+    "public_to_model_scale": 1.0,
+    "model_unit": "angstrom^3/conventional_unit_cell"
+   },
+   "notes": "This opt-in refit makes the complete source Table 3 thermal pressure scale executable without claiming that Matsui et al. published these Taylor coefficients. The cold BM3 coefficients are fixed to the authors' 300 K, 0-20 GPa fit; the absolute Taylor term consequently captures both high-pressure departure from that low-pressure BM3 and temperature dependence. No parameter errors or covariance are assigned because the input consists of deterministic MD results rounded to four decimal places and the paper reports no state-wise uncertainties. The paper's fitted alpha(T) coefficients, per-temperature BM4 coefficients, and exact Wigner-Kirkwood correction equation are unavailable and are not inferred.",
+   "identifier": "mgo_b1_matsui_2000_taylor_refit",
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Table 3, page 315",
+      "scope": "all 72 fitted MD states",
+      "notes": "The refit targets the authors' quantum-corrected MD pressures directly and has no external calibrant."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "There is no observational pressure scale to replace."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The source grid is primary-source validated; the stored coefficients are a reproducible, explicitly labeled Peritheos refit rather than a published Matsui parameterization.",
+    "audit_date": "2026-09-07",
+    "verified_fields": [
+     "canonical_doi",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "formula_units_per_cell",
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "refit_provenance"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2000-2-308",
+     "locations": [
+      "Figure 3 discussion and Table 3, page 315"
+     ],
+     "finding": "Table 3 is the authors' proposed MgO thermal pressure scale and supplies 72 MD states over 0-100 GPa and 300-3000 K. It does not supply a complete analytic thermal interpolation, so the stored Taylor form is explicitly a later refit.",
+     "doi": "10.2138/am-2000-2-308"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "mgo_matsui_2000_table3_pvt"
+     ],
+     "source_locations": [
+      "Table 3, page 315"
+     ],
+     "finding": "All 72 fitted MD states and 16 non-fitted experimental comparison values are bundled without invented uncertainties."
+    },
+    "reproduction": {
+     "method": "Independent unweighted linear least-squares fit of the six absolute Taylor-pressure coefficients with the published BM3 coefficients fixed.",
+     "states": 72,
+     "pressure_residual_rmse_gpa": 0.2106462806006488,
+     "max_abs_residual_gpa": 0.5638802265021639,
+     "note": "The test also evaluates and inverts a 3000 K, approximately 100 GPa state through the public API."
+    }
+   }
   }
  ],
  "format": "peritheos.material",
@@ -2221,6 +2643,72 @@
     "volume": "Parenthesized last-digit uncertainties are calculated by GSAS, as stated in the Table 2 footnote."
    },
    "notes": "MgO volumes are conventional cubic Fm-3m cell volumes (Z=4), not molar or per-formula-unit volumes. The missing Pt entry at 0.0 GPa and missing pressure-uncertainty entries at 0.8 and 0.0 GPa are preserved as unavailable rather than inferred. The table is the primary publication's complete new dataset; earlier Fiquet, Fei, and Utsumi observations used in parts of the authors' combined analysis are separate literature datasets and are not silently merged here."
+  },
+  {
+   "identifier": "mgo_matsui_2000_table3_pvt",
+   "kind": "simulated_pressure_volume_temperature",
+   "description": "Complete Table 3 pressure-temperature-volume-ratio grid: 72 present-study quantum-corrected MD states and 16 printed experimental comparison values.",
+   "reference": {
+    "authors": [
+     "Matsui",
+     "Parker",
+     "Leslie"
+    ],
+    "year": 2000,
+    "title": "The MD simulation of the equation of state of MgO: Application as a pressure calibration standard at high temperature and high pressure",
+    "source": "American Mineralogist",
+    "volume": "85",
+    "locator": "312-316",
+    "doi": "10.2138/am-2000-2-308"
+   },
+   "source_location": "Table 3, page 315",
+   "source_url": "https://doi.org/10.2138/am-2000-2-308",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio",
+     "quantity": "volume_over_reference_volume",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "row_kind",
+     "quantity": "data_origin",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "comparison_source",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-matsui-2000-table3-pvt.csv",
+    "sha256": "24eecd696f18b6757aa9cdf499f163fb8fd28273285508ba0bfbfd897b0373c3",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_b1_matsui_2000_bm3_300k",
+    "mgo_b1_matsui_2000_taylor_refit"
+   ],
+   "uncertainty": {
+    "simulation_states": "No state-wise pressure, temperature, or volume uncertainty and no covariance are reported; V/V0 is printed to four decimal places.",
+    "comparison_values": "Table 3 prints no row-wise uncertainty for the values attributed to Dubrovinsky and Saxena (1997) and Duffy et al. (1995)."
+   },
+   "notes": "row_kind=md identifies the 72 values generated in the present study and used in the Peritheos thermal refit. row_kind=observed preserves the eight zero-pressure thermal-expansion comparisons attributed to Dubrovinsky and Saxena (1997) and the eight 300 K compression comparisons attributed to Duffy et al. (1995); those 16 values are not fitted. The table defines V0=11.2382 cm^3/mol at 300 K and 0 GPa. No missing values, interpolated rows, or inferred uncertainties are added."
   }
  ]
 }
