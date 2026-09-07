@@ -201,10 +201,10 @@
    ],
    "experimental_pressure_range_gpa": [
     0.0,
-    154.0
+    93.6
    ],
-   "temperature_ref": 300.0,
-   "notes": "Table II revised-ruby-scale Vinet fit. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.",
+   "temperature_ref": 298.0,
+   "notes": "Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'_R scale. Source-fixed parameters: V0, K0. Published atomic V0 is converted to the material card's conventional-cell basis.",
    "identifier": "gold_dewaele_2004_vinet_5",
    "pressure_calibration": {
     "status": "resolved",
@@ -221,20 +221,21 @@
        "source": "Phys. Rev. B",
        "doi": "10.1103/PhysRevB.70.094112"
       },
-      "source_location": "Equation 1 and Table II, revised P'_R ruby scale",
-      "reference_calibration_record": "ruby_dewaele_2004"
+      "source_location": "Equation (1) and Table I revised P'_R column; A=1904 GPa, B=9.5",
+      "reference_calibration_record": "ruby_dewaele_2004",
+      "scope": "all Table I observations for this metal"
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "status": "ready",
+     "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-09-07"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
-    "audit_date": "2026-09-03",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -242,29 +243,44 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "doi": "10.1103/physrevb.70.094112",
      "locations": [
-      "Equation 1",
+      "Equation (1)",
+      "Figure 2 caption",
       "Tables I and II"
      ],
-     "finding": "The stored record is the revised-ruby-scale Vinet fit with V0 and K0 fixed.",
-     "doi": "10.1103/physrevb.70.094112"
+     "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-07",
      "dataset_identifiers": [
       "gold_dewaele_2004_table1_compression"
      ],
      "source_locations": [
-      "Table I, pages 094112-3 to 094112-4"
+      "Table I, journal page 094112-4"
      ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+     "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
     }
+   },
+   "parameter_error_confidence": 0.95,
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     93.6
+    ],
+    "temperature_k": [
+     298.0,
+     298.0
+    ],
+    "notes": [
+     "Published Table I data envelope, not a phase-stability or extrapolation guarantee."
+    ]
    }
   },
   {
@@ -1801,50 +1817,51 @@
    "fixed_parameters": [
     "V0"
    ],
-   "temperature_ref": 300.0,
+   "temperature_ref": 298.0,
    "experimental_pressure_range_gpa": [
     0.0,
-    144.0
+    90.0
    ],
    "pressure_range_status": "reported_exactly",
    "validity": {
     "pressure_gpa": [
      0.0,
-     144.0
+     90.0
     ],
     "temperature_k": [
-     300.0,
-     300.0
+     298.0,
+     298.0
     ],
     "notes": [
      "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
     ]
    },
-   "notes": "Static synchrotron X-ray compression fit. This record fills a pressure-scale variant absent from the existing catalog; the shared 0-144 GPa envelope is conservative relative to the six source data series.",
+   "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
      {
       "kind": "ruby_fluorescence",
-      "source_location": "mao_ruby",
-      "reference_calibration_record": "ruby_mao_1986"
+      "source_location": "Table I classical P_R column; Mao et al. (1986), A=1904 GPa, B=7.665",
+      "reference_calibration_record": "ruby_mao_1986",
+      "scope": "all Table I observations for this metal"
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "status": "ready",
+     "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
-    "V0": "Table II",
-    "K0": "Table II",
-    "K0_prime": "Table II"
+    "V0": "Tables I and II",
+    "K0": "Tables I and II",
+    "K0_prime": "Tables I and II"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1855,28 +1872,31 @@
      "validity"
     ],
     "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-     "doi": "10.1103/PhysRevB.70.094112",
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "doi": "10.1103/physrevb.70.094112",
      "locations": [
-      "Equation (2)",
-      "Table II"
+      "Equation (1)",
+      "Figure 2 caption",
+      "Tables I and II"
      ],
-     "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+     "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "Equation (2)",
-      "Table II"
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "gold_dewaele_2004_table1_compression"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "source_locations": [
+      "Table I, journal page 094112-4"
+     ],
+     "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
     }
    },
    "source_lineage": [
     {
      "role": "scientific equation and coefficients",
-     "citation": "Equations of state of six metals above 94 GPa, Equation (2), Table II",
+     "citation": "Equations of state of six metals above 94 GPa, Equation (1), Figure 2 caption, Tables I and II",
      "doi": "10.1103/PhysRevB.70.094112"
     }
    ]
@@ -2410,7 +2430,7 @@
   {
    "identifier": "gold_dewaele_2004_table1_compression",
    "kind": "pressure_volume",
-   "description": "All 37 Table I gold atomic-volume observations.",
+   "description": "All 37 Table I gold atomic-volume observations, with both printed ruby-pressure reductions.",
    "reference": {
     "authors": [
      "Dewaele",
@@ -2423,7 +2443,7 @@
     "locator": "094112",
     "doi": "10.1103/PhysRevB.70.094112"
    },
-   "source_location": "Table I, pages 094112-3 to 094112-4",
+   "source_location": "Table I, journal page 094112-4",
    "columns": [
     {
      "name": "ruby_pressure_classical_gpa",
@@ -2457,10 +2477,21 @@
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
+    "gold_dewaele_2004_mao_ruby_vinet",
     "gold_dewaele_2004_vinet_5"
    ],
-   "notes": "PR is the classical Mao et al. ruby pressure and PR' is the paper's revised calibration used by the stored fit. The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa; no row-wise pressure errors are printed.",
-   "source_url": "https://doi.org/10.1103/PhysRevB.70.094112"
+   "transcription": {
+    "type": "direct_table_transcription",
+    "method": "Manual transcription from the publisher PDF with source row order and printed decimal precision retained.",
+    "source_artifact": {
+     "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "media_type": "application/pdf",
+     "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb"
+    }
+   },
+   "license": "No explicit open data-reuse license is stated. APS copyright applies to the article; this factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
+   "notes": "Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.",
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext"
   },
   {
    "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
