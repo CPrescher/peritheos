@@ -110,13 +110,16 @@
      "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "Equation (1)",
-      "Table 1"
+     "status": "combined_primary_data_partially_bundled",
+     "audit_date": "2026-09-07",
+     "digitized_dataset_identifiers": [
+      "lead_hcp_kuznetsov_2002_figure3_digitized"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "source_locations": [
+      "Dewaele (2019), Table 2",
+      "Kuznetsov et al. (2002), Figure 3"
+     ],
+     "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
     }
    },
    "source_lineage": [
@@ -221,13 +224,16 @@
      "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "Equation (1)",
-      "Table 1"
+     "status": "combined_primary_data_partially_bundled",
+     "audit_date": "2026-09-07",
+     "digitized_dataset_identifiers": [
+      "lead_hcp_kuznetsov_2002_figure3_digitized"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "source_locations": [
+      "Dewaele (2019), Table 2",
+      "Kuznetsov et al. (2002), Figure 3"
+     ],
+     "finding": "The 17 Dewaele rows are transcribed exactly and 21 hcp square markers from the earlier Kuznetsov data are explicitly stored as a plot digitization. Marker overlap, unavailable exact Kuznetsov rows, and an unspecified merged-fit selection/weighting protocol prevent a full independent-refit claim."
     }
    },
    "source_lineage": [
@@ -237,6 +243,193 @@
      "doi": "10.3390/min9110684"
     }
    ]
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "lead_hcp_kuznetsov_2002_figure3_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "Twenty-one hcp-Pb square-marker centers digitized from Figure 3. Open squares are high-temperature observations reduced to room temperature by the source authors; solid squares are room-temperature observations. Overlapped markers carry wider digitization uncertainties and explicit confidence labels.",
+   "reference": {
+    "authors": [
+     "Kuznetsov",
+     "Dmitriev",
+     "Dubrovinsky",
+     "Prakapenka",
+     "Weber"
+    ],
+    "year": 2002,
+    "source": "Solid State Communications",
+    "volume": "122",
+    "locator": "125-127",
+    "doi": "10.1016/S0038-1098(02)00112-6"
+   },
+   "source_location": "Figure 3, square-marker hcp series",
+   "columns": [
+    {
+     "name": "point_id",
+     "quantity": "source_marker",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "symbol_fill",
+     "quantity": "plot_marker_fill",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "marker_confidence",
+     "quantity": "digitization_confidence",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "pixel_x",
+     "quantity": "source_figure_x",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "pixel_y",
+     "quantity": "source_figure_y",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "v_over_v0_fcc",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "reduced_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3_per_atom",
+     "quantity": "volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "estimated_v_over_v0_uncertainty",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "bound",
+     "of": "v_over_v0_fcc"
+    },
+    {
+     "name": "estimated_pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "bound",
+     "of": "reduced_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/lead-hcp-kuznetsov-2002-figure3-digitized.csv",
+    "sha256": "d89597df2dcb6736d178652bb831633fe99546a36ebdbe4de9f5dcad8f42de23",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "lead_hcp_dewaele_2019_mao_vinet",
+    "lead_hcp_dewaele_2019_dor_vinet"
+   ],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Extracted the native one-bit Figure 3 image from the author-hosted article PDF, fitted linear transforms to all labeled major ticks, and measured the centers of the hcp square markers. Atomic volumes use the source Table 2 fcc reference volume V0=30.307 angstrom^3/atom.",
+    "source_pdf_sha256": "c4bfc71c5d4186f7f3159015bafa51552349f9e0f4ba305d13604673d0b3a61d",
+    "source_figure_sha256": "572ee1e5ec46850a8c5528116b72312e0f773758cb06223fa32415ec56b92d81",
+    "source_figure_pixels": [
+     1713,
+     1312
+    ],
+    "axis_calibration_pixels_source_figure": {
+     "v_over_v0_fcc": [
+      [
+       441.5,
+       0.7
+      ],
+      [
+       637.5,
+       0.75
+      ],
+      [
+       834.0,
+       0.8
+      ],
+      [
+       1028.5,
+       0.85
+      ],
+      [
+       1224.5,
+       0.9
+      ],
+      [
+       1419.0,
+       0.95
+      ],
+      [
+       1613.5,
+       1.0
+      ]
+     ],
+     "reduced_pressure_gpa": [
+      [
+       967.5,
+       0.0
+      ],
+      [
+       855.0,
+       5.0
+      ],
+      [
+       742.5,
+       10.0
+      ],
+      [
+       630.5,
+       15.0
+      ],
+      [
+       518.5,
+       20.0
+      ],
+      [
+       406.5,
+       25.0
+      ],
+      [
+       294.0,
+       30.0
+      ],
+      [
+       181.5,
+       35.0
+      ],
+      [
+       69.5,
+       40.0
+      ]
+     ]
+    },
+    "quality_control": {
+     "scope": "plot recovery, not an exact replacement for the authors' numerical rows",
+     "marker_overlap": "Several hcp squares overlap the fcc-circle series and fitted curves; confidence and uncertainty columns preserve that limitation.",
+     "fit_protocol": "Dewaele (2019) does not identify the exact Kuznetsov subset, weights, or treatment of the Brown NaCl pressure scale used in its merged fit."
+    },
+    "digitized_on": "2026-09-07"
+   }
   }
  ]
 }

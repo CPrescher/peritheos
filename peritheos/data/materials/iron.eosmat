@@ -78,7 +78,7 @@
    ],
    "pressure_range_status": "reported_exactly",
    "temperature_ref": 300,
-   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -427,18 +427,23 @@
    },
    "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
    "pressure_calibration": {
-    "status": "partially_resolved",
+    "status": "resolved",
     "methods": [
      {
+      "kind": "ruby_fluorescence",
+      "source_location": "mao_ruby_scale",
+      "reference_calibration_record": "ruby_mao_1986"
+     },
+     {
       "kind": "other",
-      "source_location": "linked_tungsten_scale"
+      "source_location": "ruby-linked effective pressure reported for tungsten-gauge runs 4-5"
      }
     ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "status": "ready",
+     "notes": "The complete EPAPS table preserves reported pressure, ruby wavelength, and tungsten lattice parameter. Reproducing Dewaele (2019) uses the reported ruby-linked pressure as the Dorogokupets-scale value and converts it through the common ruby wavelength ratio to the Mao scale; this recovers the published coefficients."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
     "V0": "Table 1",
@@ -468,13 +473,16 @@
      "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "Equation (1)",
-      "Table 1"
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "iron_dewaele_2006_epaps_compression"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "source_locations": [
+      "Dewaele et al. (2006), EPAPS E-PRLTAO-97-048648, supplementary table",
+      "Dewaele (2019), Equation (1) and Table 1"
+     ],
+     "finding": "All 63 supplementary observations and raw gauge fields are bundled. The 53 hcp rows reproduce the 2019 Mao and Dorogokupets Vinet coefficients within 0.0011 A^3/atom, 0.25 GPa, and 0.0022 in K0 prime under an unweighted pressure-residual fit."
     }
    },
    "source_lineage": [
@@ -537,18 +545,23 @@
    },
    "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
    "pressure_calibration": {
-    "status": "partially_resolved",
+    "status": "resolved",
     "methods": [
      {
+      "kind": "ruby_fluorescence",
+      "source_location": "dor_ruby_scale",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     },
+     {
       "kind": "other",
-      "source_location": "linked_tungsten_scale"
+      "source_location": "ruby-linked effective pressure reported for tungsten-gauge runs 4-5"
      }
     ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "status": "ready",
+     "notes": "The complete EPAPS table preserves reported pressure, ruby wavelength, and tungsten lattice parameter. The reported ruby-linked pressure reproduces the Dewaele (2019) Dorogokupets-scale fit directly."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07"
    },
    "parameter_provenance": {
     "V0": "Table 1",
@@ -578,13 +591,16 @@
      "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "Equation (1)",
-      "Table 1"
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "iron_dewaele_2006_epaps_compression"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "source_locations": [
+      "Dewaele et al. (2006), EPAPS E-PRLTAO-97-048648, supplementary table",
+      "Dewaele (2019), Equation (1) and Table 1"
+     ],
+     "finding": "All 63 supplementary observations and raw gauge fields are bundled. The 53 hcp rows reproduce the 2019 Mao and Dorogokupets Vinet coefficients within 0.0011 A^3/atom, 0.25 GPa, and 0.0022 in K0 prime under an unweighted pressure-residual fit."
     }
    },
    "source_lineage": [
@@ -2048,6 +2064,142 @@
       "zhuang_ramp_temperature_k": "4.22e-7*P_gpa^3 - 0.00155*P_gpa^2 + 2.58948*P_gpa + 920.817",
       "zhuang_ramp_max_abs_reconstruction_k": 4.4e-12
      }
+    },
+    "transcribed_on": "2026-09-07"
+   }
+  },
+  {
+   "identifier": "iron_dewaele_2006_epaps_compression",
+   "kind": "pressure_volume_lattice_ratio_with_raw_gauges",
+   "description": "Complete 63-row Fe supplementary table: ten bcc observations and 53 hcp observations from five runs in helium or neon, preserving reported pressure, ruby wavelength, tungsten lattice parameter, atomic volume, and hcp c/a.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Occelli",
+     "Mezouar",
+     "Dorogokupets",
+     "Torrent"
+    ],
+    "year": 2006,
+    "title": "Quasihydrostatic Equation of State of Iron above 2 Mbar",
+    "source": "Physical Review Letters",
+    "volume": "97",
+    "locator": "215504",
+    "doi": "10.1103/PhysRevLett.97.215504"
+   },
+   "source_location": "EPAPS E-PRLTAO-97-048648, supplementary table",
+   "source_url": "https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.97.215504",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_medium",
+     "quantity": "pressure_medium",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gauge",
+     "quantity": "pressure_gauge",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "reported_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_wavelength_angstrom",
+     "quantity": "ruby_r1_wavelength",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "tungsten_lattice_parameter_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3_per_atom",
+     "quantity": "volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "c_over_a",
+     "quantity": "c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "original_2006_helium_vinet_fit_included",
+     "quantity": "fit_selection",
+     "unit": "boolean",
+     "role": "flag"
+    },
+    {
+     "name": "dewaele_2019_vinet_fit_included",
+     "quantity": "fit_selection",
+     "unit": "boolean",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-dewaele-2006-epaps-compression.csv",
+    "sha256": "5babd4420a8d34ba6e5c19aeafb29d7b861b971a2ca9347e65f601bb942b38f9",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_dewaele_2019_mao_vinet",
+    "iron_dewaele_2019_dor_vinet"
+   ],
+   "provenance": {
+    "type": "transcribed_from_supplementary_table",
+    "method": "Transcribed every numerical row from the supplied SupplMat.tex table. Run membership follows the five pressure ranges and gauges in Table I of the article; the two side-by-side halves of the TeX table were restored to run order without changing numerical values.",
+    "epaps_identifier": "E-PRLTAO-97-048648",
+    "source_tex_sha256": "311b0191c843bca7b2232dfb1faa8e94ee7ceb8d6cae70ce4e630bf50cc9e4fa",
+    "source_pdf_sha256": "75a61d6625b075f5a0a3a6bf03c8f3ab4ad1594e3ff064f3a5e6f066f8839c16",
+    "pressure_scale_interpretation": "The reported pressure is the source's ruby-linked effective pressure. Dewaele (2019) uses it directly for the Dorogokupets reduction and converts it through the common ruby wavelength ratio for the Mao reduction; applying that rule to all hcp rows reproduces both published fits.",
+    "quality_control": {
+     "total_rows": 63,
+     "bcc_rows": 10,
+     "hcp_rows": 53,
+     "original_2006_helium_fit_rows": 37,
+     "original_2006_unweighted_pressure_fit_atomic_parameters": [
+      11.20723635,
+      163.88061917,
+      5.38050368
+     ],
+     "dewaele_2019_mao_unweighted_pressure_fit_atomic_parameters": [
+      11.20800948,
+      164.63787093,
+      4.96211218
+     ],
+     "dewaele_2019_dor_unweighted_pressure_fit_atomic_parameters": [
+      11.17599418,
+      168.6495466,
+      5.32808152
+     ]
     },
     "transcribed_on": "2026-09-07"
    }
