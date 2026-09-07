@@ -24,6 +24,55 @@ thermal modified Tait, a multi-oscillator model, and a double-Debye Helmholtz
 model. The list below therefore prioritizes material parameterizations over new
 generic equation families.
 
+## Audited candidates blocked from inclusion
+
+### NaMg2Al5SiO12 NAL and CF phases — Kawai and Tsuchiya (2012)
+
+**Status: audited 2026-09-07; do not add until phase-specific crystallographic
+models become available.**
+
+- **Source:** Kawai and Tsuchiya (2012), [Phase stability and elastic
+  properties of the NAL and CF phases in the NaMg2Al5SiO12 system from first
+  principles](https://doi.org/10.2138/am.2012.3915), especially Table 1,
+  Figure 2, and the computational-methods section. No official supplementary
+  dataset with the calculated volume points was found.
+- **Executable EOS assessment:** Table 1 completely specifies static, 0 K
+  third-order Birch-Murnaghan parameterizations. NAL has
+  `V0 = 35.8 cm3/mol`, `K0 = 217.7 GPa`, and `K0' = 4.08`; CF has
+  `V0 = 35.2 cm3/mol`, `K0 = 213.2 GPa`, and `K0' = 4.12`. No parameter
+  uncertainties or covariance are reported. The plotted calculation ranges
+  are about 0--50 GPa for NAL and 0--150 GPa for CF.
+- **Resolved volume basis:** despite the NaMg2Al5SiO12 row labels, the tabulated
+  molar volumes are normalized to the 4-oxygen `XY2O4` unit. Multiplication by
+  three reproduces the approximately 108 and 106 `cm3/mol` zero-pressure
+  volumes plotted per NaMg2Al5SiO12 formula in Figure 2. With
+  `1 cm3/mol = 1.660539067 A3` per formula unit, the corresponding conventional
+  cells are `178.341896 A3` for the 21-atom NAL `P6_3/m` cell and
+  `233.803901 A3` for the 28-atom, `Z = 4` CF `Pbnm` cell.
+- **Numerical check:** independent BM3 evaluation gives a NAL molar volume of
+  `91.139 cm3/mol` per NaMg2Al5SiO12 at 50 GPa and a CF value of
+  `74.827 cm3/mol` at 150 GPa, consistent with the endpoints in Figure 2.
+  The EOS coefficients are therefore sufficient for parameterization-only
+  execution once the volume basis is converted correctly; a direct refit is
+  impossible without the unrounded calculated points.
+- **Inclusion blocker:** the publication identifies the target phases and
+  space groups and describes 63-atom NAL and 84-atom CF supercells, but it
+  supplies no lattice parameters, fractional coordinates, CIF, or defensible
+  fallback diffraction peaks for either target-composition model. The
+  structural examples in Figure 1 have different compositions and must not be
+  transferred. Consequently neither new material can meet the
+  diffraction-ready acceptance requirement.
+- **Source inconsistency:** the prose says the NAL volume is 1.6% smaller than
+  the CF volume, whereas Table 1 and the stated greater density of CF imply
+  that NAL is larger. Preserve this contradiction if the records are added
+  later.
+- **Unblock condition:** obtain a primary or otherwise defensible
+  phase-specific conventional cell and occupied-site model (or an explicit
+  fallback peak list) for NaMg2Al5SiO12 NAL and/or CF. Keep the two phases as
+  separate materials, retain the 0 K computational provenance and missing
+  uncertainty metadata, and classify the EOS validation as
+  parameterization-only unless the underlying calculated points are recovered.
+
 ## Ranking key
 
 - **A — review first:** strong scientific or calibration value, explicit
