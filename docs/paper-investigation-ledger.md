@@ -25,14 +25,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **313 primary papers**: **215** support the 612 audited catalog records and **98** were investigated without adding a production record.
+The register covers **314 primary papers**: **216** support the 615 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 124 |
+| Reproduced | 125 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 3 |
 | Coefficient parity not achieved | 11 |
@@ -1269,6 +1269,7 @@ the primary-source and refit ledgers.
 | [Zhang and Weidner (1999), Al-enriched silicate perovskite](https://doi.org/10.1126/science.284.5415.782) | Direct refit unavailable | 0 | no production record | investigation evidence only |
 | [Zhang and Wentzcovitch (2022)](https://doi.org/10.1103/physrevb.106.054103) | Direct refit unavailable | 4 | 4 direct refit unavailable |  |
 | [Zhang et al. (2009), Mg-Fe silicate phase stability](https://doi.org/10.1142/S0217979209053047) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Zhang et al. (2025)](https://doi.org/10.3390/cryst15030221) | Reproduced | 3 | 3 parity | 3 bundled; 3 final-input parity, upstream reduction partial |
 | [Zhao et al. (1997)](https://doi.org/10.1029/96gl03769) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Zhu et al. (2020)](https://doi.org/10.1029/2020jb019964) | Reproduced | 3 | 3 parity | 3 bundled |
 | [Zhu et al. (2025)](https://doi.org/10.22541/essoar.176236186.65259830/v1) | Direct refit unavailable | 3 | 3 direct refit unavailable |  |

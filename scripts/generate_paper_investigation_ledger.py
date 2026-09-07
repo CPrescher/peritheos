@@ -346,6 +346,13 @@ def render() -> str:
         if paper["records"]:
             result = compact_counts(paper["statuses"], STATUS_LABELS)
             data_form = compact_counts(paper["data_statuses"], data_labels)
+            qualified_final_input = sum(
+                "not a reconstruction of every upstream reduction"
+                in str(record.get("qualification", ""))
+                for record in paper["records"]
+            )
+            if qualified_final_input:
+                data_form += f"; {qualified_final_input} final-input parity, upstream reduction partial"
             record_count = len(paper["records"])
         else:
             result = "no production record"

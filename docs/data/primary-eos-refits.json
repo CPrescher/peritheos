@@ -10284,6 +10284,368 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa_fit",
+        "temperature": "temperature_k",
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "iron_zhang_2025_tables_s1_s3_s4_pvt"
+      ],
+      "degrees_of_freedom": 1307,
+      "experimental_pressure_range_gpa": [
+        10.7,
+        1374.0
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "Tr",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "theta0",
+        "gamma0",
+        "q"
+      ],
+      "label": "Zhang et al. (2025), hcp-Fe Fit #1 BM3+MGD",
+      "material_identifier": "iron",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 1313,
+      "observed_pressure_range_gpa": [
+        10.7212147810221,
+        1374.0
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        12000.0
+      ],
+      "observed_volume_range": [
+        9.273280420632346,
+        21.646792228084685
+      ],
+      "parameters": [
+        {
+          "difference": -0.0007870967684020513,
+          "parameter": "rt_eos.V0",
+          "published": 22.43720387565302,
+          "published_error": 0.033210781343476936,
+          "refit": 22.436416778884617,
+          "refit_error": 0.03315517281360344,
+          "relative_difference": 3.507998468811629e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.03153016572551337,
+          "parameter": "rt_eos.K0",
+          "published": 174.7,
+          "published_error": 1.7,
+          "refit": 174.66846983427448,
+          "refit_error": 1.7350063346449627,
+          "relative_difference": 0.00018048177289933242,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.0001983202048245758,
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.79,
+          "published_error": 0.014,
+          "refit": 4.790198320204825,
+          "refit_error": 0.014108705585481168,
+          "relative_difference": 4.1402965516612903e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.5337264133102053,
+          "parameter": "theta0",
+          "published": 1209.0,
+          "published_error": 73.0,
+          "refit": 1207.4662735866898,
+          "refit_error": 73.57440232595951,
+          "relative_difference": 0.001268590912580815,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0029667347078068396,
+          "parameter": "gamma0",
+          "published": 2.86,
+          "published_error": 0.1,
+          "refit": 2.857033265292193,
+          "refit_error": 0.10148448773612843,
+          "relative_difference": 0.0010373198279044894,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.00277282888699093,
+          "parameter": "q",
+          "published": 0.84,
+          "published_error": 0.05,
+          "refit": 0.837227171113009,
+          "refit_error": 0.045773511518916996,
+          "relative_difference": 0.003300986770227298,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 1,313 published fit inputs are bundled with experimental, dynamic, ab-initio, calibration, and temperature-provenance labels; an independent six/five-parameter refit recovers Fits 1, 2, and 5.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+      "published_rmse_gpa": 4.502611079871079,
+      "qualification": "Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset.",
+      "record_identifier": "iron_zhang_2025_fit1_birch_murnaghan_3_mgd",
+      "reduced_chi_square": 20.363993130376045,
+      "rmse_gpa": 4.502325625792892,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published mixed-input thermal EOS Fit #1; Supplementary Table S6 reports RMSE=4.504302 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. This is the authors' preferred relaxed-V0 solution.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa_fit",
+        "temperature": "temperature_k",
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "iron_zhang_2025_tables_s1_s3_s4_pvt"
+      ],
+      "degrees_of_freedom": 1308,
+      "experimental_pressure_range_gpa": [
+        10.7,
+        1374.0
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "theta0",
+        "gamma0",
+        "q"
+      ],
+      "label": "Zhang et al. (2025), hcp-Fe Fit #2 BM3+MGD",
+      "material_identifier": "iron",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 1313,
+      "observed_pressure_range_gpa": [
+        10.7212147810221,
+        1374.0
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        12000.0
+      ],
+      "observed_volume_range": [
+        9.273280420632346,
+        21.646792228084685
+      ],
+      "parameters": [
+        {
+          "difference": 0.030864834977847977,
+          "parameter": "rt_eos.K0",
+          "published": 175.1,
+          "published_error": 0.5,
+          "refit": 175.13086483497784,
+          "refit_error": 0.4714074218670492,
+          "relative_difference": 0.00017626976001055384,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 2.755765486295303e-05,
+          "parameter": "rt_eos.K0_prime",
+          "published": 4.787,
+          "published_error": 0.009,
+          "refit": 4.787027557654863,
+          "refit_error": 0.008636184666550126,
+          "relative_difference": 5.7567693467626965e-06,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -3.3689326142684877,
+          "parameter": "theta0",
+          "published": 1205.0,
+          "published_error": 73.0,
+          "refit": 1201.6310673857315,
+          "refit_error": 72.94590183015636,
+          "relative_difference": 0.002795794700637749,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.003363223090330436,
+          "parameter": "gamma0",
+          "published": 2.86,
+          "published_error": 0.1,
+          "refit": 2.8566367769096694,
+          "refit_error": 0.10086474338892226,
+          "relative_difference": 0.0011759521294861664,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.000226297595554259,
+          "parameter": "q",
+          "published": 0.84,
+          "published_error": 0.04,
+          "refit": 0.8402262975955542,
+          "refit_error": 0.04401753361984862,
+          "relative_difference": 0.00026940189946935594,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 1,313 published fit inputs are bundled with experimental, dynamic, ab-initio, calibration, and temperature-provenance labels; an independent six/five-parameter refit recovers Fits 1, 2, and 5.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+      "published_rmse_gpa": 4.502703399004468,
+      "qualification": "Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset.",
+      "record_identifier": "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
+      "reduced_chi_square": 20.349593636236325,
+      "rmse_gpa": 4.502454985428385,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published mixed-input thermal EOS Fit #2; Supplementary Table S6 reports RMSE=4.504408 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa_fit",
+        "temperature": "temperature_k",
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "iron_zhang_2025_tables_s1_s3_s4_pvt"
+      ],
+      "degrees_of_freedom": 1308,
+      "experimental_pressure_range_gpa": [
+        10.7,
+        1374.0
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "Tr",
+        "n"
+      ],
+      "free_parameters": [
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "theta0",
+        "gamma0",
+        "q"
+      ],
+      "label": "Zhang et al. (2025), hcp-Fe Fit #5 Vinet+MGD",
+      "material_identifier": "iron",
+      "model": "Vinet",
+      "objective": "pressure_residuals",
+      "observations": 1313,
+      "observed_pressure_range_gpa": [
+        10.7212147810221,
+        1374.0
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        12000.0
+      ],
+      "observed_volume_range": [
+        9.273280420632346,
+        21.646792228084685
+      ],
+      "parameters": [
+        {
+          "difference": -0.03409473200110824,
+          "parameter": "rt_eos.K0",
+          "published": 151.6,
+          "published_error": 0.5,
+          "refit": 151.5659052679989,
+          "refit_error": 0.47927415782703325,
+          "relative_difference": 0.0002248992876062549,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0003148325722630574,
+          "parameter": "rt_eos.K0_prime",
+          "published": 5.845,
+          "published_error": 0.01,
+          "refit": 5.844685167427737,
+          "refit_error": 0.010494021131803559,
+          "relative_difference": 5.386357096031778e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 2.2935759070340964,
+          "parameter": "theta0",
+          "published": 960.0,
+          "published_error": 69.0,
+          "refit": 962.2935759070341,
+          "refit_error": 69.30894000363803,
+          "relative_difference": 0.0023891415698271837,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0016316771735516156,
+          "parameter": "gamma0",
+          "published": 3.51,
+          "published_error": 0.13,
+          "refit": 3.508368322826448,
+          "refit_error": 0.12804399619180376,
+          "relative_difference": 0.0004648652916101469,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0036263161918859144,
+          "parameter": "q",
+          "published": 1.28,
+          "published_error": 0.05,
+          "refit": 1.2763736838081141,
+          "refit_error": 0.04898180111489003,
+          "relative_difference": 0.0028330595249108706,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 1,313 published fit inputs are bundled with experimental, dynamic, ab-initio, calibration, and temperature-provenance labels; an independent six/five-parameter refit recovers Fits 1, 2, and 5.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+      "published_rmse_gpa": 5.082886740460571,
+      "qualification": "Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset.",
+      "record_identifier": "iron_zhang_2025_fit5_vinet_mgd",
+      "reduced_chi_square": 25.929692495555347,
+      "rmse_gpa": 5.082415796713479,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published mixed-input thermal EOS Fit #5; Supplementary Table S6 reports RMSE=5.084659 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -26646,9 +27008,9 @@
   ],
   "summary": {
     "not_refittable": 386,
-    "parity": 144,
+    "parity": 147,
     "parity_not_achieved": 21,
     "similar": 61,
-    "total": 612
+    "total": 615
   }
 }

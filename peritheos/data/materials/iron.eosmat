@@ -374,6 +374,1003 @@
      "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
+  },
+  {
+   "identifier": "iron_zhang_2025_fit1_birch_murnaghan_3_mgd",
+   "label": "Zhang et al. (2025), hcp-Fe Fit #1 BM3+MGD",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Zhang",
+     "Zhang",
+     "Kuang",
+     "Xiong"
+    ],
+    "year": 2025,
+    "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
+    "source": "Crystals",
+    "volume": "15",
+    "locator": "221",
+    "doi": "10.3390/cryst15030221"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.43720387565302,
+     "K0": 174.7,
+     "K0_prime": 4.79
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.033210781343476936,
+    "K0": 1.7,
+    "K0_prime": 0.014
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "rt_eos.K0_prime",
+     "theta0",
+     "gamma0",
+     "q"
+    ],
+    "matrix": [
+     [
+      0.0011036177710427022,
+      -0.05557824257830865,
+      0.0003708315844812634,
+      0.36043660992075516,
+      -0.00032870370834706293,
+      -0.0004211791289979745
+     ],
+     [
+      -0.05557824257830865,
+      3.0208,
+      -0.022456,
+      -13.222,
+      0.0031549,
+      0.014549
+     ],
+     [
+      0.0003708315844812634,
+      -0.022456,
+      0.0001994,
+      0.21017,
+      0.00034559,
+      4.7259e-05
+     ],
+     [
+      0.36043660992075516,
+      -13.222,
+      0.21017,
+      5395.9,
+      4.759,
+      0.52581
+     ],
+     [
+      -0.00032870370834706293,
+      0.0031549,
+      0.00034559,
+      4.759,
+      0.010316,
+      0.0036313
+     ],
+     [
+      -0.0004211791289979745,
+      0.014549,
+      4.7259e-05,
+      0.52581,
+      0.0036313,
+      0.0020943
+     ]
+    ]
+   },
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    10.7,
+    1374.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "iron_zhang_2025_tables_s1_s3_s4_pvt"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     10.7,
+     1374.0
+    ],
+    "temperature_k": [
+     298.0,
+     12000.0
+    ],
+    "notes": [
+     "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+     "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+    ]
+   },
+   "notes": "Published mixed-input thermal EOS Fit #1; Supplementary Table S6 reports RMSE=4.504302 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. This is the authors' preferred relaxed-V0 solution.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "PNAS",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Supplementary Table S1 pressure-scale column",
+      "scope": "499 static rows recalculated to Fei et al. (2007)"
+     },
+     {
+      "kind": "other",
+      "reference": {
+       "authors": [
+        "Ye",
+        "Prakapenka",
+        "Meng",
+        "Shim"
+       ],
+       "year": 2018,
+       "source": "High Pressure Research",
+       "doi": "10.1080/08957959.2018.1493477"
+      },
+      "source_location": "Supplementary Table S1 pressure-scale column",
+      "scope": "142 static rows recalculated to Ye et al. (2018)",
+      "notes": "The workbook names Ye et al. (2018), whereas Methods section 2.1 cites Fei et al. (2007) and Dorfman et al. (2012)."
+     },
+     {
+      "kind": "other",
+      "source_location": "Supplementary Table S1 blank pressure-scale cells",
+      "scope": "437 static rows retain the compiled source pressure",
+      "notes": "The sheet says these were already internally consistent or lacked a compatible internally consistent calibrant scale."
+     },
+     {
+      "kind": "shock_wave",
+      "source_location": "Supplementary Table S3",
+      "scope": "72 Hugoniot and 60 ramp-compression P-V rows"
+     },
+     {
+      "kind": "ab_initio",
+      "source_location": "Supplementary Table S4",
+      "scope": "103 calculated P-V-T rows; no experimental gauge"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table S1 deposits the final corrected pressures and errors but not the row-wise calibrant volumes/temperatures needed to reproduce the 641 recalculations upstream."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "parameter_provenance": {
+    "V0": "Table 2/S6 molar V0 converted exactly to a two-atom hcp conventional-cell volume",
+    "K0": "Table 2 and Supplementary Table S6",
+    "K0_prime": "Table 2 and Supplementary Table S6",
+    "theta0": "Table 2 and Supplementary Table S6",
+    "gamma0": "Table 2 and Supplementary Table S6",
+    "q": "Table 2 and Supplementary Table S6",
+    "n": "one atom per Fe formula unit",
+    "covariance": "Supplementary Table S5; V0 row and column converted to the stored cell-volume basis"
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "EosFit-GUI",
+     "version": "not reported"
+    },
+    "dataset": "iron_zhang_2025_tables_s1_s3_s4_pvt",
+    "selection": {
+     "predicate": "all numeric rows in Supplementary Tables S1, S3, and S4",
+     "included_rows": 1313,
+     "included_static_experimental_rows": 1078,
+     "included_dynamic_pv_rows": 132,
+     "included_ab_initio_rows": 103,
+     "excluded_rows": 325,
+     "exclusion": "all Table S2 self-calibrated hcp-Fe rows"
+    },
+    "objective": "Unweighted least squares of pressure residuals; supplement defines residual as observed/calculated pressure minus fitted pressure.",
+    "weights": [],
+    "refined_parameters": [
+     "V0",
+     "K0",
+     "K0_prime",
+     "theta0",
+     "gamma0",
+     "q"
+    ],
+    "fixed_parameters": [
+     "Tr=300 K",
+     "n=1",
+     "R=8.314 J mol^-1 K^-1"
+    ],
+    "statistics": {
+     "observations": 1313,
+     "published_rmse_gpa": 4.504302
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_zhang_2025_hcp_iron.py",
+     "solver": "scipy.optimize.least_squares",
+     "scope_status": "final_input_parity_upstream_reduction_partial",
+     "reproduced_scope": [
+      "all 1,313 deposited final fit inputs",
+      "published residual columns",
+      "Fits 1, 2, and 5 coefficients",
+      "Supplementary Table S5 covariance"
+     ],
+     "unresolved_upstream_steps": [
+      "641 static-pressure recalculations lack row-wise calibrant observations",
+      "the generation/interpolation procedure for 122 Zhuang-derived dynamic temperatures is not documented"
+     ],
+     "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
+    "audit_date": "2026-09-07",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "covariance",
+     "fit_dataset",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+     "doi": "10.3390/cryst15030221",
+     "locations": [
+      "Methods sections 2.1-2.2",
+      "Equations (1)-(6)",
+      "Table 2",
+      "Supplementary Tables S1-S6"
+     ],
+     "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "iron_zhang_2025_tables_s1_s3_s4_pvt"
+     ],
+     "source_locations": [
+      "Supplementary Tables S1, S3, and S4"
+     ],
+     "finding": "All 1,313 published fit inputs are bundled with experimental, dynamic, ab-initio, calibration, and temperature-provenance labels; an independent six/five-parameter refit recovers Fits 1, 2, and 5."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equations, selection rules, and coefficients",
+     "citation": "Zhang et al. (2025), Methods 2.1-2.2, Equations (1)-(6), Table 2",
+     "doi": "10.3390/cryst15030221"
+    },
+    {
+     "role": "selected P-V-T inputs, residuals, covariance, and fit comparison",
+     "citation": "Zhang et al. (2025), Supplementary Tables S1-S6",
+     "doi": "10.3390/cryst15030221"
+    },
+    {
+     "role": "model basis for assigned Hugoniot and ramp temperatures",
+     "citation": "Zhuang et al. (2021), hcp-Fe Hugoniot and isentrope calculations",
+     "doi": "10.1103/PhysRevB.103.144102"
+    },
+    {
+     "role": "calculated temperatures for ten laser-shock rows",
+     "citation": "Huang et al. (2022), laser-driven shock compression of iron",
+     "doi": "10.1038/s41467-022-28255-2"
+    }
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1209.0,
+     "gamma0": 2.86,
+     "q": 0.84,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "theta0": 73.0,
+     "gamma0": 0.1,
+     "q": 0.05,
+     "Tr": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "n"
+    ],
+    "debye_temperature_law": "integrated_gruneisen",
+    "gas_constant_j_mol_k": 8.314
+   }
+  },
+  {
+   "identifier": "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
+   "label": "Zhang et al. (2025), hcp-Fe Fit #2 BM3+MGD",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Zhang",
+     "Zhang",
+     "Kuang",
+     "Xiong"
+    ],
+    "year": 2025,
+    "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
+    "source": "Crystals",
+    "volume": "15",
+    "locator": "221",
+    "doi": "10.3390/cryst15030221"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 22.427240641249973,
+     "K0": 175.1,
+     "K0_prime": 4.787
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.5,
+    "K0_prime": 0.009
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "rt_eos.K0_prime",
+     "theta0",
+     "gamma0",
+     "q"
+    ],
+    "matrix": [
+     [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.22244,
+      -0.0037781,
+      4.9088,
+      -0.013392,
+      -0.0066644
+     ],
+     [
+      0.0,
+      -0.0037781,
+      7.4552e-05,
+      0.090054,
+      0.00045511,
+      0.0001888
+     ],
+     [
+      0.0,
+      4.9088,
+      0.090054,
+      5293.4,
+      4.8789,
+      0.67663
+     ],
+     [
+      0.0,
+      -0.013392,
+      0.00045511,
+      4.8789,
+      0.010191,
+      0.0035072
+     ],
+     [
+      0.0,
+      -0.0066644,
+      0.0001888,
+      0.67663,
+      0.0035072,
+      0.0019348
+     ]
+    ]
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    10.7,
+    1374.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "iron_zhang_2025_tables_s1_s3_s4_pvt"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     10.7,
+     1374.0
+    ],
+    "temperature_k": [
+     298.0,
+     12000.0
+    ],
+    "notes": [
+     "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+     "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+    ]
+   },
+   "notes": "Published mixed-input thermal EOS Fit #2; Supplementary Table S6 reports RMSE=4.504408 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "PNAS",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Supplementary Table S1 pressure-scale column",
+      "scope": "499 static rows recalculated to Fei et al. (2007)"
+     },
+     {
+      "kind": "other",
+      "reference": {
+       "authors": [
+        "Ye",
+        "Prakapenka",
+        "Meng",
+        "Shim"
+       ],
+       "year": 2018,
+       "source": "High Pressure Research",
+       "doi": "10.1080/08957959.2018.1493477"
+      },
+      "source_location": "Supplementary Table S1 pressure-scale column",
+      "scope": "142 static rows recalculated to Ye et al. (2018)",
+      "notes": "The workbook names Ye et al. (2018), whereas Methods section 2.1 cites Fei et al. (2007) and Dorfman et al. (2012)."
+     },
+     {
+      "kind": "other",
+      "source_location": "Supplementary Table S1 blank pressure-scale cells",
+      "scope": "437 static rows retain the compiled source pressure",
+      "notes": "The sheet says these were already internally consistent or lacked a compatible internally consistent calibrant scale."
+     },
+     {
+      "kind": "shock_wave",
+      "source_location": "Supplementary Table S3",
+      "scope": "72 Hugoniot and 60 ramp-compression P-V rows"
+     },
+     {
+      "kind": "ab_initio",
+      "source_location": "Supplementary Table S4",
+      "scope": "103 calculated P-V-T rows; no experimental gauge"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table S1 deposits the final corrected pressures and errors but not the row-wise calibrant volumes/temperatures needed to reproduce the 641 recalculations upstream."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "parameter_provenance": {
+    "V0": "Table 2/S6 molar V0 converted exactly to a two-atom hcp conventional-cell volume",
+    "K0": "Table 2 and Supplementary Table S6",
+    "K0_prime": "Table 2 and Supplementary Table S6",
+    "theta0": "Table 2 and Supplementary Table S6",
+    "gamma0": "Table 2 and Supplementary Table S6",
+    "q": "Table 2 and Supplementary Table S6",
+    "n": "one atom per Fe formula unit",
+    "covariance": "Supplementary Table S5; V0 row and column converted to the stored cell-volume basis"
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "EosFit-GUI",
+     "version": "not reported"
+    },
+    "dataset": "iron_zhang_2025_tables_s1_s3_s4_pvt",
+    "selection": {
+     "predicate": "all numeric rows in Supplementary Tables S1, S3, and S4",
+     "included_rows": 1313,
+     "included_static_experimental_rows": 1078,
+     "included_dynamic_pv_rows": 132,
+     "included_ab_initio_rows": 103,
+     "excluded_rows": 325,
+     "exclusion": "all Table S2 self-calibrated hcp-Fe rows"
+    },
+    "objective": "Unweighted least squares of pressure residuals; supplement defines residual as observed/calculated pressure minus fitted pressure.",
+    "weights": [],
+    "refined_parameters": [
+     "K0",
+     "K0_prime",
+     "theta0",
+     "gamma0",
+     "q"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "Tr=300 K",
+     "n=1",
+     "R=8.314 J mol^-1 K^-1"
+    ],
+    "statistics": {
+     "observations": 1313,
+     "published_rmse_gpa": 4.504408
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_zhang_2025_hcp_iron.py",
+     "solver": "scipy.optimize.least_squares",
+     "scope_status": "final_input_parity_upstream_reduction_partial",
+     "reproduced_scope": [
+      "all 1,313 deposited final fit inputs",
+      "published residual columns",
+      "Fits 1, 2, and 5 coefficients",
+      "Supplementary Table S5 covariance"
+     ],
+     "unresolved_upstream_steps": [
+      "641 static-pressure recalculations lack row-wise calibrant observations",
+      "the generation/interpolation procedure for 122 Zhuang-derived dynamic temperatures is not documented"
+     ],
+     "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
+    "audit_date": "2026-09-07",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "covariance",
+     "fit_dataset",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+     "doi": "10.3390/cryst15030221",
+     "locations": [
+      "Methods sections 2.1-2.2",
+      "Equations (1)-(6)",
+      "Table 2",
+      "Supplementary Tables S1-S6"
+     ],
+     "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "iron_zhang_2025_tables_s1_s3_s4_pvt"
+     ],
+     "source_locations": [
+      "Supplementary Tables S1, S3, and S4"
+     ],
+     "finding": "All 1,313 published fit inputs are bundled with experimental, dynamic, ab-initio, calibration, and temperature-provenance labels; an independent six/five-parameter refit recovers Fits 1, 2, and 5."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equations, selection rules, and coefficients",
+     "citation": "Zhang et al. (2025), Methods 2.1-2.2, Equations (1)-(6), Table 2",
+     "doi": "10.3390/cryst15030221"
+    },
+    {
+     "role": "selected P-V-T inputs, residuals, covariance, and fit comparison",
+     "citation": "Zhang et al. (2025), Supplementary Tables S1-S6",
+     "doi": "10.3390/cryst15030221"
+    },
+    {
+     "role": "model basis for assigned Hugoniot and ramp temperatures",
+     "citation": "Zhuang et al. (2021), hcp-Fe Hugoniot and isentrope calculations",
+     "doi": "10.1103/PhysRevB.103.144102"
+    },
+    {
+     "role": "calculated temperatures for ten laser-shock rows",
+     "citation": "Huang et al. (2022), laser-driven shock compression of iron",
+     "doi": "10.1038/s41467-022-28255-2"
+    }
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1205.0,
+     "gamma0": 2.86,
+     "q": 0.84,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "theta0": 73.0,
+     "gamma0": 0.1,
+     "q": 0.04,
+     "Tr": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "n"
+    ],
+    "debye_temperature_law": "integrated_gruneisen",
+    "gas_constant_j_mol_k": 8.314
+   }
+  },
+  {
+   "identifier": "iron_zhang_2025_fit5_vinet_mgd",
+   "label": "Zhang et al. (2025), hcp-Fe Fit #5 Vinet+MGD",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Zhang",
+     "Zhang",
+     "Kuang",
+     "Xiong"
+    ],
+    "year": 2025,
+    "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
+    "source": "Crystals",
+    "volume": "15",
+    "locator": "221",
+    "doi": "10.3390/cryst15030221"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.427240641249973,
+     "K0": 151.6,
+     "K0_prime": 5.845
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.5,
+    "K0_prime": 0.01
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": {
+    "parameter_order": [
+     "rt_eos.V0",
+     "rt_eos.K0",
+     "rt_eos.K0_prime",
+     "theta0",
+     "gamma0",
+     "q"
+    ],
+    "matrix": [
+     [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     [
+      0.0,
+      0.22988,
+      -0.004717,
+      6.2192,
+      -0.013427,
+      -0.0061313
+     ],
+     [
+      0.0,
+      -0.004717,
+      0.00011013,
+      0.048069,
+      0.0006019,
+      0.00022626
+     ],
+     [
+      0.0,
+      6.2192,
+      0.048069,
+      4807.1,
+      5.991,
+      0.69938
+     ],
+     [
+      0.0,
+      -0.013427,
+      0.0006019,
+      5.991,
+      0.016374,
+      0.0048411
+     ],
+     [
+      0.0,
+      -0.0061313,
+      0.00022626,
+      0.69938,
+      0.0048411,
+      0.0024021
+     ]
+    ]
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    10.7,
+    1374.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "iron_zhang_2025_tables_s1_s3_s4_pvt"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     10.7,
+     1374.0
+    ],
+    "temperature_k": [
+     298.0,
+     12000.0
+    ],
+    "notes": [
+     "Envelope of the 1,313-row mixed fit dataset, not a phase-stability boundary.",
+     "Static Table S1 reaches 4695 K although Methods section 2.1 says 3400 K; the deposited rows and residuals demonstrate that the higher-temperature rows were fitted."
+    ]
+   },
+   "notes": "Published mixed-input thermal EOS Fit #5; Supplementary Table S6 reports RMSE=5.084659 GPa. It fits 1,078 static experimental, 132 dynamic P-V, and 103 ab-initio rows. Dynamic temperatures are calculated/model-assigned rather than measured. Fit #1 is the authors' preferred relaxed-V0 solution.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei",
+        "Ricolleau",
+        "Frank",
+        "Mibe",
+        "Shen",
+        "Prakapenka"
+       ],
+       "year": 2007,
+       "source": "PNAS",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Supplementary Table S1 pressure-scale column",
+      "scope": "499 static rows recalculated to Fei et al. (2007)"
+     },
+     {
+      "kind": "other",
+      "reference": {
+       "authors": [
+        "Ye",
+        "Prakapenka",
+        "Meng",
+        "Shim"
+       ],
+       "year": 2018,
+       "source": "High Pressure Research",
+       "doi": "10.1080/08957959.2018.1493477"
+      },
+      "source_location": "Supplementary Table S1 pressure-scale column",
+      "scope": "142 static rows recalculated to Ye et al. (2018)",
+      "notes": "The workbook names Ye et al. (2018), whereas Methods section 2.1 cites Fei et al. (2007) and Dorfman et al. (2012)."
+     },
+     {
+      "kind": "other",
+      "source_location": "Supplementary Table S1 blank pressure-scale cells",
+      "scope": "437 static rows retain the compiled source pressure",
+      "notes": "The sheet says these were already internally consistent or lacked a compatible internally consistent calibrant scale."
+     },
+     {
+      "kind": "shock_wave",
+      "source_location": "Supplementary Table S3",
+      "scope": "72 Hugoniot and 60 ramp-compression P-V rows"
+     },
+     {
+      "kind": "ab_initio",
+      "source_location": "Supplementary Table S4",
+      "scope": "103 calculated P-V-T rows; no experimental gauge"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table S1 deposits the final corrected pressures and errors but not the row-wise calibrant volumes/temperatures needed to reproduce the 641 recalculations upstream."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "parameter_provenance": {
+    "V0": "Table 2/S6 molar V0 converted exactly to a two-atom hcp conventional-cell volume",
+    "K0": "Table 2 and Supplementary Table S6",
+    "K0_prime": "Table 2 and Supplementary Table S6",
+    "theta0": "Table 2 and Supplementary Table S6",
+    "gamma0": "Table 2 and Supplementary Table S6",
+    "q": "Table 2 and Supplementary Table S6",
+    "n": "one atom per Fe formula unit",
+    "covariance": "Supplementary Table S5; V0 row and column converted to the stored cell-volume basis"
+   },
+   "fit_provenance": {
+    "software": {
+     "name": "EosFit-GUI",
+     "version": "not reported"
+    },
+    "dataset": "iron_zhang_2025_tables_s1_s3_s4_pvt",
+    "selection": {
+     "predicate": "all numeric rows in Supplementary Tables S1, S3, and S4",
+     "included_rows": 1313,
+     "included_static_experimental_rows": 1078,
+     "included_dynamic_pv_rows": 132,
+     "included_ab_initio_rows": 103,
+     "excluded_rows": 325,
+     "exclusion": "all Table S2 self-calibrated hcp-Fe rows"
+    },
+    "objective": "Unweighted least squares of pressure residuals; supplement defines residual as observed/calculated pressure minus fitted pressure.",
+    "weights": [],
+    "refined_parameters": [
+     "K0",
+     "K0_prime",
+     "theta0",
+     "gamma0",
+     "q"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "Tr=300 K",
+     "n=1",
+     "R=8.314 J mol^-1 K^-1"
+    ],
+    "statistics": {
+     "observations": 1313,
+     "published_rmse_gpa": 5.084659
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_zhang_2025_hcp_iron.py",
+     "solver": "scipy.optimize.least_squares",
+     "scope_status": "final_input_parity_upstream_reduction_partial",
+     "reproduced_scope": [
+      "all 1,313 deposited final fit inputs",
+      "published residual columns",
+      "Fits 1, 2, and 5 coefficients",
+      "Supplementary Table S5 covariance"
+     ],
+     "unresolved_upstream_steps": [
+      "641 static-pressure recalculations lack row-wise calibrant observations",
+      "the generation/interpolation procedure for 122 Zhuang-derived dynamic temperatures is not documented"
+     ],
+     "objective_inference": "An independently computed unweighted Jacobian covariance matches Table S5 within 0.6%; no row weights are stated by the source."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
+    "audit_date": "2026-09-07",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "covariance",
+     "fit_dataset",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+     "doi": "10.3390/cryst15030221",
+     "locations": [
+      "Methods sections 2.1-2.2",
+      "Equations (1)-(6)",
+      "Table 2",
+      "Supplementary Tables S1-S6"
+     ],
+     "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "iron_zhang_2025_tables_s1_s3_s4_pvt"
+     ],
+     "source_locations": [
+      "Supplementary Tables S1, S3, and S4"
+     ],
+     "finding": "All 1,313 published fit inputs are bundled with experimental, dynamic, ab-initio, calibration, and temperature-provenance labels; an independent six/five-parameter refit recovers Fits 1, 2, and 5."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equations, selection rules, and coefficients",
+     "citation": "Zhang et al. (2025), Methods 2.1-2.2, Equations (1)-(6), Table 2",
+     "doi": "10.3390/cryst15030221"
+    },
+    {
+     "role": "selected P-V-T inputs, residuals, covariance, and fit comparison",
+     "citation": "Zhang et al. (2025), Supplementary Tables S1-S6",
+     "doi": "10.3390/cryst15030221"
+    },
+    {
+     "role": "model basis for assigned Hugoniot and ramp temperatures",
+     "citation": "Zhuang et al. (2021), hcp-Fe Hugoniot and isentrope calculations",
+     "doi": "10.1103/PhysRevB.103.144102"
+    },
+    {
+     "role": "calculated temperatures for ten laser-shock rows",
+     "citation": "Huang et al. (2022), laser-driven shock compression of iron",
+     "doi": "10.1038/s41467-022-28255-2"
+    }
+   ],
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 960.0,
+     "gamma0": 3.51,
+     "q": 1.28,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "theta0": 69.0,
+     "gamma0": 0.13,
+     "q": 0.05,
+     "Tr": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "n"
+    ],
+    "debye_temperature_law": "integrated_gruneisen",
+    "gas_constant_j_mol_k": 8.314
+   }
   }
  ],
  "format": "peritheos.material",
@@ -621,6 +1618,218 @@
      "published_combined_bm3_max_abs_pressure_residual_gpa": 16.1292
     },
     "transcribed_on": "2026-09-04"
+   }
+  },
+  {
+   "identifier": "iron_zhang_2025_tables_s1_s3_s4_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "The exact 1,313-row mixed-input regression dataset for Zhang et al. Fits 1, 2, and 5: 1,078 static experimental rows, 132 dynamic experimental P-V rows with calculated/model-assigned temperatures, and 103 ab-initio rows.",
+   "reference": {
+    "authors": [
+     "Zhang",
+     "Zhang",
+     "Kuang",
+     "Xiong"
+    ],
+    "year": 2025,
+    "title": "Equation of State Parameters of hcp-Fe Up to Super-Earth Interior Conditions",
+    "source": "Crystals",
+    "volume": "15",
+    "locator": "221",
+    "doi": "10.3390/cryst15030221"
+   },
+   "source_location": "Supplementary Tables S1, S3, and S4",
+   "source_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221-s001.zip",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "columns": [
+    {
+     "name": "source_table",
+     "quantity": "source_table",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "source_reference_as_published",
+     "quantity": "source_reference_as_published",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "data_class",
+     "quantity": "data_class",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "dynamic_path",
+     "quantity": "dynamic_path",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa_raw",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa_raw",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa_raw"
+    },
+    {
+     "name": "pressure_calibrant",
+     "quantity": "pressure_calibrant",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa_fit",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa_fit",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa_fit"
+    },
+    {
+     "name": "pressure_scale",
+     "quantity": "pressure_scale",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_correction_applied",
+     "quantity": "pressure_correction_applied",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_uncertainty_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "molar_volume_cm3_mol"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "temperature_k"
+    },
+    {
+     "name": "temperature_provenance",
+     "quantity": "temperature_provenance",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "fit1_observed_minus_model_gpa",
+     "quantity": "pressure_residual",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "fit2_observed_minus_model_gpa",
+     "quantity": "pressure_residual",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "fit5_observed_minus_model_gpa",
+     "quantity": "pressure_residual",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "source_cell_note",
+     "quantity": "source_cell_note",
+     "unit": "dimensionless",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_fit",
+     "quantity": "used_in_fit",
+     "unit": "dimensionless",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/iron-zhang-2025-tables-s1-s3-s4-pvt.csv",
+    "sha256": "763a371196e3b4660d43cfaa924d1a96cf236bccef937cb1e9970b9eadb3c614",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "iron_zhang_2025_fit1_birch_murnaghan_3_mgd",
+    "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
+    "iron_zhang_2025_fit5_vinet_mgd"
+   ],
+   "notes": "Table S2's 325 hcp-Fe-self-calibrated static rows were excluded by the authors and are not bundled as fit inputs. Source spelling, including 'Zhaung' in 38 Table S4 rows, is preserved. Table S1 row 461 stores its volume as numeric text and is explicitly coerced. Source residuals use observed/calculated minus model pressure.",
+   "provenance": {
+    "type": "transcribed_from_official_supplement",
+    "method": "Selected every numeric row from S1, S3, and S4; used corrected S1 pressure/error where present, otherwise the compiled pressure/error; converted molar volume to a two-atom hcp cell using the exact Avogadro constant.",
+    "source_article_pdf_sha256": "f7da2f0446bd76d35b25f363e7f4ee4266db130636b7ef907ddd459af9cc1fe8",
+    "source_supplement_zip_sha256": "518ed6f4a17e5dee22b69bfe395fe160e81bf03ea3e9090a8573e251a77ab5a8",
+    "source_workbook_name": "crystals-3484051-supplementary.xlsx",
+    "source_workbook_sha256": "a3654047a5cabf03633c9ce280a264fa2c7bfae1c86d4e4c04028e715a0cd4a2",
+    "quality_control": {
+     "rows": 1313,
+     "table_s1_rows": 1078,
+     "table_s3_rows": 132,
+     "table_s4_rows": 103,
+     "table_s2_excluded_rows": 325,
+     "s1_corrected_pressure_rows": 641,
+     "s1_retained_pressure_rows": 437,
+     "inferred_dynamic_temperature_relations": {
+      "status": "exact_relationship_in_deposited_values_not_published_methodology",
+      "zhuang_hugoniot_rows": 62,
+      "zhuang_hugoniot_temperature_k": "0.01491*P_gpa^2 + 21.77176*P_gpa - 395.42764",
+      "zhuang_hugoniot_max_abs_reconstruction_k": 2.3e-12,
+      "zhuang_ramp_rows": 60,
+      "zhuang_ramp_temperature_k": "4.22e-7*P_gpa^3 - 0.00155*P_gpa^2 + 2.58948*P_gpa + 920.817",
+      "zhuang_ramp_max_abs_reconstruction_k": 4.4e-12
+     }
+    },
+    "transcribed_on": "2026-09-07"
    }
   }
  ]

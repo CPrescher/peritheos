@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 612,
-    "primary_source_validated": 612
+    "records": 615,
+    "primary_source_validated": 615
   },
   "records": [
     {
@@ -4396,6 +4396,66 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_zhang_2025_fit1_birch_murnaghan_3_mgd",
+      "label": "Zhang et al. (2025), hcp-Fe Fit #1 BM3+MGD",
+      "doi": "10.3390/cryst15030221",
+      "status": "primary_source_validated",
+      "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
+      "primary_source_check": {
+        "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+        "doi": "10.3390/cryst15030221",
+        "locations": [
+          "Methods sections 2.1-2.2",
+          "Equations (1)-(6)",
+          "Table 2",
+          "Supplementary Tables S1-S6"
+        ],
+        "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_zhang_2025_fit2_birch_murnaghan_3_mgd",
+      "label": "Zhang et al. (2025), hcp-Fe Fit #2 BM3+MGD",
+      "doi": "10.3390/cryst15030221",
+      "status": "primary_source_validated",
+      "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
+      "primary_source_check": {
+        "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+        "doi": "10.3390/cryst15030221",
+        "locations": [
+          "Methods sections 2.1-2.2",
+          "Equations (1)-(6)",
+          "Table 2",
+          "Supplementary Tables S1-S6"
+        ],
+        "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_zhang_2025_fit5_vinet_mgd",
+      "label": "Zhang et al. (2025), hcp-Fe Fit #5 Vinet+MGD",
+      "doi": "10.3390/cryst15030221",
+      "status": "primary_source_validated",
+      "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
+      "primary_source_check": {
+        "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
+        "doi": "10.3390/cryst15030221",
+        "locations": [
+          "Methods sections 2.1-2.2",
+          "Equations (1)-(6)",
+          "Table 2",
+          "Supplementary Tables S1-S6"
+        ],
+        "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
       }
     },
     {
