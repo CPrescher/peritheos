@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 812,
-    "primary_source_validated": 812
+    "records": 813,
+    "primary_source_validated": 813
   },
   "records": [
     {
@@ -655,12 +655,13 @@
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Vinet equation below Figure 2",
-          "Table II, revised-ruby-scale rows"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "The records use the revised pressure scale (PR') rather than the classical ruby-scale fits.",
-        "doi": "10.1103/physrevb.70.094112"
+        "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
       }
     },
     {
@@ -722,24 +723,6 @@
     {
       "material": "aluminum",
       "file": "aluminum.eosmat",
-      "record": "aluminum_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Al experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "aluminum",
-      "file": "aluminum.eosmat",
       "record": "aluminum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Al MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -780,15 +763,34 @@
       "label": "Dewaele et al. (2004), Al mao ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "aluminum",
+      "file": "aluminum.eosmat",
+      "record": "aluminum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Al compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -1057,19 +1059,19 @@
     {
       "material": "barium_bcc",
       "file": "barium_bcc.eosmat",
-      "record": "barium_bcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ba experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "barium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ba compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -1255,19 +1257,19 @@
     {
       "material": "bismuth_a7",
       "file": "bismuth_a7.eosmat",
-      "record": "bismuth_a7_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Bi experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "bismuth_a7_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Bi compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -2646,19 +2648,19 @@
     {
       "material": "cadmium_hcp",
       "file": "cadmium_hcp.eosmat",
-      "record": "cadmium_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Cd experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "cadmium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cd compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -2796,19 +2798,19 @@
     {
       "material": "calcium_fcc",
       "file": "calcium_fcc.eosmat",
-      "record": "calcium_fcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ca experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "calcium_fcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ca compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -3378,19 +3380,19 @@
     {
       "material": "cesium_bcc",
       "file": "cesium_bcc.eosmat",
-      "record": "cesium_bcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Cs experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "cesium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cs compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -3431,19 +3433,19 @@
     {
       "material": "chromium",
       "file": "chromium.eosmat",
-      "record": "chromium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Cr experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "chromium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cr compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -3593,24 +3595,6 @@
     {
       "material": "cobalt_hcp",
       "file": "cobalt_hcp.eosmat",
-      "record": "cobalt_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Co experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "cobalt_hcp",
-      "file": "cobalt_hcp.eosmat",
       "record": "cobalt_hcp_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Co MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -3642,6 +3626,24 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Co compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -3768,12 +3770,13 @@
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Vinet equation below Figure 2",
-          "Table II, revised-ruby-scale rows"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "The records use the revised pressure scale (PR') rather than the classical ruby-scale fits.",
-        "doi": "10.1103/physrevb.70.094112"
+        "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
       }
     },
     {
@@ -3812,24 +3815,6 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
-      }
-    },
-    {
-      "material": "copper",
-      "file": "copper.eosmat",
-      "record": "copper_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Cu experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -3875,15 +3860,34 @@
       "label": "Dewaele et al. (2004), Cu mao ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cu compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -4062,7 +4066,7 @@
           "Equations (3)-(15)",
           "Tables 1-2"
         ],
-        "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+        "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid. These are two-parameter fits in K0 and K0-prime with experimental V0 held fixed; equation (20) and the surrounding text state the pressure-residual objective with m=8.",
         "doi": "10.1515/zna-2010-1-202"
       }
     },
@@ -4080,7 +4084,7 @@
           "Equations (3)-(15)",
           "Tables 1-2"
         ],
-        "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+        "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid. These are two-parameter fits in K0 and K0-prime with experimental V0 held fixed; equation (20) and the surrounding text state the pressure-residual objective with m=8.",
         "doi": "10.1515/zna-2010-1-202"
       }
     },
@@ -4098,7 +4102,7 @@
           "Equations (3)-(15)",
           "Tables 1-2"
         ],
-        "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+        "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid. These are two-parameter fits in K0 and K0-prime with experimental V0 held fixed; equation (20) and the surrounding text state the pressure-residual objective with m=8.",
         "doi": "10.1515/zna-2010-1-202"
       }
     },
@@ -4109,15 +4113,33 @@
       "label": "Sun et al. (2010), Cu low-pressure VN",
       "doi": "10.1515/zna-2010-1-202",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1515/zna-2010-1-202",
         "doi": "10.1515/zna-2010-1-202",
         "locations": [
-          "equations (3)-(15)",
-          "Table 3"
+          "equations (3)-(15) and (20)",
+          "Tables 2-3"
         ],
-        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+        "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
+      }
+    },
+    {
+      "material": "cu_sun_2010_legacy",
+      "file": "cu_sun_2010_legacy.eosmat",
+      "record": "cu_sun_2010_low_vn_refit",
+      "label": "AIP Handbook Cu low-pressure Vinet m=8 refit",
+      "doi": null,
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "locations": [
+          "Kennedy and Keeler (1972), Table 4d-12, p. 4-100",
+          "Sun et al. (2010), equations (3) and (20), Tables 2-3"
+        ],
+        "finding": "The handbook prints 25 populated Cu V/V0 values from 15 to 340 kbar. The 15 kbar cell is a confirmed printing error, 09900, interpreted as 0.9900. Sun et al. define the Vinet model, hold experimental V0 fixed, and state the m=8 pressure-residual objective.",
+        "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+        "doi": null
       }
     },
     {
@@ -4127,15 +4149,15 @@
       "label": "Sun et al. (2010), Cu low-pressure MRS3",
       "doi": "10.1515/zna-2010-1-202",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1515/zna-2010-1-202",
         "doi": "10.1515/zna-2010-1-202",
         "locations": [
-          "equations (3)-(15)",
-          "Table 3"
+          "equations (3)-(15) and (20)",
+          "Tables 2-3"
         ],
-        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+        "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
       }
     },
     {
@@ -4145,15 +4167,15 @@
       "label": "Sun et al. (2010), Cu low-pressure SMS3",
       "doi": "10.1515/zna-2010-1-202",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1515/zna-2010-1-202",
         "doi": "10.1515/zna-2010-1-202",
         "locations": [
-          "equations (3)-(15)",
-          "Table 3"
+          "equations (3)-(15) and (20)",
+          "Tables 2-3"
         ],
-        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+        "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
       }
     },
     {
@@ -4163,15 +4185,15 @@
       "label": "Sun et al. (2010), Cu low-pressure SMS4",
       "doi": "10.1515/zna-2010-1-202",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1515/zna-2010-1-202",
         "doi": "10.1515/zna-2010-1-202",
         "locations": [
-          "equations (3)-(15)",
-          "Table 3"
+          "equations (3)-(15) and (20)",
+          "Tables 2-3"
         ],
-        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+        "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
       }
     },
     {
@@ -4181,15 +4203,15 @@
       "label": "Sun et al. (2010), Cu low-pressure BN",
       "doi": "10.1515/zna-2010-1-202",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1515/zna-2010-1-202",
         "doi": "10.1515/zna-2010-1-202",
         "locations": [
-          "equations (3)-(15)",
-          "Table 3"
+          "equations (3)-(15) and (20)",
+          "Tables 2-3"
         ],
-        "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+        "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
       }
     },
     {
@@ -4501,19 +4523,19 @@
     {
       "material": "fe",
       "file": "fe.eosmat",
-      "record": "fe_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Fe experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "fe_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Fe compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -5012,15 +5034,16 @@
       "label": "Dewaele et al. (2004), revised-ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, parameters, units, reference state, uncertainty, range, and pressure calibration checked against the primary publication.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation 1",
+          "Equation (1)",
+          "Figure 2 caption",
           "Tables I and II"
         ],
-        "finding": "The stored record is the revised-ruby-scale Vinet fit with V0 and K0 fixed.",
-        "doi": "10.1103/physrevb.70.094112"
+        "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
       }
     },
     {
@@ -5182,24 +5205,6 @@
     {
       "material": "gold",
       "file": "gold.eosmat",
-      "record": "gold_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Au experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "gold",
-      "file": "gold.eosmat",
       "record": "gold_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Au MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -5240,15 +5245,16 @@
       "label": "Dewaele et al. (2004), Au mao ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
       }
     },
     {
@@ -5294,6 +5300,24 @@
       }
     },
     {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Au compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
       "material": "graphite",
       "file": "graphite.eosmat",
       "record": "graphite_hanfland_1989_murnaghan_1",
@@ -5332,19 +5356,19 @@
     {
       "material": "hafnium_hcp",
       "file": "hafnium_hcp.eosmat",
-      "record": "hafnium_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Hf experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "hafnium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Hf compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -5552,19 +5576,19 @@
     {
       "material": "indium_bct",
       "file": "indium_bct.eosmat",
-      "record": "indium_bct_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), In experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "indium_bct_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), In compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -5625,19 +5649,19 @@
     {
       "material": "iridium",
       "file": "iridium.eosmat",
-      "record": "iridium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ir experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "iridium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ir compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -5743,15 +5767,17 @@
       "label": "Zhang et al. (2025), hcp-Fe Fit #1 BM3+MGD",
       "doi": "10.3390/cryst15030221",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
       "primary_source_check": {
-        "access_url": "https://www.mdpi.com/2073-4352/15/3/221",
+        "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
         "doi": "10.3390/cryst15030221",
         "locations": [
+          "Methods sections 2.1-2.2",
           "Equations (1)-(6)",
-          "Table 2"
+          "Table 2",
+          "Supplementary Tables S1-S6"
         ],
-        "finding": "Table 2 prints the complete BM3/Vinet plus Mie-Gruneisen-Debye coefficients, uncertainties, RMSE, and fit strategy."
+        "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
       }
     },
     {
@@ -5761,15 +5787,17 @@
       "label": "Zhang et al. (2025), hcp-Fe Fit #2 BM3+MGD",
       "doi": "10.3390/cryst15030221",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
       "primary_source_check": {
-        "access_url": "https://www.mdpi.com/2073-4352/15/3/221",
+        "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
         "doi": "10.3390/cryst15030221",
         "locations": [
+          "Methods sections 2.1-2.2",
           "Equations (1)-(6)",
-          "Table 2"
+          "Table 2",
+          "Supplementary Tables S1-S6"
         ],
-        "finding": "Table 2 prints the complete BM3/Vinet plus Mie-Gruneisen-Debye coefficients, uncertainties, RMSE, and fit strategy."
+        "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
       }
     },
     {
@@ -5779,15 +5807,17 @@
       "label": "Zhang et al. (2025), hcp-Fe Fit #5 Vinet+MGD",
       "doi": "10.3390/cryst15030221",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
       "primary_source_check": {
-        "access_url": "https://www.mdpi.com/2073-4352/15/3/221",
+        "access_url": "https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf",
         "doi": "10.3390/cryst15030221",
         "locations": [
+          "Methods sections 2.1-2.2",
           "Equations (1)-(6)",
-          "Table 2"
+          "Table 2",
+          "Supplementary Tables S1-S6"
         ],
-        "finding": "Table 2 prints the complete BM3/Vinet plus Mie-Gruneisen-Debye coefficients, uncertainties, RMSE, and fit strategy."
+        "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
       }
     },
     {
@@ -6204,19 +6234,19 @@
     {
       "material": "lead_fcc",
       "file": "lead_fcc.eosmat",
-      "record": "lead_fcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Pb experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "lead_fcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Pb compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -6495,19 +6525,19 @@
     {
       "material": "lithium_9r",
       "file": "lithium_9r.eosmat",
-      "record": "lithium_9r_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Li experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "lithium_9r_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Li compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -6683,19 +6713,19 @@
     {
       "material": "magnesium_hcp",
       "file": "magnesium_hcp.eosmat",
-      "record": "magnesium_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Mg experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "magnesium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Mg compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -6737,19 +6767,19 @@
     {
       "material": "manganese_alpha",
       "file": "manganese_alpha.eosmat",
-      "record": "manganese_alpha_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Mn experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "manganese_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Mn compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -9846,24 +9876,6 @@
     {
       "material": "molybdenum",
       "file": "molybdenum.eosmat",
-      "record": "molybdenum_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Mo experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "molybdenum",
-      "file": "molybdenum.eosmat",
       "record": "molybdenum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Mo MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -9937,6 +9949,24 @@
           "auxiliary Tables S1-S6"
         ],
         "finding": "The article defines a coupled pressure-difference objective and Table 2 prints the two correlated Vinet solutions. The official auxiliary PDF provides 165 aligned volume rows; AN012 is listed in Table 1 but absent from that PDF."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Mo compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -10708,24 +10738,6 @@
     {
       "material": "nickel",
       "file": "nickel.eosmat",
-      "record": "nickel_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ni experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "nickel",
-      "file": "nickel.eosmat",
       "record": "nickel_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Ni MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -10757,6 +10769,24 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ni compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -10856,19 +10886,19 @@
     {
       "material": "niobium",
       "file": "niobium.eosmat",
-      "record": "niobium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Nb experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "niobium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Nb compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -10949,19 +10979,19 @@
     {
       "material": "osmium",
       "file": "osmium.eosmat",
-      "record": "osmium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Os experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "osmium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Os compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -11128,19 +11158,19 @@
     {
       "material": "palladium",
       "file": "palladium.eosmat",
-      "record": "palladium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Pd experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "palladium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Pd compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -11674,24 +11704,6 @@
     {
       "material": "platinum",
       "file": "platinum.eosmat",
-      "record": "platinum_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Pt experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "platinum",
-      "file": "platinum.eosmat",
       "record": "platinum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Pt MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -11732,15 +11744,16 @@
       "label": "Dewaele et al. (2004), Pt mao ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
       }
     },
     {
@@ -11750,15 +11763,16 @@
       "label": "Dewaele et al. (2004), Pt revised ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
       }
     },
     {
@@ -11804,6 +11818,24 @@
       }
     },
     {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Pt compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
       "material": "polonium_simple_cubic",
       "file": "polonium_simple_cubic.eosmat",
       "record": "polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3",
@@ -11842,19 +11874,19 @@
     {
       "material": "potassium_bcc",
       "file": "potassium_bcc.eosmat",
-      "record": "potassium_bcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), K experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "potassium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), K compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -12314,24 +12346,6 @@
     {
       "material": "rhenium",
       "file": "rhenium.eosmat",
-      "record": "rhenium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Re experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "rhenium",
-      "file": "rhenium.eosmat",
       "record": "rhenium_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Re MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -12363,6 +12377,24 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "rhenium",
+      "file": "rhenium.eosmat",
+      "record": "rhenium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Re compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -12403,19 +12435,19 @@
     {
       "material": "rhodium",
       "file": "rhodium.eosmat",
-      "record": "rhodium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Rh experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "rhodium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Rh compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -12455,19 +12487,19 @@
     {
       "material": "rubidium_bcc",
       "file": "rubidium_bcc.eosmat",
-      "record": "rubidium_bcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Rb experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "rubidium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Rb compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -12508,19 +12540,19 @@
     {
       "material": "ruthenium",
       "file": "ruthenium.eosmat",
-      "record": "ruthenium_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ru experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "ruthenium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ru compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -12544,19 +12576,19 @@
     {
       "material": "scandium_hcp",
       "file": "scandium_hcp.eosmat",
-      "record": "scandium_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Sc experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "scandium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Sc compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -12778,24 +12810,6 @@
     {
       "material": "silver",
       "file": "silver.eosmat",
-      "record": "silver_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ag experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "silver",
-      "file": "silver.eosmat",
       "record": "silver_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Ag MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -12827,6 +12841,24 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ag compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -13147,19 +13179,19 @@
     {
       "material": "sodium_9r",
       "file": "sodium_9r.eosmat",
-      "record": "sodium_9r_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Na experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "sodium_9r_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Na compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -13333,19 +13365,19 @@
     {
       "material": "strontium_fcc",
       "file": "strontium_fcc.eosmat",
-      "record": "strontium_fcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Sr experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "strontium_fcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Sr compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -13574,24 +13606,6 @@
     {
       "material": "tantalum",
       "file": "tantalum.eosmat",
-      "record": "tantalum_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ta experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "tantalum",
-      "file": "tantalum.eosmat",
       "record": "tantalum_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Ta MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -13632,15 +13646,16 @@
       "label": "Dewaele et al. (2004), Ta mao ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
       }
     },
     {
@@ -13650,15 +13665,34 @@
       "label": "Dewaele et al. (2004), Ta revised ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "tantalum",
+      "file": "tantalum.eosmat",
+      "record": "tantalum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ta compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -13808,19 +13842,19 @@
     {
       "material": "thallium_hcp",
       "file": "thallium_hcp.eosmat",
-      "record": "thallium_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Tl experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "thallium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Tl compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -13970,19 +14004,19 @@
     {
       "material": "tin_alpha",
       "file": "tin_alpha.eosmat",
-      "record": "tin_alpha_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Sn experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "tin_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Sn compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -14024,19 +14058,19 @@
     {
       "material": "titanium_alpha",
       "file": "titanium_alpha.eosmat",
-      "record": "titanium_alpha_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Ti experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "titanium_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ti compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -14195,12 +14229,13 @@
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Vinet equation below Figure 2",
-          "Table II, revised-ruby-scale rows"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "The records use the revised pressure scale (PR') rather than the classical ruby-scale fits.",
-        "doi": "10.1103/physrevb.70.094112"
+        "finding": "This record is a revised-ruby-scale Vinet fit. Table II identifies the bold coefficients as fixed and gives 95% confidence intervals for fitted coefficients."
       }
     },
     {
@@ -14266,24 +14301,6 @@
     {
       "material": "tungsten",
       "file": "tungsten.eosmat",
-      "record": "tungsten_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), W experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-      }
-    },
-    {
-      "material": "tungsten",
-      "file": "tungsten.eosmat",
       "record": "tungsten_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), W MAO-scale Vinet",
       "doi": "10.3390/min9110684",
@@ -14324,15 +14341,34 @@
       "label": "Dewaele et al. (2004), W mao ruby Vinet",
       "doi": "10.1103/physrevb.70.094112",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.70.094112",
-        "doi": "10.1103/PhysRevB.70.094112",
+        "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+        "doi": "10.1103/physrevb.70.094112",
         "locations": [
-          "Equation (2)",
-          "Table II"
+          "Equation (1)",
+          "Figure 2 caption",
+          "Tables I and II"
         ],
-        "finding": "Table II prints the Vinet coefficients for both the classical and revised ruby calibrations, with 95% fitting errors and fixed coefficients in bold."
+        "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+      }
+    },
+    {
+      "material": "tungsten",
+      "file": "tungsten.eosmat",
+      "record": "tungsten_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), W compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -14464,19 +14500,19 @@
     {
       "material": "vanadium_bcc",
       "file": "vanadium_bcc.eosmat",
-      "record": "vanadium_bcc_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), V experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "vanadium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), V compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -14682,19 +14718,19 @@
     {
       "material": "yttrium_hcp",
       "file": "yttrium_hcp.eosmat",
-      "record": "yttrium_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Y experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "yttrium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Y compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -14713,24 +14749,6 @@
           "official archive README.txt, eosfit.py, and CIFs.tar.gz"
         ],
         "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
-      }
-    },
-    {
-      "material": "zinc_hcp",
-      "file": "zinc_hcp.eosmat",
-      "record": "zinc_hcp_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Zn experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
-      "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-      "primary_source_check": {
-        "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
-        "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
-        ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
       }
     },
     {
@@ -14767,6 +14785,24 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Zn compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {
@@ -14861,19 +14897,19 @@
     {
       "material": "zirconium_alpha",
       "file": "zirconium_alpha.eosmat",
-      "record": "zirconium_alpha_lejaeghere_2014_experimental_corrected_bm3",
-      "label": "Lejaeghere et al. (2014), Zr experimental-corrected BM3",
-      "doi": "10.1080/10408436.2013.772503",
+      "record": "zirconium_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Zr compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
       "status": "primary_source_validated",
-      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
       "primary_source_check": {
         "access_url": "https://archive.materialscloud.org/record/2023.133",
-        "doi": "10.1080/10408436.2013.772503",
+        "doi": "10.24435/materialscloud:5e-mv",
         "locations": [
-          "official Delta-project archive exp.txt",
-          "reference-data methodology in Sections III-IV"
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
-        "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     },
     {

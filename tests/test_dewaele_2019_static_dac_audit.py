@@ -10,11 +10,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / "scripts" / "audit_dewaele_2019_static_dac.py"
 FE_DATA = (
-    ROOT
-    / "peritheos"
-    / "data"
-    / "datasets"
-    / "iron-dewaele-2006-epaps-compression.csv"
+    ROOT / "peritheos" / "data" / "datasets" / "iron-dewaele-2006-epaps-compression.csv"
 )
 
 
@@ -59,9 +55,7 @@ def test_dewaele_2019_audit_preserves_partial_reproduction_status():
         [11.17599418, 168.64954660, 5.32808152], rel=2e-8
     )
 
-    iron_2006 = result["source_publication_checks"][
-        "iron_dewaele_2006_helium_vinet"
-    ]
+    iron_2006 = result["source_publication_checks"]["iron_dewaele_2006_helium_vinet"]
     assert iron_2006["rows"] == 37
     assert iron_2006["unweighted_pressure_residual_fit"]["within_reported_95pct_errors"]
 

@@ -235,7 +235,7 @@ def test_ono_2006_gold_calibrant_recalculation_and_global_links():
     for scale, (column, tolerance) in checks.items():
         identifier = CASES[scale]["reference_eos"]
         gold = _executable(gold_document, identifier)
-        recalculated = np.asarray(gold.pressure(gold_a**3, 300.0), dtype=float)
+        recalculated = np.asarray(gold.pressure(gold_a**3), dtype=float)
         published = np.array([float(row[column]) for row in rows])
         assert float(np.max(np.abs(recalculated - published))) < tolerance
         assert (

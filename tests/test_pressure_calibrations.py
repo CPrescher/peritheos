@@ -252,10 +252,10 @@ def test_xrd_scales_are_crossed_through_a_virtual_same_standard_volume():
         source.identifier,
         target.identifier,
     )
-    virtual_volume = source.volume(source_pressure, 300.0)
+    virtual_volume = source.volume(source_pressure)
     assert result.implied_standard_volume == pytest.approx(virtual_volume)
     assert result.target_pressure_gpa == pytest.approx(
-        target.pressure(virtual_volume, 300.0)
+        target.pressure(virtual_volume, source.reference_temperature)
     )
     assert result.pressure_difference_gpa == pytest.approx(
         np.asarray(result.target_pressure_gpa) - source_pressure

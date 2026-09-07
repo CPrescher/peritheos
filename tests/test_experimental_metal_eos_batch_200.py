@@ -23,12 +23,12 @@ def test_batch_has_exact_expected_provenance_split_and_unique_records():
     assert len({row["record_identifier"] for row in rows}) == 200
     assert Counter(row["family"] for row in rows) == {
         "experimental_fit": 155,
-        "experimental_corrected": 42,
+        "compiled_reference": 42,
         "thermal_mixed": 3,
     }
     assert Counter(row["reference_doi"] for row in rows) == {
         "10.1515/zna-2010-1-202": 111,
-        "10.1080/10408436.2013.772503": 42,
+        "10.24435/materialscloud:5e-mv": 42,
         "10.3390/min9110684": 30,
         "10.1103/PhysRevB.70.094112": 8,
         "10.1029/2012JB009292": 6,

@@ -522,9 +522,7 @@ def build_records(
     delta_method = delta_source["method_publication"]
     delta_upstream = delta_source["upstream_sources"]
     delta_recovery = delta_source["upstream_recovery"]["property_findings"]
-    with DELTA_KNITTLE_RECONSTRUCTION.open(
-        encoding="utf-8", newline=""
-    ) as stream:
+    with DELTA_KNITTLE_RECONSTRUCTION.open(encoding="utf-8", newline="") as stream:
         knittle_recovery = {row["element"]: row for row in csv.DictReader(stream)}
     delta_ref = {
         "authors": [delta_archive["creator"]],
@@ -538,9 +536,7 @@ def build_records(
         material = ELEMENT_TO_MATERIAL[element]
         z = float(documents[material]["formula_units_per_cell"])
         k0_source_key = DELTA_K0_SOURCE_EXCEPTIONS.get(element, "B0_default")
-        k0p_source_key = DELTA_K0P_SOURCE_EXCEPTIONS.get(
-            element, "B0_prime_default"
-        )
+        k0p_source_key = DELTA_K0P_SOURCE_EXCEPTIONS.get(element, "B0_prime_default")
         rec = base_record(
             f"{material}_delta_archive_experimental_reference_bm3",
             f"Delta archive (2023), {element} compiled experimental-reference BM3",
@@ -646,9 +642,7 @@ def build_records(
             "finding": "The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.",
         }
         k0_recovery_key = DELTA_K0_RECOVERY_KEYS.get(element, "B0_default")
-        k0p_recovery_key = DELTA_K0P_RECOVERY_KEYS.get(
-            element, "B0_prime_default"
-        )
+        k0p_recovery_key = DELTA_K0P_RECOVERY_KEYS.get(element, "B0_prime_default")
         rec["scientific_validation"]["upstream_data_recovery"] = {
             "audit_date": delta_source["upstream_recovery"]["audit_date"],
             "manifest": "datasets/deltaproject-experimental-reference-source.json",
@@ -662,9 +656,9 @@ def build_records(
                 "element_reconstruction": knittle_recovery[element],
             }
         if element == "Sn":
-            rec["scientific_validation"]["upstream_data_recovery"][
-                "phase_mismatch"
-            ] = delta_source["known_phase_mismatches"][0]
+            rec["scientific_validation"]["upstream_data_recovery"]["phase_mismatch"] = (
+                delta_source["known_phase_mismatches"][0]
+            )
         if element == "Sr":
             rec["scientific_validation"]["upstream_data_recovery"][
                 "source_conflict"
@@ -680,7 +674,9 @@ def build_records(
                 "doi": delta_archive["doi"],
                 "url": delta_archive["url"],
                 "license": delta_archive["license"],
-                "sha256": delta_archive["files"]["Delta_v3-1_0.zip/history.tar.gz/history/exp.txt"]["sha256"],
+                "sha256": delta_archive["files"][
+                    "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt"
+                ]["sha256"],
             },
             {
                 "role": "BM3 equation, 0 K/zero-point correction method, and property-level source mapping",

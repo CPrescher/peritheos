@@ -93,8 +93,8 @@ def _independent_bm3_pressure(
     volume: float, v0: float, k0: float, k0_prime: float
 ) -> float:
     eta = (v0 / volume) ** (1.0 / 3.0)
-    return 1.5 * k0 * (eta**7 - eta**5) * (
-        1.0 + 0.75 * (k0_prime - 4.0) * (eta**2 - 1.0)
+    return (
+        1.5 * k0 * (eta**7 - eta**5) * (1.0 + 0.75 * (k0_prime - 4.0) * (eta**2 - 1.0))
     )
 
 
@@ -133,12 +133,15 @@ def _reproduce_osmium_fixed_v0_fit() -> tuple[float, float]:
 
     def residual(parameters: np.ndarray) -> np.ndarray:
         k0, k0_prime = parameters
-        return np.asarray(
-            [
-                _independent_bm3_pressure(volume, 1.0, k0, k0_prime)
-                for volume in volume_ratio
-            ]
-        ) - pressure
+        return (
+            np.asarray(
+                [
+                    _independent_bm3_pressure(volume, 1.0, k0, k0_prime)
+                    for volume in volume_ratio
+                ]
+            )
+            - pressure
+        )
 
     fit = least_squares(residual, np.asarray([395.0, 4.5]))
     if not fit.success:
@@ -210,10 +213,7 @@ def reproduce(source_exp: Path | None = None) -> dict[str, Any]:
             source_expected = (round(v0_atom * z, 10), k0, k0_prime)
             maximum_parameter_error = max(
                 maximum_parameter_error,
-                *(
-                    abs(left - right)
-                    for left, right in zip(source_expected, actual)
-                ),
+                *(abs(left - right) for left, right in zip(source_expected, actual)),
             )
 
         eos = BM3(*actual)
@@ -221,10 +221,7 @@ def reproduce(source_exp: Path | None = None) -> dict[str, Any]:
             volume = actual[0] * ratio
             maximum_pressure_error = max(
                 maximum_pressure_error,
-                abs(
-                    eos.pressure(volume)
-                    - _independent_bm3_pressure(volume, *actual)
-                ),
+                abs(eos.pressure(volume) - _independent_bm3_pressure(volume, *actual)),
             )
 
     conflicts = {item["element"]: item for item in metadata["known_conflicts"]}

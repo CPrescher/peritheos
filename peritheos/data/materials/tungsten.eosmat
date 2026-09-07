@@ -80,7 +80,7 @@
    ],
    "pressure_range_status": "reported_exactly",
    "temperature_ref": 300,
-   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -736,119 +736,6 @@
    "notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted."
   },
   {
-   "identifier": "tungsten_lejaeghere_2014_experimental_corrected_bm3",
-   "label": "Lejaeghere et al. (2014), W experimental-corrected BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Lejaeghere",
-     "Van Speybroeck",
-     "Van Oost",
-     "Cottenier"
-    ],
-    "year": 2014,
-    "title": "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals",
-    "source": "Critical Reviews in Solid State and Materials Sciences",
-    "doi": "10.1080/10408436.2013.772503"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 31.5919461674,
-     "K0": 327.4742143494,
-     "K0_prime": 4.32
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 0.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    0.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     0.0
-    ],
-    "temperature_k": [
-     0.0,
-     0.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Experimental reference parameters corrected for zero-point motion and room-temperature effects. Only the reference-state coefficients are published; the zero-width pressure envelope prevents implying an unreported high-pressure validation range.",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [
-     {
-      "kind": "ambient_pressure",
-      "source_location": "compiled_experimental_reference"
-     }
-    ],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "V0": "reference-data methodology in Sections III-IV",
-    "K0": "reference-data methodology in Sections III-IV",
-    "K0_prime": "reference-data methodology in Sections III-IV"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://archive.materialscloud.org/record/2023.133",
-     "doi": "10.1080/10408436.2013.772503",
-     "locations": [
-      "official Delta-project archive exp.txt",
-      "reference-data methodology in Sections III-IV"
-     ],
-     "finding": "The official archive labels exp.txt as experimental data with zero-point and thermal corrections and prints per-atom V0, B0, and B0-prime."
-    },
-    "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "official Delta-project archive exp.txt",
-      "reference-data methodology in Sections III-IV"
-     ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation and coefficients",
-     "citation": "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals, official Delta-project archive exp.txt, reference-data methodology in Sections III-IV",
-     "doi": "10.1080/10408436.2013.772503"
-    }
-   ]
-  },
-  {
    "identifier": "tungsten_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), W MAO-scale Vinet",
    "record_kind": "published",
@@ -1199,7 +1086,7 @@
      "Stefaan Cottenier"
     ],
     "year": 2023,
-    "title": "Delta project — archive of old website",
+    "title": "Delta project \u2014 archive of old website",
     "source": "Materials Cloud Archive",
     "doi": "10.24435/materialscloud:5e-mv"
    },
@@ -1318,7 +1205,7 @@
    "source_lineage": [
     {
      "role": "exact compiled-reference coefficients and comparison implementation",
-     "citation": "Delta project — archive of old website, 10.24435/materialscloud:5e-mv, Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+     "citation": "Delta project \u2014 archive of old website, 10.24435/materialscloud:5e-mv, Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
      "doi": "10.24435/materialscloud:5e-mv",
      "url": "https://archive.materialscloud.org/record/2023.133",
      "license": "CC BY 4.0",

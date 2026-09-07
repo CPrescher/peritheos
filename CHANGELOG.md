@@ -11,7 +11,7 @@ All notable changes to Peritheos are documented here. The project follows
 
 - Added a 200-record experimental-metal EOS tranche, the Baonza pseudospinodal
   EOS with native evaluation and fitting support, and the phase-specific hcp-Pb
-  material card. The expanded catalog now contains 286 materials and 812
+  material card. The expanded catalog now contains 286 materials and 813
   primary-source-validated EOS records.
 - Added seven primary-source-validated LitCurate EOS records from four papers:
   two Kubo et al. (2000) Mg0.9Al0.2Si0.9O3 bridgmanite BM3 fits, two Kubo et

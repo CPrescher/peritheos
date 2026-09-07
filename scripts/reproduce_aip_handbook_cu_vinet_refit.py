@@ -46,13 +46,7 @@ def vinet_pressure(
 ) -> np.ndarray:
     """Evaluate Vinet pressure directly in terms of V/V0."""
     x = np.cbrt(relative_volume)
-    return (
-        3.0
-        * k0_gpa
-        * (1.0 - x)
-        / x**2
-        * np.exp(1.5 * (k0_prime - 1.0) * (1.0 - x))
-    )
+    return 3.0 * k0_gpa * (1.0 - x) / x**2 * np.exp(1.5 * (k0_prime - 1.0) * (1.0 - x))
 
 
 def residual_statistics(
@@ -102,9 +96,7 @@ def refit() -> dict[str, object]:
         "refit": {
             "k0_gpa": k0_gpa,
             "k0_prime": k0_prime,
-            **residual_statistics(
-                pressure, relative_volume, k0_gpa, k0_prime
-            ),
+            **residual_statistics(pressure, relative_volume, k0_gpa, k0_prime),
         },
         "published": {
             "k0_gpa": PUBLISHED_K0_GPA,

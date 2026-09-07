@@ -16,7 +16,7 @@ not published). Crystal structure and EOS provenance are audited separately;
 an EOS is not accepted into the library with only a phase name or nominal
 formula.
 
-The current catalog contains 286 material files and 812 EOS records. The model
+The current catalog contains 286 material files and 813 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,

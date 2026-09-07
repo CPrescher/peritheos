@@ -16,13 +16,13 @@ diagnostic refits below.
   `d7f7214cae4dabb3aae8a8585df4af7ada7990cb36b83a42ed7ed97e9eef7f2a`.
 - A lossless long-form transcription of every nonblank numerical table cell is
   bundled as
-  [`dorfman-2012-tables-s1-s6-cocompression.csv`](../../peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv).
+  [`dorfman-2012-tables-s1-s6-cocompression.csv`](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv).
   Exact printed tokens are retained beside normalized numeric values, and the
   CSV is checksummed in the material metadata.
 - Peritheos dedicates the rights its contributors hold in that factual CSV
   transcription, normalization, column naming, and arrangement under CC0 1.0.
   The scoped
-  [license notice](../../peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.LICENSE.md)
+  [license notice](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.LICENSE.md)
   expressly excludes the article, publisher PDF, and third-party rights. The
   publisher PDF itself is not redistributed.
 - The publisher correction, DOI

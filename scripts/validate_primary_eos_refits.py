@@ -2342,9 +2342,7 @@ def _dorfman_cocompression_outcome(
     material_id: str, record: dict[str, Any]
 ) -> dict[str, Any]:
     summary = json.loads(DORFMAN_REFIT_JSON.read_text(encoding="utf-8"))
-    source_material = {"gold": "Au", "molybdenum": "Mo", "platinum": "Pt"}[
-        material_id
-    ]
+    source_material = {"gold": "Au", "molybdenum": "Mo", "platinum": "Pt"}[material_id]
     mode = "fixed" if "_k0_fixed_" in record["identifier"] else "free"
     fit = summary["fits"][mode]
     comparisons = []
