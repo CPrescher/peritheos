@@ -633,6 +633,245 @@
     }
    ],
    "notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted."
+  },
+  {
+   "identifier": "tantalum_dewaele_2004_mao_ruby_vinet",
+   "label": "Dewaele et al. (2004), Ta mao ruby Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "title": "Equations of state of six metals above 94 GPa",
+    "source": "Physical Review B",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 36.07,
+     "K0": 198.2,
+     "K0_prime": 3.07
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 3.1,
+    "K0_prime": 0.14
+   },
+   "parameter_error_confidence": 0.95,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    90.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     90.0
+    ],
+    "temperature_k": [
+     298.0,
+     298.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Table I classical P_R column; Mao et al. (1986), A=1904 GPa, B=7.665",
+      "reference_calibration_record": "ruby_mao_1986",
+      "scope": "all Table I observations for this metal"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "parameter_provenance": {
+    "V0": "Tables I and II",
+    "K0": "Tables I and II",
+    "K0_prime": "Tables I and II"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "doi": "10.1103/physrevb.70.094112",
+     "locations": [
+      "Equation (1)",
+      "Figure 2 caption",
+      "Tables I and II"
+     ],
+     "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "tantalum_dewaele_2004_table1_compression"
+     ],
+     "source_locations": [
+      "Table I, journal page 094112-4"
+     ],
+     "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Equations of state of six metals above 94 GPa, Equation (1), Figure 2 caption, Tables I and II",
+     "doi": "10.1103/PhysRevB.70.094112"
+    }
+   ]
+  },
+  {
+   "identifier": "tantalum_dewaele_2004_revised_ruby_vinet",
+   "label": "Dewaele et al. (2004), Ta revised ruby Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "title": "Equations of state of six metals above 94 GPa",
+    "source": "Physical Review B",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 36.07,
+     "K0": 194.0,
+     "K0_prime": 3.52
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": 0.03
+   },
+   "parameter_error_confidence": 0.95,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0"
+   ],
+   "temperature_ref": 298.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    93.6
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     93.6
+    ],
+    "temperature_k": [
+     298.0,
+     298.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Equation (1) and Table I revised P'_R column; A=1904 GPa, B=9.5",
+      "reference_calibration_record": "ruby_dewaele_2004",
+      "scope": "all Table I observations for this metal"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Both source-calculated pressure columns and all sample volumes are bundled. Raw ruby R1 wavelengths are not printed; either monotonic scale can be inverted at the table's rounded precision to check or transform the pressure reduction."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "parameter_provenance": {
+    "V0": "Tables I and II",
+    "K0": "Tables I and II",
+    "K0_prime": "Tables I and II"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "doi": "10.1103/physrevb.70.094112",
+     "locations": [
+      "Equation (1)",
+      "Figure 2 caption",
+      "Tables I and II"
+     ],
+     "finding": "Equation (1) defines the revised ruby scale; the Figure 2 caption defines the Vinet form; Tables I and II print both pressure reductions, the observations, coefficients, 95% fitting errors, and fixed coefficients in bold."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "tantalum_dewaele_2004_table1_compression"
+     ],
+     "source_locations": [
+      "Table I, journal page 094112-4"
+     ],
+     "finding": "All available Table I observations for this metal are directly transcribed with both printed ruby-pressure reductions and the common atomic-volume uncertainty."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Equations of state of six metals above 94 GPa, Equation (1), Figure 2 caption, Tables I and II",
+     "doi": "10.1103/PhysRevB.70.094112"
+    }
+   ]
   }
  ],
  "format": "peritheos.material",
@@ -767,6 +1006,72 @@
    ],
    "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
    "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
+  },
+  {
+   "identifier": "tantalum_dewaele_2004_table1_compression",
+   "kind": "pressure_volume",
+   "description": "All 36 Table I tantalum atomic-volume observations, with both printed ruby-pressure reductions.",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Mezouar"
+    ],
+    "year": 2004,
+    "source": "Phys. Rev. B",
+    "volume": "70",
+    "locator": "094112",
+    "doi": "10.1103/PhysRevB.70.094112"
+   },
+   "source_location": "Table I, journal page 094112-4",
+   "columns": [
+    {
+     "name": "ruby_pressure_classical_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_pressure_revised_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_uncertainty_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "bound",
+     "of": "atomic_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/tantalum-dewaele-2004-table1-compression.csv",
+    "sha256": "3c69e1a9943dc1f882d60f63d01cf6708c114a4569a20e04a8b2278e5c09bd78",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "tantalum_dewaele_2004_mao_ruby_vinet",
+    "tantalum_dewaele_2004_revised_ruby_vinet"
+   ],
+   "transcription": {
+    "type": "direct_table_transcription",
+    "method": "Manual transcription from the publisher PDF with source row order and printed decimal precision retained.",
+    "source_artifact": {
+     "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+     "media_type": "application/pdf",
+     "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb"
+    }
+   },
+   "license": "No explicit open data-reuse license is stated. APS copyright applies to the article; this factual numerical transcription is retained for scientific validation and is not asserted to be openly licensed.",
+   "notes": "Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.",
+   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext"
   }
  ]
 }
