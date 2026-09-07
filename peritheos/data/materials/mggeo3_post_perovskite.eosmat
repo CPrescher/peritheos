@@ -1,0 +1,425 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mggeo3_post_perovskite",
+ "name": "MgGeO3 post-perovskite",
+ "formula": "MgGeO3",
+ "phase": "CaIrO3-type post-perovskite, orthorhombic Cmcm",
+ "aliases": [
+  "MgGeO3 pPv",
+  "magnesium germanate post-perovskite"
+ ],
+ "cell_contents": "Mg4Ge4O12 (4 MgGeO3 formula units) in the conventional orthorhombic Cmcm cell",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "ORTHORHOMBIC",
+ "lattice": {
+  "a": 2.5964,
+  "b": 8.4113,
+  "c": 6.4059,
+  "alpha": 90.0,
+  "beta": 90.0,
+  "gamma": 90.0
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Cmcm",
+ "space_group_number": 63,
+ "atom_sites": [
+  {
+   "element": "Ge",
+   "wyckoff": "4a",
+   "x": 0.0,
+   "y": 0.0,
+   "z": 0.0,
+   "occupancy": 1.0,
+   "source_label": "Ge"
+  },
+  {
+   "element": "Mg",
+   "wyckoff": "4c",
+   "x": 0.0,
+   "y": 0.248,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "Mg"
+  },
+  {
+   "element": "O",
+   "wyckoff": "4c",
+   "x": 0.0,
+   "y": 0.928,
+   "z": 0.25,
+   "occupancy": 1.0,
+   "source_label": "O1"
+  },
+  {
+   "element": "O",
+   "wyckoff": "8f",
+   "x": 0.0,
+   "y": 0.646,
+   "z": 0.44,
+   "occupancy": 1.0,
+   "source_label": "O2"
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Kubo",
+    "Kiefer",
+    "Shen",
+    "Prakapenka",
+    "Cava",
+    "Duffy"
+   ],
+   "year": 2006,
+   "source": "Geophysical Research Letters",
+   "volume": "33",
+   "locator": "L12S12",
+   "doi": "10.1029/2006GL025686"
+  },
+  "structure_location": "Table 1, 87.8 GPa Rietveld refinement",
+  "structure_url": "https://doi.org/10.1029/2006GL025686"
+ },
+ "notes": "The diffraction-ready cell and coordinates are the authors' 87.8 GPa, room-temperature Rietveld refinement, not an ambient structure. The reported Cmcm special positions correspond to Ge 4a, Mg 4c, O1 4c, and O2 8f; their multiplicities give Mg4Ge4O12 and Z=4. The measured lattice gives 139.8990863 A^3. The EOS V0=179.2 A^3 is instead a fitted zero-pressure extrapolation for the same conventional four-formula-unit cell.",
+ "eos_records": [
+  {
+   "identifier": "mggeo3_post_perovskite_kubo_2006_bm3_1",
+   "label": "Kubo et al. (2006), experimental 300 K BM3",
+   "reference": {
+    "authors": [
+     "Kubo",
+     "Kiefer",
+     "Shen",
+     "Prakapenka",
+     "Cava",
+     "Duffy"
+    ],
+    "year": 2006,
+    "title": "Stability and equation of state of the post-perovskite phase in MgGeO3 to 2 Mbar",
+    "source": "Geophysical Research Letters",
+    "volume": "33",
+    "locator": "L12S12",
+    "doi": "10.1029/2006GL025686"
+   },
+   "default_for": "equilibrium",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 179.2,
+     "K0": 207.0,
+     "K0_prime": 4.4
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.7,
+    "K0": 5.0,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    47.3,
+    196.3
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     47.3,
+     196.3
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "volume_ratio": [
+     0.6748231317,
+     0.850902722
+    ],
+    "notes": [
+     "The bounds are the 22 room-temperature observations retained in the published fit, not a rectangular phase-stability guarantee.",
+     "The zero-pressure reference volume is an extrapolation well outside the fitted pressure interval.",
+     "The authors observed post-perovskite during laser heating to 201 GPa, but that stability observation does not extend this 300 K EOS fit beyond its highest retained row at 196.3 GPa."
+    ]
+   },
+   "experimental_configuration": {
+    "sample": "MgGeO3 post-perovskite synthesized from orthoenstatite plus minor GeO2 in a laser-heated diamond-anvil cell",
+    "pressure_media": "argon in run 1; NaCl in run 2; unmixed MgGeO3 insulation in run 3",
+    "pressure_gauge": "Pt, Holmes et al. (1989) 300 K EOS, using only the 111 reflection",
+    "diffraction": "angle-dispersive synchrotron X-ray diffraction at GSECARS 13-ID-D; room-temperature measurements after heating or pressure changes"
+   },
+   "fit_datasets": [
+    "mggeo3_post_perovskite_kubo_2006_table_s1_pv"
+   ],
+   "parameter_provenance": {
+    "equation": "Experimental methods, paragraph 7: third-order Birch-Murnaghan pressure-volume EOS",
+    "V0": "Abstract, Results paragraph 17, and Table 2: 179.2(7) A^3 conventional cell",
+    "K0": "Abstract, Results paragraph 17, and Table 2: 207(5) GPa",
+    "K0_prime": "Abstract, Results paragraph 17, and Table 2: fixed at 4.4",
+    "temperature_ref": "Abstract and Results: experimental EOS at room temperature; the article describes the quenched measurements as 300 K",
+    "fit_selection": "Results paragraph 16 excludes observations below 47 GPa; official Table S1 contains 22 rows from 47.3 to 196.3 GPa and three retained-but-excluded rows at 45.0, 36.3, and 7.4 GPa",
+    "constraint": "Results paragraph 17 adds the semi-empirical K*V=constant systematics of Anderson and Anderson (1970), referenced to MgSiO3 post-perovskite values, because V0 and K0 could not be constrained simultaneously from data above 47 GPa"
+   },
+   "source_lineage": [
+    {
+     "role": "published_parameterization_structure_and_observations",
+     "citation": "Kubo et al. (2006), DOI 10.1029/2006GL025686",
+     "doi": "10.1029/2006GL025686",
+     "locations": [
+      "Abstract",
+      "Experimental methods, paragraphs 4-9",
+      "Results, paragraphs 10-19",
+      "Tables 1-2",
+      "official Supporting Information Table S1"
+     ]
+    },
+    {
+     "role": "semi_empirical_fit_constraint",
+     "citation": "Anderson and Anderson (1970), Bulk modulus-volume relationship for oxides",
+     "doi": "10.1029/JB075i017p03494",
+     "locations": [
+      "Kubo et al. (2006), Results paragraph 17"
+     ]
+    }
+   ],
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference_eos_record": "platinum_holmes_1989_vinet_1",
+      "reference": {
+       "authors": [
+        "Holmes",
+        "Moriarty",
+        "Gathers",
+        "Nellis"
+       ],
+       "year": 1989,
+       "source": "Journal of Applied Physics",
+       "volume": "66",
+       "locator": "2962-2967",
+       "doi": "10.1063/1.344177"
+      },
+      "source_location": "Experimental methods paragraph 7 and stress analysis paragraph 15",
+      "scope": "all Table S1 observations",
+      "notes": "Only Pt(111) was used to determine pressure because the axial diffraction geometry and positive Pt elastic anisotropy otherwise underestimate pressure. Pt(200) spacings are retained as reported but were not used for the pressure reduction."
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Table S1 reports row-wise Pt(111) d-spacings. For fcc Pt, a=sqrt(3)*d111 and Vcell=a^3; evaluation with the bundled Holmes 300 K Vinet record reproduces all printed pressures within 0.446 GPa, consistent with the four-decimal d-spacing precision."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Validated against the primary article and official Supporting Information Table S1 supplied by the user. The source defines the conventional-cell 300 K BM3, coefficients, fixed K0_prime, fit cutoff, structure, and pressure scale. It does not state the EOS-parameter uncertainty confidence level, publish parameter covariance or pressure errors, or specify the numerical weighting of the K*V constraint; these remain explicitly missing.",
+    "audit_date": "2026-09-07",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "composition",
+     "cell_setting",
+     "formula_units_per_cell",
+     "structure",
+     "published_uncertainties",
+     "validity",
+     "pressure_calibration",
+     "primary_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/2006GL025686",
+     "locations": [
+      "Abstract",
+      "Experimental methods, paragraphs 4-9",
+      "Results, paragraphs 10-19",
+      "Tables 1-2",
+      "official Supporting Information Table S1, grl21266-sup-0002-ts01.txt"
+     ],
+     "finding": "The source reports a standard third-order Birch-Murnaghan fit for CaIrO3-type MgGeO3 post-perovskite at 300 K. V0 and K0 were constrained with K*V systematics, K0_prime was fixed at 4.4, and rows below 47 GPa were excluded.",
+     "doi": "10.1029/2006GL025686",
+     "supporting_table_sha256": "d6be700950a3c9421a649701b88c6bd0cd5ce4a84d5608beea4417c3d758684d"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "mggeo3_post_perovskite_kubo_2006_table_s1_pv"
+     ],
+     "source_locations": [
+      "official Supporting Information Table S1, grl21266-sup-0002-ts01.txt"
+     ],
+     "finding": "All 25 run-level rows are bundled with lattice-parameter standard deviations, Pt(111) and Pt(200) spacings, reduced pressure, differential stress, and timing. The 22 rows at or above 47 GPa are flagged as fitted; the 45.0, 36.3, and 7.4 GPa rows are retained but flagged as excluded."
+    },
+    "numerical_reproduction": {
+     "published_state": {
+      "pressure_gpa": 87.8,
+      "volume_a3": 140.00603412
+     },
+     "calculated_pressure_gpa": 88.2910956,
+     "absolute_difference_gpa": 0.4910956,
+     "tolerance_gpa": 1.0,
+     "tolerance_basis": "The 22 fitted source rows have 1.3946 GPa pressure RMSE under the rounded published coefficients; no row-wise pressure uncertainty is reported."
+    },
+    "independent_refit": {
+     "method": "unweighted least squares in pressure against the 22 retained Table S1 volumes, fixing K0_prime=4.4",
+     "V0_a3": 179.2005459,
+     "K0_gpa": 206.7112286,
+     "K0_prime_fixed": 4.4,
+     "pressure_rmse_gpa_for_published_coefficients": 1.3945065,
+     "maximum_absolute_pressure_residual_gpa_for_published_coefficients": 3.9378893,
+     "notes": "The diagnostic recovers the printed V0 and K0 well within their reported errors. It is not claimed to reproduce the authors' unpublished numerical weighting of the external K*V constraint."
+    }
+   },
+   "notes": "Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at 300 K. V0=179.2(7) A^3 and K0=207(5) GPa were constrained using the source's K*V systematics; K0_prime=4.4 was fixed. Parenthesized EOS errors are stored as generic published uncertainties because the article gives no confidence level or covariance matrix. The alternative K0_prime=4 sensitivity fit (V0=175.9(6) A^3, K0=245(5) GPa) and the separate 0 K DFT BM3 are documented by the source but are not bundled as additional records here. The experimental envelope is not a phase-stability guarantee, and the high-pressure structure is metastably retained during room-temperature decompression."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mggeo3_post_perovskite_kubo_2006_table_s1_pv",
+   "kind": "pressure_volume_lattice_parameters_and_calibrant",
+   "description": "All 25 MgGeO3 post-perovskite rows in official Supporting Information Table S1, including the three low-pressure observations excluded from the published EOS fit and both reported Pt diffraction spacings.",
+   "reference": {
+    "authors": [
+     "Kubo",
+     "Kiefer",
+     "Shen",
+     "Prakapenka",
+     "Cava",
+     "Duffy"
+    ],
+    "year": 2006,
+    "source": "Geophysical Research Letters",
+    "volume": "33",
+    "locator": "L12S12",
+    "doi": "10.1029/2006GL025686"
+   },
+   "source_location": "official Supporting Information Table S1, grl21266-sup-0002-ts01.txt",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2006GL025686#support-information-section",
+   "source_file_sha256": "d6be700950a3c9421a649701b88c6bd0cd5ce4a84d5608beea4417c3d758684d",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "lattice_a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_a_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_a_angstrom"
+    },
+    {
+     "name": "lattice_b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_b_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_b_angstrom"
+    },
+    {
+     "name": "lattice_c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "lattice_c_standard_deviation_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "standard_deviation",
+     "of": "lattice_c_angstrom"
+    },
+    {
+     "name": "unit_cell_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "pt_111_d_spacing_angstrom",
+     "quantity": "platinum_111_d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pt_200_d_spacing_angstrom",
+     "quantity": "platinum_200_d_spacing",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "differential_stress_gpa",
+     "quantity": "platinum_differential_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "exposure_timing",
+     "quantity": "measurement_timing",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_published_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mggeo3-post-perovskite-kubo-2006-table-s1-pv.csv",
+    "sha256": "cb1eec6bce4b0d2a743ce9c5dbde1a15c7511b6120b6ce2042f9937e250e3a83",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mggeo3_post_perovskite_kubo_2006_bm3_1"
+   ],
+   "uncertainty": {
+    "lattice_parameters": "The article identifies the experimental lattice-parameter errors as estimated standard deviations (1 sigma).",
+    "pressure": "No row-wise pressure uncertainty is reported.",
+    "volume": "Derived exactly as a*b*c from the printed orthorhombic lattice parameters; no volume uncertainty is assigned because covariance among fitted lattice parameters is not published."
+   },
+   "notes": "The source columns a, b, c, d_Pt111, and d_Pt200 are in angstrom; P and t are in GPa. Paragraph 15 identifies t as differential stress derived from the Pt reflections. The source's exposure_timing text is retained verbatim. Derived conventional-cell volumes are rounded to eight decimal places. The three rows below 47 GPa are retained but marked unused because paragraph 16 explicitly excludes them from EOS analysis."
+  }
+ ]
+}
