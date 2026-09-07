@@ -309,6 +309,157 @@
    }
   },
   {
+   "label": "Karki et al. (2000), static LDA BM3",
+   "reference": {
+    "authors": [
+     "Karki",
+     "Duan",
+     "da Silva",
+     "Wentzcovitch"
+    ],
+    "year": 2000,
+    "title": "Ab initio structure of MgSiO3 ilmenite at high pressure",
+    "source": "American Mineralogist",
+    "volume": "85",
+    "locator": "317-320",
+    "doi": "10.2138/am-2000-2-309"
+   },
+   "record_kind": "published",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 252.75,
+     "K0": 224.0,
+     "K0_prime": 4.18
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "fit_datasets": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    40.0
+   ],
+   "pressure_range_status": "theoretical",
+   "experimental_temperature_range_k": [
+    0.0,
+    0.0
+   ],
+   "temperature_ref": 0.0,
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     40.0
+    ],
+    "temperature_k": [
+     0.0,
+     0.0
+    ],
+    "notes": [
+     "The numerical pressure bounds are the reported calculation and fit range, not an experimental range or a phase-stability guarantee.",
+     "The source places the static ilmenite-to-perovskite transition at 30 GPa; the calculated ilmenite branch from 30 to 40 GPa is therefore a metastable continuation.",
+     "This is the static-lattice athermal isotherm; 0 K represents that limit and is not a finite-temperature measurement."
+    ]
+   },
+   "identifier": "akimotoite_karki_2000_bm3_4",
+   "parameter_provenance": {
+    "equation": "Karki et al. (2000), Equation of state section, pages 317-318: calculated pressure-volume results through 40 GPa were fitted to a third-order Birch-Murnaghan equation of state; this maps to the standard BM3 pressure-volume form.",
+    "V0": "Equation of state section, page 317, and Table 1, page 318: V0=252.75 A^3 at zero pressure.",
+    "K0": "Equation of state section, page 317: KT0=224 GPa.",
+    "K0_prime": "Equation of state section, page 317: KT0'=4.18.",
+    "volume_basis": "Table 1 explicitly labels a hexagonal cell and reports a=4.686 A, c=13.291 A, and V=252.75 A^3. V=(sqrt(3)/2)*a^2*c=252.751 A^3, so V0 is the conventional hexagonal-cell volume; the existing akimotoite structure has Z=6.",
+    "reference_state": "The abstract and discussion describe athermal, static calculations; Table 1 and the fitted V0 are explicitly at zero pressure.",
+    "uncertainties_and_fixed_values": "The source reports no coefficient uncertainties, confidence convention, covariance, or fixed coefficients; its wording states that the fit yields all three parameters."
+   },
+   "pressure_calibration": {
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ab_initio",
+      "reference": {
+       "authors": [
+        "Karki",
+        "Duan",
+        "da Silva",
+        "Wentzcovitch"
+       ],
+       "year": 2000,
+       "source": "American Mineralogist",
+       "doi": "10.2138/am-2000-2-309"
+      },
+      "source_location": "Results and Discussion, pages 317-318; static DFT-LDA pressure-volume calculations",
+      "scope": "The fitted pressures are calculated first-principles stresses and use no experimental pressure calibrant.",
+      "notes": "Calculations used LDA, soft separable Troullier-Martins pseudopotentials, a 70 Ry plane-wave cutoff, and a 3x3x3 regular k-point mesh yielding two special points. Full variable-cell structural optimization was performed with damped molecular dynamics."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "No experimental pressure standard was used; reproducing the source pressures would require the unpublished first-principles calculation states and pseudopotential details/files."
+    },
+    "audit_date": "2026-09-07"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked directly against the final four-page American Mineralogist article; LitCurate was used only for discovery. The theoretical record is publication-scoped and does not duplicate either Reynard experimental pressure-scale fit.",
+    "audit_date": "2026-09-07",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "crystallographic_basis",
+     "formula_units",
+     "published_uncertainties",
+     "fixed_parameters",
+     "computational_method",
+     "validity",
+     "pressure_calibration",
+     "source_data"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.2138/am-2000-2-309",
+     "locations": [
+      "Abstract, page 317",
+      "Results and Discussion computational methods, page 317",
+      "Equation of state section, pages 317-318",
+      "Table 1 and Figure 1, page 318"
+     ],
+     "finding": "The article reports one static whole-crystal pressure-volume BM3 fit through 40 GPa: V0=252.75 A^3, KT0=224 GPa, and KT0'=4.18. Table 1 confirms that V0 is a conventional hexagonal-cell volume; its a and c reproduce V0 to 0.001 A^3. The calculated curve gives 29.4290 GPa at V/V0=0.9 and V/V0=0.874015 at 40 GPa, consistent with Figure 1.",
+     "doi": "10.2138/am-2000-2-309"
+    },
+    "primary_data_check": {
+     "status": "theoretical_parameterization_only",
+     "audit_date": "2026-09-07",
+     "source_locations": [
+      "Equation of state section, pages 317-318",
+      "Figure 1, page 318"
+     ],
+     "finding": "The article plots calculated pressure-volume points and the fitted curve but does not tabulate the underlying P-V or E-V observations, numerical residuals, weights, covariance, or fit statistic. No numerical supplement is referenced in the article. A source-faithful coefficient refit is therefore not possible, and no observations are digitized or synthesized."
+    },
+    "reported_inconsistencies": [
+     {
+      "field": "space group in the Structure at zero pressure text",
+      "source_value": "R-3c",
+      "resolution": "The text prints R-3c, while the paper identifies the phase as MgSiO3 ilmenite and Table 1 reproduces the independent Mg, Si, and O coordinates cited from Horiuchi et al. (1982). The existing Horiuchi-provenance akimotoite material remains R-3 (No. 148); this EOS addition does not overwrite crystallographic fields."
+     }
+    ],
+    "scope_resolution": {
+     "whole_crystal_record": "The stored V0, KT0, and KT0' are the MgSiO3-ilmenite whole-cell EOS coefficients.",
+     "excluded_polyhedral_fits": "The paper separately reports BM3 K=338 GPa, K'=5.05 for SiO6 and K=172 GPa, K'=3.96 for MgO6. They are polyhedral compressibilities without complete whole-material EOS parameter sets and are not added as material records.",
+     "existing_record_comparison": "Reynard et al. (1996) records are room-temperature experimental fits to the same measured compression rows using ruby and ice-VII pressure assignments (V0=262.3 A^3, K0 fixed at 212 GPa). The Karki record is an independent static LDA calculation with all three coefficients fitted and V0=252.75 A^3, so it is not a duplicate."
+    }
+   },
+   "notes": "Static-lattice DFT-LDA BM3 pressure-volume parameterization for MgSiO3 ilmenite. All three coefficients were fitted; no parameter errors, covariance, regression weights, residuals, or fit statistic are reported, so missing values remain null and no dataset is attached. The source calculation spans applied pressures from zero through 40 GPa and uses fully optimized cell shape and internal coordinates. LDA underestimates the experimental equilibrium volume by 3.7% and overestimates the comparison bulk modulus by 5.7%, which the authors attribute to typical LDA athermal behavior. This record is not the default room-temperature EOS and must not be substituted for the Reynard or Siersch experimental curves."
+  },
+  {
    "label": "Siersch et al. (2021), BM3",
    "reference": {
     "authors": [
