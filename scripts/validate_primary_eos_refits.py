@@ -26,7 +26,7 @@ from scipy.optimize import least_squares
 
 from peritheos import get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
-from peritheos.eos.rt import BM2, BM3, BM4, Murnaghan, NaturalStrain3, Vinet
+from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, Vinet
 from peritheos.eos.thermal import ThermalReferenceStateEOS
 from peritheos.fitting import fit_joint_eos, fit_linear_us_up, fit_rt_eos
 from peritheos.materials import Material
@@ -37,6 +37,7 @@ DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 
 MODEL_CLASSES = {
+    "Baonza": Baonza,
     "BM2": BM2,
     "BM3": BM3,
     "BM4": BM4,
@@ -2254,7 +2255,13 @@ def validate_all() -> dict[str, Any]:
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
         for record in document["eos_records"]:
-            check = record["scientific_validation"]["primary_data_check"]
+            check = record["scientific_validation"].get(
+                "primary_data_check",
+                {
+                    "status": "parameterization_only",
+                    "finding": "The catalog record preserves a validated published parameterization but does not register row-level observations for an independent refit.",
+                },
+            )
             identifiers = list(check.get("dataset_identifiers", ()))
             identifiers += list(check.get("digitized_dataset_identifiers", ()))
             base = {

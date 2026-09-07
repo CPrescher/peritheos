@@ -194,6 +194,228 @@
     }
    ],
    "notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted."
+  },
+  {
+   "identifier": "beryllium_hcp_dewaele_2019_mao_vinet",
+   "label": "Dewaele (2019), Be MAO-scale Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+    "source": "Minerals",
+    "doi": "10.3390/min9110684"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 16.266,
+     "K0": 115.2,
+     "K0_prime": 2.94
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.01,
+    "K0": 1.1,
+    "K0_prime": 0.05
+   },
+   "parameter_error_confidence": 0.95,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    95.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     95.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "mao_ruby_scale",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 1",
+    "K0": "Table 1",
+    "K0_prime": "Table 1"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+     "doi": "10.3390/min9110684",
+     "locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+     "doi": "10.3390/min9110684"
+    }
+   ]
+  },
+  {
+   "identifier": "beryllium_hcp_dewaele_2019_dor_vinet",
+   "label": "Dewaele (2019), Be DOR-scale Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Dewaele"
+    ],
+    "year": 2019,
+    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+    "source": "Minerals",
+    "doi": "10.3390/min9110684"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 16.268,
+     "K0": 113.4,
+     "K0_prime": 3.29
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.01,
+    "K0": 1.1,
+    "K0_prime": 0.05
+   },
+   "parameter_error_confidence": 0.95,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    95.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     95.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "dor_ruby_scale",
+      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 1",
+    "K0": "Table 1",
+    "K0_prime": "Table 1"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+     "doi": "10.3390/min9110684",
+     "locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "Equation (1)",
+      "Table 1"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+     "doi": "10.3390/min9110684"
+    }
+   ]
   }
  ]
 }

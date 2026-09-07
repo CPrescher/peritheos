@@ -2,7 +2,7 @@
 
 Python releases are built by GitHub Actions and published to PyPI through
 Trusted Publishing. No PyPI API token is stored in GitHub. The public
-The public `peritheos` Rust crate is published to crates.io; the private
+`peritheos` Rust crate is published to crates.io; the private
 `peritheos-python` extension crate is never published.
 
 ## One-time setup
@@ -35,7 +35,7 @@ The public `peritheos` Rust crate is published to crates.io; the private
 5. Create a matching annotated tag locally without pushing it yet, for example:
 
    ```bash
-   git tag -a v0.6.0 -m "Release 0.6.0"
+   git tag -a v0.7.0 -m "Release 0.7.0"
    ```
 
 6. From the clean tagged commit, publish the public Rust crate:
@@ -49,7 +49,7 @@ The public `peritheos` Rust crate is published to crates.io; the private
 7. Push the annotated tag to start the Python publication:
 
    ```bash
-   git push origin v0.6.0
+   git push origin v0.7.0
    ```
 
 The `Publish to PyPI` workflow checks that the tag and package version match,
@@ -67,5 +67,5 @@ dispatch the same workflow manually. It still checks out and validates the
 existing release tag:
 
 ```bash
-gh workflow run publish.yml --ref main -f version=0.6.0
+gh workflow run publish.yml --ref main -f version=0.7.0
 ```

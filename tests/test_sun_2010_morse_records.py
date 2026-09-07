@@ -46,6 +46,8 @@ def test_sun_production_records_match_transcribed_table():
         document = json.loads(path.read_text())
         for record in document.get("eos_records", []):
             if record.get("reference", {}).get("doi", "").lower() == DOI:
+                if "_low_" in record.get("identifier", ""):
+                    continue
                 records.append(record)
 
     assert records

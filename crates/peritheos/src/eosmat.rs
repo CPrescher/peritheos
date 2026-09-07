@@ -18,8 +18,8 @@ use serde_json::Value;
 
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
-    Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4,
-    RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
+    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
@@ -144,6 +144,8 @@ impl From<serde_json::Error> for EosmatError {
 #[derive(Clone, Copy, Debug, PartialEq)]
 #[non_exhaustive]
 pub enum IsothermalModel {
+    /// Baonza pseudospinodal EOS (beta = 0.85).
+    Baonza(Baonza),
     /// Second-order Birch--Murnaghan EOS.
     BM2(BM2),
     /// Third-order Birch--Murnaghan EOS.
@@ -179,6 +181,7 @@ impl IsothermalModel {
     #[must_use]
     pub const fn model_identifier(&self) -> &'static str {
         match self {
+            Self::Baonza(_) => "baonza",
             Self::BM2(_) => "birch_murnaghan_2",
             Self::BM3(_) => "birch_murnaghan_3",
             Self::BM4(_) => "birch_murnaghan_4",
@@ -200,6 +203,7 @@ impl IsothermalModel {
     #[must_use]
     pub const fn model_name(&self) -> &'static str {
         match self {
+            Self::Baonza(_) => "Baonza",
             Self::BM2(_) => "BM2",
             Self::BM3(_) => "BM3",
             Self::BM4(_) => "BM4",
@@ -221,6 +225,7 @@ impl IsothermalModel {
 macro_rules! dispatch_isothermal {
     ($self:expr, $model:ident => $expression:expr) => {
         match $self {
+            IsothermalModel::Baonza($model) => $expression,
             IsothermalModel::BM2($model) => $expression,
             IsothermalModel::BM3($model) => $expression,
             IsothermalModel::BM4($model) => $expression,
@@ -260,6 +265,9 @@ impl ReferenceStateEos for IsothermalModel {
 
     fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
         match self {
+            Self::Baonza(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::Baonza),
             Self::BM2(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::BM2),
@@ -2522,6 +2530,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
         .ok_or("equation component is missing type and model")?;
     let identifier = if thermal {
         match model_type {
+            "Baonza" => "baonza",
             "AlphaKT" => "thermal_reference_state",
             "AsymptoticPowerLawMieGruneisenDebye" => "asymptotic_power_law_mie_gruneisen_debye",
             "DoubleDebyeHelmholtz" => "double_debye_helmholtz",
@@ -2589,6 +2598,10 @@ fn build_isothermal(
     let p = |name| parameter(component, name);
     let v0 = p("V0")? * volume_scale;
     let built = match model {
+        "baonza" => {
+            check_type(component, "Baonza")?;
+            Baonza::new(v0, p("K0")?, p("K0_prime")?).map(IsothermalModel::Baonza)
+        }
         "birch_murnaghan_2" => {
             check_type(component, "BM2")?;
             BM2::new(v0, p("K0")?).map(IsothermalModel::BM2)

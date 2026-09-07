@@ -64,11 +64,18 @@ python-source = "."
 include = [
     {path = "peritheos/py.typed", format = ["sdist", "wheel"]},
     {path = "peritheos/data/**/*", format = ["sdist", "wheel"]},
+    {path = "CHANGELOG.md", format = "sdist"},
+    {path = "CITATION.cff", format = "sdist"},
+    {path = "CODE_OF_CONDUCT.md", format = "sdist"},
+    {path = "CONTRIBUTING.md", format = "sdist"},
+    {path = "SECURITY.md", format = "sdist"},
+    {path = "SUPPORT.md", format = "sdist"},
     {path = "crates/peritheos/tests/data/**/*", format = "sdist"},
     {path = "docs/**/*", format = "sdist"},
     {path = "scripts/**/*", format = "sdist"},
     {path = "mkdocs.yml", format = "sdist"},
 ]
+exclude = ["**/__pycache__/**", "**/*.pyc"]
 
 [tool.ruff]
 target-version = "py39"

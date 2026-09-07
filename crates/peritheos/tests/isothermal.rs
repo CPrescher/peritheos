@@ -1,8 +1,8 @@
 use std::collections::HashMap;
 
 use peritheos::isothermal::{
-    Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4,
-    RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
+    NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::{EosError, IsothermalEos};
 use serde::Deserialize;
@@ -148,6 +148,7 @@ fn python_compatibility_grid_matches_pressure_and_bulk_modulus() {
 
 fn representative_models() -> Vec<Box<dyn IsothermalEos>> {
     vec![
+        Box::new(Baonza::new(10.0, 120.0, 4.3).unwrap()),
         Box::new(BM2::new(10.0, 120.0).unwrap()),
         Box::new(BM3::new(10.0, 120.0, 4.3).unwrap()),
         Box::new(BM4::new(10.0, 120.0, 4.3, -0.02).unwrap()),

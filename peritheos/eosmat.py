@@ -28,6 +28,7 @@ _AVOGADRO = 6.022_140_76e23
 _HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
 _MATERIAL_PACKAGE = "peritheos.data.materials"
 _RT_TYPES = {
+    "Baonza",
     "BM2",
     "BM3",
     "BM4",
@@ -60,6 +61,7 @@ _THERMAL_TYPES = {
     "ThermalModifiedTait",
 }
 _RT_MODELS = {
+    "Baonza": "baonza",
     "BM2": "birch_murnaghan_2",
     "BM3": "birch_murnaghan_3",
     "BM4": "birch_murnaghan_4",

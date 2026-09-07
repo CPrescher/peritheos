@@ -12,6 +12,7 @@
 | [`NaturalStrain3`](equation-reference.md#natural-strain-family) | `K0_prime` | Third-order Poirier-Tarantola logarithmic EOS |
 | [`NaturalStrain4`](equation-reference.md#natural-strain-family) | `K0_prime`, `K0_double_prime` | Fourth-order natural strain |
 | [`ModifiedTait`](equation-reference.md#modified-tait) | `K0_prime`, `K0_double_prime` | Analytically invertible Tait family |
+| [`Baonza`](equation-reference.md#baonza-pseudospinodal) | `K0_prime` | Pseudospinodal form with the conventional fixed exponent beta=0.85 |
 | [`Vinet`](equation-reference.md#vinet) | `K0_prime` | Rydberg-Vinet interatomic-potential form |
 | [`RydbergStacey`](equation-reference.md#generalized-rydberg-stacey) | `K0_prime`, `K_infinity_prime` | Generalized high-compression Rydberg form with an adjustable infinite-pressure derivative |
 | [`Morse3`](equation-reference.md#morse-and-sun-morse) | `K0_prime` | Three-dimensional Morse-potential form |

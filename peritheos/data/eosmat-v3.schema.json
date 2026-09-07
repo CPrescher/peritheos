@@ -255,6 +255,7 @@
       "properties": {
         "type": {
           "enum": [
+            "Baonza",
             "BM2",
             "BM3",
             "BM4",
@@ -274,6 +275,7 @@
         },
         "model": {
           "enum": [
+            "baonza",
             "birch_murnaghan_2",
             "birch_murnaghan_3",
             "birch_murnaghan_4",
@@ -301,6 +303,7 @@
       "allOf": [
         {
           "oneOf": [
+            {"properties": {"type": {"const": "Baonza"}, "model": {"const": "baonza"}}},
             {"properties": {"type": {"const": "BM2"}, "model": {"const": "birch_murnaghan_2"}}},
             {"properties": {"type": {"const": "BM3"}, "model": {"const": "birch_murnaghan_3"}}},
             {"properties": {"type": {"const": "BM4"}, "model": {"const": "birch_murnaghan_4"}}},

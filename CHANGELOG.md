@@ -5,8 +5,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-09-07
+
 ### Added
 
+- Added a 200-record experimental-metal EOS tranche, the Baonza pseudospinodal
+  EOS with native evaluation and fitting support, and the phase-specific hcp-Pb
+  material card. The expanded catalog now contains 286 materials and 812
+  primary-source-validated EOS records.
 - Added seven primary-source-validated LitCurate EOS records from four papers:
   two Kubo et al. (2000) Mg0.9Al0.2Si0.9O3 bridgmanite BM3 fits, two Kubo et
   al. (2006) MgGeO3 post-perovskite sensitivity fits, two Matsui et al. (2012)
@@ -595,7 +601,8 @@ All notable changes to Peritheos are documented here. The project follows
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.6.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.7.0...HEAD
+[0.7.0]: https://github.com/CPrescher/peritheos/compare/v0.6.0...v0.7.0
 [0.6.0]: https://github.com/CPrescher/peritheos/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/CPrescher/peritheos/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/CPrescher/peritheos/compare/v0.3.0...v0.4.0

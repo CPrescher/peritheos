@@ -262,6 +262,458 @@
      "citation": "Kennedy and Keeler (1972), except the source's separately cited H2, W, and NaCl datasets"
     }
    ]
+  },
+  {
+   "identifier": "cd_sun_2010_low_vn",
+   "label": "Sun et al. (2010), Cd low-pressure VN",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Wu",
+     "Guo",
+     "Cai"
+    ],
+    "year": 2010,
+    "title": "Two Universal Equations of State for Solids",
+    "source": "Zeitschrift fuer Naturforschung A",
+    "doi": "10.1515/zna-2010-1-202"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 21.587007873260006,
+     "K0": 50.959,
+     "K0_prime": 4.704
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    14.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     14.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "legacy_compiled_compression"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 3",
+    "K0": "Table 3",
+    "K0_prime": "Table 3"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+     "doi": "10.1515/zna-2010-1-202",
+     "locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "doi": "10.1515/zna-2010-1-202"
+    }
+   ]
+  },
+  {
+   "identifier": "cd_sun_2010_low_mrs3",
+   "label": "Sun et al. (2010), Cd low-pressure MRS3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Wu",
+     "Guo",
+     "Cai"
+    ],
+    "year": 2010,
+    "title": "Two Universal Equations of State for Solids",
+    "source": "Zeitschrift fuer Naturforschung A",
+    "doi": "10.1515/zna-2010-1-202"
+   },
+   "eos": {
+    "type": "Morse3",
+    "model": "morse_3",
+    "parameters": {
+     "V0": 21.587007873260006,
+     "K0": 50.767,
+     "K0_prime": 5.554
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    14.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     14.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "legacy_compiled_compression"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 3",
+    "K0": "Table 3",
+    "K0_prime": "Table 3"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+     "doi": "10.1515/zna-2010-1-202",
+     "locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "doi": "10.1515/zna-2010-1-202"
+    }
+   ]
+  },
+  {
+   "identifier": "cd_sun_2010_low_sms3",
+   "label": "Sun et al. (2010), Cd low-pressure SMS3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Wu",
+     "Guo",
+     "Cai"
+    ],
+    "year": 2010,
+    "title": "Two Universal Equations of State for Solids",
+    "source": "Zeitschrift fuer Naturforschung A",
+    "doi": "10.1515/zna-2010-1-202"
+   },
+   "eos": {
+    "type": "SunMorse3",
+    "model": "sun_morse_3",
+    "parameters": {
+     "V0": 21.587007873260006,
+     "K0": 50.704,
+     "K0_prime": 5.592
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    14.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     14.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "legacy_compiled_compression"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 3",
+    "K0": "Table 3",
+    "K0_prime": "Table 3"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+     "doi": "10.1515/zna-2010-1-202",
+     "locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "doi": "10.1515/zna-2010-1-202"
+    }
+   ]
+  },
+  {
+   "identifier": "cd_sun_2010_low_sms4",
+   "label": "Sun et al. (2010), Cd low-pressure SMS4",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sun",
+     "Wu",
+     "Guo",
+     "Cai"
+    ],
+    "year": 2010,
+    "title": "Two Universal Equations of State for Solids",
+    "source": "Zeitschrift fuer Naturforschung A",
+    "doi": "10.1515/zna-2010-1-202"
+   },
+   "eos": {
+    "type": "SunMorse4",
+    "model": "sun_morse_4",
+    "parameters": {
+     "V0": 21.587007873260006,
+     "K0": 50.726,
+     "K0_prime": 5.553
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0,
+    14.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     14.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "legacy_compiled_compression"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+    },
+    "audit_date": "2026-09-06"
+   },
+   "parameter_provenance": {
+    "V0": "Table 3",
+    "K0": "Table 3",
+    "K0_prime": "Table 3"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+    "audit_date": "2026-09-06",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+     "doi": "10.1515/zna-2010-1-202",
+     "locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-06",
+     "source_locations": [
+      "equations (3)-(15)",
+      "Table 3"
+     ],
+     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "doi": "10.1515/zna-2010-1-202"
+    }
+   ]
   }
  ]
 }

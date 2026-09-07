@@ -3273,8 +3273,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 612:
-        raise ValueError(f"Expected 612 EOS records, found {len(entries)}")
+    if len(entries) != 812:
+        raise ValueError(f"Expected 812 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
