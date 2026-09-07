@@ -7,6 +7,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Added 42 source-audited Delta-project experimental-reference BM3 curves,
+  with exact archived coefficients, property-level provenance, recovered
+  upstream data where published, and explicit source/phase conflicts.
 - Added seven primary-source-validated LitCurate EOS records from four papers:
   two Kubo et al. (2000) Mg0.9Al0.2Si0.9O3 bridgmanite BM3 fits, two Kubo et
   al. (2006) MgGeO3 post-perovskite sensitivity fits, two Matsui et al. (2012)

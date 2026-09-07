@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 612,
-    "primary_source_validated": 612
+    "records": 654,
+    "primary_source_validated": 654
   },
   "records": [
     {
@@ -11528,6 +11528,762 @@
         ],
         "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
         "doi": "10.1515/zna-2010-1-202"
+      }
+    },
+    {
+      "material": "aluminum",
+      "file": "aluminum.eosmat",
+      "record": "aluminum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Al compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "barium_bcc",
+      "file": "barium_bcc.eosmat",
+      "record": "barium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ba compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "bismuth_a7",
+      "file": "bismuth_a7.eosmat",
+      "record": "bismuth_a7_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Bi compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "cadmium_hcp",
+      "file": "cadmium_hcp.eosmat",
+      "record": "cadmium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cd compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "calcium_fcc",
+      "file": "calcium_fcc.eosmat",
+      "record": "calcium_fcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ca compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "cesium_bcc",
+      "file": "cesium_bcc.eosmat",
+      "record": "cesium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cs compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "chromium",
+      "file": "chromium.eosmat",
+      "record": "chromium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cr compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Co compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Cu compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Fe compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Au compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "hafnium_hcp",
+      "file": "hafnium_hcp.eosmat",
+      "record": "hafnium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Hf compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "indium_bct",
+      "file": "indium_bct.eosmat",
+      "record": "indium_bct_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), In compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "iridium",
+      "file": "iridium.eosmat",
+      "record": "iridium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ir compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "lead_fcc",
+      "file": "lead_fcc.eosmat",
+      "record": "lead_fcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Pb compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "lithium_9r",
+      "file": "lithium_9r.eosmat",
+      "record": "lithium_9r_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Li compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "magnesium_hcp",
+      "file": "magnesium_hcp.eosmat",
+      "record": "magnesium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Mg compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "manganese_alpha",
+      "file": "manganese_alpha.eosmat",
+      "record": "manganese_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Mn compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Mo compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ni compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "niobium",
+      "file": "niobium.eosmat",
+      "record": "niobium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Nb compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "osmium",
+      "file": "osmium.eosmat",
+      "record": "osmium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Os compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "palladium",
+      "file": "palladium.eosmat",
+      "record": "palladium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Pd compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Pt compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "potassium_bcc",
+      "file": "potassium_bcc.eosmat",
+      "record": "potassium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), K compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "rhenium",
+      "file": "rhenium.eosmat",
+      "record": "rhenium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Re compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "rhodium",
+      "file": "rhodium.eosmat",
+      "record": "rhodium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Rh compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "rubidium_bcc",
+      "file": "rubidium_bcc.eosmat",
+      "record": "rubidium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Rb compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "ruthenium",
+      "file": "ruthenium.eosmat",
+      "record": "ruthenium_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ru compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "scandium_hcp",
+      "file": "scandium_hcp.eosmat",
+      "record": "scandium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Sc compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ag compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "sodium_9r",
+      "file": "sodium_9r.eosmat",
+      "record": "sodium_9r_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Na compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "strontium_fcc",
+      "file": "strontium_fcc.eosmat",
+      "record": "strontium_fcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Sr compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "tantalum",
+      "file": "tantalum.eosmat",
+      "record": "tantalum_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ta compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "thallium_hcp",
+      "file": "thallium_hcp.eosmat",
+      "record": "thallium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Tl compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "tin_alpha",
+      "file": "tin_alpha.eosmat",
+      "record": "tin_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Sn compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "titanium_alpha",
+      "file": "titanium_alpha.eosmat",
+      "record": "titanium_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Ti compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "tungsten",
+      "file": "tungsten.eosmat",
+      "record": "tungsten_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), W compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "vanadium_bcc",
+      "file": "vanadium_bcc.eosmat",
+      "record": "vanadium_bcc_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), V compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "yttrium_hcp",
+      "file": "yttrium_hcp.eosmat",
+      "record": "yttrium_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Y compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Zn compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "zirconium_alpha",
+      "file": "zirconium_alpha.eosmat",
+      "record": "zirconium_alpha_delta_archive_experimental_reference_bm3",
+      "label": "Delta archive (2023), Zr compiled experimental-reference BM3",
+      "doi": "10.24435/materialscloud:5e-mv",
+      "status": "primary_source_validated",
+      "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
+      "primary_source_check": {
+        "access_url": "https://archive.materialscloud.org/record/2023.133",
+        "doi": "10.24435/materialscloud:5e-mv",
+        "locations": [
+          "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
+          "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
+        ],
+        "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
       }
     }
   ]

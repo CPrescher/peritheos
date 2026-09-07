@@ -19,7 +19,7 @@ def test_paper_investigation_ledger_is_complete_and_current():
         for row in audit
     }
 
-    assert len(paper_keys) == 215
+    assert len(paper_keys) == 216
     assert len(nonproduction) >= 41
     assert {row["outcome"] for row in nonproduction} == {
         "withheld_unreproduced",

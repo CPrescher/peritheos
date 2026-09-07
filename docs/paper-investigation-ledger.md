@@ -25,7 +25,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **313 primary papers**: **215** support the 612 audited catalog records and **98** were investigated without adding a production record.
+The register covers **314 primary papers**: **216** support the 654 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -36,7 +36,7 @@ refits, or acceptance-gate holds.
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 3 |
 | Coefficient parity not achieved | 11 |
-| Direct refit unavailable | 74 |
+| Direct refit unavailable | 75 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
 
@@ -862,7 +862,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **80 papers** contain 49 records for which a
+These **81 papers** contain 49 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -884,6 +884,7 @@ have other records that were reproduced.
 | [Cohen and Lin (2014)](https://doi.org/10.1103/physrevb.90.140102) | `fesio3_bridgmanite_cohen_lin_2014_vinet_1`, `fesio3_post_perovskite_cohen_lin_2014_vinet_1`, `fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1` | The eight energy-volume observations are plot-only, but Table III independently prints V100=34.27 A3/FeSiO3, K100=597 GPa, and K100'=3.34; the stored curve reproduces all three after rounding. The energy-volume observations are plot-only; Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47. The energy-volume grid is plot-only; Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44. |
 | [Correa et al. (2008)](https://doi.org/10.1103/physrevb.78.024101) | `diamond_correa_2008_double_debye_log_moment_5` | This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data. |
 | [Datchi et al. (2007)](https://doi.org/10.1103/physrevb.75.214104) | `diamond_datchi_2007_vinet_1` | For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record. |
+| [Delta archive (2023)](https://doi.org/10.24435/materialscloud:5e-mv) | `aluminum_delta_archive_experimental_reference_bm3`, `barium_bcc_delta_archive_experimental_reference_bm3`, `bismuth_a7_delta_archive_experimental_reference_bm3`, `cadmium_hcp_delta_archive_experimental_reference_bm3`, `calcium_fcc_delta_archive_experimental_reference_bm3`, `cesium_bcc_delta_archive_experimental_reference_bm3`, `chromium_delta_archive_experimental_reference_bm3`, `cobalt_hcp_delta_archive_experimental_reference_bm3`, `copper_delta_archive_experimental_reference_bm3`, `fe_delta_archive_experimental_reference_bm3`, `gold_delta_archive_experimental_reference_bm3`, `hafnium_hcp_delta_archive_experimental_reference_bm3`, `indium_bct_delta_archive_experimental_reference_bm3`, `iridium_delta_archive_experimental_reference_bm3`, `lead_fcc_delta_archive_experimental_reference_bm3`, `lithium_9r_delta_archive_experimental_reference_bm3`, `magnesium_hcp_delta_archive_experimental_reference_bm3`, `manganese_alpha_delta_archive_experimental_reference_bm3`, `molybdenum_delta_archive_experimental_reference_bm3`, `nickel_delta_archive_experimental_reference_bm3`, `niobium_delta_archive_experimental_reference_bm3`, `osmium_delta_archive_experimental_reference_bm3`, `palladium_delta_archive_experimental_reference_bm3`, `platinum_delta_archive_experimental_reference_bm3`, `potassium_bcc_delta_archive_experimental_reference_bm3`, `rhenium_delta_archive_experimental_reference_bm3`, `rhodium_delta_archive_experimental_reference_bm3`, `rubidium_bcc_delta_archive_experimental_reference_bm3`, `ruthenium_delta_archive_experimental_reference_bm3`, `scandium_hcp_delta_archive_experimental_reference_bm3`, `silver_delta_archive_experimental_reference_bm3`, `sodium_9r_delta_archive_experimental_reference_bm3`, `strontium_fcc_delta_archive_experimental_reference_bm3`, `tantalum_delta_archive_experimental_reference_bm3`, `thallium_hcp_delta_archive_experimental_reference_bm3`, `tin_alpha_delta_archive_experimental_reference_bm3`, `titanium_alpha_delta_archive_experimental_reference_bm3`, `tungsten_delta_archive_experimental_reference_bm3`, `vanadium_bcc_delta_archive_experimental_reference_bm3`, `yttrium_hcp_delta_archive_experimental_reference_bm3`, `zinc_hcp_delta_archive_experimental_reference_bm3`, `zirconium_alpha_delta_archive_experimental_reference_bm3` | The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent experimental refit is impossible. |
 | [Deng et al. (2006)](https://doi.org/10.1088/0256-307x/23/8/101) | `bridgmanite_deng_2006_lda_bm3` | Calculations were performed every 10 GPa through 120 GPa, but their numerical volume grid is plotted rather than tabulated. |
 | [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | `diamond_benedict_2014_dewaele_anchored`, `diamond_correa_2008_dewaele_anchored` | The linked diffraction rows constrain only the Dewaele reference isotherm; the Benedict thermal term is a separately published theoretical model. The linked diffraction rows constrain only the Dewaele reference isotherm; the Correa thermal term is a separately published theoretical model. |
 | [Dorogokupets and Oganov (2007)](https://doi.org/10.1103/physrevb.75.024115) | `platinum_dorogokupets_oganov_2007_vinet_4` | This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations. |
@@ -1009,6 +1010,7 @@ the primary-source and refit ledgers.
 | [Daniel et al. (2004)](https://doi.org/10.1029/2004gl020213) | Reproduced | 2 | 2 parity | 2 bundled |
 | [data from JCPDS and Levien and Prewitt, 1981](https://msaweb.org/AmMin/AM66/AM66_324.pdf) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Datchi et al. (2007)](https://doi.org/10.1103/physrevb.75.214104) | Partly reproduced | 3 | 1 parity; 1 similar; 1 direct refit unavailable | 2 bundled; 1 parameterization only |
+| [Delta archive (2023)](https://doi.org/10.24435/materialscloud:5e-mv) | Direct refit unavailable | 42 | 42 direct refit unavailable | 42 parameterization only |
 | [Deng et al. (2006)](https://doi.org/10.1088/0256-307x/23/8/101) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Dewaele (2019)](https://doi.org/10.3390/min9110684) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Dewaele and Torrent (2013)](https://doi.org/10.1103/physrevb.88.064107) | Reproduced | 1 | 1 parity | 1 bundled |

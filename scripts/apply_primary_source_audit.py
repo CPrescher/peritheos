@@ -3010,14 +3010,32 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         validation["migration_source"] = migration
     if primary_data_check is not None:
         validation["primary_data_check"] = primary_data_check
-    for extension in (
-        "reported_parameterizations",
-        "parameterization_resolution",
-        "reported_inconsistencies",
-    ):
-        if extension in previous:
-            validation[extension] = previous[extension]
+    core_validation_fields = {
+        "status",
+        "note",
+        "audit_date",
+        "verified_fields",
+        "primary_source_check",
+        "migration_source",
+        "primary_data_check",
+    }
+    for extension, value in previous.items():
+        if extension not in core_validation_fields:
+            # Record-specific numerical reproductions, excluded alternatives,
+            # and bounded unresolved issues are curated by their source
+            # generators. Rebuilding the catalog-wide audit must not discard
+            # those orthogonal evidence fields.
+            validation[extension] = value
     result["scientific_validation"] = validation
+
+    if "_delta_archive_experimental_reference_bm3" in result["identifier"]:
+        # The Delta rows need a narrower statement than the catalog-wide
+        # publication audit: the source is a heterogeneous reference-property
+        # compilation, not one experimental fit or a row-level P-V dataset.
+        result["scientific_validation"]["note"] = previous["note"]
+        result["scientific_validation"]["verified_fields"] = previous[
+            "verified_fields"
+        ]
 
     if result["identifier"] == "ca_perovskite_caracas_2005_bm3_3":
         result["scientific_validation"]["note"] = (
@@ -3273,8 +3291,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 612:
-        raise ValueError(f"Expected 612 EOS records, found {len(entries)}")
+    if len(entries) != 654:
+        raise ValueError(f"Expected 654 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
