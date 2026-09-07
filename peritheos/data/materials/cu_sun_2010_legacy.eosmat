@@ -21,7 +21,10 @@
   "article_url": "https://doi.org/10.1515/zna-2010-1-202",
   "article_sha256": "57b6c4ff8b59dcc3734aa9507de0f62610839363a8e5ae790ed8f71e6fa66db4",
   "parameter_table": "sun-2010-table2-morse-eos-parameters.csv",
-  "parameter_table_sha256": "e71613962b7df52559b8633546a7513b902ce1b5d8d4a7666e0476464123ca68"
+  "parameter_table_sha256": "e71613962b7df52559b8633546a7513b902ce1b5d8d4a7666e0476464123ca68",
+  "low_pressure_parameter_table": "sun-2010-table3-low-pressure-eos-parameters.csv",
+  "low_pressure_parameter_table_sha256": "792dc36f4d35269fabf840bfed51c79d0932bc33827973cc6d013139dd28c131",
+  "observation_data_status": "The limited low-pressure Cu transcription from AIP Handbook Table 4d-12 is bundled and checksummed for the explicit Vinet refit; the full-range legacy observations and experiment-level lineage remain unavailable."
  },
  "notes": "Separate phase-unresolved card for historical universal-EOS benchmark fits; it must not be merged with a specific crystallographic phase or used as a modern pressure standard.",
  "eos_records": [
@@ -65,7 +68,9 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
     450.0
@@ -99,6 +104,8 @@
     "K0": "Table 2, SMS4",
     "K0_prime": "Table 2, SMS4",
     "fit_range": "Table 1",
+    "fit_objective": "Equation (20), sum of eighth powers of pressure residuals as stated by the source",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit",
     "mean_pressure_error_gpa": 0.719
    },
    "scientific_validation": {
@@ -120,7 +127,7 @@
       "Equations (3)-(15)",
       "Tables 1-2"
      ],
-     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid. These are two-parameter fits in K0 and K0-prime with experimental V0 held fixed; equation (20) and the surrounding text state the pressure-residual objective with m=8.",
      "doi": "10.1515/zna-2010-1-202"
     },
     "primary_data_check": {
@@ -129,7 +136,7 @@
      "source_locations": [
       "Tables 1-2; cited legacy compression compilations"
      ],
-     "finding": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished."
+     "finding": "Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit."
     }
    },
    "source_lineage": [
@@ -139,8 +146,12 @@
      "doi": "10.1515/zna-2010-1-202"
     },
     {
-     "role": "legacy normalized-compression observations",
-     "citation": "Kennedy and Keeler (1972), except the source's separately cited H2, W, and NaCl datasets"
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
   },
@@ -184,7 +195,9 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
     450.0
@@ -218,6 +231,8 @@
     "K0": "Table 2, SMS3",
     "K0_prime": "Table 2, SMS3",
     "fit_range": "Table 1",
+    "fit_objective": "Equation (20), sum of eighth powers of pressure residuals as stated by the source",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit",
     "mean_pressure_error_gpa": 0.871
    },
    "scientific_validation": {
@@ -239,7 +254,7 @@
       "Equations (3)-(15)",
       "Tables 1-2"
      ],
-     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid. These are two-parameter fits in K0 and K0-prime with experimental V0 held fixed; equation (20) and the surrounding text state the pressure-residual objective with m=8.",
      "doi": "10.1515/zna-2010-1-202"
     },
     "primary_data_check": {
@@ -248,7 +263,7 @@
      "source_locations": [
       "Tables 1-2; cited legacy compression compilations"
      ],
-     "finding": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished."
+     "finding": "Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit."
     }
    },
    "source_lineage": [
@@ -258,8 +273,12 @@
      "doi": "10.1515/zna-2010-1-202"
     },
     {
-     "role": "legacy normalized-compression observations",
-     "citation": "Kennedy and Keeler (1972), except the source's separately cited H2, W, and NaCl datasets"
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
   },
@@ -303,7 +322,9 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
     450.0
@@ -337,6 +358,8 @@
     "K0": "Table 2, MRS3",
     "K0_prime": "Table 2, MRS3",
     "fit_range": "Table 1",
+    "fit_objective": "Equation (20), sum of eighth powers of pressure residuals as stated by the source",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit",
     "mean_pressure_error_gpa": 0.764
    },
    "scientific_validation": {
@@ -358,7 +381,7 @@
       "Equations (3)-(15)",
       "Tables 1-2"
      ],
-     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid.",
+     "finding": "The paper explicitly defines all three models and prints V0, K0, K0-prime, the pressure range, and mean pressure error for every fitted solid. These are two-parameter fits in K0 and K0-prime with experimental V0 held fixed; equation (20) and the surrounding text state the pressure-residual objective with m=8.",
      "doi": "10.1515/zna-2010-1-202"
     },
     "primary_data_check": {
@@ -367,7 +390,7 @@
      "source_locations": [
       "Tables 1-2; cited legacy compression compilations"
      ],
-     "finding": "Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished."
+     "finding": "Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit."
     }
    },
    "source_lineage": [
@@ -377,8 +400,12 @@
      "doi": "10.1515/zna-2010-1-202"
     },
     {
-     "role": "legacy normalized-compression observations",
-     "citation": "Kennedy and Keeler (1972), except the source's separately cited H2, W, and NaCl datasets"
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
   },
@@ -415,8 +442,10 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.15,
    "experimental_pressure_range_gpa": [
     0.0,
     34.0
@@ -428,37 +457,42 @@
      34.0
     ],
     "temperature_k": [
-     300.0,
-     300.0
+     298.15,
+     298.15
     ],
     "notes": [
      "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
     ]
    },
-   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "notes": "Source-author low-pressure fit transcribed from Sun et al. Table 3; it is not a Peritheos refit. The input was a derived isotherm, not a row-level raw-observation table. The phase and experiment-level pressure provenance remain unresolved, so this record stays on the phase-unresolved legacy card.",
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [
      {
       "kind": "other",
-      "source_location": "legacy_compiled_compression"
+      "source_location": "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      }
     ],
     "recalculation": {
      "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "notes": "The exact row-level isotherm values used by Sun et al., the experiment-level source mapping, and regression implementation are not available in a reusable machine-readable source."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07",
+    "notes": "This field describes the upstream dynamic-to-isotherm reduction; it is not a DAC pressure-calibrant assignment."
    },
    "parameter_provenance": {
-    "V0": "Table 3",
-    "K0": "Table 3",
-    "K0_prime": "Table 3"
+    "V0": "Table 2 experimental molar volume, held fixed and converted with the exact Avogadro constant",
+    "K0": "Table 3 VN source-author fit",
+    "K0_prime": "Table 3 VN source-author fit",
+    "fit_range": "Table 3 low-pressure range",
+    "fit_objective": "Equation (20), sum of eighth powers of unweighted pressure residuals as stated by the source",
+    "temperature_ref": "25 degree C (298.15 K), Kennedy and Keeler Table 4d-12",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -472,26 +506,216 @@
      "access_url": "https://doi.org/10.1515/zna-2010-1-202",
      "doi": "10.1515/zna-2010-1-202",
      "locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "equations (3)-(15) and (20)",
+      "Tables 2-3"
      ],
-     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+     "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
     },
     "primary_data_check": {
      "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "Sun et al. (2010), Tables 2-3 and equation (20)",
+      "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "finding": "This record preserves Sun et al.'s published coefficients and is not itself refitted. A separate dataset-backed Peritheos record, cu_sun_2010_low_vn_refit, uses the manually verified handbook Cu cells; experiment-level rows and the source authors' numerical implementation remain unavailable."
     }
    },
    "source_lineage": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "role": "source-author equation, fit, and coefficients",
+     "citation": "Sun et al. (2010), equations (3)-(15) and (20), Tables 2-3",
      "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
+    }
+   ]
+  },
+  {
+   "identifier": "cu_sun_2010_low_vn_refit",
+   "label": "AIP Handbook Cu low-pressure Vinet m=8 refit",
+   "record_kind": "refit",
+   "derived_from_record": "cu_sun_2010_low_vn",
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos",
+     "version": "0.6.0"
+    },
+    "dataset": "aip_handbook_table4d12_cu",
+    "selection": {
+     "predicate": "all populated Cu cells from 15 through 340 kbar",
+     "included_rows": 25,
+     "excluded_rows": 0,
+     "zero_pressure_anchor_included": false,
+     "printing_correction": "15 kbar: printed 09900 interpreted as 0.9900"
+    },
+    "objective": "sum((P_model_gpa - P_table_gpa)^8)",
+    "weights": [],
+    "refined_parameters": [
+     "K0",
+     "K0_prime"
+    ],
+    "fixed_parameters": [
+     "V0"
+    ],
+    "covariance_scaling": "Not applicable: unweighted eighth-power objective and rounded printed observations; no parameter uncertainties inferred.",
+    "statistics": {
+     "observations": 25,
+     "free_parameters": 2,
+     "degrees_of_freedom": 23,
+     "objective8_gpa8": 8.92820205477e-08,
+     "pressure_residual_rmse_gpa": 0.0701542137,
+     "pressure_residual_mae_gpa": 0.062704344,
+     "max_absolute_pressure_residual_gpa": 0.112736565
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_aip_handbook_cu_vinet_refit.py",
+     "solver": "scipy.optimize.minimize(method='Nelder-Mead')",
+     "strategy": "deterministic five-start bounded minimization",
+     "parameter_bounds": {
+      "K0_gpa": [
+       50.0,
+       300.0
+      ],
+      "K0_prime": [
+       1.0,
+       10.0
+      ]
+     }
+    }
+   },
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Kennedy",
+     "Keeler"
+    ],
+    "year": 1972,
+    "title": "High-pressure equations of state",
+    "source": "American Institute of Physics Handbook, 3rd ed.",
+    "locator": "section 4d-2, Table 4d-12, p. 4-100"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 11.81473546294192,
+     "K0": 139.23431084,
+     "K0_prime": 5.00112704
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.15,
+   "experimental_pressure_range_gpa": [
+    1.5,
+    34.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     34.0
+    ],
+    "temperature_k": [
+     298.15,
+     298.15
+    ],
+    "notes": [
+     "The fitted observations span 1.5-34 GPa; V0 fixes the exact normalized zero-pressure reference point.",
+     "This phase-unresolved derived isotherm is not a phase-stability or extrapolation guarantee."
+    ]
+   },
+   "notes": "Independent Peritheos refit of the manually verified Cu column in AIP Handbook Table 4d-12. It is intentionally separate from the Sun et al. source-author Vinet record. The handbook values are rounded derived-isotherm points rather than experiment-level raw observations.",
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
+     }
+    ],
+    "recalculation": {
+     "status": "not_possible",
+     "notes": "The handbook does not preserve experiment-level source mapping sufficient to repeat the dynamic-to-isotherm reduction or change its historical calibration."
+    },
+    "audit_date": "2026-09-07",
+    "notes": "The refit uses the handbook's printed pressure values as tabulated."
+   },
+   "parameter_provenance": {
+    "V0": "Fixed to the Cu Table 2 experimental molar volume used by Sun et al., converted with the exact Avogadro constant",
+    "K0": "Peritheos refit to the checked AIP Handbook Table 4d-12 Cu rows",
+    "K0_prime": "Peritheos refit to the checked AIP Handbook Table 4d-12 Cu rows",
+    "fit_range": "25 populated Cu cells, 15-340 kbar",
+    "fit_objective": "Sun et al. equation (20), unweighted eighth powers of pressure residuals with m=8",
+    "temperature_ref": "25 degree C (298.15 K), Kennedy and Keeler Table 4d-12",
+    "catalog_action": "separate Peritheos refit; published source-author coefficients retained unchanged"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "locations": [
+      "Kennedy and Keeler (1972), Table 4d-12, p. 4-100",
+      "Sun et al. (2010), equations (3) and (20), Tables 2-3"
+     ],
+     "finding": "The handbook prints 25 populated Cu V/V0 values from 15 to 340 kbar. The 15 kbar cell is a confirmed printing error, 09900, interpreted as 0.9900. Sun et al. define the Vinet model, hold experimental V0 fixed, and state the m=8 pressure-residual objective.",
+     "access_url": "https://doi.org/10.1515/zna-2010-1-202",
+     "doi": null
+    },
+    "primary_data_check": {
+     "status": "complete_transcribed_table",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "aip_handbook_table4d12_cu"
+     ],
+     "source_locations": [
+      "Kennedy and Keeler (1972), Table 4d-12, Cu column, 15-340 kbar"
+     ],
+     "finding": "All 25 populated finite-pressure Cu cells were manually verified and are checksummed. The refit is reproducible from the stored limited transcription."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "Vinet equation, fixed-V0 convention, and m=8 fit objective",
+     "citation": "Sun et al. (2010), equations (3) and (20), Tables 2-3",
+     "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "manually verified 25 degree C relative-volume isotherm",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "printing-error interpretation",
+     "citation": "Table 4d-12 Cu cell at 15 kbar: printed 09900, transcribed as 0.9900 after visual verification"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
   },
@@ -528,8 +752,10 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.15,
    "experimental_pressure_range_gpa": [
     0.0,
     34.0
@@ -541,37 +767,42 @@
      34.0
     ],
     "temperature_k": [
-     300.0,
-     300.0
+     298.15,
+     298.15
     ],
     "notes": [
      "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
     ]
    },
-   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "notes": "Source-author low-pressure fit transcribed from Sun et al. Table 3; it is not a Peritheos refit. The input was a derived isotherm, not a row-level raw-observation table. The phase and experiment-level pressure provenance remain unresolved, so this record stays on the phase-unresolved legacy card.",
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [
      {
       "kind": "other",
-      "source_location": "legacy_compiled_compression"
+      "source_location": "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      }
     ],
     "recalculation": {
      "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "notes": "The exact row-level isotherm values used by Sun et al., the experiment-level source mapping, and regression implementation are not available in a reusable machine-readable source."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07",
+    "notes": "This field describes the upstream dynamic-to-isotherm reduction; it is not a DAC pressure-calibrant assignment."
    },
    "parameter_provenance": {
-    "V0": "Table 3",
-    "K0": "Table 3",
-    "K0_prime": "Table 3"
+    "V0": "Table 2 experimental molar volume, held fixed and converted with the exact Avogadro constant",
+    "K0": "Table 3 MRS3 source-author fit",
+    "K0_prime": "Table 3 MRS3 source-author fit",
+    "fit_range": "Table 3 low-pressure range",
+    "fit_objective": "Equation (20), sum of eighth powers of unweighted pressure residuals as stated by the source",
+    "temperature_ref": "25 degree C (298.15 K), Kennedy and Keeler Table 4d-12",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -585,26 +816,34 @@
      "access_url": "https://doi.org/10.1515/zna-2010-1-202",
      "doi": "10.1515/zna-2010-1-202",
      "locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "equations (3)-(15) and (20)",
+      "Tables 2-3"
      ],
-     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+     "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
     },
     "primary_data_check": {
      "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "Sun et al. (2010), Tables 2-3 and equation (20)",
+      "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "finding": "The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited."
     }
    },
    "source_lineage": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "role": "source-author equation, fit, and coefficients",
+     "citation": "Sun et al. (2010), equations (3)-(15) and (20), Tables 2-3",
      "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
   },
@@ -641,8 +880,10 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.15,
    "experimental_pressure_range_gpa": [
     0.0,
     34.0
@@ -654,37 +895,42 @@
      34.0
     ],
     "temperature_k": [
-     300.0,
-     300.0
+     298.15,
+     298.15
     ],
     "notes": [
      "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
     ]
    },
-   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "notes": "Source-author low-pressure fit transcribed from Sun et al. Table 3; it is not a Peritheos refit. The input was a derived isotherm, not a row-level raw-observation table. The phase and experiment-level pressure provenance remain unresolved, so this record stays on the phase-unresolved legacy card.",
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [
      {
       "kind": "other",
-      "source_location": "legacy_compiled_compression"
+      "source_location": "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      }
     ],
     "recalculation": {
      "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "notes": "The exact row-level isotherm values used by Sun et al., the experiment-level source mapping, and regression implementation are not available in a reusable machine-readable source."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07",
+    "notes": "This field describes the upstream dynamic-to-isotherm reduction; it is not a DAC pressure-calibrant assignment."
    },
    "parameter_provenance": {
-    "V0": "Table 3",
-    "K0": "Table 3",
-    "K0_prime": "Table 3"
+    "V0": "Table 2 experimental molar volume, held fixed and converted with the exact Avogadro constant",
+    "K0": "Table 3 SMS3 source-author fit",
+    "K0_prime": "Table 3 SMS3 source-author fit",
+    "fit_range": "Table 3 low-pressure range",
+    "fit_objective": "Equation (20), sum of eighth powers of unweighted pressure residuals as stated by the source",
+    "temperature_ref": "25 degree C (298.15 K), Kennedy and Keeler Table 4d-12",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -698,26 +944,34 @@
      "access_url": "https://doi.org/10.1515/zna-2010-1-202",
      "doi": "10.1515/zna-2010-1-202",
      "locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "equations (3)-(15) and (20)",
+      "Tables 2-3"
      ],
-     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+     "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
     },
     "primary_data_check": {
      "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "Sun et al. (2010), Tables 2-3 and equation (20)",
+      "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "finding": "The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited."
     }
    },
    "source_lineage": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "role": "source-author equation, fit, and coefficients",
+     "citation": "Sun et al. (2010), equations (3)-(15) and (20), Tables 2-3",
      "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
   },
@@ -754,8 +1008,10 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.15,
    "experimental_pressure_range_gpa": [
     0.0,
     34.0
@@ -767,37 +1023,42 @@
      34.0
     ],
     "temperature_k": [
-     300.0,
-     300.0
+     298.15,
+     298.15
     ],
     "notes": [
      "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
     ]
    },
-   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "notes": "Source-author low-pressure fit transcribed from Sun et al. Table 3; it is not a Peritheos refit. The input was a derived isotherm, not a row-level raw-observation table. The phase and experiment-level pressure provenance remain unresolved, so this record stays on the phase-unresolved legacy card.",
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [
      {
       "kind": "other",
-      "source_location": "legacy_compiled_compression"
+      "source_location": "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      }
     ],
     "recalculation": {
      "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "notes": "The exact row-level isotherm values used by Sun et al., the experiment-level source mapping, and regression implementation are not available in a reusable machine-readable source."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07",
+    "notes": "This field describes the upstream dynamic-to-isotherm reduction; it is not a DAC pressure-calibrant assignment."
    },
    "parameter_provenance": {
-    "V0": "Table 3",
-    "K0": "Table 3",
-    "K0_prime": "Table 3"
+    "V0": "Table 2 experimental molar volume, held fixed and converted with the exact Avogadro constant",
+    "K0": "Table 3 SMS4 source-author fit",
+    "K0_prime": "Table 3 SMS4 source-author fit",
+    "fit_range": "Table 3 low-pressure range",
+    "fit_objective": "Equation (20), sum of eighth powers of unweighted pressure residuals as stated by the source",
+    "temperature_ref": "25 degree C (298.15 K), Kennedy and Keeler Table 4d-12",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -811,26 +1072,34 @@
      "access_url": "https://doi.org/10.1515/zna-2010-1-202",
      "doi": "10.1515/zna-2010-1-202",
      "locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "equations (3)-(15) and (20)",
+      "Tables 2-3"
      ],
-     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+     "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
     },
     "primary_data_check": {
      "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "Sun et al. (2010), Tables 2-3 and equation (20)",
+      "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "finding": "The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited."
     }
    },
    "source_lineage": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "role": "source-author equation, fit, and coefficients",
+     "citation": "Sun et al. (2010), equations (3)-(15) and (20), Tables 2-3",
      "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
   },
@@ -867,8 +1136,10 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.15,
    "experimental_pressure_range_gpa": [
     0.0,
     34.0
@@ -880,37 +1151,42 @@
      34.0
     ],
     "temperature_k": [
-     300.0,
-     300.0
+     298.15,
+     298.15
     ],
     "notes": [
      "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
     ]
    },
-   "notes": "Low-pressure refit of the source's legacy experimental compression compilation. The phase and individual pressure calibrations are unresolved, so this record remains on the existing phase-unresolved legacy card.",
+   "notes": "Source-author low-pressure fit transcribed from Sun et al. Table 3; it is not a Peritheos refit. The input was a derived isotherm, not a row-level raw-observation table. The phase and experiment-level pressure provenance remain unresolved, so this record stays on the phase-unresolved legacy card.",
    "pressure_calibration": {
     "status": "unresolved",
     "methods": [
      {
       "kind": "other",
-      "source_location": "legacy_compiled_compression"
+      "source_location": "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      }
     ],
     "recalculation": {
      "status": "not_possible",
-     "notes": "A coefficient-level import cannot reconstruct unreported row-level calibration observations."
+     "notes": "The exact row-level isotherm values used by Sun et al., the experiment-level source mapping, and regression implementation are not available in a reusable machine-readable source."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-07",
+    "notes": "This field describes the upstream dynamic-to-isotherm reduction; it is not a DAC pressure-calibrant assignment."
    },
    "parameter_provenance": {
-    "V0": "Table 3",
-    "K0": "Table 3",
-    "K0_prime": "Table 3"
+    "V0": "Table 2 experimental molar volume, held fixed and converted with the exact Avogadro constant",
+    "K0": "Table 3 BN source-author fit",
+    "K0_prime": "Table 3 BN source-author fit",
+    "fit_range": "Table 3 low-pressure range",
+    "fit_objective": "Equation (20), sum of eighth powers of unweighted pressure residuals as stated by the source",
+    "temperature_ref": "25 degree C (298.15 K), Kennedy and Keeler Table 4d-12",
+    "catalog_action": "verbatim coefficient transcription; no Peritheos refit"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -924,28 +1200,90 @@
      "access_url": "https://doi.org/10.1515/zna-2010-1-202",
      "doi": "10.1515/zna-2010-1-202",
      "locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "equations (3)-(15) and (20)",
+      "Tables 2-3"
      ],
-     "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+     "finding": "Table 3 prints the low-pressure range and source-author Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients. V0 is the experimental molar volume from Table 2 and was held fixed because these are two-parameter fits. Equation (20) defines the pressure-residual objective and the text states m=8."
     },
     "primary_data_check": {
      "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "equations (3)-(15)",
-      "Table 3"
+      "Sun et al. (2010), Tables 2-3 and equation (20)",
+      "Kennedy and Keeler (1972), AIP Handbook section 4d-2 and Table 4d-12, 25 degree C isotherm derived from compiled shock Hugoniots"
      ],
-     "finding": "Published coefficients are executable; this import does not claim a new refit of row-level observations."
+     "finding": "The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited."
     }
    },
    "source_lineage": [
     {
-     "role": "scientific equation and coefficients",
-     "citation": "Two Universal Equations of State for Solids, equations (3)-(15), Table 3",
+     "role": "source-author equation, fit, and coefficients",
+     "citation": "Sun et al. (2010), equations (3)-(15) and (20), Tables 2-3",
      "doi": "10.1515/zna-2010-1-202"
+    },
+    {
+     "role": "tabulated 25 degree C relative-volume isotherm fitted by Sun et al.",
+     "citation": "Kennedy and Keeler (1972), American Institute of Physics Handbook, 3rd ed., section 4d-2 and Table 4d-12"
+    },
+    {
+     "role": "shock-Hugoniot compilation used to calculate the handbook isotherm",
+     "citation": "M. van Thiel (ed.), Compendium of Shock Wave Data, UCRL-50108 (1966)"
     }
    ]
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "aip_handbook_table4d12_cu",
+   "kind": "pressure_volume_ratio",
+   "description": "The 25 populated Cu relative-volume cells from the 25 degree C isotherm. The printed 15 kbar value 09900 is transcribed as 0.9900 after manual visual verification.",
+   "reference": {
+    "authors": [
+     "Kennedy",
+     "Keeler"
+    ],
+    "year": 1972,
+    "title": "High-pressure equations of state",
+    "source": "American Institute of Physics Handbook, 3rd ed.",
+    "locator": "section 4d-2, Table 4d-12, p. 4-100"
+   },
+   "source_location": "Table 4d-12, Cu column, populated rows from 15 through 340 kbar",
+   "license": "All rights reserved source; limited factual Cu excerpt manually transcribed for scientific verification.",
+   "columns": [
+    {
+     "name": "pressure_kbar",
+     "quantity": "source_pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "v_over_v0",
+     "quantity": "relative_volume",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "note",
+     "quantity": "transcription_note",
+     "unit": "dimensionless",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/aip-handbook-table4d12-cu.csv",
+    "sha256": "67adb43b73806d5d1b3e31d4a9d9d645a2fa718a21f83641d4f433a568fb24ce",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "cu_sun_2010_low_vn_refit"
+   ],
+   "notes": "The 5 and 10 kbar Cu cells are blank and are not observations. The normalized P=0, V/V0=1 identity is not added as a fitted row."
   }
  ]
 }

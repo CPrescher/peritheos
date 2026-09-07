@@ -22,7 +22,7 @@ from types import SimpleNamespace
 from typing import Any
 
 import numpy as np
-from scipy.optimize import least_squares
+from scipy.optimize import least_squares, minimize
 
 from peritheos import get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
@@ -1418,7 +1418,57 @@ def _fit_record(
         material.eos_records[0].reference_temperature,
     )
 
-    if thermal:
+    eighth_power_objective = record.get("fit_provenance", {}).get("objective") == (
+        "sum((P_model_gpa - P_table_gpa)^8)"
+    )
+    if eighth_power_objective:
+        if thermal or set(static_initial) != {"K0", "K0_prime"}:
+            raise ValueError(
+                "eighth-power pressure refit requires isothermal K0/K0_prime"
+            )
+        eos_class = MODEL_CLASSES[record["eos"]["type"]]
+        names = ("K0", "K0_prime")
+
+        def objective(parameters: np.ndarray) -> float:
+            values = {**static_fixed, **dict(zip(names, parameters))}
+            residual = np.asarray(eos_class(**values).pressure(series.volume)) - (
+                series.pressure
+            )
+            return float(np.sum(residual**8))
+
+        start = np.asarray([static_initial[name] for name in names])
+        starts = (start, start * (0.75, 0.8), start * (1.25, 1.2))
+        bounds = [_bounds(name, static_initial[name]) for name in names]
+        candidates = [
+            minimize(
+                objective,
+                candidate,
+                method="Nelder-Mead",
+                bounds=bounds,
+                options={
+                    "maxiter": 100_000,
+                    "xatol": 1.0e-13,
+                    "fatol": 1.0e-20,
+                },
+            )
+            for candidate in starts
+        ]
+        optimum = min(candidates, key=lambda candidate: float(candidate.fun))
+        values = {**static_fixed, **dict(zip(names, optimum.x))}
+        residuals = np.asarray(eos_class(**values).pressure(series.volume)) - (
+            series.pressure
+        )
+        result = SimpleNamespace(
+            free_parameters=names,
+            parameters=values,
+            standard_errors={name: math.nan for name in names},
+            residuals=residuals,
+            reduced_chi_square=math.nan,
+            degrees_of_freedom=series.pressure.size - len(names),
+            success=optimum.success,
+            message=optimum.message,
+        )
+    elif thermal:
         rt_eos = executable.rt_eos
         rt_class = type(rt_eos)
         thermal_initial, thermal_fixed = _thermal_parameters(record)
@@ -1520,7 +1570,9 @@ def _fit_record(
             else "isothermal_pv"
         ),
         "objective": (
-            "errors_in_variables"
+            "eighth_power_pressure_residuals"
+            if eighth_power_objective
+            else "errors_in_variables"
             if series.volume_sigma is not None
             else "pressure_residuals"
         ),
