@@ -5,20 +5,22 @@ traits live at the crate root, while fitting and uncertainty live in the
 `peritheos::fit` module. This guide focuses on complete user workflows; the
 generated rustdoc remains the source for exact types and signatures.
 
-!!! note "Release status"
-    The crate is tested as a publishable package but is not yet released on
-    crates.io. Depend on it by Git revision or workspace path and pin the
-    revision. The Python API's stability contract does not yet cover the Rust
-    API.
+!!! note "Stability"
+    The unified crate is published starting with Peritheos 0.7. The Python
+    API's stability contract does not yet cover the Rust API, so applications
+    should pin a compatible minor release.
 
 ## Add the crate
 
-From a checkout next to your application:
+For the 0.7 release series:
 
 ```toml
 [dependencies]
-peritheos = { path = "../peritheos/crates/peritheos" }
+peritheos = "0.7"
 ```
+
+When developing against a local checkout, replace the version with
+`{ path = "../peritheos/crates/peritheos" }`.
 
 The minimum supported Rust version is 1.83. No feature flag is needed for
 fitting or uncertainty work.

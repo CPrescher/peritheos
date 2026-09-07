@@ -32,13 +32,15 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 813
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 144 uncertainty-parity matches and 61
-additional numerically similar results. [Twenty-one direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 586 records cannot be
+diagnostics. The current campaign finds 155 uncertainty-parity matches and 62
+additional numerically similar results. [31 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+recover at least one published coefficient, while 565 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
+The [source-audit index](source-audits.md) links the detailed publication-level
+investigations behind these classifications.
 
 ### Audit outcome
 
@@ -265,8 +267,11 @@ P(V_0)=0, \qquad K(V_0)=K_0.
 \]
 
 Models parameterized by derivatives are also checked numerically for their
-supplied $K_0'$ and $K_0''$. Every thermal model is checked for zero thermal
-pressure at its reference temperature.
+supplied $K_0'$ and $K_0''$. Reference-isotherm thermal models are checked for
+zero `thermal_pressure_increment` at their reference temperature. Absolute
+thermal-pressure and Helmholtz models can retain nonzero zero-point or other
+non-cold pressure there; their reference convention and corresponding
+thermodynamic identities are tested instead.
 
 ## Derivative identities
 

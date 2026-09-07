@@ -135,7 +135,8 @@ re-reduction.
 endpoints reachable from every supplied sample EOS and returns the shortest
 route for each source. Results are ranked by maximum and total edge count, not
 by scientific preference; callers should restrict `target_nodes` to a suitable
-standard or internally consistent family and verify the common validity range.
+standard or internally consistent family and verify the common calibration/data
+coverage.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
@@ -238,15 +239,20 @@ commonly used for pressure calibration.
 
 ```python
 from peritheos.eos.rt import (
+    Baonza,
     BM2,
     BM3,
     BM4,
     Holzapfel,
     ModifiedTait,
+    Morse3,
     Murnaghan,
     NaturalStrain2,
     NaturalStrain3,
     NaturalStrain4,
+    RydbergStacey,
+    SunMorse3,
+    SunMorse4,
     Vinet,
 )
 ```
@@ -270,7 +276,12 @@ Constructor signatures and special requirements are:
 | `NaturalStrain3` | `(V0, K0, K0_prime)` | none |
 | `NaturalStrain4` | `(V0, K0, K0_prime, K0_double_prime)` | `K0_double_prime` has inverse-pressure units |
 | `ModifiedTait` | `(V0, K0, K0_prime, K0_double_prime)` | rejects singular coefficient sets and volumes outside its real domain |
+| `Baonza` | `(V0, K0, K0_prime)` | uses the published fixed pseudospinodal exponent $\beta=0.85$ |
 | `Vinet` | `(V0, K0, K0_prime)` | none |
+| `RydbergStacey` | `(V0, K0, K0_prime, K_infinity_prime)` | `K_infinity_prime` sets the limiting high-pressure derivative |
+| `Morse3` | `(V0, K0, K0_prime)` | three-dimensional Morse-potential form |
+| `SunMorse3` | `(V0, K0, K0_prime)` | Sun--Morse form with $n=3$ |
+| `SunMorse4` | `(V0, K0, K0_prime)` | Sun--Morse form with $n=4$ |
 | `Holzapfel` | `(V0, K0, K0_prime, n, Z)` | molar volume in `J bar^-1 mol^-1` |
 
 `Holzapfel` overrides `bulk_modulus_derivative(V, eps=1e-6)` with its existing
@@ -282,6 +293,7 @@ the mathematical definitions and coefficient domains.
 
 ```python
 from peritheos.eos.thermal import (
+    DorogokupetsOganov2007,
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
     HollandPowell2011,
@@ -290,6 +302,7 @@ from peritheos.eos.thermal import (
     MieGruneisenDebye,
     MieGruneisenEinstein,
     MultiOscillatorGruneisenThermalEOS,
+    Sokolova2016,
     SecondOrderTaylorThermalPressure,
     Tange2009Debye,
     ThermalModifiedTait,
@@ -303,6 +316,7 @@ Thermal constructor signatures are:
 |---|---|
 | `DoubleDebyeHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_1_0, a_1, b_1`, followed by optional `n, alpha0, Ve, kappa, phi0` |
 | `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0` |
+| `DorogokupetsOganov2007` | `Tr`, four oscillator-mode parameter groups, `gamma0, gamma_inf, beta`, anharmonic, electronic, defect, and atom-count terms |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
 | `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
@@ -312,6 +326,9 @@ Thermal constructor signatures are:
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
 | `MultiOscillatorGruneisenThermalEOS` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1, n` |
 | `Tange2009Debye` | `Tr, theta0, gamma0, a, b, n` |
+
+`Sokolova2016` is the compatibility alias for
+`MultiOscillatorGruneisenThermalEOS`.
 
 The Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure
 classes accept any `EosBase` reference. `LogVolumeThermalPressure` and

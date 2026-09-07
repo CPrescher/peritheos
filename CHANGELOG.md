@@ -210,6 +210,11 @@ All notable changes to Peritheos are documented here. The project follows
   pressure-scale identifiers and constants remain numerically stable
   compatibility lookups after a record-by-record audit, while
   `get_material_document()` remains the advanced raw-document API.
+- Canonical identifiers now take precedence over historical convenience names.
+  In particular, `get_material("diamond")` returns the complete seven-record
+  document-built material instead of the former five-record convenience
+  grouping; all historical diamond records remain available by their record
+  identifiers and compatibility constants.
 - EOS records now evaluate extrapolated states by default. Published ranges are
   treated as calibration/data coverage, with opt-in enforcement through
   `check_validity=True`; `within_calibration_range()` is the preferred coverage

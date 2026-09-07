@@ -1,8 +1,10 @@
 # Rust migration contract
 
-This document defines the compatibility and validation contract for moving
-Peritheos's built-in numerical implementation to Rust. It is an engineering
-contract, not a change to the scientific conventions documented in the
+This historical document records the compatibility and validation contract
+used to move Peritheos's built-in numerical implementation to Rust. It is not
+the current model inventory; use the [model list](models.md), [API
+reference](api.md), and [Rust API guide](rust-api.md) for the released API.
+The contract did not change the scientific conventions documented in the
 [equation reference](equation-reference.md).
 
 The base migration landed in PR 8. Built-in equations have one numerical
@@ -101,7 +103,7 @@ The following behavior is public and must remain unchanged:
 - Support for custom Python `EosBase` subclasses through a compatibility path,
   even when they cannot use every native fast path.
 
-The private extension module will be named `peritheos._rust`. Users must not
+The private extension module is named `peritheos._rust`. Users must not
 need to import it directly.
 
 ## Numerical and unit contract
@@ -114,7 +116,7 @@ need to import it directly.
 - Holzapfel and thermal models use molar volume in `J bar^-1 mol^-1`.
 - Thermal energy and heat-capacity quantities retain their documented molar SI
   units.
-- The Rust core will freeze each physical constant to a documented value so
+- The Rust core freezes each physical constant to a documented value so
   results do not change with the installed SciPy version.
 - Reference identities, derivative identities, literature cases, and model
   domain restrictions remain as documented in the validation guide.
@@ -131,7 +133,7 @@ Any necessary tolerance change requires an explained numerical analysis.
 
 ## Fitting contract
 
-The Rust fitting layer must eventually support the complete signatures of
+The Rust fitting layer was required to support the complete signatures of
 `fit_rt_eos`, `fit_thermal_eos`, and `fit_joint_eos`, including:
 
 - arbitrary subsets of free and fixed constructor parameters;
@@ -193,9 +195,9 @@ A phase is complete only when its applicable gates pass:
 12. Strict documentation, lint, coverage, Rust formatting, Clippy, and package
     validation.
 
-The legacy built-in Python equations may be removed only after every gate is
-satisfied with the Rust backend enabled by default. Until then, migration work
-is additive and remains on the integration branch.
+The legacy built-in Python equations became eligible for removal only after
+every gate was satisfied with the Rust backend enabled by default. Migration
+work remained additive on the integration branch until that point.
 
 ## Baseline
 

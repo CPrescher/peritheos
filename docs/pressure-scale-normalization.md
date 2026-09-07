@@ -214,8 +214,8 @@ normalized = recalculate_eos_pressure_scale(
     source_eos_record="tungsten_dewaele_2004_vinet_2",
     sample_volume=[31.0, 29.0, 27.0],
     target_standard_eos_record="gold_sokolova_2013_holzapfel_4",
-    sample_temperature_k=300.0,
-    standard_temperature_k=300.0,
+    sample_temperature_k=298.0,
+    standard_temperature_k=298.0,
     check_validity=True,
 )
 ```
@@ -374,7 +374,7 @@ not qualify.
 | [Shen et al. (2020)](https://doi.org/10.1080/08957959.2020.1791107) | IPPS Ruby2020; to 150 GPa | Modern ruby scale | Executable |
 | [Chidester et al. (2021)](https://doi.org/10.1103/PhysRevB.104.094107) | B2 KCl and Pt; to 167 GPa and 2400 K | Simultaneous thermal KCl--Pt calibration on Dorogokupets--Oganov Pt | EOS, full KCl P-V-T table, temperature mapping, and direct Pt edge executable |
 | [Eremets et al. (2023)](https://doi.org/10.1038/s41467-023-36429-9) | Diamond Raman edge and Au; to about 500 GPa | Simultaneous optical--XRD calibration on ramp-derived Au | Scale, Au anchor, and edge executable |
-| [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | Cu, Re, Pt, W, Au, Mo, Fe, MgO, and NaCl; to about 431 GPa | Direct multi-standard volume relations, Cu anchored | Not yet bundled |
+| [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | Cu, Re, Pt, W, Au, Mo, Fe, MgO, and NaCl; to about 431 GPa | Direct multi-standard volume relations, Cu anchored | Nine member fits and source grids bundled; paired cross-material edge not executable |
 | [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Pt, Cu, Au, Mo, Ta, W, Fe, MgO, and NaCl; 300 K to 140 GPa | Simultaneous paired calibration, Cu anchored | Member fits bundled; paired data and anchor edge not executable |
 
 A simultaneous volume-volume dataset is the strongest cross-material edge

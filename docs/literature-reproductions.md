@@ -5,6 +5,8 @@ and their Peritheos implementations. It complements the material files: an
 EOS record preserves the recommended literature parameterization, while this
 page explains whether the primary observations are available, exactly how a
 refit was performed, and whether the published parameters can be recovered.
+The [source-audit index](source-audits.md) lists every standalone investigation
+alongside this consolidated reproduction record.
 
 For every future material, record the following whenever the source permits:
 

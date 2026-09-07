@@ -4,12 +4,15 @@
 properties, inversion, fitting, uncertainty propagation, batch evaluation,
 and `.eosmat` loading. It has no Python, NumPy, or array-framework dependency.
 
-The crate is currently consumed from the workspace rather than crates.io:
+For the 0.7 release series, add the crate from crates.io:
 
 ```toml
 [dependencies]
-peritheos = { path = "../peritheos/crates/peritheos" }
+peritheos = "0.7"
 ```
+
+Repository development can instead use
+`peritheos = { path = "../peritheos/crates/peritheos" }`.
 
 ## Choose an entry point
 

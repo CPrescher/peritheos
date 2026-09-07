@@ -3,7 +3,7 @@
 A Python library for thermodynamic equations of state calculations for solid materials.
 
 Built-in EOS evaluation, inversion, bounded robust fitting, and uncertainty
-statistics are implemented in Rust and exposed through the unchanged Python API.
+statistics are implemented in Rust and exposed through the established Python API.
 NumPy broadcasting and user-defined `EosBase` subclasses remain supported.
 The package includes PEP 561 typing metadata for type checkers and IDEs.
 
@@ -20,15 +20,22 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   - Murnaghan
   - Natural strain (orders 2-4)
   - Modified Tait
+  - Baonza pseudospinodal
   - Vinet
+  - Generalized Rydberg-Stacey
+  - Morse and Sun-Morse
   - Holzapfel
 - Thermal equations of state (EOS) implementations
   - Mie-Gruneisen-Debye
   - Mie-Gruneisen-Einstein
   - Linear thermal pressure
   - Second-order temperature-compression thermal pressure
+  - Logarithmic-volume thermal pressure
   - Holland-Powell thermal modified Tait
+  - Double-Debye Helmholtz free-energy models
+  - Dorogokupets-Oganov four-oscillator model
   - Multi-oscillator Gruneisen thermal pressure
+- Phase-specific linear Us-up shock Hugoniots
 - P-V and P-V-T parameter fitting with covariance and diagnostics
 - Joint reference-isotherm and thermal fitting with cross-covariance
 - Correlated observation errors and robust least-squares losses
@@ -78,8 +85,8 @@ newer. Published PyPI wheels do not require Rust.
 
 Materials group one or more literature-specific EOS records. The calculation
 API uses GPa, K, and conventional unit-cell volumes in angstrom cubed. Each EOS
-record carries its primary reference, parameter provenance, validity range, and
-uncertainty assumptions.
+record carries its primary reference, parameter provenance, calibration/data
+coverage, and uncertainty assumptions.
 
 ```python
 from peritheos import get_material, search_eos_records

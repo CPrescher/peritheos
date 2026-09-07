@@ -19,12 +19,12 @@
 - Bezacier, L., Journaux, B., Perrillat, J.-P., Cardon, H., Hanfland, M. &
   Daniel, I. (2014). Equations of state of ice VI and ice VII at high pressure
   and high temperature. *Journal of Chemical Physics*, 141, 104505.
-  doi:10.1063/1.4894421. Peritheos uses equations 1--3, the H2O PVT rows in
+  [doi:10.1063/1.4894421](https://doi.org/10.1063/1.4894421). Peritheos uses equations 1--3, the H2O PVT rows in
   Table II, and representative measured states from Table I.
 - Anzellini, S., Dewaele, A., Occelli, F., Loubeyre, P. & Mezouar, M.
   (2014). Equation of state of rhenium and application for ultra high pressure
   calibration. *Journal of Applied Physics*, 115, 043511.
-  doi:10.1063/1.4863300. Peritheos uses equation 6, the fitted values and 95%
+  [doi:10.1063/1.4863300](https://doi.org/10.1063/1.4863300). Peritheos uses equation 6, the fitted values and 95%
   confidence intervals following it, Table IV's 0.64-144 GPa domain, and
   lattice-data regressions from Table III.
 - Anderson, O. L., Isaak, D. G. & Yamamoto, S. (1989). Anharmonicity and the
@@ -43,31 +43,31 @@
   covariance are printed.
 - Dewaele, A., Fiquet, G. & Gillet, P. (1998). Temperature and pressure
   distribution in the laser-heated diamond-anvil cell. *Review of Scientific
-  Instruments*, 69, 2421-2426. doi:10.1063/1.1148970.
+  Instruments*, 69, 2421-2426. [doi:10.1063/1.1148970](https://doi.org/10.1063/1.1148970).
 - Datchi, F., Dewaele, A., Le Godec, Y. & Loubeyre, P. (2007). Equation of
   state of cubic boron nitride at high pressures and temperatures. *Physical
-  Review B*, 75, 214104. doi:10.1103/PhysRevB.75.214104. Peritheos uses the
+  Review B*, 75, 214104. [doi:10.1103/PhysRevB.75.214104](https://doi.org/10.1103/PhysRevB.75.214104). Peritheos uses the
   295 K Vinet fit from Table I and the distinct 0 K Vinet plus absolute Debye
   thermal-pressure parameterization from Equations 2--4 and Table V. All 66
   Table IV P-V-T observations are bundled.
 - Dewaele, A., Datchi, F., Loubeyre, P. & Mezouar, M. (2008). High
   pressure-high temperature equations of state of neon and diamond. *Physical
-  Review B*, 77, 094106. doi:10.1103/PhysRevB.77.094106. The diamond entry
+  Review B*, 77, 094106. [doi:10.1103/PhysRevB.77.094106](https://doi.org/10.1103/PhysRevB.77.094106). The diamond entry
   follows equations 2, 3, and 6 and Table III.
 - Dewaele, A., Torrent, M., Loubeyre, P. & Mezouar, M. (2008). Compression
   curves of transition metals in the Mbar range: Experiments and projector
   augmented-wave calculations. *Physical Review B*, 78, 104102.
-  doi:10.1103/PhysRevB.78.104102. Peritheos uses the unconstrained Ag and Ni
+  [doi:10.1103/PhysRevB.78.104102](https://doi.org/10.1103/PhysRevB.78.104102). Peritheos uses the unconstrained Ag and Ni
   fits in Table IV, regression rows from Table II, and the paper's hydrostatic
   ruby calibration with `A = 1920 GPa` and `B = 9.61`.
 - Dewaele, A., Belonoshko, A. B., Garbarino, G., Occelli, F., Bouvier, P.,
   Hanfland, M. & Mezouar, M. (2012). High-pressure-high-temperature equation
   of state of KCl and KBr. *Physical Review B*, 85, 214105.
-  doi:10.1103/PhysRevB.85.214105. Peritheos uses equation 2 and Tables III and
+  [doi:10.1103/PhysRevB.85.214105](https://doi.org/10.1103/PhysRevB.85.214105). Peritheos uses equation 2 and Tables III and
   V, with separate B1 and B2 records.
 - Campbell, A. J. & Heinz, D. L. (1991). Compression of KCl in the B2
   structure to 56 GPa. *Journal of Physics and Chemistry of Solids*, 52,
-  495--499. doi:10.1016/0022-3697(91)90181-X. The material-library composite
+  495--499. [doi:10.1016/0022-3697(91)90181-X](https://doi.org/10.1016/0022-3697(91)90181-X). The material-library composite
   uses the primary abstract's B2/B1 `V0` ratio, `K0`, fixed `K0'`, and range;
   its absolute `V0` is explicitly combined with Dewaele et al.'s B1 value.
 - Campbell, A. J. & Heinz, D. L. (1993). Equation of state and high pressure
@@ -92,11 +92,11 @@
   Campbell and Heinz's documented 4.118-to-4.123 angstrom reference correction.
 - Dewaele, A. (2019). Equations of State of Simple Solids (Including Pb, NaCl
   and LiF) Compressed in Helium or Neon in the Mbar Range. *Minerals*, 9, 684.
-  doi:10.3390/min9110684. Peritheos uses equation 1, the unified
+  [doi:10.3390/min9110684](https://doi.org/10.3390/min9110684). Peritheos uses equation 1, the unified
   Dorogokupets-calibrated column of Table 1, and Tables 3 and 4.
 - Dorogokupets, P. I. (2010). P-V-T equations of state of MgO and
   thermodynamics. *Physics and Chemistry of Minerals*, 37, 677-684.
-  doi:10.1007/s00269-010-0367-2.
+  [doi:10.1007/s00269-010-0367-2](https://doi.org/10.1007/s00269-010-0367-2).
 - Dorogokupets, P. I., Sokolova, T. S., Danilov, B. S. & Litasov, K. D.
   (2012). Near-absolute equations of state of diamond, Ag, Al, Au, Cu, Mo, Nb,
   Pt, Ta, and W for quasi-hydrostatic conditions. *Geodynamics &
@@ -107,17 +107,17 @@
 - Dorfman, S. M., Prakapenka, V. B., Meng, Y. & Duffy, T. S. (2012).
   Intercomparison of pressure standards (Au, Pt, Mo, MgO, NaCl and Ne) to
   2.5 Mbar. *Journal of Geophysical Research: Solid Earth*, 117, B08210.
-  doi:10.1029/2012JB009292. Peritheos uses equation 2, Tables 1 and 2, and
+  [doi:10.1029/2012JB009292](https://doi.org/10.1029/2012JB009292). Peritheos uses equation 2, Tables 1 and 2, and
   sections 3.1, 3.2, and 4 for the 300 K Vinet catalog entries.
 - Fei, Y., Ricolleau, A., Frank, M., Mibe, K., Shen, G. & Prakapenka, V.
   (2007). Toward an internally consistent pressure scale. *Proceedings of the
   National Academy of Sciences*, 104, 9182-9186.
-  doi:10.1073/pnas.0609013104. Peritheos uses equation 3, its stated
+  [doi:10.1073/pnas.0609013104](https://doi.org/10.1073/pnas.0609013104). Peritheos uses equation 3, its stated
   Debye-temperature convention, Table 1, and the data envelopes in Figures
   1-5 for the Au, Pt, NaCl-B2, and Ne thermal scales.
 - Muñoz, A. & Kunc, K. (1993). Structure and static properties of indium
   nitride at low and moderate pressures. *Journal of Physics: Condensed
-  Matter*, 5, 6015--6022. doi:10.1088/0953-8984/5/33/010. Peritheos uses the
+  Matter*, 5, 6015--6022. [doi:10.1088/0953-8984/5/33/010](https://doi.org/10.1088/0953-8984/5/33/010). Peritheos uses the
   Murnaghan energy-volume formulation in section 3 and the theoretical
   wurtzite lattice and EOS coefficients in Table 1.
 - Shen, G. & Smith, J. S. (2026). Simultaneous x-ray diffraction measurements
@@ -145,13 +145,13 @@
 - Frank, M. R., Fei, Y. & Hu, J. (2004). Constraining the equation of state of
   fluid H2O to 80 GPa using the melting curve, bulk modulus, and thermal
   expansivity of ice VII. *Geochimica et Cosmochimica Acta*, 68, 2781--2790.
-  doi:10.1016/j.gca.2003.12.007. The catalog uses Equation 2 and the
+  [doi:10.1016/j.gca.2003.12.007](https://doi.org/10.1016/j.gca.2003.12.007). The catalog uses Equation 2 and the
   simultaneous three-parameter 300 K fit in section 3.1; Table 1 supplies an
   independent measured-state regression.
 - Gerward, L., Olsen, J. S., Petit, L., Vaitheeswaran, G., Kanchana, V. &
   Svane, A. (2005). Bulk modulus of CeO2 and PrO2—an experimental and
   theoretical study. *Journal of Alloys and Compounds*, 400, 56--61.
-  doi:10.1016/j.jallcom.2005.04.008. Peritheos uses Equation 1 and the
+  [doi:10.1016/j.jallcom.2005.04.008](https://doi.org/10.1016/j.jallcom.2005.04.008). Peritheos uses Equation 1 and the
   experimental fluorite-phase BM3 fits in Tables 1 and 2.
 - Fortes, A. D. (2019). *A revised equation of state for in situ pressure
   determination using fcc-Pb (0 < P < 13 GPa, T > 100 K)*. STFC Rutherford
@@ -173,30 +173,30 @@
 - Holland, T. J. B. & Powell, R. (2011). An improved and extended internally
   consistent thermodynamic dataset for phases of petrological interest,
   involving a new equation of state for solids. *Journal of Metamorphic
-  Geology*, 29, 333-383. doi:10.1111/j.1525-1314.2010.00923.x.
+  Geology*, 29, 333-383. [doi:10.1111/j.1525-1314.2010.00923.x](https://doi.org/10.1111/j.1525-1314.2010.00923.x).
 - Heinz, D. L. (1990). Thermal pressure in the laser-heated diamond anvil cell.
   *Geophysical Research Letters*, 17, 1161-1164.
-  doi:10.1029/GL017i008p01161.
+  [doi:10.1029/GL017i008p01161](https://doi.org/10.1029/GL017i008p01161).
 - Haines, J., Léger, J. M., Chateau, C. & Lowther, J. E. (2001). Experimental
   and theoretical investigation of Mo2C at high pressure. *Journal of Physics:
   Condensed Matter*, 13, 2447--2454.
-  doi:10.1088/0953-8984/13/11/303. The Mo2C record uses the BM3 fit in
+  [doi:10.1088/0953-8984/13/11/303](https://doi.org/10.1088/0953-8984/13/11/303). The Mo2C record uses the BM3 fit in
   section 4.1 and normalizes its reference volume from the specimen lattice
   parameters in section 2.
 - Holmes, N. C., Moriarty, J. A., Gathers, G. R. & Nellis, W. J. (1989). The
   equation of state of platinum to 660 GPa (6.6 Mbar). *Journal of Applied
-  Physics*, 66, 2962--2967. doi:10.1063/1.344177. Peritheos uses the
+  Physics*, 66, 2962--2967. [doi:10.1063/1.344177](https://doi.org/10.1063/1.344177). Peritheos uses the
   theoretical 300 K universal isotherm in Equation 11, Table IV, and the
   approximate finite-temperature extension in Equation 12; the shock-Hugoniot
   data are retained as validation context rather than mislabeled as a static
   range.
 - Holzapfel, W. B. (2001). Equations of state for solids under strong
   compression. *Zeitschrift fuer Kristallographie*, 216, 473-488.
-  doi:10.1524/zkri.216.9.473.20346.
+  [doi:10.1524/zkri.216.9.473.20346](https://doi.org/10.1524/zkri.216.9.473.20346).
 - Jackson, I. & Rigden, S. M. (1996). Analysis of P-V-T data: constraints on
   the thermoelastic properties of high-pressure minerals. *Physics of the
   Earth and Planetary Interiors*, 96, 85-112.
-  doi:10.1016/0031-9201(96)03143-3.
+  [doi:10.1016/0031-9201(96)03143-3](https://doi.org/10.1016/0031-9201(96)03143-3).
 - Levien, L. & Prewitt, C. T. (1981). High-pressure crystal structure and
   compressibility of coesite. *American Mineralogist*, 66, 324--333.
   Peritheos uses Table 7 and the unweighted Birch--Murnaghan fit on page 328;
@@ -227,7 +227,7 @@
 - Martinez, I., Zhang, J. & Reeder, R. J. (1996). In situ X-ray diffraction of
   aragonite and dolomite at high pressure and high temperature: Evidence for
   dolomite breakdown to aragonite and magnesite. *American Mineralogist*, 81,
-  611--624. doi:10.2138/am-1996-5-608. Peritheos uses Equations 1--3 and Tables
+  611--624. [doi:10.2138/am-1996-5-608](https://doi.org/10.2138/am-1996-5-608). Peritheos uses Equations 1--3 and Tables
   6--7 for the executable staged aragonite BM2 P-V-T parameterization. The
   separate global HT-BM3 reduction is excluded because its fitted reference
   volume is omitted and the remaining coefficients are not reproducible from
@@ -260,13 +260,13 @@
 - Noguchi, Y., Uchino, M., Hikosaka, H., Kusaba, K., Fukuoka, K., Mashimo, T.
   & Syono, Y. (1998). Shock compression of NiO to 130 GPa. *The Review of
   High Pressure Science and Technology*, 7, 832--834.
-  doi:10.4131/jshpreview.7.832. Peritheos uses the ambient pseudo-cubic lattice
+  [doi:10.4131/jshpreview.7.832](https://doi.org/10.4131/jshpreview.7.832). Peritheos uses the ambient pseudo-cubic lattice
   parameter on page 832 and the shock-to-300 K Mie--Gruneisen reduction and
   Murnaghan--Birch fit on pages 833--834.
 - Noguchi, Y., Uchino, M., Hikosaka, H., Atou, T., Kusaba, K., Fukuoka, K.,
   Mashimo, T. & Syono, Y. (1999). Equation of state of NiO studied by shock
   compression. *Journal of Physics and Chemistry of Solids*, 60, 509--514.
-  doi:10.1016/S0022-3697(98)00296-0. The final article extends the isotherm to
+  [doi:10.1016/S0022-3697(98)00296-0](https://doi.org/10.1016/S0022-3697(98)00296-0). The final article extends the isotherm to
   147.6 GPa and reports `K0 = 191 GPa` and `K0' = 3.9` without coefficient
   errors.
 - Occelli, F., Loubeyre, P. & LeToullec, R. (2003). Properties of diamond
@@ -276,10 +276,10 @@
   Sokolova diamond pressure scale.
 - Poirier, J.-P. & Tarantola, A. (1998). A logarithmic equation of state.
   *Physics of the Earth and Planetary Interiors*, 109, 1-8.
-  doi:10.1016/S0031-9201(98)00112-5.
+  [doi:10.1016/S0031-9201(98)00112-5](https://doi.org/10.1016/S0031-9201(98)00112-5).
 - Ross, N. L. (1997). The equation of state and high-pressure behavior of
   magnesite. *American Mineralogist*, 82, 682--688.
-  doi:10.2138/am-1997-7-805. Peritheos uses the unconstrained BM3 fit on pages
+  [doi:10.2138/am-1997-7-805](https://doi.org/10.2138/am-1997-7-805). Peritheos uses the unconstrained BM3 fit on pages
   684--685 and a measured P--V state from Table 1 as a regression case.
 - Ono, S., Ito, E., Katsura, T., Yoneda, A., Walter, M. J., Urakawa, S.,
   Utsumi, W. & Funakoshi, K. (2000). Thermoelastic properties of the
@@ -340,7 +340,7 @@
 - Scott, H. P., Williams, Q. & Knittle, E. (2001). Stability and equation of
   state of Fe3C to 73 GPa: Implications for carbon in the Earth's core.
   *Geophysical Research Letters*, 28, 1875--1878.
-  doi:10.1029/2000GL012606. Peritheos uses the ambient reference volume on
+  [doi:10.1029/2000GL012606](https://doi.org/10.1029/2000GL012606). Peritheos uses the ambient reference volume on
   page 1875 and the weighted third-order Birch--Murnaghan fit on page 1876;
   Figure 3 documents the fitted 300 K compression data.
 - Yagi, T., Uchiyama, Y., Akaogi, M. & Ito, E. (1992). Isothermal compression
@@ -365,7 +365,7 @@
   P-V-T relations and thermodynamic properties from equations of state of MgO,
   diamond and nine metals as pressure markers in high-pressure and
   high-temperature experiments. *Computers & Geosciences*, 94, 162-169.
-  doi:10.1016/j.cageo.2016.06.002.
+  [doi:10.1016/j.cageo.2016.06.002](https://doi.org/10.1016/j.cageo.2016.06.002).
   The article and workbooks are the executable implementation source for the
   eleven catalog records; it is not represented as a new experimental fit.
   The exact MgO implementation also uses the 2016 correction to its earlier
@@ -387,12 +387,12 @@
 - Tange, Y., Nishihara, Y. & Tsuchiya, T. (2009). Unified analyses for P-V-T
   equation of state of MgO: A solution for pressure-scale problems in high
   P-T experiments. *Journal of Geophysical Research: Solid Earth*, 114,
-  B03208. doi:10.1029/2008JB005813. Peritheos uses equations 2, 4, 5, 15,
+  B03208. [doi:10.1029/2008JB005813](https://doi.org/10.1029/2008JB005813). Peritheos uses equations 2, 4, 5, 15,
   and 16 and Tables 1, 2, 4, and 5 for the Fit3-Vinet pressure standard.
 - Tange, Y., Nishihara, Y. & Tsuchiya, T. (2010). Correction to “Unified
   analyses for P-V-T equation of state of MgO: A solution for pressure-scale
   problems in high P-T experiments.” *Journal of Geophysical Research: Solid
-  Earth*, 115, B12203. doi:10.1029/2010JB007959. The correction changes Figure
+  Earth*, 115, B12203. [doi:10.1029/2010JB007959](https://doi.org/10.1029/2010JB007959). The correction changes Figure
   11 only and does not alter the EOS equations, parameters, or regression table
   used by Peritheos.
 - Tsuchiya, T. (2003). First-principles prediction of the P-V-T equation of
@@ -417,7 +417,7 @@
   Thermal pressure in the laser-heated diamond anvil cell: A quantitative study
   and implications for the density versus mineralogy correlation of the mantle.
   *Journal of Geophysical Research: Solid Earth*, 125, e2020JB020006.
-  doi:10.1029/2020JB020006.
+  [doi:10.1029/2020JB020006](https://doi.org/10.1029/2020JB020006).
 - Zouboulis, E. S., Grimsditch, M., Ramdas, A. K. & Rodriguez, S. (1998).
   Temperature dependence of the elastic moduli of diamond: A
   Brillouin-scattering study. *Physical Review B*, 57, 2889--2896.

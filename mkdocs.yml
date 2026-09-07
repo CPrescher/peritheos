@@ -65,6 +65,7 @@ nav:
   - Validation: validation.md
   - Paper investigation ledger: paper-investigation-ledger.md
   - Primary EOS refit validation: primary-eos-refits.md
+  - Source audits and literature reproductions: source-audits.md
   - Literature reproductions: literature-reproductions.md
   - Dewaele 2004 six-metal EOS: literature-reproductions/dewaele-2004-six-metals.md
   - Kubo 2000 aluminous bridgmanite: literature-reproductions/kubo-2000-aluminous-bridgmanite.md
@@ -80,8 +81,8 @@ nav:
   - Project policies: project-policies.md
   - Contributor documentation:
       - Development: development.md
-      - Rust migration contract: rust-migration.md
-      - Rust migration completion plan: rust-completion-plan.md
+      - Rust migration contract (historical): rust-migration.md
+      - Rust migration completion record: rust-completion-plan.md
       - SciRS2 feasibility audit: scirs2-feasibility.md
 markdown_extensions:
   - tables
@@ -94,4 +95,6 @@ plugins:
   - search
   - mkdocs-jupyter:
       execute: true
+      allow_errors: false
+      cache: false
       include_source: true
