@@ -274,6 +274,12 @@
   [doi:10.1038/nmat831](https://doi.org/10.1038/nmat831). The 300 K
   compression data are a principal experimental constraint behind the later
   Sokolova diamond pressure scale.
+- Ono, S., Kikegawa, T. & Ohishi, Y. (2006). The stability and
+  compressibility of MgAl2O4 high-pressure polymorphs. *Physics and Chemistry
+  of Minerals*, 33, 200–206.
+  [doi:10.1007/s00269-006-0068-z](https://doi.org/10.1007/s00269-006-0068-z).
+  The 300 K Cmcm BM2 and all 14 Table 3 observations are bundled; see the
+  [source audit](literature-reproductions/ono-2006-mgal2o4-cati2o4.md).
 - Poirier, J.-P. & Tarantola, A. (1998). A logarithmic equation of state.
   *Physics of the Earth and Planetary Interiors*, 109, 1-8.
   [doi:10.1016/S0031-9201(98)00112-5](https://doi.org/10.1016/S0031-9201(98)00112-5).

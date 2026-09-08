@@ -152,6 +152,13 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "mgal2o4_cati2o4_ono_2006_bm2_2": (
+        "All 14 Table 3 rows, including two recovered ambient cells. Source "
+        "weights and selection are unspecified; zero-rounded volume errors "
+        "preclude using those errors as weights. The unweighted diagnostic "
+        "recovers the printed coefficients; the dedicated Ono reproduction "
+        "documents the sensitivity to excluding ambient cells."
+    ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
         "reduction: the supplement deposits the 1,313 fit rows, but omits the "

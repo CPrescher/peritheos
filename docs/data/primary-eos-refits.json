@@ -18504,6 +18504,86 @@
     {
       "absolute_sigma": true,
       "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgal2o4_cati2o4_ono_2006_table3"
+      ],
+      "degrees_of_freedom": 12,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        91.2
+      ],
+      "experimental_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
+      "material_identifier": "mgal2o4_cati2o4",
+      "model": "BM2",
+      "objective": "pressure_residuals",
+      "observations": 14,
+      "observed_pressure_range_gpa": [
+        0.0,
+        91.2
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "observed_volume_range": [
+        186.4,
+        240.7
+      ],
+      "parameters": [
+        {
+          "difference": -0.019252925876486415,
+          "parameter": "V0",
+          "published": 238.9,
+          "published_error": 0.9,
+          "refit": 238.88074707412352,
+          "refit_error": 0.9517179436935822,
+          "relative_difference": 8.058989483669492e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.04697026255558967,
+          "parameter": "K0",
+          "published": 219.0,
+          "published_error": 6.0,
+          "refit": 219.0469702625556,
+          "refit_error": 6.2198911256599025,
+          "relative_difference": 0.00021447608472871996,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 14 Table 3 rows are retained, including both recovered ambient cells. No row-resolved pressure errors or Pt volumes are printed. Parentheses are described only as errors, with no confidence convention. Printed (0) errors are preserved as rounding to zero, not exact observations. Weighting and any exclusion of recovered cells from the original regression are unspecified. The independent diagnostic uses unweighted pressure residuals, with an explicitly labeled high-pressure-only sensitivity fit.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
+      "published_rmse_gpa": 1.3262475763534347,
+      "qualification": "All 14 Table 3 rows, including two recovered ambient cells. Source weights and selection are unspecified; zero-rounded volume errors preclude using those errors as weights. The unweighted diagnostic recovers the printed coefficients; the dedicated Ono reproduction documents the sensitivity to excluding ambient cells.",
+      "record_identifier": "mgal2o4_cati2o4_ono_2006_bm2_2",
+      "reduced_chi_square": 2.0515192812131975,
+      "rmse_gpa": 1.3260637609793657,
+      "selection": "all rows; reference-T rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
         "pressure": "pressure_kbar",
         "temperature": null,
         "volume": "volume_ratio"
@@ -31649,9 +31729,9 @@
   ],
   "summary": {
     "not_refittable": 565,
-    "parity": 155,
+    "parity": 156,
     "parity_not_achieved": 31,
     "similar": 62,
-    "total": 813
+    "total": 814
   }
 }

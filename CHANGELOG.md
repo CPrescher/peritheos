@@ -5,6 +5,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Added Ono et al. (2006) CaTi2O4-type MgAl2O4 BM2 at 300 K, all 14
+  Table 3 observations with printed errors, Pt calibration provenance, and
+  independent reproduction with ambient-row sensitivity diagnostics.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-06",
+  "audit_date": "2026-09-08",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 813,
-    "primary_source_validated": 813
+    "records": 814,
+    "primary_source_validated": 814
   },
   "records": [
     {
@@ -8377,6 +8377,26 @@
           "Figure 4"
         ],
         "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure, and the authors derive a separate second-order Birch EOS from its run-4 ambient and high-pressure cells; this is a phase parameterization, not an arbitrary run split."
+      }
+    },
+    {
+      "material": "mgal2o4_cati2o4",
+      "file": "mgal2o4_cati2o4.eosmat",
+      "record": "mgal2o4_cati2o4_ono_2006_bm2_2",
+      "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
+      "doi": "10.1007/s00269-006-0068-z",
+      "status": "primary_source_validated",
+      "note": "Primary version-of-record PDF reviewed, with visual checks of pp. 203-204; published coefficients retained independently of diagnostic refits.",
+      "primary_source_check": {
+        "access_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
+        "doi": "10.1007/s00269-006-0068-z",
+        "locations": [
+          "Experimental, p. 201",
+          "Results, pp. 202-203",
+          "Tables 2-3",
+          "Figures 4-5"
+        ],
+        "finding": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves."
       }
     },
     {
