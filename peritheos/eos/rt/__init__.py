@@ -11,6 +11,7 @@ from .rydberg_stacey import RydbergStacey
 from .sun_morse import Morse3, SunMorse3, SunMorse4
 from .tait import ModifiedTait
 from .vinet import Vinet
+from .vinet3 import Vinet3
 
 __all__ = [
     "BM2",
@@ -28,4 +29,5 @@ __all__ = [
     "SunMorse3",
     "SunMorse4",
     "Vinet",
+    "Vinet3",
 ]

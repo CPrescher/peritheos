@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 813,
-    "primary_source_validated": 813
+    "records": 814,
+    "primary_source_validated": 814
   },
   "records": [
     {
@@ -3891,6 +3891,35 @@
       }
     },
     {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_fratanduono_2020_vinet3_298k",
+      "label": "Fratanduono et al. (2020), Cu 298 K third-order Vinet",
+      "doi": "10.1103/physrevlett.124.015701",
+      "status": "primary_source_validated",
+      "note": "Equation, central 298 K coefficients, printed errors, density reference and phase checked directly against the final primary article and official supplemental PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevLett.124.015701",
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "locations": [
+          "Table I, page 015701-3, central 298 K isotherm row and caption",
+          "Supplemental Section S4, Eq. (2), page S2",
+          "Supplemental Section S5 and Table S1"
+        ],
+        "finding": "The exponent is eta*y+beta*y^2+psi*y^3 with y=1-(rho0/rho)^(1/3); rho0=8.939 g/cm3. Table I prints separate central and upper/lower-envelope fits.",
+        "source_artifacts": [
+          {
+            "url": "https://doi.org/10.1103/PhysRevLett.124.015701",
+            "sha256": "18db9d32504e10007a7927c04c5610a5dbf25a4088577d14c0bab0033804a412"
+          },
+          {
+            "url": "https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.124.015701",
+            "sha256": "cdf0985112a5584a7a97c187ea2683d1fc6740761db8851ae9cb5b489a9ff98c"
+          }
+        ]
+      }
+    },
+    {
       "material": "cr_sun_2010_legacy",
       "file": "cr_sun_2010_legacy.eosmat",
       "record": "cr_sun_2010_sms4_1",
@@ -4478,9 +4507,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -5120,9 +5150,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -5718,9 +5749,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -8713,9 +8745,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -9829,9 +9862,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -10177,9 +10211,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -10238,9 +10273,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -11619,9 +11655,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -13559,9 +13596,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },
@@ -14254,9 +14292,10 @@
           "Table II, pages 9-12",
           "Section III.E, pages 8 and 12-14",
           "Experimental methods, page 2",
-          "Supplemental Table S1, official Excel workbook"
+          "Supplemental Table S1, official Excel workbook",
+          "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
         ],
-        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+        "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
       }
     },

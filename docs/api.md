@@ -254,6 +254,7 @@ from peritheos.eos.rt import (
     SunMorse3,
     SunMorse4,
     Vinet,
+    Vinet3,
 )
 ```
 
@@ -488,3 +489,16 @@ parameter covariance. See [Uncertainty in EOS calculations](uncertainty.md).
 Partial parameter-error sets are supported. Parameters omitted from the error
 mapping or covariance ordering are treated as exact, rather than as having an
 unknown error that Peritheos will estimate.
+
+`peritheos.eos.rt.Vinet3(V0, K0, eta, beta, psi)` evaluates the
+Fratanduono (2020) cubic exponential Vinet form, with analytic `pressure`
+and `bulk_modulus` and numerical `volume` inversion. Scalar and NumPy array
+inputs follow the equilibrium EOS API. This model currently uses NumPy and
+the shared Python inversion path. Its eta, beta, psi parameters remain
+independent in parameter reconstruction and material exports.
+
+```python
+from peritheos import get_eos_record
+cu = get_eos_record("copper_fratanduono_2020_vinet3_298k")
+pressure_gpa = cu.pressure(45.94823)  # 3.908992349216 GPa, conventional cell Å³
+```

@@ -418,14 +418,15 @@
        "doi": "10.1103/PhysRevLett.124.015701"
       },
       "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
-      "scope": "all fitted observations"
+      "scope": "all fitted observations",
+      "reference_eos_record": "copper_fratanduono_2020_vinet3_298k"
      }
     ],
     "recalculation": {
-     "status": "reference_model_not_supported",
-     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+     "status": "ready",
+     "notes": "Reconstructed from Fratanduono et al. (2020) Supplemental Material Eq. (2) with the main article Table I central 298 K coefficients (rho0=8.939 g/cm3, K0=133.6 GPa, eta=6.29, beta=2.06, psi=1.65). Each target volume is paired with the Cu volume from the same experiment and run; no unpublished pressure weights or covariance are inferred."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -449,9 +450,10 @@
       "Table II, pages 9-12",
       "Section III.E, pages 8 and 12-14",
       "Experimental methods, page 2",
-      "Supplemental Table S1, official Excel workbook"
+      "Supplemental Table S1, official Excel workbook",
+      "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
      ],
-     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
+     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
      "doi": "10.1103/fxgq-96sg"
     },
     "migration_source": {

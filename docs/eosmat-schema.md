@@ -566,3 +566,10 @@ default record, exact `type`/`model` pairing, and equation-specific choices.
 
 See [Dioptas integration](dioptas-integration.md) for application ownership,
 the bundled-library migration, and current round-trip limitations.
+
+The `Vinet3` type uses model identifier `vinet_3` and
+requires `V0`, `K0`, `eta`, `beta`, and `psi`. It preserves the independent
+polynomial coefficients in Fratanduono (2020) Supplemental Eq. (2), rather
+than translating them to an ordinary `Vinet` record. See the
+[298 K Cu audit](literature-reproductions/fratanduono-2020-cu.md) for the
+published density reference and explicit volume conversion.

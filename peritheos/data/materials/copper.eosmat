@@ -1134,6 +1134,156 @@
     },
     "access_and_licensing": "The exact exp.txt coefficients are redistributed from the Materials Cloud archive under CC BY 4.0. The 2014 supplement is used for interpretation and citations, not copied as a dataset."
    }
+  },
+  {
+   "identifier": "copper_fratanduono_2020_vinet3_298k",
+   "label": "Fratanduono et al. (2020), Cu 298 K third-order Vinet",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Fratanduono",
+     "Smith",
+     "Ali",
+     "Braun",
+     "Fernandez-Pa\u00f1ella",
+     "Zhang",
+     "Kraus",
+     "Coppari",
+     "McNaney",
+     "Marshall",
+     "Kirch",
+     "Swift",
+     "Millot",
+     "Wicks",
+     "Eggert"
+    ],
+    "year": 2020,
+    "title": "Probing the Solid Phase of Noble Metal Copper at Terapascal Conditions",
+    "source": "Physical Review Letters",
+    "volume": "124",
+    "locator": "015701",
+    "doi": "10.1103/PhysRevLett.124.015701"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 63.546
+   },
+   "eos": {
+    "type": "Vinet3",
+    "model": "vinet_3",
+    "parameters": {
+     "V0": 47.218085048721,
+     "K0": 133.6,
+     "eta": 6.29,
+     "beta": 2.06,
+     "psi": 1.65
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.8,
+    "eta": 0.8,
+    "beta": 0.4,
+    "psi": 0.6
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 298.0,
+   "pressure_range_status": "reference_parameterization",
+   "validity": {
+    "temperature_k": [
+     298.0,
+     298.0
+    ],
+    "notes": [
+     "The ramp measurements reach 2.30 TPa; fcc diffraction is observed to 1.15 TPa. Neither is an exact published 298 K isotherm fit interval, so no isothermal pressure validity interval is inferred."
+    ]
+   },
+   "notes": "Central 298 K isotherm row of Table I, using Supplemental S4 Eq. (2). The nearby main-text prose says 300 K, but Table I and S4 explicitly specify 298 K. rho0=8.939 g/cm3 is a prescribed reference density without a reported uncertainty. V0 is converted with 63.546 g/mol and four Cu atoms per conventional fcc cell; the material-card lattice is not substituted for this record reference state. Table S1 contains reduced-isentrope observations, not 298 K isothermal rows. No numerical 298 K fit dataset, weights, coefficient covariance, or confidence level for the Table I coefficient errors is published in the inspected article and supplement. The upper/lower isotherm rows describe separate envelope fits, not coefficient errors or independent 298 K observations. A refit of the published 298 K EOS is not possible with the current information. Fratanduono explicitly describes the Gruneisen prescription for reducing measured stress to the principal isentrope, but does not explicitly specify the Debye isentrope-to-298 K calculation used in our diagnostic. Applying Kraus (2016) Eq. (16), its Debye caloric model, and theta0=343.5 K is our inference, not a confirmed reproduction of the 2020 reduction. The 53 candidate points also use an unconfirmed graphical Hugoniot input and omit 46 higher-compression rows. Their 1.562 GPa RMS agreement with the published curve does not establish recovery of the original data, coefficient parity, or a superior EOS.",
+   "parameter_provenance": {
+    "V0": "Table I caption and S4: rho0=8.939 g/cm3; V0=4*63.546/(rho0*0.602214076) angstrom^3/conventional cell. Molar mass is a conversion convention, not a fitted source parameter.",
+    "K0": "Table I, central 298 K isotherm: 133.6 +/- 0.8 GPa",
+    "eta": "Table I, central 298 K isotherm: 6.29 +/- 0.8",
+    "beta": "Table I, central 298 K isotherm: 2.06 +/- 0.4",
+    "psi": "Table I, central 298 K isotherm: 1.65 +/- 0.6"
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "source_location": "Main article pp. 2-3; Supplemental Sections S1-S5",
+      "notes": "Quasiabsolute ramp stress-density measurements corrected for strength, plastic heating and initial shock to obtain the principal isentrope and room-temperature isotherm."
+     }
+    ],
+    "recalculation": {
+     "status": "not_applicable",
+     "notes": "Executable published 298 K reduction; raw ramp histories and the full upstream reduction are not represented as a pressure calibration transform."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Equation, central 298 K coefficients, printed errors, density reference and phase checked directly against the final primary article and official supplemental PDF.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevLett.124.015701",
+     "doi": "10.1103/PhysRevLett.124.015701",
+     "locations": [
+      "Table I, page 015701-3, central 298 K isotherm row and caption",
+      "Supplemental Section S4, Eq. (2), page S2",
+      "Supplemental Section S5 and Table S1"
+     ],
+     "finding": "The exponent is eta*y+beta*y^2+psi*y^3 with y=1-(rho0/rho)^(1/3); rho0=8.939 g/cm3. Table I prints separate central and upper/lower-envelope fits.",
+     "source_artifacts": [
+      {
+       "url": "https://doi.org/10.1103/PhysRevLett.124.015701",
+       "sha256": "18db9d32504e10007a7927c04c5610a5dbf25a4088577d14c0bab0033804a412"
+      },
+      {
+       "url": "https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.124.015701",
+       "sha256": "cdf0985112a5584a7a97c187ea2683d1fc6740761db8851ae9cb5b489a9ff98c"
+      }
+     ]
+    },
+    "primary_data_check": {
+     "status": "parameterization_only",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [],
+     "source_locations": [
+      "Table I",
+      "Supplemental S4-S5 and Table S1"
+     ],
+     "finding": "Table S1 contains reduced-isentrope observations, not 298 K isothermal rows. No numerical 298 K fit dataset, weights, coefficient covariance, or confidence level for the Table I coefficient errors is published in the inspected article and supplement. The upper/lower isotherm rows describe separate envelope fits, not coefficient errors or independent 298 K observations. A refit of the published 298 K EOS is not possible with the current information. Fratanduono explicitly describes the Gruneisen prescription for reducing measured stress to the principal isentrope, but does not explicitly specify the Debye isentrope-to-298 K calculation used in our diagnostic. Applying Kraus (2016) Eq. (16), its Debye caloric model, and theta0=343.5 K is our inference, not a confirmed reproduction of the 2020 reduction. The 53 candidate points also use an unconfirmed graphical Hugoniot input and omit 46 higher-compression rows. Their 1.562 GPa RMS agreement with the published curve does not establish recovery of the original data, coefficient parity, or a superior EOS.",
+     "reconstruction_attempt": {
+      "status": "partial_thermal_reconstruction_without_parameter_parity",
+      "resource": "docs/data/fratanduono-2020-cu-thermal-reduction.json",
+      "script": "scripts/reproduce_fratanduono_2020_cu.py",
+      "note": "Kraus (2016) Eqs. (11), (12), and (16) supply a Debye reduction route. Seven compressed source rows use the explicitly adopted low-compression gamma law; 46 more have a candidate reduction using the digitized Figure S2 Hugoniot. The last 46 compressed rows lack graphical Hugoniot coverage. Neither diagnostic fit recovers the published coefficients; these qualified pressures are not registered as original 298 K fit data."
+     }
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation and coefficients",
+     "citation": "Fratanduono et al. (2020), Table I and Supplemental S4 Eq. (2)",
+     "doi": "10.1103/PhysRevLett.124.015701"
+    }
+   ]
   }
  ],
  "format": "peritheos.material",

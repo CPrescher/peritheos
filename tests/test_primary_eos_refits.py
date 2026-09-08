@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 813
+    assert len(identifiers) == len(set(identifiers)) == 814
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 814, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 155,
-        "similar": 62,
+        "parity": 163,
+        "similar": 64,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 556,
     }
     assert all(
         item.get("reason")
@@ -129,7 +129,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         "parity_not_achieved"
     )
     assert by_identifier["b4c_somayazulu_2023_berman_refit"]["status"] == ("parity")
-    assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "not_refittable"
+    assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "parity"
     assert by_identifier["ca_perovskite_sun_2016_bm3_3"]["status"] == ("not_refittable")
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
         "not_refittable"
@@ -410,7 +410,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 93
+    assert markdown.count("### `") == len(explained) == 95
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

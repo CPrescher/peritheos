@@ -2083,3 +2083,6 @@ Candidate C05 is therefore blocked. No production Katsura EOS record and no
 refit record are added. Resolution requires the authors' fitting code or an
 authoritative statement of the numeric `n`, Debye-temperature volume law, and
 thermal-energy/volume normalization used to obtain the published coefficients.
+
+- [Fratanduono (2020) Cu Vinet3 and reconstruction limitations](literature-reproductions/fratanduono-2020-cu.md).
+- [Shen–Smith (2026) Cu-referenced refits](literature-reproductions/shen-smith-2026-cu-refits.md).

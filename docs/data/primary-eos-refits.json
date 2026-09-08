@@ -7893,6 +7893,24 @@
     },
     {
       "dataset_identifiers": [],
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": null,
+      "fixed_parameters": [
+        "V0"
+      ],
+      "label": "Fratanduono et al. (2020), Cu 298 K third-order Vinet",
+      "material_identifier": "copper",
+      "model": "Vinet3",
+      "primary_data_finding": "Table S1 contains reduced-isentrope observations, not 298 K isothermal rows. No numerical 298 K fit dataset, weights, coefficient covariance, or confidence level for the Table I coefficient errors is published in the inspected article and supplement. The upper/lower isotherm rows describe separate envelope fits, not coefficient errors or independent 298 K observations. A refit of the published 298 K EOS is not possible with the current information. Fratanduono explicitly describes the Gruneisen prescription for reducing measured stress to the principal isentrope, but does not explicitly specify the Debye isentrope-to-298 K calculation used in our diagnostic. Applying Kraus (2016) Eq. (16), its Debye caloric model, and theta0=343.5 K is our inference, not a confirmed reproduction of the 2020 reduction. The 53 candidate points also use an unconfirmed graphical Hugoniot input and omit 46 higher-compression rows. Their 1.562 GPa RMS agreement with the published curve does not establish recovery of the original data, coefficient parity, or a superior EOS.",
+      "primary_data_status": "parameterization_only",
+      "primary_source": "https://doi.org/10.1103/PhysRevLett.124.015701",
+      "reason": "Table S1 contains reduced-isentrope observations, not 298 K isothermal rows. No numerical 298 K fit dataset, weights, coefficient covariance, or confidence level for the Table I coefficient errors is published in the inspected article and supplement. The upper/lower isotherm rows describe separate envelope fits, not coefficient errors or independent 298 K observations. A refit of the published 298 K EOS is not possible with the current information. Fratanduono explicitly describes the Gruneisen prescription for reducing measured stress to the principal isentrope, but does not explicitly specify the Debye isentrope-to-298 K calculation used in our diagnostic. Applying Kraus (2016) Eq. (16), its Debye caloric model, and theta0=343.5 K is our inference, not a confirmed reproduction of the 2020 reduction. The 53 candidate points also use an unconfirmed graphical Hugoniot input and omit 46 higher-compression rows. Their 1.562 GPa RMS agreement with the published curve does not establish recovery of the original data, coefficient parity, or a superior EOS.",
+      "record_identifier": "copper_fratanduono_2020_vinet3_298k",
+      "source_notes": "Central 298 K isotherm row of Table I, using Supplemental S4 Eq. (2). The nearby main-text prose says 300 K, but Table I and S4 explicitly specify 298 K. rho0=8.939 g/cm3 is a prescribed reference density without a reported uncertainty. V0 is converted with 63.546 g/mol and four Cu atoms per conventional fcc cell; the material-card lattice is not substituted for this record reference state. Table S1 contains reduced-isentrope observations, not 298 K isothermal rows. No numerical 298 K fit dataset, weights, coefficient covariance, or confidence level for the Table I coefficient errors is published in the inspected article and supplement. The upper/lower isotherm rows describe separate envelope fits, not coefficient errors or independent 298 K observations. A refit of the published 298 K EOS is not possible with the current information. Fratanduono explicitly describes the Gruneisen prescription for reducing measured stress to the principal isentrope, but does not explicitly specify the Debye isentrope-to-298 K calculation used in our diagnostic. Applying Kraus (2016) Eq. (16), its Debye caloric model, and theta0=343.5 K is our inference, not a confirmed reproduction of the 2020 reduction. The 53 candidate points also use an unconfirmed graphical Hugoniot input and omit 46 higher-compression rows. Their 1.562 GPa RMS agreement with the published curve does not establish recovery of the original data, coefficient parity, or a superior EOS.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
         120.0
@@ -9025,27 +9043,98 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 40,
       "experimental_pressure_range_gpa": [
         0.0,
         15.5
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "fe",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 42,
+      "observed_pressure_range_gpa": [
+        2.786190605963631,
+        15.735215643013111
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        21.72444,
+        23.12581
+      ],
+      "parameters": [
+        {
+          "difference": 0.25148104413369765,
+          "parameter": "K0",
+          "published": 162.1,
+          "published_error": 2.5,
+          "refit": 162.3514810441337,
+          "refit_error": 2.4913739665854386,
+          "relative_difference": 0.001551394473372595,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.05458481358819878,
+          "parameter": "K0_prime",
+          "published": 5.4,
+          "published_error": 0.5,
+          "refit": 5.345415186411802,
+          "refit_error": 0.4926613969210368,
+          "relative_difference": 0.010108298812629403,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "fe_shen_2026_vinet_1",
+      "reduced_chi_square": 0.04856734230968539,
+      "rmse_gpa": 0.21506885344816878,
+      "selection": "bcc-Fe; DAC-1 and DAC-2",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 2.5 GPa and K0' +/- 0.5. The bcc phase data extend to 15.5 GPa.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -10700,27 +10789,98 @@
       "status": "similar"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 226,
       "experimental_pressure_range_gpa": [
         0.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "gold",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 228,
+      "observed_pressure_range_gpa": [
+        3.908992349216304,
+        137.37695008018062
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        48.81535,
+        66.28583
+      ],
+      "parameters": [
+        {
+          "difference": 0.1415018243179702,
+          "parameter": "K0",
+          "published": 167.5,
+          "published_error": 0.3,
+          "refit": 167.64150182431797,
+          "refit_error": 0.2915530235970454,
+          "relative_difference": 0.0008447870108535535,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0061100601143317945,
+          "parameter": "K0_prime",
+          "published": 5.85,
+          "published_error": 0.01,
+          "refit": 5.843889939885668,
+          "refit_error": 0.013201109484799772,
+          "relative_difference": 0.0010444547203985973,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "gold_shen_2026_vinet_3",
+      "reduced_chi_square": 0.1130477996926558,
+      "rmse_gpa": 0.33474789368557756,
+      "selection": "Au; DAC-1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.01. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -11927,27 +12087,98 @@
       "status": "similar"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 378,
       "experimental_pressure_range_gpa": [
         16.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "iron",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 380,
+      "observed_pressure_range_gpa": [
+        15.36098269129744,
+        136.62217040703038
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        15.9849,
+        20.76078
+      ],
+      "parameters": [
+        {
+          "difference": 0.4614301870325619,
+          "parameter": "K0",
+          "published": 168.55,
+          "published_error": 0.6,
+          "refit": 169.01143018703257,
+          "refit_error": 0.4681771067924645,
+          "relative_difference": 0.002737645725497252,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.03244838705685282,
+          "parameter": "K0_prime",
+          "published": 5.53,
+          "published_error": 0.03,
+          "refit": 5.497551612943147,
+          "refit_error": 0.021421011176361592,
+          "relative_difference": 0.005867701095271758,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "iron_shen_2026_vinet_2",
+      "reduced_chi_square": 0.5318610918712517,
+      "rmse_gpa": 0.7273663608984583,
+      "selection": "hcp-Fe; DAC-1 and DAC-2",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.6 GPa and K0' +/- 0.03. The hcp phase data are above 16 GPa.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -19495,27 +19726,98 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 192,
       "experimental_pressure_range_gpa": [
         0.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "mgo",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 194,
+      "observed_pressure_range_gpa": [
+        2.786190605963631,
+        110.25016209196069
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        52.6915,
+        73.25306
+      ],
+      "parameters": [
+        {
+          "difference": -0.07256554341117294,
+          "parameter": "K0",
+          "published": 161.9,
+          "published_error": 0.7,
+          "refit": 161.82743445658883,
+          "refit_error": 0.4531071509476315,
+          "relative_difference": 0.0004482121273080478,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.12641696349790044,
+          "parameter": "K0_prime",
+          "published": 4.08,
+          "published_error": 0.03,
+          "refit": 3.9535830365020996,
+          "refit_error": 0.020515600867831534,
+          "relative_difference": 0.03098454987693638,
+          "similar": true,
+          "within_combined_2sigma": false
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "mgo_shen_2026_vinet_3",
+      "reduced_chi_square": 0.22881936506915648,
+      "rmse_gpa": 0.4758785586078347,
+      "selection": "MgO; DAC-2",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
-      "status": "not_refittable"
+      "status": "similar"
     },
     {
       "dataset_identifiers": [
@@ -21534,27 +21836,98 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 281,
       "experimental_pressure_range_gpa": [
         0.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "molybdenum",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 283,
+      "observed_pressure_range_gpa": [
+        2.786190605963631,
+        110.25016209196069
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        24.11538,
+        30.82583
+      ],
+      "parameters": [
+        {
+          "difference": 0.08691848719098516,
+          "parameter": "K0",
+          "published": 260.6,
+          "published_error": 0.5,
+          "refit": 260.686918487191,
+          "refit_error": 0.4823717097515377,
+          "relative_difference": 0.00033353218415573736,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.006469415415379487,
+          "parameter": "K0_prime",
+          "published": 4.06,
+          "published_error": 0.02,
+          "refit": 4.05353058458462,
+          "refit_error": 0.019482785245388795,
+          "relative_difference": 0.0015934520727535683,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "molybdenum_shen_2026_vinet_1",
+      "reduced_chi_square": 0.17604426863539666,
+      "rmse_gpa": 0.4180910660710567,
+      "selection": "Mo; DAC-1 and DAC-2",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.5 GPa and K0' +/- 0.02. Measurements extend to 140 GPa.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -22279,27 +22652,98 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 53,
       "experimental_pressure_range_gpa": [
         0.0,
         31.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "nacl_b1",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 55,
+      "observed_pressure_range_gpa": [
+        2.786190605963631,
+        29.97672608654248
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        115.96851,
+        162.26096
+      ],
+      "parameters": [
+        {
+          "difference": -0.02575121320878182,
+          "parameter": "K0",
+          "published": 23.5,
+          "published_error": 0.3,
+          "refit": 23.474248786791218,
+          "refit_error": 0.27216361080427626,
+          "relative_difference": 0.0010957963067566732,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.0008991827341109371,
+          "parameter": "K0_prime",
+          "published": 5.23,
+          "published_error": 0.06,
+          "refit": 5.230899182734111,
+          "refit_error": 0.06419770303779525,
+          "relative_difference": 0.0001719278650307719,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "nacl_b1_shen_2026_vinet_1",
+      "reduced_chi_square": 0.04649232785963884,
+      "rmse_gpa": 0.21166411541792335,
+      "selection": "NaCl-B1; DAC-2; Cu pressure below 30 GPa (coexistence excluded)",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -22393,27 +22837,98 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 123,
       "experimental_pressure_range_gpa": [
         33.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 125,
+      "observed_pressure_range_gpa": [
+        35.714233962346135,
+        109.513016319132
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        20.37353,
+        26.63517
+      ],
+      "parameters": [
+        {
+          "difference": 0.5272592483018599,
+          "parameter": "K0",
+          "published": 24.92,
+          "published_error": 0.11,
+          "refit": 25.44725924830186,
+          "refit_error": 0.09134842945874447,
+          "relative_difference": 0.021158075774552962,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -0.04723192996156378,
+          "parameter": "K0_prime",
+          "published": 5.63,
+          "published_error": 0.02,
+          "refit": 5.582768070038436,
+          "refit_error": 0.012651643673731651,
+          "relative_difference": 0.008389330366174738,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "nacl_b2_shen_2026_vinet_2",
+      "reduced_chi_square": 0.08738118968379947,
+      "rmse_gpa": 0.2932287343506067,
+      "selection": "NaCl-B2; DAC-2; Cu pressure above 35 GPa (coexistence excluded)",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa.",
-      "status": "not_refittable"
+      "status": "similar"
     },
     {
       "dataset_identifiers": [],
@@ -24303,25 +24818,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -25372,27 +25887,98 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 385,
       "experimental_pressure_range_gpa": [
         0.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "platinum",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 387,
+      "observed_pressure_range_gpa": [
+        2.786190605963631,
+        110.25016209196069
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        48.231,
+        59.69919
+      ],
+      "parameters": [
+        {
+          "difference": 0.061958425353054736,
+          "parameter": "K0",
+          "published": 261.2,
+          "published_error": 0.5,
+          "refit": 261.26195842535304,
+          "refit_error": 0.4017413030740647,
+          "relative_difference": 0.00023720683519546225,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.027668490595495143,
+          "parameter": "K0_prime",
+          "published": 5.75,
+          "published_error": 0.02,
+          "refit": 5.722331509404505,
+          "refit_error": 0.017290775519673007,
+          "relative_difference": 0.004811911407912199,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "platinum_shen_2026_vinet_2",
+      "reduced_chi_square": 0.14297881716153457,
+      "rmse_gpa": 0.3771470648774993,
+      "selection": "Pt; DAC-2",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.5 GPa and K0' +/- 0.02. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -29225,27 +29811,98 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 196,
       "experimental_pressure_range_gpa": [
         0.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "tantalum",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 198,
+      "observed_pressure_range_gpa": [
+        3.908992349216304,
+        115.7327128590269
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        25.91081,
+        35.50047
+      ],
+      "parameters": [
+        {
+          "difference": 0.10912951825801542,
+          "parameter": "K0",
+          "published": 195.2,
+          "published_error": 0.4,
+          "refit": 195.309129518258,
+          "refit_error": 0.41555346070703497,
+          "relative_difference": 0.000559065155010325,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.006365965117090422,
+          "parameter": "K0_prime",
+          "published": 3.62,
+          "published_error": 0.02,
+          "refit": 3.6136340348829097,
+          "refit_error": 0.016088971213572723,
+          "relative_difference": 0.0017585538997487353,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "tantalum_shen_2026_vinet_2",
+      "reduced_chi_square": 0.13522194443797128,
+      "rmse_gpa": 0.3658634529593317,
+      "selection": "Ta; DAC-1",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit using DAC-1 data; DAC-2 was excluded and V0 was fixed. Reported uncertainties: K0 +/- 0.4 GPa and K0' +/- 0.02.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -30214,27 +30871,98 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
+      "degrees_of_freedom": 333,
       "experimental_pressure_range_gpa": [
         0.0,
         140.0
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "material_identifier": "tungsten",
       "model": "Vinet",
+      "objective": "unweighted_pressure_residuals",
+      "observations": 335,
+      "observed_pressure_range_gpa": [
+        20.358253289699487,
+        136.62217040703038
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        24.35774,
+        29.93479
+      ],
+      "parameters": [
+        {
+          "difference": -2.0785515672698125,
+          "parameter": "K0",
+          "published": 307.0,
+          "published_error": 0.8,
+          "refit": 304.9214484327302,
+          "refit_error": 1.2622063670984367,
+          "relative_difference": 0.006770526277751833,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.09431863814366537,
+          "parameter": "K0_prime",
+          "published": 4.02,
+          "published_error": 0.03,
+          "refit": 4.114318638143665,
+          "refit_error": 0.04138556465536932,
+          "relative_difference": 0.023462347796931685,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_reconstruction": {
+        "density0_g_cm3": 8.939,
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "model": "vinet_3",
+        "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+        "parameters": {
+          "K0_gpa": 133.6,
+          "beta": 2.06,
+          "eta": 6.29,
+          "psi": 1.65
+        },
+        "reference": "Fratanduono et al. (2020)",
+        "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+        "reference_unit_cell_volume_a3": 47.218085048721,
+        "source_locations": [
+          "main article Table I, 298 K isotherm row",
+          "Supplemental Material Eq. (2), Section S4"
+        ]
+      },
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "reason": "The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.",
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "tungsten_shen_2026_vinet_3",
+      "reduced_chi_square": 1.3441008950550573,
+      "rmse_gpa": 1.1558877160431738,
+      "selection": "W; DAC-1 and DAC-2",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
       "source_notes": "Table II Cu-referenced fit combining DAC-1 and DAC-2; V0 fixed. Reported uncertainties: K0 +/- 0.8 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -31648,10 +32376,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 556,
+    "parity": 163,
     "parity_not_achieved": 31,
-    "similar": 62,
-    "total": 813
+    "similar": 64,
+    "total": 814
   }
 }
