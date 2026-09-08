@@ -1,6 +1,6 @@
 # Tranche B mineral EOS audit
 
-Audit date: 2026-09-05. This audit applies a source-owned-fit rule: a production record requires an identifiable material, an executable EOS family, a complete coefficient set, and a fit performed in the cited primary paper. Literature-comparison rows are citation traces, not new records. Values transcribed from primary tables are preserved at source precision; no missing coefficients or compositions are inferred.
+Audit date: 2026-09-08. This audit applies a source-owned-fit rule: a production record requires an identifiable material, an executable EOS family, a complete coefficient set, and a fit performed in the cited primary paper. Literature-comparison rows are citation traces, not new records. Values transcribed from primary tables are preserved at source precision; no missing coefficients or compositions are inferred.
 
 ## Accepted production records
 
@@ -20,7 +20,7 @@ Twenty-five defensible records were added from eleven papers. The analytical cur
 | Liu et al. (2007), doi:10.1088/0953-8984/19/24/246103 | 1 | Primary calculation section and Table 1: source-owned cubic CaSiO3 LDA BM3. |
 | Bykova et al. (2018), doi:10.1038/s41467-018-07265-z | 3 | Official open article and supplement: one published coesite-I/II/III BM3 plus two explicitly derived AM05 BM3 reconstructions from source Tables 10–11. |
 
-The phase-H dataset contains all 12 rows of primary Table 1. Its lattice-derived volumes reproduce the published BM3 with a pressure RMS residual of 0.5462582 GPa and maximum absolute residual of 1.1329591 GPa; the residual is consistent with three-decimal lattice-parameter rounding. The Sagatova Ca-perovskite values are printed per formula unit and multiplied by four for the conventional I4/mcm material-card basis; all other Sagatova Table 2 volumes already use the respective conventional-cell basis. Ricolleau's three thermal records use the stated integrated linear-in-temperature expansivity and linear bulk-modulus temperature derivative, with a 300 K BM2 reference curve. For Bykova's two theoretical high-pressure phases, Supplementary Table 11 prints K0 and K0′ but omits V0. The derived records hold those coefficients fixed and reconstruct only V0 from exact Supplementary Table 10 calculated P–V states. Coesite-IV uses three unambiguously phase-retaining states and reproduces them to 0.080812 GPa RMS; coesite-V is exactly anchored by its tabulated 57 GPa state and checked against the plotted curve. They are marked `derived`, not misrepresented as fully printed parameter triples.
+The phase-H dataset contains all 12 rows of primary Table 1. Its lattice-derived volumes reproduce the published BM3 with a pressure RMS residual of 0.5462582 GPa and maximum absolute residual of 1.1329591 GPa; the residual is consistent with three-decimal lattice-parameter rounding. The Sagatova Ca-perovskite values are printed per formula unit and multiplied by four for the conventional I4/mcm material-card basis; all other Sagatova Table 2 volumes already use the respective conventional-cell basis. Ricolleau's official Table S1 is now bundled losslessly and normalized into all 153 P-V-T rows, including 17 room-temperature and 136 heated observations. Its limiting ferropericlase spin branches reproduce the published V0 values and errors, while exact thermal parity remains qualified because the source omits fit masks, weights, temperature-error treatment, and covariance scaling. The [focused audit](ricolleau-2009-klb1-eos.md) records the full result. For Bykova's two theoretical high-pressure phases, Supplementary Table 11 prints K0 and K0′ but omits V0. The derived records hold those coefficients fixed and reconstruct only V0 from exact Supplementary Table 10 calculated P–V states. Coesite-IV uses three unambiguously phase-retaining states and reproduces them to 0.080812 GPa RMS; coesite-V is exactly anchored by its tabulated 57 GPa state and checked against the plotted curve. They are marked `derived`, not misrepresented as fully printed parameter triples.
 
 ## Row-by-row disposition
 
@@ -150,6 +150,14 @@ The English translation DOI is used as the canonical identifier. The official Ru
 
 The records describe coexisting phases separated from natural KLB-1 pyrolite. Their compositions evolve slightly with pressure and temperature, so the material cards retain sample-specific symbolic formulas instead of inventing fixed endmember stoichiometries.
 
+Official Table S1 contributes all 153 experimental P-V-T rows, every printed
+one-sigma uncertainty, all Au and pressure-medium volumes, and eight secondary
+medium-volume continuation values. The seven 300 K ferropericlase points below
+50 GPa and seven separated points at 74.21-98.36 GPa reproduce the published
+high-spin and low-spin V0 values and errors. The intervening 52.22-54.89 GPa
+points are preserved without an invented branch assignment. See the
+[dedicated numerical audit](ricolleau-2009-klb1-eos.md).
+
 | LitCurate candidate | Origin | Disposition | Reason / production mapping |
 |---|---|---|---|
 | litcurate_8bcba2433560341a | Source | Accept | KLB-1 Mg-perovskite thermal BM2 → `klb1_mg_perovskite_ricolleau_2009_bm2_alphakt`. |
@@ -205,7 +213,7 @@ The complete APS primary PDF was checked. Table I reports a source-owned fourth-
 
 ## Pressure calibration and limitations
 
-The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner identify NaCl as their pressure standard, but the exact calibration equation and complete paired calibrant observations were not resolved, so recalculation is explicitly marked unavailable. Ismailova's exact pressure calibration was likewise left explicitly unresolved. Ricolleau used the Fei et al. (2007) Au scale; recalculation remains unavailable because the paired Table-S1 calibrant observations were not bundled. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
+The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner identify NaCl as their pressure standard, but the exact calibration equation and complete paired calibrant observations were not resolved, so recalculation is explicitly marked unavailable. Ismailova's exact pressure calibration was likewise left explicitly unresolved. Ricolleau used the Fei et al. (2007) Au scale; recalculation is now marked ready because Table S1 supplies Au volume and temperature for every row and `gold_fei_2007_vinet_2` is executable. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
 
 ## Zotero-ready primary-source metadata
 

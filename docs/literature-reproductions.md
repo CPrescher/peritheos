@@ -27,6 +27,10 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+The complete Table S1 transcription, ferropericlase spin-branch reconstruction,
+and staged thermal-BM2 refits for the four KLB-1 records are documented in the
+[Ricolleau et al. (2009) audit](literature-reproductions/ricolleau-2009-klb1-eos.md).
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

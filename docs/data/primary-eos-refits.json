@@ -13444,7 +13444,10 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": true,
+      "dataset_identifiers": [
+        "klb1_ricolleau_2009_table_s1_ca_perovskite_pvt"
+      ],
       "experimental_pressure_range_gpa": [
         30.0,
         111.0
@@ -13453,23 +13456,89 @@
         300.0,
         2569.0
       ],
+      "fit_kind": "staged_source_constrained_thermal_bm2_odr",
       "fixed_parameters": [
         "V0",
         "Tr"
       ],
+      "free_parameters": [
+        "K0",
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
       "label": "Ricolleau et al. (2009), KLB-1 Ca-perovskite thermal BM2",
       "material_identifier": "klb1_ca_perovskite",
       "model": "BM2",
-      "primary_data_finding": "The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.",
-      "primary_data_status": "supplement_available_not_bundled",
+      "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+      "observations": 153,
+      "observed_pressure_range_gpa": [
+        27.56,
+        113.0
+      ],
+      "parameters": [
+        {
+          "difference": -0.3940795770640193,
+          "parameter": "K0",
+          "published": 244.0,
+          "published_error": 1.0,
+          "refit": 243.60592042293598,
+          "refit_error": 1.08505548207279,
+          "relative_difference": 0.0016150802338689317,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 3.993130393900146e-06,
+          "parameter": "alpha0",
+          "published": 3.06e-05,
+          "published_error": 1.9e-06,
+          "refit": 3.4593130393900144e-05,
+          "refit_error": 1.7572725346249276e-06,
+          "relative_difference": 0.13049445731699824,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -3.085766869440798e-09,
+          "parameter": "alpha1",
+          "published": 8.7e-09,
+          "published_error": 1.8e-09,
+          "refit": 5.614233130559202e-09,
+          "refit_error": 1.5534353650788749e-09,
+          "relative_difference": 0.35468584706216066,
+          "similar": false,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.00012956471040056344,
+          "parameter": "dK_dT",
+          "published": -0.035,
+          "published_error": 0.002,
+          "refit": -0.03512956471040057,
+          "refit_error": 0.0013942250325929032,
+          "relative_difference": 0.0037018488685875268,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 153 Ca-perovskite P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties: 17 rows at 300 K and 136 heated rows. The raw source table also preserves Au and pressure-medium volumes.",
+      "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
-      "reason": "The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.",
+      "qualification": "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
       "record_identifier": "klb1_ca_perovskite_ricolleau_2009_bm2_alphakt",
+      "rmse_gpa": 1.7103504794769988,
+      "selection": "all 153 Table S1 P-V-T rows",
+      "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "similar"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": true,
+      "dataset_identifiers": [
+        "klb1_ricolleau_2009_table_s1_ferropericlase_pvt"
+      ],
       "experimental_pressure_range_gpa": [
         30.0,
         112.0
@@ -13478,23 +13547,89 @@
         300.0,
         2569.0
       ],
+      "fit_kind": "staged_source_constrained_thermal_bm2_odr",
       "fixed_parameters": [
         "K0",
         "Tr"
       ],
+      "free_parameters": [
+        "V0",
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
       "label": "Ricolleau et al. (2009), KLB-1 high-spin ferropericlase thermal BM2",
       "material_identifier": "klb1_ferropericlase",
       "model": "BM2",
-      "primary_data_finding": "The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.",
-      "primary_data_status": "supplement_available_not_bundled",
+      "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+      "observations": 136,
+      "observed_pressure_range_gpa": [
+        27.56,
+        113.0
+      ],
+      "parameters": [
+        {
+          "difference": -0.0017210113285131001,
+          "parameter": "V0",
+          "published": 76.44,
+          "published_error": 0.02,
+          "refit": 76.43827898867148,
+          "refit_error": 0.017711803853117408,
+          "relative_difference": 2.2514538572908166e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 5.597289976043395e-06,
+          "parameter": "alpha0",
+          "published": 2.2e-05,
+          "published_error": 2e-06,
+          "refit": 2.7597289976043394e-05,
+          "refit_error": 1.6321859181719822e-06,
+          "relative_difference": 0.25442227163833614,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -5.2252199749639886e-09,
+          "parameter": "alpha1",
+          "published": 3.61e-08,
+          "published_error": 2.7e-09,
+          "refit": 3.087478002503601e-08,
+          "refit_error": 1.9536510121458086e-09,
+          "relative_difference": 0.14474293559457033,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.873114665048442e-05,
+          "parameter": "dK_dT",
+          "published": -0.034,
+          "published_error": 0.001,
+          "refit": -0.03401873114665049,
+          "refit_error": 0.0007067326783047755,
+          "relative_difference": 0.000550916077955424,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 153 ferropericlase P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties. The 17 room-temperature rows preserve both limiting spin branches and the three observed volume-collapse rows; 136 rows are heated.",
+      "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
-      "reason": "The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.",
+      "qualification": "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
       "record_identifier": "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
+      "rmse_gpa": 1.4791143041717107,
+      "selection": "V0 from the seven limiting high-spin 300 K rows; thermal coefficients from all 136 heated rows with published V0 and K0 fixed",
+      "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "similar"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": true,
+      "dataset_identifiers": [
+        "klb1_ricolleau_2009_table_s1_ferropericlase_pvt"
+      ],
       "experimental_pressure_range_gpa": [
         50.0,
         112.0
@@ -13503,22 +13638,52 @@
         300.0,
         300.0
       ],
+      "fit_kind": "staged_source_constrained_thermal_bm2_odr",
       "fixed_parameters": [
         "K0"
+      ],
+      "free_parameters": [
+        "V0"
       ],
       "label": "Ricolleau et al. (2009), KLB-1 low-spin ferropericlase 300 K BM2",
       "material_identifier": "klb1_ferropericlase",
       "model": "BM2",
-      "primary_data_finding": "The source reports the P-V observations in Table S1; this record preserves the Table 1 fit.",
-      "primary_data_status": "supplement_available_not_bundled",
+      "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+      "observations": 7,
+      "observed_pressure_range_gpa": [
+        74.21,
+        98.36
+      ],
+      "parameters": [
+        {
+          "difference": 0.0028803396347854004,
+          "parameter": "V0",
+          "published": 74.04,
+          "published_error": 0.02,
+          "refit": 74.04288033963479,
+          "refit_error": 0.02537519008226588,
+          "relative_difference": 3.890248021049973e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 17 room-temperature ferropericlase P-V observations and their printed one-sigma uncertainties are bundled within the complete 153-row P-V-T table. The crossover observations remain present and explicitly unassigned in the limiting-branch audit.",
+      "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
-      "reason": "The source reports the P-V observations in Table S1; this record preserves the Table 1 fit.",
+      "qualification": "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
       "record_identifier": "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
+      "rmse_gpa": 1.5775129387527014,
+      "selection": "seven limiting low-spin 300 K rows",
+      "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": true,
+      "dataset_identifiers": [
+        "klb1_ricolleau_2009_table_s1_mg_perovskite_pvt"
+      ],
       "experimental_pressure_range_gpa": [
         30.0,
         112.0
@@ -13527,20 +13692,83 @@
         300.0,
         2569.0
       ],
+      "fit_kind": "staged_source_constrained_thermal_bm2_odr",
       "fixed_parameters": [
         "V0",
         "Tr"
       ],
+      "free_parameters": [
+        "K0",
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
       "label": "Ricolleau et al. (2009), KLB-1 Mg-perovskite thermal BM2",
       "material_identifier": "klb1_mg_perovskite",
       "model": "BM2",
-      "primary_data_finding": "The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit.",
-      "primary_data_status": "supplement_available_not_bundled",
+      "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+      "observations": 153,
+      "observed_pressure_range_gpa": [
+        27.56,
+        113.0
+      ],
+      "parameters": [
+        {
+          "difference": 0.19171711850412976,
+          "parameter": "K0",
+          "published": 245.0,
+          "published_error": 1.0,
+          "refit": 245.19171711850413,
+          "refit_error": 0.22423728893259712,
+          "relative_difference": 0.0007825188510372643,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 2.6911708107310364e-06,
+          "parameter": "alpha0",
+          "published": 3.19e-05,
+          "published_error": 1.7e-06,
+          "refit": 3.459117081073104e-05,
+          "refit_error": 1.3225176625324402e-06,
+          "relative_difference": 0.08436272133953092,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -2.2357644529826035e-09,
+          "parameter": "alpha1",
+          "published": 8.8e-09,
+          "published_error": 1.6e-09,
+          "refit": 6.564235547017396e-09,
+          "refit_error": 1.2050653705993899e-09,
+          "relative_difference": 0.2540641423843868,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.00037100963611035737,
+          "parameter": "dK_dT",
+          "published": -0.036,
+          "published_error": 0.001,
+          "refit": -0.036371009636110355,
+          "refit_error": 0.0009805019747781865,
+          "relative_difference": 0.010305823225287706,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 153 Mg-perovskite P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties: 17 rows at 300 K and 136 heated rows. The raw source table also preserves Au and pressure-medium volumes.",
+      "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
-      "reason": "The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit.",
+      "qualification": "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
       "record_identifier": "klb1_mg_perovskite_ricolleau_2009_bm2_alphakt",
+      "rmse_gpa": 1.3064340234776401,
+      "selection": "all 153 Table S1 P-V-T rows",
+      "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -24303,25 +24531,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,10 +31876,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 561,
+    "parity": 157,
     "parity_not_achieved": 31,
-    "similar": 62,
+    "similar": 64,
     "total": 813
   }
 }

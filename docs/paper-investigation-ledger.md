@@ -33,11 +33,11 @@ refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 125 |
+| Reproduced | 126 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
-| Direct refit unavailable | 75 |
+| Direct refit unavailable | 74 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
 
@@ -873,7 +873,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **82 papers** contain 565 records for which a
+These **81 papers** contain 561 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -939,7 +939,6 @@ have other records that were reproduced.
 | [Oganov and Dorogokupets (2003)](https://doi.org/10.1103/physrevb.67.224110) | `mgo_oganov_2003_ecp_large_core_static_bm3`, `mgo_oganov_2003_ecp_small_core_static_bm3`, `mgo_oganov_2003_paw_large_core_static_bm3`, `mgo_oganov_2003_pressure_corrected_0k_bm3`, `mgo_oganov_2003_pressure_corrected_1000k_bm3`, `mgo_oganov_2003_pressure_corrected_2000k_bm3`, `mgo_oganov_2003_pressure_corrected_298k_bm3`, `mgo_oganov_2003_pressure_corrected_3000k_bm3`, `mgo_oganov_2003_pressure_corrected_4000k_bm3` | The complete coefficients are tabulated but the fitted energy-volume grid is not published. No numerical energy-volume grid is published. The coefficients and plotted curve are published; no row-level thermal grid is deposited. No row-level thermal grid is published. Coefficients and curve are published; underlying thermal grid is not. |
 | [Ono (2013)](https://doi.org/10.3390/e15104300) | `ca_perovskite_ono_2013_bm3_log_thermal` | The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance. |
 | [Redfern et al. (1993)](https://doi.org/10.1029/93gl02507) | `mg0991fe0008mn0001co3_redfern_1993_bm2_1`, `mg0991fe0008mn0001co3_redfern_1993_bm3_2` | The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented. |
-| [Ricolleau et al. (2009)](https://doi.org/10.1029/2008gl036759) | `klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`, `klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`, `klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`, `klb1_mg_perovskite_ricolleau_2009_bm2_alphakt` | The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit. The source reports the P-V observations in Table S1; this record preserves the Table 1 fit. The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit. |
 | [Sagatova et al. (2021)](https://doi.org/10.1134/s0016702921080073) | `breyite_sagatova_2021_gga_300k_vinet`, `ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet`, `ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet`, `casio2o5_titanite_sagatova_2021_gga_300k_vinet`, `larnite_sagatova_2021_gga_300k_vinet`, `pseudowollastonite_sagatova_2021_gga_300k_vinet`, `wollastonite_sagatova_2021_gga_300k_vinet` | Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated. |
 | [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | `copper_sakai_2025_rydberg_stacey_1`, `gold_sakai_2025_rydberg_stacey_1`, `iron_sakai_2025_rydberg_stacey_1`, `mgo_sakai_2025_rydberg_stacey_1`, `molybdenum_sakai_2025_rydberg_stacey_1`, `nacl_b2_sakai_2025_rydberg_stacey_1`, `platinum_sakai_2025_rydberg_stacey_1`, `rhenium_sakai_2025_rydberg_stacey_1`, `tungsten_sakai_2025_rydberg_stacey_1` | The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [Schoelmerich et al. (2020)](https://doi.org/10.1038/s41598-020-66340-y) | `stishovite_schoelmerich_2020_shock_300k_bm3` | Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification. |
@@ -1195,7 +1194,7 @@ the primary-source and refit ledgers.
 | [Reynard et al. (1996)](https://doi.org/10.2138/am-1996-1-206) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Richet et al. (1988)](https://doi.org/10.1029/jb093ib12p15279) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Richet et al. (1989)](https://doi.org/10.1029/jb094ib03p03037) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Ricolleau et al. (2009)](https://doi.org/10.1029/2008gl036759) | Direct refit unavailable | 4 | 4 direct refit unavailable |  |
+| [Ricolleau et al. (2009)](https://doi.org/10.1029/2008gl036759) | Reproduced | 4 | 2 parity; 2 similar | 4 bundled |
 | [Rodrigo-Ramon et al. (2024)](https://doi.org/10.1038/s41598-024-78006-0) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Ross (1997)](https://doi.org/10.2138/am-1997-7-805) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Ross and Angel (1999)](https://doi.org/10.2138/am-1999-0309) | Reproduced | 2 | 2 parity | 2 bundled |

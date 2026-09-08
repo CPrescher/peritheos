@@ -36,6 +36,7 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+RICOLLEAU_REFIT_JSON = ROOT / "docs" / "data" / "ricolleau-2009-klb1-eos-refit.json"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -2391,8 +2392,106 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _ricolleau_2009_outcome(
+    record: dict[str, Any], refit: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the dedicated staged KLB-1 audit into the common ledger."""
+    record_id = record["identifier"]
+    thermal_record = "thermal_fit" in refit or record["equation_kind"] == "thermal"
+    stages = [
+        refit[name] for name in ("static_fit", "fit", "thermal_fit") if name in refit
+    ]
+    fitted: dict[str, float] = {}
+    fitted_errors: dict[str, float] = {}
+    for stage in stages:
+        fitted.update(stage["parameters"])
+        fitted_errors.update(stage["standard_errors"])
+
+    published: dict[str, float] = {}
+    published_errors: dict[str, float] = {}
+    for name, value in record["eos"]["parameters"].items():
+        if name in fitted:
+            published[name] = float(value)
+            error = record.get("parameter_errors", {}).get(name)
+            if error is not None:
+                published_errors[name] = float(error)
+    if thermal_record:
+        for name, value in record["thermal"]["parameters"].items():
+            if name in fitted:
+                published[name] = float(value)
+                error = record["thermal"].get("parameter_errors", {}).get(name)
+                if error is not None:
+                    published_errors[name] = float(error)
+
+    comparisons = []
+    for name, value in published.items():
+        difference = fitted[name] - value
+        source_error = published_errors.get(name)
+        refit_error = fitted_errors.get(name)
+        combined = (
+            math.hypot(source_error, refit_error)
+            if source_error is not None and refit_error is not None
+            else None
+        )
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": value,
+                "published_error": source_error,
+                "refit": fitted[name],
+                "refit_error": refit_error,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(value),
+                "within_combined_2sigma": (
+                    abs(difference) <= 2.0 * combined if combined is not None else None
+                ),
+                "similar": _similar(name, value, fitted[name]),
+            }
+        )
+    if not comparisons or not all(
+        item["similar"] or item["within_combined_2sigma"] is True
+        for item in comparisons
+    ):
+        raise AssertionError(f"dedicated Ricolleau audit diverged for {record_id}")
+    parity = all(
+        item["similar"] and item["within_combined_2sigma"] is True
+        for item in comparisons
+    )
+    status = "parity" if parity else "similar"
+    observations = max(stage["observations"] for stage in stages)
+    pressure_min = min(stage["pressure_range_gpa"][0] for stage in stages)
+    pressure_max = max(stage["pressure_range_gpa"][1] for stage in stages)
+    return {
+        "status": status,
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": observations,
+        "selection": refit["stage"],
+        "observed_pressure_range_gpa": [pressure_min, pressure_max],
+        "fit_kind": "staged_source_constrained_thermal_bm2_odr",
+        "objective": (
+            "orthogonal distance regression using printed pressure and volume "
+            "sigmas; temperature held fixed"
+        ),
+        "absolute_sigma": True,
+        "free_parameters": list(published),
+        "parameters": comparisons,
+        "rmse_gpa": stages[-1]["vertical_pressure_rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+        "qualification": (
+            "The complete source table is bundled. Limiting ferropericlase spin "
+            "branches reproduce the published V0 values and printed errors; exact "
+            "thermal parity remains conditional because the source does not state "
+            "row flags, weights, temperature-error treatment, or covariance scaling."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
+    ricolleau_refits = json.loads(RICOLLEAU_REFIT_JSON.read_text(encoding="utf-8"))[
+        "record_refits"
+    ]
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2427,7 +2526,15 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if (
+                record["identifier"] in ricolleau_refits
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _ricolleau_2009_outcome(
+                    record, ricolleau_refits[record["identifier"]]
+                )
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

@@ -89,6 +89,21 @@
      "Tr"
     ]
    },
+   "fit_datasets": [
+    "klb1_ricolleau_2009_table_s1_mg_perovskite_pvt"
+   ],
+   "fit_provenance": {
+    "software": {"name": "Peritheos/SciPy ODR", "version": "0.7.0"},
+    "dataset": "klb1_ricolleau_2009_table_s1_mg_perovskite_pvt",
+    "selection": {"predicate": "all 153 Table S1 rows", "included_rows": 153, "excluded_rows": 0, "qualification": "The paper does not publish row exclusions; this audit selection is not asserted to be the authors' undocumented exact selection."},
+    "objective": "Orthogonal distance regression with printed one-sigma P and Mg-perovskite volume uncertainties; temperatures held fixed.",
+    "weights": ["pressure_sigma_gpa", "mg_perovskite_volume_sigma_a3"],
+    "refined_parameters": ["K0", "dK_dT", "alpha0", "alpha1"],
+    "fixed_parameters": ["V0", "K0_prime", "Tr"],
+    "covariance_scaling": "Unscaled ODR covariance from printed observation sigmas; the paper's convention is unreported.",
+    "statistics": {"observations": 153, "vertical_pressure_rmse_gpa": 1.3064340234776401, "odr_residual_variance": 10.698523274453306},
+    "reproduction": {"result": "docs/data/ricolleau-2009-klb1-eos-refit.json", "qualification": "The paper does not state its weighting, temperature-error treatment, or covariance scaling."}
+   },
    "experimental_pressure_range_gpa": [
     30.0,
     112.0
@@ -122,6 +137,8 @@
     "methods": [
      {
       "kind": "equation_of_state",
+      "material": "Au",
+      "reference_eos_record": "gold_fei_2007_vinet_2",
       "reference": {
        "authors": [
         "Fei",
@@ -142,15 +159,15 @@
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The official Table S1 was not bundled in this audit."
+     "status": "ready",
+     "notes": "Official Table S1 supplies temperature plus row-wise Au volume and uncertainty for every observation, and gold_fei_2007_vinet_2 is executable. Direct re-reduction is ready but differs from the printed pressures by 0.701 GPa RMS (mean +0.669 GPa); no undocumented correction is inferred."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -167,17 +184,76 @@
       "Experimental Procedure",
       "Section 3",
       "Table 1",
-      "Supporting Information description"
+      "Supporting Information readme and Table S1"
      ],
      "finding": "One independent thermal BM2 fit for KLB-1 Mg-perovskite."
     },
     "primary_data_check": {
-     "status": "supplement_available_not_bundled",
-     "audit_date": "2026-09-05",
-     "finding": "The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit."
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "klb1_ricolleau_2009_table_s1_mg_perovskite_pvt"
+     ],
+     "source_locations": [
+      "Official Supporting Information readme and Table S1"
+     ],
+     "finding": "All 153 Mg-perovskite P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties: 17 rows at 300 K and 136 heated rows. The raw source table also preserves Au and pressure-medium volumes."
     }
    }
   }
  ],
- "datasets": []
+ "datasets": [
+  {
+   "identifier": "klb1_ricolleau_2009_table_s1_mg_perovskite_pvt",
+   "kind": "calibrated_pressure_volume_temperature",
+   "description": "Complete Ricolleau et al. (2009) Table S1 P-V-T series, projected onto the KLB-1 Mg-perovskite volume column.",
+   "reference": {
+    "authors": ["Ricolleau", "Fei", "Cottrell", "Watson", "Deng", "Zhang", "Fiquet", "Auzende", "Roskosz", "Morard", "Prakapenka"],
+    "year": 2009,
+    "source": "Geophysical Research Letters",
+    "volume": "36",
+    "locator": "L06302",
+    "doi": "10.1029/2008GL036759"
+   },
+   "source_location": "Official Supporting Information Table S1",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2008GL036759&file=grl25568-sup-0002-ts01.txt",
+   "columns": [
+    {"name": "source_line", "quantity": "source_row", "unit": "1", "role": "flag"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_sigma_gpa", "quantity": "pressure", "unit": "GPa", "role": "standard_deviation", "of": "pressure_gpa"},
+    {"name": "mg_perovskite_volume_a3", "quantity": "mg_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "mg_perovskite_volume_sigma_a3", "quantity": "mg_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "mg_perovskite_volume_a3"},
+    {"name": "ferropericlase_volume_a3", "quantity": "ferropericlase_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "ferropericlase_volume_sigma_a3", "quantity": "ferropericlase_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "ferropericlase_volume_a3"},
+    {"name": "ca_perovskite_volume_a3", "quantity": "ca_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "ca_perovskite_volume_sigma_a3", "quantity": "ca_perovskite_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "ca_perovskite_volume_a3"},
+    {"name": "pressure_medium_volume_a3", "quantity": "pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "pressure_medium_volume_sigma_a3", "quantity": "pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "pressure_medium_volume_a3"},
+    {"name": "pressure_medium_volume_2_a3", "quantity": "secondary_pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "pressure_medium_volume_2_sigma_a3", "quantity": "secondary_pressure_medium_conventional_unit_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "pressure_medium_volume_2_a3"},
+    {"name": "gold_volume_a3", "quantity": "gold_calibrant_conventional_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "gold_volume_sigma_a3", "quantity": "gold_calibrant_conventional_cell_volume", "unit": "angstrom^3", "role": "standard_deviation", "of": "gold_volume_a3"}
+   ],
+   "resource": {
+    "path": "datasets/klb1-ricolleau-2009-table-s1-pvt.csv",
+    "sha256": "9d33c2a4c8ca7b4e4bc9d83e8881d89d7a0f41f42a252150e1d2fb360d77380f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "klb1_mg_perovskite_ricolleau_2009_bm2_alphakt"
+   ],
+   "uncertainty": {
+    "reported_as": "Table S1 parenthetical one-sigma values expanded according to the printed decimal precision.",
+    "covariance": "not_reported"
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Lossless field extraction from the publisher's plain-text Table S1; the complete source text, labels, footnotes, and secondary medium volumes are retained in datasets/klb1-ricolleau-2009-table-s1.tsv.",
+    "transcribed_on": "2026-09-08",
+    "raw_resource_sha256": "e3f504dcb8953dbd6ef0cc0d341090a05116d32c865b748b9c95173fb94e7aa1",
+    "publisher_download_sha256": "2900b2d436207ae4a62289b8fe9464a714f1a538fb7dc08f76651b7bd5d9d4d9"
+   }
+  }
+ ]
 }

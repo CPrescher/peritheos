@@ -1,0 +1,215 @@
+{
+  "conclusion": {
+    "irreducible_blocker": "Exact numerical parity for the authors' thermal regressions cannot be claimed without their row exclusions (if any), weighting or objective, temperature-error treatment, and covariance convention.",
+    "static_spin_branches": "The errors-in-variables reconstruction reproduces both published V0 values and their 0.02 A^3 uncertainties to printed rounding.",
+    "thermal_fits": "The source-constrained reconstruction is uncertainty-compatible with every published thermal coefficient except ferropericlase alpha0, which is just outside combined 2-sigma but remains within the ledger's 30% thermal-coefficient similarity criterion."
+  },
+  "format": "peritheos.ricolleau-2009-klb1-eos-audit",
+  "format_version": 1,
+  "generated_with": "scripts/audit_ricolleau_2009_klb1_eos.py",
+  "observations": {
+    "heated": 136,
+    "room_temperature": 17,
+    "secondary_pressure_medium_volumes": 8,
+    "total": 153
+  },
+  "pressure_recalculation": {
+    "observations": 153,
+    "qualification": "All raw inputs needed for re-reduction are present. The executable published Fei et al. parameterization closely tracks but does not exactly reproduce the printed pressures; no undocumented correction or alternate implementation is inferred.",
+    "recalculated_minus_published_max_abs_gpa": 0.9410996839322365,
+    "recalculated_minus_published_mean_gpa": 0.6688880182403851,
+    "recalculated_minus_published_rmse_gpa": 0.701333520724937,
+    "reference_eos_record": "gold_fei_2007_vinet_2"
+  },
+  "protocol": {
+    "equation": "BM2 (K0_prime=4) with K(T)=K0+dK_dT*(T-300 K)",
+    "objective": "orthogonal distance regression using printed 1-sigma pressure and phase-volume uncertainties; temperature held fixed",
+    "qualification": "The paper specifies BM2, fixed coefficients, and alpha(T), but does not state its regression objective, weights, treatment of temperature uncertainty, complete row selection, or covariance scaling. This is a source-constrained reconstruction, not an assertion of the authors' undocumented numerical implementation.",
+    "reference_volume_law": "V0(T)=V0*exp[alpha0*(T-300 K)+0.5*alpha1*(T^2-300^2 K^2)]",
+    "uncertainty": "unscaled parameter covariance from the printed observation sigmas; no residual-variance rescaling"
+  },
+  "record_refits": {
+    "klb1_ca_perovskite_ricolleau_2009_bm2_alphakt": {
+      "fit": {
+        "fixed_parameters": {
+          "K0_prime": 4.0,
+          "V0": 45.6
+        },
+        "observations": 153,
+        "parameters": {
+          "K0": 243.60592042293598,
+          "alpha0": 3.4593130393900144e-05,
+          "alpha1": 5.614233130559202e-09,
+          "dK_dT": -0.03512956471040057
+        },
+        "pressure_range_gpa": [
+          27.56,
+          113.0
+        ],
+        "residual_variance": 1.1305644210637933,
+        "solver_stop_reason": [
+          "Sum of squares convergence"
+        ],
+        "standard_errors": {
+          "K0": 1.08505548207279,
+          "alpha0": 1.7572725346249276e-06,
+          "alpha1": 1.5534353650788749e-09,
+          "dK_dT": 0.0013942250325929032
+        },
+        "temperature_range_k": [
+          300.0,
+          2569.0
+        ],
+        "vertical_pressure_rmse_gpa": 1.7103504794769988
+      },
+      "stage": "all 153 Table S1 P-V-T rows"
+    },
+    "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt": {
+      "stage": "V0 from the seven limiting high-spin 300 K rows; thermal coefficients from all 136 heated rows with published V0 and K0 fixed",
+      "static_fit": {
+        "fixed_parameters": {
+          "K0": 158.0,
+          "K0_prime": 4.0
+        },
+        "observations": 7,
+        "parameters": {
+          "V0": 76.43827898867148
+        },
+        "pressure_range_gpa": [
+          27.56,
+          43.39
+        ],
+        "residual_variance": 30.539507282726717,
+        "solver_stop_reason": [
+          "Sum of squares convergence"
+        ],
+        "standard_errors": {
+          "V0": 0.017711803853117408
+        },
+        "vertical_pressure_rmse_gpa": 1.260213389381181
+      },
+      "thermal_fit": {
+        "fixed_parameters": {
+          "K0": 158.0,
+          "K0_prime": 4.0,
+          "V0": 76.44
+        },
+        "observations": 136,
+        "parameters": {
+          "alpha0": 2.7597289976043394e-05,
+          "alpha1": 3.087478002503601e-08,
+          "dK_dT": -0.03401873114665049
+        },
+        "pressure_range_gpa": [
+          32.03,
+          113.0
+        ],
+        "residual_variance": 1.1755267296901075,
+        "solver_stop_reason": [
+          "Sum of squares convergence"
+        ],
+        "standard_errors": {
+          "alpha0": 1.6321859181719822e-06,
+          "alpha1": 1.9536510121458086e-09,
+          "dK_dT": 0.0007067326783047755
+        },
+        "temperature_range_k": [
+          1343.0,
+          2569.0
+        ],
+        "vertical_pressure_rmse_gpa": 1.4791143041717107
+      }
+    },
+    "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2": {
+      "fit": {
+        "fixed_parameters": {
+          "K0": 170.0,
+          "K0_prime": 4.0
+        },
+        "observations": 7,
+        "parameters": {
+          "V0": 74.04288033963479
+        },
+        "pressure_range_gpa": [
+          74.21,
+          98.36
+        ],
+        "residual_variance": 12.44665116091329,
+        "solver_stop_reason": [
+          "Sum of squares convergence"
+        ],
+        "standard_errors": {
+          "V0": 0.02537519008226588
+        },
+        "vertical_pressure_rmse_gpa": 1.5775129387527014
+      },
+      "stage": "seven limiting low-spin 300 K rows"
+    },
+    "klb1_mg_perovskite_ricolleau_2009_bm2_alphakt": {
+      "fit": {
+        "fixed_parameters": {
+          "K0_prime": 4.0,
+          "V0": 164.0
+        },
+        "observations": 153,
+        "parameters": {
+          "K0": 245.19171711850413,
+          "alpha0": 3.459117081073104e-05,
+          "alpha1": 6.564235547017396e-09,
+          "dK_dT": -0.036371009636110355
+        },
+        "pressure_range_gpa": [
+          27.56,
+          113.0
+        ],
+        "residual_variance": 10.698523274453306,
+        "solver_stop_reason": [
+          "Sum of squares convergence"
+        ],
+        "standard_errors": {
+          "K0": 0.22423728893259712,
+          "alpha0": 1.3225176625324402e-06,
+          "alpha1": 1.2050653705993899e-09,
+          "dK_dT": 0.0009805019747781865
+        },
+        "temperature_range_k": [
+          300.0,
+          2569.0
+        ],
+        "vertical_pressure_rmse_gpa": 1.3064340234776401
+      },
+      "stage": "all 153 Table S1 P-V-T rows"
+    }
+  },
+  "source": {
+    "doi": "10.1029/2008GL036759",
+    "download_name": "grl25568-sup-0002-ts01.txt",
+    "location": "Official Supporting Information Table S1",
+    "normalized_table": "peritheos/data/datasets/klb1-ricolleau-2009-table-s1-pvt.csv",
+    "normalized_table_sha256": "9d33c2a4c8ca7b4e4bc9d83e8881d89d7a0f41f42a252150e1d2fb360d77380f",
+    "raw_table": "peritheos/data/datasets/klb1-ricolleau-2009-table-s1.tsv",
+    "raw_table_sha256": "e3f504dcb8953dbd6ef0cc0d341090a05116d32c865b748b9c95173fb94e7aa1"
+  },
+  "spin_selection": {
+    "high_spin_limiting_branch": {
+      "basis": "The article places the room-temperature volume contraction at about 50 GPa; these seven rows lie wholly below it.",
+      "observations": 7,
+      "rule": "300 K and reported pressure below 50 GPa"
+    },
+    "low_spin_limiting_branch": {
+      "basis": "The next seven 300 K rows form the separated high-pressure limiting branch. The 70 GPa boundary labels the observed sampling gap; it is not claimed as a published transition cutoff.",
+      "observations": 7,
+      "rule": "300 K and reported pressure at or above 70 GPa"
+    },
+    "unassigned_crossover": {
+      "basis": "These three printed rows occupy the observed volume-collapse interval and are retained without inventing a spin assignment.",
+      "observations": 3,
+      "pressures_gpa": [
+        52.22,
+        53.0,
+        54.89
+      ],
+      "rule": "300 K and reported pressure from 50 to below 70 GPa"
+    }
+  }
+}

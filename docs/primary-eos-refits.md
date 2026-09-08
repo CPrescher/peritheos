@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **157** achieve uncertainty parity, **64** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **561** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -361,10 +361,10 @@ use `--check` in continuous integration to detect stale generated files.
 | [`kf_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`ki_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`ki_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit. |
-| [`klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit. |
-| [`klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports the P-V observations in Table S1; this record preserves the Table 1 fit. |
-| [`klb1_mg_perovskite_ricolleau_2009_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit. |
+| [`klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `klb1_ricolleau_2009_table_s1_ca_perovskite_pvt` | 153 | `K0` 244 → 243.606; `alpha0` 3.06e-05 → 3.45931e-05; `alpha1` 8.7e-09 → 5.61423e-09; `dK_dT` -0.035 → -0.0351296 | —/1.71035 | [similar](#investigation-klb1_ca_perovskite_ricolleau_2009_bm2_alphakt) — The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling. |
+| [`klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `klb1_ricolleau_2009_table_s1_ferropericlase_pvt` | 136 | `V0` 76.44 → 76.4383; `alpha0` 2.2e-05 → 2.75973e-05; `alpha1` 3.61e-08 → 3.08748e-08; `dK_dT` -0.034 → -0.0340187 | —/1.47911 | [similar](#investigation-klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt) — The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling. |
+| [`klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `klb1_ricolleau_2009_table_s1_ferropericlase_pvt` | 7 | `V0` 74.04 → 74.0429 | —/1.57751 | parity — The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling. |
+| [`klb1_mg_perovskite_ricolleau_2009_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `klb1_ricolleau_2009_table_s1_mg_perovskite_pvt` | 153 | `K0` 245 → 245.192; `alpha0` 3.19e-05 → 3.45912e-05; `alpha1` 8.8e-09 → 6.56424e-09; `dK_dT` -0.036 → -0.036371 | —/1.30643 | parity — The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling. |
 | [`larnite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
 | [`lead_fcc_fortes_2019_bm4_1`](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | `parameterization_only` | — | — | —/— | not_refittable — Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations. |
 | [`lead_fcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
@@ -957,7 +957,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **95** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -1802,6 +1802,47 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-klb1_ca_perovskite_ricolleau_2009_bm2_alphakt"></a>
+
+### `klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`
+
+**Classification:** `similar`. **Model:** `BM2`. **Data:** `klb1_ricolleau_2009_table_s1_ca_perovskite_pvt` with 153 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 244 | 243.606 ± 1.08506 | 0.16% | yes | yes |
+| `alpha0` | 3.06e-05 | 3.45931e-05 ± 1.75727e-06 | 13.05% | yes | yes |
+| `alpha1` | 8.7e-09 | 5.61423e-09 ± 1.55344e-09 | 35.47% | yes | no |
+| `dK_dT` | -0.035 | -0.0351296 ± 0.00139423 | 0.37% | yes | yes |
+
+**Fit diagnostics.** Observed pressure range: 27.56-113 GPa; source-declared range: 30-111 GPa; fit kind: `staged_source_constrained_thermal_bm2_odr`; objective: `orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed`; published/refit pressure RMSE: —/1.71035 GPa; reduced chi-square: —; free parameters: `K0, alpha0, alpha1, dK_dT`; source-fixed parameters: `V0, Tr`.
+
+**Source/data scope.** All 153 Ca-perovskite P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties: 17 rows at 300 K and 136 heated rows. The raw source table also preserves Au and pressure-medium volumes.
+
+**Assessment and likely origin.**
+- The point estimate exceeds the numerical limit for `alpha1`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
+
+<a id="investigation-klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt"></a>
+
+### `klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`
+
+**Classification:** `similar`. **Model:** `BM2`. **Data:** `klb1_ricolleau_2009_table_s1_ferropericlase_pvt` with 136 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 76.44 | 76.4383 ± 0.0177118 | 0.00% | yes | yes |
+| `alpha0` | 2.2e-05 | 2.75973e-05 ± 1.63219e-06 | 25.44% | no | yes |
+| `alpha1` | 3.61e-08 | 3.08748e-08 ± 1.95365e-09 | 14.47% | yes | yes |
+| `dK_dT` | -0.034 | -0.0340187 ± 0.000706733 | 0.06% | yes | yes |
+
+**Fit diagnostics.** Observed pressure range: 27.56-113 GPa; source-declared range: 30-112 GPa; fit kind: `staged_source_constrained_thermal_bm2_odr`; objective: `orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed`; published/refit pressure RMSE: —/1.47911 GPa; reduced chi-square: —; free parameters: `V0, alpha0, alpha1, dK_dT`; source-fixed parameters: `K0, Tr`.
+
+**Source/data scope.** All 153 ferropericlase P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties. The 17 room-temperature rows preserve both limiting spin branches and the three observed volume-collapse rows; 136 rows are heated.
+
+**Assessment and likely origin.**
+- The magnitude is similar for `alpha0`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
+- The lowest checked pressure is 27.56 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 
 <a id="investigation-lead_hcp_dewaele_2019_mao_vinet"></a>
 
@@ -3151,10 +3192,6 @@ the missing source fit detail is recovered.
 - `kf_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `ki_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `ki_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`: The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.
-- `klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`: The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.
-- `klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`: The source reports the P-V observations in Table S1; this record preserves the Table 1 fit.
-- `klb1_mg_perovskite_ricolleau_2009_bm2_alphakt`: The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit.
 - `larnite_sagatova_2021_gga_300k_vinet`: Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.
 - `lead_fcc_fortes_2019_bm4_1`: Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations.
 - `lead_fcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.

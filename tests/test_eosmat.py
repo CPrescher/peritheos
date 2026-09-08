@@ -217,6 +217,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -303,6 +304,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-09-04",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     assert native_identifiers == (
         legacy_native_identifiers
@@ -824,6 +826,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
