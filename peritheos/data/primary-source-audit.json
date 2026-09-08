@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 813,
-    "primary_source_validated": 813
+    "records": 819,
+    "primary_source_validated": 819
   },
   "records": [
     {
@@ -6914,6 +6914,29 @@
       }
     },
     {
+      "material": "mg042fe058o",
+      "file": "mg042fe058o.eosmat",
+      "record": "mg042fe058o_fei_2007_hs_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
       "material": "mg0490fe0483ti0027o",
       "file": "mg0490fe0483ti0027o.eosmat",
       "record": "mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1",
@@ -7117,6 +7140,52 @@
         ],
         "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
       }
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_fei_2007_hs_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_fei_2007_ls_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
     },
     {
       "material": "mg0625fe0375o",
@@ -7362,6 +7431,75 @@
         ],
         "finding": "The source reports one composition-specific, three-parameter high-spin Birch-Murnaghan fit to its Fe20 data below 40 GPa."
       }
+    },
+    {
+      "material": "mg080fe020o",
+      "file": "mg080fe020o.eosmat",
+      "record": "mg080fe020o_fei_2007_hs_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
+      "material": "mg080fe020o",
+      "file": "mg080fe020o.eosmat",
+      "record": "mg080fe020o_fei_2007_ls_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
+      "material": "mg080fe020o",
+      "file": "mg080fe020o.eosmat",
+      "record": "mg080fe020o_fei_2007_ls_b1_bm3_refit",
+      "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Primary observations, equation and units checked against Fei; new stored parameters are an explicit independently reproduced Peritheos refit, not a published Fei coefficient set.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Fei Figure 1 and paragraph 14 publish V0=74.2(1), K0=170(3), K0-prime=4 for fp20 LS. This record instead stores a Peritheos refit to the official Table S1 over that approximate pressure interval; no refitted coefficient is attributed to Fei.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
     },
     {
       "material": "mg080fe020sio3_bridgmanite",

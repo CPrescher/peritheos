@@ -15260,6 +15260,74 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg042fe058o_fei_2007_table_s3_pv"
+      ],
+      "degrees_of_freedom": 6,
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "independent_validation_refit",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3",
+      "material_identifier": "mg042fe058o",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 7,
+      "observed_pressure_range_gpa": [
+        9.37,
+        42.75
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        65.4605720236,
+        75.2262680963
+      ],
+      "parameters": [
+        {
+          "difference": 0.17737026377804455,
+          "parameter": "K0",
+          "published": 153.0,
+          "published_error": null,
+          "refit": 153.17737026377804,
+          "refit_error": 1.4284155273762704,
+          "relative_difference": 0.0011592827697911407,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context. For mw58, validation assumes the caption's approximate 42 GPa limit includes the tabulated 42.75 GPa B1 row; all seven points below the 44 GPa structural transition enter.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2007GL030712",
+      "published_rmse_gpa": 0.48788067826156556,
+      "qualification": "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+      "record_identifier": "mg042fe058o_fei_2007_hs_b1_bm3",
+      "reduced_chi_square": 0.2769870107861836,
+      "rmse_gpa": 0.4872550028647513,
+      "selection": "Validation uses all seven compression rows through 42.75 GPa. As agreed with the user, assume the Figure 3 caption's approximate 42 GPa upper limit includes the tabulated 42.75 GPa B1 point. This is an explicit rounded-endpoint interpretation, not confirmation of the authors' exact row mask or weights. Rows at and above 44 GPa remain excluded because of the cubic-rhombohedral transition.",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "status": "similar",
+      "validation_fixed_parameters": {
+        "K0_prime": 4.0,
+        "V0": 79.36
+      }
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -15829,6 +15897,153 @@
       "record_identifier": "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
       "source_notes": null,
       "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg061fe039o_fei_2007_table_s2_pv"
+      ],
+      "degrees_of_freedom": 12,
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "independent_validation_refit",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
+      "material_identifier": "mg061fe039o",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 13,
+      "observed_pressure_range_gpa": [
+        -0.1,
+        51.44
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        62.3157935581,
+        77.4940292961
+      ],
+      "parameters": [
+        {
+          "difference": -0.16726751932384332,
+          "parameter": "K0",
+          "published": 156.0,
+          "published_error": 2.0,
+          "refit": 155.83273248067616,
+          "refit_error": 1.3806094377988103,
+          "relative_difference": 0.0010722276879733545,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2007GL030712",
+      "published_rmse_gpa": 0.9370626385443614,
+      "qualification": "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+      "record_identifier": "mg061fe039o_fei_2007_hs_b1_bm3",
+      "reduced_chi_square": 0.9500980861151742,
+      "rmse_gpa": 0.9364900522442662,
+      "selection": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published.",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "status": "parity",
+      "validation_fixed_parameters": {
+        "K0_prime": 4.0,
+        "V0": 77.48
+      }
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg061fe039o_fei_2007_table_s2_pv"
+      ],
+      "degrees_of_freedom": 22,
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "independent_validation_refit",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
+      "material_identifier": "mg061fe039o",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 24,
+      "observed_pressure_range_gpa": [
+        65.84,
+        147.77
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        50.0557409639,
+        58.2125791852
+      ],
+      "parameters": [
+        {
+          "difference": -0.006548407633843567,
+          "parameter": "V0",
+          "published": 73.6,
+          "published_error": 0.1,
+          "refit": 73.59345159236615,
+          "refit_error": 0.3389615298146553,
+          "relative_difference": 8.897292980765717e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 6.653440494268352,
+          "parameter": "K0",
+          "published": 170.0,
+          "published_error": 3.0,
+          "refit": 176.65344049426835,
+          "refit_error": 4.176091177795574,
+          "relative_difference": 0.03913788526040207,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2007GL030712",
+      "published_rmse_gpa": 4.047495658376884,
+      "qualification": "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+      "record_identifier": "mg061fe039o_fei_2007_ls_b1_bm3",
+      "reduced_chi_square": 1.0188904177808817,
+      "rmse_gpa": 0.9664278984827623,
+      "selection": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "status": "parity",
+      "validation_fixed_parameters": {
+        "K0_prime": 4.0
+      }
     },
     {
       "dataset_identifiers": [],
@@ -16418,6 +16633,235 @@
       "solver_success": true,
       "source_notes": "All three EOS coefficients were fitted. Parenthetical errors are preserved exactly; their confidence convention and covariance are not reported.",
       "status": "similar"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg080fe020o_fei_2007_table_s1_pv"
+      ],
+      "degrees_of_freedom": 20,
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "independent_validation_refit",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
+      "material_identifier": "mg080fe020o",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 21,
+      "observed_pressure_range_gpa": [
+        0.54,
+        34.46
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        64.727539563,
+        75.8104951523
+      ],
+      "parameters": [
+        {
+          "difference": -0.7636124502740529,
+          "parameter": "K0",
+          "published": 158.0,
+          "published_error": 3.0,
+          "refit": 157.23638754972595,
+          "refit_error": 2.079579329482589,
+          "relative_difference": 0.00483299019160793,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2007GL030712",
+      "published_rmse_gpa": 1.1723946574172064,
+      "qualification": "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+      "record_identifier": "mg080fe020o_fei_2007_hs_b1_bm3",
+      "reduced_chi_square": 1.4335700870052703,
+      "rmse_gpa": 1.1684625987882213,
+      "selection": "Validation only: compression rows with -0.1 <= P <= 35 GPa, using the published approximate 0-35 GPa branch interval. Exact source row masks and least-squares weights are not published.",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "status": "parity",
+      "validation_fixed_parameters": {
+        "K0_prime": 4.0,
+        "V0": 76.16
+      }
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg080fe020o_fei_2007_table_s1_pv"
+      ],
+      "degrees_of_freedom": 17,
+      "experimental_pressure_range_gpa": null,
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "independent_validation_refit",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
+      "material_identifier": "mg080fe020o",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 19,
+      "observed_pressure_range_gpa": [
+        40.95,
+        95.48
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        54.6470441154,
+        63.139882168
+      ],
+      "parameters": [
+        {
+          "difference": 2.1732774806898476,
+          "parameter": "V0",
+          "published": 74.2,
+          "published_error": 0.1,
+          "refit": 76.37327748068985,
+          "refit_error": 0.3740408519056695,
+          "relative_difference": 0.029289453917652933,
+          "similar": true,
+          "within_combined_2sigma": false
+        },
+        {
+          "difference": -25.813527190655606,
+          "parameter": "K0",
+          "published": 170.0,
+          "published_error": 3.0,
+          "refit": 144.1864728093444,
+          "refit_error": 4.178200207965152,
+          "relative_difference": 0.1518442775920918,
+          "similar": false,
+          "within_combined_2sigma": false
+        }
+      ],
+      "primary_data_finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2007GL030712",
+      "published_rmse_gpa": 1.7678365013029291,
+      "qualification": "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+      "record_identifier": "mg080fe020o_fei_2007_ls_b1_bm3",
+      "reduced_chi_square": 0.837456115174807,
+      "rmse_gpa": 0.8656228046286953,
+      "selection": "Validation only: compression rows with 40 <= P <= 95.48 GPa, using the published approximate 40-95 GPa branch interval. Exact source row masks and least-squares weights are not published. Include the 95.48 GPa terminal row corresponding to the rounded 95 GPa endpoint in the article.",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.",
+      "status": "parity_not_achieved",
+      "validation_fixed_parameters": {
+        "K0_prime": 4.0
+      }
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg080fe020o_fei_2007_table_s1_pv"
+      ],
+      "degrees_of_freedom": 17,
+      "experimental_pressure_range_gpa": [
+        40.95,
+        95.48
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "stored_refit_reproduction",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
+      "material_identifier": "mg080fe020o",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 19,
+      "observed_pressure_range_gpa": [
+        40.95,
+        95.48
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        54.6470441154,
+        63.139882168
+      ],
+      "parameters": [
+        {
+          "difference": 0.0,
+          "parameter": "V0",
+          "published": 76.37327748068985,
+          "published_error": 0.3740408519056695,
+          "refit": 76.37327748068985,
+          "refit_error": 0.3740408519056695,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.0,
+          "parameter": "K0",
+          "published": 144.1864728093444,
+          "published_error": 4.178200207965152,
+          "refit": 144.1864728093444,
+          "refit_error": 4.178200207965152,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 46 official Table S1 rows are preserved. The 19 compression observations from 40.95 to 95.48 GPa enter this Peritheos unweighted pressure-residual fit; exact selected rows and IDs are listed in fit_provenance. Volumes are a^3. Zero/missing errors do not create exact weights.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1029/2007GL030712",
+      "published_rmse_gpa": 0.8656228046286953,
+      "qualification": "Numerical reproduction of the stored Peritheos refit of Fei's Table S1: all 19 compression rows in the approximate 40-95 GPa interval (actual 40.95-95.48 GPa), unweighted pressure residuals, V0 and K0 free, K0-prime=4 fixed. Comparison is against the stored refit coefficients, not Fei's published coefficients. Parity means reproducibility of this fit; it is not independent predictive validation or reproduction of Fei's regression. Formal errors exclude pressure-scale systematics.",
+      "record_identifier": "mg080fe020o_fei_2007_ls_b1_bm3_refit",
+      "reduced_chi_square": 0.837456115174807,
+      "rmse_gpa": 0.8656228046286953,
+      "selection": "Peritheos refit and reproduction: all 19 compression rows with 40 <= pressure_gpa <= 95.48. The paper states approximately 40-95 GPa. This explicit Peritheos row mask is not asserted to be the original authors' exact mask.",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Independent Peritheos refit of Fei's original Table S1 observations, not published Fei EOS coefficients. Uses the full reported approximate 40-95 GPa LS interval, including its 95.48 GPa endpoint, without selecting a higher cutoff for coefficient agreement. The lower pressure residual is an in-sample fit improvement, not proof of a more accurate pure-LS EOS or a recalibrated pressure scale. Near-transition points may retain mixed-spin character; V0 and K0 are strongly correlated and extrapolation outside the observed interval is not recommended. Formal errors exclude calibration systematics and uncertainty in row selection. The original source-owned record remains unchanged.",
+      "status": "parity",
+      "validation_fixed_parameters": {
+        "K0_prime": 4.0
+      }
     },
     {
       "dataset_identifiers": [],
@@ -31649,9 +32093,9 @@
   ],
   "summary": {
     "not_refittable": 565,
-    "parity": 155,
-    "parity_not_achieved": 31,
-    "similar": 62,
-    "total": 813
+    "parity": 159,
+    "parity_not_achieved": 32,
+    "similar": 63,
+    "total": 819
   }
 }

@@ -5,14 +5,14 @@ Peritheos uses several complementary validation layers.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 286 bundled material documents and 813 EOS records pass the
+separate. All 287 bundled material documents and 819 EOS records pass the
 format-3 validator. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 813 bundled records. Every record is
+The primary-source audit covers all 819 bundled records. Every record is
 `primary_source_validated`; none remains
 deferred or `pending_primary_source_check`. Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
@@ -29,11 +29,11 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 813
+fit for every record with sufficient direct observations and documents all 819
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 155 uncertainty-parity matches and 62
-additional numerically similar results. [31 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+diagnostics. The current campaign finds 159 uncertainty-parity matches and 63
+additional numerically similar results. [32 direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 565 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
@@ -41,6 +41,12 @@ machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
 The [source-audit index](source-audits.md) links the detailed publication-level
 investigations behind these classifications.
+
+The [Fei fp58 HS endpoint decision](literature-reproductions/fei-2007-ferropericlase.md#fp58-hs-endpoint-decision)
+explicitly includes the 42.75 GPa B1 point under the caption's rounded 42 GPa
+limit. The seven-point validation gives K0=153.18 ± 1.43 GPa (formal 1σ),
+close to the published 153 GPa, with V0=79.36 Å³ and K0′=4 fixed. The source
+coefficients are unchanged; the remaining endpoint assumption is documented.
 
 ### Audit outcome
 

@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **819** EOS records. **159** achieve uncertainty parity, **63** are numerically similar, **[32](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -405,6 +405,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2`](https://doi.org/10.2138/am-2017-5966) | `magnesiowustite_mw78_finkelstein_2017_table2_compression` | 29 | `V0` 78.742 → 157.484; `K0` 163 → 360.366; `K0_prime` 4.02 → 9.41478 | 34.6793/17.046 | [parity_not_achieved](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2) |
 | [`mg025fe075o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
 | [`mg0375fe0625o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
+| [`mg042fe058o_fei_2007_hs_b1_bm3`](https://doi.org/10.1029/2007GL030712) | `mg042fe058o_fei_2007_table_s3_pv` | 7 | `K0` 153 → 153.177 | 0.487881/0.487255 | [similar](#investigation-mg042fe058o_fei_2007_hs_b1_bm3) — Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees. |
 | [`mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg0490fe0483ti0027o_solomatova_2016_table1_pv` | 45 | `V0` 77.29 → 76.6303; `K0` 160 → 202.391; `K0_prime` 4.12 → 2.31737 | 6.0955/0.464109 | [parity_not_achieved](#investigation-mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1) |
 | [`mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `mg0490fe0483ti0027o_solomatova_2016_table1_pv` | 45 | `V0` 73.64 → 78.5805; `K0` 173 → 135.945 | 9.90668/0.974308 | [parity_not_achieved](#investigation-mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2) |
 | [`mg05fe05al05si05o3_bridgmanite_zhu_2020_preferred_bm2_1`](https://doi.org/10.1029/2020JB019964) | `mg05fe05al05si05o3_bridgmanite_zhu_2020_zenodo_latticeparameters` | 44 | `V0` 172.1 → 171.284; `K0` 229 → 236.22 | 0.963506/0.00533524 | parity |
@@ -416,6 +417,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription. |
 | [`mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription. |
 | [`mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription. |
+| [`mg061fe039o_fei_2007_hs_b1_bm3`](https://doi.org/10.1029/2007GL030712) | `mg061fe039o_fei_2007_table_s2_pv` | 13 | `K0` 156 → 155.833 | 0.937063/0.93649 | parity — Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees. |
+| [`mg061fe039o_fei_2007_ls_b1_bm3`](https://doi.org/10.1029/2007GL030712) | `mg061fe039o_fei_2007_table_s2_pv` | 24 | `V0` 73.6 → 73.5935; `K0` 170 → 176.653 | 4.0475/0.966428 | parity — Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees. |
 | [`mg0625fe0375o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
 | [`mg065fe035o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription. |
 | [`mg065fe035o_solomatova_2016_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription. |
@@ -429,6 +432,9 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3`](https://discovery.ucl.ac.uk/id/eprint/112632/) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients are printed, but the underlying energy-volume grid is not tabulated. |
 | [`mg075fe025sio3_bridgmanite_wu_2013_gga_bm3`](https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.62.049101.pdf) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated. |
 | [`mg080fe020o_speziale_2007_high_spin_bm3_1`](https://doi.org/10.1029/2006JB004730) | `mg080fe020o_speziale_2007_table1_pv` | 18 | `V0` 76.03 → 76.188; `K0` 158 → 132.071; `K0_prime` 4.4 → 6.67448 | 1.26089/0.301157 | [similar](#investigation-mg080fe020o_speziale_2007_high_spin_bm3_1) |
+| [`mg080fe020o_fei_2007_hs_b1_bm3`](https://doi.org/10.1029/2007GL030712) | `mg080fe020o_fei_2007_table_s1_pv` | 21 | `K0` 158 → 157.236 | 1.17239/1.16846 | parity — Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees. |
+| [`mg080fe020o_fei_2007_ls_b1_bm3`](https://doi.org/10.1029/2007GL030712) | `mg080fe020o_fei_2007_table_s1_pv` | 19 | `V0` 74.2 → 76.3733; `K0` 170 → 144.186 | 1.76784/0.865623 | [parity_not_achieved](#investigation-mg080fe020o_fei_2007_ls_b1_bm3) — Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees. |
+| [`mg080fe020o_fei_2007_ls_b1_bm3_refit`](https://doi.org/10.1029/2007GL030712) | `mg080fe020o_fei_2007_table_s1_pv` | 19 | `V0` 76.3733 → 76.3733; `K0` 144.186 → 144.186 | 0.865623/0.865623 | parity — Numerical reproduction of the stored Peritheos refit of Fei's Table S1: all 19 compression rows in the approximate 40-95 GPa interval (actual 40.95-95.48 GPa), unweighted pressure residuals, V0 and K0 free, K0-prime=4 fixed. Comparison is against the stored refit coefficients, not Fei's published coefficients. Parity means reproducibility of this fit; it is not independent predictive validation or reproduction of Fei's regression. Formal errors exclude pressure-scale systematics. |
 | [`mg080fe020sio3_bridgmanite_mao_1991_bm2_1`](https://doi.org/10.1029/91JB00176) | `parameterization_only` | — | — | —/— | not_refittable — No accessible numerical pressure-volume table was available; no graphical points were fabricated. |
 | [`mg083fe017o_matsui_2012_bm3_mgd_1`](https://www.rruff.net/odr/view/downloadfile/81129) | `mg083fe017o_matsui_2012_table1_pvt` | 23 | `rt_eos.V0` 75.849 → 75.8179; `rt_eos.K0_prime` 4.08 → 4.13239; `gamma0` 1.53 → 1.57742; `q` 0.7 → 0.928806 | 0.123303/0.114991 | [similar](#investigation-mg083fe017o_matsui_2012_bm3_mgd_1) |
 | [`mg083fe017o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — Independent BM3 checkpoints verify transcription; underlying rows are not reprinted. |
@@ -871,6 +877,7 @@ use `--check` in continuous integration to detect stale generated files.
 - [`mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1`](#investigation-mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1): outside similarity limits (K0 160 → 202.391; K0_prime 4.12 → 2.31737)
 - [`mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2`](#investigation-mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2): outside similarity limits (V0 73.64 → 78.5805; K0 173 → 135.945)
 - [`mg073fe027o_jacobsen_2005_bm3_1`](#investigation-mg073fe027o_jacobsen_2005_bm3_1): outside similarity limits (V0 77.3 → 57.963; K0 154 → 196.545; K0_prime 4 → 2.38146)
+- [`mg080fe020o_fei_2007_ls_b1_bm3`](#investigation-mg080fe020o_fei_2007_ls_b1_bm3): outside similarity limits (K0 170 → 144.186)
 - [`mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`](#investigation-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3): outside similarity limits (V0 163.137 → 231.512; K0 260.1 → 13.005; K0_prime 4.18 → 15.4726)
 - [`mgfe94o_b1_dobrosavljevic_2019_bm3_1`](#investigation-mgfe94o_b1_dobrosavljevic_2019_bm3_1): outside similarity limits (K0_prime 3.79 → 2.71444)
 - [`mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1`](#investigation-mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1): outside similarity limits (K0 217 → 168.771)
@@ -957,7 +964,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **95** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -1995,6 +2002,25 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-mg042fe058o_fei_2007_hs_b1_bm3"></a>
+
+### `mg042fe058o_fei_2007_hs_b1_bm3`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg042fe058o_fei_2007_table_s3_pv` with 7 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 153 | 153.177 ± 1.42842 | 0.12% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 9.37-42.75 GPa; source-declared range: not reported; fit kind: `independent_validation_refit`; objective: `pressure_residuals`; published/refit pressure RMSE: 0.487881/0.487255 GPa; reduced chi-square: 0.276987; free parameters: `K0`; source-fixed parameters: `K0_prime`.
+
+**Source/data scope.** Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context. For mw58, validation assumes the caption's approximate 42 GPa limit includes the tabulated 42.75 GPa B1 row; all seven points below the 44 GPa structural transition enter.
+
+**Registered source-fit note.** No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1"></a>
 
 ### `mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1`
@@ -2074,6 +2100,27 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - The point estimate exceeds the numerical limit for `K0`, `K0_prime`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg080fe020o_fei_2007_ls_b1_bm3"></a>
+
+### `mg080fe020o_fei_2007_ls_b1_bm3`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `mg080fe020o_fei_2007_table_s1_pv` with 19 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 74.2 | 76.3733 ± 0.374041 | 2.93% | no | yes |
+| `K0` | 170 | 144.186 ± 4.1782 | 15.18% | no | no |
+
+**Fit diagnostics.** Observed pressure range: 40.95-95.48 GPa; source-declared range: not reported; fit kind: `independent_validation_refit`; objective: `pressure_residuals`; published/refit pressure RMSE: 1.76784/0.865623 GPa; reduced chi-square: 0.837456; free parameters: `V0, K0`; source-fixed parameters: `K0_prime`.
+
+**Source/data scope.** Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context.
+
+**Registered source-fit note.** No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter.
+
+**Assessment and likely origin.**
+- The lowest checked pressure is 40.95 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
 <a id="investigation-mg083fe017o_matsui_2012_bm3_mgd_1"></a>

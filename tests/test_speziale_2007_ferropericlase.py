@@ -40,7 +40,8 @@ def test_speziale_high_spin_record_preserves_source_parameters():
     document, source, _, _, _, _ = _load()
 
     assert document["formula"] == "Mg0.80Fe0.20O"
-    assert document["phase"] == "high-spin B1 ferropericlase"
+    assert document["phase"] == "B1 ferropericlase"
+    assert "high-spin" in source["label"]
     assert document["space_group"] == "Fm-3m"
     assert document["formula_units_per_cell"] == 4
     assert source["reference"]["doi"] == "10.1029/2006JB004730"
