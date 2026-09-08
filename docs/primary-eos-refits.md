@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **814** EOS records. **156** achieve uncertainty parity, **62** are numerically similar, **[32](#parity-not-achieved)** do not achieve parity, **564** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -161,7 +161,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`ca_perovskite_wang_weidner_1994_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976) | `parameterization_only` | — | — | —/— | not_refittable — The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table. |
 | [`ca_perovskite_caracas_2005_bm4_4`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [`ca_perovskite_liu_2007_lda_static_bm3`](https://iopscience.iop.org/article/10.1088/0953-8984/19/24/246103) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source plots its calculated EOS but does not tabulate the energy-volume grid. |
-| [`ca_perovskite_fu_2023_bm3_mgd_refit`](http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip) | `source_parameterization_only` | — | — | —/— | not_refittable — The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity. |
+| [`ca_perovskite_fu_2023_bm3_mgd_refit`](http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip) | `fu-2023-casio3-refit-audit.json` | 174 | `rt_eos.V0` 45.4 → 45.1346; `rt_eos.K0` 248 → 258.271; `mu0` 126 → 129.662; `mu0_prime` 1.6 → 1.48479; `gamma0` 1.42 → 2.44196; `q` 2.65 → 1.83946; `eta_s0` 1.54 → 1.37236 | —/— | [parity_not_achieved](#investigation-ca_perovskite_fu_2023_bm3_mgd_refit) — The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gréaux XLSX and used locally, but are not redistributed because no reusable table-data license was identified. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded. |
+| [`ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit`](http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip) | `fu-2023-casio3-refit-audit.json` | 174 | `rt_eos.V0` 45.1346 → 45.1346; `rt_eos.K0` 258.271 → 258.271; `gamma0` 2.44196 → 2.44196; `q` 1.83946 → 1.83946 | —/— | parity — This opt-in EOS record stores the pressure-producing subset of the audited unweighted seven-parameter joint fit. Parity here verifies the stored coefficients against the audit artifact; it does not imply parity with Fu Table S3 or knowledge of Fu's unpublished weights. |
 | [`ca_perovskite_karki_crain_1998_static_bm3`](https://repository.lsu.edu/geo_pubs/1504/) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance. |
 | [`ca_perovskite_ono_2013_bm3_log_thermal`](https://www.mdpi.com/1099-4300/15/10/4300) | `source_parameterization_only` | — | — | —/— | not_refittable — The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance. |
 | [`ca_perovskite_tetragonal_sun_2022_bm3_1`](https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf) | `parameterization_only` | — | — | —/— | not_refittable — The published fixed-derivative BM3 coefficients are transcribed directly. The article's P-V table is not redistributed because no open table-data license was identified. |
@@ -853,6 +854,7 @@ use `--check` in continuous integration to detect stale generated files.
 ## Parity not achieved
 
 - [`b4c_somayazulu_2023_bm3_1`](#investigation-b4c_somayazulu_2023_bm3_1): outside similarity limits (q 2.1 → 1.04991)
+- [`ca_perovskite_fu_2023_bm3_mgd_refit`](#investigation-ca_perovskite_fu_2023_bm3_mgd_refit): outside similarity limits (gamma0 1.42 → 2.44196; q 2.65 → 1.83946)
 - [`coo_clendenen_1966_murnaghan_1`](#investigation-coo_clendenen_1966_murnaghan_1): outside similarity limits (K0_prime 3.9 → 5.1481)
 - [`e_feooh_hc_low_spin_thompson_2017_bm3_1`](#investigation-e_feooh_hc_low_spin_thompson_2017_bm3_1): outside similarity limits (K0 223 → 185.921)
 - [`fe093o_b1_jacobsen_2005_bm3_1`](#investigation-fe093o_b1_jacobsen_2005_bm3_1): outside similarity limits (V0 79.41 → 59.7395)
@@ -957,7 +959,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **94** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -1218,6 +1220,29 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `K0`, `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
+
+<a id="investigation-ca_perovskite_fu_2023_bm3_mgd_refit"></a>
+
+### `ca_perovskite_fu_2023_bm3_mgd_refit`
+
+**Classification:** `parity_not_achieved`. **Model:** `BM3`. **Data:** `fu-2023-casio3-refit-audit.json` with 174 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `rt_eos.V0` | 45.4 | 45.1346 | 0.58% | — | yes |
+| `rt_eos.K0` | 248 | 258.271 | 4.14% | — | yes |
+| `mu0` | 126 | 129.662 | 2.91% | — | yes |
+| `mu0_prime` | 1.6 | 1.48479 | 7.20% | — | yes |
+| `gamma0` | 1.42 | 2.44196 | 71.97% | — | no |
+| `q` | 2.65 | 1.83946 | 30.59% | — | no |
+| `eta_s0` | 1.54 | 1.37236 | 10.89% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 12.05-151.8 GPa; source-declared range: 0-150 GPa; fit kind: `joint_bm3_mgd_finite_strain_pressure_bulk_shear`; objective: `unweighted absolute pressure, KS, and shear residuals in GPa`; published/refit pressure RMSE: —/— GPa; reduced chi-square: —; free parameters: `rt_eos.V0, rt_eos.K0, mu0, mu0_prime, gamma0, q, eta_s0`; source-fixed parameters: `K0_prime, Tr, n`.
+
+**Source/data scope.** All likely regression observations were recovered externally: 140 Sun P-V-T rows at 1200-2200 K and 34 cubic Gréaux P-density-Vp-Vs rows. They are not bundled because no reusable table-data license was identified. Four explicit weighting diagnostics, including propagated P-V uncertainty, fail to recover Fu Table S3, and the source does not disclose the objective or weights needed to select a unique fit. Executable pressure-volume round trips are analytical checkpoints only, not fit observations.
+
+**Assessment and likely origin.**
+- The lowest checked pressure is 12.05 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 
 <a id="investigation-calcium_carbonate_post_aragonite_lv_2020_bm3_2"></a>
 
@@ -3019,7 +3044,6 @@ the missing source fit detail is recovered.
 - `ca_perovskite_wang_weidner_1994_bm2`: The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table.
 - `ca_perovskite_caracas_2005_bm4_4`: Complete coefficients and density checkpoints are published; the underlying E(V) grid is not.
 - `ca_perovskite_liu_2007_lda_static_bm3`: The source plots its calculated EOS but does not tabulate the energy-volume grid.
-- `ca_perovskite_fu_2023_bm3_mgd_refit`: The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity.
 - `ca_perovskite_karki_crain_1998_static_bm3`: The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance.
 - `ca_perovskite_ono_2013_bm3_log_thermal`: The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance.
 - `ca_perovskite_tetragonal_sun_2022_bm3_1`: The published fixed-derivative BM3 coefficients are transcribed directly. The article's P-V table is not redistributed because no open table-data license was identified.

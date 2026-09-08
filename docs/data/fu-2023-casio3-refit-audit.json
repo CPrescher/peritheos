@@ -1,0 +1,171 @@
+{
+  "audit_date": "2026-09-08",
+  "fit_observation_count": 174,
+  "fit_output_count": 242,
+  "format": "peritheos.fu-2023-casio3-refit-audit",
+  "format_version": 1,
+  "model_assumptions": {
+    "greaux_pressure": "PNaCl, the measured pressure column; PFS is a derived finite-strain pressure diagnostic",
+    "reference_isotherm": "Fu equation 17 BM3 with K0_prime fixed at 4",
+    "shear_reference": "Fu equation 18",
+    "sun_selection": "all Table 1 rows at 1200-2200 K, matching the Figure S3 legend",
+    "thermal_terms": "Fu equations 23-28 with the dimensionally standard Debye heat capacity"
+  },
+  "observed_ranges": {
+    "pressure_gpa": [
+      12.05,
+      151.8
+    ],
+    "temperature_k": [
+      700.0,
+      2200.0
+    ],
+    "volume_a3_per_formula_unit": [
+      33.6,
+      44.09251814319802
+    ]
+  },
+  "published_parameters": {
+    "K0": 248.0,
+    "V0": 45.4,
+    "eta_s0": 1.54,
+    "gamma0": 1.42,
+    "mu0": 126.0,
+    "mu0_prime": 1.6,
+    "q": 2.65
+  },
+  "registered_refit": {
+    "objective": "unweighted_absolute_gpa",
+    "record_identifier": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
+    "status": "opt-in Peritheos refit; not a reproduction of Fu's undisclosed regression protocol"
+  },
+  "sensitivity_fits": [
+    {
+      "message": "`ftol` termination condition is satisfied.",
+      "objective": "unweighted_absolute_gpa",
+      "parameters": {
+        "K0": 258.2712196007933,
+        "V0": 45.13462466318362,
+        "eta_s0": 1.3723637913615656,
+        "gamma0": 2.441960608077676,
+        "mu0": 129.66156953730098,
+        "mu0_prime": 1.48479001645761,
+        "q": 1.8394637227819404
+      },
+      "residual_sum_squares": 409.6931551567837,
+      "success": true
+    },
+    {
+      "message": "`ftol` termination condition is satisfied.",
+      "objective": "reported_sigma",
+      "parameters": {
+        "K0": 237.7012943594969,
+        "V0": 45.50642245937552,
+        "eta_s0": 1.376958312288667,
+        "gamma0": 1.574080998585022,
+        "mu0": 126.64489125495047,
+        "mu0_prime": 1.5780405595245655,
+        "q": -1.0349968715149513
+      },
+      "residual_sum_squares": 983.2542025918209,
+      "success": true
+    },
+    {
+      "message": "`ftol` termination condition is satisfied.",
+      "objective": "propagated_pv_sigma_no_temperature",
+      "parameters": {
+        "K0": 236.59612338038156,
+        "V0": 45.526446430214776,
+        "eta_s0": 1.3769320297608627,
+        "gamma0": 1.5587864813771801,
+        "mu0": 126.48058545300596,
+        "mu0_prime": 1.5837492768373707,
+        "q": -1.0267897571655575
+      },
+      "residual_sum_squares": 750.6311372651624,
+      "success": true
+    },
+    {
+      "message": "`ftol` termination condition is satisfied.",
+      "objective": "equal_observable_groups",
+      "parameters": {
+        "K0": 257.77651935690574,
+        "V0": 45.12649643793014,
+        "eta_s0": 1.3720577109188326,
+        "gamma0": 2.396755013195264,
+        "mu0": 129.7309598091872,
+        "mu0_prime": 1.4882463451939423,
+        "q": 1.8030611350295542
+      },
+      "residual_sum_squares": 7.724942966937647,
+      "success": true
+    }
+  ],
+  "source_rows": {
+    "greaux_2019_figure3a_tetragonal_excluded": 13,
+    "greaux_2019_figure3b_cubic": 34,
+    "sun_2016_excluded_above_2200_k": 4,
+    "sun_2016_figure_s3_temperature_subset": 140,
+    "sun_2016_table1_total": 144
+  },
+  "sources": {
+    "fu_2023_official_deposit": {
+      "contents": [
+        "8435_supp1.pdf",
+        "8435fu.cif"
+      ],
+      "row_table_present": false,
+      "sha256": "12121bb769862e781e8c232c85f2f3caae83d1a6d37f6e18d76ba6fde61b9486",
+      "url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip"
+    },
+    "greaux_2019_source_data": {
+      "doi": "10.1038/s41586-018-0816-5",
+      "reason": "Springer Nature copyright; no reusable data license identified",
+      "redistributed": false,
+      "role": "candidate fit observations",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-018-0816-5/MediaObjects/41586_2018_816_MOESM1_ESM.xlsx",
+      "xlsx_sha256": "cde0964709863c3b487a054597fd3dd549738aaa9dc3f0c637a996932944479a"
+    },
+    "kawai_tsuchiya_2015": {
+      "doi": "10.1002/2015GL063446",
+      "role": "analytical comparison curve; not counted as fit observations"
+    },
+    "li_2006": {
+      "doi": "10.1016/j.pepi.2005.12.006",
+      "role": "analytical comparison curve; not counted as fit observations"
+    },
+    "sun_2016_table1": {
+      "doi": "10.1002/2016JB013062",
+      "pdf_sha256": "10d8f6389b59fd7dcb94e349cbac0390e04a2ec55a815b8d238fd97797fccb2b",
+      "reason": "no reusable table-data license identified",
+      "redistributed": false,
+      "role": "candidate fit observations",
+      "url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf"
+    },
+    "thomson_2019": {
+      "doi": "10.1038/s41586-019-1483-x",
+      "role": "explicitly excluded by Fu Figure S3/Text S3"
+    }
+  },
+  "temperature_row_counts": {
+    "greaux_2019_cubic": {
+      "1100": 5,
+      "1300": 6,
+      "1500": 7,
+      "1700": 2,
+      "700": 6,
+      "900": 8
+    },
+    "sun_2016_all": {
+      "1200": 18,
+      "1400": 21,
+      "1600": 28,
+      "1800": 27,
+      "2000": 32,
+      "2200": 14,
+      "2400": 3,
+      "2600": 1
+    }
+  },
+  "weighting_disclosure": "not published by Fu et al."
+}

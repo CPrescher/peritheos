@@ -36,6 +36,10 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+FU_2023_CASIO3_REFIT_JSON = ROOT / "docs" / "data" / "fu-2023-casio3-refit-audit.json"
+FU_2023_CASIO3_REGISTERED_REFIT = (
+    "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
+)
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -2391,6 +2395,141 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _fu_2023_casio3_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Translate the closed-row Fu CaSiO3 sensitivity audit into the ledger."""
+    assert record["identifier"] == "ca_perovskite_fu_2023_bm3_mgd_refit"
+    audit = json.loads(FU_2023_CASIO3_REFIT_JSON.read_text(encoding="utf-8"))
+    diagnostic = next(
+        item
+        for item in audit["sensitivity_fits"]
+        if item["objective"] == "unweighted_absolute_gpa"
+    )
+    comparisons = []
+    for name, ledger_name in (
+        ("V0", "rt_eos.V0"),
+        ("K0", "rt_eos.K0"),
+        ("mu0", "mu0"),
+        ("mu0_prime", "mu0_prime"),
+        ("gamma0", "gamma0"),
+        ("q", "q"),
+        ("eta_s0", "eta_s0"),
+    ):
+        published = float(audit["published_parameters"][name])
+        fitted = float(diagnostic["parameters"][name])
+        comparisons.append(
+            {
+                "parameter": ledger_name,
+                "published": published,
+                "published_error": None,
+                "refit": fitted,
+                "refit_error": None,
+                "difference": fitted - published,
+                "relative_difference": abs(fitted - published) / abs(published),
+                "within_combined_2sigma": None,
+                "similar": _similar(ledger_name, published, fitted),
+            }
+        )
+    if all(item["similar"] for item in comparisons):
+        raise AssertionError("Fu CaSiO3 audit no longer supports non-parity")
+    return {
+        "status": "parity_not_achieved",
+        "dataset_identifiers": [FU_2023_CASIO3_REFIT_JSON.name],
+        "observations": audit["fit_observation_count"],
+        "fit_outputs": audit["fit_output_count"],
+        "selection": (
+            "140 Sun Table 1 P-V-T rows at 1200-2200 K plus 34 cubic "
+            "Gréaux Figure 3b P-Vp-Vs-density rows"
+        ),
+        "observed_pressure_range_gpa": audit["observed_ranges"]["pressure_gpa"],
+        "observed_temperature_range_k": audit["observed_ranges"]["temperature_k"],
+        "observed_volume_range": audit["observed_ranges"]["volume_a3_per_formula_unit"],
+        "fit_kind": "joint_bm3_mgd_finite_strain_pressure_bulk_shear",
+        "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
+        "absolute_sigma": False,
+        "free_parameters": [item["parameter"] for item in comparisons],
+        "parameters": comparisons,
+        "solver_success": diagnostic["success"],
+        "solver_message": diagnostic["message"],
+        "weighting_sensitivity": audit["sensitivity_fits"],
+        "qualification": (
+            "The complete candidate observation rows were recovered from the "
+            "author-hosted Sun PDF and official Gréaux XLSX and used locally, but "
+            "are not redistributed because no reusable table-data license was "
+            "identified. Fu et al. publish neither an objective, row/output "
+            "weights, covariance, nor code. Four explicit weighting diagnostics, "
+            "including propagated P-V uncertainty, "
+            "all converge away from Table S3, especially for gamma0 and q; this "
+            "is therefore a completed non-parity audit, not an exact reconstruction "
+            "of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are "
+            "analytical comparisons, while Thomson is explicitly excluded."
+        ),
+    }
+
+
+def _fu_2023_casio3_registered_refit_outcome(
+    record: dict[str, Any],
+) -> dict[str, Any]:
+    """Verify that the opt-in EOS record matches the audited unweighted fit."""
+    assert record["identifier"] == FU_2023_CASIO3_REGISTERED_REFIT
+    audit = json.loads(FU_2023_CASIO3_REFIT_JSON.read_text(encoding="utf-8"))
+    diagnostic = next(
+        item
+        for item in audit["sensitivity_fits"]
+        if item["objective"] == audit["registered_refit"]["objective"]
+    )
+    stored = {
+        "rt_eos.V0": record["eos"]["parameters"]["V0"],
+        "rt_eos.K0": record["eos"]["parameters"]["K0"],
+        "gamma0": record["thermal"]["parameters"]["gamma0"],
+        "q": record["thermal"]["parameters"]["q"],
+    }
+    fitted = {
+        "rt_eos.V0": diagnostic["parameters"]["V0"],
+        "rt_eos.K0": diagnostic["parameters"]["K0"],
+        "gamma0": diagnostic["parameters"]["gamma0"],
+        "q": diagnostic["parameters"]["q"],
+    }
+    comparisons = [
+        {
+            "parameter": name,
+            "published": float(stored[name]),
+            "published_error": None,
+            "refit": float(fitted[name]),
+            "refit_error": None,
+            "difference": float(fitted[name] - stored[name]),
+            "relative_difference": 0.0,
+            "within_combined_2sigma": None,
+            "similar": math.isclose(stored[name], fitted[name], rel_tol=1e-13),
+        }
+        for name in stored
+    ]
+    if not all(item["similar"] for item in comparisons):
+        raise AssertionError("Registered Fu CaSiO3 refit is stale")
+    return {
+        "status": "parity",
+        "dataset_identifiers": [FU_2023_CASIO3_REFIT_JSON.name],
+        "observations": audit["fit_observation_count"],
+        "fit_outputs": audit["fit_output_count"],
+        "selection": record["fit_provenance"]["selection"]["predicate"],
+        "observed_pressure_range_gpa": audit["observed_ranges"]["pressure_gpa"],
+        "observed_temperature_range_k": audit["observed_ranges"]["temperature_k"],
+        "observed_volume_range": audit["observed_ranges"]["volume_a3_per_formula_unit"],
+        "fit_kind": "joint_bm3_mgd_finite_strain_pressure_bulk_shear",
+        "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
+        "absolute_sigma": False,
+        "free_parameters": record["fit_provenance"]["refined_parameters"],
+        "parameters": comparisons,
+        "solver_success": diagnostic["success"],
+        "solver_message": diagnostic["message"],
+        "qualification": (
+            "This opt-in EOS record stores the pressure-producing subset of the "
+            "audited unweighted seven-parameter joint fit. Parity here verifies "
+            "the stored coefficients against the audit artifact; it does not imply "
+            "parity with Fu Table S3 or knowledge of Fu's unpublished weights."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     for material_id in list_material_documents():
@@ -2427,7 +2566,11 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if record["identifier"] == "ca_perovskite_fu_2023_bm3_mgd_refit":
+                outcome = _fu_2023_casio3_outcome(record)
+            elif record["identifier"] == FU_2023_CASIO3_REGISTERED_REFIT:
+                outcome = _fu_2023_casio3_registered_refit_outcome(record)
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

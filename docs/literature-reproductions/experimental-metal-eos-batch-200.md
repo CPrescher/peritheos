@@ -81,5 +81,5 @@ uv run --frozen pytest -q tests/test_experimental_metal_eos_batch_200.py
 ```
 
 After import, the complete bundled catalog contains 286 material documents and
-813 EOS records. Every record is included in the generated primary-source
+814 EOS records. Every record is included in the generated primary-source
 audit and refit-feasibility ledger.

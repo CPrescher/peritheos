@@ -5056,7 +5056,10 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "fu-2023-casio3-refit-audit.json"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         150.0
@@ -5065,21 +5068,294 @@
         300.0,
         2200.0
       ],
+      "fit_kind": "joint_bm3_mgd_finite_strain_pressure_bulk_shear",
+      "fit_outputs": 242,
       "fixed_parameters": [
         "K0_prime",
         "Tr",
         "n"
       ],
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "mu0",
+        "mu0_prime",
+        "gamma0",
+        "q",
+        "eta_s0"
+      ],
       "label": "Fu et al. (2023), CaSiO3 BM3-MGD literature-data refit",
       "material_identifier": "ca_perovskite",
       "model": "BM3",
-      "primary_data_finding": "The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity.",
-      "primary_data_status": "source_parameterization_only",
+      "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
+      "observations": 174,
+      "observed_pressure_range_gpa": [
+        12.05,
+        151.8
+      ],
+      "observed_temperature_range_k": [
+        700.0,
+        2200.0
+      ],
+      "observed_volume_range": [
+        33.6,
+        44.09251814319802
+      ],
+      "parameters": [
+        {
+          "difference": -0.26537533681637626,
+          "parameter": "rt_eos.V0",
+          "published": 45.4,
+          "published_error": null,
+          "refit": 45.13462466318362,
+          "refit_error": null,
+          "relative_difference": 0.00584527173604353,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 10.271219600793302,
+          "parameter": "rt_eos.K0",
+          "published": 248.0,
+          "published_error": null,
+          "refit": 258.2712196007933,
+          "refit_error": null,
+          "relative_difference": 0.04141620806771493,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 3.661569537300977,
+          "parameter": "mu0",
+          "published": 126.0,
+          "published_error": null,
+          "refit": 129.66156953730098,
+          "refit_error": null,
+          "relative_difference": 0.0290600756928649,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.1152099835423901,
+          "parameter": "mu0_prime",
+          "published": 1.6,
+          "published_error": null,
+          "refit": 1.48479001645761,
+          "refit_error": null,
+          "relative_difference": 0.07200623971399381,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 1.0219606080776762,
+          "parameter": "gamma0",
+          "published": 1.42,
+          "published_error": null,
+          "refit": 2.441960608077676,
+          "refit_error": null,
+          "relative_difference": 0.719690569068786,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.8105362772180595,
+          "parameter": "q",
+          "published": 2.65,
+          "published_error": null,
+          "refit": 1.8394637227819404,
+          "refit_error": null,
+          "relative_difference": 0.30586274612002246,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.16763620863843443,
+          "parameter": "eta_s0",
+          "published": 1.54,
+          "published_error": null,
+          "refit": 1.3723637913615656,
+          "refit_error": null,
+          "relative_difference": 0.10885468093404832,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All likely regression observations were recovered externally: 140 Sun P-V-T rows at 1200-2200 K and 34 cubic Gr\u00e9aux P-density-Vp-Vs rows. They are not bundled because no reusable table-data license was identified. Four explicit weighting diagnostics, including propagated P-V uncertainty, fail to recover Fu Table S3, and the source does not disclose the objective or weights needed to select a unique fit. Executable pressure-volume round trips are analytical checkpoints only, not fit observations.",
+      "primary_data_status": "externally_recovered_not_redistributed",
       "primary_source": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
-      "reason": "The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity.",
+      "qualification": "The complete candidate observation rows were recovered from the author-hosted Sun PDF and official Gr\u00e9aux XLSX and used locally, but are not redistributed because no reusable table-data license was identified. Fu et al. publish neither an objective, row/output weights, covariance, nor code. Four explicit weighting diagnostics, including propagated P-V uncertainty, all converge away from Table S3, especially for gamma0 and q; this is therefore a completed non-parity audit, not an exact reconstruction of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are analytical comparisons, while Thomson is explicitly excluded.",
       "record_identifier": "ca_perovskite_fu_2023_bm3_mgd_refit",
+      "selection": "140 Sun Table 1 P-V-T rows at 1200-2200 K plus 34 cubic Gr\u00e9aux Figure 3b P-Vp-Vs-density rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity_not_achieved",
+      "weighting_sensitivity": [
+        {
+          "message": "`ftol` termination condition is satisfied.",
+          "objective": "unweighted_absolute_gpa",
+          "parameters": {
+            "K0": 258.2712196007933,
+            "V0": 45.13462466318362,
+            "eta_s0": 1.3723637913615656,
+            "gamma0": 2.441960608077676,
+            "mu0": 129.66156953730098,
+            "mu0_prime": 1.48479001645761,
+            "q": 1.8394637227819404
+          },
+          "residual_sum_squares": 409.6931551567837,
+          "success": true
+        },
+        {
+          "message": "`ftol` termination condition is satisfied.",
+          "objective": "reported_sigma",
+          "parameters": {
+            "K0": 237.7012943594969,
+            "V0": 45.50642245937552,
+            "eta_s0": 1.376958312288667,
+            "gamma0": 1.574080998585022,
+            "mu0": 126.64489125495047,
+            "mu0_prime": 1.5780405595245655,
+            "q": -1.0349968715149513
+          },
+          "residual_sum_squares": 983.2542025918209,
+          "success": true
+        },
+        {
+          "message": "`ftol` termination condition is satisfied.",
+          "objective": "propagated_pv_sigma_no_temperature",
+          "parameters": {
+            "K0": 236.59612338038156,
+            "V0": 45.526446430214776,
+            "eta_s0": 1.3769320297608627,
+            "gamma0": 1.5587864813771801,
+            "mu0": 126.48058545300596,
+            "mu0_prime": 1.5837492768373707,
+            "q": -1.0267897571655575
+          },
+          "residual_sum_squares": 750.6311372651624,
+          "success": true
+        },
+        {
+          "message": "`ftol` termination condition is satisfied.",
+          "objective": "equal_observable_groups",
+          "parameters": {
+            "K0": 257.77651935690574,
+            "V0": 45.12649643793014,
+            "eta_s0": 1.3720577109188326,
+            "gamma0": 2.396755013195264,
+            "mu0": 129.7309598091872,
+            "mu0_prime": 1.4882463451939423,
+            "q": 1.8030611350295542
+          },
+          "residual_sum_squares": 7.724942966937647,
+          "success": true
+        }
+      ]
+    },
+    {
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "fu-2023-casio3-refit-audit.json"
+      ],
+      "experimental_pressure_range_gpa": [
+        12.05,
+        151.8
+      ],
+      "experimental_temperature_range_k": [
+        700.0,
+        2200.0
+      ],
+      "fit_kind": "joint_bm3_mgd_finite_strain_pressure_bulk_shear",
+      "fit_outputs": 242,
+      "fixed_parameters": [
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "mu0",
+        "mu0_prime",
+        "gamma0",
+        "q",
+        "eta_s0"
+      ],
+      "label": "Peritheos unweighted joint refit of Fu et al. (2023) candidate CaSiO3 data",
+      "material_identifier": "ca_perovskite",
+      "model": "BM3",
+      "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
+      "observations": 174,
+      "observed_pressure_range_gpa": [
+        12.05,
+        151.8
+      ],
+      "observed_temperature_range_k": [
+        700.0,
+        2200.0
+      ],
+      "observed_volume_range": [
+        33.6,
+        44.09251814319802
+      ],
+      "parameters": [
+        {
+          "difference": 0.0,
+          "parameter": "rt_eos.V0",
+          "published": 45.13462466318362,
+          "published_error": null,
+          "refit": 45.13462466318362,
+          "refit_error": null,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.0,
+          "parameter": "rt_eos.K0",
+          "published": 258.2712196007933,
+          "published_error": null,
+          "refit": 258.2712196007933,
+          "refit_error": null,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.0,
+          "parameter": "gamma0",
+          "published": 2.441960608077676,
+          "published_error": null,
+          "refit": 2.441960608077676,
+          "refit_error": null,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.0,
+          "parameter": "q",
+          "published": 1.8394637227819404,
+          "published_error": null,
+          "refit": 1.8394637227819404,
+          "refit_error": null,
+          "relative_difference": 0.0,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The 174 selected source rows were used locally but are not redistributed because no reusable table-data license was identified.",
+      "primary_data_status": "externally_recovered_not_redistributed",
+      "primary_source": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
+      "qualification": "This opt-in EOS record stores the pressure-producing subset of the audited unweighted seven-parameter joint fit. Parity here verifies the stored coefficients against the audit artifact; it does not imply parity with Fu Table S3 or knowledge of Fu's unpublished weights.",
+      "record_identifier": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
+      "selection": "Sun Table 1 rows at 1200-2200 K plus all cubic Gr\u00e9aux Figure 3b rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Opt-in unweighted Peritheos refit. Every pressure, bulk-modulus, and shear-modulus residual enters in GPa with unit weight. The published Fu record remains the authoritative literature parameterization.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -24303,25 +24579,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,10 +31924,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
-    "parity_not_achieved": 31,
+    "not_refittable": 564,
+    "parity": 156,
+    "parity_not_achieved": 32,
     "similar": 62,
-    "total": 813
+    "total": 814
   }
 }

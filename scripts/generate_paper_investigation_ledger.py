@@ -351,6 +351,9 @@ def render() -> str:
         "external_primary_table_refitted": (
             "external primary table (refitted; not redistributed)"
         ),
+        "externally_recovered_not_redistributed": (
+            "externally recovered rows (refitted; not redistributed)"
+        ),
     }
     for paper in papers:
         if paper["records"]:
