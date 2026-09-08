@@ -2884,7 +2884,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 287
     assert manifest["eos_records"] == 844
-    assert manifest["scientific_validation"]["audit_date"] == "2026-9-14"
+    assert manifest["scientific_validation"]["audit_date"] == "2026-09-08"
 
 
 @pytest.mark.parametrize(

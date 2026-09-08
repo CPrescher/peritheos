@@ -313,6 +313,57 @@
       }
     },
     {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_wang_2004_t0133_bm3",
+      "label": "Wang et al. (2004), T0133 Au-scale BM3",
+      "doi": "10.1016/j.pepi.2003.08.007",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
+        "doi": "10.1016/j.pepi.2003.08.007",
+        "locations": [
+          "Section 3.2, page 61; Table 1, pages 62-63"
+        ],
+        "finding": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_wang_2004_t0150_bm3",
+      "label": "Wang et al. (2004), preferred T0150 NaCl-scale BM3",
+      "doi": "10.1016/j.pepi.2003.08.007",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
+        "doi": "10.1016/j.pepi.2003.08.007",
+        "locations": [
+          "Section 3.2, page 61; Table 2, pages 64-65"
+        ],
+        "finding": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_zhou_2014_300k_bm3",
+      "label": "Zhou et al. (2014), 300 K isothermal BM3",
+      "doi": "10.1016/j.pepi.2013.06.005",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.06.005",
+        "doi": "10.1016/j.pepi.2013.06.005",
+        "locations": [
+          "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101"
+        ],
+        "finding": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations."
+      }
+    },
+    {
       "material": "al2o3_perovskite",
       "file": "al2o3_perovskite.eosmat",
       "record": "al2o3_perovskite_akber_knutson_2005_gga_bm3",
@@ -2032,7 +2083,7 @@
           "Table 1, pages 4880-4881",
           "Table 2 model 1, page 4882"
         ],
-        "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. The 300 K cubic isotherm is retained only as the model reference state.",
+        "finding": "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye energy, one-formula-unit volume basis, high-temperature cubic phase, Pt pressure standard, and experimental P-T envelope were checked directly. All 144 Table 1 observations were transcribed at printed precision and independently reproduce the source fit. The 300 K cubic isotherm is retained only as the model reference state.",
         "doi": "10.1002/2016jb013062"
       }
     },
@@ -2367,24 +2418,6 @@
     {
       "material": "ca_perovskite",
       "file": "ca_perovskite.eosmat",
-      "record": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
-      "label": "Peritheos unweighted joint refit of Fu et al. (2023) candidate CaSiO3 data",
-      "doi": "10.2138/am-2022-8435",
-      "status": "primary_source_validated",
-      "note": "Primary observations and equation conventions were audited; the coefficients are an explicitly labeled Peritheos refit.",
-      "primary_source_check": {
-        "access_url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
-        "doi": "10.2138/am-2022-8435",
-        "locations": [
-          "Main-text Equations 17-18 and 23-28",
-          "Online Materials Text S3 and Figure S3"
-        ],
-        "finding": "This is the reproducible unweighted Peritheos solution for the candidate Fu data selection, not a source-published coefficient set or a reconstruction of undisclosed source weights."
-      }
-    },
-    {
-      "material": "ca_perovskite",
-      "file": "ca_perovskite.eosmat",
       "record": "ca_perovskite_karki_crain_1998_static_bm3",
       "label": "Karki and Crain (1998), static cubic CaSiO3 BM3",
       "doi": "10.1029/98gl51952",
@@ -2420,6 +2453,24 @@
       }
     },
     {
+      "material": "ca_perovskite",
+      "file": "ca_perovskite.eosmat",
+      "record": "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit",
+      "label": "Peritheos unweighted joint refit of Fu et al. (2023) candidate CaSiO3 data",
+      "doi": "10.2138/am-2022-8435",
+      "status": "primary_source_validated",
+      "note": "Primary observations and equation conventions were audited; the coefficients are an explicitly labeled Peritheos refit.",
+      "primary_source_check": {
+        "access_url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
+        "doi": "10.2138/am-2022-8435",
+        "locations": [
+          "Main-text Equations 17-18 and 23-28",
+          "Online Materials Text S3 and Figure S3"
+        ],
+        "finding": "This is the reproducible unweighted Peritheos solution for the candidate Fu data selection, not a source-published coefficient set or a reconstruction of undisclosed source weights."
+      }
+    },
+    {
       "material": "ca_perovskite_tetragonal",
       "file": "ca_perovskite_tetragonal.eosmat",
       "record": "ca_perovskite_tetragonal_sun_2022_bm3_1",
@@ -2435,7 +2486,7 @@
           "Table 2, page 112",
           "phase assignment and temperature discussion, pages 110-113"
         ],
-        "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell; the fitted modulus, direct data range, 300 K phase, Fei et al. Pt pressure scale, and lack of published covariance are retained.",
+        "finding": "Table 2's fixed-derivative fit is used. Its V0 and error are converted from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 cell. All 23 Table 1 rows were transcribed, with the 14 reanalyzed 2016 and nine new 2022 observations distinguished, and independently reproduce both Table 2 fits.",
         "doi": "10.2138/am-2021-7913"
       }
     },
@@ -3911,6 +3962,35 @@
       }
     },
     {
+      "material": "copper",
+      "file": "copper.eosmat",
+      "record": "copper_fratanduono_2020_vinet3_298k",
+      "label": "Fratanduono et al. (2020), Cu 298 K third-order Vinet",
+      "doi": "10.1103/physrevlett.124.015701",
+      "status": "primary_source_validated",
+      "note": "Equation, central 298 K coefficients, printed errors, density reference and phase checked directly against the final primary article and official supplemental PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevLett.124.015701",
+        "doi": "10.1103/PhysRevLett.124.015701",
+        "locations": [
+          "Table I, page 015701-3, central 298 K isotherm row and caption",
+          "Supplemental Section S4, Eq. (2), page S2",
+          "Supplemental Section S5 and Table S1"
+        ],
+        "finding": "The exponent is eta*y+beta*y^2+psi*y^3 with y=1-(rho0/rho)^(1/3); rho0=8.939 g/cm3. Table I prints separate central and upper/lower-envelope fits.",
+        "source_artifacts": [
+          {
+            "url": "https://doi.org/10.1103/PhysRevLett.124.015701",
+            "sha256": "18db9d32504e10007a7927c04c5610a5dbf25a4088577d14c0bab0033804a412"
+          },
+          {
+            "url": "https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.124.015701",
+            "sha256": "cdf0985112a5584a7a97c187ea2683d1fc6740761db8851ae9cb5b489a9ff98c"
+          }
+        ]
+      }
+    },
+    {
       "material": "cr_sun_2010_legacy",
       "file": "cr_sun_2010_legacy.eosmat",
       "record": "cr_sun_2010_sms4_1",
@@ -4279,17 +4359,16 @@
       "label": "Occelli data on the H2005 scale (Datchi et al. 2007)",
       "doi": "10.1103/physrevb.75.214104",
       "status": "primary_source_validated",
-      "note": "Table II was checked against Datchi et al.; all 24 Occelli Figure 2 vector markers, the original MXB1986 scale, the exact H2005 equation, the fixed volume, and the two-scale fit sensitivity were audited. Datchi's exclusions and weights remain unpublished, so no covariance or exact-protocol claim is inferred.",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
         "locations": [
           "Equation 2",
           "Table II",
-          "Occelli et al. (2003), Figure 2 and pages 151-152",
+          "Occelli et al. (2003), Figure 2 and EOS paragraph",
           "Holzapfel (2005), best-scale equation and coefficients"
         ],
-        "doi": "10.1103/physrevb.75.214104",
-        "finding": "Datchi fix V0=5.6733 A^3/atom and print MXB1986 447(3)/3.00(7) and H2005 443(3)/3.97(5). The best-supported reconstruction selects Occelli run 2 and uses equal volume weights, recovering 446.712/2.990 and 444.346/3.961 respectively. This is strong numerical evidence, not proof of the unpublished selection/weighting protocol."
+        "doi": "10.1103/physrevb.75.214104"
       }
     },
     {
@@ -6246,6 +6325,26 @@
     {
       "material": "lead_fcc",
       "file": "lead_fcc.eosmat",
+      "record": "lead_fcc_kuznetsov_2002_bm3_2",
+      "label": "Kuznetsov et al. (2002), 296 K BM3 slice",
+      "doi": "10.1016/s0038-1098(02)00112-6",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+        "locations": [
+          "Equations 1-3",
+          "Table 1",
+          "Table 2",
+          "Figures 2-3"
+        ],
+        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
+        "doi": "10.1016/S0038-1098(02)00112-6"
+      }
+    },
+    {
+      "material": "lead_fcc",
+      "file": "lead_fcc.eosmat",
       "record": "lead_fcc_lejaeghere_2016_wien2k_pbe_bm3",
       "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
       "doi": "10.1126/science.aad3000",
@@ -6313,6 +6412,25 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "lead_hcp",
+      "file": "lead_hcp.eosmat",
+      "record": "lead_hcp_kuznetsov_2002_bm3_3",
+      "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
+      "doi": "10.1016/s0038-1098(02)00112-6",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+        "doi": "10.1016/S0038-1098(02)00112-6",
+        "locations": [
+          "Equations 1-3",
+          "Tables 1-2",
+          "Figures 2-3"
+        ],
+        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
       }
     },
     {
@@ -6944,6 +7062,29 @@
       }
     },
     {
+      "material": "mg042fe058o",
+      "file": "mg042fe058o.eosmat",
+      "record": "mg042fe058o_fei_2007_hs_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
       "material": "mg0490fe0483ti0027o",
       "file": "mg0490fe0483ti0027o.eosmat",
       "record": "mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1",
@@ -7147,6 +7288,52 @@
         ],
         "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
       }
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_fei_2007_hs_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
+      "material": "mg061fe039o",
+      "file": "mg061fe039o.eosmat",
+      "record": "mg061fe039o_fei_2007_ls_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
     },
     {
       "material": "mg0625fe0375o",
@@ -7392,6 +7579,75 @@
         ],
         "finding": "The source reports one composition-specific, three-parameter high-spin Birch-Murnaghan fit to its Fe20 data below 40 GPa."
       }
+    },
+    {
+      "material": "mg080fe020o",
+      "file": "mg080fe020o.eosmat",
+      "record": "mg080fe020o_fei_2007_hs_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
+      "material": "mg080fe020o",
+      "file": "mg080fe020o.eosmat",
+      "record": "mg080fe020o_fei_2007_ls_b1_bm3",
+      "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
+    },
+    {
+      "material": "mg080fe020o",
+      "file": "mg080fe020o.eosmat",
+      "record": "mg080fe020o_fei_2007_ls_b1_bm3_refit",
+      "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
+      "doi": "10.1029/2007gl030712",
+      "status": "primary_source_validated",
+      "note": "Primary observations, equation and units checked against Fei; new stored parameters are an explicit independently reproduced Peritheos refit, not a published Fei coefficient set.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1029/2007GL030712",
+        "doi": "10.1029/2007GL030712",
+        "locations": [
+          "Figures 1-3 captions",
+          "paragraphs 6-15",
+          "Tables S1-S3"
+        ],
+        "finding": "Fei Figure 1 and paragraph 14 publish V0=74.2(1), K0=170(3), K0-prime=4 for fp20 LS. This record instead stores a Peritheos refit to the official Table S1 over that approximate pressure interval; no refitted coefficient is attributed to Fei.",
+        "zotero_item_key": "33JIXYGF",
+        "zotero_attachment_key": "FKWA95NJ",
+        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+      },
+      "usage_recommendation": "consult_source_audit_before_quantitative_use"
     },
     {
       "material": "mg080fe020sio3_bridgmanite",
@@ -7682,6 +7938,347 @@
           "Figures 3 and 6-10"
         ],
         "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_hs_bm3",
+      "label": "Marquardt et al. (2009), EPSL high-spin BM3",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "local_source_filename": "Marquardt et al. - 2009 - Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa.pdf",
+        "sha256": "71a9f3dfb633730df7ae6dc0981e505965e103a35dd6d904b001fa420cc8785d",
+        "locations": [
+          "Sections 2.2 and 3.1.1-3.1.3",
+          "Table 2, p. 347",
+          "Section 3.2, p. 348"
+        ],
+        "finding": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        }
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 1"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 2"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 3"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 4"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 5"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 6"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 7"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 8"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 9"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 10"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 11"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 12"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
       }
     },
     {
@@ -8061,18 +8658,17 @@
       "label": "Redfern et al. (1993), K0' fixed to 4",
       "doi": "10.1029/93gl02507",
       "status": "primary_source_validated",
-      "note": "Validated against the original four-page article, including Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption; all 18 source rows are bundled and directly refitted.",
+      "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the reduced Birch fit is directly reproduced.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/93GL02507",
         "doi": "10.1029/93GL02507",
         "locations": [
-          "Abstract and Experimental Methods, page 2099",
+          "Abstract",
+          "Experimental Methods, page 2099",
           "Table 1 and Equation-of-State section, page 2100"
         ],
-        "finding": "The source publishes 18 pressure-volume rows, identifies internal NaCl with the Decker (1971) EOS and +/-2% pressure uncertainty, and reports an all-row reduced Birch least-squares fit with K0'=4."
-      },
-      "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json",
-      "source_pdf_sha256": "55805544c6642a6ab42ea46aeb23f98ed9bcc4cfcd37dcd07fcb290f10065e59"
+        "finding": "The source publishes 18 pressure-volume rows and reports an all-row reduced Birch least-squares fit with V0=279.4(2) A3, K0=142(9) GPa, and K0'=4."
+      }
     },
     {
       "material": "mg0991fe0008mn0001co3_magnesite",
@@ -8081,18 +8677,17 @@
       "label": "Redfern et al. (1993), unconstrained BM3",
       "doi": "10.1029/93gl02507",
       "status": "primary_source_validated",
-      "note": "Validated against the original four-page article, including Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption; the nine-row fV>0.01 selection is directly refitted.",
+      "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the nine-row finite-strain selection is directly refitted.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/93GL02507",
         "doi": "10.1029/93GL02507",
         "locations": [
-          "Abstract and Experimental Methods, page 2099",
+          "Abstract",
+          "Experimental Methods, page 2099",
           "Table 1, Equation (2), and Figure 2 caption, page 2100"
         ],
-        "finding": "The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression for the nine rows with fV>0.01, yielding K0=151(7) GPa and fitted K0'=2.5."
-      },
-      "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json",
-      "source_pdf_sha256": "55805544c6642a6ab42ea46aeb23f98ed9bcc4cfcd37dcd07fcb290f10065e59"
+        "finding": "The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression of the nine rows with fV>0.01, giving K0=151(7) GPa and fitted K0'=2.5."
+      }
     },
     {
       "material": "mg09al02si09o3_bridgmanite",
@@ -8393,6 +8988,69 @@
       }
     },
     {
+      "material": "mgal2o4_cafe2o4",
+      "file": "mgal2o4_cafe2o4.eosmat",
+      "record": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
+      "label": "Irifune et al. (2002), CaFe2O4-type MgAl2O4 BM2",
+      "doi": "10.1007/s00269-002-0275-1",
+      "status": "primary_source_validated",
+      "note": "Checked publisher metadata and Toru Inoue author-uploaded typeset primary article; constrained numerical diagnostics documented separately.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/225470056_In_situ_X-ray_observations_of_phase_transitions_in_MgAl2O4_spinel_to_40_GPa_using_multianvil_apparatus_with_sintered_diamond_anvils",
+        "doi": "10.1007/s00269-002-0275-1",
+        "locations": [
+          "Experimental, pp. 646-647",
+          "Bulk modulus discussion, p. 652",
+          "Table 2 and Figure 6"
+        ],
+        "finding": "Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC."
+      }
+    },
+    {
+      "material": "mgal2o4_cafe2o4",
+      "file": "mgal2o4_cafe2o4.eosmat",
+      "record": "mgal2o4_cafe2o4_sueda_2009_htbm_2",
+      "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 HTBM",
+      "doi": "10.1016/j.pepi.2008.07.046",
+      "status": "primary_source_validated",
+      "note": "Full published PDF from the user Zotero library inspected, including the rendered equations and Tables 1-3; independently reproduced against all 46 Table 1 observations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2008.07.046",
+        "doi": "10.1016/j.pepi.2008.07.046",
+        "locations": [
+          "Sections 2.1-2.3",
+          "Section 3.1, Eqs. (1)-(8)",
+          "Tables 1-2",
+          "Figures 2-4"
+        ],
+        "source_version": "Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).",
+        "sha256": "f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b",
+        "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells."
+      }
+    },
+    {
+      "material": "mgal2o4_cafe2o4",
+      "file": "mgal2o4_cafe2o4.eosmat",
+      "record": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
+      "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 BM3-MGD",
+      "doi": "10.1016/j.pepi.2008.07.046",
+      "status": "primary_source_validated",
+      "note": "Full published PDF from the user Zotero library inspected, including the rendered equations and Tables 1-3; independently reproduced against all 46 Table 1 observations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2008.07.046",
+        "doi": "10.1016/j.pepi.2008.07.046",
+        "locations": [
+          "Sections 2.1-2.3",
+          "Section 3.1, Eqs. (1)-(8)",
+          "Tables 1-2",
+          "Figures 2-4"
+        ],
+        "source_version": "Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).",
+        "sha256": "f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b",
+        "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells."
+      }
+    },
+    {
       "material": "mgal2o4_cati2o4",
       "file": "mgal2o4_cati2o4.eosmat",
       "record": "mgal2o4_cati2o4_funamori_1998_bm2_1",
@@ -8411,6 +9069,26 @@
           "Figure 4"
         ],
         "finding": "Runs 3 and 4 establish a higher-pressure MgAl2O4 phase with CaTi2O4-type Cmcm structure, and the authors derive a separate second-order Birch EOS from its run-4 ambient and high-pressure cells; this is a phase parameterization, not an arbitrary run split."
+      }
+    },
+    {
+      "material": "mgal2o4_cati2o4",
+      "file": "mgal2o4_cati2o4.eosmat",
+      "record": "mgal2o4_cati2o4_ono_2006_bm2_2",
+      "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
+      "doi": "10.1007/s00269-006-0068-z",
+      "status": "primary_source_validated",
+      "note": "Primary version-of-record PDF reviewed, with visual checks of pp. 203-204; published coefficients retained independently of diagnostic refits.",
+      "primary_source_check": {
+        "access_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
+        "doi": "10.1007/s00269-006-0068-z",
+        "locations": [
+          "Experimental, p. 201",
+          "Results, pp. 202-203",
+          "Tables 2-3",
+          "Figures 4-5"
+        ],
+        "finding": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves."
       }
     },
     {
@@ -8628,10 +9306,10 @@
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/2008JB005813",
         "locations": [
-          "Equations 2, 4, 5, 15, and 16",
-          "Tables 1, 2, 4, and 5"
+          "Equations 2-5, 10-16, and 20-23",
+          "Tables 1-5 and Sections 2.1-3.2"
         ],
-        "finding": "The stored record is the pressure-scale-free Fit3 Vinet-MGD parameterization.",
+        "finding": "The stored record is the pressure-scale-free Fit3 Vinet-MGD parameterization. Fit3 fixes V0, KS0, alpha0, CP0, and n; K0 and theta0 are thermodynamically dependent on trial gamma0, leaving K0_prime, gamma0, a, and b as the four independent least-squares variables.",
         "doi": "10.1029/2008jb005813"
       }
     },
@@ -9623,6 +10301,23 @@
           "MgSiO3-postperovskite subsection"
         ],
         "finding": "The primary source defines a complete k=5 generalized Rydberg reference isotherm; LitCurate's Birch-family ambiguity is resolved directly."
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
+      "label": "Komabayashi et al. (2008), MgO-scale thermal BM3",
+      "doi": "10.1016/j.epsl.2007.10.036",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2007.10.036",
+        "doi": "10.1016/j.epsl.2007.10.036",
+        "locations": [
+          "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522"
+        ],
+        "finding": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced."
       }
     },
     {
@@ -15226,704 +15921,6 @@
           "Table 3"
         ],
         "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
-      }
-    },
-    {
-      "material": "lead_fcc",
-      "file": "lead_fcc.eosmat",
-      "record": "lead_fcc_kuznetsov_2002_bm3_2",
-      "label": "Kuznetsov et al. (2002), 296 K BM3 slice",
-      "doi": "10.1016/s0038-1098(02)00112-6",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
-        "locations": [
-          "Equations 1-3",
-          "Table 1",
-          "Table 2",
-          "Figures 2-3"
-        ],
-        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
-        "doi": "10.1016/S0038-1098(02)00112-6"
-      }
-    },
-    {
-      "material": "lead_hcp",
-      "file": "lead_hcp.eosmat",
-      "record": "lead_hcp_kuznetsov_2002_bm3_3",
-      "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
-      "doi": "10.1016/s0038-1098(02)00112-6",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
-        "doi": "10.1016/S0038-1098(02)00112-6",
-        "locations": [
-          "Equations 1-3",
-          "Tables 1-2",
-          "Figures 2-3"
-        ],
-        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
-      }
-    },
-    {
-      "material": "akimotoite",
-      "file": "akimotoite.eosmat",
-      "record": "akimotoite_wang_2004_t0133_bm3",
-      "label": "Wang et al. (2004), T0133 Au-scale BM3",
-      "doi": "10.1016/j.pepi.2003.08.007",
-      "status": "primary_source_validated",
-      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
-        "doi": "10.1016/j.pepi.2003.08.007",
-        "locations": [
-          "Section 3.2, page 61; Table 1, pages 62-63"
-        ],
-        "finding": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset."
-      }
-    },
-    {
-      "material": "akimotoite",
-      "file": "akimotoite.eosmat",
-      "record": "akimotoite_wang_2004_t0150_bm3",
-      "label": "Wang et al. (2004), preferred T0150 NaCl-scale BM3",
-      "doi": "10.1016/j.pepi.2003.08.007",
-      "status": "primary_source_validated",
-      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
-        "doi": "10.1016/j.pepi.2003.08.007",
-        "locations": [
-          "Section 3.2, page 61; Table 2, pages 64-65"
-        ],
-        "finding": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here."
-      }
-    },
-    {
-      "material": "akimotoite",
-      "file": "akimotoite.eosmat",
-      "record": "akimotoite_zhou_2014_300k_bm3",
-      "label": "Zhou et al. (2014), 300 K isothermal BM3",
-      "doi": "10.1016/j.pepi.2013.06.005",
-      "status": "primary_source_validated",
-      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.pepi.2013.06.005",
-        "doi": "10.1016/j.pepi.2013.06.005",
-        "locations": [
-          "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101"
-        ],
-        "finding": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations."
-      }
-    },
-    {
-      "material": "mgsio3_post_perovskite",
-      "file": "mgsio3_post_perovskite.eosmat",
-      "record": "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
-      "label": "Komabayashi et al. (2008), MgO-scale thermal BM3",
-      "doi": "10.1016/j.epsl.2007.10.036",
-      "status": "primary_source_validated",
-      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2007.10.036",
-        "doi": "10.1016/j.epsl.2007.10.036",
-        "locations": [
-          "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522"
-        ],
-        "finding": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced."
-      }
-    },
-    {
-      "material": "mgal2o4_cati2o4",
-      "file": "mgal2o4_cati2o4.eosmat",
-      "record": "mgal2o4_cati2o4_ono_2006_bm2_2",
-      "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
-      "doi": "10.1007/s00269-006-0068-z",
-      "status": "primary_source_validated",
-      "note": "Primary version-of-record PDF reviewed, with visual checks of pp. 203-204; published coefficients retained independently of diagnostic refits.",
-      "primary_source_check": {
-        "access_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
-        "doi": "10.1007/s00269-006-0068-z",
-        "locations": [
-          "Experimental, p. 201",
-          "Results, pp. 202-203",
-          "Tables 2-3",
-          "Figures 4-5"
-        ],
-        "finding": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves."
-      }
-    },
-    {
-      "material": "mgal2o4_cafe2o4",
-      "file": "mgal2o4_cafe2o4.eosmat",
-      "record": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
-      "label": "Irifune et al. (2002), CaFe2O4-type MgAl2O4 BM2",
-      "doi": "10.1007/s00269-002-0275-1",
-      "status": "primary_source_validated",
-      "note": "Checked publisher metadata and Toru Inoue author-uploaded typeset primary article; constrained numerical diagnostics documented separately.",
-      "primary_source_check": {
-        "access_url": "https://www.researchgate.net/publication/225470056_In_situ_X-ray_observations_of_phase_transitions_in_MgAl2O4_spinel_to_40_GPa_using_multianvil_apparatus_with_sintered_diamond_anvils",
-        "doi": "10.1007/s00269-002-0275-1",
-        "locations": [
-          "Experimental, pp. 646-647",
-          "Bulk modulus discussion, p. 652",
-          "Table 2 and Figure 6"
-        ],
-        "finding": "Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC."
-      }
-    },
-    {
-      "material": "mgal2o4_cafe2o4",
-      "file": "mgal2o4_cafe2o4.eosmat",
-      "record": "mgal2o4_cafe2o4_sueda_2009_htbm_2",
-      "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 HTBM",
-      "doi": "10.1016/j.pepi.2008.07.046",
-      "status": "primary_source_validated",
-      "note": "Full published PDF from the user Zotero library inspected, including the rendered equations and Tables 1-3; independently reproduced against all 46 Table 1 observations.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.pepi.2008.07.046",
-        "doi": "10.1016/j.pepi.2008.07.046",
-        "locations": [
-          "Sections 2.1-2.3",
-          "Section 3.1, Eqs. (1)-(8)",
-          "Tables 1-2",
-          "Figures 2-4"
-        ],
-        "source_version": "Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).",
-        "sha256": "f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b",
-        "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells."
-      }
-    },
-    {
-      "material": "mgal2o4_cafe2o4",
-      "file": "mgal2o4_cafe2o4.eosmat",
-      "record": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
-      "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 BM3-MGD",
-      "doi": "10.1016/j.pepi.2008.07.046",
-      "status": "primary_source_validated",
-      "note": "Full published PDF from the user Zotero library inspected, including the rendered equations and Tables 1-3; independently reproduced against all 46 Table 1 observations.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.pepi.2008.07.046",
-        "doi": "10.1016/j.pepi.2008.07.046",
-        "locations": [
-          "Sections 2.1-2.3",
-          "Section 3.1, Eqs. (1)-(8)",
-          "Tables 1-2",
-          "Figures 2-4"
-        ],
-        "source_version": "Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).",
-        "sha256": "f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b",
-        "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells."
-      }
-    },
-    {
-      "material": "mg042fe058o",
-      "file": "mg042fe058o.eosmat",
-      "record": "mg042fe058o_fei_2007_hs_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3",
-      "doi": "10.1029/2007gl030712",
-      "status": "primary_source_validated",
-      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1029/2007GL030712",
-        "doi": "10.1029/2007GL030712",
-        "locations": [
-          "Figures 1-3 captions",
-          "paragraphs 6-15",
-          "Tables S1-S3"
-        ],
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "zotero_item_key": "33JIXYGF",
-        "zotero_attachment_key": "FKWA95NJ",
-        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-      },
-      "usage_recommendation": "consult_source_audit_before_quantitative_use"
-    },
-    {
-      "material": "mg061fe039o",
-      "file": "mg061fe039o.eosmat",
-      "record": "mg061fe039o_fei_2007_hs_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg061fe039o high-spin B1 compression BM3",
-      "doi": "10.1029/2007gl030712",
-      "status": "primary_source_validated",
-      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1029/2007GL030712",
-        "doi": "10.1029/2007GL030712",
-        "locations": [
-          "Figures 1-3 captions",
-          "paragraphs 6-15",
-          "Tables S1-S3"
-        ],
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "zotero_item_key": "33JIXYGF",
-        "zotero_attachment_key": "FKWA95NJ",
-        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-      },
-      "usage_recommendation": "consult_source_audit_before_quantitative_use"
-    },
-    {
-      "material": "mg061fe039o",
-      "file": "mg061fe039o.eosmat",
-      "record": "mg061fe039o_fei_2007_ls_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg061fe039o low-spin B1 compression BM3",
-      "doi": "10.1029/2007gl030712",
-      "status": "primary_source_validated",
-      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1029/2007GL030712",
-        "doi": "10.1029/2007GL030712",
-        "locations": [
-          "Figures 1-3 captions",
-          "paragraphs 6-15",
-          "Tables S1-S3"
-        ],
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "zotero_item_key": "33JIXYGF",
-        "zotero_attachment_key": "FKWA95NJ",
-        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-      },
-      "usage_recommendation": "consult_source_audit_before_quantitative_use"
-    },
-    {
-      "material": "mg080fe020o",
-      "file": "mg080fe020o.eosmat",
-      "record": "mg080fe020o_fei_2007_hs_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg080fe020o high-spin B1 compression BM3",
-      "doi": "10.1029/2007gl030712",
-      "status": "primary_source_validated",
-      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1029/2007GL030712",
-        "doi": "10.1029/2007GL030712",
-        "locations": [
-          "Figures 1-3 captions",
-          "paragraphs 6-15",
-          "Tables S1-S3"
-        ],
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "zotero_item_key": "33JIXYGF",
-        "zotero_attachment_key": "FKWA95NJ",
-        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-      },
-      "usage_recommendation": "consult_source_audit_before_quantitative_use"
-    },
-    {
-      "material": "mg080fe020o",
-      "file": "mg080fe020o.eosmat",
-      "record": "mg080fe020o_fei_2007_ls_b1_bm3",
-      "label": "Fei et al. (2007), GRL, mg080fe020o low-spin B1 compression BM3",
-      "doi": "10.1029/2007gl030712",
-      "status": "primary_source_validated",
-      "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1029/2007GL030712",
-        "doi": "10.1029/2007GL030712",
-        "locations": [
-          "Figures 1-3 captions",
-          "paragraphs 6-15",
-          "Tables S1-S3"
-        ],
-        "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
-        "zotero_item_key": "33JIXYGF",
-        "zotero_attachment_key": "FKWA95NJ",
-        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-      },
-      "usage_recommendation": "consult_source_audit_before_quantitative_use"
-    },
-    {
-      "material": "mg080fe020o",
-      "file": "mg080fe020o.eosmat",
-      "record": "mg080fe020o_fei_2007_ls_b1_bm3_refit",
-      "label": "Peritheos refit (2026), fp20 low-spin B1, Fei (2007) Table S1, 40-95 GPa",
-      "doi": "10.1029/2007gl030712",
-      "status": "primary_source_validated",
-      "note": "Primary observations, equation and units checked against Fei; new stored parameters are an explicit independently reproduced Peritheos refit, not a published Fei coefficient set.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1029/2007GL030712",
-        "doi": "10.1029/2007GL030712",
-        "locations": [
-          "Figures 1-3 captions",
-          "paragraphs 6-15",
-          "Tables S1-S3"
-        ],
-        "finding": "Fei Figure 1 and paragraph 14 publish V0=74.2(1), K0=170(3), K0-prime=4 for fp20 LS. This record instead stores a Peritheos refit to the official Table S1 over that approximate pressure interval; no refitted coefficient is attributed to Fei.",
-        "zotero_item_key": "33JIXYGF",
-        "zotero_attachment_key": "FKWA95NJ",
-        "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
-      },
-      "usage_recommendation": "consult_source_audit_before_quantitative_use"
-    },
-    {
-      "material": "copper",
-      "file": "copper.eosmat",
-      "record": "copper_fratanduono_2020_vinet3_298k",
-      "label": "Fratanduono et al. (2020), Cu 298 K third-order Vinet",
-      "doi": "10.1103/physrevlett.124.015701",
-      "status": "primary_source_validated",
-      "note": "Equation, central 298 K coefficients, printed errors, density reference and phase checked directly against the final primary article and official supplemental PDF.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevLett.124.015701",
-        "doi": "10.1103/PhysRevLett.124.015701",
-        "locations": [
-          "Table I, page 015701-3, central 298 K isotherm row and caption",
-          "Supplemental Section S4, Eq. (2), page S2",
-          "Supplemental Section S5 and Table S1"
-        ],
-        "finding": "The exponent is eta*y+beta*y^2+psi*y^3 with y=1-(rho0/rho)^(1/3); rho0=8.939 g/cm3. Table I prints separate central and upper/lower-envelope fits.",
-        "source_artifacts": [
-          {
-            "url": "https://doi.org/10.1103/PhysRevLett.124.015701",
-            "sha256": "18db9d32504e10007a7927c04c5610a5dbf25a4088577d14c0bab0033804a412"
-          },
-          {
-            "url": "https://journals.aps.org/prl/supplemental/10.1103/PhysRevLett.124.015701",
-            "sha256": "cdf0985112a5584a7a97c187ea2683d1fc6740761db8851ae9cb5b489a9ff98c"
-          }
-        ]
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_hs_bm3",
-      "label": "Marquardt et al. (2009), EPSL high-spin BM3",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "local_source_filename": "Marquardt et al. - 2009 - Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa.pdf",
-        "sha256": "71a9f3dfb633730df7ae6dc0981e505965e103a35dd6d904b001fa420cc8785d",
-        "locations": [
-          "Sections 2.2 and 3.1.1-3.1.3",
-          "Table 2, p. 347",
-          "Section 3.2, p. 348"
-        ],
-        "finding": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        }
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 1"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 2"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 3"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 4"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 5"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 6"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 7"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 8"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 9"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 10"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 11"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
-      }
-    },
-    {
-      "material": "mg090fe010o",
-      "file": "mg090fe010o.eosmat",
-      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
-      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
-      "doi": "10.1016/j.epsl.2009.08.017",
-      "status": "primary_source_validated",
-      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
-        "doi": "10.1016/j.epsl.2009.08.017",
-        "locations": [
-          "Section 3.1.2 and Table 2, p. 347",
-          "EPSL supplementary Table S1, row 12"
-        ],
-        "supplement": {
-          "source_filenames": [
-            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
-            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
-          ],
-          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
-          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
-        },
-        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
       }
     }
   ]

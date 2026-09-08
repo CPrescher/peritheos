@@ -35,10 +35,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 844, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 163,
-        "similar": 77,
-        "parity_not_achieved": 31,
-        "not_refittable": 214,
+        "not_refittable": 530,
+        "parity": 179,
+        "parity_not_achieved": 36,
+        "reconstructed": 2,
+        "similar": 86,
+        "source_reconstruction": 11
     }
     assert all(
         item.get("reason")
@@ -171,9 +173,9 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     )
     assert by_identifier["b4c_somayazulu_2023_berman_refit"]["status"] == ("parity")
     assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "parity"
-    assert by_identifier["ca_perovskite_sun_2016_bm3_3"]["status"] == ("not_refittable")
+    assert by_identifier["ca_perovskite_sun_2016_bm3_3"]["status"] == ("parity")
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
-        "not_refittable"
+        "parity"
     )
     wang_weidner = by_identifier["ca_perovskite_wang_weidner_1994_bm2"]
     assert wang_weidner["status"] == "parity"
@@ -552,7 +554,7 @@ def test_shen_smith_cu_pressure_reconstruction_and_all_fixed_v0_refits():
         )
         reconstruction = result["pressure_reconstruction"]
         assert reconstruction["doi"] == "10.1103/PhysRevLett.124.015701"
-        assert reconstruction["model"] == "third_order_vinet"
+        assert reconstruction["model"] == "vinet_3"
         assert reconstruction["parameters"] == {
             "K0_gpa": 133.6,
             "eta": 6.29,
