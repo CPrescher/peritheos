@@ -1,0 +1,171 @@
+{
+  "assessment": "Table II is numerically reproduced within the published fit standard deviations by the run-2/equal-volume-weight hypothesis. Exact parity is not claimed because Datchi et al. do not state exclusions or weights and Occelli et al. publish the observations only as a figure.",
+  "dataset": "diamond-occelli-2003-figure2-digitized.csv",
+  "dataset_sha256": "84bf16b686ec053245f25bcdc2d41600eaeb0355c18565e52ed112af233572cd",
+  "fit_protocol": {
+    "best_supported_hypothesis": "run 2 only, equal volume weights; this is not source-confirmed, but it recovers the independently printed MXB1986 and H2005 Table II pairs from the same markers",
+    "covariance": "not estimated; exact rows and the source objective are unavailable",
+    "fixed_parameters": {
+      "V0_atomic_a3": 5.6733
+    },
+    "published_exclusions": null,
+    "published_weights": null,
+    "reported_observation_uncertainties": {
+      "pressure_gpa": "0.05 at 1 GPa to 1 at 140 GPa; no rowwise rule",
+      "volume_cm3_mol": 0.003
+    }
+  },
+  "fits": {
+    "H2005": {
+      "all_figure_markers": {
+        "equal_volume_weight_fit": {
+          "max_abs_residual_gpa": 0.45949587810390824,
+          "message": "`gtol` termination condition is satisfied.",
+          "parameter_errors": {
+            "K0": null,
+            "K0_prime": null
+          },
+          "parameters": {
+            "K0": 441.86246912744224,
+            "K0_prime": 4.023554498168802
+          },
+          "rmse_a3_per_atom": 0.0024851132756705733,
+          "rmse_gpa": 0.2558776470065635,
+          "success": true,
+          "volume_chi_square_using_reported_constant_sigma": 5.972592930004712
+        },
+        "rows": 24,
+        "unweighted_pressure_residual_fit": {
+          "max_abs_residual_gpa": 0.4709872320199864,
+          "message": "`ftol` termination condition is satisfied.",
+          "parameter_errors": {
+            "K0": null,
+            "K0_prime": null
+          },
+          "parameters": {
+            "K0": 441.0377199949159,
+            "K0_prime": 4.044716604904306
+          },
+          "rmse_gpa": 0.25435238271488275,
+          "success": true
+        }
+      },
+      "best_supported_run2_selection": {
+        "equal_volume_weight_fit": {
+          "max_abs_residual_gpa": 0.5744670497271613,
+          "message": "`gtol` termination condition is satisfied.",
+          "parameter_errors": {
+            "K0": null,
+            "K0_prime": null
+          },
+          "parameters": {
+            "K0": 444.3462890944917,
+            "K0_prime": 3.960700438665756
+          },
+          "rmse_a3_per_atom": 0.0017949939649283709,
+          "rmse_gpa": 0.2775872734356574,
+          "success": true,
+          "volume_chi_square_using_reported_constant_sigma": 1.81766278910024
+        },
+        "rows": 14
+      },
+      "published_table_ii": {
+        "K0": 443.0,
+        "K0_prime": 3.97,
+        "chi_square": 1.5
+      }
+    },
+    "MXB1986": {
+      "all_figure_markers": {
+        "equal_volume_weight_fit": {
+          "max_abs_residual_gpa": 1.0093835014645833,
+          "message": "`gtol` termination condition is satisfied.",
+          "parameter_errors": {
+            "K0": null,
+            "K0_prime": null
+          },
+          "parameters": {
+            "K0": 445.54225185077576,
+            "K0_prime": 3.0193806490477604
+          },
+          "rmse_a3_per_atom": 0.0030925502316667412,
+          "rmse_gpa": 0.38454451468773804,
+          "success": true,
+          "volume_chi_square_using_reported_constant_sigma": 9.249197690611641
+        },
+        "rows": 24,
+        "unweighted_pressure_residual_fit": {
+          "max_abs_residual_gpa": 0.7425596587771963,
+          "message": "`ftol` termination condition is satisfied.",
+          "parameter_errors": {
+            "K0": null,
+            "K0_prime": null
+          },
+          "parameters": {
+            "K0": 442.16014734480393,
+            "K0_prime": 3.107221207230282
+          },
+          "rmse_gpa": 0.36857907424775327,
+          "success": true
+        }
+      },
+      "best_supported_run2_selection": {
+        "equal_volume_weight_fit": {
+          "max_abs_residual_gpa": 1.0867048211731856,
+          "message": "`gtol` termination condition is satisfied.",
+          "parameter_errors": {
+            "K0": null,
+            "K0_prime": null
+          },
+          "parameters": {
+            "K0": 446.71192155797604,
+            "K0_prime": 2.990105194458979
+          },
+          "rmse_a3_per_atom": 0.0035620901311354384,
+          "rmse_gpa": 0.4937122634024713,
+          "success": true,
+          "volume_chi_square_using_reported_constant_sigma": 7.158089749295071
+        },
+        "rows": 14
+      },
+      "published_table_ii": {
+        "K0": 447.0,
+        "K0_prime": 3.0,
+        "chi_square": 4.5
+      }
+    }
+  },
+  "format": "peritheos.datchi-2007-diamond-audit",
+  "format_version": 1,
+  "pressure_recalibration": {
+    "path": "reported MXB1986 pressure -> ruby R1 ratio -> H2005 pressure",
+    "source": "ruby_mao_1986",
+    "source_parameters": {
+      "A_gpa": 1904.0,
+      "B": 7.665,
+      "reference_wavelength_nm": 694.24
+    },
+    "stored_columns_verified": true,
+    "target": "ruby_holzapfel_2005",
+    "target_parameters": {
+      "A_gpa": 1845.0,
+      "B": 14.7,
+      "C": 7.5,
+      "reference_wavelength_nm": 694.24
+    }
+  },
+  "source_data": {
+    "observations": 24,
+    "recalibrated_pressure_range_h2005_gpa": [
+      0.0,
+      154.97533874678942
+    ],
+    "run2_observations": 14,
+    "run3_observations": 10,
+    "source_pressure_range_mxb1986_gpa": [
+      0.0,
+      140.80034225
+    ],
+    "status": "figure_digitized"
+  }
+}

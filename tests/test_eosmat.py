@@ -139,6 +139,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "akimotoite_reynard_1996_bm3_ice_vii_3",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
+        "diamond_datchi_2007_vinet_1",
         "gold_dewaele_2004_vinet_5",
         "gold_anderson_1989_bm3_1",
         "gold_fratanduono_2021_vinet_7",
@@ -2862,7 +2863,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 286
     assert manifest["eos_records"] == 813
-    assert manifest["scientific_validation"]["audit_date"] == "2026-09-06"
+    assert manifest["scientific_validation"]["audit_date"] == "2026-09-08"
 
 
 @pytest.mark.parametrize(

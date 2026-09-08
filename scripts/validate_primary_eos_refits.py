@@ -36,6 +36,7 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DATCHI_DIAMOND_REFIT_JSON = ROOT / "docs" / "data" / "datchi-2007-diamond-refit.json"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -2451,8 +2452,98 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _datchi_2007_diamond_outcome(
+    record: dict[str, Any],
+    refit: dict[str, Any],
+) -> dict[str, Any]:
+    """Translate the dedicated Occelli/H2005 figure audit into the common ledger."""
+    fit = refit["fits"]["H2005"]["best_supported_run2_selection"][
+        "equal_volume_weight_fit"
+    ]
+    fitted = fit["parameters"]
+    published = record["eos"]["parameters"]
+    errors = record["parameter_errors"]
+    comparisons = []
+    for name in ("K0", "K0_prime"):
+        source = float(published[name])
+        estimate = float(fitted[name])
+        difference = estimate - source
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": source,
+                "published_error": float(errors[name]),
+                "refit": estimate,
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(source),
+                "within_combined_2sigma": None,
+                "within_published_fit_standard_deviation": (
+                    abs(difference) <= float(errors[name])
+                ),
+                "similar": _similar(name, source, estimate),
+            }
+        )
+    if not all(
+        item["within_published_fit_standard_deviation"] and item["similar"]
+        for item in comparisons
+    ):
+        raise AssertionError(
+            "dedicated Datchi diamond audit no longer supports Table II"
+        )
+    source_data = refit["source_data"]
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": int(
+            refit["fits"]["H2005"]["best_supported_run2_selection"]["rows"]
+        ),
+        "available_digitized_observations": int(source_data["observations"]),
+        "selection": (
+            "Occelli Figure 2 run-2 open circles only (14/24 markers); "
+            "best-supported but source-unconfirmed Table II selection hypothesis"
+        ),
+        "observed_pressure_range_gpa": [
+            13.227651913,
+            float(source_data["recalibrated_pressure_range_h2005_gpa"][1]),
+        ],
+        "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+        "objective": (
+            "equal volume residuals; equivalent point estimates from the published "
+            "constant 0.003 cm^3/mol volume uncertainty"
+        ),
+        "absolute_sigma": None,
+        "free_parameters": ["K0", "K0_prime"],
+        "parameters": comparisons,
+        "rmse_gpa": float(fit["rmse_gpa"]),
+        "rmse_a3_per_atom": float(fit["rmse_a3_per_atom"]),
+        "volume_chi_square_using_reported_constant_sigma": float(
+            fit["volume_chi_square_using_reported_constant_sigma"]
+        ),
+        "published_chi_square": float(
+            refit["fits"]["H2005"]["published_table_ii"]["chi_square"]
+        ),
+        "solver_success": bool(fit["success"]),
+        "solver_message": str(fit["message"]),
+        "fit_protocol_diagnostic": refit["fits"],
+        "pressure_recalibration": refit["pressure_recalibration"],
+        "qualification": (
+            "Conditional figure-level reproduction. The same run-2/equal-volume "
+            "hypothesis approaches the independently printed MXB1986 and H2005 "
+            "Table II coefficients and the H2005 chi-square, but Datchi et al. do "
+            "not publish exclusions or weights and Occelli et al. do not print "
+            "numerical rows. All 24 markers and all-marker sensitivity fits remain "
+            "visible in the diagnostic. No refit covariance or parameter errors "
+            "are inferred from the digitized points."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
+    datchi_diamond_refit = json.loads(
+        DATCHI_DIAMOND_REFIT_JSON.read_text(encoding="utf-8")
+    )
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2487,7 +2578,9 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if record["identifier"] == "diamond_datchi_2007_vinet_1":
+                outcome = _datchi_2007_diamond_outcome(record, datchi_diamond_refit)
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

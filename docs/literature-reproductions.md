@@ -529,6 +529,67 @@ covariance or explicit data-reuse license is stated. Section IV prints
 `gamma_th0=1.04(1)`, while the final parameter set in Table V prints
 `1.04(2)`; the production record conservatively follows final Table V.
 
+### Diamond Table II reanalysis
+
+Datchi et al. also refit the earlier natural-diamond measurements of
+[Occelli, Loubeyre, and LeToullec (2003)](https://doi.org/10.1038/nmat831)
+on seven ruby scales. Table II fixes `V0=5.6733 A^3/atom` and prints, among
+other rows, `K0=447(3) GPa`, `K0_prime=3.00(7)` on MXB1986 and
+`K0=443(3) GPa`, `K0_prime=3.97(5)` on H2005. Datchi do not reprint the
+diamond observations and neither paper specifies the Table II row exclusions
+or regression weights.
+
+Occelli Figure 2 is vector artwork. Dataset
+`diamond_occelli_2003_figure2_digitized` therefore preserves the exact centers
+of all 24 plotted observations: 14 open-circle run-2 points and 10 filled-circle
+run-3 points. Axis values come from least-squares calibration through every
+major tick. The one clipped ambient marker keeps its raw digitized coordinate,
+but its source pressure is set to zero because Occelli explicitly identify it
+as the unloaded zero-pressure observation. The copyrighted paper and figure
+artwork are not redistributed; only the digitized numerical facts and their
+provenance are bundled.
+
+The recalibration is exact conditional on those digitized MXB1986 pressures:
+
+\[
+r=\left(1+\frac{7.665P_{\mathrm{MXB}}}{1904}\right)^{1/7.665},
+\qquad
+P_{\mathrm{H05}}=\frac{1845}{14.7+7.5}
+\left\{\exp\left[\frac{14.7+7.5}{7.5}(1-r^{-7.5})\right]-1\right\}.
+\]
+
+This is the best-scale Freund--Ingalls form and coefficients printed by
+[Holzapfel (2005)](https://doi.org/10.1080/09511920500147501). Occelli state
+that run 2 reached 139 GPa, which converts to 152.919 GPa on H2005; the
+production record's experimental range is now expressed on that source-reported
+H2005 basis. The center of the final plotted marker digitizes to 140.800 GPa
+on MXB1986 and 154.975 GPa on H2005. That plot-level discrepancy is preserved
+in the dataset rather than silently replacing the textual experimental limit.
+
+| Scale and protocol | `K0` (GPa) | `K0_prime` | volume chi-square |
+|---|---:|---:|---:|
+| MXB1986, published Table II | 447 | 3.00 | 4.5 |
+| MXB1986, run 2/equal volume weight | 446.712 | 2.990 | 7.16 |
+| H2005, published Table II | 443 | 3.97 | 1.5 |
+| H2005, run 2/equal volume weight | 444.346 | 3.961 | 1.82 |
+| H2005, all 24/equal volume weight | 441.862 | 4.024 | 5.97 |
+| H2005, all 24/unweighted pressure | 441.038 | 4.045 | -- |
+
+The run-2/equal-volume result is the best-supported Table II protocol
+hypothesis: the same selection and objective approach both independently
+printed scale rows, and equal volume weighting follows from Occelli's constant
+`+/-0.003 cm^3/mol` volume uncertainty. It is not promoted to a source fact.
+Occelli also report pressure errors increasing from `+/-0.05 GPa` at 1 GPa to
+`+/-1 GPa` at 140 GPa, but supply no rowwise interpolation rule. The audit does
+not invent one, and it does not estimate coefficient covariance or refit
+errors from plot data. The common ledger consequently classifies this as a
+conditional `similar` reproduction, not strict parity. Reproduce the report
+with:
+
+```bash
+python scripts/reproduce_datchi_2007_diamond.py
+```
+
 ## C01: boron carbide, Somayazulu et al. (2023)
 
 ### Sources and model
