@@ -177,7 +177,6 @@ def test_migrated_records_have_completed_primary_source_audit():
         "kcl_b2_chidester_2021_bm3_5",
         "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
-        "mgo_b1_luo_2023_vinet_thermal_5",
         "mgo_b1_duffy_ahrens_1995_hugoniot_5",
         "mgo_dewaele_2000_bm3_mgd_5",
         "nickel_oxide_noguchi_1999_linear_hugoniot_2",
@@ -193,6 +192,7 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert {audit_dates[identifier] for identifier in latest_audit_identifiers} == {
         "2026-09-04",
     }
+    assert audit_dates["mgo_b1_luo_2023_vinet_thermal_5"] == "2026-09-08"
     goethite = next(
         record
         for record in records
@@ -205,6 +205,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         audit_dates[identifier]
         for identifier in current_audit_identifiers
         if identifier not in latest_audit_identifiers
+        and identifier != "mgo_b1_luo_2023_vinet_thermal_5"
     } == {"2026-09-01", "2026-09-03"}
     assert {
         date
@@ -824,6 +825,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
@@ -2201,6 +2203,8 @@ def test_luo_2023_mgo_complete_thermal_eos_and_primary_tables():
         if dataset["identifier"] == "mgo_luo_2023_table1_shock"
     )
     assert len(shock["rows"]) == 5
+    assert sum(row[11] is not None for row in shock["rows"]) == 4
+    assert sum(row[13] is not None for row in shock["rows"]) == 3
     for row in shock["rows"]:
         calculated_pressure = 3.590 * row[3] * row[5]
         assert calculated_pressure == pytest.approx(row[9], abs=0.6)
@@ -2226,6 +2230,23 @@ def test_luo_2023_mgo_complete_thermal_eos_and_primary_tables():
         "pressure_gpa": "342.01",
         "source_table": "III",
     }
+    assert grid["identifier"] not in source["fit_datasets"]
+    assert source["fit_datasets"] == [
+        "mgo_luo_2023_table1_shock",
+        "mgo_li_2006_table1_elasticity",
+    ]
+    inventory = source["fit_input_inventory"]
+    assert inventory["static_compression"]["used"] is False
+    assert len(inventory["shock_pv"]) == 6
+    assert len(inventory["shock_pvt"]) == 3
+    assert len(inventory["sound_velocity"]) == 3
+    assert "1/(sigma_j^i)^2" in inventory["objective"]
+    assert [item["doi"] for item in source["source_lineage"]] == [
+        "10.1103/PhysRevB.107.134116",
+        "10.1063/5.0089292",
+        "10.1029/2005JB004251",
+        "10.1016/j.pepi.2010.03.010",
+    ]
 
     compression = np.array([float(row["compression_ambient"]) for row in rows])
     temperatures = np.array([float(row["temperature_k"]) for row in rows])
@@ -2638,7 +2659,7 @@ def test_normative_schema_is_bundled():
         "berman",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 16
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 13
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 14
 
 
 def test_normative_schema_validates_every_bundled_document():

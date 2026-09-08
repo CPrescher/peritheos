@@ -3,6 +3,7 @@
   "format_version": 1,
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
+    "bounded_partial": "A declared subset/proxy fit is executable from primary rows, but missing source inputs or protocol details prevent an authoritative full-fit comparison.",
     "not_refittable": "The primary source supplies no direct row-level observations, or the necessary reduction/calibration is not executable.",
     "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria.",
@@ -19518,9 +19519,19 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": true,
+      "chi_square": 47.76178671692707,
+      "columns": {
+        "density": "density_g_cm3",
+        "longitudinal_velocity": "euler_sound_velocity_km_s",
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k"
+      },
       "dataset_identifiers": [
-        "mgo_luo_2023_table1_shock"
+        "mgo_luo_2023_table1_shock",
+        "mgo_li_2006_table1_elasticity"
       ],
+      "degrees_of_freedom": 9,
       "experimental_pressure_range_gpa": [
         0.0,
         345.0
@@ -19529,20 +19540,75 @@
         300.0,
         8500.0
       ],
+      "fit_kind": "sound_velocity_quasi_debye_bounded_partial",
       "fixed_parameters": [
         "Tr",
-        "eta0"
+        "molar_mass_g_mol",
+        "n",
+        "Li proxy velocity-density coefficients"
+      ],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
       ],
       "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
       "material_identifier": "mgo",
       "model": "Vinet",
-      "primary_data_finding": "All five new shock experiments and all 576 published derived P-V-T grid values are bundled. Earlier literature observations selected for the global optimization are cited but not reproduced row by row in this article.",
+      "objective": "sum of squared shock-pressure, Hugoniot-temperature, and longitudinal-velocity residuals divided by their printed one-standard-deviation errors; printed two-sigma temperature errors are halved",
+      "observations": 12,
+      "parameters": [
+        {
+          "parameter": "V0",
+          "published": 74.0741025123,
+          "published_error": 0.0267705466,
+          "refit": 83.87570193442825,
+          "refit_error": 2.427502778407178,
+          "relative_difference": 0.13232154139836785,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "K0",
+          "published": 169.8,
+          "published_error": 0.5,
+          "refit": 58.091456201786116,
+          "refit_error": 13.198112638175017,
+          "relative_difference": 0.6578830612380088,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.501,
+          "published_error": 0.007,
+          "refit": 6.5792403473949355,
+          "refit_error": 0.34837174175902086,
+          "relative_difference": 0.46172858195843924,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All five new Luo shock experiments and all 18 primary Li acoustic rows are bundled as permitted observation-level inputs. All 576 Luo derived P-V-T grid values remain bundled only as a reproduction target and are excluded from fit_datasets. The exact Kono regression coefficients and the complete selected upstream shock/P-V-T rows are not available from Luo et al.",
       "primary_data_status": "bundled",
       "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
-      "reason": "The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations.",
+      "proxy_velocity_fits": {
+        "longitudinal_intercept_km_s": -2.5464149976820414,
+        "longitudinal_slope_km_s_per_g_cm3": 3.43687324573171,
+        "method": "weighted least squares in velocity using printed velocity sigmas",
+        "shear_intercept_km_s": -0.029364014995588796,
+        "shear_slope_km_s_per_g_cm3": 1.6984954866577262,
+        "source_dataset": "mgo_li_2006_table1_elasticity"
+      },
+      "qualification": "The large coefficient shift is evidence that substituting Li's low-pressure velocity ratio and retaining only Luo's new states does not identify the published global parameterization.",
+      "reason": "A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output.",
       "record_identifier": "mgo_b1_luo_2023_vinet_thermal_5",
-      "source_notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; the three reported temperatures span 3088-5676 K. The full quasi-Debye Helmholtz construction in Equations (1)-(6) is not independently reconstructable from the article because the numerical longitudinal- and shear-velocity versus density fits needed for the Debye-temperature law are not published. The authors therefore supply Equations (B1)-(B2) as the derived executable P-V-T form. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
-      "status": "not_refittable"
+      "reduced_chi_square": 5.306865190769674,
+      "selection": "all five Luo Table I P-V states, four reported temperatures, and three Eulerian sound velocities; all 18 Li ambient/high-pressure rows only determine the fixed proxy velocity-density regressions",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; four temperatures span 3088-5676 K and three Eulerian sound velocities are reported. The full quasi-Debye equations and inverse-variance objective are reconstructable from Luo et al. (2023) and Xian et al. (2022), and Peritheos implements that mechanism as SoundVelocityDebyeHelmholtz. The source-author numerical rerun is not reconstructable because the Kono velocity-density coefficients, complete upstream row mask, uncertainty propagation across P-V-T observables, and covariance are not published. A bounded 12-residual fit using only Luo Table I primary rows and a declared Li-2006 velocity-ratio proxy is recorded in the refit ledger; it does not replace this published Appendix-B record. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
+      "status": "bounded_partial"
     },
     {
       "dataset_identifiers": [],
@@ -31648,7 +31714,8 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "bounded_partial": 1,
+    "not_refittable": 564,
     "parity": 155,
     "parity_not_achieved": 31,
     "similar": 62,

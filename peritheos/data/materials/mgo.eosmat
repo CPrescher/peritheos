@@ -1235,6 +1235,28 @@
     "locator": "134116",
     "doi": "10.1103/PhysRevB.107.134116"
    },
+   "source_lineage": [
+    {
+     "role": "scientific global fit, optimized coefficients, new shock rows, and Appendix-B pressure surrogate",
+     "citation": "Luo et al. (2023), Equations (1)-(10), Table I, and Appendices A-B",
+     "doi": "10.1103/PhysRevB.107.134116"
+    },
+    {
+     "role": "quasi-Debye equations, inverse-variance objective, and shock-temperature reduction",
+     "citation": "Xian et al. (2022), Equations (1)-(15)",
+     "doi": "10.1063/5.0089292"
+    },
+    {
+     "role": "bundled room-temperature acoustic constraints and declared proxy velocity regressions for the bounded partial refit",
+     "citation": "Li, Woody, and Kung (2006), Section 2 and Table 1",
+     "doi": "10.1029/2005JB004251"
+    },
+    {
+     "role": "source-author longitudinal/shear velocity-density regressions; numerical coefficients not published by Luo",
+     "citation": "Kono et al. (2010), Phys. Earth Planet. Inter. 183, 196",
+     "doi": "10.1016/j.pepi.2010.03.010"
+    }
+   ],
    "equation_kind": "thermal",
    "record_kind": "published",
    "eos": {
@@ -1309,8 +1331,40 @@
     ]
    },
    "fit_datasets": [
-    "mgo_luo_2023_table1_shock"
+    "mgo_luo_2023_table1_shock",
+    "mgo_li_2006_table1_elasticity"
    ],
+   "fit_input_inventory": {
+    "objective": "Xian et al. (2022), Equation (15): delta=sum_j sum_i W_j^i (xi_j^i-zeta_j^i)^2 with W_j^i=1/(sigma_j^i)^2 for independent Gaussian errors; Luo et al. optimize V0K, B0, and B0_prime globally.",
+    "static_compression": {
+     "used": false,
+     "finding": "Luo et al. do not identify a pressure-scale-dependent static P-V data set as a global-fit input. Their room-temperature constraints are acoustic velocities from Kono et al. (2010) and Li et al. (2006)."
+    },
+    "shock_pv": [
+     "Luo et al. (2023), Table I: all five new P-V states; only P>70 GPa is used because of the reported two-wave region",
+     "Marsh (1980), LASL Shock Hugoniot Data: MgO rows cited in Figure 4",
+     "Vassiliou and Ahrens (1981), Geophys. Res. Lett. 8, 729: MgO Hugoniot rows cited in Figure 4",
+     "Zhang, Gong, and Fei (2008), J. Phys. Chem. Solids 69, 2344: MgO Hugoniot rows cited in Figure 4",
+     "Fratanduono et al. (2013), J. Appl. Phys. 114, 043518: lower Table II impedance-matched subset",
+     "Root et al. (2015), Phys. Rev. Lett. 115, 198501: the three Supplemental Table VI rows at 270.2, 330.6, and 343.8 GPa"
+    ],
+    "shock_pvt": [
+     "Luo et al. (2023), Table I: four temperatures (shots 1, 2, 3, and 5)",
+     "Svendsen and Ahrens (1987), Geophys. J. Int. 91, 667: shock-induced temperatures and P-V states",
+     "Fat'yanov, Asimow, and Ahrens (2018), Phys. Rev. B 97, 024106: Tables III and VII shots 390, 387, and 389 at 102, 106, and 124 GPa, using r=0.22 temperatures; higher-pressure rows are excluded"
+    ],
+    "sound_velocity": [
+     "Kono et al. (2010), Phys. Earth Planet. Inter. 183, 196: 300 K longitudinal and shear velocities fitted linearly versus density to define Poisson ratio",
+     "Li, Woody, and Kung (2006), J. Geophys. Res. 111, C11S13: bundled 300 K longitudinal and shear velocities",
+     "Luo et al. (2023), Table I: three Eulerian longitudinal sound velocities (shots 2, 3, and 5)"
+    ],
+    "thermal_and_verification": {
+     "model_source": "Luo et al. (2023), Equations (1)-(6) and Appendix A, with the global-objective and shock-temperature details supplied by Xian et al. (2022), AIP Advances 12, 055313",
+     "heat_capacity": "The ambient-pressure Cp sources in Luo references 56-61 are comparison/verification data, not stated global-fit observations, and are not fit_datasets.",
+     "derived_outputs": "Luo Tables II-III are calculated EOS values and are explicitly excluded from every observation-level refit."
+    },
+    "availability": "The Luo and Li rows are bundled. The exact Kono linear-fit coefficients, complete upstream row mask, cross-observable residual implementation, temperature/density uncertainty propagation, and covariance are not published in Luo or Xian; the remaining cited source rows are therefore inventory entries rather than asserted reconstructed fit rows."
+   },
    "parameter_provenance": {
     "reference_isotherm": {
      "V0": "Section III, page 6: V0K = 0.2767 +/- 0.0001 cm^3/g at zero pressure and zero temperature; converted with 40.304 g/mol MgO and Z=4 to the conventional B1 cell",
@@ -1333,7 +1387,7 @@
     "public_to_model_scale": 1.0,
     "model_unit": "angstrom^3/conventional_unit_cell"
    },
-   "notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; the three reported temperatures span 3088-5676 K. The full quasi-Debye Helmholtz construction in Equations (1)-(6) is not independently reconstructable from the article because the numerical longitudinal- and shear-velocity versus density fits needed for the Debye-temperature law are not published. The authors therefore supply Equations (B1)-(B2) as the derived executable P-V-T form. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
+   "notes": "This is the complete empirical pressure-scale form in Appendix B, not a standalone 300 K Vinet fit. Equation (3) and the three globally optimized coefficients define a zero-temperature cold Vinet curve; Equation (B2) adds an absolute thermal pressure that is nonzero at 300 K. The stored Tr=300 K is the Taylor expansion and operational increment reference, not the temperature of the cold curve. Tables II-III label compression by the ambient initial V0=1/rho0 from rho0=3.590 g/cm^3, whereas Equation (B2) defines eta with the smaller fitted cold V0K. The five new shock states span 152-265 GPa; four temperatures span 3088-5676 K and three Eulerian sound velocities are reported. The full quasi-Debye equations and inverse-variance objective are reconstructable from Luo et al. (2023) and Xian et al. (2022), and Peritheos implements that mechanism as SoundVelocityDebyeHelmholtz. The source-author numerical rerun is not reconstructable because the Kono velocity-density coefficients, complete upstream row mask, uncertainty propagation across P-V-T observables, and covariance are not published. A bounded 12-residual fit using only Luo Table I primary rows and a declared Li-2006 velocity-ratio proxy is recorded in the refit ledger; it does not replace this published Appendix-B record. No uncertainty confidence level or covariance is reported for the three optimized cold coefficients, and no errors are reported for c0-c5. The APS article record and full paper were checked; no official supplemental file or machine-readable data deposit is linked.",
    "identifier": "mgo_b1_luo_2023_vinet_thermal_5",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -1381,14 +1435,14 @@
     ],
     "recalculation": {
      "status": "not_possible",
-     "notes": "The five new Table I shock states are bundled and their reduced pressures can be checked, but the complete global fit also selects observations from multiple earlier publications and requires unpublished sound-velocity-density fit coefficients and the detailed objective implementation."
+     "notes": "A source-author full rerun is not possible. Xian et al. (2022) publishes the inverse-variance least-squares objective and shock-energy reduction, but Luo et al. do not publish the Kono velocity-density coefficients, complete upstream row mask, cross-observable residual normalization, temperature/density error propagation, or covariance. The ledger therefore executes only a declared 12-residual Luo-plus-Li proxy sensitivity fit."
     },
-    "audit_date": "2026-09-04"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The zero-temperature Vinet convention, mass-to-cell volume conversion, absolute polynomial thermal pressure, parameters, uncertainties, B1 identity, stated model range, shock pressure basis, and tabulated P-V-T reproduction were checked against the primary article.",
-    "audit_date": "2026-09-04",
+    "note": "The zero-temperature Vinet convention, quasi-Debye construction, inverse-variance objective, source-input scope, mass-to-cell conversion, Appendix-B surrogate, uncertainties, B1 identity, stated model range, shock pressure basis, and bounded refit boundary were checked against Luo et al. (2023), Xian et al. (2022), and the available cited primary rows.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1398,7 +1452,10 @@
      "published_uncertainties",
      "validity",
      "pressure_calibration",
-     "primary_data"
+     "primary_data",
+     "fit_scope",
+     "model_reconstruction",
+     "bounded_partial_refit"
     ],
     "primary_source_check": {
      "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
@@ -1409,21 +1466,23 @@
       "Tables II-III, pages 8-9",
       "Appendices A-B, pages 9-10"
      ],
-     "finding": "The executable source form is a 0 K Rydberg-Vinet cold curve plus the absolute second-order Taylor thermal pressure in Equations (B1)-(B2). Calling the record simply Vinet would omit the thermal EOS that produces the published P-V-T scale.",
+     "finding": "The source-author model is a 0 K Rydberg-Vinet cold curve plus a sound-velocity-derived quasi-Debye Helmholtz free energy. Appendix B supplies a separately executable second-order Taylor pressure surrogate, which remains the catalog record because the Kono velocity-density coefficients required by the full source model are not printed.",
      "doi": "10.1103/physrevb.107.134116"
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-04",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
       "mgo_luo_2023_table1_shock",
+      "mgo_li_2006_table1_elasticity",
       "mgo_luo_2023_tables2_3_pvt_grid"
      ],
      "source_locations": [
-      "Table I, page 5",
+      "Luo et al. (2023), Table I, page 5",
+      "Li et al. (2006), Section 2 and Table 1",
       "Tables II-III, pages 8-9"
      ],
-     "finding": "All five new shock experiments and all 576 published derived P-V-T grid values are bundled. Earlier literature observations selected for the global optimization are cited but not reproduced row by row in this article."
+     "finding": "All five new Luo shock experiments and all 18 primary Li acoustic rows are bundled as permitted observation-level inputs. All 576 Luo derived P-V-T grid values remain bundled only as a reproduction target and are excluded from fit_datasets. The exact Kono regression coefficients and the complete selected upstream shock/P-V-T rows are not available from Luo et al."
     },
     "reproduction": {
      "method": "Independent evaluation of Equations (B1)-(B2) using the printed cold and thermal coefficients, with Tables II-III compression converted using rho0=3.590 g/cm^3",
@@ -5266,7 +5325,8 @@
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
-    "mgo_li_2006_bm3_absolute_acoustic"
+    "mgo_li_2006_bm3_absolute_acoustic",
+    "mgo_b1_luo_2023_vinet_thermal_5"
    ],
    "uncertainty": {
     "reported_as": "one_standard_deviation_from_error_propagation",

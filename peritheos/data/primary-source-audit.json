@@ -8726,7 +8726,7 @@
       "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
       "doi": "10.1103/physrevb.107.134116",
       "status": "primary_source_validated",
-      "note": "The zero-temperature Vinet convention, mass-to-cell volume conversion, absolute polynomial thermal pressure, parameters, uncertainties, B1 identity, stated model range, shock pressure basis, and tabulated P-V-T reproduction were checked against the primary article.",
+      "note": "The zero-temperature Vinet convention, quasi-Debye construction, inverse-variance objective, source-input scope, Appendix-B surrogate, and bounded-refit boundary were checked against Luo et al. (2023), Xian et al. (2022), and the available cited primary rows.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
         "locations": [
@@ -8736,7 +8736,7 @@
           "Tables II-III, pages 8-9",
           "Appendices A-B, pages 9-10"
         ],
-        "finding": "The executable source form is a 0 K Rydberg-Vinet cold curve plus the absolute second-order Taylor thermal pressure in Equations (B1)-(B2). Calling the record simply Vinet would omit the thermal EOS that produces the published P-V-T scale.",
+        "finding": "The source-author form is a 0 K Rydberg-Vinet cold curve plus a sound-velocity-derived quasi-Debye Helmholtz free energy. Appendix B is an executable pressure surrogate retained by the catalog because the Kono velocity-density coefficients required by the full model are not printed. The source objective is inverse-variance least squares, but the complete row mask and reduction details remain unavailable; a bounded Luo-plus-Li proxy fit is executable without using Tables II-III.",
         "doi": "10.1103/physrevb.107.134116"
       }
     },

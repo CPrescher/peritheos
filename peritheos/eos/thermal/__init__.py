@@ -21,6 +21,7 @@ from .mie_gruneisen import (
 )
 from .multi_oscillator import MultiOscillatorGruneisenThermalEOS
 from .sokolova2016 import Sokolova2016
+from .sound_velocity_debye import SoundVelocityDebyeHelmholtz
 
 __all__ = [
     "DoubleDebyeHelmholtz",
@@ -34,6 +35,7 @@ __all__ = [
     "MultiOscillatorGruneisenThermalEOS",
     "Sokolova2016",
     "SecondOrderTaylorThermalPressure",
+    "SoundVelocityDebyeHelmholtz",
     "Tange2009Debye",
     "ThermalModifiedTait",
     "ThermalReferenceStateEOS",

@@ -208,7 +208,10 @@ def test_li_2006_table1_is_complete_verbatim_and_checksummed():
     dataset, payload, rows = _dataset_rows(document)
 
     assert hashlib.sha256(payload).hexdigest() == dataset["resource"]["sha256"]
-    assert dataset["used_by_eos_records"] == [source["identifier"]]
+    assert dataset["used_by_eos_records"] == [
+        source["identifier"],
+        "mgo_b1_luo_2023_vinet_thermal_5",
+    ]
     assert len(rows) == 18
     assert sum(row["experimental_path"] == "ambient" for row in rows) == 1
     assert sum(row["experimental_path"] == "initial_compression" for row in rows) == 7

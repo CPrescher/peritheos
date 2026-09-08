@@ -1422,17 +1422,57 @@ where `eta = 1 - V/V0K`, `delta eta = eta - 0.02`, and
 reported for these six coefficients. The three cold-curve uncertainties have
 an unstated confidence convention and no published covariance.
 
-The paper's Equations (1)--(6) give the underlying quasi-Debye Helmholtz
-construction, but not the numerical longitudinal- and shear-wave velocity
-fits needed to reconstruct its effective sound velocity and Debye-temperature
-law. The Appendix-B polynomial is therefore the complete independently
-executable form supported by the primary article. The APS article record has
-no linked official supplement or machine-readable deposit.
+The source-author model is more complete than Appendix B. Equations (1)--(6)
+and Appendix A derive the Debye temperature from an effective sound velocity.
+Linear 300 K fits of Kono et al.'s longitudinal and shear velocities against
+density supply their ratio and Poisson's ratio; the cold Vinet derivative then
+sets the model longitudinal/shear velocities and the Debye-average velocity.
+Peritheos now implements this mechanism as `SoundVelocityDebyeHelmholtz`,
+including cold and vibrational energies and a Rankine--Hugoniot temperature
+solver. Luo et al. do not print the four Kono regression coefficients, so that
+class cannot replace the catalog's source-published Appendix-B surrogate
+without inventing inputs.
+
+The objective is also recoverable. Xian et al. (2022), the method paper cited
+by Luo et al., gives
+
+\[
+\delta=\sum_j\sum_i W_j^i(\xi_j^i-\zeta_j^i)^2,\qquad
+W_j^i=(\sigma_j^i)^{-2},
+\]
+
+under independent Gaussian errors. Its shock reduction solves temperature
+from the Rankine--Hugoniot energy equation at each observed pressure and
+volume, then evaluates model pressure. Thus the previous claim that the
+weight rule itself was unpublished was too strong. What remains unpublished
+is the complete selected row list, the cross-observable residual/units
+implementation, propagation of pressure-volume-temperature errors, the Kono
+regression coefficients, and parameter covariance.
+
+### Global-fit input inventory
+
+The source text and figure captions identify the following inputs:
+
+| Constraint | Source-author input | Recovery status |
+|---|---|---|
+| Static P--V | None identified; Luo deliberately uses 300 K acoustic constraints rather than a pressure-scale-dependent static compression set | not applicable |
+| Shock P--V | Marsh (1980); Vassiliou and Ahrens (1981); Zhang, Gong, and Fei (2008); the lower impedance-matched portion of Fratanduono et al. (2013) Table II; Root et al. (2015) Supplemental Table VI rows at 270.2, 330.6, and 343.8 GPa; Luo Table I | Luo Table I bundled; upstream selection inventoried, not asserted row-for-row |
+| Shock P--V--T | Svendsen and Ahrens (1987); Fat'yanov, Asimow, and Ahrens (2018) Tables III/VII shots 390, 387, and 389 at 102, 106, and 124 GPa with `r=0.22` temperatures; Luo Table I shots 1, 2, 3, and 5 | four Luo temperatures bundled; upstream selection inventoried |
+| Sound velocity | Kono et al. (2010) 300 K longitudinal/shear velocities; Li, Woody, and Kung (2006); Luo Table I shots 2, 3, and 5 | all 18 Li rows and three Luo sound speeds bundled; Kono coefficients missing |
+| Thermal/calorimetry | quasi-Debye equations from Luo/Xian | model implemented; Luo references 56--61 heat capacities are verification-only, not fit rows |
+
+Miyanishi et al. (2015) is explicitly excluded because of its high reported
+uncertainty. Luo use shock P--V only above 70 GPa because MgO shows two-wave
+behavior from about 33 to 65 GPa. The record's machine-readable
+`fit_input_inventory` preserves these selections and distinguishes bundled
+rows from bibliographic inventory. The APS article has no linked supplement or
+machine-readable data deposit.
 
 ### Data reproduction and refit boundary
 
-Peritheos bundles all five new shock states from Table I and all 576 derived
-P-V-T values in Tables II--III. Re-evaluating the printed Appendix-B equation
+Peritheos bundles all five new shock states from Table I, the 18 Li acoustic
+rows, and all 576 derived P-V-T values in Tables II--III. Re-evaluating the
+printed Appendix-B equation
 at the table coordinates gives `0.484096 GPa` RMS and `1.435303 GPa` maximum
 absolute pressure residual. For example, the state at ambient compression
 `0.42` and `8500 K` is reproduced within that documented sub-GPa consistency
@@ -1440,15 +1480,35 @@ at the table's printed `342.01 GPa`. The table was generated from the fuller
 quasi-Debye calculation, so exact equality after decimal rounding is neither
 claimed nor expected.
 
-A diagnostic unweighted least-squares fit of only `c0`--`c5` to that derived
-grid gives `(1.423975, -17.564509, 0.006092604, 45.696538,
-8.377914e-8, 0.004084916)` and lowers the RMS only to `0.445789 GPa`. This is a
-fit to model output, not to primary observations, and is not stored as another
-EOS record. An observation-level refit is not possible from the publication:
-the global optimization selected data from multiple earlier studies, while
-the complete row set, unpublished sound-velocity fits, objective weights, and
-covariance are unavailable. The refit ledger records that precise limitation
-rather than circularly fitting the authors' derived table.
+Tables II--III are model output, not independent observations. They are never
+included in `fit_datasets`, and the earlier diagnostic fit of `c0`--`c5` to
+that grid is retained only as a surrogate-consistency check.
+
+A bounded observation-level sensitivity fit is possible. It uses all five Luo
+Table I P--V states, solves their shock temperatures with the published energy
+relation, compares the four reported temperatures, and compares the three
+Eulerian sound speeds. Pressure and velocity residuals are divided by their
+printed one-standard-deviation errors; printed two-standard-deviation
+temperature errors are halved.
+Because Kono's coefficients are unavailable, weighted linear fits to the 18
+bundled Li rows provide an explicit proxy:
+
+\[
+C_l^{\rm fit}=-2.546415+3.436873\rho,\qquad
+C_s^{\rm fit}=-0.029364+1.698495\rho,
+\]
+
+with velocity in km/s and density in g/cm3. Fitting the three cold parameters
+gives `V0K=83.8757 A3/cell`, `B0=58.0915 GPa`, and `B'=6.57924`, with
+`chi2=47.7618` for nine degrees of freedom. The unphysical extrapolated
+reference state and large shift from the published `74.0741`, `169.8`, and
+`4.501` are the important result: Luo's new rows plus a low-pressure Li proxy
+do not identify the global parameterization. This is classified
+`bounded_partial`, not parity or a replacement EOS.
+
+A full source-author refit remains impossible until the exact Kono linear
+coefficients, upstream numerical rows and row mask, residual-unit treatment,
+temperature/density uncertainty propagation, and covariance are recovered.
 
 Table I pressure is independently checkable from the Rankine--Hugoniot
 relation `P=rho0*D*up`; all five printed pressures are recovered within

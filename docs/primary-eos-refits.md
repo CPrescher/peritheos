@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **1** have bounded partial refits, **564** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -500,7 +500,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgo_jacobsen_2008_bm3_kcl_mao1978`](https://doi.org/10.2138/am.2008.2988) | `mgo_jacobsen_2008_table2_kcl_compression` | 26 | `V0` 74.698 → 74.7433; `K0` 164.1 → 162.668; `K0_prime` 4.05 → 4.08928 | 0.331141/0.316033 | parity |
 | [`mgo_jacobsen_2008_bm3_helium_mao1986`](https://doi.org/10.2138/am.2008.2988) | `mgo_jacobsen_2008_table1_helium_compression` | 52 | `V0` 74.687 → 74.6213; `K0` 159.6 → 162.221; `K0_prime` 3.74 → 3.66506 | 0.317688/0.289178 | parity |
 | [`mgo_shen_2026_vinet_3`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
-| [`mgo_b1_luo_2023_vinet_thermal_5`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext) | `mgo_luo_2023_table1_shock` | — | — | —/— | not_refittable — The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations. |
+| [`mgo_b1_luo_2023_vinet_thermal_5`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext) | `mgo_luo_2023_table1_shock, mgo_li_2006_table1_elasticity` | 12 | `V0` 74.0741 → 83.8757; `K0` 169.8 → 58.0915; `K0_prime` 4.501 → 6.57924 | —/— | bounded_partial — A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output. |
 | [`mgo_sokolova_2013_holzapfel_4`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
 | [`mgo_dewaele_2000_bm3_mgd_5`](https://doi.org/10.1029/1999JB900364) | `mgo_dewaele_2000_table2_pvt` | 41 | `q` 0.8 → 0.847089 | 0.952183/0.949681 | parity — Conditional current-study thermal reproduction: the 41 heated Table 2 rows constrain q while V0, K0, K0', theta0, gamma0, Tr, and n are held to the source's staged/adopted values. Dewaele et al.'s published thermal analysis additionally used Fei (1999) observations that are not reprinted in this article, so exact parameter parity is not required from the new current-study rows alone. |
 | [`mgo_dewaele_2000_bm2_sensitivity_1`](https://insu.hal.science/insu-03596948/document) | `mgo_dewaele_2000_table2_pvt` | 20 | `K0` 159 → 159.882 | 0.608044/0.591619 | parity |
@@ -849,6 +849,21 @@ use `--check` in continuous integration to detect stale generated files.
 | [`zr_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`zr_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`zr_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+
+## Bounded partial refits
+
+### `mgo_b1_luo_2023_vinet_thermal_5`
+
+**Data:** `mgo_luo_2023_table1_shock, mgo_li_2006_table1_elasticity`. **Selection:** all five Luo Table I P-V states, four reported temperatures, and three Eulerian sound velocities; all 18 Li ambient/high-pressure rows only determine the fixed proxy velocity-density regressions.
+
+**Objective:** sum of squared shock-pressure, Hugoniot-temperature, and longitudinal-velocity residuals divided by their printed one-standard-deviation errors; printed two-sigma temperature errors are halved.
+
+**Result:** `V0` 74.0741 → 83.8757; `K0` 169.8 → 58.0915; `K0_prime` 4.501 → 6.57924; chi-square 47.7618 for 9 degrees of freedom.
+
+**Boundary:** A 12-residual primary-row sensitivity fit is executable, but it is not the source global refit: Kono's exact velocity-density regressions, the selected upstream shock/PVT rows, temperature/density error propagation, cross-observable normalization, and covariance are still unavailable. Tables II-III are excluded because they are derived EOS output.
+
+**Interpretation:** The large coefficient shift is evidence that substituting Li's low-pressure velocity ratio and retaining only Luo's new states does not identify the published global parameterization.
+
 
 ## Parity not achieved
 
@@ -3237,7 +3252,6 @@ the missing source fit detail is recovered.
 - `mgo_b1_tange_2009_vinet`: This is a unified least-squares analysis of previously published pressure-scale-free thermal, elastic, and shock datasets. It reports optimized MgO EOS parameters and residuals, but no new row-level experimental observations.
 - `mgo_li_2006_bm3_absolute_acoustic`: The Table 1 pressures are outputs of the stored acoustic-derived BM3, not independent pressure-volume observations. The source-derived isothermal coefficients are instead validated by the bundled velocity-density data and the dedicated acoustic finite-strain reproduction.
 - `mgo_shen_2026_vinet_3`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
-- `mgo_b1_luo_2023_vinet_thermal_5`: The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations.
 - `mgo_sokolova_2013_holzapfel_4`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
 - `mgo_b1_duffy_ahrens_1995_hugoniot_5`: The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.
 - `mgo_oganov_2003_ecp_large_core_static_bm3`: The complete coefficients are tabulated but the fitted energy-volume grid is not published.

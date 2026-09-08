@@ -20,6 +20,7 @@ STATUS_LABELS = {
     "parity": "parity",
     "similar": "similar",
     "parity_not_achieved": "parity not achieved",
+    "bounded_partial": "bounded partial refit",
     "not_refittable": "direct refit unavailable",
 }
 
@@ -28,6 +29,7 @@ OUTCOME_LABELS = {
     "partial_reproduction": "Partly reproduced",
     "mixed_reproduction": "Mixed: reproduced and discrepant records",
     "parity_not_achieved": "Coefficient parity not achieved",
+    "bounded_partial": "Bounded partial refit",
     "direct_refit_unavailable": "Direct refit unavailable",
     "withheld_unreproduced": "Withheld: could not reproduce",
     "deferred_incomplete_model": "Deferred: incomplete source/model mapping",
@@ -76,6 +78,7 @@ def classify(statuses: Counter[str]) -> str:
     """Collapse record-level refit results into one paper disposition."""
     reproduced = statuses["parity"] + statuses["similar"]
     discrepant = statuses["parity_not_achieved"]
+    bounded = statuses["bounded_partial"]
     unavailable = statuses["not_refittable"]
     if discrepant and reproduced:
         return "mixed_reproduction"
@@ -85,6 +88,8 @@ def classify(statuses: Counter[str]) -> str:
         return "partial_reproduction"
     if reproduced:
         return "reproduced"
+    if bounded:
+        return "bounded_partial"
     return "direct_refit_unavailable"
 
 
@@ -201,6 +206,16 @@ def render() -> str:
         for paper in unavailable_papers
         for record in paper["records"]
     )
+    bounded_papers = [
+        paper
+        for paper in catalog_papers
+        if any(record["status"] == "bounded_partial" for record in paper["records"])
+    ]
+    bounded_record_count = sum(
+        record["status"] == "bounded_partial"
+        for paper in bounded_papers
+        for record in paper["records"]
+    )
 
     lines = [
         "# Paper investigation ledger",
@@ -222,6 +237,9 @@ def render() -> str:
         "  similarity criteria, or a coupled source-level objective had a demonstrably",
         "  different optimum. These are source-fit discrepancies, not software-run",
         "  failures; the record may remain for faithful published-curve provenance.",
+        "- **Bounded partial refit:** a declared primary-row subset or proxy fit runs,",
+        "  but missing source inputs or protocol details prevent an authoritative",
+        "  source-global coefficient comparison.",
         "- **Direct refit unavailable:** the equation and parameters were audited, but",
         "  independent coefficient recovery was impossible because primary rows, an",
         "  executable calibration, or the original reduction were unavailable or",
@@ -266,11 +284,42 @@ def render() -> str:
                 "",
                 f"Evidence: [{evidence}]({evidence}).",
                 "",
-            ]
+        ]
+    )
+
+    lines.extend(
+        [
+            "",
+            "## Papers with bounded partial refits",
+            "",
+            f"These **{len(bounded_papers)} "
+            f"{'paper' if len(bounded_papers) == 1 else 'papers'}** account for "
+            f"{bounded_record_count} bounded partial "
+            f"{'refit' if bounded_record_count == 1 else 'refits'}.",
+            "",
+            "| Paper | Affected records | Boundary |",
+            "|---|---|---|",
+        ]
+    )
+    for paper in bounded_papers:
+        bounded = [
+            record
+            for record in paper["records"]
+            if record["status"] == "bounded_partial"
+        ]
+        reasons = []
+        for record in bounded:
+            reason = record["reason"]
+            if reason not in reasons:
+                reasons.append(reason)
+        lines.append(
+            f"| {source_link(paper)} | {record_list(bounded)} | "
+            f"{markdown_cell(' '.join(reasons))} |"
         )
 
     lines.extend(
         [
+            "",
             "## Papers with coefficient discrepancies",
             "",
             f"These **{len(discrepancy_papers)} papers** account for all "
