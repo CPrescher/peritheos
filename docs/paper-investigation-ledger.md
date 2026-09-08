@@ -26,20 +26,20 @@ produce an executable record.
 
 ## Summary
 
-The register covers **314 primary papers**: **216** support the 487 audited catalog records and **98** were investigated without adding a production record.
+The register covers **314 primary papers**: **215** support the 486 audited catalog records and **99** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 126 |
+| Reproduced | 125 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
 | Direct refit unavailable | 71 |
 | Withheld: could not reproduce | 6 |
-| Deferred: incomplete source/model mapping | 87 |
+| Deferred: incomplete source/model mapping | 88 |
 
 ## Withheld or deferred papers
 
@@ -98,6 +98,14 @@ Evidence: [literature-reproductions/mgo-oxide-litcurate-exhaustion.md](literatur
 All 16 LitCurate rows are held because the primary parameter table was unavailable and the accessible abstract does not establish the EOS equation, volume basis, or magnetic/electronic branch identities. No coefficients were promoted from discovery-only evidence.
 
 Evidence: [literature-reproductions/caracas-cohen-2005-chemistry.md](literature-reproductions/caracas-cohen-2005-chemistry.md).
+
+### [Chantel et al. (2012), bridgmanite acoustic velocities](https://doi.org/10.1029/2012GL053075)
+
+**Outcome:** Deferred: incomplete source/model mapping (2026-09-08).
+
+This is primarily an acoustic-elasticity study. Table 3 is a composite/adopted thermoelastic parameterization rather than a source-data EOS fit: the identical 252 GPa bulk coefficient is labeled K_S in acoustic Table 2 and K_T in Table 3 without a documented conversion, and the two high-temperature rows only validate thermal parameters adopted from Xu et al. (2008).
+
+Evidence: [literature-reproductions/chantel-2012-bridgmanite.md](literature-reproductions/chantel-2012-bridgmanite.md).
 
 ### [Chen et al. (2024), stishovite velocities](https://doi.org/10.1029/2023GL107700)
 
@@ -1001,7 +1009,7 @@ the primary-source and refit ledgers.
 | [Campbell and Heinz (1994)](https://doi.org/10.1029/94jb00127) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Caracas and Cohen (2005), MgSiO3-FeSiO3-Al2O3 pv/ppv chemistry](https://doi.org/10.1029/2005GL023164) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Caracas et al. (2005)](https://doi.org/10.1029/2004gl022144) | Direct refit unavailable | 4 | 4 direct refit unavailable | 4 theoretical parameterization only |
-| [Chantel et al. (2012)](https://doi.org/10.1029/2012gl053075) | Reproduced | 1 | 1 similar | 1 bundled |
+| [Chantel et al. (2012), bridgmanite acoustic velocities](https://doi.org/10.1029/2012GL053075) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Chen et al. (2018)](https://doi.org/10.2138/am-2018-6087) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Chen et al. (2024), stishovite velocities](https://doi.org/10.1029/2023GL107700) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Chidester et al. (2021)](https://doi.org/10.1103/physrevb.104.094107) | Reproduced | 1 | 1 parity | 1 bundled |

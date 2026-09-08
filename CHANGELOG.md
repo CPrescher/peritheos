@@ -21,15 +21,15 @@ All notable changes to Peritheos are documented here. The project follows
   octahedral-tilt branches that lacked diffraction-ready structures. The full
   nine-structure BM3/BM4 coefficient table remains an audit fixture; production
   retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
-  contains 208 materials and 487 primary-source-validated EOS records.
+  contains 208 materials and 486 primary-source-validated EOS records.
 
 ### Changed
 
-- Reclassified the Chantel et al. (2012) bridgmanite BM3-MGD record from a
-  generic unrefittable P-V entry to a source-equation partial acoustic
-  reproduction. Added an executable third-order Eulerian density--Vp--Vs model
-  and fitter with latent-density/covariance support; clarified that the source
-  adopted its thermal terms and only validated them against two heated rows.
+- Removed the Chantel et al. (2012) composite bridgmanite BM3-MGD
+  parameterization from the production EOS catalog. Its acoustic source audit
+  and Table 1 transcription remain as nonproduction evidence. The executable
+  third-order Eulerian density--Vp--Vs model and fitter remain available as a
+  general API.
 - Linked 24 Dewaele (2019) metal records to their bundled source tables and
   dedicated two-ruby-scale refits. They are now classified as numerically
   similar within the source's printed 95% intervals instead of incorrectly

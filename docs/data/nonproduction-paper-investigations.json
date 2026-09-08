@@ -3,6 +3,14 @@
   "format_version": 1,
   "papers": [
     {
+      "citation": "Chantel et al. (2012), bridgmanite acoustic velocities",
+      "doi": "10.1029/2012GL053075",
+      "outcome": "deferred_incomplete_model",
+      "investigation_date": "2026-09-08",
+      "evidence": "literature-reproductions/chantel-2012-bridgmanite.md",
+      "reason": "This is primarily an acoustic-elasticity study. Table 3 is a composite/adopted thermoelastic parameterization rather than a source-data EOS fit: the identical 252 GPa bulk coefficient is labeled K_S in acoustic Table 2 and K_T in Table 3 without a documented conversion, and the two high-temperature rows only validate thermal parameters adopted from Xu et al. (2008)."
+    },
+    {
       "citation": "Caracas and Cohen (2005), MgSiO3-FeSiO3-Al2O3 pv/ppv chemistry",
       "doi": "10.1029/2005GL023164",
       "outcome": "deferred_incomplete_model",

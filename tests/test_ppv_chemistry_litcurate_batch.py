@@ -2,7 +2,6 @@ import csv
 import hashlib
 import importlib.util
 import json
-import math
 from pathlib import Path
 
 import pytest
@@ -112,32 +111,19 @@ def test_akber_reproduction_covers_all_ten_rows_and_source_envelope():
     assert max(high) == pytest.approx(230.83306253, abs=1e-8)
 
 
-def test_chantel_table3_model_and_complete_pure_table1_transcription():
+def test_chantel_is_nonproduction_and_table1_is_audit_evidence():
     document = get_material_document("bridgmanite")
-    identifier = "bridgmanite_chantel_2012_bm3_mgd"
-    record = next(
-        record
+    doi = "10.1029/2012gl053075"
+    assert not any(
+        record.get("reference", {}).get("doi", "").lower() == doi
         for record in document["eos_records"]
-        if record["identifier"] == identifier
     )
-    assert record["reference"]["doi"] == "10.1029/2012GL053075"
-    assert record["eos"]["parameters"] == {
-        "V0": pytest.approx(162.2014560815),
-        "K0": 252.0,
-        "K0_prime": 4.1,
-    }
-    assert record["thermal"]["parameters"] == {
-        "Tr": 300.0,
-        "theta0": 901.0,
-        "gamma0": 1.44,
-        "q": 1.4,
-        "n": 5,
-    }
+    assert not any(
+        dataset["identifier"] == "bridgmanite_chantel_2012_table1_density_velocity"
+        for dataset in document.get("datasets", [])
+    )
 
-    resource = (
-        ROOT
-        / "peritheos/data/datasets/bridgmanite-chantel-2012-table1-density-velocity.csv"
-    )
+    resource = ROOT / "docs/data/bridgmanite-chantel-2012-table1-density-velocity.csv"
     assert (
         hashlib.sha256(resource.read_bytes()).hexdigest()
         == "d7e0c1d5c55d3943c52d3c0f417ae9f324df63eeea0f96cbeeb16fa12726ad93"
@@ -151,13 +137,13 @@ def test_chantel_table3_model_and_complete_pure_table1_transcription():
     assert sum(row["acoustic_velocity_fit_included"] == "1" for row in rows) == 8
     assert sum(row["thermoelastic_validation_only"] == "1" for row in rows) == 2
 
-    eos = Material.from_eosmat(
-        document, record_identifiers=[identifier]
-    ).get_eos_record(identifier)
-    assert eos.pressure(record["eos"]["parameters"]["V0"], 300.0) == pytest.approx(
-        0.0, abs=1e-10
-    )
-    assert math.isfinite(eos.pressure(150.0, 1200.0))
+    investigations = json.loads(
+        (ROOT / "docs/data/nonproduction-paper-investigations.json").read_text(
+            encoding="utf-8"
+        )
+    )["papers"]
+    chantel = next(item for item in investigations if item["doi"].lower() == doi)
+    assert chantel["outcome"] == "deferred_incomplete_model"
 
 
 def test_chantel_reproduction_and_withheld_source_rows():
@@ -200,9 +186,7 @@ def test_chantel_reproduction_and_withheld_source_rows():
             if record.get("reference", {}).get("doi", "").lower()
             == "10.1029/2012gl053075"
         )
-    assert [record["identifier"] for record in accepted] == [
-        "bridgmanite_chantel_2012_bm3_mgd"
-    ]
+    assert accepted == []
 
 
 @pytest.mark.parametrize(

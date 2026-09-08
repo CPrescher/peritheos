@@ -13,10 +13,7 @@ from peritheos.acoustics import EulerianFiniteStrainAcoustic
 from peritheos.fitting import fit_acoustic_finite_strain
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = (
-    ROOT
-    / "peritheos/data/datasets/bridgmanite-chantel-2012-table1-density-velocity.csv"
-)
+DATA = ROOT / "docs/data/bridgmanite-chantel-2012-table1-density-velocity.csv"
 
 PUBLISHED_CURRENT_STUDY = {
     "K_S0": 247.0,

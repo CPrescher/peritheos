@@ -5,10 +5,9 @@ Open final article: <https://zenodo.org/records/3653697>
 
 ## Outcome
 
-The audit resolves the apparent contradiction between a bundled density/velocity
-table and a `not_refittable` ledger entry. Chantel et al. did perform an
-executable acoustic fit, but did **not** perform a simultaneous acoustic and
-thermoelastic fit:
+No production EOS is accepted from this paper. Chantel et al. performed an
+acoustic-elasticity study, not a source-data fit of the composite BM3--MGD
+parameterization printed in Table 3:
 
 - eight 300 K MgSiO3 density--Vp--Vs rows were fitted with the third-order
   Eulerian acoustic finite-strain equations of Davies and Dziewonski (1975), as
@@ -20,11 +19,12 @@ thermoelastic fit:
 - theta0, gamma0, q, and eta in Table 3 are italicized terms adopted from Xu et
   al. (2008), not results fitted to Table 1.
 
-Peritheos can now execute and fit the 300 K acoustic finite-strain model with
-`EulerianFiniteStrainAcoustic` and `fit_acoustic_finite_strain`. It can also
-execute the stored BM3--Mie-Grüneisen-Debye pressure surface. It cannot represent
-the complete temperature-dependent velocity model because the coupled thermal
-shear formulation using G, G', and eta is not part of the EOS record.
+The audit data are retained outside the production catalog, and Peritheos can
+execute and fit the 300 K acoustic finite-strain model with
+`EulerianFiniteStrainAcoustic` and `fit_acoustic_finite_strain`. The Table 3
+BM3--Mie-Grüneisen-Debye pressure surface is not cataloged: its bulk coefficient
+changes label from adiabatic in Table 2 to isothermal in Table 3 without a
+documented conversion, and its thermal terms were adopted from another study.
 
 ## Reconstructed acoustic objective
 
@@ -83,11 +83,12 @@ missing.
 
 Table 3 labels the bulk entry K_T=252 GPa, while Table 2 labels the identical
 combined acoustic result K_S=252(1) GPa. The article does not document an
-adiabatic-to-isothermal conversion. Peritheos retains the printed Table 3 pressure
-parameter but records this unresolved label transition explicitly. The 300 K BM3
-curve evaluated at all nine room-temperature density states has pressure RMSE
-0.628 GPa and maximum absolute residual 1.166 GPa. Those Au-scale pressures are
-independent curve checks, not inputs to the pressure-independent acoustic fit.
+adiabatic-to-isothermal conversion. This unresolved label transition is why the
+composite Table 3 parameterization is excluded from the production catalog. The
+300 K BM3 curve evaluated at all nine room-temperature density states has
+pressure RMSE 0.628 GPa and maximum absolute residual 1.166 GPa. Those Au-scale
+pressures are independent curve checks, not inputs to the pressure-independent
+acoustic fit.
 
 The dataset flags each role directly: one ambient rho0 anchor, eight acoustic-fit
 rows, and two high-temperature validation-only rows. No row-level pressure errors,
@@ -110,7 +111,7 @@ and weighting remain unavailable from the Chantel article.
 | `litcurate_542dc7a1f73d9d73` | Mg-Pv acoustic KS=247(4), K'=4.5(2) | **Reproduced as acoustic finite strain:** not added as a volumetric pressure EOS. |
 | `litcurate_259fceb6dd4123fc` | Mg-Pv combined acoustic KS=252(1), K'=4.1(1) | **Curve checked but not exactly refittable:** numerical Li--Zhang observations are external. |
 | `litcurate_59accf80318ce824` | Fe-Pv acoustic KS=236(2), K'=4.7(1) | **Withheld from this pure-Mg record:** a separate composition and acoustic fit. |
-| `litcurate_4c8341508b0d1a6a` | Mg-Pv Table 3 composite thermoelastic model | **Accepted:** `bridgmanite_chantel_2012_bm3_mgd`, with composite provenance and model limits explicit. |
+| `litcurate_4c8341508b0d1a6a` | Mg-Pv Table 3 composite thermoelastic model | **Withheld:** this is a composite/adopted parameterization rather than a source-data EOS fit, and the identical 252 GPa coefficient is labeled K_S in Table 2 but K_T in Table 3 without a documented conversion. |
 | `litcurate_4de85b1c154b864a` | Fe-Pv Table 3 model | **Withheld:** printed `V0=25.50 cm3/mol` implies about 3.999 g/cm3, irreconcilable with the independently printed 4.161(1) g/cm3 reference density. |
 
 ## Fourteen comparison rows

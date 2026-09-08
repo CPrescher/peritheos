@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 487
+    assert len(identifiers) == len(set(identifiers)) == 486
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,10 +29,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 487, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 486, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 155,
-        "similar": 87,
+        "similar": 86,
         "parity_not_achieved": 31,
         "not_refittable": 214,
     }
@@ -139,23 +139,6 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
         "not_refittable"
     )
-    chantel = by_identifier["bridgmanite_chantel_2012_bm3_mgd"]
-    assert chantel["status"] == "similar"
-    assert chantel["fit_kind"] == "third_order_eulerian_acoustic_finite_strain"
-    assert chantel["observations"] == 8
-    assert chantel["free_parameters"] == [
-        "K_S0",
-        "K_S0_prime",
-        "G0",
-        "G0_prime",
-    ]
-    assert [item["refit"] for item in chantel["parameters"]] == pytest.approx(
-        [246.394510713, 4.543578577, 177.208823491, 1.606496159]
-    )
-    assert all(item["within_combined_2sigma"] for item in chantel["parameters"])
-    assert "not a generic P-V refit" in chantel["qualification"]
-    assert "Li and Zhang (2005)" in chantel["qualification"]
-    assert "validate thermal parameters" in chantel["qualification"]
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"
@@ -432,7 +415,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 118
+    assert markdown.count("### `") == len(explained) == 117
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

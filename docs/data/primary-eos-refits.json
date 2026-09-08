@@ -2971,99 +2971,6 @@
       "status": "not_refittable"
     },
     {
-      "absolute_sigma": true,
-      "dataset_identifiers": [
-        "bridgmanite_chantel_2012_table1_density_velocity"
-      ],
-      "experimental_pressure_range_gpa": [
-        0,
-        21.9
-      ],
-      "experimental_temperature_range_k": [
-        300,
-        1200
-      ],
-      "fit_kind": "third_order_eulerian_acoustic_finite_strain",
-      "fixed_parameters": [
-        "V0",
-        "Tr",
-        "theta0",
-        "gamma0",
-        "q",
-        "n"
-      ],
-      "free_parameters": [
-        "K_S0",
-        "K_S0_prime",
-        "G0",
-        "G0_prime"
-      ],
-      "label": "Chantel et al. (2012), MgSiO3 thermoelastic BM3-MGD model",
-      "material_identifier": "bridgmanite",
-      "model": "BM3",
-      "objective": "diagonal errors in density, Vp, and Vs with one latent density per row",
-      "observations": 8,
-      "parameters": [
-        {
-          "difference": -0.6054892870560025,
-          "parameter": "K_S0",
-          "published": 247.0,
-          "published_error": 4.0,
-          "refit": 246.394510712944,
-          "refit_error": 5.961979620619901,
-          "relative_difference": 0.002451373631805678,
-          "similar": true,
-          "within_combined_2sigma": true
-        },
-        {
-          "difference": 0.04357857668632281,
-          "parameter": "K_S0_prime",
-          "published": 4.5,
-          "published_error": 0.2,
-          "refit": 4.543578576686323,
-          "refit_error": 0.4636758360485335,
-          "relative_difference": 0.00968412815251618,
-          "similar": true,
-          "within_combined_2sigma": true
-        },
-        {
-          "difference": 1.2088234911714153,
-          "parameter": "G0",
-          "published": 176.0,
-          "published_error": 2.0,
-          "refit": 177.20882349117142,
-          "refit_error": 2.095751096089238,
-          "relative_difference": 0.0068683152907466774,
-          "similar": true,
-          "within_combined_2sigma": true
-        },
-        {
-          "difference": 0.006496159109830479,
-          "parameter": "G0_prime",
-          "published": 1.6,
-          "published_error": 0.1,
-          "refit": 1.6064961591098306,
-          "refit_error": 0.11577542332880615,
-          "relative_difference": 0.00406009944364405,
-          "similar": true,
-          "within_combined_2sigma": true
-        }
-      ],
-      "primary_data_finding": "All Mg-Pv pressures, temperatures, densities, P-wave and S-wave velocities, and printed marginal uncertainties are transcribed. The data mapping now distinguishes the ambient reference-density anchor, eight 300 K acoustic-fit rows, and two high-temperature model-validation rows.",
-      "primary_data_status": "bundled",
-      "primary_source": "https://zenodo.org/records/3653697",
-      "qualification": "Source-equation partial reproduction, not a generic P-V refit. The bundled current-study rows recover the four coefficients in the Table 2 'This study' row within combined two-sigma uncertainty. The preferred Table 3 K0/K0-prime instead use the combined Chantel plus Li and Zhang (2005) acoustic fit; those external numerical rows are not republished. The source also omits exact residual weights, density/Vp/Vs correlations, parameter covariance, and the confidence convention, so the diagonal errors-in-variables objective is an explicit sensitivity reconstruction. The two high-temperature rows only validate thermal parameters adopted from Xu et al. (2008).",
-      "record_identifier": "bridgmanite_chantel_2012_bm3_mgd",
-      "reduced_chi_square": 0.1541016123613604,
-      "rmse_compressional_velocity_km_s": 0.018728818213144052,
-      "rmse_shear_velocity_km_s": 0.014489338192203157,
-      "selection": "eight 300 K rows with Vp and Vs; ambient rho0=4.110 g/cm^3 fixed",
-      "solver_message": "`ftol` termination condition is satisfied.",
-      "solver_success": true,
-      "source_notes": "Composite published parameterization, not a simultaneous fit to all eleven bundled rows. The stored pressure surface excludes Table 3 shear coefficients G, G', and eta, which do not enter the supported MGD pressure equation. The source gives no numerical objective weights or covariance, and its Table 3 K_T=252 GPa is the same value labeled K_S in the Table 2 combined acoustic fit without a documented conversion.",
-      "status": "similar"
-    },
-    {
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
@@ -27088,7 +26995,7 @@
     "not_refittable": 214,
     "parity": 155,
     "parity_not_achieved": 31,
-    "similar": 87,
-    "total": 487
+    "similar": 86,
+    "total": 486
   }
 }

@@ -29,7 +29,6 @@ from peritheos.eos import ThermalEOS
 from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, Vinet
 from peritheos.eos.thermal import ThermalReferenceStateEOS
 from peritheos.fitting import (
-    fit_acoustic_finite_strain,
     fit_joint_eos,
     fit_linear_us_up,
     fit_rt_eos,
@@ -2456,112 +2455,6 @@ def _dewaele_2019_outcome(
     }
 
 
-def _chantel_2012_outcome(
-    record: dict[str, Any], dataset: dict[str, Any]
-) -> dict[str, Any]:
-    """Run the source-owned acoustic stage without inventing a P-V objective."""
-    rows = _load_rows(dataset)
-    anchor = next(row for row in rows if row["reference_density_anchor"] == "1")
-    selected = [row for row in rows if row["acoustic_velocity_fit_included"] == "1"]
-    density = np.asarray([_number(row["density_g_cm3"]) for row in selected])
-    vp = np.asarray([_number(row["vp_km_s"]) for row in selected])
-    vs = np.asarray([_number(row["vs_km_s"]) for row in selected])
-    result = fit_acoustic_finite_strain(
-        density,
-        vp,
-        vs,
-        rho0=_number(anchor["density_g_cm3"]),
-        initial={
-            "K_S0": 247.0,
-            "K_S0_prime": 4.5,
-            "G0": 176.0,
-            "G0_prime": 1.6,
-        },
-        density_sigma=np.asarray(
-            [_number(row["density_sigma_g_cm3"]) for row in selected]
-        ),
-        compressional_velocity_sigma=np.asarray(
-            [_number(row["vp_sigma_km_s"]) for row in selected]
-        ),
-        shear_velocity_sigma=np.asarray(
-            [_number(row["vs_sigma_km_s"]) for row in selected]
-        ),
-        absolute_sigma=True,
-        max_nfev=5000,
-    )
-    published = {
-        "K_S0": 247.0,
-        "K_S0_prime": 4.5,
-        "G0": 176.0,
-        "G0_prime": 1.6,
-    }
-    published_errors = {
-        "K_S0": 4.0,
-        "K_S0_prime": 0.2,
-        "G0": 2.0,
-        "G0_prime": 0.1,
-    }
-    comparisons = []
-    for name in published:
-        fitted = float(result.parameters[name])
-        fitted_error = float(result.standard_errors[name])
-        difference = fitted - published[name]
-        combined = math.hypot(fitted_error, published_errors[name])
-        comparisons.append(
-            {
-                "parameter": name,
-                "published": published[name],
-                "published_error": published_errors[name],
-                "refit": fitted,
-                "refit_error": fitted_error,
-                "difference": difference,
-                "relative_difference": abs(difference) / abs(published[name]),
-                "within_combined_2sigma": abs(difference) <= 2.0 * combined,
-                "similar": _similar(name, published[name], fitted),
-            }
-        )
-    if not all(
-        item["within_combined_2sigma"] and item["similar"] for item in comparisons
-    ):
-        raise AssertionError("Chantel current-study acoustic fit no longer agrees")
-    return {
-        "status": "similar",
-        "dataset_identifiers": record["fit_datasets"],
-        "observations": len(selected),
-        "selection": (
-            "eight 300 K rows with Vp and Vs; ambient rho0=4.110 g/cm^3 fixed"
-        ),
-        "fit_kind": "third_order_eulerian_acoustic_finite_strain",
-        "objective": (
-            "diagonal errors in density, Vp, and Vs with one latent density per row"
-        ),
-        "absolute_sigma": True,
-        "free_parameters": list(result.free_parameters),
-        "parameters": comparisons,
-        "rmse_compressional_velocity_km_s": float(
-            np.sqrt(np.mean(result.compressional_velocity_residuals**2))
-        ),
-        "rmse_shear_velocity_km_s": float(
-            np.sqrt(np.mean(result.shear_velocity_residuals**2))
-        ),
-        "reduced_chi_square": result.reduced_chi_square,
-        "solver_success": result.success,
-        "solver_message": result.message,
-        "qualification": (
-            "Source-equation partial reproduction, not a generic P-V refit. The "
-            "bundled current-study rows recover the four coefficients in the "
-            "Table 2 'This study' row within combined two-sigma uncertainty. The "
-            "preferred Table 3 K0/K0-prime instead use the combined Chantel plus "
-            "Li and Zhang (2005) acoustic fit; those external numerical rows are "
-            "not republished. The source also omits exact residual weights, "
-            "density/Vp/Vs correlations, parameter covariance, and the confidence "
-            "convention, so the diagonal errors-in-variables objective is an "
-            "explicit sensitivity reconstruction. The two high-temperature rows "
-            "only validate thermal parameters adopted from Xu et al. (2008)."
-        ),
-    }
-
-
 def validate_all() -> dict[str, Any]:
     results = []
     dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
@@ -2601,9 +2494,7 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] == "bridgmanite_chantel_2012_bm3_mgd":
-                outcome = _chantel_2012_outcome(record, datasets[identifiers[0]])
-            elif (
+            if (
                 record["identifier"] in dewaele_refits
                 and check["status"] == "bundled"
                 and "fit_datasets" in record

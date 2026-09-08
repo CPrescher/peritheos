@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 487,
-    "primary_source_validated": 487
+    "records": 486,
+    "primary_source_validated": 486
   },
   "records": [
     {
@@ -885,26 +885,6 @@
           "Table 1"
         ],
         "finding": "Table 1 reports the pure perovskite static GGA BM3."
-      }
-    },
-    {
-      "material": "bridgmanite",
-      "file": "bridgmanite.eosmat",
-      "record": "bridgmanite_chantel_2012_bm3_mgd",
-      "label": "Chantel et al. (2012), MgSiO3 thermoelastic BM3-MGD model",
-      "doi": "10.1029/2012gl053075",
-      "status": "primary_source_validated",
-      "note": "Validated against the openly deposited final article. The audit separates its eight-row 300 K acoustic fit, preferred combined acoustic coefficients, and adopted high-temperature model instead of treating Table 1 as a generic pressure-volume fit.",
-      "primary_source_check": {
-        "access_url": "https://zenodo.org/records/3653697",
-        "doi": "10.1029/2012GL053075",
-        "locations": [
-          "Methods",
-          "Table 1",
-          "Tables 2-3",
-          "Section 3 paragraphs 13-16"
-        ],
-        "finding": "Table 3 defines a composite MgSiO3 thermoelastic parameter set: preferred combined acoustic coefficients, a measured reference volume, and italicized thermal terms adopted from Xu et al. (2008). Paragraph 15 explicitly says the high-temperature observations were insufficient to refine thermal parameters."
       }
     },
     {

@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **487** EOS records. **155** achieve uncertainty parity, **87** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **214** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **486** EOS records. **155** achieve uncertainty parity, **86** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **214** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -82,7 +82,6 @@ use `--check` in continuous integration to detect stale generated files.
 | [`bridgmanite_fiquet_2000_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/1999GL008397) | `bridgmanite_fiquet_2000_table1_298k_pv` | 25 | `V0` 162.27 → 162.207; `K0` 253 → 254.611; `K0_prime` 3.9 → 3.8933 | 0.707041/0.638406 | parity |
 | [`bridgmanite_metsue_2012_static_bm3_1`](https://academic.oup.com/gji/article/190/1/310/598134) | `parameterization_and_pressure_grid_only` | — | — | —/— | not_refittable — The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated. |
 | [`bridgmanite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The E(V) rows, weights, residuals, and covariance are not tabulated. |
-| [`bridgmanite_chantel_2012_bm3_mgd`](https://zenodo.org/records/3653697) | `bridgmanite_chantel_2012_table1_density_velocity` | 8 | `K_S0` 247 → 246.395; `K_S0_prime` 4.5 → 4.54358; `G0` 176 → 177.209; `G0_prime` 1.6 → 1.6065 | —/— | [similar](#investigation-bridgmanite_chantel_2012_bm3_mgd) — Source-equation partial reproduction, not a generic P-V refit. The bundled current-study rows recover the four coefficients in the Table 2 'This study' row within combined two-sigma uncertainty. The preferred Table 3 K0/K0-prime instead use the combined Chantel plus Li and Zhang (2005) acoustic fit; those external numerical rows are not republished. The source also omits exact residual weights, density/Vp/Vs correlations, parameter covariance, and the confidence convention, so the diagonal errors-in-variables objective is an explicit sensitivity reconstruction. The two high-temperature rows only validate thermal parameters adopted from Xu et al. (2008). |
 | [`bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3`](https://arxiv.org/pdf/2204.13159) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited. |
 | [`bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3`](https://arxiv.org/pdf/2204.13159) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited. |
 | [`bridgmanite_mao_1991_bm2_1`](https://doi.org/10.1029/91JB00176) | `parameterization_only` | — | — | —/— | not_refittable — No accessible numerical pressure-volume table was available; no graphical points were fabricated. |
@@ -631,7 +630,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **118** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **117** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -871,28 +870,6 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `K0`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
-
-<a id="investigation-bridgmanite_chantel_2012_bm3_mgd"></a>
-
-### `bridgmanite_chantel_2012_bm3_mgd`
-
-**Classification:** `similar`. **Model:** `BM3`. **Data:** `bridgmanite_chantel_2012_table1_density_velocity` with 8 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `K_S0` | 247 | 246.395 ± 5.96198 | 0.25% | yes | yes |
-| `K_S0_prime` | 4.5 | 4.54358 ± 0.463676 | 0.97% | yes | yes |
-| `G0` | 176 | 177.209 ± 2.09575 | 0.69% | yes | yes |
-| `G0_prime` | 1.6 | 1.6065 ± 0.115775 | 0.41% | yes | yes |
-
-**Fit diagnostics.** Observed pressure range: not reported; source-declared range: 0-21.9 GPa; fit kind: `third_order_eulerian_acoustic_finite_strain`; objective: `diagonal errors in density, Vp, and Vs with one latent density per row`; published/refit pressure RMSE: —/— GPa; reduced chi-square: 0.154102; free parameters: `K_S0, K_S0_prime, G0, G0_prime`; source-fixed parameters: `V0, Tr, theta0, gamma0, q, n`.
-
-**Source/data scope.** All Mg-Pv pressures, temperatures, densities, P-wave and S-wave velocities, and printed marginal uncertainties are transcribed. The data mapping now distinguishes the ambient reference-density anchor, eight 300 K acoustic-fit rows, and two high-temperature model-validation rows.
-
-**Registered source-fit note.** Composite published parameterization, not a simultaneous fit to all eleven bundled rows. The stored pressure surface excludes Table 3 shear coefficients G, G', and eta, which do not enter the supported MGD pressure equation. The source gives no numerical objective weights or covariance, and its Table 3 K_T=252 GPa is the same value labeled K_S in the Table 2 combined acoustic fit without a documented conversion.
-
-**Assessment and likely origin.**
-- No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
 
 <a id="investigation-ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2"></a>
 
