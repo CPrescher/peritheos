@@ -342,11 +342,17 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         "fixed in the fit but its source uncertainty is retained.",
     ),
     "10.1029/96gl03769": source(
-        "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/96GL03769",
-        ["Equation (1)", "Table 1", "Thermoelastic Equation of State, pages 6-7"],
-        "The 300 K BM3 reference isotherm uses V0=403.32(8) A^3, "
-        "K0=124.5(4.0) GPa, and K0'=5 assumed. The full paper also reports "
-        "the separate high-temperature coefficients, which this static record does not claim.",
+        "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/96GL03769",
+        [
+            "Experimental Aspects and Table 1, pages 5-6",
+            "Equation (1) and thermoelastic fit paragraph, page 6",
+            "Discussion and Table 2, page 7",
+        ],
+        "Equation (1) is a temperature-dependent BM3 relation with "
+        "V_T=V0*exp(integral(alpha(T)dT)), alpha(T)=a+b*T, and "
+        "K_T=K_T0+dK_dT*(T-300 K). For the preferred column the authors "
+        "fixed V0=403 A^3 and K0'=5, then fitted all four remaining "
+        "coefficients to the hydrostatic P-V-T observations in Table 1.",
     ),
     "10.1029/2011jb008988": source(
         "https://doi.org/10.1029/2011JB008988",
@@ -2662,22 +2668,114 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             append_correction(record, correction)
 
     if identifier == "naalsi2o6_zhao_1997_bm3_1":
-        record["label"] = "Zhao et al. (1997), jadeite 300 K BM3"
-        record["eos"]["parameters"].update({"V0": 403.32, "K0": 124.5})
-        record["parameter_errors"] = {"V0": 0.08, "K0": 4.0, "K0_prime": None}
+        record["label"] = "Zhao et al. (1997), jadeite thermal BM3"
+        record["eos"]["parameters"].update({"V0": 403.0, "K0": 124.5, "K0_prime": 5.0})
+        record["parameter_errors"] = {"V0": None, "K0": 4.0, "K0_prime": None}
+        record["parameter_error_confidence"] = None
+        record["parameter_covariance"] = None
+        record["fixed_parameters"] = ["V0", "K0_prime"]
         record["temperature_ref"] = 300.0
+        record["experimental_pressure_range_gpa"] = [0.0, 8.16]
+        record["pressure_range_status"] = "reported_exactly"
+        record["experimental_temperature_range_k"] = [300.0, 1280.0]
+        record["fit_datasets"] = ["jadeite_zhao_1997_table1_pvt"]
+        record["thermal"] = {
+            "type": "AlphaKT",
+            "model": "thermal_reference_state",
+            "thermal_expansion_law": "linear_temperature",
+            "reference_volume_law": "integrated_expansivity",
+            "parameters": {
+                "Tr": 300.0,
+                "alpha0": 2.56e-5,
+                "alpha1": 2.6e-9,
+                "dK_dT": -0.0165,
+            },
+            "parameter_errors": {
+                "Tr": None,
+                "alpha0": 2.2e-6,
+                "alpha1": 1.8e-9,
+                "dK_dT": 0.0049,
+            },
+            "fixed_parameters": ["Tr"],
+        }
+        record["parameter_provenance"] = {
+            "equation": "Zhao et al. (1997), Equation (1), page 6: third-order Birch-Murnaghan with temperature-dependent V_T and K_T",
+            "V0": "Discussion and Table 2, page 7: fixed at 403 A^3 in every tradeoff fit; it is not the Table 1 measurement 403.32(8) A^3",
+            "K0": "Preferred K0'=5 column of Table 2: 125(4) GPa; fit prose reports 124.5(4.0) GPa",
+            "K0_prime": "Preferred fit constrained K0'=5.0",
+            "thermal": "Fit paragraph on page 6 and preferred K0'=5 column of Table 2: dK/dT=-1.65(49)e-2 GPa/K, a=2.56(22)e-5 K^-1, and b=0.26(18)e-8 K^-2",
+            "temperature_ref": "Equation (1) defines K_T relative to 300 K",
+            "fit_selection": "All 31 Table 1 rows are the source-selected hydrostatic states; the nonhydrostatic cold-compression observations were excluded before the table was constructed",
+        }
+        record["fit_provenance"] = {
+            "software": {"name": "not reported", "version": "not reported"},
+            "dataset": "jadeite_zhao_1997_table1_pvt",
+            "selection": {
+                "dataset": "jadeite_zhao_1997_table1_pvt",
+                "included_rows": 31,
+                "excluded_bundled_rows": 0,
+                "source_preselection": "Only observations collected after heating removed the cold-compression deviatoric stress were admitted to Table 1",
+            },
+            "objective": "not reported",
+            "refined_parameters": ["K0", "alpha0", "alpha1", "dK_dT"],
+            "fixed_parameters": ["V0", "K0_prime", "Tr"],
+            "covariance_scaling": "not reported",
+            "statistics": {"observations": 31},
+            "source_objective": "not_reported",
+            "source_weights": "not_reported",
+            "source_covariance": "not_reported",
+            "reproduction_objective": "ordinary pressure residuals over all 31 source-selected hydrostatic rows; no row weights inferred because the paper does not report the EOS objective or row-wise pressure and temperature uncertainties",
+        }
+        record["experimental_configuration"] = {
+            "apparatus": "DIA-6 multi-anvil press (SAM-85)",
+            "diffraction": "energy-dispersive synchrotron X-ray diffraction at NSLS X-17B; Ge solid-state detector at fixed 2theta=5.847 degrees; modified GSAS Rietveld whole-pattern refinement",
+            "pressure_medium_and_container": "cylindrical hexagonal-BN sample chamber",
+            "pressure_standard": "NaCl using Decker (1971)",
+            "temperature_measurement": "Pt-Pt/10%Rh thermocouple",
+            "path": "compress cold to the highest pressure, heat to the highest temperature to remove deviatoric stress, then collect successive cooling/decompression states",
+        }
+        record["validity"] = {
+            "pressure_gpa": [0.0, 8.16],
+            "temperature_k": [300.0, 1280.0],
+            "notes": [
+                "Experimental P-T bounds are an observed envelope, not a rectangular extrapolation guarantee.",
+                "The source states that the pressure range is too small to resolve K0' confidently; K0'=5 is the preferred constrained alternative.",
+            ],
+        }
+        record["pressure_calibration"] = {
+            "status": "resolved",
+            "methods": [
+                {
+                    "kind": "equation_of_state",
+                    "material": "NaCl",
+                    "reference": {
+                        "authors": ["Decker"],
+                        "year": 1971,
+                        "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+                        "source": "Journal of Applied Physics",
+                        "volume": "42",
+                        "locator": "3239-3244",
+                        "doi": "10.1063/1.1660714",
+                    },
+                    "source_location": "Experimental Aspects, page 5",
+                    "scope": "all high-P-T Table 1 pressures",
+                }
+            ],
+            "recalculation": {
+                "status": "missing_calibrant_observations",
+                "notes": "The exact NaCl scale is identified, but Table 1 does not print the simultaneous NaCl lattice parameters required to recalculate the reported pressures. The paper reports aggregate pressure precision rather than row-wise pressure uncertainties.",
+            },
+            "audit_date": "2026-09-07",
+        }
         record["notes"] = (
-            "The 300 K reference isotherm of Zhao et al.'s high-temperature "
-            "BM3 model uses V0=403.32(8) A^3, K0=124.5(4.0) GPa, and K0'=5 "
-            "assumed. This record intentionally represents only that reference "
-            "isotherm, not the paper's temperature-dependent K and expansion."
+            "Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention."
         )
         for correction in (
             {
                 "path": "eos.parameters.V0",
                 "source_value": 401.19,
-                "value": 403.32,
-                "reason": "Table 1 reports the ambient 300 K cell volume as 403.32(8) A^3.",
+                "value": 403.0,
+                "reason": "The discussion and Table 2 fix the EOS reference volume at 403 A^3; 403.32(8) A^3 is an observed Table 1 cell volume, not the fitted model coefficient.",
             },
             {
                 "path": "eos.parameters.K0",
@@ -2686,15 +2784,21 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
                 "reason": "The EOS fit reports K0=124.5(4.0) GPa; 125 GPa is only its rounded abstract value.",
             },
             {
-                "path": "parameter_errors.V0",
+                "path": "thermal",
                 "source_value": None,
-                "value": 0.08,
-                "reason": "Restore the Table 1 V0=403.32(8) A^3 measurement error.",
+                "value": dict(record["thermal"]),
+                "reason": "Restore the temperature-dependent terms of Equation (1) and their published errors.",
+            },
+            {
+                "path": "experimental_temperature_range_k",
+                "source_value": None,
+                "value": [300.0, 1280.0],
+                "reason": "Table 1 spans 300-1280 K.",
             },
         ):
             correction["primary_reference"] = {
                 "doi": "10.1029/96gl03769",
-                "location": "Equation (1), Table 1, and pages 6-7",
+                "location": "Experimental Aspects, Equation (1), Table 1, and Table 2, pages 5-7",
             }
             append_correction(record, correction)
 
@@ -3061,6 +3165,46 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         result["scientific_validation"]["verified_fields"].append(
             "pressure_calibration"
         )
+
+    if result["identifier"] == "naalsi2o6_zhao_1997_bm3_1":
+        result["scientific_validation"]["note"] = (
+            "The complete thermal Equation (1), all preferred constrained-fit coefficients, "
+            "the Table 1 hydrostatic selection, experimental path, and Decker NaCl pressure "
+            "basis were checked directly against the official article. A full-table "
+            "Peritheos refit recovers every varied coefficient within the published uncertainty."
+        )
+        result["scientific_validation"]["audit_date"] = "2026-09-07"
+        result["scientific_validation"]["verified_fields"] = [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "formula_units_per_cell",
+            "published_uncertainties",
+            "fixed_parameters",
+            "parameter_covariance",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+            "fit_selection",
+            "thermal_model_convention",
+            "numerical_reproduction",
+        ]
+        result["scientific_validation"]["primary_source_check"] = {
+            **VALIDATED_SOURCES["10.1029/96gl03769"],
+            "doi": "10.1029/96gl03769",
+        }
+        result["scientific_validation"]["primary_data_check"] = {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["jadeite_zhao_1997_table1_pvt"],
+            "source_locations": [
+                "Experimental Aspects, journal pages 5-6",
+                "Table 1, journal page 6",
+            ],
+            "finding": "All 31 source-selected hydrostatic jadeite P-V-T cell refinements printed in Table 1; cold-compression nonhydrostatic states were excluded by the authors before tabulation.",
+        }
 
     if result["identifier"] == "mgo_b1_luo_2023_vinet_thermal_5":
         result["scientific_validation"]["note"] = previous["note"]

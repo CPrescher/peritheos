@@ -32,9 +32,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 155,
-        "similar": 62,
+        "similar": 63,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 564,
     }
     assert all(
         item.get("reason")
@@ -52,6 +52,28 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert luo["status"] == "not_refittable"
     assert luo["dataset_identifiers"] == ["mgo_luo_2023_table1_shock"]
     assert "derived EOS output" in luo["reason"]
+    jadeite = by_identifier["naalsi2o6_zhao_1997_bm3_1"]
+    assert jadeite["status"] == "similar"
+    assert jadeite["observations"] == 31
+    assert jadeite["objective"] == "pressure_residuals"
+    assert jadeite["absolute_sigma"] is False
+    assert jadeite["fixed_parameters"] == ["V0", "K0_prime", "Tr"]
+    assert jadeite["free_parameters"] == [
+        "rt_eos.K0",
+        "alpha0",
+        "alpha1",
+        "dK_dT",
+    ]
+    assert [item["refit"] for item in jadeite["parameters"]] == pytest.approx(
+        [123.765323309, 2.690777815e-5, 1.412020425e-9, -0.01527449748]
+    )
+    assert jadeite["published_rmse_gpa"] == pytest.approx(0.1100101303)
+    assert jadeite["rmse_gpa"] == pytest.approx(0.1005779893)
+    assert all(
+        abs(item["difference"]) <= item["published_error"]
+        for item in jadeite["parameters"]
+    )
+    assert "does not report its EOS residual definition" in jadeite["qualification"]
     reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
     reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
     assert reynard_ruby["status"] == reynard_ice["status"] == "parity"
@@ -410,7 +432,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 93
+    assert markdown.count("### `") == len(explained) == 94
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

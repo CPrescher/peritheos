@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **63** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **564** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -572,7 +572,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`na093al102si100o4_calcium_ferrite_qin_2023_bm3_1`](https://doi.org/10.2138/am-2022-8432) | `na093al102si100o4_qin_2023_table_s3_pv` | 22 | `V0` 241.6 → 242.011; `K0` 220 → 209.422; `K0_prime` 2.6 → 3.11487 | 0.326278/0.246752 | parity |
 | [`na_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`na_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`naalsi2o6_zhao_1997_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/96GL03769) | `jadeite_zhao_1997_table1_pvt` | — | — | —/— | not_refittable — Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
+| [`naalsi2o6_zhao_1997_bm3_1`](https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/96GL03769) | `jadeite_zhao_1997_table1_pvt` | 31 | `rt_eos.K0` 124.5 → 123.765; `alpha0` 2.56e-05 → 2.69078e-05; `alpha1` 2.6e-09 → 1.41202e-09; `dK_dT` -0.0165 → -0.0152745 | 0.11001/0.100578 | [similar](#investigation-naalsi2o6_zhao_1997_bm3_1) — Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated [Zhao jadeite audit](literature-reproductions/zhao-1997-jadeite.md). |
 | [`naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1`](https://doi.org/10.1080/08957950212807) | `naalsio4_dubrovinsky_2002_figure2_digitized` | 19 | `V0` 242.957 → 243.06; `K0` 220 → 216.817; `K0_prime` 4.1 → 4.19447 | 0.138515/0.0345784 | parity |
 | [`nabr_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`nabr_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
@@ -957,7 +957,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **94** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -2406,6 +2406,28 @@ the missing source fit detail is recovered.
 - The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
 - The earlier validation incorrectly varied V0 even though Figure 2 uses relative volume and the source reports only K0 and K0' as fit results. Fixing the measured reference volume gives K0=325.87 GPa and K0'=4.91; both are within combined two-sigma uncertainty of 307(5) GPa and 6.2(3), but K0' narrowly misses the numerical similarity limit. An independent normalized-stress regression gives K0=321.0 GPa and K0'=5.16, ruling out the standard finite-strain linearization as the full explanation. The two pressure-medium regimes pull in opposite directions, and omitting only the two observations above 40 GPa gives K0=309.28 GPa and K0'=6.62. The paper plots those points and provides no stated basis for excluding them, so that sensitivity result is diagnostic only. Exact parity requires the authors' numerical P-V array, weights, and row mask. See the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).
 
+<a id="investigation-naalsi2o6_zhao_1997_bm3_1"></a>
+
+### `naalsi2o6_zhao_1997_bm3_1`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `jadeite_zhao_1997_table1_pvt` with 31 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `rt_eos.K0` | 124.5 | 123.765 ± 1.30794 | 0.59% | yes | yes |
+| `alpha0` | 2.56e-05 | 2.69078e-05 ± 2.2632e-06 | 5.11% | yes | yes |
+| `alpha1` | 2.6e-09 | 1.41202e-09 ± 3.33603e-09 | 45.69% | yes | no |
+| `dK_dT` | -0.0165 | -0.0152745 ± 0.00279833 | 7.43% | yes | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-8.16 GPa; source-declared range: 0-8.16 GPa; fit kind: `joint_pvt`; objective: `pressure_residuals`; published/refit pressure RMSE: 0.11001/0.100578 GPa; reduced chi-square: 0.0116146; free parameters: `rt_eos.K0, alpha0, alpha1, dK_dT`; source-fixed parameters: `V0, K0_prime, Tr`.
+
+**Source/data scope.** All 31 source-selected hydrostatic jadeite P-V-T cell refinements printed in Table 1; cold-compression nonhydrostatic states were excluded by the authors before tabulation.
+
+**Registered source-fit note.** Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention.
+
+**Assessment and likely origin.**
+- The point estimate exceeds the numerical limit for `alpha1`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
+
 <a id="investigation-namg2al5sio12_cf_kawai_2012_bm3_1"></a>
 
 ### `namg2al5sio12_cf_kawai_2012_bm3_1`
@@ -3289,7 +3311,6 @@ the missing source fit detail is recovered.
 - `molybdenum_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `na_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `na_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `naalsi2o6_zhao_1997_bm3_1`: Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent.
 - `nabr_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `nabr_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `nacl_b1_shen_2026_vinet_1`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.

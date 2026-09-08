@@ -22132,28 +22132,112 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "unit_cell_volume_a3"
+      },
       "dataset_identifiers": [
         "jadeite_zhao_1997_table1_pvt"
       ],
+      "degrees_of_freedom": 27,
       "experimental_pressure_range_gpa": [
         0.0,
-        8.2
+        8.16
       ],
-      "experimental_temperature_range_k": null,
+      "experimental_temperature_range_k": [
+        300.0,
+        1280.0
+      ],
+      "fit_kind": "joint_pvt",
       "fixed_parameters": [
         "V0",
-        "K0_prime"
+        "K0_prime",
+        "Tr"
       ],
-      "label": "Zhao et al. (1997), jadeite 300 K BM3",
+      "free_parameters": [
+        "rt_eos.K0",
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
+      "label": "Zhao et al. (1997), jadeite thermal BM3",
       "material_identifier": "naalsi2o6",
       "model": "BM3",
-      "primary_data_finding": "All 31 hydrostatic jadeite P-V-T cell refinements printed in Table 1.",
+      "objective": "pressure_residuals",
+      "observations": 31,
+      "observed_pressure_range_gpa": [
+        0.0,
+        8.16
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        1280.0
+      ],
+      "observed_volume_range": [
+        385.41,
+        406.7
+      ],
+      "parameters": [
+        {
+          "difference": -0.73467669127551,
+          "parameter": "rt_eos.K0",
+          "published": 124.5,
+          "published_error": 4.0,
+          "refit": 123.76532330872449,
+          "refit_error": 1.3079436590116988,
+          "relative_difference": 0.005901017600606506,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 1.3077781461820178e-06,
+          "parameter": "alpha0",
+          "published": 2.56e-05,
+          "published_error": 2.2e-06,
+          "refit": 2.6907778146182017e-05,
+          "refit_error": 2.2631980834601537e-06,
+          "relative_difference": 0.05108508383523507,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.1879795746910234e-09,
+          "parameter": "alpha1",
+          "published": 2.6e-09,
+          "published_error": 1.8e-09,
+          "refit": 1.4120204253089768e-09,
+          "refit_error": 3.3360271990161924e-09,
+          "relative_difference": 0.456915221035009,
+          "similar": false,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.0012255025191039264,
+          "parameter": "dK_dT",
+          "published": -0.0165,
+          "published_error": 0.0049,
+          "refit": -0.015274497480896074,
+          "refit_error": 0.0027983276896613642,
+          "relative_difference": 0.0742728799456925,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 31 source-selected hydrostatic jadeite P-V-T cell refinements printed in Table 1; cold-compression nonhydrostatic states were excluded by the authors before tabulation.",
       "primary_data_status": "bundled",
-      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/96GL03769",
-      "reason": "Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent.",
+      "primary_source": "https://onlinelibrary.wiley.com/doi/pdfdirect/10.1029/96GL03769",
+      "published_rmse_gpa": 0.1100101303257055,
+      "qualification": "Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated [Zhao jadeite audit](literature-reproductions/zhao-1997-jadeite.md).",
       "record_identifier": "naalsi2o6_zhao_1997_bm3_1",
-      "source_notes": "The 300 K reference isotherm of Zhao et al.'s high-temperature BM3 model uses V0=403.32(8) A^3, K0=124.5(4.0) GPa, and K0'=5 assumed. This record intentionally represents only that reference isotherm, not the paper's temperature-dependent K and expansion.",
-      "status": "not_refittable"
+      "reduced_chi_square": 0.011614588516046085,
+      "rmse_gpa": 0.1005779893084489,
+      "selection": "all 31 source-selected hydrostatic Table 1 rows; nonhydrostatic cold-compression observations were excluded by the authors before tabulation",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Complete preferred high-temperature BM3 parameterization from Zhao et al. (1997), fitted to the 31 hydrostatic Table 1 P-V-T states. The authors fixed V0=403 A^3 and K0'=5, and varied K0, dK/dT, a, and b. Their alternate K0'=4, K0'=6, and unconstrained-K0' tradeoff solutions remain documented in the source audit rather than being silently combined. The source does not report the regression objective, row weights, parameter covariance, or confidence convention.",
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -24303,25 +24387,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,10 +31732,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 564,
     "parity": 155,
     "parity_not_achieved": 31,
-    "similar": 62,
+    "similar": 63,
     "total": 813
   }
 }
