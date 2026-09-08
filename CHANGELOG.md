@@ -5,6 +5,13 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Changed
+
+- Reconstructed the Mosenfelder et al. (2009) MgSiO3 post-perovskite
+  shock-static inversion from 48 static P-V-T rows and six PPv shock states.
+  `MieGruneisenDebye` now supports a BM3 reference isentrope and an optional
+  fitted high-temperature molar heat-capacity limit.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

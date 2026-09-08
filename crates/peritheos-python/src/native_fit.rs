@@ -402,18 +402,19 @@ impl ThermalModel {
                 )
             }
             Self::MieGruneisenDebye(model) => {
-                ensure_names(names, &["Tr", "theta0", "gamma0", "q", "n"], true)?;
+                ensure_names(names, &["Tr", "theta0", "gamma0", "q", "n", "Cvmax"], true)?;
                 let reference = model
                     .rt_eos
                     .with_parameters(&reference_names, &reference_values)?;
                 Self::MieGruneisenDebye(
-                    MieGruneisenDebye::new_with_conventions(
+                    MieGruneisenDebye::new_with_heat_capacity(
                         reference,
                         value(names, values, "Tr", model.tr),
                         value(names, values, "theta0", model.theta0),
                         value(names, values, "gamma0", model.gamma0),
                         value(names, values, "q", model.q),
                         value(names, values, "n", model.n),
+                        Some(value(names, values, "Cvmax", model.cvmax)),
                         model.debye_temperature_law,
                         model.thermal_pressure_reference,
                     )

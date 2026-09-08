@@ -20697,26 +20697,118 @@
     },
     {
       "dataset_identifiers": [
+        "mgsio3_post_perovskite_guignot_2007_table1_pvt",
         "mgsio3_post_perovskite_mosenfelder_2009_table2_shock"
       ],
+      "degrees_of_freedom": 48,
       "experimental_pressure_range_gpa": [
         111.0,
         245.0
       ],
-      "experimental_temperature_range_k": null,
+      "experimental_temperature_range_k": [
+        300.0,
+        2535.0
+      ],
+      "fit_kind": "joint_static_pvt_shock_hugoniot_mgd",
       "fixed_parameters": [
-        "V0"
+        "V0",
+        "Tr",
+        "n"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime",
+        "gamma0",
+        "q",
+        "Cvm",
+        "theta0"
       ],
       "label": "Mosenfelder et al. (2009), shock-static BM3-MGD",
       "material_identifier": "mgsio3_post_perovskite",
       "model": "BM3",
-      "primary_data_finding": "All six shock observations assigned to the MgSiO3 post-perovskite regime in Table 2, including one new aggregate experiment and five explicitly identified literature experiments used in the global inversion.",
+      "objective": "orthogonal errors in P, V, T, and shock density; source datum-counting chi-square",
+      "observations": 54,
+      "parameters": [
+        {
+          "difference": -0.44194161243353847,
+          "parameter": "K0",
+          "published": 225.0,
+          "published_error": 2.0,
+          "refit": 224.55805838756646,
+          "refit_error": 6.10928741578974,
+          "relative_difference": 0.00196418494414906,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.009879078960627119,
+          "parameter": "K0_prime",
+          "published": 4.21,
+          "published_error": 0.07,
+          "refit": 4.219879078960627,
+          "refit_error": 0.17214906247356224,
+          "relative_difference": 0.002346574574970812,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.09165531421848794,
+          "parameter": "gamma0",
+          "published": 2.61,
+          "published_error": 0.67,
+          "refit": 2.518344685781512,
+          "refit_error": 0.9908250820292581,
+          "relative_difference": 0.03511697862777316,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.03274425777007295,
+          "parameter": "q",
+          "published": 2.1,
+          "published_error": 0.8,
+          "refit": 2.067255742229927,
+          "refit_error": 1.4473583258474434,
+          "relative_difference": 0.015592503700034737,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.01220502078251351,
+          "parameter": "Cvm",
+          "published": 1.035,
+          "published_error": 0.05,
+          "refit": 1.0472050207825134,
+          "refit_error": 0.15062197941682293,
+          "relative_difference": 0.011792290611124164,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 8.674847672103624,
+          "parameter": "theta0",
+          "published": 990.0,
+          "published_error": 146.0,
+          "refit": 998.6748476721036,
+          "refit_error": 452.8737955306773,
+          "relative_difference": 0.008762472396064267,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "Bundled inputs now comprise all 48 source static P-V-T observations and all six source-reported PPv shock states. The shock table distinguishes directly measured flyer/shock observables and pyrometry from impedance- and Rankine-Hugoniot-derived P-density values.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/2008JB005900",
-      "reason": "The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature.",
+      "qualification": "Shock temperatures are not imputed. Rankine-Hugoniot energy closes the six solid PPv pressure-density constraints; the three measured pyrometric temperatures are independent diagnostics because the source specifies shock-temperature fitting only for MgSiO3 liquid.",
       "record_identifier": "mgsio3_post_perovskite_mosenfelder_2009_bm3_1",
-      "source_notes": "Global inversion of Guignot et al. static P-V-T data and six shock experiments at substantially higher pressures. V0=162.2 A^3 was fixed; theta0=990(146) K, gamma0=2.61(67), and q=2.1(8). The paper defines the cold curve as a BM3 isentrope; this is retained because it is the engine-supported form published with the MGD thermal model.",
-      "status": "not_refittable"
+      "reduced_chi_square": 0.1800456601080744,
+      "rmse_shock_pressure_gpa_at_reported_density": 7.114055508060593,
+      "rmse_static_pressure_gpa": 0.3051958307471058,
+      "selection": "48 Guignot Table 1 P-V-T rows and six PPv Table 2 P-density shock states",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Global errors-in-variables inversion of 48 Guignot et al. static P-V-T observations and six PPv shock P-density states. V0=162.2 A^3 was fixed. Table 4 reports K0S=225(2) GPa, K0S'=4.21(7), theta0=990(146) K, gamma0=2.61(67), q=2.1(8), and Cvm=1.035(50) J g^-1 K^-1; Cvmax is the exact molar conversion using 100.3875 g mol^-1. The BM3 term is a 300 K reference isentrope, so thermal pressure subtracts energy at T_S(V)=Tr*theta(V)/theta0. The three source-reported shock temperatures are retained as measured diagnostics but are not constraints in the solid PPv inversion; section 3 explicitly identifies shock-temperature fitting only for MgSiO3 liquid.",
+      "status": "parity"
     },
     {
       "absolute_sigma": true,
@@ -31648,8 +31740,8 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 564,
+    "parity": 156,
     "parity_not_achieved": 31,
     "similar": 62,
     "total": 813

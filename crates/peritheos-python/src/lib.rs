@@ -608,7 +608,8 @@ impl PyThermalEos {
     #[pyo3(signature = (
         rt_eos, tr, theta0, gamma0, q, n,
         debye_temperature_law="integrated_gruneisen",
-        thermal_pressure_reference="reference_temperature"
+        thermal_pressure_reference="reference_temperature",
+        cvmax=None
     ))]
     #[allow(clippy::too_many_arguments)]
     fn mie_gruneisen_debye(
@@ -620,6 +621,7 @@ impl PyThermalEos {
         n: f64,
         debye_temperature_law: &str,
         thermal_pressure_reference: &str,
+        cvmax: Option<f64>,
     ) -> PyResult<Self> {
         let law = match debye_temperature_law {
             "integrated_gruneisen" => DebyeTemperatureLaw::IntegratedGruneisen,
@@ -632,22 +634,24 @@ impl PyThermalEos {
         };
         let pressure_reference = match thermal_pressure_reference {
             "reference_temperature" => ThermalPressureReference::ReferenceTemperature,
+            "reference_isentrope" => ThermalPressureReference::ReferenceIsentrope,
             "absolute_zero" => ThermalPressureReference::AbsoluteZero,
             _ => {
                 return Err(python_validation_error(
-                    "thermal_pressure_reference must be 'reference_temperature' or 'absolute_zero'",
+                    "thermal_pressure_reference must be 'reference_temperature', 'reference_isentrope', or 'absolute_zero'",
                 ));
             }
         };
         Ok(Self {
             model: ThermalModel::MieGruneisenDebye(
-                MieGruneisenDebye::new_with_conventions(
+                MieGruneisenDebye::new_with_heat_capacity(
                     rt_eos.model,
                     tr,
                     theta0,
                     gamma0,
                     q,
                     n,
+                    cvmax,
                     law,
                     pressure_reference,
                 )

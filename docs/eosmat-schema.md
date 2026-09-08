@@ -420,7 +420,10 @@ The complete equations and the distinction between the two laws are in the
 `MieGruneisenDebye` also accepts the fixed field
 `thermal_pressure_reference`. Its default, `reference_temperature`, adds the
 Debye energy difference $E(V,T)-E(V,T_r)$ to a measured reference isotherm.
-The alternative `absolute_zero` adds $E(V,T)$ to an explicitly 0 K cold curve.
+The alternative `reference_isentrope` subtracts
+$E[V,T_r\Theta(V)/\Theta_0]$ from a reference isentrope; `absolute_zero` adds
+$E(V,T)$ to an explicitly 0 K cold curve. `Cvmax` may be supplied in
+`thermal.parameters` to replace the default Debye limit $3nR$.
 These conventions are not interchangeable: a record using `absolute_zero`
 must trace its cold coefficients and baseline directly to the source. `Tr`
 remains positive and records the API's reference/default temperature even

@@ -366,9 +366,9 @@
           "description": "Characteristic-temperature relation for MieGruneisenDebye. Omission means integrated_gruneisen; JSON Schema defaults are annotations and do not insert the field."
         },
         "thermal_pressure_reference": {
-          "enum": ["reference_temperature", "absolute_zero"],
+          "enum": ["reference_temperature", "reference_isentrope", "absolute_zero"],
           "default": "reference_temperature",
-          "description": "Pressure baseline for MieGruneisenDebye. reference_temperature subtracts E(V,Tr); absolute_zero adds the unreferenced Debye thermal pressure to a 0 K cold curve."
+          "description": "Pressure baseline for MieGruneisenDebye. reference_temperature subtracts E(V,Tr); reference_isentrope subtracts E(V,Tr*theta(V)/theta0); absolute_zero adds the unreferenced Debye thermal pressure to a 0 K cold curve."
         },
         "thermal_expansion_law": {
           "enum": ["constant", "linear_temperature", "linear_reference_temperature"],

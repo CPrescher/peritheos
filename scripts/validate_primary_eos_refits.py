@@ -14,6 +14,7 @@ import csv
 import json
 import math
 import re
+import runpy
 import sys
 from collections import Counter
 from dataclasses import dataclass
@@ -71,11 +72,6 @@ INDIRECT_DATA = {
         "The bundled rows are shock-Hugoniot qualification experiments; the stored "
         "equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be "
         "refitted directly to those rows."
-    ),
-    "mgsio3_post_perovskite_mosenfelder_2009_bm3_1": (
-        "The bundled rows are shock states and the source's thermal reduction cannot "
-        "be reconstructed as a direct P-V-T least-squares fit because most rows do "
-        "not report temperature."
     ),
     "nickel_oxide_noguchi_1999_bm3_1": (
         "The bundled rows are Hugoniot states; the stored 300 K isotherm is the "
@@ -2391,6 +2387,80 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _mosenfelder_2009_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Run the dedicated shock-static errors-in-variables reproduction."""
+    namespace = runpy.run_path(
+        str(ROOT / "scripts/reproduce_mosenfelder_2009_mgsio3_post_perovskite.py")
+    )
+    static, shock = namespace["arrays"]()
+    result = namespace["fit_orthogonal"](static, shock)
+    names = list(namespace["PARAMETER_NAMES"])
+    published_values = np.asarray(namespace["PUBLISHED"], dtype=float)
+    fitted_values = np.asarray(result.x[:6], dtype=float)
+    covariance = np.linalg.pinv(result.jac.T @ result.jac)
+    fit_errors = np.sqrt(np.maximum(np.diag(covariance)[:6], 0.0))
+    published_errors = np.array([2.0, 0.07, 0.67, 0.8, 0.05, 146.0])
+    comparisons = []
+    all_parity = True
+    for name, published, fitted, fit_error, published_error in zip(
+        names, published_values, fitted_values, fit_errors, published_errors
+    ):
+        combined = math.hypot(float(published_error), float(fit_error))
+        similar_name = "theta0" if name == "theta0" else name
+        similar = _similar(similar_name, float(published), float(fitted))
+        within = abs(float(fitted - published)) <= 2.0 * combined
+        all_parity &= within and similar
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": float(published),
+                "published_error": float(published_error),
+                "refit": float(fitted),
+                "refit_error": float(fit_error),
+                "difference": float(fitted - published),
+                "relative_difference": abs(float(fitted - published))
+                / abs(float(published)),
+                "within_combined_2sigma": within,
+                "similar": similar,
+            }
+        )
+    static_prediction = namespace["static_pressure"](
+        static["volume_a3"], static["temperature_k"], fitted_values
+    )
+    shock_prediction = namespace["shock_pressure"](
+        shock["shock_density_mg_m3"],
+        shock["initial_density_mg_m3"],
+        shock["transition_energy_j_kg"],
+        fitted_values,
+    )
+    return {
+        "status": "parity" if all_parity else "similar",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": 54,
+        "selection": "48 Guignot Table 1 P-V-T rows and six PPv Table 2 P-density shock states",
+        "fit_kind": "joint_static_pvt_shock_hugoniot_mgd",
+        "objective": "orthogonal errors in P, V, T, and shock density; source datum-counting chi-square",
+        "free_parameters": names,
+        "parameters": comparisons,
+        "rmse_static_pressure_gpa": float(
+            np.sqrt(np.mean((static_prediction - static["pressure_gpa"]) ** 2))
+        ),
+        "rmse_shock_pressure_gpa_at_reported_density": float(
+            np.sqrt(np.mean((shock_prediction - shock["pressure_gpa"]) ** 2))
+        ),
+        "reduced_chi_square": float(2.0 * result.cost / 48),
+        "degrees_of_freedom": 48,
+        "solver_success": bool(result.success),
+        "solver_message": str(result.message),
+        "qualification": (
+            "Shock temperatures are not imputed. Rankine-Hugoniot energy closes "
+            "the six solid PPv pressure-density constraints; the three measured "
+            "pyrometric temperatures are independent diagnostics because the "
+            "source specifies shock-temperature fitting only for MgSiO3 liquid."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     for material_id in list_material_documents():
@@ -2427,7 +2497,11 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if record["identifier"] == (
+                "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
+            ):
+                outcome = _mosenfelder_2009_outcome(record)
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

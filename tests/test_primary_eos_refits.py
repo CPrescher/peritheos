@@ -31,10 +31,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 155,
+        "parity": 156,
         "similar": 62,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 564,
     }
     assert all(
         item.get("reason")

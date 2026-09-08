@@ -1,5 +1,13 @@
 # Literature reproductions
 
+## Mosenfelder et al. (2009) MgSiO3 post-perovskite
+
+The combined Guignot static P-V-T and Mosenfelder PPv shock inversion is now
+reproduced with its published BM3 reference isentrope, fitted Debye heat-capacity
+limit, transition energies, and errors-in-variables objective. The recovered
+coefficients and reduced chi-square match Table 4 closely. See the
+[complete shock-to-static audit](literature-reproductions/mosenfelder-2009-mgsio3-post-perovskite.md).
+
 This page records numerical comparisons between published equations of state
 and their Peritheos implementations. It complements the material files: an
 EOS record preserves the recommended literature parameterization, while this

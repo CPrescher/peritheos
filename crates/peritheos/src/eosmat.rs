@@ -2868,16 +2868,18 @@ fn build_thermal(
                 .unwrap_or("reference_temperature")
             {
                 "reference_temperature" => ThermalPressureReference::ReferenceTemperature,
+                "reference_isentrope" => ThermalPressureReference::ReferenceIsentrope,
                 "absolute_zero" => ThermalPressureReference::AbsoluteZero,
                 value => return Err(format!("unknown thermal_pressure_reference {value:?}")),
             };
-            MieGruneisenDebye::new_with_conventions(
+            MieGruneisenDebye::new_with_heat_capacity(
                 reference,
                 p("Tr")?,
                 p("theta0")?,
                 p("gamma0")?,
                 p("q")?,
                 p("n")?,
+                component.parameters.get("Cvmax").copied().flatten(),
                 law,
                 pressure_reference,
             )

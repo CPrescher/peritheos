@@ -238,7 +238,11 @@ class MieGruneisenDebye(_MieGruneisenBase):
     where ``E_D`` is the Debye vibrational energy and ``gamma(V) = gamma0 *
     (V/V0)**q``. ``thermal_pressure_reference="absolute_zero"`` instead uses
     ``P_th = gamma(V) E_D(V, T) / V`` so that the supplied isothermal EOS is a
-    0 K cold curve. ``debye_temperature_law`` selects either the conventional
+    0 K cold curve. ``thermal_pressure_reference="reference_isentrope"``
+    subtracts the Debye energy at ``T_S(V) = Tr * theta(V) / theta0``. This
+    maps publications whose BM3 term is a reference isentrope rather than an
+    isotherm. ``Cvmax`` optionally replaces the Dulong--Petit limit ``3 n R``.
+    ``debye_temperature_law`` selects either the conventional
     thermodynamically integrated relation (the default) or the direct
     variable-exponent relation printed by Fei et al. (2007).
 
@@ -256,11 +260,16 @@ class MieGruneisenDebye(_MieGruneisenBase):
     """
 
     _constructor_configuration_names: tuple[str, ...] = (
+        "Cvmax",
         "debye_temperature_law",
         "thermal_pressure_reference",
     )
     _DEBYE_TEMPERATURE_LAWS = {"integrated_gruneisen", "variable_exponent"}
-    _THERMAL_PRESSURE_REFERENCES = {"reference_temperature", "absolute_zero"}
+    _THERMAL_PRESSURE_REFERENCES = {
+        "reference_temperature",
+        "reference_isentrope",
+        "absolute_zero",
+    }
 
     def __init__(
         self,
@@ -272,8 +281,15 @@ class MieGruneisenDebye(_MieGruneisenBase):
         n: float,
         debye_temperature_law: str = "integrated_gruneisen",
         thermal_pressure_reference: str = "reference_temperature",
+        Cvmax: float | None = None,
     ) -> None:
         super().__init__(rt_eos, Tr, theta0, gamma0, q, n)
+        self._cvmax_explicit = Cvmax is not None
+        self.Cvmax = (
+            3.0 * self.n * R
+            if Cvmax is None
+            else validate_positive_scalar(Cvmax, "Cvmax")
+        )
         if (
             not isinstance(debye_temperature_law, str)
             or debye_temperature_law not in self._DEBYE_TEMPERATURE_LAWS
@@ -288,8 +304,8 @@ class MieGruneisenDebye(_MieGruneisenBase):
             or thermal_pressure_reference not in self._THERMAL_PRESSURE_REFERENCES
         ):
             raise EosValidationError(
-                "thermal_pressure_reference must be 'reference_temperature' or "
-                "'absolute_zero'"
+                "thermal_pressure_reference must be 'reference_temperature', "
+                "'reference_isentrope', or 'absolute_zero'"
             )
         self.thermal_pressure_reference = thermal_pressure_reference
         reference_native = _native_for_exact_model(rt_eos)
@@ -305,9 +321,17 @@ class MieGruneisenDebye(_MieGruneisenBase):
                 self.n,
                 self.debye_temperature_law,
                 self.thermal_pressure_reference,
+                self.Cvmax,
             )
 
-    def configuration_values(self) -> dict[str, str]:
+    def _own_parameter_names(self) -> tuple[str, ...]:
+        """Expose ``Cvmax`` as a fit parameter only when explicitly supplied."""
+        names = super()._own_parameter_names()
+        if self._cvmax_explicit:
+            return (*names, "Cvmax")
+        return names
+
+    def configuration_values(self) -> dict[str, str | float]:
         """Return non-numeric choices, omitting the default pressure baseline."""
         if type(self) is not MieGruneisenDebye:
             return super().configuration_values()
@@ -322,6 +346,20 @@ class MieGruneisenDebye(_MieGruneisenBase):
         """Return referenced or absolute-zero Debye thermal pressure in GPa."""
         if self.thermal_pressure_reference == "reference_temperature":
             return super().thermal_pressure(V, T)
+        if self.thermal_pressure_reference == "reference_isentrope":
+            volumes, temperatures = self._broadcast_state(V, T)
+            reference_temperature = (
+                self.Tr * self.characteristic_temperature(volumes) / self.theta0
+            )
+            energy_difference = np.asarray(
+                self.thermal_energy(volumes, temperatures), dtype=float
+            ) - np.asarray(
+                self.thermal_energy(volumes, reference_temperature), dtype=float
+            )
+            pressure = (
+                self.gruneisen_parameter(volumes) * energy_difference / volumes / 1.0e4
+            )
+            return self._scalar_or_array(np.asarray(pressure, dtype=float))
         return self.vibrational_pressure(V, T)
 
     def thermal_pressure_increment(self, V: NumericType, T: NumericType) -> NumericType:
@@ -378,7 +416,7 @@ class MieGruneisenDebye(_MieGruneisenBase):
             ) from error
 
         ratio = self.characteristic_temperature(volumes) / temperatures
-        energy = 3.0 * self.n * R * temperatures * _debye_function_3(ratio)
+        energy = self.Cvmax * temperatures * _debye_function_3(ratio)
         if energy.ndim == 0:
             return float(energy)
         return energy
@@ -392,7 +430,7 @@ class MieGruneisenDebye(_MieGruneisenBase):
         volumes, temperatures = self._broadcast_state(V, T)
         ratio = self.characteristic_temperature(volumes) / temperatures
         log_term = np.log(-np.expm1(-ratio))
-        entropy = self.n * R * (4.0 * _debye_function_3(ratio) - 3.0 * log_term)
+        entropy = (self.Cvmax / 3.0) * (4.0 * _debye_function_3(ratio) - 3.0 * log_term)
         return self._scalar_or_array(np.asarray(entropy, dtype=float))
 
 
