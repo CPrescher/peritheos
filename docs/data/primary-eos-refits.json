@@ -16172,16 +16172,18 @@
         33.4
       ],
       "experimental_temperature_range_k": null,
-      "fixed_parameters": [],
+      "fixed_parameters": [
+        "V0"
+      ],
       "label": "Funamori et al. (1998), CaFe2O4-type MgAl2O4 BM2",
       "material_identifier": "mgal2o4_cafe2o4",
       "model": "BM2",
-      "primary_data_finding": "The two source states are bundled from printed pressure and lattice values; the nonzero-pressure volume and its propagated uncertainty are calculated transparently from the printed axes.",
+      "primary_data_finding": "The complete observations used by the source construction are bundled from printed pressure and lattice values. There is exactly one informative finite-pressure state; the source reports no supplementary materials, and the audit found no associated repository series.",
       "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
-      "reason": "The primary article reports only the ambient and compressed endpoint for this polymorph. Those two states reproduce the published fixed-V0, fixed-K0-prime curve in the dedicated Funamori reproduction, but do not provide enough degrees of freedom for the generic refit campaign.",
+      "reason": "The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.",
       "record_identifier": "mgal2o4_cafe2o4_funamori_1998_bm2_1",
-      "source_notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4.",
+      "source_notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
       "status": "not_refittable"
     },
     {
@@ -16193,16 +16195,18 @@
         64.3
       ],
       "experimental_temperature_range_k": null,
-      "fixed_parameters": [],
+      "fixed_parameters": [
+        "V0"
+      ],
       "label": "Funamori et al. (1998), CaTi2O4-type MgAl2O4 BM2",
       "material_identifier": "mgal2o4_cati2o4",
       "model": "BM2",
-      "primary_data_finding": "The two source states are bundled from printed pressure and lattice values; the nonzero-pressure volume and its propagated uncertainty are calculated transparently from the printed axes.",
+      "primary_data_finding": "The complete observations used by the source construction are bundled from printed pressure and lattice values. There is exactly one informative finite-pressure state; the source reports no supplementary materials, and the audit found no associated repository series.",
       "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
-      "reason": "The primary article reports only the ambient and compressed endpoint for this polymorph. Those two states reproduce the published fixed-V0, fixed-K0-prime curve in the dedicated Funamori reproduction, but do not provide enough degrees of freedom for the generic refit campaign.",
+      "reason": "The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.",
       "record_identifier": "mgal2o4_cati2o4_funamori_1998_bm2_1",
-      "source_notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase.",
+      "source_notes": "This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.",
       "status": "not_refittable"
     },
     {
@@ -21457,25 +21461,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },

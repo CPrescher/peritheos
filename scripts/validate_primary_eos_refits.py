@@ -102,16 +102,18 @@ INDIRECT_DATA = {
         "and the dedicated acoustic finite-strain reproduction."
     ),
     "mgal2o4_cafe2o4_funamori_1998_bm2_1": (
-        "The primary article reports only the ambient and compressed endpoint for "
-        "this polymorph. Those two states reproduce the published fixed-V0, "
-        "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
-        "provide enough degrees of freedom for the generic refit campaign."
+        "The source construction is not a regression: recovered V0 is held fixed, "
+        "K0-prime=4 is assumed, and the only compressed observation determines K0 "
+        "algebraically. The article has no supplement, and the audit found no "
+        "associated repository series; the complete reported endpoint evidence is "
+        "bundled, but it leaves zero independent residual degrees of freedom."
     ),
     "mgal2o4_cati2o4_funamori_1998_bm2_1": (
-        "The primary article reports only the ambient and compressed endpoint for "
-        "this polymorph. Those two states reproduce the published fixed-V0, "
-        "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
-        "provide enough degrees of freedom for the generic refit campaign."
+        "The source construction is not a regression: recovered V0 is held fixed, "
+        "K0-prime=4 is assumed, and the only compressed observation determines K0 "
+        "algebraically. The article has no supplement, and the audit found no "
+        "associated repository series; the complete reported endpoint evidence is "
+        "bundled, but it leaves zero independent residual degrees of freedom."
     ),
     "bridgmanite_chantel_2012_bm3_mgd": (
         "The bundled density and acoustic-velocity observations validate the "
