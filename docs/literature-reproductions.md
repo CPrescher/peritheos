@@ -27,6 +27,14 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+The three MgSiO3 generalized Rydberg-Stacey records from Dorogokupets et al.
+(2015) have a standalone [partial reconstruction and refit audit](literature-reproductions/dorogokupets-2015-mgsio3-refit.md), including the unresolved weights and pressure-scale choices.
+
+Four independent [original-scale Wang, Zhou and Komabayashi EOS refits](literature-reproductions/wang-zhou-komabayashi-mgsio3.md)
+recover the respective papers' free coefficients within their printed errors.
+These published records retain their own pressure scales, fixed parameters and
+thermal constraints; they do not replace the Dorogokupets synthesis.
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

@@ -1,0 +1,117 @@
+{
+  "format": "peritheos.literature-reconstruction-provenance",
+  "format_version": 1,
+  "target_reference": {
+    "authors": [
+      "Dorogokupets",
+      "Dymshits",
+      "Sokolova",
+      "Danilov",
+      "Litasov"
+    ],
+    "year": 2015,
+    "doi": "10.1016/j.rgg.2015.01.011",
+    "source_locations": [
+      "Thermodynamic model, Equations (1)-(19)",
+      "Table 1",
+      "Equations of state for Fo, Wds, Rwd, Akm, Prv, and PPrv",
+      "Figures 4 and 6-8"
+    ]
+  },
+  "scope": "Recoverable room-temperature P-V slices behind the published joint thermoelastic optimizations for MgSiO3 bridgmanite, akimotoite, and post-perovskite.",
+  "published_optimization": {
+    "kind": "simultaneous optimization of heat-capacity, thermal-expansion, adiabatic-bulk-modulus, and P-V-T measurements",
+    "free_and_fixed_parameter_note": "The paper says V0 is usually taken from reference data, K0 is determined from ultrasonic measurements after conversion from KS, k is fixed at 5, and the remaining thermal parameters are fitted. It does not state a phase-specific fixed/free mask, objective function, point-weighting rule, parameter covariance, or unrounded fitted coefficients.",
+    "weights": "no weighting rule stated; unweighted use of the published points is the primary reproducible interpretation",
+    "covariance": "not published"
+  },
+  "reconstruction": {
+    "dataset": "dorogokupets-2015-298k-literature-reconstruction.csv",
+    "script": "scripts/reproduce_dorogokupets_2015_mgsio3.py",
+    "fit_method": "V0 and k=5 fixed to Dorogokupets et al.; K0 and K0_prime fitted primarily to unweighted pressure residuals. A source-error/spread-proxy fit is retained only as a sensitivity check.",
+    "weighting_caveat": "No inspected source identifies a point-weighting rule for the Dorogokupets optimization. The secondary diagnostic combines the source pressure error or spread proxy with volume uncertainty projected through the published curve. Reynard ice-VII brackets are maximum pressure gradients rather than one-sigma errors; Katsura pressure errors include disagreement between two MgO scales.",
+    "pressure_scale": {
+      "model": "mgo_sokolova_2013_holzapfel_4",
+      "application": "Tange and Guignot simultaneous MgO volumes are evaluated directly. Katsura publishes only rounded MgO V/V0; that ratio is applied to the Sokolova reference volume as an explicit approximation.",
+      "implementation_note": "Peritheos follows the corrected Sokolova 2016 workbook calculation path for the 2013 scale family. The distinction from the literal 2013 intrinsic-anharmonic equation is negligible for this 298-308 K slice but matters at high temperature."
+    }
+  },
+  "phase_sources": {
+    "bridgmanite": {
+      "included": [
+        {
+          "citation": "Katsura et al. (2009), corrected Table 1",
+          "doi": "10.1029/2009GL039318",
+          "rows": 9,
+          "selection": "300-308 K rows",
+          "source_dataset": "bridgmanite-katsura-2009-corrected-table1-pvt.csv"
+        },
+        {
+          "citation": "Tange et al. (2012), Table 1",
+          "doi": "10.1029/2011JB008988",
+          "rows": 10,
+          "selection": "300 K rows",
+          "source_dataset": "bridgmanite-tange-2012-table1-pvt.csv"
+        }
+      ],
+      "missing_or_out_of_slice": [
+        "Ambient-pressure volume-temperature points from Knittle et al. (1986) and Ross and Hazen (1989) constrain the full thermal optimization but are not high-pressure 298 K P-V observations.",
+        "The heat-capacity rows from Akaogi et al. (2008) and all heated Katsura/Tange rows are outside this isothermal diagnostic."
+      ]
+    },
+    "akimotoite": {
+      "included": [
+        {
+          "citation": "Reynard et al. (1996), Table 1 and Figure 3",
+          "doi": "10.2138/am-1996-1-206",
+          "rows": "16 ruby-scale and 14 ice-VII-scale alternatives",
+          "source_dataset": "akimotoite-reynard-1996-table1-compression.csv"
+        },
+        {
+          "citation": "Wang et al. (2004), Tables 1-2",
+          "doi": "10.1016/j.pepi.2003.08.007",
+          "rows": "134 total; 23 at 298 K",
+          "selection": "T0133 Au-marker pressures mapped from Anderson et al. (1989) to the Sokolova et al. (2013) Au scale; T0150 Decker-NaCl pressures retained as original",
+          "source_dataset": "akimotoite-wang-2004-tables1-2-pvt.csv"
+        },
+        {
+          "citation": "Zhou et al. (2014), Table 1",
+          "doi": "10.1016/j.pepi.2013.06.005",
+          "rows": "58 akimotoite rows, 55 with KS(P,T)",
+          "selection": "complete akimotoite elasticity table; all 55 KS observations enter the independent linear-regression audit",
+          "source_dataset": "akimotoite-zhou-2014-table1-elasticity.csv"
+        }
+      ],
+      "missing_or_out_of_slice": [
+        "The heated Wang rows and Zhou KS(P,T) observations are bundled but lie outside the 298 K P-V slice; they constrain the full joint thermal/acoustic model.",
+        "Ashida et al. (1988) heat-capacity and thermal-expansion observations constrain the full joint model."
+      ],
+      "source_scale_choice": "The 2015 Figure 6 caption says Reynard pressures are retained as original but does not specify ruby versus preferred ice-VII assignment. Both non-independent alternatives are therefore reported."
+    },
+    "post_perovskite": {
+      "included": [
+        {
+          "citation": "Guignot et al. (2007), Table 1",
+          "doi": "10.1016/j.epsl.2007.01.025",
+          "rows": 24,
+          "selection": "300 K rows",
+          "source_dataset": "mgsio3-post-perovskite-guignot-2007-table1-300k-compression.csv"
+        },
+        {
+          "citation": "Komabayashi et al. (2008), Table 1",
+          "doi": "10.1016/j.epsl.2007.10.036",
+          "rows": "22 table rows; 21 with post-perovskite volume; 3 at 300 K",
+          "selection": "all printed columns retained; MgO lattice parameters permit Sokolova-scale pressure recalculation",
+          "source_dataset": "mgsio3-post-perovskite-komabayashi-2008-table1-pvt.csv"
+        }
+      ],
+      "missing_or_out_of_slice": [
+        "The 18 heated Komabayashi post-perovskite rows are bundled but outside this isothermal diagnostic."
+      ],
+      "excluded": [
+        "Ono et al. (2006) Au-scale Table 2 is bundled independently, but Dorogokupets et al. explicitly report a systematic deviation up to 6 GPa for part of that branch and identify only Guignot and Komabayashi as the well-smoothed MgO-scale inputs."
+      ]
+    }
+  },
+  "disposition": "The three newly supplied primary tables are completely bundled. The 298 K diagnostics are executable and unweighted by default, but the complete 14-parameter joint fit remains only partially reconstructable and exact parity is not claimable."
+}

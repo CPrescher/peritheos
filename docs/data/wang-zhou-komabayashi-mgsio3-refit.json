@@ -1,0 +1,338 @@
+{
+  "format": "peritheos.wang-zhou-komabayashi-mgsio3-refit",
+  "format_version": 1,
+  "generated_with": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py",
+  "source_sha256": {
+    "akimotoite-wang-2004-tables1-2-pvt.csv": "e242d075f32537b336528ef2fb9280847a418c931d0808a3117e51f305cdd04b",
+    "akimotoite-zhou-2014-table1-elasticity.csv": "0d319d9f9e84a0f54b9f355ee8f2655526dcaf2ac3972a42c24402b6469c0999",
+    "mgsio3-post-perovskite-komabayashi-2008-table1-pvt.csv": "f9397ce04a013118a467e0dfa205cc50d4d96537199b4806f8bcbda465feeba7"
+  },
+  "density_conversion": {
+    "molar_mass_g_mol": 100.387,
+    "formula_units": 6,
+    "avogadro_mol_inverse": 6.02214076e+23
+  },
+  "fits": {
+    "akimotoite_wang_2004_t0133_bm3": {
+      "status": "similar",
+      "observations": 13,
+      "selection": "All 298 K rows in Table 1, run T0133 (Au)",
+      "source_orders": [
+        1,
+        8,
+        15,
+        22,
+        29,
+        36,
+        43,
+        50,
+        57,
+        64,
+        71,
+        77,
+        78
+      ],
+      "observed_pressure_range_gpa": [
+        0.0,
+        16.2
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "objective": "unweighted pressure residuals",
+      "fixed_values": {
+        "K0": 210
+      },
+      "free_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "parameters": [
+        {
+          "parameter": "V0",
+          "published": 264.2,
+          "published_error": 0.2,
+          "refit": 264.32402461766293,
+          "refit_error": null,
+          "difference": 0.12402461766293982,
+          "relative_difference": 0.0004694345861579857,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 4.8,
+          "published_error": 0.5,
+          "refit": 4.457703040602613,
+          "refit_error": null,
+          "difference": -0.3422969593973866,
+          "relative_difference": 0.0713118665411222,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "rmse_gpa": 0.23949576218615048,
+      "published_rmse_gpa": 0.24798686381479146,
+      "solver_success": true,
+      "stages": [],
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity."
+    },
+    "akimotoite_wang_2004_t0150_bm3": {
+      "status": "similar",
+      "observations": 10,
+      "selection": "All 298 K rows in Table 2, run T0150 (NaCl)",
+      "source_orders": [
+        1,
+        9,
+        18,
+        25,
+        31,
+        37,
+        43,
+        49,
+        55,
+        56
+      ],
+      "observed_pressure_range_gpa": [
+        -0.05,
+        17.044
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "objective": "unweighted pressure residuals",
+      "fixed_values": {
+        "K0": 210
+      },
+      "free_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "parameters": [
+        {
+          "parameter": "V0",
+          "published": 263.9,
+          "published_error": 0.2,
+          "refit": 263.92988199814727,
+          "refit_error": null,
+          "difference": 0.02988199814728887,
+          "relative_difference": 0.00011323227793591842,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "K0_prime",
+          "published": 5.6,
+          "published_error": 0.8,
+          "refit": 5.568904317198652,
+          "refit_error": null,
+          "difference": -0.031095682801347557,
+          "relative_difference": 0.0055528005002406355,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "rmse_gpa": 0.3471859235046197,
+      "published_rmse_gpa": 0.3479117607818186,
+      "solver_success": true,
+      "stages": [],
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity."
+    },
+    "akimotoite_zhou_2014_300k_bm3": {
+      "status": "similar",
+      "observations": 17,
+      "selection": "All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6*M/(N_A*rho), M=100.387 g/mol",
+      "source_orders": [
+        1,
+        4,
+        7,
+        10,
+        13,
+        16,
+        19,
+        22,
+        23,
+        27,
+        31,
+        35,
+        39,
+        43,
+        50,
+        57,
+        58
+      ],
+      "observed_pressure_range_gpa": [
+        0.0,
+        25.02
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "objective": "unweighted pressure residuals",
+      "fixed_values": {
+        "K0_prime": 4.6
+      },
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "parameters": [
+        {
+          "parameter": "V0",
+          "published": 262.45,
+          "published_error": 0.26,
+          "refit": 262.40916545730124,
+          "refit_error": null,
+          "difference": -0.040834542698746645,
+          "relative_difference": 0.00015558979881404706,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "K0",
+          "published": 207,
+          "published_error": 3,
+          "refit": 206.7705205901484,
+          "refit_error": null,
+          "difference": -0.2294794098515922,
+          "relative_difference": 0.0011085961828579333,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "rmse_gpa": 0.4974197054778039,
+      "published_rmse_gpa": 0.5012548583091279,
+      "solver_success": true,
+      "stages": [],
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity."
+    },
+    "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3": {
+      "status": "similar",
+      "observations": 21,
+      "selection": "All 21 Table 1 rows with PPv volume, using original Speziale-MgO pressures; the Pv-only row is excluded",
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22
+      ],
+      "observed_pressure_range_gpa": [
+        114.5,
+        129.7
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        2330.0
+      ],
+      "objective": "unweighted pressure residuals",
+      "fixed_values": {
+        "V0": 163.813,
+        "K0_prime": 4,
+        "Tr": 300,
+        "alpha_at_300k": 1.7e-05
+      },
+      "free_parameters": [
+        "K0",
+        "alpha1",
+        "dK_dT"
+      ],
+      "parameters": [
+        {
+          "parameter": "K0",
+          "published": 223.2,
+          "published_error": 0.2,
+          "refit": 223.1705607183403,
+          "refit_error": null,
+          "difference": -0.029439281659676908,
+          "relative_difference": 0.00013189642320643777,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "alpha1",
+          "published": 1.13e-09,
+          "published_error": 1.14e-08,
+          "refit": 1.0969956749467245e-09,
+          "refit_error": null,
+          "difference": -3.300432505327552e-11,
+          "relative_difference": 0.029207367303783646,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "parameter": "dK_dT",
+          "published": -0.0085,
+          "published_error": 0.0011,
+          "refit": -0.00841559662832968,
+          "refit_error": null,
+          "difference": 8.440337167031978e-05,
+          "relative_difference": 0.009929808431802327,
+          "within_reported_error": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "rmse_gpa": 0.5259626385817813,
+      "published_rmse_gpa": 0.5250961715530356,
+      "solver_success": true,
+      "stages": [
+        {
+          "stage": "300 K BM3",
+          "observations": 3,
+          "free_parameters": [
+            "K0"
+          ],
+          "fixed_parameters": [
+            "V0",
+            "K0_prime"
+          ],
+          "rmse_gpa": 0.2286223241885779
+        },
+        {
+          "stage": "P-V-T",
+          "observations": 21,
+          "free_parameters": [
+            "alpha1",
+            "dK_dT"
+          ],
+          "fixed_parameters": [
+            "V0",
+            "K0",
+            "K0_prime",
+            "Tr",
+            "alpha_at_300k"
+          ],
+          "dependent_parameters": {
+            "alpha0": "1.7e-5 - 300*alpha1"
+          }
+        }
+      ],
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+      "rounded_K0_sensitivity": {
+        "description": "Second stage with the published rounded K0=223.2 GPa fixed",
+        "alpha1": 1.1773244965299891e-09,
+        "dK_dT": -0.008510511335783887
+      },
+      "derived_alpha0": 1.6670901297515982e-05
+    }
+  }
+}

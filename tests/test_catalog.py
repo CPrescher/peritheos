@@ -179,7 +179,7 @@ def test_search_rejects_ambiguous_or_invalid_range_options(options, message):
 
 def test_validation_status_filter_and_ordering_are_deterministic():
     records = search_eos_records(validation_status=("primary_source_validated",))
-    assert len(records) == 813
+    assert len(records) == 817
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

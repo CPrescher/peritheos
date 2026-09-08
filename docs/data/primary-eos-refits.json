@@ -5,7 +5,7 @@
   "policy": {
     "not_refittable": "The primary source supplies no direct row-level observations, or the necessary reduction/calibration is not executable.",
     "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold.",
-    "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria.",
+    "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold."
   },
   "records": [
@@ -493,7 +493,39 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "alternate_pressure_coordinate": {
+        "observations": 37,
+        "pressure_range_gpa": [
+          -0.05,
+          25.2
+        ],
+        "published": {
+          "K0": 215.3,
+          "K0_prime": 4.91,
+          "V0": 262.53122652018516
+        },
+        "reported_uncertainty_diagnostic": {
+          "K0_gpa": 233.23242321279258,
+          "K0_prime": 3.5501655928379403,
+          "maximum_absolute_residual_gpa": 1.8457627335829332,
+          "published_curve_rmse_gpa": 1.3259023963159748,
+          "rmse_gpa": 1.0685673450865458,
+          "success": true,
+          "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+        },
+        "unweighted": {
+          "K0_gpa": 258.31279618878233,
+          "K0_prime": 1.0000000000000002,
+          "maximum_absolute_residual_gpa": 2.044503573021762,
+          "published_curve_rmse_gpa": 1.3259023963159748,
+          "rmse_gpa": 0.913199971365535,
+          "success": true,
+          "weighting": "unweighted pressure residuals"
+        }
+      },
+      "dataset_identifiers": [
+        "dorogokupets_2015_akimotoite_298k_reconstruction"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         130.0
@@ -502,20 +534,342 @@
         298.15,
         298.15
       ],
+      "fit_kind": "partial_298k_rydberg_stacey_diagnostic",
       "fixed_parameters": [
         "V0",
         "K_infinity_prime"
       ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
       "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
       "material_identifier": "akimotoite",
       "model": "RydbergStacey",
-      "primary_data_finding": "Complete coefficients are printed, but no consolidated observation-level fit dataset and weights are deposited.",
-      "primary_data_status": "parameterization_only",
+      "objective": "unweighted pressure residuals",
+      "observations": 39,
+      "observed_pressure_range_gpa": [
+        -0.05,
+        27.8
+      ],
+      "parameters": [
+        {
+          "difference": 39.62768974032102,
+          "parameter": "K0",
+          "published": 215.3,
+          "published_error": null,
+          "refit": 254.92768974032103,
+          "refit_error": null,
+          "relative_difference": 0.18405801087004653,
+          "similar": false,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -2.613859974569426,
+          "parameter": "K0_prime",
+          "published": 4.91,
+          "published_error": null,
+          "refit": 2.296140025430574,
+          "refit_error": null,
+          "relative_difference": 0.5323543736393943,
+          "similar": false,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The complete 134-row Wang P-V-T table and 58-row Zhou akimotoite elasticity table are bundled with the Reynard observations. An unweighted fit of all 55 Zhou KS(P,T) values closely recovers Zhou's reported linear coefficients, so weighting does not explain the Dorogokupets mismatch. The 298 K fits still do not reproduce the published K0/K0_prime pair because the 2015 result is a joint thermal/acoustic optimization with an unstated residual construction and phase-specific fixed/free mask.",
+      "primary_data_status": "partial_reconstruction",
       "primary_source": "https://doi.org/10.1016/j.rgg.2015.01.011",
-      "reason": "Complete coefficients are printed, but no consolidated observation-level fit dataset and weights are deposited.",
+      "published_curve_rmse_gpa": 1.3720558660562725,
+      "published_rmse_gpa": 1.3720558660562725,
+      "qualification": "The same Reynard observations have ruby and preferred ice-VII pressure assignments; Dorogokupets et al. do not identify which original coordinate they used. Both non-independent alternatives miss exact parity. The Wang P-V-T and Zhou KS tables are now complete, and an unweighted Zhou regression closely reproduces Zhou's own rounded elastic coefficients. What remains unavailable is the 2015 joint residual construction, covariance, phase-specific fixed/free mask, and the Ashida thermal inputs. Published coefficients are retained.",
+      "reason": "Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.",
       "record_identifier": "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
-      "source_notes": "Accepted corrected mapping for LitCurate source row 869 (litcurate_8acd9ecf5854a501).",
-      "status": "not_refittable"
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 240.92419522476686,
+        "K0_prime": 3.8890473064895104,
+        "maximum_absolute_residual_gpa": 2.170953930096946,
+        "published_curve_rmse_gpa": 1.3720558660562725,
+        "rmse_gpa": 0.8685363817717343,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "rmse_gpa": 0.8443919169328162,
+      "selection": "recoverable 298 K literature slice",
+      "solver_message": "dedicated Dorogokupets (2015) slice fit completed",
+      "solver_success": true,
+      "source_notes": "Accepted corrected mapping for LitCurate source row 869 (litcurate_8acd9ecf5854a501). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "dataset_identifiers": [
+        "akimotoite_wang_2004_tables1_2_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        0,
+        16.2
+      ],
+      "experimental_temperature_range_k": [
+        298,
+        298
+      ],
+      "fit_kind": "original_scale_source_constrained_bm3",
+      "fixed_parameters": [
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 210
+      },
+      "free_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "label": "Wang et al. (2004), T0133 Au-scale BM3",
+      "material_identifier": "akimotoite",
+      "model": "BM3",
+      "objective": "unweighted pressure residuals",
+      "observations": 13,
+      "observed_pressure_range_gpa": [
+        0.0,
+        16.2
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "parameters": [
+        {
+          "difference": 0.12402461766293982,
+          "parameter": "V0",
+          "published": 264.2,
+          "published_error": 0.2,
+          "refit": 264.32402461766293,
+          "refit_error": null,
+          "relative_difference": 0.0004694345861579857,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.3422969593973866,
+          "parameter": "K0_prime",
+          "published": 4.8,
+          "published_error": 0.5,
+          "refit": 4.457703040602613,
+          "refit_error": null,
+          "relative_difference": 0.0713118665411222,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "primary_data_finding": "All 298 K rows in Table 1, run T0133 (Au); independently refitted within printed parameter uncertainties.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.pepi.2003.08.007",
+      "published_rmse_gpa": 0.24798686381479146,
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+      "record_identifier": "akimotoite_wang_2004_t0133_bm3",
+      "rmse_gpa": 0.23949576218615048,
+      "selection": "All 298 K rows in Table 1, run T0133 (Au)",
+      "solver_success": true,
+      "source_notes": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "source_orders": [
+        1,
+        8,
+        15,
+        22,
+        29,
+        36,
+        43,
+        50,
+        57,
+        64,
+        71,
+        77,
+        78
+      ],
+      "stages": [],
+      "status": "similar"
+    },
+    {
+      "dataset_identifiers": [
+        "akimotoite_wang_2004_tables1_2_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        -0.05,
+        17.044
+      ],
+      "experimental_temperature_range_k": [
+        298,
+        298
+      ],
+      "fit_kind": "original_scale_source_constrained_bm3",
+      "fixed_parameters": [
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 210
+      },
+      "free_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "label": "Wang et al. (2004), preferred T0150 NaCl-scale BM3",
+      "material_identifier": "akimotoite",
+      "model": "BM3",
+      "objective": "unweighted pressure residuals",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        -0.05,
+        17.044
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        298.0
+      ],
+      "parameters": [
+        {
+          "difference": 0.02988199814728887,
+          "parameter": "V0",
+          "published": 263.9,
+          "published_error": 0.2,
+          "refit": 263.92988199814727,
+          "refit_error": null,
+          "relative_difference": 0.00011323227793591842,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.031095682801347557,
+          "parameter": "K0_prime",
+          "published": 5.6,
+          "published_error": 0.8,
+          "refit": 5.568904317198652,
+          "refit_error": null,
+          "relative_difference": 0.0055528005002406355,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "primary_data_finding": "All 298 K rows in Table 2, run T0150 (NaCl); independently refitted within printed parameter uncertainties.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.pepi.2003.08.007",
+      "published_rmse_gpa": 0.3479117607818186,
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+      "record_identifier": "akimotoite_wang_2004_t0150_bm3",
+      "rmse_gpa": 0.3471859235046197,
+      "selection": "All 298 K rows in Table 2, run T0150 (NaCl)",
+      "solver_success": true,
+      "source_notes": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "source_orders": [
+        1,
+        9,
+        18,
+        25,
+        31,
+        37,
+        43,
+        49,
+        55,
+        56
+      ],
+      "stages": [],
+      "status": "similar"
+    },
+    {
+      "dataset_identifiers": [
+        "akimotoite_zhou_2014_table1_elasticity"
+      ],
+      "experimental_pressure_range_gpa": [
+        0,
+        25.02
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "original_scale_source_constrained_bm3",
+      "fixed_parameters": [
+        "K0_prime"
+      ],
+      "fixed_values": {
+        "K0_prime": 4.6
+      },
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "label": "Zhou et al. (2014), 300 K isothermal BM3",
+      "material_identifier": "akimotoite",
+      "model": "BM3",
+      "objective": "unweighted pressure residuals",
+      "observations": 17,
+      "observed_pressure_range_gpa": [
+        0.0,
+        25.02
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        300.0
+      ],
+      "parameters": [
+        {
+          "difference": -0.040834542698746645,
+          "parameter": "V0",
+          "published": 262.45,
+          "published_error": 0.26,
+          "refit": 262.40916545730124,
+          "refit_error": null,
+          "relative_difference": 0.00015558979881404706,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -0.2294794098515922,
+          "parameter": "K0",
+          "published": 207,
+          "published_error": 3,
+          "refit": 206.7705205901484,
+          "refit_error": null,
+          "relative_difference": 0.0011085961828579333,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "primary_data_finding": "All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6*M/(N_A*rho), M=100.387 g/mol; independently refitted within printed parameter uncertainties.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.pepi.2013.06.005",
+      "published_rmse_gpa": 0.5012548583091279,
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+      "record_identifier": "akimotoite_zhou_2014_300k_bm3",
+      "rmse_gpa": 0.4974197054778039,
+      "selection": "All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6*M/(N_A*rho), M=100.387 g/mol",
+      "solver_success": true,
+      "source_notes": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "source_orders": [
+        1,
+        4,
+        7,
+        10,
+        13,
+        16,
+        19,
+        22,
+        23,
+        27,
+        31,
+        35,
+        39,
+        43,
+        50,
+        57,
+        58
+      ],
+      "stages": [],
+      "status": "similar"
     },
     {
       "dataset_identifiers": [],
@@ -3809,7 +4163,9 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "dorogokupets_2015_bridgmanite_298k_reconstruction"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         130.0
@@ -3818,20 +4174,71 @@
         298.15,
         298.15
       ],
+      "fit_kind": "partial_298k_rydberg_stacey_diagnostic",
       "fixed_parameters": [
         "V0",
         "K_infinity_prime"
       ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
       "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
       "material_identifier": "bridgmanite",
       "model": "RydbergStacey",
-      "primary_data_finding": "The complete optimized coefficients are tabulated, while the heterogeneous literature fit observations and weights are not deposited as one machine-readable dataset.",
-      "primary_data_status": "parameterization_only",
+      "objective": "unweighted pressure residuals",
+      "observations": 19,
+      "observed_pressure_range_gpa": [
+        18.953355640520773,
+        95.41648812348971
+      ],
+      "parameters": [
+        {
+          "difference": 4.443491281293404,
+          "parameter": "K0",
+          "published": 252.0,
+          "published_error": null,
+          "refit": 256.4434912812934,
+          "refit_error": null,
+          "relative_difference": 0.01763290190989446,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.529824028678409,
+          "parameter": "K0_prime",
+          "published": 4.38,
+          "published_error": null,
+          "refit": 3.850175971321591,
+          "refit_error": null,
+          "relative_difference": 0.12096439010922581,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Nineteen recoverable 300-308 K Katsura/Tange observations are reconstructed on the Sokolova MgO scale. The unpublished objective weights, the exact absolute MgO reference behind rounded Katsura V/V0 values, and the joint thermal/acoustic constraints prevent an exact reproduction; the transparent slice fit does not reproduce the published K0/K0_prime pair.",
+      "primary_data_status": "partial_reconstruction",
       "primary_source": "https://doi.org/10.1016/j.rgg.2015.01.011",
-      "reason": "The complete optimized coefficients are tabulated, while the heterogeneous literature fit observations and weights are not deposited as one machine-readable dataset.",
+      "published_curve_rmse_gpa": 1.5784185420909207,
+      "published_rmse_gpa": 1.5784185420909207,
+      "qualification": "This is a partial room-temperature diagnostic, not a reproduction of the joint thermoelastic objective. The paper states no point-weighting rule or covariance, and at least one source pressure-coordinate choice or joint-fit constraint remains unresolved. Published coefficients are therefore retained.",
+      "reason": "Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.",
       "record_identifier": "bridgmanite_dorogokupets_2015_298k_rydberg_stacey",
-      "source_notes": "Accepted corrected mapping for LitCurate source row 867 (litcurate_7828334f1795f436).",
-      "status": "not_refittable"
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 257.5099443481136,
+        "K0_prime": 3.8140289480014546,
+        "maximum_absolute_residual_gpa": 0.7197213088567764,
+        "published_curve_rmse_gpa": 1.5784185420909207,
+        "rmse_gpa": 0.3088956816526152,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "rmse_gpa": 0.3017704120453951,
+      "selection": "recoverable 298 K literature slice",
+      "solver_message": "dedicated Dorogokupets (2015) slice fit completed",
+      "solver_success": true,
+      "source_notes": "Accepted corrected mapping for LitCurate source row 867 (litcurate_7828334f1795f436). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+      "status": "parity_not_achieved"
     },
     {
       "dataset_identifiers": [],
@@ -21147,7 +21554,9 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "dorogokupets_2015_post_perovskite_298k_reconstruction"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         130.0
@@ -21156,20 +21565,224 @@
         298.15,
         298.15
       ],
+      "fit_kind": "partial_298k_rydberg_stacey_diagnostic",
       "fixed_parameters": [
         "V0",
         "K_infinity_prime"
       ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
       "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
       "material_identifier": "mgsio3_post_perovskite",
       "model": "RydbergStacey",
-      "primary_data_finding": "Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together.",
-      "primary_data_status": "parameterization_only",
+      "objective": "unweighted pressure residuals",
+      "observations": 27,
+      "observed_pressure_range_gpa": [
+        112.07389686309455,
+        133.50202034231663
+      ],
+      "parameters": [
+        {
+          "difference": -6.916634190141565,
+          "parameter": "K0",
+          "published": 253.7,
+          "published_error": null,
+          "refit": 246.78336580985842,
+          "refit_error": null,
+          "relative_difference": 0.02726304371360491,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": -0.013797482979704512,
+          "parameter": "K0_prime",
+          "published": 4.03,
+          "published_error": null,
+          "refit": 4.016202517020296,
+          "refit_error": null,
+          "relative_difference": 0.0034236930470730796,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The 24 Guignot room-temperature observations and complete 22-row Komabayashi table are bundled; 21 Komabayashi rows contain post-perovskite volumes and all preserve simultaneous MgO lattice parameters. Adding the three 300 K Komabayashi rows moves the unweighted slice to K0=246.78 GPa and K0_prime=4.016, close to but not identical with the published 253.7 GPa and 4.03. The remaining mismatch reflects the larger joint thermal fit, not missing Komabayashi data or an evident weighting effect.",
+      "primary_data_status": "partial_reconstruction",
       "primary_source": "https://doi.org/10.1016/j.rgg.2015.01.011",
-      "reason": "Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together.",
+      "published_curve_rmse_gpa": 3.8441964272841695,
+      "published_rmse_gpa": 3.8441964272841695,
+      "qualification": "This is a partial room-temperature diagnostic, not a reproduction of the joint thermoelastic objective. The paper states no point-weighting rule or covariance, and at least one source pressure-coordinate choice or joint-fit constraint remains unresolved. Published coefficients are therefore retained.",
+      "reason": "Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.",
       "record_identifier": "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey",
-      "source_notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309).",
-      "status": "not_refittable"
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 248.97419060202634,
+        "K0_prime": 3.9529187481280808,
+        "maximum_absolute_residual_gpa": 2.182777263706001,
+        "published_curve_rmse_gpa": 3.8441964272841695,
+        "rmse_gpa": 0.756026944442485,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "rmse_gpa": 0.755167673143885,
+      "selection": "recoverable 298 K literature slice",
+      "solver_message": "dedicated Dorogokupets (2015) slice fit completed",
+      "solver_success": true,
+      "source_notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved.",
+      "status": "parity_not_achieved"
+    },
+    {
+      "dataset_identifiers": [
+        "mgsio3_post_perovskite_komabayashi_2008_table1_pvt"
+      ],
+      "derived_alpha0": 1.6670901297515982e-05,
+      "experimental_pressure_range_gpa": [
+        114.5,
+        129.7
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        2330
+      ],
+      "fit_kind": "original_scale_source_constrained_bm3",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime",
+        "Tr"
+      ],
+      "fixed_values": {
+        "K0_prime": 4,
+        "Tr": 300,
+        "V0": 163.813,
+        "alpha_at_300k": 1.7e-05
+      },
+      "free_parameters": [
+        "K0",
+        "alpha1",
+        "dK_dT"
+      ],
+      "label": "Komabayashi et al. (2008), MgO-scale thermal BM3",
+      "material_identifier": "mgsio3_post_perovskite",
+      "model": "BM3",
+      "objective": "unweighted pressure residuals",
+      "observations": 21,
+      "observed_pressure_range_gpa": [
+        114.5,
+        129.7
+      ],
+      "observed_temperature_range_k": [
+        300.0,
+        2330.0
+      ],
+      "parameters": [
+        {
+          "difference": -0.029439281659676908,
+          "parameter": "K0",
+          "published": 223.2,
+          "published_error": 0.2,
+          "refit": 223.1705607183403,
+          "refit_error": null,
+          "relative_difference": 0.00013189642320643777,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": -3.300432505327552e-11,
+          "parameter": "alpha1",
+          "published": 1.13e-09,
+          "published_error": 1.14e-08,
+          "refit": 1.0969956749467245e-09,
+          "refit_error": null,
+          "relative_difference": 0.029207367303783646,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": 8.440337167031978e-05,
+          "parameter": "dK_dT",
+          "published": -0.0085,
+          "published_error": 0.0011,
+          "refit": -0.00841559662832968,
+          "refit_error": null,
+          "relative_difference": 0.009929808431802327,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "primary_data_finding": "All 21 Table 1 rows with PPv volume, using original Speziale-MgO pressures; the Pv-only row is excluded; independently refitted within printed parameter uncertainties.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2007.10.036",
+      "published_rmse_gpa": 0.5250961715530356,
+      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+      "record_identifier": "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
+      "rmse_gpa": 0.5259626385817813,
+      "rounded_K0_sensitivity": {
+        "alpha1": 1.1773244965299891e-09,
+        "dK_dT": -0.008510511335783887,
+        "description": "Second stage with the published rounded K0=223.2 GPa fixed"
+      },
+      "selection": "All 21 Table 1 rows with PPv volume, using original Speziale-MgO pressures; the Pv-only row is excluded",
+      "solver_success": true,
+      "source_notes": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+      "source_orders": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        19,
+        20,
+        21,
+        22
+      ],
+      "stages": [
+        {
+          "fixed_parameters": [
+            "V0",
+            "K0_prime"
+          ],
+          "free_parameters": [
+            "K0"
+          ],
+          "observations": 3,
+          "rmse_gpa": 0.2286223241885779,
+          "stage": "300 K BM3"
+        },
+        {
+          "dependent_parameters": {
+            "alpha0": "1.7e-5 - 300*alpha1"
+          },
+          "fixed_parameters": [
+            "V0",
+            "K0",
+            "K0_prime",
+            "Tr",
+            "alpha_at_300k"
+          ],
+          "free_parameters": [
+            "alpha1",
+            "dK_dT"
+          ],
+          "observations": 21,
+          "stage": "P-V-T"
+        }
+      ],
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -24303,25 +24916,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,10 +32261,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 562,
     "parity": 155,
-    "parity_not_achieved": 31,
-    "similar": 62,
-    "total": 813
+    "parity_not_achieved": 34,
+    "similar": 66,
+    "total": 817
   }
 }

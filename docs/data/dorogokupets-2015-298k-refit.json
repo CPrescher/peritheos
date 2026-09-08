@@ -1,0 +1,259 @@
+{
+  "fits": {
+    "akimotoite_ice_vii": {
+      "observations": 14,
+      "pressure_range_gpa": [
+        0.0,
+        25.2
+      ],
+      "published": {
+        "K0": 215.3,
+        "K0_prime": 4.91,
+        "V0": 262.53122652018516
+      },
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 206.5725003106622,
+        "K0_prime": 5.8561612145636825,
+        "maximum_absolute_residual_gpa": 2.320442542370378,
+        "published_curve_rmse_gpa": 0.6912564825251087,
+        "rmse_gpa": 0.7409212937404033,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "unweighted": {
+        "K0_gpa": 229.1737959515295,
+        "K0_prime": 3.1801339544229874,
+        "maximum_absolute_residual_gpa": 1.837889036234266,
+        "published_curve_rmse_gpa": 0.6912564825251087,
+        "rmse_gpa": 0.6556943417273495,
+        "success": true,
+        "weighting": "unweighted pressure residuals"
+      }
+    },
+    "akimotoite_ruby": {
+      "observations": 16,
+      "pressure_range_gpa": [
+        0.0,
+        27.8
+      ],
+      "published": {
+        "K0": 215.3,
+        "K0_prime": 4.91,
+        "V0": 262.53122652018516
+      },
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 212.07288952653093,
+        "K0_prime": 6.733931434184907,
+        "maximum_absolute_residual_gpa": 1.8350728208138314,
+        "published_curve_rmse_gpa": 0.9702453600723585,
+        "rmse_gpa": 0.6092914660384025,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "unweighted": {
+        "K0_gpa": 213.57380340542252,
+        "K0_prime": 6.544821628796448,
+        "maximum_absolute_residual_gpa": 1.8255180704944003,
+        "published_curve_rmse_gpa": 0.9702453600723585,
+        "rmse_gpa": 0.6088238660507034,
+        "success": true,
+        "weighting": "unweighted pressure residuals"
+      }
+    },
+    "akimotoite_wang": {
+      "observations": 23,
+      "pressure_range_gpa": [
+        -0.05,
+        17.044
+      ],
+      "published": {
+        "K0": 215.3,
+        "K0_prime": 4.91,
+        "V0": 262.53122652018516
+      },
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 270.91120881009897,
+        "K0_prime": 1.0000000000000002,
+        "maximum_absolute_residual_gpa": 2.1363876126078516,
+        "published_curve_rmse_gpa": 1.5928773219462709,
+        "rmse_gpa": 0.7363031111427909,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "unweighted": {
+        "K0_gpa": 270.91120881009897,
+        "K0_prime": 1.0000000000000002,
+        "maximum_absolute_residual_gpa": 2.1363876126078516,
+        "published_curve_rmse_gpa": 1.5928773219462709,
+        "rmse_gpa": 0.7363031111427909,
+        "success": true,
+        "weighting": "unweighted pressure residuals"
+      }
+    },
+    "akimotoite_wang_plus_reynard_ice_vii": {
+      "observations": 37,
+      "pressure_range_gpa": [
+        -0.05,
+        25.2
+      ],
+      "published": {
+        "K0": 215.3,
+        "K0_prime": 4.91,
+        "V0": 262.53122652018516
+      },
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 233.23242321279258,
+        "K0_prime": 3.5501655928379403,
+        "maximum_absolute_residual_gpa": 1.8457627335829332,
+        "published_curve_rmse_gpa": 1.3259023963159748,
+        "rmse_gpa": 1.0685673450865458,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "unweighted": {
+        "K0_gpa": 258.31279618878233,
+        "K0_prime": 1.0000000000000002,
+        "maximum_absolute_residual_gpa": 2.044503573021762,
+        "published_curve_rmse_gpa": 1.3259023963159748,
+        "rmse_gpa": 0.913199971365535,
+        "success": true,
+        "weighting": "unweighted pressure residuals"
+      }
+    },
+    "akimotoite_wang_plus_reynard_ruby": {
+      "observations": 39,
+      "pressure_range_gpa": [
+        -0.05,
+        27.8
+      ],
+      "published": {
+        "K0": 215.3,
+        "K0_prime": 4.91,
+        "V0": 262.53122652018516
+      },
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 240.92419522476686,
+        "K0_prime": 3.8890473064895104,
+        "maximum_absolute_residual_gpa": 2.170953930096946,
+        "published_curve_rmse_gpa": 1.3720558660562725,
+        "rmse_gpa": 0.8685363817717343,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "unweighted": {
+        "K0_gpa": 254.92768974032103,
+        "K0_prime": 2.296140025430574,
+        "maximum_absolute_residual_gpa": 2.024121383674025,
+        "published_curve_rmse_gpa": 1.3720558660562725,
+        "rmse_gpa": 0.8443919169328162,
+        "success": true,
+        "weighting": "unweighted pressure residuals"
+      }
+    },
+    "bridgmanite": {
+      "observations": 19,
+      "pressure_range_gpa": [
+        18.953355640520773,
+        95.41648812348971
+      ],
+      "published": {
+        "K0": 252.0,
+        "K0_prime": 4.38,
+        "V0": 162.4007207696022
+      },
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 257.5099443481136,
+        "K0_prime": 3.8140289480014546,
+        "maximum_absolute_residual_gpa": 0.7197213088567764,
+        "published_curve_rmse_gpa": 1.5784185420909207,
+        "rmse_gpa": 0.3088956816526152,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "unweighted": {
+        "K0_gpa": 256.4434912812934,
+        "K0_prime": 3.850175971321591,
+        "maximum_absolute_residual_gpa": 0.6406927154360389,
+        "published_curve_rmse_gpa": 1.5784185420909207,
+        "rmse_gpa": 0.3017704120453951,
+        "success": true,
+        "weighting": "unweighted pressure residuals"
+      }
+    },
+    "post_perovskite": {
+      "observations": 27,
+      "pressure_range_gpa": [
+        112.07389686309455,
+        133.50202034231663
+      ],
+      "published": {
+        "K0": 253.7,
+        "K0_prime": 4.03,
+        "V0": 160.74018170242837
+      },
+      "reported_uncertainty_diagnostic": {
+        "K0_gpa": 248.97419060202634,
+        "K0_prime": 3.9529187481280808,
+        "maximum_absolute_residual_gpa": 2.182777263706001,
+        "published_curve_rmse_gpa": 3.8441964272841695,
+        "rmse_gpa": 0.756026944442485,
+        "success": true,
+        "weighting": "source-reported pressure error/spread proxy combined in quadrature with published-curve volume-uncertainty projection; not the unpublished Dorogokupets objective weights"
+      },
+      "unweighted": {
+        "K0_gpa": 246.78336580985842,
+        "K0_prime": 4.016202517020296,
+        "maximum_absolute_residual_gpa": 2.2289228969798103,
+        "published_curve_rmse_gpa": 3.8441964272841695,
+        "rmse_gpa": 0.755167673143885,
+        "success": true,
+        "weighting": "unweighted pressure residuals"
+      }
+    }
+  },
+  "limitations": [
+    "Dorogokupets et al. state no point-weighting rule or covariance; unweighted least squares is the primary reconstruction.",
+    "The joint thermal/acoustic objective is not reduced to a 298 K P-V fit.",
+    "The Wang, Zhou, and Komabayashi source tables are complete, but the 14-parameter joint optimizer and its phase-specific fixed/free mask are not published.",
+    "Katsura MgO V/V0 is rounded and lacks the absolute cell volume needed for exact rescaling."
+  ],
+  "method": "298 K slice diagnostics with V0 and k=5 fixed to Dorogokupets et al. (2015); K0 and K0_prime optimized",
+  "reconstruction_sha256": "bb907e4b498914ec023cb9df421e9bda908b66b02ca304ead2bbef44785b1ef1",
+  "source_tables": {
+    "Komabayashi_2008": {
+      "rows": 22,
+      "sha256": "f9397ce04a013118a467e0dfa205cc50d4d96537199b4806f8bcbda465feeba7",
+      "usable_post_perovskite_rows": 21
+    },
+    "Wang_2004": {
+      "rows": 134,
+      "sha256": "e242d075f32537b336528ef2fb9280847a418c931d0808a3117e51f305cdd04b"
+    },
+    "Zhou_2014": {
+      "rows": 58,
+      "rows_with_KS": 55,
+      "sha256": "0d319d9f9e84a0f54b9f355ee8f2655526dcaf2ac3972a42c24402b6469c0999"
+    }
+  },
+  "zhou_2014_elasticity": {
+    "interpretation": "Both regressions recover the published rounded coefficients closely; the source does not identify uncertainty weighting as its objective.",
+    "observations": 55,
+    "published_linear": {
+      "K0S_gpa": 219.4,
+      "dKS_dP": 4.62,
+      "dKS_dT_gpa_per_k": -0.0228
+    },
+    "reported_KS_uncertainty_sensitivity": {
+      "K0S_gpa": 219.70328499954337,
+      "dKS_dP": 4.619729320259497,
+      "dKS_dT_gpa_per_k": -0.02338735090398168,
+      "rmse_gpa": 0.9210851483011301
+    },
+    "unweighted": {
+      "K0S_gpa": 219.86726260160455,
+      "dKS_dP": 4.607028748099597,
+      "dKS_dT_gpa_per_k": -0.02322151171243756,
+      "rmse_gpa": 0.9186121880790009
+    }
+  }
+}

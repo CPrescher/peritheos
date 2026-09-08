@@ -36,6 +36,16 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DOROGOKUPETS_REFIT_JSON = ROOT / "docs" / "data" / "dorogokupets-2015-298k-refit.json"
+MGSIO3_PRIMARY_REFIT_JSON = ROOT / "docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
+
+DOROGOKUPETS_2015_FIT_BRANCH = {
+    "akimotoite_dorogokupets_2015_298k_rydberg_stacey": (
+        "akimotoite_wang_plus_reynard_ruby"
+    ),
+    "bridgmanite_dorogokupets_2015_298k_rydberg_stacey": "bridgmanite",
+    "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey": ("post_perovskite"),
+}
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -2391,8 +2401,81 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _dorogokupets_2015_outcome(
+    record: dict[str, Any], refits: dict[str, Any]
+) -> dict[str, Any]:
+    branch = DOROGOKUPETS_2015_FIT_BRANCH[record["identifier"]]
+    result = refits[branch]
+    fit = result["unweighted"]
+    published = result["published"]
+    parameters = []
+    for parameter, report_name in (("K0", "K0_gpa"), ("K0_prime", "K0_prime")):
+        difference = fit[report_name] - published[parameter]
+        parameters.append(
+            {
+                "parameter": parameter,
+                "published": published[parameter],
+                "published_error": None,
+                "refit": fit[report_name],
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[parameter]),
+                "within_combined_2sigma": None,
+                "similar": _similar(parameter, published[parameter], fit[report_name]),
+            }
+        )
+    outcome = {
+        "status": "parity_not_achieved",
+        "dataset_identifiers": record["diagnostic_datasets"],
+        "observations": result["observations"],
+        "selection": "recoverable 298 K literature slice",
+        "observed_pressure_range_gpa": result["pressure_range_gpa"],
+        "fit_kind": "partial_298k_rydberg_stacey_diagnostic",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["K0", "K0_prime"],
+        "parameters": parameters,
+        "rmse_gpa": fit["rmse_gpa"],
+        "published_rmse_gpa": fit["published_curve_rmse_gpa"],
+        "published_curve_rmse_gpa": fit["published_curve_rmse_gpa"],
+        "solver_success": fit["success"],
+        "solver_message": "dedicated Dorogokupets (2015) slice fit completed",
+        "reported_uncertainty_diagnostic": result["reported_uncertainty_diagnostic"],
+        "qualification": (
+            "This is a partial room-temperature diagnostic, not a reproduction "
+            "of the joint thermoelastic objective. The paper states no point-weighting "
+            "rule or covariance, and at least one source pressure-coordinate choice "
+            "or joint-fit constraint remains unresolved. Published coefficients are "
+            "therefore retained."
+        ),
+        "reason": (
+            "Only a partial 298 K slice of the source's joint thermoelastic "
+            "objective is recoverable, and that transparent slice does not "
+            "reproduce the published coefficient pair."
+        ),
+    }
+    if branch == "akimotoite_wang_plus_reynard_ruby":
+        outcome["alternate_pressure_coordinate"] = refits[
+            "akimotoite_wang_plus_reynard_ice_vii"
+        ]
+        outcome["qualification"] = (
+            "The same Reynard observations have ruby and preferred ice-VII "
+            "pressure assignments; Dorogokupets et al. do not identify which "
+            "original coordinate they used. Both non-independent alternatives "
+            "miss exact parity. The Wang P-V-T and Zhou KS tables are now complete, "
+            "and an unweighted Zhou regression closely reproduces Zhou's own rounded "
+            "elastic coefficients. What remains unavailable is the 2015 joint "
+            "residual construction, covariance, phase-specific fixed/free mask, and "
+            "the Ashida thermal inputs. Published coefficients are retained."
+        )
+    return outcome
+
+
 def validate_all() -> dict[str, Any]:
     results = []
+    mgsio3_primary_refits = json.loads(MGSIO3_PRIMARY_REFIT_JSON.read_text())["fits"]
+    dorogokupets_refits = json.loads(
+        DOROGOKUPETS_REFIT_JSON.read_text(encoding="utf-8")
+    )["fits"]
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2427,7 +2510,27 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if record["identifier"] in mgsio3_primary_refits:
+                outcome = dict(mgsio3_primary_refits[record["identifier"]])
+                outcome["dataset_identifiers"] = record["fit_datasets"]
+                outcome["fit_kind"] = "original_scale_source_constrained_bm3"
+                outcome["parameters"] = [
+                    {
+                        **p,
+                        "similar": _similar(p["parameter"], p["published"], p["refit"]),
+                    }
+                    for p in outcome["parameters"]
+                ]
+                if not all(
+                    p["within_reported_error"] and p["similar"]
+                    for p in outcome["parameters"]
+                ):
+                    raise AssertionError(
+                        "MgSiO3 dedicated refit no longer supports similar status"
+                    )
+            elif record["identifier"] in DOROGOKUPETS_2015_FIT_BRANCH:
+                outcome = _dorogokupets_2015_outcome(record, dorogokupets_refits)
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {
@@ -2471,7 +2574,8 @@ def validate_all() -> dict[str, Any]:
             ),
             "parity_not_achieved": (
                 "At least one fitted parameter is outside both the uncertainty and "
-                "similarity criteria."
+                "similarity criteria, or a dedicated partial-source audit cannot "
+                "reproduce the published coefficient pair."
             ),
             "not_refittable": (
                 "The primary source supplies no direct row-level observations, or "
@@ -2778,7 +2882,8 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "refit that does not meet the strict `parity` definition. `similar` means ",
             "the difference is numerically acceptable or covered by combined ",
             "uncertainty; `parity_not_achieved` means at least one coefficient is ",
-            "outside both tests. Causes described as possible remain hypotheses until ",
+            "outside both tests or a dedicated partial-source reconstruction does ",
+            "not reproduce the published pair. Causes described as possible remain hypotheses until ",
             "the missing source fit detail is recovered.",
         ]
     )
