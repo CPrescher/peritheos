@@ -19920,7 +19920,17 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": true,
+      "columns": {
+        "particle_velocity": "particle_velocity_km_s",
+        "particle_velocity_sigma": "particle_velocity_standard_deviation_km_s",
+        "shock_velocity": "shock_velocity_km_s",
+        "shock_velocity_sigma": "shock_velocity_standard_deviation_km_s"
+      },
+      "dataset_identifiers": [
+        "mgo_duffy_ahrens_1995_table3_hugoniot"
+      ],
+      "degrees_of_freedom": 2,
       "experimental_pressure_range_gpa": [
         14.0,
         133.0
@@ -19929,21 +19939,64 @@
         298.15,
         298.15
       ],
+      "fit_kind": "linear_us_up_hugoniot",
       "fixed_parameters": [
         "V0",
         "rho0",
         "P0"
       ],
+      "free_parameters": [
+        "c0",
+        "s"
+      ],
       "label": "Duffy and Ahrens (1995), B1 principal Hugoniot",
       "material_identifier": "mgo",
       "model": "LinearUsUpHugoniot",
-      "primary_data_finding": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.",
-      "primary_data_status": "parameterization_only",
+      "objective": "errors_in_variables_velocity_residuals",
+      "observations": 4,
+      "observed_particle_velocity_range_km_s": [
+        0.513,
+        3.367
+      ],
+      "observed_shock_velocity_range_km_s": [
+        7.53,
+        11.042
+      ],
+      "parameters": [
+        {
+          "difference": 0.00043987023117519897,
+          "parameter": "c0",
+          "published": 6.87,
+          "published_error": 0.1,
+          "refit": 6.870439870231175,
+          "refit_error": 0.10034919071495181,
+          "relative_difference": 6.402769012739432e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0020136873478775463,
+          "parameter": "s",
+          "published": 1.24,
+          "published_error": 0.04,
+          "refit": 1.2379863126521224,
+          "refit_error": 0.041203117218599115,
+          "relative_difference": 0.0016239414095786664,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All four EOS shots and every printed Table 3 value and one-standard-deviation uncertainty are bundled as a factual CSV transcription. The copyrighted article and its table typography are not redistributed; the dataset license is scoped to Peritheos contributors' rights in the new transcription and arrangement.",
+      "primary_data_status": "bundled",
       "primary_source": "https://duffy.princeton.edu/document/27",
-      "reason": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.",
       "record_identifier": "mgo_b1_duffy_ahrens_1995_hugoniot_5",
-      "source_notes": "Constrained principal Hugoniot for the B1 phase only. This is not an equilibrium EOS or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.",
-      "status": "not_refittable"
+      "reduced_chi_square": 0.04014860899161787,
+      "rmse_shock_velocity_km_s": 0.016661326938584825,
+      "selection": "finite particle_velocity_km_s and shock_velocity_km_s; used_in_published_hugoniot_fit=1; 4 rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Constrained principal Hugoniot for the untransformed B1 phase only. This is not the separately plotted equilibrium 300 K isotherm/hydrostat or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -24303,25 +24356,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,8 +31701,8 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 564,
+    "parity": 156,
     "parity_not_achieved": 31,
     "similar": 62,
     "total": 813

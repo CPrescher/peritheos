@@ -5,6 +5,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Changed
+
+- Recovered all four Duffy and Ahrens (1995) MgO Table 3 shock states from the
+  authoritative author-hosted article, with every printed one-sigma uncertainty.
+  An errors-in-variables refit reproduces the published B1 principal-Hugoniot
+  coefficients and errors at stated precision; provenance and licensing now
+  distinguish the factual CSV transcription from the copyrighted article and
+  keep this shock path separate from the paper's equilibrium 300 K isotherm.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

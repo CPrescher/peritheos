@@ -33,11 +33,11 @@ refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 125 |
+| Reproduced | 126 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
-| Direct refit unavailable | 75 |
+| Direct refit unavailable | 74 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
 
@@ -873,7 +873,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **82 papers** contain 565 records for which a
+These **81 papers** contain 564 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -902,7 +902,6 @@ have other records that were reproduced.
 | [Dorogokupets and Oganov (2007)](https://doi.org/10.1103/physrevb.75.024115) | `platinum_dorogokupets_oganov_2007_vinet_4` | This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations. |
 | [Dorogokupets et al. (2015)](https://doi.org/10.1016/j.rgg.2015.01.011) | `akimotoite_dorogokupets_2015_298k_rydberg_stacey`, `bridgmanite_dorogokupets_2015_298k_rydberg_stacey`, `mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey` | Complete coefficients are printed, but no consolidated observation-level fit dataset and weights are deposited. The complete optimized coefficients are tabulated, while the heterogeneous literature fit observations and weights are not deposited as one machine-readable dataset. Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together. |
 | [Driver et al. (2010)](https://doi.org/10.1073/pnas.0912130107) | `alpha_quartz_driver_2010_qmc_300k_vinet`, `seifertite_driver_2010_qmc_300k_vinet`, `sio2_stv_andr_driver_2010_qmc_300k_vinet` | The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures. |
-| [Duffy and Ahrens (1995)](https://doi.org/10.1029/94jb02065) | `mgo_b1_duffy_ahrens_1995_hugoniot_5` | The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified. |
 | [Fortes (2019)](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | `lead_fcc_fortes_2019_bm4_1` | Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations. |
 | [Fu et al. (2023)](https://doi.org/10.2138/am-2022-8435) | `ca_perovskite_fu_2023_bm3_mgd_refit` | The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity. |
 | [Funamori et al. (1998)](https://doi.org/10.1029/98jb01575) | `mgal2o4_cafe2o4_funamori_1998_bm2_1`, `mgal2o4_cati2o4_funamori_1998_bm2_1` | The primary article reports only the ambient and compressed endpoint for this polymorph. Those two states reproduce the published fixed-V0, fixed-K0-prime curve in the dedicated Funamori reproduction, but do not provide enough degrees of freedom for the generic refit campaign. |
@@ -1040,7 +1039,7 @@ the primary-source and refit ledgers.
 | [Dorogokupets et al. (2015)](https://doi.org/10.1016/j.rgg.2015.01.011) | Direct refit unavailable | 3 | 3 direct refit unavailable | 3 parameterization only |
 | [Driver et al. (2010)](https://doi.org/10.1073/pnas.0912130107) | Direct refit unavailable | 3 | 3 direct refit unavailable |  |
 | [Dubrovinsky et al. (2002)](https://doi.org/10.1080/08957950212807) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
-| [Duffy and Ahrens (1995)](https://doi.org/10.1029/94jb02065) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
+| [Duffy and Ahrens (1995)](https://doi.org/10.1029/94jb02065) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Duffy et al. (1995)](https://doi.org/10.1103/physrevlett.74.1371) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Effect of Pressure on the Composition of the Lower Mantle End Member Fe x O (1993)](https://doi.org/10.1126/science.259.5091.66) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Elastic properties of Fe-bearing Akimotoite at mantle conditions: Implications for composition and temperature in lower mantle transition zone (2022)](https://doi.org/10.1016/j.fmre.2021.12.013) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

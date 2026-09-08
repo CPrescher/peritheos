@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **156** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **564** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -507,7 +507,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgo_dewaele_2000_murnaghan_sensitivity_2`](https://insu.hal.science/insu-03596948/document) | `mgo_dewaele_2000_table2_pvt` | 20 | `K0_prime` 3.75 → 3.7163 | 0.59569/0.591412 | parity |
 | [`mgo_dewaele_2000_vinet_sensitivity_3`](https://insu.hal.science/insu-03596948/document) | `mgo_dewaele_2000_table2_pvt` | 20 | `K0_prime` 4.01 → 3.97583 | 0.585839/0.582316 | parity |
 | [`mgo_dewaele_2000_natural_strain3_sensitivity_4`](https://insu.hal.science/insu-03596948/document) | `mgo_dewaele_2000_table2_pvt` | 20 | `K0_prime` 4.08 → 4.05039 | 0.583833/0.581714 | parity |
-| [`mgo_b1_duffy_ahrens_1995_hugoniot_5`](https://duffy.princeton.edu/document/27) | `parameterization_only` | — | — | —/— | not_refittable — The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified. |
+| [`mgo_b1_duffy_ahrens_1995_hugoniot_5`](https://duffy.princeton.edu/document/27) | `mgo_duffy_ahrens_1995_table3_hugoniot` | 4 | `c0` 6.87 → 6.87044; `s` 1.24 → 1.23799 | —/0.0166613 km/s | parity |
 | [`mgo_oganov_2003_ecp_large_core_static_bm3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The complete coefficients are tabulated but the fitted energy-volume grid is not published. |
 | [`mgo_oganov_2003_ecp_small_core_static_bm3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — No numerical energy-volume grid is published. |
 | [`mgo_oganov_2003_paw_large_core_static_bm3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.67.224110/fulltext) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — No numerical energy-volume grid is published. |
@@ -3239,7 +3239,6 @@ the missing source fit detail is recovered.
 - `mgo_shen_2026_vinet_3`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `mgo_b1_luo_2023_vinet_thermal_5`: The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations.
 - `mgo_sokolova_2013_holzapfel_4`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `mgo_b1_duffy_ahrens_1995_hugoniot_5`: The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified.
 - `mgo_oganov_2003_ecp_large_core_static_bm3`: The complete coefficients are tabulated but the fitted energy-volume grid is not published.
 - `mgo_oganov_2003_ecp_small_core_static_bm3`: No numerical energy-volume grid is published.
 - `mgo_oganov_2003_paw_large_core_static_bm3`: No numerical energy-volume grid is published.

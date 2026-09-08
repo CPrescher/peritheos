@@ -31,10 +31,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 155,
+        "parity": 156,
         "similar": 62,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 564,
     }
     assert all(
         item.get("reason")
@@ -142,9 +142,22 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert nio_hugoniot["status"] == "parity"
     assert nio_hugoniot["observations"] == 8
     assert nio_hugoniot["rmse_shock_velocity_km_s"] == pytest.approx(0.0556367146096)
-    assert by_identifier["mgo_b1_duffy_ahrens_1995_hugoniot_5"]["status"] == (
-        "not_refittable"
+    mgo_hugoniot = by_identifier["mgo_b1_duffy_ahrens_1995_hugoniot_5"]
+    assert mgo_hugoniot["status"] == "parity"
+    assert mgo_hugoniot["observations"] == 4
+    assert mgo_hugoniot["dataset_identifiers"] == [
+        "mgo_duffy_ahrens_1995_table3_hugoniot"
+    ]
+    assert mgo_hugoniot["columns"] == {
+        "particle_velocity": "particle_velocity_km_s",
+        "particle_velocity_sigma": "particle_velocity_standard_deviation_km_s",
+        "shock_velocity": "shock_velocity_km_s",
+        "shock_velocity_sigma": "shock_velocity_standard_deviation_km_s",
+    }
+    assert [item["refit"] for item in mgo_hugoniot["parameters"]] == pytest.approx(
+        [6.87043987023, 1.23798631265]
     )
+    assert mgo_hugoniot["rmse_shock_velocity_km_s"] == pytest.approx(0.01666132694)
     neon_bm3 = by_identifier["neon_fcc_fei_2007_bm3_1"]
     neon_vinet = by_identifier["neon_fcc_fei_2007_vinet_2"]
     assert neon_bm3["status"] == "parity"

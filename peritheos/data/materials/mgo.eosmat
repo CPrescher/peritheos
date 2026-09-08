@@ -2348,6 +2348,58 @@
     "rho0",
     "P0"
    ],
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos fit_linear_us_up",
+     "version": "0.7.0",
+     "version_date": "2026-09-08"
+    },
+    "dataset": "mgo_duffy_ahrens_1995_table3_hugoniot",
+    "selection": {
+     "included_rows": 4,
+     "particle_velocity_column": "particle_velocity_km_s",
+     "shock_velocity_column": "shock_velocity_km_s",
+     "particle_velocity_sigma_column": "particle_velocity_standard_deviation_km_s",
+     "shock_velocity_sigma_column": "shock_velocity_standard_deviation_km_s",
+     "flag_column": "used_in_published_hugoniot_fit",
+     "flag_value": 1,
+     "excluded_data": [
+      "Tables 1-2 sound-velocity shots",
+      "Table 3 elastic-precursor velocity",
+      "Figure 3 single-crystal literature data",
+      "Figure 4 calculated 300 K hydrostat"
+     ],
+     "phase": "Untransformed polycrystalline B1 MgO final shock states"
+    },
+    "objective": "errors_in_variables_with_printed_one_standard_deviation_velocity_errors",
+    "weights": [
+     "particle_velocity_standard_deviation_km_s",
+     "shock_velocity_standard_deviation_km_s"
+    ],
+    "refined_parameters": [
+     "c0",
+     "s"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "rho0",
+     "P0"
+    ],
+    "covariance_scaling": "Absolute printed one-standard-deviation Us and up errors; no residual scaling.",
+    "statistics": {
+     "observations": 4,
+     "degrees_of_freedom": 2,
+     "chi_square": 0.08029721798,
+     "reduced_chi_square": 0.04014860899,
+     "shock_velocity_rmse_km_s": 0.01666132694,
+     "parameter_correlation_c0_s": -0.8623378445
+    },
+    "reproduction": {
+     "audit_date": "2026-09-08",
+     "result": "The errors-in-variables refit gives c0=6.87044(10035) km/s and s=1.23799(4120), reproducing the published 6.87(10) and 1.24(4) after rounding.",
+     "qualification": "The source states only least squares and does not identify the residual variable or publish covariance. Vertical WLS using only printed Us errors independently gives c0=6.87030(9962) km/s and s=1.23804(4069), the same source rounding. The diagnostic refit covariance is not represented as source-reported covariance."
+    }
+   },
    "experimental_pressure_range_gpa": [
     14.0,
     133.0
@@ -2403,12 +2455,12 @@
      "status": "not_applicable",
      "notes": "No external static pressure calibration is used."
     },
-    "audit_date": "2026-09-04"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The phase-specific linear relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper.",
-    "audit_date": "2026-09-04",
+    "note": "The four Table 3 Hugoniot states, phase-specific relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper and refitted with their printed velocity errors.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -2416,6 +2468,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
+     "observation_table",
+     "fit_selection",
      "validity"
     ],
     "primary_source_check": {
@@ -2423,21 +2477,25 @@
      "locations": [
       "page 529, abstract, linear relation and 14-133 GPa range",
       "page 530, average bulk density",
-      "page 533, Tables 3-4 and least-squares discussion"
+      "page 533, Tables 3-4 and least-squares discussion",
+      "page 534, Figure 3 and fit identification"
      ],
-     "finding": "The source reports Us=6.87(10)+1.24(4)up for low-porosity polycrystalline MgO, with parenthesized values defined as one standard deviation. No phase transition is assigned within the fitted interval.",
+     "finding": "All four Table 3 final shock states reproduce Us=6.87(10)+1.24(4)up when their printed one-standard-deviation velocity errors are used. The selected polycrystalline data are distinct from the single-crystal comparison, elastic precursor, sound-velocity shots, and calculated 300 K hydrostat; no phase transition is assigned within 14-133 GPa.",
      "doi": "10.1029/94JB02065"
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-04",
-     "source_locations": [
-      "Tables 3-4, journal page 533"
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mgo_duffy_ahrens_1995_table3_hugoniot"
      ],
-     "finding": "The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified."
+     "source_locations": [
+      "Table 3, journal page 533"
+     ],
+     "finding": "All four EOS shots and every printed Table 3 value and one-standard-deviation uncertainty are bundled as a factual CSV transcription. The copyrighted article and its table typography are not redistributed; the dataset license is scoped to Peritheos contributors' rights in the new transcription and arrangement."
     }
    },
-   "notes": "Constrained principal Hugoniot for the B1 phase only. This is not an equilibrium EOS or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty."
+   "notes": "Constrained principal Hugoniot for the untransformed B1 phase only. This is not the separately plotted equilibrium 300 K isotherm/hydrostat or a general P(V,T) surface. The source's c0, s, and rho0 errors are one standard deviation; their covariance is not published. V0 is deterministically derived from rho0, so a separate V0 error is not entered as an independent uncertainty."
   },
   {
    "identifier": "mgo_oganov_2003_ecp_large_core_static_bm3",
@@ -5493,6 +5551,158 @@
    "used_by_eos_records": [
     "mgo_speziale_2001_bm3_2"
    ]
+  },
+  {
+   "identifier": "mgo_duffy_ahrens_1995_table3_hugoniot",
+   "kind": "shock_hugoniot",
+   "description": "All four final shock states from Duffy and Ahrens (1995) Table 3, retaining every printed value and one-standard-deviation uncertainty.",
+   "reference": {
+    "authors": [
+     "Duffy",
+     "Ahrens"
+    ],
+    "year": 1995,
+    "title": "Compressional sound velocity, equation of state, and constitutive response of shock-compressed magnesium oxide",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "100",
+    "locator": "529-542",
+    "doi": "10.1029/94JB02065"
+   },
+   "source_location": "Table 3, journal page 533",
+   "source_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/duffy_ahrens_seismo_1995.pdf",
+   "columns": [
+    {
+     "name": "shot_number",
+     "quantity": "shot_number",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "flyer_driver",
+     "quantity": "flyer_driver_material",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "impact_velocity_km_s",
+     "quantity": "impact_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "impact_velocity_standard_deviation_km_s",
+     "quantity": "impact_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "impact_velocity_km_s"
+    },
+    {
+     "name": "initial_density_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "initial_density_standard_deviation_g_cm3",
+     "quantity": "initial_density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "initial_density_g_cm3"
+    },
+    {
+     "name": "particle_velocity_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "particle_velocity_standard_deviation_km_s",
+     "quantity": "particle_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "particle_velocity_km_s"
+    },
+    {
+     "name": "shock_velocity_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "shock_velocity_standard_deviation_km_s",
+     "quantity": "shock_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "shock_velocity_km_s"
+    },
+    {
+     "name": "axial_stress_gpa",
+     "quantity": "hugoniot_axial_stress",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "axial_stress_standard_deviation_gpa",
+     "quantity": "hugoniot_axial_stress",
+     "unit": "GPa",
+     "role": "standard_deviation",
+     "of": "axial_stress_gpa"
+    },
+    {
+     "name": "shocked_density_g_cm3",
+     "quantity": "hugoniot_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "shocked_density_standard_deviation_g_cm3",
+     "quantity": "hugoniot_density",
+     "unit": "g/cm^3",
+     "role": "standard_deviation",
+     "of": "shocked_density_g_cm3"
+    },
+    {
+     "name": "elastic_precursor_velocity_km_s",
+     "quantity": "elastic_precursor_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "elastic_precursor_velocity_standard_deviation_km_s",
+     "quantity": "elastic_precursor_velocity",
+     "unit": "km/s",
+     "role": "standard_deviation",
+     "of": "elastic_precursor_velocity_km_s"
+    },
+    {
+     "name": "used_in_published_hugoniot_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgo-duffy-ahrens-1995-table3-hugoniot.csv",
+    "sha256": "22a966924d96973ff66c8dcb37f51c7b51e426feb507dbe5b5c4665d075ee31c",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgo_b1_duffy_ahrens_1995_hugoniot_5"
+   ],
+   "license": "CC0-1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "license_scope": "Peritheos-created factual CSV transcription, normalization, column naming, and arrangement, solely to the extent contributors hold rights; excludes the article, publisher PDF, table typography, and all third-party rights.",
+   "provenance": {
+    "type": "transcribed_from_primary_table",
+    "source_pdf_sha256": "daaf0a41440bb125dd0a062ca0582c358ceabf04f39c08c40cda2ea73dc67b2b",
+    "transcribed_on": "2026-09-08",
+    "notes": "The author-hosted copy of the published article is not bundled. Parenthesized values are expanded as one-standard-deviation columns. Blank elastic-precursor cells mean no precursor value is printed. All four final states are selected for the published polycrystalline fit."
+   },
+   "uncertainty": {
+    "reported_values": "one_standard_deviation_in_last_digits",
+    "parameter_covariance": "not_reported"
+   },
+   "notes": "This dataset represents the principal shock Hugoniot only. Stress and shocked density are Rankine-Hugoniot reductions retained for consistency checks, not extra fit observations. The Table 3 precursor velocity is retained but excluded from the Us-up fit."
   },
   {
    "identifier": "mgo_duffy_1995_figure2_digitized",
