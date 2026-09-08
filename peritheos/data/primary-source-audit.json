@@ -8863,15 +8863,16 @@
       "label": "Duffy and Ahrens (1995), B1 principal Hugoniot",
       "doi": "10.1029/94jb02065",
       "status": "primary_source_validated",
-      "note": "The phase-specific linear relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper.",
+      "note": "The four Table 3 Hugoniot states, phase-specific relation, initial bulk density, uncertainty convention, and calibration range were checked directly against the primary paper and refitted with their printed velocity errors.",
       "primary_source_check": {
         "access_url": "https://duffy.princeton.edu/document/27",
         "locations": [
           "page 529, abstract, linear relation and 14-133 GPa range",
           "page 530, average bulk density",
-          "page 533, Tables 3-4 and least-squares discussion"
+          "page 533, Tables 3-4 and least-squares discussion",
+          "page 534, Figure 3 and fit identification"
         ],
-        "finding": "The source reports Us=6.87(10)+1.24(4)up for low-porosity polycrystalline MgO, with parenthesized values defined as one standard deviation. No phase transition is assigned within the fitted interval.",
+        "finding": "All four Table 3 final shock states reproduce Us=6.87(10)+1.24(4)up when their printed one-standard-deviation velocity errors are used. The selected polycrystalline data are distinct from the single-crystal comparison, elastic precursor, sound-velocity shots, and calculated 300 K hydrostat; no phase transition is assigned within 14-133 GPa.",
         "doi": "10.1029/94JB02065"
       }
     },

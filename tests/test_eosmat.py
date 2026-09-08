@@ -180,7 +180,6 @@ def test_migrated_records_have_completed_primary_source_audit():
         "goethite_gleason_2008_bm3_1",
         "rbcl_b2_campbell_1994_bm3_1",
         "mgo_b1_luo_2023_vinet_thermal_5",
-        "mgo_b1_duffy_ahrens_1995_hugoniot_5",
         "mgo_dewaele_2000_bm3_mgd_5",
         "nickel_oxide_noguchi_1999_linear_hugoniot_2",
         "sio2_stv_andr_wang_2012_vinet_mgd_2",
@@ -195,6 +194,7 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert {audit_dates[identifier] for identifier in latest_audit_identifiers} == {
         "2026-09-04",
     }
+    assert audit_dates["mgo_b1_duffy_ahrens_1995_hugoniot_5"] == "2026-09-08"
     goethite = next(
         record
         for record in records

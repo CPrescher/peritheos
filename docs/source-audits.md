@@ -42,6 +42,7 @@ The current collection contains 93 standalone reports.
 | Dorfman et al. (2012) co-compression audit | [`dorfman-2012-cocompression.md`](literature-reproductions/dorfman-2012-cocompression.md) |
 | Dorogokupets--Oganov (2007) platinum pressure scale | [`dorogokupets-oganov-2007-platinum.md`](literature-reproductions/dorogokupets-oganov-2007-platinum.md) |
 | Driver et al. (2010): QMC silica equations of state | [`driver-2010-qmc-silica.md`](literature-reproductions/driver-2010-qmc-silica.md) |
+| Duffy and Ahrens (1995): MgO B1 principal Hugoniot | [`duffy-ahrens-1995-mgo-hugoniot.md`](literature-reproductions/duffy-ahrens-1995-mgo-hugoniot.md) |
 | Experimental metal EOS batch (200 records) | [`experimental-metal-eos-batch-200.md`](literature-reproductions/experimental-metal-eos-batch-200.md) |
 | Finkelstein et al. (2017) Mw78 compression audit | [`finkelstein-2017-mw78.md`](literature-reproductions/finkelstein-2017-mw78.md) |
 | Fiquet et al. (2000) MgSiO3 bridgmanite audit | [`fiquet-2000-bridgmanite.md`](literature-reproductions/fiquet-2000-bridgmanite.md) |

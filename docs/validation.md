@@ -32,7 +32,7 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 813
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 156 uncertainty-parity matches and 63
+diagnostics. The current campaign finds 157 uncertainty-parity matches and 63
 additional numerically similar results. [31 direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 564 records cannot be
 directly refitted because row-level inputs or an executable source reduction

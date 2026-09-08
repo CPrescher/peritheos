@@ -1271,15 +1271,43 @@ def _fit_record(
         particle = np.asarray([_number(row.get(particle_column)) for row in rows])
         shock = np.asarray([_number(row.get(shock_column)) for row in rows])
         selected = np.isfinite(particle) & np.isfinite(shock)
+        flag_column = selection.get("flag_column")
+        if flag_column:
+            expected_flag = str(selection.get("flag_value", 1))
+            selected &= np.asarray(
+                [str(row.get(flag_column, "")) == expected_flag for row in rows]
+            )
+        shock_sigma_column = selection.get("shock_velocity_sigma_column")
+        particle_sigma_column = selection.get("particle_velocity_sigma_column")
+        shock_sigma = None
+        particle_sigma = None
+        if shock_sigma_column:
+            shock_sigma_all = np.asarray(
+                [_number(row.get(shock_sigma_column)) for row in rows]
+            )
+            shock_sigma = shock_sigma_all[selected]
+            if not np.all(np.isfinite(shock_sigma) & (shock_sigma > 0.0)):
+                raise ValueError("selected Hugoniot rows require positive Us errors")
+        if particle_sigma_column:
+            particle_sigma_all = np.asarray(
+                [_number(row.get(particle_sigma_column)) for row in rows]
+            )
+            particle_sigma = particle_sigma_all[selected]
+            if not np.all(np.isfinite(particle_sigma) & (particle_sigma > 0.0)):
+                raise ValueError("selected Hugoniot rows require positive up errors")
         particle = particle[selected]
         shock = shock[selected]
         parameters = record["eos"]["parameters"]
+        absolute_sigma = shock_sigma is not None or particle_sigma is not None
         result = fit_linear_us_up(
             particle_velocity=particle,
             shock_velocity=shock,
             V0=float(parameters["V0"]),
             rho0=float(parameters["rho0"]),
             P0=float(parameters["P0"]),
+            shock_velocity_sigma=shock_sigma,
+            particle_velocity_sigma=particle_sigma,
+            absolute_sigma=absolute_sigma,
         )
         status, comparisons = _compare(record, result, False, 1.0)
         residuals = np.asarray(result.residuals, dtype=float)
@@ -1289,7 +1317,12 @@ def _fit_record(
             "observations": int(particle.size),
             "selection": (
                 f"finite {particle_column} and {shock_column}; "
-                f"{int(particle.size)} rows"
+                + (
+                    f"{flag_column}={selection.get('flag_value', 1)}; "
+                    if flag_column
+                    else ""
+                )
+                + f"{int(particle.size)} rows"
             ),
             "observed_particle_velocity_range_km_s": [
                 float(np.min(particle)),
@@ -1302,10 +1335,24 @@ def _fit_record(
             "columns": {
                 "particle_velocity": particle_column,
                 "shock_velocity": shock_column,
+                **(
+                    {"particle_velocity_sigma": particle_sigma_column}
+                    if particle_sigma_column
+                    else {}
+                ),
+                **(
+                    {"shock_velocity_sigma": shock_sigma_column}
+                    if shock_sigma_column
+                    else {}
+                ),
             },
             "fit_kind": "linear_us_up_hugoniot",
-            "objective": "shock_velocity_residuals",
-            "absolute_sigma": False,
+            "objective": (
+                "errors_in_variables_velocity_residuals"
+                if particle_sigma is not None
+                else "shock_velocity_residuals"
+            ),
+            "absolute_sigma": absolute_sigma,
             "free_parameters": list(result.free_parameters),
             "parameters": comparisons,
             "rmse_shock_velocity_km_s": float(np.sqrt(np.mean(residuals**2))),
