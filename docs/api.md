@@ -223,6 +223,9 @@ temperature = DIAMOND_BENEDICT_2014.temperature_from_volumes(
 The record's `reference_volume` is the Table I **0 K motionless-ion cold-curve**
 volume, not a 300 K zero-total-pressure state. The record also carries the
 source's narrower DFT-MD comparison domain and diamond phase-stability caveat.
+The Helmholtz class also exposes `internal_energy(V, T)` and `entropy(V, T)`;
+these retain the reference subtraction needed for thermodynamically consistent
+caloric increments in derived reference-isotherm composites.
 
 The earlier Correa logarithmic-moment branch is a separate convenience record:
 
@@ -235,6 +238,10 @@ pressure = DIAMOND_CORREA_2008.pressure(8.0 * 4.43, 5000.0)
 
 It preserves the published DFT-GGA cold-curve volume and records the authors'
 approximately 3% ambient-volume caveat rather than applying an implicit shift.
+The two `_dewaele_anchored` convenience records are Peritheos-derived
+source-equation reconstructions. They were not fitted as composite EOSs in any
+of the three source papers; see the [diamond composite
+audit](literature-reproductions/diamond-dewaele-thermal-composites.md).
 
 For example, the independently reproducible staged aragonite BM2 record can be
 used at its 298 K reference state or at the represented high temperatures:

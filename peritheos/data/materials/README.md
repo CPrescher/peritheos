@@ -49,8 +49,8 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 236 distinct primary datasets with 14,995 observation
-rows, represented by 257 material-document links to 304 EOS records.
+The current bundle contains 238 distinct primary datasets with 15,148 observation
+rows, represented by 259 material-document links to 306 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
 and phase entries while retaining the simultaneously measured Cu reference

@@ -104,7 +104,8 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
             "Equations 3-7",
             "Table I, diamond column",
             "Section III.A",
-            "Figure 6",
+            "Figure 7",
+            "Supplemental Material, solid DFT-MD table",
         ],
         "The record implements the complete diamond Helmholtz branch, including "
         "the motionless-ion Vinet cold curve, volume-dependent double-Debye "
@@ -584,8 +585,15 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
         ["Equation 2", "Table II", "Figures 2 and 3"],
     ),
     "10.1103/physrevb.77.094106": source(
-        "https://doi.org/10.1103/PhysRevB.77.094106",
-        ["Vinet formulation", "Table I", "300 K neon data"],
+        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext",
+        [
+            "Section II, H05 pressure calibration",
+            "Table I, diamond aC rows",
+            "Table III, 298 K diamond Vinet fit",
+        ],
+        "Diamond pressures are explicitly reported on the Holzapfel (2005) H05 "
+        "ruby scale. The 298 K Vinet parameters and the complete diamond P-V-T "
+        "observations printed in Table I are represented separately.",
     ),
     "10.1103/physrevb.78.104102": source(
         "https://doi.org/10.1103/PhysRevB.78.104102",
@@ -761,23 +769,62 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         "that table alone; the paper's published thermally reduced 0 K fit "
         "also includes the earlier Finger et al. low-pressure series.",
     ),
+    "diamond_dewaele_2008_vinet_2": source(
+        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext",
+        [
+            "Section II, H05 pressure calibration",
+            "Table I, diamond aC rows",
+            "Table III, 298 K diamond Vinet fit",
+        ],
+        "The diamond observations and fitted reference isotherm are explicitly "
+        "on the Holzapfel (2005) H05 ruby scale.",
+    ),
+    "diamond_correa_2008_double_debye_log_moment_5": source(
+        "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext",
+        [
+            "Equations 2-7 and 13-18",
+            "Table I, diamond row",
+            "Figure 8, vector DFT-MD pressure markers",
+        ],
+        "The complete source equation and coefficients are represented. All 57 "
+        "Figure 8 pressure markers are bundled as plot checkpoints, but the "
+        "upstream cold-energy and phonon fitting grids are not tabulated.",
+    ),
+    "diamond_benedict_2014_double_debye_4": source(
+        "https://arxiv.org/pdf/1311.4577",
+        [
+            "Equations 3-7",
+            "Table I, diamond column",
+            "Figure 7, DFT-MD pressure and internal-energy comparison",
+            "Supplemental Material, solid DFT-MD table",
+        ],
+        "The complete source equation and coefficients are represented. The exact "
+        "96-row solid DFT-MD pressure/internal-energy validation grid is bundled, "
+        "but the upstream cold-energy and phonon fitting grids are not supplied.",
+    ),
     "diamond_correa_2008_dewaele_anchored": source(
         "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
         [
             "Dewaele et al. (2008), Table III",
             "Correa et al. (2008), equations 2-7 and 13-18 and Table I",
+            "Correa et al. (2008), Figure 8 vector DFT-MD markers",
         ],
-        "Derived composition of the primary-source-validated Dewaele 298 K "
-        "Vinet isotherm and the reference-relative Correa thermal free energy.",
+        "Peritheos-derived composition of the primary-source-validated Dewaele "
+        "298 K Vinet isotherm and the reference-relative Correa thermal free "
+        "energy. This is an exact source-equation reconstruction, not a composite "
+        "coefficient fit.",
     ),
     "diamond_benedict_2014_dewaele_anchored": source(
         "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
         [
             "Dewaele et al. (2008), Table III",
             "Benedict et al. (2014), equations 3-7 and Table I",
+            "Benedict et al. (2014), Supplemental Material, solid DFT-MD table",
         ],
-        "Derived composition of the primary-source-validated Dewaele 298 K "
-        "Vinet isotherm and the reference-relative Benedict thermal free energy.",
+        "Peritheos-derived composition of the primary-source-validated Dewaele "
+        "298 K Vinet isotherm and the reference-relative Benedict thermal free "
+        "energy. This is an exact source-equation reconstruction, not a composite "
+        "coefficient fit.",
     ),
     "aragonite_martinez_1996_bm2_2": source(
         "https://rruff.info/doclib/am/vol81/AM81_611.pdf",
@@ -3184,8 +3231,9 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
                 "stored coefficients are an explicitly identified Peritheos refit."
                 if result["identifier"] in DERIVED_REFIT_RECORDS
                 else (
-                    "Derived composition of separately primary-source-validated "
-                    "reference-isotherm and simulated thermal components."
+                    "Exact source-equation reconstruction of separately audited "
+                    "reference-isotherm and simulated thermal components; no "
+                    "composite coefficients were fitted."
                     if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
                     else (
                         "Independently checked against the cited primary publication "

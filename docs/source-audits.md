@@ -39,6 +39,7 @@ The current collection contains 93 standalone reports.
 | Dewaele (2019) static-DAC metal EOS audit | [`dewaele-2019-static-dac-metals.md`](literature-reproductions/dewaele-2019-static-dac-metals.md) |
 | Dewaele et al. (2000): MgO model-family audit | [`dewaele-2000-mgo.md`](literature-reproductions/dewaele-2000-mgo.md) |
 | Dewaele et al. (2004): six-metal compression and ruby-scale audit | [`dewaele-2004-six-metals.md`](literature-reproductions/dewaele-2004-six-metals.md) |
+| Dewaele-anchored Correa and Benedict diamond composites | [`diamond-dewaele-thermal-composites.md`](literature-reproductions/diamond-dewaele-thermal-composites.md) |
 | Dorfman et al. (2012) co-compression audit | [`dorfman-2012-cocompression.md`](literature-reproductions/dorfman-2012-cocompression.md) |
 | Dorogokupets--Oganov (2007) platinum pressure scale | [`dorogokupets-oganov-2007-platinum.md`](literature-reproductions/dorogokupets-oganov-2007-platinum.md) |
 | Driver et al. (2010): QMC silica equations of state | [`driver-2010-qmc-silica.md`](literature-reproductions/driver-2010-qmc-silica.md) |

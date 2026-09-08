@@ -2530,7 +2530,7 @@ _BENEDICT_DIAMOND_REFERENCE = LiteratureReference(
         "equations 3-7",
         "Table I, diamond column",
         "section III.A",
-        "Figure 6",
+        "Figure 7",
     ),
 )
 
@@ -3691,6 +3691,7 @@ DIAMOND_CORREA_2008 = EOSRecord(
     ),
     notes=(
         "Complete diamond free-energy branch from equations 2-18; the double-Debye weights conserve the logarithmic phonon moment theta_0 (equation 13).",
+        "All 57 DFT-MD pressure markers in vector Figure 8 are bundled as plot-digitized model checkpoints; the upstream cold-energy and phonon fitting grids are not tabulated.",
         "Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms.",
         "The Vinet term is a motionless-ion DFT-GGA cold curve. The authors state that its theoretical V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift; Peritheos preserves the published value.",
         "The constant anharmonic coefficient changes free energy, internal energy, and heat capacity but contributes no pressure. Electronic excitations are neglected for insulating diamond as in the source.",
@@ -3735,7 +3736,7 @@ DIAMOND_BENEDICT_2014 = EOSRecord(
         temperature_k=(300.0, 9000.0),
         volume_ratio=(2.5 / 5.7034, 7.0 / 5.7034),
         notes=(
-            "The paper constructs the diamond free-energy branch over 2.5-7.0 A^3/atom; Figure 6 directly checks DFT-MD states only over 3.0-5.6 A^3/atom and 2000-9000 K.",
+            "The paper constructs the diamond free-energy branch over 2.5-7.0 A^3/atom; Figure 7 directly checks DFT-MD states only over 3.0-5.6 A^3/atom and 2000-9000 K.",
             "These are marginal model bounds, not a phase-stability surface; check the diamond-BC8 boundary and melting separately, especially near 1 TPa.",
         ),
     ),
@@ -3763,6 +3764,7 @@ DIAMOND_BENEDICT_2014 = EOSRecord(
     ),
     notes=(
         "This is the complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction.",
+        "The exact 96-row solid DFT-MD pressure/internal-energy validation grid is supplied in the paper's supplement and bundled; it is not the upstream cold-curve and phonon fitting grid.",
         "Table I volumes are per atom. The public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms.",
         "The Vinet parameters describe the motionless-ion 0 K cold curve. V0=5.7034 A^3/atom is therefore not a 300 K, zero-total-pressure reference volume; zero-point and thermal pressure remain present.",
         "Factor-of-two source ambiguity: Benedict writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1, while the Correa 2008 correction it claims to retain is F_anh=-a*T^2 with a=3.8e-5 K^-1. This record follows Benedict literally; matching Correa's anharmonic energy would require alpha approximately 2*a.",
@@ -3890,6 +3892,7 @@ DIAMOND_CORREA_2008_DEWAELE_ANCHORED = EOSRecord(
     ),
     notes=(
         "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Correa(V,T)-P_Correa(V,298 K).",
+        "This composite is a Peritheos source-equation reconstruction; neither source publication fitted or published this combined parameterization.",
         "The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment.",
         "Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected.",
         "The Dewaele and Correa source records remain available independently and preserve their literal published formulations.",
@@ -3972,6 +3975,7 @@ DIAMOND_BENEDICT_2014_DEWAELE_ANCHORED = EOSRecord(
     ),
     notes=(
         "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Benedict(V,T)-P_Benedict(V,298 K).",
+        "This composite is a Peritheos source-equation reconstruction; neither source publication fitted or published this combined parameterization.",
         "The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment.",
         "Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected.",
         "The Dewaele and Benedict source records remain available independently and preserve their literal published formulations.",

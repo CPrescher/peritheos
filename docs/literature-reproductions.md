@@ -57,6 +57,17 @@ recover the respective papers' free coefficients within their printed errors.
 These published records retain their own pressure scales, fixed parameters and
 thermal constraints; they do not replace the Dorogokupets synthesis.
 
+## Diamond: Dewaele-anchored thermal composites
+
+The Correa (2008) and Benedict (2014) diamond thermal branches combined with
+the Dewaele (2008) 298 K Vinet isotherm are now audited as exact
+source-equation reconstructions, not independently fitted composite EOSs. The
+Dewaele anchor independently retains coefficient parity; 57 vector-digitized
+Correa DFT-MD pressure markers and Benedict's exact 96-row supplementary solid
+DFT-MD table test the complete thermal branches. The full derivation, source
+availability boundary, residuals, and calibration correction are in the
+[dedicated composite audit](literature-reproductions/diamond-dewaele-thermal-composites.md).
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

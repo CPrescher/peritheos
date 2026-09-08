@@ -74,6 +74,23 @@ All notable changes to Peritheos are documented here. The project follows
 - Audited the Fortes (2019) fcc-Pb BM4 pressure scale against its complete
   published equations and the recoverable Kuznetsov transition data.
 
+### Added
+
+- Added exact-source validation resources for the diamond thermal models: all
+  57 vector Figure 8 Correa DFT-MD pressure markers and Benedict's exact
+  96-row supplementary solid DFT-MD pressure/internal-energy table. Added a
+  deterministic full-composite reconstruction report and caloric
+  `internal_energy()`/`entropy()` support for both double-Debye Helmholtz forms.
+
+### Changed
+
+- Reclassified the Dewaele-anchored Correa and Benedict diamond records from
+  directly unrefittable to exact source-equation reconstructions. Their ledger
+  evidence now separates the independently refitted Dewaele H05 anchor,
+  finished-theory-model validation, and zero-optimization composition identity.
+- Corrected the Dewaele (2008) diamond pressure calibration from the
+  Dorogokupets--Oganov ruby scale to the source-stated Holzapfel 2005 H05 scale.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

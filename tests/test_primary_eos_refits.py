@@ -32,9 +32,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert ledger["summary"] == {"total": 820, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 155,
-        "similar": 66,
-        "parity_not_achieved": 34,
-        "not_refittable": 562,
+        "similar": 62,
+        "parity_not_achieved": 31,
+        "not_refittable": 563,
+        "reconstructed": 2,
     }
     assert all(
         item.get("reason")
@@ -47,6 +48,25 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     ledger = load_ledger()
     by_identifier = {item["record_identifier"]: item for item in ledger["records"]}
     markdown = MARKDOWN_PATH.read_text(encoding="utf-8")
+
+    correa_composite = by_identifier["diamond_correa_2008_dewaele_anchored"]
+    benedict_composite = by_identifier["diamond_benedict_2014_dewaele_anchored"]
+    assert correa_composite["status"] == benedict_composite["status"] == (
+        "reconstructed"
+    )
+    assert correa_composite["composite_coefficient_optimization_performed"] is False
+    assert benedict_composite["composite_coefficient_optimization_performed"] is False
+    assert correa_composite["anchor_refit"]["status"] == "parity"
+    assert benedict_composite["anchor_refit"]["status"] == "parity"
+    assert correa_composite["thermal_model_validation"]["observations"] == 57
+    assert benedict_composite["thermal_model_validation"]["observations"] == 96
+    assert (
+        correa_composite["complete_composite_identity"][
+            "max_abs_composition_pressure_error_gpa"
+        ]
+        < 2.0e-12
+    )
+    assert "## Composite reconstructions" in markdown
 
     luo = by_identifier["mgo_b1_luo_2023_vinet_thermal_5"]
     assert luo["status"] == "not_refittable"
@@ -483,7 +503,10 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 103
+    reconstructed = [
+        item for item in ledger["records"] if item["status"] == "reconstructed"
+    ]
+    assert markdown.count("### `") == len(explained) + len(reconstructed) == 105
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

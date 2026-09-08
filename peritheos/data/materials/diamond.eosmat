@@ -232,22 +232,22 @@
       "kind": "ruby_fluorescence",
       "reference": {
        "authors": [
-        "Dorogokupets",
-        "Oganov"
+        "Holzapfel"
        ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+       "year": 2005,
+       "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+       "source": "High Pressure Research",
+       "doi": "10.1080/09511920500147501"
       },
-      "source_location": "Experimental pressure determination; revised ruby scale",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+      "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale (H05)",
+      "reference_calibration_record": "ruby_holzapfel_2005"
      }
     ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "notes": "The H05 ruby scale is executable in Peritheos. Recalibration to another scale requires the original R1 wavelengths or a defensible inversion of the reported H05 pressures."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -263,12 +263,13 @@
      "validity"
     ],
     "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/PhysRevB.77.094106",
+     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext",
      "locations": [
-      "Vinet formulation",
-      "Table I",
-      "300 K neon data"
+      "Section II, H05 pressure calibration",
+      "Table I, diamond aC rows",
+      "Table III, 298 K diamond Vinet fit"
      ],
+     "finding": "The diamond observations and fitted reference isotherm are explicitly on the Holzapfel (2005) H05 ruby scale.",
      "doi": "10.1103/physrevb.77.094106"
     },
     "migration_source": {
@@ -667,19 +668,21 @@
      "locations": [
       "Equations 2-7 and 13-18",
       "Table I, diamond row",
-      "Figures 3 and 5-8",
-      "Section II.A"
+      "Figure 8, vector DFT-MD pressure markers"
      ],
-     "finding": "The record implements the complete published diamond Helmholtz branch: the DFT-GGA Vinet cold curve, logarithmic-moment double-Debye weights and zero-point energy, and the volume-independent T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
+     "finding": "The complete source equation and coefficients are represented. All 57 Figure 8 pressure markers are bundled as plot checkpoints, but the upstream cold-energy and phonon fitting grids are not tabulated.",
      "doi": "10.1103/physrevb.78.024101"
     },
     "primary_data_check": {
-     "status": "theoretical_parameterization_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Equations 2-7 and 13-18; Table I; Figures 3 and 5-8"
+     "status": "plot_only",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "diamond_correa_2008_figure8_dft_md_vector_digitized"
      ],
-     "finding": "This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data."
+     "source_locations": [
+      "Figure 8, vector pressure-temperature markers at 3.21, 4.00, and 4.43 A^3/atom"
+     ],
+     "finding": "All 57 diamond DFT-MD pressure markers in vector Figure 8 are bundled as plot-digitized checkpoints. The paper does not tabulate the upstream cold-energy grid, phonon DOS/moments, regression weights, or covariance needed to refit the published coefficients."
     }
    }
   },
@@ -785,7 +788,7 @@
      1.2273380790405721
     ],
     "notes": [
-     "The paper constructs the diamond free-energy branch over 2.5-7.0 A^3/atom; Figure 6 directly checks DFT-MD states only over 3.0-5.6 A^3/atom and 2000-9000 K.",
+     "The paper constructs the diamond free-energy branch over 2.5-7.0 A^3/atom; Figure 7 directly checks DFT-MD states only over 3.0-5.6 A^3/atom and 2000-9000 K.",
      "These are marginal model bounds, not a phase-stability surface; check the diamond-BC8 boundary and melting separately, especially near 1 TPa."
     ]
    },
@@ -829,21 +832,24 @@
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/1311.4577",
      "locations": [
-      "Equations 3-7",
-      "Table I, diamond column",
-      "Section III.A",
-      "Figure 6"
+     "Equations 3-7",
+     "Table I, diamond column",
+     "Figure 7, DFT-MD pressure and internal-energy comparison",
+     "Supplemental Material, solid DFT-MD table"
      ],
-     "finding": "The record implements the complete diamond Helmholtz branch, including the motionless-ion Vinet cold curve, volume-dependent double-Debye weights and zero-point energy, and the T^2 anharmonic term. Per-atom volumes and energies were converted to Peritheos molar working units; public volumes remain eight-atom conventional-cell values.",
+     "finding": "The complete source equation and coefficients are represented. The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled, but the upstream cold-energy and phonon fitting grids are not supplied.",
      "doi": "10.1103/physrevb.89.224109"
     },
     "primary_data_check": {
-     "status": "theoretical_parameterization_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Equations 3-7; Table I; Figure 6"
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "diamond_benedict_2014_supplement_solid_dft_md"
      ],
-     "finding": "This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data."
+     "source_locations": [
+      "Supplemental Material, solid DFT-MD table"
+     ],
+     "finding": "The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled. It is downstream validation data; the cold-curve electronic-structure grid and phonon calculations used to fit Table I are not supplied."
     }
    }
   },
@@ -977,26 +983,26 @@
       "kind": "ruby_fluorescence",
       "reference": {
        "authors": [
-        "Dorogokupets",
-        "Oganov"
+        "Holzapfel"
        ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+       "year": 2005,
+       "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+       "source": "High Pressure Research",
+       "doi": "10.1080/09511920500147501"
       },
-      "source_location": "Experimental pressure determination; revised ruby scale",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+      "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale (H05)",
+      "reference_calibration_record": "ruby_holzapfel_2005"
      }
     ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "notes": "The H05 ruby scale is executable in Peritheos. Recalibration to another scale requires the original R1 wavelengths or a defensible inversion of the reported H05 pressures."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",
+    "note": "Exact source-equation reconstruction of separately audited reference-isotherm and simulated thermal components; no composite coefficients were fitted.",
     "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
@@ -1011,22 +1017,39 @@
      "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
      "locations": [
       "Dewaele et al. (2008), Table III",
-      "Correa et al. (2008), equations 2-7 and 13-18 and Table I"
+      "Correa et al. (2008), equations 2-7 and 13-18 and Table I",
+      "Correa et al. (2008), Figure 8 vector DFT-MD markers"
      ],
-     "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy.",
+     "finding": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Correa thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
      "doi": "10.1103/physrevb.77.094106"
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
       "diamond_dewaele_2008_table1_pvt"
      ],
      "source_locations": [
-      "Table I, diamond aC rows"
+      "Dewaele et al. (2008), Table I diamond rows",
+      "Correa et al. (2008), Figure 8 vector markers"
      ],
-     "finding": "The complete experimental Dewaele reference-isotherm dataset is bundled. This record combines that experimental anchor with a separately documented theoretical thermal parameterization."
+     "finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
+     "digitized_dataset_identifiers": [
+      "diamond_correa_2008_figure8_dft_md_vector_digitized"
+     ]
     }
+   },
+   "record_kind": "derived",
+   "derived_from_record": "diamond_dewaele_2008_vinet_2",
+   "derivation": {
+    "source_kind": "calculation",
+    "source_identifier": "diamond_dewaele_2008_vinet_2+diamond_correa_2008_double_debye_log_moment_5",
+    "method": "Reference-isotherm Helmholtz composition: retain the Dewaele 298 K Vinet pressure and add the published theoretical thermal free-energy difference F_theory(V,T)-F_theory(V,298 K). No coefficients are optimized.",
+    "software": {
+     "name": "Peritheos",
+     "reproduction_script": "scripts/reproduce_diamond_thermal_composites.py"
+    },
+    "access_and_licensing": "Derived from cited published equations and checked-in source observations."
    }
   },
   {
@@ -1165,26 +1188,26 @@
       "kind": "ruby_fluorescence",
       "reference": {
        "authors": [
-        "Dorogokupets",
-        "Oganov"
+        "Holzapfel"
        ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+       "year": 2005,
+       "title": "Progress in the realization of a practical pressure scale for the range 1-300 GPa",
+       "source": "High Pressure Research",
+       "doi": "10.1080/09511920500147501"
       },
-      "source_location": "Experimental pressure determination; revised ruby scale",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+      "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale (H05)",
+      "reference_calibration_record": "ruby_holzapfel_2005"
      }
     ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "notes": "The H05 ruby scale is executable in Peritheos. Recalibration to another scale requires the original R1 wavelengths or a defensible inversion of the reported H05 pressures."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Derived composition of separately primary-source-validated reference-isotherm and simulated thermal components.",
+    "note": "Exact source-equation reconstruction of separately audited reference-isotherm and simulated thermal components; no composite coefficients were fitted.",
     "audit_date": "2026-09-03",
     "verified_fields": [
      "equation",
@@ -1199,22 +1222,37 @@
      "access_url": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
      "locations": [
       "Dewaele et al. (2008), Table III",
-      "Benedict et al. (2014), equations 3-7 and Table I"
+      "Benedict et al. (2014), equations 3-7 and Table I",
+      "Benedict et al. (2014), Supplemental Material, solid DFT-MD table"
      ],
-     "finding": "Derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy.",
+     "finding": "Peritheos-derived composition of the primary-source-validated Dewaele 298 K Vinet isotherm and the reference-relative Benedict thermal free energy. This is an exact source-equation reconstruction, not a composite coefficient fit.",
      "doi": "10.1103/physrevb.77.094106"
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
-      "diamond_dewaele_2008_table1_pvt"
+      "diamond_dewaele_2008_table1_pvt",
+      "diamond_benedict_2014_supplement_solid_dft_md"
      ],
      "source_locations": [
-      "Table I, diamond aC rows"
+      "Dewaele et al. (2008), Table I diamond rows",
+      "Benedict et al. (2014), Supplemental Material, solid DFT-MD table"
      ],
-     "finding": "The complete experimental Dewaele reference-isotherm dataset is bundled. This record combines that experimental anchor with a separately documented theoretical thermal parameterization."
+     "finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model."
     }
+   },
+   "record_kind": "derived",
+   "derived_from_record": "diamond_dewaele_2008_vinet_2",
+   "derivation": {
+    "source_kind": "calculation",
+    "source_identifier": "diamond_dewaele_2008_vinet_2+diamond_benedict_2014_double_debye_4",
+    "method": "Reference-isotherm Helmholtz composition: retain the Dewaele 298 K Vinet pressure and add the published theoretical thermal free-energy difference F_theory(V,T)-F_theory(V,298 K). No coefficients are optimized.",
+    "software": {
+     "name": "Peritheos",
+     "reproduction_script": "scripts/reproduce_diamond_thermal_composites.py"
+    },
+    "access_and_licensing": "Derived from cited published equations and checked-in source observations."
    }
   }
  ],
@@ -1479,6 +1517,161 @@
    "used_by_eos_records": [
     "diamond_dewaele_2008_vinet_2",
     "diamond_correa_2008_dewaele_anchored",
+    "diamond_benedict_2014_dewaele_anchored"
+   ]
+  },
+  {
+   "identifier": "diamond_correa_2008_figure8_dft_md_vector_digitized",
+   "kind": "pressure_volume_temperature",
+   "description": "All 57 diamond DFT-MD pressure-temperature markers plotted in vector Figure 8 at 3.21, 4.00, and 4.43 A^3/atom.",
+   "source_location": "Figure 8, pressure panel; vector marker centers",
+   "source_url": "https://doi.org/10.1103/PhysRevB.78.024101",
+   "digitization": {
+    "method": "Marker centers extracted from the vector paths in the official APS full-text PDF; axes calibrated from the plotted major ticks.",
+    "source_pdf_sha256": "f3a87d1a06ed29ae139f7fe847c218c3764fa420a38bbcaf6fc3d44a2142c049",
+    "temperature_uncertainty_k": 75.0,
+    "pressure_uncertainty_gpa": 7.0
+   },
+   "columns": [
+    {
+     "name": "series",
+     "quantity": "plot_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_a3_per_atom",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "digitization_temperature_uncertainty_k",
+     "quantity": "digitization_temperature_uncertainty",
+     "unit": "K",
+     "role": "uncertainty"
+    },
+    {
+     "name": "digitization_pressure_uncertainty_gpa",
+     "quantity": "digitization_pressure_uncertainty",
+     "unit": "GPa",
+     "role": "uncertainty"
+    },
+    {
+     "name": "plot_x_pt",
+     "quantity": "source_plot_x_coordinate",
+     "unit": "pt",
+     "role": "flag"
+    },
+    {
+     "name": "plot_y_pt",
+     "quantity": "source_plot_y_coordinate",
+     "unit": "pt",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/diamond-correa-2008-figure8-dft-md-vector-digitized.csv",
+    "sha256": "e54ad84594c0eac00d1a28f52bd2b65544eb0841e8d1fc6d2a0d83b65ecf6f80",
+    "media_type": "text/csv"
+   },
+   "notes": "Plot-only evidence, not exact source numerics. Conservative digitization uncertainties approximate half a marker width. The plotted points validate the complete published pressure model but do not expose its upstream coefficient-fitting inputs.",
+   "reference": {
+    "authors": [
+     "Correa",
+     "Bonev",
+     "Galli"
+    ],
+    "year": 2008,
+    "source": "Phys. Rev. B",
+    "volume": "78",
+    "locator": "024101",
+    "doi": "10.1103/PhysRevB.78.024101"
+   },
+   "used_by_eos_records": [
+    "diamond_correa_2008_double_debye_log_moment_5",
+    "diamond_correa_2008_dewaele_anchored"
+   ]
+  },
+  {
+   "identifier": "diamond_benedict_2014_supplement_solid_dft_md",
+   "kind": "pressure_volume_temperature_internal_energy",
+   "description": "Exact 96-row solid DFT-MD table of atomic volume, temperature, pressure, and internal energy supplied with Benedict et al. (2014).",
+   "source_location": "Supplemental Material, solid DFT-MD table",
+   "source_url": "https://doi.org/10.1103/PhysRevB.89.224109",
+   "transcription": {
+    "method": "Exact transcription from the author-supplied arXiv source Supplementary.rtf.",
+    "arxiv_identifier": "1311.4577",
+    "arxiv_source_sha256": "f2760e6ea0d2cf998e6e8a404049a0e6f297356af0950ceb55ba70753611d168"
+   },
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "volume_a3_per_atom",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "internal_energy_ev_per_atom",
+     "quantity": "specific_internal_energy",
+     "unit": "eV/atom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/diamond-benedict-2014-supplement-solid-dft-md.csv",
+    "sha256": "f19fbb9149a7e73e426e787d15b831db4d24921f8f4aed19d8c3e3a3c1bec9f8",
+    "media_type": "text/csv"
+   },
+   "notes": "These exact rows validate the finished diamond free-energy branch. They are not the motionless-ion cold-energy grid or the phonon DOS/moments used to obtain the published Table I coefficients.",
+   "reference": {
+    "authors": [
+     "Benedict et al."
+    ],
+    "year": 2014,
+    "source": "Phys. Rev. B",
+    "volume": "89",
+    "locator": "224109",
+    "doi": "10.1103/PhysRevB.89.224109"
+   },
+   "used_by_eos_records": [
+    "diamond_benedict_2014_double_debye_4",
     "diamond_benedict_2014_dewaele_anchored"
    ]
   }
