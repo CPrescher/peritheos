@@ -1,0 +1,7 @@
+run_id,facility,particle_velocity_km_s,particle_velocity_uncertainty_km_s,shock_velocity_km_s,shock_velocity_uncertainty_km_s,hugoniot_pressure_gpa,hugoniot_pressure_uncertainty_gpa,reported_internal_energy_change,reported_internal_energy_change_uncertainty,volume_a3_conventional_cell,volume_uncertainty_a3_conventional_cell,density_g_cm3,density_uncertainty_g_cm3,lattice_a_angstrom,lattice_a_uncertainty_angstrom,lattice_c_angstrom,lattice_c_uncertainty_angstrom,state_origin
+SACLA-795997,SACLA,,,,,0,,,,46.5,0.2,4.30,0.02,4.176,0.008,2.664,0.006,ambient_xrd
+SACLA-796485,SACLA,0.45,0.02,9.66,0.53,18,2,0.10,0.01,44.3,0.3,4.51,0.05,4.09,0.01,2.65,0.01,xrd_refined_shock_state
+SACLA-796491,SACLA,2.38,0.04,12.10,0.25,123,5,2.82,0.12,37.3,0.2,5.35,0.04,3.85,0.01,2.513,0.009,xrd_refined_shock_state
+LCLS-235,LCLS,4.75,0.08,14.76,0.31,301,12,11.28,0.48,31.8,0.4,6.3,0.1,3.69,0.02,2.33,0.02,xrd_refined_shock_state
+LCLS-233,LCLS,4.90,0.08,15.04,0.45,317,15,12.01,0.56,31.3,0.9,6.4,0.3,,,,,visar_rankine_hugoniot_only
+LCLS-239,LCLS,5.10,0.09,15.35,0.31,336,13,13.01,0.51,31.0,0.4,6.44,0.08,3.66,0.02,2.32,0.01,xrd_refined_shock_state

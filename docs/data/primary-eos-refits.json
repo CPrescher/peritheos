@@ -24303,25 +24303,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -28208,30 +28208,6 @@
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": [
         0.0,
-        336.0
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        300.0
-      ],
-      "fixed_parameters": [
-        "V0"
-      ],
-      "label": "Schoelmerich et al. (2020), shock-corrected 300 K BM3",
-      "material_identifier": "sio2_stv_andr",
-      "model": "BM3",
-      "primary_data_finding": "Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification.",
-      "primary_data_status": "primary_table_available_not_bundled",
-      "primary_source": "https://www.nature.com/articles/s41598-020-66340-y",
-      "reason": "Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification.",
-      "record_identifier": "stishovite_schoelmerich_2020_shock_300k_bm3",
-      "source_notes": null,
-      "status": "not_refittable"
-    },
-    {
-      "dataset_identifiers": [],
-      "experimental_pressure_range_gpa": [
-        0.0,
         60.0
       ],
       "experimental_temperature_range_k": null,
@@ -31648,10 +31624,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 564,
     "parity": 155,
     "parity_not_achieved": 31,
     "similar": 62,
-    "total": 813
+    "total": 812
   }
 }

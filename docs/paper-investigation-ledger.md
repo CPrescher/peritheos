@@ -26,7 +26,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **317 primary papers**: **219** support the 813 audited catalog records and **98** were investigated without adding a production record.
+The register covers **317 primary papers**: **218** support the 812 audited catalog records and **99** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -587,6 +587,14 @@ The source reports elastic-modulus finite-strain fits, not standalone volumetric
 
 Evidence: [literature-reproductions/satta-2025-delta-alooh-elasticity.md](literature-reproductions/satta-2025-delta-alooh-elasticity.md).
 
+### [Schoelmerich et al. (2020), shock-compressed stishovite](https://doi.org/10.1038/s41598-020-66340-y)
+
+**Outcome:** Direct refit unavailable (2026-09-08).
+
+The source reports BM3 coefficients but shows the shock-corrected 300 K fit states only graphically and omits the complete thermal-reduction inputs, corrected-state uncertainties and covariance, EosFit objective and weights, and explicit LCLS-233 selection. Figure digitization would be circular evidence for reproducing coefficients plotted in the same figure, so no production EOS is retained.
+
+Evidence: [literature-reproductions/schoelmerich-2020-stishovite.md](literature-reproductions/schoelmerich-2020-stishovite.md).
+
 ### [Sherman et al. (1993), stishovite and modified-fluorite SiO2](https://doi.org/10.1029/93JB00783)
 
 **Outcome:** Deferred: incomplete source/model mapping (2026-09-05).
@@ -873,7 +881,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **82 papers** contain 565 records for which a
+These **81 papers** contain 564 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -942,7 +950,6 @@ have other records that were reproduced.
 | [Ricolleau et al. (2009)](https://doi.org/10.1029/2008gl036759) | `klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`, `klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`, `klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`, `klb1_mg_perovskite_ricolleau_2009_bm2_alphakt` | The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit. The source reports the P-V observations in Table S1; this record preserves the Table 1 fit. The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit. |
 | [Sagatova et al. (2021)](https://doi.org/10.1134/s0016702921080073) | `breyite_sagatova_2021_gga_300k_vinet`, `ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet`, `ca_perovskite_tetragonal_sagatova_2021_lda_300k_vinet`, `casio2o5_titanite_sagatova_2021_gga_300k_vinet`, `larnite_sagatova_2021_gga_300k_vinet`, `pseudowollastonite_sagatova_2021_gga_300k_vinet`, `wollastonite_sagatova_2021_gga_300k_vinet` | Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated. |
 | [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | `copper_sakai_2025_rydberg_stacey_1`, `gold_sakai_2025_rydberg_stacey_1`, `iron_sakai_2025_rydberg_stacey_1`, `mgo_sakai_2025_rydberg_stacey_1`, `molybdenum_sakai_2025_rydberg_stacey_1`, `nacl_b2_sakai_2025_rydberg_stacey_1`, `platinum_sakai_2025_rydberg_stacey_1`, `rhenium_sakai_2025_rydberg_stacey_1`, `tungsten_sakai_2025_rydberg_stacey_1` | The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
-| [Schoelmerich et al. (2020)](https://doi.org/10.1038/s41598-020-66340-y) | `stishovite_schoelmerich_2020_shock_300k_bm3` | Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification. |
 | [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | `fe_shen_2026_vinet_1`, `gold_shen_2026_vinet_3`, `iron_shen_2026_vinet_2`, `mgo_shen_2026_vinet_3`, `molybdenum_shen_2026_vinet_1`, `nacl_b1_shen_2026_vinet_1`, `nacl_b2_shen_2026_vinet_2`, `platinum_shen_2026_vinet_2`, `tantalum_shen_2026_vinet_2`, `tungsten_shen_2026_vinet_3` | The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
 | [Sherman (1993)](https://doi.org/10.1029/93jb02175) | `ca_perovskite_sherman_1993_basis_b_static_bm3` | The complete calculated E-V grid and weighting are not tabulated. |
 | [Shim et al. (2002)](https://doi.org/10.1029/2002gl016148) | `casio3_perovskite_tetragonal_shim_2002_bm3_1` | The six pressures and plotted volume/c-axis-ratio observations appear in Figure 2, but numerical cell volumes are not tabulated; no pseudo-precision was introduced by digitizing the small four-page rendering. |
@@ -1205,7 +1212,7 @@ the primary-source and refit ledgers.
 | [Sato and Jeanloz (1981)](https://doi.org/10.1029/jb086ib12p11773) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Satta et al. (2025), Fe-bearing delta-AlOOH elasticity](https://doi.org/10.1007/s00269-025-01319-7) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Saxena et al. (1999)](https://doi.org/10.2138/am-1999-0303) | Reproduced | 1 | 1 similar | 1 bundled |
-| [Schoelmerich et al. (2020)](https://doi.org/10.1038/s41598-020-66340-y) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
+| [Schoelmerich et al. (2020), shock-compressed stishovite](https://doi.org/10.1038/s41598-020-66340-y) | Direct refit unavailable | 0 | no production record | investigation evidence only |
 | [Schouwink et al. (2011)](https://doi.org/10.2138/am.2011.3775) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Schulze et al. (2018)](https://doi.org/10.2138/am-2018-6562) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Scott et al. (2001)](https://doi.org/10.1029/2000gl012606) | Reproduced | 1 | 1 parity | 1 plot only/digitized |

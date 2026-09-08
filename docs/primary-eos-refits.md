@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **812** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **564** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -728,7 +728,6 @@ use `--check` in continuous integration to detect stale generated files.
 | [`sio2_stv_andr_holland_2013_stv_modified_tait`](https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf) | `official_parameter_artifact` | — | — | —/— | not_refittable — The official tc-ds62 stv block provides all four coefficients. |
 | [`stishovite_akber_knutson_2002_vibc_300k_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523) | `parameterization_only` | — | — | —/— | not_refittable — The paper tabulates coefficients but not the calculated energy-volume grid. |
 | [`stishovite_zhang_bukowinski_1991_mpib_bm3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Calculated states are plotted but not tabulated. |
-| [`stishovite_schoelmerich_2020_shock_300k_bm3`](https://www.nature.com/articles/s41598-020-66340-y) | `primary_table_available_not_bundled` | — | — | —/— | not_refittable — Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification. |
 | [`sn_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`sn_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`sn_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
@@ -3397,7 +3396,6 @@ the missing source fit detail is recovered.
 - `sio2_stv_andr_holland_2013_stv_modified_tait`: The official tc-ds62 stv block provides all four coefficients.
 - `stishovite_akber_knutson_2002_vibc_300k_bm3`: The paper tabulates coefficients but not the calculated energy-volume grid.
 - `stishovite_zhang_bukowinski_1991_mpib_bm3`: Calculated states are plotted but not tabulated.
-- `stishovite_schoelmerich_2020_shock_300k_bm3`: Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification.
 - `sn_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `sn_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `sn_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.

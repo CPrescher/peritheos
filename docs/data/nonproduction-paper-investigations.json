@@ -785,6 +785,14 @@
       "investigation_date": "2026-09-06",
       "evidence": "literature-reproductions/mgsio3-source-exhaustion.md",
       "reason": "The source row re-fits earlier elastic data without a new pressure-volume dataset, exact Fe content, or reference volume; the other two rows are citations."
+    },
+    {
+      "citation": "Schoelmerich et al. (2020), shock-compressed stishovite",
+      "doi": "10.1038/s41598-020-66340-y",
+      "outcome": "direct_refit_unavailable",
+      "investigation_date": "2026-09-08",
+      "evidence": "literature-reproductions/schoelmerich-2020-stishovite.md",
+      "reason": "The source reports BM3 coefficients but shows the shock-corrected 300 K fit states only graphically and omits the complete thermal-reduction inputs, corrected-state uncertainties and covariance, EosFit objective and weights, and explicit LCLS-233 selection. Figure digitization would be circular evidence for reproducing coefficients plotted in the same figure, so no production EOS is retained."
     }
   ]
 }
