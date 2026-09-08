@@ -24,6 +24,7 @@ from typing import Any
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
 REPORT_AUDIT_DATE = "2026-09-06"
+AGGREGATE_AUDIT_DATE = "2026-09-08"
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
 REPORT = ROOT / "peritheos" / "data" / "primary-source-audit.json"
@@ -3284,8 +3285,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 487:
-        raise ValueError(f"Expected 487 EOS records, found {len(entries)}")
+    if len(entries) != 488:
+        raise ValueError(f"Expected 488 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
@@ -3368,7 +3369,7 @@ def aggregate_existing_audits() -> None:
     report = {
         "format": "peritheos.primary-source-audit",
         "format_version": 1,
-        "audit_date": REPORT_AUDIT_DATE,
+        "audit_date": AGGREGATE_AUDIT_DATE,
         "policy": {
             "scientific_authority": "primary publications and official supplements",
             "external_catalogs": (
@@ -3397,7 +3398,7 @@ def aggregate_existing_audits() -> None:
     manifest["materials"] = len(list(MATERIALS.glob("*.eosmat")))
     manifest["eos_records"] = len(entries)
     manifest["scientific_validation"] = {
-        "audit_date": REPORT_AUDIT_DATE,
+        "audit_date": AGGREGATE_AUDIT_DATE,
         "report": "../primary-source-audit.json",
         "counts": dict(sorted(counts.items())),
         "policy": (
@@ -3412,7 +3413,7 @@ def aggregate_existing_audits() -> None:
         calibration["recalculation"]["status"] for calibration in pressure_calibrations
     )
     manifest["pressure_calibration"] = {
-        "audit_date": REPORT_AUDIT_DATE,
+        "audit_date": AGGREGATE_AUDIT_DATE,
         "status_counts": {
             status: pressure_statuses[status]
             for status in (

@@ -811,6 +811,39 @@ This pressure is independent of volume. Its implied Gruneisen parameter is
 
 `HollandPowell2011` is an alias for this implementation.
 
+### Dewaele 2006 hcp-Fe thermal pressure scale
+
+`Dewaele2006` implements Equations (1)--(2) of
+[Dewaele et al. (2006)](https://doi.org/10.1103/PhysRevLett.97.215504).
+The supplied `rt_eos` is the complete reference isotherm at $T_r$, and every
+thermal term is subtracted at that temperature:
+
+\[
+P(V,T)=P_{r}(V)+P_{\mathrm{th}}(V,T)-P_{\mathrm{th}}(V,T_r).
+\]
+
+With $x=V/V_0$, the model uses
+
+\[
+\gamma(x)=\gamma_\infty+(\gamma_0-\gamma_\infty)x^\beta,
+\qquad
+\Theta(x)=\Theta_0x^{-\gamma_\infty}
+\exp\!\left[\frac{\gamma_0-\gamma_\infty}{\beta}(1-x^\beta)\right].
+\]
+
+The absolute thermal pressure before reference subtraction is
+
+\[
+P_{\mathrm{th}}=
+\frac{3nR\gamma}{V}T D_3(\Theta/T)
++\frac{3nR}{2V}m a_0 x^m T^2
++\frac{3nR}{2V}g e_0 x^g T^2.
+\]
+
+`anharmonic_a` and `electronic_e` are passed directly in K$^{-1}$, matching
+the Dewaele equation. This differs from the micro-K$^{-1}$ parameter convention
+used by `DorogokupetsOganov2007`.
+
 ### Dorogokupets--Oganov 2007 four-oscillator model
 
 `DorogokupetsOganov2007` is a separate implementation of equations (7)--(14)

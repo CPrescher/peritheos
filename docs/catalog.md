@@ -2,7 +2,7 @@
 
 Peritheos exposes the complete bundled library through the normal executable
 API. `list_materials()` returns 208 `Material` objects and
-`list_eos_records()` returns their 487 `EOSRecord` objects. Both are ordered by
+`list_eos_records()` returns their 488 `EOSRecord` objects. Both are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
 

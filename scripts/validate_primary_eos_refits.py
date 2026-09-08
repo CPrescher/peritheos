@@ -50,6 +50,13 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "iron_dewaele_2006_vinet_thermal": (
+        "The bundled EPAPS rows constrain the near-room-temperature Vinet "
+        "reference isotherm. The high-temperature Gruneisen coefficients were "
+        "determined with separate shock-wave data and the anharmonic/electronic "
+        "terms with ab-initio pressures, so the complete thermal fit input is not "
+        "available for an independent joint refit."
+    ),
     "fesio3_liquid_sun_2019_2500k_bm4_1": (
         "The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, "
         "rather than the numerical table, identifies the liquid states used by the "
@@ -271,24 +278,27 @@ FIT_QUALIFICATIONS = {
         "already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen "
         "Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly "
         "as the source specifies. Fischer's published global fit also includes "
-        "pressure-recalculated Campbell, Ozawa, and Seagle rows that are not printed "
-        "as final numerical P-V-T inputs, and the source does not state its regression "
-        "weights, residual variable, covariance, or optimizer; exact global-fit "
-        "reproduction is therefore impossible from the article and supplement alone. "
+        "Campbell, Ozawa, and Seagle rows. All identifiable source tables are now "
+        "bundled, but Campbell's fcc-Fe pressure calibration and Fischer's final "
+        "combined row selection remain "
+        "unresolved. The source also does not state its regression weights, residual "
+        "variable, covariance, or optimizer; this result remains a current-study-only "
+        "diagnostic rather than an exact global-fit reproduction. "
         "See the [dedicated Fischer reproduction]"
         "(literature-reproductions/fischer-2011-feo.md)."
     ),
     "feo_b8_2_fischer_2011_bm3_1": (
-        "Conditional current-study thermal reproduction: all 21 numerical B8 "
+        "Recovered combined thermal reproduction: all 21 numerical B8 "
         "volumes in Fischer Supplementary Table S1 are evaluated at their reported, "
         "already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen "
         "Mie-Gruneisen-Debye model. One-peak detections have no volume and are "
         "excluded; the three two-peak volumes whose errors are unconstrained use "
-        "Figure 3's explicit +/-0.1 cm^3/mol fallback. K0', theta0, q, Tr, and n are "
-        "held fixed. Fischer's global fit also includes unprinted numerical Ozawa "
-        "P-V-T rows, and the source does not state its regression weights, residual "
-        "variable, covariance, or optimizer; exact global-fit reproduction is "
-        "therefore impossible from the article and supplement alone. See the "
+        "Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's "
+        "printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. "
+        "The unweighted 29-row fit recovers every free coefficient within its "
+        "published uncertainty. Fischer does not state its regression weights, "
+        "residual variable, covariance, or optimizer, so this establishes numerical "
+        "parameter parity rather than exact procedural identity. See the "
         "[dedicated Fischer reproduction]"
         "(literature-reproductions/fischer-2011-feo.md)."
     ),
@@ -608,6 +618,12 @@ VOLUME_COLUMNS = {
     ),
     "feo_fischer_2011_table_s1_pvt#feo_b8_2_fischer_2011_bm3_1": (
         "b8_feo_molar_volume_cm3_mol"
+    ),
+    "feo_ozawa_2010_table2_pvt#feo_fischer_2011_bm3_2": (
+        "feo_volume_a3_per_formula_unit"
+    ),
+    "feo_ozawa_2010_table2_pvt#feo_b8_2_fischer_2011_bm3_1": (
+        "feo_volume_a3_per_formula_unit"
     ),
     "silicon_anzellini_2019_tables1_4_6_7_compression": ("silicon_lattice_a_angstrom"),
     "silicon_carbide_b3_miozzi_2018_data_set_s1_eos": ("sic_unit_cell_volume_a3"),
@@ -1279,8 +1295,7 @@ def _fit_li_2006_acoustic(
     selected_rows = [
         row
         for row in rows
-        if row["experimental_path"]
-        in {"ambient", "decompression_after_annealing"}
+        if row["experimental_path"] in {"ambient", "decompression_after_annealing"}
     ]
     density = np.asarray(
         [float(row["density_g_cm3"]) for row in selected_rows], dtype=float
@@ -1357,16 +1372,12 @@ def _fit_li_2006_acoustic(
         * float(inputs["dK0T_dT_gpa_per_k"])
     )
     k0t_prime = (
-        k0s_prime
-        + float(inputs["q"]) * alpha_gamma_t
-        - gamma_t_dkdt / k0t
+        k0s_prime + float(inputs["q"]) * alpha_gamma_t - gamma_t_dkdt / k0t
     ) / conversion_factor
 
     transform = np.zeros((2, 4), dtype=float)
     transform[0, 0] = 1.0 / conversion_factor
-    transform[1, 0] = gamma_t_dkdt / (
-        conversion_factor**2 * k0t**2
-    )
+    transform[1, 0] = gamma_t_dkdt / (conversion_factor**2 * k0t**2)
     transform[1, 1] = 1.0 / conversion_factor
     isothermal_covariance = transform @ covariance @ transform.T
     isothermal_errors = np.sqrt(np.diag(isothermal_covariance))
@@ -1421,7 +1432,10 @@ def _fit_li_2006_acoustic(
             "ambient Section 2 anchor plus all 10 "
             "decompression_after_annealing Table 1 rows"
         ),
-        "observed_density_range_g_cm3": [float(np.min(density)), float(np.max(density))],
+        "observed_density_range_g_cm3": [
+            float(np.min(density)),
+            float(np.max(density)),
+        ],
         "observed_p_wave_velocity_range_km_s": [
             float(np.min(p_velocity)),
             float(np.max(p_velocity)),
@@ -1550,7 +1564,52 @@ def _fit_record(
     chidester_high_temperature = None
     ice_vi_all_rows = None
     source_protocol_unweighted = False
-    if record_id == "kcl_b2_chidester_2021_bm3_5":
+    if record_id == "feo_b8_2_fischer_2011_bm3_1":
+        datasets = {item["identifier"]: item for item in document["datasets"]}
+        current_study = _series(
+            document, record, datasets["feo_fischer_2011_table_s1_pvt"]
+        )
+        ozawa_dataset = datasets["feo_ozawa_2010_table2_pvt"]
+        ozawa_all = _series(document, record, ozawa_dataset)
+        ozawa_rows = _load_rows(ozawa_dataset)
+        ozawa = _masked_series(
+            ozawa_all,
+            np.asarray([row["phase"] == "B8" for row in ozawa_rows]),
+            "all eight B8 rows in Ozawa printed Table 2",
+        )
+        assert current_study.temperature is not None
+        assert ozawa.temperature is not None
+        dataset_identifiers = [
+            "feo_fischer_2011_table_s1_pvt",
+            "feo_ozawa_2010_table2_pvt",
+        ]
+        series = Series(
+            dataset_id="+".join(dataset_identifiers),
+            pressure=np.concatenate((current_study.pressure, ozawa.pressure)),
+            volume=np.concatenate((current_study.volume, ozawa.volume)),
+            temperature=np.concatenate(
+                (current_study.temperature, ozawa.temperature)
+            ),
+            pressure_sigma=None,
+            volume_sigma=None,
+            temperature_sigma=None,
+            pressure_column="pressure_gpa + pressure_gpa",
+            volume_column=(
+                "b8_feo_molar_volume_cm3_mol + "
+                "feo_volume_a3_per_formula_unit"
+            ),
+            temperature_column="temperature_k + temperature_k",
+            selection=(
+                "21 numerical Fischer Table S1 B8 volumes plus all eight B8 "
+                "rows in Ozawa printed Table 2"
+            ),
+        )
+        # Fischer does not publish numerical regression weights. The complete
+        # unweighted 29-row fit recovers every free coefficient within the
+        # source-reported uncertainty and avoids inventing missing Ozawa
+        # temperature errors or a statistic for its parenthesized errors.
+        source_protocol_unweighted = True
+    elif record_id == "kcl_b2_chidester_2021_bm3_5":
         datasets = {item["identifier"]: item for item in document["datasets"]}
         room_temperature = _series(
             document, record, datasets["kcl_dewaele_2012_table1_compression"]
@@ -1876,13 +1935,10 @@ def _fit_record(
         )
     elif record_id == "feo_b8_2_fischer_2011_bm3_1":
         outcome["uncertainty_treatment"] = (
-            "The auditable errors-in-variables diagnostic uses published pressure "
-            "and B8-volume uncertainties, with Figure 3's +/-0.1 cm^3/mol fallback "
-            "for three unconstrained volume errors. Temperature uncertainties are "
-            "not used because the 300 K row reports zero rather than a positive "
-            "uncertainty; its actual 300 K temperature is retained. Fischer et al. "
-            "do not state whether or how the tabulated uncertainties entered their "
-            "least-squares objective."
+            "The combined reproduction is unweighted because Fischer et al. do not "
+            "state their regression weights and Ozawa Table 2 does not provide a "
+            "complete set of row-wise pressure, volume, and temperature uncertainties. "
+            "All reported temperatures and central P-V values are retained."
         )
     if ice_vi_all_rows is not None:
         all_rows_fit = fit_joint_eos(

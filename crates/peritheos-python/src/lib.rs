@@ -16,7 +16,7 @@ use peritheos::isothermal::{
     Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007,
     DorogokupetsOganov2007Parameters, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
     ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
@@ -488,6 +488,7 @@ impl PyHugoniotEos {
 #[derive(Clone, Copy, Debug, PartialEq)]
 enum ThermalModel {
     AsymptoticPowerLawMieGruneisenDebye(AsymptoticPowerLawMieGruneisenDebye<RtModel>),
+    Dewaele2006(Dewaele2006<RtModel>),
     DorogokupetsOganov2007(DorogokupetsOganov2007<RtModel>),
     LinearThermalPressure(LinearThermalPressure<RtModel>),
     LogVolumeThermalPressure(LogVolumeThermalPressure<RtModel>),
@@ -503,6 +504,7 @@ impl ThermalModel {
     fn name(self) -> &'static str {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(_) => "AsymptoticPowerLawMieGruneisenDebye",
+            Self::Dewaele2006(_) => "Dewaele2006",
             Self::DorogokupetsOganov2007(_) => "DorogokupetsOganov2007",
             Self::LinearThermalPressure(_) => "LinearThermalPressure",
             Self::LogVolumeThermalPressure(_) => "LogVolumeThermalPressure",
@@ -519,6 +521,9 @@ impl ThermalModel {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
                 evaluate_asymptotic_mie_quantity(&model, quantity, first, second)
+            }
+            Self::Dewaele2006(model) => {
+                evaluate_dewaele_2006_quantity(&model, quantity, first, second)
             }
             Self::DorogokupetsOganov2007(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
@@ -556,6 +561,9 @@ impl ThermalModel {
     ) -> PyResult<f64> {
         let result = match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::Dewaele2006(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::DorogokupetsOganov2007(model) => {
@@ -688,6 +696,41 @@ impl PyThermalEos {
             model: ThermalModel::AsymptoticPowerLawMieGruneisenDebye(
                 AsymptoticPowerLawMieGruneisenDebye::new(rt_eos.model, tr, theta0, gamma0, a, b, n)
                     .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    #[allow(clippy::too_many_arguments)]
+    fn dewaele_2006(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        gamma_inf: f64,
+        beta: f64,
+        anharmonic_a: f64,
+        anharmonic_m: f64,
+        electronic_e: f64,
+        electronic_g: f64,
+        n: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::Dewaele2006(
+                Dewaele2006::new(
+                    rt_eos.model,
+                    tr,
+                    theta0,
+                    gamma0,
+                    gamma_inf,
+                    beta,
+                    anharmonic_a,
+                    anharmonic_m,
+                    electronic_e,
+                    electronic_g,
+                    n,
+                )
+                .map_err(to_python_error)?,
             ),
         })
     }
@@ -1158,6 +1201,32 @@ fn evaluate_asymptotic_mie_quantity<R: IsothermalEos>(
             .thermal_gibbs_free_energy(first, second)
             .map_err(to_python_error),
         _ => evaluate_caloric_quantity(model, quantity, first, second),
+    }
+}
+
+fn evaluate_dewaele_2006_quantity<R: IsothermalEos>(
+    model: &Dewaele2006<R>,
+    quantity: &str,
+    first: f64,
+    second: f64,
+) -> PyResult<f64> {
+    match quantity {
+        "gruneisen_parameter" => model
+            .volume_gruneisen_parameter(first)
+            .map_err(to_python_error),
+        "characteristic_temperature" => model
+            .characteristic_temperature(first)
+            .map_err(to_python_error),
+        "vibrational_pressure_increment" => model
+            .vibrational_pressure_increment(first, second)
+            .map_err(to_python_error),
+        "anharmonic_pressure_increment" => model
+            .anharmonic_pressure_increment(first, second)
+            .map_err(to_python_error),
+        "electronic_pressure_increment" => model
+            .electronic_pressure_increment(first, second)
+            .map_err(to_python_error),
+        _ => evaluate_thermal_quantity(model, quantity, first, second),
     }
 }
 

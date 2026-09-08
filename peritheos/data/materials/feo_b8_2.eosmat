@@ -73,11 +73,15 @@
    "fixed_parameters": [
     "K0_prime"
    ],
+   "fit_datasets": [
+    "feo_fischer_2011_table_s1_pvt",
+    "feo_ozawa_2010_table2_pvt"
+   ],
    "experimental_pressure_range_gpa": [
     131.0,
     210.0
    ],
-   "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. The current-study supplement contributes 21 numerical B8 volumes; one-peak detections have no volume and are excluded, while Figure 3 assigns +/-0.1 cm^3/mol plotting errors when two-peak uncertainties could not be constrained. The published global fit additionally uses Ozawa observations whose exact row-level P-V-T inputs and regression weights/objective are not printed. The source explicitly warns against extrapolating this EOS far beyond the B8 data range.",
+   "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. The current-study supplement contributes 21 numerical B8 volumes; one-peak detections have no volume and are excluded, while Figure 3 assigns +/-0.1 cm^3/mol plotting errors when two-peak uncertainties could not be constrained. Ozawa's printed Table 2 contributes 8 B8 P-V-T rows and is bundled at printed precision. Fischer's exact combined row selection and regression weights/objective are not printed. The source explicitly warns against extrapolating this EOS far beyond the B8 data range.",
    "identifier": "feo_b8_2_fischer_2011_bm3_1",
    "pressure_calibration": {
     "status": "partially_resolved",
@@ -85,6 +89,7 @@
      {
       "kind": "equation_of_state",
       "material": "hcp Fe",
+      "reference_eos_record": "iron_dewaele_2006_vinet_thermal",
       "reference": {
        "authors": [
         "Dewaele",
@@ -105,10 +110,10 @@
      }
     ],
     "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "Table S1 preserves hcp-Fe volume, temperature, and the final pressure for the current study, but the exact Dewaele et al. (2006) thermal/electronic Fe pressure model is not a bundled executable reference EOS. The final Ozawa fit rows are not reprinted by Fischer et al."
+     "status": "ready",
+     "notes": "The exact Dewaele et al. (2006) thermal/electronic hcp-Fe reference EOS is bundled. Fischer Table S1 and Ozawa Table 2 preserve the hcp-Fe volumes and temperatures needed to recalculate all candidate B8 fit pressures."
     },
-    "audit_date": "2026-09-07",
+    "audit_date": "2026-09-08",
     "notes": "NaCl was a secondary pressure standard. Published pressure errors propagate the temperature error and hcp-Fe lattice-parameter error."
    },
    "scientific_validation": {
@@ -140,7 +145,7 @@
       "Figures 2 and 3",
       "Supplementary Table S1 (mmc1.xls)"
      ],
-     "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. The bundled current-study rows support a conditional thermal refit only because the final Ozawa inputs and exact weighting protocol are not printed.",
+     "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. Fischer's current-study rows and Ozawa's printed Table 2 P-V-T rows are bundled; only the exact combined selection and weighting protocol remain unpublished.",
      "doi": "10.1016/j.epsl.2011.02.025"
     },
     "migration_source": {
@@ -151,14 +156,16 @@
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-07",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
-      "feo_fischer_2011_table_s1_pvt"
+      "feo_fischer_2011_table_s1_pvt",
+      "feo_ozawa_2010_table2_pvt"
      ],
      "source_locations": [
-      "Supplementary Table S1 (mmc1.xls)"
+      "Fischer et al. (2011) Supplementary Table S1 (mmc1.xls)",
+      "Ozawa et al. (2010) printed Table 2"
      ],
-     "finding": "The complete 52-row current-study workbook is bundled verbatim at its printed precision, including 21 numerical B8 volumes at their reported, already 3%-corrected temperatures. One-peak detections have no volume; all three two-peak rows with unconstrained errors retain the measurements and use the source's Figure 3 +/-0.1 cm^3/mol fallback only in the explicit fit-uncertainty column. The global fit additionally used Ozawa rows that Fischer et al. do not reprint."
+     "finding": "The complete 52-row current-study workbook is bundled verbatim at its printed precision, including 21 numerical B8 volumes at their reported, already 3%-corrected temperatures. One-peak detections have no volume; all three two-peak rows with unconstrained errors retain the measurements and use the source's Figure 3 +/-0.1 cm^3/mol fallback only in the explicit fit-uncertainty column. Ozawa's printed Table 2 supplies 8 additional B8 P-V-T rows and is bundled in full; no Ozawa supplementary dataset exists."
     }
    },
    "thermal": {
@@ -368,7 +375,113 @@
    "provenance": {
     "type": "transcribed_official_supplement",
     "source_workbook_sha256": "9a8807dcdb779840b4ad25811309cc7eeb179c42ffd53361eae36b95ebbaf561",
-    "source_author_manuscript_pdf_sha256": "c69717d039d80421dcdac45ff0207844dd734ad284039b0a573e6a30cb153d24"
+   "source_author_manuscript_pdf_sha256": "c69717d039d80421dcdac45ff0207844dd734ad284039b0a573e6a30cb153d24"
+   }
+  },
+  {
+   "identifier": "feo_ozawa_2010_table2_pvt",
+   "kind": "pressure_volume_temperature_multiphase_with_calibrant",
+   "description": "All 20 representative P-V-T rows printed in Ozawa et al. Table 2: 12 B1 FeO and 8 B8 FeO observations with coexisting hcp-Fe volumes.",
+   "source_location": "Printed Table 2, journal page 160",
+   "source_url": "https://doi.org/10.1016/j.pepi.2009.11.005",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "feo_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "feo_volume_a3_per_formula_unit",
+     "quantity": "feo_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "feo_volume_uncertainty_a3_per_formula_unit",
+     "quantity": "feo_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "uncertainty",
+     "of": "feo_volume_a3_per_formula_unit"
+    },
+    {
+     "name": "b8_c_over_a",
+     "quantity": "b8_feo_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "b8_c_over_a_uncertainty",
+     "quantity": "b8_feo_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "b8_c_over_a"
+    },
+    {
+     "name": "iron_hcp_unit_cell_volume_a3",
+     "quantity": "hcp_iron_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "iron_hcp_unit_cell_volume_uncertainty_a3",
+     "quantity": "hcp_iron_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "iron_hcp_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/feo-ozawa-2010-table2-pvt.csv",
+    "sha256": "cfc3f8b37a23bd6ea891b526051266e01bf543c6b9871b29506d49581b64d324",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized uncertainties are expanded to absolute numeric values at the printed precision; blank cells mean that Table 2 prints no uncertainty. The source states that pressure was determined from hcp-Fe using Dewaele et al. (2006), with pressure uncertainty below +/-5 GPa dominated by temperature uncertainty; radial temperature variation was about +/-10%. Table 2 is the article's available row-level EOS source and is explicitly described as representative volumes. No Ozawa supplementary dataset exists.",
+   "reference": {
+    "authors": [
+     "Ozawa",
+     "Hirose",
+     "Tateno",
+     "Sata",
+     "Ohishi"
+    ],
+    "year": 2010,
+    "source": "Phys. Earth Planet. Inter.",
+    "volume": "179",
+    "locator": "157-163",
+    "doi": "10.1016/j.pepi.2009.11.005"
+   },
+   "used_by_eos_records": [
+    "feo_b8_2_fischer_2011_bm3_1"
+   ],
+   "provenance": {
+    "type": "transcribed_printed_table",
+    "source_article_pdf_sha256": "85e6e73b3dba68a453aebcaf22149fe3b9474fa5f15ac2d67e900d6667ba3f46"
    }
   }
  ]

@@ -72,6 +72,7 @@ correction instead inherits the reference EOS volume convention.
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law`, `thermal_pressure_reference` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
+| [`Dewaele2006`](equation-reference.md#dewaele-2006-hcp-fe-thermal-pressure-scale) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` | Debye + $T^2$ |
 | [`DorogokupetsOganov2007`](equation-reference.md#dorogokupets-oganov-2007-four-oscillator-model) | any `EosBase` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect parameters | generalized Bose + Einstein |
 | [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
 | [`SecondOrderTaylorThermalPressure`](equation-reference.md#second-order-temperature-compression-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `eta0`, `c0`--`c5` | none |
@@ -108,6 +109,9 @@ paper equations alone to reproduce Peritheos values; see
   `absolute_zero` only when the wrapped curve is explicitly a 0 K cold curve.
 - Use Mie-Gruneisen-Einstein for an inexpensive single-frequency approximation.
 - Use `Tange2009Debye` for the publication-specific Tange MgO Gruneisen law.
+- Use `Dewaele2006` for the source-specific hcp-Fe pressure scale used by
+  Dewaele et al. (2006), including its intrinsic-anharmonic and electronic
+  pressure terms.
 - Use `DorogokupetsOganov2007` only for the paper's complete four-oscillator
   Helmholtz formulation. It is distinct from the later Sokolova workbook
   model even though the authors and physical terms overlap.

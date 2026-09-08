@@ -58,6 +58,6 @@ uv run --frozen pytest -q tests/test_experimental_metal_eos_batch_47.py
 ```
 
 After import and removal of benchmark-only or structurally incomplete records,
-the complete bundled catalog contains 208 material documents and 487 EOS
+the complete bundled catalog contains 208 material documents and 488 EOS
 records. Every record is included in the generated primary-source
 audit and refit-feasibility ledger.

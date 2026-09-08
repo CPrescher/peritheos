@@ -310,6 +310,7 @@ Thermal `type` and `model` must likewise match:
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
+| `Dewaele2006` | `dewaele_2006` | `Tr`, `theta0`, `gamma0`, `gamma_inf`, `beta`, anharmonic and electronic terms, `n` |
 | `DorogokupetsOganov2007` | `dorogokupets_oganov_2007` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect terms |
 | `MultiOscillatorGruneisen` | `multi_oscillator_gruneisen_thermal_pressure` | Oscillator, Grüneisen, anharmonic, and electronic parameters |
 | `ThermalModifiedTait` | `thermal_modified_tait` | `Tr`, `theta`, `alpha0`, `n` |
@@ -446,7 +447,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 487 bundled records are
+`peritheos/data/primary-source-audit.json`. All 488 bundled records are
 validated, with no deferred or pending record.
 
 ## Complete EOS-only example

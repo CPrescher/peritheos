@@ -376,6 +376,219 @@
    }
   },
   {
+   "identifier": "iron_dewaele_2006_vinet_thermal",
+   "label": "Dewaele et al. (2006), hcp-Fe Vinet thermal pressure scale",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Dewaele",
+     "Loubeyre",
+     "Occelli",
+     "Mezouar",
+     "Dorogokupets",
+     "Torrent"
+    ],
+    "year": 2006,
+    "title": "Quasihydrostatic Equation of State of Iron above 2 Mbar",
+    "source": "Physical Review Letters",
+    "volume": "97",
+    "locator": "215504",
+    "doi": "10.1103/PhysRevLett.97.215504"
+   },
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 2,
+    "molar_mass_g_mol": 55.845
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 22.428,
+     "K0": 163.4,
+     "K0_prime": 5.38
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.098,
+    "K0": 7.9,
+    "K0_prime": 0.16
+   },
+   "parameter_error_confidence": 0.95,
+   "fixed_parameters": [],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    17.0,
+    197.0
+   ],
+   "experimental_temperature_range_k": [
+    298.0,
+    300.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     364.0
+    ],
+    "temperature_k": [
+     300.0,
+     7000.0
+    ],
+    "notes": [
+     "The 17-197 GPa static compression observations are near room temperature; the high-temperature extension is constrained by shock-wave data to 200 GPa and ab-initio anharmonic and electronic pressures.",
+     "The authors plot 298, 5000, 6000, and 7000 K isotherms through the Earth's core pressure range; this is a proposed pressure-scale domain, not a direct static P-V-T data envelope."
+    ]
+   },
+   "notes": "Source-specific implementation of Equations (1)-(2): a 300 K Vinet reference isotherm plus reference-subtracted single-Debye, intrinsic-anharmonic, and electronic thermal pressures. The published atomic V0 and uncertainty are doubled for the two-atom conventional hcp cell used by this material document.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2006,
+       "source": "Doklady Earth Sciences",
+       "volume": "410",
+       "locator": "1091",
+       "doi": "10.1134/S1028334X06070208"
+      },
+      "source_location": "Experimental methods and Table I; runs 1-3",
+      "scope": "ruby-gauge static compression observations"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "tungsten",
+      "reference": {
+       "authors": [
+        "Dorogokupets",
+        "Oganov"
+       ],
+       "year": 2006,
+       "source": "Doklady Earth Sciences",
+       "volume": "410",
+       "locator": "1091",
+       "doi": "10.1134/S1028334X06070208"
+      },
+      "source_location": "Experimental methods and Table I; runs 4-5",
+      "scope": "tungsten-gauge static compression observations"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "The EPAPS table preserves ruby wavelength and tungsten lattice parameter, but the exact 2006 Dorogokupets-Oganov ruby and tungsten calibrations used upstream are not both bundled as executable reference records."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "parameter_provenance": {
+    "V0": "Table III; 11.214(49) A^3/atom converted to the stored two-atom conventional-cell basis",
+    "K0": "Table III, Vinet row for this study",
+    "K0_prime": "Table III, Vinet row for this study",
+    "Tr": "Equation (1), 300 K reference isotherm",
+    "theta0": "Text following Equation (2); fixed ambient value from reference 24",
+    "gamma0": "Text following Equation (2); determined from shock-wave data through 200 GPa together with the ambient-temperature data",
+    "gamma_inf": "Text following Equation (2); determined from shock-wave data through 200 GPa together with the ambient-temperature data",
+    "beta": "Derived exactly from beta=gamma0/(gamma0-gamma_inf)",
+    "anharmonic_a": "Text following Equation (2); fitted to ab-initio intrinsic-anharmonic pressure from reference 23",
+    "anharmonic_m": "Text following Equation (2); fitted to ab-initio intrinsic-anharmonic pressure from reference 23",
+    "electronic_e": "Text following Equation (2); fitted to ab-initio electronic pressure from reference 23",
+    "electronic_g": "Text following Equation (2); fitted to ab-initio electronic pressure from reference 23",
+    "n": "one atom per Fe formula unit"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "The Vinet reference coefficients, Equation (1) reference subtraction, Equation (2) three thermal terms, Gruneisen law, Debye-temperature integral, and all printed thermal coefficients were checked directly against the primary article.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "thermal_model",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1103/PhysRevLett.97.215504",
+     "doi": "10.1103/PhysRevLett.97.215504",
+     "locations": [
+      "Table III",
+      "Equations (1)-(2) and accompanying text",
+      "Figure 3 and core-temperature discussion"
+     ],
+     "finding": "Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "iron_dewaele_2006_epaps_compression"
+     ],
+     "source_locations": [
+      "EPAPS E-PRLTAO-97-048648 supplementary table"
+     ],
+     "finding": "All 63 supplementary static-compression observations are bundled. The table is near-room-temperature data; the high-temperature terms are constrained in the article from shock-wave and ab-initio sources rather than additional EPAPS P-V-T rows."
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation, coefficients, and reference state",
+     "citation": "Dewaele et al. (2006), Table III and Equations (1)-(2)",
+     "doi": "10.1103/PhysRevLett.97.215504"
+    },
+    {
+     "role": "underlying thermal formalism",
+     "citation": "Dorogokupets and Oganov (2006), Doklady Earth Sciences 410, 1091",
+     "doi": "10.1134/S1028334X06070208"
+    }
+   ],
+   "thermal": {
+    "type": "Dewaele2006",
+    "model": "dewaele_2006",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 417.0,
+     "gamma0": 1.875,
+     "gamma_inf": 1.305,
+     "beta": 3.289473684210526,
+     "anharmonic_a": 0.000037,
+     "anharmonic_m": 1.87,
+     "electronic_e": 0.000195,
+     "electronic_g": 1.339,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": null,
+     "gamma_inf": null,
+     "beta": null,
+     "anharmonic_a": null,
+     "anharmonic_m": null,
+     "electronic_e": null,
+     "electronic_g": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "beta",
+     "anharmonic_a",
+     "anharmonic_m",
+     "electronic_e",
+     "electronic_g",
+     "n"
+    ],
+    "gas_constant_j_mol_k": 8.314
+   }
+  },
+  {
    "identifier": "iron_dewaele_2019_mao_vinet",
    "label": "Dewaele (2019), Fe MAO-scale Vinet",
    "record_kind": "published",
@@ -2170,6 +2383,7 @@
     "media_type": "text/csv"
    },
    "used_by_eos_records": [
+    "iron_dewaele_2006_vinet_thermal",
     "iron_dewaele_2019_mao_vinet",
     "iron_dewaele_2019_dor_vinet"
    ],

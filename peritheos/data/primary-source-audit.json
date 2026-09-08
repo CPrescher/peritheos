@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-06",
+  "audit_date": "2026-09-08",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 487,
-    "primary_source_validated": 487
+    "records": 488,
+    "primary_source_validated": 488
   },
   "records": [
     {
@@ -2878,7 +2878,7 @@
           "Figures 2 and 3",
           "Supplementary Table S1 (mmc1.xls)"
         ],
-        "finding": "The B1 record is an integrated-Gruneisen Mie-Gruneisen-Debye thermal EOS, not a standalone 300 K BM3. Fixed and fitted coefficients, the 3% temperature correction, the 42-row current-study phase selection, Dewaele hcp-Fe pressure basis, and the broader Campbell/Ozawa/Seagle global-fit scope were reconstructed; unavailable final legacy rows and weights limit the bundled refit to a conditional reproduction.",
+        "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observations, 3% temperature correction, and global multi-study fit scope were reconstructed. The bundled current-study rows support a conditional thermal refit only because the final Campbell/Ozawa/Seagle inputs and exact weighting protocol are not printed.",
         "doi": "10.1016/j.epsl.2011.02.025"
       }
     },
@@ -2955,7 +2955,7 @@
           "Figures 2 and 3",
           "Supplementary Table S1 (mmc1.xls)"
         ],
-        "finding": "The B8 record is an integrated-Gruneisen Mie-Gruneisen-Debye thermal EOS, not a standalone 300 K BM3. Fixed and fitted coefficients, the 3% temperature correction, the 21-row numerical phase selection, the Figure 3 +/-0.1 cm3/mol fallback errors, Dewaele hcp-Fe pressure basis, and the Ozawa-inclusive global-fit scope were reconstructed; unavailable Ozawa rows and weights limit the bundled refit to a conditional reproduction.",
+        "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. The bundled current-study rows support a conditional thermal refit only because the final Ozawa inputs and exact weighting protocol are not printed.",
         "doi": "10.1016/j.epsl.2011.02.025"
       }
     },
@@ -3610,6 +3610,25 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The article does not state a confidence level or publish parameter covariance, so neither is inferred. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2006_vinet_thermal",
+      "label": "Dewaele et al. (2006), hcp-Fe Vinet thermal pressure scale",
+      "doi": "10.1103/physrevlett.97.215504",
+      "status": "primary_source_validated",
+      "note": "The Vinet reference coefficients, Equation (1) reference subtraction, Equation (2) three thermal terms, Gruneisen law, Debye-temperature integral, and all printed thermal coefficients were checked directly against the primary article.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevLett.97.215504",
+        "doi": "10.1103/PhysRevLett.97.215504",
+        "locations": [
+          "Table III",
+          "Equations (1)-(2) and accompanying text",
+          "Figure 3 and core-temperature discussion"
+        ],
+        "finding": "Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K."
       }
     },
     {

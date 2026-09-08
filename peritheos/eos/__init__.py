@@ -56,6 +56,7 @@ def _native_evaluation_types() -> tuple[type, ...]:
         Vinet,
     )
     from peritheos.eos.thermal import (
+        Dewaele2006,
         LinearThermalPressure,
         LogVolumeThermalPressure,
         MieGruneisenDebye,
@@ -83,6 +84,7 @@ def _native_evaluation_types() -> tuple[type, ...]:
         SunMorse4,
         Vinet,
         Holzapfel,
+        Dewaele2006,
         LinearThermalPressure,
         LogVolumeThermalPressure,
         MieGruneisenDebye,
