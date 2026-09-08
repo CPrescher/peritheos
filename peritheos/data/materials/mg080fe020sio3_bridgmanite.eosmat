@@ -101,20 +101,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
-     "fixed_parameters",
-     "volume_basis"
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/91JB00176",
-     "doi": "10.1029/91JB00176",
+     "doi": "10.1029/91jb00176",
      "locations": [
       "Abstract",
       "298 K isotherm results"

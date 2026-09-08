@@ -246,24 +246,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the open-access primary article; LitCurate was used only for discovery.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystal_system",
-     "cell_setting",
-     "formula_units_per_cell",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1073/pnas.0506811103",

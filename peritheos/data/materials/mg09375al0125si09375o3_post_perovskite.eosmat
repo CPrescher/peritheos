@@ -130,23 +130,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-deposited published article and its source Table 1.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "substitution_mechanism",
-     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "theoretical_method",
-     "volume_range"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://authors.library.caltech.edu/records/ac43h-2q991",
-     "doi": "10.1029/2005GL023192",
+     "doi": "10.1029/2005gl023192",
      "locations": [
       "Section 2, paragraphs 6-8",
       "Table 1"

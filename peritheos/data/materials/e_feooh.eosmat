@@ -281,23 +281,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The final J-STAGE article, its displayed equations, both tables, and all 33 printed P-V-T observations were audited directly. The reference-temperature form of the linear expansivity required an explicit Peritheos configuration distinct from alpha0+alpha1*T.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "crystallography",
-     "volume_basis",
      "published_uncertainties",
-     "covariance_availability",
-     "validity",
-     "pressure_calibration",
-     "primary_observations",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf",

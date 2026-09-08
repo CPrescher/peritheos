@@ -334,6 +334,7 @@
             "DoubleDebyeHelmholtz",
             "DoubleDebyeLogMomentHelmholtz",
             "DorogokupetsOganov2007",
+            "HollandPowellThermalPressure",
             "LinearThermalPressure",
             "LogVolumeThermalPressure",
             "SecondOrderTaylorThermalPressure",
@@ -351,6 +352,7 @@
             "double_debye_helmholtz",
             "double_debye_log_moment_helmholtz",
             "dorogokupets_oganov_2007",
+            "holland_powell_thermal_pressure",
             "linear_thermal_pressure",
             "log_volume_thermal_pressure",
             "second_order_taylor_thermal_pressure",
@@ -410,6 +412,7 @@
             {"properties": {"type": {"const": "DoubleDebyeHelmholtz"}, "model": {"const": "double_debye_helmholtz"}}},
             {"properties": {"type": {"const": "DoubleDebyeLogMomentHelmholtz"}, "model": {"const": "double_debye_log_moment_helmholtz"}}},
             {"properties": {"type": {"const": "DorogokupetsOganov2007"}, "model": {"const": "dorogokupets_oganov_2007"}}},
+            {"properties": {"type": {"const": "HollandPowellThermalPressure"}, "model": {"const": "holland_powell_thermal_pressure"}}},
             {"properties": {"type": {"const": "LinearThermalPressure"}, "model": {"const": "linear_thermal_pressure"}}},
             {"properties": {"type": {"const": "LogVolumeThermalPressure"}, "model": {"const": "log_volume_thermal_pressure"}}},
             {"properties": {"type": {"const": "SecondOrderTaylorThermalPressure"}, "model": {"const": "second_order_taylor_thermal_pressure"}}},
@@ -797,7 +800,7 @@
             "properties": {"record_kind": {"const": "refit"}},
             "required": ["record_kind"]
           },
-          "then": {"required": ["derived_from_record", "fit_provenance"]}
+          "then": {"required": ["fit_provenance"]}
         },
         {
           "if": {

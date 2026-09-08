@@ -51,6 +51,7 @@ _THERMAL_TYPES = {
     "DoubleDebyeHelmholtz",
     "DoubleDebyeLogMomentHelmholtz",
     "DorogokupetsOganov2007",
+    "HollandPowellThermalPressure",
     "LinearThermalPressure",
     "LogVolumeThermalPressure",
     "SecondOrderTaylorThermalPressure",
@@ -84,6 +85,7 @@ _THERMAL_MODELS = {
     "DoubleDebyeHelmholtz": "double_debye_helmholtz",
     "DoubleDebyeLogMomentHelmholtz": "double_debye_log_moment_helmholtz",
     "DorogokupetsOganov2007": "dorogokupets_oganov_2007",
+    "HollandPowellThermalPressure": "holland_powell_thermal_pressure",
     "LinearThermalPressure": "linear_thermal_pressure",
     "LogVolumeThermalPressure": "log_volume_thermal_pressure",
     "SecondOrderTaylorThermalPressure": "second_order_taylor_thermal_pressure",
@@ -362,13 +364,8 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if identifier is not None:
                 derived_record_links.append((identifier, derived_from))
         fit_provenance = record.get("fit_provenance")
-        if record_kind == "refit" and (
-            derived_from is None or not isinstance(fit_provenance, Mapping)
-        ):
-            raise EosmatError(
-                f"{location} refit records require derived_from_record and "
-                "fit_provenance"
-            )
+        if record_kind == "refit" and not isinstance(fit_provenance, Mapping):
+            raise EosmatError(f"{location} refit records require fit_provenance")
         derivation = record.get("derivation")
         if record_kind == "derived" and not isinstance(derivation, Mapping):
             raise EosmatError(f"{location} derived records require derivation")

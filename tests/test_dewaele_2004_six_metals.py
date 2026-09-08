@@ -132,11 +132,18 @@ def test_dewaele_records_preserve_cell_normalization_and_source_metadata(
         for identifier in NEW_RECORDS | EXISTING_REVISED_RECORDS
         if identifier.startswith(f"{material_identifier}_")
     }
+    if material_identifier != "gold":
+        expected_ids.update(
+            {
+                f"{material_identifier}_dewaele_2019_mao_vinet",
+                f"{material_identifier}_dewaele_2019_dor_vinet",
+            }
+        )
     assert set(dataset["used_by_eos_records"]) == expected_ids
     records = {
         record["identifier"]: record
         for record in document["eos_records"]
-        if record["identifier"] in expected_ids
+        if record["identifier"] in NEW_RECORDS | EXISTING_REVISED_RECORDS
     }
     for identifier, record in records.items():
         expected_range, fixed = (NEW_RECORDS | EXISTING_REVISED_RECORDS)[identifier]

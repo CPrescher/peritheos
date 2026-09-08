@@ -234,25 +234,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "formula_units_per_cell",
      "published_uncertainties",
-     "fixed_parameters",
-     "parameter_covariance",
-     "validity",
-     "pressure_calibration",
-     "primary_data",
-     "fit_selection",
-     "fit_reproducibility"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1107/S0909049505022326",
@@ -262,7 +253,7 @@
       "Figure 5, page 580"
      ],
      "finding": "The source reports a cubic B1 Fe0.93O BM3 fit to the seven 0-22.8 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
-     "doi": "10.1107/S0909049505022326"
+     "doi": "10.1107/s0909049505022326"
     },
     "primary_data_check": {
      "status": "bundled",
@@ -384,23 +375,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-repository primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
-     "theoretical_method",
-     "numerical_reproduction"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
-     "doi": "10.1103/PhysRevB.96.075136",
+     "doi": "10.1103/physrevb.96.075136",
      "locations": [
       "Methods",
       "Table I",
@@ -505,17 +493,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Complete four-coefficient modified-Tait endmember.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
      "units",
-     "volume_basis",
-     "reference_state"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",

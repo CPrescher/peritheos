@@ -1,4 +1,4 @@
-"""Holland-Powell thermal modified Tait equation of state."""
+"""Holland-Powell volume-independent Einstein thermal pressure."""
 
 from __future__ import annotations
 
@@ -6,8 +6,10 @@ import numpy as np
 from scipy.constants import R
 
 from peritheos.eos import (
+    EosBase,
     NumericType,
     ThermalEOS,
+    _native_for_exact_model,
     _native_thermal_evaluate,
     validate_finite_scalar,
     validate_positive_scalar,
@@ -17,11 +19,13 @@ from peritheos.eos.rt import ModifiedTait
 from peritheos.errors import ConfigurationError
 
 
-class ThermalModifiedTait(ThermalEOS):
-    """Holland-Powell thermal modified Tait EOS.
+class HollandPowellThermalPressure(ThermalEOS):
+    """Holland-Powell volume-independent Einstein thermal pressure.
 
-    The model combines a modified Tait reference isotherm with an Einstein
-    thermal pressure for which ``alpha * K / C_V`` is constant.
+    The model composes any reference isotherm exposing ``K0`` with an Einstein
+    thermal pressure for which ``alpha * K / C_V`` is constant.  The number of
+    atoms ``n`` cancels from pressure, but is retained so the caloric helper
+    methods have an explicit molar basis.
 
     Reference: Holland, T. J. B. & Powell, R. (2011), Journal of Metamorphic
     Geology 29, 333-383, doi:10.1111/j.1525-1314.2010.00923.x.
@@ -29,26 +33,29 @@ class ThermalModifiedTait(ThermalEOS):
 
     def __init__(
         self,
-        rt_eos: ModifiedTait,
+        rt_eos: EosBase,
         Tr: float,
         theta: float,
         alpha0: float,
         n: float,
     ) -> None:
-        if not isinstance(rt_eos, ModifiedTait):
-            raise ConfigurationError("ThermalModifiedTait requires a ModifiedTait EOS")
+        if not hasattr(rt_eos, "K0"):
+            raise ConfigurationError(
+                "HollandPowellThermalPressure requires a reference EOS exposing K0"
+            )
         super().__init__(rt_eos)
         self.Tr = validate_positive_scalar(Tr, "Tr")
         self.theta = validate_positive_scalar(theta, "theta")
         self.alpha0 = validate_finite_scalar(alpha0, "alpha0")
         self.n = validate_positive_scalar(n, "n")
         self._cv0 = float(self._einstein_heat_capacity(self.Tr))
-        self._pressure_factor = self.alpha0 * self.rt_eos.K0 / self._cv0
-        if type(self) is ThermalModifiedTait and type(rt_eos) is ModifiedTait:
+        self._pressure_factor = self.alpha0 * float(self.rt_eos.K0) / self._cv0
+        reference_native = _native_for_exact_model(rt_eos)
+        if type(self) is HollandPowellThermalPressure and reference_native is not None:
             from peritheos import _rust
 
-            self._native = _rust.ThermalEos.thermal_modified_tait(
-                rt_eos._native, self.Tr, self.theta, self.alpha0, self.n
+            self._native = _rust.ThermalEos.holland_powell_thermal_pressure(
+                reference_native, self.Tr, self.theta, self.alpha0, self.n
             )
 
     def _einstein_energy(self, T: NumericType) -> NumericType:
@@ -111,6 +118,28 @@ class ThermalModifiedTait(ThermalEOS):
             volumes, _ = self._broadcast_state(V, T)
         result = volumes * self._pressure_factor * 1.0e4
         return self._scalar_or_array(np.asarray(result, dtype=float))
+
+
+class ThermalModifiedTait(HollandPowellThermalPressure):
+    """Compatibility form requiring a modified-Tait reference isotherm."""
+
+    def __init__(
+        self,
+        rt_eos: ModifiedTait,
+        Tr: float,
+        theta: float,
+        alpha0: float,
+        n: float,
+    ) -> None:
+        if not isinstance(rt_eos, ModifiedTait):
+            raise ConfigurationError("ThermalModifiedTait requires a ModifiedTait EOS")
+        super().__init__(rt_eos, Tr, theta, alpha0, n)
+        if type(self) is ThermalModifiedTait and type(rt_eos) is ModifiedTait:
+            from peritheos import _rust
+
+            self._native = _rust.ThermalEos.thermal_modified_tait(
+                rt_eos._native, self.Tr, self.theta, self.alpha0, self.n
+            )
 
 
 HollandPowell2011 = ThermalModifiedTait

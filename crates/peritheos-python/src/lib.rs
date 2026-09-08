@@ -17,10 +17,10 @@ use peritheos::isothermal::{
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
-    DorogokupetsOganov2007Parameters, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
-    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
+    DorogokupetsOganov2007Parameters, HollandPowellThermalPressure, LinearThermalPressure,
+    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    ReferenceStateEos, ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters,
+    ThermalExpansionLaw, ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
 };
 use peritheos::{CaloricEos, EosError, EosResult, IsothermalEos, ThermalEos};
 use pyo3::exceptions::PyRuntimeError;
@@ -494,6 +494,7 @@ enum ThermalModel {
     SecondOrderTaylorThermalPressure(SecondOrderTaylorThermalPressure<RtModel>),
     MieGruneisenDebye(MieGruneisenDebye<RtModel>),
     MieGruneisenEinstein(MieGruneisenEinstein<RtModel>),
+    HollandPowellThermalPressure(HollandPowellThermalPressure<RtModel>),
     ThermalModifiedTait(ThermalModifiedTait),
     Sokolova2016(MultiOscillatorGruneisen<RtModel>),
     ThermalReferenceState(ThermalReferenceState<RtModel>),
@@ -509,6 +510,7 @@ impl ThermalModel {
             Self::SecondOrderTaylorThermalPressure(_) => "SecondOrderTaylorThermalPressure",
             Self::MieGruneisenDebye(_) => "MieGruneisenDebye",
             Self::MieGruneisenEinstein(_) => "MieGruneisenEinstein",
+            Self::HollandPowellThermalPressure(_) => "HollandPowellThermalPressure",
             Self::ThermalModifiedTait(_) => "ThermalModifiedTait",
             Self::Sokolova2016(_) => "MultiOscillatorGruneisenThermalEOS",
             Self::ThermalReferenceState(_) => "ThermalReferenceStateEOS",
@@ -537,6 +539,9 @@ impl ThermalModel {
             }
             Self::MieGruneisenEinstein(model) => {
                 evaluate_mie_quantity(&model, quantity, first, second)
+            }
+            Self::HollandPowellThermalPressure(model) => {
+                evaluate_caloric_quantity(&model, quantity, first, second)
             }
             Self::ThermalModifiedTait(model) => {
                 evaluate_caloric_quantity(&model, quantity, first, second)
@@ -574,6 +579,9 @@ impl ThermalModel {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::MieGruneisenEinstein(model) => {
+                model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
+            }
+            Self::HollandPowellThermalPressure(model) => {
                 model.volume_with_dac_confinement(cold_pressure, temperature, f_dac)
             }
             Self::ThermalModifiedTait(model) => {
@@ -819,6 +827,22 @@ impl PyThermalEos {
         Ok(Self {
             model: ThermalModel::ThermalModifiedTait(
                 ThermalModifiedTait::new(reference, tr, theta, alpha0, n)
+                    .map_err(to_python_error)?,
+            ),
+        })
+    }
+
+    #[staticmethod]
+    fn holland_powell_thermal_pressure(
+        rt_eos: PyRef<'_, PyRtEos>,
+        tr: f64,
+        theta: f64,
+        alpha0: f64,
+        n: f64,
+    ) -> PyResult<Self> {
+        Ok(Self {
+            model: ThermalModel::HollandPowellThermalPressure(
+                HollandPowellThermalPressure::new(rt_eos.model, tr, theta, alpha0, n)
                     .map_err(to_python_error)?,
             ),
         })

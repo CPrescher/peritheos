@@ -200,27 +200,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the primary article, the complete Table I structure, and independent Table III Vinet checkpoints.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystal_system",
-     "space_group",
-     "formula_units_per_cell",
-     "atom_sites",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "theoretical_method",
-     "pressure_range",
-     "independent_source_checkpoints"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf",
-     "doi": "10.1103/PhysRevB.90.140102",
+     "doi": "10.1103/physrevb.90.140102",
      "locations": [
       "Table I",
       "Computational methods",

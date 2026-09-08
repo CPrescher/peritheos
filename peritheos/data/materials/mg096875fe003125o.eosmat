@@ -155,23 +155,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "atomic_configuration",
-     "spin_state",
      "equation",
      "parameters",
      "units",
-     "theoretical_method",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/2003.12348",
-     "doi": "10.1103/PhysRevB.102.104112",
+     "doi": "10.1103/physrevb.102.104112",
      "locations": [
       "Computational method",
       "Table I"
@@ -267,23 +264,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the accepted manuscript/arXiv primary text and Table I.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "atomic_configuration",
-     "spin_state",
      "equation",
      "parameters",
      "units",
-     "theoretical_method",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/2003.12348",
-     "doi": "10.1103/PhysRevB.102.104112",
+     "doi": "10.1103/physrevb.102.104112",
      "locations": [
       "Computational method",
       "Table I"

@@ -124,25 +124,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "formula_units_per_cell",
      "published_uncertainties",
-     "fixed_parameters",
-     "parameter_covariance",
-     "validity",
-     "pressure_calibration",
-     "primary_data",
-     "fit_selection",
-     "fit_reproducibility"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1107/S0909049505022326",
@@ -152,7 +143,18 @@
       "Figure 5, page 580"
      ],
      "finding": "The source's preferred rhombohedral Fe0.93O parameterization is the ambient-reference BM3 cross-check on all nine 27.7-51.1 GPa rows, with V0 and K0 varied and K0'=4 fixed.",
-     "doi": "10.1107/S0909049505022326"
+     "doi": "10.1107/s0909049505022326"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-05",
+     "dataset_identifiers": [
+      "jacobsen_2005_table1_compression"
+     ],
+     "source_locations": [
+      "Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"
+     ],
+     "finding": "The complete multiphase table is transcribed, including all nine rhombohedral a, c, equivalent-hexagonal volume, and estimated-standard-deviation values."
     },
     "reported_parameterizations": [
      {
@@ -186,17 +188,6 @@
       ]
      }
     ],
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "jacobsen_2005_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"
-     ],
-     "finding": "The complete multiphase table is transcribed, including all nine rhombohedral a, c, equivalent-hexagonal volume, and estimated-standard-deviation values."
-    },
     "numerical_reproduction": {
      "published_curve_pressure_rmse_gpa": 0.4415688144,
      "published_curve_max_abs_residual_gpa": 0.7741052573,

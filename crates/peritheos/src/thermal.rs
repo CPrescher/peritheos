@@ -393,11 +393,11 @@ where
     }
 }
 
-/// Holland--Powell thermal modified Tait equation of state.
+/// Volume-independent Holland--Powell Einstein thermal pressure.
 #[derive(Clone, Copy, Debug, PartialEq)]
-pub struct ThermalModifiedTait {
-    /// Modified Tait reference isotherm.
-    pub rt_eos: ModifiedTait,
+pub struct HollandPowellThermalPressure<R> {
+    /// Reference isotherm.
+    pub rt_eos: R,
     /// Reference temperature in kelvin.
     pub tr: f64,
     /// Einstein characteristic temperature in kelvin.
@@ -410,22 +410,28 @@ pub struct ThermalModifiedTait {
     pressure_factor: f64,
 }
 
+/// Holland--Powell thermal pressure with a modified-Tait reference isotherm.
+pub type ThermalModifiedTait = HollandPowellThermalPressure<ModifiedTait>;
+
 /// Compatibility alias for [`ThermalModifiedTait`].
 pub type HollandPowell2011 = ThermalModifiedTait;
 
-impl ThermalModifiedTait {
-    /// Construct a Holland--Powell thermal modified Tait model.
+impl<R> HollandPowellThermalPressure<R>
+where
+    R: ReferenceStateEos,
+{
+    /// Construct a Holland--Powell Einstein thermal-pressure model.
     ///
     /// # Errors
     ///
     /// Returns an error for invalid or non-finite thermal parameters.
-    pub fn new(rt_eos: ModifiedTait, tr: f64, theta: f64, alpha0: f64, n: f64) -> EosResult<Self> {
+    pub fn new(rt_eos: R, tr: f64, theta: f64, alpha0: f64, n: f64) -> EosResult<Self> {
         let tr = positive_parameter(tr, "Tr")?;
         let theta = positive_parameter(theta, "theta")?;
         let alpha0 = finite_parameter(alpha0, "alpha0")?;
         let n = positive_parameter(n, "n")?;
         let cv0 = einstein_heat_capacity(theta, n, tr)?;
-        let pressure_factor = alpha0 * rt_eos.k0 / cv0;
+        let pressure_factor = alpha0 * rt_eos.reference_bulk_modulus() / cv0;
         finite_result(pressure_factor)?;
         Ok(Self {
             rt_eos,
@@ -449,8 +455,11 @@ impl ThermalModifiedTait {
     }
 }
 
-impl ThermalEos for ThermalModifiedTait {
-    type Reference = ModifiedTait;
+impl<R> ThermalEos for HollandPowellThermalPressure<R>
+where
+    R: ReferenceStateEos,
+{
+    type Reference = R;
 
     fn reference_eos(&self) -> &Self::Reference {
         &self.rt_eos
@@ -470,7 +479,10 @@ impl ThermalEos for ThermalModifiedTait {
     }
 }
 
-impl CaloricEos for ThermalModifiedTait {
+impl<R> CaloricEos for HollandPowellThermalPressure<R>
+where
+    R: ReferenceStateEos,
+{
     fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         positive_state(volume, "volume")?;
         einstein_heat_capacity(self.theta, self.n, temperature)

@@ -242,20 +242,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The complete five-page primary article was audited directly. Its equation, coefficients, 30-atom cell basis, calculated E-V table, and pressure reproduction support an executable static BM3 record despite the explicitly documented Table 1 unit-label error.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
-     "volume_basis",
      "reference_state",
      "phase",
-     "crystallography",
      "published_uncertainties",
-     "validity",
-     "primary_data",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-1999-1017",
@@ -432,22 +428,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The primary article, its complete official Table S1 data deposit, the exact thermal equations, conventional-cell basis, phase and composition scope, Pt pressure scale, and an independent Peritheos refit were audited directly.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
-     "volume_basis",
      "reference_state",
-     "composition",
      "phase",
-     "pressure_scale",
-     "temperature_model",
      "published_uncertainties",
-     "validity",
-     "primary_data",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2023JB028026",
@@ -459,7 +449,7 @@
       "official author data deposit, doi:10.5281/zenodo.8399354, Table S1"
      ],
      "finding": "The preferred published model is an executable BM3-MGD EOS for nominal MgCO3 magnesite with V0=280.71 A^3 fixed, a 300 K reference isotherm, and n=5. Its integrated-Gruneisen Debye-temperature relation is fully supported by Peritheos. The separate Pt pressure calibration uses Fei et al.'s distinct variable-exponent relation.",
-     "doi": "10.1029/2023JB028026"
+     "doi": "10.1029/2023jb028026"
     },
     "primary_data_check": {
      "status": "bundled",

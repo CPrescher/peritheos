@@ -110,22 +110,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final primary article and its described electronic supplement; LitCurate was discovery-only.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "volume_basis",
-     "thermodynamic_basis"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf",
-     "doi": "10.1029/2004GL020237",
+     "doi": "10.1029/2004gl020237",
      "locations": [
       "Paragraphs 3-4",
       "Electronic data supplement Table 2",

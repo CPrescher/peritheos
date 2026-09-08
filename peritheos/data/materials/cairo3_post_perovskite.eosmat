@@ -215,24 +215,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the author-uploaded copy of the final American Mineralogist article, with the complete printed Table 1 transcribed. LitCurate was used only for discovery.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "phase",
-     "structure",
-     "cell_volume_and_z",
      "equation",
      "parameters",
-     "fixed_parameter_status",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "covariance_availability",
-     "experimental_range",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases",

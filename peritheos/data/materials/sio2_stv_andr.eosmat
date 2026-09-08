@@ -279,21 +279,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, parameters, reference state, uncertainties, material identity, calibration, complete observations, and numerical values were checked against the primary publication; LitCurate was used only to discover the DOI.",
-    "audit_date": "2026-09-04",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-06",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "volume_basis",
      "published_uncertainties",
-     "fixed_parameters",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2011JB009100",
@@ -304,7 +299,7 @@
       "Discussion, paragraph 24"
      ],
      "finding": "The source measures pure, Al-free, rutile-type SiO2 stishovite and fits all P-V-T data jointly to an MGD model with either Vinet or BM3 as the 300 K reference isotherm. The presentation-leading Vinet solution is represented exactly; V0 and a are fixed and the remaining five coefficients are fitted.",
-     "doi": "10.1029/2011JB009100"
+     "doi": "10.1029/2011jb009100"
     },
     "primary_data_check": {
      "status": "bundled",
@@ -407,18 +402,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
-     "uncertainties",
-     "volume_basis",
+     "units",
      "reference_state",
-     "theoretical_method"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/pdf/1001.2066",
@@ -523,17 +516,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Complete four-coefficient modified-Tait endmember.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
      "units",
-     "volume_basis",
-     "reference_state"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",

@@ -2,10 +2,10 @@ use peritheos::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
 use peritheos::thermal::{
     debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw,
     DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
-    DoubleDebyeLogMomentHelmholtz, LinearThermalPressure, LogVolumeThermalPressure,
-    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceVolumeLaw,
-    SecondOrderTaylorThermalPressure, Sokolova2016, SokolovaParameters, ThermalExpansionLaw,
-    ThermalModifiedTait, ThermalReferenceState, GAS_CONSTANT,
+    DoubleDebyeLogMomentHelmholtz, HollandPowellThermalPressure, LinearThermalPressure,
+    LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, Sokolova2016, SokolovaParameters,
+    ThermalExpansionLaw, ThermalModifiedTait, ThermalReferenceState, GAS_CONSTANT,
 };
 use peritheos::{CaloricEos, EosError, IsothermalEos, ThermalEos};
 use serde_json::Value;
@@ -640,6 +640,19 @@ fn shared_holland_powell_literature_case_matches() {
     assert_close(
         model.thermal_pressure(0.9, 1200.0).unwrap(),
         5.029_535_604_766_256,
+        1.0e-13,
+    );
+}
+
+#[test]
+fn holland_powell_thermal_pressure_accepts_bm3_reference() {
+    let reference = BM3::new(56.62, 327.0, 5.46).unwrap();
+    let model = HollandPowellThermalPressure::new(reference, 300.0, 298.0, 1.87e-5, 1.0).unwrap();
+
+    assert_close(model.thermal_pressure(52.0, 300.0).unwrap(), 0.0, 1.0e-14);
+    assert_close(
+        model.thermal_pressure(52.0, 2000.0).unwrap(),
+        11.142_220_284_845_664,
         1.0e-13,
     );
 }

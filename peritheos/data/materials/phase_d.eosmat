@@ -516,15 +516,6 @@
    },
    "notes": "Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
    "identifier": "phase_d_ant_a_shieh_2000_bm2_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary article reports the AntA pressure-volume series but does not identify an exact executable pressure-calibration equation, and no row-wise calibrant observables are available."
-    },
-    "audit_date": "2026-09-06"
-   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -552,17 +543,6 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "phase_d.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "phase_d_shieh_2000_table2_pv"
-     ],
-     "source_locations": [
-      "Table 2, page 71"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   },
@@ -609,15 +589,6 @@
    },
    "notes": "Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.",
    "identifier": "phase_d_ant_b_shieh_2000_bm2_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary article reports the AntB pressure-volume series but does not identify an exact executable pressure-calibration equation, and no row-wise calibrant observables are available."
-    },
-    "audit_date": "2026-09-06"
-   },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -645,17 +616,6 @@
      "version": "0.10.0",
      "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
      "file": "phase_d.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "phase_d_shieh_2000_table2_pv"
-     ],
-     "source_locations": [
-      "Table 2, page 71"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
     }
    }
   }

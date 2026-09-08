@@ -28,7 +28,8 @@
  "peaks": [],
  "eos_records": [
   {
-   "label": "Anzellini et al. (2025), BM3",
+   "label": "Anzellini et al. (2025), BM3 + HP",
+   "equation_kind": "thermal",
    "reference": {
     "authors": [
      "Anzellini",
@@ -63,13 +64,112 @@
     "K0_prime": 0.03
    },
    "fixed_parameters": [],
+   "thermal": {
+    "type": "HollandPowellThermalPressure",
+    "model": "holland_powell_thermal_pressure",
+    "parameters": {
+     "Tr": 300.0,
+     "theta": 298.0,
+     "alpha0": 1.87e-05,
+     "n": 1.0
+    },
+    "parameter_errors": {
+     "alpha0": 8e-07
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta",
+     "n"
+    ]
+   },
    "experimental_pressure_range_gpa": [
     0.0,
     101.0
    ],
    "temperature_ref": 300.0,
-   "notes": "Experimental 300 K isotherm combined with resistive- and laser-heating data; fcc Ir remained stable to 101 GPa and 5600 K in the investigated range.",
+   "experimental_temperature_range_k": [
+    300.0,
+    5600.0
+   ],
+   "notes": "Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the laser-heating observations but not the Monteseguro 300 K series or the 833 K resistive-heating series visible in Supplementary Figure 5; neither paper publishes the regression weights or covariance. A source-conditioned fit therefore holds the published BM3 coefficients fixed and tests alpha0 only; a four-parameter fit to the laser-heating rows alone is reported as a non-identifiability diagnostic, not as a reproduction of the combined fit. fcc Ir remained stable to 101 GPa and 5600 K in the investigated range.",
    "identifier": "iridium_anzellini_2025_bm3_1",
+   "fit_datasets": [
+    "iridium_anzellini_2025_tables_s1_s3_pvt"
+   ],
+   "fit_provenance": {
+    "software": {
+     "name": "EosFit7",
+     "version": "not reported"
+    },
+    "dataset": "iridium_anzellini_2025_tables_s1_s3_pvt",
+    "selection": {
+     "published_scope": "Monteseguro et al. (2019) 300 K data plus present resistive-heating and laser-heating observations.",
+     "reproduction_scope": "All 122 Supplementary Tables 1-3 laser-heating rows; the published BM3 coefficients are fixed because the 300 K and 833 K fit rows are not numerically published."
+    },
+    "objective": "EosFit7 combined P-V-T regression; residual space and weights were not reported.",
+    "refined_parameters": [
+     "V0",
+     "K0",
+     "K0_prime",
+     "alpha0"
+    ],
+    "fixed_parameters": [
+     "Tr",
+     "theta",
+     "n"
+    ],
+    "statistics": {
+     "published_parameter_uncertainties": "Reported in Table 1; no goodness-of-fit statistic or covariance was published."
+    },
+    "reproduction": {
+     "software": "Peritheos fit_joint_eos",
+     "selection": "All 122 numerically published laser-heating rows",
+     "objective": "Unweighted pressure residuals",
+     "refined_parameters": [
+      "alpha0"
+     ],
+     "fixed_parameters": [
+      "V0",
+      "K0",
+      "K0_prime",
+      "Tr",
+      "theta",
+      "n"
+     ],
+     "status": "conditional thermal-term check; not a reproduction of the complete combined fit"
+    },
+    "source_model": "BM3 300 K reference isotherm plus Holland-Powell Einstein thermal pressure",
+    "temperature_reduction": "Arithmetic mean of simultaneous upstream and downstream spectral-radiometry temperatures.",
+    "unavailable_details": [
+     "Monteseguro et al. (2019) row-level 300 K pressure-volume observations",
+     "present-study 833 K resistive-heating pressure-volume observations",
+     "source row selection after the stated plus-or-minus 100 K averaging",
+     "regression weights",
+     "parameter covariance"
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Anzellini et al. (2025), Equations 1-3: 300 K BM3 reference pressure plus a volume-independent Holland-Powell Einstein thermal-pressure increment.",
+    "V0": "Table 1, experimental BM3 + HP row, A^3 per conventional fcc cell.",
+    "K0": "Table 1, experimental BM3 + HP row, GPa.",
+    "K0_prime": "Table 1, experimental BM3 + HP row, dimensionless.",
+    "Tr": "Equations 1-2 use 300 K as the reference temperature.",
+    "theta": "Text immediately following Equation 2 fixes the Einstein temperature at 298 K for Ir.",
+    "alpha0": "Table 1, experimental BM3 + HP row, K^-1.",
+    "n": "One atom per Ir formula unit; n cancels algebraically from the source pressure equation and is retained only to define the caloric molar basis."
+   },
+   "source_lineage": [
+    {
+     "role": "ambient-temperature pressure-volume observations used in the combined fit",
+     "citation": "Monteseguro et al. (2019)",
+     "doi": "10.1038/s41598-019-45401-x"
+    },
+    {
+     "role": "thermal-pressure equation, combined coefficients, and resistive- and laser-heating observations",
+     "citation": "Anzellini et al. (2025)",
+     "doi": "10.1038/s43246-025-00963-4"
+    }
+   ],
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -135,9 +235,12 @@
      "access_url": "https://doi.org/10.1038/s43246-025-00963-4",
      "locations": [
       "Model description",
-      "Table 1, combined experimental fit"
+      "Equations 1-3",
+      "Table 1, combined experimental fit",
+      "Methods, temperature averaging",
+      "Supplementary Figure 5"
      ],
-     "finding": "The stored record is the 300 K BM3 subset of a combined thermal fit.",
+     "finding": "The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.",
      "doi": "10.1038/s43246-025-00963-4"
     },
     "migration_source": {
@@ -155,317 +258,8 @@
      "source_locations": [
       "Supplementary Tables 1, 2, and 3"
      ],
-     "finding": "All 122 laser-heated Ir P-V-T observations printed in Supplementary Tables 1-3, retaining the applicable MgO or KCl calibrant and both pyrometry measurements."
+     "finding": "All 122 Ir P-V-T observations from the laser-heating runs printed in Supplementary Tables 1-3 are bundled, including two 300 K baseline rows and retaining the applicable MgO or KCl calibrant, both pyrometry measurements, and their source-required arithmetic mean. The numerical Monteseguro 300 K and present 833 K resistive-heating fit rows are not published, so the complete combined regression cannot be rerun exactly."
     }
-   }
-  },
-  {
-   "identifier": "iridium_lejaeghere_2016_wien2k_pbe_bm3",
-   "label": "Lejaeghere et al. (2016), WIEN2k PBE BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Lejaeghere",
-     "et al."
-    ],
-    "year": 2016,
-    "title": "Reproducibility in density functional theory calculations of solids",
-    "source": "Science",
-    "volume": "351",
-    "locator": "aad3000",
-    "doi": "10.1126/science.aad3000"
-   },
-   "sample_composition": "Elemental Ir; archived Delta-project reference structure.",
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 192.217
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 58.0016,
-     "K0": 347.68,
-     "K0_prime": 5.18
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 0.0,
-   "pressure_range_status": "theoretical",
-   "validity": {
-    "pressure_gpa": [
-     -18.557200411609784,
-     23.137643096027112
-    ],
-    "temperature_k": [
-     0.0,
-     0.0
-    ],
-    "volume_ratio": [
-     0.9442592901296094,
-     1.0648030292950916
-    ],
-    "notes": [
-     "Static PBE fitting envelope, not an experimental phase-stability field.",
-     "Pressure bounds are derived by evaluating BM3 at the archived volume-envelope endpoints.",
-     "Use outside the archived seven-volume fitting envelope is extrapolation."
-    ]
-   },
-   "parameter_provenance": {
-    "equation": "Official eosfit.py version 3.1, standard third-order Birch-Murnaghan E(V) fit.",
-    "V0": "WIEN2k parameter table: 14.5004 A^3/atom; multiplied by Z=4 for the executable cell basis.",
-    "K0": "WIEN2k parameter table, GPa.",
-    "K0_prime": "WIEN2k parameter table, dimensionless BP column.",
-    "uncertainties": "The official archive publishes no coefficient uncertainties or covariance.",
-    "method": "Static WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE total energies at seven fixed cell volumes; no spin-orbit coupling."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
-      "source_location": "Official README.txt and eosfit.py",
-      "scope": "static total-energy calculations"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "No experimental pressure scale applies."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, coefficients, units, structures, and seven-volume workflow were checked against the primary paper and official archived supplement.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "theoretical_method",
-     "volume_range",
-     "numerical_reproduction"
-    ],
-    "primary_source_check": {
-     "access_url": "https://archive.materialscloud.org/record/2023.133",
-     "doi": "10.1126/science.aad3000",
-     "locations": [
-      "official archive WIEN2k.txt",
-      "official archive README.txt, eosfit.py, and CIFs.tar.gz"
-     ],
-     "finding": "The archived table explicitly reports per-atom V0, B0 in GPa, and dimensionless B1/BP from the documented seven-point BM3 workflow."
-    },
-    "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "official archive WIEN2k.txt",
-      "official archive CIFs.tar.gz/Ir.cif"
-     ],
-     "finding": "The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable."
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation, workflow, and reference implementation",
-     "citation": "Lejaeghere et al. (2014), Section IV.A and official eosfit.py",
-     "doi": "10.1080/10408436.2013.772503",
-     "url": "https://backoffice.biblio.ugent.be/download/4188194/4188200"
-    },
-    {
-     "role": "multi-code reproducibility campaign",
-     "citation": "Lejaeghere et al. (2016)",
-     "doi": "10.1126/science.aad3000"
-    },
-    {
-     "role": "WIEN2k coefficients and frozen elemental structure",
-     "citation": "Delta project web site archive, 10.24435/materialscloud:5e-mv",
-     "url": "https://archive.materialscloud.org/record/2023.133",
-     "license": "CC BY 4.0",
-     "files": [
-      "WIEN2k.txt",
-      "CIFs.tar.gz/Ir.cif"
-     ]
-    }
-   ],
-   "notes": "Static 0 K WIEN2k 13.1 all-electron APW+lo, scalar-relativistic PBE BM3 fit to seven frozen-geometry E(V) calculations. The official workflow scales the archived equilibrium CIF to 94-106% of its volume; spin-orbit coupling is omitted."
-  },
-  {
-   "identifier": "iridium_delta_archive_experimental_reference_bm3",
-   "label": "Delta archive (2023), Ir compiled experimental-reference BM3",
-   "record_kind": "derived",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Stefaan Cottenier"
-    ],
-    "year": 2023,
-    "title": "Delta project \u2014 archive of old website",
-    "source": "Materials Cloud Archive",
-    "doi": "10.24435/materialscloud:5e-mv"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 56.2563451932,
-     "K0": 362.2372836709,
-     "K0_prime": 4.83
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 0.0,
-   "pressure_range_status": "reference_parameterization",
-   "validity": {
-    "volume_ratio": [
-     0.94,
-     1.06
-    ],
-    "notes": [
-     "Historical Delta integration window for the constructed BM3 reference curve; not a measured pressure/volume envelope.",
-     "No phase-stability or extrapolation claim is made."
-    ]
-   },
-   "notes": "This is a derived Delta-comparison reference curve, not a fit to one experimental P-V dataset. V0, K0, and K0-prime were compiled from heterogeneous sources; the review authors approximately corrected V0 and K0 to a static-lattice 0 K comparison state and explicitly left K0-prime uncorrected.",
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "other",
-      "source_location": "Heterogeneous property compilation documented in Lejaeghere et al. (2014) Supplementary Tables 2.2-2.4",
-      "scope": "derived comparison coefficients, not one pressure-volume experiment"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "There are no row-level observations to re-reduce under a common pressure calibration."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "equation": "Lejaeghere et al. (2014), equation (2), and archived calcDelta.py: third-order Birch-Murnaghan construction.",
-    "V0": "Archived exp.txt exact corrected value in A^3/atom, multiplied by the material card's formula_units_per_cell; Supplementary Table 2.2 traces the ambient input to Villars and Daams (1993).",
-    "K0": "Archived exp.txt exact corrected value in GPa; Supplementary Table 2.3 traces the uncorrected input to C. Kittel, Introduction to Solid State Physics, 8th edition (2005).",
-    "K0_prime": "Archived exp.txt exact dimensionless value; the review applies no thermal or zero-point correction. Supplementary Table 2.4 cites M. W. Guinan and D. J. Steinberg, Pressure and temperature derivatives of the isotropic polycrystalline shear modulus for 65 elements, Journal of Physics and Chemistry of Solids 35, 1501-1512 (1974).",
-    "uncertainties": "The archive and review publish no uncertainty or covariance for the constructed triplet."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Exact archived coefficients, BM3 construction, units, static-lattice reference interpretation, source hierarchy, archive checksums, and cell normalization were checked. This validation does not imply that raw experimental observations or a reproducible experimental fit exist.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "canonical_archive_doi",
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "cell_normalization",
-     "comparison_window",
-     "archive_checksums",
-     "upstream_data_recovery"
-    ],
-    "primary_source_check": {
-     "access_url": "https://archive.materialscloud.org/record/2023.133",
-     "doi": "10.24435/materialscloud:5e-mv",
-     "locations": [
-      "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
-      "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
-     ],
-     "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
-    },
-    "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
-      "Lejaeghere et al. (2014) Supplementary Tables 2.2-2.4"
-     ],
-     "finding": "The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it."
-    },
-    "upstream_data_recovery": {
-     "audit_date": "2026-09-07",
-     "manifest": "datasets/deltaproject-experimental-reference-source.json",
-     "V0": {
-      "status": "upstream_table_identified",
-      "finding": "Villars and Daams (1993) is a crystallographic structure/volume compilation, not a pressure-volume experiment. Supplementary Table 2.2 preserves the rounded ambient volumes and the applied thermal and zero-point shifts; no per-element raw compression observations exist in this branch."
-     },
-     "K0": {
-      "status": "secondary_table_recovered",
-      "finding": "Kittel Table 3 is the immediate source for 40 selected metals. The table itself identifies Gschneidner (1964), DOI 10.1016/S0081-1947(08)60518-4, as its principal compilation and Birch (1966) as an additional source, and explicitly advises consulting original references for research use. This branch is therefore not raw data."
-     },
-     "K0_prime": {
-      "status": "coefficient_source_identified_full_table_unavailable",
-      "finding": "The cited 1974 paper is an experimental/estimated elastic-modulus derivative compilation, not a row-level pressure-volume dataset. Its full coefficient table was not lawfully accessible during this audit, so the seven Delta values are retained only as supplement/archive coefficients."
-     }
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "exact compiled-reference coefficients and comparison implementation",
-     "citation": "Delta project \u2014 archive of old website, 10.24435/materialscloud:5e-mv, Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
-     "doi": "10.24435/materialscloud:5e-mv",
-     "url": "https://archive.materialscloud.org/record/2023.133",
-     "license": "CC BY 4.0",
-     "sha256": "d51a80e1af9cd2d55557cb2f807a77743ff02fe875328c31e287b1db5da59cbe"
-    },
-    {
-     "role": "BM3 equation, 0 K/zero-point correction method, and property-level source mapping",
-     "citation": "Error estimates for solid-state density-functional theory predictions: an overview by means of the ground-state elemental crystals, Section II.B and Supplementary Tables 2.2-2.4",
-     "doi": "10.1080/10408436.2013.772503",
-     "url": "https://arxiv.org/abs/1204.2733"
-    },
-    {
-     "citation": "P. Villars and J. L. C. Daams, Atomic-environment classification of the chemical elements, Journal of Alloys and Compounds 197, 177-196 (1993)",
-     "doi": "10.1016/0925-8388(93)90041-K",
-     "role": "ambient crystallographic V0 input"
-    },
-    {
-     "citation": "C. Kittel, Introduction to Solid State Physics, 8th edition (2005)",
-     "role": "uncorrected B0 input"
-    },
-    {
-     "citation": "M. W. Guinan and D. J. Steinberg, Pressure and temperature derivatives of the isotropic polycrystalline shear modulus for 65 elements, Journal of Physics and Chemistry of Solids 35, 1501-1512 (1974)",
-     "doi": "10.1016/S0022-3697(74)80278-7",
-     "role": "uncorrected B0-prime input cited by the 2014 supplement"
-    }
-   ],
-   "derivation": {
-    "source_kind": "published_table",
-    "source_identifier": "Delta_v3-1_0.zip/history.tar.gz/history/exp.txt",
-    "source_version": "Delta calculation package 3.1, archived 2023-08-29",
-    "method": "Interpret the archived per-atom V0, B0, and B0-prime triplet as the third-order Birch-Murnaghan curve used by the Delta comparison scripts, then multiply V0 by the material card's formula_units_per_cell without changing pressure.",
-    "sampling_domain": {
-     "volume_ratio": [
-      0.94,
-      1.06
-     ],
-     "meaning": "historical asymmetric Delta comparison window, not experimental coverage"
-    },
-    "software": {
-     "name": "Peritheos",
-     "reproduction": "scripts/reproduce_deltaproject_experimental_reference.py"
-    },
-    "access_and_licensing": "The exact exp.txt coefficients are redistributed from the Materials Cloud archive under CC BY 4.0. The 2014 supplement is used for interpretation and citations, not copied as a dataset."
    }
   }
  ],
@@ -480,7 +274,7 @@
   {
    "identifier": "iridium_anzellini_2025_tables_s1_s3_pvt",
    "kind": "pressure_volume_temperature_lattice_parameters",
-   "description": "All 122 laser-heated Ir P-V-T observations printed in Supplementary Tables 1-3, retaining the applicable MgO or KCl calibrant and both pyrometry measurements.",
+   "description": "All 122 Ir P-V-T observations from the laser-heating runs printed in Supplementary Tables 1-3, including two 300 K baseline rows and retaining the applicable MgO or KCl calibrant and both pyrometry measurements.",
    "source_location": "Supplementary Tables 1, 2, and 3",
    "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00963-4/MediaObjects/43246_2025_963_MOESM1_ESM.pdf",
    "columns": [
@@ -541,6 +335,13 @@
      "of": "downstream_temperature_k"
     },
     {
+     "name": "mean_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value",
+     "description": "Arithmetic mean of the simultaneous upstream and downstream temperatures, as required by the article's Methods section."
+    },
+    {
      "name": "temperature_difference_k",
      "quantity": "reported_temperature_difference",
      "unit": "K",
@@ -549,10 +350,10 @@
    ],
    "resource": {
     "path": "datasets/iridium-anzellini-2025-tables-s1-s3-pvt.csv",
-    "sha256": "09209dc9aa2012ebbb234db8cbf62f0b8732ec3e6d64a374b59000376bc8e2d9",
+    "sha256": "2133efc7b402be8d804d098ef8badfe0e46d8a7ffc91351ca71bffaf6fc85250",
     "media_type": "text/csv"
    },
-   "notes": "The applicable calibrant is MgO for runs 1, 3, 5, and 8 and KCl for runs 2, 4, 6, and 7, as indicated by the populated source columns. Parenthesized pyrometry errors are retained without assigning a confidence convention. The reported Delta-T column is transcribed verbatim even where it differs from the arithmetic difference between the rounded TUS and TDS values. The source tabulates no row-wise pressure or lattice-parameter errors.",
+   "notes": "The applicable calibrant is MgO for runs 1, 3, 5, and 8 and KCl for runs 2, 4, 6, and 7, as indicated by the populated source columns. mean_temperature_k is derived exactly as (TUS+TDS)/2 because the article states that this average is the final temperature used in analysis. Parenthesized pyrometry errors are retained without assigning a confidence convention; no uncertainty is invented for the derived mean. The reported Delta-T column is transcribed verbatim even where it differs from the arithmetic difference between the rounded TUS and TDS values. The source tabulates no row-wise pressure or lattice-parameter errors.",
    "reference": {
     "authors": [
      "Anzellini",

@@ -175,26 +175,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_basis",
      "equation",
      "parameters",
-     "fixed_parameter_status",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1029/98JB01575",
-     "doi": "10.1029/98JB01575",
+     "doi": "10.1029/98jb01575",
      "locations": [
       "Experimental method",
       "Table 1",

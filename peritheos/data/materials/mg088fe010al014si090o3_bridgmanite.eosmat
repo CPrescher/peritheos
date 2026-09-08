@@ -251,23 +251,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM2 parameters reproduce the 64.6 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.7195 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "cell_setting",
-     "formula_units_per_cell",
-     "structure",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data",
-     "fit_preference"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2023-8969",
@@ -485,23 +478,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article and official MSA deposit AM-24-58969. The published BM3 parameters reproduce the 4.2 GPa endpoint within its printed 1-sigma pressure uncertainty, while the complete recoverable CIF P-V series gives a 0.9291 GPa pressure RMSE. Exact coefficient refit parity is not claimed because the source does not identify the numerical covariance, error confidence, complete EosFit weight configuration, or whether the plotted individual-platelet volumes were the actual fit inputs.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "cell_setting",
-     "formula_units_per_cell",
-     "structure",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data",
-     "fit_preference"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2023-8969",

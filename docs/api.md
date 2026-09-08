@@ -78,7 +78,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 286 bundled
+`list_material_documents()` returns the identifiers of all 208 bundled
 materials. `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
@@ -140,7 +140,7 @@ coverage.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 813
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 487
 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
@@ -297,6 +297,7 @@ from peritheos.eos.thermal import (
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
     HollandPowell2011,
+    HollandPowellThermalPressure,
     LinearThermalPressure,
     LogVolumeThermalPressure,
     MieGruneisenDebye,
@@ -323,6 +324,7 @@ Thermal constructor signatures are:
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen"` |
 | `MieGruneisenEinstein` | `Tr, theta0, gamma0, q, n` |
+| `HollandPowellThermalPressure` | `Tr, theta, alpha0, n` |
 | `ThermalModifiedTait` | `Tr, theta, alpha0, n` |
 | `MultiOscillatorGruneisenThermalEOS` | `Tr, QE1o, mE1, QE2o, mE2, delta, t, a_0, m, g, e_0`, followed by optional `beta, QBo, d, mb, QB1o, d1, mb1, n` |
 | `Tange2009Debye` | `Tr, theta0, gamma0, a, b, n` |
@@ -332,7 +334,8 @@ Thermal constructor signatures are:
 
 The Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure
 classes accept any `EosBase` reference. `LogVolumeThermalPressure` and
-`SecondOrderTaylorThermalPressure` require `V0`; thermal modified Tait requires `ModifiedTait`; and
+`SecondOrderTaylorThermalPressure` require `V0`;
+`HollandPowellThermalPressure` requires `K0`; thermal modified Tait requires `ModifiedTait`; and
 `ThermalReferenceStateEOS` requires a reference that reconstructs through
 `V0` and `K0`. Energy-based thermal classes require molar volume in
 `J bar^-1 mol^-1`; `LinearThermalPressure`,
@@ -351,8 +354,8 @@ Their ordinary `temperature(P,V)` inversion and DAC
 `temperature_from_volumes()` inversion are supported. For the latter,
 both classes subtract their pressure on the 300 K isotherm so the
 confinement term excludes zero-point and baseline thermal pressure.
-`HollandPowell2011` is an alias for
-`ThermalModifiedTait`. Exact equations and parameter roles are documented
+`ThermalModifiedTait` is the modified-Tait compatibility subclass, and
+`HollandPowell2011` remains its alias. Exact equations and parameter roles are documented
 under [Thermal equations](equation-reference.md#thermal-equations).
 `Sokolova2016` is a compatibility alias for
 `MultiOscillatorGruneisenThermalEOS`.

@@ -189,25 +189,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The final publisher article and its official five-page Supporting Information S1 were audited directly. Only the reproducible high-pressure volumetric BM3 fit is executable; elastic-tensor-derived moduli and velocity/density summaries are retained as benchmarks, not encoded as EOS regressions.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "spin_state",
-     "magnetic_order",
-     "crystallography",
-     "volume_basis",
      "published_uncertainties",
-     "covariance_availability",
-     "validity",
-     "pressure_calibration",
-     "primary_observations",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168",
@@ -221,7 +212,7 @@
       "Supporting Information S1, Table S1, page 5"
      ],
      "finding": "Table 2 reports separate HOC and HC unit-cell BM3 fits. The HC self-consistent-U parameters reproduce the 12 rounded Table S1 rows from 30.01 to 139.99 GPa and the independently printed 60 and 90 GPa densities. The HOC row is excluded because its published V0 is inconsistent with the supplement's near-zero-pressure unit-cell volume.",
-     "doi": "10.1002/2017JB014168"
+     "doi": "10.1002/2017jb014168"
     },
     "primary_data_check": {
      "status": "bundled",

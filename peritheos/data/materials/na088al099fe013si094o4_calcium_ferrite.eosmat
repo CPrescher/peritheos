@@ -274,21 +274,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final article and official MSA deposit AM-23-128432. The published BM3 coefficients reproduce the complete printed compression table to 0.3887 GPa pressure RMSE; the missing row-wise pressure uncertainties and exact EosFit7c weight configuration prevent coefficient-level refit parity and are not inferred.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "cell_setting",
-     "formula_units_per_cell",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.2138/am-2022-8432",

@@ -126,24 +126,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the official full-text article and Table 1.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "phase",
-     "spin_state",
-     "model_configuration",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
-     "pressure_range",
-     "theoretical_method"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-     "doi": "10.1111/j.1365-246X.2012.05511.x",
+     "doi": "10.1111/j.1365-246x.2012.05511.x",
      "locations": [
       "Methods",
       "Table 1(a)",
@@ -248,21 +244,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Source-reported model-2 HS sensitivity configuration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "spin_state",
-     "model_configuration",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "reference_state"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-     "doi": "10.1111/j.1365-246X.2012.05511.x",
+     "doi": "10.1111/j.1365-246x.2012.05511.x",
      "locations": [
       "Table 1(a)",
       "Section 3.2"
@@ -361,21 +356,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Source-reported model-3 HS sensitivity configuration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "spin_state",
-     "model_configuration",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "reference_state"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-     "doi": "10.1111/j.1365-246X.2012.05511.x",
+     "doi": "10.1111/j.1365-246x.2012.05511.x",
      "locations": [
       "Table 1(a)",
       "Section 3.2"
@@ -474,22 +468,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Source-reported LS model-1 metastable comparison, explicitly non-default.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "spin_state",
-     "model_configuration",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
-     "stability_warning"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-     "doi": "10.1111/j.1365-246X.2012.05511.x",
+     "doi": "10.1111/j.1365-246x.2012.05511.x",
      "locations": [
       "Table 1(b)",
       "Sections 3.1-3.3"
@@ -588,22 +580,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Source-reported LS model-2 metastable sensitivity configuration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "spin_state",
-     "model_configuration",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
-     "stability_warning"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-     "doi": "10.1111/j.1365-246X.2012.05511.x",
+     "doi": "10.1111/j.1365-246x.2012.05511.x",
      "locations": [
       "Table 1(b)",
       "Sections 3.1-3.3"
@@ -702,22 +692,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Source-reported LS model-3 metastable sensitivity configuration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "composition",
-     "spin_state",
-     "model_configuration",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
-     "stability_warning"
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/gji/article/190/1/310/598134",
-     "doi": "10.1111/j.1365-246X.2012.05511.x",
+     "doi": "10.1111/j.1365-246x.2012.05511.x",
      "locations": [
       "Table 1(b)",
       "Sections 3.1-3.3"

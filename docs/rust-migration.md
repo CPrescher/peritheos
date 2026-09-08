@@ -72,6 +72,7 @@ available:
 | `MieGruneisenDebye` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n`; Debye-temperature law is fixed configuration |
 | `MieGruneisenEinstein` | any built-in isothermal EOS | `Tr, theta0, gamma0, q, n` |
 | `Tange2009Debye` | any built-in isothermal EOS | `Tr, theta0, gamma0, a, b, n` |
+| `HollandPowellThermalPressure` | any built-in isothermal EOS exposing `K0` | `Tr, theta, alpha0, n` |
 | `ThermalModifiedTait` | `ModifiedTait` | `Tr, theta, alpha0, n` |
 | `HollandPowell2011` | alias of `ThermalModifiedTait` | unchanged |
 | `MultiOscillatorGruneisenThermalEOS` | any built-in isothermal EOS | oscillator, electronic, anharmonic, and explicit atom-count parameters documented in the API reference |

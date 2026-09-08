@@ -31,7 +31,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
   - Linear thermal pressure
   - Second-order temperature-compression thermal pressure
   - Logarithmic-volume thermal pressure
-  - Holland-Powell thermal modified Tait
+  - Holland-Powell Einstein thermal pressure with generic reference isotherms
   - Double-Debye Helmholtz free-energy models
   - Dorogokupets-Oganov four-oscillator model
   - Multi-oscillator Gruneisen thermal pressure
@@ -45,7 +45,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Versioned material and EOS-record catalog with explicit literature provenance,
   calibration/data envelopes, extrapolation enabled by default, inversion, and
   measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 286-material/813-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 208-material/487-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and
@@ -109,7 +109,7 @@ gold = search_eos_records(formula="Au", thermal=True, pressure_gpa=200.0)[0]
 hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
 ```
 
-The normal catalog API constructs all 286 materials and 813 records directly
+The normal catalog API constructs all 208 materials and 487 records directly
 from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
 EOS records commonly used in that application, and

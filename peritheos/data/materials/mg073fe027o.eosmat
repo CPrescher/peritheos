@@ -158,26 +158,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "crystallography",
-     "formula_units_per_cell",
      "published_uncertainties",
-     "fixed_parameters",
-     "parameter_covariance",
-     "validity",
-     "pressure_calibration",
-     "primary_data",
-     "fit_selection",
-     "fit_reproducibility"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1107/S0909049505022326",
@@ -187,7 +177,7 @@
       "Results section 3.2 and Figures 6-7, pages 581-582"
      ],
      "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
-     "doi": "10.1107/S0909049505022326"
+     "doi": "10.1107/s0909049505022326"
     },
     "primary_data_check": {
      "status": "bundled",

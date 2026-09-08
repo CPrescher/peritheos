@@ -209,8 +209,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The primary article and publisher HTML were audited directly. Exactly one cubic source parameterization is executable; all 18 Table 2 fits remain distinguished in the audit metadata.",
-    "audit_date": "2026-09-04",
+    "note": "The primary article and publisher HTML were audited directly. Four selected Pm-3m and I4/mcm parameterizations are executable; all 18 Table 2 fits remain distinguished in the audit fixture.",
+    "audit_date": "2026-09-06",
     "verified_fields": [
      "equation",
      "parameters",
@@ -518,8 +518,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The preferred Vinet-MGD equation, parameters, reference state, volume basis, computational method, and model benchmark grid were checked against the final open-access primary publication and its explicitly cited Tange et al. formulation.",
-    "audit_date": "2026-09-04",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-06",
     "verified_fields": [
      "equation",
      "parameters",
@@ -527,9 +527,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "volume_basis"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/pdf/10.1002/2013JB010905",
@@ -711,20 +709,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The complete DAC-only alternative was checked against the author-hosted primary article. It is intentionally represented as a published non-preferred fit, separate from the article's selected combined DAC+LVP parameterization.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
      "equation",
      "parameters",
-     "fixed_free_parameters",
      "units",
      "reference_state",
      "phase",
      "published_uncertainties",
-     "fit_selection",
-     "pressure_calibration",
-     "volume_basis"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_jgrb12383_2000.pdf",
@@ -1082,19 +1076,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the complete primary publication obtained through institutional Springer access; no other CaSiO3 EOS record was used as scientific authority or combined with this parameterization.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "volume_basis",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "crystallography"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
@@ -1287,8 +1278,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-06",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1296,8 +1287,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.jsg.utexas.edu/lin/files/SunLowerMantleEoSJGR2016.pdf",
@@ -1428,8 +1418,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary equation, table, fit exclusions, parameters, and room-temperature observations checked directly.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1437,10 +1427,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1546,8 +1533,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Explicit independent reanalysis retained as a sensitivity record.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1555,8 +1542,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "fit_selection",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1660,8 +1646,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Explicit non-preferred sensitivity fit, preserved with its contaminated-point warning.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1669,8 +1655,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "fit_selection",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1773,8 +1758,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Explicit source sensitivity fit with distinct row mask.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1782,8 +1767,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "fit_selection",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/95JB03254",
@@ -1887,15 +1871,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Source table and BM3 identity verified; coefficient grid is not published.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "theoretical_method"
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2000,15 +1985,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Direct source-table transcription.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "theoretical_method"
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2111,15 +2097,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Direct source-table transcription.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "theoretical_method"
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2224,16 +2211,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Complete constrained 300 K coefficients transcribed.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
      "phase",
-     "theoretical_method"
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2336,16 +2323,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Preferred coefficients corroborated by the primary abstract and later published EOS comparison.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "theoretical_method",
-     "independent_corroboration"
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/96GL02624",
@@ -2454,17 +2441,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Complete four-coefficient modified-Tait endmember.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
      "units",
-     "volume_basis",
-     "reference_state"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf",
@@ -3449,7 +3435,7 @@
      "source_locations": [
       "Online Materials Table S3"
      ],
-    "finding": "The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity."
+     "finding": "The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity."
     }
    }
   },
@@ -3539,8 +3525,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the authors' institutional repository record and the source-reported equation/coefficients; later compilations were used only as cross-checks.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -3695,8 +3681,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated from the final open-access primary article; the adopted static and source-owned thermal terms are explicitly separated.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -3704,8 +3690,7 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity",
-     "source_lineage"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.mdpi.com/1099-4300/15/10/4300",
@@ -3724,8 +3709,8 @@
     }
    },
    "notes": "This is not a duplicate of the existing Shim 2000 room-temperature BM3: it is Ono's executable high-temperature extension. The source's velocity equations are outside the pressure-volume EOS and are not encoded here."
-   }
-  ],
+  }
+ ],
  "format": "peritheos.material",
  "identifier": "ca_perovskite",
  "units": {

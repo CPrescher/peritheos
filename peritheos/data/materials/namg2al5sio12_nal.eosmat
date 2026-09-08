@@ -220,21 +220,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final typeset MSA article. The conventional-cell conversion and BM3 convention reproduce the vector-digitized Figure 2c curve.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "cell_setting",
-     "formula_units_per_cell",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf",

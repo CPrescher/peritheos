@@ -5,6 +5,7 @@ import pytest
 
 from peritheos.eos.rt import BM3, ModifiedTait
 from peritheos.eos.thermal import (
+    HollandPowellThermalPressure,
     MieGruneisenDebye,
     MieGruneisenEinstein,
     ThermalModifiedTait,
@@ -127,6 +128,19 @@ def test_thermal_modified_tait_reference_properties():
     assert np.isfinite(eos.gruneisen_parameter(eos.rt_eos.V0, eos.Tr))
     pressure = eos.pressure(0.9, 1200.0)
     assert np.isclose(eos.volume(pressure, 1200.0), 0.9)
+
+
+def test_holland_powell_thermal_pressure_accepts_bm3_reference():
+    eos = HollandPowellThermalPressure(
+        BM3(56.62, 327.0, 5.46),
+        Tr=300.0,
+        theta=298.0,
+        alpha0=1.87e-5,
+        n=1.0,
+    )
+
+    assert eos.thermal_pressure(52.0, 300.0) == 0.0
+    assert eos.thermal_pressure(52.0, 2000.0) == pytest.approx(11.142220284845664)
 
 
 def test_thermal_modified_tait_subclass_retains_python_fallback():

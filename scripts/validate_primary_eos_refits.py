@@ -36,6 +36,7 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DEWAELE_REFIT_JSON = ROOT / "docs" / "data" / "dewaele-2019-static-dac-refit.json"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -88,11 +89,6 @@ INDIRECT_DATA = {
     "diamond_benedict_2014_dewaele_anchored": (
         "The linked diffraction rows constrain only the Dewaele reference isotherm; "
         "the Benedict thermal term is a separately published theoretical model."
-    ),
-    "iridium_anzellini_2025_bm3_1": (
-        "The bundled rows are all heated states. The stored coefficients are the "
-        "300 K reference part of a combined thermal fit, but the record does not "
-        "represent the source's thermal correction needed to refit those rows."
     ),
     "mgo_li_2006_bm3_absolute_acoustic": (
         "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not "
@@ -1205,6 +1201,150 @@ def _combined_fit_dataset(
     )
 
 
+def _fit_iridium_anzellini_2025(
+    record: dict[str, Any],
+    series: Series,
+    executable: ThermalEOS,
+    volume_scale: float,
+) -> dict[str, Any]:
+    """Reproduce the supported part of Anzellini's combined P-V-T fit.
+
+    The article supplies every laser-heating row but not the Monteseguro
+    300 K or present-study 833 K observations used by the published regression.
+    Holding the published BM3 reference fixed therefore tests the independently
+    constrained Holland-Powell alpha0 without pretending that the hot rows alone
+    identify the four published coefficients.
+    """
+    if series.temperature is None:
+        raise ValueError("Anzellini iridium reproduction requires mean temperature")
+    rt = record["eos"]["parameters"]
+    thermal = record["thermal"]["parameters"]
+    fixed = {
+        "rt_eos.V0": float(rt["V0"]) * volume_scale,
+        "rt_eos.K0": float(rt["K0"]),
+        "rt_eos.K0_prime": float(rt["K0_prime"]),
+        "Tr": float(thermal["Tr"]),
+        "theta": float(thermal["theta"]),
+        "n": float(thermal["n"]),
+    }
+    fit_arguments = {
+        "eos_class": type(executable),
+        "rt_eos_class": type(executable.rt_eos),
+        "volume": series.volume * volume_scale,
+        "temperature": series.temperature,
+        "pressure": series.pressure,
+        "configuration": _configuration(record),
+        "pressure_sigma": None,
+        "volume_sigma": None,
+        "temperature_sigma": None,
+        "absolute_sigma": False,
+        "max_nfev": 5000,
+    }
+    conditional = fit_joint_eos(
+        **fit_arguments,
+        initial={"alpha0": float(thermal["alpha0"])},
+        fixed=fixed,
+        bounds={"alpha0": _bounds("alpha0", float(thermal["alpha0"]))},
+    )
+    status, comparisons = _compare(record, conditional, True, volume_scale)
+    residuals = np.asarray(conditional.residuals, dtype=float)
+
+    full_initial = {
+        "rt_eos.V0": float(rt["V0"]) * volume_scale,
+        "rt_eos.K0": float(rt["K0"]),
+        "rt_eos.K0_prime": float(rt["K0_prime"]),
+        "alpha0": float(thermal["alpha0"]),
+    }
+    full = fit_joint_eos(
+        **fit_arguments,
+        initial=full_initial,
+        fixed={
+            name: value
+            for name, value in fixed.items()
+            if not name.startswith("rt_eos.")
+        },
+        bounds={name: _bounds(name, value) for name, value in full_initial.items()},
+    )
+    full_parameters = {
+        name: float(value)
+        for name, value in full.parameters.items()
+        if name in full_initial
+    }
+    full_parameters["rt_eos.V0"] /= volume_scale
+    full_residuals = np.asarray(full.residuals, dtype=float)
+
+    return {
+        "status": status,
+        "dataset_identifiers": [series.dataset_id],
+        "observations": int(series.pressure.size),
+        "selection": "all 122 Supplementary Tables 1-3 laser-heating rows",
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": [
+            float(np.min(series.temperature)),
+            float(np.max(series.temperature)),
+        ],
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+        },
+        "fit_kind": "conditional_holland_powell_thermal_pressure",
+        "objective": "unweighted_pressure_residuals",
+        "absolute_sigma": False,
+        "conditional_fixed_parameters": [
+            "rt_eos.V0",
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "Tr",
+            "theta",
+            "n",
+        ],
+        "free_parameters": list(conditional.free_parameters),
+        "parameters": comparisons,
+        "published_rmse_gpa": _published_rmse(
+            executable, volume_scale, series, float(thermal["Tr"])
+        ),
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": (
+            float(conditional.reduced_chi_square)
+            if np.isfinite(conditional.reduced_chi_square)
+            else None
+        ),
+        "degrees_of_freedom": int(conditional.degrees_of_freedom),
+        "solver_success": bool(conditional.success),
+        "solver_message": str(conditional.message),
+        "hot_rows_four_parameter_diagnostic": {
+            "purpose": (
+                "Demonstrates that the laser-heating rows alone do not identify "
+                "the BM3 reference and alpha0 jointly; this is not the source's "
+                "combined fit."
+            ),
+            "free_parameters": list(full.free_parameters),
+            "parameters": full_parameters,
+            "rmse_gpa": float(np.sqrt(np.mean(full_residuals**2))),
+            "solver_success": bool(full.success),
+            "solver_message": str(full.message),
+        },
+        "complete_combined_fit_status": "not_refittable_from_published_rows",
+        "qualification": (
+            "The exact Equations 1-3 thermal correction and source temperature "
+            "average are reproduced. With the published BM3 reference held fixed, "
+            "all 122 laser-heating rows independently refit alpha0. The article's "
+            "complete simultaneous BM3+alpha0 regression cannot be rerun because "
+            "the Monteseguro 300 K and present 833 K row-level observations, row "
+            "selection after plus-or-minus 100 K averaging, weights, and covariance "
+            "are not published."
+        ),
+    }
+
+
 def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
@@ -1344,6 +1484,15 @@ def _fit_record(
     executable = material.eos_records[0].eos
     thermal = isinstance(executable, ThermalEOS)
     static_initial, static_fixed = _static_parameters(record)
+
+    if record_id == "iridium_anzellini_2025_bm3_1":
+        assert thermal
+        return _fit_iridium_anzellini_2025(
+            record,
+            series,
+            executable,
+            material.eos_records[0].volume_scale,
+        )
 
     if record_id.startswith("b4c_somayazulu_2023_"):
         assert series.temperature is not None
@@ -2391,8 +2540,77 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _dewaele_2019_outcome(
+    document: dict[str, Any],
+    record: dict[str, Any],
+    refit: dict[str, Any],
+) -> dict[str, Any]:
+    """Translate the dedicated two-ruby-scale audit into the common ledger."""
+    z = float(document["formula_units_per_cell"])
+    fitted_atomic = refit["unweighted_pressure_residual_fit"]["parameters"]
+    fitted = {
+        "V0": float(fitted_atomic[0]) * z,
+        "K0": float(fitted_atomic[1]),
+        "K0_prime": float(fitted_atomic[2]),
+    }
+    published = {
+        name: float(record["eos"]["parameters"][name])
+        for name in ("V0", "K0", "K0_prime")
+    }
+    errors = record["parameter_errors"]
+    comparisons = []
+    for name in ("V0", "K0", "K0_prime"):
+        difference = fitted[name] - published[name]
+        published_error = float(errors[name])
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": published[name],
+                "published_error": published_error,
+                "refit": fitted[name],
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[name]),
+                "within_combined_2sigma": None,
+                "within_reported_95pct": abs(difference) <= published_error,
+                "similar": _similar(name, published[name], fitted[name]),
+            }
+        )
+    if not all(
+        item["within_reported_95pct"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError(
+            f"dedicated Dewaele audit no longer supports {record['identifier']}"
+        )
+    pressure_fit = refit["unweighted_pressure_residual_fit"]
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": refit["rows"],
+        "selection": refit["scope"],
+        "observed_pressure_range_gpa": refit["pressure_range_gpa"],
+        "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["V0", "K0", "K0_prime"],
+        "parameters": comparisons,
+        "rmse_gpa": pressure_fit["rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Dewaele (2019) refit completed",
+        "qualification": (
+            "Complete source rows for this material are bundled and the dedicated "
+            "two-ruby-scale refit recovers every coefficient within the published "
+            "95% interval. The common ledger classifies the result as similar, not "
+            "strict parity, because the dedicated audit does not infer a refit "
+            "covariance from rounded source rows."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
+    dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
+        "row_level_refits"
+    ]
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2427,7 +2645,15 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if (
+                record["identifier"] in dewaele_refits
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _dewaele_2019_outcome(
+                    document, record, dewaele_refits[record["identifier"]]
+                )
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

@@ -179,26 +179,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and candidate enumeration.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_basis",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
-     "doi": "10.1029/2011GL049519",
+     "doi": "10.1029/2011gl049519",
      "locations": [
       "Experimental Procedure, paragraphs 5-6",
       "Discussion, paragraphs 10-11",

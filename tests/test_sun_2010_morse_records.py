@@ -38,44 +38,13 @@ def test_sun_table_2_transcription_and_equation_invariants():
     assert result["largest_k0_prime_error"] < 1.0e-7
 
 
-def test_sun_production_records_match_transcribed_table():
-    source = {row["solid"]: row for row in _rows()}
+def test_sun_parameter_table_is_a_non_catalog_benchmark_fixture():
     records = []
     material_root = Path(__file__).parents[1] / "peritheos" / "data" / "materials"
     for path in material_root.glob("*.eosmat"):
         document = json.loads(path.read_text())
-        for record in document.get("eos_records", []):
-            if record.get("reference", {}).get("doi", "").lower() == DOI:
-                if "_low_" in record.get("identifier", ""):
-                    continue
-                records.append(record)
+        records.extend(document.get("eos_records", []))
 
-    assert records
-    assert len({record["identifier"] for record in records}) == len(records)
-    for record in records:
-        solid = record["parameter_provenance"]["source_solid"]
-        prefix = record["parameter_provenance"]["table_prefix"]
-        row = source[solid]
-        parameters = record["eos"]["parameters"]
-        assert parameters["V0"] == pytest.approx(
-            float(row["v0_cm3_mol"]) * 1.6605390671738466
-        )
-        assert parameters["K0"] == pytest.approx(float(row[f"{prefix}_k0_gpa"]))
-        assert parameters["K0_prime"] == pytest.approx(float(row[f"{prefix}_k0_prime"]))
-        assert record["experimental_pressure_range_gpa"] == [
-            0.0,
-            float(row["pressure_max_gpa"]),
-        ]
-
-
-def test_brass_is_not_promoted_to_a_material_record():
-    material_root = Path(__file__).parents[1] / "peritheos" / "data" / "materials"
-    identifiers = []
-    for path in material_root.glob("*.eosmat"):
-        document = json.loads(path.read_text())
-        identifiers.extend(
-            record["identifier"]
-            for record in document.get("eos_records", [])
-            if record.get("reference", {}).get("doi", "").lower() == DOI
-        )
-    assert not any("brass" in identifier for identifier in identifiers)
+    assert not any(
+        record.get("reference", {}).get("doi", "").lower() == DOI for record in records
+    )

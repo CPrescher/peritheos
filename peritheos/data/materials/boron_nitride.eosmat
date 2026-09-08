@@ -133,7 +133,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -339,19 +339,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The author-posted primary manuscript was checked for the equation baseline, fixed/fitted coefficients, uncertainties, phase and volume basis, calibration, complete Table IV observations, and numerical reproduction.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "volume_basis",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://arxiv.org/abs/cond-mat/0702656",

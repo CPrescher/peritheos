@@ -58,8 +58,9 @@ reference isotherm.
 The allowed reference EOS depends on the thermal formulation. The
 Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure models
 accept any isothermal `EosBase` model;
-`LogVolumeThermalPressure` additionally requires `V0`, and
-`ThermalModifiedTait` requires `ModifiedTait`.
+`LogVolumeThermalPressure` additionally requires `V0`,
+`HollandPowellThermalPressure` requires `K0`, and `ThermalModifiedTait`
+requires `ModifiedTait`.
 Because thermal pressure is calculated from molar energy divided
 by molar volume, energy-based models require the volume convention described
 under [Units and reference states](units.md). The volume-independent linear
@@ -77,10 +78,12 @@ correction instead inherits the reference EOS volume convention.
 | [`SecondOrderTaylorThermalPressure`](equation-reference.md#second-order-temperature-compression-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `eta0`, `c0`--`c5` | none |
 | [`LogVolumeThermalPressure`](equation-reference.md#logarithmic-volume-linear-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `alpha_KT_ref`, `dK_dT_V` | none |
 | [`ThermalReferenceStateEOS`](equation-reference.md#temperature-dependent-reference-state) | reference EOS exposing `V0`, `K0` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1`, `thermal_expansion_law`, `reference_volume_law` | none |
+| [`HollandPowellThermalPressure`](equation-reference.md#holland-powell-thermal-pressure) | reference EOS exposing `K0` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
 | [`ThermalModifiedTait`](equation-reference.md#thermal-modified-tait) | `ModifiedTait` | `Tr`, `theta`, `alpha0`, `n` | Holland-Powell Einstein pressure |
 | [`MultiOscillatorGruneisenThermalEOS`](equation-reference.md#multi-oscillator-gruneisen-thermal-pressure) | any `EosBase` | mode, Gruneisen, anharmonic, electronic parameters plus `n` | Multi-mode |
 
-`HollandPowell2011` is an alias for `ThermalModifiedTait`.
+`ThermalModifiedTait` is the modified-Tait compatibility form;
+`HollandPowell2011` remains its alias.
 
 `MultiOscillatorGruneisenThermalEOS` accepts the complete optional `beta` and generalized Bose-mode
 terms. Its defaults (`beta=mb=mb1=0`) disable those additions and preserve the

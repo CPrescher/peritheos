@@ -210,28 +210,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
      "units",
      "reference_state",
-     "volume_basis",
+     "phase",
      "published_uncertainties",
-     "fixed_parameters",
-     "fit_selection",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction",
-     "independent_refit"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
-     "doi": "10.1029/2001JB000490",
+     "doi": "10.1029/2001jb000490",
      "locations": [
       "Paragraphs 23-26",
       "Tables 1 and 4 and 6",

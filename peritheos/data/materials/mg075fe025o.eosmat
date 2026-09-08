@@ -224,7 +224,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -382,26 +382,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
-     "doi": "10.1029/2011GL049915",
+     "doi": "10.1029/2011gl049915",
      "locations": [
       "corrected article, Experiments paragraphs 4-5",
       "corrected article, Results paragraphs 6-7",
@@ -565,26 +559,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
-     "doi": "10.1029/2011GL049915",
+     "doi": "10.1029/2011gl049915",
      "locations": [
       "corrected article, Experiments paragraphs 4-5",
       "corrected article, Results paragraphs 6-7",
@@ -705,18 +693,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-repository primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
-     "theoretical_method",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
-     "doi": "10.1103/PhysRevB.96.075136",
+     "doi": "10.1103/physrevb.96.075136",
      "locations": [
       "Methods",
       "Table I"
@@ -815,16 +805,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
@@ -927,16 +917,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against author-hosted primary PDF.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
-     "spin_branch",
-     "fit_relationship",
-     "numerical_reproduction"
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",

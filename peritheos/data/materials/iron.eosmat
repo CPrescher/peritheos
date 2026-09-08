@@ -78,7 +78,7 @@
    ],
    "pressure_range_status": "reported_exactly",
    "temperature_ref": 300,
-   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
+   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -452,8 +452,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -570,8 +570,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -859,8 +859,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
-    "audit_date": "2026-09-07",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -868,8 +868,6 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "covariance",
-     "fit_dataset",
      "validity"
     ],
     "primary_source_check": {
@@ -1192,8 +1190,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
-    "audit_date": "2026-09-07",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1201,8 +1199,6 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "covariance",
-     "fit_dataset",
      "validity"
     ],
     "primary_source_check": {
@@ -1525,8 +1521,8 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Equations, selected rows, coefficients, covariance, units, and residual convention checked against the article and official supplement; source types are retained per row.",
-    "audit_date": "2026-09-07",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
@@ -1534,8 +1530,6 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "covariance",
-     "fit_dataset",
      "validity"
     ],
     "primary_source_check": {

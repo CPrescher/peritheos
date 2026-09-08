@@ -181,29 +181,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the publisher article and the article's official Zenodo v2 raw-data deposit.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_setting",
-     "formula_units_per_cell",
-     "spin_state",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_selection",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2020JB019964",
-     "doi": "10.1029/2020JB019964",
+     "doi": "10.1029/2020jb019964",
      "locations": [
       "publisher article experimental methods, EOS discussion, Figure 3, and data-availability statement",
       "official Zenodo v2 files latticeparameters.xlsx, EoS-Ffplot-bulkv.xlsx, EPMA.xlsx, and DFTEoS.xlsx"
@@ -368,25 +359,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_setting",
-     "formula_units_per_cell",
-     "spin_state",
      "equation",
      "parameters",
-     "fixed_parameters",
+     "units",
+     "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_selection",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2020JB019964",
-     "doi": "10.1029/2020JB019964",
+     "doi": "10.1029/2020jb019964",
      "locations": [
       "publisher article EOS discussion and Figure 3",
       "official Zenodo v2 latticeparameters.xlsx"
@@ -550,25 +536,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the publisher article and official Zenodo v2 raw-data deposit.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_setting",
-     "formula_units_per_cell",
-     "spin_state",
      "equation",
      "parameters",
-     "fixed_parameters",
+     "units",
+     "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_selection",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/2020JB019964",
-     "doi": "10.1029/2020JB019964",
+     "doi": "10.1029/2020jb019964",
      "locations": [
       "publisher article EOS discussion and Figure 3",
       "official Zenodo v2 latticeparameters.xlsx"
@@ -734,25 +715,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the open-access publisher article and its official Supplementary Table S3.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "cell_setting",
-     "formula_units_per_cell",
-     "iron_speciation",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_selection",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.3389/fchem.2023.1258389",

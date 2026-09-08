@@ -205,26 +205,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "The open publisher article and official supplement were audited directly. The complete source-scale P-V table and the versioned MINUTI equation, weighting, prior, and selection protocol support an independent Peritheos refit.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_scope",
      "equation",
      "parameters",
      "units",
-     "volume_basis",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "fit_selection",
-     "fit_objective",
-     "parameter_prior",
-     "validity",
-     "pressure_calibration",
-     "primary_observations",
-     "numerical_reproduction"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.mdpi.com/2075-163X/9/12/762",

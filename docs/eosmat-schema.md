@@ -126,7 +126,7 @@ Each item in `eos_records` describes one source parameterization.
 | `volume_basis` | for Hugoniots | Required operational mass basis containing `formula_units` and `molar_mass_g_mol`; these values must be consistent with `V0` and `rho0`. |
 | `branch_domain` | for Hugoniots | Required particle-velocity interval, scientific meaning, and boundary status; record-level evaluation enforces it. |
 | `record_kind` | no | `published`, `refit`, `derived`, or `diagnostic`; omission means `published` for backward compatibility. |
-| `derived_from_record` | for refits | Identifier of the published or prior record supplying the model choices and fixed parameters. |
+| `derived_from_record` | for dependent refits | Identifier of the published or prior record supplying model choices or fixed parameters. Direct dataset refits may omit it. |
 | `fit_provenance` | for refits | Software/version, dataset, row selection, objective, weights, varied/fixed parameters, and fit statistics. |
 | `derivation` | for derived records | Structured source kind and identifier, transformation method, sampling domain, software, and access/licensing information. |
 | `eos` | yes | Primary equation and parameters: an equilibrium reference isotherm or a Hugoniot path model. |
@@ -160,10 +160,12 @@ phase-stability boundary.
 ### Published records and refits
 
 A refit is stored as a separate, opt-in EOS record. It never silently replaces
-the source-reported parameters. Its identifier should use a `_refit` suffix,
-`record_kind` must be `refit`, and `derived_from_record` must resolve within the
-same material. `fit_provenance.dataset` must likewise resolve to an embedded or
-checksummed primary dataset in that material. The fit metadata records enough
+source-reported parameters. Its identifier should use a `_refit` suffix and
+`record_kind` must be `refit`. When the refit inherits model choices or fixed
+parameters from another catalog record, `derived_from_record` must resolve
+within the same material; a direct dataset refit may omit it.
+`fit_provenance.dataset` must always resolve to an embedded or checksummed
+primary dataset in that material. The fit metadata records enough
 of the numerical experiment to distinguish software, objective, weighting,
 row selection, varied parameters, and fixed assumptions.
 
@@ -310,6 +312,7 @@ Thermal `type` and `model` must likewise match:
 | `AsymptoticPowerLawMieGruneisenDebye` | `asymptotic_power_law_mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` |
 | `DorogokupetsOganov2007` | `dorogokupets_oganov_2007` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect terms |
 | `MultiOscillatorGruneisen` | `multi_oscillator_gruneisen_thermal_pressure` | Oscillator, Grüneisen, anharmonic, and electronic parameters |
+| `HollandPowellThermalPressure` | `holland_powell_thermal_pressure` | `Tr`, `theta`, `alpha0`, `n` |
 | `ThermalModifiedTait` | `thermal_modified_tait` | `Tr`, `theta`, `alpha0`, `n` |
 | `DoubleDebyeHelmholtz` | `double_debye_helmholtz` | Double-Debye coefficients; optional `Tr` |
 | `DoubleDebyeLogMomentHelmholtz` | `double_debye_log_moment_helmholtz` | Logarithmic-moment double-Debye coefficients; optional `Tr` |
@@ -444,7 +447,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 813 bundled records are
+`peritheos/data/primary-source-audit.json`. All 487 bundled records are
 validated, with no deferred or pending record.
 
 ## Complete EOS-only example

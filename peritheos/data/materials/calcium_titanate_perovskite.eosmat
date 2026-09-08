@@ -205,25 +205,16 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
      "equation",
      "parameters",
      "units",
      "reference_state",
      "phase",
-     "composition",
-     "cell_setting",
-     "formula_units_per_cell",
-     "structure",
      "published_uncertainties",
-     "covariance_availability",
-     "validity",
-     "pressure_calibration",
-     "primary_data",
-     "numerical_reproduction",
-     "independent_refit"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",

@@ -785,10 +785,12 @@ pressure whose temperature slope changes logarithmically with compression.
 The generic class name describes that mechanism rather than the paper or its
 use as a pressure standard.
 
-### Thermal modified Tait
+<a id="thermal-modified-tait"></a>
 
-`ThermalModifiedTait` combines a `ModifiedTait` reference EOS with a fixed
-Einstein temperature `theta`. Define
+### Holland--Powell thermal pressure
+
+`HollandPowellThermalPressure` combines any reference EOS exposing `K0` with a
+fixed Einstein temperature `theta`. Define
 
 \[
 E_E(T)=\frac{3nR\Theta}{\exp(\Theta/T)-1},
@@ -809,7 +811,11 @@ This pressure is independent of volume. Its implied Gruneisen parameter is
 \gamma(V)=10^4V\phi.
 \]
 
-`HollandPowell2011` is an alias for this implementation.
+`ThermalModifiedTait` is the compatibility subclass that requires a
+`ModifiedTait` reference EOS. `HollandPowell2011` remains an alias for that
+compatibility class. The generic class is needed when a source applies the same
+Holland--Powell thermal-pressure term to another reference isotherm, as
+Anzellini et al. (2025) do with BM3 for iridium.
 
 ### Dorogokupets--Oganov 2007 four-oscillator model
 

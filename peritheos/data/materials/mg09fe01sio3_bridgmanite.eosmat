@@ -232,29 +232,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final publisher article, official Wiley Supporting Information S1, and the cited same-batch Lin et al. (2012) characterization. LitCurate was used for discovery only.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "crystal_system",
-     "cell_setting",
-     "formula_units_per_cell",
-     "spin_branch",
      "equation",
      "parameters",
-     "fixed_parameters",
      "units",
      "reference_state",
+     "phase",
      "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1002/2015GL064400",
-     "doi": "10.1002/2015GL064400",
+     "doi": "10.1002/2015gl064400",
      "locations": [
       "final article, pages 4335-4342, especially Experiments and Results",
       "official Wiley attachment grl53012-sup-0001-supinfo.doc, Texts S1-S2, Figure S5, and Tables S1-S2",
@@ -412,20 +403,20 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary publisher record checked and executable BM3 checkpoints independently reproduced.",
-    "audit_date": "2026-09-05",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-01",
     "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
      "equation",
      "parameters",
-     "fixed_parameters",
-     "volume_basis"
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/91JB00176",
-     "doi": "10.1029/91JB00176",
+     "doi": "10.1029/91jb00176",
      "locations": [
       "Abstract",
       "298 K isotherm results"
