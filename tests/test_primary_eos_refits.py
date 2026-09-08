@@ -31,10 +31,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 155,
+        "parity": 156,
         "similar": 62,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 564,
     }
     assert all(
         item.get("reason")
@@ -134,6 +134,17 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
         "not_refittable"
     )
+    wang_weidner = by_identifier["ca_perovskite_wang_weidner_1994_bm2"]
+    assert wang_weidner["status"] == "parity"
+    assert wang_weidner["primary_data_status"] == "plot_only"
+    assert wang_weidner["observations"] == 4
+    assert wang_weidner["dataset_identifiers"] == [
+        "ca_perovskite_wang_weidner_1994_figure3_digitized"
+    ]
+    assert [item["refit"] for item in wang_weidner["parameters"]] == pytest.approx(
+        [45.832161459, 279.27071645]
+    )
+    assert "Complete plot-scope reproduction" in wang_weidner["qualification"]
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"
