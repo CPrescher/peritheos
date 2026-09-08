@@ -36,9 +36,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert ledger["summary"] == {"total": 844, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 163,
-        "similar": 76,
+        "similar": 77,
         "parity_not_achieved": 31,
-        "not_refittable": 566,
+        "not_refittable": 214,
     }
     assert all(
         item.get("reason")
@@ -75,22 +75,24 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert luo["status"] == "not_refittable"
     assert luo["dataset_identifiers"] == ["mgo_luo_2023_table1_shock"]
     assert "derived EOS output" in luo["reason"]
-    fortes = by_identifier["lead_fcc_fortes_2019_bm4_1"]
-    assert fortes["status"] == "not_refittable"
-    assert fortes["dataset_identifiers"] == [
-        "lead_fcc_kuznetsov_2002_table1_transition_pvt"
-    ]
-    assert "supplied privately" in fortes["reason"]
-    kuznetsov = by_identifier["lead_fcc_kuznetsov_2002_bm3_2"]
-    assert kuznetsov["status"] == "not_refittable"
-    assert kuznetsov["dataset_identifiers"] == [
-        "lead_fcc_kuznetsov_2002_table1_transition_pvt"
-    ]
-    kuznetsov_hcp = by_identifier["lead_hcp_kuznetsov_2002_bm3_3"]
-    assert kuznetsov_hcp["status"] == "not_refittable"
-    assert kuznetsov_hcp["dataset_identifiers"] == [
-        "lead_hcp_kuznetsov_2002_figure3_digitized"
-    ]
+    tange = by_identifier["mgo_b1_tange_2009_vinet"]
+    assert tange["status"] == "similar"
+    assert tange["primary_data_status"] == "bundled"
+    assert tange["observations"] == 164
+    assert tange["partial_validation"]["scope"] == (
+        "partial_validation_not_global_refit"
+    )
+    assert tange["approximate_validation"]["result"] == "similar"
+    assert tange["approximate_validation"]["observations"]["rows_reconstructed"] == 164
+    tange_metrics = tange["partial_validation"]["published_coefficient_metrics"]
+    assert tange_metrics["lasl_hugoniot_pressure_gpa"]["rmse"] == pytest.approx(
+        1.3722854174
+    )
+    assert tange_metrics["li_2006_adiabatic_bulk_modulus_gpa"]["rmse"] == pytest.approx(
+        1.5022244272
+    )
+    assert all(parameter["similar"] for parameter in tange["parameters"])
+    assert "classified as similar, not parity" in tange["qualification"]
     reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
     reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
     assert reynard_ruby["status"] == reynard_ice["status"] == "parity"
@@ -497,7 +499,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     reconstructed = [
         item for item in ledger["records"] if item["status"] == "reconstructed"
     ]
-    assert markdown.count("### `") == len(explained) + len(reconstructed) == 123
+    assert markdown.count("### `") == len(explained) + len(reconstructed) == 124
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

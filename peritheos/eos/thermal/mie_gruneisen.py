@@ -7,6 +7,7 @@ from abc import ABC, abstractmethod
 import numpy as np
 from scipy.constants import R
 from scipy.integrate import quad
+from scipy.optimize import brentq
 
 from peritheos.eos import (
     EosBase,
@@ -418,6 +419,64 @@ class Tange2009Debye(MieGruneisenDebye):
     """
 
     _constructor_configuration_names: tuple[str, ...] = ()
+
+    @staticmethod
+    def constrained_reference_parameters(
+        *,
+        gamma0: float,
+        reference_temperature: float,
+        adiabatic_bulk_modulus: float,
+        thermal_expansivity: float,
+        molar_heat_capacity_p: float,
+        n: float,
+    ) -> dict[str, float]:
+        """Derive the dependent reference parameters used by Tange Fit 3.
+
+        Tange et al. fixed ``K_S0``, ``alpha0``, and ``C_P0`` at 300 K and
+        optimized ``gamma0``.  Their thermodynamic constraints therefore make
+        ``K_T0`` and ``theta0`` dependent parameters, rather than two additional
+        least-squares variables::
+
+            K_T0 = K_S0 / (1 + alpha0 * gamma0 * T0)
+            C_V0 = C_P0 / (1 + alpha0 * gamma0 * T0)
+
+        ``theta0`` is the Debye temperature whose heat capacity at ``T0`` is
+        ``C_V0``.  Exposing this convention here prevents reproductions from
+        accidentally fitting the six printed Table 4 coefficients independently.
+        """
+        gamma0 = validate_positive_scalar(gamma0, "gamma0")
+        temperature = validate_positive_scalar(
+            reference_temperature, "reference_temperature"
+        )
+        ks0 = validate_positive_scalar(adiabatic_bulk_modulus, "adiabatic_bulk_modulus")
+        alpha0 = validate_positive_scalar(thermal_expansivity, "thermal_expansivity")
+        cp0 = validate_positive_scalar(molar_heat_capacity_p, "molar_heat_capacity_p")
+        atoms = validate_positive_scalar(n, "n")
+        ratio = 1.0 + alpha0 * gamma0 * temperature
+        cv0 = cp0 / ratio
+        classical_limit = 3.0 * atoms * R
+        if cv0 >= classical_limit:
+            raise EosValidationError(
+                "The constrained C_V0 must be below the Debye classical limit 3 n R"
+            )
+
+        def debye_heat_capacity(theta: float) -> float:
+            x = theta / temperature
+            occupation_term = 0.0 if x > 700.0 else x / np.expm1(x)
+            return classical_limit * (
+                4.0 * float(_debye_function_3(x)) - 3.0 * occupation_term
+            )
+
+        theta0 = brentq(
+            lambda theta: debye_heat_capacity(theta) - cv0,
+            1.0e-9 * temperature,
+            1.0e4 * temperature,
+        )
+        return {
+            "K0": ks0 / ratio,
+            "theta0": float(theta0),
+            "Cv0": cv0,
+        }
 
     def __init__(
         self,

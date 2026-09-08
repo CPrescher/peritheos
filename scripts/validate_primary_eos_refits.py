@@ -49,6 +49,10 @@ FU_2023_CASIO3_REGISTERED_REFIT = (
 SOKOLOVA_RECONSTRUCTION_JSON = (
     ROOT / "docs" / "data" / "sokolova-2013-global-calibration.json"
 )
+TANGE_2009_PARTIAL_JSON = ROOT / "docs" / "data" / "tange-2009-mgo-partial-validation.json"
+TANGE_2009_APPROXIMATE_JSON = (
+    ROOT / "docs" / "data" / "tange-2009-mgo-approximate-refit.json"
+)
 
 RICOLLEAU_REFIT_JSON = ROOT / "docs" / "data" / "ricolleau-2009-klb1-eos-refit.json"
 
@@ -3046,6 +3050,82 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _tange_2009_approximate_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Register the qualified approximate refit and exact subset checks."""
+    report = json.loads(TANGE_2009_PARTIAL_JSON.read_text(encoding="utf-8"))
+    approximate = json.loads(
+        TANGE_2009_APPROXIMATE_JSON.read_text(encoding="utf-8")
+    )
+    partial = report["bundled_partial_validation"]
+    fitted = approximate["approximate_refit"]
+    published_errors = {
+        "K0_prime": float(record["parameter_errors"]["K0_prime"]),
+        **{
+            name: float(record["thermal"]["parameter_errors"][name])
+            for name in ("gamma0", "a", "b")
+        },
+    }
+    parameters = []
+    for comparison in fitted["coefficient_comparisons"]:
+        published = float(comparison["published"])
+        refit = float(comparison["fitted"])
+        parameters.append(
+            {
+                "parameter": comparison["parameter"],
+                "published": published,
+                "published_error": published_errors[comparison["parameter"]],
+                "refit": refit,
+                "refit_error": None,
+                "difference": refit - published,
+                "relative_difference": abs(refit - published) / abs(published),
+                "within_combined_2sigma": None,
+                "similar": bool(comparison["similar"]),
+            }
+        )
+    if approximate["result"] != "similar" or not all(
+        item["similar"] for item in parameters
+    ):
+        raise AssertionError("Tange approximate audit no longer supports similarity")
+    return {
+        "status": "similar",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": approximate["observations"]["rows_reconstructed"],
+        "fit_kind": "approximate_coupled_vinet_mgd_global_reconstruction",
+        "objective": "source-weighted thermal, elastic, and shock residuals",
+        "free_parameters": list(approximate["published_coefficients"]),
+        "parameters": parameters,
+        "solver_success": fitted["solver_success"],
+        "solver_message": fitted["solver_message"],
+        "weighted_sum_of_squares": fitted["weighted_sum_of_squares"],
+        "external_input_inventory": approximate["external_input_inventory"],
+        "partial_validation": {
+            "scope": report["scope"],
+            "published_dependent_parameter_check": report[
+                "published_dependent_parameter_check"
+            ],
+            "published_coefficient_metrics": partial["published_coefficient_metrics"],
+            "partial_refit": partial["partial_refit"],
+            "source_inventory": report["source_inventory"],
+        },
+        "approximate_validation": {
+            "scope": approximate["scope"],
+            "result": approximate["result"],
+            "observations": approximate["observations"],
+            "parameters": parameters,
+            "zha_weight_sensitivity": approximate["zha_weight_sensitivity"],
+            "qualification": approximate["qualification"],
+        },
+        "qualification": (
+            "The 164-row approximate reconstruction recovers all four independent "
+            "Fit 3 coefficients within the numerical similarity limits, including "
+            "over the tested 1-3% Zha-weight range. It is classified as similar, not "
+            "parity, because the exact Zha rows and legacy weights are unpublished, "
+            "one Fiquet state is unresolved, the Zha block is curve-based, and the "
+            "restricted local inputs are not redistributed."
+        ),
+    }
+
+
 def _datchi_2007_diamond_outcome(
     record: dict[str, Any],
     refit: dict[str, Any],
@@ -3613,6 +3693,8 @@ def validate_all() -> dict[str, Any]:
                 }
             elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
+            elif record["identifier"] == "mgo_b1_tange_2009_vinet":
+                outcome = _tange_2009_approximate_outcome(record)
             elif not identifiers:
                 outcome = {
                     "status": "not_refittable",

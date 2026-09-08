@@ -68,6 +68,14 @@ DFT-MD table test the complete thermal branches. The full derivation, source
 availability boundary, residuals, and calibration correction are in the
 [dedicated composite audit](literature-reproductions/diamond-dewaele-thermal-composites.md).
 
+The dedicated [Tange et al. (2009) MgO audit](literature-reproductions/tange-2009-mgo.md)
+reconstructs the paper's fixed thermodynamic constraints and a 102-row coupled
+thermal--elastic--shock objective. It distinguishes the successful partial
+validation from the unavailable exact eight-source global refit. A separate
+164-row, non-redistributed reconstruction reaches numerical similarity for all
+four free coefficients while remaining explicitly qualified by its Zha
+curve surrogate and reconstructed legacy weights.
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

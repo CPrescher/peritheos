@@ -1,0 +1,178 @@
+{
+  "bundled_partial_validation": {
+    "dataset_files": [
+      "mgo-dubrovinsky-1997-cod-thermal-expansion.csv",
+      "mgo-fiquet-1999-cod-thermal-expansion.csv",
+      "mgo-li-2006-table1-elasticity.csv",
+      "mgo-marsh-1980-lasl-single-crystal-hugoniot.csv"
+    ],
+    "observations": 102,
+    "partial_refit": {
+      "coefficients": {
+        "K0_prime": 4.331219074802332,
+        "a": 0.9999984853947355,
+        "b": 0.5032504573160094,
+        "gamma0": 1.5105052928549436
+      },
+      "dependent_K0_gpa": 160.52408669069277,
+      "dependent_theta0_k": 762.340700166198,
+      "metrics": {
+        "lasl_hugoniot_pressure_gpa": {
+          "maximum_absolute_residual": 2.7494098492366987,
+          "mean_residual": 0.2541880123870321,
+          "observations": 24,
+          "rmse": 1.2770579932981414
+        },
+        "li_2006_adiabatic_bulk_modulus_gpa": {
+          "maximum_absolute_residual": 3.9318503839848518,
+          "mean_residual": 0.10134813045668105,
+          "observations": 17,
+          "rmse": 1.5142460357443872
+        },
+        "thermal_expansion_pressure_gpa": {
+          "maximum_absolute_residual": 0.5913775734341229,
+          "mean_residual": -0.004709059252555708,
+          "observations": 61,
+          "rmse": 0.17822145823909646
+        }
+      },
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "weighted_sum_of_squares": 46.18348715550045
+    },
+    "published_coefficient_metrics": {
+      "lasl_hugoniot_pressure_gpa": {
+        "maximum_absolute_residual": 2.848392075153072,
+        "mean_residual": 0.45319473636020174,
+        "observations": 24,
+        "rmse": 1.3722854173891912
+      },
+      "li_2006_adiabatic_bulk_modulus_gpa": {
+        "maximum_absolute_residual": 4.028304945775858,
+        "mean_residual": 0.2305563490144142,
+        "observations": 17,
+        "rmse": 1.5022244272287375
+      },
+      "thermal_expansion_pressure_gpa": {
+        "maximum_absolute_residual": 0.7787861961959184,
+        "mean_residual": -0.05784680777145241,
+        "observations": 61,
+        "rmse": 0.263301221213871
+      }
+    },
+    "published_coefficients": {
+      "K0_prime": 4.367,
+      "a": 0.138,
+      "b": 5.4,
+      "gamma0": 1.442
+    },
+    "source_reported_group_rmse": {
+      "lasl_hugoniot_pressure_gpa": 1.4,
+      "li_2006_adiabatic_bulk_modulus_gpa": 1.5
+    }
+  },
+  "conclusion": "The ambient thermodynamic constraints and the available row classes are executable, but the partial-subset optimum is not an estimate of the published global coefficients. Full coefficient parity remains untestable without the missing Zha V-Ks rows and exact legacy elastic weights.",
+  "fixed_ambient_constraints": {
+    "CP0_j_mol_k": 37.4,
+    "KS0_gpa": 162.83,
+    "V0_conventional_cell_a3": 74.698,
+    "alpha0_k_inverse": 3.17e-05,
+    "n_atoms": 2.0,
+    "reference_temperature_k": 300.0
+  },
+  "format": "peritheos.tange-2009-mgo-partial-validation",
+  "format_version": 1,
+  "global_refit_blocker": "Zha et al. (2000) publish polynomial elastic summaries and plots, not the 27 row-level V-Ks observations used by Tange et al.; exact source weights are also unavailable for some earlier elastic rows.",
+  "global_refit_reproduced": false,
+  "objective": {
+    "dependent_parameters": [
+      "K0",
+      "theta0"
+    ],
+    "free_parameters": [
+      "K0_prime",
+      "gamma0",
+      "a",
+      "b"
+    ],
+    "note": "These are the source-stated weighting conventions for the available classes. The omitted Isaak, Sinogeikin, Zha, and Duffy rows prevent this subset objective from representing the published global objective.",
+    "shock": "(energy-reduced calculated PH - observed PH) / 3 GPa",
+    "static_elasticity": "(calculated KS - observed KS) / reported sigma_KS; source-listed pressures are not fit inputs",
+    "thermal_expansion": "P(V,T) / 0.3 GPa"
+  },
+  "published_dependent_parameter_check": {
+    "calculated_CV0_j_mol_k": 36.894056310313026,
+    "calculated_K0_gpa": 160.6272510430019,
+    "calculated_theta0_k": 761.4764220753117,
+    "published_K0_gpa": 160.63,
+    "published_theta0_k": 761.0
+  },
+  "record_identifier": "mgo_b1_tange_2009_vinet",
+  "scope": "partial_validation_not_global_refit",
+  "source_inventory": [
+    {
+      "disposition": "bundled_cod_cc0",
+      "evidence": "COD records 9006456-9006480",
+      "rows_recovered": 25,
+      "source": "Dubrovinsky and Saxena (1997)",
+      "source_rows_stated_by_tange": 25,
+      "url": "https://www.crystallography.net/cod/result.php?DOI=10.1007/s002690050070"
+    },
+    {
+      "disposition": "bundled_cod_cc0_one_row_unresolved",
+      "evidence": "COD records 9006747-9006782",
+      "rows_recovered": 36,
+      "source": "Fiquet et al. (1999)",
+      "source_rows_stated_by_tange": 37,
+      "url": "https://www.crystallography.net/cod/result.php?DOI=10.1007/s002690050246"
+    },
+    {
+      "disposition": "located_nist_srd_not_redistributed",
+      "evidence": "NIST SRD 30 MgO adiabatic bulk-modulus table",
+      "rows_recovered": 16,
+      "source": "Isaak et al. (1989)",
+      "source_rows_stated_by_tange": 16,
+      "url": "https://srdata.nist.gov/CeramicDataPortal/Scd/Z00281"
+    },
+    {
+      "disposition": "located_copyrighted_article_not_redistributed",
+      "evidence": "Article Table I",
+      "rows_recovered": 15,
+      "source": "Sinogeikin and Bass (2000)",
+      "source_rows_stated_by_tange": 15,
+      "url": "https://doi.org/10.1063/1.1150496"
+    },
+    {
+      "disposition": "row_level_values_not_published",
+      "evidence": "Article Tables 1-2 and Figures 1-2",
+      "rows_recovered": 0,
+      "source": "Zha et al. (2000)",
+      "source_rows_stated_by_tange": 27,
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC17603/"
+    },
+    {
+      "disposition": "already_bundled_official_table",
+      "evidence": "Official Table 1 supplement",
+      "rows_recovered": 17,
+      "source": "Li et al. (2006)",
+      "source_rows_stated_by_tange": 17,
+      "url": "https://doi.org/10.1029/2005JB004251"
+    },
+    {
+      "disposition": "bundled_public_domain",
+      "evidence": "hugla.dat single-crystal periclase block",
+      "rows_recovered": 24,
+      "source": "Marsh (1980) LASL compendium",
+      "source_rows_stated_by_tange": 24,
+      "url": "https://impacts.wiki/community-resources/material-properties-data-and-references/lasl-shock-hugoniot-data-marsh-1980-zip-file-enclosed-and-in-rusbank"
+    },
+    {
+      "disposition": "located_copyrighted_article_not_redistributed",
+      "evidence": "Article Table 1",
+      "rows_recovered": 4,
+      "source": "Duffy and Ahrens (1993)",
+      "source_rows_stated_by_tange": 4,
+      "url": "https://doi.org/10.1029/93GL01510"
+    }
+  ]
+}

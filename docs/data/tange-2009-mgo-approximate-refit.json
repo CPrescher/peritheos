@@ -1,0 +1,237 @@
+{
+  "approximate_refit": {
+    "coefficient_comparisons": [
+      {
+        "absolute_relative_difference_percent": 1.8715823417745612,
+        "fitted": 4.285267999134705,
+        "parameter": "K0_prime",
+        "published": 4.367,
+        "similar": true
+      },
+      {
+        "absolute_relative_difference_percent": 0.3620936089895984,
+        "fitted": 1.43677861015837,
+        "parameter": "gamma0",
+        "published": 1.442,
+        "similar": true
+      },
+      {
+        "absolute_relative_difference_percent": 6.627467820582123,
+        "fitted": 0.14714590559240334,
+        "parameter": "a",
+        "published": 0.138,
+        "similar": true
+      },
+      {
+        "absolute_relative_difference_percent": 0.28544257740006185,
+        "fitted": 5.384586100820397,
+        "parameter": "b",
+        "published": 5.4,
+        "similar": true
+      }
+    ],
+    "coefficients": {
+      "K0_prime": 4.285267999134705,
+      "a": 0.14714590559240334,
+      "b": 5.384586100820397,
+      "gamma0": 1.43677861015837
+    },
+    "metrics": {
+      "duffy_1993_hugoniot_pressure_gpa": {
+        "maximum_absolute_residual": 4.455482400093388,
+        "mean_residual": -4.025568941872486,
+        "observations": 4,
+        "rmse": 4.035058307454065
+      },
+      "isaak_1989_adiabatic_bulk_modulus_gpa": {
+        "maximum_absolute_residual": 1.961592127299184,
+        "mean_residual": 0.14907454103945916,
+        "observations": 16,
+        "rmse": 1.0500055371727788
+      },
+      "lasl_hugoniot_pressure_gpa": {
+        "maximum_absolute_residual": 2.8950606679415927,
+        "mean_residual": -0.14120939579412908,
+        "observations": 24,
+        "rmse": 1.3110506544038716
+      },
+      "li_2006_adiabatic_bulk_modulus_gpa": {
+        "maximum_absolute_residual": 3.5803556588978154,
+        "mean_residual": -0.2869424885707571,
+        "observations": 17,
+        "rmse": 1.5772123194018104
+      },
+      "sinogeikin_2000_adiabatic_bulk_modulus_gpa": {
+        "maximum_absolute_residual": 1.950053407158066,
+        "mean_residual": 0.6376197680004831,
+        "observations": 15,
+        "rmse": 0.9574655341447669
+      },
+      "thermal_expansion_pressure_gpa": {
+        "maximum_absolute_residual": 0.7992110320780546,
+        "mean_residual": -0.07863554838445522,
+        "observations": 61,
+        "rmse": 0.26915697329917504
+      },
+      "zha_2000_adiabatic_bulk_modulus_gpa": {
+        "maximum_absolute_residual": 5.816399775236334,
+        "mean_residual": 3.9572305342357272,
+        "observations": 27,
+        "rmse": 4.325539017023319
+      }
+    },
+    "solver_message": "`xtol` termination condition is satisfied.",
+    "solver_success": true,
+    "weighted_sum_of_squares": 122.77164565418755
+  },
+  "conclusion": "The approximate 164-row reconstruction reaches the repository's numerical similarity criteria, including across the tested 1-3% Zha weight range. Exact parity still requires the original 27 Zha rows, legacy row weights, and the unresolved Fiquet state.",
+  "external_input_inventory": [
+    {
+      "filename": "isaak-1989-mgo-ks.csv",
+      "rows": 16,
+      "sha256": "fc89d9ee943c3b9e882cb116bd3250bb47fce8f30b3ab79bed7184bd2ab77b0e",
+      "source_key": "isaak_1989"
+    },
+    {
+      "filename": "sinogeikin-2000-mgo-ks.csv",
+      "rows": 15,
+      "sha256": "ba353f6ca01152b4d7b8a917b0efd9d771dd3c10fa3bccafa7dedae1f959cce2",
+      "source_key": "sinogeikin_2000"
+    },
+    {
+      "filename": "zha-2000-mgo-ks-surrogate.csv",
+      "rows": 27,
+      "sha256": "a8b02ca1323e27da8e51b3fbbe3af60c18034f336773f69025c96b305e79525a",
+      "source_key": "zha_2000"
+    },
+    {
+      "filename": "duffy-1993-mgo-hugoniot.csv",
+      "rows": 4,
+      "sha256": "3ae00c7652aff8253c220f0656f3531246d95f7a0e9dc1311ab8fa4bd8c486ee",
+      "source_key": "duffy_1993"
+    }
+  ],
+  "format": "peritheos.tange-2009-mgo-approximate-refit",
+  "format_version": 1,
+  "global_refit_reproduced": false,
+  "objective": {
+    "additional_groups": [
+      "Isaak ambient-pressure KS(T)",
+      "Sinogeikin ambient-pressure KS(T)",
+      "Zha 300 K KS(V) surrogate",
+      "Duffy shock Hugoniot"
+    ],
+    "dependent_parameters": [
+      "K0",
+      "theta0"
+    ],
+    "free_parameters": [
+      "K0_prime",
+      "gamma0",
+      "a",
+      "b"
+    ],
+    "same_as_partial_audit": true
+  },
+  "observations": {
+    "rows_reconstructed": 164,
+    "source_rows_stated_by_tange": 165,
+    "unresolved_rows": 1,
+    "unresolved_source": "Fiquet et al. (1999)"
+  },
+  "published_coefficient_metrics": {
+    "duffy_1993_hugoniot_pressure_gpa": {
+      "maximum_absolute_residual": 1.8495246099651297,
+      "mean_residual": -1.685434971390805,
+      "observations": 4,
+      "rmse": 1.6891090340872963
+    },
+    "isaak_1989_adiabatic_bulk_modulus_gpa": {
+      "maximum_absolute_residual": 1.7859636018209812,
+      "mean_residual": 0.05658544418415801,
+      "observations": 16,
+      "rmse": 0.9857052417145341
+    },
+    "lasl_hugoniot_pressure_gpa": {
+      "maximum_absolute_residual": 2.848392075153072,
+      "mean_residual": 0.45319473636020174,
+      "observations": 24,
+      "rmse": 1.3722854173891912
+    },
+    "li_2006_adiabatic_bulk_modulus_gpa": {
+      "maximum_absolute_residual": 4.028304945775858,
+      "mean_residual": 0.2305563490144142,
+      "observations": 17,
+      "rmse": 1.5022244272287375
+    },
+    "sinogeikin_2000_adiabatic_bulk_modulus_gpa": {
+      "maximum_absolute_residual": 1.847595361835772,
+      "mean_residual": 0.5603879498950751,
+      "observations": 15,
+      "rmse": 0.875837723833362
+    },
+    "thermal_expansion_pressure_gpa": {
+      "maximum_absolute_residual": 0.7787861961959184,
+      "mean_residual": -0.05784680777145241,
+      "observations": 61,
+      "rmse": 0.263301221213871
+    },
+    "zha_2000_adiabatic_bulk_modulus_gpa": {
+      "maximum_absolute_residual": 11.092022577686294,
+      "mean_residual": 6.467697483313543,
+      "observations": 27,
+      "rmse": 7.269286847763053
+    }
+  },
+  "published_coefficients": {
+    "K0_prime": 4.367,
+    "a": 0.138,
+    "b": 5.4,
+    "gamma0": 1.442
+  },
+  "qualification": "The result uses a curve-based surrogate for the unpublished Zha rows and reconstructed legacy elastic uncertainties. It cannot establish strict coefficient or uncertainty parity.",
+  "reconstruction_assumptions": {
+    "duffy_1993": "Four Table 1 P-rhoH states; sigma_P=3 GPa as specified by Tange for shock-pressure residuals.",
+    "isaak_1989": "KS=(C11+2*C12)/3 at the 16 temperatures selected by Tange; sigma_KS is linearly interpolated through the four uncertainty anchors printed by NIST.",
+    "sinogeikin_2000": "Table I density and KS values; sigma_KS=1% of KS, matching the article's stated modulus accuracy bound.",
+    "zha_2000": "27 non-ambient compression locations reconstructed from the plot; KS generated from Zha's published third-order finite-strain fit (KS0=162.5 GPa, KS0'=3.99); sigma_KS=2% of KS."
+  },
+  "record_identifier": "mgo_b1_tange_2009_vinet",
+  "result": "similar",
+  "scope": "local_nonredistributed_approximate_global_refit",
+  "zha_weight_sensitivity": [
+    {
+      "all_parameters_similar": true,
+      "coefficients": {
+        "K0_prime": 4.210456598246788,
+        "a": 0.13674510038044363,
+        "b": 5.957054857468647,
+        "gamma0": 1.4332428681186817
+      },
+      "weighted_sum_of_squares": 142.42644416442806,
+      "zha_relative_sigma_percent": 1.0
+    },
+    {
+      "all_parameters_similar": true,
+      "coefficients": {
+        "K0_prime": 4.285267999134705,
+        "a": 0.14714590559240334,
+        "b": 5.384586100820397,
+        "gamma0": 1.43677861015837
+      },
+      "weighted_sum_of_squares": 122.77164565418755,
+      "zha_relative_sigma_percent": 2.0
+    },
+    {
+      "all_parameters_similar": true,
+      "coefficients": {
+        "K0_prime": 4.33365866323895,
+        "a": 0.16195563322718928,
+        "b": 4.842995960856892,
+        "gamma0": 1.4391286817573008
+      },
+      "weighted_sum_of_squares": 111.3109623549062,
+      "zha_relative_sigma_percent": 3.0
+    }
+  ]
+}
