@@ -2,24 +2,26 @@
 
 ## Decision
 
-This paper is accepted as a source of explicit, executable legacy benchmark
-parameterizations. It defines the ordinary three-dimensional Morse EOS (MRS3)
+This paper is retained as a non-catalog equation benchmark fixture. It defines
+the ordinary three-dimensional Morse EOS (MRS3)
 and the Sun Jiu-Xun--Morse EOS for `n=3` (SMS3) and `n=4` (SMS4), then prints
 all three fitted parameter pairs for 50 solids in Table 2. The paper concludes
 that SMS4 gives the lowest mean pressure error of the tested universal EOS
-families, so SMS4 is promoted first; SMS3 and MRS3 are retained as explicit
-same-data model sensitivities where included.
+families.
 
 These records are deliberately labelled *legacy compression aggregates*. The
 source pooled older compression compilations over broad pressure ranges and did
 not preserve a phase-resolved observation table, row-wise pressure calibration,
 uncertainties, or regression weights. The curves are consequently useful for
-model comparison and historical benchmarking, not as modern phase-pure pressure
-standards. No structure is inferred from a chemical label.
+model implementation checks and historical benchmarking, not as production
+material records or modern phase-pure pressure standards. All 220 source-author
+parameterizations were removed from the production catalog; the exact table,
+reproducer, and EOS implementation tests remain.
 
-The Brass row is held. The paper gives neither alloy composition nor a
-reproducible formula/molar mass, so it cannot define a Peritheos material or
-volume basis without invention.
+The Brass row illustrates the broader catalog problem particularly clearly:
+the paper gives neither alloy composition nor a reproducible formula/molar
+mass, so it cannot define a Peritheos material or volume basis without
+invention.
 
 ## Primary source
 
@@ -76,5 +78,5 @@ uv run pytest -q tests/test_sun_morse.py tests/test_sun_2010_morse_records.py
 ```
 
 The reproduction checks the source table checksum, all model reference-state
-identities, the analytic bulk modulus, and the link from every promoted record
-back to its exact Table 2 row.
+identities, and the analytic bulk modulus. A catalog regression test confirms
+that no Sun (2010) source-author parameterization is promoted into production.
