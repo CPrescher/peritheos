@@ -6,6 +6,7 @@
     "not_refittable": "The primary source supplies no direct row-level observations, or the necessary reduction/calibration is not executable.",
     "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria.",
+    "reconstructed": "A derived record is reproduced exactly from separately audited source components without optimizing composite coefficients. Any independent component refit and source-data validation are reported separately.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold."
   },
   "records": [
@@ -8617,7 +8618,7 @@
       ],
       "primary_data_finding": "All 57 diamond observations printed in Table I for which the diamond lattice parameter was reported, spanning 0-900 K and pressures to 76.8 GPa.",
       "primary_data_status": "bundled",
-      "primary_source": "https://doi.org/10.1103/PhysRevB.77.094106",
+      "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext",
       "published_rmse_gpa": 0.24196655068724385,
       "record_identifier": "diamond_dewaele_2008_vinet_2",
       "reduced_chi_square": 0.05858683264913113,
@@ -8649,40 +8650,82 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "diamond_correa_2008_figure8_dft_md_vector_digitized"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
       "fixed_parameters": [],
       "label": "Correa et al. (2008), logarithmic-moment double-Debye Helmholtz",
       "material_identifier": "diamond",
       "model": "Vinet",
-      "primary_data_finding": "This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data.",
-      "primary_data_status": "theoretical_parameterization_only",
+      "primary_data_finding": "All 57 diamond DFT-MD pressure markers in vector Figure 8 are bundled as plot-digitized checkpoints. The paper does not tabulate the upstream cold-energy grid, phonon DOS/moments, regression weights, or covariance needed to refit the published coefficients.",
+      "primary_data_status": "plot_only",
       "primary_source": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext",
-      "reason": "This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data.",
+      "reason": "The Figure 8 markers validate the finished pressure model but do not supply the cold-energy and phonon calculations used to fit its coefficients.",
       "record_identifier": "diamond_correa_2008_double_debye_log_moment_5",
       "source_notes": "Complete diamond free-energy branch from equations 2-18; the double-Debye weights conserve the logarithmic phonon moment theta_0 (equation 13). Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet term is a motionless-ion DFT-GGA cold curve. The authors state that its theoretical V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift; Peritheos preserves the published value. The constant anharmonic coefficient changes caloric properties but contributes no pressure. Electronic excitations are neglected for insulating diamond as in the source. Factor-of-two source ambiguity: Correa equation 18 defines F_anh=-a*T^2 with a=3.8e-5 K^-1, whereas Benedict 2014 says it carries over the same correction but writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1. This record follows Correa literally; in Benedict's normalization the equivalent coefficient would be alpha=2*a. The source reports no coefficient uncertainties or covariance.",
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "diamond_benedict_2014_supplement_solid_dft_md"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
       "fixed_parameters": [],
       "label": "Benedict et al. (2014), Vinet double-Debye Helmholtz",
       "material_identifier": "diamond",
       "model": "Vinet",
-      "primary_data_finding": "This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data.",
-      "primary_data_status": "theoretical_parameterization_only",
+      "primary_data_finding": "The exact 96-row solid DFT-MD pressure/internal-energy validation grid is bundled. It is downstream validation data; the cold-curve electronic-structure grid and phonon calculations used to fit Table I are not supplied.",
+      "primary_data_status": "bundled",
       "primary_source": "https://arxiv.org/pdf/1311.4577",
-      "reason": "This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data.",
+      "reason": "The supplementary solid DFT-MD table validates the finished pressure and energy model but is not the upstream cold-curve and phonon fitting grid.",
       "record_identifier": "diamond_benedict_2014_double_debye_4",
       "source_notes": "Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction. Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet curve is the motionless-ion 0 K cold curve, so V0=5.7034 A^3/atom is not a 300 K zero-total-pressure reference volume. Factor-of-two source ambiguity: Benedict writes F_anh=-alpha*T^2/2 and tabulates alpha=3.79e-5 K^-1, while the Correa 2008 correction it claims to retain is F_anh=-a*T^2 with a=3.8e-5 K^-1. This record follows Benedict literally; matching Correa's anharmonic energy would require alpha approximately 2*a. The source reports no coefficient uncertainties or covariance.",
       "status": "not_refittable"
     },
     {
+      "anchor_refit": {
+        "observations": 23,
+        "parameters": [
+          {
+            "difference": 0.0029977398882152784,
+            "parameter": "V0",
+            "published": 45.3544,
+            "published_error": 0.0128,
+            "refit": 45.35739773988821,
+            "refit_error": 0.005958461183877768,
+            "relative_difference": 6.60959000276771e-05,
+            "similar": true,
+            "within_combined_2sigma": true
+          },
+          {
+            "difference": -0.08526328357438473,
+            "parameter": "K0_prime",
+            "published": 4.18,
+            "published_error": 0.15,
+            "refit": 4.094736716425615,
+            "refit_error": 0.0654791063011287,
+            "relative_difference": 0.02039791473071405,
+            "similar": true,
+            "within_combined_2sigma": true
+          }
+        ],
+        "record_identifier": "diamond_dewaele_2008_vinet_2",
+        "rmse_gpa": 0.2312840795693689,
+        "status": "parity"
+      },
+      "complete_composite_identity": {
+        "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
+        "max_abs_reference_isotherm_error_gpa": 0.0,
+        "max_abs_thermal_energy_increment_error_j_per_mol": 2.3865140974521637e-09,
+        "states_checked": 57
+      },
+      "composite_coefficient_optimization_performed": false,
       "dataset_identifiers": [
-        "diamond_dewaele_2008_table1_pvt"
+        "diamond_dewaele_2008_table1_pvt",
+        "diamond_correa_2008_figure8_dft_md_vector_digitized"
       ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
@@ -8690,17 +8733,69 @@
       "label": "Diamond (Correa thermal model, Dewaele 298 K Vinet anchor)",
       "material_identifier": "diamond",
       "model": "Vinet",
-      "primary_data_finding": "The complete experimental Dewaele reference-isotherm dataset is bundled. This record combines that experimental anchor with a separately documented theoretical thermal parameterization.",
+      "observations": 80,
+      "primary_data_finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
       "primary_data_status": "bundled",
       "primary_source": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
-      "reason": "The linked diffraction rows constrain only the Dewaele reference isotherm; the Correa thermal term is a separately published theoretical model.",
+      "qualification": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+      "reconstruction_kind": "derived_reference_isotherm_composition",
       "record_identifier": "diamond_correa_2008_dewaele_anchored",
       "source_notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Correa(V,T)-P_Correa(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
-      "status": "not_refittable"
+      "status": "reconstructed",
+      "thermal_model_validation": {
+        "absolute_pressure_bias_gpa": 0.007726313289275934,
+        "absolute_pressure_max_abs_residual_gpa": 5.190242761775153,
+        "absolute_pressure_rmse_gpa": 1.7908921935102013,
+        "dataset_identifier": "diamond_correa_2008_figure8_dft_md_vector_digitized",
+        "isochores": 3,
+        "isochoric_pressure_increment_comparisons": 54,
+        "observations": 57,
+        "pressure_increment_bias_gpa": -3.5952390029367827,
+        "pressure_increment_max_abs_residual_gpa": 8.3252499390411,
+        "pressure_increment_rmse_gpa": 3.9056750416328234
+      }
     },
     {
+      "anchor_refit": {
+        "observations": 23,
+        "parameters": [
+          {
+            "difference": 0.0029977398882152784,
+            "parameter": "V0",
+            "published": 45.3544,
+            "published_error": 0.0128,
+            "refit": 45.35739773988821,
+            "refit_error": 0.005958461183877768,
+            "relative_difference": 6.60959000276771e-05,
+            "similar": true,
+            "within_combined_2sigma": true
+          },
+          {
+            "difference": -0.08526328357438473,
+            "parameter": "K0_prime",
+            "published": 4.18,
+            "published_error": 0.15,
+            "refit": 4.094736716425615,
+            "refit_error": 0.0654791063011287,
+            "relative_difference": 0.02039791473071405,
+            "similar": true,
+            "within_combined_2sigma": true
+          }
+        ],
+        "record_identifier": "diamond_dewaele_2008_vinet_2",
+        "rmse_gpa": 0.2312840795693689,
+        "status": "parity"
+      },
+      "complete_composite_identity": {
+        "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
+        "max_abs_reference_isotherm_error_gpa": 0.0,
+        "max_abs_thermal_energy_increment_error_j_per_mol": 1.8189894035458565e-10,
+        "states_checked": 96
+      },
+      "composite_coefficient_optimization_performed": false,
       "dataset_identifiers": [
-        "diamond_dewaele_2008_table1_pvt"
+        "diamond_dewaele_2008_table1_pvt",
+        "diamond_benedict_2014_supplement_solid_dft_md"
       ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
@@ -8708,13 +8803,32 @@
       "label": "Diamond (Benedict thermal model, Dewaele 298 K Vinet anchor)",
       "material_identifier": "diamond",
       "model": "Vinet",
-      "primary_data_finding": "The complete experimental Dewaele reference-isotherm dataset is bundled. This record combines that experimental anchor with a separately documented theoretical thermal parameterization.",
+      "observations": 119,
+      "primary_data_finding": "The experimental anchor and thermal-model checkpoints are bundled separately. This derived record is exactly reconstructible from published coefficients; the available rows do not constitute an independent fit of a composite model.",
       "primary_data_status": "bundled",
       "primary_source": "https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106",
-      "reason": "The linked diffraction rows constrain only the Dewaele reference isotherm; the Benedict thermal term is a separately published theoretical model.",
+      "qualification": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+      "reconstruction_kind": "derived_reference_isotherm_composition",
       "record_identifier": "diamond_benedict_2014_dewaele_anchored",
       "source_notes": "Derived reference-isotherm composition: P(V,T)=P_Dewaele(V,298 K)+P_Benedict(V,T)-P_Benedict(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.",
-      "status": "not_refittable"
+      "status": "reconstructed",
+      "thermal_model_validation": {
+        "absolute_pressure_bias_gpa": 1.9077043071756208,
+        "absolute_pressure_max_abs_residual_gpa": 6.644920906457344,
+        "absolute_pressure_rmse_gpa": 3.177925437107045,
+        "dataset_identifier": "diamond_benedict_2014_supplement_solid_dft_md",
+        "internal_energy_increment_bias_ev_per_atom": -0.03499721156295954,
+        "internal_energy_increment_comparisons": 82,
+        "internal_energy_increment_max_abs_residual_ev_per_atom": 0.2394634516831431,
+        "internal_energy_increment_rmse_ev_per_atom": 0.06120937844633891,
+        "isochores": 14,
+        "isochoric_pressure_increment_comparisons": 82,
+        "observations": 96,
+        "pressure_increment_bias_gpa": -2.1817560675267504,
+        "pressure_increment_max_abs_residual_gpa": 9.576559627301947,
+        "pressure_increment_rmse_gpa": 3.160415581839436,
+        "qualification": "Fixed-volume increments remove the arbitrary electronic-structure energy zero; absolute energies from different calculations are not compared."
+      }
     },
     {
       "dataset_identifiers": [
@@ -24303,25 +24417,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,9 +31762,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 563,
     "parity": 155,
     "parity_not_achieved": 31,
+    "reconstructed": 2,
     "similar": 62,
     "total": 813
   }

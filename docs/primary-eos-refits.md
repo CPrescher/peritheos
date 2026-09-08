@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **563** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -264,12 +264,12 @@ use `--check` in continuous integration to detect stale generated files.
 | [`delta_alooh_vanpeteghem_2002_bm2_1`](https://doi.org/10.1029/2001GL014224) | `delta_alooh_vanpeteghem_2002_table1_pv` | 9 | `V0` 56.54 → 56.4053; `K0` 252 → 238.768 | 1.43322/0.476965 | parity |
 | [`delta_alooh_vanpeteghem_2002_bm3_2`](https://doi.org/10.1029/2001GL014224) | `delta_alooh_vanpeteghem_2002_table1_pv` | 9 | `V0` 56.54 → 56.4893; `K0` 228 → 212.646; `K0_prime` 7 → 6.67657 | 1.3627/0.437383 | parity |
 | [`diamond_datchi_2007_vinet_1`](https://doi.org/10.1103/PhysRevB.75.214104) | `parameterization_only` | — | — | —/— | not_refittable — For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record. |
-| [`diamond_dewaele_2008_vinet_2`](https://doi.org/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt` | 23 | `V0` 45.3544 → 45.3574; `K0_prime` 4.18 → 4.09474 | 0.241967/0.231284 | parity |
+| [`diamond_dewaele_2008_vinet_2`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.77.094106/fulltext) | `diamond_dewaele_2008_table1_pvt` | 23 | `V0` 45.3544 → 45.3574; `K0_prime` 4.18 → 4.09474 | 0.241967/0.231284 | parity |
 | [`diamond_sokolova_2013_holzapfel_3`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`diamond_correa_2008_double_debye_log_moment_5`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data. |
-| [`diamond_benedict_2014_double_debye_4`](https://arxiv.org/pdf/1311.4577) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data. |
-| [`diamond_correa_2008_dewaele_anchored`](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt` | — | — | —/— | not_refittable — The linked diffraction rows constrain only the Dewaele reference isotherm; the Correa thermal term is a separately published theoretical model. |
-| [`diamond_benedict_2014_dewaele_anchored`](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt` | — | — | —/— | not_refittable — The linked diffraction rows constrain only the Dewaele reference isotherm; the Benedict thermal term is a separately published theoretical model. |
+| [`diamond_correa_2008_double_debye_log_moment_5`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext) | `diamond_correa_2008_figure8_dft_md_vector_digitized` | — | — | —/— | not_refittable — The Figure 8 markers validate the finished pressure model but do not supply the cold-energy and phonon calculations used to fit its coefficients. |
+| [`diamond_benedict_2014_double_debye_4`](https://arxiv.org/pdf/1311.4577) | `diamond_benedict_2014_supplement_solid_dft_md` | — | — | —/— | not_refittable — The supplementary solid DFT-MD table validates the finished pressure and energy model but is not the upstream cold-curve and phonon fitting grid. |
+| [`diamond_correa_2008_dewaele_anchored`](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt, diamond_correa_2008_figure8_dft_md_vector_digitized` | 80 | — | —/— | [reconstructed](#investigation-diamond_correa_2008_dewaele_anchored) — Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified. |
+| [`diamond_benedict_2014_dewaele_anchored`](https://journals.aps.org/prb/abstract/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt, diamond_benedict_2014_supplement_solid_dft_md` | 119 | — | —/— | [reconstructed](#investigation-diamond_benedict_2014_dewaele_anchored) — Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified. |
 | [`e_feooh_gleason_2008_bm2_1`](https://doi.org/10.2138/am.2008.2942) | `epsilon_feooh_gleason_2008_deposit_table2_pvt` | — | — | —/— | not_refittable — Only 1 observation(s) lie at the reference temperature for 2 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
 | [`e_feooh_suzuki_2016_bm3_thermal_2`](https://www.jstage.jst.go.jp/article/jmps/111/6/111_160719c/_pdf) | `epsilon_feooh_suzuki_2016_table1_pvt` | 33 | `rt_eos.K0` 135 → 132.295; `rt_eos.K0_prime` 6.1 → 6.8618; `alpha0` 2.6e-05 → 3.04128e-05; `alpha1` 1e-07 → 1.11709e-07; `dK_dT` -0.05 → -0.0609132 | 0.10202/0.091436 | parity |
 | [`e_feooh_hc_low_spin_thompson_2017_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168) | `epsilon_feooh_thompson_2017_supplement_table_s1` | 17 | `V0` 58.62 → 59.5867; `K0` 223 → 185.921; `K0_prime` 4.07 → 4.65126 | 1.56406/0.530797 | [parity_not_achieved](#investigation-e_feooh_hc_low_spin_thompson_2017_bm3_1) |
@@ -849,6 +849,26 @@ use `--check` in continuous integration to detect stale generated files.
 | [`zr_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`zr_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`zr_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+
+## Composite reconstructions
+
+<a id="investigation-diamond_correa_2008_dewaele_anchored"></a>
+### `diamond_correa_2008_dewaele_anchored`
+
+Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.
+
+- Dewaele 298 K anchor: `parity` from 23 observations; RMSE 0.231284 GPa.
+- Theory checkpoint: 57 states; absolute pressure RMSE 1.79089 GPa and maximum absolute residual 5.19024 GPa.
+- Complete composition: maximum pressure identity error 1.13687e-13 GPa; 298 K anchor error 0 GPa.
+<a id="investigation-diamond_benedict_2014_dewaele_anchored"></a>
+### `diamond_benedict_2014_dewaele_anchored`
+
+Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.
+
+- Dewaele 298 K anchor: `parity` from 23 observations; RMSE 0.231284 GPa.
+- Theory checkpoint: 96 states; absolute pressure RMSE 3.17793 GPa and maximum absolute residual 6.64492 GPa.
+- Complete composition: maximum pressure identity error 1.13687e-13 GPa; 298 K anchor error 0 GPa.
+- Caloric checkpoint: fixed-volume internal-energy-increment RMSE 0.0612094 eV/atom.
 
 ## Parity not achieved
 
@@ -3100,10 +3120,8 @@ the missing source fit detail is recovered.
 - `cu_sun_2010_low_bn`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
 - `diamond_datchi_2007_vinet_1`: For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record.
 - `diamond_sokolova_2013_holzapfel_3`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `diamond_correa_2008_double_debye_log_moment_5`: This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data.
-- `diamond_benedict_2014_double_debye_4`: This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data.
-- `diamond_correa_2008_dewaele_anchored`: The linked diffraction rows constrain only the Dewaele reference isotherm; the Correa thermal term is a separately published theoretical model.
-- `diamond_benedict_2014_dewaele_anchored`: The linked diffraction rows constrain only the Dewaele reference isotherm; the Benedict thermal term is a separately published theoretical model.
+- `diamond_correa_2008_double_debye_log_moment_5`: The Figure 8 markers validate the finished pressure model but do not supply the cold-energy and phonon calculations used to fit its coefficients.
+- `diamond_benedict_2014_double_debye_4`: The supplementary solid DFT-MD table validates the finished pressure and energy model but is not the upstream cold-curve and phonon fitting grid.
 - `e_feooh_gleason_2008_bm2_1`: Only 1 observation(s) lie at the reference temperature for 2 free isothermal coefficients; the other rows require a thermal relation that this record does not represent.
 - `fe_shen_2026_vinet_1`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `fe_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.

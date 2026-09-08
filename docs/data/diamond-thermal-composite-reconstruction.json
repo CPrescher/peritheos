@@ -1,0 +1,56 @@
+{
+  "format": "peritheos.diamond-thermal-composite-reconstruction",
+  "format_version": 1,
+  "classification": "source-equation reconstruction, not independent refit",
+  "coefficient_optimization_performed": false,
+  "composition": "P(V,T)=P_Dewaele(V,298 K)+P_theory(V,T)-P_theory(V,298 K)",
+  "correa_2008": {
+    "source_dataset": "diamond_correa_2008_figure8_dft_md_vector_digitized",
+    "source_model_pressure_validation": {
+      "observations": 57,
+      "isochores": 3,
+      "absolute_pressure_rmse_gpa": 1.7908921935102013,
+      "absolute_pressure_bias_gpa": 0.007726313289275934,
+      "absolute_pressure_max_abs_residual_gpa": 5.190242761775153,
+      "isochoric_pressure_increment_comparisons": 54,
+      "pressure_increment_rmse_gpa": 3.9056750416328234,
+      "pressure_increment_bias_gpa": -3.5952390029367827,
+      "pressure_increment_max_abs_residual_gpa": 8.3252499390411
+    },
+    "complete_composite_identity": {
+      "states_checked": 57,
+      "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
+      "max_abs_reference_isotherm_error_gpa": 0.0,
+      "max_abs_thermal_energy_increment_error_j_per_mol": 2.3865140974521637e-09
+    },
+    "qualification": "Figure 8 supplies direct pressure checkpoints but not the upstream cold-energy grid, phonon DOS/moments, regression weights, or covariance."
+  },
+  "benedict_2014": {
+    "source_dataset": "diamond_benedict_2014_supplement_solid_dft_md",
+    "source_model_pressure_validation": {
+      "observations": 96,
+      "isochores": 14,
+      "absolute_pressure_rmse_gpa": 3.177925437107045,
+      "absolute_pressure_bias_gpa": 1.9077043071756208,
+      "absolute_pressure_max_abs_residual_gpa": 6.644920906457344,
+      "isochoric_pressure_increment_comparisons": 82,
+      "pressure_increment_rmse_gpa": 3.160415581839436,
+      "pressure_increment_bias_gpa": -2.1817560675267504,
+      "pressure_increment_max_abs_residual_gpa": 9.576559627301947
+    },
+    "source_model_caloric_validation": {
+      "internal_energy_increment_comparisons": 82,
+      "internal_energy_increment_rmse_ev_per_atom": 0.06120937844633891,
+      "internal_energy_increment_bias_ev_per_atom": -0.03499721156295954,
+      "internal_energy_increment_max_abs_residual_ev_per_atom": 0.2394634516831431,
+      "qualification": "Fixed-volume increments remove the arbitrary electronic-structure energy zero; absolute energies from different calculations are not compared."
+    },
+    "complete_composite_identity": {
+      "states_checked": 96,
+      "max_abs_composition_pressure_error_gpa": 1.1368683772161603e-13,
+      "max_abs_reference_isotherm_error_gpa": 0.0,
+      "max_abs_thermal_energy_increment_error_j_per_mol": 1.8189894035458565e-10
+    },
+    "qualification": "The exact supplementary solid DFT-MD table is a downstream model validation grid, not the cold-curve and phonon fitting inputs."
+  }
+}

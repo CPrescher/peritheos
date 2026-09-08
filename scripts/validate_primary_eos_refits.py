@@ -30,6 +30,9 @@ from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, V
 from peritheos.eos.thermal import ThermalReferenceStateEOS
 from peritheos.fitting import fit_joint_eos, fit_linear_us_up, fit_rt_eos
 from peritheos.materials import Material
+from scripts.reproduce_diamond_thermal_composites import (
+    reproduce as reproduce_diamond_composites,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "peritheos" / "data"
@@ -81,13 +84,13 @@ INDIRECT_DATA = {
         "The bundled rows are Hugoniot states; the stored 300 K isotherm is the "
         "source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs."
     ),
-    "diamond_correa_2008_dewaele_anchored": (
-        "The linked diffraction rows constrain only the Dewaele reference isotherm; "
-        "the Correa thermal term is a separately published theoretical model."
+    "diamond_correa_2008_double_debye_log_moment_5": (
+        "The Figure 8 markers validate the finished pressure model but do not supply "
+        "the cold-energy and phonon calculations used to fit its coefficients."
     ),
-    "diamond_benedict_2014_dewaele_anchored": (
-        "The linked diffraction rows constrain only the Dewaele reference isotherm; "
-        "the Benedict thermal term is a separately published theoretical model."
+    "diamond_benedict_2014_double_debye_4": (
+        "The supplementary solid DFT-MD table validates the finished pressure and "
+        "energy model but is not the upstream cold-curve and phonon fitting grid."
     ),
     "iridium_anzellini_2025_bm3_1": (
         "The bundled rows are all heated states. The stored coefficients are the "
@@ -2393,6 +2396,7 @@ def _dorfman_cocompression_outcome(
 
 def validate_all() -> dict[str, Any]:
     results = []
+    diamond_reconstruction = reproduce_diamond_composites()
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2427,7 +2431,55 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if record["identifier"] in {
+                "diamond_correa_2008_dewaele_anchored",
+                "diamond_benedict_2014_dewaele_anchored",
+            }:
+                source_key = (
+                    "correa_2008"
+                    if "correa" in record["identifier"]
+                    else "benedict_2014"
+                )
+                anchor_record = next(
+                    candidate
+                    for candidate in document["eos_records"]
+                    if candidate["identifier"] == "diamond_dewaele_2008_vinet_2"
+                )
+                anchor_dataset = datasets["diamond_dewaele_2008_table1_pvt"]
+                anchor = _fit_record(document, anchor_record, anchor_dataset)
+                theory = diamond_reconstruction[source_key]
+                pressure_validation = theory["source_model_pressure_validation"]
+                outcome = {
+                    "status": "reconstructed",
+                    "dataset_identifiers": identifiers,
+                    "observations": anchor["observations"]
+                    + pressure_validation["observations"],
+                    "reconstruction_kind": "derived_reference_isotherm_composition",
+                    "composite_coefficient_optimization_performed": False,
+                    "anchor_refit": {
+                        "record_identifier": "diamond_dewaele_2008_vinet_2",
+                        "status": anchor["status"],
+                        "observations": anchor["observations"],
+                        "parameters": anchor["parameters"],
+                        "rmse_gpa": anchor["rmse_gpa"],
+                    },
+                    "thermal_model_validation": {
+                        "dataset_identifier": theory["source_dataset"],
+                        **pressure_validation,
+                        **theory.get("source_model_caloric_validation", {}),
+                    },
+                    "complete_composite_identity": theory[
+                        "complete_composite_identity"
+                    ],
+                    "qualification": (
+                        "Exact source-equation reconstruction with no composite "
+                        "coefficient optimization: the Dewaele reference isotherm is "
+                        "independently refitted, the published theory branch is tested "
+                        "against its source checkpoints, and the complete composed "
+                        "pressure and energy-increment identities are verified."
+                    ),
+                }
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {
@@ -2472,6 +2524,12 @@ def validate_all() -> dict[str, Any]:
             "parity_not_achieved": (
                 "At least one fitted parameter is outside both the uncertainty and "
                 "similarity criteria."
+            ),
+            "reconstructed": (
+                "A derived record is reproduced exactly from separately audited "
+                "source components without optimizing composite coefficients. Any "
+                "independent component refit and source-data validation are reported "
+                "separately."
             ),
             "not_refittable": (
                 "The primary source supplies no direct row-level observations, or "
@@ -2603,6 +2661,8 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         f"**{summary.get('similar', 0)}** are numerically similar, "
         f"**[{summary.get('parity_not_achieved', 0)}](#parity-not-achieved)** do not "
         "achieve parity, "
+        f"**[{summary.get('reconstructed', 0)}](#composite-reconstructions)** are "
+        "exact source-equation reconstructions, "
         f"**{summary.get('not_refittable', 0)}** cannot be directly refitted, and "
         f"**{summary.get('refit_failed', 0)}** attempts failed before comparison.",
         "",
@@ -2643,7 +2703,12 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         data = ", ".join(item["dataset_identifiers"]) or item["primary_data_status"]
         reason = item.get("reason") or item.get("qualification")
         outcome = item["status"]
-        if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}:
+        if item["status"] in {
+            "similar",
+            "parity_not_achieved",
+            "refit_failed",
+            "reconstructed",
+        }:
             anchor = f"investigation-{item['record_identifier']}"
             outcome = f"[{outcome}](#{anchor})"
         if reason:
@@ -2663,6 +2728,42 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             f"{item.get('observations', '—')} | {'; '.join(params) or '—'} | "
             f"{rmse} | {outcome} |"
         )
+
+    reconstructed = [
+        item for item in ledger["records"] if item["status"] == "reconstructed"
+    ]
+    lines.extend(["", "## Composite reconstructions", ""])
+    for item in reconstructed:
+        anchor = item["anchor_refit"]
+        thermal = item["thermal_model_validation"]
+        identity = item["complete_composite_identity"]
+        anchor_name = f"investigation-{item['record_identifier']}"
+        lines.extend(
+            [
+                f'<a id="{anchor_name}"></a>',
+                f"### `{item['record_identifier']}`",
+                "",
+                item["qualification"],
+                "",
+                f"- Dewaele 298 K anchor: `{anchor['status']}` from "
+                f"{anchor['observations']} observations; RMSE "
+                f"{_fmt(anchor['rmse_gpa'])} GPa.",
+                f"- Theory checkpoint: {thermal['observations']} states; absolute "
+                f"pressure RMSE {_fmt(thermal['absolute_pressure_rmse_gpa'])} GPa "
+                f"and maximum absolute residual "
+                f"{_fmt(thermal['absolute_pressure_max_abs_residual_gpa'])} GPa.",
+                f"- Complete composition: maximum pressure identity error "
+                f"{_fmt(identity['max_abs_composition_pressure_error_gpa'])} GPa; "
+                f"298 K anchor error "
+                f"{_fmt(identity['max_abs_reference_isotherm_error_gpa'])} GPa.",
+            ]
+        )
+        if thermal.get("internal_energy_increment_rmse_ev_per_atom") is not None:
+            lines.append(
+                "- Caloric checkpoint: fixed-volume internal-energy-increment RMSE "
+                f"{_fmt(thermal['internal_energy_increment_rmse_ev_per_atom'])} "
+                "eV/atom."
+            )
 
     unsuccessful = [
         item

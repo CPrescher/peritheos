@@ -143,6 +143,30 @@ def test_free_energy_is_sum_of_individual_contributions(diamond_eos):
 
 
 @pytest.mark.parametrize("fixture_name", ["diamond_eos", "correa_diamond_eos"])
+def test_internal_energy_and_entropy_are_thermodynamically_consistent(
+    request, fixture_name
+):
+    eos = request.getfixturevalue(fixture_name)
+    volume = 5.0 * ATOMIC_ANGSTROM3_TO_MOLAR_J_PER_BAR
+    temperature = 2400.0
+    step = 1.0e-4 * temperature
+    numerical_entropy = -(
+        eos.helmholtz_free_energy(volume, temperature + step)
+        - eos.helmholtz_free_energy(volume, temperature - step)
+    ) / (2.0 * step)
+
+    assert eos.entropy(volume, temperature) == pytest.approx(
+        numerical_entropy, rel=2.0e-8
+    )
+    assert eos.internal_energy(volume, temperature) == pytest.approx(
+        eos.helmholtz_free_energy(volume, temperature)
+        + temperature * eos.entropy(volume, temperature),
+        rel=2.0e-12,
+    )
+    assert eos.entropy(volume, 0.0) == 0.0
+
+
+@pytest.mark.parametrize("fixture_name", ["diamond_eos", "correa_diamond_eos"])
 def test_optional_reference_temperature_anchors_experimental_isotherm(
     request, fixture_name
 ):
@@ -176,6 +200,12 @@ def test_optional_reference_temperature_anchors_experimental_isotherm(
         numerical_pressure, rel=1.0e-8, abs=5.0e-8
     )
     assert anchored.parameter_values(include_reference=False)["Tr"] == 298.0
+    assert anchored.internal_energy(volume, 5000.0) - anchored.internal_energy(
+        volume, 298.0
+    ) == pytest.approx(
+        simulated.internal_energy(volume, 5000.0)
+        - simulated.internal_energy(volume, 298.0)
+    )
 
 
 def test_absolute_double_debye_omits_optional_Tr_from_parameters(diamond_eos):

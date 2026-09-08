@@ -317,6 +317,34 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         result = self.n * (weight_a * free_a + (1.0 - weight_a) * free_b)
         return self._result(result)
 
+    def ion_internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the double-Debye ionic internal energy in J mol^-1."""
+        volumes, temperatures = self._state(V, T)
+        terms = self._mode_terms(volumes)
+        theta_a, theta_b, weight_a = terms[1], terms[3], terms[6]
+        energy_a = self._single_debye_internal_energy(theta_a, temperatures)
+        energy_b = self._single_debye_internal_energy(theta_b, temperatures)
+        result = self.n * (weight_a * energy_a + (1.0 - weight_a) * energy_b)
+        return self._result(result)
+
+    def ion_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the double-Debye ionic entropy in J mol^-1 K^-1."""
+        volumes, temperatures = self._state(V, T)
+        free_energy = np.asarray(
+            self.ion_helmholtz_free_energy(volumes, temperatures), dtype=float
+        )
+        internal_energy = np.asarray(
+            self.ion_internal_energy(volumes, temperatures), dtype=float
+        )
+        result = np.zeros_like(temperatures)
+        np.divide(
+            internal_energy - free_energy,
+            temperatures,
+            out=result,
+            where=temperatures > 0.0,
+        )
+        return self._result(result)
+
     def anharmonic_coefficient(self, V: NumericType) -> NumericType:
         """Return ``alpha(V)`` in K^-1."""
         volumes = np.asarray(validate_volume(V), dtype=float)
@@ -330,6 +358,20 @@ class DoubleDebyeHelmholtz(ThermalEOS):
         volumes, temperatures = self._state(V, T)
         alpha = np.asarray(self.anharmonic_coefficient(volumes), dtype=float)
         return self._result(-0.5 * self.n * R * alpha * temperatures**2)
+
+    def anharmonic_internal_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return the anharmonic/electronic internal energy in J mol^-1."""
+        return self._result(
+            -np.asarray(self.anharmonic_helmholtz_free_energy(V, T), dtype=float)
+        )
+
+    def anharmonic_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the anharmonic/electronic entropy in J mol^-1 K^-1."""
+        volumes, temperatures = self._state(V, T)
+        alpha = np.asarray(self.anharmonic_coefficient(volumes), dtype=float)
+        return self._result(self.n * R * alpha * temperatures)
 
     def helmholtz_free_energy(self, V: NumericType, T: NumericType) -> NumericType:
         """Return the complete Helmholtz free energy in J mol^-1."""
@@ -349,6 +391,43 @@ class DoubleDebyeHelmholtz(ThermalEOS):
                 self.anharmonic_helmholtz_free_energy(volumes, self.Tr), dtype=float
             )
         result = np.asarray(self.cold_energy(volumes), dtype=float) + ionic + anharmonic
+        return self._result(result)
+
+    def entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return total non-cold entropy in J mol^-1 K^-1.
+
+        A reference-isotherm subtraction changes Helmholtz free energy by a
+        temperature-independent function of volume, so it does not change
+        entropy.
+        """
+        result = np.asarray(self.ion_entropy(V, T), dtype=float) + np.asarray(
+            self.anharmonic_entropy(V, T), dtype=float
+        )
+        return self._result(result)
+
+    def internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return internal energy consistent with the complete Helmholtz EOS.
+
+        For a reference-isotherm composition this includes the same
+        volume-dependent subtraction used by :meth:`helmholtz_free_energy`.
+        Consequently, fixed-volume energy increments retain the source
+        thermal model while the absolute zero remains conventional.
+        """
+        volumes, temperatures = self._state(V, T)
+        result = np.asarray(self.cold_energy(volumes), dtype=float)
+        result += np.asarray(
+            self.ion_internal_energy(volumes, temperatures), dtype=float
+        )
+        result += np.asarray(
+            self.anharmonic_internal_energy(volumes, temperatures), dtype=float
+        )
+        if self._reference_isotherm_temperature is not None:
+            result -= np.asarray(
+                self.ion_helmholtz_free_energy(volumes, self.Tr), dtype=float
+            )
+            result -= np.asarray(
+                self.anharmonic_helmholtz_free_energy(volumes, self.Tr), dtype=float
+            )
         return self._result(result)
 
     def ion_pressure(self, V: NumericType, T: NumericType) -> NumericType:
@@ -651,6 +730,19 @@ class DoubleDebyeLogMomentHelmholtz(DoubleDebyeHelmholtz):
         """Return ``-n*R*a*T^2`` in J mol^-1."""
         _, temperatures = self._state(V, T)
         return self._result(-self.n * R * self.anharmonic_a * temperatures**2)
+
+    def anharmonic_internal_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return Correa's anharmonic internal energy in J mol^-1."""
+        return self._result(
+            -np.asarray(self.anharmonic_helmholtz_free_energy(V, T), dtype=float)
+        )
+
+    def anharmonic_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return Correa's anharmonic entropy in J mol^-1 K^-1."""
+        _, temperatures = self._state(V, T)
+        return self._result(2.0 * self.n * R * self.anharmonic_a * temperatures)
 
     def anharmonic_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         """Return zero because Correa's anharmonic coefficient is constant."""

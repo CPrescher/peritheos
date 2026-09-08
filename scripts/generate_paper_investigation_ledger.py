@@ -19,6 +19,7 @@ OUTPUT_PATH = ROOT / "docs" / "paper-investigation-ledger.md"
 STATUS_LABELS = {
     "parity": "parity",
     "similar": "similar",
+    "reconstructed": "source-equation reconstruction",
     "parity_not_achieved": "parity not achieved",
     "not_refittable": "direct refit unavailable",
 }
@@ -74,7 +75,7 @@ def markdown_cell(value: str) -> str:
 
 def classify(statuses: Counter[str]) -> str:
     """Collapse record-level refit results into one paper disposition."""
-    reproduced = statuses["parity"] + statuses["similar"]
+    reproduced = statuses["parity"] + statuses["similar"] + statuses["reconstructed"]
     discrepant = statuses["parity_not_achieved"]
     unavailable = statuses["not_refittable"]
     if discrepant and reproduced:

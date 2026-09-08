@@ -34,9 +34,11 @@ records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
 diagnostics. The current campaign finds 155 uncertainty-parity matches and 62
 additional numerically similar results. [31 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 565 records cannot be
+recover at least one published coefficient, while 563 records cannot be
 directly refitted because row-level inputs or an executable source reduction
-are unavailable. There are no unresolved extraction or solver failures. The
+are unavailable. Two derived diamond records are exact source-equation
+reconstructions rather than coefficient refits. There are no unresolved
+extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
 The [source-audit index](source-audits.md) links the detailed publication-level
@@ -335,6 +337,15 @@ The expanded catalog is also checked against measured rows printed in Dewaele
 tolerances reflect the plotted/tabulated residuals rather than table rounding.
 The B2 KCl/KBr regressions independently reproduce the exact linear thermal
 increment in Dewaele et al. (2012), equation 2 and Table V.
+
+The Dewaele-anchored Correa and Benedict diamond records use a separate
+`reconstructed` outcome. Their Dewaele 298 K anchor is independently refitted,
+while the full thermal branches are checked against all 57 vector Figure 8
+Correa pressure markers and the exact 96-row Benedict solid DFT-MD supplement.
+The composed pressure, reference-isotherm, and caloric-increment identities are
+then tested directly. No composite coefficients are optimized; the absent
+upstream cold-energy and phonon grids keep the standalone theory records
+`not_refittable` at coefficient level.
 
 The Bezacier ice VI/VII tests reproduce the temperature-dependent reference
 state from equations (1)--(3), perform volume and temperature round trips, and
