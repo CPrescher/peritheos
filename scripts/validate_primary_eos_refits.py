@@ -36,6 +36,7 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DEWAELE_REFIT_JSON = ROOT / "docs" / "data" / "dewaele-2019-static-dac-refit.json"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -94,12 +95,6 @@ INDIRECT_DATA = {
         "300 K reference part of a combined thermal fit, but the record does not "
         "represent the source's thermal correction needed to refit those rows."
     ),
-    "mgo_li_2006_bm3_absolute_acoustic": (
-        "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not "
-        "independent pressure-volume observations. The source-derived isothermal "
-        "coefficients are instead validated by the bundled velocity-density data "
-        "and the dedicated acoustic finite-strain reproduction."
-    ),
     "mgal2o4_cafe2o4_funamori_1998_bm2_1": (
         "The primary article reports only the ambient and compressed endpoint for "
         "this polymorph. Those two states reproduce the published fixed-V0, "
@@ -152,6 +147,17 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "mgo_li_2006_bm3_absolute_acoustic": (
+        "Direct reproduction of the source's measurement-to-isothermal-coefficient "
+        "chain, not a pressure-volume regression. Equations 1-2 are fitted to the "
+        "ambient anchor plus ten decompression density/VP/VS observations using the "
+        "paragraph-10 K0T finite-strain form, then Equation 4 converts the fitted "
+        "adiabatic coefficients to the stored isothermal BM3 pair. The Table 1 "
+        "elastic moduli and calculated pressures are downstream quantities and are "
+        "excluded. Exact source weights, iterative adiabatic-foot correction, "
+        "covariance, and propagated isothermal uncertainties are not published, so "
+        "the unweighted result is classified as similar rather than strict parity."
+    ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
         "reduction: the supplement deposits the 1,313 fit rows, but omits the "
@@ -259,6 +265,33 @@ FIT_QUALIFICATIONS = {
         "reprinted in this article, so exact parameter parity is not required from "
         "the new current-study rows alone."
     ),
+    "feo_fischer_2011_bm3_2": (
+        "Conditional current-study thermal reproduction: all 42 numerical B1 "
+        "volumes in Fischer Supplementary Table S1 are evaluated at their reported, "
+        "already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen "
+        "Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly "
+        "as the source specifies. Fischer's published global fit also includes "
+        "pressure-recalculated Campbell, Ozawa, and Seagle rows that are not printed "
+        "as final numerical P-V-T inputs, and the source does not state its regression "
+        "weights, residual variable, covariance, or optimizer; exact global-fit "
+        "reproduction is therefore impossible from the article and supplement alone. "
+        "See the [dedicated Fischer reproduction]"
+        "(literature-reproductions/fischer-2011-feo.md)."
+    ),
+    "feo_b8_2_fischer_2011_bm3_1": (
+        "Conditional current-study thermal reproduction: all 21 numerical B8 "
+        "volumes in Fischer Supplementary Table S1 are evaluated at their reported, "
+        "already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen "
+        "Mie-Gruneisen-Debye model. One-peak detections have no volume and are "
+        "excluded; the three two-peak volumes whose errors are unconstrained use "
+        "Figure 3's explicit +/-0.1 cm^3/mol fallback. K0', theta0, q, Tr, and n are "
+        "held fixed. Fischer's global fit also includes unprinted numerical Ozawa "
+        "P-V-T rows, and the source does not state its regression weights, residual "
+        "variable, covariance, or optimizer; exact global-fit reproduction is "
+        "therefore impossible from the article and supplement alone. See the "
+        "[dedicated Fischer reproduction]"
+        "(literature-reproductions/fischer-2011-feo.md)."
+    ),
     "palladium_baty_2024_bm3_1": (
         "Complete-table reproduction with unresolved source-fit discrepancy: all "
         "78 official Table S1 rows and the printed BM3 equation are reproduced, "
@@ -325,6 +358,14 @@ FIT_QUALIFICATIONS = {
 # and uncertainty criteria. These are deliberately phrased as diagnoses or
 # bounded hypotheses; unresolved source-method details are not presented as fact.
 INVESTIGATION_NOTES = {
+    "feo_b8_2_fischer_2011_bm3_1": (
+        "B8 V0 is extrapolated from observations beginning above 131 GPa and is "
+        "strongly correlated with K0 and gamma0. The missing Ozawa rows and "
+        "undocumented source weighting therefore have much greater leverage than "
+        "the three explicitly restored +/-0.1 cm^3/mol fallback errors. The "
+        "current-study-only result is a bounded subset diagnostic, not evidence for "
+        "replacing the published coefficients."
+    ),
     "b4c_somayazulu_2023_bm3_1": (
         "The reference isotherm and gamma0 are fixed, leaving q as the only free "
         "coefficient. The published curve and the refit have similar pressure "
@@ -576,6 +617,16 @@ VOLUME_COLUMNS = {
     "bridgmanite_katsura_2009_corrected_table1_pvt": "bridgmanite_v_v0",
     "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt": (
         "bridgmanite_unit_cell_volume_a3"
+    ),
+}
+
+# Fischer Figure 3 prescribes +/-0.1 cm^3/mol errors for B8 volumes whose
+# two-peak lattice fits could not constrain an uncertainty. The raw supplement
+# column remains blank for those rows; this explicit derived column preserves
+# that distinction while making the source's plotting uncertainty executable.
+VOLUME_SIGMA_COLUMNS = {
+    "feo_fischer_2011_table_s1_pvt#feo_b8_2_fischer_2011_bm3_1": (
+        "b8_feo_molar_volume_fit_uncertainty_cm3_mol"
     ),
 }
 
@@ -881,6 +932,16 @@ def _select_rows(
         if all(str(row.get(name, "")) == expected for name, expected in filters.items())
     ]
     detail = ", ".join(f"{key}={value}" for key, value in filters.items()) or "all rows"
+    if record_id == "feo_fischer_2011_bm3_2":
+        detail = (
+            "all 52 Table S1 rows; finite B1 volumes retain 42 phase-specific "
+            "observations at their reported temperatures"
+        )
+    elif record_id == "feo_b8_2_fischer_2011_bm3_1":
+        detail = (
+            "all 52 Table S1 rows; finite B8 volumes retain 21 phase-specific "
+            "observations, excluding one-peak detections without volume"
+        )
     return selected, detail
 
 
@@ -943,7 +1004,12 @@ def _series(
         )
 
     def uncertainties(name: str, factor: float = 1.0) -> np.ndarray | None:
-        sigma_name = _sigma_column(dataset, name)
+        sigma_name = None
+        if name == volume_name:
+            sigma_name = VOLUME_SIGMA_COLUMNS.get(
+                f"{dataset['identifier']}#{record['identifier']}"
+            )
+        sigma_name = sigma_name or _sigma_column(dataset, name)
         if sigma_name is None:
             return None
         result = np.array([_number(row.get(sigma_name)) for row in rows]) * factor
@@ -1205,6 +1271,197 @@ def _combined_fit_dataset(
     )
 
 
+def _fit_li_2006_acoustic(
+    record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    """Reproduce Li et al.'s acoustic finite-strain to isothermal BM3 chain."""
+    rows = _load_rows(dataset)
+    selected_rows = [
+        row
+        for row in rows
+        if row["experimental_path"]
+        in {"ambient", "decompression_after_annealing"}
+    ]
+    density = np.asarray(
+        [float(row["density_g_cm3"]) for row in selected_rows], dtype=float
+    )
+    p_velocity = np.asarray(
+        [float(row["p_wave_velocity_km_s"]) for row in selected_rows], dtype=float
+    )
+    s_velocity = np.asarray(
+        [float(row["s_wave_velocity_km_s"]) for row in selected_rows], dtype=float
+    )
+    density_0 = float(density[0])
+    epsilon = (1.0 - (density / density_0) ** (2.0 / 3.0)) / 2.0
+
+    validation = record["scientific_validation"]
+    published_acoustic = validation["reported_parameterizations"][0]
+    conversion = validation["isothermal_parameter_derivation"]
+    inputs = conversion["inputs"]
+    alpha_gamma_t = (
+        float(inputs["alpha_per_k"])
+        * float(inputs["gamma0"])
+        * float(inputs["temperature_k"])
+    )
+    conversion_factor = 1.0 + alpha_gamma_t
+
+    def isothermal_k0(k0s: float) -> float:
+        return k0s / conversion_factor
+
+    def predicted_velocities(parameters: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        k0s, k0s_prime, g0, g0_prime = parameters
+        # Paragraph 10 states that isothermal finite strains may be fitted by using
+        # K0T, rather than K0S, in the L2 and M2 coefficients of Equations 1-2.
+        k0t = isothermal_k0(float(k0s))
+        l1 = k0s + 4.0 * g0 / 3.0
+        l2 = 5.0 * l1 - 3.0 * k0t * (k0s_prime + 4.0 * g0_prime / 3.0)
+        m1 = g0
+        m2 = 5.0 * g0 - 3.0 * k0t * g0_prime
+        strain_factor = (1.0 - 2.0 * epsilon) ** 2.5
+        return (
+            np.sqrt(strain_factor * (l1 + l2 * epsilon) / density),
+            np.sqrt(strain_factor * (m1 + m2 * epsilon) / density),
+        )
+
+    def residuals(parameters: np.ndarray) -> np.ndarray:
+        predicted_p, predicted_s = predicted_velocities(parameters)
+        return np.concatenate((predicted_p - p_velocity, predicted_s - s_velocity))
+
+    initial = np.asarray(
+        [
+            published_acoustic["K0S_gpa"],
+            published_acoustic["K0S_prime"],
+            published_acoustic["G0_gpa"],
+            published_acoustic["G0_prime"],
+        ],
+        dtype=float,
+    )
+    fit = least_squares(
+        residuals,
+        initial,
+        xtol=1.0e-14,
+        ftol=1.0e-14,
+        gtol=1.0e-14,
+        max_nfev=5000,
+    )
+    degrees_of_freedom = int(fit.fun.size - fit.x.size)
+    residual_variance = float(np.dot(fit.fun, fit.fun) / degrees_of_freedom)
+    covariance = np.linalg.pinv(fit.jac.T @ fit.jac) * residual_variance
+    acoustic_errors = np.sqrt(np.diag(covariance))
+
+    k0s, k0s_prime, g0, g0_prime = (float(value) for value in fit.x)
+    k0t = isothermal_k0(k0s)
+    gamma_t_dkdt = (
+        float(inputs["gamma0"])
+        * float(inputs["temperature_k"])
+        * float(inputs["dK0T_dT_gpa_per_k"])
+    )
+    k0t_prime = (
+        k0s_prime
+        + float(inputs["q"]) * alpha_gamma_t
+        - gamma_t_dkdt / k0t
+    ) / conversion_factor
+
+    transform = np.zeros((2, 4), dtype=float)
+    transform[0, 0] = 1.0 / conversion_factor
+    transform[1, 0] = gamma_t_dkdt / (
+        conversion_factor**2 * k0t**2
+    )
+    transform[1, 1] = 1.0 / conversion_factor
+    isothermal_covariance = transform @ covariance @ transform.T
+    isothermal_errors = np.sqrt(np.diag(isothermal_covariance))
+    result = SimpleNamespace(
+        free_parameters=("K0", "K0_prime"),
+        parameters={"K0": k0t, "K0_prime": k0t_prime},
+        standard_errors={
+            "K0": float(isothermal_errors[0]),
+            "K0_prime": float(isothermal_errors[1]),
+        },
+    )
+    status, comparisons = _compare(record, result, False, 1.0)
+    predicted_p, predicted_s = predicted_velocities(fit.x)
+
+    acoustic_names = ("K0S", "K0S_prime", "G0", "G0_prime")
+    acoustic_values = (k0s, k0s_prime, g0, g0_prime)
+    published_keys = ("K0S_gpa", "K0S_prime", "G0_gpa", "G0_prime")
+    published_error_keys = (
+        "K0S_standard_deviation_gpa",
+        "K0S_prime_standard_deviation",
+        "G0_standard_deviation_gpa",
+        "G0_prime_standard_deviation",
+    )
+    acoustic_parameters = []
+    for name, value, error, value_key, error_key in zip(
+        acoustic_names,
+        acoustic_values,
+        acoustic_errors,
+        published_keys,
+        published_error_keys,
+    ):
+        published_value = float(published_acoustic[value_key])
+        published_error = float(published_acoustic[error_key])
+        acoustic_parameters.append(
+            {
+                "parameter": name,
+                "published": published_value,
+                "published_error": published_error,
+                "refit": value,
+                "refit_error": float(error),
+                "difference": value - published_value,
+                "within_published_1sigma": abs(value - published_value)
+                <= published_error,
+            }
+        )
+
+    return {
+        "status": status,
+        "dataset_identifiers": [dataset["identifier"]],
+        "observations": int(density.size),
+        "selection": (
+            "ambient Section 2 anchor plus all 10 "
+            "decompression_after_annealing Table 1 rows"
+        ),
+        "observed_density_range_g_cm3": [float(np.min(density)), float(np.max(density))],
+        "observed_p_wave_velocity_range_km_s": [
+            float(np.min(p_velocity)),
+            float(np.max(p_velocity)),
+        ],
+        "observed_s_wave_velocity_range_km_s": [
+            float(np.min(s_velocity)),
+            float(np.max(s_velocity)),
+        ],
+        "columns": {
+            "density": "density_g_cm3",
+            "p_wave_velocity": "p_wave_velocity_km_s",
+            "s_wave_velocity": "s_wave_velocity_km_s",
+            "pressure": None,
+        },
+        "excluded_derived_columns": [
+            "adiabatic_bulk_modulus_gpa",
+            "shear_modulus_gpa",
+            "calculated_absolute_pressure_gpa",
+        ],
+        "fit_kind": "acoustic_finite_strain_to_isothermal_bm3",
+        "objective": "unweighted_simultaneous_vp_vs_velocity_residuals",
+        "absolute_sigma": False,
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "acoustic_free_parameters": list(acoustic_names),
+        "acoustic_parameters": acoustic_parameters,
+        "rmse_p_wave_velocity_km_s": float(
+            np.sqrt(np.mean((predicted_p[1:] - p_velocity[1:]) ** 2))
+        ),
+        "rmse_s_wave_velocity_km_s": float(
+            np.sqrt(np.mean((predicted_s[1:] - s_velocity[1:]) ** 2))
+        ),
+        "reduced_chi_square": residual_variance,
+        "degrees_of_freedom": degrees_of_freedom,
+        "solver_success": bool(fit.success),
+        "solver_message": str(fit.message),
+        "qualification": FIT_QUALIFICATIONS[record["identifier"]],
+    }
+
+
 def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
@@ -1212,6 +1469,8 @@ def _fit_record(
     dataset_identifiers = [dataset["identifier"]]
     if record_id in COMBINED_FIT_DATASET_RECORDS:
         dataset, dataset_identifiers = _combined_fit_dataset(document, record)
+    if record_id == "mgo_li_2006_bm3_absolute_acoustic":
+        return _fit_li_2006_acoustic(record, dataset)
     if record["eos"]["type"] == "LinearUsUpHugoniot":
         selection = record.get("fit_provenance", {}).get("selection", {})
         particle_column = selection.get("particle_velocity_column")
@@ -1535,7 +1794,25 @@ def _fit_record(
     status, comparisons = _compare(
         record, result, thermal, material.eos_records[0].volume_scale
     )
+    if record_id == "feo_b8_2_fischer_2011_bm3_1" and any(
+        not comparison["similar"] for comparison in comparisons
+    ):
+        status = "parity_not_achieved"
     residuals = np.asarray(result.residuals, dtype=float)
+    if record_id in {
+        "feo_fischer_2011_bm3_2",
+        "feo_b8_2_fischer_2011_bm3_1",
+    }:
+        residuals = (
+            np.asarray(
+                result.model.pressure(
+                    series.volume * material.eos_records[0].volume_scale,
+                    series.temperature,
+                ),
+                dtype=float,
+            )
+            - series.pressure
+        )
     outcome = {
         "status": status,
         "dataset_identifiers": dataset_identifiers,
@@ -1590,6 +1867,23 @@ def _fit_record(
         "solver_success": bool(result.success),
         "solver_message": str(result.message),
     }
+    if record_id == "feo_fischer_2011_bm3_2":
+        outcome["uncertainty_treatment"] = (
+            "The auditable errors-in-variables diagnostic uses the published "
+            "pressure, B1-volume, and temperature uncertainties. Fischer et al. "
+            "do not state whether or how those uncertainties entered their "
+            "least-squares objective."
+        )
+    elif record_id == "feo_b8_2_fischer_2011_bm3_1":
+        outcome["uncertainty_treatment"] = (
+            "The auditable errors-in-variables diagnostic uses published pressure "
+            "and B8-volume uncertainties, with Figure 3's +/-0.1 cm^3/mol fallback "
+            "for three unconstrained volume errors. Temperature uncertainties are "
+            "not used because the 300 K row reports zero rather than a positive "
+            "uncertainty; its actual 300 K temperature is retained. Fischer et al. "
+            "do not state whether or how the tabulated uncertainties entered their "
+            "least-squares objective."
+        )
     if ice_vi_all_rows is not None:
         all_rows_fit = fit_joint_eos(
             type(executable),
@@ -2391,8 +2685,77 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _dewaele_2019_outcome(
+    document: dict[str, Any],
+    record: dict[str, Any],
+    refit: dict[str, Any],
+) -> dict[str, Any]:
+    """Translate the dedicated two-ruby-scale audit into the common ledger."""
+    z = float(document["formula_units_per_cell"])
+    fitted_atomic = refit["unweighted_pressure_residual_fit"]["parameters"]
+    fitted = {
+        "V0": float(fitted_atomic[0]) * z,
+        "K0": float(fitted_atomic[1]),
+        "K0_prime": float(fitted_atomic[2]),
+    }
+    published = {
+        name: float(record["eos"]["parameters"][name])
+        for name in ("V0", "K0", "K0_prime")
+    }
+    errors = record["parameter_errors"]
+    comparisons = []
+    for name in ("V0", "K0", "K0_prime"):
+        difference = fitted[name] - published[name]
+        published_error = float(errors[name])
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": published[name],
+                "published_error": published_error,
+                "refit": fitted[name],
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[name]),
+                "within_combined_2sigma": None,
+                "within_reported_95pct": abs(difference) <= published_error,
+                "similar": _similar(name, published[name], fitted[name]),
+            }
+        )
+    if not all(
+        item["within_reported_95pct"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError(
+            f"dedicated Dewaele audit no longer supports {record['identifier']}"
+        )
+    pressure_fit = refit["unweighted_pressure_residual_fit"]
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": refit["rows"],
+        "selection": refit["scope"],
+        "observed_pressure_range_gpa": refit["pressure_range_gpa"],
+        "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["V0", "K0", "K0_prime"],
+        "parameters": comparisons,
+        "rmse_gpa": pressure_fit["rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Dewaele (2019) refit completed",
+        "qualification": (
+            "Complete source rows for this material are bundled and the dedicated "
+            "two-ruby-scale refit recovers every coefficient within the published "
+            "95% interval. The common ledger classifies the result as similar, not "
+            "strict parity, because the dedicated audit does not infer a refit "
+            "covariance from rounded source rows."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
+    dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
+        "row_level_refits"
+    ]
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2427,7 +2790,15 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if (
+                record["identifier"] in dewaele_refits
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _dewaele_2019_outcome(
+                    document, record, dewaele_refits[record["identifier"]]
+                )
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

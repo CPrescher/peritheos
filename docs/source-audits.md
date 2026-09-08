@@ -32,17 +32,15 @@ The current collection contains 92 standalone reports.
 | Cohen and Lin (2014): static FeSiO3 Pv, PPv, and PPv-II | [`cohen-lin-2014-fesio3.md`](literature-reproductions/cohen-lin-2014-fesio3.md) |
 | Criniti et al. (2021): MgSiO3 bridgmanite | [`criniti-2021-bridgmanite.md`](literature-reproductions/criniti-2021-bridgmanite.md) |
 | Criniti et al. (2023): Fe-bearing Al-phase D | [`criniti-2023-fe-bearing-al-phase-d.md`](literature-reproductions/criniti-2023-fe-bearing-al-phase-d.md) |
-| Delta-project elemental-metal EOS | [`deltacodesdft-metal-eos.md`](literature-reproductions/deltacodesdft-metal-eos.md) |
-| Delta-project experimental-reference parameterizations | [`deltaproject-experimental-reference.md`](literature-reproductions/deltaproject-experimental-reference.md) |
 | Deng et al. (2006) MgSiO3 bridgmanite audit | [`deng-2006-bridgmanite.md`](literature-reproductions/deng-2006-bridgmanite.md) |
 | Dewaele (2019) static-DAC metal EOS audit | [`dewaele-2019-static-dac-metals.md`](literature-reproductions/dewaele-2019-static-dac-metals.md) |
 | Dewaele et al. (2000): MgO model-family audit | [`dewaele-2000-mgo.md`](literature-reproductions/dewaele-2000-mgo.md) |
 | Dewaele et al. (2004): six-metal compression and ruby-scale audit | [`dewaele-2004-six-metals.md`](literature-reproductions/dewaele-2004-six-metals.md) |
 | Dorfman et al. (2012) co-compression audit | [`dorfman-2012-cocompression.md`](literature-reproductions/dorfman-2012-cocompression.md) |
 | Driver et al. (2010): QMC silica equations of state | [`driver-2010-qmc-silica.md`](literature-reproductions/driver-2010-qmc-silica.md) |
-| Experimental metal EOS batch (200 records) | [`experimental-metal-eos-batch-200.md`](literature-reproductions/experimental-metal-eos-batch-200.md) |
 | Finkelstein et al. (2017) Mw78 compression audit | [`finkelstein-2017-mw78.md`](literature-reproductions/finkelstein-2017-mw78.md) |
 | Fiquet et al. (2000) MgSiO3 bridgmanite audit | [`fiquet-2000-bridgmanite.md`](literature-reproductions/fiquet-2000-bridgmanite.md) |
+| Fischer et al. (2011): B1 and B8 FeO thermal EOS | [`fischer-2011-feo.md`](literature-reproductions/fischer-2011-feo.md) |
 | Fu et al. (2023): bridgmanite compression and CaSiO3 thermal refit | [`fu-2023-eos.md`](literature-reproductions/fu-2023-eos.md) |
 | Funamori et al. (1996): MgSiO3 perovskite thermoelastic audit | [`funamori-1996-mgsio3-perovskite.md`](literature-reproductions/funamori-1996-mgsio3-perovskite.md) |
 | Funamori et al. (1998) MgAl2O4 high-pressure phase audit | [`funamori-1998-mgal2o4-transformations.md`](literature-reproductions/funamori-1998-mgal2o4-transformations.md) |
@@ -86,6 +84,7 @@ The current collection contains 92 standalone reports.
 | Mookherjee et al. (2015): MgSi(OH)6 3.65 Å phase | [`mookherjee-2015-365a-phase.md`](literature-reproductions/mookherjee-2015-365a-phase.md) |
 | Mookherjee et al. (2019): Phase Egg HP completion | [`mookherjee-2019-phase-egg-hp.md`](literature-reproductions/mookherjee-2019-phase-egg-hp.md) |
 | Myhill (2022): anisotropic periclase EOS | [`myhill-2022-anisotropic-eos.md`](literature-reproductions/myhill-2022-anisotropic-eos.md) |
+| Noguchi et al. (1999) NiO shock-to-isotherm audit | [`noguchi-1999-nio-shock-reduction.md`](literature-reproductions/noguchi-1999-nio-shock-reduction.md) |
 | Redfern et al. (1993): natural magnesite | [`redfern-1993-magnesite.md`](literature-reproductions/redfern-1993-magnesite.md) |
 | Sakai et al. (2025): nine mutually consistent Rydberg-Stacey scales | [`sakai-2025-nine-materials.md`](literature-reproductions/sakai-2025-nine-materials.md) |
 | Satta et al. (2025): ambient elasticity of Fe-bearing delta-AlOOH | [`satta-2025-delta-alooh-elasticity.md`](literature-reproductions/satta-2025-delta-alooh-elasticity.md) |
@@ -94,6 +93,7 @@ The current collection contains 92 standalone reports.
 | Shukla et al. (2016): Fe3+- and Al-bearing bridgmanite | [`shukla-2016-ferric-al-bridgmanite.md`](literature-reproductions/shukla-2016-ferric-al-bridgmanite.md) |
 | Sinogeikin et al. (2004): ambient MgSiO3 perovskite elasticity | [`sinogeikin-2004-mgsio3-elasticity.md`](literature-reproductions/sinogeikin-2004-mgsio3-elasticity.md) |
 | Solomatova et al. (2016): spin-crossover ferropericlase branches | [`solomatova-2016-ferropericlase.md`](literature-reproductions/solomatova-2016-ferropericlase.md) |
+| Source-specific metal EOS batch (47 records) | [`experimental-metal-eos-batch-47.md`](literature-reproductions/experimental-metal-eos-batch-47.md) |
 | Speziale et al. (2007) ferropericlase audit | [`speziale-2007-ferropericlase.md`](literature-reproductions/speziale-2007-ferropericlase.md) |
 | Sun et al. (2010): Morse equations for 50 solids | [`sun-2010-50-solids-morse-eos.md`](literature-reproductions/sun-2010-50-solids-morse-eos.md) |
 | Taniguchi et al. (1995): Ca-silicate calculation models | [`taniguchi-1995-casilicates.md`](literature-reproductions/taniguchi-1995-casilicates.md) |

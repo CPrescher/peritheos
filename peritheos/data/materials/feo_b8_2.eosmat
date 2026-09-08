@@ -74,25 +74,47 @@
     "K0_prime"
    ],
    "experimental_pressure_range_gpa": [
-    70.0,
-    156.0
+    131.0,
+    210.0
    ],
-   "notes": "Fischer et al. fit B8 Fe0.94O with molar V0 = 11.997 +/- 0.018 cm^3/mol, K0 = 137.8 +/- 0.9 GPa, and K0' fixed at 4.0. V0 and its uncertainty were converted to the Z=2 hexagonal cell.",
+   "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. The current-study supplement contributes 21 numerical B8 volumes; one-peak detections have no volume and are excluded, while Figure 3 assigns +/-0.1 cm^3/mol plotting errors when two-peak uncertainties could not be constrained. The published global fit additionally uses Ozawa observations whose exact row-level P-V-T inputs and regression weights/objective are not printed. The source explicitly warns against extrapolating this EOS far beyond the B8 data range.",
    "identifier": "feo_b8_2_fischer_2011_bm3_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "hcp Fe",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Occelli",
+        "Mezouar",
+        "Dorogokupets",
+        "Torrent"
+       ],
+       "year": 2006,
+       "source": "Physical Review Letters",
+       "volume": "97",
+       "locator": "215504",
+       "doi": "10.1103/PhysRevLett.97.215504"
+      },
+      "source_location": "Experimental Methods, pressure determination; Figure 3 discussion",
+      "notes": "The current Fischer and fitted Ozawa observations use hcp-Fe volume and temperature as the pressure standard."
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "reference_eos_not_bundled",
+     "notes": "Table S1 preserves hcp-Fe volume, temperature, and the final pressure for the current study, but the exact Dewaele et al. (2006) thermal/electronic Fe pressure model is not a bundled executable reference EOS. The final Ozawa fit rows are not reprinted by Fischer et al."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-07",
+    "notes": "NaCl was a secondary pressure standard. Published pressure errors propagate the temperature error and hcp-Fe lattice-parameter error."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-07",
     "verified_fields": [
      "equation",
      "parameters",
@@ -100,16 +122,25 @@
      "reference_state",
      "phase",
      "published_uncertainties",
+     "fixed_parameters",
+     "thermal_model",
+     "temperature_correction",
+     "fit_selection",
+     "fit_reproducibility",
+     "pressure_calibration",
+     "primary_data",
      "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
      "locations": [
-      "Equation-of-state section",
+      "Experimental Methods, pages 6-8",
+      "Equation (1) and equation-of-state section, pages 12-14",
       "Table 1",
-      "Figures 2 and 3"
+      "Figures 2 and 3",
+      "Supplementary Table S1 (mmc1.xls)"
      ],
-     "finding": "Fixed values in italics and fitted uncertainties were preserved.",
+     "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. The bundled current-study rows support a conditional thermal refit only because the final Ozawa inputs and exact weighting protocol are not printed.",
      "doi": "10.1016/j.epsl.2011.02.025"
     },
     "migration_source": {
@@ -120,16 +151,55 @@
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-07",
      "dataset_identifiers": [
       "feo_fischer_2011_table_s1_pvt"
      ],
      "source_locations": [
       "Supplementary Table S1 (mmc1.xls)"
      ],
-     "finding": "The same complete 52-row multiphase Table S1 dataset contains the 21 numerical B8-FeO volume observations fitted by this record, alongside the B1-FeO data and phase-detection flags."
+     "finding": "The complete 52-row current-study workbook is bundled verbatim at its printed precision, including 21 numerical B8 volumes at their reported, already 3%-corrected temperatures. One-peak detections have no volume; all three two-peak rows with unconstrained errors retain the measurements and use the source's Figure 3 +/-0.1 cm^3/mol fallback only in the explicit fit-uncertainty column. The global fit additionally used Ozawa rows that Fischer et al. do not reprint."
     }
-   }
+   },
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 417.0,
+     "gamma0": 1.73,
+     "q": 1.0,
+     "n": 2.0
+    },
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.12,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "q",
+     "n"
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Equation (1): a 300 K BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure; no explicit anharmonic or electronic thermal-pressure terms.",
+    "V0": "Table 1: 11.997 +/- 0.018 cm^3/mol, fitted because B8 FeO is not recoverable to ambient conditions; converted here to the conventional Z=2 B8 cell.",
+    "K0": "Table 1: 137.8 +/- 0.9 GPa, fitted.",
+    "K0_prime": "Equation-of-state section and Table 1: fixed at 4 because of the limited B8 P-T range.",
+    "theta0": "Equation-of-state section and Table 1: fixed at the B1 value, 417 K, because of the limited B8 P-T range.",
+    "gamma0": "Table 1: 1.73 +/- 0.12, fitted.",
+    "q": "Equation-of-state section and Table 1: fixed at 1 because of the limited B8 P-T range.",
+    "Tr": "Equation (1) defines P300 and subtracts the Debye energy at 300 K.",
+    "n": "Two atoms per FeO formula unit; this is the Debye energy normalization, not a fitted coefficient.",
+    "fit_scope": "Equation-of-state section and Figure 3: present B8 observations plus Ozawa et al. (2010); Kondo et al. (2004) and Fei and Mao (1994) are plotted for comparison and are not fit inputs."
+   },
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_qualitatively"
   }
  ],
  "format": "peritheos.material",
@@ -145,7 +215,7 @@
    "kind": "pressure_volume_temperature_multiphase",
    "description": "All 52 synchrotron X-ray diffraction observations in supplementary Table S1, including the B1-FeO and B8-FeO molar volumes used in the phase-specific EOS fits and the coexisting NaCl and iron measurements.",
    "source_location": "Supplementary Table S1 (mmc1.xls)",
-   "source_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
+   "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X11000963-mmc1.xls",
    "columns": [
     {
      "name": "pressure_gpa",
@@ -239,6 +309,13 @@
      "of": "b8_feo_molar_volume_cm3_mol"
     },
     {
+     "name": "b8_feo_molar_volume_fit_uncertainty_cm3_mol",
+     "quantity": "b8_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "b8_feo_molar_volume_cm3_mol"
+    },
+    {
      "name": "b8_feo_c_over_a",
      "quantity": "b8_feo_axial_ratio_c_over_a",
      "unit": "1",
@@ -266,10 +343,10 @@
    ],
    "resource": {
     "path": "datasets/feo-fischer-2011-table-s1-pvt.csv",
-    "sha256": "eb960e0ca0d2d0733f42adec9038bb31a53ffd25f95cb0ecdb4f3b341f5d32da",
+    "sha256": "cfe5a2d9ed958bd5d26a87aa5eee8bc76ca9457fd9c982c0c161e92891d17c24",
     "media_type": "text/csv"
    },
-   "notes": "The dataset preserves the workbook's full numeric precision, normalized to 12 significant digits. Asterisks are represented by b8_observation=detected_one_peak_no_volume; dagger marks are represented by b1_observation=rhombohedrally_distorted_detected_no_volume; double-dagger rows retain the measured B8 values but leave their unconstrained uncertainties blank. The supplement labels all numeric error columns generically with +/- and does not define a statistic, so they are recorded as published uncertainties.",
+   "notes": "The dataset preserves the official workbook's full numeric precision, normalized to 12 significant digits. Asterisks are represented by b8_observation=detected_one_peak_no_volume; dagger marks are represented by b1_observation=rhombohedrally_distorted_detected_no_volume; double-dagger rows retain the measured B8 values and their blank raw uncertainty. The separate B8 fit-uncertainty column copies every constrained workbook value and assigns 0.1 cm^3/mol only to the three double-dagger volumes, following the Figure 3 caption; it remains blank when no volume was measured. The supplement labels numeric error columns generically with +/- and does not define a statistic. Temperatures are the reported values after the paper's 3% axial-gradient correction, not values reduced to 300 K.",
    "reference": {
     "authors": [
      "Fischer",
@@ -287,7 +364,12 @@
    },
    "used_by_eos_records": [
     "feo_b8_2_fischer_2011_bm3_1"
-   ]
+   ],
+   "provenance": {
+    "type": "transcribed_official_supplement",
+    "source_workbook_sha256": "9a8807dcdb779840b4ad25811309cc7eeb179c42ffd53361eae36b95ebbaf561",
+    "source_author_manuscript_pdf_sha256": "c69717d039d80421dcdac45ff0207844dd734ad284039b0a573e6a30cb153d24"
+   }
   }
  ]
 }
