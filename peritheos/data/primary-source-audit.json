@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 816,
-    "primary_source_validated": 816
+    "records": 820,
+    "primary_source_validated": 820
   },
   "records": [
     {
@@ -15253,6 +15253,74 @@
           "Figures 2-3"
         ],
         "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_wang_2004_t0133_bm3",
+      "label": "Wang et al. (2004), T0133 Au-scale BM3",
+      "doi": "10.1016/j.pepi.2003.08.007",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
+        "doi": "10.1016/j.pepi.2003.08.007",
+        "locations": [
+          "Section 3.2, page 61; Table 1, pages 62-63"
+        ],
+        "finding": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_wang_2004_t0150_bm3",
+      "label": "Wang et al. (2004), preferred T0150 NaCl-scale BM3",
+      "doi": "10.1016/j.pepi.2003.08.007",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
+        "doi": "10.1016/j.pepi.2003.08.007",
+        "locations": [
+          "Section 3.2, page 61; Table 2, pages 64-65"
+        ],
+        "finding": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here."
+      }
+    },
+    {
+      "material": "akimotoite",
+      "file": "akimotoite.eosmat",
+      "record": "akimotoite_zhou_2014_300k_bm3",
+      "label": "Zhou et al. (2014), 300 K isothermal BM3",
+      "doi": "10.1016/j.pepi.2013.06.005",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2013.06.005",
+        "doi": "10.1016/j.pepi.2013.06.005",
+        "locations": [
+          "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101"
+        ],
+        "finding": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations."
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "file": "mgsio3_post_perovskite.eosmat",
+      "record": "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
+      "label": "Komabayashi et al. (2008), MgO-scale thermal BM3",
+      "doi": "10.1016/j.epsl.2007.10.036",
+      "status": "primary_source_validated",
+      "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2007.10.036",
+        "doi": "10.1016/j.epsl.2007.10.036",
+        "locations": [
+          "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522"
+        ],
+        "finding": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced."
       }
     }
   ]

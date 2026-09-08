@@ -49,6 +49,14 @@ The complete Table S1 transcription, ferropericlase spin-branch reconstruction,
 and staged thermal-BM2 refits for the four KLB-1 records are documented in the
 [Ricolleau et al. (2009) audit](literature-reproductions/ricolleau-2009-klb1-eos.md).
 
+The three MgSiO3 generalized Rydberg-Stacey records from Dorogokupets et al.
+(2015) have a standalone [partial reconstruction and refit audit](literature-reproductions/dorogokupets-2015-mgsio3-refit.md), including the unresolved weights and pressure-scale choices.
+
+Four independent [original-scale Wang, Zhou and Komabayashi EOS refits](literature-reproductions/wang-zhou-komabayashi-mgsio3.md)
+recover the respective papers' free coefficients within their printed errors.
+These published records retain their own pressure scales, fixed parameters and
+thermal constraints; they do not replace the Dorogokupets synthesis.
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

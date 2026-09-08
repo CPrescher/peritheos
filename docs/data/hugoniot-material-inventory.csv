@@ -1,6 +1,6 @@
 material_identifier,material_name,formula,represented_phase_or_polymorph,phase_identity_source,symmetry,space_group,formula_units_per_cell,equation_kinds,eos_record_count,input_file
 ag_sun_2010_legacy,Ag legacy compression aggregate (Sun 2010),Ag,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,8,peritheos/data/materials/ag_sun_2010_legacy.eosmat
-akimotoite,Akimotoite,MgSiO3,ilmenite-type (akimotoite),top-level phase field,TRIGONAL,R-3,6,isothermal,8,peritheos/data/materials/akimotoite.eosmat
+akimotoite,Akimotoite,MgSiO3,ilmenite-type (akimotoite),top-level phase field,TRIGONAL,R-3,6,isothermal,11,peritheos/data/materials/akimotoite.eosmat
 al2o3_perovskite,Al2O3 perovskite model crystal,Al2O3,hypothetical orthorhombic Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/al2o3_perovskite.eosmat
 al2o3_post_perovskite,Al2O3 post-perovskite model crystal,Al2O3,hypothetical CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/al2o3_post_perovskite.eosmat
 al2o3_sun_2010_legacy,Al2O3 legacy compression aggregate (Sun 2010),Al2O3,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/al2o3_sun_2010_legacy.eosmat
@@ -183,7 +183,7 @@ mgo_b2,B2 MgO,MgO,B2 cesium-chloride-type MgO,top-level phase field,CUBIC,Pm-3m,
 mgo_liquid,Liquid MgO,MgO,MgO liquid,top-level phase field,,,1,isothermal,1,peritheos/data/materials/mgo_liquid.eosmat
 mgo_sun_2010_legacy,MgO legacy compression aggregate (Sun 2010),MgO,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/mgo_sun_2010_legacy.eosmat
 mgsio3_liquid,Liquid MgSiO3,MgSiO3,MgSiO3 liquid,top-level phase field,,,1,isothermal,1,peritheos/data/materials/mgsio3_liquid.eosmat
-mgsio3_post_perovskite,MgSiO3 post-perovskite,MgSiO3,"post-perovskite, CaIrO3-type orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,thermal;isothermal,13,peritheos/data/materials/mgsio3_post_perovskite.eosmat
+mgsio3_post_perovskite,MgSiO3 post-perovskite,MgSiO3,"post-perovskite, CaIrO3-type orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,thermal;isothermal,14,peritheos/data/materials/mgsio3_post_perovskite.eosmat
 mgsioh6_365a_phase,MgSi(OH)6 3.65 A phase,MgSiH6O6,"monoclinic hydroxide perovskite 3.65 A phase, P21",top-level phase field,MONOCLINIC,P21,2,isothermal,3,peritheos/data/materials/mgsioh6_365a_phase.eosmat
 mo_sun_2010_legacy,Mo legacy compression aggregate (Sun 2010),Mo,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,8,peritheos/data/materials/mo_sun_2010_legacy.eosmat
 molybdenum,Molybdenum,Mo,Molybdenum,material name plus crystal structure,CUBIC,Im-3m,2,isothermal;thermal,9,peritheos/data/materials/molybdenum.eosmat

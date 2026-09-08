@@ -128,7 +128,11 @@ def discrepancy_summary(record: dict[str, Any]) -> str:
                 f"{parameter['parameter']} {parameter['published']:.6g} -> "
                 f"{parameter['refit']:.6g}"
             )
-    return "; ".join(differences) or "published coefficients were not recovered"
+    return (
+        "; ".join(differences)
+        or record.get("reason")
+        or "published coefficients were not recovered"
+    )
 
 
 def build_papers() -> tuple[list[dict[str, Any]], dict[str, int]]:
@@ -346,7 +350,8 @@ def render() -> str:
             "tables are stored but do not form a common direct-fit observation matrix;",
             "`plot only` means observations were digitized;",
             "`parameterization only` means only the published equation/coefficients can",
-            "be checked. Record-level links, fit metrics, and evidence locations are in",
+            "be checked; `partial reconstruction` means a documented subset of a",
+            "larger source objective is executable. Record-level links, fit metrics, and evidence locations are in",
             "the primary-source and refit ledgers.",
             "",
             "| Paper | Final disposition | Catalog records | Record-level results | Primary-data form |",
@@ -361,6 +366,7 @@ def render() -> str:
         "plot_only": "plot only/digitized",
         "parameterization_only": "parameterization only",
         "theoretical_parameterization_only": "theoretical parameterization only",
+        "partial_reconstruction": "partial reconstruction",
         "external_primary_table_refitted": (
             "external primary table (refitted; not redistributed)"
         ),

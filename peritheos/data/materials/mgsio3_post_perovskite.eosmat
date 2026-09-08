@@ -1645,6 +1645,9 @@
     "V0",
     "K_infinity_prime"
    ],
+   "diagnostic_datasets": [
+    "dorogokupets_2015_post_perovskite_298k_reconstruction"
+   ],
    "temperature_ref": 298.15,
    "experimental_pressure_range_gpa": [
     0.0,
@@ -1681,7 +1684,7 @@
     "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
    },
    "pressure_calibration": {
-    "status": "not_applicable",
+    "status": "partially_resolved",
     "methods": [
      {
       "kind": "self_consistent",
@@ -1690,10 +1693,10 @@
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The synthesis does not deposit every raw calibrant observation needed for an observation-level re-reduction."
+     "status": "ready",
+     "notes": "All 24 Guignot et al. (2007) 300 K pressures and all 21 usable Komabayashi et al. (2008) pressures can be recalculated from simultaneous MgO lattice parameters. The Ono et al. (2006) gold-scale branch is comparison-only and is explicitly excluded from the target reconstruction."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -1721,16 +1724,189 @@
      "finding": "The primary source defines a complete k=5 generalized Rydberg reference isotherm; LitCurate's Birch-family ambiguity is resolved directly."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-06",
+     "status": "partial_reconstruction",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "dorogokupets_2015_post_perovskite_298k_reconstruction",
+      "mgsio3_post_perovskite_guignot_2007_table1_300k_compression",
+      "mgsio3_post_perovskite_komabayashi_2008_table1_pvt"
+     ],
      "source_locations": [
       "Table 1",
-      "Figure 8"
+      "Figure 8",
+      "Guignot et al. (2007), Table 1",
+      "Komabayashi et al. (2008), Table 1"
      ],
-     "finding": "Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together."
+     "finding": "The 24 Guignot room-temperature observations and complete 22-row Komabayashi table are bundled; 21 Komabayashi rows contain post-perovskite volumes and all preserve simultaneous MgO lattice parameters. Adding the three 300 K Komabayashi rows moves the unweighted slice to K0=246.78 GPa and K0_prime=4.016, close to but not identical with the published 253.7 GPa and 4.03. The remaining mismatch reflects the larger joint thermal fit, not missing Komabayashi data or an evident weighting effect."
     }
    },
-   "notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309)."
+   "notes": "Accepted corrected mapping for LitCurate source row 868 (litcurate_ef9e7ca080ec8309). The dedicated partial reconstruction is documented in docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md; the published coefficients are retained because exact parity is not achieved."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
+   "label": "Komabayashi et al. (2008), MgO-scale thermal BM3",
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Komabayashi",
+     "Hirose",
+     "Sugimura",
+     "Sata",
+     "Ohishi",
+     "Dubrovinsky"
+    ],
+    "year": 2008,
+    "source": "Earth and Planetary Science Letters",
+    "volume": "265",
+    "locator": "515-524",
+    "doi": "10.1016/j.epsl.2007.10.036"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 163.813,
+     "K0": 223.2,
+     "K0_prime": 4
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 0.2,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300,
+   "experimental_pressure_range_gpa": [
+    114.5,
+    129.7
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    300,
+    2330
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 100.387
+   },
+   "validity": {
+    "pressure_gpa": [
+     114.5,
+     129.7
+    ],
+    "temperature_k": [
+     300,
+     2330
+    ],
+    "notes": [
+     "Bounds describe fitted observations, not a phase-stability field."
+    ]
+   },
+   "fit_datasets": [
+    "mgsio3_post_perovskite_komabayashi_2008_table1_pvt"
+   ],
+   "parameter_provenance": {
+    "equation": "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522",
+    "parameters": "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522",
+    "fixed_parameters": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced.",
+    "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/2000JB900318"
+      },
+      "source_location": "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522",
+      "notes": "Original pressure coordinate; no Dorogokupets/Sokolova rescaling."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "MgO lattice parameters are printed, but the bundled Speziale static BM3 record does not supply its full high-temperature calibrant EOS. This refit uses the original printed MgO pressures."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "crystallographic_basis",
+     "published_uncertainties",
+     "fixed_parameters",
+     "pressure_calibration",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2007.10.036",
+     "doi": "10.1016/j.epsl.2007.10.036",
+     "locations": [
+      "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522"
+     ],
+     "finding": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mgsio3_post_perovskite_komabayashi_2008_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, article page 517"
+     ],
+     "finding": "All 21 Table 1 rows with PPv volume, using original Speziale-MgO pressures; the Pv-only row is excluded; independently refitted within printed parameter uncertainties."
+    }
+   },
+   "notes": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.",
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "reference_volume_law": "integrated_expansivity",
+    "parameters": {
+     "Tr": 300,
+     "alpha0": 0.00001667,
+     "alpha1": 1.13e-9,
+     "dK_dT": -0.0085
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": null,
+     "alpha1": 1.14e-8,
+     "dK_dT": 0.0011
+    },
+    "fixed_parameters": [
+     "Tr"
+    ],
+    "parameter_constraints": {
+     "alpha0": "1.7e-5 - 300*alpha1 (fit constraint; printed values independently rounded)"
+    }
+   }
   }
  ],
  "format": "peritheos.material",
@@ -2304,6 +2480,153 @@
    "used_by_eos_records": [
     "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
    ]
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_guignot_2007_table1_300k_compression",
+   "kind": "pressure_volume_temperature_lattice_parameters_with_calibrant",
+   "description": "All 24 room-temperature MgSiO3 post-perovskite observations in Guignot et al. (2007) Table 1, retaining the simultaneous MgO calibrant lattice parameter.",
+   "source_location": "Table 1, article pages 4-5",
+   "source_url": "https://doi.org/10.1016/j.epsl.2007.01.025",
+   "columns": [
+    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
+    {"name": "pressure_original_gpa", "quantity": "published_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_original_uncertainty_gpa", "quantity": "published_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_original_gpa"},
+    {"name": "mgsio3_lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "mgsio3_lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "mgsio3_lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "mgsio3_unit_cell_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "mgsio3_unit_cell_volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "mgsio3_unit_cell_volume_a3"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "mgo_lattice_a_angstrom", "quantity": "mgo_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "pressure_scale_note", "quantity": "pressure_scale", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-guignot-2007-table1-300k-compression.csv",
+    "sha256": "35372a9aaa524634c4f8deefadd6bf6f98cca95a1743b08b2d2cf594ffc9e491",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Manual transcription from the author manuscript; printed values and parenthetical errors retained.",
+    "source_pdf_sha256": "4fb857322835b0816b9291c4d9bc6e6b53458a291975014874b2ed17d9affc6c",
+    "transcribed_on": "2026-09-08"
+   },
+   "reference": {
+    "authors": ["Guignot", "Andrault", "Morard", "Bolfan-Casanova", "Mezouar"],
+    "year": 2007,
+    "source": "Earth and Planetary Science Letters",
+    "volume": "256",
+    "locator": "162-168",
+    "doi": "10.1016/j.epsl.2007.01.025"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey"
+   ],
+   "notes": "Guignot's original pressures and pressure uncertainties are preserved; the diagnostic reconstruction recalculates pressure from the measured MgO lattice parameter."
+  },
+  {
+   "identifier": "mgsio3_post_perovskite_komabayashi_2008_table1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameters_with_calibrant",
+   "description": "Complete 22-row transcription of Komabayashi et al. (2008) Table 1, including 21 rows with post-perovskite volumes and one explicitly missing post-perovskite observation.",
+   "source_location": "Table 1, article page 517",
+   "source_url": "https://doi.org/10.1016/j.epsl.2007.10.036",
+   "columns": [
+    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
+    {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
+    {"name": "heating_method", "quantity": "heating_method", "unit": "1", "role": "flag"},
+    {"name": "pressure_mgo_gpa", "quantity": "published_mgo_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_mgo_uncertainty_gpa", "quantity": "published_mgo_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_mgo_gpa"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "temperature_uncertainty_description", "quantity": "temperature_uncertainty", "unit": "1", "role": "flag"},
+    {"name": "ppv_a_angstrom", "quantity": "post_perovskite_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "ppv_a_uncertainty_angstrom", "quantity": "post_perovskite_lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "ppv_a_angstrom"},
+    {"name": "ppv_b_angstrom", "quantity": "post_perovskite_lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "ppv_b_uncertainty_angstrom", "quantity": "post_perovskite_lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "ppv_b_angstrom"},
+    {"name": "ppv_c_angstrom", "quantity": "post_perovskite_lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "ppv_c_uncertainty_angstrom", "quantity": "post_perovskite_lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "ppv_c_angstrom"},
+    {"name": "ppv_volume_a3", "quantity": "post_perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "ppv_volume_uncertainty_a3", "quantity": "post_perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "ppv_volume_a3"},
+    {"name": "pv_a_angstrom", "quantity": "perovskite_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "pv_a_uncertainty_angstrom", "quantity": "perovskite_lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "pv_a_angstrom"},
+    {"name": "pv_b_angstrom", "quantity": "perovskite_lattice_parameter_b", "unit": "angstrom", "role": "value"},
+    {"name": "pv_b_uncertainty_angstrom", "quantity": "perovskite_lattice_parameter_b", "unit": "angstrom", "role": "uncertainty", "of": "pv_b_angstrom"},
+    {"name": "pv_c_angstrom", "quantity": "perovskite_lattice_parameter_c", "unit": "angstrom", "role": "value"},
+    {"name": "pv_c_uncertainty_angstrom", "quantity": "perovskite_lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "pv_c_angstrom"},
+    {"name": "pv_volume_a3", "quantity": "perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "pv_volume_uncertainty_a3", "quantity": "perovskite_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "pv_volume_a3"},
+    {"name": "mgo_a_angstrom", "quantity": "mgo_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "nacl_a_angstrom", "quantity": "nacl_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+    {"name": "pressure_nacl_gpa", "quantity": "published_nacl_pressure", "unit": "GPa", "role": "value"},
+    {"name": "ppv_fit_included", "quantity": "fit_inclusion", "unit": "1", "role": "flag"},
+    {"name": "exclusion_note", "quantity": "exclusion_reason", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-post-perovskite-komabayashi-2008-table1-pvt.csv",
+    "sha256": "f9397ce04a013118a467e0dfa205cc50d4d96537199b4806f8bcbda465feeba7",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Programmatic text extraction followed by visual comparison with the rendered table; printed values, parenthetical uncertainties, dashes, and the missing post-perovskite row are retained.",
+    "source_pdf_sha256": "16118c6b222d761bc0a36832c5c3c493dce442d5c6418dc1fb9bf78163124738",
+    "transcribed_on": "2026-09-08"
+   },
+   "reference": {
+    "authors": ["Komabayashi", "Hirose", "Sugimura", "Sata", "Ohishi", "Dubrovinsky"],
+    "year": 2008,
+    "source": "Earth and Planetary Science Letters",
+    "volume": "265",
+    "locator": "515-524",
+    "doi": "10.1016/j.epsl.2007.10.036"
+   },
+   "used_by_eos_records": ["mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey","mgsio3_post_perovskite_komabayashi_2008_thermal_bm3"],
+   "notes": "External-heating pressures were reported on the Speziale et al. (2001) MgO scale; the simultaneous MgO lattice parameters allow recalculation on the Sokolova et al. (2013) scale. The laser-heating temperature footnote states 10%, while the text describes about 200 K; both are preserved."
+  },
+  {
+   "identifier": "dorogokupets_2015_post_perovskite_298k_reconstruction",
+   "kind": "literature_reconstruction_diagnostic",
+   "description": "Recoverable 298-300 K post-perovskite slice of the Dorogokupets et al. joint optimization, containing the source-selected Guignot and Komabayashi rows recalculated on the Sokolova MgO scale.",
+   "source_location": "Dorogokupets et al. (2015), postperovskite subsection and Figure 8; Guignot et al. (2007), Table 1; Komabayashi et al. (2008), Table 1",
+   "source_url": "https://doi.org/10.1016/j.rgg.2015.01.011",
+   "columns": [
+    {"name": "phase", "quantity": "reconstruction_branch", "unit": "1", "role": "flag"},
+    {"name": "source", "quantity": "source_citation", "unit": "1", "role": "flag"},
+    {"name": "source_doi", "quantity": "source_doi", "unit": "1", "role": "flag"},
+    {"name": "source_order", "quantity": "source_row", "unit": "1", "role": "flag"},
+    {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+    {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "uncertainty", "of": "volume_a3"},
+    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "pressure_error_or_spread_proxy", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "pressure_coordinate", "quantity": "pressure_scale", "unit": "1", "role": "flag"},
+    {"name": "selection_note", "quantity": "selection_provenance", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/dorogokupets-2015-298k-literature-reconstruction.csv",
+    "sha256": "bb907e4b498914ec023cb9df421e9bda908b66b02ca304ead2bbef44785b1ef1",
+    "media_type": "text/csv"
+   },
+   "provenance_resource": {
+    "path": "datasets/dorogokupets-2015-298k-reconstruction-source.json",
+    "sha256": "0e0392cfd1758dbcf9752d9953b5d4d4b6ecd3f5499082efd6db259dde8143d1",
+    "media_type": "application/json"
+   },
+   "reference": {
+    "authors": ["Dorogokupets", "Dymshits", "Sokolova", "Danilov", "Litasov"],
+    "year": 2015,
+    "source": "Russian Geology and Geophysics",
+    "volume": "56",
+    "locator": "172-189",
+    "doi": "10.1016/j.rgg.2015.01.011"
+   },
+   "used_by_eos_records": [
+    "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey"
+   ],
+   "uncertainty": {
+    "weights": "No 2015 point-weighting rule is stated. The primary diagnostic is unweighted; sensitivity weights use source pressure errors plus projected volume uncertainty and are not claimed to reproduce the joint objective.",
+    "covariance": "not_reported"
+   },
+   "notes": "This is a partial fit reconstruction, not the full joint thermoelastic optimization. The complete Komabayashi table is bundled; Ono et al. (2006) remains excluded because the source identifies that Au-scale branch as systematically offset comparison data."
   }
  ]
 }

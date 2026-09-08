@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased]
+
+### Added
+
+- Added four independently published MgSiO3 EOS records from Wang (2004),
+  Zhou (2014) and Komabayashi (2008), with original-pressure-scale refits that
+  recover the free coefficients within printed uncertainties. Published
+  coefficients and existing defaults are preserved; the PPv thermal refit
+  follows the source's two stages and ambient-expansion constraint.
+- Bundled the source tables and documented the partial Dorogokupets (2015)
+  MgSiO3 reconstruction, including unresolved joint-fit and pressure-scale choices.
+
 All notable changes to Peritheos are documented here. The project follows
 [Semantic Versioning](https://semver.org/).
 

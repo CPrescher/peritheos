@@ -90,7 +90,7 @@ Peritheos `RydbergStacey` uses the same expression with `k=3 K_infinity_prime`, 
 
 For Hamahata et al., `V0 = Z M/(rho0 N_A)` with Z=4, M=100.387 g/mol, and rho0=4.030 g/cm3 gives 165.45561819988183 A3. For Akins et al., the same calculation with Z=1 and rho0=3.68 g/cm3 gives 45.29797155879917 A3 per formula unit.
 
-`scripts/reproduce_mgsio3_source_exhaustion.py` evaluates the serialized models against independent direct equations at several compression ratios. It is a parameter/equation reproduction, not a claim to refit unavailable heterogeneous data.
+`scripts/reproduce_mgsio3_source_exhaustion.py` evaluates the serialized models against independent direct equations at several compression ratios. It is a parameter/equation reproduction. A later [dedicated Dorogokupets audit](dorogokupets-2015-mgsio3-refit.md) reconstructs the recoverable 298 K literature slices and documents why the missing weights, source rows, and pressure-scale choices still prevent exact refit parity.
 
 ## Zotero-ready metadata
 
