@@ -8,27 +8,27 @@
     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a"
   },
   "materials": 286,
-  "eos_records": 813,
+  "eos_records": 815,
   "scientific_validation": {
     "audit_date": "2026-09-06",
     "report": "../primary-source-audit.json",
     "counts": {
-      "primary_source_validated": 813
+      "primary_source_validated": 815
     },
     "policy": "Only primary_source_validated records are executable; deferred records remain available for lossless catalog interchange."
   },
   "pressure_calibration": {
     "audit_date": "2026-09-06",
     "status_counts": {
-      "resolved": 168,
-      "partially_resolved": 59,
+      "resolved": 170,
+      "partially_resolved": 60,
       "not_applicable": 267,
-      "unresolved": 319
+      "unresolved": 318
     },
     "recalculation_counts": {
-      "missing_calibrant_observations": 166,
+      "missing_calibrant_observations": 169,
       "not_applicable": 264,
-      "not_possible": 296,
+      "not_possible": 295,
       "ready": 52,
       "reference_eos_not_bundled": 18,
       "reference_model_not_supported": 17

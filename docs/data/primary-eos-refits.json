@@ -13565,7 +13565,9 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "lead_fcc_kuznetsov_2002_table1_transition_pvt"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         13.0
@@ -13581,12 +13583,36 @@
       "label": "Fortes (2019), 300 K BM4 slice",
       "material_identifier": "lead_fcc",
       "model": "BM4",
-      "primary_data_finding": "Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations.",
-      "primary_data_status": "parameterization_only",
+      "primary_data_finding": "The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published.",
+      "primary_data_status": "combined_primary_data_partially_bundled",
       "primary_source": "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
-      "reason": "Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations.",
+      "reason": "The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes audit](literature-reproductions/fortes-2019-fcc-pb.md).",
       "record_identifier": "lead_fcc_fortes_2019_bm4_1",
-      "source_notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. V0(T) and K0(T) were constrained first from thermal-expansion and elastic data; K0_prime and K0_double_prime were then fitted to compression data spanning 295-788 K. The polynomial temperature dependence is intentionally not stored because the current thermal schema cannot represent it. Primary report: https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
+      "source_notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
+      "status": "not_refittable"
+    },
+    {
+      "dataset_identifiers": [
+        "lead_fcc_kuznetsov_2002_table1_transition_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        13.1
+      ],
+      "experimental_temperature_range_k": [
+        296.0,
+        296.0
+      ],
+      "fixed_parameters": [],
+      "label": "Kuznetsov et al. (2002), 296 K BM3 slice",
+      "material_identifier": "lead_fcc",
+      "model": "BM3",
+      "primary_data_finding": "Three exact fcc transition P-V-T anchors are bundled, but they are not the complete observations used to fit the nine-coefficient thermal BM3 surface. The full numerical P-V-T dataset, row selection, residual coordinate, weights, and covariance procedure are not published.",
+      "primary_data_status": "combined_primary_data_partially_bundled",
+      "primary_source": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+      "reason": "The three bundled Table 1 rows are rounded fcc states at the phase transition, not the complete P-V-T observations used to fit the source's nine-coefficient thermal BM3 surface. The full numerical dataset, row selection, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
+      "record_identifier": "lead_fcc_kuznetsov_2002_bm3_2",
+      "source_notes": "Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0_prime(T) terms and is independently executable in scripts/audit_fortes_2019_fcc_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.",
       "status": "not_refittable"
     },
     {
@@ -13790,6 +13816,30 @@
       "solver_success": true,
       "source_notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
       "status": "parity_not_achieved"
+    },
+    {
+      "dataset_identifiers": [
+        "lead_hcp_kuznetsov_2002_figure3_digitized"
+      ],
+      "experimental_pressure_range_gpa": [
+        12.0,
+        40.0
+      ],
+      "experimental_temperature_range_k": [
+        296.0,
+        296.0
+      ],
+      "fixed_parameters": [],
+      "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
+      "material_identifier": "lead_hcp",
+      "model": "BM3",
+      "primary_data_finding": "The slice reproduces seven digitized solid room-temperature hcp markers with 0.266 GPa pressure RMSE. All 21 direct and source-reduced markers give 0.642 GPa RMSE; the complete original P-V-T rows and fit protocol are unavailable.",
+      "primary_data_status": "combined_primary_data_partially_bundled",
+      "primary_source": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+      "reason": "The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
+      "record_identifier": "lead_hcp_kuznetsov_2002_bm3_3",
+      "source_notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
+      "status": "not_refittable"
     },
     {
       "absolute_sigma": true,
@@ -24303,25 +24353,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,10 +31698,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 567,
     "parity": 155,
     "parity_not_achieved": 31,
     "similar": 62,
-    "total": 813
+    "total": 815
   }
 }

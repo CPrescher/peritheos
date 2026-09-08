@@ -5,6 +5,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Added primary-source-validated 296 K BM3 slices of the Kuznetsov et al.
+  (2002) fcc- and hcp-Pb P-V-T models, with phase-specific validity metadata,
+  pressure-calibration provenance, and numerical source-curve verification.
+- Audited the Fortes (2019) fcc-Pb BM4 pressure scale against its complete
+  published equations and the recoverable Kuznetsov transition data.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

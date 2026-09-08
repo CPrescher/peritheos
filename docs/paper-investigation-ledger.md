@@ -26,7 +26,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **317 primary papers**: **219** support the 813 audited catalog records and **98** were investigated without adding a production record.
+The register covers **318 primary papers**: **220** support the 815 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -37,7 +37,7 @@ refits, or acceptance-gate holds.
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
-| Direct refit unavailable | 75 |
+| Direct refit unavailable | 76 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
 
@@ -873,7 +873,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **82 papers** contain 565 records for which a
+These **83 papers** contain 567 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -903,7 +903,7 @@ have other records that were reproduced.
 | [Dorogokupets et al. (2015)](https://doi.org/10.1016/j.rgg.2015.01.011) | `akimotoite_dorogokupets_2015_298k_rydberg_stacey`, `bridgmanite_dorogokupets_2015_298k_rydberg_stacey`, `mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey` | Complete coefficients are printed, but no consolidated observation-level fit dataset and weights are deposited. The complete optimized coefficients are tabulated, while the heterogeneous literature fit observations and weights are not deposited as one machine-readable dataset. Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together. |
 | [Driver et al. (2010)](https://doi.org/10.1073/pnas.0912130107) | `alpha_quartz_driver_2010_qmc_300k_vinet`, `seifertite_driver_2010_qmc_300k_vinet`, `sio2_stv_andr_driver_2010_qmc_300k_vinet` | The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures. |
 | [Duffy and Ahrens (1995)](https://doi.org/10.1029/94jb02065) | `mgo_b1_duffy_ahrens_1995_hugoniot_5` | The published phase-specific coefficients are transcribed directly. The article's observation table is not redistributed because no open table-data license was identified. |
-| [Fortes (2019)](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | `lead_fcc_fortes_2019_bm4_1` | Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations. |
+| [Fortes (2019)](https://doi.org/10.5286/raltr.2019002) | `lead_fcc_fortes_2019_bm4_1` | The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes audit](literature-reproductions/fortes-2019-fcc-pb.md). |
 | [Fu et al. (2023)](https://doi.org/10.2138/am-2022-8435) | `ca_perovskite_fu_2023_bm3_mgd_refit` | The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity. |
 | [Funamori et al. (1998)](https://doi.org/10.1029/98jb01575) | `mgal2o4_cafe2o4_funamori_1998_bm2_1`, `mgal2o4_cati2o4_funamori_1998_bm2_1` | The primary article reports only the ambient and compressed endpoint for this polymorph. Those two states reproduce the published fixed-V0, fixed-K0-prime curve in the dedicated Funamori reproduction, but do not provide enough degrees of freedom for the generic refit campaign. |
 | [Ghosh and Karki (2016)](https://doi.org/10.1038/srep37269) | `mgo_liquid_ghosh_karki_2016_3000k_bm3_1` | The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced. |
@@ -919,6 +919,7 @@ have other records that were reproduced.
 | [Karki et al. (1997)](https://doi.org/10.2138/am-1997-1-207) | `mgo_karki_1997_lda_static_bm3`, `mgo_karki_1997_lda_static_bm4` | The calculated states are plotted but not tabulated; no pseudo-observations were constructed. The calculated states are plotted in Figure 1 but not tabulated; validation therefore checks the published equation, coefficients, derivative identities, and inverse curve rather than inventing row-level data. |
 | [Kawai and Tsuchiya (2014)](https://doi.org/10.1002/2013jb010905) | `ca_perovskite_kawai_2014_vinet_mgd_3` | The publisher page exposes no supporting-information or data file, and the article plots but does not tabulate the underlying FPMD P-V-T stress averages. A direct refit is therefore impossible. All 60 printed Table 1 fitted-isotherm benchmark states are bundled separately for numerical reproduction; they are model values, not primary observations. |
 | [Kiefer et al. (2002)](https://doi.org/10.1029/2002gl014683) | `bridgmanite_kiefer_2002_gga_bm3`, `mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3` | Complete coefficients are printed, but the underlying energy-volume grid is not tabulated. |
+| [Kuznetsov et al. (2002)](https://doi.org/10.1016/s0038-1098(02)00112-6) | `lead_fcc_kuznetsov_2002_bm3_2`, `lead_hcp_kuznetsov_2002_bm3_3` | The three bundled Table 1 rows are rounded fcc states at the phase transition, not the complete P-V-T observations used to fit the source's nine-coefficient thermal BM3 surface. The full numerical dataset, row selection, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md). The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md). |
 | [Lee and Wan (2008)](https://doi.org/10.1103/physrevb.78.224103) | `mgo_lee_wan_2008_gga_static_bm3`, `mgo_lee_wan_2008_lda_static_bm3` | The exact BM3 coefficients and plotted curves are published, but the underlying pressure-volume calculation table and fitting weights are not. |
 | [Lejaeghere et al. (2016)](https://doi.org/10.1126/science.aad3000) | `aluminum_lejaeghere_2016_fleur_pbe_bm3`, `aluminum_lejaeghere_2016_wien2k_pbe_bm3`, `barium_bcc_lejaeghere_2016_wien2k_pbe_bm3`, `beryllium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `bismuth_a7_lejaeghere_2016_wien2k_pbe_bm3`, `cadmium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `calcium_fcc_lejaeghere_2016_wien2k_pbe_bm3`, `cesium_bcc_lejaeghere_2016_wien2k_pbe_bm3`, `chromium_lejaeghere_2016_wien2k_pbe_bm3`, `cobalt_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `copper_lejaeghere_2016_wien2k_pbe_bm3`, `fe_lejaeghere_2016_fleur_pbe_bm3`, `fe_lejaeghere_2016_wien2k_pbe_bm3`, `gallium_alpha_lejaeghere_2016_wien2k_pbe_bm3`, `gold_lejaeghere_2016_wien2k_pbe_bm3`, `hafnium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `indium_bct_lejaeghere_2016_wien2k_pbe_bm3`, `iridium_lejaeghere_2016_wien2k_pbe_bm3`, `lead_fcc_lejaeghere_2016_wien2k_pbe_bm3`, `lithium_9r_lejaeghere_2016_wien2k_pbe_bm3`, `lutetium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `magnesium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `manganese_fcc_afm_lejaeghere_2016_wien2k_pbe_bm3`, `mercury_bct_dft_lejaeghere_2016_wien2k_pbe_bm3`, `molybdenum_lejaeghere_2016_wien2k_pbe_bm3`, `nickel_lejaeghere_2016_wien2k_pbe_bm3`, `niobium_lejaeghere_2016_wien2k_pbe_bm3`, `osmium_lejaeghere_2016_wien2k_pbe_bm3`, `palladium_lejaeghere_2016_wien2k_pbe_bm3`, `platinum_lejaeghere_2016_wien2k_pbe_bm3`, `polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3`, `potassium_bcc_lejaeghere_2016_wien2k_pbe_bm3`, `rhenium_lejaeghere_2016_wien2k_pbe_bm3`, `rhodium_lejaeghere_2016_wien2k_pbe_bm3`, `rubidium_bcc_lejaeghere_2016_wien2k_pbe_bm3`, `ruthenium_lejaeghere_2016_wien2k_pbe_bm3`, `scandium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `silver_lejaeghere_2016_wien2k_pbe_bm3`, `sodium_9r_lejaeghere_2016_wien2k_pbe_bm3`, `strontium_fcc_lejaeghere_2016_wien2k_pbe_bm3`, `tantalum_lejaeghere_2016_wien2k_pbe_bm3`, `technetium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `thallium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `tin_alpha_lejaeghere_2016_wien2k_pbe_bm3`, `titanium_alpha_lejaeghere_2016_wien2k_pbe_bm3`, `tungsten_lejaeghere_2016_wien2k_pbe_bm3`, `vanadium_bcc_lejaeghere_2016_wien2k_pbe_bm3`, `yttrium_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `zinc_hcp_lejaeghere_2016_wien2k_pbe_bm3`, `zirconium_alpha_lejaeghere_2016_wien2k_pbe_bm3` | The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [Leonov et al. (2017)](https://doi.org/10.1103/physrevb.96.075136) | `feo_leonov_2017_hs_bm3_1`, `mg0125fe0875o_leonov_2017_hs_bm3_1`, `mg025fe075o_leonov_2017_hs_bm3_1`, `mg0375fe0625o_leonov_2017_hs_bm3_1`, `mg05fe05o_leonov_2017_hs_bm3_1`, `mg0625fe0375o_leonov_2017_hs_bm3_1`, `mg075fe025o_leonov_2017_hs_bm3_1`, `mg0875fe0125o_leonov_2017_hs_bm3_1` | Independent equation checkpoints verify transcription without claiming a refit. Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. Independent checkpoints only; no grid deposited. |
@@ -1056,7 +1057,7 @@ the primary-source and refit ledgers.
 | [Finkelstein et al. (2014)](https://doi.org/10.2138/am.2014.4526) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Finkelstein et al. (2017)](https://doi.org/10.2138/am-2017-5966) | Coefficient parity not achieved | 2 | 2 parity not achieved | 2 bundled |
 | [Fiquet et al. (2000)](https://doi.org/10.1029/1999gl008397) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Fortes (2019)](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
+| [Fortes (2019)](https://doi.org/10.5286/raltr.2019002) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Frank et al. (2004)](https://doi.org/10.1016/j.gca.2003.12.007) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Fratanduono et al. (2021)](https://doi.org/10.1126/science.abh0364) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Frost et al. (2023)](https://doi.org/10.1063/5.0161038) | Reproduced | 2 | 2 similar | 2 bundled |
@@ -1121,6 +1122,7 @@ the primary-source and refit ledgers.
 | [Kubo et al. (2000)](https://doi.org/10.2183/pjab.76.103) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Kubo et al. (2006)](https://doi.org/10.1029/2006gl025686) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Kumari and Dass (1990), EOS applied to 50 solids II](https://doi.org/10.1088/0953-8984/2/39/003) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Kuznetsov et al. (2002)](https://doi.org/10.1016/s0038-1098(02)00112-6) | Direct refit unavailable | 2 | 2 direct refit unavailable |  |
 | [Lakshtanov et al. (2007), Al-H stishovite elasticity](https://doi.org/10.2138/am.2007.2294) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Le Godec et al. (2014)](https://doi.org/10.3103/s1063457614010092) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Lee and Wan (2008)](https://doi.org/10.1103/physrevb.78.224103) | Direct refit unavailable | 2 | 2 direct refit unavailable | 2 theoretical parameterization only |

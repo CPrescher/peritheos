@@ -94,7 +94,7 @@ def test_complete_material_library_is_bundled_and_valid():
 
     assert len(identifiers) == 286
     assert len(set(identifiers)) == 286
-    assert sum(len(document["eos_records"]) for document in documents) == 813
+    assert sum(len(document["eos_records"]) for document in documents) == 815
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 813
+    assert len({record["identifier"] for record in records}) == 815
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 813
+    assert statuses.count("primary_source_validated") == 815
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -217,6 +217,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -296,13 +297,14 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert {audit_dates[identifier] for identifier in delta_identifiers} == {
         "2026-09-06"
     }
-    assert len(batch_identifiers) == 410
+    assert len(batch_identifiers) == 412
     assert {audit_dates[identifier] for identifier in batch_identifiers} == {
         "2026-09-01",
         "2026-09-03",
         "2026-09-04",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     assert native_identifiers == (
         legacy_native_identifiers
@@ -337,8 +339,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 813,
-        "primary_source_validated": 813,
+        "records": 815,
+        "primary_source_validated": 815,
     }
     assert report["audit_date"] == "2026-09-06"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -813,7 +815,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 813
+    assert len(records) == 815
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -824,6 +826,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
@@ -882,7 +885,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 813
+    assert checked == 815
     assert failures == []
 
 
@@ -2508,12 +2511,21 @@ def test_no_doi_primary_source_table_regressions(
 
 
 def test_no_doi_primary_sources_use_stable_article_or_report_locators():
-    for material in ("coesite", "lead_fcc", "zircon"):
+    for material in ("coesite", "zircon"):
         record = get_material_document(material)["eos_records"][0]
         validation = record["scientific_validation"]
         assert validation["status"] == "primary_source_validated"
         assert validation["primary_source_check"]["doi"] is None
         assert validation["primary_source_check"]["access_url"].startswith("https://")
+
+    lead = next(
+        record
+        for record in get_material_document("lead_fcc")["eos_records"]
+        if record["identifier"] == "lead_fcc_fortes_2019_bm4_1"
+    )
+    assert lead["scientific_validation"]["primary_source_check"]["doi"] == (
+        "10.5286/raltr.2019002"
+    )
 
 
 @pytest.mark.parametrize(
@@ -2859,7 +2871,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 286
-    assert manifest["eos_records"] == 813
+    assert manifest["eos_records"] == 815
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-06"
 
 

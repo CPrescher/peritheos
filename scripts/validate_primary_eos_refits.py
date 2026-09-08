@@ -49,6 +49,31 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
+    "lead_hcp_kuznetsov_2002_bm3_3": (
+        "The bundled Figure 3 coordinates are plot-digitized room-temperature "
+        "and source-reduced markers, not the complete original P-V-T observations "
+        "used to fit the nine-coefficient hcp thermal BM3 surface. The original "
+        "rows, residual coordinate, weights, and covariance procedure are not "
+        "published. See the [dedicated Fortes/Kuznetsov audit]"
+        "(literature-reproductions/fortes-2019-fcc-pb.md)."
+    ),
+    "lead_fcc_kuznetsov_2002_bm3_2": (
+        "The three bundled Table 1 rows are rounded fcc states at the phase "
+        "transition, not the complete P-V-T observations used to fit the source's "
+        "nine-coefficient thermal BM3 surface. The full numerical dataset, row "
+        "selection, residual coordinate, weights, and covariance procedure are "
+        "not published. See the [dedicated Fortes/Kuznetsov audit]"
+        "(literature-reproductions/fortes-2019-fcc-pb.md)."
+    ),
+    "lead_fcc_fortes_2019_bm4_1": (
+        "The published pressure surface is executable and three exact Kuznetsov "
+        "fcc transition P-V-T anchors are bundled, but the compiled coefficient "
+        "fit cannot be independently reproduced. The full 295-788 K Kuznetsov "
+        "table was supplied privately to Fortes, while the exhaustive source-row "
+        "selection, pressure-scale treatment, residual coordinate, weights, and "
+        "covariance procedure are not published. See the [dedicated Fortes "
+        "audit](literature-reproductions/fortes-2019-fcc-pb.md)."
+    ),
     "fesio3_liquid_sun_2019_2500k_bm4_1": (
         "The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, "
         "rather than the numerical table, identifies the liquid states used by the "
