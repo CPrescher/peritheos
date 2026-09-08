@@ -69,8 +69,8 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 813
-    assert len(materials) == 286
+    assert len(records) == 487
+    assert len(materials) == 208
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
     assert [item.identifier for item in records] == sorted(
@@ -83,14 +83,6 @@ def test_catalog_listing_lookup_and_material_filter():
     assert canonical_mgo.identifier == MGO_TANGE_2009.identifier
     assert canonical_mgo is not MGO_TANGE_2009
     assert {item.identifier for item in list_eos_records(formula="au")} == {
-        "au_sun_2010_mrs3_1",
-        "au_sun_2010_sms3_1",
-        "au_sun_2010_sms4_1",
-        "au_sun_2010_low_bn",
-        "au_sun_2010_low_mrs3",
-        "au_sun_2010_low_sms3",
-        "au_sun_2010_low_sms4",
-        "au_sun_2010_low_vn",
         "gold_anderson_1989_bm3_1",
         "gold_dewaele_2004_mao_ruby_vinet",
         "gold_dewaele_2004_vinet_5",
@@ -100,8 +92,6 @@ def test_catalog_listing_lookup_and_material_filter():
         "gold_dorfman_2012_tange_mgo_k0_free_vinet",
         "gold_fei_2007_vinet_2",
         "gold_fratanduono_2021_vinet_7",
-        "gold_delta_archive_experimental_reference_bm3",
-        "gold_lejaeghere_2016_wien2k_pbe_bm3",
         "gold_sakai_2025_rydberg_stacey_1",
         "gold_shen_2026_vinet_3",
         "gold_sokolova_2013_holzapfel_4",
@@ -114,10 +104,7 @@ def test_catalog_listing_lookup_and_material_filter():
     )
     assert len(get_material("diamond").eos_records) == 7
     assert get_material("au_fcc").get_eos_record("au_fcc_fei_2007") is AU_FEI_2007
-    assert list_materials(formula="Au") == (
-        get_material("au_sun_2010_legacy"),
-        get_material("gold"),
-    )
+    assert list_materials(formula="Au") == (get_material("gold"),)
     assert list_eos_records(formula="missing") == ()
     assert list_materials(formula="missing") == ()
     with pytest.raises(KeyError, match="Unknown EOS record"):

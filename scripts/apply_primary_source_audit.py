@@ -3026,17 +3026,11 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             validation[extension] = value
     result["scientific_validation"] = validation
 
-    if "_delta_archive_experimental_reference_bm3" in result["identifier"]:
-        # Delta rows are heterogeneous reference-property compilations, not
-        # row-level P-V fits, so preserve their narrower source-specific claim.
-        result["scientific_validation"]["note"] = previous["note"]
-        result["scientific_validation"]["verified_fields"] = previous["verified_fields"]
-
     if result["identifier"] == "ca_perovskite_caracas_2005_bm3_3":
         result["scientific_validation"]["note"] = (
             "The primary article and publisher HTML were audited directly. "
-            "Exactly one cubic source parameterization is executable; all 18 "
-            "Table 2 fits remain distinguished in the audit metadata."
+            "Four selected Pm-3m and I4/mcm parameterizations are executable; "
+            "all 18 Table 2 fits remain distinguished in the audit fixture."
         )
         result["scientific_validation"]["verified_fields"] = [
             "equation",
@@ -3290,8 +3284,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 813:
-        raise ValueError(f"Expected 813 EOS records, found {len(entries)}")
+    if len(entries) != 487:
+        raise ValueError(f"Expected 487 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

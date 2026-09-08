@@ -32,21 +32,15 @@ def test_cu_vinet_l8_refit_is_reproducible_and_improves_the_objective():
 
 def test_cu_refit_is_a_separate_dataset_backed_catalog_record():
     root = Path(__file__).resolve().parents[1]
-    path = root / "peritheos" / "data" / "materials" / "cu_sun_2010_legacy.eosmat"
+    path = root / "peritheos" / "data" / "materials" / "cu_handbook_1972_legacy.eosmat"
     document = json.loads(path.read_text(encoding="utf-8"))
     records = {record["identifier"]: record for record in document["eos_records"]}
     datasets = {dataset["identifier"]: dataset for dataset in document["datasets"]}
 
-    published = records["cu_sun_2010_low_vn"]
     fitted = records["cu_sun_2010_low_vn_refit"]
-    assert published["record_kind"] == "published"
-    assert published["eos"]["parameters"] == {
-        "V0": pytest.approx(11.81473546294192),
-        "K0": pytest.approx(140.95),
-        "K0_prime": pytest.approx(4.798),
-    }
+    assert len(records) == 1
     assert fitted["record_kind"] == "refit"
-    assert fitted["derived_from_record"] == published["identifier"]
+    assert "derived_from_record" not in fitted
     assert fitted["fit_provenance"]["dataset"] == "aip_handbook_table4d12_cu"
     assert fitted["fit_provenance"]["objective"] == (
         "sum((P_model_gpa - P_table_gpa)^8)"

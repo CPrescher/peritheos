@@ -10,6 +10,7 @@ called reproducible.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import hashlib
 import json
@@ -385,5 +386,16 @@ def reproduce() -> dict[str, object]:
     }
 
 
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", type=Path)
+    args = parser.parse_args()
+    payload = json.dumps(reproduce(), indent=2, sort_keys=True) + "\n"
+    if args.output is None:
+        print(payload, end="")
+    else:
+        args.output.write_text(payload, encoding="utf-8")
+
+
 if __name__ == "__main__":
-    print(json.dumps(reproduce(), indent=2, sort_keys=True))
+    main()
