@@ -920,8 +920,8 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
     }
 
     assert_eq!(paths.len(), 286);
-    assert_eq!(records, 814);
-    assert_eq!(thermal_records, 64);
+    assert_eq!(records, 816);
+    assert_eq!(thermal_records, 66);
 }
 
 #[test]
@@ -944,4 +944,28 @@ fn datchi_cbn_absolute_mgd_reproduces_table_vi_volume() {
             .and_then(serde_json::Value::as_str),
         Some("absolute_zero")
     );
+}
+
+#[test]
+fn sueda_cf_mgal2o4_thermal_records_reproduce_table1() {
+    let Some(material) = load_bundled_material("mgal2o4_cafe2o4.eosmat") else {
+        return;
+    };
+    for (identifier, expected) in [
+        ("mgal2o4_cafe2o4_sueda_2009_htbm_2", 32.004_483_561_762_335),
+        ("mgal2o4_cafe2o4_sueda_2009_mgd_3", 31.978_129_992_817_028),
+    ] {
+        let record = material
+            .eos_records
+            .iter()
+            .find(|record| record.identifier == identifier)
+            .unwrap();
+        // Independent SI-cell reference calculation and the first Table 1 state.
+        let pressure = record.pressure(218.9, 1800.0).unwrap();
+        assert_close(pressure, expected, 1.0e-9);
+        assert!((pressure - 32.4).abs() < 0.6);
+        assert_close(record.volume(pressure, 1800.0).unwrap(), 218.9, 1.0e-7);
+        assert_close(record.pressure(240.1, 300.0).unwrap(), 0.0, 1.0e-9);
+        assert!((record.volume(0.0001, 836.0).unwrap() - 243.8).abs() < 0.3);
+    }
 }

@@ -16,7 +16,7 @@ not published). Crystal structure and EOS provenance are audited separately;
 an EOS is not accepted into the library with only a phase name or nominal
 formula.
 
-The current catalog contains 286 material files and 821 EOS records. The model
+The current catalog contains 286 material files and 823 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,
@@ -38,6 +38,17 @@ normal primary-source, units, uncertainty, phase, and numerical reproduction
 audit.
 
 ## A — review first
+
+### Sueda et al. (2009) — CaFe2O4-type MgAl2O4
+
+**Status: accepted and implemented (2026-09-08), two thermal records.**
+DOI [10.1016/j.pepi.2008.07.046](https://doi.org/10.1016/j.pepi.2008.07.046).
+The HTBM and BM3-MGD fits extend `mgal2o4_cafe2o4`, sharing the published
+300 K static triplet. All 46 Table 1 observations and calibrant data are
+bundled; independent thermal refits recover every free coefficient within
+its printed error. The [source audit](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md)
+documents equation printing errors, uncertainty limitations, and staged fitting.
+This manually investigated DOI has no row in the imported LitCurate ledger.
 
 ### Audited discovery lead — MgO/periclase, Dewaele et al. (2000)
 

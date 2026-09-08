@@ -202,6 +202,9 @@ UNWEIGHTED_DATASETS = {
 
     # Diagnostic pressure objective; source normalized-volume weights unavailable.
     "mgal2o4_cafe2o4_irifune_2002_text_pv",
+
+    # Sueda reports least squares but no weights or uncertainty confidence.
+    "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",
     "mg075fe025o_mao_2011_figure1_300k_digitized",
@@ -262,6 +265,23 @@ FIT_QUALIFICATIONS = {
         "volume objective with unspecified weights. The dedicated reproduction "
         "also checks that objective; neither supplies source covariance. The refit "
         "error is a residual-scaled diagnostic, not a published uncertainty."
+    ),
+
+    "mgal2o4_cafe2o4_sueda_2009_htbm_2": (
+        "Staged thermal diagnostic on all 46 Table 1 rows, with the published "
+        "300 K BM3 triplet fixed. The source does not specify weights or "
+        "uncertainty confidence, so use unweighted pressure residuals. "
+        "The independent static-stage reconstruction and printed-equation "
+        "corrections are documented in the [Sueda audit]"
+        "(literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md)."
+    ),
+    "mgal2o4_cafe2o4_sueda_2009_mgd_3": (
+        "Staged thermal diagnostic on all 46 Table 1 rows, with the published "
+        "300 K BM3 triplet fixed. The source does not specify weights or "
+        "uncertainty confidence, so use unweighted pressure residuals. "
+        "The independent static-stage reconstruction and printed-equation "
+        "corrections are documented in the [Sueda audit]"
+        "(literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md)."
     ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
@@ -1527,6 +1547,7 @@ def _fit_record(
     if dataset["identifier"] in {
         "iron_zhang_2025_tables_s1_s3_s4_pvt",
         "mgal2o4_cafe2o4_irifune_2002_text_pv",
+        "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
     }:
         source_protocol_unweighted = True
     material = Material.from_eosmat(document, record_identifiers=[record_id])

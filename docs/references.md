@@ -447,3 +447,12 @@ publication when citing a model in scientific work.
   In situ X-ray observations of phase transitions in MgAl2O4 spinel to 40 GPa
   using multianvil apparatus with sintered diamond anvils. *Physics and Chemistry
   of Minerals*, **29**, 645–654. [doi:10.1007/s00269-002-0275-1](https://doi.org/10.1007/s00269-002-0275-1).
+
+
+- Sueda, Y., Irifune, T., Sanehira, T., Yagi, T., Nishiyama, N., Kikegawa, T.
+  & Funakoshi, K.-i. (2009). Thermal equation of state of CaFe2O4-type MgAl2O4.
+  *Physics of the Earth and Planetary Interiors*, 174(1–4), 78–85.
+  [doi:10.1016/j.pepi.2008.07.046](https://doi.org/10.1016/j.pepi.2008.07.046).
+  [Source audit and reproduction](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md):
+  two thermal fits from Table 2, all 46 Table 1 observations, and explicit
+  interpretations of the printing errors in Equations 3, 4, 6, and 7.

@@ -53,7 +53,7 @@ def test_funamori_phase_identity_and_published_bm2(material_identifier, case):
     assert document["formula_units_per_cell"] == 4
     assert document["space_group"] == case["space_group"]
     assert document["atom_sites"] == []
-    assert len(document["eos_records"]) == {'mgal2o4_cafe2o4': 2, 'mgal2o4_cati2o4': 2}[material_identifier]
+    assert len(document["eos_records"]) == {'mgal2o4_cafe2o4': 4, 'mgal2o4_cati2o4': 2}[material_identifier]
 
     stored = document["eos_records"][0]
     assert stored["identifier"] == case["record"]
