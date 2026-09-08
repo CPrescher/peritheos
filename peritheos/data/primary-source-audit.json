@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-06",
+  "audit_date": "2026-09-08",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 813,
-    "primary_source_validated": 813
+    "records": 814,
+    "primary_source_validated": 814
   },
   "records": [
     {
@@ -8356,6 +8356,25 @@
           "Figure 4"
         ],
         "finding": "The authors identify run 2 as CaFe2O4-type MgAl2O4 and derive a separate second-order Birch EOS from its recovered ambient and in-situ high-pressure cells; this is a phase parameterization, not an arbitrary run split."
+      }
+    },
+    {
+      "material": "mgal2o4_cafe2o4",
+      "file": "mgal2o4_cafe2o4.eosmat",
+      "record": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
+      "label": "Irifune et al. (2002), CaFe2O4-type MgAl2O4 BM2",
+      "doi": "10.1007/s00269-002-0275-1",
+      "status": "primary_source_validated",
+      "note": "Checked publisher metadata and Toru Inoue author-uploaded typeset primary article; constrained numerical diagnostics documented separately.",
+      "primary_source_check": {
+        "access_url": "https://www.researchgate.net/publication/225470056_In_situ_X-ray_observations_of_phase_transitions_in_MgAl2O4_spinel_to_40_GPa_using_multianvil_apparatus_with_sintered_diamond_anvils",
+        "doi": "10.1007/s00269-002-0275-1",
+        "locations": [
+          "Experimental, pp. 646-647",
+          "Bulk modulus discussion, p. 652",
+          "Table 2 and Figure 6"
+        ],
+        "finding": "Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC."
       }
     },
     {

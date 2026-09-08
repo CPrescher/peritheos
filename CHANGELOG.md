@@ -5,6 +5,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Added the Irifune et al. (2002) CaFe2O4-type MgAl2O4 constrained BM2
+  record, primary observations, provenance and sparse-data reproduction audit.
+  The catalog now contains 286 materials and 814 EOS records.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

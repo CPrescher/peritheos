@@ -511,3 +511,9 @@ transcribe the published equation rather than only its parameter table;
 reproduce at least one published P-V(-T) point; record fixed/fitted parameters
 and uncertainty meaning; define the experimentally supported validity domain;
 and only then create or modify an `.eosmat` record.
+
+## Direct primary-source additions
+
+- Irifune et al. (2002), DOI `10.1007/s00269-002-0275-1`: accepted one
+  constrained CaFe2O4-type MgAl2O4 BM2 record on 2026-09-08. No matching
+  LitCurate discovery row exists. See the [sparse-data audit](literature-reproductions/irifune-2002-mgal2o4-cafe2o4.md).

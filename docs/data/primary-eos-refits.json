@@ -18481,6 +18481,70 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgal2o4_cafe2o4_irifune_2002_text_pv"
+      ],
+      "degrees_of_freedom": 2,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        34.7
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Irifune et al. (2002), CaFe2O4-type MgAl2O4 BM2",
+      "material_identifier": "mgal2o4_cafe2o4",
+      "model": "BM2",
+      "objective": "pressure_residuals",
+      "observations": 3,
+      "observed_pressure_range_gpa": [
+        27.4,
+        34.7
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        213.1,
+        216.1
+      ],
+      "parameters": [
+        {
+          "difference": 0.8654162323525156,
+          "parameter": "K0",
+          "published": 213.0,
+          "published_error": 3.0,
+          "refit": 213.86541623235252,
+          "refit_error": 5.668615221179417,
+          "relative_difference": 0.004062987006349839,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All three compressed and paired recovered volumes retained; average V0 is a parameter, not a fourth independent compressed observation.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://www.researchgate.net/publication/225470056_In_situ_X-ray_observations_of_phase_transitions_in_MgAl2O4_spinel_to_40_GPa_using_multianvil_apparatus_with_sintered_diamond_anvils",
+      "published_rmse_gpa": 1.18848285916044,
+      "qualification": "Three compressed states only; fixed averaged V0 and implicit K0-prime=4. This unweighted pressure diagnostic differs from the stated normalized-volume objective with unspecified weights. The dedicated reproduction also checks that objective; neither supplies source covariance. The refit error is a residual-scaled diagnostic, not a published uncertainty.",
+      "record_identifier": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
+      "reduced_chi_square": 2.094330432884105,
+      "rmse_gpa": 1.1816176575311506,
+      "selection": "fit_included=1",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Only three compressed points: do not infer a free K0-prime, covariance, thermal coefficients or a new default. The existing Funamori structural cell and default are retained independently of this EOS reference volume.",
+      "status": "parity"
+    },
+    {
       "dataset_identifiers": [
         "mgal2o4_cati2o4_funamori_1998_text_pv"
       ],
@@ -31649,9 +31713,9 @@
   ],
   "summary": {
     "not_refittable": 565,
-    "parity": 155,
+    "parity": 156,
     "parity_not_achieved": 31,
     "similar": 62,
-    "total": 813
+    "total": 814
   }
 }
