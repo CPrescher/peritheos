@@ -26,7 +26,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **317 primary papers**: **219** support the 813 audited catalog records and **98** were investigated without adding a production record.
+The register covers **318 primary papers**: **220** support the 814 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -1178,6 +1178,7 @@ the primary-source and refit ledgers.
 | [Ono (2013)](https://doi.org/10.3390/e15104300) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Ono et al. (2000)](https://doi.org/10.1007/s002690000108) | Coefficient parity not achieved | 2 | 2 parity not achieved | 2 bundled |
 | [Ono et al. (2006)](https://doi.org/10.2138/am.2006.2347) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Ono et al. (2006)](https://doi.org/10.1007/s00269-006-0068-z) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Ono et al. (2006)](https://doi.org/10.2138/am.2006.2118) | Reproduced | 3 | 3 parity | 3 bundled |
 | [Pamato et al. (2016), NAL elasticity](https://doi.org/10.1002/2016JB013136) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Pepin et al. (2014)](https://doi.org/10.1103/physrevlett.113.265504) | Reproduced | 2 | 2 parity | 2 plot only/digitized |

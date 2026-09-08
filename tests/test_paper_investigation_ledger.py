@@ -19,7 +19,7 @@ def test_paper_investigation_ledger_is_complete_and_current():
         for row in audit
     }
 
-    assert len(paper_keys) == 223
+    assert len(paper_keys) == 224
     assert len(nonproduction) >= 41
     assert {row["outcome"] for row in nonproduction} == {
         "withheld_unreproduced",
@@ -33,7 +33,7 @@ def test_paper_investigation_ledger_is_complete_and_current():
     )
     ledger = LEDGER_PATH.read_text(encoding="utf-8")
     assert f"**{len(paper_keys) + len(nonproduction)} primary papers**" in ledger
-    assert "| Reproduced | 130 |" in ledger
+    assert "| Reproduced | 131 |" in ledger
     assert "| Coefficient parity not achieved | 13 |" in ledger
     assert "| Direct refit unavailable |" in ledger
     assert "Katsura et al. (2004)" in ledger

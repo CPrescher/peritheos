@@ -16,7 +16,7 @@ not published). Crystal structure and EOS provenance are audited separately;
 an EOS is not accepted into the library with only a phase name or nominal
 formula.
 
-The current catalog contains 286 material files and 820 EOS records. The model
+The current catalog contains 286 material files and 821 EOS records. The model
 inventory already includes BM2/BM3/BM4, Murnaghan, natural-strain, modified
 Tait, Vinet, Holzapfel, referenced Mie-Gruneisen-Debye/Einstein, linear and
 log-volume thermal pressure, a temperature-dependent reference-state model,
@@ -511,3 +511,12 @@ transcribe the published equation rather than only its parameter table;
 reproduce at least one published P-V(-T) point; record fixed/fitted parameters
 and uncertainty meaning; define the experimentally supported validity domain;
 and only then create or modify an `.eosmat` record.
+
+## Accepted direct lead: Ono et al. (2006), CaTi2O4-type MgAl2O4
+
+Accepted 2026-09-08 as `mgal2o4_cati2o4_ono_2006_bm2_2`, a 300 K BM2
+with V0=238.9(9) Å³ and K0=219(6) GPa, K0′=4 fixed. All 14 Table 3
+observations are bundled. No same-DOI/title row exists in the LitCurate
+discovery ledger; no intake identifier was invented. See the
+[primary-source audit and reproduction](literature-reproductions/ono-2006-mgal2o4-cati2o4.md)
+for uncertainty, fit-selection sensitivity, calibration, and comparison-fit dispositions.

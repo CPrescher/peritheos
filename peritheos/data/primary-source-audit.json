@@ -1,7 +1,7 @@
 {
   "format": "peritheos.primary-source-audit",
   "format_version": 1,
-  "audit_date": "2026-09-06",
+  "audit_date": "2026-09-08",
   "policy": {
     "scientific_authority": "primary publications and official supplements",
     "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 820,
-    "primary_source_validated": 820
+    "records": 821,
+    "primary_source_validated": 821
   },
   "records": [
     {
@@ -15323,6 +15323,26 @@
           "Table 1, page 517; Table 2 and equations 1-4, page 520; PPv constraint, page 522"
         ],
         "finding": "V0=163.813 A3 is adopted from Tsuchiya et al. (2004), not measured at ambient conditions. K0'=4 is fixed. K0 is first fitted to three 300 K points, then held fixed for the thermal fit to all 21 PPv observations on the original Speziale-MgO scale. alpha(T)=alpha0+alpha1*T with alpha(300)=1.7e-5 K^-1 imposed, so alpha0=1.7e-5-300*alpha1 is dependent. The record preserves the independently rounded Table 2 coefficients, whose alpha(300)=1.7009e-5 differs slightly from the exact constraint. The Pv-only row is excluded; the companion Pv fit also requires Funamori et al. data and is not claimed reproduced."
+      }
+    },
+    {
+      "material": "mgal2o4_cati2o4",
+      "file": "mgal2o4_cati2o4.eosmat",
+      "record": "mgal2o4_cati2o4_ono_2006_bm2_2",
+      "label": "Ono et al. (2006), CaTi2O4-type MgAl2O4 BM2",
+      "doi": "10.1007/s00269-006-0068-z",
+      "status": "primary_source_validated",
+      "note": "Primary version-of-record PDF reviewed, with visual checks of pp. 203-204; published coefficients retained independently of diagnostic refits.",
+      "primary_source_check": {
+        "access_url": "https://repository.geologyscience.ru/server/api/core/bitstreams/55584c23-e366-4fc8-ae97-f94d81827cbf/content",
+        "doi": "10.1007/s00269-006-0068-z",
+        "locations": [
+          "Experimental, p. 201",
+          "Results, pp. 202-203",
+          "Tables 2-3",
+          "Figures 4-5"
+        ],
+        "finding": "Source-owned 300 K BM2, V0=238.9(9) A3 and K0=219(6) GPa with K0-prime=4; distinct from Funamori (1998) and from citation-only MORB curves."
       }
     }
   ]

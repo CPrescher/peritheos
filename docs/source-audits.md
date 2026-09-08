@@ -91,6 +91,7 @@ The current collection contains 93 standalone reports.
 | Mookherjee et al. (2015): MgSi(OH)6 3.65 Å phase | [`mookherjee-2015-365a-phase.md`](literature-reproductions/mookherjee-2015-365a-phase.md) |
 | Mookherjee et al. (2019): Phase Egg HP completion | [`mookherjee-2019-phase-egg-hp.md`](literature-reproductions/mookherjee-2019-phase-egg-hp.md) |
 | Myhill (2022): anisotropic periclase EOS | [`myhill-2022-anisotropic-eos.md`](literature-reproductions/myhill-2022-anisotropic-eos.md) |
+| Ono et al. (2006): CaTi2O4-type MgAl2O4 | [`ono-2006-mgal2o4-cati2o4.md`](literature-reproductions/ono-2006-mgal2o4-cati2o4.md) |
 | Redfern et al. (1993): natural magnesite | [`redfern-1993-magnesite.md`](literature-reproductions/redfern-1993-magnesite.md) |
 | Ricolleau et al. (2009) KLB-1 EOS audit | [`ricolleau-2009-klb1-eos.md`](literature-reproductions/ricolleau-2009-klb1-eos.md) |
 | Sakai et al. (2025): nine mutually consistent Rydberg-Stacey scales | [`sakai-2025-nine-materials.md`](literature-reproductions/sakai-2025-nine-materials.md) |
