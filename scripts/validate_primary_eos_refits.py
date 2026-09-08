@@ -72,6 +72,17 @@ INDIRECT_DATA = {
         "equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be "
         "refitted directly to those rows."
     ),
+    "platinum_dorogokupets_oganov_2007_vinet_4": (
+        "The 36 bundled Dewaele static rows are a recoverable stage-2 subset, "
+        "and the seven Holmes shots are an independent Equation-15 diagnostic. "
+        "The published result is nevertheless a two-stage weighted optimization "
+        "of six metals: the complete observation inventory and weights, selected "
+        "Shock Wave Database rows, Collard-McLellan Figure 1 K_S(T) coordinates, "
+        "and platinum-specific thermochemical row mapping are not published. The "
+        "dedicated audit therefore validates exact calculated outputs and partial "
+        "source subsets without claiming a numerical reconstruction of the global "
+        "objective."
+    ),
     "mgsio3_post_perovskite_mosenfelder_2009_bm3_1": (
         "The bundled rows are shock states and the source's thermal reduction cannot "
         "be reconstructed as a direct P-V-T least-squares fit because most rows do "
@@ -1309,10 +1320,18 @@ def _fit_record(
                     "dataset_identifiers", dataset_identifiers
                 )
             )
+
+        indirect_identifiers = dataset_identifiers
+        if record_id == "platinum_dorogokupets_oganov_2007_vinet_4":
+            indirect_identifiers = list(
+                record["scientific_validation"]["primary_data_check"][
+                    "dataset_identifiers"
+                ]
+            )
         return {
             "status": "not_refittable",
             "reason": INDIRECT_DATA[record_id],
-            "dataset_identifiers": dataset_identifiers,
+            "dataset_identifiers": indirect_identifiers,
         }
     if dataset["identifier"] == SHEN_PREFIX:
         return {

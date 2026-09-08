@@ -2097,6 +2097,190 @@ impl<R: IsothermalEos> DorogokupetsOganov2007<R> {
         (bracket, derivative)
     }
 
+    fn einstein_occupation(theta: f64, temperature: f64) -> f64 {
+        let exponent = theta / temperature;
+        (-exponent).exp() / (-(-exponent).exp_m1())
+    }
+
+    fn mode_thermodynamic_terms(
+        theta: f64,
+        multiplicity: f64,
+        dispersion: Option<f64>,
+        temperature: f64,
+    ) -> (f64, f64, f64) {
+        let (free_energy, internal_energy, heat_capacity) = if let Some(value) = dispersion {
+            let scaled = theta / (temperature * value);
+            let exponent = value * scaled.ln_1p();
+            let occupation = (-exponent).exp() / (-(-exponent).exp_m1());
+            let effective_exponent = theta / (temperature * (1.0 + scaled));
+            (
+                theta * (value - 1.0) / (2.0 * value) + temperature * (-(-exponent).exp_m1()).ln(),
+                theta * (value - 1.0) / (2.0 * value) + theta * occupation / (1.0 + scaled),
+                effective_exponent
+                    * (effective_exponent * occupation * (occupation + 1.0)
+                        + occupation * scaled / (1.0 + scaled)),
+            )
+        } else {
+            let exponent = theta / temperature;
+            let occupation = Self::einstein_occupation(theta, temperature);
+            (
+                0.5 * theta + temperature * (-(-exponent).exp_m1()).ln(),
+                theta * (0.5 + occupation),
+                exponent * exponent * occupation * (occupation + 1.0),
+            )
+        };
+        let factor = multiplicity * GAS_CONSTANT;
+        (
+            factor * free_energy,
+            factor * internal_energy,
+            factor * heat_capacity,
+        )
+    }
+
+    fn thermodynamic_terms(
+        &self,
+        volume: f64,
+        temperature: f64,
+    ) -> EosResult<(f64, f64, f64, f64)> {
+        let volume = positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        let ratio = volume / self.rt_eos.reference_volume();
+        let modes = [
+            (
+                self.parameters.theta_b1,
+                self.parameters.m_b1,
+                Some(self.parameters.d_b1),
+            ),
+            (
+                self.parameters.theta_b2,
+                self.parameters.m_b2,
+                Some(self.parameters.d_b2),
+            ),
+            (self.parameters.theta_e1, self.parameters.m_e1, None),
+            (self.parameters.theta_e2, self.parameters.m_e2, None),
+        ];
+        let mut free_energy = 0.0;
+        let mut internal_energy = 0.0;
+        let mut heat_capacity = 0.0;
+        for (theta0, multiplicity, dispersion) in modes {
+            let theta = self.theta(theta0, ratio);
+            let (mode_free_energy, mode_internal_energy, mode_heat_capacity) =
+                Self::mode_thermodynamic_terms(theta, multiplicity, dispersion, temperature);
+            free_energy += mode_free_energy;
+            internal_energy += mode_internal_energy;
+            heat_capacity += mode_heat_capacity;
+
+            let occupation = Self::einstein_occupation(theta, temperature);
+            let fluctuation = occupation * (occupation + 1.0);
+            let midpoint = occupation + 0.5;
+            let bracket = theta * theta * (3.0 * midpoint * midpoint - 0.5);
+            let bracket_derivative =
+                6.0 * theta.powi(3) * midpoint * fluctuation / temperature.powi(2);
+            let bracket_second_derivative = 6.0
+                * theta.powi(3)
+                * (theta * fluctuation * (fluctuation + 2.0 * midpoint * midpoint)
+                    / temperature.powi(4)
+                    - 2.0 * midpoint * fluctuation / temperature.powi(3));
+            let coefficient = multiplicity
+                * GAS_CONSTANT
+                * self.parameters.anharmonic_a
+                * 1.0e-6
+                * ratio.powf(self.parameters.anharmonic_m)
+                / 6.0;
+            free_energy += coefficient * bracket;
+            internal_energy += coefficient * (bracket - temperature * bracket_derivative);
+            heat_capacity -= coefficient * temperature * bracket_second_derivative;
+        }
+
+        let electronic_coefficient = 1.5
+            * self.n
+            * GAS_CONSTANT
+            * self.parameters.electronic_e
+            * 1.0e-6
+            * ratio.powf(self.parameters.electronic_g);
+        free_energy -= electronic_coefficient * temperature * temperature;
+        internal_energy += electronic_coefficient * temperature * temperature;
+        heat_capacity += 2.0 * electronic_coefficient * temperature;
+
+        let defect_coefficient = 1.5 * self.n * GAS_CONSTANT;
+        let defect_exponent = self.parameters.defect_s / ratio
+            - self.parameters.defect_h / (temperature * ratio * ratio);
+        let defect_population = defect_exponent.exp();
+        let defect_enthalpy = self.parameters.defect_h / (temperature * ratio * ratio);
+        free_energy -= defect_coefficient * temperature * defect_population;
+        internal_energy += defect_coefficient * temperature * defect_population * defect_enthalpy;
+        heat_capacity += defect_coefficient * defect_population * defect_enthalpy.powi(2);
+        let entropy = (internal_energy - free_energy) / temperature;
+        finite_result(free_energy)?;
+        finite_result(internal_energy)?;
+        finite_result(entropy)?;
+        finite_result(heat_capacity)?;
+        Ok((free_energy, internal_energy, entropy, heat_capacity))
+    }
+
+    /// Unshifted pressure from the equations (7)--(14) Helmholtz contribution.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn absolute_thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.absolute_nonreference_pressure(volume, temperature)
+    }
+
+    /// Equations (7)--(14) Helmholtz contribution in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_helmholtz_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.thermodynamic_terms(volume, temperature)
+            .map(|terms| terms.0)
+    }
+
+    /// Equations (7)--(14) internal-energy contribution in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_internal_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.thermodynamic_terms(volume, temperature)
+            .map(|terms| terms.1)
+    }
+
+    /// Equations (7)--(14) entropy contribution in J mol^-1 K^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_entropy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.thermodynamic_terms(volume, temperature)
+            .map(|terms| terms.2)
+    }
+
+    /// Non-static enthalpy contribution ``U + P_abs V`` in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_enthalpy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_internal_energy(volume, temperature)?
+                + self.absolute_thermal_pressure(volume, temperature)? * volume * 1.0e4,
+        )
+    }
+
+    /// Non-static Gibbs contribution ``F + P_abs V`` in J mol^-1.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid state or non-finite result.
+    pub fn thermal_gibbs_free_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.thermal_helmholtz_free_energy(volume, temperature)?
+                + self.absolute_thermal_pressure(volume, temperature)? * volume * 1.0e4,
+        )
+    }
+
     fn mode_pressure(
         &self,
         mode: (f64, f64, Option<f64>),
@@ -2192,6 +2376,13 @@ impl<R: IsothermalEos> ThermalEos for DorogokupetsOganov2007<R> {
             self.absolute_nonreference_pressure(volume, temperature)?
                 - self.absolute_nonreference_pressure(volume, self.parameters.tr)?,
         )
+    }
+}
+
+impl<R: IsothermalEos> CaloricEos for DorogokupetsOganov2007<R> {
+    fn molar_heat_capacity_v(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.thermodynamic_terms(volume, temperature)
+            .map(|terms| terms.3)
     }
 }
 

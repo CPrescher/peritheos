@@ -34,6 +34,11 @@ property and coefficient tables, reconstructs the separate published slopes,
 and verifies every calculated EOS-grid value while retaining a conservative
 `not_refittable` classification.
 
+The [Dorogokupets--Oganov (2007) platinum audit](literature-reproductions/dorogokupets-oganov-2007-platinum.md)
+traces the scale's six-material shock, ultrasonic, X-ray, and thermochemical
+construction; it distinguishes exact EOS reconstruction from recoverable
+partial validation and unavailable global-fit observations.
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

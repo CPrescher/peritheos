@@ -145,6 +145,44 @@ class DorogokupetsOganov2007(ThermalEOS):
             / (temperature * dispersion + theta)
         )
 
+    @staticmethod
+    def _bose_free_energy(
+        theta: np.ndarray, temperature: np.ndarray, dispersion: float
+    ) -> np.ndarray:
+        exponent = dispersion * np.log1p(theta / (temperature * dispersion))
+        return theta * (dispersion - 1.0) / (2.0 * dispersion) + (
+            temperature * np.log(-np.expm1(-exponent))
+        )
+
+    @staticmethod
+    def _bose_heat_capacity(
+        theta: np.ndarray, temperature: np.ndarray, dispersion: float
+    ) -> np.ndarray:
+        scaled = theta / (temperature * dispersion)
+        exponent = dispersion * np.log1p(scaled)
+        decay = np.exp(-exponent)
+        occupation = decay / (-np.expm1(-exponent))
+        effective_exponent = theta / (temperature * (1.0 + scaled))
+        return effective_exponent * (
+            effective_exponent * occupation * (occupation + 1.0)
+            + occupation * scaled / (1.0 + scaled)
+        )
+
+    @classmethod
+    def _einstein_free_energy(
+        cls, theta: np.ndarray, temperature: np.ndarray
+    ) -> np.ndarray:
+        exponent = theta / temperature
+        return 0.5 * theta + temperature * np.log(-np.expm1(-exponent))
+
+    @classmethod
+    def _einstein_heat_capacity(
+        cls, theta: np.ndarray, temperature: np.ndarray
+    ) -> np.ndarray:
+        exponent = theta / temperature
+        occupation = cls._einstein_occupation(theta, temperature)
+        return exponent**2 * occupation * (occupation + 1.0)
+
     @classmethod
     def _anharmonic_bracket(
         cls, theta: np.ndarray, temperature: np.ndarray
@@ -220,6 +258,183 @@ class DorogokupetsOganov2007(ThermalEOS):
         if not np.all(np.isfinite(pressure)):
             raise EosValidationError("Thermal pressure is not finite")
         return pressure / 1.0e4
+
+    def _absolute_thermodynamic_terms(
+        self, volume: np.ndarray, temperature: np.ndarray
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+        """Return the equations (7)--(14) ``F, U, S, C_V`` terms.
+
+        These are the complete non-static Helmholtz contributions, including
+        zero-point, intrinsic-anharmonic, electronic, and vacancy terms.  They
+        are deliberately not shifted to the 298.15 K reference isotherm.
+        """
+        ratio = volume / self.rt_eos.V0
+        mode_parameters = (
+            (self.theta_B1, self.m_B1, self.d_B1),
+            (self.theta_B2, self.m_B2, self.d_B2),
+            (self.theta_E1, self.m_E1, None),
+            (self.theta_E2, self.m_E2, None),
+        )
+        free_energy = np.zeros_like(volume)
+        internal_energy = np.zeros_like(volume)
+        heat_capacity = np.zeros_like(volume)
+        for theta0, multiplicity, dispersion in mode_parameters:
+            theta = self._theta(theta0, ratio)
+            if dispersion is None:
+                mode_free_energy = self._einstein_free_energy(theta, temperature)
+                mode_internal_energy = self._einstein_energy(theta, temperature)
+                mode_heat_capacity = self._einstein_heat_capacity(theta, temperature)
+            else:
+                mode_free_energy = self._bose_free_energy(
+                    theta, temperature, dispersion
+                )
+                mode_internal_energy = self._bose_energy(theta, temperature, dispersion)
+                mode_heat_capacity = self._bose_heat_capacity(
+                    theta, temperature, dispersion
+                )
+            free_energy += multiplicity * R * mode_free_energy
+            internal_energy += multiplicity * R * mode_internal_energy
+            heat_capacity += multiplicity * R * mode_heat_capacity
+
+            occupation = self._einstein_occupation(theta, temperature)
+            fluctuation = occupation * (occupation + 1.0)
+            midpoint = occupation + 0.5
+            bracket = theta**2 * (3.0 * midpoint**2 - 0.5)
+            bracket_derivative_t = (
+                6.0 * theta**3 * midpoint * fluctuation / temperature**2
+            )
+            bracket_second_derivative_t = (
+                6.0
+                * theta**3
+                * (
+                    theta
+                    * fluctuation
+                    * (fluctuation + 2.0 * midpoint**2)
+                    / temperature**4
+                    - 2.0 * midpoint * fluctuation / temperature**3
+                )
+            )
+            coefficient = (
+                multiplicity
+                * R
+                * self.anharmonic_a
+                * 1.0e-6
+                * ratio**self.anharmonic_m
+                / 6.0
+            )
+            free_energy += coefficient * bracket
+            internal_energy += coefficient * (
+                bracket - temperature * bracket_derivative_t
+            )
+            heat_capacity += -coefficient * temperature * bracket_second_derivative_t
+
+        electronic_coefficient = (
+            1.5 * self.n * R * self.electronic_e * 1.0e-6 * ratio**self.electronic_g
+        )
+        free_energy -= electronic_coefficient * temperature**2
+        internal_energy += electronic_coefficient * temperature**2
+        heat_capacity += 2.0 * electronic_coefficient * temperature
+
+        defect_coefficient = 1.5 * self.n * R
+        defect_exponent = self.defect_S / ratio - self.defect_H / (
+            temperature * ratio**2
+        )
+        defect_population = np.exp(defect_exponent)
+        defect_enthalpy = self.defect_H / (temperature * ratio**2)
+        free_energy -= defect_coefficient * temperature * defect_population
+        internal_energy += (
+            defect_coefficient * temperature * defect_population * defect_enthalpy
+        )
+        heat_capacity += defect_coefficient * defect_population * defect_enthalpy**2
+
+        entropy = (internal_energy - free_energy) / temperature
+        terms = (free_energy, internal_energy, entropy, heat_capacity)
+        if not all(np.all(np.isfinite(term)) for term in terms):
+            raise EosValidationError("Thermodynamic contribution is not finite")
+        return terms
+
+    def absolute_thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the unshifted pressure derived from ``F_qh+F_anh+F_el+F_def``."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        if hasattr(self, "_native"):
+            return _native_thermal_evaluate(
+                self._native, "absolute_thermal_pressure", volumes, temperatures
+            )
+        return self._scalar_or_array(
+            np.asarray(
+                self._absolute_nonreference_pressure(volumes, temperatures), dtype=float
+            )
+        )
+
+    def thermal_helmholtz_free_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return the equations (7)--(14) Helmholtz contribution in J mol^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        if hasattr(self, "_native"):
+            return _native_thermal_evaluate(
+                self._native, "thermal_helmholtz_free_energy", volumes, temperatures
+            )
+        result, _, _, _ = self._absolute_thermodynamic_terms(volumes, temperatures)
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def thermal_internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the equations (7)--(14) internal-energy contribution."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        if hasattr(self, "_native"):
+            return _native_thermal_evaluate(
+                self._native, "thermal_internal_energy", volumes, temperatures
+            )
+        _, result, _, _ = self._absolute_thermodynamic_terms(volumes, temperatures)
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the equations (7)--(14) entropy contribution in J mol^-1 K^-1."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        if hasattr(self, "_native"):
+            return _native_thermal_evaluate(
+                self._native, "thermal_entropy", volumes, temperatures
+            )
+        _, _, result, _ = self._absolute_thermodynamic_terms(volumes, temperatures)
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the equations (7)--(14) constant-volume heat capacity."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        if hasattr(self, "_native"):
+            return _native_thermal_evaluate(
+                self._native, "molar_heat_capacity_v", volumes, temperatures
+            )
+        _, _, _, result = self._absolute_thermodynamic_terms(volumes, temperatures)
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def thermal_enthalpy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return ``U + P_abs V`` for the non-static Helmholtz contribution."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        result = (
+            np.asarray(self.thermal_internal_energy(volumes, temperatures), dtype=float)
+            + np.asarray(
+                self.absolute_thermal_pressure(volumes, temperatures), dtype=float
+            )
+            * volumes
+            * 1.0e4
+        )
+        return self._scalar_or_array(result)
+
+    def thermal_gibbs_free_energy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return ``F + P_abs V`` for the non-static Helmholtz contribution."""
+        volumes, temperatures = self._broadcast_state(V, T)
+        result = (
+            np.asarray(
+                self.thermal_helmholtz_free_energy(volumes, temperatures), dtype=float
+            )
+            + np.asarray(
+                self.absolute_thermal_pressure(volumes, temperatures), dtype=float
+            )
+            * volumes
+            * 1.0e4
+        )
+        return self._scalar_or_array(result)
 
     def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
         """Return pressure relative to the published 298.15 K isotherm."""

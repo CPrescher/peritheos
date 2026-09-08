@@ -634,13 +634,14 @@
      "n": "Pt chemical formula"
     },
     "additional": {
-     "printed_validation_values": "Table VI Pt isochors"
+     "printed_validation_values": "Table VI Pt isochors",
+     "structurally_fixed_parameters": "Equation (14) fixes defect exponents f=-1 and h=-2 for every metal."
     }
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Equation, all Pt coefficients, units, reference state, oscillator multiplicity, and printed isochors were checked against the primary paper.",
-    "audit_date": "2026-09-03",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -649,27 +650,66 @@
      "phase",
      "published_uncertainties",
      "validity",
-     "pressure_calibration"
+     "pressure_calibration",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf",
      "locations": [
       "Equations 6-14",
       "Table I, Pt column",
-      "Table VI, Pt isochors"
+      "Table VI, Pt isochors",
+      "two-stage fitting procedure, pages 3-4",
+      "Figures 2, 7, and 8"
      ],
-     "finding": "The paper supplies a complete, directly implementable Pt Vinet plus four-oscillator Helmholtz EOS. Evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
+     "finding": "The paper supplies a complete Pt Vinet plus four-oscillator Helmholtz EOS. The full caloric implementation reproduces the printed 298 K entropy, and evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
      "doi": "10.1103/PhysRevB.75.024115"
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Model equations and coefficient/calibration tables"
+     "status": "combined_primary_data_partially_bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "platinum_dewaele_2004_table1_compression",
+      "platinum_holmes_1989_table3_shock"
      ],
-     "finding": "This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations."
+     "source_locations": [
+      "Dorogokupets and Oganov (2007), Equations 6-16, Table I, Table VI, and Figures 2, 7, and 8",
+      "Dewaele et al. (2004), Table I, all 36 platinum rows",
+      "Holmes et al. (1989), Table III, all seven new platinum shots"
+     ],
+     "finding": "Exact row-level subsets are bundled for the Dewaele stage-2 platinum static compression data (36 rows) and the Holmes shock comparison (7 rows). The paper's numerical global objective is still not reconstructible: it omits the complete six-material point inventory and weights, the selected Shock Wave Database rows, the Collard-McLellan Figure 1 K_S(T) coordinates actually used, and the platinum-specific mapping of thermochemical observations. The dedicated audit preserves exact table/entropy reconstruction, qualified partial validations, and unavailable inputs separately.",
+     "reproduction_resource": "docs/data/dorogokupets-oganov-2007-platinum-audit.json",
+     "fit_scope": "partial_global_objective"
     }
-   }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific model, global-fit protocol, coefficients, and calculated checkpoints",
+     "citation": "Dorogokupets and Oganov (2007), Equations 6-16, Table I, Table VI, and Figures 2, 7, and 8",
+     "doi": "10.1103/PhysRevB.75.024115"
+    },
+    {
+     "role": "recoverable stage-2 platinum static-compression rows",
+     "citation": "Dewaele, Loubeyre, and Mezouar (2004), Table I",
+     "doi": "10.1103/PhysRevB.70.094112"
+    },
+    {
+     "role": "recoverable independent platinum shock comparison",
+     "citation": "Holmes et al. (1989), Table III",
+     "doi": "10.1063/1.344177"
+    },
+    {
+     "role": "unavailable platinum ultrasonic fit coordinates",
+     "citation": "Collard and McLellan (1992), Figure 1; the Table-I polynomial corresponds to values explicitly excluded by Dorogokupets and Oganov",
+     "doi": "10.1016/0956-7151(92)90011-3"
+    }
+   ],
+   "fit_datasets": [
+    "platinum_dewaele_2004_table1_compression"
+   ],
+   "validation_datasets": [
+    "platinum_holmes_1989_table3_shock"
+   ]
   },
   {
    "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
@@ -2367,7 +2407,8 @@
     "doi": "10.1063/1.344177"
    },
    "used_by_eos_records": [
-    "platinum_holmes_1989_vinet_1"
+    "platinum_holmes_1989_vinet_1",
+    "platinum_dorogokupets_oganov_2007_vinet_4"
    ]
   },
   {
@@ -2533,7 +2574,8 @@
    },
    "used_by_eos_records": [
     "platinum_dewaele_2004_mao_ruby_vinet",
-    "platinum_dewaele_2004_revised_ruby_vinet"
+    "platinum_dewaele_2004_revised_ruby_vinet",
+    "platinum_dorogokupets_oganov_2007_vinet_4"
    ],
    "transcription": {
     "type": "direct_table_transcription",

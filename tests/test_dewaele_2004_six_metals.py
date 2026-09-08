@@ -132,6 +132,8 @@ def test_dewaele_records_preserve_cell_normalization_and_source_metadata(
         for identifier in NEW_RECORDS | EXISTING_REVISED_RECORDS
         if identifier.startswith(f"{material_identifier}_")
     }
+    if material_identifier == "platinum":
+        expected_ids.add("platinum_dorogokupets_oganov_2007_vinet_4")
     assert set(dataset["used_by_eos_records"]) == expected_ids
     records = {
         record["identifier"]: record

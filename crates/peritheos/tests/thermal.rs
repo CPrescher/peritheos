@@ -69,6 +69,74 @@ fn dorogokupets_oganov_pt_reproduces_table_vi_isochors() {
 }
 
 #[test]
+fn dorogokupets_oganov_pt_caloric_terms_are_potential_consistent() {
+    let model = DorogokupetsOganov2007::new(
+        Vinet::new(0.9091, 276.07, 5.30).unwrap(),
+        DorogokupetsOganov2007Parameters {
+            tr: 298.15,
+            theta_b1: 95.2,
+            d_b1: 8.199,
+            m_b1: 0.329,
+            theta_b2: 148.4,
+            d_b2: 4.005,
+            m_b2: 0.383,
+            theta_e1: 214.6,
+            m_e1: 1.211,
+            theta_e2: 140.8,
+            m_e2: 1.077,
+            gamma0: 2.802,
+            gamma_inf: 1.538,
+            beta: 5.550,
+            anharmonic_a: 160.9,
+            anharmonic_m: 4.06,
+            electronic_e: 260.0,
+            electronic_g: 2.4,
+            defect_h: 32572.0,
+            defect_s: 0.631,
+        },
+        1.0,
+    )
+    .unwrap();
+    assert_close(
+        model.thermal_entropy(0.9091, 298.15).unwrap(),
+        41.45,
+        1.2e-4,
+    );
+    for (volume, temperature) in [(0.9091, 298.15), (0.82, 1000.0), (0.7, 3000.0)] {
+        let volume_step = volume * 1.0e-6;
+        let pressure_from_free_energy = -(model
+            .thermal_helmholtz_free_energy(volume + volume_step, temperature)
+            .unwrap()
+            - model
+                .thermal_helmholtz_free_energy(volume - volume_step, temperature)
+                .unwrap())
+            / (2.0 * volume_step)
+            / 1.0e4;
+        assert_close(
+            pressure_from_free_energy,
+            model
+                .absolute_thermal_pressure(volume, temperature)
+                .unwrap(),
+            2.0e-9,
+        );
+
+        let temperature_step = temperature * 1.0e-5;
+        let heat_capacity_from_energy = (model
+            .thermal_internal_energy(volume, temperature + temperature_step)
+            .unwrap()
+            - model
+                .thermal_internal_energy(volume, temperature - temperature_step)
+                .unwrap())
+            / (2.0 * temperature_step);
+        assert_close(
+            heat_capacity_from_energy,
+            model.molar_heat_capacity_v(volume, temperature).unwrap(),
+            2.0e-9,
+        );
+    }
+}
+
+#[test]
 fn double_debye_helmholtz_matches_the_benedict_diamond_regression() {
     let model = DoubleDebyeHelmholtz::new(
         Vinet::new(0.343_466_776_105_840_03, 432.4, 3.793).unwrap(),

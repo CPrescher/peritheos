@@ -25456,7 +25456,10 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "platinum_dewaele_2004_table1_compression",
+        "platinum_holmes_1989_table3_shock"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
         262.523
@@ -25469,10 +25472,10 @@
       "label": "Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale",
       "material_identifier": "platinum",
       "model": "Vinet",
-      "primary_data_finding": "This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations.",
-      "primary_data_status": "parameterization_only",
+      "primary_data_finding": "Exact row-level subsets are bundled for the Dewaele stage-2 platinum static compression data (36 rows) and the Holmes shock comparison (7 rows). The paper's numerical global objective is still not reconstructible: it omits the complete six-material point inventory and weights, the selected Shock Wave Database rows, the Collard-McLellan Figure 1 K_S(T) coordinates actually used, and the platinum-specific mapping of thermochemical observations. The dedicated audit preserves exact table/entropy reconstruction, qualified partial validations, and unavailable inputs separately.",
+      "primary_data_status": "combined_primary_data_partially_bundled",
       "primary_source": "https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf",
-      "reason": "This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations.",
+      "reason": "The 36 bundled Dewaele static rows are a recoverable stage-2 subset, and the seven Holmes shots are an independent Equation-15 diagnostic. The published result is nevertheless a two-stage weighted optimization of six metals: the complete observation inventory and weights, selected Shock Wave Database rows, Collard-McLellan Figure 1 K_S(T) coordinates, and platinum-specific thermochemical row mapping are not published. The dedicated audit therefore validates exact calculated outputs and partial source subsets without claiming a numerical reconstruction of the global objective.",
       "record_identifier": "platinum_dorogokupets_oganov_2007_vinet_4",
       "source_notes": "Complete equations (6)-(14) Pt pressure scale. The published molar V0=9.091 cm^3/mol is converted to the four-atom fcc conventional cell using the exact Avogadro constant. The implementation includes the two generalized-Bose and two Einstein oscillator terms, volume-dependent Gruneisen law, intrinsic anharmonicity, electronic excitation, and vacancy contribution, all referenced to 298.15 K.",
       "status": "not_refittable"

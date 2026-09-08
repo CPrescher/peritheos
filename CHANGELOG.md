@@ -20,6 +20,15 @@ All notable changes to Peritheos are documented here. The project follows
   heat-capacity inconsistency, and retains the record as `not_refittable`
   because the source defines no global regression objective or covariance.
 
+### Added
+
+- Audited the Dorogokupets--Oganov (2007) platinum pressure scale from its
+  six-material shock, ultrasonic, X-ray, and thermochemical construction.
+  Added the complete caloric Helmholtz observables in Python and Rust, a
+  deterministic evidence ledger, recovered Dewaele/Holmes row-level subsets,
+  and explicit separation of exact checks, partial validation, and unavailable
+  global-fit inputs.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

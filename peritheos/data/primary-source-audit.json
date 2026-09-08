@@ -11640,9 +11640,11 @@
         "locations": [
           "Equations 6-14",
           "Table I, Pt column",
-          "Table VI, Pt isochors"
+          "Table VI, Pt isochors",
+          "two-stage fitting procedure, pages 3-4",
+          "Figures 2, 7, and 8"
         ],
-        "finding": "The paper supplies a complete, directly implementable Pt Vinet plus four-oscillator Helmholtz EOS. Evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
+        "finding": "The paper supplies a complete Pt Vinet plus four-oscillator Helmholtz EOS. The full caloric implementation reproduces the printed 298 K entropy, and evaluation with the rounded Table I coefficients reproduces every printed Table VI Pt pressure within 0.02 GPa.",
         "doi": "10.1103/PhysRevB.75.024115"
       }
     },
