@@ -127,6 +127,7 @@ SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
 # bars. The stored uncertainties describe digitization, not the weights used
 # in the papers' least-squares fits.
 UNWEIGHTED_DATASETS = {
+    "ca_perovskite_wang_weidner_1994_figure3_digitized",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",
     "mg075fe025o_mao_2011_figure1_300k_digitized",
@@ -152,6 +153,16 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "ca_perovskite_wang_weidner_1994_bm2": (
+        "Complete plot-scope reproduction: Wang and Weidner state that the BM2 "
+        "used only the four room-temperature Figure 3 points above 2.0 GPa and "
+        "fixed K0'=4. All four marker centers are bundled and an unweighted "
+        "pressure-residual refit recovers V0 and K0 within the published "
+        "uncertainties. This is not a numerical-table reproduction: the source "
+        "does not publish the four P-V rows, residual coordinate, weights, "
+        "covariance, or confidence convention. See the [dedicated Wang-Weidner "
+        "reproduction](literature-reproductions/wang-weidner-1994-casio3.md)."
+    ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
         "reduction: the supplement deposits the 1,313 fit rows, but omits the "

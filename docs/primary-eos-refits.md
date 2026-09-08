@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **156** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **564** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -158,7 +158,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`ca_perovskite_akber_knutson_2002_vibc_pm3m_300k_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523) | `parameterization_only` | — | — | —/— | not_refittable — The paper does not tabulate the calculated energy-volume grid. |
 | [`ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523) | `parameterization_only` | — | — | —/— | not_refittable — The paper does not tabulate the calculated energy-volume grid. |
 | [`ca_perovskite_sherman_1993_basis_b_static_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/93JB02175) | `parameterization_only` | — | — | —/— | not_refittable — The complete calculated E-V grid and weighting are not tabulated. |
-| [`ca_perovskite_wang_weidner_1994_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976) | `parameterization_only` | — | — | —/— | not_refittable — The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table. |
+| [`ca_perovskite_wang_weidner_1994_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976) | `ca_perovskite_wang_weidner_1994_figure3_digitized` | 4 | `V0` 45.83 → 45.8322; `K0` 280 → 279.271 | 0.241749/0.241676 | parity — Complete plot-scope reproduction: Wang and Weidner state that the BM2 used only the four room-temperature Figure 3 points above 2.0 GPa and fixed K0'=4. All four marker centers are bundled and an unweighted pressure-residual refit recovers V0 and K0 within the published uncertainties. This is not a numerical-table reproduction: the source does not publish the four P-V rows, residual coordinate, weights, covariance, or confidence convention. See the [dedicated Wang-Weidner reproduction](literature-reproductions/wang-weidner-1994-casio3.md). |
 | [`ca_perovskite_caracas_2005_bm4_4`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [`ca_perovskite_liu_2007_lda_static_bm3`](https://iopscience.iop.org/article/10.1088/0953-8984/19/24/246103) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source plots its calculated EOS but does not tabulate the energy-volume grid. |
 | [`ca_perovskite_fu_2023_bm3_mgd_refit`](http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip) | `source_parameterization_only` | — | — | —/— | not_refittable — The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity. |
@@ -3016,7 +3016,6 @@ the missing source fit detail is recovered.
 - `ca_perovskite_akber_knutson_2002_vibc_pm3m_300k_bm3`: The paper does not tabulate the calculated energy-volume grid.
 - `ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3`: The paper does not tabulate the calculated energy-volume grid.
 - `ca_perovskite_sherman_1993_basis_b_static_bm3`: The complete calculated E-V grid and weighting are not tabulated.
-- `ca_perovskite_wang_weidner_1994_bm2`: The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table.
 - `ca_perovskite_caracas_2005_bm4_4`: Complete coefficients and density checkpoints are published; the underlying E(V) grid is not.
 - `ca_perovskite_liu_2007_lda_static_bm3`: The source plots its calculated EOS but does not tabulate the energy-volume grid.
 - `ca_perovskite_fu_2023_bm3_mgd_refit`: The current paper does not reprint all literature P-V-T rows or the fitting weights; executable analytical checkpoints verify the published composite coefficients without claiming exact refit parity.

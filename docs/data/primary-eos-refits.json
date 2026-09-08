@@ -4990,26 +4990,81 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_per_formula_unit"
+      },
+      "dataset_identifiers": [
+        "ca_perovskite_wang_weidner_1994_figure3_digitized"
+      ],
+      "degrees_of_freedom": 2,
       "experimental_pressure_range_gpa": [
         2.0,
-        11.7
+        9.0
       ],
       "experimental_temperature_range_k": [
         300.0,
         300.0
       ],
+      "fit_kind": "isothermal_pv",
       "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
       "label": "Wang and Weidner (1994), room-temperature BM2",
       "material_identifier": "ca_perovskite",
       "model": "BM2",
-      "primary_data_finding": "The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table.",
-      "primary_data_status": "parameterization_only",
+      "objective": "pressure_residuals",
+      "observations": 4,
+      "observed_pressure_range_gpa": [
+        2.74,
+        9.24
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        44.419,
+        45.341
+      ],
+      "parameters": [
+        {
+          "difference": 0.002161458634077462,
+          "parameter": "V0",
+          "published": 45.83,
+          "published_error": 0.07,
+          "refit": 45.832161458634076,
+          "refit_error": 0.06979296964086522,
+          "relative_difference": 4.716252747277902e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.7292835511505587,
+          "parameter": "K0",
+          "published": 280.0,
+          "published_error": 23.0,
+          "refit": 279.27071644884944,
+          "refit_error": 21.13232889952234,
+          "relative_difference": 0.002604584111251995,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "No numerical room-temperature P-V table exists in the article. All four source-stated fit-included marker centers are bundled as an explicitly plot-digitized dataset; the lower-pressure amorphizing observations and the external Kanzaki et al. 1-bar comparison point are excluded exactly as the source describes.",
+      "primary_data_status": "plot_only",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976",
-      "reason": "The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table.",
+      "published_rmse_gpa": 0.24174859756680378,
+      "qualification": "Complete plot-scope reproduction: Wang and Weidner state that the BM2 used only the four room-temperature Figure 3 points above 2.0 GPa and fixed K0'=4. All four marker centers are bundled and an unweighted pressure-residual refit recovers V0 and K0 within the published uncertainties. This is not a numerical-table reproduction: the source does not publish the four P-V rows, residual coordinate, weights, covariance, or confidence convention. See the [dedicated Wang-Weidner reproduction](literature-reproductions/wang-weidner-1994-casio3.md).",
       "record_identifier": "ca_perovskite_wang_weidner_1994_bm2",
+      "reduced_chi_square": 0.11681480284798437,
+      "rmse_gpa": 0.24167623264192153,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -24303,25 +24358,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,8 +31703,8 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 564,
+    "parity": 156,
     "parity_not_achieved": 31,
     "similar": 62,
     "total": 813

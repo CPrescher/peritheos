@@ -2964,7 +2964,7 @@
    "temperature_ref": 300.0,
    "experimental_pressure_range_gpa": [
     2.0,
-    11.7
+    9.0
    ],
    "pressure_range_status": "reported_qualitatively",
    "experimental_temperature_range_k": [
@@ -2976,32 +2976,58 @@
     "formula_units": 1.0,
     "molar_mass_g_mol": 116.162
    },
+   "experimental_configuration": {
+    "sample": "Synthetic high-purity wollastonite with 1 wt% Cr2O3 and 1 wt% NiO; the chamber was half wollastonite and half NaCl-BN pressure-standard mixture.",
+    "pressure_cell": "DIA-6 SAM-85 large-volume apparatus with 4 x 4 mm sintered-diamond anvil truncations at NSLS beamline X17.",
+    "path": "Pressure was first raised at room temperature, the sample was heated at constant load to synthesize perovskite, and the room-temperature volumes were measured during decompression after heating had reduced deviatoric stress.",
+    "diffraction": "Energy-dispersive synchrotron X-ray diffraction; as many as nine CaSiO3-perovskite reflections were used and the stated unit-cell-volume precision is 0.02 A3."
+   },
    "validity": {
     "pressure_gpa": [
      2.0,
-     11.7
+     9.0
     ],
     "temperature_k": [
      300.0,
      300.0
     ],
     "notes": [
-     "Only room-temperature volumes above about 2 GPa were fitted; lower-pressure decompression points were affected by amorphization."
+     "The source describes the fitted room-temperature interval as above 2.0 GPa and approximately 2-9 GPa; the 11.7 GPa value elsewhere in the paper is a thermal-expansion isobar and is not part of this four-point fit.",
+     "Lower-pressure decompression points were excluded because amorphization changes the volume; the solid 1-bar Kanzaki et al. comparison point in Figure 3 was not measured or fitted by Wang and Weidner."
     ]
    },
    "parameter_provenance": {
-    "equation": "Second-order Birch-Murnaghan (K0'=4 fixed).",
-    "parameters": "Abstract and room-temperature compression discussion.",
-    "fit_selection": "Metastable perovskite volume points above 2 GPa."
+    "equation": "Second-order Birch-Murnaghan; K0'=4 is fixed by the source and encoded structurally by BM2 rather than stored as a free coefficient.",
+    "V0": "Abstract and room-temperature compression paragraph: 45.83(7) A3.",
+    "K0": "Abstract and room-temperature compression paragraph: 280(23) GPa.",
+    "fit_selection": "Exactly four room-temperature decompression observations above 2.0 GPa. Sub-2-GPa points were excluded because of amorphization, and the solid 1-bar Kanzaki et al. literature point was excluded as external comparison data.",
+    "weighting": "The paper does not state the residual coordinate, numerical weights, optimizer, covariance, or confidence convention for the printed parameter uncertainties."
    },
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "Decker"
+       ],
+       "year": 1971,
+       "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+       "source": "Journal of Applied Physics",
+       "volume": "42",
+       "locator": "3239-3244",
+       "doi": "10.1063/1.1660714"
+      },
+      "source_location": "Experimental section, journal page 895"
+     }
+    ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The primary article identifies NaCl as the pressure standard, but this audit did not resolve a cited calibration equation or complete paired standard volumes."
+     "notes": "The Decker (1971) NaCl thermal EOS is identified exactly, but the paper does not print row-wise NaCl lattice parameters or volumes paired with the four room-temperature CaSiO3 observations. The reported 0.1-0.2 GPa pressure uncertainty therefore cannot be recalculated row by row."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -3014,22 +3040,33 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
     ],
     "primary_source_check": {
      "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976",
      "doi": "10.1029/94gl00976",
      "locations": [
-      "Abstract",
-      "Room-temperature compression discussion"
+      "Experimental section, journal page 895",
+      "Figure 3 and caption, journal page 897",
+      "Room-temperature compression paragraph, journal page 897",
+      "Table 1, journal page 896"
      ],
-     "finding": "One independent room-temperature BM2 fit; a molar-volume comparison row is not a second source fit."
+     "finding": "The source fits exactly four room-temperature decompression points above 2.0 GPa with BM2, fixing K0'=4, and reports V0=45.83(7) A3 and K0=280(23) GPa. Table 1 is a single 11.2 GPa, 1172 K diffraction refinement and is not the room-temperature fit table; 11.7 GPa is a thermal-expansion isobar, not the room-temperature fit limit."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-05",
-     "finding": "The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table."
-    }
+     "status": "plot_only",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "ca_perovskite_wang_weidner_1994_figure3_digitized"
+     ],
+     "source_locations": [
+      "Figure 3, journal page 897, four open-circle observations above 2.0 GPa"
+     ],
+     "finding": "No numerical room-temperature P-V table exists in the article. All four source-stated fit-included marker centers are bundled as an explicitly plot-digitized dataset; the lower-pressure amorphizing observations and the external Kanzaki et al. 1-bar comparison point are excluded exactly as the source describes."
+     }
    }
   },
   {
@@ -4107,6 +4144,122 @@
     "ca_perovskite_wang_1996_preferred_bm3"
    ],
    "notes": "The 12 observations at 2.66-10.07 GPa have fit_included=1. The two lower-pressure states have fit_included=0 because the authors attribute their high differential stress to amorphization and explicitly omit them. Pressures and temperatures are transcribed at the precision printed in Table 1."
+  },
+  {
+   "identifier": "ca_perovskite_wang_weidner_1994_figure3_digitized",
+   "kind": "pressure_volume_digitized",
+   "description": "All four open-circle room-temperature decompression observations above 2.0 GPa that Wang and Weidner state were used for their BM2 fit. These are Figure 3 marker-center digitizations, not values from a numerical source table.",
+   "reference": {
+    "authors": [
+     "Wang",
+     "Weidner"
+    ],
+    "year": 1994,
+    "title": "Thermoelasticity of CaSiO3 perovskite and implications for the lower mantle",
+    "source": "Geophysical Research Letters",
+    "volume": "21",
+    "locator": "895-898",
+    "doi": "10.1029/94GL00976"
+   },
+   "source_location": "Figure 3, journal page 897, four open circles above 2.0 GPa",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/94GL00976",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_per_formula_unit",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "plot_x_pixel",
+     "quantity": "rendered_plot_x_coordinate",
+     "unit": "pixel",
+     "role": "flag"
+    },
+    {
+     "name": "plot_y_pixel",
+     "quantity": "rendered_plot_y_coordinate",
+     "unit": "pixel",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_digitization_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "volume_digitization_uncertainty_a3",
+     "quantity": "formula_unit_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "uncertainty",
+     "of": "volume_a3_per_formula_unit"
+    },
+    {
+     "name": "used_in_published_fit",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-wang-weidner-1994-figure3-digitized.csv",
+    "sha256": "d4e677cfa40f39ce67ca591fb24682e8b0848816798f3ba007ebefb3ab4fabea",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_wang_weidner_1994_bm2"
+   ],
+   "uncertainty": {
+    "source": "The paper states approximately 0.1-0.2 GPa pressure uncertainty and 0.02 A3 unit-cell-volume precision, but does not assign row-specific values or define them as regression sigmas.",
+    "digitization": "Conservative marker-center reading bounds of 0.10 GPa and 0.01 A3 are stored separately and are not presented as the source fit's numerical weights."
+   },
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Read the four open-circle centers above 2.0 GPa from Figure 3 in the author-uploaded full paper. The rendered plot was calibrated against the printed linear axes; the source text independently fixes the selected count at four.",
+    "axis_calibration_pixels": {
+     "pressure": [
+      [
+       361.0,
+       0.0
+      ],
+      [
+       620.0,
+       10.0
+      ]
+     ],
+     "volume": [
+      [
+       126.0,
+       45.6
+      ],
+      [
+       316.0,
+       44.4
+      ]
+     ]
+    },
+    "quality_control": {
+     "source_stated_fit_observations": 4,
+     "digitized_fit_observations": 4,
+     "published_bm2_pressure_rmse_gpa": 0.241748597567
+    },
+    "digitized_on": "2026-09-08"
+   },
+   "notes": "The four plotted fit observations are complete for the reported room-temperature BM2. Figure 3's sub-2-GPa open circles are not fit inputs because the paper attributes their behavior to amorphization; the solid 1-bar Kanzaki et al. point is external comparison data. No numerical P-V table, source weights, residual definition, covariance, or confidence convention was found in the article, its references, the 1994 NSLS activity report, or accessible author/repository records."
   }
  ]
 }

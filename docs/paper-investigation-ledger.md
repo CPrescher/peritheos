@@ -33,11 +33,11 @@ refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 125 |
+| Reproduced | 126 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
-| Direct refit unavailable | 75 |
+| Direct refit unavailable | 74 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
 
@@ -873,7 +873,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **82 papers** contain 565 records for which a
+These **81 papers** contain 564 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -953,7 +953,6 @@ have other records that were reproduced.
 | [Sun et al. (2019)](https://doi.org/10.1029/2018gl081421) | `fesio3_liquid_sun_2019_2500k_bm4_1` | The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, rather than the numerical table, identifies the liquid states used by the source fit, so the table is a checkpoint resource and not an asserted exact regression input. |
 | [Sun et al. (2022)](https://doi.org/10.2138/am-2021-7913) | `ca_perovskite_tetragonal_sun_2022_bm3_1` | The published fixed-derivative BM3 coefficients are transcribed directly. The article's P-V table is not redistributed because no open table-data license was identified. |
 | [Tange et al. (2009)](https://doi.org/10.1029/2008jb005813) | `mgo_b1_tange_2009_vinet` | This is a unified least-squares analysis of previously published pressure-scale-free thermal, elastic, and shock datasets. It reports optimized MgO EOS parameters and residuals, but no new row-level experimental observations. |
-| [Wang and Weidner (1994)](https://doi.org/10.1029/94gl00976) | `ca_perovskite_wang_weidner_1994_bm2` | The source-reported coefficients are complete, but the full room-temperature P-V table is not exposed in a reusable primary table. |
 | [Wu et al. (2013)](https://doi.org/10.7498/aps.62.049101) | `bridgmanite_wu_2013_gga_bm3`, `mg075fe025sio3_bridgmanite_wu_2013_gga_bm3` | Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated. |
 | [Xiao et al. (2013)](https://doi.org/10.2138/am.2013.4470) | `srsio3_6h_xiao_2013_gga_bm2_1`, `srsio3_cubic_xiao_2013_gga_bm2_2` | Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced. |
 | [Yang et al. (2015)](https://doi.org/10.1038/srep17188) | `mg092fe008o_yang_2015_hs_bm3_reference` | No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients. |
@@ -1265,7 +1264,7 @@ the primary-source and refit ledgers.
 | [Vijay (2024), generalized Rydberg-Vinet and Stacey thermoelasticity](https://doi.org/10.32908/hthp.v53.1503) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Vocadlo (1999)](https://doi.org/10.2138/am-1999-1017) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Walker et al. (2002)](https://doi.org/10.2138/am-2002-0701) | Reproduced | 1 | 1 similar | 1 bundled |
-| [Wang and Weidner (1994)](https://doi.org/10.1029/94gl00976) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
+| [Wang and Weidner (1994)](https://doi.org/10.1029/94gl00976) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Wang et al. (1996)](https://doi.org/10.1029/95jb03254) | Reproduced | 4 | 4 parity |  |
 | [Wang et al. (2012)](https://doi.org/10.1029/2011jb009100) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Wang et al. (2026), KAlSi3O8 liebermannite and K-hollandite II](https://doi.org/10.2138/am-2024-9562) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

@@ -35,6 +35,16 @@ The phase-H dataset contains all 12 rows of primary Table 1. Its lattice-derived
 
 ### Wang and Weidner (1994), 10.1029/94GL00976
 
+The full source audit and plot-only refit are documented in
+[`wang-weidner-1994-casio3.md`](wang-weidner-1994-casio3.md). The paper states
+that exactly four room-temperature decompression observations above 2.0 GPa
+were fitted with BM2 and `K0'=4` fixed. Figure 3 exposes those four marker
+centers but the paper contains no numerical room-temperature P--V table. Their
+unweighted pressure-residual refit gives `V0=45.83216 A3` and
+`K0=279.2707 GPa`, recovering the published `45.83(7) A3` and `280(23) GPa`.
+The source's 11.7 GPa value is a thermal-expansion isobar, so it is no longer
+misrepresented as the room-temperature fit limit.
+
 | LitCurate candidate | Origin | Disposition | Reason / production mapping |
 |---|---|---|---|
 | litcurate_0de2ffa4e2cfb6f6 | Source | Accept | Independent room-temperature BM2 → `ca_perovskite_wang_weidner_1994_bm2`. BM2 encodes K0′=4 structurally, so K0′ is documented but not passed as a model parameter. |
@@ -205,7 +215,7 @@ The complete APS primary PDF was checked. Table I reports a source-owned fourth-
 
 ## Pressure calibration and limitations
 
-The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner identify NaCl as their pressure standard, but the exact calibration equation and complete paired calibrant observations were not resolved, so recalculation is explicitly marked unavailable. Ismailova's exact pressure calibration was likewise left explicitly unresolved. Ricolleau used the Fei et al. (2007) Au scale; recalculation remains unavailable because the paired Table-S1 calibrant observations were not bundled. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
+The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner explicitly use the Decker (1971) NaCl thermal EOS, doi:10.1063/1.1660714; the calibration identity is now resolved, while row-wise recalculation remains unavailable because the four paired NaCl lattice parameters or volumes are not published. Ismailova's exact pressure calibration was likewise left explicitly unresolved. Ricolleau used the Fei et al. (2007) Au scale; recalculation remains unavailable because the paired Table-S1 calibrant observations were not bundled. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
 
 ## Zotero-ready primary-source metadata
 
