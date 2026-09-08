@@ -50,3 +50,7 @@ All 16 same-DOI rows are accepted as the paired Table 7 reference branches:
 
 Result: **16 accepted production records**. Each record's validity notes exclude
 the mixed-spin interval and direct users to the paired branch provenance.
+
+The original Fei (2007) compression EOSs and official Tables S1–S3 are now
+separately cataloged; see the [Fei source audit](fei-2007-ferropericlase.md).
+This does not change the ownership or coefficients of these Solomatova refits.

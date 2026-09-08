@@ -45,6 +45,7 @@ The current collection contains 93 standalone reports.
 | Driver et al. (2010): QMC silica equations of state | [`driver-2010-qmc-silica.md`](literature-reproductions/driver-2010-qmc-silica.md) |
 | Duffy and Ahrens (1995): MgO B1 principal Hugoniot | [`duffy-ahrens-1995-mgo-hugoniot.md`](literature-reproductions/duffy-ahrens-1995-mgo-hugoniot.md) |
 | Experimental metal EOS batch (200 records) | [`experimental-metal-eos-batch-200.md`](literature-reproductions/experimental-metal-eos-batch-200.md) |
+| Fei et al. (2007): original ferropericlase compression EOSs | [`fei-2007-ferropericlase.md`](literature-reproductions/fei-2007-ferropericlase.md) |
 | Finkelstein et al. (2017) Mw78 compression audit | [`finkelstein-2017-mw78.md`](literature-reproductions/finkelstein-2017-mw78.md) |
 | Fiquet et al. (2000) MgSiO3 bridgmanite audit | [`fiquet-2000-bridgmanite.md`](literature-reproductions/fiquet-2000-bridgmanite.md) |
 | Fortes (2019) fcc-Pb pressure-scale audit | [`fortes-2019-fcc-pb.md`](literature-reproductions/fortes-2019-fcc-pb.md) |

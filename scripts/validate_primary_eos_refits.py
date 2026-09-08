@@ -1215,6 +1215,10 @@ def _series(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> Series:
     rows, selection = _select_rows(_load_rows(dataset), record["identifier"])
+    if record["reference"].get("doi") == "10.1029/2007GL030712":
+        from scripts.reproduce_fei_2007_ferropericlase import selected_rows
+
+        rows, selection = selected_rows(rows, record)
     if not rows:
         raise ValueError("row selection is empty")
     model_type = record["eos"]["type"]
@@ -1741,6 +1745,15 @@ def _fit_record(
     thermal = isinstance(executable, ThermalEOS)
     static_initial, static_fixed = _static_parameters(record)
 
+    if record["reference"].get("doi") == "10.1029/2007GL030712":
+        # Independent validation choices, not Fei's unpublished weights/mask.
+        # Literal zero/missing lattice errors cannot define statistical weights.
+        source_protocol_unweighted = True
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        if record["spin_path_context"]["spin"] == "high-spin":
+            static_fixed["V0"] = static_initial.pop("V0")
+
     if record_id.startswith("b4c_somayazulu_2023_"):
         assert series.temperature is not None
         heated = series.temperature > 300.0
@@ -2030,6 +2043,30 @@ def _fit_record(
         "solver_success": bool(result.success),
         "solver_message": str(result.message),
     }
+    if record["reference"].get("doi") == "10.1029/2007GL030712":
+        outcome["fit_kind"] = "independent_validation_refit"
+        outcome["validation_fixed_parameters"] = static_fixed
+        outcome["qualification"] = (
+            "Independent unweighted pressure-residual validation, not Fei's "
+            "published regression or a new source-owned EOS. K0-prime is fixed "
+            "at 4; HS V0 is held at the reported reference value as a validation "
+            "choice. LS V0 and K0 are fitted. Exact source weights and row masks "
+            "are unavailable. Printed zero/missing errors are not exact weights. "
+            "Compression and decompression remain separate. Published coefficients "
+            "are retained even where this validation disagrees."
+        )
+        if record.get("record_kind") == "refit":
+            outcome["fit_kind"] = "stored_refit_reproduction"
+            outcome["qualification"] = (
+                "Numerical reproduction of the stored Peritheos refit of Fei's "
+                "Table S1: all 19 compression rows in the approximate 40-95 GPa "
+                "interval (actual 40.95-95.48 GPa), unweighted pressure residuals, "
+                "V0 and K0 free, K0-prime=4 fixed. Comparison is against the "
+                "stored refit coefficients, not Fei's published coefficients. "
+                "Parity means reproducibility of this fit; it is not independent "
+                "predictive validation or reproduction of Fei's regression. "
+                "Formal errors exclude pressure-scale systematics."
+            )
     if ice_vi_all_rows is not None:
         all_rows_fit = fit_joint_eos(
             type(executable),

@@ -1,0 +1,394 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "mg042fe058o",
+ "name": "(Mg0.42Fe0.58)O B1 magnesiowustite",
+ "formula": "Mg0.42Fe0.58O",
+ "phase": "high-spin B1 magnesiowustite",
+ "aliases": [
+  "mw58",
+  "fp58",
+  "(Mg0.42,Fe0.58)O"
+ ],
+ "cell_contents": "Four Mg0.42Fe0.58O formula units per conventional rocksalt cell.",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "symmetry": "CUBIC",
+ "lattice": {
+  "a": 4.297348283955865,
+  "b": 4.297348283955865,
+  "c": 4.297348283955865,
+  "alpha": 90,
+  "beta": 90,
+  "gamma": 90
+ },
+ "formula_units_per_cell": 4,
+ "space_group": "Fm-3m",
+ "space_group_number": 225,
+ "atom_sites": [
+  {
+   "element": "Mg",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.42,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "Fe",
+   "wyckoff": "4a",
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "occupancy": 0.58,
+   "site_multiplicity": 4
+  },
+  {
+   "element": "O",
+   "wyckoff": "4b",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1,
+   "site_multiplicity": 4
+  }
+ ],
+ "peaks": [],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Fei",
+    "Zhang",
+    "Corgne",
+    "Watson",
+    "Ricolleau",
+    "Meng",
+    "Prakapenka"
+   ],
+   "year": 2007,
+   "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+   "source": "Geophysical Research Letters",
+   "volume": "34",
+   "locator": "L17307",
+   "doi": "10.1029/2007GL030712"
+  },
+  "structure_location": "Figure 3 and paragraphs 9 and 15: B1 below the cubic-rhombohedral transition. Display lattice a=79.36^(1/3) from published reference volume, not a structure refinement."
+ },
+ "notes": "Only the high-spin B1 EOS is published. The rhombohedral transition occurs near 44 GPa, before the spin transition near 80 GPa; no rhombohedral or low-spin EOS is inferred.",
+ "eos_records": [
+  {
+   "identifier": "mg042fe058o_fei_2007_hs_b1_bm3",
+   "label": "Fei et al. (2007), GRL, mg042fe058o high-spin B1 compression BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Zhang",
+     "Corgne",
+     "Watson",
+     "Ricolleau",
+     "Meng",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+    "source": "Geophysical Research Letters",
+    "volume": "34",
+    "locator": "L17307",
+    "doi": "10.1029/2007GL030712"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 79.36,
+     "K0": 153,
+     "K0_prime": 4
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "K0_prime"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 58.5972
+   },
+   "fit_datasets": [
+    "mg042fe058o_fei_2007_table_s3_pv"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0,
+     42.75
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Published high-spin B1 compression branch. The interval is the approximate fitting domain stated in the paper, not a sharp spin stability boundary.",
+     "Do not interpolate across the spin crossover using a single branch; outside its regime this is an extrapolated reference curve.",
+     "The printed upper limit is approximately 42 GPa; the catalog assumes it includes the Table S3 B1 point at 42.75 GPa. This endpoint interpretation is explicit and does not extend the EOS into the rhombohedral phase."
+    ]
+   },
+   "validation_selection": {
+    "pressure_gpa": [
+     0,
+     42.75
+    ],
+    "compression_path": "compression",
+    "notes": "Validation uses all seven compression rows through 42.75 GPa. As agreed with the user, assume the Figure 3 caption's approximate 42 GPa upper limit includes the tabulated 42.75 GPa B1 point. This is an explicit rounded-endpoint interpretation, not confirmation of the authors' exact row mask or weights. Rows at and above 44 GPa remain excluded because of the cubic-rhombohedral transition."
+   },
+   "spin_path_context": {
+    "spin": "high-spin",
+    "phase": "B1",
+    "path": "compression",
+    "separate_decompression_fit_published": false
+   },
+   "parameter_provenance": {
+    "equation": "Paragraphs 12 and 14 identify third-order Birch-Murnaghan; captions of Figures 1-3 give K0-prime=4. This is algebraically BM2, stored as the source-named BM3 only; no duplicate BM2 entry.",
+    "V0": "Figure 3: 79.36 A^3 per conventional B1 cell (Z=4). Figure 3 reference volume; no uncertainty printed.",
+    "K0": "Figure 3: 153 GPa. No uncertainty printed for mw58.",
+    "K0_prime": "Fixed at 4; no fitted error.",
+    "fit_relationship": "Original Fei compression fits, not the later Solomatova MINUTI refit. HS V0 is reported as measured; only K0-prime is explicitly registered fixed. No source covariance or exact weighting protocol is supplied.",
+    "temperature": "Figures 1-3 explicitly identify 300 K. Laser annealing near 1600 K is preparation, not the EOS measurement temperature.",
+    "pressure_range": "Figure 3 caption: up to 42 GPa. Interpreted, by explicit user-approved assumption, to include the 42.75 GPa Table S3 B1 observation; the structural transition is reported near 44 GPa."
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Brown"
+       ],
+       "year": 1999,
+       "title": "The NaCl pressure standard",
+       "source": "Journal of Applied Physics",
+       "volume": "86",
+       "locator": "5801-5808"
+      },
+      "source_location": "Paragraph 6; Tables S1-S3",
+      "scope": "NaCl B1; nominally below 26 GPa, with actual row phase identified from lattice branch.",
+      "notes": "Conventional B1 NaCl cell has four formula units."
+     },
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Fei"
+       ],
+       "authors_truncated": true,
+       "year": 2007,
+       "title": "Toward an internally consistent pressure scale",
+       "source": "Proceedings of the National Academy of Sciences",
+       "volume": "104",
+       "locator": "9182-9186",
+       "doi": "10.1073/pnas.0609013104"
+      },
+      "source_location": "Paragraph 6 and reference list; Tables S1-S3",
+      "scope": "NaCl B2; nominally above 26 GPa.",
+      "notes": "B2 NaCl cell has one formula unit. This pressure-standard DOI differs from the GRL sample EOS DOI."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Row-wise NaCl lattice parameters and printed errors are bundled, along with original P_NaCl pressures. Exact Brown B1 and Fei B2 standards are not both present in the shared executable material catalog. No substitute calibration or recalculated pressures are used."
+    },
+    "audit_date": "2026-09-08",
+    "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-08",
+    "note": "Checked primary Zotero PDF visually on pages 2-3, full article text, and all three user-supplied official auxiliary tables. Published coefficients are preserved; independently computed validation never replaces them.",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "spin_branch",
+     "compression_path",
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "pressure_calibration",
+     "dataset_transcription"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1029/2007GL030712",
+     "doi": "10.1029/2007GL030712",
+     "locations": [
+      "Figures 1-3 captions",
+      "paragraphs 6-15",
+      "Tables S1-S3"
+     ],
+     "finding": "Five compression BM3 parameterizations with K0-prime=4: fp20 HS/LS, fp39 HS/LS, and mw58 HS B1 only. No separately fitted decompression EOS or mw58 rhombohedral/LS EOS is published.",
+     "zotero_item_key": "33JIXYGF",
+     "zotero_attachment_key": "FKWA95NJ",
+     "pdf_sha256": "ccbb1bb79bd3dadd90eedeb853cfa9669842ed070127adefb89ab87617ac61a9"
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mg042fe058o_fei_2007_table_s3_pv"
+     ],
+     "source_locations": [
+      "Table S3",
+      "Figure 3",
+      "paragraphs 12-14"
+     ],
+     "finding": "Complete primary lattice/pressure table is bundled. Cubic B1 volumes are derived as a^3. Compression-only interval selection is explicitly a validation approximation; row weights and the exact published regression mask are unavailable. Decompression is retained only as independent observational context. For mw58, validation assumes the caption's approximate 42 GPa limit includes the tabulated 42.75 GPa B1 row; all seven points below the 44 GPa structural transition enter."
+    },
+    "usage_recommendation": "consult_source_audit_before_quantitative_use",
+    "reproduction_summary": {
+     "report": "docs/literature-reproductions/fei-2007-ferropericlase.md",
+     "refit_ledger": "docs/data/primary-eos-refits.json",
+     "fit_kind": "independent_validation_refit",
+     "status": "similar",
+     "published_curve_pressure_rmse_gpa": 0.48788067826156556,
+     "selection": "Validation uses all seven compression rows through 42.75 GPa. As agreed with the user, assume the Figure 3 caption's approximate 42 GPa upper limit includes the tabulated 42.75 GPa B1 point. This is an explicit rounded-endpoint interpretation, not confirmation of the authors' exact row mask or weights. Rows at and above 44 GPa remain excluded because of the cubic-rhombohedral transition.",
+     "observations": 7
+    },
+    "usage_notes": "Source coefficient transcription verified. Independent refit is validation only, with approximate row selection and unweighted pressure residuals. Stay within the stated spin/phase regime."
+   },
+   "notes": "No spin-population mixer, transition summary, analytical checkpoint or new fit is represented as a published observation or published EOS parameter."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg042fe058o_fei_2007_table_s3_pv",
+   "kind": "static_compression",
+   "description": "Complete Table S3: 27 printed observations, preserving source order and sample IDs.",
+   "reference": {
+    "authors": [
+     "Fei",
+     "Zhang",
+     "Corgne",
+     "Watson",
+     "Ricolleau",
+     "Meng",
+     "Prakapenka"
+    ],
+    "year": 2007,
+    "title": "Spin transition and equations of state of (Mg, Fe)O solid solutions",
+    "source": "Geophysical Research Letters",
+    "volume": "34",
+    "locator": "L17307",
+    "doi": "10.1029/2007GL030712"
+   },
+   "source_location": "Official auxiliary Table S3",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/suppl/10.1029/2007GL030712",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "metadata",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "sample_name",
+     "quantity": "metadata",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "nacl_lattice_a_angstrom",
+     "quantity": "calibrant_lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_lattice_error_angstrom",
+     "quantity": "calibrant_lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "sample_lattice_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "sample_lattice_error_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty"
+    },
+    {
+     "name": "compression_path",
+     "quantity": "metadata",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "nacl_phase",
+     "quantity": "metadata",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty"
+    },
+    {
+     "name": "sample_volume_interpretation",
+     "quantity": "metadata",
+     "unit": "1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg042fe058o-fei-2007-table-s3-pv.csv",
+    "sha256": "1fe81fe4c33f08f89ad900fc790a91d8d793f23969e0a52c11bbb4d8f29365c8",
+    "media_type": "text/csv"
+   },
+   "original_resource": {
+    "path": "datasets/fei-2007/grl23467-sup-0004-ts03.txt",
+    "sha256": "3c26294319ad029f3c3bc7bdef474093f43efd244ce83693f4c6c94b2046b389",
+    "media_type": "text/plain",
+    "custody": "Official auxiliary file supplied by user; preserved byte-for-byte."
+   },
+   "used_by_eos_records": [
+    "mg042fe058o_fei_2007_hs_b1_bm3"
+   ],
+   "notes": "Only original lattice parameters, printed errors and pressure columns are reported observations. Volume a^3 and its first-order error 3a^2*error(a), path assignment, and NaCl phase are curator derivations. Printed 0.0000 errors remain literal zeros (not exact measurements); missing errors remain blank. No pressure uncertainties are invented. The fp39 mw39c block is decompression (paragraph 8/Figure 2 and reversed pressure sequence); no separate decompression EOS is published. For mw58 at >=44 GPa the scalar a_mw58 does not specify a full rhombohedral cell, so volume and its error are deliberately blank. The 42.75 GPa B1 row is retained and included under the explicit assumption that the caption's approximately 42 GPa HS endpoint refers to this row. Linked full tables contain observations outside the fitted branch; use record validation_selection explicitly."
+  }
+ ]
+}
