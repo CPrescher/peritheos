@@ -82,6 +82,7 @@ The current collection contains 93 standalone reports.
 | Mao et al. (2011) ferropericlase spin-branch audit | [`mao-2011-ferropericlase.md`](literature-reproductions/mao-2011-ferropericlase.md) |
 | Mao et al. (2011): Fe-dolomite and dolomite-III | [`mao-2011-dolomite-iii.md`](literature-reproductions/mao-2011-dolomite-iii.md) |
 | Marcondes et al. (2020): dilute ferropericlase spin configurations | [`marcondes-2020-ferropericlase.md`](literature-reproductions/marcondes-2020-ferropericlase.md) |
+| Marquardt (2009b): EPSL ferropericlase HS and LS equations of state | [`marquardt-2009-epsl-ferropericlase.md`](literature-reproductions/marquardt-2009-epsl-ferropericlase.md) |
 | Martin et al. (2007): CaIrO3 post-perovskite analogue | [`martin-2007-cairo3.md`](literature-reproductions/martin-2007-cairo3.md) |
 | Matsui et al. (2012) ferropericlase audit | [`matsui-2012-ferropericlase.md`](literature-reproductions/matsui-2012-ferropericlase.md) |
 | McCarthy and Harrison (1994): MgO bulk properties | [`mccarthy-harrison-1994-mgo.md`](literature-reproductions/mccarthy-harrison-1994-mgo.md) |

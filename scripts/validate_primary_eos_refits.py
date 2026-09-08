@@ -100,6 +100,14 @@ INDIRECT_DATA = {
         "covariance procedure are not published. See the [dedicated Fortes "
         "audit](literature-reproductions/fortes-2019-fcc-pb.md)."
     ),
+
+    "mg090fe010o_marquardt_2009b_hs_bm3": (
+        "EPSL Table 2 supplies the P-V observations, but the published HS fit also "
+        "uses a room-pressure Brillouin constraint whose weighting is unspecified. "
+        "Only the 14 rows below 45 GPa belong to this fit. The separate script "
+        "scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; "
+        "it cannot reproduce the complete source objective."
+    ),
     "fesio3_liquid_sun_2019_2500k_bm4_1": (
         "The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, "
         "rather than the numerical table, identifies the liquid states used by the "
@@ -312,6 +320,17 @@ FIT_QUALIFICATIONS = {
         "corrections are documented in the [Sueda audit]"
         "(literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md)."
     ),
+
+    **{
+        f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": (
+            "One of 12 alternative constrained LS fits from EPSL Table S1. Only "
+            "six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime "
+            "fixed. Source objective weights and coefficient standard errors are "
+            "not supplied; close K0 agreement is numerical similarity, not "
+            "uncertainty parity. S1 moduli are derived checkpoints, not observations."
+        )
+        for i in range(1, 13)
+    },
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
         "reduction: the supplement deposits the 1,313 fit rows, but omits the "
@@ -742,6 +761,11 @@ VOLUME_COLUMNS = {
 PHASE_FILTERS = {
     "mg0991fe0008mn0001co3_redfern_1993_bm2_1": {"fit_included_bm2": "1"},
     "mg0991fe0008mn0001co3_redfern_1993_bm3_2": {"fit_included_bm3": "1"},
+
+    **{
+        f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": {"spin_region": "low_spin"}
+        for i in range(1, 13)
+    },
     "cao_richet_1988_bm3_1": {"phase": "B1", "used_in_eos_fit": "yes"},
     "cao_b2_richet_1988_bm3_1": {"phase": "B2", "used_in_eos_fit": "yes"},
     "phase_d_ant_a_shieh_2000_bm2_1": {"sample": "1"},

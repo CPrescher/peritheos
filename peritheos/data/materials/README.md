@@ -1,6 +1,6 @@
 # Bundled material library
 
-This directory contains 287 curated materials with 830 EOS records. The
+This directory contains 287 curated materials with 843 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -17,7 +17,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-9-12 classifies all 830 bundled records as
+dated 2026-9-12 classifies all 843 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -49,8 +49,8 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 244 distinct primary datasets with 15,364 observation
-rows, represented by 265 material-document links to 316 EOS records.
+The current bundle contains 247 distinct primary datasets with 15,434 observation
+rows, represented by 268 material-document links to 329 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
 and phase entries while retaining the simultaneously measured Cu reference
