@@ -89,6 +89,7 @@ def test_ismailova_table_s2_checkpoint_transcription_is_lossless():
 def test_ismailova_pressure_scale_lineage_is_resolved_but_not_recalculable():
     _, record, _, _ = _load()
     calibration = record["pressure_calibration"]
+    artifact = record["scientific_validation"]["source_artifact_check"]
 
     assert calibration["status"] == "partially_resolved"
     assert calibration["methods"][0]["reference_eos_record"] == (
@@ -97,6 +98,8 @@ def test_ismailova_pressure_scale_lineage_is_resolved_but_not_recalculable():
     assert calibration["recalculation"]["status"] == (
         "missing_calibrant_observations"
     )
+    assert "no separate CSV" in artifact["repository_file_inventory"]
+    assert "requested from the authors" in artifact["data_availability"]
     validate_pressure_calibration_references()
 
 

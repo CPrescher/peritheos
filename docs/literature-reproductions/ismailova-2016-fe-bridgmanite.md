@@ -6,6 +6,8 @@ Audit date: 2026-09-08.
 
 The primary source is Ismailova et al., “Stability of Fe,Al-bearing bridgmanite in the lower mantle and synthesis of pure Fe-bridgmanite,” *Science Advances* 2, e1600427 (2016), [doi:10.1126/sciadv.1600427](https://doi.org/10.1126/sciadv.1600427). The open [PMC article](https://pmc.ncbi.nlm.nih.gov/articles/PMC4956391/) identifies `1600427_SM.pdf` as the official supplementary file. The [University of Chicago repository copy](https://knowledge.uchicago.edu/records/z7csb-zr884) is 2,696,968 bytes with MD5 `d772465eb207e08a511b987d73a729c9`, matching the supplementary-media metadata in PMC's full-text package; its SHA-256 is `5ab1c1c60e7d5486299cf5f0653d05b6b8bed6957a382e839ba292e2456ecd34`.
 
+The institutional record deposits only the article PDF and supplementary PDF; it lists no separate CSV, spreadsheet, CIF archive, or complete numerical Figure 3 dataset. The article's data-availability statement directs requests for additional related data to the authors. Author contact is therefore the only identified route to the missing complete compression/decompression series and paired calibrant observations.
+
 The article and supplement are distributed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). Peritheos does not redistribute the source PDF. It bundles a four-row factual CSV transcription of the EOS-relevant Table S2 columns with attribution and the source license recorded on the dataset. Commercial users of the broader MIT-licensed package should treat this dataset's explicit CC BY-NC metadata as the governing source-use notice.
 
 ## Published parameterization
