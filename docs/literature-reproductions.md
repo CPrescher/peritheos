@@ -45,6 +45,10 @@ workbooks, shared ruby-scale reconstruction, and precise independent-refit
 boundary are documented in the dedicated
 [eleven-marker pressure-scale audit](literature-reproductions/sokolova-2013-global-pressure-scale.md).
 
+The complete Table S1 transcription, ferropericlase spin-branch reconstruction,
+and staged thermal-BM2 refits for the four KLB-1 records are documented in the
+[Ricolleau et al. (2009) audit](literature-reproductions/ricolleau-2009-klb1-eos.md).
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

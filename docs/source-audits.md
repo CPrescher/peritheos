@@ -91,6 +91,7 @@ The current collection contains 93 standalone reports.
 | Mookherjee et al. (2019): Phase Egg HP completion | [`mookherjee-2019-phase-egg-hp.md`](literature-reproductions/mookherjee-2019-phase-egg-hp.md) |
 | Myhill (2022): anisotropic periclase EOS | [`myhill-2022-anisotropic-eos.md`](literature-reproductions/myhill-2022-anisotropic-eos.md) |
 | Redfern et al. (1993): natural magnesite | [`redfern-1993-magnesite.md`](literature-reproductions/redfern-1993-magnesite.md) |
+| Ricolleau et al. (2009) KLB-1 EOS audit | [`ricolleau-2009-klb1-eos.md`](literature-reproductions/ricolleau-2009-klb1-eos.md) |
 | Sakai et al. (2025): nine mutually consistent Rydberg-Stacey scales | [`sakai-2025-nine-materials.md`](literature-reproductions/sakai-2025-nine-materials.md) |
 | Satta et al. (2025): ambient elasticity of Fe-bearing delta-AlOOH | [`satta-2025-delta-alooh-elasticity.md`](literature-reproductions/satta-2025-delta-alooh-elasticity.md) |
 | Sherman (1993): stishovite and hypothetical post-stishovite SiO2 | [`sherman-1993-stishovite.md`](literature-reproductions/sherman-1993-stishovite.md) |
