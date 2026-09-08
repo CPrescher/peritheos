@@ -1458,6 +1458,92 @@ phase-stability claim.
 
 <a id="mgo-li-2006"></a>
 
+## MgO: Li et al. (2006) acoustic absolute-pressure scale
+
+### What was fitted
+
+Li, Woody, and Kung, *Elasticity of MgO to 11 GPa with an independent absolute
+pressure scale: Implications for pressure calibration*, JGR Solid Earth **111**,
+B11206 (2006), [doi:10.1029/2005JB004251](https://doi.org/10.1029/2005JB004251),
+did not regress a BM3 curve against independently measured pressure-volume
+points. They simultaneously measured density and P- and S-wave velocity,
+fitted the preferred decompression data to third-order acoustic finite-strain
+equations, converted the fitted adiabatic bulk coefficients to 300 K isothermal
+coefficients, and only then evaluated BM3 pressure.
+
+For
+
+\[
+\epsilon=\frac{1-(\rho/\rho_0)^{2/3}}{2},
+\]
+
+the reproduced Equations 1--2 are
+
+\[
+\rho V_P^2=(1-2\epsilon)^{5/2}(L_1+L_2\epsilon),\qquad
+\rho V_S^2=(1-2\epsilon)^{5/2}(M_1+M_2\epsilon),
+\]
+
+with
+
+\[
+L_1=K_{0S}+\frac{4G_0}{3},\quad
+L_2=5L_1-3K_{0T}\left(K'_{0S}+\frac{4G'_0}{3}\right),
+\]
+
+\[
+M_1=G_0,\qquad M_2=5G_0-3K_{0T}G'_0.
+\]
+
+In the table's units, density in g/cm3 times squared velocity in (km/s)^2 is
+GPa. The ledger fit uses the independently reported ambient
+`rho0=3.566 g/cm3`, `VP=9.74 km/s`, and `VS=6.00 km/s` anchor plus all ten
+decompression-after-annealing density/velocity rows. It minimizes ordinary,
+unweighted simultaneous VP and VS residuals. The paper gives row uncertainties
+and fitted parameter errors but does not state its objective weights, fitting
+software, or enough detail to reproduce its iterative adiabatic-foot correction
+and covariance exactly. It does explicitly state that substituting `K0T` for
+`K0S` in `L2` and `M2` accounts for the measured isothermal strains and gives
+results indistinguishable from that iterative procedure; the ledger implements
+this source-sanctioned approximation.
+
+### Direct coefficient reproduction
+
+| Quantity | Published preferred fit | Peritheos reproduction |
+|---|---:|---:|
+| `K0S`, GPa | 163.5(11) | 163.51149 |
+| `K0S_prime` | 4.20(10) | 4.21800 |
+| `G0`, GPa | 129.8(6) | 129.71748 |
+| `G0_prime` | 2.42(6) | 2.43179 |
+| VP RMS, km/s | 0.02 | 0.02165 |
+| VS RMS, km/s | 0.015 | 0.01474 |
+
+All four acoustic coefficients fall within the source's reported one-standard-
+deviation errors, and the high-pressure-row RMS values reproduce the printed
+precision. Equation 4 then applies the source-adopted `alpha=3.12e-5 K^-1`,
+`gamma0=1.54`, `q=1.3`, `dK0T/dT=-0.028 GPa/K`, and `T=300 K`. The reproduced
+isothermal result is `K0T=161.18806 GPa`, `K0T_prime=4.25565`, compared with the
+stored source-derived `161.17673 GPa` and `4.23791`.
+
+This therefore constitutes a direct reconstruction of the published
+measurement-to-isothermal-coefficient chain, even though `K0T` and `K0T_prime`
+are deterministic transforms of the fitted adiabatic coefficients rather than
+free P-V regression parameters. The primary refit ledger classifies it as
+`similar`: the point estimates are recovered, but strict isothermal uncertainty
+parity cannot be claimed because the source does not propagate uncertainties or
+covariance for the adopted thermodynamic constants. The source's Table 2 also
+prints `K0S=163.6(11) GPa`, conflicting with the abstract and Section 4 value
+`163.5(11) GPa`; the latter defines the stored preferred derivation.
+
+The columns `KS`, `G`, and `Pcal` are all derived from the same density and
+velocity measurements. In particular, `Pcal` is Equation 3 evaluated with the
+acoustic-derived isothermal BM3 coefficients. None is used as an independent
+observation in the ledger fit, avoiding both duplicated information and the
+circular Pcal-versus-volume regression that previously motivated the overly
+broad `not_refittable` classification.
+
+<a id="mgo-dewaele-2000"></a>
+
 ## MgO: Dewaele et al. (2000)
 
 ### Authority, identity, and represented equation

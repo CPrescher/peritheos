@@ -95,12 +95,6 @@ INDIRECT_DATA = {
         "300 K reference part of a combined thermal fit, but the record does not "
         "represent the source's thermal correction needed to refit those rows."
     ),
-    "mgo_li_2006_bm3_absolute_acoustic": (
-        "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not "
-        "independent pressure-volume observations. The source-derived isothermal "
-        "coefficients are instead validated by the bundled velocity-density data "
-        "and the dedicated acoustic finite-strain reproduction."
-    ),
     "mgal2o4_cafe2o4_funamori_1998_bm2_1": (
         "The primary article reports only the ambient and compressed endpoint for "
         "this polymorph. Those two states reproduce the published fixed-V0, "
@@ -259,6 +253,19 @@ FIT_QUALIFICATIONS = {
         "thermal analysis additionally used Fei (1999) observations that are not "
         "reprinted in this article, so exact parameter parity is not required from "
         "the new current-study rows alone."
+    ),
+    "mgo_li_2006_bm3_absolute_acoustic": (
+        "Direct reproduction of the source measurement-to-coefficient chain, not "
+        "a pressure-volume refit: the preferred decompression density, VP, and VS "
+        "rows plus the independently measured ambient anchor are fitted to the "
+        "published third-order acoustic finite-strain equations. Equation 4 then "
+        "maps the fitted adiabatic K0S and K0S-prime to the stored isothermal K0T "
+        "and K0T-prime; paragraph 10's K0T-in-L2/M2 approximation accounts for the "
+        "measured isothermal strains. The calculated Table 1 pressures are downstream "
+        "BM3 outputs and are never used as observations. The source does not publish "
+        "its exact weights, iterative adiabatic-foot correction, covariance, or "
+        "propagated isothermal errors, so the unweighted rounded-table reconstruction "
+        "is classified as numerically similar rather than strict parity."
     ),
     "palladium_baty_2024_bm3_1": (
         "Complete-table reproduction with unresolved source-fit discrepancy: all "
@@ -1206,6 +1213,194 @@ def _combined_fit_dataset(
     )
 
 
+def _fit_li_2006_acoustic(
+    record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    """Reproduce Li et al.'s acoustic fit and isothermal BM3 conversion.
+
+    The calculated pressure column is intentionally not read here.  It is a
+    downstream evaluation of the coefficients being reproduced, rather than an
+    independent coordinate of the source regression.
+    """
+    rows = _load_rows(dataset)
+    selected = [
+        row
+        for row in rows
+        if row.get("experimental_path") in {"ambient", "decompression_after_annealing"}
+    ]
+    if len(selected) != 11 or selected[0].get("experimental_path") != "ambient":
+        raise ValueError("expected one ambient and ten decompression acoustic rows")
+
+    density = np.asarray([_number(row.get("density_g_cm3")) for row in selected])
+    p_velocity = np.asarray(
+        [_number(row.get("p_wave_velocity_km_s")) for row in selected]
+    )
+    s_velocity = np.asarray(
+        [_number(row.get("s_wave_velocity_km_s")) for row in selected]
+    )
+    if not np.all(np.isfinite(np.concatenate((density, p_velocity, s_velocity)))):
+        raise ValueError("selected acoustic fit rows contain missing values")
+
+    density_0 = float(density[0])
+    epsilon = (1.0 - (density / density_0) ** (2.0 / 3.0)) / 2.0
+    conversion = record["scientific_validation"]["isothermal_parameter_derivation"]
+    inputs = conversion["inputs"]
+    alpha_gamma_t = (
+        float(inputs["alpha_per_k"])
+        * float(inputs["gamma0"])
+        * float(inputs["temperature_k"])
+    )
+
+    def predicted_velocities(parameters: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        k_0s, k_0s_prime, g_0, g_0_prime = parameters
+        # Paragraph 10's explicit room-temperature approximation accounts for
+        # the observed isothermal strain by using K0T in L2 and M2. The source
+        # reports it as indistinguishable from its iterative adiabatic-foot
+        # procedure, whose complete numerical algorithm is not published.
+        k_0t = k_0s / (1.0 + alpha_gamma_t)
+        l_1 = k_0s + 4.0 * g_0 / 3.0
+        l_2 = 5.0 * l_1 - 3.0 * k_0t * (k_0s_prime + 4.0 * g_0_prime / 3.0)
+        m_1 = g_0
+        m_2 = 5.0 * g_0 - 3.0 * k_0t * g_0_prime
+        strain_factor = (1.0 - 2.0 * epsilon) ** 2.5
+        return (
+            np.sqrt(strain_factor * (l_1 + l_2 * epsilon) / density),
+            np.sqrt(strain_factor * (m_1 + m_2 * epsilon) / density),
+        )
+
+    def residuals(parameters: np.ndarray) -> np.ndarray:
+        predicted_p, predicted_s = predicted_velocities(parameters)
+        return np.concatenate((predicted_p - p_velocity, predicted_s - s_velocity))
+
+    reported = record["scientific_validation"]["reported_parameterizations"][0]
+    fit = least_squares(
+        residuals,
+        np.asarray(
+            [
+                reported["K0S_gpa"],
+                reported["K0S_prime"],
+                reported["G0_gpa"],
+                reported["G0_prime"],
+            ]
+        ),
+        bounds=([1.0e-6, 0.0, 1.0e-6, 0.0], [1000.0, 20.0, 1000.0, 20.0]),
+        xtol=1.0e-14,
+        ftol=1.0e-14,
+        gtol=1.0e-14,
+        max_nfev=5000,
+    )
+    acoustic_residuals = residuals(fit.x)
+    degrees_of_freedom = acoustic_residuals.size - fit.x.size
+    residual_variance = float(
+        np.dot(acoustic_residuals, acoustic_residuals) / degrees_of_freedom
+    )
+    acoustic_covariance = (
+        np.linalg.pinv(np.asarray(fit.jac).T @ np.asarray(fit.jac)) * residual_variance
+    )
+
+    k_0s, k_0s_prime, g_0, g_0_prime = map(float, fit.x)
+    k_0t = k_0s / (1.0 + alpha_gamma_t)
+    temperature_term = (
+        float(inputs["gamma0"])
+        * float(inputs["temperature_k"])
+        * float(inputs["dK0T_dT_gpa_per_k"])
+    )
+    k_0t_prime = (
+        k_0s_prime + float(inputs["q"]) * alpha_gamma_t - temperature_term / k_0t
+    ) / (1.0 + alpha_gamma_t)
+
+    conversion_jacobian = np.zeros((2, 4))
+    conversion_jacobian[0, 0] = 1.0 / (1.0 + alpha_gamma_t)
+    conversion_jacobian[1, 0] = (
+        temperature_term * conversion_jacobian[0, 0] / k_0t**2 / (1.0 + alpha_gamma_t)
+    )
+    conversion_jacobian[1, 1] = 1.0 / (1.0 + alpha_gamma_t)
+    isothermal_covariance = (
+        conversion_jacobian @ acoustic_covariance @ conversion_jacobian.T
+    )
+    synthetic = SimpleNamespace(
+        free_parameters=("K0", "K0_prime"),
+        parameters={"K0": k_0t, "K0_prime": k_0t_prime},
+        standard_errors={
+            "K0": float(np.sqrt(isothermal_covariance[0, 0])),
+            "K0_prime": float(np.sqrt(isothermal_covariance[1, 1])),
+        },
+    )
+    status, comparisons = _compare(record, synthetic, False, 1.0)
+
+    names = (
+        ("K0S", "K0S_gpa", "K0S_standard_deviation_gpa"),
+        ("K0S_prime", "K0S_prime", "K0S_prime_standard_deviation"),
+        ("G0", "G0_gpa", "G0_standard_deviation_gpa"),
+        ("G0_prime", "G0_prime", "G0_prime_standard_deviation"),
+    )
+    acoustic_parameters = []
+    acoustic_errors = np.sqrt(np.diag(acoustic_covariance))
+    for fitted, fitted_error, (name, value_key, error_key) in zip(
+        fit.x, acoustic_errors, names
+    ):
+        source = float(reported[value_key])
+        source_error = float(reported[error_key])
+        acoustic_parameters.append(
+            {
+                "parameter": name,
+                "published": source,
+                "published_error": source_error,
+                "refit": float(fitted),
+                "refit_error": float(fitted_error),
+                "difference": float(fitted) - source,
+                "within_published_1sigma": abs(float(fitted) - source) < source_error,
+            }
+        )
+
+    predicted_p, predicted_s = predicted_velocities(fit.x)
+    # The source reports RMS for the ten high-pressure decompression rows; the
+    # independently measured ambient row anchors the intercept but is excluded
+    # from those quoted diagnostics.
+    p_wave_rmse = float(np.sqrt(np.mean((predicted_p[1:] - p_velocity[1:]) ** 2)))
+    s_wave_rmse = float(np.sqrt(np.mean((predicted_s[1:] - s_velocity[1:]) ** 2)))
+    return {
+        "status": status,
+        "dataset_identifiers": [dataset["identifier"]],
+        "observations": len(selected),
+        "selection": (
+            "Section 2 ambient density/VP/VS anchor plus all ten Table 1 "
+            "decompression-after-annealing density/VP/VS rows"
+        ),
+        "observed_density_range_g_cm3": [
+            float(np.min(density)),
+            float(np.max(density)),
+        ],
+        "columns": {
+            "density": "density_g_cm3",
+            "p_wave_velocity": "p_wave_velocity_km_s",
+            "s_wave_velocity": "s_wave_velocity_km_s",
+            "pressure": None,
+        },
+        "excluded_derived_columns": [
+            "adiabatic_bulk_modulus_gpa",
+            "shear_modulus_gpa",
+            "calculated_absolute_pressure_gpa",
+        ],
+        "fit_kind": "acoustic_finite_strain_then_isothermal_conversion",
+        "objective": "unweighted simultaneous VP and VS residuals in km/s",
+        "absolute_sigma": False,
+        "free_parameters": ["K0", "K0_prime"],
+        "parameters": comparisons,
+        "acoustic_free_parameters": ["K0S", "K0S_prime", "G0", "G0_prime"],
+        "acoustic_parameters": acoustic_parameters,
+        "reported_p_wave_rmse_km_s": float(reported["p_wave_rms_misfit_km_s"]),
+        "reported_s_wave_rmse_km_s": float(reported["s_wave_rms_misfit_km_s"]),
+        "rmse_p_wave_velocity_km_s": p_wave_rmse,
+        "rmse_s_wave_velocity_km_s": s_wave_rmse,
+        "reduced_chi_square": None,
+        "degrees_of_freedom": degrees_of_freedom,
+        "solver_success": bool(fit.success),
+        "solver_message": str(fit.message),
+        "qualification": FIT_QUALIFICATIONS[record["identifier"]],
+    }
+
+
 def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
@@ -1273,6 +1468,8 @@ def _fit_record(
             "solver_success": bool(result.success),
             "solver_message": str(result.message),
         }
+    if record_id == "mgo_li_2006_bm3_absolute_acoustic":
+        return _fit_li_2006_acoustic(record, dataset)
     if record_id in INDIRECT_DATA:
         return {
             "status": "not_refittable",
@@ -2699,6 +2896,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "declares a staged protocol, which is reproduced explicitly. Isothermal records linked to a ",
         "P-V-T table use the rows nearest the declared reference temperature. Digitized ",
         "plot data are labeled `plot_only` and should be interpreted less strictly.",
+        "A source that fits other primary observables is reproduced in that native ",
+        "space: the Li et al. acoustic record fits density, VP, and VS before its ",
+        "published isothermal conversion, and never treats calculated pressure as ",
+        "an observation.",
         "A record-specific qualification is shown where the checked-in rows cover ",
         "only a subset of the source fit or source-fixed coefficients must be preserved.",
         "For linear Hugoniot refits the reported RMSE is in shock-velocity km/s; ",
@@ -2730,7 +2931,14 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         record_label = f"`{item['record_identifier']}`"
         if item.get("primary_source"):
             record_label = f"[{record_label}]({item['primary_source']})"
-        if item.get("rmse_shock_velocity_km_s") is not None:
+        if item.get("rmse_p_wave_velocity_km_s") is not None:
+            rmse = (
+                f"VP {_fmt(item.get('reported_p_wave_rmse_km_s'))}/"
+                f"{_fmt(item['rmse_p_wave_velocity_km_s'])}; "
+                f"VS {_fmt(item.get('reported_s_wave_rmse_km_s'))}/"
+                f"{_fmt(item['rmse_s_wave_velocity_km_s'])} km/s"
+            )
+        elif item.get("rmse_shock_velocity_km_s") is not None:
             rmse = f"—/{_fmt(item['rmse_shock_velocity_km_s'])} km/s"
         else:
             rmse = (
@@ -2862,6 +3070,39 @@ def render_markdown(ledger: dict[str, Any]) -> str:
     )
     for item in investigated:
         anchor = f"investigation-{item['record_identifier']}"
+        if item.get("rmse_p_wave_velocity_km_s") is not None:
+            diagnostic = (
+                f"Observed density range: "
+                f"{_range_text(item.get('observed_density_range_g_cm3'), 'g/cm³')}; "
+                f"source-declared pressure coverage: "
+                f"{_range_text(item.get('experimental_pressure_range_gpa'), 'GPa')}; "
+                f"fit kind: `{item.get('fit_kind', '—')}`; objective: "
+                f"`{item.get('objective', '—')}`; published/refit VP RMS: "
+                f"{_fmt(item.get('reported_p_wave_rmse_km_s'))}/"
+                f"{_fmt(item.get('rmse_p_wave_velocity_km_s'))} km/s; "
+                f"published/refit VS RMS: "
+                f"{_fmt(item.get('reported_s_wave_rmse_km_s'))}/"
+                f"{_fmt(item.get('rmse_s_wave_velocity_km_s'))} km/s; "
+                f"free stored-EOS parameters: "
+                f"`{', '.join(item.get('free_parameters', ()))}`; "
+                f"source-fixed parameters: "
+                f"`{', '.join(item.get('fixed_parameters', ())) or 'none'}`."
+            )
+        else:
+            diagnostic = (
+                f"Observed pressure range: "
+                f"{_range_text(item.get('observed_pressure_range_gpa'), 'GPa')}; "
+                f"source-declared range: "
+                f"{_range_text(item.get('experimental_pressure_range_gpa'), 'GPa')}; "
+                f"fit kind: `{item.get('fit_kind', '—')}`; objective: "
+                f"`{item.get('objective', '—')}`; published/refit pressure RMSE: "
+                f"{_fmt(item.get('published_rmse_gpa'))}/"
+                f"{_fmt(item.get('rmse_gpa'))} GPa; reduced chi-square: "
+                f"{_fmt(item.get('reduced_chi_square'))}; free parameters: "
+                f"`{', '.join(item.get('free_parameters', ()))}`; "
+                f"source-fixed parameters: "
+                f"`{', '.join(item.get('fixed_parameters', ())) or 'none'}`."
+            )
         lines.extend(
             [
                 "",
@@ -2892,18 +3133,29 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 f"{refit_text} | {relative_text} | {within_text} | "
                 f"{'yes' if parameter['similar'] else 'no'} |"
             )
+        if item.get("acoustic_parameters"):
+            lines.extend(
+                [
+                    "",
+                    "**Direct acoustic-fit stage.**",
+                    "",
+                    "| Parameter | Published ± 1σ | Refit ± 1σ | Within published 1σ |",
+                    "|---|---:|---:|:---:|",
+                ]
+            )
+            for parameter in item["acoustic_parameters"]:
+                lines.append(
+                    f"| `{parameter['parameter']}` | "
+                    f"{_fmt(parameter['published'])} ± "
+                    f"{_fmt(parameter['published_error'])} | "
+                    f"{_fmt(parameter['refit'])} ± "
+                    f"{_fmt(parameter['refit_error'])} | "
+                    f"{'yes' if parameter['within_published_1sigma'] else 'no'} |"
+                )
         lines.extend(
             [
                 "",
-                "**Fit diagnostics.** "
-                f"Observed pressure range: {_range_text(item.get('observed_pressure_range_gpa'), 'GPa')}; "
-                f"source-declared range: {_range_text(item.get('experimental_pressure_range_gpa'), 'GPa')}; "
-                f"fit kind: `{item.get('fit_kind', '—')}`; objective: "
-                f"`{item.get('objective', '—')}`; published/refit pressure RMSE: "
-                f"{_fmt(item.get('published_rmse_gpa'))}/{_fmt(item.get('rmse_gpa'))} GPa; "
-                f"reduced chi-square: {_fmt(item.get('reduced_chi_square'))}; "
-                f"free parameters: `{', '.join(item.get('free_parameters', ()))}`; "
-                f"source-fixed parameters: `{', '.join(item.get('fixed_parameters', ())) or 'none'}`.",
+                f"**Fit diagnostics.** {diagnostic}",
                 "",
                 f"**Source/data scope.** {item.get('primary_data_finding') or 'No additional source-scope note is registered.'}",
             ]

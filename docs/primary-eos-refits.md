@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **487** EOS records. **155** achieve uncertainty parity, **86** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **215** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **487** EOS records. **155** achieve uncertainty parity, **87** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **214** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -352,7 +352,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgo_b1_tange_2009_vinet`](https://doi.org/10.1029/2008JB005813) | `parameterization_only` | — | — | —/— | not_refittable — This is a unified least-squares analysis of previously published pressure-scale-free thermal, elastic, and shock datasets. It reports optimized MgO EOS parameters and residuals, but no new row-level experimental observations. |
 | [`mgo_duffy_1995_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.74.1371/fulltext) | `mgo_duffy_1995_figure2_digitized` | 17 | `K0` 177 → 178.49; `K0_prime` 4 → 3.85959 | 5.04655/2.6251 | parity |
 | [`mgo_speziale_2001_bm3_2`](https://doi.org/10.1029/2000JB900318) | `mgo_speziale_2001_table1_compression` | 32 | `V0` 74.71 → 74.7114; `K0_prime` 3.99 → 3.99628 | 0.290939/0.287769 | parity |
-| [`mgo_li_2006_bm3_absolute_acoustic`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251) | `mgo_li_2006_table1_elasticity` | — | — | —/— | not_refittable — The Table 1 pressures are outputs of the stored acoustic-derived BM3, not independent pressure-volume observations. The source-derived isothermal coefficients are instead validated by the bundled velocity-density data and the dedicated acoustic finite-strain reproduction. |
+| [`mgo_li_2006_bm3_absolute_acoustic`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251) | `mgo_li_2006_table1_elasticity` | 11 | `K0` 161.177 → 161.188; `K0_prime` 4.23791 → 4.25565 | VP 0.02/0.0216486; VS 0.015/0.0147384 km/s | [similar](#investigation-mgo_li_2006_bm3_absolute_acoustic) — Direct reproduction of the source measurement-to-coefficient chain, not a pressure-volume refit: the preferred decompression density, VP, and VS rows plus the independently measured ambient anchor are fitted to the published third-order acoustic finite-strain equations. Equation 4 then maps the fitted adiabatic K0S and K0S-prime to the stored isothermal K0T and K0T-prime; paragraph 10's K0T-in-L2/M2 approximation accounts for the measured isothermal strains. The calculated Table 1 pressures are downstream BM3 outputs and are never used as observations. The source does not publish its exact weights, iterative adiabatic-foot correction, covariance, or propagated isothermal errors, so the unweighted rounded-table reconstruction is classified as numerically similar rather than strict parity. |
 | [`mgo_jacobsen_2008_bm3_kcl_mao1978`](https://doi.org/10.2138/am.2008.2988) | `mgo_jacobsen_2008_table2_kcl_compression` | 26 | `V0` 74.698 → 74.7433; `K0` 164.1 → 162.668; `K0_prime` 4.05 → 4.08928 | 0.331141/0.316033 | parity |
 | [`mgo_jacobsen_2008_bm3_helium_mao1986`](https://doi.org/10.2138/am.2008.2988) | `mgo_jacobsen_2008_table1_helium_compression` | 52 | `V0` 74.687 → 74.6213; `K0` 159.6 → 162.221; `K0_prime` 3.74 → 3.66506 | 0.317688/0.289178 | parity |
 | [`mgo_shen_2026_vinet_3`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
@@ -635,7 +635,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **117** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **118** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -2110,6 +2110,35 @@ the missing source fit detail is recovered.
 - The lowest checked pressure is 6.25 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-mgo_li_2006_bm3_absolute_acoustic"></a>
+
+### `mgo_li_2006_bm3_absolute_acoustic`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mgo_li_2006_table1_elasticity` with 11 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 161.177 | 161.188 ± 1.33903 | 0.01% | — | yes |
+| `K0_prime` | 4.23791 | 4.25565 ± 0.269774 | 0.42% | — | yes |
+
+**Direct acoustic-fit stage.**
+
+| Parameter | Published ± 1σ | Refit ± 1σ | Within published 1σ |
+|---|---:|---:|:---:|
+| `K0S` | 163.5 ± 1.1 | 163.511 ± 1.35834 | yes |
+| `K0S_prime` | 4.2 ± 0.1 | 4.218 ± 0.273055 | yes |
+| `G0` | 129.8 ± 0.6 | 129.717 ± 0.64837 | yes |
+| `G0_prime` | 2.42 ± 0.06 | 2.43179 ± 0.105033 | yes |
+
+**Fit diagnostics.** Observed density range: 3.566-3.748 g/cm³; source-declared pressure coverage: 0-10.95 GPa; fit kind: `acoustic_finite_strain_then_isothermal_conversion`; objective: `unweighted simultaneous VP and VS residuals in km/s`; published/refit VP RMS: 0.02/0.0216486 km/s; published/refit VS RMS: 0.015/0.0147384 km/s; free stored-EOS parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The density and velocity columns are the direct source-fit observations; the elastic moduli and calculated pressures are derived outputs and are excluded from coefficient refitting. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations.
+
+**Registered source-fit note.** This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. It is directly reproducible through the source's actual measurement-to-coefficient chain: measured acoustic velocities and density are fitted with third-order finite-strain equations to obtain adiabatic moduli, Equation 4 converts the preferred decompression fit to isothermal K0T and K0T', and BM3 Equation 3 then calculates pressure from volume. Table 1 pressures are therefore downstream EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-mgo_oganov_2003_paw_small_core_static_bm3"></a>
 
 ### `mgo_oganov_2003_paw_small_core_static_bm3`
@@ -3261,7 +3290,6 @@ the missing source fit detail is recovered.
 - `mgfe60o_solomatova_2016_ls_bm3_reference_2`: Independent BM3 checkpoints verify transcription; underlying rows are not reprinted.
 - `mgo_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `mgo_b1_tange_2009_vinet`: This is a unified least-squares analysis of previously published pressure-scale-free thermal, elastic, and shock datasets. It reports optimized MgO EOS parameters and residuals, but no new row-level experimental observations.
-- `mgo_li_2006_bm3_absolute_acoustic`: The Table 1 pressures are outputs of the stored acoustic-derived BM3, not independent pressure-volume observations. The source-derived isothermal coefficients are instead validated by the bundled velocity-density data and the dedicated acoustic finite-strain reproduction.
 - `mgo_shen_2026_vinet_3`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `mgo_b1_luo_2023_vinet_thermal_5`: The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations.
 - `mgo_sokolova_2013_holzapfel_4`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.

@@ -16997,8 +16997,65 @@
       "status": "parity"
     },
     {
+      "absolute_sigma": false,
+      "acoustic_free_parameters": [
+        "K0S",
+        "K0S_prime",
+        "G0",
+        "G0_prime"
+      ],
+      "acoustic_parameters": [
+        {
+          "difference": 0.011485827545158145,
+          "parameter": "K0S",
+          "published": 163.5,
+          "published_error": 1.1,
+          "refit": 163.51148582754516,
+          "refit_error": 1.3583352934072235,
+          "within_published_1sigma": true
+        },
+        {
+          "difference": 0.018002414712423587,
+          "parameter": "K0S_prime",
+          "published": 4.2,
+          "published_error": 0.1,
+          "refit": 4.218002414712424,
+          "refit_error": 0.27305494718726375,
+          "within_published_1sigma": true
+        },
+        {
+          "difference": -0.08251584975261039,
+          "parameter": "G0",
+          "published": 129.8,
+          "published_error": 0.6,
+          "refit": 129.7174841502474,
+          "refit_error": 0.6483701909398509,
+          "within_published_1sigma": true
+        },
+        {
+          "difference": 0.011790774447491437,
+          "parameter": "G0_prime",
+          "published": 2.42,
+          "published_error": 0.06,
+          "refit": 2.4317907744474914,
+          "refit_error": 0.10503261942826338,
+          "within_published_1sigma": true
+        }
+      ],
+      "columns": {
+        "density": "density_g_cm3",
+        "p_wave_velocity": "p_wave_velocity_km_s",
+        "pressure": null,
+        "s_wave_velocity": "s_wave_velocity_km_s"
+      },
       "dataset_identifiers": [
         "mgo_li_2006_table1_elasticity"
+      ],
+      "degrees_of_freedom": 18,
+      "excluded_derived_columns": [
+        "adiabatic_bulk_modulus_gpa",
+        "shear_modulus_gpa",
+        "calculated_absolute_pressure_gpa"
       ],
       "experimental_pressure_range_gpa": [
         0.0,
@@ -17008,19 +17065,62 @@
         300.0,
         300.0
       ],
+      "fit_kind": "acoustic_finite_strain_then_isothermal_conversion",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Li et al. (2006), acoustic absolute-pressure BM3",
       "material_identifier": "mgo",
       "model": "BM3",
-      "primary_data_finding": "All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations.",
+      "objective": "unweighted simultaneous VP and VS residuals in km/s",
+      "observations": 11,
+      "observed_density_range_g_cm3": [
+        3.566,
+        3.748
+      ],
+      "parameters": [
+        {
+          "difference": 0.0113226187888813,
+          "parameter": "K0",
+          "published": 161.1767340842165,
+          "published_error": null,
+          "refit": 161.18805670300537,
+          "refit_error": 1.339033922829983,
+          "relative_difference": 7.024970975627982e-05,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.017741050290933202,
+          "parameter": "K0_prime",
+          "published": 4.237911491402006,
+          "published_error": null,
+          "refit": 4.255652541692939,
+          "refit_error": 0.26977443124484485,
+          "relative_difference": 0.004186272017933066,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All 17 reported compression and decompression states are transcribed from the official publisher Table 1 file with volume ratio, density, P- and S-wave velocities, elastic moduli, calculated absolute pressure, and every printed one-standard-deviation uncertainty. The independently reported ambient density and velocities from Section 2 are retained as the acoustic-fit anchor. The density and velocity columns are the direct source-fit observations; the elastic moduli and calculated pressures are derived outputs and are excluded from coefficient refitting. The official Table 2 file was also checked; it contains the same current-study adiabatic coefficients plus earlier literature comparisons, not additional primary observations.",
       "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2005JB004251",
-      "reason": "The Table 1 pressures are outputs of the stored acoustic-derived BM3, not independent pressure-volume observations. The source-derived isothermal coefficients are instead validated by the bundled velocity-density data and the dedicated acoustic finite-strain reproduction.",
+      "qualification": "Direct reproduction of the source measurement-to-coefficient chain, not a pressure-volume refit: the preferred decompression density, VP, and VS rows plus the independently measured ambient anchor are fitted to the published third-order acoustic finite-strain equations. Equation 4 then maps the fitted adiabatic K0S and K0S-prime to the stored isothermal K0T and K0T-prime; paragraph 10's K0T-in-L2/M2 approximation accounts for the measured isothermal strains. The calculated Table 1 pressures are downstream BM3 outputs and are never used as observations. The source does not publish its exact weights, iterative adiabatic-foot correction, covariance, or propagated isothermal errors, so the unweighted rounded-table reconstruction is classified as numerically similar rather than strict parity.",
       "record_identifier": "mgo_li_2006_bm3_absolute_acoustic",
-      "source_notes": "This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. The authors first fit measured acoustic velocities and density with third-order finite-strain equations to obtain adiabatic moduli, convert the preferred decompression fit to isothermal K0T and K0T' with Equation 4, and then calculate pressure from volume with BM3 Equation 3. Table 1 pressures are therefore EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.",
-      "status": "not_refittable"
+      "reduced_chi_square": null,
+      "reported_p_wave_rmse_km_s": 0.02,
+      "reported_s_wave_rmse_km_s": 0.015,
+      "rmse_p_wave_velocity_km_s": 0.02164855868388574,
+      "rmse_s_wave_velocity_km_s": 0.01473844115851634,
+      "selection": "Section 2 ambient density/VP/VS anchor plus all ten Table 1 decompression-after-annealing density/VP/VS rows",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "This is the paper's executable 300 K absolute-pressure scale, but it is not a direct volumetric BM3 fit to independent pressure-volume observations. It is directly reproducible through the source's actual measurement-to-coefficient chain: measured acoustic velocities and density are fitted with third-order finite-strain equations to obtain adiabatic moduli, Equation 4 converts the preferred decompression fit to isothermal K0T and K0T', and BM3 Equation 3 then calculates pressure from volume. Table 1 pressures are therefore downstream EOS outputs, not independent observations suitable for a conventional P-V refit. The source reports one-standard-deviation errors for V0 and the fitted adiabatic elastic quantities, but does not propagate the adopted thermodynamic constants into isothermal K0T/K0T' errors or publish covariance; those stored errors remain null rather than being inferred. This pressure-scale construction is distinct from the pressure-calibrant-dependent Speziale (2001), Dewaele (2000), and Jacobsen (2008) MgO records.",
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -27016,10 +27116,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 215,
+    "not_refittable": 214,
     "parity": 155,
     "parity_not_achieved": 31,
-    "similar": 86,
+    "similar": 87,
     "total": 487
   }
 }

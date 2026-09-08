@@ -33,11 +33,11 @@ refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 125 |
+| Reproduced | 126 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
-| Direct refit unavailable | 72 |
+| Direct refit unavailable | 71 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
 
@@ -921,7 +921,6 @@ have other records that were reproduced.
 | [Lee and Wan (2008)](https://doi.org/10.1103/physrevb.78.224103) | `mgo_lee_wan_2008_gga_static_bm3`, `mgo_lee_wan_2008_lda_static_bm3` | The exact BM3 coefficients and plotted curves are published, but the underlying pressure-volume calculation table and fitting weights are not. |
 | [Leonov et al. (2017)](https://doi.org/10.1103/physrevb.96.075136) | `feo_leonov_2017_hs_bm3_1`, `mg0125fe0875o_leonov_2017_hs_bm3_1`, `mg025fe075o_leonov_2017_hs_bm3_1`, `mg0375fe0625o_leonov_2017_hs_bm3_1`, `mg05fe05o_leonov_2017_hs_bm3_1`, `mg0625fe0375o_leonov_2017_hs_bm3_1`, `mg075fe025o_leonov_2017_hs_bm3_1`, `mg0875fe0125o_leonov_2017_hs_bm3_1` | Independent equation checkpoints verify transcription without claiming a refit. Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. Independent checkpoints only; no grid deposited. |
 | [Li and Zeng (2009)](https://doi.org/10.1142/s0129183109014242) | `bridgmanite_li_zeng_2009_gga_bm3`, `bridgmanite_li_zeng_2009_gga_natural_strain3`, `bridgmanite_li_zeng_2009_gga_vinet`, `mgsio3_post_perovskite_li_zeng_2009_gga_bm3`, `mgsio3_post_perovskite_li_zeng_2009_gga_natural_strain3`, `mgsio3_post_perovskite_li_zeng_2009_gga_vinet` | Figure 1 plots E(V), but the individual energy grid is not tabulated. |
-| [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | `mgo_li_2006_bm3_absolute_acoustic` | The Table 1 pressures are outputs of the stored acoustic-derived BM3, not independent pressure-volume observations. The source-derived isothermal coefficients are instead validated by the bundled velocity-density data and the dedicated acoustic finite-strain reproduction. |
 | [Liu et al. (2007)](https://doi.org/10.1088/0953-8984/19/24/246103) | `ca_perovskite_liu_2007_lda_static_bm3` | The source plots its calculated EOS but does not tabulate the energy-volume grid. |
 | [Liu et al. (2010)](https://doi.org/10.1142/s0217984910022391) | `mgsio3_post_perovskite_liu_2010_lda_static_bm3` | Figure 1 plots the EOS, but the underlying calculated E-V points and regression covariance are not tabulated; validation uses the exact printed equation and coefficients. |
 | [Liu et al. (2011)](https://doi.org/10.1088/1674-0068/24/06/703-710) | `bridgmanite_liu_2011_gga_static_bm3` | The calculated 0-150 GPa volume series is plotted in Figure 1 but not tabulated; Table I provides the complete fitted coefficients. |
@@ -1122,7 +1121,7 @@ the primary-source and refit ledgers.
 | [Lee and Wan (2008)](https://doi.org/10.1103/physrevb.78.224103) | Direct refit unavailable | 2 | 2 direct refit unavailable | 2 theoretical parameterization only |
 | [Leonov et al. (2017)](https://doi.org/10.1103/physrevb.96.075136) | Direct refit unavailable | 8 | 8 direct refit unavailable |  |
 | [Li and Zeng (2009)](https://doi.org/10.1142/s0129183109014242) | Direct refit unavailable | 6 | 6 direct refit unavailable |  |
-| [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
+| [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Li-and-Zhang-data elastic refit (2010)](https://doi.org/10.1016/j.pnsc.2009.09.002) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Liu (2008), MgO bulk modulus method](https://doi.org/10.1515/zna-2008-1-209) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Liu (2011), two-parameter MgO EOS analysis](https://doi.org/10.1139/p11-040) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
