@@ -442,3 +442,8 @@ not interchangeable with a percentage of cold pressure. Peritheos defines
 The source docstrings contain the model-specific reference nearest each
 implementation. Bibliographic precision should be checked against the original
 publication when citing a model in scientific work.
+
+- Irifune, T., Naka, H., Sanehira, T., Inoue, T. & Funakoshi, K. (2002).
+  In situ X-ray observations of phase transitions in MgAl2O4 spinel to 40 GPa
+  using multianvil apparatus with sintered diamond anvils. *Physics and Chemistry
+  of Minerals*, **29**, 645–654. [doi:10.1007/s00269-002-0275-1](https://doi.org/10.1007/s00269-002-0275-1).

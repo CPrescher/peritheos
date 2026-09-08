@@ -227,6 +227,171 @@
     }
    },
    "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4."
+  },
+  {
+   "identifier": "mgal2o4_cafe2o4_irifune_2002_bm2_2",
+   "label": "Irifune et al. (2002), CaFe2O4-type MgAl2O4 BM2",
+   "default": false,
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Irifune",
+     "Naka",
+     "Sanehira",
+     "Inoue",
+     "Funakoshi"
+    ],
+    "year": 2002,
+    "title": "In situ X-ray observations of phase transitions in MgAl2O4 spinel to 40 GPa using multianvil apparatus with sintered diamond anvils",
+    "source": "Physics and Chemistry of Minerals",
+    "volume": "29",
+    "locator": "645-654",
+    "doi": "10.1007/s00269-002-0275-1"
+   },
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 240.6,
+     "K0": 213.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.3,
+    "K0": 3.0
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    34.7
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mgal2o4_cafe2o4_irifune_2002_text_pv"
+   ],
+   "sample_composition": "MgAl2O4 calcium-ferrite phase; spinel and Au mixed 5:1 by weight in S312, S369 and S402",
+   "experimental_configuration": {
+    "apparatus": "SPEED-1500 multianvil with sintered diamond anvils, BL04B1, SPring-8",
+    "measurement_temperature": "27 degC (300.15 K), Figure 6"
+   },
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     34.7
+    ],
+    "notes": [
+     "Coverage includes recovery and three compressed states, not a continuous stability field.",
+     "No thermal EOS is represented."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "p. 652: BM3 with dK/dP=4, algebraically BM2.",
+    "V0": "p. 652: averaged recovered conventional-cell volume 240.6(3) A3, held as normalization.",
+    "K0": "p. 652: 213(3) GPa.",
+    "uncertainties": "Parenthetical errors retained; confidence convention and covariance unavailable.",
+    "temperature_ref": "Figure 6 labels T=27 degC; converted to 300.15 K."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "source": "Journal of Applied Physics",
+       "title": "Anharmonicity and the equation of state for gold",
+       "volume": "65",
+       "locator": "1534-1543"
+      },
+      "source_location": "Experimental",
+      "scope": "Primary gold scale"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "MgO",
+      "reference": {
+       "authors": [
+        "Jamieson",
+        "Fritz",
+        "Manghnani"
+       ],
+       "year": 1982,
+       "source": "High-pressure research in geophysics",
+       "title": "Pressure measurement at high temperature in X-ray diffraction studies: gold as a primary standard",
+       "locator": "27-48"
+      },
+      "source_location": "Experimental",
+      "scope": "Fallback when gold peaks unavailable; individual compressed-row assignment not specified"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No paired numerical calibrant volumes for the three compressed states."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Checked publisher metadata and Toru Inoue author-uploaded typeset primary article; constrained numerical diagnostics documented separately.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_basis",
+     "equation",
+     "parameters",
+     "fixed_parameter_status",
+     "units",
+     "published_uncertainties",
+     "primary_data",
+     "numerical_reproduction",
+     "reference_temperature"
+    ],
+    "primary_source_check": {
+     "access_url": "https://www.researchgate.net/publication/225470056_In_situ_X-ray_observations_of_phase_transitions_in_MgAl2O4_spinel_to_40_GPa_using_multianvil_apparatus_with_sintered_diamond_anvils",
+     "doi": "10.1007/s00269-002-0275-1",
+     "locations": [
+      "Experimental, pp. 646-647",
+      "Bulk modulus discussion, p. 652",
+      "Table 2 and Figure 6"
+     ],
+     "finding": "Three compressed observations constrain a single modulus with an averaged measured reference volume and fixed pressure derivative. Figure 6 identifies the three open circles as this study, filled symbols as earlier-study comparisons, and T=27 degC."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mgal2o4_cafe2o4_irifune_2002_text_pv"
+     ],
+     "source_locations": [
+      "p. 652"
+     ],
+     "finding": "All three compressed and paired recovered volumes retained; average V0 is a parameter, not a fourth independent compressed observation."
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Diagnostic unweighted pressure residuals, fixed V0; not an assertion of the unpublished source weights.",
+     "parameters": {
+      "V0": 240.6,
+      "K0": 213.8654162286841
+     },
+     "finding": "Within the reported modulus error. See reproduction script for normalized-volume objective and residuals."
+    }
+   },
+   "notes": "Only three compressed points: do not infer a free K0-prime, covariance, thermal coefficients or a new default. The existing Funamori structural cell and default are retained independently of this EOS reference volume.",
+   "temperature_ref": 300.15
   }
  ],
  "datasets": [
@@ -353,6 +518,76 @@
     "mgal2o4_cafe2o4_funamori_1998_bm2_1"
    ],
    "notes": "The source prints the ambient volume directly. The high-pressure volume is the product of its printed axes; its standard deviation is propagated independently from their printed standard deviations."
+  },
+  {
+   "identifier": "mgal2o4_cafe2o4_irifune_2002_text_pv",
+   "kind": "pressure_volume",
+   "description": "Three compressed states and their recovered reference volumes.",
+   "reference": {
+    "authors": [
+     "Irifune",
+     "Naka",
+     "Sanehira",
+     "Inoue",
+     "Funakoshi"
+    ],
+    "year": 2002,
+    "title": "In situ X-ray observations of phase transitions in MgAl2O4 spinel to 40 GPa using multianvil apparatus with sintered diamond anvils",
+    "source": "Physics and Chemistry of Minerals",
+    "volume": "29",
+    "locator": "645-654",
+    "doi": "10.1007/s00269-002-0275-1"
+   },
+   "source_location": "p. 652, bulk modulus discussion and Table 2",
+   "source_url": "https://www.researchgate.net/publication/225470056_In_situ_X-ray_observations_of_phase_transitions_in_MgAl2O4_spinel_to_40_GPa_using_multianvil_apparatus_with_sintered_diamond_anvils",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_error_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "observation_kind",
+     "quantity": "observation_kind",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "fit_included",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgal2o4-cafe2o4-irifune-2002-text-pv.csv",
+    "sha256": "f5fdd4ddd6347d0b18833ba2e56b9295170ddd5ae2f77f923453da626d024214",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgal2o4_cafe2o4_irifune_2002_bm2_2"
+   ],
+   "notes": "Printed volume errors have unspecified confidence. Pressure errors and calibrant volumes are unavailable. Figure 6 labels the isotherm as 27 degC. Recovered rows document the averaged reference; fit_included selects only compressed rows."
   }
  ]
 }

@@ -199,6 +199,9 @@ SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
 # in the papers' least-squares fits.
 UNWEIGHTED_DATASETS = {
     "ca_perovskite_wang_weidner_1994_figure3_digitized",
+
+    # Diagnostic pressure objective; source normalized-volume weights unavailable.
+    "mgal2o4_cafe2o4_irifune_2002_text_pv",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",
     "mg075fe025o_mao_2011_figure1_300k_digitized",
@@ -251,6 +254,14 @@ FIT_QUALIFICATIONS = {
         "preclude using those errors as weights. The unweighted diagnostic "
         "recovers the printed coefficients; the dedicated Ono reproduction "
         "documents the sensitivity to excluding ambient cells."
+    ),
+
+    "mgal2o4_cafe2o4_irifune_2002_bm2_2": (
+        "Three compressed states only; fixed averaged V0 and implicit K0-prime=4. "
+        "This unweighted pressure diagnostic differs from the stated normalized-"
+        "volume objective with unspecified weights. The dedicated reproduction "
+        "also checks that objective; neither supplies source covariance. The refit "
+        "error is a residual-scaled diagnostic, not a published uncertainty."
     ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
@@ -695,6 +706,7 @@ PHASE_FILTERS = {
     "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2": {
         "low_spin_fit_included": "1"
     },
+    "mgal2o4_cafe2o4_irifune_2002_bm2_2": {"fit_included": "1"},
     "mg080fe020o_speziale_2007_high_spin_bm3_1": {"fit_included": "1"},
     "forsterite_finkelstein_2014_bm3_1": {
         "phase": "forsterite_I",
@@ -1512,7 +1524,10 @@ def _fit_record(
     if dataset["identifier"] in UNWEIGHTED_DATASETS:
         series.pressure_sigma = None
         series.volume_sigma = None
-    if dataset["identifier"] == "iron_zhang_2025_tables_s1_s3_s4_pvt":
+    if dataset["identifier"] in {
+        "iron_zhang_2025_tables_s1_s3_s4_pvt",
+        "mgal2o4_cafe2o4_irifune_2002_text_pv",
+    }:
         source_protocol_unweighted = True
     material = Material.from_eosmat(document, record_identifiers=[record_id])
     executable = material.eos_records[0].eos

@@ -520,3 +520,10 @@ observations are bundled. No same-DOI/title row exists in the LitCurate
 discovery ledger; no intake identifier was invented. See the
 [primary-source audit and reproduction](literature-reproductions/ono-2006-mgal2o4-cati2o4.md)
 for uncertainty, fit-selection sensitivity, calibration, and comparison-fit dispositions.
+
+
+## Direct primary-source additions
+
+- Irifune et al. (2002), DOI `10.1007/s00269-002-0275-1`: accepted one
+  constrained CaFe2O4-type MgAl2O4 BM2 record on 2026-09-08. No matching
+  LitCurate discovery row exists. See the [sparse-data audit](literature-reproductions/irifune-2002-mgal2o4-cafe2o4.md).

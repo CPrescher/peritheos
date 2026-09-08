@@ -1091,6 +1091,7 @@ the primary-source and refit ledgers.
 | [Holmes et al. (1989)](https://doi.org/10.1063/1.344177) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Inbar and Cohen (1995), MgO thermal properties](https://doi.org/10.1029/95GL01086) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Indoor seismology by probing the Earth's interior by using sound velocity measurements at high pressures and temperatures (2007)](https://doi.org/10.1073/pnas.0608609104) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Irifune et al. (2002)](https://doi.org/10.1007/s00269-002-0275-1) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Isaak et al. (1990), calculated MgO properties](https://doi.org/10.1029/JB095iB05p07055) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Ismailova et al. (2016)](https://doi.org/10.1126/sciadv.1600427) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Ito et al. (2011), Kawai apparatus](https://doi.org/10.4131/jshpreview.21.272) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
