@@ -17871,50 +17871,149 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mg0991fe0008mn0001co3_redfern_1993_table1_pv"
+      ],
+      "degrees_of_freedom": 17,
       "experimental_pressure_range_gpa": [
         0.0,
-        20.0
+        19.7
       ],
       "experimental_temperature_range_k": [
         298.0,
         298.0
       ],
+      "fit_kind": "isothermal_pv",
       "fixed_parameters": [
+        "V0",
         "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
       ],
       "label": "Redfern et al. (1993), K0' fixed to 4",
       "material_identifier": "mg0991fe0008mn0001co3_magnesite",
       "model": "BM3",
-      "primary_data_finding": "The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.",
-      "primary_data_status": "parameterization_only",
+      "objective": "pressure_residuals",
+      "observations": 18,
+      "observed_pressure_range_gpa": [
+        0.0,
+        19.7
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        250.8,
+        279.4
+      ],
+      "parameters": [
+        {
+          "difference": 0.8547464295754992,
+          "parameter": "K0",
+          "published": 142.0,
+          "published_error": 9.0,
+          "refit": 142.8547464295755,
+          "refit_error": 2.2295234938149897,
+          "relative_difference": 0.006019341053348586,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/93GL02507",
-      "reason": "The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.",
+      "published_rmse_gpa": 0.5245225845455133,
       "record_identifier": "mg0991fe0008mn0001co3_redfern_1993_bm2_1",
+      "reduced_chi_square": 0.288810722596356,
+      "rmse_gpa": 0.5222697410841585,
+      "selection": "fit_included_bm2=1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mg0991fe0008mn0001co3_redfern_1993_table1_pv"
+      ],
+      "degrees_of_freedom": 7,
       "experimental_pressure_range_gpa": [
         0.0,
-        20.0
+        19.7
       ],
       "experimental_temperature_range_k": [
         298.0,
         298.0
       ],
-      "fixed_parameters": [],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
       "label": "Redfern et al. (1993), unconstrained BM3",
       "material_identifier": "mg0991fe0008mn0001co3_magnesite",
       "model": "BM3",
-      "primary_data_finding": "The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.",
-      "primary_data_status": "parameterization_only",
+      "objective": "weighted_volume_residuals",
+      "observations": 9,
+      "observed_pressure_range_gpa": [
+        4.6,
+        19.7
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        250.8,
+        271.0
+      ],
+      "parameters": [
+        {
+          "difference": -0.2244190620032498,
+          "parameter": "K0",
+          "published": 151.0,
+          "published_error": 7.0,
+          "refit": 150.77558093799675,
+          "refit_error": 7.156608307956424,
+          "relative_difference": 0.001486218953663906,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.22466976875583766,
+          "parameter": "K0_prime",
+          "published": 2.5,
+          "published_error": null,
+          "refit": 2.7246697687558377,
+          "refit_error": 1.3449694341170888,
+          "relative_difference": 0.08986790750233506,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1029/93GL02507",
-      "reason": "The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.",
+      "published_rmse_gpa": 0.6405595024819924,
       "record_identifier": "mg0991fe0008mn0001co3_redfern_1993_bm3_2",
+      "reduced_chi_square": 1.668116643881948,
+      "rmse_gpa": 0.6133471492497836,
+      "selection": "fit_included_bm3=1",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -24303,25 +24402,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,10 +31747,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 563,
+    "parity": 156,
     "parity_not_achieved": 31,
-    "similar": 62,
+    "similar": 63,
     "total": 813
   }
 }

@@ -107,63 +107,147 @@
    "parameter_error_confidence": null,
    "parameter_covariance": null,
    "fixed_parameters": [
+    "V0",
     "K0_prime"
    ],
    "temperature_ref": 298.0,
    "experimental_pressure_range_gpa": [
     0.0,
-    20.0
+    19.7
    ],
-   "pressure_range_status": "reported_qualitatively",
+   "pressure_range_status": "reported_exactly",
    "experimental_temperature_range_k": [
     298.0,
     298.0
    ],
+   "fit_datasets": [
+    "mg0991fe0008mn0001co3_redfern_1993_table1_pv"
+   ],
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos",
+     "version": "0.7.0"
+    },
+    "dataset": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
+    "selection": {
+     "predicate": "fit_included_bm2=1; all Table 1 rows",
+     "included_rows": 18,
+     "excluded_rows": 0
+    },
+    "objective": "unweighted_pressure_residuals",
+    "refined_parameters": [
+     "K0"
+    ],
+    "fixed_parameters": [
+     "V0",
+     "K0_prime"
+    ],
+    "covariance_scaling": "residual_variance",
+    "statistics": {
+     "observations": 18,
+     "free_parameters": 1,
+     "pressure_rmse_gpa": 0.522269741084158
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_redfern_1993_magnesite.py",
+     "status": "parity"
+    }
+   },
    "volume_basis": {
     "kind": "formula_units",
     "formula_units": 6.0,
     "molar_mass_g_mol": 84.595953
    },
    "parameter_provenance": {
-    "equation": "Abstract and EOS discussion identify a Birch-Murnaghan compression fit; K0'=4 makes this the second-order constraint represented by BM3 with a fixed derivative.",
-    "parameters": "Abstract and reported fit: V0=279.4(2) A3, K0=142(9) GPa, K0'=4 fixed."
+    "equation": "Equation-of-State section, page 2100: least-squares fit to the reduced Birch equation with K0'=4.",
+    "parameters": "Abstract and page 2100: Table 1 ambient V0=279.4(2) A3; the reduced fit gives K0=142(9) GPa with K0'=4. V0 is the measured reference volume used to form V/V0 and is fixed in the reproduction."
    },
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "Decker"
+       ],
+       "year": 1971,
+       "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+       "source": "Journal of Applied Physics",
+       "volume": "42",
+       "locator": "3239-3244",
+       "doi": "10.1063/1.1660714"
+      },
+      "source_location": "Redfern et al. (1993), Experimental Methods, page 2099",
+      "scope": "All room-temperature compression observations",
+      "reported_relative_pressure_uncertainty": 0.02,
+      "notes": "The primary paper states that pressure was calculated from the least-squares-refined cell volume of internal NaCl using the Decker (1971) EOS; the estimated pressure uncertainty is +/-2%."
+     }
+    ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The accessible primary record provides coefficients but not row-wise calibrant observations."
+     "notes": "Table 1 provides calibrated sample pressures but not the corresponding row-wise NaCl cell volumes."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary publisher abstract and source-reported coefficient table checked; executable BM3 checkpoints independently reproduced.",
-    "audit_date": "2026-09-05",
+    "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the reduced Birch fit is directly reproduced.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "canonical_doi",
      "composition",
      "equation",
      "parameters",
      "fixed_parameters",
+     "pressure_calibration",
      "volume_basis",
-     "reference_state"
+     "reference_state",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/93GL02507",
      "doi": "10.1029/93GL02507",
      "locations": [
       "Abstract",
-      "reported EOS results"
+      "Experimental Methods, page 2099",
+      "Table 1 and Equation-of-State section, page 2100"
      ],
-     "finding": "The constrained and unconstrained fits are distinct published sensitivity parameterizations of the same specimen."
+     "finding": "The source publishes 18 pressure-volume rows and reports an all-row reduced Birch least-squares fit with V0=279.4(2) A3, K0=142(9) GPa, and K0'=4."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-05",
-     "finding": "The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented."
-    }
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mg0991fe0008mn0001co3_redfern_1993_table1_pv"
+     ],
+     "source_locations": [
+      "Table 1, page 2100"
+     ],
+     "finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used."
+    },
+    "fit_protocol": {
+     "securely_resolved": {
+      "V0": "fixed to the measured ambient Table 1 value",
+      "K0": "fitted",
+      "K0_prime": "fixed at 4"
+     },
+     "selection": "All 18 Table 1 rows.",
+     "objective": "The paper states least squares but does not specify residual direction or weighting; the reproduction uses unweighted pressure residuals."
+    },
+    "independent_refit": {
+     "status": "parity",
+     "observations": 18,
+     "parameters": {
+      "V0": 279.4,
+      "K0": 142.85474666097645,
+      "K0_prime": 4.0
+     },
+     "pressure_rmse_gpa": 0.522269741084158,
+     "objective": "unweighted_pressure_residuals"
+    },
+    "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json"
    }
   },
   {
@@ -200,63 +284,272 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "temperature_ref": 298.0,
    "experimental_pressure_range_gpa": [
     0.0,
-    20.0
+    19.7
    ],
-   "pressure_range_status": "reported_qualitatively",
+   "pressure_range_status": "reported_exactly",
    "experimental_temperature_range_k": [
     298.0,
     298.0
    ],
+   "fit_datasets": [
+    "mg0991fe0008mn0001co3_redfern_1993_table1_pv"
+   ],
+   "fit_provenance": {
+    "software": {
+     "name": "Peritheos",
+     "version": "0.7.0"
+    },
+    "dataset": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
+    "selection": {
+     "predicate": "fit_included_bm3=1; Eulerian strain fV>0.01",
+     "included_rows": 9,
+     "excluded_rows": 9
+    },
+    "objective": "weighted_volume_residuals",
+    "weights": [
+     "volume_uncertainty_a3"
+    ],
+    "refined_parameters": [
+     "K0",
+     "K0_prime"
+    ],
+    "fixed_parameters": [
+     "V0"
+    ],
+    "covariance_scaling": "absolute_table_uncertainties",
+    "statistics": {
+     "observations": 9,
+     "free_parameters": 2,
+     "pressure_rmse_gpa": 0.6133293082682305,
+     "weighted_volume_reduced_chi_square": 1.6681166408872052
+    },
+    "reproduction": {
+     "script": "scripts/reproduce_redfern_1993_magnesite.py",
+     "status": "similar"
+    }
+   },
    "volume_basis": {
     "kind": "formula_units",
     "formula_units": 6.0,
     "molar_mass_g_mol": 84.595953
    },
    "parameter_provenance": {
-    "equation": "The primary abstract explicitly calls this the full Birch-Murnaghan fit.",
-    "parameters": "Primary abstract: K0=151(7) GPa and fitted K0'=2.5; the same specimen V0=279.4(2) A3."
+    "equation": "Equation (2) and Figure 2, page 2100: third-order Eulerian finite-strain Birch-Murnaghan analysis for observations with fV>0.01.",
+    "parameters": "Abstract, Equation-of-State section, and Figure 2 caption: Table 1 ambient V0=279.4(2) A3; weighted regression gives K0=151(7) GPa and fitted K0'=2.5. V0 defines the reported finite strains and is fixed in the reproduction."
    },
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "Decker"
+       ],
+       "year": 1971,
+       "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+       "source": "Journal of Applied Physics",
+       "volume": "42",
+       "locator": "3239-3244",
+       "doi": "10.1063/1.1660714"
+      },
+      "source_location": "Redfern et al. (1993), Experimental Methods, page 2099",
+      "scope": "All room-temperature compression observations",
+      "reported_relative_pressure_uncertainty": 0.02,
+      "notes": "The primary paper states that pressure was calculated from the least-squares-refined cell volume of internal NaCl using the Decker (1971) EOS; the estimated pressure uncertainty is +/-2%."
+     }
+    ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The accessible primary record provides coefficients but not row-wise calibrant observations."
+     "notes": "Table 1 provides calibrated sample pressures but not the corresponding row-wise NaCl cell volumes."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Primary publisher abstract and source-reported coefficient table checked; executable BM3 checkpoints independently reproduced.",
-    "audit_date": "2026-09-05",
+    "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the nine-row finite-strain selection is directly refitted.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "canonical_doi",
      "composition",
      "equation",
      "parameters",
      "fixed_parameters",
+     "pressure_calibration",
      "volume_basis",
-     "reference_state"
+     "reference_state",
+     "primary_data"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1029/93GL02507",
      "doi": "10.1029/93GL02507",
      "locations": [
       "Abstract",
-      "reported EOS results"
+      "Experimental Methods, page 2099",
+      "Table 1, Equation (2), and Figure 2 caption, page 2100"
      ],
-     "finding": "The unconstrained fit is a genuine alternative published EOS, not a phase split."
+     "finding": "The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression of the nine rows with fV>0.01, giving K0=151(7) GPa and fitted K0'=2.5."
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-05",
-     "finding": "The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented."
-    }
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mg0991fe0008mn0001co3_redfern_1993_table1_pv"
+     ],
+     "source_locations": [
+      "Table 1, page 2100"
+     ],
+     "finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used."
+    },
+    "fit_protocol": {
+     "securely_resolved": {
+      "V0": "fixed to the measured ambient Table 1 value used to define fV",
+      "K0": "fitted",
+      "K0_prime": "fitted"
+     },
+     "selection": "Nine Table 1 rows with Eulerian strain fV>0.01 (4.6-19.7 GPa).",
+     "objective": "The paper states weighted regression of the volume data but does not publish the exact weighting implementation; the reproduction minimizes volume residuals using the printed one-sigma volume uncertainties."
+    },
+    "independent_refit": {
+     "status": "similar",
+     "observations": 9,
+     "parameters": {
+      "V0": 279.4,
+      "K0": 150.77458546383642,
+      "K0_prime": 2.724874690363499
+     },
+     "pressure_rmse_gpa": 0.6133293082682305,
+     "weighted_volume_reduced_chi_square": 1.6681166408872052,
+     "objective": "weighted_volume_residuals",
+     "qualification": "The fitted coefficients are consistent with the published fit, but K0_prime is weakly constrained (refit one-sigma uncertainty 1.345) and the source reports no K0_prime uncertainty, so strict uncertainty parity cannot be established."
+    },
+    "reported_inconsistencies": [
+     {
+      "source": "Yu et al. (2024), Table 1, doi:10.1029/2023JB028026",
+      "finding": "The comparison table marks the Redfern K0'=2.5 value as fixed.",
+      "resolution": "Rejected for source mapping because the Redfern publisher abstract calls it the full fit and Ross (1997) explicitly states that K0' was not constrained."
+     }
+    ],
+    "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json"
    }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
+   "kind": "pressure_volume",
+   "description": "All 18 room-temperature static-compression rows in Redfern et al. (1993), Table 1.",
+   "source_location": "Table 1, page 2100",
+   "source_url": "https://doi.org/10.1029/93GL02507",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_uncertainty_a",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_a"
+    },
+    {
+     "name": "c_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_uncertainty_a",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_a"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "fit_included_bm2",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "fit_included_bm3",
+     "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/magnesite-redfern-1993-table1-pv.csv",
+    "sha256": "95beab712c819ad5ba48ae7b93dce998285bb955fd3e12fd6ab6f841697112db",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "reported_as": "Parenthetical trailing-digit uncertainties are expanded for a, c, and V. Figure 1 identifies plotted errors as +/-1 sigma. The stated +/-2% pressure uncertainty is converted row by row; ambient pressure has no assigned numerical uncertainty.",
+    "covariance": "not_reported"
+   },
+   "selection": {
+    "fixed_kp": "All 18 rows are used.",
+    "free_kp": "The nine rows with fV>0.01 are used, following the Equation-of-State section."
+   },
+   "reference": {
+    "authors": [
+     "Redfern",
+     "Wood",
+     "Henderson"
+    ],
+    "year": 1993,
+    "title": "Static compressibility of magnesite to 20 GPa: Implications for MgCO3 in the lower mantle",
+    "source": "Geophysical Research Letters",
+    "volume": "20",
+    "locator": "Table 1, page 2100",
+    "doi": "10.1029/93GL02507"
+   },
+   "used_by_eos_records": [
+    "mg0991fe0008mn0001co3_redfern_1993_bm2_1",
+    "mg0991fe0008mn0001co3_redfern_1993_bm3_2"
+   ]
   }
  ]
 }

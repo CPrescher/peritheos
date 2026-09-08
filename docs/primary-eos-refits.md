@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **156** achieve uncertainty parity, **63** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **563** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -464,8 +464,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg095al010si095o3_bridgmanite_daniel_2004_bm3_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020213) | `mg095al010si095o3_bridgmanite_daniel_2004_table1_compression` | 42 | `V0` 163.23 → 163.219; `K0` 251.5 → 253.576; `K0_prime` 4 → 3.89177 | 0.599007/0.578939 | parity |
 | [`mg096875fe003125o_marcondes_2020_hs_bm3_1`](https://arxiv.org/pdf/2003.12348) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve. |
 | [`mg096875fe003125o_marcondes_2020_ls_bm3_2`](https://arxiv.org/pdf/2003.12348) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve. |
-| [`mg0991fe0008mn0001co3_redfern_1993_bm2_1`](https://doi.org/10.1029/93GL02507) | `parameterization_only` | — | — | —/— | not_refittable — The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented. |
-| [`mg0991fe0008mn0001co3_redfern_1993_bm3_2`](https://doi.org/10.1029/93GL02507) | `parameterization_only` | — | — | —/— | not_refittable — The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented. |
+| [`mg0991fe0008mn0001co3_redfern_1993_bm2_1`](https://doi.org/10.1029/93GL02507) | `mg0991fe0008mn0001co3_redfern_1993_table1_pv` | 18 | `K0` 142 → 142.855 | 0.524523/0.52227 | parity |
+| [`mg0991fe0008mn0001co3_redfern_1993_bm3_2`](https://doi.org/10.1029/93GL02507) | `mg0991fe0008mn0001co3_redfern_1993_table1_pv` | 9 | `K0` 151 → 150.776; `K0_prime` 2.5 → 2.72467 | 0.64056/0.613347 | [similar](#investigation-mg0991fe0008mn0001co3_redfern_1993_bm3_2) |
 | [`mg09al02si09o3_bridgmanite_kubo_2000_bm3_1`](https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article) | `mg09al02si09o3_bridgmanite_kubo_2000_table1_compression` | 10 | `V0` 163.6 → 163.535; `K0` 225.5 → 226.098 | 0.103207/0.0378957 | parity |
 | [`mg09al02si09o3_bridgmanite_kubo_2000_bm3_2`](https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article) | `mg09al02si09o3_bridgmanite_kubo_2000_table1_compression` | 10 | `V0` 163.6 → 163.555; `K0` 215.4 → 219.134; `K0_prime` 7.2 → 5.82194 | 0.0940477/0.0337966 | parity |
 | [`mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1`](https://doi.org/10.1002/2015GL064400) | `mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv` | 97 | `V0` 162.6 → 163.256; `K0` 284 → 275.745 | 0.928436/0.577285 | [similar](#investigation-mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1) |
@@ -957,7 +957,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **94** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -2179,6 +2179,24 @@ the missing source fit detail is recovered.
 - The lowest checked pressure is 47.75 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-mg0991fe0008mn0001co3_redfern_1993_bm3_2"></a>
+
+### `mg0991fe0008mn0001co3_redfern_1993_bm3_2`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg0991fe0008mn0001co3_redfern_1993_table1_pv` with 9 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 151 | 150.776 ± 7.15661 | 0.15% | yes | yes |
+| `K0_prime` | 2.5 | 2.72467 ± 1.34497 | 8.99% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 4.6-19.7 GPa; source-declared range: 0-19.7 GPa; fit kind: `isothermal_pv`; objective: `weighted_volume_residuals`; published/refit pressure RMSE: 0.64056/0.613347 GPa; reduced chi-square: 1.66812; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1"></a>
 
 ### `mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1`
@@ -3216,8 +3234,6 @@ the missing source fit detail is recovered.
 - `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3`: Coefficients and calculation pressures are given; row-wise P-V values are not tabulated.
 - `mg096875fe003125o_marcondes_2020_hs_bm3_1`: The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve.
 - `mg096875fe003125o_marcondes_2020_ls_bm3_2`: The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve.
-- `mg0991fe0008mn0001co3_redfern_1993_bm2_1`: The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.
-- `mg0991fe0008mn0001co3_redfern_1993_bm3_2`: The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.
 - `mg09fe01sio3_bridgmanite_mao_1991_bm2_2`: No accessible numerical pressure-volume table was available; no graphical points were fabricated.
 - `mg_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `mg_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.

@@ -1,0 +1,80 @@
+{
+  "format": "peritheos.source-data-audit",
+  "format_version": 1,
+  "audit_date": "2026-09-08",
+  "article": {
+    "doi": "10.1029/93GL02507",
+    "title": "Static compressibility of magnesite to 20 GPa: Implications for MgCO3 in the lower mantle",
+    "source_pdf_sha256": "55805544c6642a6ab42ea46aeb23f98ed9bcc4cfcd37dcd07fcb290f10065e59",
+    "pages": 4
+  },
+  "primary_data": {
+    "source_location": "Table 1, page 2100",
+    "dataset": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
+    "resource": "peritheos/data/datasets/magnesite-redfern-1993-table1-pv.csv",
+    "resource_sha256": "95beab712c819ad5ba48ae7b93dce998285bb955fd3e12fd6ab6f841697112db",
+    "observations": 18,
+    "pressure_range_gpa": [
+      0.0,
+      19.7
+    ],
+    "volume_range_a3": [
+      250.8,
+      279.4
+    ],
+    "transcription": "Pressure, a, c, V, and all printed parenthetical uncertainties were checked against a rendered image of Table 1. No plotted points were digitized."
+  },
+  "pressure_calibration": {
+    "status": "resolved",
+    "material": "NaCl",
+    "reference": "Decker (1971), doi:10.1063/1.1660714",
+    "reported_relative_uncertainty": 0.02,
+    "recalculation_status": "missing_calibrant_observations",
+    "finding": "The Experimental Methods state that pressure was calculated from the least-squares-refined cell volume of internal NaCl using the Decker EOS. Table 1 omits the row-wise NaCl volumes."
+  },
+  "fit_protocol": {
+    "fixed_kp": {
+      "selection": "All 18 Table 1 rows.",
+      "objective": "Unweighted pressure residuals, implementing the source's unspecified least-squares reduced Birch fit.",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "published": {
+        "V0": 279.4,
+        "K0": 142.0,
+        "K0_prime": 4.0
+      },
+      "refit": {
+        "V0": 279.4,
+        "K0": 142.85474666097645,
+        "K0_prime": 4.0,
+        "pressure_rmse_gpa": 0.522269741084158
+      },
+      "status": "parity"
+    },
+    "free_kp": {
+      "selection": "The nine Table 1 rows satisfying the source's fV>0.01 criterion.",
+      "objective": "Volume residuals weighted by the printed one-sigma volume uncertainties.",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "published": {
+        "V0": 279.4,
+        "K0": 151.0,
+        "K0_prime": 2.5
+      },
+      "refit": {
+        "V0": 279.4,
+        "K0": 150.77458546383642,
+        "K0_prime": 2.724874690363499,
+        "pressure_rmse_gpa": 0.6133293082682305,
+        "weighted_volume_reduced_chi_square": 1.6681166408872052
+      },
+      "status": "similar",
+      "qualification": "The fitted coefficients are consistent with the published fit, but K0_prime is weakly constrained (refit one-sigma uncertainty 1.345) and the source reports no K0_prime uncertainty, so strict uncertainty parity cannot be established."
+    }
+  },
+  "remaining_limit": "The paper does not publish the precise numerical implementation of its weighting, parameter covariance, or row-wise NaCl observations. These limits do not prevent direct reproduction from the published sample P-V table.",
+  "conclusion": "Both records are directly refittable from authoritative Table 1 data; digitization is unnecessary."
+}

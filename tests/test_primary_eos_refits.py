@@ -31,10 +31,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 155,
-        "similar": 62,
+        "parity": 156,
+        "similar": 63,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 563,
     }
     assert all(
         item.get("reason")
@@ -405,12 +405,27 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert all_ice_vi_rows["observations"] == 45
     assert all_ice_vi_rows["parameters"]["alpha0"] == pytest.approx(0.000052865775)
     assert all_ice_vi_rows["parameters"]["rt_eos.K0"] == pytest.approx(15.562571244)
+    redfern_bm2 = by_identifier["mg0991fe0008mn0001co3_redfern_1993_bm2_1"]
+    assert redfern_bm2["status"] == "parity"
+    assert redfern_bm2["observations"] == 18
+    assert redfern_bm2["fixed_parameters"] == ["V0", "K0_prime"]
+    assert redfern_bm2["objective"] == "pressure_residuals"
+    assert redfern_bm2["parameters"][0]["refit"] == pytest.approx(142.85474643)
+    redfern_bm3 = by_identifier["mg0991fe0008mn0001co3_redfern_1993_bm3_2"]
+    assert redfern_bm3["status"] == "similar"
+    assert redfern_bm3["observations"] == 9
+    assert redfern_bm3["selection"] == "fit_included_bm3=1"
+    assert redfern_bm3["fixed_parameters"] == ["V0"]
+    assert redfern_bm3["objective"] == "weighted_volume_residuals"
+    assert [item["refit"] for item in redfern_bm3["parameters"]] == pytest.approx(
+        [150.775580938, 2.724669769]
+    )
     explained = [
         item
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 93
+    assert markdown.count("### `") == len(explained) == 94
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item
