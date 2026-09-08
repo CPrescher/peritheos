@@ -360,7 +360,7 @@ not qualify.
 
 | Study | Standards and domain | Role | Library status |
 |---|---|---|---|
-| [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | Au, Pt, MgO and other metals; 300–2173 K, to about 28 GPa | Simultaneous high-temperature cross-calibration | Not yet encoded as a cross-material edge |
+| [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | Au, Pt, MgO and other metals; 300–2173 K, to about 28 GPa | Simultaneous high-temperature cross-calibration | Pt BM3-MGD branch executable in the dedicated Noguchi audit; not yet encoded as a general cross-material edge |
 | [Dewaele et al. (2004)](https://doi.org/10.1103/PhysRevB.70.094112) | Ruby with Cu, W, Al, Au, Pt, and Ta; 300 K to 153 GPa | Ruby-to-XRD bridge family | Ruby equation and several member EOSs executable |
 | [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | Au, Pt, NaCl-B2, and Ne; thermal EOSs | Internally consistent model family | Complete in convenience catalog; partial in shared `.eosmat` records |
 | [Dorogokupets and Dewaele (2007)](https://doi.org/10.1080/08957950701659700) | MgO, Au, Pt, and NaCl | Joint model family | Not yet complete in shared library |

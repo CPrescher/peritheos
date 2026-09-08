@@ -4371,7 +4371,99 @@
       "status": "similar"
     },
     {
-      "dataset_identifiers": [],
+      "alternative_model_audits": {
+        "model_2_fei_fixed_theta_mgd": {
+          "published": {
+            "K0": 207.0,
+            "V0": 46.5,
+            "gamma0": 2.7,
+            "q": 1.6,
+            "theta0": 1000.0
+          },
+          "published_curve": {
+            "maximum_absolute_residual_gpa": 2.920658245184427,
+            "pressure_rmse_gpa": 1.235964815788898
+          },
+          "thermal_refit": {
+            "parameters": {
+              "gamma0": 2.7332425255010095,
+              "q": 1.5808299708828584
+            },
+            "pressure_rmse_gpa": 1.2242445877486745,
+            "solver_success": true,
+            "standard_errors": {
+              "gamma0": 0.29673135418846314,
+              "q": 0.4299451926749957
+            }
+          }
+        },
+        "model_3_holmes_fixed_theta_mgd": {
+          "published": {
+            "K0": 238.0,
+            "V0": 45.8,
+            "gamma0": 2.8,
+            "q": 2.1,
+            "theta0": 1300.0
+          },
+          "published_curve": {
+            "maximum_absolute_residual_gpa": 5.74383420770387,
+            "pressure_rmse_gpa": 1.5755926730743632
+          },
+          "reference_isotherm_refit": {
+            "parameters": {
+              "K0": 237.8707298352275,
+              "V0": 45.83826756002459
+            },
+            "pressure_rmse_gpa": 0.4788518051426693,
+            "solver_success": true,
+            "standard_errors": {
+              "K0": 3.6162661130139586,
+              "V0": 0.11334007470210788
+            }
+          },
+          "thermal_refit": {
+            "parameters": {
+              "gamma0": 2.8203814426293445,
+              "q": 2.116498438992412
+            },
+            "pressure_rmse_gpa": 1.5753126382596223,
+            "solver_success": true,
+            "standard_errors": {
+              "gamma0": 0.4175994791224586,
+              "q": 0.6167906855265811
+            }
+          }
+        },
+        "model_4_fei_log_volume": {
+          "published": {
+            "K0": 207.0,
+            "V0": 46.5,
+            "alpha_ref_per_k": 5.7e-05,
+            "dK_dT_V_gpa_per_k": -0.01
+          },
+          "published_curve": {
+            "maximum_absolute_residual_gpa": 3.0220517481620846,
+            "pressure_rmse_gpa": 1.2473107018091802
+          },
+          "thermal_refit": {
+            "derived_alpha_ref_per_k": 5.7332603942913786e-05,
+            "derived_alpha_ref_standard_error_per_k": 5.081839876025258e-06,
+            "parameters": {
+              "alpha_KT_ref": 0.011867849016183154,
+              "dK_dT_V": -0.009758501786479173
+            },
+            "pressure_rmse_gpa": 1.238355212193332,
+            "solver_success": true,
+            "standard_errors": {
+              "alpha_KT_ref": 0.0010519408543372285,
+              "dK_dT_V": 0.004360645893101475
+            }
+          }
+        }
+      },
+      "dataset_identifiers": [
+        "docs/data/noguchi-2013-casio3-refit.json"
+      ],
       "experimental_pressure_range_gpa": [
         51.3,
         127.2
@@ -4380,20 +4472,177 @@
         700.0,
         2300.0
       ],
+      "fit_kind": "staged_bm2_then_mie_gruneisen_debye",
       "fixed_parameters": [
         "Tr",
         "n"
       ],
+      "free_parameters": [
+        "V0",
+        "K0",
+        "theta0",
+        "gamma0",
+        "q"
+      ],
       "label": "Noguchi et al. (2013), cubic CaSiO3 700 K BM2-MGD",
       "material_identifier": "ca_perovskite",
       "model": "BM2",
-      "primary_data_finding": "Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license.",
-      "primary_data_status": "parameterization_only",
+      "objective": "unweighted pressure residuals",
+      "observations": 51,
+      "observed_pressure_range_gpa": [
+        51.3,
+        127.2
+      ],
+      "parameters": [
+        {
+          "difference": 0.000485866685387748,
+          "parameter": "V0",
+          "published": 46.5,
+          "published_error": 0.1,
+          "refit": 46.50048586668539,
+          "refit_error": 0.13398519158841543,
+          "relative_difference": 1.0448745922317161e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.3687833523277959,
+          "parameter": "K0",
+          "published": 207.0,
+          "published_error": 4.0,
+          "refit": 207.3687833523278,
+          "refit_error": 3.5380270383564323,
+          "relative_difference": 0.001781562088540077,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -7.584691724690856,
+          "parameter": "theta0",
+          "published": 1300.0,
+          "published_error": 500.0,
+          "refit": 1292.4153082753091,
+          "refit_error": 528.8820462907312,
+          "relative_difference": 0.005834378249762197,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.021488582796060918,
+          "parameter": "gamma0",
+          "published": 2.7,
+          "published_error": 0.3,
+          "refit": 2.721488582796061,
+          "refit_error": 0.2982323710764867,
+          "relative_difference": 0.00795873436891145,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.06462756854232432,
+          "parameter": "q",
+          "published": 1.2,
+          "published_error": 0.8,
+          "refit": 1.2646275685423243,
+          "refit_error": 0.778550678260963,
+          "relative_difference": 0.053856307118603605,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "pressure_calibration_checks": {
+        "fei_2004": {
+          "all_rows": {
+            "maximum_absolute_residual_gpa": 10.077048779089466,
+            "observations": 54,
+            "pressure_rmse_gpa": 1.4582168391496027,
+            "within_0_5_gpa": 52
+          },
+          "excluding_apparent_source_anomalies": {
+            "excluded_source_orders": [
+              4,
+              54
+            ],
+            "maximum_absolute_residual_gpa": 0.40937089220032874,
+            "observations": 52,
+            "pressure_rmse_gpa": 0.21317725772726281,
+            "within_0_5_gpa": 52
+          },
+          "method": "Fei et al. (2004) Table 3 Pt coefficients as BM3 plus reference-temperature MGD: V0=60.38 A3/fcc cell, K0=273 GPa, K0'=4.8, Tr=300 K, theta0=230 K, gamma0=2.69, q=0.5, n=1."
+        },
+        "holmes_1989": {
+          "all_rows": {
+            "maximum_absolute_residual_gpa": 11.31918919950678,
+            "observations": 54,
+            "pressure_rmse_gpa": 1.8499272030664302,
+            "within_0_5_gpa": 50
+          },
+          "excluding_apparent_source_anomalies": {
+            "excluded_source_orders": [
+              4,
+              48,
+              54
+            ],
+            "maximum_absolute_residual_gpa": 0.5682295712980192,
+            "observations": 51,
+            "pressure_rmse_gpa": 0.24893792258597353,
+            "within_0_5_gpa": 50
+          },
+          "method": "Bundled platinum_holmes_1989_vinet_1 record, including its published approximate finite-temperature pressure term."
+        },
+        "qualification": "No source value is altered or excluded from the CaSiO3 fits. The anomaly exclusions apply only to the independent Pt-lattice pressure-recalculation diagnostic. The remaining differences are consistent with the three-decimal lattice parameters, rounded temperatures, and published calibrant coefficients.",
+        "source_anomalies": [
+          {
+            "finding": "The printed Pt lattice parameter is inconsistent with both printed pressures and the surrounding sequence.",
+            "scope": "both pressure branches",
+            "source_order": 4
+          },
+          {
+            "finding": "The printed Holmes pressure is below the Fei pressure and inconsistent with the Pt lattice parameter, contrary to the article's scale comparison and neighboring rows.",
+            "scope": "Holmes pressure only",
+            "source_order": 48
+          },
+          {
+            "finding": "The printed Pt lattice parameter is inconsistent with both printed pressures and the surrounding sequence.",
+            "scope": "both pressure branches",
+            "source_order": 54
+          }
+        ]
+      },
+      "primary_data_finding": "All 54 Table 1 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and the three explicit fit exclusions were independently transcribed and refitted. The copyrighted rows are not redistributed; a committed non-row-level artifact preserves normalized transcription hashes, selections, coefficients, error estimates, residual diagnostics, both calibration checks, and apparent source anomalies.",
+      "primary_data_status": "external_primary_table_refitted",
       "primary_source": "https://link.springer.com/article/10.1007/s00269-012-0549-1",
-      "reason": "Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license.",
+      "published_rmse_gpa": 1.2227650669472376,
+      "qualification": "The source does not state weights, fitting software, covariance, or the confidence convention for its printed errors. Unweighted pressure residuals are a transparent reproducibility diagnostic; their recovery of both coefficients and error magnitudes for all four source models is strong evidence for, but not proof of, the authors' exact numerical objective.",
       "record_identifier": "ca_perovskite_noguchi_2013_bm2_mgd_1",
+      "rmse_gpa": 1.220993276619583,
+      "selection": "9 accepted external-heating rows for the 700 K BM2 stage; all 42 high-temperature rows for the thermal stage; source orders 12, 14, and 20 excluded only as directed by Table 1 footnote e",
+      "solver_message": "dedicated Noguchi (2013) staged refit completed",
+      "solver_success": true,
       "source_notes": "Preferred model 1 from Noguchi et al. (2013): a second-order Birch-Murnaghan reference isotherm at exactly 700 K plus the source's constant-q Mie-Gruneisen-Debye thermal pressure. The source explicitly chose 700 K to remain above the cubic transition and avoid mixing tetragonal and cubic measurements. The record is non-default and scientifically independent of the Mao, Shim, Kawai-Tsuchiya, and Sun records. The paper's Table 1 data range from 51.3 to 127.2 GPa; temperatures nominally span 700-2300 K (printed rows 697-2278 K, with the 697-704 K externally heated series treated as 700 K by the authors). No open data license, fit covariance, weighting rule, or parameter-error confidence convention is published.",
-      "status": "not_refittable"
+      "source_table_sha256": "f6e599a617516126b898d320bfec9c836aa0dc6b86c68a395e138d12bbbec38a",
+      "stages": [
+        {
+          "free_parameters": [
+            "V0",
+            "K0"
+          ],
+          "name": "700 K BM2 reference isotherm",
+          "observations": 9,
+          "rmse_gpa": 0.47280910545413796
+        },
+        {
+          "free_parameters": [
+            "theta0",
+            "gamma0",
+            "q"
+          ],
+          "name": "high-temperature MGD pressure",
+          "observations": 42,
+          "rmse_gpa": 1.220993276619583
+        }
+      ],
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -24303,25 +24552,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },
@@ -31648,8 +31897,8 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 564,
+    "parity": 156,
     "parity_not_achieved": 31,
     "similar": 62,
     "total": 813
