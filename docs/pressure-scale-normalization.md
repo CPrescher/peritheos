@@ -375,7 +375,7 @@ not qualify.
 | [Chidester et al. (2021)](https://doi.org/10.1103/PhysRevB.104.094107) | B2 KCl and Pt; to 167 GPa and 2400 K | Simultaneous thermal KCl--Pt calibration on Dorogokupets--Oganov Pt | EOS, full KCl P-V-T table, temperature mapping, and direct Pt edge executable |
 | [Eremets et al. (2023)](https://doi.org/10.1038/s41467-023-36429-9) | Diamond Raman edge and Au; to about 500 GPa | Simultaneous optical--XRD calibration on ramp-derived Au | Scale, Au anchor, and edge executable |
 | [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | Cu, Re, Pt, W, Au, Mo, Fe, MgO, and NaCl; to about 431 GPa | Direct multi-standard volume relations, Cu anchored | Nine member fits and source grids bundled; paired cross-material edge not executable |
-| [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Pt, Cu, Au, Mo, Ta, W, Fe, MgO, and NaCl; 300 K to 140 GPa | Simultaneous paired calibration, Cu anchored | Member fits bundled; paired data and anchor edge not executable |
+| [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Pt, Cu, Au, Mo, Ta, W, Fe, MgO, and NaCl; 300 K to 140 GPa | Simultaneous paired calibration, Cu anchored | Complete paired volume data and exact Fratanduono 298 K Cu anchor reconstruction executable; eight parity and two similar fixed-V0 refits |
 
 A simultaneous volume-volume dataset is the strongest cross-material edge
 because the relationship is observed directly. A joint model family is usable
@@ -389,8 +389,10 @@ independent experimental confirmation.
 - Fei et al. (2007) is appropriate within its thermal domain when every needed
   family member is available. Do not substitute a member from another family.
 - Dorfman et al. (2012), Shen and Smith (2026), and Sakai et al. (2025) form
-  attractive room-temperature experimental networks. Exact cross-material use
-  requires their paired relations and anchor, not only fitted coefficients.
+  attractive room-temperature experimental networks. Shen and Smith's paired
+  observations and Cu anchor are executable; exact cross-material use of the
+  other two still requires their paired relations and anchor, not only fitted
+  coefficients.
 - At high temperature, prefer a thermal cross-calibration such as Fei et al.
   (2004), Hirose et al. (2008), or Ye et al. (2017) over extrapolating a 300 K
   edge.

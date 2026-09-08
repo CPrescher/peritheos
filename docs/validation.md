@@ -196,12 +196,12 @@ Primary-source findings changed or qualified several migrated records:
   [Chidester KCl reproduction](literature-reproductions.md#kcl-chidester-2021).
 - Shen and Smith's ten Cu-anchored 300 K records reproduce the phase-specific
   Vinet fits in Equation (4) and Table II: Pt, Au, Ta, W, Mo, MgO, NaCl B1,
-  NaCl B2, bcc Fe, and hcp Fe. The fixed reference volumes, fitted pressure
-  intervals, and printed `K0`/`K0'` errors are retained. The article does not
-  state the confidence level of those errors or publish their covariance, so
-  Peritheos records neither and explicitly assumes independent parameters when
-  propagating them. These room-temperature fits do not acquire a thermal model
-  merely because the experiment was controlled at `298.5(5) K`.
+  NaCl B2, bcc Fe, and hcp Fe. Their pressures are now reconstructed from each
+  same-run Cu volume with the exact Fratanduono et al. (2020) third-order 298 K
+  Vinet form. Unweighted fixed-`V0` fits give eight `parity` and two `similar`
+  outcomes; MgO and NaCl-B2 retain bounded source-protocol qualifications. The
+  article publishes no pressure weights or covariance, so neither is inferred.
+  See the [dedicated Cu-reference audit](literature-reproductions/shen-smith-2026-cu-refits.md).
 
 The audit also restores model inputs that the interchange migration omitted:
 `n` and `Z` for the eleven Sokolova compositions, `n = 3` for the two SiO2

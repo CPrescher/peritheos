@@ -515,11 +515,14 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
             "Table II, pages 9-12",
             "Section III.E, pages 8 and 12-14",
             "Experimental methods, page 2",
+            "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)",
         ],
         "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V "
         "fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are "
-        "preserved. The article does not state a confidence level or publish "
-        "parameter covariance, so neither is inferred.",
+        "preserved. Pressures are reproducible from same-run Cu volumes using "
+        "Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article "
+        "Table I 298 K coefficients. The article does not state a confidence "
+        "level, pressure weights, or parameter covariance, so none is inferred.",
     ),
     "10.1103/physrevb.103.014101": source(
         "https://doi.org/10.1103/PhysRevB.103.014101",

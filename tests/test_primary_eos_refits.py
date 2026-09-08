@@ -5,6 +5,10 @@ from pathlib import Path
 import pytest
 
 from peritheos import list_eos_record_documents
+from scripts.validate_primary_eos_refits import (
+    shen_cu_pressure_gpa,
+    shen_cu_reference_volume_a3,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 LEDGER_PATH = ROOT / "docs" / "data" / "primary-eos-refits.json"
@@ -31,10 +35,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "parity": 155,
-        "similar": 62,
+        "parity": 163,
+        "similar": 64,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 555,
     }
     assert all(
         item.get("reason")
@@ -129,7 +133,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         "parity_not_achieved"
     )
     assert by_identifier["b4c_somayazulu_2023_berman_refit"]["status"] == ("parity")
-    assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "not_refittable"
+    assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "parity"
     assert by_identifier["ca_perovskite_sun_2016_bm3_3"]["status"] == ("not_refittable")
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
         "not_refittable"
@@ -410,7 +414,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 93
+    assert markdown.count("### `") == len(explained) == 95
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item
@@ -421,3 +425,53 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         anchor = f"investigation-{item['record_identifier']}"
         assert markdown.count(f'<a id="{anchor}"></a>') == 1
         assert markdown.count(f"](#{anchor})") >= 2
+
+
+def test_shen_smith_cu_pressure_reconstruction_and_all_fixed_v0_refits():
+    ledger = load_ledger()
+    by_identifier = {item["record_identifier"]: item for item in ledger["records"]}
+    expected = {
+        "fe_shen_2026_vinet_1": ("parity", 42, 162.351481044, 5.345415186),
+        "gold_shen_2026_vinet_3": ("parity", 228, 167.641501844, 5.843889939),
+        "iron_shen_2026_vinet_2": ("parity", 380, 169.011430224, 5.497551611),
+        "mgo_shen_2026_vinet_3": ("similar", 194, 161.827434484, 3.953583035),
+        "molybdenum_shen_2026_vinet_1": (
+            "parity",
+            283,
+            260.686918487,
+            4.053530585,
+        ),
+        "nacl_b1_shen_2026_vinet_1": ("parity", 55, 23.474248787, 5.230899183),
+        "nacl_b2_shen_2026_vinet_2": ("similar", 125, 25.447259252, 5.582768069),
+        "platinum_shen_2026_vinet_2": ("parity", 387, 261.261958425, 5.722331509),
+        "tantalum_shen_2026_vinet_2": ("parity", 198, 195.309129528, 3.613634035),
+        "tungsten_shen_2026_vinet_3": ("parity", 335, 304.921448469, 4.114318637),
+    }
+
+    assert shen_cu_reference_volume_a3() == pytest.approx(47.218085048721)
+    assert float(shen_cu_pressure_gpa(shen_cu_reference_volume_a3())) == pytest.approx(
+        0.0,
+        abs=1.0e-12,
+    )
+    assert float(shen_cu_pressure_gpa(45.94823)) == pytest.approx(3.908992349216)
+
+    for identifier, (status, observations, k0, k0_prime) in expected.items():
+        result = by_identifier[identifier]
+        assert result["status"] == status
+        assert result["observations"] == observations
+        assert result["fixed_parameters"] == ["V0"]
+        assert result["objective"] == "unweighted_pressure_residuals"
+        assert result["absolute_sigma"] is False
+        assert [item["refit"] for item in result["parameters"]] == pytest.approx(
+            [k0, k0_prime]
+        )
+        reconstruction = result["pressure_reconstruction"]
+        assert reconstruction["doi"] == "10.1103/PhysRevLett.124.015701"
+        assert reconstruction["model"] == "third_order_vinet"
+        assert reconstruction["parameters"] == {
+            "K0_gpa": 133.6,
+            "eta": 6.29,
+            "beta": 2.06,
+            "psi": 1.65,
+        }
+        assert "no pressure weights" in result["qualification"]

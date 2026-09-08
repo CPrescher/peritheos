@@ -824,6 +824,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
@@ -1050,6 +1051,7 @@ def test_primary_audit_records_corrections_and_known_source_limitations():
         "Section III.E, pages 8 and 12-14",
         "Experimental methods, page 2",
         "Supplemental Table S1, official Excel workbook",
+        "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)",
     ]
 
     magnesite = get_material_document("magnesite")["eos_records"][0]
@@ -1652,6 +1654,10 @@ def test_shen_smith_2026_table_ii_vinet_regression_and_errors(
         "K0": pytest.approx(bulk_modulus_error),
         "K0_prime": pytest.approx(derivative_error),
     }
+    recalculation = source_record["pressure_calibration"]["recalculation"]
+    assert recalculation["status"] == "ready"
+    assert "Supplemental Material Eq. (2)" in recalculation["notes"]
+    assert "no unpublished pressure weights or covariance" in recalculation["notes"]
     assert "parameter_error_confidence" not in source_record
 
     # The article gives no confidence level or covariance. Peritheos therefore
