@@ -265,6 +265,12 @@ term and not a shifted reference state; the temperature slope varies as
 `alpha_KT_ref + dK_dT_V*ln(V0/V)`. The source reports only a partial numerical
 uncertainty for `dK_dT_V` and notes an additional unquantified contribution
 from `K0'`, which remains visible in the record notes.
+The [dedicated source reconstruction](literature-reproductions/anderson-1989-gold-thermal-eos.md)
+shows that this is a staged synthesis of heterogeneous thermodynamic constraints,
+not a global P-V-T fit. All numerical source tables are bundled, including the
+literal and thermodynamically reconstructed forms of the anomalous 300 K Table I
+heat capacity, and all 126 Equation (29) Table V states are reproduced within
+printed rounding.
 
 The Tange calibration domain is the marginal envelope of several pressure-scale-free data
 sets, not a rectangular guarantee that every combination of its extrema was

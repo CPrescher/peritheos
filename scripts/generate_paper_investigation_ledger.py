@@ -334,7 +334,9 @@ def render() -> str:
             "## Complete investigated-paper register",
             "",
             "This is the exhaustive paper-level index. `Bundled` means numerical primary",
-            "rows are stored; `plot only` means observations were digitized;",
+            "rows are stored; `bundled indirect` means source coefficient or derived-output",
+            "tables are stored but do not form a common direct-fit observation matrix;",
+            "`plot only` means observations were digitized;",
             "`parameterization only` means only the published equation/coefficients can",
             "be checked. Record-level links, fit metrics, and evidence locations are in",
             "the primary-source and refit ledgers.",
@@ -345,6 +347,7 @@ def render() -> str:
     )
     data_labels = {
         "bundled": "bundled",
+        "bundled_indirect": "bundled indirect",
         "plot_only": "plot only/digitized",
         "parameterization_only": "parameterization only",
         "theoretical_parameterization_only": "theoretical parameterization only",

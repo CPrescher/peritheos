@@ -5,6 +5,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Changed
+
+- Reconstructed the staged Anderson et al. (1989) logarithmic-volume thermal
+  gold EOS from all five published numerical tables. The audit preserves the
+  heterogeneous calorimetric, expansivity, and ultrasonic constraint lineage,
+  verifies Equation (29) at all 126 Table V states, documents the Table I 300 K
+  heat-capacity inconsistency, and retains the record as `not_refittable`
+  because the source defines no global regression objective or covariance.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

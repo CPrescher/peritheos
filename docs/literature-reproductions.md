@@ -27,6 +27,13 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+The [Anderson et al. (1989) gold thermal EOS audit](literature-reproductions/anderson-1989-gold-thermal-eos.md)
+is the canonical example of a reproducible staged thermodynamic derivation that
+must not be relabeled as a global pressure-volume refit. It bundles the source
+property and coefficient tables, reconstructs the separate published slopes,
+and verifies every calculated EOS-grid value while retaining a conservative
+`not_refittable` classification.
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)
