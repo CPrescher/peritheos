@@ -154,6 +154,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "mgo_b1_luo_2023_vinet_thermal_5",
         "mgo_b1_duffy_ahrens_1995_hugoniot_5",
         "molybenum_carbide_mo2c_haines_2001_bm3_refit",
+        "nickel_oxide_noguchi_1999_bm3_1",
         "nickel_oxide_noguchi_1999_linear_hugoniot_2",
         "platinum_dorogokupets_oganov_2007_vinet_4",
         "neon_fcc_hemley_1989_bm3_refit",

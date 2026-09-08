@@ -76,12 +76,20 @@
    "fixed_parameters": [
     "V0"
    ],
+   "fit_datasets": [
+    "nickel_oxide_noguchi_1999_table1_shock"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
     147.6
    ],
    "temperature_ref": 300.0,
-   "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient.",
+   "parameter_provenance": {
+    "V0": "Derived from the reported pseudo-cubic a0=4.177(1) A as 3a0^3/4 for the Z=3 rhombohedral hexagonal cell.",
+    "K0": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit.",
+    "K0_prime": "Noguchi et al. (1999), abstract and shock-reduced 300 K BM3 curve; independently checked by the executable Debye Mie-Gruneisen reduction documented in scientific_validation.independent_refit."
+   },
+   "notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.",
    "identifier": "nickel_oxide_noguchi_1999_bm3_1",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -115,7 +123,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -123,7 +131,8 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "thermal_reduction"
     ],
     "primary_source_check": {
      "access_url": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
@@ -132,7 +141,7 @@
       "Noguchi et al. (1998), pages 833-834, Mie-Gruneisen reduction and Murnaghan-Birch fit",
       "Noguchi et al. (1999), journal abstract, final 147.6 GPa isotherm coefficients"
      ],
-     "finding": "The official open primary conference paper documents the same team's sample reference lattice and shock-to-300 K reduction. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
+     "finding": "The official open primary conference paper documents the same team's sample reference lattice and exact shock-to-300 K conventions: Debye theta0=390 K, gamma0=1.38 derived from 2s=gamma+1, gamma/V constant, and Us=5.36+1.19up. The final journal article extends the data and reports K0=191 GPa and K0'=3.9. The stored Z=3 rhombohedral-cell V0 and uncertainty are propagated from a0=4.177(1) A; the journal reports no coefficient errors for K0 or K0'.",
      "doi": "10.1016/s0022-3697(98)00296-0"
     },
     "migration_source": {
@@ -143,14 +152,54 @@
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
       "nickel_oxide_noguchi_1999_table1_shock"
      ],
      "source_locations": [
       "Table 1, journal page 510"
      ],
-     "finding": "All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states."
+     "finding": "All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states. The final-state pressure and compression columns are inputs to a Debye Mie-Gruneisen reduction, not direct 300 K observations."
+    },
+    "independent_refit": {
+     "classification": "similar",
+     "method": "Integrate dT/dV=(dEH/dV+PH)/CV-gamma*T/V along the published Us=5.36+1.19up Hugoniot, with EH-E0=(PH+P0)(V0-V)/2 and the Debye heat capacity; subtract DeltaPth=gamma[V]*(ED[V,TH]-ED[V,300 K])/V from each final Table 1 pressure; then fit BM3 to the eight reduced pressures with V0 fixed.",
+     "thermal_parameters": {
+      "reference_temperature_k": 300.0,
+      "debye_temperature_k": 390.0,
+      "gamma0": 1.38,
+      "gamma_volume_exponent_q": 1.0,
+      "atoms_per_formula_unit": 2.0,
+      "debye_temperature_law": "integrated_gruneisen",
+      "gamma_volume_law": "gamma_over_volume_constant"
+     },
+     "hugoniot_parameters": {
+      "c0_km_s": 5.36,
+      "s": 1.19,
+      "rho0_g_cm3": 6.781
+     },
+     "conference_crosscheck": {
+      "rows": 7,
+      "fixed_K0_prime": 4.0,
+      "refit_K0_gpa": 184.2974466,
+      "published_K0_gpa": 184.0,
+      "published_K0_error_gpa": 5.0,
+      "shock_temperature_at_132_9_gpa_k": 1618.660372,
+      "published_temperature_description": "about 1600 K"
+     },
+     "journal_refit": {
+      "rows": 8,
+      "refit_K0_gpa": 182.435112,
+      "refit_K0_prime": 4.12465196,
+      "refit_K0_standard_error_gpa": 11.494591,
+      "refit_K0_prime_standard_error": 0.3567129,
+      "parameter_correlation": -0.98922487,
+      "pressure_rmse_gpa": 2.08431895,
+      "published_K0_gpa": 191.0,
+      "published_K0_prime": 3.9
+     },
+     "reproduction": "scripts/reproduce_noguchi_1999_nio.py",
+     "finding": "The seven-row predecessor result reproduces both published checkpoints, validating the physical reduction and its units. The eight rounded journal rows recover K0 and K0' within 0.75 and 0.63 residual-scaled refit standard errors, respectively. Exact coefficient parity is not claimed because the journal does not publish unrounded states, row-wise uncertainties, regression weights, or its numerical integration and BM3 objective details."
     }
    }
   },

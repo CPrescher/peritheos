@@ -25,6 +25,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Reconstructed Noguchi et al.'s (1999) NiO shock-to-300 K Debye
+  Mie--Gruneisen reduction from the bundled Hugoniot states. The BM3 record is
+  now a qualified `similar` refit with an executable audit, source conventions,
+  generated-ledger coverage, and regression tests; raw shock P-V states remain
+  explicitly excluded from isothermal fitting.
 - Reconstructed the staged Anderson et al. (1989) logarithmic-volume thermal
   gold EOS from all five published numerical tables. The audit preserves the
   heterogeneous calorimetric, expansivity, and ultrasonic constraint lineage,

@@ -27,6 +27,14 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+## NiO: Noguchi et al. (1999)
+
+The formerly blocked 300 K BM3 record now has an executable, qualified
+shock-to-isotherm reproduction. The audit uses the published Debye
+Mie--Gruneisen reduction before fitting BM3 and explicitly demonstrates why the
+raw Hugoniot P-V rows cannot be treated as isothermal observations. See the
+[standalone Noguchi NiO audit](literature-reproductions/noguchi-1999-nio-shock-reduction.md).
+
 The [Anderson et al. (1989) gold thermal EOS audit](literature-reproductions/anderson-1989-gold-thermal-eos.md)
 is the canonical example of a reproducible staged thermodynamic derivation that
 must not be relabeled as a global pressure-volume refit. It bundles the source

@@ -33,6 +33,7 @@ from peritheos.materials import Material
 from scripts.reproduce_diamond_thermal_composites import (
     reproduce as reproduce_diamond_composites,
 )
+from scripts.reproduce_noguchi_1999_nio import fit_journal_isotherm
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "peritheos" / "data"
@@ -49,7 +50,9 @@ FU_2023_CASIO3_REGISTERED_REFIT = (
 SOKOLOVA_RECONSTRUCTION_JSON = (
     ROOT / "docs" / "data" / "sokolova-2013-global-calibration.json"
 )
-TANGE_2009_PARTIAL_JSON = ROOT / "docs" / "data" / "tange-2009-mgo-partial-validation.json"
+TANGE_2009_PARTIAL_JSON = (
+    ROOT / "docs" / "data" / "tange-2009-mgo-partial-validation.json"
+)
 TANGE_2009_APPROXIMATE_JSON = (
     ROOT / "docs" / "data" / "tange-2009-mgo-approximate-refit.json"
 )
@@ -104,7 +107,6 @@ INDIRECT_DATA = {
         "covariance procedure are not published. See the [dedicated Fortes "
         "audit](literature-reproductions/fortes-2019-fcc-pb.md)."
     ),
-
     "mg090fe010o_marquardt_2009b_hs_bm3": (
         "EPSL Table 2 supplies the P-V observations, but the published HS fit also "
         "uses a room-pressure Brillouin constraint whose weighting is unspecified. "
@@ -150,10 +152,6 @@ INDIRECT_DATA = {
         "The bundled rows are shock states and the source's thermal reduction cannot "
         "be reconstructed as a direct P-V-T least-squares fit because most rows do "
         "not report temperature."
-    ),
-    "nickel_oxide_noguchi_1999_bm3_1": (
-        "The bundled rows are Hugoniot states; the stored 300 K isotherm is the "
-        "source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs."
     ),
     "diamond_correa_2008_double_debye_log_moment_5": (
         "The Figure 8 markers validate the finished pressure model but do not supply "
@@ -240,10 +238,8 @@ SHEN_SELECTIONS = {
 # in the papers' least-squares fits.
 UNWEIGHTED_DATASETS = {
     "ca_perovskite_wang_weidner_1994_figure3_digitized",
-
     # Diagnostic pressure objective; source normalized-volume weights unavailable.
     "mgal2o4_cafe2o4_irifune_2002_text_pv",
-
     # Sueda reports least squares but no weights or uncertainty confidence.
     "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized",
@@ -291,7 +287,6 @@ FIT_QUALIFICATIONS = {
         "covariance, or confidence convention. See the [dedicated Wang-Weidner "
         "reproduction](literature-reproductions/wang-weidner-1994-casio3.md)."
     ),
-
     "mgal2o4_cati2o4_ono_2006_bm2_2": (
         "All 14 Table 3 rows, including two recovered ambient cells. Source "
         "weights and selection are unspecified; zero-rounded volume errors "
@@ -299,7 +294,6 @@ FIT_QUALIFICATIONS = {
         "recovers the printed coefficients; the dedicated Ono reproduction "
         "documents the sensitivity to excluding ambient cells."
     ),
-
     "mgal2o4_cafe2o4_irifune_2002_bm2_2": (
         "Three compressed states only; fixed averaged V0 and implicit K0-prime=4. "
         "This unweighted pressure diagnostic differs from the stated normalized-"
@@ -307,7 +301,6 @@ FIT_QUALIFICATIONS = {
         "also checks that objective; neither supplies source covariance. The refit "
         "error is a residual-scaled diagnostic, not a published uncertainty."
     ),
-
     "mgal2o4_cafe2o4_sueda_2009_htbm_2": (
         "Staged thermal diagnostic on all 46 Table 1 rows, with the published "
         "300 K BM3 triplet fixed. The source does not specify weights or "
@@ -324,7 +317,6 @@ FIT_QUALIFICATIONS = {
         "corrections are documented in the [Sueda audit]"
         "(literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md)."
     ),
-
     **{
         f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": (
             "One of 12 alternative constrained LS fits from EPSL Table S1. Only "
@@ -765,7 +757,6 @@ VOLUME_COLUMNS = {
 PHASE_FILTERS = {
     "mg0991fe0008mn0001co3_redfern_1993_bm2_1": {"fit_included_bm2": "1"},
     "mg0991fe0008mn0001co3_redfern_1993_bm3_2": {"fit_included_bm3": "1"},
-
     **{
         f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": {"spin_region": "low_spin"}
         for i in range(1, 13)
@@ -840,14 +831,6 @@ def _load_rows(dataset: dict[str, Any]) -> list[dict[str, Any]]:
         return [dict(zip(names, row)) for row in reader]
 
 
-
-
-
-
-
-
-
-
 SHEN_CU_RECORD = "copper_fratanduono_2020_vinet3_298k"
 
 SHEN_SELECTIONS = {
@@ -863,13 +846,16 @@ SHEN_SELECTIONS = {
     "tungsten_shen_2026_vinet_3": ("W", {"DAC-1", "DAC-2"}, None),
 }
 
+
 def shen_cu_reference_volume_a3() -> float:
     """Return the executable Cu record's conventional-cell reference volume."""
     return float(get_eos_record(SHEN_CU_RECORD).eos.V0)
 
+
 def shen_cu_pressure_gpa(volume_a3: Any) -> np.ndarray:
     """Evaluate the shared published 298 K Cu record at same-run volumes."""
     return np.asarray(get_eos_record(SHEN_CU_RECORD).eos.pressure(volume_a3))
+
 
 def _shen_series(record: dict[str, Any], dataset: dict[str, Any]) -> Series:
     phase, experiments, pressure_mask = SHEN_SELECTIONS[record["identifier"]]
@@ -887,9 +873,7 @@ def _shen_series(record: dict[str, Any], dataset: dict[str, Any]) -> Series:
             raise ValueError(
                 f"expected one Cu volume per selected run, found {len(cu_rows)}"
             )
-        pressure = float(
-            shen_cu_pressure_gpa(float(cu_rows[0]["unit_cell_volume_a3"]))
-        )
+        pressure = float(shen_cu_pressure_gpa(float(cu_rows[0]["unit_cell_volume_a3"])))
         if pressure_mask == "below_30_gpa" and pressure >= 30.0:
             continue
         if pressure_mask == "above_35_gpa" and pressure <= 35.0:
@@ -920,6 +904,7 @@ def _shen_series(record: dict[str, Any], dataset: dict[str, Any]) -> Series:
         temperature_column=None,
         selection=selection,
     )
+
 
 def _shen_smith_outcome(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
@@ -983,7 +968,12 @@ def _shen_smith_outcome(
             "reference_unit_cell_volume_a3": shen_cu_reference_volume_a3(),
             "parameters": {
                 key: get_eos_record(SHEN_CU_RECORD).eos.parameter_values()[name]
-                for key, name in (("K0_gpa", "K0"), ("eta", "eta"), ("beta", "beta"), ("psi", "psi"))
+                for key, name in (
+                    ("K0_gpa", "K0"),
+                    ("eta", "eta"),
+                    ("beta", "beta"),
+                    ("psi", "psi"),
+                )
             },
             "pairing": (
                 "Each phase volume uses the single Cu volume with the same "
@@ -1001,6 +991,7 @@ def _shen_smith_outcome(
             "residuals and does not infer any of them."
         ),
     }
+
 
 def _column_map(dataset: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return {column["name"]: column for column in dataset["columns"]}
@@ -1857,8 +1848,7 @@ def _fit_record(
         "sum((P_model_gpa - P_table_gpa)^8)"
     )
     weighted_volume_objective = (
-        record.get("fit_provenance", {}).get("objective")
-        == "weighted_volume_residuals"
+        record.get("fit_provenance", {}).get("objective") == "weighted_volume_residuals"
     )
     if eighth_power_objective:
         if thermal or set(static_initial) != {"K0", "K0_prime"}:
@@ -2894,12 +2884,57 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _noguchi_1999_nio_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Reconstruct the source's shock-to-300 K reduction before fitting BM3."""
+    states, result = fit_journal_isotherm()
+    status, comparisons = _compare(record, result, thermal=False, volume_scale=1.0)
+    return {
+        "status": status,
+        "dataset_identifiers": ["nickel_oxide_noguchi_1999_table1_shock"],
+        "observations": int(states.volume_ratio.size),
+        "selection": (
+            "all eight Table 1 final Hugoniot states; HEL precursor columns "
+            "excluded; each pressure thermally reduced to 300 K before BM3 fitting"
+        ),
+        "observed_pressure_range_gpa": [
+            float(np.min(states.hugoniot_pressure_gpa)),
+            float(np.max(states.hugoniot_pressure_gpa)),
+        ],
+        "reduced_pressure_range_gpa": [
+            float(np.min(states.isothermal_pressure_gpa)),
+            float(np.max(states.isothermal_pressure_gpa)),
+        ],
+        "calculated_shock_temperature_range_k": [
+            float(np.min(states.shock_temperature_k)),
+            float(np.max(states.shock_temperature_k)),
+        ],
+        "fit_kind": "shock_to_300k_mie_gruneisen_debye_then_bm3",
+        "objective": "unweighted_reduced_isothermal_pressure_residuals",
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "rmse_gpa": float(np.sqrt(np.mean(result.residuals**2))),
+        "chi_square": float(result.chi_square),
+        "reduced_chi_square": float(result.reduced_chi_square),
+        "degrees_of_freedom": int(result.degrees_of_freedom),
+        "solver_success": bool(result.success),
+        "solver_message": result.message,
+        "qualification": (
+            "The reduction uses the source's Us=5.36+1.19up relation, 300 K "
+            "Debye theta0=390 K, gamma0=1.38, gamma/V constant (q=1), and two "
+            "atoms per NiO formula unit. The seven-state predecessor reproduces "
+            "K0=184+/-5 GPa and about 1600 K at 132.9 GPa. The eight rounded "
+            "journal rows recover the final coefficients within the "
+            "residual-scaled refit errors; exact parity is unavailable because "
+            "unrounded states, row-wise uncertainties, weights, and numerical "
+            "objective are not published."
+        ),
+    }
+
+
 def _tange_2009_approximate_outcome(record: dict[str, Any]) -> dict[str, Any]:
     """Register the qualified approximate refit and exact subset checks."""
     report = json.loads(TANGE_2009_PARTIAL_JSON.read_text(encoding="utf-8"))
-    approximate = json.loads(
-        TANGE_2009_APPROXIMATE_JSON.read_text(encoding="utf-8")
-    )
+    approximate = json.loads(TANGE_2009_APPROXIMATE_JSON.read_text(encoding="utf-8"))
     partial = report["bundled_partial_validation"]
     fitted = approximate["approximate_refit"]
     published_errors = {
@@ -3448,7 +3483,9 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if record["identifier"] == "diamond_datchi_2007_vinet_1":
+            if record["identifier"] == "nickel_oxide_noguchi_1999_bm3_1":
+                outcome = _noguchi_1999_nio_outcome(record)
+            elif record["identifier"] == "diamond_datchi_2007_vinet_1":
                 outcome = _datchi_2007_diamond_outcome(record, datchi_diamond_refit)
             elif record["identifier"] == "ca_perovskite_fu_2023_bm3_mgd_refit":
                 outcome = _fu_2023_casio3_outcome(record)

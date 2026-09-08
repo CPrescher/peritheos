@@ -27759,27 +27759,77 @@
       "status": "not_refittable"
     },
     {
+      "calculated_shock_temperature_range_k": [
+        338.32401534727586,
+        1784.7156428935436
+      ],
+      "chi_square": 34.755083966643724,
       "dataset_identifiers": [
         "nickel_oxide_noguchi_1999_table1_shock"
       ],
+      "degrees_of_freedom": 6,
       "experimental_pressure_range_gpa": [
         0.0,
         147.6
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "shock_to_300k_mie_gruneisen_debye_then_bm3",
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Noguchi et al. (1999), shock BM3 isotherm",
       "material_identifier": "nickel_oxide",
       "model": "BM3",
-      "primary_data_finding": "All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states.",
+      "objective": "unweighted_reduced_isothermal_pressure_residuals",
+      "observations": 8,
+      "observed_pressure_range_gpa": [
+        17.7,
+        147.6
+      ],
+      "parameters": [
+        {
+          "difference": -8.564887952585792,
+          "parameter": "K0",
+          "published": 191.0,
+          "published_error": null,
+          "refit": 182.4351120474142,
+          "refit_error": 11.494591008116288,
+          "relative_difference": 0.04484234530149629,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.22465195743145872,
+          "parameter": "K0_prime",
+          "published": 3.9,
+          "published_error": null,
+          "refit": 4.124651957431459,
+          "refit_error": 0.3567128950079204,
+          "relative_difference": 0.05760306600806634,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states. The final-state pressure and compression columns are inputs to a Debye Mie-Gruneisen reduction, not direct 300 K observations.",
       "primary_data_status": "bundled",
       "primary_source": "https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf",
-      "reason": "The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs.",
+      "qualification": "The reduction uses the source's Us=5.36+1.19up relation, 300 K Debye theta0=390 K, gamma0=1.38, gamma/V constant (q=1), and two atoms per NiO formula unit. The seven-state predecessor reproduces K0=184+/-5 GPa and about 1600 K at 132.9 GPa. The eight rounded journal rows recover the final coefficients within the residual-scaled refit errors; exact parity is unavailable because unrounded states, row-wise uncertainties, weights, and numerical objective are not published.",
       "record_identifier": "nickel_oxide_noguchi_1999_bm3_1",
-      "source_notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient.",
-      "status": "not_refittable"
+      "reduced_chi_square": 5.792513994440621,
+      "reduced_pressure_range_gpa": [
+        17.480903339889927,
+        138.6051987169127
+      ],
+      "rmse_gpa": 2.0843189525191352,
+      "selection": "all eight Table 1 final Hugoniot states; HEL precursor columns excluded; each pressure thermally reduced to 300 K before BM3 fitting",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.",
+      "status": "similar"
     },
     {
       "absolute_sigma": false,
@@ -36382,11 +36432,11 @@
     }
   ],
   "summary": {
-    "not_refittable": 530,
+    "not_refittable": 529,
     "parity": 179,
     "parity_not_achieved": 36,
     "reconstructed": 2,
-    "similar": 86,
+    "similar": 87,
     "source_reconstruction": 11,
     "total": 844
   }

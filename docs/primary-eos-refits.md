@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **844** EOS records. **179** achieve uncertainty parity, **86** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[36](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **530** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **844** EOS records. **179** achieve uncertainty parity, **87** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[36](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **529** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -645,7 +645,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`nickel_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`nickel_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`nickel_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`nickel_oxide_noguchi_1999_bm3_1`](https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf) | `nickel_oxide_noguchi_1999_table1_shock` | — | — | —/— | not_refittable — The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs. |
+| [`nickel_oxide_noguchi_1999_bm3_1`](https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf) | `nickel_oxide_noguchi_1999_table1_shock` | 8 | `K0` 191 → 182.435; `K0_prime` 3.9 → 4.12465 | —/2.08432 | [similar](#investigation-nickel_oxide_noguchi_1999_bm3_1) — The reduction uses the source's Us=5.36+1.19up relation, 300 K Debye theta0=390 K, gamma0=1.38, gamma/V constant (q=1), and two atoms per NiO formula unit. The seven-state predecessor reproduces K0=184+/-5 GPa and about 1600 K at 132.9 GPa. The eight rounded journal rows recover the final coefficients within the residual-scaled refit errors; exact parity is unavailable because unrounded states, row-wise uncertainties, weights, and numerical objective are not published. |
 | [`nickel_oxide_noguchi_1999_linear_hugoniot_2`](https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf) | `nickel_oxide_noguchi_1999_table1_shock` | 8 | `c0` 5.35498 → 5.35498; `s` 1.21373 → 1.21373 | —/0.0556367 km/s | parity |
 | [`niobium_takemura_2006_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext) | `niobium_takemura_2006_table1_compression` | 43 | `K0` 168 → 166.173; `K0_prime` 3.4 → 3.53348 | 1.35679/1.6975 | parity |
 | [`niobium_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `niobium_takemura_2006_table1_compression` | 43 | — | 3.12767/2.9852 | source_reconstruction — All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance. |
@@ -1017,7 +1017,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **122** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **123** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -3121,6 +3121,26 @@ the missing source fit detail is recovered.
 - The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-nickel_oxide_noguchi_1999_bm3_1"></a>
+
+### `nickel_oxide_noguchi_1999_bm3_1`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `nickel_oxide_noguchi_1999_table1_shock` with 8 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 191 | 182.435 ± 11.4946 | 4.48% | — | yes |
+| `K0_prime` | 3.9 | 4.12465 ± 0.356713 | 5.76% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 17.7-147.6 GPa; source-declared range: 0-147.6 GPa; fit kind: `shock_to_300k_mie_gruneisen_debye_then_bm3`; objective: `unweighted_reduced_isothermal_pressure_residuals`; published/refit pressure RMSE: —/2.08432 GPa; reduced chi-square: 5.79251; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** All eight NiO shock experiments from Table 1, including the three resolved Hugoniot elastic-limit states. The final-state pressure and compression columns are inputs to a Debye Mie-Gruneisen reduction, not direct 300 K observations.
+
+**Registered source-fit note.** The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-palladium_frost_2023_vinet_1"></a>
 
 ### `palladium_frost_2023_vinet_1`
@@ -3939,7 +3959,6 @@ the missing source fit detail is recovered.
 - `nickel_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `nickel_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `nickel_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `nickel_oxide_noguchi_1999_bm3_1`: The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs.
 - `niobium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
 - `niobium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `osmium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.

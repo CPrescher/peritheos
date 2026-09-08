@@ -35,12 +35,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 844, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "not_refittable": 530,
+        "not_refittable": 529,
         "parity": 179,
         "parity_not_achieved": 36,
         "reconstructed": 2,
-        "similar": 86,
-        "source_reconstruction": 11
+        "similar": 87,
+        "source_reconstruction": 11,
     }
     assert all(
         item.get("reason")
@@ -56,8 +56,8 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
 
     correa_composite = by_identifier["diamond_correa_2008_dewaele_anchored"]
     benedict_composite = by_identifier["diamond_benedict_2014_dewaele_anchored"]
-    assert correa_composite["status"] == benedict_composite["status"] == (
-        "reconstructed"
+    assert (
+        correa_composite["status"] == benedict_composite["status"] == ("reconstructed")
     )
     assert correa_composite["composite_coefficient_optimization_performed"] is False
     assert benedict_composite["composite_coefficient_optimization_performed"] is False
@@ -198,6 +198,17 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"
     assert fu_bm3["status"] == "parity"
+    nio_isotherm = by_identifier["nickel_oxide_noguchi_1999_bm3_1"]
+    assert nio_isotherm["status"] == "similar"
+    assert nio_isotherm["fit_kind"] == "shock_to_300k_mie_gruneisen_debye_then_bm3"
+    assert nio_isotherm["observations"] == 8
+    assert nio_isotherm["calculated_shock_temperature_range_k"] == pytest.approx(
+        [338.32401535, 1784.71564289]
+    )
+    assert [item["refit"] for item in nio_isotherm["parameters"]] == pytest.approx(
+        [182.43511205, 4.124651957]
+    )
+    assert nio_isotherm["rmse_gpa"] == pytest.approx(2.0843189525)
     nio_hugoniot = by_identifier["nickel_oxide_noguchi_1999_linear_hugoniot_2"]
     assert nio_hugoniot["status"] == "parity"
     assert nio_hugoniot["observations"] == 8
@@ -501,7 +512,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     reconstructed = [
         item for item in ledger["records"] if item["status"] == "reconstructed"
     ]
-    assert markdown.count("### `") == len(explained) + len(reconstructed) == 124
+    assert markdown.count("### `") == len(explained) + len(reconstructed) == 125
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

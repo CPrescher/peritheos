@@ -36,8 +36,8 @@ refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 141 |
-| Partly reproduced | 6 |
+| Reproduced | 142 |
+| Partly reproduced | 5 |
 | Mixed: reproduced and discrepant records | 6 |
 | Coefficient parity not achieved | 13 |
 | Direct refit unavailable | 67 |
@@ -882,7 +882,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **72 papers** contain 530 records for which a
+These **71 papers** contain 529 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -941,7 +941,6 @@ have other records that were reproduced.
 | [Mookherjee et al. (2015)](https://doi.org/10.2138/am-2015-5312) | `mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3` | The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled. |
 | [Mosenfelder et al. (2009)](https://doi.org/10.1029/2008jb005900) | `mgsio3_post_perovskite_mosenfelder_2009_bm3_1` | The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature. |
 | [Muñoz and Kunc (1993)](https://doi.org/10.1088/0953-8984/5/33/010) | `indium_nitride_munoz_1993_murnaghan_1` | This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters. |
-| [Noguchi et al. (1999)](https://doi.org/10.1016/s0022-3697(98)00296-0) | `nickel_oxide_noguchi_1999_bm3_1` | The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs. |
 | [Noguchi et al. (2013)](https://doi.org/10.1007/s00269-012-0549-1) | `ca_perovskite_noguchi_2013_bm2_mgd_1` | Table 1 contains 54 P-V-T rows, paired Fei/Holmes pressures, Pt lattice parameters, and three explicit fit exclusions. A complete local transcription was used for the audit and independent refit, but is not redistributed because the subscription article states no reusable data license. |
 | [Oganov and Dorogokupets (2003)](https://doi.org/10.1103/physrevb.67.224110) | `mgo_oganov_2003_ecp_large_core_static_bm3`, `mgo_oganov_2003_ecp_small_core_static_bm3`, `mgo_oganov_2003_paw_large_core_static_bm3`, `mgo_oganov_2003_pressure_corrected_0k_bm3`, `mgo_oganov_2003_pressure_corrected_1000k_bm3`, `mgo_oganov_2003_pressure_corrected_2000k_bm3`, `mgo_oganov_2003_pressure_corrected_298k_bm3`, `mgo_oganov_2003_pressure_corrected_3000k_bm3`, `mgo_oganov_2003_pressure_corrected_4000k_bm3` | The complete coefficients are tabulated but the fitted energy-volume grid is not published. No numerical energy-volume grid is published. The coefficients and plotted curve are published; no row-level thermal grid is deposited. No row-level thermal grid is published. Coefficients and curve are published; underlying thermal grid is not. |
 | [Ono (2013)](https://doi.org/10.3390/e15104300) | `ca_perovskite_ono_2013_bm3_log_thermal` | The article states that 27 high-temperature AIMD states were fitted but does not tabulate their P-V-T values, fit weights, residual statistic, or covariance. |
@@ -1180,7 +1179,7 @@ the primary-source and refit ledgers.
 | [Muhammad et al. (2024)](https://doi.org/10.1039/d4nr00093e) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Muñoz and Kunc (1993)](https://doi.org/10.1088/0953-8984/5/33/010) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
 | [Myhill (2022), anisotropic high-P-T EOS](https://doi.org/10.1093/gji/ggac180) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Noguchi et al. (1999)](https://doi.org/10.1016/s0022-3697(98)00296-0) | Partly reproduced | 2 | 1 parity; 1 direct refit unavailable | 2 bundled |
+| [Noguchi et al. (1999)](https://doi.org/10.1016/s0022-3697(98)00296-0) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Noguchi et al. (2013)](https://doi.org/10.1007/s00269-012-0549-1) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Oganov and Dorogokupets (2003)](https://doi.org/10.1103/physrevb.67.224110) | Partly reproduced | 11 | 2 similar; 9 direct refit unavailable | 9 theoretical parameterization only |
 | [Ono (2013)](https://doi.org/10.3390/e15104300) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
