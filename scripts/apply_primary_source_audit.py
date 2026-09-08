@@ -805,8 +805,9 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         "The model-1 BM3-MGD parameters, fixed quantities, five-atom Debye "
         "energy, one-formula-unit volume basis, high-temperature cubic phase, "
         "Pt pressure standard, and experimental P-T envelope were checked "
-        "directly. The 300 K cubic isotherm is retained only as the model "
-        "reference state.",
+        "directly. All 144 Table 1 observations were transcribed at printed "
+        "precision and independently reproduce the source fit. The 300 K cubic "
+        "isotherm is retained only as the model reference state.",
     ),
     "ca_perovskite_tetragonal_sun_2022_bm3_1": source(
         "https://www.jsg.utexas.edu/lin/files/SunCaPvAM2022.pdf",
@@ -819,8 +820,9 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
         ],
         "Table 2's fixed-derivative fit is used. Its V0 and error are converted "
         "from the paper's normalized Z=1 basis to the conventional I4/mcm Z=4 "
-        "cell; the fitted modulus, direct data range, 300 K phase, Fei et al. "
-        "Pt pressure scale, and lack of published covariance are retained.",
+        "cell. All 23 Table 1 rows were transcribed, with the 14 reanalyzed 2016 "
+        "and nine new 2022 observations distinguished, and independently "
+        "reproduce both Table 2 fits.",
     ),
     "coesite_levien_1981_bm3_1": source(
         "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
