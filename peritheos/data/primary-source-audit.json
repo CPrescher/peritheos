@@ -8053,16 +8053,18 @@
       "label": "Redfern et al. (1993), K0' fixed to 4",
       "doi": "10.1029/93gl02507",
       "status": "primary_source_validated",
-      "note": "Primary publisher abstract and source-reported coefficient table checked; executable BM3 checkpoints independently reproduced.",
+      "note": "Validated against the original four-page article, including Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption; all 18 source rows are bundled and directly refitted.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/93GL02507",
         "doi": "10.1029/93GL02507",
         "locations": [
-          "Abstract",
-          "reported EOS results"
+          "Abstract and Experimental Methods, page 2099",
+          "Table 1 and Equation-of-State section, page 2100"
         ],
-        "finding": "The constrained and unconstrained fits are distinct published sensitivity parameterizations of the same specimen."
-      }
+        "finding": "The source publishes 18 pressure-volume rows, identifies internal NaCl with the Decker (1971) EOS and +/-2% pressure uncertainty, and reports an all-row reduced Birch least-squares fit with K0'=4."
+      },
+      "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json",
+      "source_pdf_sha256": "55805544c6642a6ab42ea46aeb23f98ed9bcc4cfcd37dcd07fcb290f10065e59"
     },
     {
       "material": "mg0991fe0008mn0001co3_magnesite",
@@ -8071,16 +8073,18 @@
       "label": "Redfern et al. (1993), unconstrained BM3",
       "doi": "10.1029/93gl02507",
       "status": "primary_source_validated",
-      "note": "Primary publisher abstract and source-reported coefficient table checked; executable BM3 checkpoints independently reproduced.",
+      "note": "Validated against the original four-page article, including Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption; the nine-row fV>0.01 selection is directly refitted.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1029/93GL02507",
         "doi": "10.1029/93GL02507",
         "locations": [
-          "Abstract",
-          "reported EOS results"
+          "Abstract and Experimental Methods, page 2099",
+          "Table 1, Equation (2), and Figure 2 caption, page 2100"
         ],
-        "finding": "The unconstrained fit is a genuine alternative published EOS, not a phase split."
-      }
+        "finding": "The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression for the nine rows with fV>0.01, yielding K0=151(7) GPa and fitted K0'=2.5."
+      },
+      "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json",
+      "source_pdf_sha256": "55805544c6642a6ab42ea46aeb23f98ed9bcc4cfcd37dcd07fcb290f10065e59"
     },
     {
       "material": "mg09al02si09o3_bridgmanite",

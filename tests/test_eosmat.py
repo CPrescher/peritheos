@@ -298,12 +298,12 @@ def test_migrated_records_have_completed_primary_source_audit():
         - overnight_identifiers
         - delta_identifiers
     )
-    assert len(overnight_identifiers) == 173
+    assert len(overnight_identifiers) == 171
     assert len(delta_identifiers) == 50
     assert {audit_dates[identifier] for identifier in delta_identifiers} == {
         "2026-09-06"
     }
-    assert len(batch_identifiers) == 411
+    assert len(batch_identifiers) == 413
     assert {audit_dates[identifier] for identifier in batch_identifiers} == {
         "2026-09-01",
         "2026-09-03",

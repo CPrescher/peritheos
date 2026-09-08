@@ -656,6 +656,8 @@ VOLUME_COLUMNS = {
 }
 
 PHASE_FILTERS = {
+    "mg0991fe0008mn0001co3_redfern_1993_bm2_1": {"fit_included_bm2": "1"},
+    "mg0991fe0008mn0001co3_redfern_1993_bm3_2": {"fit_included_bm3": "1"},
     "cao_richet_1988_bm3_1": {"phase": "B1", "used_in_eos_fit": "yes"},
     "cao_b2_richet_1988_bm3_1": {"phase": "B2", "used_in_eos_fit": "yes"},
     "phase_d_ant_a_shieh_2000_bm2_1": {"sample": "1"},
@@ -1477,6 +1479,12 @@ def _fit_record(
         series.volume_sigma = None
         series.temperature_sigma = None
         source_protocol_unweighted = True
+
+    source_objective = record.get("fit_provenance", {}).get("objective")
+    if source_objective == "unweighted_pressure_residuals":
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        source_protocol_unweighted = True
     if dataset["identifier"] in UNWEIGHTED_DATASETS:
         series.pressure_sigma = None
         series.volume_sigma = None
@@ -1563,6 +1571,10 @@ def _fit_record(
     eighth_power_objective = record.get("fit_provenance", {}).get("objective") == (
         "sum((P_model_gpa - P_table_gpa)^8)"
     )
+    weighted_volume_objective = (
+        record.get("fit_provenance", {}).get("objective")
+        == "weighted_volume_residuals"
+    )
     if eighth_power_objective:
         if thermal or set(static_initial) != {"K0", "K0_prime"}:
             raise ValueError(
@@ -1609,6 +1621,44 @@ def _fit_record(
             degrees_of_freedom=series.pressure.size - len(names),
             success=optimum.success,
             message=optimum.message,
+        )
+    elif weighted_volume_objective:
+        if thermal or series.volume_sigma is None:
+            raise ValueError("weighted volume refit requires volume uncertainties")
+        eos_class = MODEL_CLASSES[record["eos"]["type"]]
+        names = tuple(static_initial)
+
+        def volume_residuals(parameters: np.ndarray) -> np.ndarray:
+            values = {**static_fixed, **dict(zip(names, parameters))}
+            predicted = np.asarray(eos_class(**values).volume(series.pressure))
+            return (predicted - series.volume) / series.volume_sigma
+
+        start = np.asarray([static_initial[name] for name in names])
+        lower, upper = zip(*(_bounds(name, static_initial[name]) for name in names))
+        optimization = least_squares(
+            volume_residuals,
+            start,
+            bounds=(lower, upper),
+            max_nfev=5000,
+        )
+        values = {**static_fixed, **dict(zip(names, optimization.x))}
+        degrees_of_freedom = series.pressure.size - len(names)
+        covariance = np.linalg.pinv(optimization.jac.T @ optimization.jac)
+        errors = np.sqrt(np.diag(covariance))
+        residuals = np.asarray(eos_class(**values).pressure(series.volume)) - (
+            series.pressure
+        )
+        result = SimpleNamespace(
+            free_parameters=names,
+            parameters=values,
+            standard_errors=dict(zip(names, errors)),
+            residuals=residuals,
+            reduced_chi_square=(
+                float(np.sum(optimization.fun**2) / degrees_of_freedom)
+            ),
+            degrees_of_freedom=degrees_of_freedom,
+            success=optimization.success,
+            message=optimization.message,
         )
     elif thermal:
         rt_eos = executable.rt_eos
@@ -1714,6 +1764,8 @@ def _fit_record(
         "objective": (
             "eighth_power_pressure_residuals"
             if eighth_power_objective
+            else "weighted_volume_residuals"
+            if weighted_volume_objective
             else "errors_in_variables"
             if series.volume_sigma is not None
             else "pressure_residuals"

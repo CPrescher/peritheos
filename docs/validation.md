@@ -32,9 +32,9 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 816
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 158 uncertainty-parity matches and 63
+diagnostics. The current campaign finds 159 uncertainty-parity matches and 64
 additional numerically similar results. [32 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 554 records cannot be
+recover at least one published coefficient, while 552 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Eleven Sokolova records have the separate
 `source_reconstruction` status: their 392-row coupled ruby calibration is
