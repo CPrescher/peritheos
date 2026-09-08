@@ -134,14 +134,18 @@
   [doi:10.1002/2016JB013062](https://doi.org/10.1002/2016JB013062). Peritheos
   uses equations 1--6, Table 1, and the model-1 row of Table 2 for the cubic
   Pm-3m BM3-Mie-Gruneisen-Debye record. Its 300 K isotherm is an extrapolated
-  model reference outside the measured 1200--2600 K cubic-phase field.
+  model reference outside the measured 1200--2600 K cubic-phase field. All 144
+  printed Table 1 rows are bundled and reproduce the four free coefficients
+  and their uncertainties under the inferred unweighted pressure-residual fit.
 - Sun, N., Bian, H., Zhang, Y., Lin, J.-F., Prakapenka, V. B. & Mao, Z.
   (2022). High-pressure experimental study of tetragonal
   CaSiO3-perovskite to 200 GPa. *American Mineralogist*, 107, 110--115.
   [doi:10.2138/am-2021-7913](https://doi.org/10.2138/am-2021-7913). Peritheos
   uses the fixed-`K0'=4` fit in Table 2 and converts the published normalized
   Z=1 reference volume to the conventional I4/mcm Z=4 cell. Table 1 supplies
-  the direct 21.5--199.2 GPa data range; routine validity is 30--150 GPa.
+  the direct 21.5--199.2 GPa data range; routine validity is 30--150 GPa. Its
+  14 reanalyzed 2016 rows and nine new 2022 rows are distinguished explicitly,
+  and unweighted refits reproduce both Table 2 alternatives.
 - Frank, M. R., Fei, Y. & Hu, J. (2004). Constraining the equation of state of
   fluid H2O to 80 GPa using the melting curve, bulk modulus, and thermal
   expansivity of ice VII. *Geochimica et Cosmochimica Acta*, 68, 2781--2790.

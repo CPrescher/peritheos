@@ -139,6 +139,16 @@ UNWEIGHTED_DATASETS = {
     "iron_zhang_2025_tables_s1_s3_s4_pvt",
 }
 
+# The articles print row-wise metrology uncertainties but do not describe using
+# them as fit weights.  Ordinary pressure-residual fits reproduce the published
+# coefficients and parameter uncertainties; uncertainty-weighted alternatives
+# do not.  Keep the reported sigmas in the datasets while reconstructing the
+# source protocol explicitly here.
+SOURCE_PROTOCOL_UNWEIGHTED_RECORDS = {
+    "ca_perovskite_sun_2016_bm3_3",
+    "ca_perovskite_tetragonal_sun_2022_bm3_1",
+}
+
 COMBINED_FIT_DATASET_RECORDS = {
     "cscl_campbell_1994_bm3_1",
     "neon_fcc_fei_2007_bm3_1",
@@ -1346,6 +1356,11 @@ def _fit_record(
         source_protocol_unweighted = True
     else:
         series = _series(document, record, dataset)
+    if record_id in SOURCE_PROTOCOL_UNWEIGHTED_RECORDS:
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        series.temperature_sigma = None
+        source_protocol_unweighted = True
     if dataset["identifier"] in UNWEIGHTED_DATASETS:
         series.pressure_sigma = None
         series.volume_sigma = None
@@ -1540,7 +1555,7 @@ def _fit_record(
             },
             pressure_sigma=series.pressure_sigma,
             volume_sigma=series.volume_sigma,
-            absolute_sigma=True,
+            absolute_sigma=not source_protocol_unweighted,
             max_nfev=5000,
         )
     status, comparisons = _compare(

@@ -125,6 +125,103 @@ explicitly unavailable. Consequently no source-faithful coefficient refit is
 possible; the refit ledger classifies this record as
 `theoretical_parameterization_only` and `not_refittable` rather than digitizing
 or synthesizing observations.
+
+<a id="sun-2016-2022-casio3"></a>
+
+## CaSiO3 perovskite: Sun et al. (2016, 2022)
+
+### Sources, rights assessment, and table scope
+
+This audit used the author-hosted publisher PDF and publisher page for Sun et
+al., *Confirming a pyrolitic lower mantle using self-consistent pressure scales
+and new constraints on CaSiO3 perovskite*, JGR Solid Earth **121**, 4876--4894
+(2016), [doi:10.1002/2016JB013062](https://doi.org/10.1002/2016JB013062), and
+the author-hosted publisher PDF for Sun et al., *High-pressure experimental
+study of tetragonal CaSiO3-perovskite to 200 GPa*, American Mineralogist
+**107**, 110--115 (2022),
+[doi:10.2138/am-2021-7913](https://doi.org/10.2138/am-2021-7913).
+
+Neither article nor its table states an explicit open data-reuse license. The
+[Wiley terms of use](https://onlinelibrary.wiley.com/terms-of-use) allow limited
+credited reuse but do not provide a general open-data grant, while the
+[MSA publishing policy](https://msaweb.org/publishingpolicy/) retains
+author/society copyright and preserves fair-use rights. The bundled CSVs are
+therefore narrowly described as source-attributed factual numerical
+transcriptions for scientific validation; they reproduce no prose, table
+image, caption, or typographic arrangement, and Peritheos does not assert that
+they are openly licensed. Downstream redistributors remain responsible for
+their own rights assessment.
+
+The 2016 dataset contains all 144 P-T-V observations printed in Table 1,
+including repeated entries, in the three-block reading order. Its rows span
+21.2--151.8 GPa and 1200--2600 K. The paper's 156 GPa upper bound describes the
+overall diffraction experiment, not a printed Table 1 pressure. Parenthetical
+P and V uncertainties are retained; Table 1 has no row-wise T uncertainty, so
+the separately stated 50--100 K experimental estimate is metadata rather than
+an invented column.
+
+The 2022 dataset contains all 23 Table 1 rows at 300 K. The first 14 are
+explicitly footnoted to Sun et al. (2016) and were reanalyzed for the common
+pressure scale; the final nine are new 2022 observations. The conventional
+I4/mcm lattice values and volumes are preserved. The source divided `a` and
+`c` by two and volume by `Z=4` for plotting and fitting on a one-formula-unit
+basis; Peritheos instead fits the equivalent conventional-cell volumes without
+altering `K0` or `K0'`. Every printed volume agrees with `a^2 c` within its
+rounding precision. Neither source states an exclusion, so all rows enter the
+reproductions.
+
+### Pressure calibration and its remaining limit
+
+Both tables report reduced pressures on the Fei et al. (2007) self-consistent
+Pt scale, [doi:10.1073/pnas.0609013104](https://doi.org/10.1073/pnas.0609013104).
+The 2016 experiments used 5 wt% Pt as both pressure standard and laser
+absorber. The 2022 fit combines the reanalyzed 2016 quenched measurements with
+new Pt-calibrated measurements.
+
+The applicable Fei Pt model is reconstructed exactly as a Vinet 300 K
+reference isotherm plus Mie--Gruneisen--Debye thermal pressure: conventional
+fcc `Z=4` `V0=60.38 A^3`, `K0=277 GPa`, `K0'=5.08`, `Tr=300 K`,
+`theta0=230 K`, `gamma0=2.72`, `q=0.5`, and `n=1`, using the source's
+non-integrated `theta=theta0*(V/V0)^[-gamma(V)]` convention. It remains
+executable as compatibility record `pt_fcc_fei_2007`. Exact row-wise pressure
+recalculation is nevertheless impossible because neither CaSiO3 table prints
+the simultaneous Pt volumes. The applications also extrapolate beyond the
+Fei Pt experiment's direct 0--94 GPa pressure range (and, for much of the 2016
+thermal table, its 300--1873 K temperature range); this is now an explicit
+calibration caveat rather than an unrecorded dependency.
+
+### Fit protocol discrimination and results
+
+For 2016, equations (1)--(6) specify BM3 at 300 K plus
+`Delta Pth = gamma(V)/V [E_D(V,T)-E_D(V,300 K)]`, with
+`gamma=gamma0*(V/V0)^q` and the integrated-Gruneisen Debye-temperature law.
+Model 1 fixes `K0'=4`, `theta0=1000 K`, `Tr=300 K`, and `n=5`, while refining
+`V0`, `K0`, `gamma0`, and `q`. For 2022, Table 2 reports both a three-parameter
+BM3 and a preferred alternative with `K0'=4` fixed.
+
+Neither paper states the residual direction, weights, or covariance scaling.
+The decisive reconstruction is ordinary, unweighted pressure-residual least
+squares with covariance scaled by residual variance. It reproduces all three
+published fit rows and their parenthetical uncertainties after rounding:
+
+| Source fit | Published | Independent unweighted refit | Pressure RMSE |
+|---|---|---|---:|
+| 2016 cubic BM3-MGD | `V0=45.4(1)`, `K0=249(4)`, `gamma0=1.8(2)`, `q=1.1(4)` | `45.4632 +/- 0.1278`, `250.265 +/- 4.463`, `1.8726 +/- 0.1610`, `1.0425 +/- 0.4045` | 0.9360 GPa |
+| 2022 tetragonal BM3, `K0'=4` | `V0/Z=45.6(2)`, `K0=229(4)` | `45.5620 +/- 0.1579`, `228.984 +/- 4.159` | 1.9330 GPa |
+| 2022 tetragonal BM3, free `K0'` | `V0/Z=45.6(4)`, `K0=227(21)`, `K0'=4.0(3)` | `45.6042 +/- 0.4228`, `226.687 +/- 21.492`, `4.02795 +/- 0.25760` | 1.9324 GPa |
+
+The uncertainty-weighted alternatives are not numerically equivalent. For
+example, using both printed P and V uncertainties shifts the 2016 solution to
+`V0=45.3075`, `K0=256.980`, `gamma0=2.1003`, and `q=1.7824`; the weighted 2022
+free fit shifts to `V0/Z=44.8816`, `K0=276.778`, and `K0'=3.4152`. This
+comparison is the basis for marking the unweighted protocol as inferred rather
+than source-explicit.
+
+The reproducible command is
+`python scripts/reproduce_sun_2016_2022_casio3.py`. These experimental records
+and datasets are independent of the removed Sun et al. (2010) DFT benchmark;
+no 2010 calculation, table, coefficient, or provenance is reused here.
+
 ## Stishovite, Wang et al. (2012)
 
 ### Source, observations, and calibration
