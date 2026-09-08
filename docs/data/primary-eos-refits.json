@@ -10088,7 +10088,7 @@
         "temperature": "mean_temperature_k",
         "volume": "iridium_lattice_a_angstrom"
       },
-      "complete_combined_fit_status": "not_refittable_from_published_rows",
+      "complete_combined_fit_status": "plot_derived_reconstruction_only",
       "conditional_fixed_parameters": [
         "rt_eos.V0",
         "rt_eos.K0",
@@ -10166,18 +10166,89 @@
           "within_combined_2sigma": true
         }
       ],
-      "primary_data_finding": "All 122 Ir P-V-T observations from the laser-heating runs printed in Supplementary Tables 1-3 are bundled, including two 300 K baseline rows and retaining the applicable MgO or KCl calibrant, both pyrometry measurements, and their source-required arithmetic mean. The numerical Monteseguro 300 K and present 833 K resistive-heating fit rows are not published, so the complete combined regression cannot be rerun exactly.",
+      "plot_derived_combined_fit": {
+        "dataset_identifiers": [
+          "iridium_anzellini_2025_tables_s1_s3_pvt",
+          "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
+        ],
+        "free_parameters": [
+          "rt_eos.V0",
+          "rt_eos.K0",
+          "rt_eos.K0_prime",
+          "alpha0"
+        ],
+        "objective": "unweighted_pressure_residuals",
+        "observations": 172,
+        "parameters": [
+          {
+            "difference": 0.0066906379695197415,
+            "parameter": "rt_eos.V0",
+            "published": 56.62,
+            "published_error": 0.05,
+            "refit": 56.62669063796952,
+            "refit_error": 0.03913664763012052,
+            "relative_difference": 0.00011816739614128827,
+            "similar": true,
+            "within_combined_2sigma": true
+          },
+          {
+            "difference": -0.8445435146935552,
+            "parameter": "rt_eos.K0",
+            "published": 327.0,
+            "published_error": 2.0,
+            "refit": 326.15545648530644,
+            "refit_error": 0.0018908032109371386,
+            "relative_difference": 0.0025827018797968046,
+            "similar": true,
+            "within_combined_2sigma": true
+          },
+          {
+            "difference": 0.12104675661961828,
+            "parameter": "rt_eos.K0_prime",
+            "published": 5.46,
+            "published_error": 0.03,
+            "refit": 5.581046756619618,
+            "refit_error": 0.07875334926647182,
+            "relative_difference": 0.022169735644618733,
+            "similar": true,
+            "within_combined_2sigma": true
+          },
+          {
+            "difference": -4.0834333940434193e-07,
+            "parameter": "alpha0",
+            "published": 1.87e-05,
+            "published_error": 8e-07,
+            "refit": 1.829165666059566e-05,
+            "refit_error": 4.804338338828816e-07,
+            "relative_difference": 0.02183654221413593,
+            "similar": true,
+            "within_combined_2sigma": true
+          }
+        ],
+        "rmse_gpa": 1.9858345098349754,
+        "selection": "91 Figure 4 black-circle 300 K markers, 16 Figure 4 dark-red-circle 830 K markers, and 65 exact supplementary laser-heating rows within +/-100 K of the plotted 1700, 2000, 2200, 2600, 3300, 3800, and 4200 K isotherms",
+        "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+        "solver_success": true,
+        "status": "reconstructed_from_vector_figure_not_source_parity",
+        "within_published_one_sigma": {
+          "alpha0": true,
+          "rt_eos.K0": true,
+          "rt_eos.K0_prime": false,
+          "rt_eos.V0": true
+        }
+      },
+      "primary_data_finding": "All 122 Ir P-V-T observations from the laser-heating runs printed in Supplementary Tables 1-3 are bundled, including two 300 K baseline rows and retaining the applicable MgO or KCl calibrant, both pyrometry measurements, and their source-required arithmetic mean. Figure 4 supplies vector presentation coordinates for 91 Monteseguro 300 K and 16 present-study 830 K markers; these 107 plot-derived rows are bundled separately with calibration and uncertainty metadata. The original numerical rows and exact fit protocol are not published, so the complete combined regression still cannot be rerun exactly.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00963-4",
       "published_rmse_gpa": 3.1375096434286185,
-      "qualification": "The exact Equations 1-3 thermal correction and source temperature average are reproduced. With the published BM3 reference held fixed, all 122 laser-heating rows independently refit alpha0. The article's complete simultaneous BM3+alpha0 regression cannot be rerun because the Monteseguro 300 K and present 833 K row-level observations, row selection after plus-or-minus 100 K averaging, weights, and covariance are not published.",
+      "qualification": "The exact Equations 1-3 thermal correction and source temperature average are reproduced. With the published BM3 reference held fixed, all 122 laser-heating rows independently refit alpha0. A second, explicitly plot-derived reconstruction uses the vector marker centers for the missing 300 K and 830 K series and the source's stated +/-100 K temperature bands. It materially approaches all four published coefficients, but is not source parity because the original numerical rows, exact averaging/selection algorithm, weights, and covariance remain unpublished.",
       "record_identifier": "iridium_anzellini_2025_bm3_1",
       "reduced_chi_square": 9.272468926248218,
       "rmse_gpa": 3.0325674077570715,
       "selection": "all 122 Supplementary Tables 1-3 laser-heating rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the laser-heating observations but not the Monteseguro 300 K series or the 833 K resistive-heating series visible in Supplementary Figure 5; neither paper publishes the regression weights or covariance. A source-conditioned fit therefore holds the published BM3 coefficients fixed and tests alpha0 only; a four-parameter fit to the laser-heating rows alone is reported as a non-identifiability diagnostic, not as a reproduction of the combined fit. fcc Ir remained stable to 101 GPa and 5600 K in the investigated range.",
+      "source_notes": "Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the exact laser-heating observations but not numerical tables for the Monteseguro 300 K or present 830 K resistive-heating series. Figure 4 does expose 91 and 16 corresponding marker centers as vector paths; these are bundled as explicitly plot-derived coordinates with graphical uncertainty. A source-conditioned fit holds the published BM3 coefficients fixed and tests alpha0 on all exact hot rows. A separate four-parameter reconstruction combines the digitized series with exact hot rows in the stated plus-or-minus 100 K isotherm bands; it is not exact source parity because the original rows, averaging algorithm, weights, and covariance remain unpublished. fcc Ir remained stable to 101 GPa and 5600 K in the present experiments.",
       "status": "parity"
     },
     {

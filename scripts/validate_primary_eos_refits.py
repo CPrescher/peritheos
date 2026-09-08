@@ -132,6 +132,7 @@ UNWEIGHTED_DATASETS = {
     "namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized",
     "neon_fei_2007_figure5_digitized",
     "iron_zhang_2025_tables_s1_s3_s4_pvt",
+    "iridium_anzellini_2025_figure4_300k_830k_vector_digitized",
 }
 
 COMBINED_FIT_DATASET_RECORDS = {
@@ -1202,6 +1203,7 @@ def _combined_fit_dataset(
 
 
 def _fit_iridium_anzellini_2025(
+    document: dict[str, Any],
     record: dict[str, Any],
     series: Series,
     executable: ThermalEOS,
@@ -1209,11 +1211,12 @@ def _fit_iridium_anzellini_2025(
 ) -> dict[str, Any]:
     """Reproduce the supported part of Anzellini's combined P-V-T fit.
 
-    The article supplies every laser-heating row but not the Monteseguro
-    300 K or present-study 833 K observations used by the published regression.
-    Holding the published BM3 reference fixed therefore tests the independently
-    constrained Holland-Powell alpha0 without pretending that the hot rows alone
-    identify the four published coefficients.
+    The exact laser-heating rows support a conditional alpha0 check.  Figure 4
+    additionally exposes the otherwise unpublished Monteseguro 300 K and
+    present-study 830 K marker centers as vector paths.  Combining those
+    plot-derived rows with the exact laser-heating rows inside the source's
+    stated +/-100 K isotherm bands gives an explicitly qualified reconstruction
+    of the four-parameter fit.
     """
     if series.temperature is None:
         raise ValueError("Anzellini iridium reproduction requires mean temperature")
@@ -1272,6 +1275,58 @@ def _fit_iridium_anzellini_2025(
     }
     full_parameters["rt_eos.V0"] /= volume_scale
     full_residuals = np.asarray(full.residuals, dtype=float)
+
+    plot_dataset_id = "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
+    plot_dataset = next(
+        item
+        for item in document.get("datasets", [])
+        if item["identifier"] == plot_dataset_id
+    )
+    plot_series = _series(document, record, plot_dataset)
+    if plot_series.temperature is None:
+        raise ValueError("Anzellini Figure 4 reconstruction requires temperature")
+
+    isotherm_centers = np.asarray(
+        [1700.0, 2000.0, 2200.0, 2600.0, 3300.0, 3800.0, 4200.0]
+    )
+    distance_to_isotherm = np.min(
+        np.abs(series.temperature[:, None] - isotherm_centers[None, :]), axis=1
+    )
+    in_source_temperature_bands = distance_to_isotherm <= 100.0
+    reconstructed_volume = np.concatenate(
+        [plot_series.volume, series.volume[in_source_temperature_bands]]
+    )
+    reconstructed_temperature = np.concatenate(
+        [plot_series.temperature, series.temperature[in_source_temperature_bands]]
+    )
+    reconstructed_pressure = np.concatenate(
+        [plot_series.pressure, series.pressure[in_source_temperature_bands]]
+    )
+    reconstructed = fit_joint_eos(
+        type(executable),
+        type(executable.rt_eos),
+        reconstructed_volume * volume_scale,
+        reconstructed_temperature,
+        reconstructed_pressure,
+        initial=full_initial,
+        fixed={
+            name: value
+            for name, value in fixed.items()
+            if not name.startswith("rt_eos.")
+        },
+        bounds={name: _bounds(name, value) for name, value in full_initial.items()},
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    _, reconstructed_comparisons = _compare(record, reconstructed, True, volume_scale)
+    reconstructed_residuals = np.asarray(reconstructed.residuals, dtype=float)
+    source_one_sigma_matches = {
+        item["parameter"]: (
+            item["published_error"] is not None
+            and abs(item["difference"]) <= item["published_error"]
+        )
+        for item in reconstructed_comparisons
+    }
 
     return {
         "status": status,
@@ -1332,15 +1387,35 @@ def _fit_iridium_anzellini_2025(
             "solver_success": bool(full.success),
             "solver_message": str(full.message),
         },
-        "complete_combined_fit_status": "not_refittable_from_published_rows",
+        "plot_derived_combined_fit": {
+            "status": "reconstructed_from_vector_figure_not_source_parity",
+            "dataset_identifiers": [series.dataset_id, plot_dataset_id],
+            "observations": int(reconstructed_pressure.size),
+            "selection": (
+                "91 Figure 4 black-circle 300 K markers, 16 Figure 4 "
+                "dark-red-circle 830 K markers, and 65 exact supplementary "
+                "laser-heating rows within +/-100 K of the plotted 1700, 2000, "
+                "2200, 2600, 3300, 3800, and 4200 K isotherms"
+            ),
+            "objective": "unweighted_pressure_residuals",
+            "free_parameters": list(reconstructed.free_parameters),
+            "parameters": reconstructed_comparisons,
+            "within_published_one_sigma": source_one_sigma_matches,
+            "rmse_gpa": float(np.sqrt(np.mean(reconstructed_residuals**2))),
+            "solver_success": bool(reconstructed.success),
+            "solver_message": str(reconstructed.message),
+        },
+        "complete_combined_fit_status": "plot_derived_reconstruction_only",
         "qualification": (
             "The exact Equations 1-3 thermal correction and source temperature "
             "average are reproduced. With the published BM3 reference held fixed, "
-            "all 122 laser-heating rows independently refit alpha0. The article's "
-            "complete simultaneous BM3+alpha0 regression cannot be rerun because "
-            "the Monteseguro 300 K and present 833 K row-level observations, row "
-            "selection after plus-or-minus 100 K averaging, weights, and covariance "
-            "are not published."
+            "all 122 laser-heating rows independently refit alpha0. A second, "
+            "explicitly plot-derived reconstruction uses the vector marker centers "
+            "for the missing 300 K and 830 K series and the source's stated "
+            "+/-100 K temperature bands. It materially approaches all four "
+            "published coefficients, but is not source parity because the original "
+            "numerical rows, exact averaging/selection algorithm, weights, and "
+            "covariance remain unpublished."
         ),
     }
 
@@ -1488,6 +1563,7 @@ def _fit_record(
     if record_id == "iridium_anzellini_2025_bm3_1":
         assert thermal
         return _fit_iridium_anzellini_2025(
+            document,
             record,
             series,
             executable,
