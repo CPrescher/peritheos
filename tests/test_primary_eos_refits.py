@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 814
+    assert len(identifiers) == len(set(identifiers)) == 816
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 814, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 816, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 156,
         "similar": 62,
         "parity_not_achieved": 32,
-        "not_refittable": 564,
+        "not_refittable": 566,
     }
     assert all(
         item.get("reason")
@@ -52,6 +52,22 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert luo["status"] == "not_refittable"
     assert luo["dataset_identifiers"] == ["mgo_luo_2023_table1_shock"]
     assert "derived EOS output" in luo["reason"]
+    fortes = by_identifier["lead_fcc_fortes_2019_bm4_1"]
+    assert fortes["status"] == "not_refittable"
+    assert fortes["dataset_identifiers"] == [
+        "lead_fcc_kuznetsov_2002_table1_transition_pvt"
+    ]
+    assert "supplied privately" in fortes["reason"]
+    kuznetsov = by_identifier["lead_fcc_kuznetsov_2002_bm3_2"]
+    assert kuznetsov["status"] == "not_refittable"
+    assert kuznetsov["dataset_identifiers"] == [
+        "lead_fcc_kuznetsov_2002_table1_transition_pvt"
+    ]
+    kuznetsov_hcp = by_identifier["lead_hcp_kuznetsov_2002_bm3_3"]
+    assert kuznetsov_hcp["status"] == "not_refittable"
+    assert kuznetsov_hcp["dataset_identifiers"] == [
+        "lead_hcp_kuznetsov_2002_figure3_digitized"
+    ]
     reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
     reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
     assert reynard_ruby["status"] == reynard_ice["status"] == "parity"

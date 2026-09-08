@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 814,
-    "primary_source_validated": 814
+    "records": 816,
+    "primary_source_validated": 816
   },
   "records": [
     {
@@ -5617,7 +5617,7 @@
       "material": "indium_nitride",
       "file": "indium_nitride.eosmat",
       "record": "indium_nitride_munoz_1993_murnaghan_1",
-      "label": "Mu\u00f1oz and Kunc (1993), theoretical wurtzite Murnaghan",
+      "label": "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan",
       "doi": "10.1088/0953-8984/5/33/010",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -6221,18 +6221,18 @@
       "file": "lead_fcc.eosmat",
       "record": "lead_fcc_fortes_2019_bm4_1",
       "label": "Fortes (2019), 300 K BM4 slice",
-      "doi": null,
+      "doi": "10.5286/raltr.2019002",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
         "locations": [
-          "Equations 1-5",
+          "Equations 1-8",
           "sections 2.1-2.3",
-          "Table 1, report page 9"
+          "Tables 1-2, report pages 8-9"
         ],
-        "finding": "The stored record is the 300 K isotherm of the report's temperature-dependent BM4 model.",
-        "doi": null
+        "finding": "The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.",
+        "doi": "10.5286/raltr.2019002"
       }
     },
     {
@@ -15207,6 +15207,45 @@
           "Table 3"
         ],
         "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
+      }
+    },
+    {
+      "material": "lead_fcc",
+      "file": "lead_fcc.eosmat",
+      "record": "lead_fcc_kuznetsov_2002_bm3_2",
+      "label": "Kuznetsov et al. (2002), 296 K BM3 slice",
+      "doi": "10.1016/s0038-1098(02)00112-6",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+        "locations": [
+          "Equations 1-3",
+          "Table 1",
+          "Table 2",
+          "Figures 2-3"
+        ],
+        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
+        "doi": "10.1016/S0038-1098(02)00112-6"
+      }
+    },
+    {
+      "material": "lead_hcp",
+      "file": "lead_hcp.eosmat",
+      "record": "lead_hcp_kuznetsov_2002_bm3_3",
+      "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
+      "doi": "10.1016/s0038-1098(02)00112-6",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+        "doi": "10.1016/S0038-1098(02)00112-6",
+        "locations": [
+          "Equations 1-3",
+          "Tables 1-2",
+          "Figures 2-3"
+        ],
+        "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
       }
     }
   ]

@@ -243,6 +243,197 @@
      "doi": "10.3390/min9110684"
     }
    ]
+  },
+  {
+   "identifier": "lead_hcp_kuznetsov_2002_bm3_3",
+   "label": "Kuznetsov et al. (2002), 296 K hcp BM3 slice",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "A. Kuznetsov",
+     "V. Dmitriev",
+     "L. Dubrovinsky",
+     "V. Prakapenka",
+     "H.-P. Weber"
+    ],
+    "year": 2002,
+    "title": "FCC-HCP phase boundary in lead",
+    "source": "Solid State Communications",
+    "volume": "122",
+    "locator": "125-127",
+    "doi": "10.1016/S0038-1098(02)00112-6"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 59.816,
+     "K0": 54.2,
+     "K0_prime": 3.61
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "temperature_ref": 296.0,
+   "experimental_pressure_range_gpa": [
+    12.0,
+    40.0
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [
+    296.0,
+    296.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     12.0,
+     40.0
+    ],
+    "temperature_k": [
+     296.0,
+     296.0
+    ],
+    "notes": [
+     "296 K slice of a P-V-T model fitted to experiments extending to 40 GPa and 800 K.",
+     "At room temperature transformation begins near 12 GPa and fcc-hcp coexistence persists to about 20 GPa; this is not a sharp equilibrium stability boundary."
+    ]
+   },
+   "notes": "Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit_fortes_2019_fcc_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.",
+   "parameter_provenance": {
+    "equation": "Equation 1, third-order Birch-Murnaghan pressure.",
+    "reference_state": "Equations 2-3 define tau=T-T0 with T0=296 K.",
+    "V0": "Table 2 hcp V0=29.908 A^3/atom, converted to 59.816 A^3 per two-atom hcp cell.",
+    "K0": "Table 2 hcp B0=54.2 GPa.",
+    "K0_prime": "Table 2 hcp B0_prime=3.61.",
+    "published_uncertainties": "not reported",
+    "covariance": "not published"
+   },
+   "published_fit_provenance": {
+    "software": {
+     "name": "not reported",
+     "version": "not reported"
+    },
+    "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
+    "selection": {
+     "pressure_range_gpa": [
+      0.0,
+      40.0
+     ],
+     "temperature_range_k": [
+      296.0,
+      800.0
+     ],
+     "predicate": "phase-specific hcp observations; exhaustive row selection not reported",
+     "included_rows": null,
+     "excluded_rows": null
+    },
+    "objective": "fit to experimental data; residual coordinate not reported",
+    "weights": "not reported",
+    "refined_parameters": [
+     "V0_296",
+     "alpha_0",
+     "alpha_1",
+     "alpha_2",
+     "K0_296",
+     "b_1",
+     "b_2",
+     "K0_prime_296",
+     "b_prime"
+    ],
+    "fixed_parameters": [],
+    "statistics": {
+     "observations": null,
+     "covariance": "not published",
+     "error_scaling": "not reported"
+    },
+    "reproduction": {
+     "script": "scripts/audit_fortes_2019_fcc_pb.py",
+     "scope_status": "published_surface_executable_fit_not_independently_reproducible",
+     "partial_dataset": "lead_hcp_kuznetsov_2002_figure3_digitized",
+     "partial_fit_is_reported_fit": false,
+     "reason": "Figure 3 is a plot of direct and source-reduced markers, not the complete original P-V-T table or regression protocol."
+    }
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "J. M. Brown"
+       ],
+       "year": 1999,
+       "source": "Journal of Applied Physics",
+       "volume": "86",
+       "locator": "5801",
+       "doi": "10.1063/1.371596"
+      },
+      "source_location": "Experimental section and reference 7",
+      "scope": "NaCl pressure medium and high-temperature pressure calibrant"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The Brown (1999) NaCl calibration is identified, but row-wise NaCl observations are not published."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication; no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "thermal_coefficients",
+     "fit_protocol",
+     "primary_data_limits",
+     "pressure_calibration",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+     "doi": "10.1016/S0038-1098(02)00112-6",
+     "locations": [
+      "Equations 1-3",
+      "Tables 1-2",
+      "Figures 2-3"
+     ],
+     "finding": "The stored BM3 record is exactly the 296 K isotherm of the published hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and B0_prime=3.61."
+    },
+    "primary_data_check": {
+     "status": "combined_primary_data_partially_bundled",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "lead_hcp_kuznetsov_2002_figure3_digitized"
+     ],
+     "source_locations": [
+      "Table 1 and Figure 3"
+     ],
+     "finding": "The slice reproduces seven digitized solid room-temperature hcp markers with 0.266 GPa pressure RMSE. All 21 direct and source-reduced markers give 0.642 GPa RMSE; the complete original P-V-T rows and fit protocol are unavailable.",
+     "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation, coefficients, phase assignment, and calibration context",
+     "citation": "Kuznetsov et al. (2002), Equations 1-3 and Tables 1-2",
+     "doi": "10.1016/S0038-1098(02)00112-6"
+    }
+   ]
   }
  ],
  "datasets": [
@@ -342,7 +533,8 @@
    },
    "used_by_eos_records": [
     "lead_hcp_dewaele_2019_mao_vinet",
-    "lead_hcp_dewaele_2019_dor_vinet"
+    "lead_hcp_dewaele_2019_dor_vinet",
+    "lead_hcp_kuznetsov_2002_bm3_3"
    ],
    "provenance": {
     "type": "digitized_from_figure",

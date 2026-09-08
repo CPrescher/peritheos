@@ -839,11 +839,28 @@ VALIDATED_RECORD_SOURCES: dict[str, dict[str, Any]] = {
     "lead_fcc_fortes_2019_bm4_1": source(
         "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
         [
-            "Equations 1-5",
+            "Equations 1-8",
             "sections 2.1-2.3",
-            "Table 1, report page 9",
+            "Tables 1-2, report pages 8-9",
         ],
-        "The stored record is the 300 K isotherm of the report's temperature-dependent BM4 model.",
+        "The stored BM4 record is exactly the 300 K isotherm of the fully specified "
+        "polynomial P-V-T surface. The report's Table 1 constants are evaluated at "
+        "Delta T=0 (300 K), not at absolute zero.",
+    ),
+    "lead_fcc_kuznetsov_2002_bm3_2": source(
+        "https://doi.org/10.1016/S0038-1098(02)00112-6",
+        ["Equations 1-3", "Tables 1-2", "Figures 2-3"],
+        "The stored BM3 record is exactly the 296 K isotherm of the published "
+        "fcc P-V-T surface. The paper observes fcc Pb at room temperature, "
+        "reports transition onset near 12 GPa, and tabulates a 296 K fcc "
+        "transition state at 13.1 GPa.",
+    ),
+    "lead_hcp_kuznetsov_2002_bm3_3": source(
+        "https://doi.org/10.1016/S0038-1098(02)00112-6",
+        ["Equations 1-3", "Tables 1-2", "Figures 2-3"],
+        "The stored BM3 record is exactly the 296 K isotherm of the published "
+        "hcp P-V-T surface: V0=29.908 A^3/atom, B0=54.2 GPa, and "
+        "B0_prime=3.61.",
     ),
     "kcl_b2_dewaele_2012_vinet_3": source(
         "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.85.214105/fulltext",
@@ -3125,7 +3142,15 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     primary_data_check = previous.get("primary_data_check")
     reproduction = previous.get("reproduction")
     audit_date = (
-        REPORT_AUDIT_DATE
+        "2026-09-08"
+        if result["identifier"]
+        in {
+            "lead_fcc_kuznetsov_2002_bm3_2",
+            "lead_hcp_kuznetsov_2002_bm3_3",
+        }
+        else "2026-09-07"
+        if result["identifier"] == "lead_fcc_fortes_2019_bm4_1"
+        else REPORT_AUDIT_DATE
         if result["identifier"]
         in DERIVED_REFIT_RECORDS
         | CURRENT_SOURCE_AUDIT_RECORDS
@@ -3210,6 +3235,15 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
             # and bounded unresolved issues must survive catalog-wide audits.
             validation[extension] = value
     result["scientific_validation"] = validation
+
+    if result["identifier"] == "lead_fcc_fortes_2019_bm4_1":
+        result["scientific_validation"]["verified_fields"] = [
+            *VERIFIED_FIELDS,
+            "thermal_coefficients",
+            "fit_protocol",
+            "primary_data_limits",
+            "pressure_calibration",
+        ]
 
     if "_delta_archive_experimental_reference_bm3" in result["identifier"]:
         # Delta rows are heterogeneous reference-property compilations, not
@@ -3491,8 +3525,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 813:
-        raise ValueError(f"Expected 813 EOS records, found {len(entries)}")
+    if len(entries) != 815:
+        raise ValueError(f"Expected 815 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 

@@ -113,8 +113,8 @@ klb1_ca_perovskite,KLB-1 Ca-perovskite,CaSiO3,Ca-perovskite separated from KLB-1
 klb1_ferropericlase,KLB-1 ferropericlase,"(Mg,Fe)O",B1 ferropericlase separated from KLB-1 pyrolite,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,2,peritheos/data/materials/klb1_ferropericlase.eosmat
 klb1_mg_perovskite,KLB-1 Mg-perovskite,"(Mg,Fe,Al)(Si,Al)O3",orthorhombic bridgmanite separated from KLB-1 pyrolite,top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/klb1_mg_perovskite.eosmat
 larnite,Larnite,Ca2SiO4,monoclinic beta-Ca2SiO4 larnite,top-level phase field,MONOCLINIC,P21/c,4,isothermal,1,peritheos/data/materials/larnite.eosmat
-lead_fcc,Lead (fcc),Pb,Lead (fcc),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,3,peritheos/data/materials/lead_fcc.eosmat
-lead_hcp,Lead (hcp),Pb,"hexagonal close-packed lead, high-pressure phase",top-level phase field,,,2,isothermal,2,peritheos/data/materials/lead_hcp.eosmat
+lead_fcc,Lead (fcc),Pb,"face-centered cubic lead, ambient-pressure phase",top-level phase field,CUBIC,Fm-3m,4,isothermal,4,peritheos/data/materials/lead_fcc.eosmat
+lead_hcp,Lead (hcp),Pb,"hexagonal close-packed lead, high-pressure phase",top-level phase field,,,2,isothermal,3,peritheos/data/materials/lead_hcp.eosmat
 li_bcc,Li,Li,bcc structure; EOS fit spans bcc and fcc Li,top-level phase field,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/li_bcc.eosmat
 li_sun_2010_legacy,Li legacy compression aggregate (Sun 2010),Li,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/li_sun_2010_legacy.eosmat
 libr_sun_2010_legacy,LiBr legacy compression aggregate (Sun 2010),LiBr,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/libr_sun_2010_legacy.eosmat

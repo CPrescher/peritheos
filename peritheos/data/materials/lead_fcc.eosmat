@@ -29,12 +29,16 @@
  "eos_records": [
   {
    "label": "Fortes (2019), 300 K BM4 slice",
+   "default": true,
    "reference": {
     "authors": [
-     "Fortes"
+     "A. Dominic Fortes"
     ],
     "year": 2019,
-    "source": "STFC Rutherford Appleton Laboratory Technical Report RAL-TR-2019-002"
+    "title": "A revised equation of state for in situ pressure determination using fcc-Pb (0 < P < 13 GPa, T > 100 K)",
+    "source": "STFC Rutherford Appleton Laboratory Technical Report",
+    "locator": "RAL-TR-2019-002",
+    "doi": "10.5286/raltr.2019002"
    },
    "eos": {
     "type": "BM4",
@@ -65,22 +69,118 @@
     788.0
    ],
    "temperature_ref": 300.0,
-   "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. V0(T) and K0(T) were constrained first from thermal-expansion and elastic data; K0_prime and K0_double_prime were then fitted to compression data spanning 295-788 K. The polynomial temperature dependence is intentionally not stored because the current thermal schema cannot represent it. Primary report: https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
+   "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
    "identifier": "lead_fcc_fortes_2019_bm4_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+   "parameter_provenance": {
+    "equation": "Fortes (2019), Equations 1-5: fourth-order Eulerian finite-strain pressure with polynomial V0(T), K0(T), and K0_prime(T).",
+    "reference_state": "Table 1's polynomial constant terms correspond to Delta T=T-300 K=0 and therefore to 300 K, not absolute zero.",
+    "V0": "Table 1 V0(300 K)=121.418(5) A^3 per four-atom fcc conventional cell; fixed in the compression-stage fit after the thermal-expansion stage.",
+    "K0": "Table 1 K0(300 K)=41.73(1) GPa; fixed in the compression-stage fit after conversion of literature adiabatic elastic moduli with Equation 8.",
+    "K0_prime": "Table 1 K0_prime(300 K)=5.39(25), varied in the compression-stage fit together with its temperature slope e=0.0011(1) K^-1.",
+    "K0_double_prime": "Table 1 K0_double_prime=-0.33(2) GPa^-1, assumed temperature invariant and varied in the compression-stage fit.",
+    "covariance": "not published",
+    "uncertainty_method": "not reported"
+   },
+   "published_fit_provenance": {
+    "software": {
+     "name": "not reported",
+     "version": "not reported"
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "dataset": "compiled literature P-V-T data; exact table not deposited",
+    "selection": {
+     "temperature_range_k": [
+      295.0,
+      788.0
+     ],
+     "predicate": "not reported beyond the temperature range",
+     "included_rows": null,
+     "excluded_rows": null
+    },
+    "objective": "least-squares minimization; dependent variable not reported",
+    "weights": "not reported",
+    "refined_parameters": [
+     "K0_prime_300",
+     "e",
+     "K0_double_prime"
+    ],
+    "fixed_parameters": [
+     "V0_300",
+     "a",
+     "b",
+     "K0_300",
+     "c",
+     "d"
+    ],
+    "statistics": {
+     "observations": null,
+     "covariance": "not published",
+     "error_scaling": "not reported"
+    },
+    "reproduction": {
+     "script": "scripts/audit_fortes_2019_fcc_pb.py",
+     "scope_status": "published_surface_parity_fit_not_independently_reproducible",
+     "partial_dataset": "lead_fcc_kuznetsov_2002_table1_transition_pvt",
+     "partial_fit_is_reported_fit": false,
+     "reason": "The high-temperature Kuznetsov table was supplied privately to Fortes; the report also omits the exhaustive row mask, pressure-scale reduction, dependent variable, weights, and covariance procedure."
+    }
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "other",
+      "reference": {
+       "authors": [
+        "P. W. Bridgman"
+       ],
+       "year": 1945,
+       "source": "Proceedings of the American Academy of Arts and Sciences"
+      },
+      "source_location": "Fortes Section 2.3 and Figure 4",
+      "scope": "historical piston/lever-piezometer compression series"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "material": "ruby",
+      "reference": {
+       "authors": [
+        "H. K. Mao",
+        "P. M. Bell"
+       ],
+       "year": 1978,
+       "source": "Carnegie Institution of Washington Year Book"
+      },
+      "source_location": "Fortes Figure 4",
+      "scope": "one of the two plotted reductions of the Mao-Bell Pb data"
+     },
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "J. M. Brown"
+       ],
+       "year": 1999,
+       "source": "Journal of Applied Physics",
+       "volume": "86",
+       "locator": "5801",
+       "doi": "10.1063/1.371596"
+      },
+      "source_location": "Kuznetsov et al. (2002), experimental section and reference 7",
+      "scope": "NaCl pressure medium and high-temperature pressure calibrant for the privately supplied Kuznetsov P-V-T series"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Fortes combines literature series measured or reduced on heterogeneous mechanical, shock, ruby, NaCl, Au, and alpha-Fe scales but does not state a common recalculation path. Row-wise calibrant observations are not deposited, so the pressures cannot be normalized independently."
+    },
+    "audit_date": "2026-09-07",
+    "notes": "Named methods are preserved only where the cited primary sources or Fortes Figure 4 identify them; no single calibration is assigned to the compiled fit."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-07",
     "verified_fields": [
      "equation",
      "parameters",
@@ -88,17 +188,21 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "thermal_coefficients",
+     "fit_protocol",
+     "primary_data_limits",
+     "pressure_calibration"
     ],
     "primary_source_check": {
      "access_url": "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
      "locations": [
-      "Equations 1-5",
+      "Equations 1-8",
       "sections 2.1-2.3",
-      "Table 1, report page 9"
+      "Tables 1-2, report pages 8-9"
      ],
-     "finding": "The stored record is the 300 K isotherm of the report's temperature-dependent BM4 model.",
-     "doi": null
+     "finding": "The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.",
+     "doi": "10.5286/raltr.2019002"
     },
     "migration_source": {
      "project": "Dioptas",
@@ -107,14 +211,206 @@
      "file": "lead_fcc.json"
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Sections 2-4; Tables 1 and 2"
+     "status": "combined_primary_data_partially_bundled",
+     "audit_date": "2026-09-07",
+     "dataset_identifiers": [
+      "lead_fcc_kuznetsov_2002_table1_transition_pvt"
      ],
-     "finding": "Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations."
+     "source_locations": [
+      "Fortes (2019), Section 2.3, Figure 4, and Table 1",
+      "Kuznetsov et al. (2002), Table 1 and Figure 3"
+     ],
+     "finding": "The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published.",
+     "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
     }
    }
+  },
+  {
+   "label": "Kuznetsov et al. (2002), 296 K BM3 slice",
+   "reference": {
+    "authors": [
+     "A. Kuznetsov",
+     "V. Dmitriev",
+     "L. Dubrovinsky",
+     "V. Prakapenka",
+     "H.-P. Weber"
+    ],
+    "year": 2002,
+    "title": "FCC-HCP phase boundary in lead",
+    "source": "Solid State Communications",
+    "volume": "122",
+    "locator": "125-127",
+    "doi": "10.1016/S0038-1098(02)00112-6"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "eos": {
+    "type": "BM3",
+    "parameters": {
+     "V0": 121.228,
+     "K0": 40.5,
+     "K0_prime": 5.74
+    },
+    "model": "birch_murnaghan_3"
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_covariance": null,
+   "fixed_parameters": [],
+   "experimental_pressure_range_gpa": [
+    0.0,
+    13.1
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "experimental_temperature_range_k": [
+    296.0,
+    296.0
+   ],
+   "temperature_ref": 296.0,
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     13.1
+    ],
+    "temperature_k": [
+     296.0,
+     296.0
+    ],
+    "notes": [
+     "296 K slice of the source's fitted P-V-T surface; the numerical range ends at the Table 1 fcc transition anchor.",
+     "The paper reports transition onset at about 12 GPa at room temperature and sluggish fcc-hcp coexistence up to about 20 GPa; this validity envelope is not an assertion of a sharp equilibrium phase boundary."
+    ]
+   },
+   "notes": "Published 296 K isotherm of the source's temperature-dependent BM3 model. The complete P-V-T surface includes polynomial V0(T), K0(T), and K0_prime(T) terms and is independently executable in scripts/audit_fortes_2019_fcc_pb.py; only its 296 K slice is stored because the current thermal schema cannot represent those polynomials. This is a source-published parameterization, not a Peritheos refit.",
+   "identifier": "lead_fcc_kuznetsov_2002_bm3_2",
+   "parameter_provenance": {
+    "equation": "Kuznetsov et al. (2002), Equation 1, third-order Birch-Murnaghan pressure.",
+    "reference_state": "Equations 2-3 define t=T-T0 with T0=296 K; the Table 2 constants therefore give the 296 K reference isotherm.",
+    "V0": "Table 2 fcc V0=30.307 A^3/atom, converted to 121.228 A^3 per four-atom conventional fcc cell.",
+    "K0": "Table 2 fcc B0=40.5 GPa.",
+    "K0_prime": "Table 2 fcc B0_prime=5.74.",
+    "published_uncertainties": "not reported",
+    "covariance": "not published"
+   },
+   "published_fit_provenance": {
+    "software": {
+     "name": "not reported",
+     "version": "not reported"
+    },
+    "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
+    "selection": {
+     "temperature_range_k": [
+      296.0,
+      800.0
+     ],
+     "predicate": "phase-specific fcc observations; exhaustive row selection not reported",
+     "included_rows": null,
+     "excluded_rows": null
+    },
+    "objective": "fit to experimental data; residual coordinate not reported",
+    "weights": "not reported",
+    "refined_parameters": [
+     "V0_296",
+     "alpha_0",
+     "alpha_1",
+     "alpha_2",
+     "K0_296",
+     "b_1",
+     "b_2",
+     "K0_prime_296",
+     "b_prime"
+    ],
+    "fixed_parameters": [],
+    "statistics": {
+     "observations": null,
+     "covariance": "not published",
+     "error_scaling": "not reported"
+    },
+    "reproduction": {
+     "script": "scripts/audit_fortes_2019_fcc_pb.py",
+     "scope_status": "published_surface_executable_fit_not_independently_reproducible",
+     "partial_dataset": "lead_fcc_kuznetsov_2002_table1_transition_pvt",
+     "partial_fit_is_reported_fit": false,
+     "reason": "Table 1 prints only three rounded fcc transition states; the complete P-V-T observations and regression protocol are not published."
+    }
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "NaCl",
+      "reference": {
+       "authors": [
+        "J. M. Brown"
+       ],
+       "year": 1999,
+       "source": "Journal of Applied Physics",
+       "volume": "86",
+       "locator": "5801",
+       "doi": "10.1063/1.371596"
+      },
+      "source_location": "Kuznetsov et al. (2002), experimental section and reference 7",
+      "scope": "NaCl pressure medium and high-temperature pressure calibrant"
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "The Brown (1999) NaCl calibration is identified, but row-wise NaCl observations are not published."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity",
+     "thermal_coefficients",
+     "fit_protocol",
+     "primary_data_limits",
+     "pressure_calibration"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+     "locations": [
+      "Equations 1-3",
+      "Table 1",
+      "Table 2",
+      "Figures 2-3"
+     ],
+     "finding": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
+     "doi": "10.1016/S0038-1098(02)00112-6"
+    },
+    "primary_data_check": {
+     "status": "combined_primary_data_partially_bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "lead_fcc_kuznetsov_2002_table1_transition_pvt"
+     ],
+     "source_locations": [
+      "Kuznetsov et al. (2002), Table 1 and Figure 3"
+     ],
+     "finding": "Three exact fcc transition P-V-T anchors are bundled, but they are not the complete observations used to fit the nine-coefficient thermal BM3 surface. The full numerical P-V-T dataset, row selection, residual coordinate, weights, and covariance procedure are not published.",
+     "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
+    }
+   },
+   "source_lineage": [
+    {
+     "role": "scientific equation, coefficients, phase assignment, and calibration context",
+     "citation": "Kuznetsov et al. (2002), Equations 1-3 and Tables 1-2",
+     "doi": "10.1016/S0038-1098(02)00112-6"
+    }
+   ]
   },
   {
    "identifier": "lead_fcc_lejaeghere_2016_wien2k_pbe_bm3",
@@ -442,5 +738,85 @@
   "pressure": "GPa",
   "temperature": "K",
   "volume": "angstrom^3/conventional_unit_cell"
- }
+ },
+ "phase": "face-centered cubic lead, ambient-pressure phase",
+ "datasets": [
+  {
+   "identifier": "lead_fcc_kuznetsov_2002_table1_transition_pvt",
+   "kind": "pressure_volume_temperature",
+   "description": "The three exact fcc-Pb states printed at the fcc-hcp transition in Kuznetsov et al. (2002), Table 1. These are partial public checkpoints and not the complete P-V-T table supplied privately to Fortes.",
+   "reference": {
+    "authors": [
+     "A. Kuznetsov",
+     "V. Dmitriev",
+     "L. Dubrovinsky",
+     "V. Prakapenka",
+     "H.-P. Weber"
+    ],
+    "year": 2002,
+    "title": "FCC-HCP phase boundary in lead",
+    "source": "Solid State Communications",
+    "volume": "122",
+    "locator": "125-127",
+    "doi": "10.1016/S0038-1098(02)00112-6"
+   },
+   "source_location": "Table 1, fcc columns",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3_per_atom",
+     "quantity": "volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "phase",
+     "quantity": "phase",
+     "unit": "text",
+     "role": "flag"
+    },
+    {
+     "name": "source_role",
+     "quantity": "source_role",
+     "unit": "text",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/lead-fcc-kuznetsov-2002-table1-transition-pvt.csv",
+    "sha256": "828946f7b15568cb9ac54fa4cf42fcf26a6b844b97bc5938ef3af846c23f582f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "lead_fcc_fortes_2019_bm4_1",
+    "lead_fcc_kuznetsov_2002_bm3_2"
+   ],
+   "provenance": {
+    "type": "transcribed_from_published_table",
+    "method": "Transcribed Table 1 temperature, pressure, and fcc atomic volume; multiplied atomic volume by Z=4 for the conventional fcc cell.",
+    "source_pdf_sha256": "c4bfc71c5d4186f7f3159015bafa51552349f9e0f4ba305d13604673d0b3a61d",
+    "quality_control": {
+     "scope": "three rounded transition-boundary states only",
+     "fit_protocol": "Not a replacement for the complete P-V-T observations supplied privately to Fortes."
+    }
+   }
+  }
+ ]
 }
