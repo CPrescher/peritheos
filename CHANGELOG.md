@@ -5,6 +5,15 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Changed
+
+- Reclassified all 11 Sokolova et al. (2013) Holzapfel markers from opaque
+  `not_refittable` entries to coupled `source_reconstruction` results. A new
+  executable Equation (20) ruby scale and marker-balanced 392-observation
+  audit preserve the published constants, comparison-data transformations,
+  official-workbook hashes, and the boundary between source reconstruction and
+  an unavailable independent EOS refit.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

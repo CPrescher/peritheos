@@ -21,6 +21,7 @@ STATUS_LABELS = {
     "similar": "similar",
     "parity_not_achieved": "parity not achieved",
     "not_refittable": "direct refit unavailable",
+    "source_reconstruction": "coupled source reconstruction",
 }
 
 OUTCOME_LABELS = {
@@ -29,6 +30,7 @@ OUTCOME_LABELS = {
     "mixed_reproduction": "Mixed: reproduced and discrepant records",
     "parity_not_achieved": "Coefficient parity not achieved",
     "direct_refit_unavailable": "Direct refit unavailable",
+    "source_reconstruction": "Coupled source reconstruction",
     "withheld_unreproduced": "Withheld: could not reproduce",
     "deferred_incomplete_model": "Deferred: incomplete source/model mapping",
     "deferred_batch_boundary": "Deferred: complete family queued for next batch",
@@ -77,6 +79,7 @@ def classify(statuses: Counter[str]) -> str:
     reproduced = statuses["parity"] + statuses["similar"]
     discrepant = statuses["parity_not_achieved"]
     unavailable = statuses["not_refittable"]
+    reconstructed = statuses["source_reconstruction"]
     if discrepant and reproduced:
         return "mixed_reproduction"
     if discrepant:
@@ -85,6 +88,8 @@ def classify(statuses: Counter[str]) -> str:
         return "partial_reproduction"
     if reproduced:
         return "reproduced"
+    if reconstructed:
+        return "source_reconstruction"
     return "direct_refit_unavailable"
 
 
@@ -226,6 +231,9 @@ def render() -> str:
         "  independent coefficient recovery was impossible because primary rows, an",
         "  executable calibration, or the original reduction were unavailable or",
         "  circular.",
+        "- **Coupled source reconstruction:** a shared source-level calibration was",
+        "  reconstructed from linked comparison rows, but omitted upstream rows or",
+        "  weights prevent an independent refit of the catalog EOS coefficients.",
         "- **Withheld/deferred:** investigation did not pass the executable-record",
         "  acceptance gate, so no production EOS was added.",
         "",

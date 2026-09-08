@@ -6,7 +6,7 @@ use peritheos::{
 
 #[test]
 fn bundled_ruby_scales_have_stable_identifiers_and_models() {
-    assert_eq!(RUBY_CALIBRATIONS.len(), 7);
+    assert_eq!(RUBY_CALIBRATIONS.len(), 8);
     assert_eq!(RUBY_CALIBRATIONS[0].identifier, "ruby_mao_1978");
     assert!(matches!(
         ruby_calibration("ruby_dewaele_2008")
@@ -22,6 +22,15 @@ fn bundled_ruby_scales_have_stable_identifiers_and_models() {
             .expect("bundled scale")
             .model,
         RubyCalibrationModel::QuadraticShift { .. }
+    ));
+    assert!(matches!(
+        ruby_calibration("ruby_sokolova_2013")
+            .expect("bundled scale")
+            .model,
+        RubyCalibrationModel::QuadraticShift {
+            a_gpa: 1870.0,
+            m: 6.0
+        }
     ));
     assert!(ruby_calibration("unknown").is_none());
     assert!(matches!(

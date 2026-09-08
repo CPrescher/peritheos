@@ -6,7 +6,8 @@
     "not_refittable": "The primary source supplies no direct row-level observations, or the necessary reduction/calibration is not executable.",
     "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria.",
-    "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold."
+    "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
+    "source_reconstruction": "A coupled source-level calculation is executable, but omitted upstream observations or weights prevent independent recovery of the published EOS coefficients."
   },
   "records": [
     {
@@ -1374,24 +1375,47 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "aluminum_dewaele_2004_table1_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "aluminum",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 40,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.8395799484761981,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "aluminum_sokolova_2013_holzapfel_2",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.6336532455704277,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.6263451213056899
     },
     {
       "dataset_identifiers": [],
@@ -7727,24 +7751,47 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "copper_dewaele_2004_table1_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "copper",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 42,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.5004545507498767,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "copper_sokolova_2013_holzapfel_2",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.7102791639081447,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.3947421620508767
     },
     {
       "dataset_identifiers": [],
@@ -8629,24 +8676,47 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "diamond_dewaele_2008_table1_pvt"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "diamond",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 12,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.3292803038925985,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "diamond_sokolova_2013_holzapfel_3",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.34050399388283104,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.35841377360043336
     },
     {
       "dataset_identifiers": [],
@@ -10723,24 +10793,47 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "gold_dewaele_2004_table1_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "gold",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 36,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 1.6701588200282793,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "gold_sokolova_2013_holzapfel_4",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 1.7825124933162952,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 1.0774374167109606
     },
     {
       "absolute_sigma": true,
@@ -19545,24 +19638,47 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "mgo_jacobsen_2008_table1_helium_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "mgo",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 45,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.9335678496303198,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "mgo_sokolova_2013_holzapfel_4",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The implemented MgO a0 coefficient follows the explicit 2016 correction, so that term has dual 2013/2016 provenance. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.8497193014913668,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The implemented MgO a0 coefficient follows the explicit 2016 correction, so that term has dual 2013/2016 provenance. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.44169117973826566
     },
     {
       "absolute_sigma": true,
@@ -21557,24 +21673,47 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "molybdenum_dewaele_2008_table2_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "molybdenum",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 28,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.6467929629438924,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "molybdenum_sokolova_2013_holzapfel_2",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.6855394756440152,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.6801713372009726
     },
     {
       "dataset_identifiers": [],
@@ -23531,24 +23670,47 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "niobium_takemura_2006_table1_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "niobium",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 43,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 3.1276690001706005,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "niobium_sokolova_2013_holzapfel_2",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 2.985195422138322,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 3.2686040669027268
     },
     {
       "dataset_identifiers": [],
@@ -25417,24 +25579,47 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "platinum_dewaele_2004_table1_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "platinum",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 35,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.5286610631541817,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "platinum_sokolova_2013_holzapfel_3",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.6280542150778858,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.29646752238702695
     },
     {
       "dataset_identifiers": [
@@ -27822,24 +28007,47 @@
       "status": "similar"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "silver_dewaele_2008_table2_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "silver",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 33,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 1.0974441807562851,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "silver_sokolova_2013_holzapfel_2",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 1.2494109408016236,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.6277747535907471
     },
     {
       "dataset_identifiers": [],
@@ -29248,24 +29456,47 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "tantalum_dewaele_2004_table1_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "tantalum",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 36,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.8534291506013459,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "tantalum_sokolova_2013_holzapfel_3",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.7550617475585212,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.33829531227283377
     },
     {
       "dataset_identifiers": [],
@@ -30237,24 +30468,47 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "comparison_scope": "shared_ruby_calibration",
+      "dataset_identifiers": [
+        "tungsten_dewaele_2004_table1_compression"
+      ],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": null,
+      "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
       "fixed_parameters": [
         "n",
         "Z",
         "n"
       ],
+      "global_fitted_marker_equal_rmse_gpa": 1.263939718617078,
+      "global_observations": 392,
+      "global_published_marker_equal_rmse_gpa": 1.2774517231364797,
+      "global_table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+      "independent_eos_refit": false,
       "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "marker_count": 11,
       "material_identifier": "tungsten",
       "model": "Holzapfel",
-      "primary_data_finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+      "observations": 42,
+      "primary_data_finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit.",
       "primary_data_status": "parameterization_only",
       "primary_source": "https://doi.org/10.1016/j.rgg.2013.01.005",
-      "reason": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.",
+      "published_rmse_gpa": 0.9017181923505817,
+      "published_ruby_parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0
+      },
+      "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
       "record_identifier": "tungsten_sokolova_2013_holzapfel_4",
-      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-      "status": "not_refittable"
+      "rmse_gpa": 0.8629577273808435,
+      "sensitivity_fit_ruby_parameters": {
+        "A_gpa": 1869.3837840502665,
+        "m": 6.10334763359135
+      },
+      "source_notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "status": "source_reconstruction",
+      "table4_closure_rmse_gpa": 0.8406737383313311
     },
     {
       "dataset_identifiers": [],
@@ -31648,10 +31902,11 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 554,
     "parity": 155,
     "parity_not_achieved": 31,
     "similar": 62,
+    "source_reconstruction": 11,
     "total": 813
   }
 }

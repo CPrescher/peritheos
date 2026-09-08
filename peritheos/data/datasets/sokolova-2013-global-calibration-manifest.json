@@ -1,0 +1,62 @@
+{
+  "format": "peritheos.sokolova-2013-global-calibration-manifest",
+  "format_version": 1,
+  "references": {
+    "method": "10.1103/PhysRevB.75.024115",
+    "calibration": "10.1016/j.rgg.2013.01.005",
+    "workbooks": "10.1016/j.cageo.2016.06.002"
+  },
+  "published_objective": {
+    "description": "Two-stage weighted least squares over thermochemical, ultrasonic, zero-pressure XRD, static-compression, and shock data, followed by a shared ruby calibration and a repeat optimization with fixed room-temperature K0 and K0-prime.",
+    "constraints": [
+      "The sum of oscillator mode multiplicities is 3n.",
+      "Table 1 supplies V0, density, Us-Up shock coefficients, KS0, its adiabatic pressure derivative, and Z.",
+      "Table 4 K0 and K0-prime are fixed in the post-ruby thermodynamic optimization."
+    ],
+    "not_published": [
+      "row-level thermochemical and ultrasonic observations",
+      "complete row-level static-compression selections",
+      "residual weights and normalization",
+      "optimizer settings and starting values used for the final run",
+      "parameter covariance"
+    ]
+  },
+  "reconstructable_cross_calibration": {
+    "equation": "P = A*s*(1+m*s), s = delta_lambda/lambda0",
+    "published_parameters": {"A_gpa": 1870.0, "m": 6.0, "lambda0_nm": 694.24},
+    "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+    "constraints": {"A_gpa": [1500.0, 2200.0], "m": [0.0, 20.0]},
+    "classification": "source-constrained cross-calibration reconstruction, not an independent refit of the eleven EOS parameter sets"
+  },
+  "markers": [
+    {"material":"diamond","record_identifier":"diamond_sokolova_2013_holzapfel_3","V0_cm3_mol":3.414,"rho0_g_cm3":3.518,"shock_a0_km_s":11.21,"shock_a1":1.20,"shock_a2":null,"KS0_gpa":442.0,"KS0_prime_s":3.80,"Z":6.0,"n":1.0,"table2_K0_gpa":441.5,"table2_K0_prime":3.98,"table3_K0_gpa":441.5,"table3_K0_prime":4.00,"table4_K0_gpa":441.5,"table4_K0_prime":3.90,"dataset_identifier":"diamond_dewaele_2008_table1_pvt","resource":"diamond-dewaele-2008-table1-pvt.csv","pressure_column":"pressure_h05_gpa","volume_column":"lattice_a_angstrom","source_calibration":"ruby_holzapfel_2005","selection":"298 K rows whose pressure_gauge is ruby","volume_transform":"atomic volume = a^3/8"},
+    {"material":"mgo","record_identifier":"mgo_sokolova_2013_holzapfel_4","V0_cm3_mol":11.248,"rho0_g_cm3":3.583,"shock_a0_km_s":6.733,"shock_a1":1.30,"shock_a2":null,"KS0_gpa":162.5,"KS0_prime_s":4.20,"Z":10.34,"n":2.0,"table2_K0_gpa":160.3,"table2_K0_prime":4.23,"table3_K0_gpa":160.3,"table3_K0_prime":4.38,"table4_K0_gpa":160.3,"table4_K0_prime":4.10,"dataset_identifier":"mgo_jacobsen_2008_table1_helium_compression","resource":"mgo-jacobsen-2008-table1-helium-compression.csv","pressure_column":"ruby_r1_relative_shift","volume_column":"unit_cell_volume_a3","source_calibration":"direct_relative_shift","selection":"rows with a printed ruby R1 relative shift","volume_transform":"four MgO formula units per conventional cell"},
+    {"material":"aluminum","record_identifier":"aluminum_sokolova_2013_holzapfel_2","V0_cm3_mol":9.98,"rho0_g_cm3":2.704,"shock_a0_km_s":5.295,"shock_a1":1.361,"shock_a2":null,"KS0_gpa":75.9,"KS0_prime_s":4.44,"Z":13.0,"n":1.0,"table2_K0_gpa":72.8,"table2_K0_prime":4.56,"table3_K0_gpa":72.8,"table3_K0_prime":4.70,"table4_K0_gpa":72.8,"table4_K0_prime":4.51,"dataset_identifier":"aluminum_dewaele_2004_table1_compression","resource":"aluminum-dewaele-2004-table1-compression.csv","pressure_column":"ruby_pressure_classical_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"},
+    {"material":"copper","record_identifier":"copper_sokolova_2013_holzapfel_2","V0_cm3_mol":7.112,"rho0_g_cm3":8.935,"shock_a0_km_s":3.923,"shock_a1":1.506,"shock_a2":null,"KS0_gpa":137.4,"KS0_prime_s":5.02,"Z":29.0,"n":1.0,"table2_K0_gpa":133.5,"table2_K0_prime":5.27,"table3_K0_gpa":133.5,"table3_K0_prime":5.44,"table4_K0_gpa":133.5,"table4_K0_prime":5.32,"dataset_identifier":"copper_dewaele_2004_table1_compression","resource":"copper-dewaele-2004-table1-compression.csv","pressure_column":"ruby_pressure_classical_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"},
+    {"material":"niobium","record_identifier":"niobium_sokolova_2013_holzapfel_2","V0_cm3_mol":10.828,"rho0_g_cm3":8.58,"shock_a0_km_s":4.48,"shock_a1":1.18,"shock_a2":null,"KS0_gpa":172.1,"KS0_prime_s":3.74,"Z":41.0,"n":1.0,"table2_K0_gpa":170.5,"table2_K0_prime":3.63,"table3_K0_gpa":170.5,"table3_K0_prime":3.77,"table4_K0_gpa":170.5,"table4_K0_prime":3.65,"dataset_identifier":"niobium_takemura_2006_table1_compression","resource":"niobium-takemura-2006-table1-compression.csv","pressure_column":"pressure_gpa","volume_column":"volume_ratio","source_calibration":"ruby_dewaele_2004","selection":"printed rows with nonnegative Table 4 marker pressure; source Table II identifies the Dewaele et al. 2004 scale","volume_transform":"already V/V0"},
+    {"material":"molybdenum","record_identifier":"molybdenum_sokolova_2013_holzapfel_2","V0_cm3_mol":9.369,"rho0_g_cm3":10.240,"shock_a0_km_s":5.05,"shock_a1":1.27,"shock_a2":null,"KS0_gpa":261.7,"KS0_prime_s":4.08,"Z":42.0,"n":1.0,"table2_K0_gpa":260.0,"table2_K0_prime":4.17,"table3_K0_gpa":260.0,"table3_K0_prime":4.32,"table4_K0_gpa":260.0,"table4_K0_prime":4.20,"dataset_identifier":"molybdenum_dewaele_2008_table2_compression","resource":"molybdenum-dewaele-2008-table2-compression.csv","pressure_column":"ruby_pressure_mao_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"},
+    {"material":"silver","record_identifier":"silver_sokolova_2013_holzapfel_2","V0_cm3_mol":10.25,"rho0_g_cm3":10.524,"shock_a0_km_s":3.14,"shock_a1":1.645,"shock_a2":null,"KS0_gpa":103.9,"KS0_prime_s":5.58,"Z":47.0,"n":1.0,"table2_K0_gpa":100.0,"table2_K0_prime":6.16,"table3_K0_gpa":100.0,"table3_K0_prime":6.02,"table4_K0_gpa":100.0,"table4_K0_prime":6.15,"dataset_identifier":"silver_dewaele_2008_table2_compression","resource":"silver-dewaele-2008-table2-compression.csv","pressure_column":"ruby_pressure_mao_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"},
+    {"material":"tantalum","record_identifier":"tantalum_sokolova_2013_holzapfel_3","V0_cm3_mol":10.861,"rho0_g_cm3":16.66,"shock_a0_km_s":3.40,"shock_a1":1.25,"shock_a2":null,"KS0_gpa":193.0,"KS0_prime_s":4.0,"Z":73.0,"n":1.0,"table2_K0_gpa":191.0,"table2_K0_prime":3.91,"table3_K0_gpa":191.0,"table3_K0_prime":4.08,"table4_K0_gpa":191.0,"table4_K0_prime":3.83,"dataset_identifier":"tantalum_dewaele_2004_table1_compression","resource":"tantalum-dewaele-2004-table1-compression.csv","pressure_column":"ruby_pressure_classical_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"},
+    {"material":"tungsten","record_identifier":"tungsten_sokolova_2013_holzapfel_4","V0_cm3_mol":9.552,"rho0_g_cm3":19.25,"shock_a0_km_s":4.01,"shock_a1":1.262,"shock_a2":null,"KS0_gpa":309.7,"KS0_prime_s":4.05,"Z":74.0,"n":1.0,"table2_K0_gpa":308.0,"table2_K0_prime":4.10,"table3_K0_gpa":308.0,"table3_K0_prime":4.25,"table4_K0_gpa":308.0,"table4_K0_prime":4.12,"dataset_identifier":"tungsten_dewaele_2004_table1_compression","resource":"tungsten-dewaele-2004-table1-compression.csv","pressure_column":"ruby_pressure_classical_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"},
+    {"material":"platinum","record_identifier":"platinum_sokolova_2013_holzapfel_3","V0_cm3_mol":9.091,"rho0_g_cm3":21.46,"shock_a0_km_s":3.62,"shock_a1":1.543,"shock_a2":null,"KS0_gpa":281.2,"KS0_prime_s":5.17,"Z":78.0,"n":1.0,"table2_K0_gpa":275.3,"table2_K0_prime":5.21,"table3_K0_gpa":275.3,"table3_K0_prime":5.28,"table4_K0_gpa":275.0,"table4_K0_prime":5.35,"dataset_identifier":"platinum_dewaele_2004_table1_compression","resource":"platinum-dewaele-2004-table1-compression.csv","pressure_column":"ruby_pressure_classical_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed nonblank rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"},
+    {"material":"gold","record_identifier":"gold_sokolova_2013_holzapfel_4","V0_cm3_mol":10.215,"rho0_g_cm3":19.282,"shock_a0_km_s":2.995,"shock_a1":1.653,"shock_a2":-0.013,"KS0_gpa":173.0,"KS0_prime_s":5.61,"Z":79.0,"n":1.0,"table2_K0_gpa":167.0,"table2_K0_prime":5.79,"table3_K0_gpa":167.0,"table3_K0_prime":5.81,"table4_K0_gpa":167.0,"table4_K0_prime":5.90,"dataset_identifier":"gold_dewaele_2004_table1_compression","resource":"gold-dewaele-2004-table1-compression.csv","pressure_column":"ruby_pressure_classical_gpa","volume_column":"atomic_volume_a3","source_calibration":"ruby_mao_1986","selection":"printed nonblank rows with nonnegative Table 4 marker pressure","volume_transform":"already atomic volume"}
+  ],
+  "official_2016_workbooks": {
+    "base_url_pattern": "https://ars.els-cdn.com/content/image/1-s2.0-S0098300416301480-mmcN.xls",
+    "files": [
+      {"N":1,"material":"silver","sha256":"f6b4a502d3b1bef388e13682deeeb061181bdb75be9e5afba626b194255302c4"},
+      {"N":2,"material":"aluminum","sha256":"abb63ccbbc6c74eefe74d1c8e938354beef685d82cbf58b87ce43695b68af846"},
+      {"N":3,"material":"gold","sha256":"e7e6ca600262e8d6bf92b5560ff7642d30f3c8eb37e450675fbc6cccf19189af"},
+      {"N":4,"material":"diamond","sha256":"ee101c1e311857e6f52079ec9938cc00e088ad929158ea73986acbe3accfd623"},
+      {"N":5,"material":"copper","sha256":"5449c57974edb02be983e5e0506534daf19d11486a869d8c32f180ffe8930641"},
+      {"N":6,"material":"mgo","sha256":"22df58347877c490d3ebeb901d0ae2f1a59f9cb155e3b5367fb36cbf9803135b"},
+      {"N":7,"material":"molybdenum","sha256":"682798aa68e51dc12db1b4af66e9ad45c923d3fa261461e8aafcfaf09192ccfb"},
+      {"N":8,"material":"niobium","sha256":"118a00214acf44eb43f0a61f2a1b4dc6b8b1a6a3e11002c04899ed4c8cb175ae"},
+      {"N":9,"material":"platinum","sha256":"3d0e10cdde9226210410024494a63cd52116ddcff6b92a200e0fc3bc8de7c4e1"},
+      {"N":10,"material":"tantalum","sha256":"e4aca9efa68e90f4e4235d056008ec3d0b13d4c5414799a5e56ba2f574c7f17b"},
+      {"N":11,"material":"tungsten","sha256":"301d1bf68f2892cf1758b41d77feebc593d2e95896905b8f6b93c8f93f85a7f6"}
+    ],
+    "inspection": "Each legacy workbook is an EOS calculator with Volume calculation, Pressure calculation, and Graphs sheets. No Solver model, fit objective, residual weights, covariance, or linked observation table was found.",
+    "graphs_sheet": "The same unreferenced SWDB/KK2002 value block occurs in every workbook; its normalized value hash is 2ad4c0c4bdee02ea7fc1a575066c67ff41efa6714f5230c5ee8a87a754123ef9. It is excluded as stale template content, not assigned to any marker."
+  }
+}

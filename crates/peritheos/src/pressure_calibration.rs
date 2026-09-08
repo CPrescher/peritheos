@@ -110,7 +110,7 @@ impl RubyFluorescenceCalibration {
 }
 
 /// Bundled executable ruby calibrations, in chronological order.
-pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 7] = [
+pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 8] = [
     RubyFluorescenceCalibration {
         identifier: "ruby_mao_1978",
         label: "Mao et al. (1978) ruby scale",
@@ -170,6 +170,16 @@ pub const RUBY_CALIBRATIONS: [RubyFluorescenceCalibration; 7] = [
         model: RubyCalibrationModel::QuadraticShift {
             a_gpa: 1884.0,
             m: 5.5,
+        },
+    },
+    RubyFluorescenceCalibration {
+        identifier: "ruby_sokolova_2013",
+        label: "Sokolova, Dorogokupets, and Litasov (2013) ruby scale",
+        doi: "10.1016/j.rgg.2013.01.005",
+        reference_wavelength_nm: 694.24,
+        model: RubyCalibrationModel::QuadraticShift {
+            a_gpa: 1870.0,
+            m: 6.0,
         },
     },
     RubyFluorescenceCalibration {

@@ -370,7 +370,7 @@
     ],
     "model": "multi_oscillator_gruneisen_thermal_pressure"
    },
-   "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+   "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
    "identifier": "tantalum_sokolova_2013_holzapfel_3",
    "pressure_calibration": {
     "status": "not_applicable",
@@ -399,7 +399,7 @@
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-06",
     "verified_fields": [
      "equation",
      "parameters",
@@ -428,11 +428,24 @@
     },
     "primary_data_check": {
      "status": "parameterization_only",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-08",
      "source_locations": [
-      "Tables 1 and 4; Figures 3-11"
+      "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
+      "Dorogokupets and Oganov (2007), two-stage optimization protocol",
+      "Sokolova et al. (2016), official mmc1-mmc11 workbooks"
      ],
-     "finding": "This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical."
+     "comparison_dataset_identifiers": [
+      "tantalum_dewaele_2004_table1_compression"
+     ],
+     "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
+     "finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit."
+    },
+    "source_reconstruction": {
+     "status": "coupled_cross_calibration_reconstructed",
+     "result": "docs/data/sokolova-2013-global-calibration.json",
+     "observations": 392,
+     "markers": 11,
+     "independent_eos_refit": false
     }
    },
    "source_lineage": [

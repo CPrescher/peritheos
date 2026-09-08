@@ -40,6 +40,7 @@ EXPECTED_RUBY_SCALES = {
     "ruby_dewaele_2008",
     "ruby_holzapfel_2005",
     "ruby_dorogokupets_oganov_2007",
+    "ruby_sokolova_2013",
     "ruby_shen_2020",
 }
 
@@ -200,6 +201,17 @@ def test_dewaele_2008_ruby_scale_uses_the_published_coefficients():
         "reference_wavelength_nm": 694.24,
     }
     assert document["reference"]["doi"] == "10.1103/PhysRevB.78.104102"
+
+
+def test_sokolova_2013_ruby_scale_uses_equation_20():
+    document = get_pressure_calibration_document("ruby_sokolova_2013")
+    assert document["model"] == "quadratic_shift"
+    assert document["parameters"] == {
+        "A_gpa": 1870.0,
+        "m": 6.0,
+        "reference_wavelength_nm": 694.24,
+    }
+    assert document["reference"]["doi"] == "10.1016/j.rgg.2013.01.005"
 
 
 def test_xrd_standard_pressure_uses_bundled_reference_eos():

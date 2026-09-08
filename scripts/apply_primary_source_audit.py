@@ -966,6 +966,20 @@ SOKOLOVA_COMPOSITION: dict[str, tuple[float, float]] = {
     "tungsten_sokolova_2013_holzapfel_4": (1.0, 74.0),
 }
 
+SOKOLOVA_COMPARISON_DATASETS = {
+    "aluminum_sokolova_2013_holzapfel_2": "aluminum_dewaele_2004_table1_compression",
+    "copper_sokolova_2013_holzapfel_2": "copper_dewaele_2004_table1_compression",
+    "diamond_sokolova_2013_holzapfel_3": "diamond_dewaele_2008_table1_pvt",
+    "gold_sokolova_2013_holzapfel_4": "gold_dewaele_2004_table1_compression",
+    "mgo_sokolova_2013_holzapfel_4": "mgo_jacobsen_2008_table1_helium_compression",
+    "molybdenum_sokolova_2013_holzapfel_2": "molybdenum_dewaele_2008_table2_compression",
+    "niobium_sokolova_2013_holzapfel_2": "niobium_takemura_2006_table1_compression",
+    "platinum_sokolova_2013_holzapfel_3": "platinum_dewaele_2004_table1_compression",
+    "silver_sokolova_2013_holzapfel_2": "silver_dewaele_2008_table2_compression",
+    "tantalum_sokolova_2013_holzapfel_3": "tantalum_dewaele_2004_table1_compression",
+    "tungsten_sokolova_2013_holzapfel_4": "tungsten_dewaele_2004_table1_compression",
+}
+
 SOKOLOVA_2013_REFERENCE = {
     "authors": ["Sokolova", "Dorogokupets", "Litasov"],
     "year": 2013,
@@ -1853,10 +1867,45 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             )
             + "The publications do not provide individual parameter errors, "
             "parameter covariance, or a complete machine-readable list of fit "
-            "points and weights. The *_sokolova_2013 identifier names the "
+            "points and weights. A source-constrained reconstruction nevertheless "
+            "combines 392 room-temperature comparison observations for all eleven "
+            "markers in one shared Equation (20) objective against the pointwise "
+            "mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, "
+            "with Table 4 retained as a post-calibration closure test. This tests "
+            "the coupled cross-calibration and is not an independent refit "
+            "of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the "
             "scientific fit year; the 2016 workbook remains explicit in "
             "source_lineage as the implementation and correction source."
         )
+        validation = record.setdefault("scientific_validation", {})
+        validation["primary_data_check"] = {
+            "status": "parameterization_only",
+            "audit_date": "2026-09-08",
+            "source_locations": [
+                "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
+                "Dorogokupets and Oganov (2007), two-stage optimization protocol",
+                "Sokolova et al. (2016), official mmc1-mmc11 workbooks",
+            ],
+            "comparison_dataset_identifiers": [
+                SOKOLOVA_COMPARISON_DATASETS[identifier]
+            ],
+            "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
+            "finding": (
+                "The complete coefficient-refit objective remains unavailable because "
+                "the source omits row-level thermochemical/ultrasonic inputs, weights, "
+                "optimizer details, and covariance. Machine-readable comparison rows "
+                "do support a coupled eleven-marker reconstruction of the shared ruby "
+                "Equation (20) from the Table 2/3 precursor isotherms and a Table 4 "
+                "closure test; it must not be classified as an independent EOS refit."
+            ),
+        }
+        validation["source_reconstruction"] = {
+            "status": "coupled_cross_calibration_reconstructed",
+            "result": "docs/data/sokolova-2013-global-calibration.json",
+            "observations": 392,
+            "markers": 11,
+            "independent_eos_refit": False,
+        }
         for component, name, value in (
             ("eos", "n", n),
             ("eos", "Z", atomic_number),
@@ -2944,7 +2993,10 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     reproduction = previous.get("reproduction")
     audit_date = (
         REPORT_AUDIT_DATE
-        if result["identifier"] in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
+        if result["identifier"]
+        in DERIVED_REFIT_RECORDS
+        | CURRENT_SOURCE_AUDIT_RECORDS
+        | set(SOKOLOVA_COMPOSITION)
         else CATALOG_AUDIT_DATE
         if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
         else AUDIT_DATE
