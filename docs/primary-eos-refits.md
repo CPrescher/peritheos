@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **487** EOS records. **155** achieve uncertainty parity, **86** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **215** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -36,14 +36,6 @@ use `--check` in continuous integration to detect stale generated files.
 
 | Record | Data | n | Published → Peritheos refit | Curve/refit RMSE (GPa unless labeled) | Outcome |
 |---|---|---:|---|---:|---|
-| [`ag_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ag_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ag_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ag_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ag_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ag_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ag_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ag_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`akimotoite_karki_2002_static_bm4_1`](https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Complete BM4 coefficients are tabulated, but the underlying free-energy-volume grid is shown only graphically and is not deposited. |
 | [`akimotoite_karki_2002_300k_bm4_2`](https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The fitted coefficients and curve are published, but the numerical free-energy-volume grid is unavailable. |
 | [`akimotoite_karki_2002_1000k_bm4_3`](https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable. |
@@ -55,15 +47,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`al2o3_perovskite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
 | [`al2o3_perovskite_holland_2013_apv_modified_tait`](https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf) | `official_parameter_artifact` | — | — | —/— | not_refittable — The official tc-ds62 apv block provides all four coefficients. |
 | [`al2o3_post_perovskite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
-| [`al2o3_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`al2o3_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`al_bearing_phase_d_xu_2020_bm3_300k`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2020GL088877) | `al_bearing_phase_d_xu_2020_earthchem_pvt` | 8 | `K0` 143 → 143.355; `K0_prime` 5.8 → 5.81415 | 0.121918/0.110355 | parity |
-| [`al_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`al_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`al_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`al_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`al_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`al_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`almandine_milani_2015_bm3_1`](https://doi.org/10.1016/j.lithos.2015.03.017) | `almandine_milani_2015_table_a3_compression` | 14 | `V0` 1533.52 → 1533.51; `K0` 172.6 → 172.669; `K0_prime` 5.8 → 5.76956 | 0.0135601/0.00264505 | parity |
 | [`alpha_quartz_angel_1997_bm3_1`](https://doi.org/10.1107/S0021889897000861) | `alpha_quartz_angel_1997_table1_compression` | 23 | `V0` 112.981 → 112.972; `K0` 37.12 → 37.2011; `K0_prime` 5.99 → 5.95789 | 0.0135845/0.0131784 | parity |
 | [`alpha_quartz_driver_2010_qmc_300k_vinet`](https://arxiv.org/pdf/1001.2066) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures. |
@@ -72,38 +56,16 @@ use `--check` in continuous integration to detect stale generated files.
 | [`alumina_rh2o3_ii_shi_2022_bm3_mgd_1`](https://doi.org/10.1029/2021JB023805) | `alumina_rh2o3_ii_shi_2022_table_s2_pvt` | 75 | `rt_eos.V0` 165.2 → 167.194; `rt_eos.K0` 256 → 239.415; `theta0` 600 → 766.258; `gamma0` 1.47 → 1.55021 | 1.14337/0.865977 | [similar](#investigation-alumina_rh2o3_ii_shi_2022_bm3_mgd_1) |
 | [`aluminum_dewaele_2004_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `aluminum_dewaele_2004_table1_compression` | 40 | `K0` 74.3 → 74.3472; `K0_prime` 4.47 → 4.46406 | 0.490418/0.432914 | parity |
 | [`aluminum_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`aluminum_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`aluminum_lejaeghere_2016_fleur_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`aluminum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`aluminum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`aluminum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `aluminum_dewaele_2004_table1_compression` | 40 | `V0` 66.292 → 66.2907; `K0` 76.32 → 76.3243; `K0_prime` 4.16 → 4.15506 | —/0.411063 | [similar](#investigation-aluminum_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`aluminum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `aluminum_dewaele_2004_table1_compression` | 40 | `V0` 66.336 → 66.3369; `K0` 74.2 → 74.1878; `K0_prime` 4.52 → 4.52436 | —/0.429366 | [similar](#investigation-aluminum_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`aluminum_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `aluminum_dewaele_2004_table1_compression` | 40 | `K0` 76.3 → 76.3832; `K0_prime` 4.16 → 4.15118 | 0.416615/0.373463 | parity |
-| [`aluminum_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`aragonite_martinez_1996_bm2_2`](https://rruff.info/doclib/am/vol81/AM81_611.pdf) | `aragonite_martinez_1996_table3_pvt` | 64 | `rt_eos.V0` 227.5 → 227.051; `rt_eos.K0` 64.81 → 65.7595; `alpha0` 6.5e-05 → 6.61628e-05; `dK_dT` -0.018 → -0.0166648 | 0.259189/0.205496 | parity |
 | [`argon_hcp_wittlinger_1997_bm2_1`](https://doi.org/10.1107/S0108768197005739) | `argon_hcp_wittlinger_1997_figure3_digitized` | 9 | `V0` 78 → 72.7955; `K0` 6.5 → 8.05196 | 0.772262/0.0125779 | [similar](#investigation-argon_hcp_wittlinger_1997_bm2_1) |
-| [`au_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`au_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`au_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`au_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`au_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`au_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`au_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`au_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`b4c_somayazulu_2023_bm3_1`](https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/) | `b4c_somayazulu_2023_table4_pvt` | 41 | `q` 2.1 → 1.04991 | 1.38691/1.17593 | [parity_not_achieved](#investigation-b4c_somayazulu_2023_bm3_1) |
 | [`b4c_somayazulu_2023_berman_2`](https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/) | `b4c_somayazulu_2023_table4_pvt` | 41 | `alpha0` 1.94e-05 → 1.78073e-05; `dK_dT` -0.008 → -0.0123194 | 2.1365/1.36485 | [similar](#investigation-b4c_somayazulu_2023_berman_2) |
 | [`b4c_somayazulu_2023_berman_refit`](https://pmc.ncbi.nlm.nih.gov/articles/PMC10460643/) | `b4c_somayazulu_2023_table4_pvt` | 41 | `alpha0` 1.8112e-05 → 1.78069e-05; `dK_dT` -0.01311 → -0.0123185 | 1.47395/1.36486 | parity |
-| [`barium_bcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`barium_bcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`be_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`be_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`be_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`be_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`be_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`be_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`beryllium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`beryllium_hcp_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`beryllium_hcp_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`bismuth_a7_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`bismuth_a7_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`boron_nitride_datchi_2007_vinet_1`](https://doi.org/10.1103/PhysRevB.75.214104) | `cubic_boron_nitride_datchi_2007_table4_pvt` | 38 | `K0` 395 → 395.162; `K0_prime` 3.62 → 3.61713 | 0.58492/0.584825 | parity |
 | [`boron_nitride_datchi_2007_vinet_mgd_2`](https://arxiv.org/abs/cond-mat/0702656) | `cubic_boron_nitride_datchi_2007_table4_pvt` | 66 | `q` 4 → 6.2411 | 0.58895/0.592192 | [similar](#investigation-boron_nitride_datchi_2007_vinet_mgd_2) |
 | [`boron_nitride_hexagonal_muhammad_2024_bm3_1`](https://doi.org/10.1039/D4NR00093E) | `boron_nitride_hexagonal_muhammad_2024_figure5c_digitized` | 36 | `V0` 36.18 → 36.1854; `K0` 27.4 → 28.6546; `K0_prime` 11.4 → 10.0451 | 0.102739/0.0566951 | parity |
@@ -170,66 +132,24 @@ use `--check` in continuous integration to detect stale generated files.
 | [`ca_perovskite_tetragonal_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [`ca_perovskite_tetragonal_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [`ca_perovskite_tetragonal_chen_2018_bm2`](https://doi.org/10.2138/am-2018-6087) | `available_in_primary_table_not_bundled` | — | — | —/— | not_refittable — The article states that all EOS observations are in Table 1, but no authoritative open table artifact suitable for lossless redistribution was retrieved in this audit; no digitized pseudo-table was created. |
-| [`ca_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ca_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ca_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ca_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ca_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ca_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cadmium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`cadmium_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`cairo3_perovskite_boffa_ballaran_2007_bm3_1`](https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases) | `cairo3_perovskite_boffa_ballaran_2007_table1_compression` | 11 | `V0` 229.463 → 229.463; `K0` 198 → 199.944; `K0_prime` 1.2 → 0.875978 | 0.0932461/0.0362281 | parity |
 | [`cairo3_post_perovskite_boffa_ballaran_2007_bm3_1`](https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases) | `cairo3_post_perovskite_boffa_ballaran_2007_table1_compression` | 11 | `V0` 226.38 → 226.378; `K0` 181 → 180.756; `K0_prime` 2.3 → 2.43979 | 0.0263262/0.0253869 | parity |
 | [`cairo3_post_perovskite_martin_2007_bm2`](https://dspace.sunyconnect.suny.edu/server/api/core/bitstreams/61973d9b-80a4-4be9-b292-576627366fb1/content) | `cairo3_martin_2007_table1a_compression` | 15 | `V0` 226.632 → 226.599; `K0` 180.2 → 184.038 | 0.575795/0.559939 | parity |
 | [`calcite_redfern_1999_bm2_1`](https://doi.org/10.1007/s004100050471) | `calcite_redfern_1999_table1_compression` | 14 | `V0` 367.789 → 367.848; `K0` 73.46 → 72.5377 | 0.011292/0.00927972 | parity |
 | [`calcium_carbonate_post_aragonite_lv_2020_bm3_1`](https://doi.org/10.2138/am-2020-7279) | `calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt` | 9 | `K0` 146.7 → 144.593; `K0_prime` 3.4 → 3.47161 | 0.235399/0.0617419 | parity |
 | [`calcium_carbonate_post_aragonite_lv_2020_bm3_2`](https://doi.org/10.2138/am-2020-7279) | `calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt` | 131 | `rt_eos.K0` 151 → 145.869; `rt_eos.K0_prime` 3.2 → 3.42217; `gamma0` 1.6 → 1.97099; `q` 1.3 → 1.9929 | 0.606471/0.527207 | [similar](#investigation-calcium_carbonate_post_aragonite_lv_2020_bm3_2) |
-| [`calcium_fcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`calcium_fcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`calcium_germanate_perovskite_ross_1999_bm3_1`](https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html) | `calcium_germanate_perovskite_ross_1999_table1_compression` | 9 | `V0` 206.49 → 206.49; `K0` 194 → 194.66; `K0_prime` 6.1 → 5.90063 | 0.0191109/0.0187632 | parity |
 | [`calcium_titanate_perovskite_ross_1999_bm3_1`](https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html) | `calcium_titanate_perovskite_ross_1999_table1_compression` | 11 | `V0` 223.764 → 223.769; `K0` 170.9 → 170.046; `K0_prime` 6.6 → 6.79087 | 0.018946/0.0180632 | parity |
 | [`cao_richet_1988_bm3_1`](https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar) | `cao_richet_1988_table1_compression` | 7 | `K0` 111 → 116.097; `K0_prime` 4.2 → 3.75677 | 1.21532/0.724846 | parity |
 | [`cao_b2_richet_1988_bm3_1`](https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar) | `cao_richet_1988_table1_compression` | 11 | `V0` 24.576 → 24.1558; `K0` 130 → 149.103; `K0_prime` 3.5 → 3.28823 | 1.51774/1.47414 | parity |
 | [`casio2o5_titanite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
-| [`casio3_perovskite_i4mmm_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_i4mmm_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_im3_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_im3_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_imma_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_imma_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_p42nmc_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_p42nmc_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_p4mbm_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_p4mbm_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_pnma_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_pnma_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_r3c_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
-| [`casio3_perovskite_r3c_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance. |
 | [`casio3_perovskite_tetragonal_shim_2002_bm3_1`](https://geoweb.princeton.edu/archival/duffy/shim_grl_o2.pdf) | `parameterization_and_figure_only` | — | — | —/— | not_refittable — The six pressures and plotted volume/c-axis-ratio observations appear in Figure 2, but numerical cell volumes are not tabulated; no pseudo-precision was introduced by digitizing the small four-page rendering. |
-| [`cd_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`cd_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`cd_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cd_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cd_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cd_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`cementite_scott_2001_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2000GL012606) | `cementite_scott_2001_figure3_digitized` | 21 | `K0` 175.4 → 161.341; `K0_prime` 5.1 → 6.04412 | 1.65742/1.55181 | parity |
 | [`cerium_dioxide_gerward_2005_bm3_1`](https://people.iith.ac.in/kanchana/publications/2005/17.pdf) | `cerium_dioxide_gerward_2005_figure3a_digitized` | 21 | `K0` 220 → 226.125; `K0_prime` 4.4 → 3.3017 | 0.218925/0.196035 | [similar](#investigation-cerium_dioxide_gerward_2005_bm3_1) |
-| [`cesium_bcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`cesium_bcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`chromium_anzellini_2022_bm3_1`](https://doi.org/10.1038/s41598-022-10523-2) | `chromium_anzellini_2022_table2_compression` | 119 | `V0` 24.08 → 24.0852; `K0` 185 → 182.352; `K0_prime` 4.74 → 4.83257 | 0.4949/0.469487 | parity |
-| [`chromium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`chromium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`co_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`co_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`co_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`co_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`co_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`co_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`cobalt_hcp_fujihisa_1996_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.54.5/fulltext) | `cobalt_hcp_fujihisa_1996_figure3_digitized` | 8 | `K0` 199 → 202.707; `K0_prime` 3.6 → 3.64383 | 1.39053/0.107214 | parity |
-| [`cobalt_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`cobalt_hcp_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cobalt_hcp_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cobalt_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
+| [`cobalt_hcp_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `cobalt_dewaele_2008_table2_compression` | 25 | `V0` 22.154 → 22.1542; `K0` 197 → 197.028; `K0_prime` 3.85 → 3.84907 | —/0.254228 | [similar](#investigation-cobalt_hcp_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`cobalt_hcp_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `cobalt_dewaele_2008_table2_compression` | 25 | `V0` 22.154 → 22.1537; `K0` 194.85 → 194.846; `K0_prime` 4.36 → 4.35842 | —/0.265849 | [similar](#investigation-cobalt_hcp_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`coesite_levien_1981_bm3_1`](https://msaweb.org/AmMin/AM66/AM66_324.pdf) | `coesite_levien_1981_table7_pv` | 9 | `V0` 546.441 → 546.596; `K0` 96 → 93.7138; `K0_prime` 8.4 → 9.16274 | 0.0575957/0.0564096 | [similar](#investigation-coesite_levien_1981_bm3_1) |
 | [`coesite_i_iii_bykova_2018_300k_bm3`](https://www.nature.com/articles/s41467-018-07265-z) | `plot_only` | — | — | —/— | not_refittable — The combined observations are plotted in Figure 1 but not supplied as a numerical table. |
 | [`coesite_iv_bykova_2018_am05_static_bm3_refit`](https://www.nature.com/articles/s41467-018-07265-z) | `coesite_iv_bykova_2018_table10_calc_pv` | 3 | `V0` 438.67 → 438.67 | 0.0808114/0.0808114 | [similar](#investigation-coesite_iv_bykova_2018_am05_static_bm3_refit) |
@@ -238,29 +158,11 @@ use `--check` in continuous integration to detect stale generated files.
 | [`copper_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`copper_dewaele_2004_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `copper_dewaele_2004_table1_compression` | 42 | `K0` 132.4 → 132.787; `K0_prime` 5.32 → 5.30404 | 0.432688/0.302385 | parity |
 | [`copper_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`copper_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`copper_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`copper_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`copper_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `copper_dewaele_2004_table1_compression` | 42 | `V0` 47.24 → 47.2399; `K0` 135.3 → 135.285; `K0_prime` 4.91 → 4.90864 | —/0.37535 | [similar](#investigation-copper_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`copper_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `copper_dewaele_2004_table1_compression` | 42 | `V0` 47.24 → 47.2416; `K0` 133.1 → 133.127; `K0_prime` 5.38 → 5.37856 | —/0.387742 | [similar](#investigation-copper_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`copper_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `copper_dewaele_2004_table1_compression` | 42 | `K0` 135.1 → 135.494; `K0_prime` 4.91 → 4.89854 | 0.384285/0.284969 | parity |
-| [`copper_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`cr_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`cr_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`cr_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cr_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cr_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`cr_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`csbr_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`csbr_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`cscl_campbell_1994_bm3_1`](https://doi.org/10.1029/94JB00127) | `cscl_campbell_1994_table1_compression, cscl_yagi_1978_table1_compression` | 22 | `K0` 17.01 → 17.6967; `K0_prime` 5.49 → 5.2026 | 0.390305/0.344114 | parity — Complete source-data reproduction: Table 1 contains a distinct 13-row CsCl block, not the RbCl rows previously attached to this material. The fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after the source-stated 4.118-to-4.123 A reference correction. The numerical weights used for Campbell and Heinz's normalized-stress regression are not published, but the complete unweighted 22-point refit recovers both coefficients within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl). |
-| [`cu_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit. |
-| [`cu_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit. |
-| [`cu_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit. |
-| [`cu_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — This record preserves Sun et al.'s published coefficients and is not itself refitted. A separate dataset-backed Peritheos record, cu_sun_2010_low_vn_refit, uses the manually verified handbook Cu cells; experiment-level rows and the source authors' numerical implementation remain unavailable. |
 | [`cu_sun_2010_low_vn_refit`](https://doi.org/10.1515/zna-2010-1-202) | `aip_handbook_table4d12_cu` | 25 | `K0` 139.234 → 139.234; `K0_prime` 5.00113 → 5.00113 | 0.0701542/0.0701542 | [similar](#investigation-cu_sun_2010_low_vn_refit) |
-| [`cu_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited. |
-| [`cu_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited. |
-| [`cu_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited. |
-| [`cu_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited. |
 | [`delta_alooh_vanpeteghem_2002_bm2_1`](https://doi.org/10.1029/2001GL014224) | `delta_alooh_vanpeteghem_2002_table1_pv` | 9 | `V0` 56.54 → 56.4053; `K0` 252 → 238.768 | 1.43322/0.476965 | parity |
 | [`delta_alooh_vanpeteghem_2002_bm3_2`](https://doi.org/10.1029/2001GL014224) | `delta_alooh_vanpeteghem_2002_table1_pv` | 9 | `V0` 56.54 → 56.4893; `K0` 228 → 212.646; `K0_prime` 7 → 6.67657 | 1.3627/0.437383 | parity |
 | [`diamond_datchi_2007_vinet_1`](https://doi.org/10.1103/PhysRevB.75.214104) | `parameterization_only` | — | — | —/— | not_refittable — For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record. |
@@ -275,10 +177,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`e_feooh_hc_low_spin_thompson_2017_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2017JB014168) | `epsilon_feooh_thompson_2017_supplement_table_s1` | 17 | `V0` 58.62 → 59.5867; `K0` 223 → 185.921; `K0_prime` 4.07 → 4.65126 | 1.56406/0.530797 | [parity_not_achieved](#investigation-e_feooh_hc_low_spin_thompson_2017_bm3_1) |
 | [`fayalite_b_jina_2021_bm3_1`](https://doi.org/10.5194/ejm-33-519-2021) | `fayalite_bejina_2021_table1_pvt_elastic` | 11 | `V0` 307.84 → 307.831; `K0` 130.4 → 130.415 | 0.0587831/0.0490737 | parity |
 | [`fe_shen_2026_vinet_1`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
-| [`fe_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`fe_lejaeghere_2016_fleur_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`fe_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`fe088sio3_bridgmanite_ismailova_2016_300k_bm2`](https://pmc.ncbi.nlm.nih.gov/articles/PMC4956391/) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source supplies crystallographic and compressibility data in its supplement; the production record preserves the directly reported fitted parameterization. |
+| [`fe088sio3_bridgmanite_ismailova_2016_300k_bm2`](https://pmc.ncbi.nlm.nih.gov/articles/PMC4956391/) | `fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography` | — | — | —/— | not_refittable — Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input. |
 | [`fe093o_rhombohedral_jacobsen_2005_bm3_1`](https://doi.org/10.1107/S0909049505022326) | `jacobsen_2005_table1_compression` | 9 | `V0` 59.72 → 59.7395; `K0` 134 → 133.662 | 0.441569/0.0161316 | parity |
 | [`fe2o3_schouwink_2011_bm2_1`](https://doi.org/10.2138/am.2011.3775) | `hematite_schouwink_2011_table1_compression` | 10 | `V0` 301.88 → 301.549; `K0` 207 → 218.391 | 0.633926/0.341597 | parity |
 | [`fe3o4_mao_1974_bm3_1`](https://doi.org/10.1029/JB079i008p01165) | `magnetite_mao_1974_table3_compression` | 13 | `K0` 183 → 183.355 | 1.26707/1.26642 | parity |
@@ -300,7 +199,6 @@ use `--check` in continuous integration to detect stale generated files.
 | [`fesio3_post_perovskite_cohen_lin_2014_vinet_1`](https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf) | `parameterization_and_independent_table_checkpoints` | — | — | —/— | not_refittable — The energy-volume observations are plot-only; Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47. |
 | [`fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1`](https://discovery.ucl.ac.uk/id/eprint/1461221/1/PhysRevB.90.140102.pdf) | `parameterization_and_independent_table_checkpoints` | — | — | —/— | not_refittable — The energy-volume grid is plot-only; Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44. |
 | [`forsterite_finkelstein_2014_bm3_1`](https://doi.org/10.2138/am.2014.4526) | `forsterite_finkelstein_2014_table2_compression` | 14 | `K0` 130 → 130.092; `K0_prime` 4.12 → 4.11435 | 0.132312/0.128027 | parity |
-| [`gallium_alpha_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`geo2_rutile_hazen_1981_bm3_1`](https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds) | `rutile_hazen_finger_1981_table1_sno2_geo2_compression` | 4 | `V0` 55.3318 → 55.346; `K0` 258 → 254.082 | 0.0951394/0.0854824 | [similar](#investigation-geo2_rutile_hazen_1981_bm3_1) |
 | [`goethite_gleason_2008_bm3_1`](https://doi.org/10.2138/am.2008.2942) | `goethite_gleason_2008_deposit_table1_pvt` | 65 | `rt_eos.K0` 140.3 → 183.338; `rt_eos.K0_prime` 4.6 → 0 | 2.54/2.13634 | [parity_not_achieved](#investigation-goethite_gleason_2008_bm3_1) |
 | [`gold_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
@@ -312,32 +210,18 @@ use `--check` in continuous integration to detect stale generated files.
 | [`gold_sokolova_2013_holzapfel_4`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
 | [`gold_fratanduono_2021_vinet_7`](https://doi.org/10.1126/science.abh0364) | `gold_fratanduono_2021_table_s3_compression` | 119 | `K0` 170.9 → 170.298; `K0_prime` 5.88 → 5.89208 | 2.44014/2.42522 | parity |
 | [`gold_zhu_2025_vinet_300k`](https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf) | `Mendeley Data 10.17632/6kxnhc2g73.3` | — | — | —/— | not_refittable — The record cites an external repository or source dataset that is not bundled as a row-level material dataset. |
-| [`gold_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`gold_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`gold_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`gold_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `gold_takemura_2008_table3_compression` | 86 | `V0` 67.932 → 67.9327; `K0` 166.4 → 166.367; `K0_prime` 5.47 → 5.46613 | —/0.725872 | [similar](#investigation-gold_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`gold_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `gold_takemura_2008_table3_compression` | 86 | `V0` 67.944 → 67.9431; `K0` 163.4 → 163.377; `K0_prime` 6.04 → 6.02982 | —/0.773022 | [similar](#investigation-gold_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`gold_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `gold_dewaele_2004_table1_compression` | 37 | `K0` 172.5 → 172.377; `K0_prime` 5.4 → 5.4111 | 0.226794/0.203359 | parity |
 | [`gold_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0_prime` 5.88 → 5.86027 | —/— | [parity_not_achieved](#investigation-gold_dorfman_2012_tange_mgo_k0_fixed_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
 | [`gold_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0` 167 → 178.713; `K0_prime` 5.84 → 5.46833 | —/— | [parity_not_achieved](#investigation-gold_dorfman_2012_tange_mgo_k0_free_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
-| [`gold_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`graphite_hanfland_1989_murnaghan_1`](https://doi.org/10.1103/PhysRevB.39.12598) | `graphite_hanfland_1989_figure2_digitized` | 10 | `V0` 35.12 → 35.2896; `K0` 33.8 → 31.3506; `K0_prime` 8.9 → 9.14073 | 0.342942/0.153054 | parity |
-| [`hafnium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`hafnium_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`ice_vi_bezacier_2014_bm2_1`](https://doi.org/10.1063/1.4894421) | `ice_vi_bezacier_2014_table1_pvt` | 30 | `rt_eos.V0` 235.298 → 235.354; `rt_eos.K0` 14.05 → 14.0158; `alpha0` 0.000146 → 0.000148153 | 0.0104406/0.0102046 | parity — Source-scope reproduction: Figure 2 displays the ice-VI PVT data as the 300 K and 340 K isotherms. The 15 intermediate-temperature rows in Table I form a pressure-temperature ramp and are not plotted there. The best-supported reconstruction selects the 23 rows at 298.7-300.7 K and the seven rows at 340.0-340.7 K; it recovers V0, K0, and alpha0 within combined two-sigma uncertainty. |
 | [`ice_vii_bezacier_2014_bm2_1`](https://doi.org/10.1063/1.4894421) | `ice_vii_bezacier_2014_table1_pvt` | 92 | `rt_eos.V0` 41.4803 → 41.5536; `rt_eos.K0` 20.15 → 19.9327; `alpha0` 0.0001158 → 9.22377e-05 | 0.147743/0.119025 | [similar](#investigation-ice_vii_bezacier_2014_bm2_1) |
 | [`ice_vii_frank_2004_bm3_2`](https://lweb.cfa.harvard.edu/~lzeng/papers/frank_fei_hu_2004.pdf) | `ice_vii_frank_2004_table1_pvt` | 21 | `V0` 41.1814 → 41.0751; `K0` 21.1 → 21.8616; `K0_prime` 4.4 → 4.31307 | 0.781821/0.687473 | parity |
 | [`iceviii_besson_1994_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext) | `ice_viii_besson_1994_table2_structure` | 8 | `V0` 165.39 → 164.204; `K0` 20.4 → 21.2709; `K0_prime` 4.7 → 4.6138 | 0.138121/0.0311645 | [similar](#investigation-iceviii_besson_1994_bm3_1) |
-| [`in_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`in_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`in_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`in_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`in_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`in_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`indium_bct_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`indium_bct_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`indium_nitride_munoz_1993_murnaghan_1`](https://iopscience.iop.org/article/10.1088/0953-8984/5/33/010/pdf) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters. |
 | [`iridium_anzellini_2025_bm3_1`](https://doi.org/10.1038/s43246-025-00963-4) | `iridium_anzellini_2025_tables_s1_s3_pvt` | — | — | —/— | not_refittable — The bundled rows are all heated states. The stored coefficients are the 300 K reference part of a combined thermal fit, but the record does not represent the source's thermal correction needed to refit those rows. |
-| [`iridium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`iridium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`iron_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`iron_mao_1990_bm3_1`](https://doi.org/10.1029/JB095iB13p21737) | `iron_mao_1990_table1_compression` | 32 | `V0` 22.35 → 22.6574; `K0` 165 → 135.032; `K0_prime` 5.33 → 6.07789 | 5.84592/4.53187 | [similar](#investigation-iron_mao_1990_bm3_1) |
 | [`iron_shen_2026_vinet_2`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
@@ -347,8 +231,6 @@ use `--check` in continuous integration to detect stale generated files.
 | [`iron_zhang_2025_fit2_birch_murnaghan_3_mgd`](https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf) | `iron_zhang_2025_tables_s1_s3_s4_pvt` | 1313 | `rt_eos.K0` 175.1 → 175.131; `rt_eos.K0_prime` 4.787 → 4.78703; `theta0` 1205 → 1201.63; `gamma0` 2.86 → 2.85664; `q` 0.84 → 0.840226 | 4.5027/4.50245 | parity — Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset. |
 | [`iron_zhang_2025_fit5_vinet_mgd`](https://mdpi-res.com/d_attachment/crystals/crystals-15-00221/article_deploy/crystals-15-00221.pdf) | `iron_zhang_2025_tables_s1_s3_s4_pvt` | 1313 | `rt_eos.K0` 151.6 → 151.566; `rt_eos.K0_prime` 5.845 → 5.84469; `theta0` 960 → 962.294; `gamma0` 3.51 → 3.50837; `q` 1.28 → 1.27637 | 5.08289/5.08242 | parity — Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset. |
 | [`iron_carbide_fe7c3_prescher_2015_bm3_1`](https://doi.org/10.1038/ngeo2370) | `iron_carbide_fe7c3_prescher_2015_table_s4_compression` | 27 | `V0` 748 → 745.114; `K0` 168 → 188.419; `K0_prime` 6.1 → 5.22807 | 3.58769/2.04963 | [similar](#investigation-iron_carbide_fe7c3_prescher_2015_bm3_1) |
-| [`k_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`k_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`kbr_b1_dewaele_2012_vinet_1`](https://doi.org/10.1103/PhysRevB.85.214105) | `kbr_b1_dewaele_2012_table2_compression` | 30 | `V0` 287.56 → 287.532; `K0` 14.2 → 14.2953 | 0.0431745/0.0424345 | [similar](#investigation-kbr_b1_dewaele_2012_vinet_1) |
 | [`kbr_b2_dewaele_2012_vinet_1`](https://doi.org/10.1103/PhysRevB.85.214105) | `kbr_b2_dewaele_2012_table1_compression` | 121 | `K0` 14.9 → 14.9429; `K0_prime` 5.81 → 5.79875 | 0.502429/0.496593 | [similar](#investigation-kbr_b2_dewaele_2012_vinet_1) |
 | [`kcl_campbell_1991_bm2_1`](https://doi.org/10.1016/0022-3697(91)90181-X) | `kcl_campbell_1991_table1_compression` | 14 | `K0` 28.7 → 28.4954 | 1.54367/1.42418 | parity |
@@ -357,35 +239,16 @@ use `--check` in continuous integration to detect stale generated files.
 | [`kcl_b2_tateno_2019_vinet_4`](https://doi.org/10.2138/am-2019-6779) | `kcl_tateno_2019_table_s1_pvt` | 39 | `rt_eos.K0` 18.3 → 18.3446; `rt_eos.K0_prime` 5.6 → 5.60096; `gamma0` 2.3 → 2.29519; `q` 0.8 → 0.8249 | 0.72623/0.569397 | parity — Corrected final-publication reproduction: the model uses the final gamma0=2.3 and q=0.8 coefficients, Equation 6's integrated-Gruneisen Debye law, and the correctly aligned official MSA Supplemental Table S1 workbook. See the [dedicated Tateno reproduction](literature-reproductions.md#kcl-tateno-2019). |
 | [`kcl_b2_chidester_2021_bm3_5`](https://link.aps.org/accepted/10.1103/PhysRevB.104.094107) | `kcl_dewaele_2012_table1_compression, kcl_chidester_2021_supplemental_pvt` | 278 | `rt_eos.V0` 53.1373 → 53.2036; `rt_eos.K0` 24 → 23.9721; `rt_eos.K0_prime` 4.56 → 4.55798; `gamma0` 2.9 → 2.91714; `q` 1 → 0.965243 | 1.30258/1.26278 | parity — Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021). |
 | [`kcl_b1_dewaele_2012_vinet_1`](https://doi.org/10.1103/PhysRevB.85.214105) | `kcl_b1_dewaele_2012_table2_compression` | 30 | `V0` 249.44 → 249.379; `K0` 17.1 → 17.3253 | 0.0554449/0.0534777 | [similar](#investigation-kcl_b1_dewaele_2012_vinet_1) |
-| [`kf_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`kf_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ki_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ki_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit. |
 | [`klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit. |
 | [`klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports the P-V observations in Table S1; this record preserves the Table 1 fit. |
 | [`klb1_mg_perovskite_ricolleau_2009_bm2_alphakt`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759) | `supplement_available_not_bundled` | — | — | —/— | not_refittable — The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit. |
 | [`larnite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
 | [`lead_fcc_fortes_2019_bm4_1`](https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf) | `parameterization_only` | — | — | —/— | not_refittable — Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations. |
-| [`lead_fcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`lead_fcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`lead_hcp_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `lead_hcp_kuznetsov_2002_figure3_digitized` | 21 | `V0` 56.126 → 58.8377; `K0` 71.8 → 63.4866; `K0_prime` 4.4 → 3.30377 | 2.33613/0.60172 | [parity_not_achieved](#investigation-lead_hcp_dewaele_2019_mao_vinet) |
 | [`lead_hcp_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `lead_hcp_kuznetsov_2002_figure3_digitized` | 21 | `V0` 56.116 → 58.8377; `K0` 70 → 63.4866; `K0_prime` 4.77 → 3.30377 | 2.40142/0.60172 | [parity_not_achieved](#investigation-lead_hcp_dewaele_2019_dor_vinet) |
 | [`li_hanfland_1999_vinet_1`](https://doi.org/10.1016/S0038-1098(99)00322-1) | `lithium_hanfland_1999_table1_compression` | 26 | `K0` 11.32 → 11.3157; `K0_prime` 3.62 → 3.61677 | 0.036204/0.0338053 | parity |
-| [`li_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`li_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`libr_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`libr_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`licl_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`licl_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`lif_b1_dewaele_2019_vinet_1`](https://doi.org/10.3390/min9110684) | `lif_dewaele_2019_table4_pv` | 60 | `V0` 65.484 → 65.5743; `K0` 64.6 → 62.1506; `K0_prime` 4.62 → 5.01115 | 2.10041/0.254799 | parity |
-| [`lif_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`lif_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`lii_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`lii_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`lithium_9r_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`lithium_9r_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`lutetium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`magnesiowustite_fe56_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `magnesiowustite_fe56_jacobsen_2002_table4_compression` | 11 | `V0` 77.453 → 113.002; `K0` 155.8 → 37.1669; `K0_prime` 5.53 → 5.97778 | 24.0928/0.00117493 | [parity_not_achieved](#investigation-magnesiowustite_fe56_jacobsen_2002_bm3_1) |
 | [`magnesiowustite_fe75_jacobsen_2002_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490) | `magnesiowustite_fe75_jacobsen_2002_table5_compression` | 7 | `V0` 78.082 → 113.014; `K0` 151.3 → 37.188; `K0_prime` 5.55 → 5.97109 | 23.2769/0.000571467 | [parity_not_achieved](#investigation-magnesiowustite_fe75_jacobsen_2002_bm3_1) |
 | [`magnesite_ross_1997_bm3_1`](https://rruff.info/doclib/am/vol82/AM82_682.pdf) | `magnesite_ross_1997_table1_pv` | 19 | `V0` 279.41 → 279.377; `K0` 117 → 117.484; `K0_prime` 2.3 → 2.45516 | 0.0972132/0.0952766 | parity |
@@ -393,13 +256,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`magnesite_yu_2024_bm3_mgd_3`](https://doi.org/10.1029/2023JB028026) | `magnesite_yu_2024_table_s1_pvt` | 74 | `rt_eos.K0` 105 → 105.64; `rt_eos.K0_prime` 4.49 → 4.4771; `theta0` 850 → 657.564; `gamma0` 1.7 → 1.97358; `q` 0.9 → 1.32292 | 1.03046/0.699666 | [similar](#investigation-magnesite_yu_2024_bm3_mgd_3) |
 | [`magnesium_bcc_stinton_2014_vinet_1`](https://link.aps.org/accepted/10.1103/PhysRevB.90.134105) | `magnesium_stinton_2014_figure1_bcc_digitized` | 57 | `K0` 26.3 → 26.3334; `K0_prime` 5.1 → 5.09596 | 1.95757/0.197513 | parity |
 | [`magnesium_hcp_stinton_2014_vinet_1`](https://link.aps.org/accepted/10.1103/PhysRevB.90.134105) | `magnesium_stinton_2014_figure1_hcp_digitized` | 39 | `K0` 30.9 → 30.3963; `K0_prime` 4.56 → 4.6537 | 0.33675/0.195258 | parity |
-| [`magnesium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`magnesium_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`majorite_yagi_1992_bm3_1`](https://doi.org/10.1016/0031-9201(92)90063-2) | `majorite_yagi_1992_table1_compression` | 10 | `K0` 161.2 → 160.734 | 0.23388/0.233256 | [similar](#investigation-majorite_yagi_1992_bm3_1) |
 | [`manganese_alpha_magad_weiss_2021_bm3_1`](https://doi.org/10.1103/PhysRevB.103.014101) | `manganese_alpha_magad_weiss_2021_figure2_digitized` | 19 | `K0` 204 → 203.836; `K0_prime` 3.7 → 3.6876 | 2.57626/2.52697 | parity |
-| [`manganese_alpha_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`manganese_fcc_afm_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`mercury_bct_dft_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`mg0125fe0875o_leonov_2017_hs_bm3_1`](https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit. |
 | [`mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1`](https://doi.org/10.2138/am-2017-5966) | `magnesiowustite_mw78_finkelstein_2017_table2_compression` | 29 | `V0` 78.87 → 157.74; `K0` 148 → 337.791; `K0_prime` 4.09 → 9.6577 | 34.4238/17.0485 | [parity_not_achieved](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1) |
 | [`mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2`](https://doi.org/10.2138/am-2017-5966) | `magnesiowustite_mw78_finkelstein_2017_table2_compression` | 29 | `V0` 78.742 → 157.484; `K0` 163 → 360.366; `K0_prime` 4.02 → 9.41478 | 34.6793/17.046 | [parity_not_achieved](#investigation-mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2) |
@@ -471,12 +329,6 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1`](https://doi.org/10.1002/2015GL064400) | `mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv` | 97 | `V0` 162.6 → 163.256; `K0` 284 → 275.745 | 0.928436/0.577285 | [similar](#investigation-mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1) |
 | [`mg09fe01sio3_bridgmanite_mao_1991_bm2_2`](https://doi.org/10.1029/91JB00176) | `parameterization_only` | — | — | —/— | not_refittable — No accessible numerical pressure-volume table was available; no graphical points were fabricated. |
 | [`mg7si2o8_crichton_2002_bm3_1`](https://doi.org/10.2138/am-2002-2-316) | `phase_a_crichton_2002_table1_compression` | 12 | `V0` 512.56 → 512.558; `K0` 97.5 → 97.4359; `K0_prime` 5.97 → 5.97857 | 0.00807659/0.00770891 | parity |
-| [`mg_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`mg_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`mg_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`mg_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`mg_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`mg_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
 | [`mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
 | [`mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
@@ -530,8 +382,6 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgo_zhu_2025_vinet_300k`](https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf) | `Mendeley Data 10.17632/6kxnhc2g73.3` | — | — | —/— | not_refittable — The record cites an external repository or source dataset that is not bundled as a row-level material dataset. |
 | [`mgo_b2_zhang_bukowinski_1991_mpib_bm3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Calculated states are plotted but not tabulated. |
 | [`mgo_liquid_ghosh_karki_2016_3000k_bm3_1`](https://www.nature.com/articles/srep37269.pdf) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced. |
-| [`mgo_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`mgo_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`mgsio3_liquid_akins_2004_adiabatic_bm3`](https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf) | `supporting_information_available` | — | — | —/— | not_refittable — The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting. |
 | [`mgsio3_post_perovskite_mosenfelder_2009_bm3_1`](https://doi.org/10.1029/2008JB005900) | `mgsio3_post_perovskite_mosenfelder_2009_table2_shock` | — | — | —/— | not_refittable — The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature. |
 | [`mgsio3_post_perovskite_sakai_2016_bm3_2`](https://doi.org/10.1038/srep22652) | `mgsio3_post_perovskite_sakai_2016_table_s1_pvt` | 18 | `V0` 158 → 157.838; `K0` 292 → 288.168; `K0_prime` 3.74 → 3.82067 | 1.68096/1.37054 | parity |
@@ -549,78 +399,38 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgsioh6_365a_phase_mookherjee_2015_bm3_experimental_1`](https://rruff.info/doclib/am/vol100/AM100_2199.pdf) | `mgsioh6_365a_mookherjee_2015_supplement_table1_pv` | 95 | `K0` 83 → 87.0042; `K0_prime` 4.9 → 4.41295 | 0.419743/0.273163 | parity |
 | [`mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2`](https://rruff.info/doclib/am/vol100/AM100_2199.pdf) | `mgsioh6_365a_mookherjee_2015_supplement_table1_pv` | 95 | `K0` 77 → 81.0346; `K0_prime` 7.9 → 6.33515; `K0_double_prime` -0.7 → -0.346154 | 0.397045/0.247761 | [similar](#investigation-mgsioh6_365a_phase_mookherjee_2015_bm4_experimental_sensitivity_2) |
 | [`mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3`](https://rruff.info/doclib/am/vol100/AM100_2199.pdf) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled. |
-| [`mo_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`mo_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`mo_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`mo_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`mo_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`mo_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`mo_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`mo_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`molybdenum_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`molybdenum_shen_2026_vinet_1`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
 | [`molybdenum_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`molybdenum_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`molybdenum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`molybdenum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`molybdenum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `molybdenum_dewaele_2008_table2_compression` | 29 | `V0` 31.138 → 31.1383; `K0` 270.3 → 270.305; `K0_prime` 3.34 → 3.33484 | —/0.333612 | [similar](#investigation-molybdenum_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`molybdenum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `molybdenum_dewaele_2008_table2_compression` | 29 | `V0` 31.134 → 31.1331; `K0` 269.3 → 269.332; `K0_prime` 3.87 → 3.87278 | —/0.341098 | [similar](#investigation-molybdenum_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0_prime` 4.19 → 4.1381 | —/— | [parity_not_achieved](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
 | [`molybdenum_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0` 271 → 255.46; `K0_prime` 3.89 → 4.2951 | —/— | [parity_not_achieved](#investigation-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
-| [`molybdenum_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`molybenum_carbide_mo2c_haines_2001_bm3_1`](https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf) | `molybdenum_carbide_haines_2001_figure2_digitized` | 16 | `K0` 307 → 325.874; `K0_prime` 6.2 → 4.9092 | 0.704038/0.374538 | [similar](#investigation-molybenum_carbide_mo2c_haines_2001_bm3_1) — Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001). |
 | [`molybenum_carbide_mo2c_haines_2001_bm3_refit`](https://electronicsandbooks.com/edt/manual/Magazine/J/Journal%20of%20Physics%20Condensed%20Matter/2001%20Volume%2013/0953-8984_13_11_303.pdf) | `molybdenum_carbide_haines_2001_figure2_digitized` | 16 | `K0` 325.874 → 325.874; `K0_prime` 4.9092 → 4.90919 | 0.617553/0.374538 | parity — Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001). |
 | [`na088al099fe013si094o4_calcium_ferrite_qin_2023_bm3_1`](https://doi.org/10.2138/am-2022-8432) | `na088al099fe013si094o4_qin_2023_table_s4_pv` | 10 | `V0` 244.2 → 244.286; `K0` 211 → 205.215; `K0_prime` 2.6 → 2.93315 | 0.388733/0.228741 | parity |
 | [`na093al102si100o4_calcium_ferrite_qin_2023_bm3_1`](https://doi.org/10.2138/am-2022-8432) | `na093al102si100o4_qin_2023_table_s3_pv` | 22 | `V0` 241.6 → 242.011; `K0` 220 → 209.422; `K0_prime` 2.6 → 3.11487 | 0.326278/0.246752 | parity |
-| [`na_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`na_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`naalsi2o6_zhao_1997_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/96GL03769) | `jadeite_zhao_1997_table1_pvt` | — | — | —/— | not_refittable — Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
 | [`naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1`](https://doi.org/10.1080/08957950212807) | `naalsio4_dubrovinsky_2002_figure2_digitized` | 19 | `V0` 242.957 → 243.06; `K0` 220 → 216.817; `K0_prime` 4.1 → 4.19447 | 0.138515/0.0345784 | parity |
-| [`nabr_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`nabr_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`nacl_b1_shen_2026_vinet_1`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
 | [`nacl_b2_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`nacl_b2_heinz_1984_bm2_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.30.6045/fulltext) | `nacl_b2_heinz_1984_table1_compression` | 14 | `V0` 41.67 → 40.7305; `K0` 36.2 → 39.7396 | 3.08109/2.91415 | parity |
 | [`nacl_b2_shen_2026_vinet_2`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
-| [`nacl_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`nacl_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`naf_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`naf_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`nai_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`nai_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`namg2al5sio12_cf_kawai_2012_bm3_1`](https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf) | `namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized` | 8 | `V0` 233.804 → 233.888; `K0` 213.2 → 214.288; `K0_prime` 4.12 → 4.10825 | 0.378232/0.0557264 | [similar](#investigation-namg2al5sio12_cf_kawai_2012_bm3_1) |
 | [`namg2al5sio12_nal_kawai_2012_bm3_1`](https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf) | `namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized` | 6 | `V0` 178.342 → 178.233; `K0` 217.7 → 217.619; `K0_prime` 4.08 → 4.08561 | 0.195998/0.00551706 | [similar](#investigation-namg2al5sio12_nal_kawai_2012_bm3_1) |
-| [`nb_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`nb_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`nb_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`nb_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`nb_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`nb_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`nd_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`nd_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`neon_fcc_fei_2007_bm3_1`](https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/) | `neon_fei_2007_figure5_digitized, neon_hemley_1989_table1_fei_recalculated` | 34 | `K0` 1.43 → 1.47752; `K0_prime` 8.02 → 7.85034 | 1.19132/1.18803 | parity — Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 is held fixed and the available subset is fitted without weights. |
 | [`neon_fcc_fei_2007_vinet_2`](https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/) | `neon_fei_2007_figure5_digitized, neon_hemley_1989_table1_fei_recalculated` | 34 | `rt_eos.K0` 1.16 → 1.14393; `rt_eos.K0_prime` 8.23 → 8.25807 | 1.15074/1.14912 | parity — Conditional partial reference-isotherm reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 and thermal coefficients are held fixed, and the available subset is fitted without weights. |
 | [`neon_fcc_hemley_1989_bm3_refit`](https://doi.org/10.1103/PhysRevB.39.11820) | `neon_hemley_1989_table1_compression` | 21 | `K0` 1.72775 → 1.72775; `K0_prime` 6.97211 → 6.97211 | 0.915611/0.0270668 | parity |
-| [`ni_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ni_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ni_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ni_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ni_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ni_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`nickel_dewaele_2008_vinet_1`](https://doi.org/10.1103/PhysRevB.78.104102) | `nickel_dewaele_2008_table2_compression` | 42 | `V0` 43.816 → 43.8593; `K0` 177.5 → 171.911; `K0_prime` 4.83 → 5.33231 | 3.33814/0.603881 | [similar](#investigation-nickel_dewaele_2008_vinet_1) |
-| [`nickel_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`nickel_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`nickel_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`nickel_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
+| [`nickel_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `nickel_dewaele_2008_table2_compression` | 42 | `V0` 43.816 → 43.8274; `K0` 177.5 → 176.049; `K0_prime` 4.83 → 4.86746 | —/0.601614 | [similar](#investigation-nickel_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`nickel_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `nickel_dewaele_2008_table2_compression` | 42 | `V0` 43.808 → 43.8186; `K0` 176 → 174.519; `K0_prime` 5.322 → 5.36595 | —/0.656294 | [similar](#investigation-nickel_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`nickel_oxide_noguchi_1999_bm3_1`](https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf) | `nickel_oxide_noguchi_1999_table1_shock` | — | — | —/— | not_refittable — The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs. |
 | [`nickel_oxide_noguchi_1999_linear_hugoniot_2`](https://www.jstage.jst.go.jp/article/jshpreview1992/7/0/7_0_832/_pdf) | `nickel_oxide_noguchi_1999_table1_shock` | 8 | `c0` 5.35498 → 5.35498; `s` 1.21373 → 1.21373 | —/0.0556367 km/s | parity |
 | [`niobium_takemura_2006_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext) | `niobium_takemura_2006_table1_compression` | 43 | `K0` 168 → 166.173; `K0_prime` 3.4 → 3.53348 | 1.35679/1.6975 | parity |
 | [`niobium_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`niobium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`niobium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`nis_campbell_1993_bm3_1`](https://doi.org/10.1016/0022-3697(93)90106-2) | `nis_campbell_1993_table1_compression` | 16 | `K0` 156 → 163.325; `K0_prime` 4.4 → 3.86225 | 2.00649/1.87679 | parity |
 | [`orthoenstatite_angel_2002_bm3_1`](https://web.gps.caltech.edu/~jackson/pdf/Angel_Jackson_AmMin02_87_558.pdf) | `orthoenstatite_angel_jackson_2002_figure2b_digitized` | 15 | `V0` 832.5 → 832.409; `K0` 105.8 → 112.899; `K0_prime` 8.5 → 7.9081 | 0.225605/0.00873423 | parity |
 | [`osmium_takemura_2004_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext) | `osmium_takemura_2004_table1_compression` | 28 | `V0` 27.9766 → 27.9621; `K0` 395 → 403.522; `K0_prime` 4.5 → 4.25301 | 0.194387/0.140997 | parity |
-| [`osmium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`osmium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`palladium_baty_2024_bm3_dft_2`](https://doi.org/10.1063/5.0179469) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes. |
 | [`palladium_guigue_2020_vinet_1`](https://doi.org/10.1063/1.5138697) | `plot_only` | — | — | —/— | not_refittable — The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed. |
 | [`palladium_fedotenko_2020_bm3_1`](https://doi.org/10.1016/j.jallcom.2020.156179) | `palladium_fedotenko_2020_table1_compression` | 15 | `V0` 58.868 → 58.8537; `K0` 157 → 158.668; `K0_prime` 9.9 → 9.78351 | 0.0885327/0.0749532 | parity |
@@ -628,22 +438,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`palladium_frost_2023_vinet_1`](https://doi.org/10.1063/5.0161038) | `palladium_frost_2023_tables_i_iii_compression` | 93 | `V0` 58.678 → 58.7665; `K0` 189.3 → 184.191; `K0_prime` 5.473 → 5.60371 | 0.771992/0.276359 | [similar](#investigation-palladium_frost_2023_vinet_1) — Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve). |
 | [`palladium_frost_2023_bm3_2`](https://doi.org/10.1063/5.0161038) | `palladium_frost_2023_tables_i_iii_compression` | 93 | `V0` 58.588 → 58.6846; `K0` 197.5 → 191.477; `K0_prime` 4.996 → 5.14738 | 0.845419/0.293082 | [similar](#investigation-palladium_frost_2023_bm3_2) — Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve). |
 | [`palladium_baty_2024_bm3_1`](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_table_s1_compression` | 78 | `V0` 58.88 → 59.9603; `K0` 190 → 152.057; `K0_prime` 5.3 → 6.09936 | 1.27312/0.704337 | [parity_not_achieved](#investigation-palladium_baty_2024_bm3_1) — Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024). |
-| [`palladium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`palladium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`pb_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pb_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pb_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pb_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pb_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pb_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`pbs_b1_knorr_2003_bm3_1`](https://arxiv.org/abs/cond-mat/0210013) | `lead_sulfide_knorr_2003_figure2_digitized` | 33 | `V0` 207.895 → 207.859; `K0` 51 → 50.6492; `K0_prime` 4.3 → 4.71011 | 0.0263763/0.0106853 | parity |
-| [`pd_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pd_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pd_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pd_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pd_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pd_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pd_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`perovskite_orthorhombic_knittle_1987_bm3_1`](https://www.science.org/doi/epdf/10.1126/science.235.4789.668) | `mgfe_perovskite_knittle_1987_table2_compression` | 5 | `V0` 162.77 → 165.729; `K0` 266 → 194.747; `K0_prime` 3.9 → 5.49081 | 2.8805/1.4557 | [similar](#investigation-perovskite_orthorhombic_knittle_1987_bm3_1) |
 | [`phase_d_ant_a_shieh_2000_bm2_1`](https://doi.org/10.1016/S0012-821X(00)00033-9) | `phase_d_shieh_2000_table2_pv` | 6 | `K0` 134 → 139.465 | 1.26057/0.746702 | parity |
 | [`phase_d_ant_b_shieh_2000_bm2_1`](https://doi.org/10.1016/S0012-821X(00)00033-9) | `phase_d_shieh_2000_table2_pv` | 5 | `K0` 134 → 134.714 | 1.83985/1.68226 | parity |
@@ -657,56 +452,23 @@ use `--check` in continuous integration to detect stale generated files.
 | [`platinum_dorogokupets_oganov_2007_vinet_4`](https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf) | `parameterization_only` | — | — | —/— | not_refittable — This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations. |
 | [`platinum_sokolova_2013_holzapfel_3`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
 | [`platinum_zhu_2025_vinet_300k`](https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf) | `Mendeley Data 10.17632/6kxnhc2g73.3` | — | — | —/— | not_refittable — The record cites an external repository or source dataset that is not bundled as a row-level material dataset. |
-| [`platinum_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`platinum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`platinum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`platinum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `platinum_dewaele_2004_table1_compression` | 36 | `V0` 60.396 → 60.3962; `K0` 273.4 → 273.444; `K0_prime` 4.83 → 4.83269 | —/0.214402 | [similar](#investigation-platinum_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`platinum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `platinum_dewaele_2004_table1_compression` | 36 | `V0` 60.392 → 60.394; `K0` 270.8 → 270.8; `K0_prime` 5.5 → 5.49763 | —/0.231552 | [similar](#investigation-platinum_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`platinum_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `platinum_dewaele_2004_table1_compression` | 36 | `K0` 275.3 → 275.051; `K0_prime` 4.78 → 4.78955 | 0.216788/0.183973 | parity |
 | [`platinum_dewaele_2004_revised_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `platinum_dewaele_2004_table1_compression` | 36 | `K0_prime` 5.08 → 5.08448 | 0.261721/0.220957 | parity |
 | [`platinum_dorfman_2012_tange_mgo_k0_fixed_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0_prime` 5.43 → 5.36541 | —/— | [parity_not_achieved](#investigation-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
 | [`platinum_dorfman_2012_tange_mgo_k0_free_vinet`](https://doi.org/10.1029/2012JB009292) | `jgrb17272-sup-0002-txts01.pdf` | 165 | `K0` 280 → 294.309; `K0_prime` 5.29 → 4.89884 | —/— | [parity_not_achieved](#investigation-platinum_dorfman_2012_tange_mgo_k0_free_vinet) — Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable. |
-| [`platinum_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`potassium_bcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`potassium_bcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`praseodymium_dioxide_gerward_2005_bm3_1`](https://people.iith.ac.in/kanchana/publications/2005/17.pdf) | `praseodymium_dioxide_gerward_2005_figure3b_digitized` | 18 | `K0` 187 → 183.32; `K0_prime` 4.8 → 4.96544 | 0.177766/0.10475 | parity |
 | [`pseudowollastonite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
-| [`pt_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pt_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pt_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`pt_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pt_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pt_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pt_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`pt_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`pyrope_milani_2015_bm3_1`](https://doi.org/10.1016/j.lithos.2015.03.017) | `pyrope_milani_2015_table_a2_compression` | 12 | `V0` 1506.15 → 1506.15; `K0` 163.7 → 163.739; `K0_prime` 6.4 → 6.36875 | 0.0177237/0.00382681 | parity |
-| [`rb_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rb_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rbbr_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rbbr_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`rbcl_b2_campbell_1994_bm3_1`](https://doi.org/10.1029/94JB00127) | `rbcl_campbell_1994_table1_compression` | 24 | `K0` 17.9 → 17.8808; `K0_prime` 5.23 → 5.23815 | 0.289865/0.279065 | parity — Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl). |
-| [`rbcl_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rbcl_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rbf_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rbf_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rbi_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`rbi_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`rhenium_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`rhenium_anzellini_2014_vinet_1`](https://doi.org/10.1063/1.4863300) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.4666 → 29.4712; `K0` 352.6 → 349.324; `K0_prime` 4.56 → 4.65097 | 0.613188/0.604048 | parity |
-| [`rhenium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`rhenium_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`rhenium_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`rhenium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
+| [`rhenium_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.474 → 29.4765; `K0` 350.5 → 349.467; `K0_prime` 3.98 → 4.01284 | —/0.574492 | [similar](#investigation-rhenium_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`rhenium_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `rhenium_anzellini_2014_table3_compression` | 59 | `V0` 29.468 → 29.4712; `K0` 350.5 → 349.324; `K0_prime` 4.62 → 4.65097 | —/0.604048 | [similar](#investigation-rhenium_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`rhodium_rodrigo_ramon_2024_vinet_1`](https://doi.org/10.1038/s41598-024-78006-0) | `rhodium_rodrigo_ramon_2024_table2_compression` | 51 | `V0` 55.046 → 55.0484; `K0` 251 → 250.426; `K0_prime` 5.7 → 5.70433 | 0.0486409/0.018579 | parity |
-| [`rhodium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`rhodium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`ringwoodite_meng_1994_bm3_1`](https://doi.org/10.1007/BF00203299) | `ringwoodite_meng_1994_table1_pvt` | 12 | `V0` 526.7 → 526.901; `K0` 182 → 178.432; `K0_prime` 4.2 → 4.49028 | 0.17443/0.167996 | parity |
-| [`rubidium_bcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`rubidium_bcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`ruthenium_anzellini_2019_bm3_1`](https://doi.org/10.1038/s41598-019-51037-8) | `ruthenium_anzellini_2019_table1_compression` | 116 | `V0` 27.122 → 27.1517; `K0` 323.4 → 317.525; `K0_prime` 4.15 → 4.24557 | 0.466705/0.444082 | [similar](#investigation-ruthenium_anzellini_2019_bm3_1) |
-| [`ruthenium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`ruthenium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`scandium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`scandium_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`seifertite_sun_2019_bm2_1`](https://doi.org/10.1029/2019JB017853) | `seifertite_sun_2019_dataset_s2_pvt` | 20 | `rt_eos.V0` 92.3 → 91.5099; `rt_eos.K0` 290 → 307.595; `theta0` 1600 → 2329.4; `gamma0` 1.6 → 1.84248 | 1.13964/0.13741 | [similar](#investigation-seifertite_sun_2019_bm2_1) |
 | [`seifertite_driver_2010_qmc_300k_vinet`](https://arxiv.org/pdf/1001.2066) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures. |
 | [`silica_cacl2_sun_2019_bm2_1`](https://doi.org/10.1029/2019JB017853) | `sio2_cacl2_sun_2019_dataset_s1_pvt` | 48 | `rt_eos.V0` 48.1 → 48.4852; `rt_eos.K0` 245 → 235.509; `theta0` 1100 → 2594.23; `gamma0` 1.3 → 1.68494 | 1.90716/1.50457 | [similar](#investigation-silica_cacl2_sun_2019_bm2_1) |
@@ -718,10 +480,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`silicon_x_anzellini_2019_vinet_1`](https://doi.org/10.1038/s41598-019-51931-1) | `silicon_anzellini_2019_tables1_4_6_7_compression` | 10 | `V0` 53.2 → 44.8163; `K0` 136 → 496.035; `K0_prime` 4.2 → 0 | 7.09058/0.525492 | [similar](#investigation-silicon_x_anzellini_2019_vinet_1) |
 | [`silver_dewaele_2008_vinet_1`](https://doi.org/10.1103/PhysRevB.78.104102) | `silver_dewaele_2008_table2_compression` | 34 | `V0` 68.28 → 68.4205; `K0` 100.2 → 96.2886; `K0_prime` 5.7 → 6.11178 | 2.12822/0.572496 | [similar](#investigation-silver_dewaele_2008_vinet_1) |
 | [`silver_sokolova_2013_holzapfel_2`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`silver_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`silver_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`silver_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`silver_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
+| [`silver_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `silver_dewaele_2008_table2_compression` | 34 | `V0` 68.28 → 68.2788; `K0` 100.2 → 100.388; `K0_prime` 5.7 → 5.68974 | —/0.468111 | [similar](#investigation-silver_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`silver_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `silver_dewaele_2008_table2_compression` | 34 | `V0` 68.352 → 68.3503; `K0` 96.6 → 96.8216; `K0_prime` 6.22 → 6.20851 | —/0.50383 | [similar](#investigation-silver_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`sio2_stv_andr_andrault_2003_bm3_1`](https://doi.org/10.2138/am-2003-2-307) | `stishovite_andrault_2003_tables1_2_compression` | 24 | `V0` 46.5025 → 46.5162; `K0` 309.9 → 312.008; `K0_prime` 4.59 → 4.33552 | 0.622502/0.60182 | parity |
 | [`sio2_stv_andr_wang_2012_vinet_mgd_2`](https://doi.org/10.1029/2011JB009100) | `stishovite_wang_2012_table1_pvt` | 56 | `rt_eos.K0` 292 → 294.677; `rt_eos.K0_prime` 5.01 → 4.879; `theta0` 1130 → 1134.71; `gamma0` 1.67 → 1.65552; `b` 3 → 3.04693 | 0.213441/0.100245 | parity |
 | [`sio2_stv_andr_driver_2010_qmc_300k_vinet`](https://arxiv.org/pdf/1001.2066) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures. |
@@ -729,126 +489,40 @@ use `--check` in continuous integration to detect stale generated files.
 | [`stishovite_akber_knutson_2002_vibc_300k_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2001GL013523) | `parameterization_only` | — | — | —/— | not_refittable — The paper tabulates coefficients but not the calculated energy-volume grid. |
 | [`stishovite_zhang_bukowinski_1991_mpib_bm3`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.44.2495/fulltext) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Calculated states are plotted but not tabulated. |
 | [`stishovite_schoelmerich_2020_shock_300k_bm3`](https://www.nature.com/articles/s41598-020-66340-y) | `primary_table_available_not_bundled` | — | — | —/— | not_refittable — Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification. |
-| [`sn_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`sn_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`sn_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`sn_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`sn_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`sn_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`sno2_hazen_1981_bm3_1`](https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds) | `rutile_hazen_finger_1981_table1_sno2_geo2_compression` | 4 | `V0` 71.4957 → 71.4935; `K0` 218 → 218.699 | 0.0558807/0.0554932 | [similar](#investigation-sno2_hazen_1981_bm3_1) |
 | [`sno2_cubic_27gpa_ono_2000_bm3_1`](https://doi.org/10.1007/s002690000108) | `sno2_ono_2000_table2_pvt` | 11 | `V0` 130.6 → 128.219; `K0` 252 → 379.59; `K0_prime` 3.5 → 0 | 0.609149/0.47526 | [parity_not_achieved](#investigation-sno2_cubic_27gpa_ono_2000_bm3_1) |
 | [`sno2_pa_3_at_48gpa_ono_2000_bm3_1`](https://doi.org/10.1007/s002690000108) | `sno2_ono_2000_table2_pvt` | 11 | `V0` 130.6 → 128.219; `K0` 252 → 379.59; `K0_prime` 3.5 → 0 | 0.609149/0.47526 | [parity_not_achieved](#investigation-sno2_pa_3_at_48gpa_ono_2000_bm3_1) |
-| [`sodium_9r_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`sodium_9r_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`solid_h2_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`solid_h2_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`solid_h2_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`sro_liu_1973_bm3_1`](https://doi.org/10.1029/JB078i035p08470) | `sro_liu_1973_table2_compression` | 11 | `K0` 91.3 → 90.6693; `K0_prime` 4.3 → 4.36534 | 0.223727/0.222125 | parity |
 | [`sro_b2_sato_1981_bm2_1`](https://doi.org/10.1029/JB086iB12p11773) | `sro_b2_sato_1981_table1_compression` | 13 | `V0` 28.0224 → 27.9615; `K0` 160 → 162.706 | 2.80314/2.80007 | parity |
 | [`srsio3_6h_xiao_2013_gga_bm2_1`](https://doi.org/10.2138/am.2013.4470) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced. |
 | [`srsio3_cubic_xiao_2013_experimental_bm2_1`](https://doi.org/10.2138/am.2013.4470) | `srsio3_cubic_xiao_2013_table1_pv` | 17 | `V0` 49.18 → 48.8694; `K0` 211 → 226.983 | 0.833323/0.634865 | [similar](#investigation-srsio3_cubic_xiao_2013_experimental_bm2_1) |
 | [`srsio3_cubic_xiao_2013_gga_bm2_2`](https://doi.org/10.2138/am.2013.4470) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced. |
-| [`strontium_fcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`strontium_fcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`ta_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ta_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ta_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ta_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ta_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ta_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ta_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ta_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`tantalum_cynn_1999_bm3_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.59.8526/fulltext) | `tantalum_cynn_1999_table2_compression` | 20 | `K0` 194.7 → 194.241; `K0_prime` 3.4 → 3.4523 | 2.4399/2.17085 | parity |
 | [`tantalum_shen_2026_vinet_2`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
 | [`tantalum_sokolova_2013_holzapfel_3`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`tantalum_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`tantalum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`tantalum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`tantalum_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `tantalum_dewaele_2004_table1_compression` | 36 | `V0` 36.04 → 36.0403; `K0` 197.9 → 197.843; `K0_prime` 3.17 → 3.17343 | —/0.277096 | [similar](#investigation-tantalum_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`tantalum_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `tantalum_dewaele_2004_table1_compression` | 36 | `V0` 36.038 → 36.0378; `K0` 196.1 → 196.056; `K0_prime` 3.64 → 3.64172 | —/0.300105 | [similar](#investigation-tantalum_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`tantalum_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `tantalum_dewaele_2004_table1_compression` | 36 | `K0` 198.2 → 195.278; `K0_prime` 3.07 → 3.24406 | 0.387667/0.264718 | parity |
 | [`tantalum_dewaele_2004_revised_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `tantalum_dewaele_2004_table1_compression` | 36 | `K0_prime` 3.52 → 3.57078 | 0.394586/0.282194 | parity |
-| [`tantalum_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`technetium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`th_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`th_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`th_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`th_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`th_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`th_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`thallium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`thallium_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`ti_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ti_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ti_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`ti_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ti_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ti_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`ti_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`tin_alpha_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`tin_alpha_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`titanium_alpha_dewaele_2015_vinet_1`](https://doi.org/10.1103/PhysRevB.91.134108) | `titanium_alpha_dewaele_2015_table4_compression` | 4 | `V0` 35.304 → 35.3222; `K0` 110.4 → 109.354 | 0.0519872/0.0452526 | parity |
-| [`titanium_alpha_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`titanium_alpha_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`titanium_omega_dewaele_2015_vinet_1`](https://doi.org/10.1103/PhysRevB.91.134108) | `titanium_omega_dewaele_2015_table4_compression` | 41 | `V0` 52.38 → 52.785; `K0` 106.9 → 98.4377; `K0_prime` 3.68 → 3.79577 | 2.92213/2.24692 | parity |
-| [`tl_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`tl_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`tl_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`tl_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`tl_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`tl_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`tungsten_sakai_2025_rydberg_stacey_1`](https://doi.org/10.1038/s43246-025-00792-5) | `derived_output_only` | — | — | —/— | not_refittable — The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance. |
 | [`tungsten_dewaele_2004_vinet_2`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `tungsten_dewaele_2004_table1_compression` | 42 | `K0` 295.2 → 295.671; `K0_prime` 4.32 → 4.30545 | 0.641998/0.508834 | parity |
 | [`tungsten_shen_2026_vinet_3`](https://doi.org/10.1103/fxgq-96sg) | `shen_smith_2026_table_s1_simultaneous_volumes` | — | — | —/— | not_refittable — The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported. |
 | [`tungsten_sokolova_2013_holzapfel_4`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
-| [`tungsten_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`tungsten_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`tungsten_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
+| [`tungsten_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `tungsten_dewaele_2004_table1_compression` | 42 | `V0` 31.724 → 31.7238; `K0` 298.3 → 298.283; `K0_prime` 3.82 → 3.81517 | —/0.577396 | [similar](#investigation-tungsten_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`tungsten_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `tungsten_dewaele_2004_table1_compression` | 42 | `V0` 31.716 → 31.7155; `K0` 298.6 → 298.571; `K0_prime` 4.37 → 4.3673 | —/0.579488 | [similar](#investigation-tungsten_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`tungsten_dewaele_2004_mao_ruby_vinet`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext) | `tungsten_dewaele_2004_table1_compression` | 42 | `K0` 298.3 → 298.692; `K0_prime` 3.81 → 3.80193 | 0.578538/0.476182 | parity |
-| [`tungsten_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`v_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`v_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`v_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`v_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`v_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`v_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`vanadium_bcc_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`vanadium_bcc_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`w_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`w_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`w_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`w_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`w_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`w_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`w_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`w_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`wadsleyite_katsura_2009_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009GL038107) | `wadsleyite_katsura_2009_table1_pvt` | 85 | `rt_eos.K0_prime` 4.1 → 3.88876; `gamma0` 1.64 → 1.12567; `q` 1.5 → 1.35014 | 1.89443/0.070938 | [parity_not_achieved](#investigation-wadsleyite_katsura_2009_bm3_1) |
 | [`wollastonite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
-| [`yttrium_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`yttrium_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
-| [`zinc_hcp_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`zinc_hcp_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zinc_hcp_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zinc_hcp_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
+| [`zinc_hcp_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `zinc_dewaele_2008_table2_compression` | 43 | `V0` 30.294 → 30.2925; `K0` 64.3 → 64.3339; `K0_prime` 5.3 → 5.29741 | —/0.59413 | [similar](#investigation-zinc_hcp_dewaele_2019_mao_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
+| [`zinc_hcp_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `zinc_dewaele_2008_table2_compression` | 43 | `V0` 30.31 → 30.3094; `K0` 62.2 → 62.2552; `K0_prime` 5.705 → 5.70359 | —/0.654374 | [similar](#investigation-zinc_hcp_dewaele_2019_dor_vinet) — Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. |
 | [`zinc_oxide_rocksalt_hanna_2011_bm2_1`](https://doi.org/10.1063/1.3644969) | `zinc_oxide_rocksalt_hanna_2011_figure4_bulk_digitized` | 20 | `V0` 78.44 → 77.9147; `K0` 172 → 205.845 | 0.802757/0.0746686 | [similar](#investigation-zinc_oxide_rocksalt_hanna_2011_bm2_1) |
 | [`zinc_oxide_wurtzite_hanna_2011_bm2_1`](https://doi.org/10.1063/1.3644969) | `zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized` | 17 | `V0` 47.7 → 47.5846; `K0` 139 → 147.307 | 0.699134/0.114921 | parity |
 | [`zircon_hazen_1979_bm3_1`](https://msaweb.org/AmMin/AM64/AM64_196.pdf) | `zircon_hazen_1979_table1_compression` | 11 | `V0` 260.79 → 260.806; `K0` 227 → 225.344 | 0.0849507/0.0840398 | parity |
 | [`zirconium_alpha_mchardy_2026_vinet_1`](https://doi.org/10.1103/zp3m-kjpc) | `zirconium_alpha_mchardy_2026_table_s6_compression` | 66 | `K0` 113.7 → 114.476 | 0.198053/0.124688 | parity |
-| [`zirconium_alpha_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
-| [`zirconium_alpha_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
 | [`zirconium_beta_mchardy_2026_vinet_1`](https://doi.org/10.1103/zp3m-kjpc) | `zirconium_beta_mchardy_2026_table_s8_compression` | 71 | `K0` 83 → 82.9249; `K0_prime` 3.91 → 3.90845 | 1.09962/0.448825 | parity |
 | [`zirconium_omega_mchardy_2026_vinet_1`](https://doi.org/10.1103/zp3m-kjpc) | `zirconium_omega_mchardy_2026_table_s7_compression` | 41 | `K0` 98 → 98.1333; `K0_prime` 3.6 → 3.57075 | 0.440459/0.411512 | parity |
-| [`zn_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`zn_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`zn_sun_2010_mrs3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`zn_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zn_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zn_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zn_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zr_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`zr_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`zr_sun_2010_low_vn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zr_sun_2010_low_mrs3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zr_sun_2010_low_sms3`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
-| [`zr_sun_2010_low_sms4`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 
 ## Parity not achieved
 
@@ -957,7 +631,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **117** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -985,6 +659,48 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The point estimate exceeds the numerical limit for `theta0`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 - The lowest checked pressure is 96.5 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
+
+<a id="investigation-aluminum_dewaele_2019_mao_vinet"></a>
+
+### `aluminum_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `aluminum_dewaele_2004_table1_compression` with 40 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 66.292 | 66.2907 | 0.00% | — | yes |
+| `K0` | 76.32 | 76.3243 | 0.01% | — | yes |
+| `K0_prime` | 4.16 | 4.15506 | 0.12% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-144.3 GPa; source-declared range: 0-155 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.411063 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 40 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-aluminum_dewaele_2019_dor_vinet"></a>
+
+### `aluminum_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `aluminum_dewaele_2004_table1_compression` with 40 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 66.336 | 66.3369 | 0.00% | — | yes |
+| `K0` | 74.2 | 74.1878 | 0.02% | — | yes |
+| `K0_prime` | 4.52 | 4.52436 | 0.10% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-155.291 GPa; source-declared range: 0-155 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.429366 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 40 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-argon_hcp_wittlinger_1997_bm2_1"></a>
 
@@ -1262,6 +978,48 @@ the missing source fit detail is recovered.
 - The point estimate exceeds the numerical limit for `K0_prime`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 - The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
 
+<a id="investigation-cobalt_hcp_dewaele_2019_mao_vinet"></a>
+
+### `cobalt_hcp_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `cobalt_dewaele_2008_table2_compression` with 25 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.154 | 22.1542 | 0.00% | — | yes |
+| `K0` | 197 | 197.028 | 0.01% | — | yes |
+| `K0_prime` | 3.85 | 3.84907 | 0.02% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-63.4 GPa; source-declared range: 0-66 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.254228 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 25 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-cobalt_hcp_dewaele_2019_dor_vinet"></a>
+
+### `cobalt_hcp_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `cobalt_dewaele_2008_table2_compression` with 25 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 22.154 | 22.1537 | 0.00% | — | yes |
+| `K0` | 194.85 | 194.846 | 0.00% | — | yes |
+| `K0_prime` | 4.36 | 4.35842 | 0.04% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-66.0991 GPa; source-declared range: 0-66 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.265849 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 25 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-coesite_levien_1981_bm3_1"></a>
 
 ### `coesite_levien_1981_bm3_1`
@@ -1320,6 +1078,48 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - Decimal rounding alone is ruled out: four printed rows cannot lie on the published curve even within both displayed rounding intervals. The input is a nine-point smoothed table rather than the numerical Figure 2 observations, and the source gives no weights or exact regression objective. The free K0 and K0' estimates are strongly anticorrelated (correlation -0.971); fixing either published coefficient recovers the other closely, so the large derivative shift follows a shallow objective valley rather than a comparably large curve discrepancy. Exact parity requires the source observations and fit protocol. See the [dedicated CoO reproduction](literature-reproductions.md#coo-clendenen-1966).
+
+<a id="investigation-copper_dewaele_2019_mao_vinet"></a>
+
+### `copper_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `copper_dewaele_2004_table1_compression` with 42 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 47.24 | 47.2399 | 0.00% | — | yes |
+| `K0` | 135.3 | 135.285 | 0.01% | — | yes |
+| `K0_prime` | 4.91 | 4.90864 | 0.03% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-144.3 GPa; source-declared range: 0-155 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.37535 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-copper_dewaele_2019_dor_vinet"></a>
+
+### `copper_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `copper_dewaele_2004_table1_compression` with 42 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 47.24 | 47.2416 | 0.00% | — | yes |
+| `K0` | 133.1 | 133.127 | 0.02% | — | yes |
+| `K0_prime` | 5.38 | 5.37856 | 0.03% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-155.291 GPa; source-declared range: 0-155 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.387742 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-cu_sun_2010_low_vn_refit"></a>
 
@@ -1533,6 +1333,48 @@ the missing source fit detail is recovered.
 - The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
 - The lowest checked pressure is 49.2069 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-gold_dewaele_2019_mao_vinet"></a>
+
+### `gold_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `gold_takemura_2008_table3_compression` with 86 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 67.932 | 67.9327 | 0.00% | — | yes |
+| `K0` | 166.4 | 166.367 | 0.02% | — | yes |
+| `K0_prime` | 5.47 | 5.46613 | 0.07% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-122.292 GPa; source-declared range: 0-131 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.725872 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 86 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-gold_dewaele_2019_dor_vinet"></a>
+
+### `gold_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `gold_takemura_2008_table3_compression` with 86 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 67.944 | 67.9431 | 0.00% | — | yes |
+| `K0` | 163.4 | 163.377 | 0.01% | — | yes |
+| `K0_prime` | 6.04 | 6.02982 | 0.17% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-130.8 GPa; source-declared range: 0-131 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.773022 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 86 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-gold_dorfman_2012_tange_mgo_k0_fixed_vinet"></a>
 
@@ -2109,7 +1951,7 @@ the missing source fit detail is recovered.
 | `V0` | 163.85 | 164.427 ± 0.0719266 | 0.35% | no | yes |
 | `K0` | 242 | 236.848 ± 1.38626 | 2.13% | yes | yes |
 
-**Fit diagnostics.** Observed pressure range: 4.2-64.6 GPa; source-declared range: 4.2-64.6 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.719501/0.322812 GPa; reduced chi-square: 0.819612; free parameters: `V0, K0`; source-fixed parameters: `none`.
+**Fit diagnostics.** Observed pressure range: 4.2-64.6 GPa; source-declared range: 4.2-64.6 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.719501/0.322812 GPa; reduced chi-square: 0.819612; free parameters: `V0, K0`; source-fixed parameters: `K0_prime`.
 
 **Source/data scope.** All 22 recoverable pressures, lattice parameters, conventional-cell volumes, and 1-sigma uncertainties are bundled. Table S1 and the CIF are both retained where their printed lattice values differ. Row-wise Au calibrant volumes and the two individual platelet volume series plotted in Figure S2 are not published.
 
@@ -2130,7 +1972,7 @@ the missing source fit detail is recovered.
 | `V0` | 163.75 | 164.001 ± 0.030322 | 0.15% | — | yes |
 | `K0` | 256 | 254.071 ± 0.694977 | 0.75% | yes | yes |
 
-**Fit diagnostics.** Observed pressure range: 4.3-72.6 GPa; source-declared range: 0-72.6 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.664304/0.546201 GPa; reduced chi-square: 9.6363; free parameters: `V0, K0`; source-fixed parameters: `none`.
+**Fit diagnostics.** Observed pressure range: 4.3-72.6 GPa; source-declared range: 0-72.6 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.664304/0.546201 GPa; reduced chi-square: 9.6363; free parameters: `V0, K0`; source-fixed parameters: `K0_prime`.
 
 **Source/data scope.** Direct transcription of all 43 non-ambient pressure-volume rows; the analytical curve gives 0.664 GPa pressure RMSE against the rounded table.
 
@@ -2345,6 +2187,48 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The point estimate exceeds the numerical limit for `K0_double_prime`, but the source and refit two-sigma intervals overlap. This is evidence of weak coefficient identification rather than a resolved curve-level disagreement.
 
+<a id="investigation-molybdenum_dewaele_2019_mao_vinet"></a>
+
+### `molybdenum_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `molybdenum_dewaele_2008_table2_compression` with 29 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 31.138 | 31.1383 | 0.00% | — | yes |
+| `K0` | 270.3 | 270.305 | 0.00% | — | yes |
+| `K0_prime` | 3.34 | 3.33484 | 0.15% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-116 GPa; source-declared range: 0-124 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.333612 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 29 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-molybdenum_dewaele_2019_dor_vinet"></a>
+
+### `molybdenum_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `molybdenum_dewaele_2008_table2_compression` with 29 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 31.134 | 31.1331 | 0.00% | — | yes |
+| `K0` | 269.3 | 269.332 | 0.01% | — | yes |
+| `K0_prime` | 3.87 | 3.87278 | 0.07% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-123.817 GPa; source-declared range: 0-124 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.341098 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 29 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet"></a>
 
 ### `molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet`
@@ -2474,6 +2358,48 @@ the missing source fit detail is recovered.
 - The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-nickel_dewaele_2019_mao_vinet"></a>
+
+### `nickel_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `nickel_dewaele_2008_table2_compression` with 42 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 43.816 | 43.8274 | 0.03% | — | yes |
+| `K0` | 177.5 | 176.049 | 0.82% | — | yes |
+| `K0_prime` | 4.83 | 4.86746 | 0.78% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-147.4 GPa; source-declared range: 0-157 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.601614 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-nickel_dewaele_2019_dor_vinet"></a>
+
+### `nickel_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `nickel_dewaele_2008_table2_compression` with 42 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 43.808 | 43.8186 | 0.02% | — | yes |
+| `K0` | 176 | 174.519 | 0.84% | — | yes |
+| `K0_prime` | 5.322 | 5.36595 | 0.83% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-158.746 GPa; source-declared range: 0-157 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.656294 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-palladium_frost_2023_vinet_1"></a>
 
 ### `palladium_frost_2023_vinet_1`
@@ -2583,6 +2509,48 @@ the missing source fit detail is recovered.
 - The magnitude is similar for `K0`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-platinum_dewaele_2019_mao_vinet"></a>
+
+### `platinum_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `platinum_dewaele_2004_table1_compression` with 36 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 60.396 | 60.3962 | 0.00% | — | yes |
+| `K0` | 273.4 | 273.444 | 0.02% | — | yes |
+| `K0_prime` | 4.83 | 4.83269 | 0.06% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-90 GPa; source-declared range: 0-95 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.214402 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 36 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-platinum_dewaele_2019_dor_vinet"></a>
+
+### `platinum_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `platinum_dewaele_2004_table1_compression` with 36 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 60.392 | 60.394 | 0.00% | — | yes |
+| `K0` | 270.8 | 270.8 | 0.00% | — | yes |
+| `K0_prime` | 5.5 | 5.49763 | 0.04% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-95.1057 GPa; source-declared range: 0-95 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.231552 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 36 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet"></a>
 
 ### `platinum_dorfman_2012_tange_mgo_k0_fixed_vinet`
@@ -2621,6 +2589,48 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
+
+<a id="investigation-rhenium_dewaele_2019_mao_vinet"></a>
+
+### `rhenium_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `rhenium_anzellini_2014_table3_compression` with 59 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 29.474 | 29.4765 | 0.01% | — | yes |
+| `K0` | 350.5 | 349.467 | 0.29% | — | yes |
+| `K0_prime` | 3.98 | 4.01284 | 0.83% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0.656411-134.163 GPa; source-declared range: 0-144 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.574492 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-rhenium_dewaele_2019_dor_vinet"></a>
+
+### `rhenium_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `rhenium_anzellini_2014_table3_compression` with 59 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 29.468 | 29.4712 | 0.01% | — | yes |
+| `K0` | 350.5 | 349.324 | 0.34% | — | yes |
+| `K0_prime` | 4.62 | 4.65097 | 0.67% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0.65-144 GPa; source-declared range: 0-144 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.604048 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-ruthenium_anzellini_2019_bm3_1"></a>
 
@@ -2802,6 +2812,48 @@ the missing source fit detail is recovered.
 - The magnitude is similar for `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-silver_dewaele_2019_mao_vinet"></a>
+
+### `silver_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `silver_dewaele_2008_table2_compression` with 34 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 68.28 | 68.2788 | 0.00% | — | yes |
+| `K0` | 100.2 | 100.388 | 0.19% | — | yes |
+| `K0_prime` | 5.7 | 5.68974 | 0.18% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-116 GPa; source-declared range: 0-124 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.468111 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 34 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-silver_dewaele_2019_dor_vinet"></a>
+
+### `silver_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `silver_dewaele_2008_table2_compression` with 34 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 68.352 | 68.3503 | 0.00% | — | yes |
+| `K0` | 96.6 | 96.8216 | 0.23% | — | yes |
+| `K0_prime` | 6.22 | 6.20851 | 0.18% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-123.817 GPa; source-declared range: 0-124 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.50383 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 34 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-sno2_hazen_1981_bm3_1"></a>
 
 ### `sno2_hazen_1981_bm3_1`
@@ -2887,6 +2939,90 @@ the missing source fit detail is recovered.
 - The magnitude is similar for `V0`, `K0`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 - The lowest checked pressure is 6.2 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 
+<a id="investigation-tantalum_dewaele_2019_mao_vinet"></a>
+
+### `tantalum_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `tantalum_dewaele_2004_table1_compression` with 36 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 36.04 | 36.0403 | 0.00% | — | yes |
+| `K0` | 197.9 | 197.843 | 0.03% | — | yes |
+| `K0_prime` | 3.17 | 3.17343 | 0.11% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-90 GPa; source-declared range: 0-90 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.277096 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 36 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-tantalum_dewaele_2019_dor_vinet"></a>
+
+### `tantalum_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `tantalum_dewaele_2004_table1_compression` with 36 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 36.038 | 36.0378 | 0.00% | — | yes |
+| `K0` | 196.1 | 196.056 | 0.02% | — | yes |
+| `K0_prime` | 3.64 | 3.64172 | 0.05% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-95.1057 GPa; source-declared range: 0-90 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.300105 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 36 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-tungsten_dewaele_2019_mao_vinet"></a>
+
+### `tungsten_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `tungsten_dewaele_2004_table1_compression` with 42 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 31.724 | 31.7238 | 0.00% | — | yes |
+| `K0` | 298.3 | 298.283 | 0.01% | — | yes |
+| `K0_prime` | 3.82 | 3.81517 | 0.13% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-144.3 GPa; source-declared range: 0-155 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.577396 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-tungsten_dewaele_2019_dor_vinet"></a>
+
+### `tungsten_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `tungsten_dewaele_2004_table1_compression` with 42 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 31.716 | 31.7155 | 0.00% | — | yes |
+| `K0` | 298.6 | 298.571 | 0.01% | — | yes |
+| `K0_prime` | 4.37 | 4.3673 | 0.06% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-155.291 GPa; source-declared range: 0-155 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.579488 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
 <a id="investigation-wadsleyite_katsura_2009_bm3_1"></a>
 
 ### `wadsleyite_katsura_2009_bm3_1`
@@ -2908,6 +3044,48 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 - The full 85-row table is present, but the published parameterization misses those rows by much more than the refit and gamma0 shifts far outside its reported error. The pressure calibration remains unresolved, and an MGD reference-state or Debye-energy convention mismatch is also possible. A row-by-row source-equation reproduction should precede any coefficient revision.
+
+<a id="investigation-zinc_hcp_dewaele_2019_mao_vinet"></a>
+
+### `zinc_hcp_dewaele_2019_mao_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `zinc_dewaele_2008_table2_compression` with 43 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 30.294 | 30.2925 | 0.01% | — | yes |
+| `K0` | 64.3 | 64.3339 | 0.05% | — | yes |
+| `K0_prime` | 5.3 | 5.29741 | 0.05% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-147.4 GPa; source-declared range: 0-157 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.59413 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 43 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-zinc_hcp_dewaele_2019_dor_vinet"></a>
+
+### `zinc_hcp_dewaele_2019_dor_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `zinc_dewaele_2008_table2_compression` with 43 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 30.31 | 30.3094 | 0.00% | — | yes |
+| `K0` | 62.2 | 62.2552 | 0.09% | — | yes |
+| `K0_prime` | 5.705 | 5.70359 | 0.02% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 0-158.746 GPa; source-declared range: 0-157 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: —/0.654374 GPa; reduced chi-square: —; free parameters: `V0, K0, K0_prime`; source-fixed parameters: `none`.
+
+**Source/data scope.** All 43 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).
+
+**Registered source-fit note.** Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-zinc_oxide_rocksalt_hanna_2011_bm2_1"></a>
 
@@ -2933,14 +3111,6 @@ the missing source fit detail is recovered.
 
 ## Direct refit unavailable
 
-- `ag_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ag_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ag_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ag_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ag_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ag_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ag_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ag_sun_2010_low_bn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `akimotoite_karki_2002_static_bm4_1`: Complete BM4 coefficients are tabulated, but the underlying free-energy-volume grid is shown only graphically and is not deposited.
 - `akimotoite_karki_2002_300k_bm4_2`: The fitted coefficients and curve are published, but the numerical free-energy-volume grid is unavailable.
 - `akimotoite_karki_2002_1000k_bm4_3`: The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable.
@@ -2949,42 +3119,10 @@ the missing source fit detail is recovered.
 - `al2o3_perovskite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 - `al2o3_perovskite_holland_2013_apv_modified_tait`: The official tc-ds62 apv block provides all four coefficients.
 - `al2o3_post_perovskite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
-- `al2o3_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `al2o3_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `al_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `al_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `al_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `al_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `al_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `al_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `alpha_quartz_driver_2010_qmc_300k_vinet`: The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.
 - `aluminum_sokolova_2013_holzapfel_2`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `aluminum_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `aluminum_lejaeghere_2016_fleur_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `aluminum_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `aluminum_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `aluminum_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `au_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `au_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `au_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `au_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `au_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `au_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `au_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `au_sun_2010_low_bn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `barium_bcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `barium_bcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `be_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `be_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `be_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `be_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `be_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `be_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `beryllium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
 - `beryllium_hcp_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `beryllium_hcp_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `bismuth_a7_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `bismuth_a7_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `breyite_sagatova_2021_gga_300k_vinet`: Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.
 - `bridgmanite_metsue_2012_static_bm3_1`: The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated.
 - `bridgmanite_akber_knutson_2005_gga_bm3`: The E(V) rows, weights, residuals, and covariance are not tabulated.
@@ -3028,76 +3166,12 @@ the missing source fit detail is recovered.
 - `ca_perovskite_tetragonal_caracas_2005_bm3_1`: Complete coefficients and density checkpoints are published; the underlying E(V) grid is not.
 - `ca_perovskite_tetragonal_caracas_2005_bm4_2`: Complete coefficients and density checkpoints are published; the underlying E(V) grid is not.
 - `ca_perovskite_tetragonal_chen_2018_bm2`: The article states that all EOS observations are in Table 1, but no authoritative open table artifact suitable for lossless redistribution was retrieved in this audit; no digitized pseudo-table was created.
-- `ca_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ca_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ca_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ca_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ca_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ca_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cadmium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `cadmium_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `calcium_fcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `calcium_fcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `casio2o5_titanite_sagatova_2021_gga_300k_vinet`: Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.
-- `casio3_perovskite_i4mmm_caracas_2005_bm3_1`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_i4mmm_caracas_2005_bm4_2`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_im3_caracas_2005_bm3_1`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_im3_caracas_2005_bm4_2`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_imma_caracas_2005_bm3_1`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_imma_caracas_2005_bm4_2`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_p42nmc_caracas_2005_bm3_1`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_p42nmc_caracas_2005_bm4_2`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_p4mbm_caracas_2005_bm3_1`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_p4mbm_caracas_2005_bm4_2`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_pnma_caracas_2005_bm3_1`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_pnma_caracas_2005_bm4_2`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_r3c_caracas_2005_bm3_1`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
-- `casio3_perovskite_r3c_caracas_2005_bm4_2`: The source publishes complete coefficients and independent density checkpoints but not the underlying E(V) grid or fit covariance.
 - `casio3_perovskite_tetragonal_shim_2002_bm3_1`: The six pressures and plotted volume/c-axis-ratio observations appear in Figure 2, but numerical cell volumes are not tabulated; no pseudo-precision was introduced by digitizing the small four-page rendering.
-- `cd_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `cd_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `cd_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cd_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cd_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cd_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cesium_bcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `cesium_bcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `chromium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `chromium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `co_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `co_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `co_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `co_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `co_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `co_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cobalt_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `cobalt_hcp_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cobalt_hcp_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cobalt_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `coesite_i_iii_bykova_2018_300k_bm3`: The combined observations are plotted in Figure 1 but not supplied as a numerical table.
 - `coesite_v_bykova_2018_am05_static_bm3_refit`: Table 10 contains only one coesite-V pressure-volume anchor, which is sufficient to verify the published-parameter reconstruction but not to independently refit its three BM3 coefficients.
 - `copper_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `copper_sokolova_2013_holzapfel_2`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `copper_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `copper_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `copper_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `copper_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `cr_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `cr_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `cr_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cr_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cr_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `cr_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `csbr_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `csbr_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `cu_sun_2010_sms4_1`: Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit.
-- `cu_sun_2010_sms3_1`: Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit.
-- `cu_sun_2010_mrs3_1`: Source-author coefficients are complete and executable, but the exact fitted isotherm rows and numerical implementation are not republished. This catalog action is a transcription, not a Peritheos refit.
-- `cu_sun_2010_low_vn`: This record preserves Sun et al.'s published coefficients and is not itself refitted. A separate dataset-backed Peritheos record, cu_sun_2010_low_vn_refit, uses the manually verified handbook Cu cells; experiment-level rows and the source authors' numerical implementation remain unavailable.
-- `cu_sun_2010_low_mrs3`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
-- `cu_sun_2010_low_sms3`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
-- `cu_sun_2010_low_sms4`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
-- `cu_sun_2010_low_bn`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
 - `diamond_datchi_2007_vinet_1`: For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record.
 - `diamond_sokolova_2013_holzapfel_3`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
 - `diamond_correa_2008_double_debye_log_moment_5`: This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data.
@@ -3106,10 +3180,7 @@ the missing source fit detail is recovered.
 - `diamond_benedict_2014_dewaele_anchored`: The linked diffraction rows constrain only the Dewaele reference isotherm; the Benedict thermal term is a separately published theoretical model.
 - `e_feooh_gleason_2008_bm2_1`: Only 1 observation(s) lie at the reference temperature for 2 free isothermal coefficients; the other rows require a thermal relation that this record does not represent.
 - `fe_shen_2026_vinet_1`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
-- `fe_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `fe_lejaeghere_2016_fleur_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `fe_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `fe088sio3_bridgmanite_ismailova_2016_300k_bm2`: The source supplies crystallographic and compressibility data in its supplement; the production record preserves the directly reported fitted parameterization.
+- `fe088sio3_bridgmanite_ismailova_2016_300k_bm2`: Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.
 - `feo_fischer_2011_bm3_2`: Only 1 observation(s) lie at the reference temperature for 2 free isothermal coefficients; the other rows require a thermal relation that this record does not represent.
 - `feo_leonov_2017_hs_bm3_1`: Independent equation checkpoints verify transcription without claiming a refit.
 - `feo_holland_2013_fper_modified_tait`: The official tc-ds62 fper block provides all four coefficients.
@@ -3119,64 +3190,21 @@ the missing source fit detail is recovered.
 - `fesio3_liquid_sun_2019_2500k_bm4_1`: The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, rather than the numerical table, identifies the liquid states used by the source fit, so the table is a checkpoint resource and not an asserted exact regression input.
 - `fesio3_post_perovskite_cohen_lin_2014_vinet_1`: The energy-volume observations are plot-only; Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47.
 - `fesio3_post_perovskite_ii_cohen_lin_2014_vinet_1`: The energy-volume grid is plot-only; Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44.
-- `gallium_alpha_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
 - `gold_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `gold_anderson_1989_bm3_1`: The paper derives a thermodynamic gold parameterization from literature properties and publishes coefficient tables, not a new row-level experimental compression dataset.
 - `gold_shen_2026_vinet_3`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `gold_sokolova_2013_holzapfel_4`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
 - `gold_zhu_2025_vinet_300k`: The record cites an external repository or source dataset that is not bundled as a row-level material dataset.
-- `gold_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `gold_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `gold_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `gold_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `hafnium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `hafnium_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `in_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `in_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `in_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `in_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `in_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `in_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `indium_bct_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `indium_bct_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `indium_nitride_munoz_1993_murnaghan_1`: This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters.
 - `iridium_anzellini_2025_bm3_1`: The bundled rows are all heated states. The stored coefficients are the 300 K reference part of a combined thermal fit, but the record does not represent the source's thermal correction needed to refit those rows.
-- `iridium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `iridium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `iron_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `iron_shen_2026_vinet_2`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
-- `k_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `k_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `kf_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `kf_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ki_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ki_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`: The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.
 - `klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`: The source reports the P-V-T observations in Table S1; this record preserves the Table 1 fit.
 - `klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`: The source reports the P-V observations in Table S1; this record preserves the Table 1 fit.
 - `klb1_mg_perovskite_ricolleau_2009_bm2_alphakt`: The source reports 17 room-temperature and 136 high-temperature patterns in Table S1; this record preserves the Table 1 fit.
 - `larnite_sagatova_2021_gga_300k_vinet`: Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.
 - `lead_fcc_fortes_2019_bm4_1`: Fortes (2019) derives an fcc-Pb pressure scale from published literature data and tabulates model coefficients and comparisons, but no new row-level experimental P-V-T observations.
-- `lead_fcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `lead_fcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `li_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `li_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `libr_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `libr_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `licl_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `licl_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `lif_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `lif_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `lii_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `lii_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `lithium_9r_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `lithium_9r_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `lutetium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `magnesium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `magnesium_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `manganese_alpha_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `manganese_fcc_afm_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `mercury_bct_dft_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
 - `mg0125fe0875o_leonov_2017_hs_bm3_1`: Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.
 - `mg025fe075o_leonov_2017_hs_bm3_1`: Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.
 - `mg0375fe0625o_leonov_2017_hs_bm3_1`: Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.
@@ -3219,12 +3247,6 @@ the missing source fit detail is recovered.
 - `mg0991fe0008mn0001co3_redfern_1993_bm2_1`: The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.
 - `mg0991fe0008mn0001co3_redfern_1993_bm3_2`: The accessible primary record did not expose a numerical pressure-volume table; no figure points were invented.
 - `mg09fe01sio3_bridgmanite_mao_1991_bm2_2`: No accessible numerical pressure-volume table was available; no graphical points were fabricated.
-- `mg_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `mg_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `mg_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `mg_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `mg_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `mg_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 - `mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 - `mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
@@ -3259,8 +3281,6 @@ the missing source fit detail is recovered.
 - `mgo_zhu_2025_vinet_300k`: The record cites an external repository or source dataset that is not bundled as a row-level material dataset.
 - `mgo_b2_zhang_bukowinski_1991_mpib_bm3`: Calculated states are plotted but not tabulated.
 - `mgo_liquid_ghosh_karki_2016_3000k_bm3_1`: The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced.
-- `mgo_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `mgo_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `mgsio3_liquid_akins_2004_adiabatic_bm3`: The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting.
 - `mgsio3_post_perovskite_mosenfelder_2009_bm3_1`: The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature.
 - `mgsio3_post_perovskite_akber_knutson_2005_gga_bm3`: The E(V) rows, weights, residuals, and covariance are not tabulated.
@@ -3272,232 +3292,40 @@ the missing source fit detail is recovered.
 - `mgsio3_post_perovskite_liu_2010_lda_static_bm3`: Figure 1 plots the EOS, but the underlying calculated E-V points and regression covariance are not tabulated; validation uses the exact printed equation and coefficients.
 - `mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey`: Complete optimized coefficients are tabulated; the underlying heterogeneous P-V-T observations and fitting weights are not deposited together.
 - `mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3`: The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled.
-- `mo_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `mo_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `mo_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `mo_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `mo_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `mo_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `mo_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `mo_sun_2010_low_bn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `molybdenum_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `molybdenum_shen_2026_vinet_1`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `molybdenum_sokolova_2013_holzapfel_2`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `molybdenum_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `molybdenum_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `molybdenum_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `molybdenum_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `na_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `na_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `naalsi2o6_zhao_1997_bm3_1`: Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent.
-- `nabr_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nabr_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `nacl_b1_shen_2026_vinet_1`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `nacl_b2_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `nacl_b2_shen_2026_vinet_2`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
-- `nacl_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nacl_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `naf_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `naf_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nai_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nai_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nb_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nb_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nb_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `nb_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `nb_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `nb_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `nd_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `nd_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ni_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ni_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ni_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ni_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ni_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ni_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `nickel_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `nickel_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `nickel_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `nickel_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `nickel_oxide_noguchi_1999_bm3_1`: The bundled rows are Hugoniot states; the stored 300 K isotherm is the source's Mie-Gruneisen reduction, not a direct fit to Hugoniot P-V pairs.
 - `niobium_sokolova_2013_holzapfel_2`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `niobium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `niobium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `osmium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `osmium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `palladium_baty_2024_bm3_dft_2`: The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes.
 - `palladium_guigue_2020_vinet_1`: The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed.
-- `palladium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `palladium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `pb_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pb_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pb_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pb_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pb_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pb_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pd_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pd_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pd_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pd_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pd_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pd_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pd_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `platinum_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `platinum_holmes_1989_vinet_1`: The bundled rows are shock-Hugoniot qualification experiments; the stored equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be refitted directly to those rows.
 - `platinum_shen_2026_vinet_2`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `platinum_dorogokupets_oganov_2007_vinet_4`: This is a semiempirical multi-material pressure-scale construction from published shock, ultrasonic, X-ray, and thermochemical literature. It publishes EOS coefficients and calculated calibration values, but no new row-level experimental platinum observations.
 - `platinum_sokolova_2013_holzapfel_3`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
 - `platinum_zhu_2025_vinet_300k`: The record cites an external repository or source dataset that is not bundled as a row-level material dataset.
-- `platinum_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `platinum_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `platinum_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `platinum_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `polonium_simple_cubic_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `potassium_bcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `potassium_bcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `pseudowollastonite_sagatova_2021_gga_300k_vinet`: Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.
-- `pt_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pt_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pt_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `pt_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pt_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pt_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pt_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `pt_sun_2010_low_bn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `rb_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rb_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbbr_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbbr_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbcl_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbcl_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbf_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbf_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbi_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `rbi_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `rhenium_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
-- `rhenium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `rhenium_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `rhenium_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `rhenium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `rhodium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `rhodium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `rubidium_bcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `rubidium_bcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `ruthenium_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `ruthenium_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `scandium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `scandium_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `seifertite_driver_2010_qmc_300k_vinet`: The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.
 - `silver_sokolova_2013_holzapfel_2`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `silver_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `silver_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `silver_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `silver_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
 - `sio2_stv_andr_driver_2010_qmc_300k_vinet`: The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.
 - `sio2_stv_andr_holland_2013_stv_modified_tait`: The official tc-ds62 stv block provides all four coefficients.
 - `stishovite_akber_knutson_2002_vibc_300k_bm3`: The paper tabulates coefficients but not the calculated energy-volume grid.
 - `stishovite_zhang_bukowinski_1991_mpib_bm3`: Calculated states are plotted but not tabulated.
 - `stishovite_schoelmerich_2020_shock_300k_bm3`: Primary Table 1 reports the shock observables and derived states; the production record preserves the published fitted parameterization, while a separate transcription was not needed for executable verification.
-- `sn_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `sn_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `sn_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `sn_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `sn_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `sn_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `sodium_9r_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `sodium_9r_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `solid_h2_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `solid_h2_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `solid_h2_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `srsio3_6h_xiao_2013_gga_bm2_1`: Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced.
 - `srsio3_cubic_xiao_2013_gga_bm2_2`: Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced.
-- `strontium_fcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `strontium_fcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `ta_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ta_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ta_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ta_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ta_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ta_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ta_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ta_sun_2010_low_bn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `tantalum_shen_2026_vinet_2`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `tantalum_sokolova_2013_holzapfel_3`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `tantalum_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `tantalum_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tantalum_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tantalum_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `technetium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `th_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `th_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `th_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `th_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `th_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `th_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `thallium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `thallium_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `ti_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ti_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ti_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `ti_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ti_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ti_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `ti_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tin_alpha_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `tin_alpha_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `titanium_alpha_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `titanium_alpha_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `tl_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `tl_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `tl_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tl_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tl_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tl_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `tungsten_sakai_2025_rydberg_stacey_1`: The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
 - `tungsten_shen_2026_vinet_3`: The workbook contains simultaneous volumes but no pressures, and the record declares its Cu anchor as reference_model_not_supported.
 - `tungsten_sokolova_2013_holzapfel_4`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
-- `tungsten_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `tungsten_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tungsten_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `tungsten_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `v_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `v_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `v_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `v_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `v_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `v_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `vanadium_bcc_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `vanadium_bcc_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `w_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `w_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `w_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `w_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `w_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `w_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `w_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `w_sun_2010_low_bn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 - `wollastonite_sagatova_2021_gga_300k_vinet`: Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated.
-- `yttrium_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `yttrium_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `zinc_hcp_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `zinc_hcp_dewaele_2019_mao_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zinc_hcp_dewaele_2019_dor_vinet`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zinc_hcp_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `zirconium_alpha_lejaeghere_2016_wien2k_pbe_bm3`: The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable.
-- `zirconium_alpha_delta_archive_experimental_reference_bm3`: The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it.
-- `zn_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `zn_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `zn_sun_2010_mrs3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `zn_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zn_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zn_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zn_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zr_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `zr_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `zr_sun_2010_low_vn`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zr_sun_2010_low_mrs3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zr_sun_2010_low_sms3`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
-- `zr_sun_2010_low_sms4`: Published coefficients are executable; this import does not claim a new refit of row-level observations.
 
 The complete machine-readable diagnostics, including selected columns,
 fit objective, coefficient errors, relative differences, solver status,

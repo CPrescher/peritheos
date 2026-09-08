@@ -100,16 +100,14 @@ range and identifies I4/mcm as the lowest-energy static configuration. It does
 not publish the optimized atomic coordinates required for new diffraction-ready
 low-symmetry material records.
 
-### Selected record and numerical reproduction
+### Selected records and numerical reproduction
 
-The one executable addition is `ca_perovskite_caracas_2005_bm3_3`, the Pm-3m
-BM3 fit (`V0 = 44.579 A^3`, `K0 = 250 GPa`, `K0' = 4.098`). It belongs in the
-existing cubic `ca_perovskite` material because Pm-3m has one formula unit in
-its primitive conventional cell, so the source's `V0/Z` is directly the public
-cell volume. The low-symmetry rows do not belong in that material. The cubic
-BM4 row is retained as explicit alternative-fit metadata rather than being
-misrepresented as a duplicate or added as a second record in this focused
-change.
+Production retains the BM3 and BM4 alternatives for the ideal `Pm-3m` parent
+and the lowest-energy `I4/mcm` configuration. They belong on the existing
+`ca_perovskite` and `ca_perovskite_tetragonal` material cards, respectively.
+The other seven exploratory tilt branches remain in the audit coefficient
+table but are not promoted to standalone material records because the source
+does not publish their optimized coordinates.
 
 As an independent check, inversion of the published BM3 equation at 130 GPa
 gives `V = 33.436317 A^3`. Using the CaSiO3 formula mass and one formula unit per
@@ -122,7 +120,7 @@ fit weights, residuals, and covariance are not published. Table 2's stated
 calculation uncertainty of about 20 meV per molecule describes the energy scale,
 not an uncertainty on `V0`, `K0`, `K0'`, or `K0''`; the coefficient errors remain
 explicitly unavailable. Consequently no source-faithful coefficient refit is
-possible; the refit ledger classifies this record as
+possible; the refit ledger classifies the four retained records as
 `theoretical_parameterization_only` and `not_refittable` rather than digitizing
 or synthesizing observations.
 ## Stishovite, Wang et al. (2012)

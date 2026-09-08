@@ -5,6 +5,38 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Removed
+
+- Removed all 92 Delta-project benchmark records from the production material
+  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
+  experimental-reference comparison curves. The associated benchmark-only
+  material cards, packaged datasets, import scripts, reproductions, and tests
+  were also removed.
+- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
+  parameterizations and their 49 phase-unresolved material cards. The source
+  parameter table, Morse/Sun-Morse implementations, and equation tests remain
+  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
+  AIP Handbook Cu isotherm remains on its own historical material card.
+- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
+  octahedral-tilt branches that lacked diffraction-ready structures. The full
+  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
+  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
+  contains 208 materials and 487 primary-source-validated EOS records.
+
+### Changed
+
+- Audited Ismailova et al.'s (2016) vacancy-rich Fe0.88SiO3 bridgmanite BM2,
+  bundling all four selected Table S2 crystallographic checkpoints under the
+  source's CC BY-NC 4.0 terms and resolving the Fei-neon pressure lineage. A
+  deterministic diagnostic shows that these rows are not the complete Figure 3
+  fit input, so the record remains explicitly `not_refittable` with the exact
+  missing rows, calibration observations, exclusions, and weights documented.
+- Linked 24 Dewaele (2019) metal records to their bundled source tables and
+  dedicated two-ruby-scale refits. They are now classified as numerically
+  similar within the source's printed 95% intervals instead of incorrectly
+  appearing as directly unrefittable. Be and hcp-Pb retain their documented
+  source-data gaps.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

@@ -183,9 +183,11 @@ Failure to achieve parameter parity is evidence to investigate and disclose;
 it is not permission to replace the publication silently.
 
 A new Peritheos refit is always a separate record. Use `record_kind: refit`, a
-`_refit` identifier suffix, `derived_from_record`, and complete
-`fit_provenance`. The source-reported record remains unchanged and remains the
-default unless there is a documented reason otherwise.
+`_refit` identifier suffix, and complete `fit_provenance`. Add
+`derived_from_record` when another record supplies model choices or fixed
+parameters; a direct dataset refit does not invent a catalog parent. Any
+source-reported record remains unchanged and remains the default unless there
+is a documented reason otherwise.
 
 ## 5. Create or update the `.eosmat` document
 

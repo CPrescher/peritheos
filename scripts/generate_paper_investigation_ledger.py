@@ -345,6 +345,7 @@ def render() -> str:
     )
     data_labels = {
         "bundled": "bundled",
+        "partial_published_table": "partial published table/checkpoints",
         "plot_only": "plot only/digitized",
         "parameterization_only": "parameterization only",
         "theoretical_parameterization_only": "theoretical parameterization only",

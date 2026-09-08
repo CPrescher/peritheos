@@ -11,7 +11,7 @@ from peritheos.eos.rt import Baonza
 
 def _rows():
     resource = resources.files("peritheos").joinpath(
-        "data", "datasets", "experimental-metal-eos-batch-200.csv"
+        "data", "datasets", "experimental-metal-eos-batch-47.csv"
     )
     with resource.open(encoding="utf-8", newline="") as stream:
         return list(csv.DictReader(stream))
@@ -19,16 +19,13 @@ def _rows():
 
 def test_batch_has_exact_expected_provenance_split_and_unique_records():
     rows = _rows()
-    assert len(rows) == 200
-    assert len({row["record_identifier"] for row in rows}) == 200
+    assert len(rows) == 47
+    assert len({row["record_identifier"] for row in rows}) == 47
     assert Counter(row["family"] for row in rows) == {
-        "experimental_fit": 155,
-        "compiled_reference": 42,
+        "experimental_fit": 44,
         "thermal_mixed": 3,
     }
     assert Counter(row["reference_doi"] for row in rows) == {
-        "10.1515/zna-2010-1-202": 111,
-        "10.24435/materialscloud:5e-mv": 42,
         "10.3390/min9110684": 30,
         "10.1103/PhysRevB.70.094112": 8,
         "10.1029/2012JB009292": 6,

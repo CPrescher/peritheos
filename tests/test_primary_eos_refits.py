@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 813
+    assert len(identifiers) == len(set(identifiers)) == 487
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 487, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 155,
-        "similar": 62,
+        "similar": 86,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 215,
     }
     assert all(
         item.get("reason")
@@ -130,6 +130,11 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     )
     assert by_identifier["b4c_somayazulu_2023_berman_refit"]["status"] == ("parity")
     assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "not_refittable"
+    dewaele = by_identifier["gold_dewaele_2019_mao_vinet"]
+    assert dewaele["status"] == "similar"
+    assert dewaele["observations"] == 86
+    assert dewaele["dataset_identifiers"] == ["gold_takemura_2008_table3_compression"]
+    assert all(item["within_reported_95pct"] for item in dewaele["parameters"])
     assert by_identifier["ca_perovskite_sun_2016_bm3_3"]["status"] == ("not_refittable")
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
         "not_refittable"
@@ -138,6 +143,15 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"
     assert fu_bm3["status"] == "parity"
+    ismailova = by_identifier[
+        "fe088sio3_bridgmanite_ismailova_2016_300k_bm2"
+    ]
+    assert ismailova["status"] == "not_refittable"
+    assert ismailova["primary_data_status"] == "partial_published_table"
+    assert ismailova["dataset_identifiers"] == [
+        "fe088sio3_bridgmanite_ismailova_2016_table_s2_selected_crystallography"
+    ]
+    assert "four selected crystallographic states" in ismailova["reason"]
     nio_hugoniot = by_identifier["nickel_oxide_noguchi_1999_linear_hugoniot_2"]
     assert nio_hugoniot["status"] == "parity"
     assert nio_hugoniot["observations"] == 8
@@ -410,7 +424,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 93
+    assert markdown.count("### `") == len(explained) == 117
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

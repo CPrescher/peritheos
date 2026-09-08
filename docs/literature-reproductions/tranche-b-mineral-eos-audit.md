@@ -15,7 +15,7 @@ Twenty-five defensible records were added from eleven papers. The analytical cur
 | Sagatova et al. (2021), doi:10.1134/S0016702921080073 | 7 | Official full text, Methods and Table 2: seven source-owned room-temperature Vinet parameterizations. |
 | Schoelmerich et al. (2020), doi:10.1038/s41598-020-66340-y | 1 | Official full text: BM3 fit to shock states corrected at fixed volume to 300 K. |
 | Liu et al. (2011), doi:10.1088/1674-0068/24/06/703-710 | 1 | Primary Sections II–III and Table I: source-owned static PBE-GGA BM3. |
-| Ismailova et al. (2016), doi:10.1126/sciadv.1600427 | 1 | Primary article and supplement: one measured Fe-deficient bridgmanite BM2. |
+| Ismailova et al. (2016), doi:10.1126/sciadv.1600427 | 1 | Primary article and supplement: one measured Fe-deficient bridgmanite BM2; four selected Table S2 states are bundled as checkpoints, not misidentified as the complete Figure 3 fit series. |
 | Ricolleau et al. (2009), doi:10.1029/2008GL036759 | 4 | Official full text, Section 3 and Table 1: three independent thermal BM2 fits and one room-temperature low-spin branch. |
 | Liu et al. (2007), doi:10.1088/0953-8984/19/24/246103 | 1 | Primary calculation section and Table 1: source-owned cubic CaSiO3 LDA BM3. |
 | Bykova et al. (2018), doi:10.1038/s41467-018-07265-z | 3 | Official open article and supplement: one published coesite-I/II/III BM3 plus two explicitly derived AM05 BM3 reconstructions from source Tables 10–11. |
@@ -142,6 +142,8 @@ The English translation DOI is used as the canonical identifier. The official Ru
 
 ### Ismailova et al. (2016), 10.1126/sciadv.1600427
 
+The checksum-matched official supplement is CC BY-NC 4.0. Table S2 contains four selected crystallographic states, while Figure 3A plots substantially more compression/decompression markers. The exact four-row transcription is bundled and tested, but both unweighted and uncertainty-weighted BM2 fits miss the published coefficients materially. The source fit remains directly unrefittable because the full P-V series, inclusion flags, objective, weights, and row-level Ne calibrant volumes are absent. See the [standalone audit](ismailova-2016-fe-bridgmanite.md).
+
 | LitCurate candidate | Origin | Disposition | Reason / production mapping |
 |---|---|---|---|
 | litcurate_607d82ad74297299 | Source | Accept | Independent BM2 for measured `(Fe2+0.64(2)Fe3+0.24(2))Si1.00(3)O3` with about 12% A-site vacancies → `fe088sio3_bridgmanite_ismailova_2016_300k_bm2`. |
@@ -205,7 +207,7 @@ The complete APS primary PDF was checked. Table I reports a source-owned fourth-
 
 ## Pressure calibration and limitations
 
-The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner identify NaCl as their pressure standard, but the exact calibration equation and complete paired calibrant observations were not resolved, so recalculation is explicitly marked unavailable. Ismailova's exact pressure calibration was likewise left explicitly unresolved. Ricolleau used the Fei et al. (2007) Au scale; recalculation remains unavailable because the paired Table-S1 calibrant observations were not bundled. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
+The theoretical records use `not_applicable` pressure calibration with an ab-initio method. Wang and Weidner identify NaCl as their pressure standard, but the exact calibration equation and complete paired calibrant observations were not resolved, so recalculation is explicitly marked unavailable. Ismailova's lineage is now resolved to the Fei et al. (2007) Ne EOS, but recalculation remains unavailable because row-level Ne lattice parameters are absent. Ricolleau used the Fei et al. (2007) Au scale; recalculation remains unavailable because the paired Table-S1 calibrant observations were not bundled. No covariance matrix is invented where the papers do not publish one. The Sagatova source plots relative-volume curves but does not publish the calculated P–V grids, so numerical checking is limited to analytical anchors and monotonic compressed-volume checkpoints.
 
 ## Zotero-ready primary-source metadata
 
