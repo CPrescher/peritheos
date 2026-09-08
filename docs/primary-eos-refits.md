@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **844** EOS records. **179** achieve uncertainty parity, **87** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[36](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **529** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **844** EOS records. **179** achieve uncertainty parity, **88** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[36](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **528** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -566,7 +566,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mgo_liquid_ghosh_karki_2016_3000k_bm3_1`](https://www.nature.com/articles/srep37269.pdf) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced. |
 | [`mgo_sun_2010_sms4_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
 | [`mgo_sun_2010_sms3_1`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished. |
-| [`mgsio3_liquid_akins_2004_adiabatic_bm3`](https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf) | `supporting_information_available` | — | — | —/— | not_refittable — The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting. |
+| [`mgsio3_liquid_akins_2004_adiabatic_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020237) | `mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt` | 3 | `V0` 45.298 → 45.186; `K0` 125 → 125.463 | —/6.79454 | [similar](#investigation-mgsio3_liquid_akins_2004_adiabatic_bm3) — This is numerical similarity for a source-equation validation, not strict fit parity. Pressure and shock density are impedance-match reductions rather than independent direct BM3 observations. With three states, two refined coefficients, one residual degree of freedom, and near-perfect rho0-K0S correlation, K0S-prime and the thermal terms are not identifiable. The published candidate therefore remains unchanged and explicitly qualified. |
 | [`mgsio3_post_perovskite_mosenfelder_2009_bm3_1`](https://doi.org/10.1029/2008JB005900) | `mgsio3_post_perovskite_mosenfelder_2009_table2_shock` | — | — | —/— | not_refittable — The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature. |
 | [`mgsio3_post_perovskite_sakai_2016_bm3_2`](https://doi.org/10.1038/srep22652) | `mgsio3_post_perovskite_sakai_2016_table_s1_pvt` | 18 | `V0` 158 → 157.838; `K0` 292 → 288.168; `K0_prime` 3.74 → 3.82067 | 1.68096/1.37054 | parity |
 | [`mgsio3_post_perovskite_ono_2006_anderson_bm2_3`](https://rruff.info/doclib/am/vol91/AM91_475.pdf) | `mgsio3_post_perovskite_ono_2006_table2_compression` | 6 | `K0` 237 → 237.185 | 1.43161/0.218445 | parity |
@@ -1017,7 +1017,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **123** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **124** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests or a dedicated partial-source reconstruction does
@@ -2910,6 +2910,27 @@ the missing source fit detail is recovered.
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 - The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
 
+<a id="investigation-mgsio3_liquid_akins_2004_adiabatic_bm3"></a>
+
+### `mgsio3_liquid_akins_2004_adiabatic_bm3`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt` with 3 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 45.298 | 45.186 ± 16.2399 | 0.25% | — | yes |
+| `K0` | 125 | 125.463 ± 129.295 | 0.37% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 174-204.3 GPa; source-declared range: 0-206 GPa; fit kind: `mie_gruneisen_hugoniot_bounded_reconstruction`; objective: `unweighted theoretical-minus-reduced Hugoniot pressure residuals`; published/refit pressure RMSE: —/6.79454 GPa; reduced chi-square: —; free parameters: `V0, K0`; source-fixed parameters: `none`.
+
+**Source/data scope.** The 14 original author-tabulated shock states are bundled for context, and the three high-pressure enstatite states later re-reduced by the same author group are bundled as the diagnostic reconstruction input. Initial density, flyer velocity, and shock velocity are observations; particle velocity, pressure, shock density, and internal energy are impedance-match reductions; theoretical Hugoniot pressures are calculated model outputs.
+
+**Registered source-fit note.** Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0`. The point estimates nevertheless meet the numerical criterion.
+- The lowest checked pressure is 174 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
+
 <a id="investigation-mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey"></a>
 
 ### `mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey`
@@ -3906,7 +3927,6 @@ the missing source fit detail is recovered.
 - `mgo_liquid_ghosh_karki_2016_3000k_bm3_1`: The source plots but does not tabulate the pure-liquid P-V simulation states; no graphical pseudo-precision was introduced.
 - `mgo_sun_2010_sms4_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
 - `mgo_sun_2010_sms3_1`: Source coefficients are complete and executable, but the fitted row-level compression observations and regression weights are not republished.
-- `mgsio3_liquid_akins_2004_adiabatic_bm3`: The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting.
 - `mgsio3_post_perovskite_mosenfelder_2009_bm3_1`: The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature.
 - `mgsio3_post_perovskite_akber_knutson_2005_gga_bm3`: The E(V) rows, weights, residuals, and covariance are not tabulated.
 - `mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3`: Five F(V) states per temperature are described and plotted but not numerically deposited.

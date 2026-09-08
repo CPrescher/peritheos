@@ -24635,7 +24635,11 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": false,
+      "dataset_identifiers": [
+        "mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"
+      ],
+      "degrees_of_freedom": 1,
       "experimental_pressure_range_gpa": [
         0.0,
         206.0
@@ -24644,17 +24648,68 @@
         298.15,
         298.15
       ],
+      "fit_kind": "mie_gruneisen_hugoniot_bounded_reconstruction",
       "fixed_parameters": [],
+      "free_parameters": [
+        "V0",
+        "K0"
+      ],
+      "jacobian_condition_number": 3645.76673044743,
       "label": "Akins et al. (2004), candidate liquid MgSiO3 adiabatic BM3",
       "material_identifier": "mgsio3_liquid",
       "model": "BM3",
-      "primary_data_finding": "The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting.",
-      "primary_data_status": "supporting_information_available",
-      "primary_source": "https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf",
-      "reason": "The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting.",
+      "objective": "unweighted theoretical-minus-reduced Hugoniot pressure residuals",
+      "observations": 3,
+      "observed_density_range_g_cm3": [
+        5.68,
+        5.79
+      ],
+      "observed_pressure_range_gpa": [
+        174.0,
+        204.3
+      ],
+      "parameter_correlation": 0.9996421312893068,
+      "parameters": [
+        {
+          "difference": -0.11197653979129285,
+          "parameter": "V0",
+          "published": 45.29797155879917,
+          "published_error": null,
+          "refit": 45.185995019007876,
+          "refit_error": 16.23987881216223,
+          "relative_difference": 0.0024719989866641458,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.46292307750783834,
+          "parameter": "K0",
+          "published": 125.0,
+          "published_error": null,
+          "refit": 125.46292307750784,
+          "refit_error": 129.29534947040386,
+          "relative_difference": 0.0037033846200627066,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "The 14 original author-tabulated shock states are bundled for context, and the three high-pressure enstatite states later re-reduced by the same author group are bundled as the diagnostic reconstruction input. Initial density, flyer velocity, and shock velocity are observations; particle velocity, pressure, shock density, and internal energy are impedance-match reductions; theoretical Hugoniot pressures are calculated model outputs.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020237",
+      "qualification": "This is numerical similarity for a source-equation validation, not strict fit parity. Pressure and shock density are impedance-match reductions rather than independent direct BM3 observations. With three states, two refined coefficients, one residual degree of freedom, and near-perfect rho0-K0S correlation, K0S-prime and the thermal terms are not identifiable. The published candidate therefore remains unchanged and explicitly qualified.",
+      "reconstruction_fixed_parameters": [
+        "K0_prime",
+        "gamma0",
+        "q",
+        "transition_energy"
+      ],
       "record_identifier": "mgsio3_liquid_akins_2004_adiabatic_bm3",
-      "source_notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text.",
-      "status": "not_refittable"
+      "rmse_gpa": 6.7945426904420545,
+      "selection": "Mosenfelder et al. (2009) Table 2 rows credited to Akins et al. (2004), with enstatite starting material and phase_state=melt",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.",
+      "status": "similar"
     },
     {
       "dataset_identifiers": [
@@ -36432,11 +36487,11 @@
     }
   ],
   "summary": {
-    "not_refittable": 529,
+    "not_refittable": 528,
     "parity": 179,
     "parity_not_achieved": 36,
     "reconstructed": 2,
-    "similar": 87,
+    "similar": 88,
     "source_reconstruction": 11,
     "total": 844
   }

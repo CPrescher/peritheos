@@ -35,11 +35,11 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
 
     assert ledger["summary"] == {"total": 844, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "not_refittable": 529,
+        "not_refittable": 528,
         "parity": 179,
         "parity_not_achieved": 36,
         "reconstructed": 2,
-        "similar": 87,
+        "similar": 88,
         "source_reconstruction": 11,
     }
     assert all(
@@ -512,7 +512,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     reconstructed = [
         item for item in ledger["records"] if item["status"] == "reconstructed"
     ]
-    assert markdown.count("### `") == len(explained) + len(reconstructed) == 125
+    assert markdown.count("### `") == len(explained) + len(reconstructed) == 126
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item

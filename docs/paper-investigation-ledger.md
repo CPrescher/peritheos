@@ -36,11 +36,11 @@ refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 142 |
+| Reproduced | 143 |
 | Partly reproduced | 5 |
 | Mixed: reproduced and discrepant records | 6 |
 | Coefficient parity not achieved | 13 |
-| Direct refit unavailable | 67 |
+| Direct refit unavailable | 66 |
 | Coupled source reconstruction | 1 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
@@ -882,7 +882,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **71 papers** contain 529 records for which a
+These **70 papers** contain 528 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -890,7 +890,6 @@ have other records that were reproduced.
 |---|---|---|
 | [Akber-Knutson et al. (2002)](https://doi.org/10.1029/2001gl013523) | `ca_perovskite_akber_knutson_2002_vib_pm3m_300k_bm3`, `ca_perovskite_akber_knutson_2002_vibc_pm3m_300k_bm3`, `ca_perovskite_akber_knutson_2002_vibc_pnma_300k_bm3`, `stishovite_akber_knutson_2002_vibc_300k_bm3` | The paper does not tabulate the calculated energy-volume grid. The paper tabulates coefficients but not the calculated energy-volume grid. |
 | [Akber-Knutson et al. (2005)](https://doi.org/10.1029/2005gl023192) | `al2o3_perovskite_akber_knutson_2005_gga_bm3`, `al2o3_post_perovskite_akber_knutson_2005_gga_bm3`, `bridgmanite_akber_knutson_2005_gga_bm3`, `mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`, `mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`, `mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`, `mgal00625h00625si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`, `mgal0125si0875o29375_bridgmanite_akber_knutson_2005_gga_bm3`, `mgal0125si0875o29375_post_perovskite_akber_knutson_2005_gga_bm3`, `mgsio3_post_perovskite_akber_knutson_2005_gga_bm3` | The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. The E(V) rows, weights, residuals, and covariance are not tabulated. |
-| [Akins et al. (2004)](https://doi.org/10.1029/2004gl020237) | `mgsio3_liquid_akins_2004_adiabatic_bm3` | The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting. |
 | [Anderson et al. (1989)](https://doi.org/10.1063/1.342969) | `gold_anderson_1989_bm3_1` | Tables I-IV contain heterogeneous literature properties, separately regressed coefficients, and derived thermodynamic diagnostics, while Table V is output from Equation (29). The source performs staged smoothing, one-dimensional regressions, numerical integrations, and qualitative K0' trials; it does not define a global observation matrix, objective, weights, integration protocol, or covariance that could be reproduced as a direct EOS coefficient refit. |
 | [Anzellini et al. (2025)](https://doi.org/10.1038/s43246-025-00963-4) | `iridium_anzellini_2025_bm3_1` | The bundled rows are all heated states. The stored coefficients are the 300 K reference part of a combined thermal fit, but the record does not represent the source's thermal correction needed to refit those rows. |
 | [B1 Fe0.94O, Fischer et al. (2011)](https://doi.org/10.1016/j.epsl.2011.02.025) | `feo_b8_2_fischer_2011_bm3_1`, `feo_fischer_2011_bm3_2` | Only 1 observation(s) lie at the reference temperature for 2 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
@@ -979,7 +978,7 @@ the primary-source and refit ledgers.
 | [Akaogi et al. (1996), natural-basalt majoritic garnet](https://doi.org/10.1029/96GL03027) | Direct refit unavailable | 0 | no production record | investigation evidence only |
 | [Akber-Knutson et al. (2002)](https://doi.org/10.1029/2001gl013523) | Direct refit unavailable | 4 | 4 direct refit unavailable | 4 parameterization only |
 | [Akber-Knutson et al. (2005)](https://doi.org/10.1029/2005gl023192) | Direct refit unavailable | 10 | 10 direct refit unavailable | 10 parameterization only |
-| [Akins et al. (2004)](https://doi.org/10.1029/2004gl020237) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
+| [Akins et al. (2004)](https://doi.org/10.1029/2004gl020237) | Reproduced | 1 | 1 similar | 1 bundled |
 | [ANALYSIS OF THERMAL EXPANSIVITY OF SOLIDS UNDER HIGH PRESSURES (2012)](https://doi.org/10.1142/s0217984912501461) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Anderson and Zou (1990), MgO thermodynamic functions](https://doi.org/10.1063/1.555873) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Anderson et al. (1989)](https://doi.org/10.1063/1.342969) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled indirect |

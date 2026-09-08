@@ -30,6 +30,9 @@ from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, V
 from peritheos.eos.thermal import ThermalReferenceStateEOS
 from peritheos.fitting import fit_joint_eos, fit_linear_us_up, fit_rt_eos
 from peritheos.materials import Material
+from scripts.reproduce_akins_2004_mgsio3_liquid import (
+    reproduce as reproduce_akins_2004_mgsio3_liquid,
+)
 from scripts.reproduce_diamond_thermal_composites import (
     reproduce as reproduce_diamond_composites,
 )
@@ -1558,6 +1561,73 @@ def _fit_record(
 ) -> dict[str, Any]:
     record_id = record["identifier"]
     dataset_identifiers = [dataset["identifier"]]
+    if record_id == "mgsio3_liquid_akins_2004_adiabatic_bm3":
+        audit = reproduce_akins_2004_mgsio3_liquid()
+        reconstruction = audit["bounded_unweighted_reconstruction"]
+        fitted = reconstruction["parameters"]
+        fitted_errors = reconstruction["standard_errors"]
+        published = record["eos"]["parameters"]
+        comparisons = []
+        for name, fitted_name, error_name in (
+            ("V0", "V0_a3_per_formula_unit", "V0_a3_per_formula_unit"),
+            ("K0", "K0S_gpa", "K0S_gpa"),
+        ):
+            source = float(published[name])
+            value = float(fitted[fitted_name])
+            comparisons.append(
+                {
+                    "parameter": name,
+                    "published": source,
+                    "published_error": None,
+                    "refit": value,
+                    "refit_error": float(fitted_errors[error_name]),
+                    "difference": value - source,
+                    "relative_difference": abs(value - source) / abs(source),
+                    "within_combined_2sigma": None,
+                    "similar": _similar(name, source, value),
+                }
+            )
+        if not all(item["similar"] for item in comparisons):
+            raise AssertionError(
+                "Akins bounded reconstruction lost numerical similarity"
+            )
+        return {
+            "status": "similar",
+            "dataset_identifiers": [dataset["identifier"]],
+            "observations": audit["observations"],
+            "selection": (
+                "Mosenfelder et al. (2009) Table 2 rows credited to Akins et al. "
+                "(2004), with enstatite starting material and phase_state=melt"
+            ),
+            "observed_pressure_range_gpa": [174.0, 204.3],
+            "observed_density_range_g_cm3": [5.68, 5.79],
+            "fit_kind": "mie_gruneisen_hugoniot_bounded_reconstruction",
+            "objective": "unweighted theoretical-minus-reduced Hugoniot pressure residuals",
+            "absolute_sigma": False,
+            "free_parameters": ["V0", "K0"],
+            "reconstruction_fixed_parameters": [
+                "K0_prime",
+                "gamma0",
+                "q",
+                "transition_energy",
+            ],
+            "parameters": comparisons,
+            "rmse_gpa": reconstruction["pressure_rmse_gpa"],
+            "degrees_of_freedom": reconstruction["degrees_of_freedom"],
+            "parameter_correlation": reconstruction["parameter_correlation"],
+            "jacobian_condition_number": reconstruction["jacobian_condition_number"],
+            "solver_success": reconstruction["solver_success"],
+            "solver_message": reconstruction["solver_message"],
+            "qualification": (
+                "This is numerical similarity for a source-equation validation, "
+                "not strict fit parity. Pressure and shock density are impedance-"
+                "match reductions rather than independent direct BM3 observations. "
+                "With three states, two refined coefficients, one residual degree "
+                "of freedom, and near-perfect rho0-K0S correlation, K0S-prime and "
+                "the thermal terms are not identifiable. The published candidate "
+                "therefore remains unchanged and explicitly qualified."
+            ),
+        }
     if record_id in COMBINED_FIT_DATASET_RECORDS:
         dataset, dataset_identifiers = _combined_fit_dataset(document, record)
     if record["eos"]["type"] == "LinearUsUpHugoniot":
