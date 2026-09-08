@@ -1,10 +1,12 @@
 # Material catalog
 
-Peritheos exposes the complete bundled library through the normal executable
-API. `list_materials()` returns 208 `Material` objects and
-`list_eos_records()` returns their 487 `EOSRecord` objects. Both are ordered by
-stable identifier and constructed from the same `.eosmat` files returned by
-the advanced `get_material_document()` API.
+Peritheos exposes every production EOS through the normal executable API.
+`list_materials()` returns 207 `Material` objects and `list_eos_records()`
+returns their 486 `EOSRecord` objects. Both are ordered by stable identifier and
+constructed from the `.eosmat` files returned by the advanced
+`get_material_document()` API. That document API exposes 208 cards because it
+also preserves the source-only coesite-V phase card, which has no executable
+EOS record.
 
 ## Look up and execute a record
 

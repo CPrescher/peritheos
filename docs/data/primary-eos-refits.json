@@ -6282,33 +6282,6 @@
       "status": "similar"
     },
     {
-      "dataset_identifiers": [
-        "coesite_v_bykova_2018_table10_calc_pv"
-      ],
-      "experimental_pressure_range_gpa": [
-        26.0,
-        64.0
-      ],
-      "experimental_temperature_range_k": [
-        0.0,
-        0.0
-      ],
-      "fixed_parameters": [
-        "K0",
-        "K0_prime"
-      ],
-      "label": "Bykova et al. (2018), coesite-V static AM05 BM3 reconstruction",
-      "material_identifier": "coesite_v",
-      "model": "BM3",
-      "primary_data_finding": "The exact calculated coesite-V Table 10 pressure-volume state is transcribed. The complete AM05 series remains graphical in Supplementary Figure 6 after checking the article attachments, six deposited crystallographic CIFs, ICSD data statement, and computational coauthor's thesis.",
-      "primary_data_status": "bundled",
-      "primary_source": "https://www.nature.com/articles/s41467-018-07265-z",
-      "reason": "The complete AM05 E-P-V grid is plotted in Supplementary Figure 6 but is not numerically deposited in the article, crystallographic attachments, ICSD data statement, or computational coauthor's thesis. Table 10 contains one exact coesite-V pressure-volume anchor: enough to recover the sole omitted V0 while fixing the published K0 and K0-prime, but not enough for an independent three-parameter BM3 refit.",
-      "record_identifier": "coesite_v_bykova_2018_am05_static_bm3_refit",
-      "source_notes": "Conditional production reconstruction. K0 and K0_prime are source-owned BM3 fit coefficients; V0 is the only omitted coefficient and is uniquely recovered from the exact 57 GPa calculated state. Treating the integer pressure as rounded to 57 +/- 0.5 GPa bounds V0 at 426.7608-428.0222 A3 and changes reconstructed pressures by at most 0.525 GPa over the plotted 26-64 GPa validity interval. This record is executable and scientifically useful inside that interval, but it is not an independent three-parameter refit.",
-      "status": "not_refittable"
-    },
-    {
       "absolute_sigma": true,
       "coefficient_tradeoff_diagnostic": {
         "K0_K0_prime_correlation": -0.9710268443952922,
@@ -27084,10 +27057,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 214,
+    "not_refittable": 213,
     "parity": 155,
     "parity_not_achieved": 32,
     "similar": 86,
-    "total": 487
+    "total": 486
   }
 }

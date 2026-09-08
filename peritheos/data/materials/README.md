@@ -1,6 +1,8 @@
 # Bundled material library
 
-This directory contains 208 curated materials with 487 EOS records. The
+This directory contains 208 curated material documents with 486 EOS records.
+Of those documents, 207 construct executable materials; the source-only
+coesite-V card preserves a held candidate without exposing an EOS. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -17,7 +19,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-dated 2026-09-06 classifies all 487 bundled records as
+dated 2026-09-06 classifies all 486 bundled records as
 `primary_source_validated`. No bundled record remains pending or deferred. The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -48,8 +50,8 @@ do not reproduce the printed dataset under the documented equations.
 
 When a reviewed primary paper prints a recoverable observation table, the
 material document links that table through its top-level `datasets` array.
-The current bundle contains 220 distinct primary datasets with 13,874 observation
-rows, represented by 241 material-document links to 307 EOS records.
+The current bundle contains 219 distinct primary datasets with 13,873 observation
+rows, represented by 240 material-document links to 306 EOS records.
 The Ono et al. cubic-SnO2 table is linked from both legacy diffraction-pattern
 entries. The Shen--Smith Table S1 workbook is linked across its ten calibrant
 and phase entries while retaining the simultaneously measured Cu reference
@@ -104,9 +106,10 @@ anharmonic-coefficient correction. Each `.eosmat` record stores these roles in
 `source_lineage`. Its identifier uses `_sokolova_2013` for the scientific fit
 year; the former workbook-year `_sokolova_2016` identifier is not retained.
 
-Only validated records are executable by default. Deferred records remain in
-the files so Dioptas and other consumers can preserve the catalog without
-silently converting inherited values into Peritheos-endorsed pressure scales.
+Only validated records are executable by default. Deferred evidence and
+source-only material cards remain in the files so Dioptas and other consumers
+can preserve the catalog without silently converting inherited values into
+Peritheos-endorsed pressure scales.
 
 The Fei et al. (2007) Au and Ne Debye-temperature laws are a documented
 exception to byte-for-byte preservation. They are corrected from generic

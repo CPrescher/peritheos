@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Numerically audit the accepted tranche-B mineral EOS records."""
+"""Audit the accepted tranche-B EOS records and held coesite-V candidate."""
 
 from __future__ import annotations
 
@@ -41,8 +41,9 @@ BM3 = {
     "ca_perovskite_liu_2007_lda_static_bm3": (45.46, 240.0, 4.15),
     "coesite_i_iii_bykova_2018_300k_bm3": (547.20, 103.0, 3.02),
     "coesite_iv_bykova_2018_am05_static_bm3_refit": (438.6702, 168.52, 3.34),
-    "coesite_v_bykova_2018_am05_static_bm3_refit": (427.3921208, 185.26, 3.10),
 }
+
+COESITE_V_HELD_CANDIDATE = (427.3921208, 185.26, 3.10)
 
 BM2 = {
     "ca_perovskite_wang_weidner_1994_bm2": (45.83, 280.0),
@@ -131,9 +132,13 @@ def reproduce() -> dict[str, object]:
     )
     residual = phase_h_fit - pressure
     coesite_checks = {}
-    for name, path, record in (
-        ("coesite_iv", COESITE_IV_DATA, "coesite_iv_bykova_2018_am05_static_bm3_refit"),
-        ("coesite_v", COESITE_V_DATA, "coesite_v_bykova_2018_am05_static_bm3_refit"),
+    for name, path, parameters in (
+        (
+            "coesite_iv",
+            COESITE_IV_DATA,
+            BM3["coesite_iv_bykova_2018_am05_static_bm3_refit"],
+        ),
+        ("coesite_v_held_candidate", COESITE_V_DATA, COESITE_V_HELD_CANDIDATE),
     ):
         with path.open(newline="", encoding="utf-8") as stream:
             source_rows = list(csv.DictReader(stream))
@@ -141,7 +146,7 @@ def reproduce() -> dict[str, object]:
         source_volume = np.array(
             [float(row["volume_a3_conventional_cell"]) for row in source_rows]
         )
-        source_residual = bm3_pressure(source_volume, *BM3[record]) - source_pressure
+        source_residual = bm3_pressure(source_volume, *parameters) - source_pressure
         coesite_checks[name] = {
             "observations": len(source_rows),
             "pressure_rmse_gpa": float(np.sqrt(np.mean(source_residual**2))),
@@ -171,7 +176,7 @@ def reproduce() -> dict[str, object]:
         bm3_pressure(combined_volume, *combined_fit.x) - combined_pressure
     )
 
-    coesite_v_parameters = BM3["coesite_v_bykova_2018_am05_static_bm3_refit"]
+    coesite_v_parameters = COESITE_V_HELD_CANDIDATE
     coesite_v_anchor_volume = 342.5716
 
     def v0_from_anchor_pressure(anchor_pressure: float) -> float:

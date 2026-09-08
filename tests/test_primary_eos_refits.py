@@ -21,7 +21,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 487
+    assert len(identifiers) == len(set(identifiers)) == 486
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -29,12 +29,12 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 487, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 486, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 155,
         "similar": 86,
         "parity_not_achieved": 32,
-        "not_refittable": 214,
+        "not_refittable": 213,
     }
     assert all(
         item.get("reason")
@@ -150,9 +150,6 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [542.2160125743, 126.3278193724, 1.6951441000]
     )
     assert "Conditional partial reproduction" in coesite["qualification"]
-    coesite_v = by_identifier["coesite_v_bykova_2018_am05_static_bm3_refit"]
-    assert coesite_v["status"] == "not_refittable"
-    assert "sole omitted V0" in coesite_v["reason"]
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"

@@ -21,10 +21,13 @@ All notable changes to Peritheos are documented here. The project follows
   octahedral-tilt branches that lacked diffraction-ready structures. The full
   nine-structure BM3/BM4 coefficient table remains an audit fixture; production
   retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
-  contains 208 materials and 487 primary-source-validated EOS records.
+  contains 208 material documents and 486 primary-source-validated EOS records.
 
 ### Changed
 
+- Retained coesite-V as a phase card but demoted its one-anchor reconstructed
+  BM3 curve to structured, non-executable provenance because the source omits
+  `V0` and does not deposit enough numerical states to test the curve.
 - Linked 24 Dewaele (2019) metal records to their bundled source tables and
   dedicated two-ruby-scale refits. They are now classified as numerically
   similar within the source's printed 95% intervals instead of incorrectly

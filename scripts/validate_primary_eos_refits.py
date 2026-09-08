@@ -56,14 +56,6 @@ INDIRECT_DATA = {
         "source fit, so the table is a checkpoint resource and not an asserted exact "
         "regression input."
     ),
-    "coesite_v_bykova_2018_am05_static_bm3_refit": (
-        "The complete AM05 E-P-V grid is plotted in Supplementary Figure 6 but is "
-        "not numerically deposited in the article, crystallographic attachments, "
-        "ICSD data statement, or computational coauthor's thesis. Table 10 contains "
-        "one exact coesite-V pressure-volume anchor: enough to recover the sole "
-        "omitted V0 while fixing the published K0 and K0-prime, but not enough for "
-        "an independent three-parameter BM3 refit."
-    ),
     "mgo_b1_luo_2023_vinet_thermal_5": (
         "The five bundled Table I rows are only the new shock subset of a global "
         "quasi-Debye fit. The complete earlier-study observations, numerical "

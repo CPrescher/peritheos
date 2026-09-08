@@ -26,7 +26,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **314 primary papers**: **216** support the 487 audited catalog records and **98** were investigated without adding a production record.
+The register covers **314 primary papers**: **216** support the 486 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -874,7 +874,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **79 papers** contain 214 records for which a
+These **78 papers** contain 213 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -888,7 +888,6 @@ have other records that were reproduced.
 | [B1 Fe0.94O, Fischer et al. (2011)](https://doi.org/10.1016/j.epsl.2011.02.025) | `feo_b8_2_fischer_2011_bm3_1`, `feo_fischer_2011_bm3_2` | Only 1 observation(s) lie at the reference temperature for 2 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
 | [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_bm3_dft_2` | The calculated P(V) grid is not published as independent row-level fit input. Table S3 contains pressures generated from the already fitted EOS at selected volumes. |
 | [Benedict et al. (2014)](https://doi.org/10.1103/physrevb.89.224109) | `diamond_benedict_2014_double_debye_4` | This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data. |
-| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | `coesite_v_bykova_2018_am05_static_bm3_refit` | The complete AM05 E-P-V grid is plotted in Supplementary Figure 6 but is not numerically deposited in the article, crystallographic attachments, ICSD data statement, or computational coauthor's thesis. Table 10 contains one exact coesite-V pressure-volume anchor: enough to recover the sole omitted V0 while fixing the published K0 and K0-prime, but not enough for an independent three-parameter BM3 refit. |
 | [Caracas et al. (2005)](https://doi.org/10.1029/2004gl022144) | `ca_perovskite_caracas_2005_bm3_3`, `ca_perovskite_caracas_2005_bm4_4`, `ca_perovskite_tetragonal_caracas_2005_bm3_1`, `ca_perovskite_tetragonal_caracas_2005_bm4_2` | The article publishes fitted EOS coefficients and relative energies but not the first-principles E(V) observations, fit weights, residuals, or covariance. No supporting-information or official data attachment is listed on the publisher article page or the UCL deposit, so an independent coefficient refit is not possible. Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [Chantel et al. (2012)](https://doi.org/10.1029/2012gl053075) | `bridgmanite_chantel_2012_bm3_mgd` | The bundled density and acoustic-velocity observations validate the published thermoelastic pressure surface in the dedicated Chantel reproduction. The stored K0 and K0-prime come from the source's combined acoustic fit, so these rows are not independent observations for a generic pressure-volume coefficient refit. |
 | [Chen et al. (2018)](https://doi.org/10.2138/am-2018-6087) | `ca_perovskite_tetragonal_chen_2018_bm2` | The article states that all EOS observations are in Table 1, but no authoritative open table artifact suitable for lossless redistribution was retrieved in this audit; no digitized pseudo-table was created. |
@@ -997,7 +996,7 @@ the primary-source and refit ledgers.
 | [Bezacier et al. (2014)](https://doi.org/10.1063/1.4894421) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Boffa Ballaran et al. (2007)](https://doi.org/10.2138/am.2007.2715) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Braithwaite (2002), high-pressure solid/melt representations](https://doi.org/10.1063/1.1483512) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Mixed: reproduced and discrepant records | 3 | 1 similar; 1 parity not achieved; 1 direct refit unavailable | 3 bundled |
+| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Mixed: reproduced and discrepant records | 2 | 1 similar; 1 parity not achieved | 2 bundled |
 | [Campbell and Heinz (1991)](https://doi.org/10.1016/0022-3697(91)90181-x) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1993)](https://doi.org/10.1016/0022-3697(93)90106-2) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1994)](https://doi.org/10.1029/94jb00127) | Reproduced | 2 | 2 parity | 2 bundled |

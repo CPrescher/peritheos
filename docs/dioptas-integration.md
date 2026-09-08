@@ -66,14 +66,16 @@ printed data under the documented equations.
 Peritheos-native records add aragonite, B2-KCl, RbCl-B2, diamond, MgO, CaSiO3,
 stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina models. Together
 with two explicitly derived Dewaele-anchored diamond compositions, these bring
-the distributed catalog to 208 materials and 487 EOS records. Native records
+the distributed library to 208 material documents and 486 EOS records. Of
+those documents, 207 construct executable materials; the coesite-V card retains
+only non-executable source evidence. Native records
 carry primary-publication provenance rather than fabricated Dioptas migration
 sources.
 
 ```python
 from peritheos import get_material_document, list_material_documents
 
-print(len(list_material_documents()))  # 263
+print(len(list_material_documents()))  # 208
 gold = get_material_document("gold")
 print(len(gold["eos_records"]))
 ```
@@ -98,7 +100,7 @@ new or edited records so the scientific choice is visible without consulting
 the schema default.
 
 Migration is not scientific validation. A separate, reproducible audit now
-marks all 487 bundled records `primary_source_validated`; no record remains
+marks all 486 bundled records `primary_source_validated`; no record remains
 pending or deferred. A record was promoted only after its equation, every
 parameter, units, reference state, phase, uncertainty convention, and data
 range were traced to the cited primary publication or official supplement.
