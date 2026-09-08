@@ -18481,6 +18481,201 @@
       "status": "not_refittable"
     },
     {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgal2o4_cafe2o4_sueda_2009_table1_pvt"
+      ],
+      "degrees_of_freedom": 43,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        41.5
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        2400.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr"
+      ],
+      "free_parameters": [
+        "alpha0",
+        "alpha1",
+        "dK_dT"
+      ],
+      "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 HTBM",
+      "material_identifier": "mgal2o4_cafe2o4",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 46,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        41.5
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        2400.0
+      ],
+      "observed_volume_range": [
+        206.9,
+        243.8
+      ],
+      "parameters": [
+        {
+          "difference": 9.456778821924079e-07,
+          "parameter": "alpha0",
+          "published": 1.96e-05,
+          "published_error": 1.3e-06,
+          "refit": 2.0545677882192407e-05,
+          "refit_error": 9.45880606019199e-07,
+          "relative_difference": 0.04824887154042898,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -1.0388812689130806e-09,
+          "parameter": "alpha1",
+          "published": 1.64e-08,
+          "published_error": 2.4e-09,
+          "refit": 1.536111873108692e-08,
+          "refit_error": 8.882639906998163e-10,
+          "relative_difference": 0.06334641883616345,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.0002510452265271808,
+          "parameter": "dK_dT",
+          "published": -0.03,
+          "published_error": 0.002,
+          "refit": -0.03025104522652718,
+          "refit_error": 2.59081185197411e-10,
+          "relative_difference": 0.008368174217572693,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 46 source rows, including CF and Au cells, ruby comparison pressures, parenthetical uncertainties, run labels, and ambient temperatures are preserved.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.pepi.2008.07.046",
+      "published_rmse_gpa": 0.30738576344813623,
+      "qualification": "Staged thermal diagnostic on all 46 Table 1 rows, with the published 300 K BM3 triplet fixed. The source does not specify weights or uncertainty confidence, so use unweighted pressure residuals. The independent static-stage reconstruction and printed-equation corrections are documented in the [Sueda audit](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md).",
+      "record_identifier": "mgal2o4_cafe2o4_sueda_2009_htbm_2",
+      "reduced_chi_square": 0.091775861353389,
+      "rmse_gpa": 0.29290011794332116,
+      "selection": "all rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.",
+      "status": "parity"
+    },
+    {
+      "absolute_sigma": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "dataset_identifiers": [
+        "mgal2o4_cafe2o4_sueda_2009_table1_pvt"
+      ],
+      "degrees_of_freedom": 43,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        41.5
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        2400.0
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "n"
+      ],
+      "free_parameters": [
+        "theta0",
+        "gamma0",
+        "q"
+      ],
+      "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 BM3-MGD",
+      "material_identifier": "mgal2o4_cafe2o4",
+      "model": "BM3",
+      "objective": "pressure_residuals",
+      "observations": 46,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        41.5
+      ],
+      "observed_temperature_range_k": [
+        298.0,
+        2400.0
+      ],
+      "observed_volume_range": [
+        206.9,
+        243.8
+      ],
+      "parameters": [
+        {
+          "difference": -10.797436443950573,
+          "parameter": "theta0",
+          "published": 1546.0,
+          "published_error": 104.0,
+          "refit": 1535.2025635560494,
+          "refit_error": 98.97639204789562,
+          "relative_difference": 0.006984111542012014,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.04194899489387227,
+          "parameter": "gamma0",
+          "published": 1.73,
+          "published_error": 0.07,
+          "refit": 1.7719489948938723,
+          "refit_error": 0.06540471545978423,
+          "relative_difference": 0.0242479739270938,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": 0.3535093351421623,
+          "parameter": "q",
+          "published": 2.03,
+          "published_error": 0.37,
+          "refit": 2.383509335142162,
+          "refit_error": 0.34696266241196794,
+          "relative_difference": 0.17414252962668098,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 46 source rows, including CF and Au cells, ruby comparison pressures, parenthetical uncertainties, run labels, and ambient temperatures are preserved.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1016/j.pepi.2008.07.046",
+      "published_rmse_gpa": 0.2881574309630775,
+      "qualification": "Staged thermal diagnostic on all 46 Table 1 rows, with the published 300 K BM3 triplet fixed. The source does not specify weights or uncertainty confidence, so use unweighted pressure residuals. The independent static-stage reconstruction and printed-equation corrections are documented in the [Sueda audit](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md).",
+      "record_identifier": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
+      "reduced_chi_square": 0.08619959325236896,
+      "rmse_gpa": 0.28386243261297117,
+      "selection": "all rows",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations.",
+      "status": "parity"
+    },
+    {
       "dataset_identifiers": [
         "mgal2o4_cati2o4_funamori_1998_text_pv"
       ],
@@ -31649,9 +31844,9 @@
   ],
   "summary": {
     "not_refittable": 565,
-    "parity": 155,
+    "parity": 157,
     "parity_not_achieved": 31,
     "similar": 62,
-    "total": 813
+    "total": 815
   }
 }

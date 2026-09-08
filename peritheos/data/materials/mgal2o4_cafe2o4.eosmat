@@ -227,6 +227,482 @@
     }
    },
    "notes": "This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4."
+  },
+  {
+   "default": false,
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Sueda",
+     "Irifune",
+     "Sanehira",
+     "Yagi",
+     "Nishiyama",
+     "Kikegawa",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "title": "Thermal equation of state of CaFe2O4-type MgAl2O4",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "174",
+    "locator": "78-85",
+    "doi": "10.1016/j.pepi.2008.07.046"
+   },
+   "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 240.1,
+     "K0": 205.0,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 6.0,
+    "K0_prime": 0.3
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    41.5
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.0,
+    2400.0
+   ],
+   "fit_datasets": [
+    "mgal2o4_cafe2o4_sueda_2009_table1_pvt"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0001,
+     41.5
+    ],
+    "temperature_k": [
+     298.0,
+     2400.0
+    ],
+    "notes": [
+     "Table 1 extrema are marginal experimental coverage, not a rectangular phase-stability guarantee. KMA spans 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.",
+     "Section 3.1 gives the room-temperature KMA interval as 28.7-41.5 GPa, but Table 1 also includes 24.8 and 26.6 GPa observations. All 16 explicitly 300 K rows are used in the diagnostic static refit; all 46 rows enter the thermal refits.",
+     "Two ambient HTXRD observations are at 298 K, not 300 K. They remain at the printed temperatures.",
+     "The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1, Eq. (1), p. 81: standard third-order Birch-Murnaghan reference isotherm.",
+    "V0": "Section 3.1 and Table 2: fitted 240.1(2) A3 unit-cell volume at 300 K; fixed in both thermal stages.",
+    "K0": "Section 3.1 and Table 2: 205(6) GPa; fixed in both thermal stages.",
+    "K0_prime": "Section 3.1 and Table 2: 4.1(3); fixed in both thermal stages and independent of temperature.",
+    "Tr": "Eq. (4) uses T-300; Table 1 and Figure 2 identify the reference compression measurements as 300 K.",
+    "volume_basis": "Table 1 reports orthorhombic axes a approximately 8.65, b approximately 9.96, c approximately 2.79 A and V approximately 240 A3, matching the conventional Z=4 CF cell already documented for this material. Printed V is preserved rather than recomputed from rounded axes.",
+    "uncertainties": "Parenthetical errors are transcribed from Table 2. The article does not specify their confidence convention, a covariance matrix, or numerical least-squares weights.",
+    "alpha0": "Eqs. (2)-(3) and Table 2: a0=1.96(13)e-5 K^-1 is the intercept at T=0 in alpha(T)=a0+b0*T, not alpha(300).",
+    "alpha1": "Eq. (3) and Table 2: b0=1.64(24)e-8 K^-2; c0 is explicitly fixed to zero.",
+    "dK_dT": "Eq. (4), surrounding prose, and Table 2: -0.030(2) GPa/K; printed denominator partial K is a typographical error for partial T."
+   },
+   "fit_protocol": {
+    "method": "Staged least squares: room-temperature BM3, then all Table 1 P-V-T observations with the published static triplet fixed.",
+    "weights": null,
+    "covariance": null,
+    "fit_statistic": null
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-08",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "source": "J. Appl. Phys.",
+       "volume": "65",
+       "locator": "1534-1543",
+       "doi": "10.1063/1.342969"
+      },
+      "source_location": "Sections 2.1-2.2 and Table 1",
+      "scope": "Au-scale pressures selected for every compressed KMA and DAC observation in the EOS analysis",
+      "reference_eos_record": "gold_anderson_1989_bm3_1"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "source": "Journal of Geophysical Research",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Section 2.2 and Table 1",
+      "scope": "DAC comparison only; not the pressure column fitted by the authors",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Table 1 includes Au unit-cell volumes and temperatures for all 33 compressed observations. Ambient rows have no Au volumes. Four DAC ruby pressures are retained as independent comparisons; raw ruby wavelengths are not published."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Full published PDF from the user Zotero library inspected, including the rendered equations and Tables 1-3; independently reproduced against all 46 Table 1 observations.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_basis",
+     "equation",
+     "parameters",
+     "fixed_parameter_status",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.pepi.2008.07.046",
+     "doi": "10.1016/j.pepi.2008.07.046",
+     "locations": [
+      "Sections 2.1-2.3",
+      "Section 3.1, Eqs. (1)-(8)",
+      "Tables 1-2",
+      "Figures 2-4"
+     ],
+     "source_version": "Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).",
+     "sha256": "f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b",
+     "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mgal2o4_cafe2o4_sueda_2009_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, p. 80"
+     ],
+     "finding": "All 46 source rows, including CF and Au cells, ruby comparison pressures, parenthetical uncertainties, run labels, and ambient temperatures are preserved."
+    },
+    "numerical_reproduction": {
+     "parameters": {
+      "alpha0": 2.0544401534248778e-05,
+      "alpha1": 1.5283174268780198e-08,
+      "dK_dT": -0.030135775678438573
+     },
+     "parameter_differences_in_reported_errors": {
+      "alpha0": 0.726462718652907,
+      "alpha1": -0.46534405467491796,
+      "dK_dT": -0.06788783921928693
+     },
+     "published_rmse_gpa": 0.30738576344813723,
+     "published_max_abs_residual_gpa": 0.8171025240453353,
+     "refit_rmse_gpa": 0.29291137954435764,
+     "solver_success": true,
+     "benchmark_pressures_gpa": {
+      "1": 32.004483561762335,
+      "26": 30.917102524045337,
+      "31": 1.2132937537450204,
+      "36": 0.03890245396793759
+     }
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Unweighted pressure-residual least squares on all 46 Table 1 rows, holding the printed BM3 triplet fixed; weights and confidence convention are unspecified in the publication.",
+     "parameters": {
+      "alpha0": 2.0544401534248778e-05,
+      "alpha1": 1.5283174268780198e-08,
+      "dK_dT": -0.030135775678438573
+     },
+     "finding": "All free thermal coefficients recover within one printed parenthetical error. The independent 16-row 300 K reconstruction also recovers the static coefficients within their printed errors; see the audit for selection ambiguity."
+    }
+   },
+   "identifier": "mgal2o4_cafe2o4_sueda_2009_htbm_2",
+   "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 HTBM",
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "reference_volume_law": "integrated_expansivity",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 1.96e-05,
+     "alpha1": 1.64e-08,
+     "dK_dT": -0.03
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 1.3e-06,
+     "alpha1": 2.4e-09,
+     "dK_dT": 0.002
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations."
+  },
+  {
+   "default": false,
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "reference": {
+    "authors": [
+     "Sueda",
+     "Irifune",
+     "Sanehira",
+     "Yagi",
+     "Nishiyama",
+     "Kikegawa",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "title": "Thermal equation of state of CaFe2O4-type MgAl2O4",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "174",
+    "locator": "78-85",
+    "doi": "10.1016/j.pepi.2008.07.046"
+   },
+   "sample_composition": "Synthetic MgAl2O4 calcium-ferrite phase; KMA starting spinel mixed with Au at 10:1 by weight; DAC uses a pre-synthesized CF-MgAl2O4 specimen.",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 240.1,
+     "K0": 205.0,
+     "K0_prime": 4.1
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 6.0,
+    "K0_prime": 0.3
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    41.5
+   ],
+   "pressure_range_status": "reported_exactly",
+   "experimental_temperature_range_k": [
+    298.0,
+    2400.0
+   ],
+   "fit_datasets": [
+    "mgal2o4_cafe2o4_sueda_2009_table1_pvt"
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0001,
+     41.5
+    ],
+    "temperature_k": [
+     298.0,
+     2400.0
+    ],
+    "notes": [
+     "Table 1 extrema are marginal experimental coverage, not a rectangular phase-stability guarantee. KMA spans 24.8-41.5 GPa, DAC 1.5-11.6 GPa at 300 K, and ambient HTXRD 298-836 K.",
+     "Section 3.1 gives the room-temperature KMA interval as 28.7-41.5 GPa, but Table 1 also includes 24.8 and 26.6 GPa observations. All 16 explicitly 300 K rows are used in the diagnostic static refit; all 46 rows enter the thermal refits.",
+     "Two ambient HTXRD observations are at 298 K, not 300 K. They remain at the printed temperatures.",
+     "The structural reference lattice remains the independently sourced Funamori cell; Sueda Table 1 has its own rounded reference cells and Table 2 has the fitted V0."
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1, Eq. (1), p. 81: standard third-order Birch-Murnaghan reference isotherm.",
+    "V0": "Section 3.1 and Table 2: fitted 240.1(2) A3 unit-cell volume at 300 K; fixed in both thermal stages.",
+    "K0": "Section 3.1 and Table 2: 205(6) GPa; fixed in both thermal stages.",
+    "K0_prime": "Section 3.1 and Table 2: 4.1(3); fixed in both thermal stages and independent of temperature.",
+    "Tr": "Eq. (4) uses T-300; Table 1 and Figure 2 identify the reference compression measurements as 300 K.",
+    "volume_basis": "Table 1 reports orthorhombic axes a approximately 8.65, b approximately 9.96, c approximately 2.79 A and V approximately 240 A3, matching the conventional Z=4 CF cell already documented for this material. Printed V is preserved rather than recomputed from rounded axes.",
+    "uncertainties": "Parenthetical errors are transcribed from Table 2. The article does not specify their confidence convention, a covariance matrix, or numerical least-squares weights.",
+    "gamma0": "Table 2: 1.73(7); Eq. (8) uses gamma=gamma0*(V/V0)^q.",
+    "q": "Table 2: 2.03(37); second Eq. (7) uses theta=theta0*exp((gamma0-gamma)/q).",
+    "theta0": "Table 2: 1546(104) K.",
+    "n": "First Eq. (7) defines n per formula unit: MgAl2O4 has 7 atoms. The loader converts Z=4 conventional-cell volumes to molar formula-unit volumes.",
+    "thermal_equation_interpretation": "Eq. (6) misprints the energy difference in the denominator; use gamma/V times [Eth(V,T)-Eth(V,300)]. The first Eq. (7) misprints the Debye lower integration limit as theta; use zero. The literal printed versions are dimensionally inconsistent and fail the zero-increment reference identity. The interpreted standard Debye form reproduces Table 1 and the Figure 4 ambient expansion; both equations numbered (7) are distinguished here."
+   },
+   "fit_protocol": {
+    "method": "Staged least squares: room-temperature BM3, then all Table 1 P-V-T observations with the published static triplet fixed.",
+    "weights": null,
+    "covariance": null,
+    "fit_statistic": null
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "audit_date": "2026-09-08",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Au",
+      "reference": {
+       "authors": [
+        "Anderson",
+        "Isaak",
+        "Yamamoto"
+       ],
+       "year": 1989,
+       "source": "J. Appl. Phys.",
+       "volume": "65",
+       "locator": "1534-1543",
+       "doi": "10.1063/1.342969"
+      },
+      "source_location": "Sections 2.1-2.2 and Table 1",
+      "scope": "Au-scale pressures selected for every compressed KMA and DAC observation in the EOS analysis",
+      "reference_eos_record": "gold_anderson_1989_bm3_1"
+     },
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "source": "Journal of Geophysical Research",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Section 2.2 and Table 1",
+      "scope": "DAC comparison only; not the pressure column fitted by the authors",
+      "reference_calibration_record": "ruby_mao_1986"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "Table 1 includes Au unit-cell volumes and temperatures for all 33 compressed observations. Ambient rows have no Au volumes. Four DAC ruby pressures are retained as independent comparisons; raw ruby wavelengths are not published."
+    }
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Full published PDF from the user Zotero library inspected, including the rendered equations and Tables 1-3; independently reproduced against all 46 Table 1 observations.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "cell_basis",
+     "equation",
+     "parameters",
+     "fixed_parameter_status",
+     "units",
+     "reference_state",
+     "published_uncertainties",
+     "pressure_calibration",
+     "primary_data",
+     "numerical_reproduction"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.pepi.2008.07.046",
+     "doi": "10.1016/j.pepi.2008.07.046",
+     "locations": [
+      "Sections 2.1-2.3",
+      "Section 3.1, Eqs. (1)-(8)",
+      "Tables 1-2",
+      "Figures 2-4"
+     ],
+     "source_version": "Published PDF, 8 pages, retrieved from Zotero attachment FLBPJ9MU (parent 9JHZNNDC).",
+     "sha256": "f047d78ff3001ab53f681c7853a2057df0f5f6ae8618a621d38292e4c9358a3b",
+     "finding": "The paper publishes separate HTBM and MGD thermal fits sharing a 300 K BM3 reference triplet. Table 1 supplies 46 observations and paired Au calibrant cells."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mgal2o4_cafe2o4_sueda_2009_table1_pvt"
+     ],
+     "source_locations": [
+      "Table 1, p. 80"
+     ],
+     "finding": "All 46 source rows, including CF and Au cells, ruby comparison pressures, parenthetical uncertainties, run labels, and ambient temperatures are preserved."
+    },
+    "numerical_reproduction": {
+     "parameters": {
+      "gamma0": 1.771949172530305,
+      "q": 2.3835112377577174,
+      "theta0": 1535.2022967228945
+     },
+     "parameter_differences_in_reported_errors": {
+      "gamma0": 0.5992738932900706,
+      "q": 0.9554357777235613,
+      "theta0": -0.10382406997216811
+     },
+     "published_rmse_gpa": 0.28815743096307295,
+     "published_max_abs_residual_gpa": 0.6518808836341101,
+     "refit_rmse_gpa": 0.28386243261305,
+     "solver_success": true,
+     "benchmark_pressures_gpa": {
+      "1": 31.978129992817028,
+      "26": 30.428269931199885,
+      "31": 1.2132937537450204,
+      "36": 0.07829866134945318
+     }
+    },
+    "independent_refit": {
+     "classification": "parity",
+     "method": "Unweighted pressure-residual least squares on all 46 Table 1 rows, holding the printed BM3 triplet fixed; weights and confidence convention are unspecified in the publication.",
+     "parameters": {
+      "gamma0": 1.771949172530305,
+      "q": 2.3835112377577174,
+      "theta0": 1535.2022967228945
+     },
+     "finding": "All free thermal coefficients recover within one printed parenthetical error. The independent 16-row 300 K reconstruction also recovers the static coefficients within their printed errors; see the audit for selection ambiguity."
+    }
+   },
+   "identifier": "mgal2o4_cafe2o4_sueda_2009_mgd_3",
+   "label": "Sueda et al. (2009), CaFe2O4-type MgAl2O4 BM3-MGD",
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 1546.0,
+     "gamma0": 1.73,
+     "q": 2.03,
+     "n": 7.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": 104.0,
+     "gamma0": 0.07,
+     "q": 0.37,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "n"
+    ]
+   },
+   "notes": "Published thermal parameterization, with the 300 K BM3 coefficients fixed at the authors' first-stage estimates. The existing Funamori equilibrium default is retained. See docs/literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md for source printing errors and refit limitations."
   }
  ],
  "datasets": [
@@ -353,6 +829,163 @@
     "mgal2o4_cafe2o4_funamori_1998_bm2_1"
    ],
    "notes": "The source prints the ambient volume directly. The high-pressure volume is the product of its printed axes; its standard deviation is propagated independently from their printed standard deviations."
+  },
+  {
+   "identifier": "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
+   "kind": "pressure_volume_temperature_lattice_parameters",
+   "description": "Complete Sueda et al. Table 1: 46 CF-MgAl2O4 P-V-T observations with Au calibrant volumes and DAC ruby comparison pressures.",
+   "reference": {
+    "authors": [
+     "Sueda",
+     "Irifune",
+     "Sanehira",
+     "Yagi",
+     "Nishiyama",
+     "Kikegawa",
+     "Funakoshi"
+    ],
+    "year": 2009,
+    "title": "Thermal equation of state of CaFe2O4-type MgAl2O4",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "174",
+    "locator": "78-85",
+    "doi": "10.1016/j.pepi.2008.07.046"
+   },
+   "source_location": "Table 1, p. 80",
+   "source_url": "https://doi.org/10.1016/j.pepi.2008.07.046",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "au_volume_a3",
+     "quantity": "calibrant_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "au_volume_a3_uncertainty",
+     "quantity": "calibrant_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "au_volume_a3"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa_uncertainty",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "ruby_pressure_gpa",
+     "quantity": "ruby_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_pressure_gpa_uncertainty",
+     "quantity": "ruby_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "ruby_pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_angstrom_uncertainty",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "b_angstrom",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "b_angstrom_uncertainty",
+     "quantity": "lattice_parameter_b",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "b_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_angstrom_uncertainty",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_uncertainty",
+     "quantity": "unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "thermal_fit_included",
+     "quantity": "thermal_fit_included",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "static_refit_included",
+     "quantity": "static_refit_included",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mgal2o4-cafe2o4-sueda-2009-table1-pvt.csv",
+    "sha256": "ff1398e94b1387d437a6ce5073a31062f994f0cd815878f31dc74fb83492e0e7",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mgal2o4_cafe2o4_sueda_2009_htbm_2",
+    "mgal2o4_cafe2o4_sueda_2009_mgd_3"
+   ],
+   "notes": "All parenthetical uncertainties are retained with unspecified confidence. Blank uncertainties and calibrant values are missing, not zero. Ambient pressure is printed as 10^-4 GPa. M194 at 2000 K prints V=221.8(20), retained as 2.0 A3 uncertainty. Published volumes are not overwritten by products of rounded axes. static_refit_included denotes this audit's 16-row 300 K reconstruction; thermal_fit_included follows the source's explicit all-Table-1 selection."
   }
  ]
 }

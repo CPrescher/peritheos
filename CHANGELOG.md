@@ -5,6 +5,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Added Sueda et al. (2009) HTBM and BM3-MGD records for CaFe2O4-type
+  MgAl2O4, with all 46 primary P-V-T observations and calibrant measurements,
+  explicit equation-printing qualifications, and independent staged refits
+  recovering the published coefficients within their reported errors.
+  The catalog now contains 286 materials and 815 validated EOS records.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

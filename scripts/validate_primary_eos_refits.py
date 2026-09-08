@@ -127,6 +127,8 @@ SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
 # bars. The stored uncertainties describe digitization, not the weights used
 # in the papers' least-squares fits.
 UNWEIGHTED_DATASETS = {
+    # Sueda reports least squares but no weights or uncertainty confidence.
+    "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized",
     "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",
     "mg075fe025o_mao_2011_figure1_300k_digitized",
@@ -152,6 +154,22 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "mgal2o4_cafe2o4_sueda_2009_htbm_2": (
+        "Staged thermal diagnostic on all 46 Table 1 rows, with the published "
+        "300 K BM3 triplet fixed. The source does not specify weights or "
+        "uncertainty confidence, so use unweighted pressure residuals. "
+        "The independent static-stage reconstruction and printed-equation "
+        "corrections are documented in the [Sueda audit]"
+        "(literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md)."
+    ),
+    "mgal2o4_cafe2o4_sueda_2009_mgd_3": (
+        "Staged thermal diagnostic on all 46 Table 1 rows, with the published "
+        "300 K BM3 triplet fixed. The source does not specify weights or "
+        "uncertainty confidence, so use unweighted pressure residuals. "
+        "The independent static-stage reconstruction and printed-equation "
+        "corrections are documented in the [Sueda audit]"
+        "(literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md)."
+    ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
         "reduction: the supplement deposits the 1,313 fit rows, but omits the "
@@ -1338,7 +1356,10 @@ def _fit_record(
     if dataset["identifier"] in UNWEIGHTED_DATASETS:
         series.pressure_sigma = None
         series.volume_sigma = None
-    if dataset["identifier"] == "iron_zhang_2025_tables_s1_s3_s4_pvt":
+    if dataset["identifier"] in {
+        "iron_zhang_2025_tables_s1_s3_s4_pvt",
+        "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
+    }:
         source_protocol_unweighted = True
     material = Material.from_eosmat(document, record_identifiers=[record_id])
     executable = material.eos_records[0].eos

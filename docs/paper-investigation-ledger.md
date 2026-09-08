@@ -26,14 +26,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **317 primary papers**: **219** support the 813 audited catalog records and **98** were investigated without adding a production record.
+The register covers **318 primary papers**: **220** support the 815 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 125 |
+| Reproduced | 126 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
@@ -1235,6 +1235,7 @@ the primary-source and refit ledgers.
 | [Spin crossover and Mott—Hubbard transition under high pressure and high temperature in the low mantle of the Earth (2015)](https://doi.org/10.1088/1742-6596/653/1/012095) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Stinton et al. (2014)](https://doi.org/10.1103/physrevb.90.134105) | Reproduced | 2 | 2 parity | 2 plot only/digitized |
 | [Stixrude et al. (1992), thermoelasticity and mantle stratification](https://doi.org/10.1126/science.257.5073.1099) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Sueda et al. (2009)](https://doi.org/10.1016/j.pepi.2008.07.046) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Sun et al. (2010)](https://doi.org/10.1515/zna-2010-1-202) | Direct refit unavailable | 220 | 220 direct refit unavailable | 220 parameterization only |
 | [Sun et al. (2016)](https://doi.org/10.1002/2016jb013062) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Sun et al. (2019)](https://doi.org/10.1029/2018gl081421) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |

@@ -3290,8 +3290,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 813:
-        raise ValueError(f"Expected 813 EOS records, found {len(entries)}")
+    if len(entries) != 815:
+        raise ValueError(f"Expected 815 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
@@ -3344,6 +3344,7 @@ def aggregate_existing_audits() -> None:
     """Rebuild aggregate audit files without rewriting curated material records."""
     entries: list[dict[str, Any]] = []
     pressure_calibrations: list[dict[str, Any]] = []
+    audit_dates = [REPORT_AUDIT_DATE]
     for path in sorted(MATERIALS.glob("*.eosmat")):
         document = json.loads(path.read_text(encoding="utf-8"))
         for record in document["eos_records"]:
@@ -3352,6 +3353,7 @@ def aggregate_existing_audits() -> None:
                 raise ValueError(
                     f"{path.name}:{record.get('identifier')} has no existing audit"
                 )
+            audit_dates.append(check.get("audit_date", REPORT_AUDIT_DATE))
             entry = {
                 "material": document["identifier"],
                 "file": path.name,
@@ -3371,10 +3373,11 @@ def aggregate_existing_audits() -> None:
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
+    report_audit_date = max(audit_dates)
     report = {
         "format": "peritheos.primary-source-audit",
         "format_version": 1,
-        "audit_date": REPORT_AUDIT_DATE,
+        "audit_date": report_audit_date,
         "policy": {
             "scientific_authority": "primary publications and official supplements",
             "external_catalogs": (
@@ -3403,7 +3406,7 @@ def aggregate_existing_audits() -> None:
     manifest["materials"] = len(list(MATERIALS.glob("*.eosmat")))
     manifest["eos_records"] = len(entries)
     manifest["scientific_validation"] = {
-        "audit_date": REPORT_AUDIT_DATE,
+        "audit_date": report_audit_date,
         "report": "../primary-source-audit.json",
         "counts": dict(sorted(counts.items())),
         "policy": (
@@ -3418,7 +3421,7 @@ def aggregate_existing_audits() -> None:
         calibration["recalculation"]["status"] for calibration in pressure_calibrations
     )
     manifest["pressure_calibration"] = {
-        "audit_date": REPORT_AUDIT_DATE,
+        "audit_date": report_audit_date,
         "status_counts": {
             status: pressure_statuses[status]
             for status in (
