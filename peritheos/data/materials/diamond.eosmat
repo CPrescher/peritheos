@@ -60,16 +60,36 @@
    "fixed_parameters": [
     "V0"
    ],
+   "fit_datasets": [
+    "diamond_occelli_2003_figure2_digitized"
+   ],
    "experimental_pressure_range_gpa": [
     0.0,
-    140.0
+    152.919271497
    ],
    "temperature_ref": 298.0,
-   "notes": "Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Replaces the dummy record and removes the unsupported K0=800 record.",
+   "notes": "Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Occelli report run 2 to 139 GPa on MXB1986, corresponding to 152.92 GPa on H2005. The center of the final plotted marker digitizes to 140.80/154.98 GPa and is retained as figure evidence rather than substituted for the source-reported experimental limit. Replaces the dummy record and removes the unsupported K0=800 record.",
    "identifier": "diamond_datchi_2007_vinet_1",
    "pressure_calibration": {
-    "status": "partially_resolved",
+    "status": "resolved",
     "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "reference": {
+       "authors": [
+        "Mao",
+        "Xu",
+        "Bell"
+       ],
+       "year": 1986,
+       "title": "Calibration of the ruby pressure gauge to 800 kbar under quasi-hydrostatic conditions",
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/JB091iB05p04673"
+      },
+      "source_location": "Occelli et al. (2003), experimental pressure scale and reference 10",
+      "reference_calibration_record": "ruby_mao_1986",
+      "scope": "source pressure values"
+     },
      {
       "kind": "ruby_fluorescence",
       "reference": {
@@ -81,33 +101,21 @@
        "source": "High Pressure Research",
        "doi": "10.1080/09511920500147501"
       },
-      "source_location": "Experimental pressure reduction; Holzapfel 2005 ruby scale",
-      "reference_calibration_record": "ruby_holzapfel_2005"
-     },
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Dewaele et al."
-       ],
-       "year": 2003,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.67.094112"
-      },
-      "source_location": "High-pressure cross-check; He EOS",
-      "scope": "highest-pressure points"
+      "source_location": "Datchi et al. (2007), Table II H2005 reanalysis",
+      "reference_calibration_record": "ruby_holzapfel_2005",
+      "scope": "target pressure values"
      }
     ],
     "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+     "status": "ready",
+     "notes": "The digitized MXB1986 pressures are inverted to the common ruby R1 ratio and evaluated with the exact H2005 Freund-Ingalls equation. Raw R1 wavelengths are unnecessary for this ratio-preserving scale conversion; the remaining limitation is figure digitization, not the calibration path."
     },
-    "audit_date": "2026-09-03"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -122,7 +130,8 @@
      "locations": [
       "Equation 2",
       "Table II",
-      "Figures 2 and 3"
+      "Occelli et al. (2003), Figure 2 and EOS paragraph",
+      "Holzapfel (2005), best-scale equation and coefficients"
      ],
      "doi": "10.1103/physrevb.75.214104"
     },
@@ -133,14 +142,48 @@
      "file": "diamond.json"
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Table II; Figures 2 and 3"
+     "status": "plot_only",
+     "audit_date": "2026-09-08",
+     "digitized_dataset_identifiers": [
+      "diamond_occelli_2003_figure2_digitized"
      ],
-     "finding": "For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record."
+     "source_locations": [
+      "Datchi et al. (2007), Table II",
+      "Occelli et al. (2003), Figure 2 and pages 151-152"
+     ],
+     "finding": "Datchi et al. reanalyze Occelli et al.'s diamond compression data but do not republish numerical rows. All 24 vector marker centers in Occelli Figure 2 are bundled as digitized numerical facts (14 run-2 open circles and 10 run-3 filled circles), then transformed exactly from MXB1986 to H2005. The source PDFs and figure artwork are not redistributed."
     }
-   }
+   },
+   "reproduction_audit": {
+    "dataset": "diamond_occelli_2003_figure2_digitized",
+    "reproduction_script": "scripts/reproduce_datchi_2007_diamond.py",
+    "report": "docs/data/datchi-2007-diamond-refit.json",
+    "fixed_parameters": {
+     "V0": "5.6733 A^3/atom (45.3864 A^3/conventional cell), fixed by Datchi et al. for every Table II diamond fit"
+    },
+    "published_exclusions": "not stated",
+    "published_weights": "not stated",
+    "best_supported_protocol": "Run 2 only with equal volume weights. This remains a documented hypothesis: it simultaneously approaches Datchi Table II on MXB1986 and H2005 and its H2005 volume chi-square from the published constant volume uncertainty is close to the printed value.",
+    "covariance": "not reconstructed or inferred"
+   },
+   "audit_corrections": [
+    {
+     "path": "experimental_pressure_range_gpa",
+     "source_value": [
+      0.0,
+      140.0
+     ],
+     "value": [
+      0.0,
+      152.919271497
+     ],
+     "reason": "The record is on H2005, whereas the earlier 140 GPa limit was carried over from Occelli's original MXB1986 scale. Occelli explicitly report run 2 to 139 GPa; exact scale conversion gives 152.919271497 GPa on H2005. The final plotted marker digitizes slightly above the reported limit and remains separately documented in the figure dataset.",
+     "primary_reference": {
+      "doi": "10.1103/physrevb.75.214104",
+      "location": "Table II; H2005 diamond reanalysis"
+     }
+    }
+   ]
   },
   {
    "label": "Dewaele et al. (2008), 298 K neon-medium Vinet",
@@ -1170,6 +1213,199 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "diamond_occelli_2003_figure2_digitized",
+   "kind": "pressure_volume_digitized_with_pressure_scale_conversion",
+   "description": "All 24 diamond P-V marker centers in Occelli et al. (2003) Figure 2: 14 run-2 open circles to 140.8 GPa and 10 run-3 filled circles to 10.6 GPa on the original MXB1986 scale, with exact H2005 recalculation.",
+   "source_location": "Occelli et al. (2003), Figure 2",
+   "source_url": "https://doi.org/10.1038/nmat831",
+   "columns": [
+    {
+     "name": "point_id",
+     "quantity": "observation_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "marker",
+     "quantity": "figure_marker_style",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_mxb1986_figure_gpa",
+     "quantity": "digitized_pressure_on_mao_xu_bell_1986_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_mxb1986_gpa",
+     "quantity": "pressure_on_mao_xu_bell_1986_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ruby_r1_ratio",
+     "quantity": "ruby_r1_wavelength_ratio",
+     "unit": "dimensionless",
+     "role": "value"
+    },
+    {
+     "name": "pressure_h2005_gpa",
+     "quantity": "pressure_on_holzapfel_2005_scale",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "atomic_volume_a3",
+     "quantity": "atomic_volume",
+     "unit": "angstrom^3/atom",
+     "role": "value"
+    },
+    {
+     "name": "figure_x_pdf_pt",
+     "quantity": "source_figure_x_coordinate",
+     "unit": "PDF point",
+     "role": "value"
+    },
+    {
+     "name": "figure_y_pdf_pt",
+     "quantity": "source_figure_y_coordinate",
+     "unit": "PDF point",
+     "role": "value"
+    },
+    {
+     "name": "best_supported_table_ii_selection",
+     "quantity": "fit_selection_hypothesis",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "notes",
+     "quantity": "observation_note",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/diamond-occelli-2003-figure2-digitized.csv",
+    "sha256": "84bf16b686ec053245f25bcdc2d41600eaeb0355c18565e52ed112af233572cd",
+    "media_type": "text/csv"
+   },
+   "notes": "Occelli report a constant +/-0.003 cm^3/mol volume uncertainty and pressure uncertainty increasing from +/-0.05 GPa at 1 GPa to +/-1 GPa at 140 GPa, but no rowwise pressure-error law. Those source uncertainties are documented rather than silently interpolated into per-row weights. Datchi do not identify excluded rows or weights.",
+   "reference": {
+    "authors": [
+     "Occelli",
+     "Loubeyre",
+     "LeToullec"
+    ],
+    "year": 2003,
+    "source": "Nature Materials",
+    "volume": "2",
+    "locator": "151-154",
+    "doi": "10.1038/nmat831"
+   },
+   "used_by_eos_records": [
+    "diamond_datchi_2007_vinet_1"
+   ],
+   "provenance": {
+    "type": "digitized_from_figure",
+    "method": "Extracted vector paths from page 2 of the locally archived publication PDF with pdftocairo, identified all open and filled marker centers, and calibrated pressure and molar-volume axes by least-squares lines through every major tick. The clipped ambient marker retains its raw axis conversion but is assigned P=0 from the source text.",
+    "source_pdf_sha256": "b6835050ab43ab4351a6f3c5b2a8d6b583b8eac95cda5adf75c6125f5c35c90a",
+    "source_vector_page_sha256": "be5fde933ae41392407a5894afaa424398b58a3d8666e9f5d8b7a98625546e76",
+    "axis_calibration_pdf_points": {
+     "pressure": [
+      [
+       343.371094,
+       0.0
+      ],
+      [
+       370.632812,
+       20.0
+      ],
+      [
+       397.894531,
+       40.0
+      ],
+      [
+       425.367188,
+       60.0
+      ],
+      [
+       452.628906,
+       80.0
+      ],
+      [
+       479.894531,
+       100.0
+      ],
+      [
+       507.367188,
+       120.0
+      ],
+      [
+       534.628906,
+       140.0
+      ]
+     ],
+     "molar_volume": [
+      [
+       552.09375,
+       2.7
+      ],
+      [
+       578.085938,
+       2.8
+      ],
+      [
+       603.867188,
+       2.9
+      ],
+      [
+       629.863281,
+       3.0
+      ],
+      [
+       655.855469,
+       3.1
+      ],
+      [
+       681.851562,
+       3.2
+      ],
+      [
+       707.847656,
+       3.3
+      ],
+      [
+       733.839844,
+       3.4
+      ]
+     ]
+    },
+    "conversion": "molar cm^3/mol to A^3/atom uses the exact Avogadro constant 6.02214076e23; MXB1986 pressures are inverted to lambda/lambda0 with A=1904 GPa and B=7.665, then evaluated with H2005 A=1845 GPa, B=14.7, C=7.5.",
+    "quality_control": {
+     "marker_count": 24,
+     "run2_marker_count": 14,
+     "run3_marker_count": 10,
+     "reproduction_report": "docs/data/datchi-2007-diamond-refit.json",
+     "covariance_inferred": false
+    },
+    "digitized_on": "2026-09-08"
+   }
+  },
   {
    "identifier": "diamond_dewaele_2008_table1_pvt",
    "kind": "pressure_volume_temperature_lattice_parameter",

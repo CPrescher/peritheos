@@ -8530,25 +8530,210 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "absolute_sigma": null,
+      "available_digitized_observations": 24,
+      "dataset_identifiers": [
+        "diamond_occelli_2003_figure2_digitized"
+      ],
       "experimental_pressure_range_gpa": [
         0.0,
-        140.0
+        152.919271497
       ],
       "experimental_temperature_range_k": null,
+      "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+      "fit_protocol_diagnostic": {
+        "H2005": {
+          "all_figure_markers": {
+            "equal_volume_weight_fit": {
+              "max_abs_residual_gpa": 0.45949587810390824,
+              "message": "`gtol` termination condition is satisfied.",
+              "parameter_errors": {
+                "K0": null,
+                "K0_prime": null
+              },
+              "parameters": {
+                "K0": 441.86246912744224,
+                "K0_prime": 4.023554498168802
+              },
+              "rmse_a3_per_atom": 0.0024851132756705733,
+              "rmse_gpa": 0.2558776470065635,
+              "success": true,
+              "volume_chi_square_using_reported_constant_sigma": 5.972592930004712
+            },
+            "rows": 24,
+            "unweighted_pressure_residual_fit": {
+              "max_abs_residual_gpa": 0.4709872320199864,
+              "message": "`ftol` termination condition is satisfied.",
+              "parameter_errors": {
+                "K0": null,
+                "K0_prime": null
+              },
+              "parameters": {
+                "K0": 441.0377199949159,
+                "K0_prime": 4.044716604904306
+              },
+              "rmse_gpa": 0.25435238271488275,
+              "success": true
+            }
+          },
+          "best_supported_run2_selection": {
+            "equal_volume_weight_fit": {
+              "max_abs_residual_gpa": 0.5744670497271613,
+              "message": "`gtol` termination condition is satisfied.",
+              "parameter_errors": {
+                "K0": null,
+                "K0_prime": null
+              },
+              "parameters": {
+                "K0": 444.3462890944917,
+                "K0_prime": 3.960700438665756
+              },
+              "rmse_a3_per_atom": 0.0017949939649283709,
+              "rmse_gpa": 0.2775872734356574,
+              "success": true,
+              "volume_chi_square_using_reported_constant_sigma": 1.81766278910024
+            },
+            "rows": 14
+          },
+          "published_table_ii": {
+            "K0": 443.0,
+            "K0_prime": 3.97,
+            "chi_square": 1.5
+          }
+        },
+        "MXB1986": {
+          "all_figure_markers": {
+            "equal_volume_weight_fit": {
+              "max_abs_residual_gpa": 1.0093835014645833,
+              "message": "`gtol` termination condition is satisfied.",
+              "parameter_errors": {
+                "K0": null,
+                "K0_prime": null
+              },
+              "parameters": {
+                "K0": 445.54225185077576,
+                "K0_prime": 3.0193806490477604
+              },
+              "rmse_a3_per_atom": 0.0030925502316667412,
+              "rmse_gpa": 0.38454451468773804,
+              "success": true,
+              "volume_chi_square_using_reported_constant_sigma": 9.249197690611641
+            },
+            "rows": 24,
+            "unweighted_pressure_residual_fit": {
+              "max_abs_residual_gpa": 0.7425596587771963,
+              "message": "`ftol` termination condition is satisfied.",
+              "parameter_errors": {
+                "K0": null,
+                "K0_prime": null
+              },
+              "parameters": {
+                "K0": 442.16014734480393,
+                "K0_prime": 3.107221207230282
+              },
+              "rmse_gpa": 0.36857907424775327,
+              "success": true
+            }
+          },
+          "best_supported_run2_selection": {
+            "equal_volume_weight_fit": {
+              "max_abs_residual_gpa": 1.0867048211731856,
+              "message": "`gtol` termination condition is satisfied.",
+              "parameter_errors": {
+                "K0": null,
+                "K0_prime": null
+              },
+              "parameters": {
+                "K0": 446.71192155797604,
+                "K0_prime": 2.990105194458979
+              },
+              "rmse_a3_per_atom": 0.0035620901311354384,
+              "rmse_gpa": 0.4937122634024713,
+              "success": true,
+              "volume_chi_square_using_reported_constant_sigma": 7.158089749295071
+            },
+            "rows": 14
+          },
+          "published_table_ii": {
+            "K0": 447.0,
+            "K0_prime": 3.0,
+            "chi_square": 4.5
+          }
+        }
+      },
       "fixed_parameters": [
         "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
       ],
       "label": "Occelli data on the H2005 scale (Datchi et al. 2007)",
       "material_identifier": "diamond",
       "model": "Vinet",
-      "primary_data_finding": "For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record.",
-      "primary_data_status": "parameterization_only",
+      "objective": "equal volume residuals; equivalent point estimates from the published constant 0.003 cm^3/mol volume uncertainty",
+      "observations": 14,
+      "observed_pressure_range_gpa": [
+        13.227651913,
+        154.97533874678942
+      ],
+      "parameters": [
+        {
+          "difference": 1.3462890944916808,
+          "parameter": "K0",
+          "published": 443.0,
+          "published_error": 3.0,
+          "refit": 444.3462890944917,
+          "refit_error": null,
+          "relative_difference": 0.0030390273013356224,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_published_fit_standard_deviation": true
+        },
+        {
+          "difference": -0.009299561334244366,
+          "parameter": "K0_prime",
+          "published": 3.97,
+          "published_error": 0.05,
+          "refit": 3.960700438665756,
+          "refit_error": null,
+          "relative_difference": 0.002342458774368858,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_published_fit_standard_deviation": true
+        }
+      ],
+      "pressure_recalibration": {
+        "path": "reported MXB1986 pressure -> ruby R1 ratio -> H2005 pressure",
+        "source": "ruby_mao_1986",
+        "source_parameters": {
+          "A_gpa": 1904.0,
+          "B": 7.665,
+          "reference_wavelength_nm": 694.24
+        },
+        "stored_columns_verified": true,
+        "target": "ruby_holzapfel_2005",
+        "target_parameters": {
+          "A_gpa": 1845.0,
+          "B": 14.7,
+          "C": 7.5,
+          "reference_wavelength_nm": 694.24
+        }
+      },
+      "primary_data_finding": "Datchi et al. reanalyze Occelli et al.'s diamond compression data but do not republish numerical rows. All 24 vector marker centers in Occelli Figure 2 are bundled as digitized numerical facts (14 run-2 open circles and 10 run-3 filled circles), then transformed exactly from MXB1986 to H2005. The source PDFs and figure artwork are not redistributed.",
+      "primary_data_status": "plot_only",
       "primary_source": "https://doi.org/10.1103/PhysRevB.75.214104",
-      "reason": "For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record.",
+      "published_chi_square": 1.5,
+      "qualification": "Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points.",
       "record_identifier": "diamond_datchi_2007_vinet_1",
-      "source_notes": "Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Replaces the dummy record and removes the unsupported K0=800 record.",
-      "status": "not_refittable"
+      "rmse_a3_per_atom": 0.0017949939649283709,
+      "rmse_gpa": 0.2775872734356574,
+      "selection": "Occelli Figure 2 run-2 open circles only (14/24 markers); best-supported but source-unconfirmed Table II selection hypothesis",
+      "solver_message": "`gtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_notes": "Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Occelli report run 2 to 139 GPa on MXB1986, corresponding to 152.92 GPa on H2005. The center of the final plotted marker digitizes to 140.80/154.98 GPa and is retained as figure evidence rather than substituted for the source-reported experimental limit. Replaces the dummy record and removes the unsupported K0=800 record.",
+      "status": "similar",
+      "volume_chi_square_using_reported_constant_sigma": 1.81766278910024
     },
     {
       "absolute_sigma": true,
@@ -31648,10 +31833,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 564,
     "parity": 155,
     "parity_not_achieved": 31,
-    "similar": 62,
+    "similar": 63,
     "total": 813
   }
 }

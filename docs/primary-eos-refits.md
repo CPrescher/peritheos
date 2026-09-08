@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **63** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **564** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -263,7 +263,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`cu_sun_2010_low_bn`](https://doi.org/10.1515/zna-2010-1-202) | `parameterization_only` | — | — | —/— | not_refittable — The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited. |
 | [`delta_alooh_vanpeteghem_2002_bm2_1`](https://doi.org/10.1029/2001GL014224) | `delta_alooh_vanpeteghem_2002_table1_pv` | 9 | `V0` 56.54 → 56.4053; `K0` 252 → 238.768 | 1.43322/0.476965 | parity |
 | [`delta_alooh_vanpeteghem_2002_bm3_2`](https://doi.org/10.1029/2001GL014224) | `delta_alooh_vanpeteghem_2002_table1_pv` | 9 | `V0` 56.54 → 56.4893; `K0` 228 → 212.646; `K0_prime` 7 → 6.67657 | 1.3627/0.437383 | parity |
-| [`diamond_datchi_2007_vinet_1`](https://doi.org/10.1103/PhysRevB.75.214104) | `parameterization_only` | — | — | —/— | not_refittable — For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record. |
+| [`diamond_datchi_2007_vinet_1`](https://doi.org/10.1103/PhysRevB.75.214104) | `diamond_occelli_2003_figure2_digitized` | 14 | `K0` 443 → 444.346; `K0_prime` 3.97 → 3.9607 | —/0.277587 | [similar](#investigation-diamond_datchi_2007_vinet_1) — Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points. |
 | [`diamond_dewaele_2008_vinet_2`](https://doi.org/10.1103/PhysRevB.77.094106) | `diamond_dewaele_2008_table1_pvt` | 23 | `V0` 45.3544 → 45.3574; `K0_prime` 4.18 → 4.09474 | 0.241967/0.231284 | parity |
 | [`diamond_sokolova_2013_holzapfel_3`](https://doi.org/10.1016/j.rgg.2013.01.005) | `parameterization_only` | — | — | —/— | not_refittable — This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical. |
 | [`diamond_correa_2008_double_debye_log_moment_5`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.78.024101/fulltext) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data. |
@@ -957,7 +957,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **94** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -1340,6 +1340,27 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+
+<a id="investigation-diamond_datchi_2007_vinet_1"></a>
+
+### `diamond_datchi_2007_vinet_1`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `diamond_occelli_2003_figure2_digitized` with 14 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 443 | 444.346 | 0.30% | — | yes |
+| `K0_prime` | 3.97 | 3.9607 | 0.23% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 13.2277-154.975 GPa; source-declared range: 0-152.919 GPa; fit kind: `static_vinet_with_explicit_ruby_scale_conversion`; objective: `equal volume residuals; equivalent point estimates from the published constant 0.003 cm^3/mol volume uncertainty`; published/refit pressure RMSE: —/0.277587 GPa; reduced chi-square: —; free parameters: `K0, K0_prime`; source-fixed parameters: `V0`.
+
+**Source/data scope.** Datchi et al. reanalyze Occelli et al.'s diamond compression data but do not republish numerical rows. All 24 vector marker centers in Occelli Figure 2 are bundled as digitized numerical facts (14 run-2 open circles and 10 run-3 filled circles), then transformed exactly from MXB1986 to H2005. The source PDFs and figure artwork are not redistributed.
+
+**Registered source-fit note.** Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Occelli report run 2 to 139 GPa on MXB1986, corresponding to 152.92 GPa on H2005. The center of the final plotted marker digitizes to 140.80/154.98 GPa and is retained as figure evidence rather than substituted for the source-reported experimental limit. Replaces the dummy record and removes the unsupported K0=800 record.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
+- The observations are digitized from a plot. Marker resolution, overlap, axis calibration, and unavailable source regression weights limit the strength of any coefficient-level conclusion.
 
 <a id="investigation-e_feooh_hc_low_spin_thompson_2017_bm3_1"></a>
 
@@ -3098,7 +3119,6 @@ the missing source fit detail is recovered.
 - `cu_sun_2010_low_sms3`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
 - `cu_sun_2010_low_sms4`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
 - `cu_sun_2010_low_bn`: The published coefficients are executable, but an independent refit was not attempted: no reusable license was identified for the all-rights-reserved handbook table, its OCR is not reliable enough to transcribe silently, and the original experiment-level rows and numerical implementation are not deposited.
-- `diamond_datchi_2007_vinet_1`: For the diamond record, Datchi et al. reanalyze the previously published Occelli et al. diamond compression data on the H05 pressure scale and report the resulting EOS parameters in Table II; they do not republish the row-level diamond observations. The paper's new c-BN observations are separately bundled with the c-BN record.
 - `diamond_sokolova_2013_holzapfel_3`: This is an internally consistent multi-marker optimization. It publishes input constants and optimized EOS coefficients, but no new row-level experimental P-V-T observations; the calibration comparisons are graphical.
 - `diamond_correa_2008_double_debye_log_moment_5`: This is a theoretical multiphase carbon EOS. It publishes fitted cold-curve and thermal-model coefficients, but not the underlying DFT energy-volume grid as row-level data.
 - `diamond_benedict_2014_double_debye_4`: This is a theoretical multiphase carbon EOS. It publishes the fitted diamond model coefficients, but not the underlying electronic-structure grid as row-level data.

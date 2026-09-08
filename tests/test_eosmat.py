@@ -139,6 +139,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "akimotoite_reynard_1996_bm3_ice_vii_3",
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
+        "diamond_datchi_2007_vinet_1",
         "gold_dewaele_2004_vinet_5",
         "gold_fratanduono_2021_vinet_7",
         "gold_takemura_2008_vinet_6",
@@ -205,7 +206,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         audit_dates[identifier]
         for identifier in current_audit_identifiers
         if identifier not in latest_audit_identifiers
-    } == {"2026-09-01", "2026-09-03"}
+    } == {"2026-09-01", "2026-09-03", "2026-09-08"}
     assert {
         date
         for identifier, date in audit_dates.items()
@@ -824,6 +825,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         "2026-09-05",
         "2026-09-06",
         "2026-09-07",
+        "2026-09-08",
     }
     manifest = json.loads(
         resources.files("peritheos.data.materials")
@@ -2860,7 +2862,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 286
     assert manifest["eos_records"] == 813
-    assert manifest["scientific_validation"]["audit_date"] == "2026-09-06"
+    assert manifest["scientific_validation"]["audit_date"] == "2026-09-08"
 
 
 @pytest.mark.parametrize(

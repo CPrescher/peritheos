@@ -4259,15 +4259,17 @@
       "label": "Occelli data on the H2005 scale (Datchi et al. 2007)",
       "doi": "10.1103/physrevb.75.214104",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Table II was checked against Datchi et al.; all 24 Occelli Figure 2 vector markers, the original MXB1986 scale, the exact H2005 equation, the fixed volume, and the two-scale fit sensitivity were audited. Datchi's exclusions and weights remain unpublished, so no covariance or exact-protocol claim is inferred.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
         "locations": [
           "Equation 2",
           "Table II",
-          "Figures 2 and 3"
+          "Occelli et al. (2003), Figure 2 and pages 151-152",
+          "Holzapfel (2005), best-scale equation and coefficients"
         ],
-        "doi": "10.1103/physrevb.75.214104"
+        "doi": "10.1103/physrevb.75.214104",
+        "finding": "Datchi fix V0=5.6733 A^3/atom and print MXB1986 447(3)/3.00(7) and H2005 443(3)/3.97(5). The best-supported reconstruction selects Occelli run 2 and uses equal volume weights, recovering 446.712/2.990 and 444.346/3.961 respectively. This is strong numerical evidence, not proof of the unpublished selection/weighting protocol."
       }
     },
     {

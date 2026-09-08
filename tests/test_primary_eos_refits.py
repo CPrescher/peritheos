@@ -32,9 +32,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert ledger["summary"] == {"total": 813, **dict(sorted(statuses.items()))}
     assert statuses == {
         "parity": 155,
-        "similar": 62,
+        "similar": 63,
         "parity_not_achieved": 31,
-        "not_refittable": 565,
+        "not_refittable": 564,
     }
     assert all(
         item.get("reason")
@@ -130,6 +130,18 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     )
     assert by_identifier["b4c_somayazulu_2023_berman_refit"]["status"] == ("parity")
     assert by_identifier["gold_shen_2026_vinet_3"]["status"] == "not_refittable"
+    datchi_diamond = by_identifier["diamond_datchi_2007_vinet_1"]
+    assert datchi_diamond["status"] == "similar"
+    assert datchi_diamond["primary_data_status"] == "plot_only"
+    assert datchi_diamond["observations"] == 14
+    assert datchi_diamond["available_digitized_observations"] == 24
+    assert datchi_diamond["fixed_parameters"] == ["V0"]
+    assert [item["refit"] for item in datchi_diamond["parameters"]] == pytest.approx(
+        [444.3462890945, 3.9607004387]
+    )
+    assert all(item["refit_error"] is None for item in datchi_diamond["parameters"])
+    assert "source-unconfirmed" in datchi_diamond["selection"]
+    assert "No refit covariance" in datchi_diamond["qualification"]
     assert by_identifier["ca_perovskite_sun_2016_bm3_3"]["status"] == ("not_refittable")
     assert by_identifier["ca_perovskite_tetragonal_sun_2022_bm3_1"]["status"] == (
         "not_refittable"
@@ -410,7 +422,7 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         for item in ledger["records"]
         if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
     ]
-    assert markdown.count("### `") == len(explained) == 93
+    assert markdown.count("### `") == len(explained) == 94
     assert all(identifier in markdown for identifier in by_identifier)
     failed = [
         item
