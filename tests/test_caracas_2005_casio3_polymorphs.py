@@ -7,9 +7,12 @@ import pytest
 from peritheos import Material, get_material_document
 from scripts.reproduce_caracas_2005_casio3_polymorphs import PARAMETERS, reproduce
 
-MATERIALS = {
+PRODUCTION_MATERIALS = {
     "Pm-3m": "ca_perovskite",
     "I4/mcm": "ca_perovskite_tetragonal",
+}
+
+NONPRODUCTION_MATERIALS = {
     "Imma": "casio3_perovskite_imma",
     "R-3c": "casio3_perovskite_r3c",
     "P4/mbm": "casio3_perovskite_p4mbm",
@@ -20,7 +23,7 @@ MATERIALS = {
 }
 
 
-@pytest.mark.parametrize(("phase", "material"), MATERIALS.items())
+@pytest.mark.parametrize(("phase", "material"), PRODUCTION_MATERIALS.items())
 def test_both_source_parameterizations_are_executable(phase, material):
     document = get_material_document(material)
     identifiers = [
@@ -40,7 +43,7 @@ def test_both_source_parameterizations_are_executable(phase, material):
 
 
 def test_table2_contains_nine_complete_bm3_bm4_pairs():
-    assert set(PARAMETERS) == set(MATERIALS)
+    assert set(PARAMETERS) == set(PRODUCTION_MATERIALS) | set(NONPRODUCTION_MATERIALS)
     assert sum(len(pair) for pair in PARAMETERS.values()) == 18
 
 
@@ -52,9 +55,7 @@ def test_independent_density_statements_select_the_bm3_curves():
     assert metrics["I4/mcm"]["bm3_density_130_g_cm3"] == pytest.approx(5.78, abs=0.01)
 
 
-def test_every_new_phase_card_is_indexing_only_without_invented_coordinates():
-    for material in tuple(MATERIALS.values())[2:]:
-        document = get_material_document(material)
-        assert document["formula_units_per_cell"] is None
-        assert "lattice" not in document
-        assert "atom_sites" not in document
+@pytest.mark.parametrize("material", NONPRODUCTION_MATERIALS.values())
+def test_exploratory_tilt_branches_are_not_production_materials(material):
+    with pytest.raises(KeyError, match="Unknown material document"):
+        get_material_document(material)

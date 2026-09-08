@@ -20,16 +20,17 @@
  "space_group_number": 2,
  "atom_sites": [],
  "peaks": [],
- "notes": "Metastable high-pressure silica polymorph containing penta- and hexa-coordinated Si. Supplementary Table 11 omits V0; the EOS reference volume is reconstructed from its exact Supplementary Table 10 calculated state and the published BM3 coefficients.",
+ "notes": "Metastable high-pressure silica polymorph containing penta- and hexa-coordinated Si. Supplementary Table 11 omits V0; the EOS reference volume is reconstructed from its exact Supplementary Table 10 calculated state and the published BM3 coefficients. The complete AM05 E-P-V grid is not deposited in the article, six crystallographic CIFs, ICSD entries, or the computational coauthor's thesis.",
  "eos_records": [
   {
    "identifier": "coesite_v_bykova_2018_am05_static_bm3_refit",
    "label": "Bykova et al. (2018), coesite-V static AM05 BM3 reconstruction",
+   "notes": "Conditional production reconstruction. K0 and K0_prime are source-owned BM3 fit coefficients; V0 is the only omitted coefficient and is uniquely recovered from the exact 57 GPa calculated state. Treating the integer pressure as rounded to 57 +/- 0.5 GPa bounds V0 at 426.7608-428.0222 A3 and changes reconstructed pressures by at most 0.525 GPa over the plotted 26-64 GPa validity interval. This record is executable and scientifically useful inside that interval, but it is not an independent three-parameter refit.",
    "record_kind": "derived",
    "derivation": {
     "source_kind": "published_table",
     "source_identifier": "coesite_v_bykova_2018_table10_calc_pv",
-    "method": "One-parameter BM3 reconstruction: solve V0 from the exact Table 10 P-V state while holding Supplementary Table 11 K0 and K0_prime fixed.",
+    "method": "One-parameter BM3 reconstruction: solve V0 from the exact Table 10 P-V state while holding Supplementary Table 11 K0 and K0_prime fixed. The result is visually checked against all plotted coesite-V AM05 states in Supplementary Figure 6 and bounded against the Table 10 pressure's integer-rounding interval.",
     "sampling_domain": {
      "pressure_gpa": [
       57.0,
@@ -64,7 +65,16 @@
     "statistics": {
      "observations": 1,
      "free_parameters": 1,
-     "pressure_residual_gpa": 0.0
+     "pressure_residual_gpa": 0.0,
+     "rounded_anchor_pressure_interval_gpa": [
+      56.5,
+      57.5
+     ],
+     "rounded_anchor_v0_interval_a3": [
+      426.7608,
+      428.0222
+     ],
+     "maximum_pressure_sensitivity_26_64_gpa": 0.525
     },
     "reproduction": {
      "script": "scripts/reproduce_tranche_b_mineral_eos.py",
@@ -150,8 +160,8 @@
    },
    "parameter_provenance": {
     "equation": "Methods: calculated E-P-V states fitted with third-order Birch-Murnaghan.",
-    "parameters": "K0 and K0' are published in Supplementary Table 11. V0 is solved from the exact 57 GPa calculated state in Supplementary Table 10 while holding those coefficients fixed; the remaining source curve provides a visual cross-check.",
-    "method": "Static 0 K VASP AM05 calculation; one-parameter reproducible reconstruction."
+    "parameters": "K0 and K0' are published in Supplementary Table 11. V0 is solved from the exact 57 GPa calculated state in Supplementary Table 10 while holding those coefficients fixed; all plotted coesite-V AM05 states provide a visual cross-check. No numerical E-P-V grid or V0 is present in the six deposited experimental CIFs, ICSD records, article repositories, or the computational coauthor's thesis.",
+    "method": "Static 0 K VASP AM05 calculation; one-parameter reproducible reconstruction with an explicit integer-pressure rounding sensitivity."
    },
    "pressure_calibration": {
     "status": "not_applicable",
@@ -165,7 +175,7 @@
      "status": "not_applicable",
      "notes": "The EOS is based on calculated E-P-V states."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
@@ -188,15 +198,15 @@
       "Supplementary Figure 6",
       "Supplementary Tables 10-11"
      ],
-     "finding": "Independent calculated coesite-V BM3; V0 reconstructed transparently because only K0 and K0' are printed."
+     "finding": "Independent calculated coesite-V BM3 coefficients K0 and K0' are printed; V0 is reconstructed transparently from the sole exact calculated P-V state. The full E-P-V grid is plotted but not numerically deposited."
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-05",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
       "coesite_v_bykova_2018_table10_calc_pv"
      ],
-     "finding": "The exact calculated coesite-V Table 10 pressure-volume state is transcribed; the remaining fitted curve is only plotted."
+     "finding": "The exact calculated coesite-V Table 10 pressure-volume state is transcribed. The complete AM05 series remains graphical in Supplementary Figure 6 after checking the article attachments, six deposited crystallographic CIFs, ICSD data statement, and computational coauthor's thesis."
     }
    }
   }
@@ -259,7 +269,7 @@
    "used_by_eos_records": [
     "coesite_v_bykova_2018_am05_static_bm3_refit"
    ],
-   "notes": "Volume per formula unit is exact division by Z=16. The one-parameter reconstruction fixes the published K0 and K0'.",
+   "notes": "Volume per formula unit is exact division by Z=16. The one-parameter reconstruction fixes the published K0 and K0'. The tabulated pressure is an integer; a conservative +/-0.5 GPa rounding sensitivity is documented on the EOS record.",
    "provenance": {
     "type": "transcribed_from_table",
     "method": "Pressure and conventional-cell volume transcribed verbatim; per-formula-unit volume derived by division by 16.",

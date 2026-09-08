@@ -141,6 +141,53 @@ def test_phase_h_primary_table_is_complete_unchanged_and_reproduced():
     )
 
 
+def test_bykova_combined_coesite_tables_and_v_reconstruction_are_bounded():
+    source_tables = {
+        "coesite-i-ii-cernok-2014-table1-pv.csv": (
+            9,
+            "733b94709bd150635b1fe5e7975a652055cc745e604dad723f2b06146b3ce575",
+        ),
+        "coesite-ii-iii-bykova-2018-table2-pv.csv": (
+            15,
+            "8aca860f04909fc827fc09ea6e24039d0364dcc21f3c774b07cb03cdcfe945e2",
+        ),
+    }
+    for filename, (row_count, digest) in source_tables.items():
+        path = ROOT / "peritheos" / "data" / "datasets" / filename
+        with path.open(newline="", encoding="utf-8") as stream:
+            assert len(list(csv.DictReader(stream))) == row_count
+        assert hashlib.sha256(path.read_bytes()).hexdigest() == digest
+
+    result = reproduce()
+    combined = result["bykova_2018_combined_coesite_i_ii_iii"]
+    assert combined["observations"] == 24
+    assert combined["phase_counts"] == {
+        "coesite-I": 7,
+        "coesite-II": 6,
+        "coesite-III": 11,
+    }
+    assert combined["pressure_range_gpa"] == [2.42, 36.9]
+    assert combined["published_bm3_pressure_rmse_gpa"] == pytest.approx(1.2698145841)
+    assert combined["partial_unweighted_refit"] == pytest.approx(
+        {
+            "V0": 542.2160125743,
+            "K0": 126.3278193724,
+            "K0_prime": 1.6951441000,
+            "pressure_rmse_gpa": 0.6967701889,
+            "max_abs_pressure_residual_gpa": 1.9967422491,
+        }
+    )
+
+    sensitivity = result["bykova_2018_coesite_v_rounding_sensitivity"]
+    assert sensitivity["anchor_pressure_interval_gpa"] == [56.5, 57.5]
+    assert sensitivity["v0_interval_a3"] == pytest.approx(
+        [426.7607834181, 428.0221644012]
+    )
+    assert sensitivity["maximum_abs_pressure_shift_26_64_gpa"] == pytest.approx(
+        0.5244076465
+    )
+
+
 def test_hold_papers_do_not_create_production_records():
     found = []
     for path in MATERIALS.glob("*.eosmat"):
