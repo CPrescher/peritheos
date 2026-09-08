@@ -39,6 +39,12 @@ traces the scale's six-material shock, ultrasonic, X-ray, and thermochemical
 construction; it distinguishes exact EOS reconstruction from recoverable
 partial validation and unavailable global-fit observations.
 
+The eleven Sokolova et al. (2013) pressure markers require a coupled treatment
+rather than eleven standalone P-V regressions. Their source constants, official
+workbooks, shared ruby-scale reconstruction, and precise independent-refit
+boundary are documented in the dedicated
+[eleven-marker pressure-scale audit](literature-reproductions/sokolova-2013-global-pressure-scale.md).
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

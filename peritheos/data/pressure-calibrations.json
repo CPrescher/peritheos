@@ -154,6 +154,30 @@
       }
     },
     {
+      "identifier": "ruby_sokolova_2013",
+      "label": "Sokolova, Dorogokupets, and Litasov (2013) ruby scale",
+      "kind": "ruby_fluorescence",
+      "model": "quadratic_shift",
+      "parameters": {
+        "A_gpa": 1870.0,
+        "m": 6.0,
+        "reference_wavelength_nm": 694.24
+      },
+      "equation": "P = A * (delta_lambda/lambda0) * (1 + m * delta_lambda/lambda0)",
+      "reference": {
+        "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+        "year": 2013,
+        "title": "Self-consistent pressure scales based on the equations of state for ruby, diamond, MgO, B2-NaCl, as well as Au, Pt, and other metals to 4 Mbar and 3000 K",
+        "source": "Russian Geology and Geophysics",
+        "doi": "10.1016/j.rgg.2013.01.005"
+      },
+      "validity": {
+        "pressure_gpa": [0.0, 400.0],
+        "temperature_k": [298.15, 298.15],
+        "notes": "Equation (20). The 400 GPa article scope is an EOS extrapolation; the direct room-temperature comparison observations extend only to approximately 150 GPa."
+      }
+    },
+    {
       "identifier": "ruby_shen_2020",
       "label": "IPPS-Ruby2020 (Shen et al., 2020)",
       "kind": "ruby_fluorescence",

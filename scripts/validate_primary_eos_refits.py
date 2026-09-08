@@ -43,6 +43,10 @@ FU_2023_CASIO3_REGISTERED_REFIT = (
     "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
 )
 
+SOKOLOVA_RECONSTRUCTION_JSON = (
+    ROOT / "docs" / "data" / "sokolova-2013-global-calibration.json"
+)
+
 MODEL_CLASSES = {
     "Baonza": Baonza,
     "BM2": BM2,
@@ -2726,10 +2730,52 @@ def _fu_2023_casio3_registered_refit_outcome(
     }
 
 
+def _sokolova_2013_outcome(
+    record: dict[str, Any], reconstruction: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the shared ruby reconstruction without claiming an EOS refit."""
+    marker = next(
+        item
+        for item in reconstruction["marker_results"]
+        if item["record_identifier"] == record["identifier"]
+    )
+    fitted = reconstruction["sensitivity_fit"]["parameters"]
+    return {
+        "status": "source_reconstruction",
+        "dataset_identifiers": [marker["dataset_identifier"]],
+        "observations": marker["observations"],
+        "global_observations": reconstruction["observations"],
+        "marker_count": reconstruction["markers"],
+        "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+        "objective": reconstruction["objective"],
+        "comparison_scope": "shared_ruby_calibration",
+        "published_ruby_parameters": reconstruction["published_parameters"],
+        "sensitivity_fit_ruby_parameters": fitted,
+        "published_rmse_gpa": marker["published_calibration_rmse_gpa"],
+        "rmse_gpa": marker["fitted_calibration_rmse_gpa"],
+        "table4_closure_rmse_gpa": marker["table4_closure_rmse_gpa"],
+        "global_published_marker_equal_rmse_gpa": reconstruction[
+            "published_calibration_marker_equal_rmse_gpa"
+        ],
+        "global_fitted_marker_equal_rmse_gpa": reconstruction[
+            "fitted_calibration_marker_equal_rmse_gpa"
+        ],
+        "global_table4_closure_marker_equal_rmse_gpa": reconstruction[
+            "table4_closure_marker_equal_rmse_gpa"
+        ],
+        "independent_eos_refit": False,
+        "qualification": reconstruction["qualification"],
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
     datchi_diamond_refit = json.loads(
         DATCHI_DIAMOND_REFIT_JSON.read_text(encoding="utf-8")
+    )
+
+    sokolova_reconstruction = json.loads(
+        SOKOLOVA_RECONSTRUCTION_JSON.read_text(encoding="utf-8")
     )
     for material_id in list_material_documents():
         document = get_material_document(material_id)
@@ -2771,6 +2817,11 @@ def validate_all() -> dict[str, Any]:
                 outcome = _fu_2023_casio3_outcome(record)
             elif record["identifier"] == FU_2023_CASIO3_REGISTERED_REFIT:
                 outcome = _fu_2023_casio3_registered_refit_outcome(record)
+            elif record["identifier"] in {
+                item["record_identifier"]
+                for item in sokolova_reconstruction["marker_results"]
+            }:
+                outcome = _sokolova_2013_outcome(record, sokolova_reconstruction)
             elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
@@ -2820,6 +2871,11 @@ def validate_all() -> dict[str, Any]:
             "not_refittable": (
                 "The primary source supplies no direct row-level observations, or "
                 "the necessary reduction/calibration is not executable."
+            ),
+            "source_reconstruction": (
+                "A coupled source-level calculation is executable, but omitted "
+                "upstream observations or weights prevent independent recovery of "
+                "the published EOS coefficients."
             ),
         },
         "summary": {"total": len(results), **dict(sorted(counts.items()))},
@@ -2945,6 +3001,8 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         f"The campaign covers all **{summary['total']}** EOS records. "
         f"**{summary.get('parity', 0)}** achieve uncertainty parity, "
         f"**{summary.get('similar', 0)}** are numerically similar, "
+        f"**{summary.get('source_reconstruction', 0)}** have a coupled source "
+        "reconstruction without an independent EOS refit, "
         f"**[{summary.get('parity_not_achieved', 0)}](#parity-not-achieved)** do not "
         "achieve parity, "
         f"**{summary.get('not_refittable', 0)}** cannot be directly refitted, and "
@@ -2958,6 +3016,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "25% for gamma0/q/theta0, 30% for thermal-expansion or dK/dT terms, and 20% ",
         "for other coefficients. These broad limits identify broadly reproducible ",
         "published reductions; they are not statistical confidence statements.",
+        "`source_reconstruction` is deliberately separate: a coupled published ",
+        "calibration can be exercised against source-linked comparison rows, but ",
+        "the EOS coefficients themselves cannot be independently recovered from ",
+        "the observations and weights the publication makes available.",
         "",
         "Fits use the equation and fixed coefficients declared by each record. Published ",
         "row-wise uncertainties are used only when complete and positive; otherwise the ",

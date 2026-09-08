@@ -157,6 +157,12 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         [45.832161459, 279.27071645]
     )
     assert "Complete plot-scope reproduction" in wang_weidner["qualification"]
+
+    sokolova = by_identifier["mgo_sokolova_2013_holzapfel_4"]
+    assert sokolova["status"] == "source_reconstruction"
+    assert sokolova["marker_count"] == 11
+    assert sokolova["global_observations"] == 392
+    assert sokolova["independent_eos_refit"] is False
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"

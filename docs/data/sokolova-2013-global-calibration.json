@@ -1,0 +1,246 @@
+{
+  "format": "peritheos.sokolova-2013-global-calibration-reconstruction",
+  "format_version": 1,
+  "generated_with": "scripts/reproduce_sokolova_2013_global_calibration.py",
+  "manifest": "peritheos/data/datasets/sokolova-2013-global-calibration-manifest.json",
+  "classification": "source_constrained_cross_calibration_reconstruction",
+  "independent_eos_refit": false,
+  "qualification": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
+  "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+  "observations": 392,
+  "markers": 11,
+  "published_parameters": {
+    "A_gpa": 1870.0,
+    "m": 6.0
+  },
+  "sensitivity_fit": {
+    "parameters": {
+      "A_gpa": 1869.3837840502665,
+      "m": 6.10334763359135
+    },
+    "bounds": {
+      "A_gpa": [
+        1500.0,
+        2200.0
+      ],
+      "m": [
+        0.0,
+        20.0
+      ]
+    },
+    "success": true,
+    "message": "`ftol` termination condition is satisfied.",
+    "A_relative_difference": -0.0003295272458467845,
+    "m_relative_difference": 0.01722460559855839
+  },
+  "published_calibration_marker_equal_rmse_gpa": 1.2774517231364797,
+  "fitted_calibration_marker_equal_rmse_gpa": 1.263939718617078,
+  "table4_closure_marker_equal_rmse_gpa": 1.1474132283929595,
+  "marker_results": [
+    {
+      "material": "diamond",
+      "record_identifier": "diamond_sokolova_2013_holzapfel_3",
+      "dataset_identifier": "diamond_dewaele_2008_table1_pvt",
+      "observations": 12,
+      "relative_r1_shift_range": [
+        0.0024153102875363874,
+        0.01413436666993273
+      ],
+      "table4_pressure_range_gpa": [
+        4.848309126731376,
+        28.269585401878253
+      ],
+      "published_calibration_rmse_gpa": 0.3292803038925985,
+      "published_calibration_mean_residual_gpa": 0.2596119028128894,
+      "fitted_calibration_rmse_gpa": 0.34050399388283104,
+      "table4_closure_rmse_gpa": 0.35841377360043336
+    },
+    {
+      "material": "mgo",
+      "record_identifier": "mgo_sokolova_2013_holzapfel_4",
+      "dataset_identifier": "mgo_jacobsen_2008_table1_helium_compression",
+      "observations": 45,
+      "relative_r1_shift_range": [
+        0.00228,
+        0.03955
+      ],
+      "table4_pressure_range_gpa": [
+        4.409256996892964,
+        90.39750827451637
+      ],
+      "published_calibration_rmse_gpa": 0.9335678496303198,
+      "published_calibration_mean_residual_gpa": -0.8226441913656463,
+      "fitted_calibration_rmse_gpa": 0.8497193014913668,
+      "table4_closure_rmse_gpa": 0.44169117973826566
+    },
+    {
+      "material": "aluminum",
+      "record_identifier": "aluminum_sokolova_2013_holzapfel_2",
+      "dataset_identifier": "aluminum_dewaele_2004_table1_compression",
+      "observations": 40,
+      "relative_r1_shift_range": [
+        0.0,
+        0.061573774123106606
+      ],
+      "table4_pressure_range_gpa": [
+        0.049203578180797486,
+        157.81162434523043
+      ],
+      "published_calibration_rmse_gpa": 0.8395799484761981,
+      "published_calibration_mean_residual_gpa": -0.27871812118393435,
+      "fitted_calibration_rmse_gpa": 0.6336532455704277,
+      "table4_closure_rmse_gpa": 0.6263451213056899
+    },
+    {
+      "material": "copper",
+      "record_identifier": "copper_sokolova_2013_holzapfel_2",
+      "dataset_identifier": "copper_dewaele_2004_table1_compression",
+      "observations": 42,
+      "relative_r1_shift_range": [
+        0.0,
+        0.061573774123106606
+      ],
+      "table4_pressure_range_gpa": [
+        0.019835156592308393,
+        156.88513769710198
+      ],
+      "published_calibration_rmse_gpa": 0.5004545507498767,
+      "published_calibration_mean_residual_gpa": 0.1427081684672006,
+      "fitted_calibration_rmse_gpa": 0.7102791639081447,
+      "table4_closure_rmse_gpa": 0.3947421620508767
+    },
+    {
+      "material": "niobium",
+      "record_identifier": "niobium_sokolova_2013_holzapfel_2",
+      "dataset_identifier": "niobium_takemura_2006_table1_compression",
+      "observations": 43,
+      "relative_r1_shift_range": [
+        5.7758928797335685e-05,
+        0.05537132906182762
+      ],
+      "table4_pressure_range_gpa": [
+        0.6016338439237867,
+        144.3819478913834
+      ],
+      "published_calibration_rmse_gpa": 3.1276690001706005,
+      "published_calibration_mean_residual_gpa": -1.8712468633604382,
+      "fitted_calibration_rmse_gpa": 2.985195422138322,
+      "table4_closure_rmse_gpa": 3.2686040669027268
+    },
+    {
+      "material": "molybdenum",
+      "record_identifier": "molybdenum_sokolova_2013_holzapfel_2",
+      "dataset_identifier": "molybdenum_dewaele_2008_table2_compression",
+      "observations": 28,
+      "relative_r1_shift_range": [
+        0.0009424131433617422,
+        0.05126553825266611
+      ],
+      "table4_pressure_range_gpa": [
+        1.7494332873027651,
+        126.31240710870776
+      ],
+      "published_calibration_rmse_gpa": 0.6467929629438924,
+      "published_calibration_mean_residual_gpa": 0.4103989471005229,
+      "fitted_calibration_rmse_gpa": 0.6855394756440152,
+      "table4_closure_rmse_gpa": 0.6801713372009726
+    },
+    {
+      "material": "silver",
+      "record_identifier": "silver_sokolova_2013_holzapfel_2",
+      "dataset_identifier": "silver_dewaele_2008_table2_compression",
+      "observations": 33,
+      "relative_r1_shift_range": [
+        0.0009424131433617422,
+        0.05126553825266611
+      ],
+      "table4_pressure_range_gpa": [
+        1.8442383947678862,
+        122.77984033412315
+      ],
+      "published_calibration_rmse_gpa": 1.0974441807562851,
+      "published_calibration_mean_residual_gpa": 0.7309954774260629,
+      "fitted_calibration_rmse_gpa": 1.2494109408016236,
+      "table4_closure_rmse_gpa": 0.6277747535907471
+    },
+    {
+      "material": "tantalum",
+      "record_identifier": "tantalum_sokolova_2013_holzapfel_3",
+      "dataset_identifier": "tantalum_dewaele_2004_table1_compression",
+      "observations": 36,
+      "relative_r1_shift_range": [
+        0.0,
+        0.041162023521161384
+      ],
+      "table4_pressure_range_gpa": [
+        0.011808088224409026,
+        97.35972116164683
+      ],
+      "published_calibration_rmse_gpa": 0.8534291506013459,
+      "published_calibration_mean_residual_gpa": -0.49913639075538463,
+      "fitted_calibration_rmse_gpa": 0.7550617475585212,
+      "table4_closure_rmse_gpa": 0.33829531227283377
+    },
+    {
+      "material": "tungsten",
+      "record_identifier": "tungsten_sokolova_2013_holzapfel_4",
+      "dataset_identifier": "tungsten_dewaele_2004_table1_compression",
+      "observations": 42,
+      "relative_r1_shift_range": [
+        0.0,
+        0.061573774123106606
+      ],
+      "table4_pressure_range_gpa": [
+        0.1841548305252668,
+        156.60582078064954
+      ],
+      "published_calibration_rmse_gpa": 0.9017181923505817,
+      "published_calibration_mean_residual_gpa": -0.5976206714787654,
+      "fitted_calibration_rmse_gpa": 0.8629577273808435,
+      "table4_closure_rmse_gpa": 0.8406737383313311
+    },
+    {
+      "material": "platinum",
+      "record_identifier": "platinum_sokolova_2013_holzapfel_3",
+      "dataset_identifier": "platinum_dewaele_2004_table1_compression",
+      "observations": 35,
+      "relative_r1_shift_range": [
+        0.0005975482367661655,
+        0.041162023521161384
+      ],
+      "table4_pressure_range_gpa": [
+        0.956973389813982,
+        96.46658240413382
+      ],
+      "published_calibration_rmse_gpa": 0.5286610631541817,
+      "published_calibration_mean_residual_gpa": 0.16367180112355087,
+      "fitted_calibration_rmse_gpa": 0.6280542150778858,
+      "table4_closure_rmse_gpa": 0.29646752238702695
+    },
+    {
+      "material": "gold",
+      "record_identifier": "gold_sokolova_2013_holzapfel_4",
+      "dataset_identifier": "gold_dewaele_2004_table1_compression",
+      "observations": 36,
+      "relative_r1_shift_range": [
+        0.0005975482367661655,
+        0.041162023521161384
+      ],
+      "table4_pressure_range_gpa": [
+        1.1117380311343485,
+        94.19279845088116
+      ],
+      "published_calibration_rmse_gpa": 1.6701588200282793,
+      "published_calibration_mean_residual_gpa": 1.149128445022931,
+      "fitted_calibration_rmse_gpa": 1.7825124933162952,
+      "table4_closure_rmse_gpa": 1.0774374167109606
+    }
+  ],
+  "full_optimization_blockers": [
+    "row-level thermochemical and ultrasonic observations",
+    "complete row-level static-compression selections",
+    "residual weights and normalization",
+    "optimizer settings and starting values used for the final run",
+    "parameter covariance"
+  ]
+}

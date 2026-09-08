@@ -96,6 +96,7 @@ The current collection contains 93 standalone reports.
 | Shieh et al. (2006): natural-pyroxene pv and ppv | [`shieh-2006-natural-pyroxene-pv-ppv.md`](literature-reproductions/shieh-2006-natural-pyroxene-pv-ppv.md) |
 | Shukla et al. (2016): Fe3+- and Al-bearing bridgmanite | [`shukla-2016-ferric-al-bridgmanite.md`](literature-reproductions/shukla-2016-ferric-al-bridgmanite.md) |
 | Sinogeikin et al. (2004): ambient MgSiO3 perovskite elasticity | [`sinogeikin-2004-mgsio3-elasticity.md`](literature-reproductions/sinogeikin-2004-mgsio3-elasticity.md) |
+| Sokolova et al. (2013) eleven-marker pressure-scale audit | [`sokolova-2013-global-pressure-scale.md`](literature-reproductions/sokolova-2013-global-pressure-scale.md) |
 | Solomatova et al. (2016): spin-crossover ferropericlase branches | [`solomatova-2016-ferropericlase.md`](literature-reproductions/solomatova-2016-ferropericlase.md) |
 | Speziale et al. (2007) ferropericlase audit | [`speziale-2007-ferropericlase.md`](literature-reproductions/speziale-2007-ferropericlase.md) |
 | Sun et al. (2010): Morse equations for 50 solids | [`sun-2010-50-solids-morse-eos.md`](literature-reproductions/sun-2010-50-solids-morse-eos.md) |

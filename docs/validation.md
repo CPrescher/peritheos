@@ -34,9 +34,12 @@ records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
 diagnostics. The current campaign finds 158 uncertainty-parity matches and 63
 additional numerically similar results. [32 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 563 records cannot be
+recover at least one published coefficient, while 552 records cannot be
 directly refitted because row-level inputs or an executable source reduction
-are unavailable. There are no unresolved extraction or solver failures. The
+are unavailable. Eleven Sokolova records have the separate
+`source_reconstruction` status: their 392-row coupled ruby calibration is
+executable, but their EOS coefficients are not independently refittable. There
+are no unresolved extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
 The [source-audit index](source-audits.md) links the detailed publication-level
