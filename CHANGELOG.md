@@ -38,6 +38,13 @@ All notable changes to Peritheos are documented here. The project follows
   distinguish the factual CSV transcription from the copyrighted article and
   keep this shock path separate from the paper's equilibrium 300 K isotherm.
 
+### Added
+
+- Added an independently audited, unweighted joint BM3-Mie-Gruneisen-Debye
+  refit for the Fu et al. (2023) CaSiO3-perovskite data. The published EOS
+  remains unchanged, while the derived fit is available as a separate,
+  provenance-linked EOS record.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added
