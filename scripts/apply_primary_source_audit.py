@@ -448,15 +448,17 @@ VALIDATED_SOURCES: dict[str, dict[str, Any]] = {
     "10.1063/1.342969": source(
         "https://doi.org/10.1063/1.342969",
         [
-            "ambient density paragraph, page 1535",
-            "Section III and Equation (8), pages 1536-1537",
-            "Equations (20)-(29), pages 1540-1541",
-            "Table V, page 1541",
+            "Section II, Equations (4)-(5), and Table I, page 1535",
+            "Tables II-III and Equations (6)-(8), pages 1536-1537",
+            "Section V, Equations (12)-(18), and Table IV, pages 1538-1540",
+            "Equations (19)-(29) and Table V, pages 1540-1541",
         ],
-        "The stored record reproduces Equation (29) and the top rows of Table V: "
-        "a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. "
-        "The partial published error on (dKT/dT)V is retained; the article also "
-        "identifies an additional unquantified contribution from K0' uncertainty.",
+        "The stored record reproduces Equation (29) and all 126 top-row values "
+        "in Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure "
+        "slope. Tables I-IV expose the staged derivation of the two "
+        "thermal coefficients and the non-regression selection of K0'. The partial "
+        "published error on (dKT/dT)V is retained; the article also identifies an "
+        "additional unquantified contribution from K0' uncertainty.",
     ),
     "10.1063/1.344177": source(
         "https://www.researchgate.net/profile/John-Moriarty-7/publication/224513875_The_equation_of_state_of_platinum_to_660_GPa_66_Mbar/links/0deec51d6192cc65e2000000/The-equation-of-state-of-platinum-to-660-GPa-66-Mbar.pdf",
@@ -1926,7 +1928,19 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
         old_v0 = record["eos"]["parameters"]["V0"]
         old_thermal = dict(record["thermal"])
         record["label"] = "Anderson et al. (1989), Au logarithmic-volume thermal EOS"
+        record["reference"]["title"] = (
+            "Anharmonicity and the equation of state for gold"
+        )
+        record["record_kind"] = "published"
+        record["equation_kind"] = "thermal"
+        record["volume_basis"] = {
+            "kind": "formula_units",
+            "formula_units": 4,
+            "molar_mass_g_mol": 196.967,
+        }
         record["eos"]["parameters"]["V0"] = 67.79
+        record["parameter_error_confidence"] = None
+        record["parameter_covariance"] = None
         record["fixed_parameters"] = ["V0", "K0", "K0_prime"]
         record["temperature_ref"] = 300.0
         record["thermal"] = {
@@ -1952,6 +1966,49 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
                 "Table V calculation grid; a reference parameterization, not an independent experimental envelope."
             ],
         }
+        record["pressure_calibration"] = {
+            "status": "not_applicable",
+            "methods": [
+                {
+                    "kind": "ambient_pressure",
+                    "source_location": "Sections II-VI and Tables I-IV",
+                    "scope": (
+                        "Literature heat-capacity, expansivity, and ultrasonic "
+                        "constraints at one atmosphere"
+                    ),
+                },
+                {
+                    "kind": "other",
+                    "reference": {
+                        "authors": ["Heinz", "Jeanloz"],
+                        "year": 1984,
+                        "source": "J. Appl. Phys.",
+                        "volume": "55",
+                        "locator": "885",
+                        "doi": "10.1063/1.333139",
+                    },
+                    "source_location": "Section VII, paragraph following Equation (29)",
+                    "scope": (
+                        "Adopted 300 K static coefficients KT0=166.65 GPa and "
+                        "K0'=5.4823"
+                    ),
+                },
+            ],
+            "recalculation": {
+                "status": "not_applicable",
+                "notes": (
+                    "This paper constructs a reference pressure scale from literature "
+                    "thermodynamic properties and adopted static coefficients; it does "
+                    "not reduce a new pressure-calibrated experiment."
+                ),
+            },
+            "audit_date": "2026-09-08",
+            "notes": (
+                "The exact provenance of the adopted static coefficients and every "
+                "ambient-pressure constraint is recorded; no experimental pressure "
+                "calibration is inferred."
+            ),
+        }
         record["parameter_provenance"] = {
             "reference_isotherm": {
                 "V0": (
@@ -1963,23 +2020,97 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
             },
             "thermal_correction": {
                 "Tr": "Equations (21), (27b), and (29); 300 K",
-                "alpha_KT_ref": ("Equations (20), (21), (26), and (29); 7.14e-3 GPa/K"),
-                "dK_dT_V": ("Section III and Equations (26)-(29); -11.5e-3 GPa/K"),
+                "alpha_KT_ref": (
+                    "Linear least-squares slope of Table IV thermal pressure above "
+                    "1.3 Debye temperatures, reported in Equations (20)-(21) as "
+                    "7.14e-3 GPa/K"
+                ),
+                "dK_dT_V": (
+                    "Linear least-squares slope of the Table III constant-volume KT "
+                    "curve generated with trial K0'=5.5 over 200-550 K, reported as "
+                    "-11.5e-3 GPa/K; the final K0'=5.4823 changes it negligibly"
+                ),
+            },
+            "constraint_lineage": {
+                "heat_capacity": (
+                    "Hultgren et al. (1963) below 300 K and Barin and Knacke "
+                    "(1973) Equation (4) above 300 K"
+                ),
+                "thermal_expansivity": (
+                    "White and Collins (1972), the AIP Handbook (1972), and "
+                    "Touloukian et al. (1975); hand-smoothed through 250 K and "
+                    "quadratic least-squares fit from 250-1000 K"
+                ),
+                "elastic_constants": (
+                    "Neighbours and Alers (1958) through 300 K and Chang and "
+                    "Himmel (1966) from 300-550 K"
+                ),
+                "bulk_modulus_pressure_derivatives": (
+                    "Daniels and Smith (1958), Golding et al. (1967), Hiki and "
+                    "Granato (1966), and Heinz and Jeanloz (1984)"
+                ),
+                "static_reference_isotherm": (
+                    "Heinz and Jeanloz (1984) revised equation of state"
+                ),
             },
         }
         record["notes"] = (
             "Anderson et al. Equation (29): the adopted 300 K BM3 curve "
             "KT0=166.65 GPa and K0'=5.4823 is combined with "
-            "[0.00714-0.0115*ln(V0/V)]*(T-300) GPa. V0=67.79 A^3 is "
+            "[0.00714-0.0115*ln(V0/V)]*(T-300) GPa. This is a staged "
+            "literature synthesis, not a global P-V-T regression: Tables I-IV "
+            "combine heat-capacity, expansivity, and ultrasonic data from distinct "
+            "sources; low-temperature expansivities were graphically smoothed; "
+            "several derived curves were fit separately; K0'=5.2-5.5 was selected "
+            "by a thermodynamic-consistency diagnostic; and the final static K0 and "
+            "K0' were adopted from Heinz and Jeanloz. V0=67.79 A^3 is "
             "converted from the paper's ambient density 19.30 g/cm^3 and "
-            "atomic mass 196.967 g/mol for the four-atom fcc cell. Table V "
+            "atomic mass 196.967 g/mol for the four-atom fcc cell. Table I prints "
+            "Cp=1.1288 in units of 0.1 J g^-1 K^-1 at 300 K, but Equation (4) "
+            "and Table IV gamma=2.974 independently imply about 1.288; both the "
+            "printed and reconstructed values are preserved in the supporting "
+            "dataset. Table V "
             "covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K "
             "dK_dT_V error is the explicit propagated contribution reported "
             "for the near-identical K0'=5.5 calculation; the paper notes an "
-            "additional unquantified contribution from K0' uncertainty. No "
-            "complete covariance matrix or errors for the adopted static "
-            "parameters are published."
+            "additional unquantified contribution from K0' uncertainty. No global "
+            "objective, complete covariance matrix, row weights, digitized "
+            "low-temperature smoothing curve, or exact numerical-integration "
+            "protocol is published."
         )
+        validation_extensions = record.setdefault("scientific_validation", {})
+        validation_extensions["primary_data_check"] = {
+            "status": "bundled_indirect",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": [
+                "gold_anderson_1989_table1_thermodynamic_inputs",
+                "gold_anderson_1989_table2_temperature_derivatives",
+                "gold_anderson_1989_table3_bulk_moduli",
+                "gold_anderson_1989_table4_anharmonic_diagnostics",
+                "gold_anderson_1989_table5_pressure_grid",
+            ],
+            "source_locations": ["Tables I-V; Equations (4)-(29)"],
+            "finding": (
+                "All numerical tables that constrain or verify Equation (29) are "
+                "bundled. They are heterogeneous literature properties and derived "
+                "coefficient/output tables, not a common observation matrix for a "
+                "global EOS regression. The paper does not publish the hand-smoothed "
+                "low-temperature expansivity curve, a global objective or weights, "
+                "an exact integration algorithm, or covariance, so a reproducible "
+                "global fit is not defined."
+            ),
+        }
+        validation_extensions["reproduction"] = {
+            "method": (
+                "Independent reconstruction of the published one-dimensional "
+                "regressions and thermodynamic-consistency trials, followed by "
+                "direct Equation (29) evaluation against all Table V top-row pressures"
+            ),
+            "script": "scripts/reproduce_anderson_1989_gold_thermal_eos.py",
+            "report": "docs/data/anderson-1989-gold-thermal-eos-reproduction.json",
+            "table5_states": 126,
+            "global_fit_status": "not_defined_by_source",
+        }
         for correction in (
             {
                 "path": "eos.parameters.V0",
@@ -2019,7 +2150,7 @@ def restore_primary_model_inputs(record: dict[str, Any]) -> None:
         ):
             correction["primary_reference"] = {
                 "doi": "10.1063/1.342969",
-                "location": "pages 1535-1541, Equations (20)-(29), and Table V",
+                "location": "pages 1535-1541, Tables I-V and Equations (4)-(29)",
             }
             append_correction(record, correction)
 
@@ -3067,6 +3198,22 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     if result["identifier"] == "mgo_b1_luo_2023_vinet_thermal_5":
         result["scientific_validation"]["note"] = previous["note"]
         result["scientific_validation"]["verified_fields"] = previous["verified_fields"]
+        if reproduction is not None:
+            result["scientific_validation"]["reproduction"] = reproduction
+
+    if result["identifier"] == "gold_anderson_1989_bm3_1":
+        result["scientific_validation"]["note"] = (
+            "The complete primary article was audited table by table. The staged "
+            "thermodynamic derivation, upstream-property lineage, Table-I 300 K Cp "
+            "inconsistency, Equation (29), and all Table-V output states are recorded."
+        )
+        result["scientific_validation"]["audit_date"] = "2026-09-08"
+        result["scientific_validation"]["verified_fields"] = [
+            *VERIFIED_FIELDS,
+            "thermodynamic_constraint_lineage",
+            "derived_table_reproduction",
+            "fit_reproducibility",
+        ]
         if reproduction is not None:
             result["scientific_validation"]["reproduction"] = reproduction
 

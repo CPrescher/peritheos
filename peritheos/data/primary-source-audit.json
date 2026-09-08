@@ -5074,16 +5074,16 @@
       "label": "Anderson et al. (1989), Au logarithmic-volume thermal EOS",
       "doi": "10.1063/1.342969",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "The complete primary article was audited table by table. The staged thermodynamic derivation, upstream-property lineage, Table-I 300 K Cp inconsistency, Equation (29), and all Table-V output states are recorded.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/1.342969",
         "locations": [
-          "ambient density paragraph, page 1535",
-          "Section III and Equation (8), pages 1536-1537",
-          "Equations (20)-(29), pages 1540-1541",
-          "Table V, page 1541"
+          "Section II, Equations (4)-(5), and Table I, page 1535",
+          "Tables II-III and Equations (6)-(8), pages 1536-1537",
+          "Section V, Equations (12)-(18), and Table IV, pages 1538-1540",
+          "Equations (19)-(29) and Table V, pages 1540-1541"
         ],
-        "finding": "The stored record reproduces Equation (29) and the top rows of Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. The partial published error on (dKT/dT)V is retained; the article also identifies an additional unquantified contribution from K0' uncertainty.",
+        "finding": "The stored record reproduces Equation (29) and all 126 top-row values in Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. Tables I-IV expose the staged derivation of the two thermal coefficients and the non-regression selection of K0'. The partial published error on (dKT/dT)V is retained; the article also identifies an additional unquantified contribution from K0' uncertainty.",
         "doi": "10.1063/1.342969"
       }
     },
@@ -5597,7 +5597,7 @@
       "material": "indium_nitride",
       "file": "indium_nitride.eosmat",
       "record": "indium_nitride_munoz_1993_murnaghan_1",
-      "label": "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan",
+      "label": "Mu\u00f1oz and Kunc (1993), theoretical wurtzite Murnaghan",
       "doi": "10.1088/0953-8984/5/33/010",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

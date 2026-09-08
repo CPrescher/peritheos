@@ -140,6 +140,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "diamond_benedict_2014_dewaele_anchored",
         "diamond_correa_2008_dewaele_anchored",
         "gold_dewaele_2004_vinet_5",
+        "gold_anderson_1989_bm3_1",
         "gold_fratanduono_2021_vinet_7",
         "gold_takemura_2008_vinet_6",
         "goethite_gleason_2008_bm3_1",
@@ -205,7 +206,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         audit_dates[identifier]
         for identifier in current_audit_identifiers
         if identifier not in latest_audit_identifiers
-    } == {"2026-09-01", "2026-09-03"}
+    } == {"2026-09-01", "2026-09-03", "2026-09-08"}
     assert {
         date
         for identifier, date in audit_dates.items()

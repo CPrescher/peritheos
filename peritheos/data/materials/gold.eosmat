@@ -391,10 +391,18 @@
      "Yamamoto"
     ],
     "year": 1989,
+    "title": "Anharmonicity and the equation of state for gold",
     "source": "J. Appl. Phys.",
     "volume": "65",
     "locator": "1534-1543",
     "doi": "10.1063/1.342969"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.967
    },
    "eos": {
     "type": "BM3",
@@ -410,13 +418,15 @@
     "K0": null,
     "K0_prime": null
    },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
    "fixed_parameters": [
     "V0",
     "K0",
     "K0_prime"
    ],
    "pressure_range_status": "reference_parameterization",
-   "notes": "Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0'=5.4823 is combined with [0.00714-0.0115*ln(V0/V)]*(T-300) GPa. V0=67.79 A^3 is converted from the paper's ambient density 19.30 g/cm^3 and atomic mass 196.967 g/mol for the four-atom fcc cell. Table V covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K dK_dT_V error is the explicit propagated contribution reported for the near-identical K0'=5.5 calculation; the paper notes an additional unquantified contribution from K0' uncertainty. No complete covariance matrix or errors for the adopted static parameters are published.",
+   "notes": "Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0'=5.4823 is combined with [0.00714-0.0115*ln(V0/V)]*(T-300) GPa. This is a staged literature synthesis, not a global P-V-T regression: Tables I-IV combine heat-capacity, expansivity, and ultrasonic data from distinct sources; low-temperature expansivities were graphically smoothed; several derived curves were fit separately; K0'=5.2-5.5 was selected by a thermodynamic-consistency diagnostic; and the final static K0 and K0' were adopted from Heinz and Jeanloz. V0=67.79 A^3 is converted from the paper's ambient density 19.30 g/cm^3 and atomic mass 196.967 g/mol for the four-atom fcc cell. Table I prints Cp=1.1288 in units of 0.1 J g^-1 K^-1 at 300 K, but Equation (4) and Table IV gamma=2.974 independently imply about 1.288; both the printed and reconstructed values are preserved in the supporting dataset. Table V covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K dK_dT_V error is the explicit propagated contribution reported for the near-identical K0'=5.5 calculation; the paper notes an additional unquantified contribution from K0' uncertainty. No global objective, complete covariance matrix, row weights, digitized low-temperature smoothing curve, or exact numerical-integration protocol is published.",
    "thermal": {
     "type": "LogVolumeThermalPressure",
     "parameters": {
@@ -436,19 +446,41 @@
    },
    "identifier": "gold_anderson_1989_bm3_1",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "not_applicable",
+    "methods": [
+     {
+      "kind": "ambient_pressure",
+      "source_location": "Sections II-VI and Tables I-IV",
+      "scope": "Literature heat-capacity, expansivity, and ultrasonic constraints at one atmosphere"
+     },
+     {
+      "kind": "other",
+      "reference": {
+       "authors": [
+        "Heinz",
+        "Jeanloz"
+       ],
+       "year": 1984,
+       "source": "J. Appl. Phys.",
+       "volume": "55",
+       "locator": "885",
+       "doi": "10.1063/1.333139"
+      },
+      "source_location": "Section VII, paragraph following Equation (29)",
+      "scope": "Adopted 300 K static coefficients KT0=166.65 GPa and K0'=5.4823"
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "not_applicable",
+     "notes": "This paper constructs a reference pressure scale from literature thermodynamic properties and adopted static coefficients; it does not reduce a new pressure-calibrated experiment."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-08",
+    "notes": "The exact provenance of the adopted static coefficients and every ambient-pressure constraint is recorded; no experimental pressure calibration is inferred."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The complete primary article was audited table by table. The staged thermodynamic derivation, upstream-property lineage, Table-I 300 K Cp inconsistency, Equation (29), and all Table-V output states are recorded.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "equation",
      "parameters",
@@ -456,17 +488,20 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "validity",
+     "thermodynamic_constraint_lineage",
+     "derived_table_reproduction",
+     "fit_reproducibility"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1063/1.342969",
      "locations": [
-      "ambient density paragraph, page 1535",
-      "Section III and Equation (8), pages 1536-1537",
-      "Equations (20)-(29), pages 1540-1541",
-      "Table V, page 1541"
+      "Section II, Equations (4)-(5), and Table I, page 1535",
+      "Tables II-III and Equations (6)-(8), pages 1536-1537",
+      "Section V, Equations (12)-(18), and Table IV, pages 1538-1540",
+      "Equations (19)-(29) and Table V, pages 1540-1541"
      ],
-     "finding": "The stored record reproduces Equation (29) and the top rows of Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. The partial published error on (dKT/dT)V is retained; the article also identifies an additional unquantified contribution from K0' uncertainty.",
+     "finding": "The stored record reproduces Equation (29) and all 126 top-row values in Table V: a 300 K BM3 isotherm plus a logarithmic-volume thermal-pressure slope. Tables I-IV expose the staged derivation of the two thermal coefficients and the non-regression selection of K0'. The partial published error on (dKT/dT)V is retained; the article also identifies an additional unquantified contribution from K0' uncertainty.",
      "doi": "10.1063/1.342969"
     },
     "migration_source": {
@@ -476,12 +511,26 @@
      "file": "gold.json"
     },
     "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-03",
-     "source_locations": [
-      "Section III; Equations 20-29; Table V"
+     "status": "bundled_indirect",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "gold_anderson_1989_table1_thermodynamic_inputs",
+      "gold_anderson_1989_table2_temperature_derivatives",
+      "gold_anderson_1989_table3_bulk_moduli",
+      "gold_anderson_1989_table4_anharmonic_diagnostics",
+      "gold_anderson_1989_table5_pressure_grid"
      ],
-     "finding": "The paper derives a thermodynamic gold parameterization from literature properties and publishes coefficient tables, not a new row-level experimental compression dataset."
+     "source_locations": [
+      "Tables I-V; Equations (4)-(29)"
+     ],
+     "finding": "All numerical tables that constrain or verify Equation (29) are bundled. They are heterogeneous literature properties and derived coefficient/output tables, not a common observation matrix for a global EOS regression. The paper does not publish the hand-smoothed low-temperature expansivity curve, a global objective or weights, an exact integration algorithm, or covariance, so a reproducible global fit is not defined."
+    },
+    "reproduction": {
+     "method": "Independent reconstruction of the published one-dimensional regressions and thermodynamic-consistency trials, followed by direct Equation (29) evaluation against all Table V top-row pressures",
+     "script": "scripts/reproduce_anderson_1989_gold_thermal_eos.py",
+     "report": "docs/data/anderson-1989-gold-thermal-eos-reproduction.json",
+     "table5_states": 126,
+     "global_fit_status": "not_defined_by_source"
     }
    },
    "temperature_ref": 300.0,
@@ -510,8 +559,15 @@
     },
     "thermal_correction": {
      "Tr": "Equations (21), (27b), and (29); 300 K",
-     "alpha_KT_ref": "Equations (20), (21), (26), and (29); 7.14e-3 GPa/K",
-     "dK_dT_V": "Section III and Equations (26)-(29); -11.5e-3 GPa/K"
+     "alpha_KT_ref": "Linear least-squares slope of Table IV thermal pressure above 1.3 Debye temperatures, reported in Equations (20)-(21) as 7.14e-3 GPa/K",
+     "dK_dT_V": "Linear least-squares slope of the Table III constant-volume KT curve generated with trial K0'=5.5 over 200-550 K, reported as -11.5e-3 GPa/K; the final K0'=5.4823 changes it negligibly"
+    },
+    "constraint_lineage": {
+     "heat_capacity": "Hultgren et al. (1963) below 300 K and Barin and Knacke (1973) Equation (4) above 300 K",
+     "thermal_expansivity": "White and Collins (1972), the AIP Handbook (1972), and Touloukian et al. (1975); hand-smoothed through 250 K and quadratic least-squares fit from 250-1000 K",
+     "elastic_constants": "Neighbours and Alers (1958) through 300 K and Chang and Himmel (1966) from 300-550 K",
+     "bulk_modulus_pressure_derivatives": "Daniels and Smith (1958), Golding et al. (1967), Hiki and Granato (1966), and Heinz and Jeanloz (1984)",
+     "static_reference_isotherm": "Heinz and Jeanloz (1984) revised equation of state"
     }
    },
    "audit_corrections": [
@@ -522,7 +578,7 @@
      "reason": "Convert the primary ambient density and atomic mass to the four-atom conventional fcc cell; do not inherit another catalog's reference volume.",
      "primary_reference": {
       "doi": "10.1063/1.342969",
-      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+      "location": "pages 1535-1541, Tables I-V and Equations (4)-(29)"
      }
     },
     {
@@ -536,7 +592,7 @@
      "reason": "Equation (29) and Table V adopt these reference-isotherm inputs rather than fitting them in this paper.",
      "primary_reference": {
       "doi": "10.1063/1.342969",
-      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+      "location": "pages 1535-1541, Tables I-V and Equations (4)-(29)"
      }
     },
     {
@@ -578,7 +634,7 @@
      "reason": "Equation (29) is an additive linear thermal pressure whose slope varies with ln(V0/V), not a shifted reference-state EOS with constant expansivity and dK_dT=0.",
      "primary_reference": {
       "doi": "10.1063/1.342969",
-      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+      "location": "pages 1535-1541, Tables I-V and Equations (4)-(29)"
      }
     },
     {
@@ -604,7 +660,7 @@
      "reason": "Use the complete calculation grid printed in Table V.",
      "primary_reference": {
       "doi": "10.1063/1.342969",
-      "location": "pages 1535-1541, Equations (20)-(29), and Table V"
+      "location": "pages 1535-1541, Tables I-V and Equations (4)-(29)"
      }
     }
    ]
@@ -2339,6 +2395,460 @@
   "volume": "angstrom^3/conventional_unit_cell"
  },
  "datasets": [
+  {
+   "identifier": "gold_anderson_1989_table1_thermodynamic_inputs",
+   "kind": "heterogeneous_thermodynamic_compilation",
+   "description": "The 20 printed Table I rows of heat capacity, volume expansivity, and ultrasonic elastic modes assembled by Anderson et al. from seven earlier sources. These are property-level inputs to a staged thermodynamic construction, not P-V-T observations sharing a regression objective.",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Isaak",
+     "Yamamoto"
+    ],
+    "year": 1989,
+    "title": "Anharmonicity and the equation of state for gold",
+    "source": "J. Appl. Phys.",
+    "volume": "65",
+    "locator": "1534-1543",
+    "doi": "10.1063/1.342969"
+   },
+   "source_location": "Section II, Equations (4)-(5), and Table I, page 1535",
+   "source_url": "https://doi.org/10.1063/1.342969",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "elastic_series",
+     "quantity": "source_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "cp_printed_0p1_j_g_k",
+     "quantity": "specific_heat_capacity_at_constant_pressure",
+     "unit": "0.1 J g^-1 K^-1",
+     "role": "value"
+    },
+    {
+     "name": "cp_reconstructed_0p1_j_g_k",
+     "quantity": "specific_heat_capacity_at_constant_pressure",
+     "unit": "0.1 J g^-1 K^-1",
+     "role": "value"
+    },
+    {
+     "name": "volume_expansivity_1e6_k_inverse",
+     "quantity": "volume_thermal_expansivity",
+     "unit": "10^-6 K^-1",
+     "role": "value"
+    },
+    {
+     "name": "c11_prime_gpa",
+     "quantity": "adiabatic_elastic_mode_c11_prime",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "c44_gpa",
+     "quantity": "adiabatic_elastic_constant_c44",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "c_prime_gpa",
+     "quantity": "adiabatic_elastic_mode_c_prime",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "cp_source",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "expansivity_source",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "elastic_source",
+     "quantity": "source_identifier",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-anderson-1989-table1-thermodynamic-inputs.csv",
+    "sha256": "6a460edad1925133feb9edbf2d0bad9d27dd1677a2e14821fb0f3a65f174253e",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_anderson_1989_bm3_1"
+   ],
+   "uncertainty": {
+    "elastic_constants": "The paper states 0.5% accuracy for the measured elastic constants; the source studies report about 1% uncertainty for their temperature derivatives.",
+    "other_properties": "No row-wise uncertainty or covariance is printed."
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "source_artifact_sha256": "38a4a6276270c3777d20c0437e22103612c32f5c0b622ebba32f3532499f9024",
+    "upstream_sources": [
+     "Hultgren et al. (1963)",
+     "Barin and Knacke (1973)",
+     "White and Collins (1972)",
+     "AIP Handbook (1972)",
+     "Touloukian et al. (1975)",
+     "Neighbours and Alers (1958)",
+     "Chang and Himmel (1966)"
+    ]
+   },
+   "notes": "The two 300 K elastic rows are retained separately. Table I visibly prints Cp=1.1288 at 300 K. That number breaks the smooth sequence and yields gamma=3.395 through Equation (12), whereas Table IV prints gamma=2.974. Equation (4) gives 1.28820 and inversion of Equation (12) with the printed Table III Ks and Table IV gamma gives 1.28843, so cp_reconstructed_0p1_j_g_k records 1.2888 as the evident intended value while preserving the literal print in the adjacent column. Low-temperature expansivities were obtained by graphical smoothing and are not independently reproducible from the article alone."
+  },
+  {
+   "identifier": "gold_anderson_1989_table2_temperature_derivatives",
+   "kind": "published_coefficient_table",
+   "description": "All ten low- and high-temperature elastic-property derivatives and their printed uncertainties from Table II. The coefficients are separate regressions of the two ultrasonic source series, not parameters from a joint EOS fit.",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Isaak",
+     "Yamamoto"
+    ],
+    "year": 1989,
+    "title": "Anharmonicity and the equation of state for gold",
+    "source": "J. Appl. Phys.",
+    "volume": "65",
+    "locator": "1534-1543",
+    "doi": "10.1063/1.342969"
+   },
+   "source_location": "Table II, page 1536",
+   "source_url": "https://doi.org/10.1063/1.342969",
+   "columns": [
+    {
+     "name": "property",
+     "quantity": "temperature_derivative_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "low_temperature_coefficient_1e3",
+     "quantity": "temperature_derivative_below_300_k",
+     "unit": "10^-3 coefficient_unit",
+     "role": "value"
+    },
+    {
+     "name": "low_temperature_uncertainty_1e3",
+     "quantity": "temperature_derivative_uncertainty_below_300_k",
+     "unit": "10^-3 coefficient_unit",
+     "role": "uncertainty"
+    },
+    {
+     "name": "high_temperature_coefficient_1e3",
+     "quantity": "temperature_derivative_at_or_above_300_k",
+     "unit": "10^-3 coefficient_unit",
+     "role": "value"
+    },
+    {
+     "name": "high_temperature_uncertainty_1e3",
+     "quantity": "temperature_derivative_uncertainty_at_or_above_300_k",
+     "unit": "10^-3 coefficient_unit",
+     "role": "uncertainty"
+    },
+    {
+     "name": "coefficient_unit",
+     "quantity": "unit_identifier",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-anderson-1989-table2-temperature-derivatives.csv",
+    "sha256": "be8233887659814ea16d52910b5f5772f2761a1c65b69191bead2096b4784e6e",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_anderson_1989_bm3_1"
+   ],
+   "uncertainty": {
+    "type": "published_estimates",
+    "notes": "The article states that the source studies estimated uncertainties of about 1% in temperature derivatives. Table II's uncertainties are preserved exactly as printed, including 0.1 and 1.0 for the low- and high-temperature dKt/dT entries."
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_source_coefficient_table",
+    "source_artifact_sha256": "38a4a6276270c3777d20c0437e22103612c32f5c0b622ebba32f3532499f9024",
+    "upstream_sources": [
+     "Neighbours and Alers (1958)",
+     "Chang and Himmel (1966)"
+    ]
+   },
+   "notes": "The article reports separate coefficients below 300 K and at or above 300 K. The two 300 K rows in Tables I and III belong to different source series and are not averaged."
+  },
+  {
+   "identifier": "gold_anderson_1989_table3_bulk_moduli",
+   "kind": "published_derived_thermodynamic_table",
+   "description": "All printed Table III adiabatic and isothermal bulk moduli, four constant-volume trial curves generated by numerically integrating Equation (8), rigidity moduli, and acoustic velocities.",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Isaak",
+     "Yamamoto"
+    ],
+    "year": 1989,
+    "title": "Anharmonicity and the equation of state for gold",
+    "source": "J. Appl. Phys.",
+    "volume": "65",
+    "locator": "1534-1543",
+    "doi": "10.1063/1.342969"
+   },
+   "source_location": "Table III and Equations (6)-(8), pages 1536-1537",
+   "source_url": "https://doi.org/10.1063/1.342969",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "elastic_series",
+     "quantity": "source_series",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ks_ambient_pressure_gpa",
+     "quantity": "adiabatic_bulk_modulus_at_ambient_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_ambient_pressure_gpa",
+     "quantity": "isothermal_bulk_modulus_at_ambient_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_constant_v_kprime_6p39_gpa",
+     "quantity": "isothermal_bulk_modulus_at_constant_zero_kelvin_volume",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_constant_v_kprime_6p12_gpa",
+     "quantity": "isothermal_bulk_modulus_at_constant_zero_kelvin_volume",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_constant_v_kprime_5p5_gpa",
+     "quantity": "isothermal_bulk_modulus_at_constant_zero_kelvin_volume",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_constant_v_kprime_5p21_gpa",
+     "quantity": "isothermal_bulk_modulus_at_constant_zero_kelvin_volume",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "mu_voigt_gpa",
+     "quantity": "voigt_rigidity_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "mu_reuss_gpa",
+     "quantity": "reuss_rigidity_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "mu_hill_gpa",
+     "quantity": "hill_rigidity_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "compressional_velocity_km_s",
+     "quantity": "compressional_wave_velocity",
+     "unit": "km s^-1",
+     "role": "value"
+    },
+    {
+     "name": "shear_velocity_km_s",
+     "quantity": "shear_wave_velocity",
+     "unit": "km s^-1",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-anderson-1989-table3-bulk-moduli.csv",
+    "sha256": "aaa2e6f0e18eb927d4b4ee3c6d0b90635c041d9aebcc3e1a53f44f36f6320d06",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_anderson_1989_bm3_1"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_derived_table",
+    "source_artifact_sha256": "38a4a6276270c3777d20c0437e22103612c32f5c0b622ebba32f3532499f9024"
+   },
+   "notes": "These are derived thermodynamic quantities, not independent observations. The paper says Equation (8) was integrated numerically but does not specify interpolation, integration method, tolerances, or code. The table nevertheless reproduces the reported 200-550 K linear slopes."
+  },
+  {
+   "identifier": "gold_anderson_1989_table4_anharmonic_diagnostics",
+   "kind": "published_derived_thermodynamic_table",
+   "description": "Table IV Gruneisen ratios, four trial q series, Anderson-Gruneisen parameters, and integrated ambient-volume thermal pressures used in the thermodynamic-consistency argument.",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Isaak",
+     "Yamamoto"
+    ],
+    "year": 1989,
+    "title": "Anharmonicity and the equation of state for gold",
+    "source": "J. Appl. Phys.",
+    "volume": "65",
+    "locator": "1534-1543",
+    "doi": "10.1063/1.342969"
+   },
+   "source_location": "Table IV and Equations (12)-(21), pages 1538-1540",
+   "source_url": "https://doi.org/10.1063/1.342969",
+   "columns": [
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "gamma",
+     "quantity": "gruneisen_parameter",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "q_kprime_6p39",
+     "quantity": "logarithmic_volume_derivative_of_gamma",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "q_kprime_6p12",
+     "quantity": "logarithmic_volume_derivative_of_gamma",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "q_kprime_5p5",
+     "quantity": "logarithmic_volume_derivative_of_gamma",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "q_kprime_5p21",
+     "quantity": "logarithmic_volume_derivative_of_gamma",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "delta_s",
+     "quantity": "adiabatic_anderson_gruneisen_parameter",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "delta_t",
+     "quantity": "isothermal_anderson_gruneisen_parameter",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "thermal_pressure_gpa",
+     "quantity": "thermal_pressure_from_zero_kelvin",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-anderson-1989-table4-anharmonic-diagnostics.csv",
+    "sha256": "348a86c38ad512ad1716ac62f1cda3dced28f9e17efc280632b373d78db0c18f",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_anderson_1989_bm3_1"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_derived_table",
+    "source_artifact_sha256": "38a4a6276270c3777d20c0437e22103612c32f5c0b622ebba32f3532499f9024"
+   },
+   "notes": "The four q columns correspond to the four K0' trials in Table III. Equation (18), rather than a stated scalar optimization objective, is used qualitatively to favor K0' near 5.2-5.5."
+  },
+  {
+   "identifier": "gold_anderson_1989_table5_pressure_grid",
+   "kind": "published_eos_grid",
+   "description": "All 126 top-row Equation (29) pressure values in Table V plus the 126 bottom-row Heinz-Jeanloz comparison values. The top rows verify the executable record and are not independent fit input.",
+   "reference": {
+    "authors": [
+     "Anderson",
+     "Isaak",
+     "Yamamoto"
+    ],
+    "year": 1989,
+    "title": "Anharmonicity and the equation of state for gold",
+    "source": "J. Appl. Phys.",
+    "volume": "65",
+    "locator": "1534-1543",
+    "doi": "10.1063/1.342969"
+   },
+   "source_location": "Equation (29) and Table V, page 1541",
+   "source_url": "https://doi.org/10.1063/1.342969",
+   "columns": [
+    {
+     "name": "compression",
+     "quantity": "one_minus_volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_this_study_gpa",
+     "quantity": "pressure_from_equation_29",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_heinz_jeanloz_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-anderson-1989-table5-pressure-grid.csv",
+    "sha256": "08ca602e42c8e56ce47c78dba3057b9b1e0cd219de122b25351e5b6db5908be7",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_anderson_1989_bm3_1"
+   ],
+   "provenance": {
+    "type": "transcribed_from_primary_source_derived_table",
+    "source_artifact_sha256": "38a4a6276270c3777d20c0437e22103612c32f5c0b622ebba32f3532499f9024"
+   },
+   "notes": "At each compression the source prints the present Equation (29) result first and the Heinz-Jeanloz comparison second. The 300 K values differ slightly at high compression because of printed rounding."
+  },
   {
    "identifier": "gold_sakai_2025_table_s9_rs_eos_grid",
    "kind": "derived_pressure_volume_grid",

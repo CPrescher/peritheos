@@ -119,6 +119,15 @@ INDIRECT_DATA = {
         "acoustic fit, so these rows are not independent observations for a generic "
         "pressure-volume coefficient refit."
     ),
+    "gold_anderson_1989_bm3_1": (
+        "Tables I-IV contain heterogeneous literature properties, separately "
+        "regressed coefficients, and "
+        "derived thermodynamic diagnostics, while Table V is output from Equation "
+        "(29). The source performs staged smoothing, one-dimensional regressions, "
+        "numerical integrations, and qualitative K0' trials; it does not define a "
+        "global observation matrix, objective, weights, integration protocol, or "
+        "covariance that could be reproduced as a direct EOS coefficient refit."
+    ),
 }
 
 SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
@@ -1294,6 +1303,12 @@ def _fit_record(
             "solver_message": str(result.message),
         }
     if record_id in INDIRECT_DATA:
+        if record_id == "gold_anderson_1989_bm3_1":
+            dataset_identifiers = list(
+                record["scientific_validation"]["primary_data_check"].get(
+                    "dataset_identifiers", dataset_identifiers
+                )
+            )
         return {
             "status": "not_refittable",
             "reason": INDIRECT_DATA[record_id],

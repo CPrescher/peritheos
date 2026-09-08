@@ -1,0 +1,159 @@
+{
+  "ambient_volume_reconstruction": {
+    "atomic_mass_g_mol": 196.967,
+    "calculated_volume_a3": 67.78681833036913,
+    "density_g_cm3": 19.3,
+    "formula_units_per_fcc_cell": 4,
+    "stored_volume_a3": 67.79
+  },
+  "conclusion": {
+    "classification": "not_refittable",
+    "global_fit_status": "not_defined_by_source",
+    "reason": "The source performs a staged thermodynamic synthesis with heterogeneous literature properties, graphical smoothing, separate linear fits, numerical integration, and qualitative thermodynamic-consistency trials. It publishes neither a common observation matrix nor a global objective, weights, exact integration protocol, parameter covariance, or fitted residuals."
+  },
+  "equation18_thermodynamic_consistency_trials": {
+    "final_equation29_k0_prime": 5.4823,
+    "final_value_provenance": "adopted from the revised Heinz-Jeanloz 300 K equation of state, not fitted by Anderson et al.",
+    "selection_result": "K0' near 5.2-5.5 favored; no scalar optimization reported",
+    "trials": [
+      {
+        "equation18_left": 0.66,
+        "equation18_right": 0.72,
+        "k0_prime_trial": 6.39,
+        "relative_mismatch": 0.08333333333333326,
+        "unrounded_dkt_dt_v_gpa_k_if_printed": -0.00515
+      },
+      {
+        "equation18_left": 0.93,
+        "equation18_right": 0.99,
+        "k0_prime_trial": 6.12,
+        "relative_mismatch": 0.060606060606060545,
+        "unrounded_dkt_dt_v_gpa_k_if_printed": null
+      },
+      {
+        "equation18_left": 1.55,
+        "equation18_right": 1.6,
+        "k0_prime_trial": 5.5,
+        "relative_mismatch": 0.03125000000000003,
+        "unrounded_dkt_dt_v_gpa_k_if_printed": null
+      },
+      {
+        "equation18_left": 1.84,
+        "equation18_right": 1.89,
+        "k0_prime_trial": 5.21,
+        "relative_mismatch": 0.026455026455026363,
+        "unrounded_dkt_dt_v_gpa_k_if_printed": null
+      }
+    ]
+  },
+  "format": "peritheos.anderson-1989-gold-thermal-eos-reproduction",
+  "format_version": 1,
+  "nonreproducible_source_steps": [
+    "graphical interpolation and hand smoothing of expansivity below 250 K",
+    "exact numerical-integration implementation for Equations (8), (13), and (19)",
+    "a global objective function and cross-property weighting",
+    "a joint parameter covariance matrix",
+    "row-level upstream observations not reprinted in Table I"
+  ],
+  "primary_source": {
+    "doi": "10.1063/1.342969",
+    "source_pdf_sha256": "38a4a6276270c3777d20c0437e22103612c32f5c0b622ebba32f3532499f9024"
+  },
+  "record_identifier": "gold_anderson_1989_bm3_1",
+  "resources": {
+    "table1": {
+      "path": "peritheos/data/datasets/gold-anderson-1989-table1-thermodynamic-inputs.csv",
+      "rows": 20,
+      "sha256": "6a460edad1925133feb9edbf2d0bad9d27dd1677a2e14821fb0f3a65f174253e"
+    },
+    "table2": {
+      "path": "peritheos/data/datasets/gold-anderson-1989-table2-temperature-derivatives.csv",
+      "rows": 10,
+      "sha256": "be8233887659814ea16d52910b5f5772f2761a1c65b69191bead2096b4784e6e"
+    },
+    "table3": {
+      "path": "peritheos/data/datasets/gold-anderson-1989-table3-bulk-moduli.csv",
+      "rows": 20,
+      "sha256": "aaa2e6f0e18eb927d4b4ee3c6d0b90635c041d9aebcc3e1a53f44f36f6320d06"
+    },
+    "table4": {
+      "path": "peritheos/data/datasets/gold-anderson-1989-table4-anharmonic-diagnostics.csv",
+      "rows": 19,
+      "sha256": "348a86c38ad512ad1716ac62f1cda3dced28f9e17efc280632b373d78db0c18f"
+    },
+    "table5": {
+      "path": "peritheos/data/datasets/gold-anderson-1989-table5-pressure-grid.csv",
+      "rows": 126,
+      "sha256": "08ca602e42c8e56ce47c78dba3057b9b1e0cd219de122b25351e5b6db5908be7"
+    }
+  },
+  "table1_300k_cp_audit": {
+    "equation12_inverted_0p1_j_g_k": 1.2884338881707091,
+    "equation4_0p1_j_g_k": 1.2882034362214088,
+    "finding": "The literal Table I value is internally inconsistent; about 1.288 is required by both Equation (4) and Table IV.",
+    "gamma_from_printed_cp": 3.3945804247162377,
+    "gamma_from_reconstructed_cp": 2.973155170251155,
+    "printed_0p1_j_g_k": 1.1288,
+    "reconstructed_0p1_j_g_k": 1.2888,
+    "table4_gamma": 2.974
+  },
+  "table2_ambient_kt_temperature_derivatives": {
+    "high_temperature": {
+      "intercept_gpa": 181.48219047619045,
+      "observations": 6,
+      "published_slope_gpa_k": -0.05,
+      "selection": "all Chang-Himmel Table III rows from 300 through 550 K",
+      "slope_gpa_k": -0.05029142857142858
+    },
+    "low_temperature": {
+      "intercept_gpa": 181.62571428571422,
+      "observations": 7,
+      "published_slope_gpa_k": -0.051000000000000004,
+      "selection": "Neighbours-Alers Table III rows from 150 through 300 K",
+      "slope_gpa_k": -0.05045714285714275
+    }
+  },
+  "table3_constant_volume_linear_fits": {
+    "selection": "all printed nonblank rows from 200 through 550 K",
+    "trials": {
+      "5.21": {
+        "intercept_gpa": 179.1773333333334,
+        "observations": 10,
+        "published_slope_gpa_k": -0.0135,
+        "slope_gpa_k": -0.0135466666666669
+      },
+      "5.5": {
+        "intercept_gpa": 179.0413333333334,
+        "observations": 10,
+        "published_slope_gpa_k": -0.0115,
+        "slope_gpa_k": -0.011489523809524015
+      },
+      "6.12": {
+        "intercept_gpa": 178.7443333333334,
+        "observations": 10,
+        "published_slope_gpa_k": -0.0071,
+        "slope_gpa_k": -0.007072380952381095
+      },
+      "6.39": {
+        "intercept_gpa": 178.61100000000005,
+        "observations": 10,
+        "published_slope_gpa_k": -0.0052,
+        "slope_gpa_k": -0.005137142857143064
+      }
+    }
+  },
+  "table4_thermal_pressure_linear_fit": {
+    "intercept_gpa": -0.40321960784313804,
+    "observations": 9,
+    "published_intercept_gpa": -0.4,
+    "published_slope_gpa_k": 0.00714,
+    "selection": "all printed rows at or above 225 K, the first tabulated point above 1.3*theta_D for theta_D=170 K",
+    "slope_gpa_k": 0.007144235294117647
+  },
+  "table5_equation29_reproduction": {
+    "max_abs_residual_gpa": 0.004959857160059755,
+    "rmse_gpa": 0.0026989588074159635,
+    "rounding_tolerance_gpa": 0.005,
+    "states": 126
+  }
+}

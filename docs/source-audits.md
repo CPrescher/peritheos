@@ -22,6 +22,7 @@ The current collection contains 93 standalone reports.
 |---|---|
 | AIP Handbook Cu Vinet refit | [`aip-handbook-cu-vinet-refit.md`](literature-reproductions/aip-handbook-cu-vinet-refit.md) |
 | Akber-Knutson et al. (2005): Al-bearing pv and ppv | [`akber-knutson-2005-al-perovskites.md`](literature-reproductions/akber-knutson-2005-al-perovskites.md) |
+| Anderson et al. (1989) gold thermal EOS audit | [`anderson-1989-gold-thermal-eos.md`](literature-reproductions/anderson-1989-gold-thermal-eos.md) |
 | Belmonte (2017) MgO EOS audit | [`belmonte-2017-mgo.md`](literature-reproductions/belmonte-2017-mgo.md) |
 | Boffa Ballaran et al. (2007) CaIrO3 perovskite and post-perovskite audit | [`boffa-ballaran-2007-cairo3-pv-ppv.md`](literature-reproductions/boffa-ballaran-2007-cairo3-pv-ppv.md) |
 | Caracas and Cohen (2005): MgSiO3–FeSiO3–Al2O3 chemistry | [`caracas-cohen-2005-chemistry.md`](literature-reproductions/caracas-cohen-2005-chemistry.md) |
