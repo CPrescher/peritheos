@@ -1,0 +1,1478 @@
+{
+  "catalog_identifiers": [
+    "aluminum_dewaele_2019_dor_vinet",
+    "aluminum_dewaele_2019_mao_vinet",
+    "beryllium_hcp_dewaele_2019_dor_vinet",
+    "beryllium_hcp_dewaele_2019_mao_vinet",
+    "cobalt_hcp_dewaele_2019_dor_vinet",
+    "cobalt_hcp_dewaele_2019_mao_vinet",
+    "copper_dewaele_2019_dor_vinet",
+    "copper_dewaele_2019_mao_vinet",
+    "gold_dewaele_2019_dor_vinet",
+    "gold_dewaele_2019_mao_vinet",
+    "iron_dewaele_2019_dor_vinet",
+    "iron_dewaele_2019_mao_vinet",
+    "lead_hcp_dewaele_2019_dor_vinet",
+    "lead_hcp_dewaele_2019_mao_vinet",
+    "molybdenum_dewaele_2019_dor_vinet",
+    "molybdenum_dewaele_2019_mao_vinet",
+    "nickel_dewaele_2019_dor_vinet",
+    "nickel_dewaele_2019_mao_vinet",
+    "platinum_dewaele_2019_dor_vinet",
+    "platinum_dewaele_2019_mao_vinet",
+    "rhenium_dewaele_2019_dor_vinet",
+    "rhenium_dewaele_2019_mao_vinet",
+    "silver_dewaele_2019_dor_vinet",
+    "silver_dewaele_2019_mao_vinet",
+    "tantalum_dewaele_2019_dor_vinet",
+    "tantalum_dewaele_2019_mao_vinet",
+    "tungsten_dewaele_2019_dor_vinet",
+    "tungsten_dewaele_2019_mao_vinet",
+    "zinc_hcp_dewaele_2019_dor_vinet",
+    "zinc_hcp_dewaele_2019_mao_vinet"
+  ],
+  "catalog_record_count": 30,
+  "complete_family_reproducible": false,
+  "row_level_refits": {
+    "aluminum_dewaele_2019_dor_vinet": {
+      "dataset": "aluminum-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "61fa04908b3a4827fb6566e4ceea29706ac52cbaae1cee5bb0590d1af44423b7",
+      "pressure_range_gpa": [
+        0.0,
+        155.2907483824007
+      ],
+      "published_atomic_parameters": [
+        16.584,
+        74.2,
+        4.52
+      ],
+      "reported_95pct_errors": [
+        0.019,
+        1.5,
+        0.06
+      ],
+      "rows": 40,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00023351948550498491,
+          0.012244500997468322,
+          0.0043618810395287255
+        ],
+        "max_abs_gpa": 1.0878544762707705,
+        "parameters": [
+          16.584233519485505,
+          74.18775549900253,
+          4.524361881039528
+        ],
+        "rmse_gpa": 0.42936624659177325,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0399947175309876,
+          1.9007653249415597,
+          0.06299502809768676
+        ],
+        "max_abs_a3_per_atom": 0.06661555923199991,
+        "parameters": [
+          16.544005282469012,
+          76.10076532494156,
+          4.457004971902313
+        ],
+        "rmse_a3_per_atom": 0.01963620701141971,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "aluminum_dewaele_2019_mao_vinet": {
+      "dataset": "aluminum-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "61fa04908b3a4827fb6566e4ceea29706ac52cbaae1cee5bb0590d1af44423b7",
+      "pressure_range_gpa": [
+        0.0,
+        144.3
+      ],
+      "published_atomic_parameters": [
+        16.573,
+        76.32,
+        4.16
+      ],
+      "reported_95pct_errors": [
+        0.019,
+        1.5,
+        0.06
+      ],
+      "rows": 40,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0003173118991952606,
+          0.00431816083778358,
+          0.004940835995178361
+        ],
+        "max_abs_gpa": 1.049606650865769,
+        "parameters": [
+          16.572682688100805,
+          76.32431816083778,
+          4.155059164004822
+        ],
+        "rmse_gpa": 0.41106325836339985,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.03432314731949404,
+          1.6362667069851824,
+          0.0614848517285953
+        ],
+        "max_abs_a3_per_atom": 0.06801234880209428,
+        "parameters": [
+          16.538676852680506,
+          77.95626670698518,
+          4.098515148271405
+        ],
+        "rmse_a3_per_atom": 0.02060233682858013,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "cobalt_hcp_dewaele_2019_dor_vinet": {
+      "dataset": "cobalt-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "7c3645e11f62bf9ea41a1cfafa68bc962e0a1e165756bae2f1b1618fc54cf296",
+      "pressure_range_gpa": [
+        0.0,
+        66.09908878096965
+      ],
+      "published_atomic_parameters": [
+        11.077,
+        194.85,
+        4.36
+      ],
+      "reported_95pct_errors": [
+        0.012,
+        3.2,
+        0.2
+      ],
+      "rows": 25,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00013721511931841235,
+          0.0036959114136720927,
+          0.0015813686620074208
+        ],
+        "max_abs_gpa": 0.7302840600243741,
+        "parameters": [
+          11.076862784880682,
+          194.84630408858632,
+          4.358418631337993
+        ],
+        "rmse_gpa": 0.26584864078177023,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.005655359365182022,
+          3.567004660994911,
+          0.17058983342690937
+        ],
+        "max_abs_a3_per_atom": 0.021080512661615813,
+        "parameters": [
+          11.082655359365182,
+          191.28299533900508,
+          4.53058983342691
+        ],
+        "rmse_a3_per_atom": 0.008373144190988164,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "cobalt_hcp_dewaele_2019_mao_vinet": {
+      "dataset": "cobalt-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "7c3645e11f62bf9ea41a1cfafa68bc962e0a1e165756bae2f1b1618fc54cf296",
+      "pressure_range_gpa": [
+        0.0,
+        63.4
+      ],
+      "published_atomic_parameters": [
+        11.077,
+        197.0,
+        3.85
+      ],
+      "reported_95pct_errors": [
+        0.012,
+        3.2,
+        0.2
+      ],
+      "rows": 25,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00010591571180817994,
+          0.028182380408424024,
+          0.0009285428349681268
+        ],
+        "max_abs_gpa": 0.6851271222889039,
+        "parameters": [
+          11.077105915711808,
+          197.02818238040842,
+          3.849071457165032
+        ],
+        "rmse_gpa": 0.2542280308833028,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.005319518101423171,
+          3.2127778827399993,
+          0.15534273872208404
+        ],
+        "max_abs_a3_per_atom": 0.02119783667003894,
+        "parameters": [
+          11.082319518101423,
+          193.78722211726,
+          4.005342738722084
+        ],
+        "rmse_a3_per_atom": 0.008418575509755869,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "copper_dewaele_2019_dor_vinet": {
+      "dataset": "copper-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "0f4535c7e29960690c098408711f63ae559be1d73bba18da73047d75f266120e",
+      "pressure_range_gpa": [
+        0.0,
+        155.2907483824007
+      ],
+      "published_atomic_parameters": [
+        11.81,
+        133.1,
+        5.38
+      ],
+      "reported_95pct_errors": [
+        0.015,
+        1.5,
+        0.06
+      ],
+      "rows": 42,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0003946588658276795,
+          0.026587088308730245,
+          0.0014355722802203985
+        ],
+        "max_abs_gpa": 1.124379263597831,
+        "parameters": [
+          11.810394658865828,
+          133.12658708830872,
+          5.3785644277197795
+        ],
+        "rmse_gpa": 0.38774164454066784,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.013194103761936304,
+          2.49139565031507,
+          0.07639599709962308
+        ],
+        "max_abs_a3_per_atom": 0.02402040680105877,
+        "parameters": [
+          11.796805896238064,
+          135.59139565031506,
+          5.303604002900377
+        ],
+        "rmse_a3_per_atom": 0.007938197673821904,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "copper_dewaele_2019_mao_vinet": {
+      "dataset": "copper-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "0f4535c7e29960690c098408711f63ae559be1d73bba18da73047d75f266120e",
+      "pressure_range_gpa": [
+        0.0,
+        144.3
+      ],
+      "published_atomic_parameters": [
+        11.81,
+        135.3,
+        4.91
+      ],
+      "reported_95pct_errors": [
+        0.015,
+        1.5,
+        0.06
+      ],
+      "rows": 42,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          3.3464550108774915e-05,
+          0.014785276000367276,
+          0.0013604315348967333
+        ],
+        "max_abs_gpa": 1.0155105272982752,
+        "parameters": [
+          11.809966535449892,
+          135.28521472399964,
+          4.908639568465103
+        ],
+        "rmse_gpa": 0.3753503374186546,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.014014018784505922,
+          2.568715504022691,
+          0.08054502835440225
+        ],
+        "max_abs_a3_per_atom": 0.024666253684070938,
+        "parameters": [
+          11.795985981215495,
+          137.8687155040227,
+          4.829454971645598
+        ],
+        "rmse_a3_per_atom": 0.008344705382989415,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "gold_dewaele_2019_dor_vinet": {
+      "dataset": "gold-takemura-2008-table3-compression.csv",
+      "dataset_sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+      "pressure_range_gpa": [
+        0.0,
+        130.8
+      ],
+      "published_atomic_parameters": [
+        16.986,
+        163.4,
+        6.04
+      ],
+      "reported_95pct_errors": [
+        0.02,
+        2.0,
+        0.06
+      ],
+      "rows": 86,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00021873619140322376,
+          0.02296142082030883,
+          0.010179198583366578
+        ],
+        "max_abs_gpa": 2.476761761810721,
+        "parameters": [
+          16.985781263808597,
+          163.3770385791797,
+          6.0298208014166335
+        ],
+        "rmse_gpa": 0.7730222728820225,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.018115026911615928,
+          3.352510345779052,
+          0.1223928934851859
+        ],
+        "max_abs_a3_per_atom": 0.07245836636474579,
+        "parameters": [
+          16.967884973088385,
+          166.75251034577906,
+          5.917607106514814
+        ],
+        "rmse_a3_per_atom": 0.028482217938175142,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "gold_dewaele_2019_mao_vinet": {
+      "dataset": "gold-takemura-2008-table3-compression.csv",
+      "dataset_sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+      "pressure_range_gpa": [
+        0.0,
+        122.29180492688037
+      ],
+      "published_atomic_parameters": [
+        16.983,
+        166.4,
+        5.47
+      ],
+      "reported_95pct_errors": [
+        0.02,
+        2.0,
+        0.06
+      ],
+      "rows": 86,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00016389301289265745,
+          0.03334846277613224,
+          0.0038696989408384397
+        ],
+        "max_abs_gpa": 2.292354785919912,
+        "parameters": [
+          16.983163893012893,
+          166.36665153722387,
+          5.466130301059161
+        ],
+        "rmse_gpa": 0.7258715907845411,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.01643577327143575,
+          3.1227375066330865,
+          0.10865951110357752
+        ],
+        "max_abs_a3_per_atom": 0.07217433914368598,
+        "parameters": [
+          16.966564226728565,
+          169.5227375066331,
+          5.361340488896422
+        ],
+        "rmse_a3_per_atom": 0.028523666663425734,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "iron_dewaele_2019_dor_vinet": {
+      "dataset": "iron-dewaele-2006-epaps-compression.csv",
+      "dataset_sha256": "5babd4420a8d34ba6e5c19aeafb29d7b861b971a2ca9347e65f601bb942b38f9",
+      "pressure_range_gpa": [
+        17.7,
+        205.0
+      ],
+      "published_atomic_parameters": [
+        11.177,
+        168.4,
+        5.33
+      ],
+      "reported_95pct_errors": [
+        0.05,
+        7.9,
+        0.16
+      ],
+      "rows": 53,
+      "scope": "complete 53-row hcp selection; reported pressure is the source's ruby-linked effective pressure for both ruby and W-gauge rows",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0010058278462228287,
+          0.24954836915631518,
+          0.0019185133634511686
+        ],
+        "max_abs_gpa": 2.8438197120587176,
+        "parameters": [
+          11.175994172153777,
+          168.64954836915632,
+          5.328081486636549
+        ],
+        "rmse_gpa": 0.9407258247416176,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0540132635467927,
+          9.738785219355861,
+          0.20414094205082023
+        ],
+        "max_abs_a3_per_atom": 0.026187106220919354,
+        "parameters": [
+          11.231013263546792,
+          158.66121478064414,
+          5.53414094205082
+        ],
+        "rmse_a3_per_atom": 0.011752179099722395,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "iron_dewaele_2019_mao_vinet": {
+      "dataset": "iron-dewaele-2006-epaps-compression.csv",
+      "dataset_sha256": "5babd4420a8d34ba6e5c19aeafb29d7b861b971a2ca9347e65f601bb942b38f9",
+      "pressure_range_gpa": [
+        17.565721133297988,
+        188.868464368615
+      ],
+      "published_atomic_parameters": [
+        11.209,
+        164.5,
+        4.96
+      ],
+      "reported_95pct_errors": [
+        0.05,
+        7.9,
+        0.16
+      ],
+      "rows": 53,
+      "scope": "complete 53-row hcp selection; reported pressure is the source's ruby-linked effective pressure for both ruby and W-gauge rows",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0009905378087342598,
+          0.13787370785175312,
+          0.0021121324394703933
+        ],
+        "max_abs_gpa": 2.5220141204218294,
+        "parameters": [
+          11.208009462191265,
+          164.63787370785175,
+          4.96211213243947
+        ],
+        "rmse_gpa": 0.8193781791012171,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.03561263403470605,
+          6.265224114015638,
+          0.13697618345582718
+        ],
+        "max_abs_a3_per_atom": 0.02514332878391823,
+        "parameters": [
+          11.244612634034706,
+          158.23477588598436,
+          5.096976183455827
+        ],
+        "rmse_a3_per_atom": 0.011350787675475206,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "lead_hcp_dewaele_2019_dor_vinet": {
+      "dataset": "lead-dewaele-2019-table2-compression.csv",
+      "dataset_sha256": "37d1dbcbd19c4e750785552bde3af89c044504c6c5b551a63b7ff9ee0405172f",
+      "pressure_range_gpa": [
+        28.16,
+        130.8
+      ],
+      "published_atomic_parameters": [
+        28.058,
+        70.0,
+        4.77
+      ],
+      "reported_95pct_errors": [
+        0.055,
+        2.1,
+        0.08
+      ],
+      "rows": 17,
+      "scope": "current_run_only; a separately bundled Figure 3 digitization of Kuznetsov et al. (2002) is not treated as exact fit input",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.009789021532682796,
+          0.2096018086415512,
+          0.0022171834916679956
+        ],
+        "max_abs_gpa": 1.977994866348908,
+        "parameters": [
+          28.067789021532683,
+          69.79039819135845,
+          4.772217183491668
+        ],
+        "rmse_gpa": 0.8522365430081987,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.12051973034264662,
+          2.4070100073184477,
+          0.07161928153573083
+        ],
+        "max_abs_a3_per_atom": 0.08165592540399658,
+        "parameters": [
+          28.178519730342646,
+          67.59298999268155,
+          4.84161928153573
+        ],
+        "rmse_a3_per_atom": 0.04354484190164449,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "lead_hcp_dewaele_2019_mao_vinet": {
+      "dataset": "lead-dewaele-2019-table2-compression.csv",
+      "dataset_sha256": "37d1dbcbd19c4e750785552bde3af89c044504c6c5b551a63b7ff9ee0405172f",
+      "pressure_range_gpa": [
+        27.69574954349167,
+        122.29180492688037
+      ],
+      "published_atomic_parameters": [
+        28.063,
+        71.8,
+        4.4
+      ],
+      "reported_95pct_errors": [
+        0.055,
+        2.1,
+        0.08
+      ],
+      "rows": 17,
+      "scope": "current_run_only; a separately bundled Figure 3 digitization of Kuznetsov et al. (2002) is not treated as exact fit input",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0012874331936245653,
+          0.07317032748136398,
+          0.002955308134829693
+        ],
+        "max_abs_gpa": 1.8106597687614823,
+        "parameters": [
+          28.064287433193623,
+          71.72682967251863,
+          4.397044691865171
+        ],
+        "rmse_gpa": 0.7789677909460553,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.07466788605907482,
+          1.580134933642512,
+          0.04527463537095411
+        ],
+        "max_abs_a3_per_atom": 0.08243145148103181,
+        "parameters": [
+          28.137667886059074,
+          70.21986506635749,
+          4.4452746353709545
+        ],
+        "rmse_a3_per_atom": 0.04350956380779155,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "molybdenum_dewaele_2019_dor_vinet": {
+      "dataset": "molybdenum-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "a518f3f0a53785b2c0d875bb2aee8b05db94daef6e06cdd2e96800a341684e2f",
+      "pressure_range_gpa": [
+        0.0,
+        123.81722045064414
+      ],
+      "published_atomic_parameters": [
+        15.567,
+        269.3,
+        3.87
+      ],
+      "reported_95pct_errors": [
+        0.021,
+        3.9,
+        0.12
+      ],
+      "rows": 29,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0004281381127810846,
+          0.0322683347471866,
+          0.0027828290140345935
+        ],
+        "max_abs_gpa": 0.8601306148296857,
+        "parameters": [
+          15.566571861887219,
+          269.3322683347472,
+          3.8727828290140347
+        ],
+        "rmse_gpa": 0.34109811765746545,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.007786467223953153,
+          3.426968851138213,
+          0.08716224939590633
+        ],
+        "max_abs_a3_per_atom": 0.026959394954570115,
+        "parameters": [
+          15.559213532776047,
+          272.7269688511382,
+          3.7828377506040938
+        ],
+        "rmse_a3_per_atom": 0.009913023413704149,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "molybdenum_dewaele_2019_mao_vinet": {
+      "dataset": "molybdenum-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "a518f3f0a53785b2c0d875bb2aee8b05db94daef6e06cdd2e96800a341684e2f",
+      "pressure_range_gpa": [
+        0.0,
+        116.0
+      ],
+      "published_atomic_parameters": [
+        15.569,
+        270.3,
+        3.34
+      ],
+      "reported_95pct_errors": [
+        0.021,
+        3.9,
+        0.12
+      ],
+      "rows": 29,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00015443569156836645,
+          0.005339311108173206,
+          0.005155410588979059
+        ],
+        "max_abs_gpa": 0.8402450325968545,
+        "parameters": [
+          15.56915443569157,
+          270.3053393111082,
+          3.334844589411021
+        ],
+        "rmse_gpa": 0.3336121252385827,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.007956957837421896,
+          3.740322412519504,
+          0.10485225768501794
+        ],
+        "max_abs_a3_per_atom": 0.02726875721221589,
+        "parameters": [
+          15.561043042162579,
+          274.0403224125195,
+          3.235147742314982
+        ],
+        "rmse_a3_per_atom": 0.010368990335170776,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "nickel_dewaele_2019_dor_vinet": {
+      "dataset": "nickel-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "ca114872c320ef2364e5073ac1f05e8bb47d479f3995c6b5dc32f1134b1958be",
+      "pressure_range_gpa": [
+        0.0,
+        158.7461178680547
+      ],
+      "published_atomic_parameters": [
+        10.952,
+        176.0,
+        5.322
+      ],
+      "reported_95pct_errors": [
+        0.018,
+        2.4,
+        0.09
+      ],
+      "rows": 42,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0026389157133568375,
+          1.480593467146889,
+          0.04394569130210524
+        ],
+        "max_abs_gpa": 1.7943285665471578,
+        "parameters": [
+          10.954638915713357,
+          174.5194065328531,
+          5.365945691302105
+        ],
+        "rmse_gpa": 0.6562943317035914,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.003334770525437847,
+          0.5978193976569912,
+          0.019198765388749983
+        ],
+        "max_abs_a3_per_atom": 0.04175195194450687,
+        "parameters": [
+          10.948665229474562,
+          176.597819397657,
+          5.30280123461125
+        ],
+        "rmse_a3_per_atom": 0.01295589105242547,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "nickel_dewaele_2019_mao_vinet": {
+      "dataset": "nickel-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "ca114872c320ef2364e5073ac1f05e8bb47d479f3995c6b5dc32f1134b1958be",
+      "pressure_range_gpa": [
+        0.0,
+        147.4
+      ],
+      "published_atomic_parameters": [
+        10.954,
+        177.5,
+        4.83
+      ],
+      "reported_95pct_errors": [
+        0.018,
+        2.4,
+        0.09
+      ],
+      "rows": 42,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0028524489041519274,
+          1.4507331167292818,
+          0.037459199246375086
+        ],
+        "max_abs_gpa": 1.6477734968674582,
+        "parameters": [
+          10.956852448904153,
+          176.04926688327072,
+          4.867459199246375
+        ],
+        "rmse_gpa": 0.6016140965087852,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.004997063631810406,
+          1.2212490649025085,
+          0.04267327380362573
+        ],
+        "max_abs_a3_per_atom": 0.041601924227109066,
+        "parameters": [
+          10.94900293636819,
+          178.7212490649025,
+          4.787326726196374
+        ],
+        "rmse_a3_per_atom": 0.01299520485742066,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "platinum_dewaele_2019_dor_vinet": {
+      "dataset": "platinum-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+      "pressure_range_gpa": [
+        0.0,
+        95.1057151267236
+      ],
+      "published_atomic_parameters": [
+        15.098,
+        270.8,
+        5.5
+      ],
+      "reported_95pct_errors": [
+        0.025,
+        2.5,
+        0.08
+      ],
+      "rows": 36,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0004947490675615285,
+          6.547500714759735e-05,
+          0.0023650265812840132
+        ],
+        "max_abs_gpa": 0.6562497550397381,
+        "parameters": [
+          15.098494749067562,
+          270.80006547500716,
+          5.497634973418716
+        ],
+        "rmse_gpa": 0.2315519639709715,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0014261476163817122,
+          0.6335778033076735,
+          0.020849757436915084
+        ],
+        "max_abs_a3_per_atom": 0.011951301743538423,
+        "parameters": [
+          15.099426147616382,
+          270.16642219669234,
+          5.520849757436915
+        ],
+        "rmse_a3_per_atom": 0.005899644026635131,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "platinum_dewaele_2019_mao_vinet": {
+      "dataset": "platinum-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+      "pressure_range_gpa": [
+        0.0,
+        90.0
+      ],
+      "published_atomic_parameters": [
+        15.099,
+        273.4,
+        4.83
+      ],
+      "reported_95pct_errors": [
+        0.025,
+        2.5,
+        0.08
+      ],
+      "rows": 36,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          5.920595327779665e-05,
+          0.04364239622884725,
+          0.002689254337728819
+        ],
+        "max_abs_gpa": 0.567538554071433,
+        "parameters": [
+          15.099059205953278,
+          273.4436423962288,
+          4.832689254337729
+        ],
+        "rmse_gpa": 0.21440215531487147,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.000532062495533836,
+          0.29916760899288874,
+          0.015629246218511028
+        ],
+        "max_abs_a3_per_atom": 0.011242578717432394,
+        "parameters": [
+          15.099532062495534,
+          273.1008323910071,
+          4.845629246218511
+        ],
+        "rmse_a3_per_atom": 0.005912351326167235,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "rhenium_dewaele_2019_dor_vinet": {
+      "dataset": "rhenium-anzellini-2014-table3-compression.csv",
+      "dataset_sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f",
+      "pressure_range_gpa": [
+        0.65,
+        144.0
+      ],
+      "published_atomic_parameters": [
+        14.734,
+        350.5,
+        4.62
+      ],
+      "reported_95pct_errors": [
+        0.02,
+        8.0,
+        0.17
+      ],
+      "rows": 59,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0015840470993691014,
+          1.1764258676305985,
+          0.03096502681925717
+        ],
+        "max_abs_gpa": 2.131179541029013,
+        "parameters": [
+          14.735584047099369,
+          349.3235741323694,
+          4.650965026819257
+        ],
+        "rmse_gpa": 0.6040477606572032,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0010182184531366545,
+          1.018228725466713,
+          0.03155875320530921
+        ],
+        "max_abs_a3_per_atom": 0.039575252110841674,
+        "parameters": [
+          14.735018218453137,
+          349.4817712745333,
+          4.651558753205309
+        ],
+        "rmse_a3_per_atom": 0.012872925039806917,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "rhenium_dewaele_2019_mao_vinet": {
+      "dataset": "rhenium-anzellini-2014-table3-compression.csv",
+      "dataset_sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f",
+      "pressure_range_gpa": [
+        0.6564113204013139,
+        134.16305399420037
+      ],
+      "published_atomic_parameters": [
+        14.737,
+        350.5,
+        3.98
+      ],
+      "reported_95pct_errors": [
+        0.02,
+        8.0,
+        0.17
+      ],
+      "rows": 59,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0012553776489223623,
+          1.03258363341547,
+          0.032835983077083686
+        ],
+        "max_abs_gpa": 2.0662818451512237,
+        "parameters": [
+          14.738255377648922,
+          349.46741636658453,
+          4.012835983077084
+        ],
+        "rmse_gpa": 0.5744922590515854,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00031581657579238254,
+          0.03417797045375437,
+          0.011930524707283396
+        ],
+        "max_abs_a3_per_atom": 0.03945592314428126,
+        "parameters": [
+          14.736684183424208,
+          350.46582202954625,
+          3.9919305247072834
+        ],
+        "rmse_a3_per_atom": 0.0128310250285786,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "silver_dewaele_2019_dor_vinet": {
+      "dataset": "silver-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "b369fc32298a0b4d43d54ff75af524227c9d43ccf66e813a215a4967a1fb157c",
+      "pressure_range_gpa": [
+        0.0,
+        123.81722045064414
+      ],
+      "published_atomic_parameters": [
+        17.088,
+        96.6,
+        6.22
+      ],
+      "reported_95pct_errors": [
+        0.016,
+        1.6,
+        0.09
+      ],
+      "rows": 34,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0004184214478542003,
+          0.22163563038274958,
+          0.011493405958532321
+        ],
+        "max_abs_gpa": 1.6777446308167896,
+        "parameters": [
+          17.087581578552147,
+          96.82163563038274,
+          6.208506594041467
+        ],
+        "rmse_gpa": 0.5038301196746475,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.07348640114690852,
+          6.671638547541207,
+          0.26835310836629045
+        ],
+        "max_abs_a3_per_atom": 0.041887492465289,
+        "parameters": [
+          17.014513598853092,
+          103.2716385475412,
+          5.951646891633709
+        ],
+        "rmse_a3_per_atom": 0.015897313455667295,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "silver_dewaele_2019_mao_vinet": {
+      "dataset": "silver-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "b369fc32298a0b4d43d54ff75af524227c9d43ccf66e813a215a4967a1fb157c",
+      "pressure_range_gpa": [
+        0.0,
+        116.0
+      ],
+      "published_atomic_parameters": [
+        17.07,
+        100.2,
+        5.7
+      ],
+      "reported_95pct_errors": [
+        0.016,
+        1.6,
+        0.09
+      ],
+      "rows": 34,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00029745405651127044,
+          0.18827132510557476,
+          0.010264205115760205
+        ],
+        "max_abs_gpa": 1.5608184882340055,
+        "parameters": [
+          17.06970254594349,
+          100.38827132510558,
+          5.68973579488424
+        ],
+        "rmse_gpa": 0.4681111110604099,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.05893346632349861,
+          5.4766119140955,
+          0.21886514118123213
+        ],
+        "max_abs_a3_per_atom": 0.04115143599269189,
+        "parameters": [
+          17.0110665336765,
+          105.6766119140955,
+          5.481134858818768
+        ],
+        "rmse_a3_per_atom": 0.0160107937124002,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "tantalum_dewaele_2019_dor_vinet": {
+      "dataset": "tantalum-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "3c69e1a9943dc1f882d60f63d01cf6708c114a4569a20e04a8b2278e5c09bd78",
+      "pressure_range_gpa": [
+        0.0,
+        95.1057151267236
+      ],
+      "published_atomic_parameters": [
+        18.019,
+        196.1,
+        3.64
+      ],
+      "reported_95pct_errors": [
+        0.018,
+        3.7,
+        0.1
+      ],
+      "rows": 36,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00010711395843543414,
+          0.043569783497474646,
+          0.0017227009418507855
+        ],
+        "max_abs_gpa": 0.9759021241656995,
+        "parameters": [
+          18.018892886041563,
+          196.05643021650252,
+          3.641722700941851
+        ],
+        "rmse_gpa": 0.30010528167353434,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0036332648615733376,
+          1.1287613841118684,
+          0.04151478936042441
+        ],
+        "max_abs_a3_per_atom": 0.030805671107078325,
+        "parameters": [
+          18.02263326486157,
+          194.97123861588813,
+          3.6815147893604245
+        ],
+        "rmse_a3_per_atom": 0.011649630243304086,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "tantalum_dewaele_2019_mao_vinet": {
+      "dataset": "tantalum-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "3c69e1a9943dc1f882d60f63d01cf6708c114a4569a20e04a8b2278e5c09bd78",
+      "pressure_range_gpa": [
+        0.0,
+        90.0
+      ],
+      "published_atomic_parameters": [
+        18.02,
+        197.9,
+        3.17
+      ],
+      "reported_95pct_errors": [
+        0.018,
+        3.7,
+        0.1
+      ],
+      "rows": 36,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00013830892688915242,
+          0.05738741638847955,
+          0.0034336315737562018
+        ],
+        "max_abs_gpa": 0.9001321172019914,
+        "parameters": [
+          18.02013830892689,
+          197.84261258361153,
+          3.173433631573756
+        ],
+        "rmse_gpa": 0.277096382870501,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.002848775676984161,
+          0.8586333897113434,
+          0.033048882903786936
+        ],
+        "max_abs_a3_per_atom": 0.03131273913188082,
+        "parameters": [
+          18.022848775676984,
+          197.04136661028866,
+          3.203048882903787
+        ],
+        "rmse_a3_per_atom": 0.011641982630481667,
+        "within_reported_95pct_errors": true
+      }
+    },
+    "tungsten_dewaele_2019_dor_vinet": {
+      "dataset": "tungsten-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "d73f1d9114c974be80175c6ade256bf17cb4a529e911480e6cd1e337394ef523",
+      "pressure_range_gpa": [
+        0.0,
+        155.2907483824007
+      ],
+      "published_atomic_parameters": [
+        15.858,
+        298.6,
+        4.37
+      ],
+      "reported_95pct_errors": [
+        0.016,
+        4.1,
+        0.11
+      ],
+      "rows": 42,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.00027428531123341315,
+          0.02920692845071926,
+          0.002696093094493257
+        ],
+        "max_abs_gpa": 1.6571624350563923,
+        "parameters": [
+          15.857725714688767,
+          298.5707930715493,
+          4.367303906905507
+        ],
+        "rmse_gpa": 0.5794876562451563,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.014521889345870065,
+          6.7892155289766265,
+          0.1537928673460991
+        ],
+        "max_abs_a3_per_atom": 0.0348399345634558,
+        "parameters": [
+          15.84347811065413,
+          305.38921552897665,
+          4.216207132653901
+        ],
+        "rmse_a3_per_atom": 0.012620579276614155,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "tungsten_dewaele_2019_mao_vinet": {
+      "dataset": "tungsten-dewaele-2004-table1-compression.csv",
+      "dataset_sha256": "d73f1d9114c974be80175c6ade256bf17cb4a529e911480e6cd1e337394ef523",
+      "pressure_range_gpa": [
+        0.0,
+        144.3
+      ],
+      "published_atomic_parameters": [
+        15.862,
+        298.3,
+        3.82
+      ],
+      "reported_95pct_errors": [
+        0.016,
+        4.1,
+        0.11
+      ],
+      "rows": 42,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          9.605573989546201e-05,
+          0.01710714508038791,
+          0.004828792016433159
+        ],
+        "max_abs_gpa": 1.6090718821525343,
+        "parameters": [
+          15.861903944260105,
+          298.2828928549196,
+          3.8151712079835667
+        ],
+        "rmse_gpa": 0.5773964095092282,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.015390762234245514,
+          7.271571685409583,
+          0.1686383993578806
+        ],
+        "max_abs_a3_per_atom": 0.03726713547068705,
+        "parameters": [
+          15.846609237765755,
+          305.5715716854096,
+          3.6513616006421192
+        ],
+        "rmse_a3_per_atom": 0.013560814210902652,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "zinc_hcp_dewaele_2019_dor_vinet": {
+      "dataset": "zinc-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "9edf4625e61d2fdf4b20fd51c1134b7c45495d99d8070f25b555cebb0b476f11",
+      "pressure_range_gpa": [
+        0.0,
+        158.7461178680547
+      ],
+      "published_atomic_parameters": [
+        15.155,
+        62.2,
+        5.705
+      ],
+      "reported_95pct_errors": [
+        0.019,
+        1.2,
+        0.1
+      ],
+      "rows": 43,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.000305842933439493,
+          0.05517455441376029,
+          0.0014141206414866048
+        ],
+        "max_abs_gpa": 2.612183754146713,
+        "parameters": [
+          15.15469415706656,
+          62.25517455441376,
+          5.7035858793585135
+        ],
+        "rmse_gpa": 0.6543739589034804,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.06537457947264436,
+          3.1428648461622757,
+          0.14802878416444187
+        ],
+        "max_abs_a3_per_atom": 0.06896298934051082,
+        "parameters": [
+          15.220374579472644,
+          59.05713515383773,
+          5.853028784164442
+        ],
+        "rmse_a3_per_atom": 0.020917233345158028,
+        "within_reported_95pct_errors": false
+      }
+    },
+    "zinc_hcp_dewaele_2019_mao_vinet": {
+      "dataset": "zinc-dewaele-2008-table2-compression.csv",
+      "dataset_sha256": "9edf4625e61d2fdf4b20fd51c1134b7c45495d99d8070f25b555cebb0b476f11",
+      "pressure_range_gpa": [
+        0.0,
+        147.4
+      ],
+      "published_atomic_parameters": [
+        15.147,
+        64.3,
+        5.3
+      ],
+      "reported_95pct_errors": [
+        0.019,
+        1.2,
+        0.1
+      ],
+      "rows": 43,
+      "scope": "complete",
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0007710784409784566,
+          0.033885559679902144,
+          0.002590723753013613
+        ],
+        "max_abs_gpa": 2.377480446673445,
+        "parameters": [
+          15.146228921559022,
+          64.3338855596799,
+          5.297409276246986
+        ],
+        "rmse_gpa": 0.5941302906776338,
+        "within_reported_95pct_errors": true
+      },
+      "unweighted_volume_residual_fit": {
+        "absolute_parameter_difference": [
+          0.06492389156368894,
+          3.338501194459809,
+          0.15667664045876784
+        ],
+        "max_abs_a3_per_atom": 0.06596128677944257,
+        "parameters": [
+          15.21192389156369,
+          60.96149880554019,
+          5.456676640458768
+        ],
+        "rmse_a3_per_atom": 0.02102851981034787,
+        "within_reported_95pct_errors": false
+      }
+    }
+  },
+  "source_gaps": {
+    "beryllium_hcp": "Lazicki et al. (2012) Table I prints an internally inconsistent a=2.262 A at 24.6 GPa; the unrounded/corrected author row is unavailable.",
+    "lead_hcp": "Dewaele (2019) fits its Table 2 run together with Kuznetsov et al. (2002). Twenty-one hcp square markers are now bundled as an explicit Figure 3 digitization, but the exact numerical rows, selected subset, weights, and Brown-NaCl pressure-scale treatment remain unavailable."
+  },
+  "source_publication_checks": {
+    "iron_dewaele_2006_helium_vinet": {
+      "dataset": "iron-dewaele-2006-epaps-compression.csv",
+      "dataset_sha256": "5babd4420a8d34ba6e5c19aeafb29d7b861b971a2ca9347e65f601bb942b38f9",
+      "pressure_range_gpa": [
+        17.7,
+        197.0
+      ],
+      "published_atomic_parameters": [
+        11.214,
+        163.4,
+        5.38
+      ],
+      "reported_95pct_errors": [
+        0.049,
+        7.9,
+        0.16
+      ],
+      "rows": 37,
+      "unweighted_pressure_residual_fit": {
+        "absolute_parameter_difference": [
+          0.0067636421096377575,
+          0.4806179713214078,
+          0.000503697394465874
+        ],
+        "max_abs_gpa": 1.9131533180172653,
+        "parameters": [
+          11.207236357890363,
+          163.8806179713214,
+          5.380503697394466
+        ],
+        "rmse_gpa": 0.6189740826890574,
+        "within_reported_95pct_errors": true
+      }
+    }
+  }
+}

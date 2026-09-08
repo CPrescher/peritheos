@@ -362,13 +362,8 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             if identifier is not None:
                 derived_record_links.append((identifier, derived_from))
         fit_provenance = record.get("fit_provenance")
-        if record_kind == "refit" and (
-            derived_from is None or not isinstance(fit_provenance, Mapping)
-        ):
-            raise EosmatError(
-                f"{location} refit records require derived_from_record and "
-                "fit_provenance"
-            )
+        if record_kind == "refit" and not isinstance(fit_provenance, Mapping):
+            raise EosmatError(f"{location} refit records require fit_provenance")
         derivation = record.get("derivation")
         if record_kind == "derived" and not isinstance(derivation, Mapping):
             raise EosmatError(f"{location} derived records require derivation")

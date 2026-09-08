@@ -36,6 +36,7 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DEWAELE_REFIT_JSON = ROOT / "docs" / "data" / "dewaele-2019-static-dac-refit.json"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -152,6 +153,16 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "ca_perovskite_tetragonal_chen_2018_vinet": (
+        "Complete source-scope table reproduction with unresolved fitting details: "
+        "all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the "
+        "reported Ye et al. Pt pressures are retained. The source does not publish "
+        "pressure uncertainties, residual direction, weights, fit software, "
+        "unrounded inputs, or covariance. The generic fit therefore uses an "
+        "errors-in-variables objective with one-sigma volume errors propagated "
+        "from the table's two-sigma lattice errors; the dedicated reproduction "
+        "also reports unweighted pressure- and volume-residual sensitivity fits."
+    ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
         "reduction: the supplement deposits the 1,313 fit rows, but omits the "
@@ -544,6 +555,9 @@ PRESSURE_COLUMNS = {
 }
 
 VOLUME_COLUMNS = {
+    "ca_perovskite_tetragonal_chen_2018_table1_compression": (
+        "i4mcm_volume_a3_conventional_cell"
+    ),
     "coesite_iv_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
     "coesite_v_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
     "alumina_dewaele_2013_table1_compression": "a_a",
@@ -2391,8 +2405,77 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _dewaele_2019_outcome(
+    document: dict[str, Any],
+    record: dict[str, Any],
+    refit: dict[str, Any],
+) -> dict[str, Any]:
+    """Translate the dedicated two-ruby-scale audit into the common ledger."""
+    z = float(document["formula_units_per_cell"])
+    fitted_atomic = refit["unweighted_pressure_residual_fit"]["parameters"]
+    fitted = {
+        "V0": float(fitted_atomic[0]) * z,
+        "K0": float(fitted_atomic[1]),
+        "K0_prime": float(fitted_atomic[2]),
+    }
+    published = {
+        name: float(record["eos"]["parameters"][name])
+        for name in ("V0", "K0", "K0_prime")
+    }
+    errors = record["parameter_errors"]
+    comparisons = []
+    for name in ("V0", "K0", "K0_prime"):
+        difference = fitted[name] - published[name]
+        published_error = float(errors[name])
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": published[name],
+                "published_error": published_error,
+                "refit": fitted[name],
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[name]),
+                "within_combined_2sigma": None,
+                "within_reported_95pct": abs(difference) <= published_error,
+                "similar": _similar(name, published[name], fitted[name]),
+            }
+        )
+    if not all(
+        item["within_reported_95pct"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError(
+            f"dedicated Dewaele audit no longer supports {record['identifier']}"
+        )
+    pressure_fit = refit["unweighted_pressure_residual_fit"]
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": refit["rows"],
+        "selection": refit["scope"],
+        "observed_pressure_range_gpa": refit["pressure_range_gpa"],
+        "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["V0", "K0", "K0_prime"],
+        "parameters": comparisons,
+        "rmse_gpa": pressure_fit["rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Dewaele (2019) refit completed",
+        "qualification": (
+            "Complete source rows for this material are bundled and the dedicated "
+            "two-ruby-scale refit recovers every coefficient within the published "
+            "95% interval. The common ledger classifies the result as similar, not "
+            "strict parity, because the dedicated audit does not infer a refit "
+            "covariance from rounded source rows."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
+    dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
+        "row_level_refits"
+    ]
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2427,7 +2510,15 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if (
+                record["identifier"] in dewaele_refits
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _dewaele_2019_outcome(
+                    document, record, dewaele_refits[record["identifier"]]
+                )
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

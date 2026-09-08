@@ -6,6 +6,13 @@ The 30 catalog records are the 15 metal rows in Table 1 of Dewaele (2019), each 
 
 This audit independently refits **28 of the 30 records** from tabulated source rows. Every unweighted pressure-residual refit is inside the 95% coefficient errors printed in Dewaele (2019). The recovered Fe EPAPS source resolves both epsilon-Fe records: all 63 rows are bundled with raw gauge observations, the 53 hcp rows reproduce the two 2019 coefficient sets nearly exactly, and those two records are now linked to bundled primary data. The family is nevertheless **not fully reproducible** because the exact hcp-Pb rows from Kuznetsov et al. (2002) and the corrected/unrounded Be row at 24.6 GPa remain unavailable. Twenty-one hcp-Pb square markers are stored as an explicit Figure 3 digitization, including pixel centers, fitted-axis calibration, symbol fill, confidence, and digitization uncertainties. The paper also does not state the least-squares dependent variable, row weights, or covariance treatment, so the broader family must not be presented as fully reproduced or committed as a completed 30-record audit yet.
 
+The 24 Au, Pt, Cu, Ta, Al, W, Co, Ag, Mo, Ni, Zn, and Re records are now linked
+to their complete bundled source tables and the machine-readable results in
+`docs/data/dewaele-2019-static-dac-refit.json`. The common ledger classifies
+them as `similar`, rather than strict uncertainty parity, because the dedicated
+audit does not infer a new covariance matrix from rounded source rows. Be and
+hcp-Pb retain their narrower, explicit source-data limitations.
+
 Executable audit: `scripts/audit_dewaele_2019_static_dac.py`. It emits the 30 identifiers, source-data checksums, fitted coefficients for pressure- and volume-residual objectives, residual norms, and the unresolved source gaps.
 
 ## Primary-source chain and redistribution status
@@ -98,4 +105,7 @@ The close pressure-residual reproduction is strong evidence that the published f
 3. Confirm with the authors or fitting code that the dependent variable was pressure, whether rows were weighted, and how 95% intervals were calculated.
 4. Resolve explicit permission/redistribution status for the newly transcribed APS tables and replace the abbreviated inherited Re PDF checksum with a verified complete digest from a stable primary download.
 
-Only after those items are resolved should the 30 material records be updated to `primary_data_check: bundled`, linked to exact dataset identifiers/checksums, and marked with independent-refit parity. At that point run the full suite from a clean environment, stage only this audit's files and the 30 narrowly changed records, create a task branch, commit, and push.
+Only after those items are resolved should the remaining Be and hcp-Pb records
+be updated to fully bundled primary data and the 30-record family be described
+as completely reproducible. Until then, per-record results remain qualified and
+the family-level completion flag remains false.

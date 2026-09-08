@@ -797,7 +797,7 @@
             "properties": {"record_kind": {"const": "refit"}},
             "required": ["record_kind"]
           },
-          "then": {"required": ["derived_from_record", "fit_provenance"]}
+          "then": {"required": ["fit_provenance"]}
         },
         {
           "if": {
