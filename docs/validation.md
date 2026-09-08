@@ -29,12 +29,12 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 813
+fit for every record with sufficient direct observations and documents all 816
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 155 uncertainty-parity matches and 62
+diagnostics. The current campaign finds 161 uncertainty-parity matches and 62
 additional numerically similar results. [31 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 565 records cannot be
+recover at least one published coefficient, while 562 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. There are no unresolved extraction or solver failures. The
 machine-readable results are in

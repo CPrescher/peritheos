@@ -72,6 +72,7 @@ correction instead inherits the reference EOS volume convention.
 | [`MieGruneisenDebye`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n`; optional `debye_temperature_law`, `thermal_pressure_reference` | Debye |
 | [`MieGruneisenEinstein`](equation-reference.md#mie-gruneisen-debye-and-einstein) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `q`, `n` | Einstein |
 | [`Tange2009Debye`](equation-reference.md#tange-2009-mgo-thermal-model) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n` | Debye |
+| [`AsymptoticPowerLawMieGruneisenDebyeExcess`](equation-reference.md#asymptotic-power-law-debye-with-t2-excess) | any `EosBase` | `Tr`, `theta0`, `gamma0`, `a`, `b`, `n`, `beta0`, `m` | Debye plus volume-dependent $T^2$ excess |
 | [`DorogokupetsOganov2007`](equation-reference.md#dorogokupets-oganov-2007-four-oscillator-model) | any `EosBase` | Four oscillator modes, `gamma0`, `gamma_inf`, `beta`, anharmonic, electronic, and defect parameters | generalized Bose + Einstein |
 | [`LinearThermalPressure`](equation-reference.md#linear-thermal-pressure) | any `EosBase` | `Tr`, `alpha_KT` | none |
 | [`SecondOrderTaylorThermalPressure`](equation-reference.md#second-order-temperature-compression-thermal-pressure) | reference EOS exposing `V0` | `Tr`, `eta0`, `c0`--`c5` | none |

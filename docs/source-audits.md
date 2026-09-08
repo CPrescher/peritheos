@@ -107,8 +107,8 @@ The current collection contains 92 standalone reports.
 | Xu et al. (2020): Al-bearing phase D | [`xu-2020-al-bearing-phase-d.md`](literature-reproductions/xu-2020-al-bearing-phase-d.md) |
 | Xu et al. (2024): Al-bearing superhydrous phase B | [`xu-2024-al-bearing-superhydrous-phase-b.md`](literature-reproductions/xu-2024-al-bearing-superhydrous-phase-b.md) |
 | Yang et al. (2015): (Mg0.92Fe0.08)O ferropericlase | [`yang-2015-ferropericlase.md`](literature-reproductions/yang-2015-ferropericlase.md) |
+| Ye (2017) 300 K fits and Zhu (2025) thermal P-V-T standards | [`zhu-2025-pressure-standards.md`](literature-reproductions/zhu-2025-pressure-standards.md) |
 | Zhang and Bukowinski (1991): MPIB oxide EOS | [`zhang-bukowinski-1991-oxides.md`](literature-reproductions/zhang-bukowinski-1991-oxides.md) |
 | Zhang and Weidner (1999): aluminous silicate perovskite | [`zhang-weidner-1999-aluminous-perovskite.md`](literature-reproductions/zhang-weidner-1999-aluminous-perovskite.md) |
 | Zhang and Wentzcovitch (2022): anharmonic MgSiO3 Pv and PPv | [`zhang-wentzcovitch-2022-anharmonic-pv-ppv.md`](literature-reproductions/zhang-wentzcovitch-2022-anharmonic-pv-ppv.md) |
 | Zhang et al. (2025) hcp-Fe thermal EOS | [`zhang-2025-hcp-iron.md`](literature-reproductions/zhang-2025-hcp-iron.md) |
-| Zhu et al. (2025): internally consistent Pt, Au, and MgO pressure standards | [`zhu-2025-pressure-standards.md`](literature-reproductions/zhu-2025-pressure-standards.md) |

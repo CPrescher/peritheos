@@ -331,6 +331,7 @@
           "enum": [
             "AlphaKT",
             "AsymptoticPowerLawMieGruneisenDebye",
+            "AsymptoticPowerLawMieGruneisenDebyeExcess",
             "DoubleDebyeHelmholtz",
             "DoubleDebyeLogMomentHelmholtz",
             "DorogokupetsOganov2007",
@@ -348,6 +349,7 @@
           "enum": [
             "thermal_reference_state",
             "asymptotic_power_law_mie_gruneisen_debye",
+            "asymptotic_power_law_mie_gruneisen_debye_excess",
             "double_debye_helmholtz",
             "double_debye_log_moment_helmholtz",
             "dorogokupets_oganov_2007",
@@ -407,6 +409,7 @@
           "oneOf": [
             {"properties": {"type": {"const": "AlphaKT"}, "model": {"const": "thermal_reference_state"}}},
             {"properties": {"type": {"const": "AsymptoticPowerLawMieGruneisenDebye"}, "model": {"const": "asymptotic_power_law_mie_gruneisen_debye"}}},
+            {"properties": {"type": {"const": "AsymptoticPowerLawMieGruneisenDebyeExcess"}, "model": {"const": "asymptotic_power_law_mie_gruneisen_debye_excess"}}},
             {"properties": {"type": {"const": "DoubleDebyeHelmholtz"}, "model": {"const": "double_debye_helmholtz"}}},
             {"properties": {"type": {"const": "DoubleDebyeLogMomentHelmholtz"}, "model": {"const": "double_debye_log_moment_helmholtz"}}},
             {"properties": {"type": {"const": "DorogokupetsOganov2007"}, "model": {"const": "dorogokupets_oganov_2007"}}},

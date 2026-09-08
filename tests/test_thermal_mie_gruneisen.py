@@ -6,7 +6,11 @@ from scipy.constants import R
 
 from peritheos.eos import EosBase
 from peritheos.eos.rt import BM3
-from peritheos.eos.thermal import MieGruneisenDebye, MieGruneisenEinstein
+from peritheos.eos.thermal import (
+    AsymptoticPowerLawMieGruneisenDebyeExcess,
+    MieGruneisenDebye,
+    MieGruneisenEinstein,
+)
 from peritheos.eos.thermal.mie_gruneisen import _debye_function_3
 
 
@@ -217,3 +221,45 @@ def test_debye_subclass_retains_debye_python_behavior():
     )
     pressure = custom.pressure(0.9, 1200.0)
     assert custom.volume(pressure, 1200.0) == pytest.approx(0.9)
+
+
+def test_asymptotic_debye_excess_pressure_and_thermodynamics():
+    eos = AsymptoticPowerLawMieGruneisenDebyeExcess(
+        BM3(1.0, 160.0, 4.0),
+        Tr=300.0,
+        theta0=761.0,
+        gamma0=1.52,
+        a=1.0,
+        b=1.43,
+        n=2.0,
+        beta0=-8.061e-4,
+        m=4.8,
+    )
+    volumes = np.array([0.8, 1.0, 1.2])
+    temperatures = np.array([1000.0, 1500.0, 2000.0])
+
+    assert np.all(eos.thermal_pressure(volumes, 300.0) == 0.0)
+    assert eos.excess_pressure(0.8, 2000.0, referenced=True) == pytest.approx(
+        eos.excess_pressure(0.8, 2000.0) - eos.excess_pressure(0.8, 300.0)
+    )
+    assert np.allclose(
+        eos.thermal_helmholtz_free_energy(volumes, temperatures),
+        eos.thermal_energy(volumes, temperatures)
+        - temperatures * eos.thermal_entropy(volumes, temperatures),
+    )
+    assert np.all(np.isfinite(eos.molar_heat_capacity_v(volumes, temperatures)))
+
+
+def test_asymptotic_debye_excess_round_trip_and_parameters():
+    eos = AsymptoticPowerLawMieGruneisenDebyeExcess(
+        BM3(1.0, 160.0, 4.0), 300.0, 230.0, 2.75, 0.39, 5.1, 1.0, 0.002145, 0.65
+    )
+    volume = 0.8
+    temperature = 2000.0
+    pressure = eos.pressure(volume, temperature)
+
+    assert eos.volume(pressure, temperature) == pytest.approx(volume)
+    assert eos.parameter_values()["beta0"] == pytest.approx(0.002145)
+    changed = eos.with_parameters(beta0=0.0)
+    assert changed.beta0 == 0.0
+    assert changed.rt_eos.parameter_values() == eos.rt_eos.parameter_values()

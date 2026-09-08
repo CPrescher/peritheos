@@ -489,6 +489,217 @@ class Tange2009Debye(MieGruneisenDebye):
         return result
 
 
+class AsymptoticPowerLawMieGruneisenDebyeExcess(Tange2009Debye):
+    """Asymptotic-power-law Debye EOS with a volume-dependent ``T^2`` term.
+
+    The quasi-harmonic contribution is the same as :class:`Tange2009Debye`.
+    The additional Helmholtz-energy and pressure terms are
+
+    ``F_ex = -0.5 * beta0 * (V / V0)**m * T**2``
+
+    and
+
+    ``P_ex = 0.5 * beta0 * m / V0 * (V / V0)**(m - 1) * T**2``.
+
+    ``beta0`` is in J mol^-1 K^-2 and model volumes are in J bar^-1 mol^-1,
+    so pressures are converted from bar to GPa.  Total pressure is referenced
+    to ``Tr`` by subtracting both the Debye and excess terms at that
+    temperature.  This is the model used by Zhu et al. (2025), equations
+    (2)-(8), and by their version-3 Au, Pt, and MgO pressure calculators.
+    """
+
+    def __init__(
+        self,
+        rt_eos: EosBase,
+        Tr: float,
+        theta0: float,
+        gamma0: float,
+        a: float,
+        b: float,
+        n: float,
+        beta0: float,
+        m: float,
+    ) -> None:
+        super().__init__(rt_eos, Tr, theta0, gamma0, a, b, n)
+        self.beta0 = validate_finite_scalar(beta0, "beta0")
+        self.m = validate_finite_scalar(m, "m")
+        reference_native = _native_for_exact_model(rt_eos)
+        if reference_native is not None:
+            from peritheos import _rust
+
+            # Reuse the exact native quasi-harmonic kernel; this subclass adds
+            # the inexpensive excess free-energy terms in Python.
+            self._native = _rust.ThermalEos.asymptotic_power_law_mie_gruneisen_debye(
+                reference_native,
+                self.Tr,
+                self.theta0,
+                self.gamma0,
+                self.a,
+                self.b,
+                self.n,
+            )
+
+    def _state(
+        self, V: NumericType, T: NumericType
+    ) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+        volumes, temperatures = self._broadcast_state(V, T)
+        ratio = volumes / self.rt_eos.V0
+        return volumes, temperatures, ratio
+
+    def excess_helmholtz_free_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return the unreferenced ``T^2`` Helmholtz term in J mol^-1."""
+        _, temperatures, ratio = self._state(V, T)
+        result = -0.5 * self.beta0 * ratio**self.m * temperatures**2
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def excess_internal_energy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the unreferenced ``T^2`` internal-energy term in J mol^-1."""
+        _, temperatures, ratio = self._state(V, T)
+        result = 0.5 * self.beta0 * ratio**self.m * temperatures**2
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def excess_pressure(
+        self, V: NumericType, T: NumericType, *, referenced: bool = False
+    ) -> NumericType:
+        """Return the unreferenced or ``Tr``-referenced excess pressure in GPa."""
+        volumes, temperatures, ratio = self._state(V, T)
+        temperature_term = temperatures**2
+        if referenced:
+            temperature_term = temperature_term - self.Tr**2
+        result = (
+            0.5
+            * self.beta0
+            * self.m
+            / self.rt_eos.V0
+            * ratio ** (self.m - 1.0)
+            * temperature_term
+            / 1.0e4
+        )
+        return self._scalar_or_array(np.asarray(result, dtype=float))
+
+    def thermal_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return Debye plus excess pressure relative to ``Tr`` in GPa."""
+        volumes, temperatures, _ = self._state(V, T)
+        debye_energy = np.asarray(
+            MieGruneisenDebye.thermal_energy(self, volumes, temperatures), dtype=float
+        )
+        reference_energy = np.asarray(
+            MieGruneisenDebye.thermal_energy(self, volumes, self.Tr), dtype=float
+        )
+        debye_pressure = (
+            np.asarray(self.gruneisen_parameter(volumes), dtype=float)
+            * (debye_energy - reference_energy)
+            / volumes
+            / 1.0e4
+        )
+        result = debye_pressure + np.asarray(
+            self.excess_pressure(volumes, temperatures, referenced=True), dtype=float
+        )
+        return self._scalar_or_array(result)
+
+    def thermal_energy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return Debye plus excess internal energy in J mol^-1."""
+        debye = np.asarray(
+            MieGruneisenDebye.thermal_energy(self, V, T), dtype=float
+        )
+        result = debye + np.asarray(self.excess_internal_energy(V, T), dtype=float)
+        return self._scalar_or_array(result)
+
+    def thermal_entropy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return Debye plus excess entropy in J mol^-1 K^-1."""
+        _, temperatures, ratio = self._state(V, T)
+        debye = np.asarray(
+            MieGruneisenDebye.thermal_entropy(self, V, T), dtype=float
+        )
+        result = debye + self.beta0 * ratio**self.m * temperatures
+        return self._scalar_or_array(result)
+
+    def molar_heat_capacity_v(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return Debye plus excess ``C_V`` in J mol^-1 K^-1."""
+        _, temperatures, ratio = self._state(V, T)
+        steps = 1.0e-5 * temperatures
+        debye = (
+            np.asarray(
+                MieGruneisenDebye.thermal_energy(
+                    self, V, temperatures + steps
+                ),
+                dtype=float,
+            )
+            - np.asarray(
+                MieGruneisenDebye.thermal_energy(
+                    self, V, temperatures - steps
+                ),
+                dtype=float,
+            )
+        ) / (2.0 * steps)
+        result = debye + self.beta0 * ratio**self.m * temperatures
+        return self._scalar_or_array(result)
+
+    def thermal_helmholtz_free_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return Debye plus excess Helmholtz energy in J mol^-1."""
+        volumes, temperatures, _ = self._state(V, T)
+        debye_energy = np.asarray(
+            MieGruneisenDebye.thermal_energy(self, volumes, temperatures), dtype=float
+        )
+        debye_entropy = np.asarray(
+            MieGruneisenDebye.thermal_entropy(self, volumes, temperatures), dtype=float
+        )
+        result = (
+            debye_energy
+            - temperatures * debye_entropy
+            + np.asarray(
+                self.excess_helmholtz_free_energy(volumes, temperatures), dtype=float
+            )
+        )
+        return self._scalar_or_array(result)
+
+    def vibrational_pressure(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the unreferenced quasi-harmonic Debye pressure in GPa."""
+        volumes, temperatures, _ = self._state(V, T)
+        debye_energy = np.asarray(
+            MieGruneisenDebye.thermal_energy(self, volumes, temperatures), dtype=float
+        )
+        result = (
+            np.asarray(self.gruneisen_parameter(volumes), dtype=float)
+            * debye_energy
+            / volumes
+            / 1.0e4
+        )
+        return self._scalar_or_array(result)
+
+    def thermal_enthalpy(self, V: NumericType, T: NumericType) -> NumericType:
+        """Return the full thermal enthalpy contribution in J mol^-1."""
+        volumes, temperatures, _ = self._state(V, T)
+        pressure = np.asarray(
+            self.vibrational_pressure(volumes, temperatures), dtype=float
+        ) + np.asarray(self.excess_pressure(volumes, temperatures), dtype=float)
+        result = (
+            np.asarray(self.thermal_energy(volumes, temperatures), dtype=float)
+            + pressure * volumes * 1.0e4
+        )
+        return self._scalar_or_array(result)
+
+    def thermal_gibbs_free_energy(
+        self, V: NumericType, T: NumericType
+    ) -> NumericType:
+        """Return the full thermal Gibbs-energy contribution in J mol^-1."""
+        volumes, temperatures, _ = self._state(V, T)
+        pressure = np.asarray(
+            self.vibrational_pressure(volumes, temperatures), dtype=float
+        ) + np.asarray(self.excess_pressure(volumes, temperatures), dtype=float)
+        result = (
+            np.asarray(
+                self.thermal_helmholtz_free_energy(volumes, temperatures), dtype=float
+            )
+            + pressure * volumes * 1.0e4
+        )
+        return self._scalar_or_array(result)
+
+
 class MieGruneisenEinstein(_MieGruneisenBase):
     """Mie-Gruneisen-Einstein thermal equation of state.
 

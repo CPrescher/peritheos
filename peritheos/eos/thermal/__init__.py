@@ -15,6 +15,7 @@ from .linear import (
     ThermalReferenceStateEOS,
 )
 from .mie_gruneisen import (
+    AsymptoticPowerLawMieGruneisenDebyeExcess,
     MieGruneisenDebye,
     MieGruneisenEinstein,
     Tange2009Debye,
@@ -30,6 +31,7 @@ __all__ = [
     "LinearThermalPressure",
     "LogVolumeThermalPressure",
     "MieGruneisenDebye",
+    "AsymptoticPowerLawMieGruneisenDebyeExcess",
     "MieGruneisenEinstein",
     "MultiOscillatorGruneisenThermalEOS",
     "Sokolova2016",

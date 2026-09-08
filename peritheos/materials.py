@@ -38,6 +38,7 @@ from peritheos.eos.rt import (
     Vinet,
 )
 from peritheos.eos.thermal import (
+    AsymptoticPowerLawMieGruneisenDebyeExcess,
     DorogokupetsOganov2007,
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
@@ -1229,6 +1230,9 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "MieGruneisenDebye": "mie_gruneisen_debye",
         "MieGruneisenEinstein": "mie_gruneisen_einstein",
         "Tange2009Debye": "asymptotic_power_law_mie_gruneisen_debye",
+        "AsymptoticPowerLawMieGruneisenDebyeExcess": (
+            "asymptotic_power_law_mie_gruneisen_debye_excess"
+        ),
         "MultiOscillatorGruneisenThermalEOS": (
             "multi_oscillator_gruneisen_thermal_pressure"
         ),
@@ -1267,6 +1271,7 @@ _MODEL_CLASSES = MappingProxyType(
             MieGruneisenEinstein,
             MultiOscillatorGruneisenThermalEOS,
             Tange2009Debye,
+            AsymptoticPowerLawMieGruneisenDebyeExcess,
             ThermalModifiedTait,
             LinearUsUpHugoniot,
         )
@@ -1302,6 +1307,9 @@ _EOSMAT_TYPES = MappingProxyType(
         "asymptotic_power_law_mie_gruneisen_debye": (
             "AsymptoticPowerLawMieGruneisenDebye"
         ),
+        "asymptotic_power_law_mie_gruneisen_debye_excess": (
+            "AsymptoticPowerLawMieGruneisenDebyeExcess"
+        ),
         "multi_oscillator_gruneisen_thermal_pressure": ("MultiOscillatorGruneisen"),
         "thermal_modified_tait": "ThermalModifiedTait",
         "linear_us_up_hugoniot": "LinearUsUpHugoniot",
@@ -1316,6 +1324,7 @@ _MOLAR_VOLUME_THERMAL_MODELS = frozenset(
         "dorogokupets_oganov_2007",
         "mie_gruneisen_einstein",
         "asymptotic_power_law_mie_gruneisen_debye",
+        "asymptotic_power_law_mie_gruneisen_debye_excess",
         "multi_oscillator_gruneisen_thermal_pressure",
         "thermal_modified_tait",
     }

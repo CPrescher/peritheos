@@ -26,18 +26,18 @@ produce an executable record.
 
 ## Summary
 
-The register covers **317 primary papers**: **219** support the 813 audited catalog records and **98** were investigated without adding a production record.
+The register covers **318 primary papers**: **220** support the 816 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 125 |
+| Reproduced | 127 |
 | Partly reproduced | 8 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
-| Direct refit unavailable | 75 |
+| Direct refit unavailable | 74 |
 | Withheld: could not reproduce | 6 |
 | Deferred: incomplete source/model mapping | 87 |
 
@@ -873,7 +873,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **82 papers** contain 565 records for which a
+These **81 papers** contain 562 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -960,7 +960,6 @@ have other records that were reproduced.
 | [Zhang and Bukowinski (1991)](https://doi.org/10.1103/physrevb.44.2495) | `mgo_b1_zhang_bukowinski_1991_mpib_bm3`, `mgo_b2_zhang_bukowinski_1991_mpib_bm3`, `stishovite_zhang_bukowinski_1991_mpib_bm3` | Calculated states are plotted but not tabulated. |
 | [Zhang and Wentzcovitch (2022)](https://doi.org/10.1103/physrevb.106.054103) | `bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3`, `bridgmanite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3`, `mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3`, `mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3` | Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited. Five F(V) states per temperature are described and plotted but not numerically deposited. |
 | [Zhao et al. (1997)](https://doi.org/10.1029/96gl03769) | `naalsi2o6_zhao_1997_bm3_1` | Only 1 observation(s) lie at the reference temperature for 1 free isothermal coefficients; the other rows require a thermal relation that this record does not represent. |
-| [Zhu et al. (2025)](https://doi.org/10.22541/essoar.176236186.65259830/v1) | `gold_zhu_2025_vinet_300k`, `mgo_zhu_2025_vinet_300k`, `platinum_zhu_2025_vinet_300k` | The record cites an external repository or source dataset that is not bundled as a row-level material dataset. |
 
 ## Complete investigated-paper register
 
@@ -1279,6 +1278,7 @@ the primary-source and refit ledgers.
 | [Xu et al. (2024), Al-bearing superhydrous phase B](https://doi.org/10.1029/2023GL107818) | Withheld: could not reproduce | 0 | no production record | investigation evidence only |
 | [Yagi et al. (1992)](https://doi.org/10.1016/0031-9201(92)90063-2) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Yang et al. (2015)](https://doi.org/10.1038/srep17188) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
+| [Ye et al. (2017)](https://doi.org/10.1002/2016jb013811) | Reproduced | 3 | 3 parity | 3 bundled |
 | [Yu et al. (2024)](https://doi.org/10.1029/2023jb028026) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Zha, Mao, and Hemley (2000), MgO elasticity pressure scale](https://doi.org/10.1073/pnas.240466697) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Zhang and Bukowinski (1991)](https://doi.org/10.1103/physrevb.44.2495) | Direct refit unavailable | 3 | 3 direct refit unavailable |  |
@@ -1288,7 +1288,7 @@ the primary-source and refit ledgers.
 | [Zhang et al. (2025)](https://doi.org/10.3390/cryst15030221) | Reproduced | 3 | 3 parity | 3 bundled; 3 final-input parity, upstream reduction partial |
 | [Zhao et al. (1997)](https://doi.org/10.1029/96gl03769) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Zhu et al. (2020)](https://doi.org/10.1029/2020jb019964) | Reproduced | 3 | 3 parity | 3 bundled |
-| [Zhu et al. (2025)](https://doi.org/10.22541/essoar.176236186.65259830/v1) | Direct refit unavailable | 3 | 3 direct refit unavailable |  |
+| [Zhu et al. (2025)](https://doi.org/10.22541/essoar.176236186.65259830/v1) | Reproduced | 3 | 3 parity | 3 bundled |
 
 ## Maintenance
 

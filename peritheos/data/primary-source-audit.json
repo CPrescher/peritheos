@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 813,
-    "primary_source_validated": 813
+    "records": 816,
+    "primary_source_validated": 816
   },
   "records": [
     {
@@ -5168,8 +5168,28 @@
     {
       "material": "gold",
       "file": "gold.eosmat",
-      "record": "gold_zhu_2025_vinet_300k",
-      "label": "Zhu et al. (2025), internally consistent Au Vinet 300 K branch",
+      "record": "gold_ye_2017_vinet_300k",
+      "label": "Ye et al. (2017), Au Vinet 300 K co-compression fit",
+      "doi": "10.1002/2016jb013811",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+        "doi": "10.1002/2016jb013811",
+        "locations": [
+          "Section 3.3",
+          "Table 1",
+          "corrected Data Set S1",
+          "erratum"
+        ],
+        "finding": "Ye fits K0-prime=5.897(22) with V0 and K0 fixed......"
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_zhu_2025_pvt",
+      "label": "Zhu et al. (2025), Au internally consistent P-V-T EOS",
       "doi": "10.22541/essoar.176236186.65259830/v1",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -5177,11 +5197,11 @@
         "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
         "doi": "10.22541/essoar.176236186.65259830/v1",
         "locations": [
-          "Equation 1",
+          "Equations (2)-(8)",
           "Table 1",
-          "Sections 2.1-2.3"
+          "Mendeley v3 Au optimizer and property scripts"
         ],
-        "finding": "Table 1 provides a complete Au 300 K Vinet branch within a larger source-owned P-V-T model."
+        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
       }
     },
     {
@@ -5595,7 +5615,7 @@
       "material": "indium_nitride",
       "file": "indium_nitride.eosmat",
       "record": "indium_nitride_munoz_1993_murnaghan_1",
-      "label": "Muñoz and Kunc (1993), theoretical wurtzite Murnaghan",
+      "label": "Mu\u00f1oz and Kunc (1993), theoretical wurtzite Murnaghan",
       "doi": "10.1088/0953-8984/5/33/010",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -9229,8 +9249,28 @@
     {
       "material": "mgo",
       "file": "mgo.eosmat",
-      "record": "mgo_zhu_2025_vinet_300k",
-      "label": "Zhu et al. (2025), internally consistent MgO Vinet 300 K branch",
+      "record": "mgo_ye_2017_vinet_300k",
+      "label": "Ye et al. (2017), MgO Vinet 300 K co-compression fit",
+      "doi": "10.1002/2016jb013811",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+        "doi": "10.1002/2016jb013811",
+        "locations": [
+          "Section 3.3",
+          "Table 1",
+          "corrected Data Set S1",
+          "erratum"
+        ],
+        "finding": "Ye fits K0-prime=4.182(19) with V0 and K0 fixed......"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_zhu_2025_pvt",
+      "label": "Zhu et al. (2025), MgO internally consistent P-V-T EOS",
       "doi": "10.22541/essoar.176236186.65259830/v1",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -9238,11 +9278,11 @@
         "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
         "doi": "10.22541/essoar.176236186.65259830/v1",
         "locations": [
-          "Equation 1",
+          "Equations (2)-(8)",
           "Table 1",
-          "Sections 2.1-2.3"
+          "Mendeley v3 MgO optimizer and property scripts"
         ],
-        "finding": "Table 1 provides MgO K0_prime=4.182(19); the ledger's 5.230 value belongs to the Pt column."
+        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
       }
     },
     {
@@ -11667,8 +11707,28 @@
     {
       "material": "platinum",
       "file": "platinum.eosmat",
-      "record": "platinum_zhu_2025_vinet_300k",
-      "label": "Zhu et al. (2025), internally consistent Pt Vinet 300 K branch",
+      "record": "platinum_ye_2017_vinet_300k",
+      "label": "Ye et al. (2017), Pt Vinet 300 K co-compression fit",
+      "doi": "10.1002/2016jb013811",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+        "doi": "10.1002/2016jb013811",
+        "locations": [
+          "Section 3.3",
+          "Table 1",
+          "corrected Data Sets S1-S2",
+          "erratum"
+        ],
+        "finding": "Ye fits K0-prime=5.230(33) through the Au-D07 to MgO to Pt pathway with V0 and K0 fixed......"
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_zhu_2025_pvt",
+      "label": "Zhu et al. (2025), Pt internally consistent P-V-T EOS",
       "doi": "10.22541/essoar.176236186.65259830/v1",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -11676,11 +11736,11 @@
         "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
         "doi": "10.22541/essoar.176236186.65259830/v1",
         "locations": [
-          "Equation 1",
+          "Equations (2)-(8)",
           "Table 1",
-          "Sections 2.1-2.3"
+          "Mendeley v3 Pt optimizer and property scripts"
         ],
-        "finding": "Table 1 provides a complete Pt 300 K Vinet branch within a larger source-owned P-V-T model."
+        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
       }
     },
     {

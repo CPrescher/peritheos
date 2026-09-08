@@ -10818,8 +10818,10 @@
       "status": "parity"
     },
     {
+      "absolute_pressure_scatter_gpa": 1.0,
+      "absolute_sigma": true,
       "dataset_identifiers": [
-        "Mendeley Data 10.17632/6kxnhc2g73.3"
+        "ye_2017_data_s1_au_mgo_300k"
       ],
       "experimental_pressure_range_gpa": [
         0.0,
@@ -10829,20 +10831,123 @@
         300.0,
         300.0
       ],
+      "fit_kind": "staged_cocompression_vinet_k0_prime",
       "fixed_parameters": [
         "V0",
         "K0"
       ],
-      "label": "Zhu et al. (2025), internally consistent Au Vinet 300 K branch",
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Ye et al. (2017), Au Vinet 300 K co-compression fit",
       "material_identifier": "gold",
+      "max_abs_residual_gpa": 0.9541301650200928,
       "model": "Vinet",
-      "primary_data_finding": "Optimization data and calculation scripts are published CC BY 4.0; this scoped record is validated against the parameter table and analytical Vinet implementation.",
-      "primary_data_status": "external_repository",
-      "primary_source": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
-      "reason": "The record cites an external repository or source dataset that is not bundled as a row-level material dataset.",
-      "record_identifier": "gold_zhu_2025_vinet_300k",
+      "objective": "unweighted pressure differences between co-compressed phases",
+      "observations": 28,
+      "observed_pressure_range_gpa": [
+        19.03783589777603,
+        120.2715154156598
+      ],
+      "parameters": [
+        {
+          "difference": -0.00023192979952213477,
+          "parameter": "K0_prime",
+          "published": 5.897,
+          "published_error": 0.022,
+          "refit": 5.896768070200478,
+          "refit_error": 0.02222069212640481,
+          "relative_difference": 3.9330133885388295e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 28 corrected publisher Data Set S1 Au+MgO row pairs and their printed volume standard errors are bundled. The normalized factual CSV arrangement is CC0-scoped; no open license is asserted for the Wiley source file.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+      "qualification": "The corrected Ye et al. (2017) co-compression inputs for the selected pathway are bundled. The source-described V0/K0-fixed co-compression pathway reproduces the K0-prime point estimate and its 1 GPa-scatter standard error at the precision printed by Ye et al. (2017).",
+      "record_identifier": "gold_ye_2017_vinet_300k",
+      "rmse_gpa": 0.5712382190658275,
+      "selection": "All corrected Ye et al. (2017) co-compression rows in the selected Au_from_MgO pathway",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "zhu_2025_au_shock",
+        "zhu_2025_au_zero_pressure_thermal_expansion"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        197.039
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        1324.0
+      ],
+      "fit_kind": "iterative_robust_bisquare_gruneisen_refit",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "a",
+        "n",
+        "beta0",
+        "m"
+      ],
+      "free_parameters": [
+        "gamma0",
+        "b"
+      ],
+      "label": "Zhu et al. (2025), Au internally consistent P-V-T EOS",
+      "material_identifier": "gold",
+      "max_abs_residual_gpa": 7.9384503095923336,
+      "model": "Vinet",
+      "objective": "Released v3 energy-balance transformation followed by robust bisquare nonlinear least squares",
+      "observations": 22,
+      "observed_pressure_range_gpa": [
+        0.0,
+        197.039
+      ],
+      "parameters": [
+        {
+          "difference": 0.005999961235862106,
+          "parameter": "gamma0",
+          "published": 2.93,
+          "published_error": 0.18,
+          "refit": 2.9359999612358623,
+          "refit_error": null,
+          "relative_difference": 0.0020477683398846774,
+          "similar": true,
+          "within_combined_2sigma": true
+        },
+        {
+          "difference": -0.07440088092851838,
+          "parameter": "b",
+          "published": 2.7,
+          "published_error": 0.7,
+          "refit": 2.625599119071482,
+          "refit_error": null,
+          "relative_difference": 0.027555881825377174,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "Every active numeric row from the released v3 Au/Au_shock.dat and Au/Au_high_T.dat inputs is bundled as a stable CSV normalization under CC BY 4.0.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
+      "qualification": "Every released v3 fit-input row is included in an independent translation of Zhu's iterative energy-balance and robust-bisquare optimization. The fitted gamma0 and b reproduce the rounded optimizer/property parameter set at its stated numerical precision. The inconsistent standalone v3 calculators are not used as the fit target.",
+      "record_identifier": "gold_zhu_2025_pvt",
+      "rmse_gpa": 2.4861289759443324,
+      "selection": "All released v3 fit-input rows for this material",
+      "solver_message": "released v3 robust thermal refit converged in 7 outer iterations",
+      "solver_success": true,
+      "source_notes": "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -20565,8 +20670,10 @@
       "status": "not_refittable"
     },
     {
+      "absolute_pressure_scatter_gpa": 1.0,
+      "absolute_sigma": true,
       "dataset_identifiers": [
-        "Mendeley Data 10.17632/6kxnhc2g73.3"
+        "ye_2017_data_s1_au_mgo_300k"
       ],
       "experimental_pressure_range_gpa": [
         0.0,
@@ -20576,20 +20683,122 @@
         300.0,
         300.0
       ],
+      "fit_kind": "staged_cocompression_vinet_k0_prime",
       "fixed_parameters": [
         "V0",
         "K0"
       ],
-      "label": "Zhu et al. (2025), internally consistent MgO Vinet 300 K branch",
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Ye et al. (2017), MgO Vinet 300 K co-compression fit",
       "material_identifier": "mgo",
+      "max_abs_residual_gpa": 0.9536183552218027,
       "model": "Vinet",
-      "primary_data_finding": "Optimization data and calculation scripts are published CC BY 4.0; this scoped record is validated against the parameter table and analytical Vinet implementation.",
-      "primary_data_status": "external_repository",
-      "primary_source": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
-      "reason": "The record cites an external repository or source dataset that is not bundled as a row-level material dataset.",
-      "record_identifier": "mgo_zhu_2025_vinet_300k",
+      "objective": "unweighted pressure differences between co-compressed phases",
+      "observations": 28,
+      "observed_pressure_range_gpa": [
+        18.682706167069096,
+        120.21912865945706
+      ],
+      "parameters": [
+        {
+          "difference": 0.0004614179265569618,
+          "parameter": "K0_prime",
+          "published": 4.182,
+          "published_error": 0.019,
+          "refit": 4.182461417926557,
+          "refit_error": 0.018958299796348287,
+          "relative_difference": 0.00011033427225178426,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 28 corrected publisher Data Set S1 Au+MgO row pairs and their printed volume standard errors are bundled. The normalized factual CSV arrangement is CC0-scoped; no open license is asserted for the Wiley source file.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+      "qualification": "The corrected Ye et al. (2017) co-compression inputs for the selected pathway are bundled. The source-described V0/K0-fixed co-compression pathway reproduces the K0-prime point estimate and its 1 GPa-scatter standard error at the precision printed by Ye et al. (2017).",
+      "record_identifier": "mgo_ye_2017_vinet_300k",
+      "rmse_gpa": 0.5713738024237984,
+      "selection": "All corrected Ye et al. (2017) co-compression rows in the selected MgO_from_Au pathway",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "zhu_2025_mgo_pvt"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        138.104
+      ],
+      "experimental_temperature_range_k": [
+        298.0,
+        2986.0
+      ],
+      "fit_kind": "iterative_robust_bisquare_gruneisen_refit",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "a",
+        "n",
+        "beta0",
+        "m"
+      ],
+      "free_parameters": [
+        "gamma0",
+        "b"
+      ],
+      "label": "Zhu et al. (2025), MgO internally consistent P-V-T EOS",
+      "material_identifier": "mgo",
+      "max_abs_residual_gpa": 2.5909389217749776,
+      "model": "Vinet",
+      "objective": "Released v3 energy-balance transformation followed by robust bisquare nonlinear least squares",
+      "observations": 213,
+      "observed_pressure_range_gpa": [
+        0.0001,
+        138.104
+      ],
+      "parameters": [
+        {
+          "difference": 0.0011893105320956998,
+          "parameter": "gamma0",
+          "published": 1.53,
+          "published_error": null,
+          "refit": 1.5311893105320957,
+          "refit_error": null,
+          "relative_difference": 0.000777327145160588,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.00014746320241076916,
+          "parameter": "b",
+          "published": 1.43,
+          "published_error": null,
+          "refit": 1.4301474632024107,
+          "refit_error": null,
+          "relative_difference": 0.00010312112056697144,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Every active numeric row from the released v3 MgO/MgO_pvt_40_new.dat inputs is bundled as a stable CSV normalization under CC BY 4.0.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
+      "qualification": "Every released v3 fit-input row is included in an independent translation of Zhu's iterative energy-balance and robust-bisquare optimization. The fitted gamma0 and b reproduce the rounded optimizer/property parameter set at its stated numerical precision. The inconsistent standalone v3 calculators are not used as the fit target.",
+      "record_identifier": "mgo_zhu_2025_pvt",
+      "rmse_gpa": 0.9975739769053897,
+      "selection": "All released v3 fit-input rows for this material",
+      "solver_message": "released v3 robust thermal refit converged in 7 outer iterations",
+      "solver_success": true,
+      "source_notes": "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -25437,8 +25646,11 @@
       "status": "not_refittable"
     },
     {
+      "absolute_pressure_scatter_gpa": 1.0,
+      "absolute_sigma": true,
       "dataset_identifiers": [
-        "Mendeley Data 10.17632/6kxnhc2g73.3"
+        "ye_2017_data_s1_au_mgo_300k",
+        "ye_2017_data_s2_pt_mgo_300k"
       ],
       "experimental_pressure_range_gpa": [
         0.0,
@@ -25448,20 +25660,123 @@
         300.0,
         300.0
       ],
+      "fit_kind": "staged_cocompression_vinet_k0_prime",
       "fixed_parameters": [
         "V0",
         "K0"
       ],
-      "label": "Zhu et al. (2025), internally consistent Pt Vinet 300 K branch",
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Ye et al. (2017), Pt Vinet 300 K co-compression fit",
       "material_identifier": "platinum",
+      "max_abs_residual_gpa": 1.0544181163126183,
       "model": "Vinet",
-      "primary_data_finding": "Optimization data and calculation scripts are published CC BY 4.0; this scoped record is validated against the parameter table and analytical Vinet implementation.",
-      "primary_data_status": "external_repository",
-      "primary_source": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
-      "reason": "The record cites an external repository or source dataset that is not bundled as a row-level material dataset.",
-      "record_identifier": "platinum_zhu_2025_vinet_300k",
+      "objective": "unweighted pressure differences between co-compressed phases",
+      "observations": 39,
+      "observed_pressure_range_gpa": [
+        17.402802897624778,
+        127.84384440711803
+      ],
+      "parameters": [
+        {
+          "difference": 0.00047298394404649,
+          "parameter": "K0_prime",
+          "published": 5.23,
+          "published_error": 0.033,
+          "refit": 5.230472983944047,
+          "refit_error": 0.032655428557651564,
+          "relative_difference": 9.043670058250287e-05,
+          "similar": true,
+          "within_combined_2sigma": true
+        }
+      ],
+      "primary_data_finding": "All 28 corrected S1 Au+MgO pairs and all 39 corrected S2 Pt+MgO pairs, including printed volume standard errors, are bundled. The normalized factual CSV arrangement is CC0-scoped; no open license is asserted for the Wiley source files.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+      "qualification": "The corrected Ye et al. (2017) co-compression inputs for the selected pathway are bundled. The source-described V0/K0-fixed co-compression pathway reproduces the K0-prime point estimate and its 1 GPa-scatter standard error at the precision printed by Ye et al. (2017).",
+      "record_identifier": "platinum_ye_2017_vinet_300k",
+      "rmse_gpa": 0.4766031404288212,
+      "selection": "All corrected Ye et al. (2017) co-compression rows in the selected Pt_from_Au pathway",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
       "source_notes": null,
-      "status": "not_refittable"
+      "status": "parity"
+    },
+    {
+      "dataset_identifiers": [
+        "zhu_2025_pt_shock",
+        "zhu_2025_pt_zero_pressure_thermal_expansion"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0,
+        682.402
+      ],
+      "experimental_temperature_range_k": [
+        293.0,
+        1900.0
+      ],
+      "fit_kind": "iterative_robust_bisquare_gruneisen_refit",
+      "fixed_parameters": [
+        "V0",
+        "K0",
+        "K0_prime",
+        "Tr",
+        "theta0",
+        "a",
+        "n",
+        "beta0",
+        "m"
+      ],
+      "free_parameters": [
+        "gamma0",
+        "b"
+      ],
+      "label": "Zhu et al. (2025), Pt internally consistent P-V-T EOS",
+      "material_identifier": "platinum",
+      "max_abs_residual_gpa": 79.8419760545413,
+      "model": "Vinet",
+      "objective": "Released v3 energy-balance transformation followed by robust bisquare nonlinear least squares",
+      "observations": 85,
+      "observed_pressure_range_gpa": [
+        0.0,
+        682.402
+      ],
+      "parameters": [
+        {
+          "difference": 0.0022450959240267743,
+          "parameter": "gamma0",
+          "published": 2.75,
+          "published_error": null,
+          "refit": 2.7522450959240268,
+          "refit_error": null,
+          "relative_difference": 0.0008163985178279179,
+          "similar": true,
+          "within_combined_2sigma": null
+        },
+        {
+          "difference": 0.009898728631966947,
+          "parameter": "b",
+          "published": 5.1,
+          "published_error": null,
+          "refit": 5.109898728631967,
+          "refit_error": null,
+          "relative_difference": 0.001940927182738617,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Every active numeric row from the released v3 Pt/Pt_shock_700.dat and Pt/Pt_high_T.dat inputs is bundled as a stable CSV normalization under CC BY 4.0.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
+      "qualification": "Every released v3 fit-input row is included in an independent translation of Zhu's iterative energy-balance and robust-bisquare optimization. The fitted gamma0 and b reproduce the rounded optimizer/property parameter set at its stated numerical precision. The inconsistent standalone v3 calculators are not used as the fit target.",
+      "record_identifier": "platinum_zhu_2025_pvt",
+      "rmse_gpa": 23.413494477273357,
+      "selection": "All released v3 fit-input rows for this material",
+      "solver_message": "released v3 robust thermal refit converged in 9 outer iterations",
+      "solver_success": true,
+      "source_notes": "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.",
+      "status": "parity"
     },
     {
       "dataset_identifiers": [],
@@ -31648,10 +31963,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
-    "parity": 155,
+    "not_refittable": 562,
+    "parity": 161,
     "parity_not_achieved": 31,
     "similar": 62,
-    "total": 813
+    "total": 816
   }
 }

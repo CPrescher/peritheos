@@ -70,6 +70,18 @@ CURRENT_SOURCE_AUDIT_RECORDS = {
     "palladium_frost_2023_bm3_2",
 }
 
+YE_2017_COCOMPRESSION_RECORDS = {
+    "gold_ye_2017_vinet_300k",
+    "mgo_ye_2017_vinet_300k",
+    "platinum_ye_2017_vinet_300k",
+}
+
+ZHU_2025_THERMAL_RECORDS = {
+    "gold_zhu_2025_pvt",
+    "mgo_zhu_2025_pvt",
+    "platinum_zhu_2025_pvt",
+}
+
 
 def source(url: str, locations: list[str], note: str = "") -> dict[str, Any]:
     """Construct one compact primary-evidence description."""
@@ -2943,7 +2955,10 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     primary_data_check = previous.get("primary_data_check")
     reproduction = previous.get("reproduction")
     audit_date = (
-        REPORT_AUDIT_DATE
+        "2026-09-08"
+        if result["identifier"]
+        in YE_2017_COCOMPRESSION_RECORDS | ZHU_2025_THERMAL_RECORDS
+        else REPORT_AUDIT_DATE
         if result["identifier"] in DERIVED_REFIT_RECORDS | CURRENT_SOURCE_AUDIT_RECORDS
         else CATALOG_AUDIT_DATE
         if result["identifier"] in DERIVED_REFERENCE_ISOTHERM_RECORDS
@@ -3290,8 +3305,8 @@ def main() -> None:
         )
 
     counts = Counter(entry["status"] for entry in entries)
-    if len(entries) != 813:
-        raise ValueError(f"Expected 813 EOS records, found {len(entries)}")
+    if len(entries) != 816:
+        raise ValueError(f"Expected 816 EOS records, found {len(entries)}")
     if "pending_primary_source_check" in counts:
         raise ValueError("Primary-source audit left pending records")
 
