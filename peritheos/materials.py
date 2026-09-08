@@ -36,6 +36,7 @@ from peritheos.eos.rt import (
     SunMorse3,
     SunMorse4,
     Vinet,
+    Vinet3,
 )
 from peritheos.eos.thermal import (
     DorogokupetsOganov2007,
@@ -1238,6 +1239,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "BM3": "birch_murnaghan_3",
         "BM4": "birch_murnaghan_4",
         "Vinet": "vinet",
+        "Vinet3": "vinet_3",
         "Holzapfel": "holzapfel",
         "ModifiedTait": "modified_tait",
         "Murnaghan": "murnaghan",
@@ -1284,6 +1286,7 @@ _MODEL_CLASSES = MappingProxyType(
             RydbergStacey,
             SunMorse3,
             SunMorse4,
+            Vinet3,
             Vinet,
             DoubleDebyeHelmholtz,
             DoubleDebyeLogMomentHelmholtz,
@@ -1309,6 +1312,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "birch_murnaghan_3": "BM3",
         "birch_murnaghan_4": "BM4",
         "vinet": "Vinet",
+        "vinet_3": "Vinet3",
         "holzapfel": "Holzapfel",
         "modified_tait": "ModifiedTait",
         "murnaghan": "Murnaghan",

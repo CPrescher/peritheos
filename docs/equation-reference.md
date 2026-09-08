@@ -1019,3 +1019,17 @@ on the positive-temperature branch nearest $T_r$. The distinct two-volume
 DAC inversion and forward `volume_with_dac_confinement(P_cold,T,f_dac)` solve
 are documented under
 [Diamond-anvil-cell thermal-pressure contribution](dac-thermal-pressure.md).
+
+## Third-order Vinet exponential polynomial
+
+`Vinet3(V0, K0, eta, beta, psi)` implements Fratanduono et al.
+(2020), Supplemental S4 Eq. (2). With $x=(V/V_0)^{1/3}$, $y=1-x$, and
+$F=\eta y+\beta y^2+\psi y^3$,
+
+$$P=3K_0 y x^{-2}e^F,$$
+$$K=K_0 x^{-2}e^F[x+2y+xy(\eta+2\beta y+3\psi y^2)].$$
+
+The second expression is $-V\,dP/dV$ and remains regular at $V=V_0$.
+The independent eta, beta, psi coefficients must not be collapsed into
+ordinary Vinet. The [Cu source audit](literature-reproductions/fratanduono-2020-cu.md)
+documents the density reference conversion and source limitations.

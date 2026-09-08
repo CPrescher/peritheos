@@ -94,7 +94,7 @@ def test_complete_material_library_is_bundled_and_valid():
 
     assert len(identifiers) == 287
     assert len(set(identifiers)) == 287
-    assert sum(len(document["eos_records"]) for document in documents) == 830
+    assert sum(len(document["eos_records"]) for document in documents) == 831
     assert all(document["eos_records"] for document in documents)
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
@@ -120,10 +120,10 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 830
+    assert len({record["identifier"] for record in records}) == 831
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated"}
-    assert statuses.count("primary_source_validated") == 830
+    assert statuses.count("primary_source_validated") == 831
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -145,6 +145,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "gold_dewaele_2004_vinet_5",
         "gold_anderson_1989_bm3_1",
         "gold_fratanduono_2021_vinet_7",
+        "copper_fratanduono_2020_vinet3_298k",
         "gold_takemura_2008_vinet_6",
         "goethite_gleason_2008_bm3_1",
         "kcl_b2_chidester_2021_bm3_5",
@@ -303,7 +304,7 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert {audit_dates[identifier] for identifier in delta_identifiers} == {
         "2026-09-06"
     }
-    assert len(batch_identifiers) == 427
+    assert len(batch_identifiers) == 428
     assert {audit_dates[identifier] for identifier in batch_identifiers} == {
         "2026-09-01",
         "2026-09-03",
@@ -345,8 +346,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 830,
-        "primary_source_validated": 830,
+        "records": 831,
+        "primary_source_validated": 831,
     }
     assert report["audit_date"] == "2026-09-08"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -821,7 +822,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 830
+    assert len(records) == 831
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -891,7 +892,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 830
+    assert checked == 831
     assert failures == []
 
 
@@ -2660,7 +2661,7 @@ def test_normative_schema_is_bundled():
         "linear_temperature",
         "berman",
     ]
-    assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 16
+    assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 17
     assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 13
 
 
@@ -2882,7 +2883,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 287
-    assert manifest["eos_records"] == 830
+    assert manifest["eos_records"] == 831
     assert manifest["scientific_validation"]["audit_date"] == "2026-9-14"
 
 

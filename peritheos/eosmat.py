@@ -43,6 +43,7 @@ _RT_TYPES = {
     "SunMorse3",
     "SunMorse4",
     "Vinet",
+    "Vinet3",
     "LinearUsUpHugoniot",
 }
 _THERMAL_TYPES = {
@@ -76,6 +77,7 @@ _RT_MODELS = {
     "SunMorse3": "sun_morse_3",
     "SunMorse4": "sun_morse_4",
     "Vinet": "vinet",
+    "Vinet3": "vinet_3",
     "LinearUsUpHugoniot": "linear_us_up_hugoniot",
 }
 _THERMAL_MODELS = {

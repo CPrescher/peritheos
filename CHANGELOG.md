@@ -120,6 +120,13 @@ All notable changes to Peritheos are documented here. The project follows
   plus NaCl-B2 are classified as numerically similar with explicit source-side
   limitations instead of all ten being marked not refittable.
 
+### Added
+
+- Added the Fratanduono (2020) Cu 298 K Vinet3 model and published coefficients,
+  reused for Shen–Smith same-run pressure reconstruction. The documented partial
+  thermal reconstruction is assumption-dependent; the original 298 K EOS remains
+  not refittable with the available information.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

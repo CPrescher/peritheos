@@ -1,0 +1,119 @@
+{
+  "status": "partial_thermal_reconstruction_without_parameter_parity",
+  "record_identifier": "copper_fratanduono_2020_vinet3_298k",
+  "sources": {
+    "fratanduono": "https://doi.org/10.1103/PhysRevLett.124.015701",
+    "kraus": "https://doi.org/10.1103/PhysRevB.93.134105",
+    "kraus_pdf_sha256": "6602e5b65ada728b75dd542e90abb6c4d92dded978ed2c946496325a64a83a3b",
+    "kraus_locations": [
+      "Section III.B.1 Eqs. (11)-(12)",
+      "Section III.B.3 theta0=343.5 K",
+      "Section III.B.4 Eq. (16) and Table I"
+    ]
+  },
+  "inputs": {
+    "rho0_g_cm3": 8.939,
+    "temperature_k": 298.0,
+    "theta0_k": 343.5,
+    "gamma0": 2.0,
+    "gamma_infinity": 1.41,
+    "gamma_density_exponent": 13.6,
+    "molar_mass_g_mol": 63.546
+  },
+  "selection": {
+    "source_table_rows": 100,
+    "compressed_source_rows": 99,
+    "kraus_branch_rows": 7,
+    "candidate_hugoniot_branch_rows": 46,
+    "unreconstructed_high_density_rows": 46,
+    "max_hugoniot_density_g_cm3": 22.548025816457383,
+    "reconstructed_source_isentrope_range_gpa": [
+      23.6,
+      1248.3
+    ]
+  },
+  "qualifications": [
+    "A refit of the published 298 K EOS is not possible with the current information. Fratanduono explicitly describes stress-to-isentrope corrections, but does not explicitly specify the Debye isentrope-to-298 K calculation used here. This is an assumed candidate reduction, not recovered original 298 K data; pressure agreement establishes neither coefficient parity nor a superior EOS.",
+    "Debye correction follows cited Kraus Eq. (16). Carrying theta0 and the Debye caloric model into the 2020 reduction is an explicitly documented inheritance assumption, not a separately printed 2020 parameter.",
+    "Fratanduono explicitly uses the Kraus Altshuler gamma law only for rho0/rho >= 0.64.",
+    "Above that threshold, a candidate gamma is inferred from the vector-digitized Figure S2 Our Hugoniot Fit and the tabulated isentrope using Kraus Eq. (11). Whether the plotted Hugoniot exactly matches the corrected internal input is unconfirmed.",
+    "No Hugoniot or gamma extrapolation is used. The figure ends at about 22.55 g/cm3, leaving the remaining isentrope rows unreconstructed.",
+    "Ambient Table S1 density 8.938 is preserved, but excluded from fitting. Integration is anchored at the Table I reference 8.939 with zero pressure.",
+    "Figure S2 blue-curve legend says isotherm, but its caption and numerical agreement with Table S1 identify isentrope; it is not independent 298 K fit input.",
+    "Source Table S1 errors describe the isentrope and are not assigned to thermally reconstructed pressures. Diagnostic 298 K fits are unweighted; no source weights or covariance are inferred.",
+    "Neither parameter parity nor the original full 298 K fit is reproduced. Published catalog coefficients remain unchanged."
+  ],
+  "figure_blue_check": {
+    "rmse_vs_table_s1_gpa": 0.8632463811239108,
+    "negative_implied_thermal_correction_rows": 16,
+    "minimum_table_minus_published_isotherm_gpa": -5.066114906981284,
+    "interpretation": "Separate rounded fitted curves cannot be subtracted to recover the original thermal correction; some table states fall below the published isotherm fit."
+  },
+  "fits": {
+    "source_isentrope_unweighted": {
+      "parameters": {
+        "K0": 106.74775041360797,
+        "eta": 9.663456175846818,
+        "beta": -13.327945178042729,
+        "psi": 23.839056427676134
+      },
+      "pressure_rmse_gpa": 2.9932930999914857,
+      "objective": "unweighted pressure residuals",
+      "solver_success": true,
+      "parameter_covariance": null
+    },
+    "source_isentrope_reported_error_weighted": {
+      "parameters": {
+        "K0": 147.06919041291633,
+        "eta": 5.10850961350867,
+        "beta": 7.319966913071128,
+        "psi": -6.303515842306679
+      },
+      "pressure_rmse_gpa": 4.635568564618889,
+      "objective": "Table S1 isentrope pressure-error weighted residuals; source fitting protocol unconfirmed",
+      "solver_success": true,
+      "parameter_covariance": null
+    },
+    "kraus_branch_298k_diagnostic": {
+      "parameters": {
+        "K0": 131.87718241591602,
+        "eta": 8.599609617042368,
+        "beta": -31.13746357944283,
+        "psi": 126.93965644175803
+      },
+      "pressure_rmse_gpa": 0.07382871488688818,
+      "objective": "unweighted pressure residuals",
+      "solver_success": true,
+      "parameter_covariance": null,
+      "within_printed_parameter_errors": {
+        "K0": false,
+        "eta": false,
+        "beta": false,
+        "psi": false
+      }
+    },
+    "candidate_combined_298k_diagnostic": {
+      "parameters": {
+        "K0": 154.81505246523926,
+        "eta": 3.9066936141081445,
+        "beta": 14.284798713823102,
+        "psi": -18.391639916766497
+      },
+      "pressure_rmse_gpa": 0.2715869691354198,
+      "objective": "unweighted pressure residuals",
+      "solver_success": true,
+      "parameter_covariance": null,
+      "within_printed_parameter_errors": {
+        "K0": false,
+        "eta": false,
+        "beta": false,
+        "psi": false
+      }
+    }
+  },
+  "curve_checks": {
+    "published_isentrope_rmse_vs_table_gpa": 3.7563430943220744,
+    "kraus_branch_298k_rmse_vs_published_gpa": 0.9862399842513372,
+    "candidate_combined_298k_rmse_vs_published_gpa": 1.5622288431970175
+  }
+}

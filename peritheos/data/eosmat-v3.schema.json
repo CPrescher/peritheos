@@ -270,6 +270,7 @@
             "SunMorse3",
             "SunMorse4",
             "Vinet",
+            "Vinet3",
             "LinearUsUpHugoniot"
           ]
         },
@@ -290,6 +291,7 @@
             "sun_morse_3",
             "sun_morse_4",
             "vinet",
+            "vinet_3",
             "linear_us_up_hugoniot"
           ]
         },
@@ -318,6 +320,7 @@
             {"properties": {"type": {"const": "SunMorse3"}, "model": {"const": "sun_morse_3"}}},
             {"properties": {"type": {"const": "SunMorse4"}, "model": {"const": "sun_morse_4"}}},
             {"properties": {"type": {"const": "Vinet"}, "model": {"const": "vinet"}}},
+            {"properties": {"type": {"const": "Vinet3"}, "model": {"const": "vinet_3"}, "parameters": {"required": ["V0", "K0", "eta", "beta", "psi"], "properties": {"V0": {"type": "number", "exclusiveMinimum": 0}, "K0": {"type": "number", "exclusiveMinimum": 0}, "eta": {"type": "number"}, "beta": {"type": "number"}, "psi": {"type": "number"}}, "additionalProperties": false}}},
             {"properties": {"type": {"const": "LinearUsUpHugoniot"}, "model": {"const": "linear_us_up_hugoniot"}}}
           ]
         }

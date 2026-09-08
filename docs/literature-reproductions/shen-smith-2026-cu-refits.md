@@ -98,3 +98,9 @@ The executable reconstruction and all record-level diagnostics are generated
 by `scripts/validate_primary_eos_refits.py`; the exact outputs are stored in
 `docs/data/primary-eos-refits.json` and summarized in
 `docs/primary-eos-refits.md`.
+
+The reconstruction delegates pressure and reference volume to
+`copper_fratanduono_2020_vinet3_298k` (`Vinet3`), so the
+catalog and audit share one executable equation and coefficient set. All ten
+Shen–Smith records link this Cu record in their pressure-calibration metadata.
+See the [Cu audit](fratanduono-2020-cu.md) for uncertainty and fit-data limits.

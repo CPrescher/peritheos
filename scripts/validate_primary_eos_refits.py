@@ -24,7 +24,7 @@ from typing import Any
 import numpy as np
 from scipy.optimize import least_squares, minimize
 
-from peritheos import get_material_document, list_material_documents
+from peritheos import get_eos_record, get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
 from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, Vinet
 from peritheos.eos.thermal import ThermalReferenceStateEOS
@@ -975,6 +975,160 @@ def _shen_smith_outcome(
         ),
     }
 
+
+SHEN_CU_RECORD = "copper_fratanduono_2020_vinet3_298k"
+
+SHEN_SELECTIONS = {
+    "fe_shen_2026_vinet_1": ("bcc-Fe", {"DAC-1", "DAC-2"}, None),
+    "gold_shen_2026_vinet_3": ("Au", {"DAC-1"}, None),
+    "iron_shen_2026_vinet_2": ("hcp-Fe", {"DAC-1", "DAC-2"}, None),
+    "mgo_shen_2026_vinet_3": ("MgO", {"DAC-2"}, None),
+    "molybdenum_shen_2026_vinet_1": ("Mo", {"DAC-1", "DAC-2"}, None),
+    "nacl_b1_shen_2026_vinet_1": ("NaCl-B1", {"DAC-2"}, "below_30_gpa"),
+    "nacl_b2_shen_2026_vinet_2": ("NaCl-B2", {"DAC-2"}, "above_35_gpa"),
+    "platinum_shen_2026_vinet_2": ("Pt", {"DAC-2"}, None),
+    "tantalum_shen_2026_vinet_2": ("Ta", {"DAC-1"}, None),
+    "tungsten_shen_2026_vinet_3": ("W", {"DAC-1", "DAC-2"}, None),
+}
+
+def shen_cu_reference_volume_a3() -> float:
+    """Return the executable Cu record's conventional-cell reference volume."""
+    return float(get_eos_record(SHEN_CU_RECORD).eos.V0)
+
+def shen_cu_pressure_gpa(volume_a3: Any) -> np.ndarray:
+    """Evaluate the shared published 298 K Cu record at same-run volumes."""
+    return np.asarray(get_eos_record(SHEN_CU_RECORD).eos.pressure(volume_a3))
+
+def _shen_series(record: dict[str, Any], dataset: dict[str, Any]) -> Series:
+    phase, experiments, pressure_mask = SHEN_SELECTIONS[record["identifier"]]
+    grouped: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for row in _load_rows(dataset):
+        grouped.setdefault((row["experiment"], row["run_number"]), []).append(row)
+
+    pressures: list[float] = []
+    volumes: list[float] = []
+    for (experiment, _run_number), rows in grouped.items():
+        if experiment not in experiments:
+            continue
+        cu_rows = [row for row in rows if row["phase"] == "Cu"]
+        if len(cu_rows) != 1:
+            raise ValueError(
+                f"expected one Cu volume per selected run, found {len(cu_rows)}"
+            )
+        pressure = float(
+            shen_cu_pressure_gpa(float(cu_rows[0]["unit_cell_volume_a3"]))
+        )
+        if pressure_mask == "below_30_gpa" and pressure >= 30.0:
+            continue
+        if pressure_mask == "above_35_gpa" and pressure <= 35.0:
+            continue
+        for row in rows:
+            if row["phase"] == phase:
+                pressures.append(pressure)
+                volumes.append(float(row["unit_cell_volume_a3"]))
+
+    if not pressures:
+        raise ValueError(f"no Shen-Smith observations selected for {phase}")
+    experiment_text = " and ".join(sorted(experiments))
+    selection = f"{phase}; {experiment_text}"
+    if pressure_mask == "below_30_gpa":
+        selection += "; Cu pressure below 30 GPa (coexistence excluded)"
+    elif pressure_mask == "above_35_gpa":
+        selection += "; Cu pressure above 35 GPa (coexistence excluded)"
+    return Series(
+        dataset_id=dataset["identifier"],
+        pressure=np.asarray(pressures),
+        volume=np.asarray(volumes),
+        temperature=None,
+        pressure_sigma=None,
+        volume_sigma=None,
+        temperature_sigma=None,
+        pressure_column="Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        volume_column="unit_cell_volume_a3",
+        temperature_column=None,
+        selection=selection,
+    )
+
+def _shen_smith_outcome(
+    document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    series = _shen_series(record, dataset)
+    initial, fixed = _static_parameters(record)
+    result = fit_rt_eos(
+        Vinet,
+        volume=series.volume,
+        pressure=series.pressure,
+        initial=initial,
+        fixed=fixed,
+        bounds={name: _bounds(name, value) for name, value in initial.items()},
+        # Shen and Smith state only "least-squares fitting" and publish no
+        # pressure errors, weights, or covariance. The workbook's phase-volume
+        # standard errors remain bundled but are not repurposed as an EIV model.
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    status, comparisons = _compare(record, result, False, 1.0)
+    residuals = np.asarray(result.residuals, dtype=float)
+    return {
+        "status": status,
+        "dataset_identifiers": [dataset["identifier"]],
+        "observations": int(series.pressure.size),
+        "selection": series.selection,
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": None,
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": None,
+        },
+        "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
+        "objective": "unweighted_pressure_residuals",
+        "absolute_sigma": False,
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": float(result.reduced_chi_square),
+        "degrees_of_freedom": int(result.degrees_of_freedom),
+        "solver_success": bool(result.success),
+        "solver_message": str(result.message),
+        "pressure_reconstruction": {
+            "reference": "Fratanduono et al. (2020)",
+            "doi": "10.1103/PhysRevLett.124.015701",
+            "source_locations": [
+                "main article Table I, 298 K isotherm row",
+                "Supplemental Material Eq. (2), Section S4",
+            ],
+            "model": "vinet_3",
+            "reference_eos_record": SHEN_CU_RECORD,
+            "density0_g_cm3": 8.939,
+            "reference_unit_cell_volume_a3": shen_cu_reference_volume_a3(),
+            "parameters": {
+                key: get_eos_record(SHEN_CU_RECORD).eos.parameter_values()[name]
+                for key, name in (("K0_gpa", "K0"), ("eta", "eta"), ("beta", "beta"), ("psi", "psi"))
+            },
+            "pairing": (
+                "Each phase volume uses the single Cu volume with the same "
+                "experiment and run number; both source-labeled Pt first/last "
+                "measurements are retained when the run is selected."
+            ),
+        },
+        "qualification": (
+            "Direct reconstruction from source observations: each Table S1 phase "
+            "volume is paired with its simultaneous Cu volume, pressure is evaluated "
+            "from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 "
+            "and K0_prime are fitted with Shen and Smith's fixed V0 and stated run "
+            "selection. The source publishes no pressure weights, residual covariance, "
+            "or weighting protocol, so the reproduction uses unweighted pressure "
+            "residuals and does not infer any of them."
+        ),
+    }
 
 def _column_map(dataset: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return {column["name"]: column for column in dataset["columns"]}
