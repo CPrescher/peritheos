@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **813** EOS records. **155** achieve uncertainty parity, **62** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **565** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **826** EOS records. **155** achieve uncertainty parity, **74** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **566** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -444,6 +444,19 @@ use `--check` in continuous integration to detect stale generated files.
 | [`mg090fe009al0005ca0005sio3_post_perovskite_shieh_2006_bm3_sensitivity_2`](https://doi.org/10.1073/pnas.0506811103) | `mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized` | 13 | `V0` 166.2 → 165.647; `K0` 198 → 201.693 | 1.36847/1.33414 | parity |
 | [`mg090fe010o_solomatova_2016_hs_bm3_reference_1`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription. |
 | [`mg090fe010o_solomatova_2016_ls_bm3_reference_2`](https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf) | `source_parameterization_only` | — | — | —/— | not_refittable — The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription. |
+| [`mg090fe010o_marquardt_2009b_hs_bm3`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | — | — | —/— | not_refittable — EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_01`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 144 → 144.05 | 1.28317/0.315422 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_01) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_02`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 153 → 153.131 | 1.43795/0.338792 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_02) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_03`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 163 → 163.271 | 1.61617/0.363073 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_03) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_04`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 175 → 174.342 | 1.71797/0.387461 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_04) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_05`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 156 → 154.694 | 1.03216/0.267168 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_05) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_06`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 164 → 163.987 | 1.1524/0.292951 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_06) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_07`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 175 → 174.35 | 1.276/0.320152 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_07) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_08`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 186 → 185.647 | 1.46522/0.347769 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_08) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_09`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 167 → 167.036 | 0.716033/0.20955 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_09) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_10`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 177 → 176.501 | 0.822874/0.236299 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_10) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_11`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 187 → 187.043 | 1.01678/0.266037 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_11) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
+| [`mg090fe010o_marquardt_2009b_ls_bm3_s1_12`](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009_table2_pv` | 6 | `K0` 199 → 198.521 | 1.15774/0.297171 | [similar](#investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_12) — One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations. |
 | [`mg092fe008o_yang_2015_hs_bm3_reference`](https://www.nature.com/articles/srep17188) | `source_parameterization_only` | — | — | —/— | not_refittable — No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients. |
 | [`mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2003GL019132) | `mg092fe008sio3_gong_2004_table1_shock` | 13 | `V0` 163.137 → 231.512; `K0` 260.1 → 13.005; `K0_prime` 4.18 → 15.4726 | 27.0578/7.27472 | [parity_not_achieved](#investigation-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3) |
 | [`mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
@@ -957,7 +970,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **93** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **105** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -2157,6 +2170,246 @@ the missing source fit detail is recovered.
 **Assessment and likely origin.**
 - The magnitude is similar for `K0`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
 
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_01"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_01`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 144 | 144.05 ± 1.57896 | 0.03% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.28317/0.315422 GPa; reduced chi-square: 0.445689; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_02"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_02`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 153 | 153.131 ± 1.70578 | 0.09% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.43795/0.338792 GPa; reduced chi-square: 0.532752; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_03"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_03`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 163 | 163.271 ± 1.85118 | 0.17% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.61617/0.363073 GPa; reduced chi-square: 0.635386; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_04"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_04`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 175 | 174.342 ± 2.01449 | 0.38% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.71797/0.387461 GPa; reduced chi-square: 0.752829; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_05"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_05`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 156 | 154.694 ± 1.64266 | 0.84% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.03216/0.267168 GPa; reduced chi-square: 0.298103; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_06"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_06`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 164 | 163.987 ± 1.7704 | 0.01% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.1524/0.292951 GPa; reduced chi-square: 0.373307; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_07"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_07`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 175 | 174.35 ± 1.91672 | 0.37% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.276/0.320152 GPa; reduced chi-square: 0.464712; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_08"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_08`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 186 | 185.647 ± 2.08093 | 0.19% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.46522/0.347769 GPa; reduced chi-square: 0.571983; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_09"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_09`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 167 | 167.036 ± 1.70854 | 0.02% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.716033/0.20955 GPa; reduced chi-square: 0.164528; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_10"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_10`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 177 | 176.501 ± 1.83677 | 0.28% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.822874/0.236299 GPa; reduced chi-square: 0.222015; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_11"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_11`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 187 | 187.043 ± 1.98356 | 0.02% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.01678/0.266037 GPa; reduced chi-square: 0.296777; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
+<a id="investigation-mg090fe010o_marquardt_2009b_ls_bm3_s1_12"></a>
+
+### `mg090fe010o_marquardt_2009b_ls_bm3_s1_12`
+
+**Classification:** `similar`. **Model:** `BM3`. **Data:** `mg090fe010o_marquardt_2009_table2_pv` with 6 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `K0` | 199 | 198.521 ± 2.14819 | 0.24% | — | yes |
+
+**Fit diagnostics.** Observed pressure range: 63.9-77.4 GPa; source-declared range: 63.9-77.4 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 1.15774/0.297171 GPa; reduced chi-square: 0.389075; free parameters: `K0`; source-fixed parameters: `V0, K0_prime`.
+
+**Source/data scope.** Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.
+
+**Registered source-fit note.** One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.
+
+**Assessment and likely origin.**
+- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `K0`. The point estimates nevertheless meet the numerical criterion.
+- The refit reduces pressure RMSE by more than a factor of two. That gap is too large to attribute only to solver precision and prioritizes a source row-selection, pressure-scale, weighting, or model-convention difference.
+
 <a id="investigation-mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3"></a>
 
 ### `mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3`
@@ -3199,6 +3452,7 @@ the missing source fit detail is recovered.
 - `mg0875fe0125o_leonov_2017_hs_bm3_1`: Coefficients and plotted energy-volume curves are published, but the numerical grid is not deposited; independent equation checkpoints verify transcription without claiming a refit.
 - `mg090fe010o_solomatova_2016_hs_bm3_reference_1`: The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription.
 - `mg090fe010o_solomatova_2016_ls_bm3_reference_2`: The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription.
+- `mg090fe010o_marquardt_2009b_hs_bm3`: EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective.
 - `mg092fe008o_yang_2015_hs_bm3_reference`: No machine-readable P-V table is published. Analytical BM3 checkpoints and inverse-volume round trips independently verify executable transcription of the source coefficients.
 - `mg09375al0125si09375o3_bridgmanite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
 - `mg09375al0125si09375o3_post_perovskite_akber_knutson_2005_gga_bm3`: The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.

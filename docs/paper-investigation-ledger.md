@@ -26,7 +26,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **317 primary papers**: **219** support the 813 audited catalog records and **98** were investigated without adding a production record.
+The register covers **318 primary papers**: **220** support the 826 audited catalog records and **98** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -34,7 +34,7 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Reproduced | 125 |
-| Partly reproduced | 8 |
+| Partly reproduced | 9 |
 | Mixed: reproduced and discrepant records | 4 |
 | Coefficient parity not achieved | 12 |
 | Direct refit unavailable | 75 |
@@ -873,7 +873,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **82 papers** contain 565 records for which a
+These **83 papers** contain 566 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -930,6 +930,7 @@ have other records that were reproduced.
 | [Luo et al. (2023)](https://doi.org/10.1103/physrevb.107.134116) | `mgo_b1_luo_2023_vinet_thermal_5` | The five bundled Table I rows are only the new shock subset of a global quasi-Debye fit. The complete earlier-study observations, numerical sound-velocity-density fits, objective weights, and covariance are not published; Tables II-III are derived EOS output and cannot serve as independent refit observations. |
 | [Mao et al. (1991)](https://doi.org/10.1029/91jb00176) | `bridgmanite_mao_1991_bm2_1`, `mg080fe020sio3_bridgmanite_mao_1991_bm2_1`, `mg09fe01sio3_bridgmanite_mao_1991_bm2_2` | No accessible numerical pressure-volume table was available; no graphical points were fabricated. |
 | [Marcondes et al. (2020)](https://doi.org/10.1103/physrevb.102.104112) | `mg09375fe00625o_marcondes_2020_11nn_hs_bm3_1`, `mg09375fe00625o_marcondes_2020_11nn_ls_bm3_2`, `mg09375fe00625o_marcondes_2020_11nn_ms_bm3_3`, `mg09375fe00625o_marcondes_2020_2nn_hs_bm3_4`, `mg09375fe00625o_marcondes_2020_2nn_ls_bm3_5`, `mg09375fe00625o_marcondes_2020_2nn_ms_bm3_6`, `mg096875fe003125o_marcondes_2020_hs_bm3_1`, `mg096875fe003125o_marcondes_2020_ls_bm3_2` | The source publishes complete coefficients but no numerical energy-volume grid; independent BM3 checkpoints verify every stored curve. |
+| [Marquardt et al. (2009)](https://doi.org/10.1016/j.epsl.2009.08.017) | `mg090fe010o_marquardt_2009b_hs_bm3` | EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective. |
 | [Metsue and Tsuchiya (2012)](https://doi.org/10.1111/j.1365-246x.2012.05511.x) | `bridgmanite_metsue_2012_static_bm3_1`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model1_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model2_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_hs_model3_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model1_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model2_bm3`, `mg09375fe00625sio3_bridgmanite_metsue_2012_ls_model3_bm3` | The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated. The six calculation pressures and full coefficients are stated; row-wise calculated P-V values are not tabulated. Coefficients and calculation pressures are given; row-wise P-V values are not tabulated. |
 | [Mookherjee et al. (2015)](https://doi.org/10.2138/am-2015-5312) | `mgsioh6_365a_phase_mookherjee_2015_gga_bm4_model_crystal_3` | The full four-coefficient BM4 is tabulated and the computed P-V markers are plotted, but the numerical energy-volume grid is not deposited; no false-precision digitization is bundled. |
 | [Mosenfelder et al. (2009)](https://doi.org/10.1029/2008jb005900) | `mgsio3_post_perovskite_mosenfelder_2009_bm3_1` | The bundled rows are shock states and the source's thermal reduction cannot be reconstructed as a direct P-V-T least-squares fit because most rows do not report temperature. |
@@ -1147,6 +1148,7 @@ the primary-source and refit ledgers.
 | [Mao et al. (2011)](https://doi.org/10.1029/2011gl049915) | Reproduced | 2 | 2 parity |  |
 | [Mao et al. (2015)](https://doi.org/10.1002/2015gl064400) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Marcondes et al. (2020)](https://doi.org/10.1103/physrevb.102.104112) | Direct refit unavailable | 8 | 8 direct refit unavailable |  |
+| [Marquardt et al. (2009)](https://doi.org/10.1016/j.epsl.2009.08.017) | Partly reproduced | 13 | 12 similar; 1 direct refit unavailable |  |
 | [Martin et al. (2007)](https://doi.org/10.2138/am.2007.2473) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Martinez et al. (1996)](https://doi.org/10.2138/am-1996-5-608) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Matsui (1993), molecular dynamics of high-pressure silicates](https://doi.org/10.5940/jcrsj.35.190) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

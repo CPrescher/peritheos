@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 813,
-    "primary_source_validated": 813
+    "records": 826,
+    "primary_source_validated": 826
   },
   "records": [
     {
@@ -7652,6 +7652,347 @@
           "Figures 3 and 6-10"
         ],
         "finding": "Table 7 supplies paired HS/LS BM3 reference branches from coupled MINUTI crossover fits; these are genuine composition/source-data branches but are not the mixed-spin mixer itself."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_hs_bm3",
+      "label": "Marquardt et al. (2009), EPSL high-spin BM3",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "local_source_filename": "Marquardt et al. - 2009 - Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa.pdf",
+        "sha256": "71a9f3dfb633730df7ae6dc0981e505965e103a35dd6d904b001fa420cc8785d",
+        "locations": [
+          "Sections 2.2 and 3.1.1-3.1.3",
+          "Table 2, p. 347",
+          "Section 3.2, p. 348"
+        ],
+        "finding": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        }
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 1"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 2"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 3"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 4"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 5"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 6"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 7"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 8"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 9"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 10"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 11"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+      }
+    },
+    {
+      "material": "mg090fe010o",
+      "file": "mg090fe010o.eosmat",
+      "record": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
+      "doi": "10.1016/j.epsl.2009.08.017",
+      "status": "primary_source_validated",
+      "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+        "doi": "10.1016/j.epsl.2009.08.017",
+        "locations": [
+          "Section 3.1.2 and Table 2, p. 347",
+          "EPSL supplementary Table S1, row 12"
+        ],
+        "supplement": {
+          "source_filenames": [
+            "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+            "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+          ],
+          "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+          "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+        },
+        "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
       }
     },
     {

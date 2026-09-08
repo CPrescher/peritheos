@@ -78,7 +78,7 @@
   },
   "structure_location": "B1 assignment in the introduction and X-ray diffraction results"
  },
- "notes": "The EOS records are paired high-spin and low-spin reference branches from coupled MINUTI spin-crossover fits. The current executable catalog does not implement the population mixer.",
+ "notes": "Source-owned Marquardt (2009) EPSL HS BM3 and 12 alternative constrained LS BM3 fits coexist with the distinct Solomatova (2016) coupled-fit reference branches. No population mixer is implemented; Table S1 summary rows are not additional EOS records.",
  "eos_records": [
   {
    "identifier": "mg090fe010o_solomatova_2016_hs_bm3_reference_1",
@@ -333,6 +333,2571 @@
      "finding": "The paper publishes the complete refitted branch coefficients and transition parameters but does not reprint the underlying earlier P-V rows; independent BM3 checkpoints verify coefficient transcription."
     }
    }
+  },
+  {
+   "identifier": "mg090fe010o_marquardt_2009b_hs_bm3",
+   "label": "Marquardt et al. (2009), EPSL high-spin BM3",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 75.62,
+     "K0": 158.2,
+     "K0_prime": 3.98
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.06,
+    "K0": 2.0,
+    "K0_prime": 0.14
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    43.8
+   ],
+   "pressure_range_status": "reported_exactly",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "notes": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+   "validity": {
+    "pressure_gpa": [
+     0,
+     43.8
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "HS interpretation is P < 45 GPa; last measured HS row is 43.8 GPa.",
+     "Room temperature represented as 300 K. No thermal extrapolation or mixed-spin population model."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "high_spin",
+    "high_spin_pressure_upper_exclusive_gpa": 45,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixer_implemented": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 2.2 and Section 3.1.1, pp. 346-347: third-order Birch-Murnaghan isothermal EOS.",
+    "V0": "Section 3.1.1 and Table 2: 75.62 +/- 0.06 A^3 from ambient single-crystal XRD, used as the reference-volume anchor, not an unconstrained P-V regression coefficient.",
+    "K0": "Section 3.1.1: KT0 = 158.2 +/- 2 GPa; room-pressure Brillouin results constrain this isothermal modulus.",
+    "K0_prime": "Section 3.1.1: KT0 prime = 3.98 +/- 0.14.",
+    "uncertainties": "Printed errors retained. Table 2 specifies one-sigma volume errors; confidence for fitted modulus errors and covariance is not stated.",
+    "temperature": "Room-temperature measurements; catalog reference uses 300 K.",
+    "fit_selection": "Table 2 source_order 1-14 (P < 45 GPa); ambient row anchors V0. The complete 29-row resource also preserves 9 mixed-spin and 6 LS observations.",
+    "Brillouin_constraint": "Section 3.2 separately reports Brillouin-only adiabatic KS0 = 161.4 +/- 1.1 GPa and KS0 prime = 3.98 +/- 0.14. These are not KT0 or additional P-V rows. The precise weighting of the ambient constraint is unavailable. EPSL Table S2 separately reports ambient KS = 165 +/- 3 GPa; the 161.4 GPa fitted intercept is not this ambient observation. The supplement still does not specify the exact constraint implementation."
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "phase",
+     "equation",
+     "parameters",
+     "published_uncertainties",
+     "units",
+     "volume_basis",
+     "spin_region",
+     "fit_selection",
+     "Brillouin_constraint",
+     "primary_table_transcription"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "local_source_filename": "Marquardt et al. - 2009 - Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa.pdf",
+     "sha256": "71a9f3dfb633730df7ae6dc0981e505965e103a35dd6d904b001fa420cc8785d",
+     "locations": [
+      "Sections 2.2 and 3.1.1-3.1.3",
+      "Table 2, p. 347",
+      "Section 3.2, p. 348"
+     ],
+     "finding": "Section 3.1.1 prints the HS BM3 coefficients. The subsequently supplied EPSL supplement supplies 12 LS constrained BM3 fits in Table S1 and elastic observations in Table S2; these are distinct from the Science supplement.",
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     }
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2"
+     ],
+     "finding": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   },
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s2_elasticity"
+   ]
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.85,
+     "K0": 144.0,
+     "K0_prime": 4.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 1,
+    "members": 12,
+    "v0_ls_over_hs": 0.99,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 1: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 1: KT0 = 144 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 1: KT0 prime fixed at 4.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 1"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 1"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.1,
+     "K0": 153.0,
+     "K0_prime": 4.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 2,
+    "members": 12,
+    "v0_ls_over_hs": 0.98,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 2: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 2: KT0 = 153 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 2: KT0 prime fixed at 4.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 2"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 2"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 73.34,
+     "K0": 163.0,
+     "K0_prime": 4.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 3,
+    "members": 12,
+    "v0_ls_over_hs": 0.97,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 3: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 3: KT0 = 163 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 3: KT0 prime fixed at 4.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 3"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 3"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 72.59,
+     "K0": 175.0,
+     "K0_prime": 4.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 4,
+    "members": 12,
+    "v0_ls_over_hs": 0.96,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 4: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 4: KT0 = 175 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 4: KT0 prime fixed at 4.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 4"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 4"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.85,
+     "K0": 156.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 5,
+    "members": 12,
+    "v0_ls_over_hs": 0.99,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 5: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 5: KT0 = 156 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 5: KT0 prime fixed at 4.0.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 5"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 5"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.1,
+     "K0": 164.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 6,
+    "members": 12,
+    "v0_ls_over_hs": 0.98,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 6: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 6: KT0 = 164 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 6: KT0 prime fixed at 4.0.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 6"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 6"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 73.34,
+     "K0": 175.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 7,
+    "members": 12,
+    "v0_ls_over_hs": 0.97,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 7: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 7: KT0 = 175 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 7: KT0 prime fixed at 4.0.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 7"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 7"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 72.59,
+     "K0": 186.0,
+     "K0_prime": 4.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 8,
+    "members": 12,
+    "v0_ls_over_hs": 0.96,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 8: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 8: KT0 = 186 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 8: KT0 prime fixed at 4.0.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 8"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 8"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.85,
+     "K0": 167.0,
+     "K0_prime": 3.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 9,
+    "members": 12,
+    "v0_ls_over_hs": 0.99,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 9: 74.85 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.99. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 9: KT0 = 167 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 9: KT0 prime fixed at 3.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 9"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 9"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 74.1,
+     "K0": 177.0,
+     "K0_prime": 3.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 10,
+    "members": 12,
+    "v0_ls_over_hs": 0.98,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 10: 74.10 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.98. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 10: KT0 = 177 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 10: KT0 prime fixed at 3.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 10"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 10"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 73.34,
+     "K0": 187.0,
+     "K0_prime": 3.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 11,
+    "members": 12,
+    "v0_ls_over_hs": 0.97,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 11: 73.34 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.97. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 11: KT0 = 187 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 11: KT0 prime fixed at 3.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 11"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 11"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  },
+  {
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "temperature_ref": 300,
+   "experimental_temperature_range_k": [
+    300,
+    300
+   ],
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 43.458
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "ruby_fluorescence",
+      "source_location": "Section 2.2, p. 346",
+      "scope": "High-pressure XRD in neon",
+      "notes": "At least two ruby spheres measured before and after each XRD measurement; exact ruby scale not specified in the inspected text."
+     }
+    ],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "Table 2 contains no ruby wavelengths or pressure uncertainties; retain source pressures without invented recalibration."
+    },
+    "audit_date": "2026-09-08"
+   },
+   "identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
+   "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 72.59,
+     "K0": 199.0,
+     "K0_prime": 3.5
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0_prime"
+   ],
+   "experimental_pressure_range_gpa": [
+    63.9,
+    77.4
+   ],
+   "pressure_range_status": "reported_exactly",
+   "fit_datasets": [
+    "mg090fe010o_marquardt_2009_table2_pv"
+   ],
+   "supporting_datasets": [
+    "mg090fe010o_marquardt_2009_table_s1_ls_models"
+   ],
+   "notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+   "validity": {
+    "pressure_gpa": [
+     63.9,
+     77.4
+    ],
+    "temperature_k": [
+     300,
+     300
+    ],
+    "notes": [
+     "Physical LS assignment is P > 63 GPa; measured XRD range is 63.9-77.4 GPa.",
+     "Table S1 evaluates LS moduli through 81.2 GPa; evaluations above 77.4 GPa extrapolate beyond the P-V observations.",
+     "Do not apply this pure-LS EOS to the mixed-spin region or use its extrapolated V0 as a measured ambient LS volume."
+    ]
+   },
+   "spin_crossover_context": {
+    "branch": "low_spin",
+    "low_spin_pressure_lower_exclusive_gpa": 63,
+    "mixed_spin_pressure_gpa": [
+     45,
+     63
+    ],
+    "mixer_implemented": false
+   },
+   "constrained_fit_family": {
+    "identifier": "mg090fe010o_marquardt_2009b_ls_s1",
+    "source_row": 12,
+    "members": 12,
+    "v0_ls_over_hs": 0.96,
+    "preferred_member": false,
+    "summary_rows_are_independent_fits": false
+   },
+   "parameter_provenance": {
+    "equation": "Section 3.1.2: third-order Birch-Murnaghan isothermal EOS; Table S1 publishes the constrained LS fit family.",
+    "V0": "Table S1 row 12: 72.59 A^3 per conventional B1 cell, fixed from the stated LS/HS ratio 0.96. Preserve printed V0 rather than recomputing from the rounded ratio.",
+    "K0": "Table S1 row 12: KT0 = 199 GPa fitted to LS XRD observations. No statistical uncertainty is printed.",
+    "K0_prime": "Table S1 row 12: KT0 prime fixed at 3.5.",
+    "fit_selection": "Table 2 source_order 24-29, P > 63 GPa; six LS observations. Mixed-spin rows are excluded.",
+    "derived_checkpoints": "Table S1 KT columns at 69, 70.1, 75.8 and 81.2 GPa are derived LS model outputs, not additional observations. Columns at 45.9, 52 and 59 GPa include the mixed-spin population response and must not be compared with the pure-LS BM3 derivative.",
+    "summary_rows": "min, max and avg summarize the ensemble by column; they are not three additional source fits. The average of nonlinear model curves is not generally the curve of the averaged coefficients."
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+    "audit_date": "2026-09-08",
+    "verified_fields": [
+     "canonical_doi",
+     "composition",
+     "equation",
+     "parameters",
+     "fixed_parameters",
+     "volume_basis",
+     "spin_region",
+     "primary_table_transcription",
+     "LS_bulk_modulus_checkpoints"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.epsl.2009.08.017",
+     "doi": "10.1016/j.epsl.2009.08.017",
+     "locations": [
+      "Section 3.1.2 and Table 2, p. 347",
+      "EPSL supplementary Table S1, row 12"
+     ],
+     "supplement": {
+      "source_filenames": [
+       "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+       "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+      ],
+      "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+      "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+     },
+     "finding": "Explicit published constrained LS BM3 parameter triplet. Independent finite-strain evaluation reproduces the rounded LS KT checkpoints; XRD-only refitting is a validation, not a replacement for these published values."
+    },
+    "primary_data_check": {
+     "status": "tabulated",
+     "dataset_identifiers": [
+      "mg090fe010o_marquardt_2009_table2_pv"
+     ],
+     "source_locations": [
+      "Table 2 rows 24-29",
+      "Table S1 row 12"
+     ],
+     "finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+     "reproduction_script": "scripts/reproduce_marquardt_2009_epsl.py"
+    }
+   }
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "mg090fe010o_marquardt_2009_table2_pv",
+   "kind": "static_compression",
+   "description": "Complete 29-row EPSL Table 2, with 1-sigma unit-cell volume errors. Rows 1-14 support the HS EOS; rows 24-29 support the 12 LS fits; mixed-spin rows are preserved separately.",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "source_location": "Table 2, p. 347",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "index",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_sigma_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "standard_deviation",
+     "of": "volume_a3_conventional_cell"
+    },
+    {
+     "name": "spin_region",
+     "quantity": "spin_region",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "used_in_solomatova_2016_fit",
+     "quantity": "source_annotation",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg090fe010o-marquardt-2009-table2-pv.csv",
+    "sha256": "ac504ad2b8175dc1c0f199309cc1c143ec2744e4299305f699dd9a4410cb3b24",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg090fe010o_marquardt_2009b_hs_bm3",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_12"
+   ],
+   "notes": "Transcription copied byte-for-byte from the supplied prior-task CSV and checked against EPSL Table 2. spin_region is a curation annotation using Sections 3.1.1-3.1.3. used_in_solomatova_2016_fit is a prior-task annotation, not a column published in EPSL and not the selection mask for this EOS. No Science SOM density or shear rows are included."
+  },
+  {
+   "identifier": "mg090fe010o_marquardt_2009_table_s1_ls_models",
+   "kind": "published_parameter_grid",
+   "description": "Complete Table S1: 12 alternative LS fit parameter sets and 3 ensemble summary rows. KT columns are derived outputs, including mixed-spin response below 63 GPa; not independent P-V observations.",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "source_location": "EPSL supplementary Table S1",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "v0_ls_over_hs",
+     "quantity": "v0_ls_over_hs",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "v0_ls_a3_conventional_cell",
+     "quantity": "reference_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "k0_prime",
+     "quantity": "k0_prime",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "k0_gpa",
+     "quantity": "k0_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_45_9_gpa",
+     "quantity": "kt_45_9_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_52_gpa",
+     "quantity": "kt_52_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_59_gpa",
+     "quantity": "kt_59_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_69_gpa",
+     "quantity": "kt_69_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_70_1_gpa",
+     "quantity": "kt_70_1_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_75_8_gpa",
+     "quantity": "kt_75_8_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "kt_81_2_gpa",
+     "quantity": "kt_81_2_gpa",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv",
+    "sha256": "705022acb5a3dcf8b1fd7b0afee08840168e2f946ea93c3bf8e873a062841940",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
+    "mg090fe010o_marquardt_2009b_ls_bm3_s1_12"
+   ],
+   "source_document": {
+    "source_filenames": [
+     "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+     "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+    ],
+    "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+    "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+   },
+   "notes": "Supporting evidence; excluded from P-V regression inputs. Source-reported uncertainties are not assigned an unstated confidence level."
+  },
+  {
+   "identifier": "mg090fe010o_marquardt_2009_table_s2_elasticity",
+   "kind": "elasticity",
+   "description": "Complete 26-row Table S2: elastic constants, moduli and velocities with printed uncertainty notation preserved. Above 32 GPa c11, c12 and KS depend on XRD-derived moduli; these rows are not independent P-V observations.",
+   "reference": {
+    "authors": [
+     "Marquardt",
+     "Speziale",
+     "Reichmann",
+     "Frost",
+     "Schilling"
+    ],
+    "year": 2009,
+    "title": "Single-crystal elasticity of (Mg0.9Fe0.1)O to 81 GPa",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "287",
+    "locator": "345-352",
+    "doi": "10.1016/j.epsl.2009.08.017"
+   },
+   "source_location": "EPSL supplementary Table S2",
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "c11_gpa",
+     "quantity": "c11_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "c11_gpa_uncertainty",
+     "quantity": "c11_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "c11_gpa"
+    },
+    {
+     "name": "c11_gpa_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "c12_gpa",
+     "quantity": "c12_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "c12_gpa_uncertainty",
+     "quantity": "c12_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "c12_gpa"
+    },
+    {
+     "name": "c12_gpa_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "c44_gpa",
+     "quantity": "c44_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "c44_gpa_uncertainty",
+     "quantity": "c44_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "c44_gpa"
+    },
+    {
+     "name": "c44_gpa_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "cs_gpa",
+     "quantity": "cs_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "cs_gpa_uncertainty",
+     "quantity": "cs_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "cs_gpa"
+    },
+    {
+     "name": "cs_gpa_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "ks_gpa",
+     "quantity": "ks_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "ks_gpa_uncertainty",
+     "quantity": "ks_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "ks_gpa"
+    },
+    {
+     "name": "ks_gpa_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "gvrh_gpa",
+     "quantity": "gvrh_gpa",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gvrh_gpa_uncertainty",
+     "quantity": "gvrh_gpa",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "gvrh_gpa"
+    },
+    {
+     "name": "gvrh_gpa_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "vp_km_s",
+     "quantity": "vp_km_s",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vp_km_s_uncertainty",
+     "quantity": "vp_km_s",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vp_km_s"
+    },
+    {
+     "name": "vp_km_s_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "vs_km_s",
+     "quantity": "vs_km_s",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vs_km_s_uncertainty",
+     "quantity": "vs_km_s",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vs_km_s"
+    },
+    {
+     "name": "vs_km_s_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "vbulk_km_s",
+     "quantity": "vbulk_km_s",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vbulk_km_s_uncertainty",
+     "quantity": "vbulk_km_s",
+     "unit": "km/s",
+     "role": "uncertainty",
+     "of": "vbulk_km_s"
+    },
+    {
+     "name": "vbulk_km_s_printed",
+     "quantity": "printed_notation",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/mg090fe010o-marquardt-2009-table-s2-elasticity.csv",
+    "sha256": "90dbc690240850c8375c395d5b96d59c257cc2a758e1474e514ddcdd79e80384",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "mg090fe010o_marquardt_2009b_hs_bm3"
+   ],
+   "source_document": {
+    "source_filenames": [
+     "1-s2.0-S0012821X09004889-mmc1 (1).doc",
+     "1-s2.0-S0012821X09004889-mmc1 (2).doc"
+    ],
+    "sha256": "78c3a49a41795450b2ae39e97882268fab7da08cc89630ae0eaaded026160f04",
+    "finding": "Both user-supplied files are byte-identical. EPSL article PII S0012821X09004889; contains Tables S1 and S2 matching Sections 3.1.2 and 3.2 of DOI 10.1016/j.epsl.2009.08.017."
+   },
+   "notes": "Supporting evidence; excluded from P-V regression inputs. Source-reported uncertainties are not assigned an unstated confidence level."
   }
  ]
 }

@@ -17308,6 +17308,848 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        43.8
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fixed_parameters": [
+        "V0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL high-spin BM3",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "primary_data_finding": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "reason": "EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_hs_bm3",
+      "source_notes": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
+      "status": "not_refittable"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 1",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": 0.05016999289648538,
+          "parameter": "K0",
+          "published": 144.0,
+          "published_error": null,
+          "refit": 144.05016999289649,
+          "refit_error": 1.5789605046373902,
+          "relative_difference": 0.00034840272844781513,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.2831719717741563,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
+      "reduced_chi_square": 0.4456888108063467,
+      "rmse_gpa": 0.315422303696759,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 2",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": 0.13067129713863324,
+          "parameter": "K0",
+          "published": 153.0,
+          "published_error": null,
+          "refit": 153.13067129713863,
+          "refit_error": 1.7057793624477458,
+          "relative_difference": 0.0008540607656119819,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.4379533452433428,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
+      "reduced_chi_square": 0.5327517448336939,
+      "rmse_gpa": 0.3387918149481032,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 3",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": 0.270623294043844,
+          "parameter": "K0",
+          "published": 163.0,
+          "published_error": null,
+          "refit": 163.27062329404384,
+          "refit_error": 1.8511752471916292,
+          "relative_difference": 0.0016602656076309449,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.6161681138842996,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
+      "reduced_chi_square": 0.6353857659233374,
+      "rmse_gpa": 0.3630727561610341,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 4",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": -0.6583486503431857,
+          "parameter": "K0",
+          "published": 175.0,
+          "published_error": null,
+          "refit": 174.34165134965681,
+          "refit_error": 2.0144860589893296,
+          "relative_difference": 0.0037619922876753467,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.7179655250363797,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_04",
+      "reduced_chi_square": 0.7528288308709483,
+      "rmse_gpa": 0.3874613858317298,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 5",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": -1.306352970443612,
+          "parameter": "K0",
+          "published": 156.0,
+          "published_error": null,
+          "refit": 154.6936470295564,
+          "refit_error": 1.6426616382586294,
+          "relative_difference": 0.008374057502843667,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.0321610486696218,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_05",
+      "reduced_chi_square": 0.2981026528356882,
+      "rmse_gpa": 0.267167846038256,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 6",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": -0.012808629138447714,
+          "parameter": "K0",
+          "published": 164.0,
+          "published_error": null,
+          "refit": 163.98719137086155,
+          "refit_error": 1.7703993044473074,
+          "relative_difference": 7.810139718565679e-05,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.152395203577993,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
+      "reduced_chi_square": 0.3733074048405004,
+      "rmse_gpa": 0.29295056320964075,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 7",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": -0.6504674906772152,
+          "parameter": "K0",
+          "published": 175.0,
+          "published_error": null,
+          "refit": 174.34953250932278,
+          "refit_error": 1.9167193949147268,
+          "relative_difference": 0.003716957089584087,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.276002506863264,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_07",
+      "reduced_chi_square": 0.46471151105284714,
+      "rmse_gpa": 0.32015216330334406,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 8",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": -0.3533204488028332,
+          "parameter": "K0",
+          "published": 186.0,
+          "published_error": null,
+          "refit": 185.64667955119717,
+          "refit_error": 2.0809303630821696,
+          "relative_difference": 0.0018995723053915764,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.465219048351091,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
+      "reduced_chi_square": 0.5719827642349108,
+      "rmse_gpa": 0.34776862004931813,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 9",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": 0.03596583296786093,
+          "parameter": "K0",
+          "published": 167.0,
+          "published_error": null,
+          "refit": 167.03596583296786,
+          "refit_error": 1.708544045583997,
+          "relative_difference": 0.00021536426926862834,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 0.7160328495544448,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
+      "reduced_chi_square": 0.16452768052798022,
+      "rmse_gpa": 0.20955008251941537,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 10",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": -0.4985180067583599,
+          "parameter": "K0",
+          "published": 177.0,
+          "published_error": null,
+          "refit": 176.50148199324164,
+          "refit_error": 1.8367690473848035,
+          "relative_difference": 0.0028164859138890387,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 0.8228740729169969,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
+      "reduced_chi_square": 0.22201503013098103,
+      "rmse_gpa": 0.23629886605941916,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 11",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": 0.04275144048634161,
+          "parameter": "K0",
+          "published": 187.0,
+          "published_error": null,
+          "refit": 187.04275144048634,
+          "refit_error": 1.9835558475022992,
+          "relative_difference": 0.00022861732880396582,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.0167839863494872,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
+      "reduced_chi_square": 0.2967768505543612,
+      "rmse_gpa": 0.266036563136773,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3_conventional_cell"
+      },
+      "dataset_identifiers": [
+        "mg090fe010o_marquardt_2009_table2_pv"
+      ],
+      "degrees_of_freedom": 5,
+      "experimental_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        300
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ],
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Marquardt et al. (2009), EPSL LS BM3 Table S1 row 12",
+      "material_identifier": "mg090fe010o",
+      "model": "BM3",
+      "objective": "errors_in_variables",
+      "observations": 6,
+      "observed_pressure_range_gpa": [
+        63.9,
+        77.4
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        56.26,
+        58.51
+      ],
+      "parameters": [
+        {
+          "difference": -0.47878688885492693,
+          "parameter": "K0",
+          "published": 199.0,
+          "published_error": null,
+          "refit": 198.52121311114507,
+          "refit_error": 2.1481941719694717,
+          "relative_difference": 0.002405964265602648,
+          "similar": true,
+          "within_combined_2sigma": null
+        }
+      ],
+      "primary_data_finding": "Six LS P-V observations are available; fit K0 at fixed printed V0 and K0 prime. Table S1 supplies no parameter standard errors or exact objective weighting.",
+      "primary_data_status": "tabulated",
+      "primary_source": "https://doi.org/10.1016/j.epsl.2009.08.017",
+      "published_rmse_gpa": 1.1577417383961768,
+      "qualification": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not supplied; close K0 agreement is numerical similarity, not uncertainty parity. S1 moduli are derived checkpoints, not observations.",
+      "record_identifier": "mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
+      "reduced_chi_square": 0.38907522705329806,
+      "rmse_gpa": 0.29717076738997106,
+      "selection": "spin_region=low_spin",
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "solver_success": true,
+      "source_notes": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
+      "status": "similar"
+    },
+    {
       "dataset_identifiers": [],
       "experimental_pressure_range_gpa": null,
       "experimental_temperature_range_k": [
@@ -31648,10 +32490,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 565,
+    "not_refittable": 566,
     "parity": 155,
     "parity_not_achieved": 31,
-    "similar": 62,
-    "total": 813
+    "similar": 74,
+    "total": 826
   }
 }
