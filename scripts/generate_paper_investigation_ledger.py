@@ -345,6 +345,7 @@ def render() -> str:
     )
     data_labels = {
         "bundled": "bundled",
+        "combined_primary_data_partially_bundled": "partial primary rows bundled",
         "plot_only": "plot only/digitized",
         "parameterization_only": "parameterization only",
         "theoretical_parameterization_only": "theoretical parameterization only",

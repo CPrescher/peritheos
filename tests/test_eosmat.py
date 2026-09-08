@@ -205,7 +205,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         audit_dates[identifier]
         for identifier in current_audit_identifiers
         if identifier not in latest_audit_identifiers
-    } == {"2026-09-01", "2026-09-03"}
+    } == {"2026-09-01", "2026-09-03", "2026-09-08"}
     assert {
         date
         for identifier, date in audit_dates.items()

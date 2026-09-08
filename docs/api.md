@@ -380,6 +380,14 @@ Common methods:
 - `adiabatic_bulk_modulus(V, T)` when a caloric model exists
 - `gruneisen_parameter(V, T)` when a caloric model exists
 
+`DorogokupetsOganov2007` additionally exposes its complete equations (7)--(14)
+potential through `absolute_thermal_pressure`,
+`thermal_helmholtz_free_energy`, `thermal_internal_energy`, `thermal_entropy`,
+`thermal_enthalpy`, and `thermal_gibbs_free_energy`. These quantities include
+the oscillator zero-point, anharmonic, electronic, and vacancy terms; the
+ordinary `thermal_pressure` remains shifted to the published 298.15 K
+reference isotherm.
+
 `thermal_pressure_increment()` is the heating pressure above the reference
 isotherm. It equals `thermal_pressure()` for reference-relative models and
 `pressure(V, T) - pressure(V, Tr)` for either absolute double-Debye Helmholtz

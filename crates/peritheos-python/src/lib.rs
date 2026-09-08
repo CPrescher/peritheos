@@ -521,7 +521,7 @@ impl ThermalModel {
                 evaluate_asymptotic_mie_quantity(&model, quantity, first, second)
             }
             Self::DorogokupetsOganov2007(model) => {
-                evaluate_thermal_quantity(&model, quantity, first, second)
+                evaluate_dorogokupets_quantity(&model, quantity, first, second)
             }
             Self::LinearThermalPressure(model) => {
                 evaluate_thermal_quantity(&model, quantity, first, second)
@@ -1147,6 +1147,35 @@ fn evaluate_asymptotic_mie_quantity<R: IsothermalEos>(
             .map_err(to_python_error),
         "vibrational_pressure" => model
             .vibrational_pressure(first, second)
+            .map_err(to_python_error),
+        "thermal_helmholtz_free_energy" => model
+            .thermal_helmholtz_free_energy(first, second)
+            .map_err(to_python_error),
+        "thermal_enthalpy" => model
+            .thermal_enthalpy(first, second)
+            .map_err(to_python_error),
+        "thermal_gibbs_free_energy" => model
+            .thermal_gibbs_free_energy(first, second)
+            .map_err(to_python_error),
+        _ => evaluate_caloric_quantity(model, quantity, first, second),
+    }
+}
+
+fn evaluate_dorogokupets_quantity<R: IsothermalEos>(
+    model: &DorogokupetsOganov2007<R>,
+    quantity: &str,
+    first: f64,
+    second: f64,
+) -> PyResult<f64> {
+    match quantity {
+        "absolute_thermal_pressure" => model
+            .absolute_thermal_pressure(first, second)
+            .map_err(to_python_error),
+        "thermal_internal_energy" | "thermal_energy" => model
+            .thermal_internal_energy(first, second)
+            .map_err(to_python_error),
+        "thermal_entropy" => model
+            .thermal_entropy(first, second)
             .map_err(to_python_error),
         "thermal_helmholtz_free_energy" => model
             .thermal_helmholtz_free_energy(first, second)

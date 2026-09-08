@@ -27,6 +27,11 @@ The source-reported parameter set remains the library record unless a correction
 is explicitly justified. A refit is supporting evidence, not permission to
 silently replace the publication.
 
+The [Dorogokupets--Oganov (2007) platinum audit](literature-reproductions/dorogokupets-oganov-2007-platinum.md)
+traces the scale's six-material shock, ultrasonic, X-ray, and thermochemical
+construction; it distinguishes exact EOS reconstruction from recoverable
+partial validation and unavailable global-fit observations.
+
 <a id="casio3-caracas-2005"></a>
 
 ## CaSiO3 perovskite: Caracas et al. (2005)

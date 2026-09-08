@@ -1,0 +1,375 @@
+{
+  "audit_date": "2026-09-08",
+  "exact_reconstructions": {
+    "standard_entropy": {
+      "calculated_j_mol_k": 41.44846625095138,
+      "classification": "exact_scalar_reconstruction",
+      "paper_calculated_j_mol_k": 41.45,
+      "paper_cited_observed_j_mol_k": 41.63,
+      "paper_cited_observed_uncertainty_j_mol_k": 0.21,
+      "source_location": "text below Table I and reference 97"
+    },
+    "table_vi": {
+      "classification": "exact_reconstruction_from_published_rounded_coefficients",
+      "max_abs_gpa": 0.017317915868886757,
+      "nodes": [
+        {
+          "calculated_pressure_gpa": 0.0,
+          "published_pressure_gpa": 0.0,
+          "residual_gpa": 0.0,
+          "temperature_k": 298.15,
+          "volume_ratio": 1.0
+        },
+        {
+          "calculated_pressure_gpa": 5.308307836220529,
+          "published_pressure_gpa": 5.309,
+          "residual_gpa": -0.0006921637794707891,
+          "temperature_k": 1000.0,
+          "volume_ratio": 1.0
+        },
+        {
+          "calculated_pressure_gpa": 12.864730962862783,
+          "published_pressure_gpa": 12.864,
+          "residual_gpa": 0.0007309628627822917,
+          "temperature_k": 2000.0,
+          "volume_ratio": 1.0
+        },
+        {
+          "calculated_pressure_gpa": 20.351420705108126,
+          "published_pressure_gpa": 20.349,
+          "residual_gpa": 0.0024207051081255315,
+          "temperature_k": 3000.0,
+          "volume_ratio": 1.0
+        },
+        {
+          "calculated_pressure_gpa": 16.20729084028896,
+          "published_pressure_gpa": 16.207,
+          "residual_gpa": 0.0002908402889580941,
+          "temperature_k": 298.15,
+          "volume_ratio": 0.95
+        },
+        {
+          "calculated_pressure_gpa": 21.218374147441878,
+          "published_pressure_gpa": 21.219,
+          "residual_gpa": -0.0006258525581230856,
+          "temperature_k": 1000.0,
+          "volume_ratio": 0.95
+        },
+        {
+          "calculated_pressure_gpa": 28.485094378407858,
+          "published_pressure_gpa": 28.485,
+          "residual_gpa": 9.437840785864182e-05,
+          "temperature_k": 2000.0,
+          "volume_ratio": 0.95
+        },
+        {
+          "calculated_pressure_gpa": 35.82350433479992,
+          "published_pressure_gpa": 35.822,
+          "residual_gpa": 0.0015043347999181833,
+          "temperature_k": 3000.0,
+          "volume_ratio": 0.95
+        },
+        {
+          "calculated_pressure_gpa": 38.30621860989379,
+          "published_pressure_gpa": 38.307,
+          "residual_gpa": -0.0007813901062121431,
+          "temperature_k": 298.15,
+          "volume_ratio": 0.9
+        },
+        {
+          "calculated_pressure_gpa": 43.11022454575675,
+          "published_pressure_gpa": 43.111,
+          "residual_gpa": -0.0007754542432465428,
+          "temperature_k": 1000.0,
+          "volume_ratio": 0.9
+        },
+        {
+          "calculated_pressure_gpa": 50.19792196505992,
+          "published_pressure_gpa": 50.199,
+          "residual_gpa": -0.0010780349400789646,
+          "temperature_k": 2000.0,
+          "volume_ratio": 0.9
+        },
+        {
+          "calculated_pressure_gpa": 57.47597221599088,
+          "published_pressure_gpa": 57.476,
+          "residual_gpa": -2.778400912006873e-05,
+          "temperature_k": 3000.0,
+          "volume_ratio": 0.9
+        },
+        {
+          "calculated_pressure_gpa": 68.3878565822091,
+          "published_pressure_gpa": 68.389,
+          "residual_gpa": -0.001143417790899548,
+          "temperature_k": 298.15,
+          "volume_ratio": 0.85
+        },
+        {
+          "calculated_pressure_gpa": 73.06648459171929,
+          "published_pressure_gpa": 73.069,
+          "residual_gpa": -0.002515408280714837,
+          "temperature_k": 1000.0,
+          "volume_ratio": 0.85
+        },
+        {
+          "calculated_pressure_gpa": 80.07645016702605,
+          "published_pressure_gpa": 80.079,
+          "residual_gpa": -0.0025498329739406245,
+          "temperature_k": 2000.0,
+          "volume_ratio": 0.85
+        },
+        {
+          "calculated_pressure_gpa": 87.37381138824901,
+          "published_pressure_gpa": 87.376,
+          "residual_gpa": -0.002188611750995051,
+          "temperature_k": 3000.0,
+          "volume_ratio": 0.85
+        },
+        {
+          "calculated_pressure_gpa": 109.3842773988123,
+          "published_pressure_gpa": 109.388,
+          "residual_gpa": -0.0037226011877038445,
+          "temperature_k": 298.15,
+          "volume_ratio": 0.8
+        },
+        {
+          "calculated_pressure_gpa": 114.01194837232946,
+          "published_pressure_gpa": 114.016,
+          "residual_gpa": -0.004051627670548896,
+          "temperature_k": 1000.0,
+          "volume_ratio": 0.8
+        },
+        {
+          "calculated_pressure_gpa": 121.03835786398454,
+          "published_pressure_gpa": 121.043,
+          "residual_gpa": -0.0046421360154624836,
+          "temperature_k": 2000.0,
+          "volume_ratio": 0.8
+        },
+        {
+          "calculated_pressure_gpa": 128.42908903352998,
+          "published_pressure_gpa": 128.434,
+          "residual_gpa": -0.004910966470021094,
+          "temperature_k": 3000.0,
+          "volume_ratio": 0.8
+        },
+        {
+          "calculated_pressure_gpa": 165.4659412666164,
+          "published_pressure_gpa": 165.473,
+          "residual_gpa": -0.007058733383615845,
+          "temperature_k": 298.15,
+          "volume_ratio": 0.75
+        },
+        {
+          "calculated_pressure_gpa": 170.11094236338732,
+          "published_pressure_gpa": 170.119,
+          "residual_gpa": -0.008057636612676333,
+          "temperature_k": 1000.0,
+          "volume_ratio": 0.75
+        },
+        {
+          "calculated_pressure_gpa": 177.2433816094889,
+          "published_pressure_gpa": 177.253,
+          "residual_gpa": -0.009618390511093367,
+          "temperature_k": 2000.0,
+          "volume_ratio": 0.75
+        },
+        {
+          "calculated_pressure_gpa": 184.79877731915246,
+          "published_pressure_gpa": 184.808,
+          "residual_gpa": -0.009222680847528864,
+          "temperature_k": 3000.0,
+          "volume_ratio": 0.75
+        },
+        {
+          "calculated_pressure_gpa": 242.66201311564322,
+          "published_pressure_gpa": 242.676,
+          "residual_gpa": -0.013986884356768314,
+          "temperature_k": 298.15,
+          "volume_ratio": 0.7
+        },
+        {
+          "calculated_pressure_gpa": 247.38755244833777,
+          "published_pressure_gpa": 247.403,
+          "residual_gpa": -0.015447551662219894,
+          "temperature_k": 1000.0,
+          "volume_ratio": 0.7
+        },
+        {
+          "calculated_pressure_gpa": 254.71389979174714,
+          "published_pressure_gpa": 254.73,
+          "residual_gpa": -0.01610020825285119,
+          "temperature_k": 2000.0,
+          "volume_ratio": 0.7
+        },
+        {
+          "calculated_pressure_gpa": 262.50568208413114,
+          "published_pressure_gpa": 262.523,
+          "residual_gpa": -0.017317915868886757,
+          "temperature_k": 3000.0,
+          "volume_ratio": 0.7
+        }
+      ],
+      "rmse_gpa": 0.007052285025212951,
+      "rows": 28,
+      "source_location": "Table VI, platinum isochors"
+    }
+  },
+  "format": "peritheos.dorogokupets-oganov-2007-platinum-audit",
+  "format_version": 1,
+  "global_objective": {
+    "conclusion": "The symbolic residual families are recoverable, but no unique numerical global objective can be reconstructed without inventing observations or weights. The catalog status remains not_refittable.",
+    "published_protocol": [
+      "Stage 1 weighted least squares to pressure-calibration-independent ambient thermochemical, dilatometric, ultrasonic, and shock-Hugoniot constraints.",
+      "Stage 2 addition of static compression data, refitting all coefficients under trial pressure scales.",
+      "Final joint treatment of Al, Cu, Ta, W, Au, and Pt while varying the ruby-scale B coefficient."
+    ],
+    "residual_families": [
+      "zero-pressure heat capacity",
+      "relative enthalpy",
+      "zero-pressure volume",
+      "thermal expansivity",
+      "adiabatic bulk modulus",
+      "shock Hugoniot pressure from Equation (15)",
+      "static X-ray compression"
+    ],
+    "status": "not_exactly_reconstructible",
+    "unavailable_numerical_inputs": [
+      "complete material-by-material point inventory",
+      "row weights and uncertainty normalization",
+      "Shock Wave Database snapshot and selected rows",
+      "Collard--McLellan Figure 1 platinum K_S(T) coordinates used in the fit",
+      "material-specific thermochemical row mapping",
+      "parameter covariance and optimizer details"
+    ]
+  },
+  "partial_validations": {
+    "shock": {
+      "classification": "independent_partial_validation_not_fit_reconstruction",
+      "dataset_identifier": "platinum_holmes_1989_table3_shock",
+      "diagnostics": [
+        {
+          "equation_15_pressure_gpa": 613.8696399340099,
+          "observed_pressure_gpa": 653.4,
+          "residual_gpa": -39.53036006599007,
+          "shot": "TaPt1",
+          "volume_ratio": 0.6165054134991937
+        },
+        {
+          "equation_15_pressure_gpa": 625.7000008865373,
+          "observed_pressure_gpa": 659.3,
+          "residual_gpa": -33.59999911346267,
+          "shot": "TaPt3",
+          "volume_ratio": 0.614581241213095
+        },
+        {
+          "equation_15_pressure_gpa": 417.5252936835035,
+          "observed_pressure_gpa": 433.4,
+          "residual_gpa": -15.874706316496486,
+          "shot": "TaPt4",
+          "volume_ratio": 0.65711568549253
+        },
+        {
+          "equation_15_pressure_gpa": 267.95514174575396,
+          "observed_pressure_gpa": 279.3,
+          "residual_gpa": -11.344858254246049,
+          "shot": "TaPt5",
+          "volume_ratio": 0.7067032639968253
+        },
+        {
+          "equation_15_pressure_gpa": 256.59873482412746,
+          "observed_pressure_gpa": 263.6,
+          "residual_gpa": -7.001265175872561,
+          "shot": "TaPt6",
+          "volume_ratio": 0.7116254322958233
+        },
+        {
+          "equation_15_pressure_gpa": 501.2477909269519,
+          "observed_pressure_gpa": 533.3,
+          "residual_gpa": -32.05220907304806,
+          "shot": "TaPt7",
+          "volume_ratio": 0.6374739350610664
+        },
+        {
+          "equation_15_pressure_gpa": 212.6184031727702,
+          "observed_pressure_gpa": 218.9,
+          "residual_gpa": -6.281596827229805,
+          "shot": "TaPt8",
+          "volume_ratio": 0.7330183511366749
+        }
+      ],
+      "max_abs_gpa": 39.53036006599007,
+      "mean_residual_gpa": -20.812142118049387,
+      "qualification": "Dorogokupets--Oganov cite Holmes in the room-temperature comparison figure, but identify the Shock Wave Database as the stage-1 shock input. These seven recoverable rows therefore test Equation (15); they are not asserted to be the unpublished fitted shock point set.",
+      "rmse_gpa": 24.460293468747018,
+      "rows": 7,
+      "source_location": "Holmes et al. (1989), Table III, all seven new shots"
+    },
+    "static_diffraction": {
+      "classification": "partial_validation_recoverable_stage_2_rows",
+      "dataset_identifier": "platinum_dewaele_2004_table1_compression",
+      "pressure_coordinate": "classical Mao pressure inverted to ruby shift, then evaluated with Dorogokupets--Oganov (2007) Equation (16)",
+      "pressure_range_gpa": [
+        0.0,
+        95.1057151267233
+      ],
+      "published_global_curve": {
+        "max_abs_gpa": 0.5779334778534775,
+        "mean_residual_gpa": 0.13211004437839963,
+        "parameters": {
+          "K0_gpa": 276.07,
+          "K0_prime": 5.3,
+          "V0_a3_per_atom": 15.096
+        },
+        "rmse_gpa": 0.2883774579139759
+      },
+      "rows": 36,
+      "source_location": "Dewaele et al. (2004), Table I, all platinum rows",
+      "static_only_unweighted_fit": {
+        "interpretation": "This is a diagnostic one-material pressure-residual fit, not the paper's coupled multi-observable, six-material objective.",
+        "max_abs_gpa": 0.656249751514622,
+        "parameters": {
+          "K0_gpa": 270.8000655299386,
+          "K0_prime": 5.497634971153952,
+          "V0_a3_per_atom": 15.098494749035888
+        },
+        "rmse_gpa": 0.23155196397101577
+      }
+    }
+  },
+  "record_identifier": "platinum_dorogokupets_oganov_2007_vinet_4",
+  "source": {
+    "author_pdf": "https://uspex-team.org/static/file/PressureScales-PRB-2007.pdf",
+    "doi": "10.1103/PhysRevB.75.024115"
+  },
+  "source_trace": [
+    {
+      "availability": "exact 36-row platinum Table I subset bundled",
+      "doi": "10.1103/PhysRevB.70.094112",
+      "reference": "Dewaele, Loubeyre, and Mezouar (2004)",
+      "role": "stage-2 platinum static X-ray compression"
+    },
+    {
+      "availability": "exact seven-row Table III new-shot subset bundled",
+      "doi": "10.1063/1.344177",
+      "reference": "Holmes et al. (1989)",
+      "role": "platinum shock comparison"
+    },
+    {
+      "availability": "used Figure 1 coordinates are not tabulated; the article's Table 1 polynomial corresponds to the explicitly excluded open squares in Dorogokupets--Oganov Figure 7",
+      "doi": "10.1016/0956-7151(92)90011-3",
+      "reference": "Collard and McLellan (1992)",
+      "role": "stage-1 platinum adiabatic bulk modulus"
+    },
+    {
+      "availability": "cited legacy database snapshot and selected rows unavailable",
+      "reference": "Shock Wave Database (2001), paper reference 30",
+      "role": "stage-1 shock compilation"
+    },
+    {
+      "availability": "standard-entropy comparison is printed, but platinum-specific row selection and fitting weights are not identified",
+      "reference": "paper references 46--52 and 97",
+      "role": "ambient thermochemistry and dilatometry"
+    }
+  ]
+}
