@@ -1812,7 +1812,7 @@
     "locator": "L19307",
     "doi": "10.1029/2012GL053075"
    },
-   "sample_composition": "Hot-pressed polycrystalline pure MgSiO3 perovskite; room-temperature coefficients combined with the source-adopted thermal model.",
+   "sample_composition": "Hot-pressed polycrystalline pure MgSiO3 perovskite; the preferred room-temperature acoustic coefficients combine this sample with Li and Zhang (2005), while the thermal coefficients are adopted from Xu et al. (2008).",
    "eos": {
     "type": "BM3",
     "model": "birch_murnaghan_3",
@@ -1829,7 +1829,9 @@
    },
    "parameter_error_confidence": null,
    "parameter_covariance": null,
-   "fixed_parameters": [],
+   "fixed_parameters": [
+    "V0"
+   ],
    "thermal": {
     "type": "MieGruneisenDebye",
     "model": "mie_gruneisen_debye",
@@ -1839,7 +1841,14 @@
      "gamma0": 1.44,
      "q": 1.4,
      "n": 5
-    }
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "gamma0",
+     "q",
+     "n"
+    ]
    },
    "thermal_parameter_errors": {
     "Tr": null,
@@ -1884,12 +1893,12 @@
     ]
    },
    "parameter_provenance": {
-    "equation": "Section 3, paragraph 15: third-order Eulerian finite-strain cold compression plus a Mie-Gruneisen thermal contribution following Stixrude et al. (2007).",
-    "V0": "Table 3: 24.42 cm^3/mol, converted using exact N_A and Z=4 to 162.2014560815 A^3.",
-    "K0": "Table 3: K_T=252 GPa, sourced from the combined room-temperature fit in Table 2.",
-    "K0_prime": "Table 3: 4.1.",
-    "thermal": "Table 3: theta0=901 K, gamma0=1.44, q=1.4; n=5 atoms per MgSiO3.",
-    "uncertainties": "Table 2 gives K=252(1) GPa and K'=4.1(1); the source does not state the confidence convention or covariance."
+    "equation": "Paragraphs 13 and 15: the 300 K density-Vp-Vs observations are fitted with third-order Eulerian acoustic finite-strain equations following Davies and Dziewonski (1975) and Li and Zhang (2005; DOI 10.1016/j.pepi.2005.02.004); the separate Table 3 pressure/temperature model follows Stixrude et al. (2007).",
+    "V0": "Table 3: 24.42 cm^3/mol, converted using exact N_A and Z=4 to 162.2014560815 A^3. It is the measured reference density/volume anchor, not a reported free coefficient of the acoustic regression.",
+    "K0": "Table 3 labels 252 GPa as K_T, but Table 2 identifies the same 252(1) GPa value as K_S from the combined current-study plus Li and Zhang (2005) acoustic fit. The paper does not describe an adiabatic-to-isothermal conversion.",
+    "K0_prime": "Tables 2-3: 4.1(1) from the combined current-study plus Li and Zhang (2005) acoustic finite-strain fit.",
+    "thermal": "Paragraph 15 and italicized Table 3 entries: theta0=901 K, gamma0=1.44, q=1.4, and eta=2.6 are adopted from Xu et al. (2008; DOI 10.1016/j.epsl.2008.08.012), rather than fitted to the two high-temperature rows; n=5 atoms per MgSiO3 is the Peritheos Debye basis.",
+    "uncertainties": "Table 2 gives combined-fit K_S=252(1) GPa, K'=4.1(1), G=175(1) GPa, and G'=1.7(1). The source does not state the confidence convention, numerical weights, residual definition, or parameter covariance. No errors are printed for the adopted thermal terms."
    },
    "pressure_calibration": {
     "status": "resolved",
@@ -1920,7 +1929,7 @@
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the openly deposited final article and its complete pure-MgSiO3 Table 1 observations.",
+    "note": "Validated against the openly deposited final article. The audit separates its eight-row 300 K acoustic fit, preferred combined acoustic coefficients, and adopted high-temperature model instead of treating Table 1 as a generic pressure-volume fit.",
     "audit_date": "2026-09-05",
     "verified_fields": [
      "canonical_doi",
@@ -1943,7 +1952,7 @@
       "Tables 2-3",
       "Section 3 paragraphs 13-16"
      ],
-     "finding": "Table 3 explicitly defines the executable MgSiO3 thermoelastic parameter set."
+     "finding": "Table 3 defines a composite MgSiO3 thermoelastic parameter set: preferred combined acoustic coefficients, a measured reference volume, and italicized thermal terms adopted from Xu et al. (2008). Paragraph 15 explicitly says the high-temperature observations were insufficient to refine thermal parameters."
     },
     "primary_data_check": {
      "status": "bundled",
@@ -1954,19 +1963,30 @@
      "source_locations": [
       "Table 1, all eleven Mg-Pv rows"
      ],
-     "finding": "All Mg-Pv pressures, temperatures, densities, P-wave and S-wave velocities, and printed uncertainties are transcribed."
+     "finding": "All Mg-Pv pressures, temperatures, densities, P-wave and S-wave velocities, and printed marginal uncertainties are transcribed. The data mapping now distinguishes the ambient reference-density anchor, eight 300 K acoustic-fit rows, and two high-temperature model-validation rows."
     },
     "independent_refit": {
      "classification": "similar",
-     "method": "Direct 300 K BM3 evaluation against the nine source P-density states after converting V0 from Table 3.",
+     "method": "Peritheos simultaneous least-squares fit of Vp and Vs to the third-order Eulerian acoustic finite-strain equations at the eight 300 K velocity-density states, fixing rho0=4.110 g/cm^3 to the ambient anchor.",
      "parameters": {
+      "K_S0_gpa": 246.402057,
+      "K_S0_prime": 4.542948,
+      "G0_gpa": 177.208303,
+      "G0_prime": 1.606481,
+      "vp_rmse_km_s": 0.01924749,
+      "vs_rmse_km_s": 0.01447076,
       "pressure_rmse_gpa": 0.62846311,
       "maximum_absolute_pressure_residual_gpa": 1.16597993
      },
-     "finding": "The source curve tracks all Table 1 states; an exact coefficient refit is inappropriate because K_T=252 GPa derives from the combined acoustic fit rather than a P-V-only regression."
+     "finding": "The current-study-only acoustic refit recovers its Table 2 K_S=247(4), K'=4.5(2), G=176(2), and G'=1.6(1) within combined two-sigma uncertainty. The preferred 252/4.1/175/1.7 fit cannot be exactly rerun because Chantel et al. do not republish the numerical Li and Zhang (2005) rows. A diagonal-errors-in-variables sensitivity also agrees, but is not labeled source parity because within-row error correlations and the authors' weights are unavailable."
+    },
+    "model_scope": {
+     "acoustic_300_k": "Executable in Peritheos with EulerianFiniteStrainAcoustic and fit_acoustic_finite_strain.",
+     "pressure_temperature": "The BM3 plus MieGruneisenDebye pressure surface is executable, subject to the source's unresolved K_S-to-K_T label transition.",
+     "full_thermoelastic_velocities": "Not expressible by this EOS record: Table 3 G, G', and eta are needed for the Stixrude thermal-shear model, and Peritheos does not currently expose that coupled velocity model. The two high-temperature rows are validation observations, not fit inputs."
     }
    },
-   "notes": "The stored pressure surface excludes Table 3 shear coefficients G, G', and eta, which do not enter the supported MGD pressure equation."
+   "notes": "Composite published parameterization, not a simultaneous fit to all eleven bundled rows. The stored pressure surface excludes Table 3 shear coefficients G, G', and eta, which do not enter the supported MGD pressure equation. The source gives no numerical objective weights or covariance, and its Table 3 K_T=252 GPa is the same value labeled K_S in the Table 2 combined acoustic fit without a documented conversion."
   },
   {
    "identifier": "bridgmanite_zhang_wentzcovitch_2022_phq_lda_300k_bm3",
@@ -3468,15 +3488,27 @@
      "of": "vs_km_s"
     },
     {
-     "name": "room_temperature_fit_included",
+     "name": "reference_density_anchor",
+     "quantity": "reference_state_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "acoustic_velocity_fit_included",
      "quantity": "fit_selection",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "thermoelastic_validation_only",
+     "quantity": "validation_selection",
      "unit": "1",
      "role": "flag"
     }
    ],
    "resource": {
     "path": "datasets/bridgmanite-chantel-2012-table1-density-velocity.csv",
-    "sha256": "ea823b81c0285ccf10a159a21802d5f17ad29394ea195afad8c1ab88c87cbfb5",
+    "sha256": "d7e0c1d5c55d3943c52d3c0f417ae9f324df63eeea0f96cbeeb16fa12726ad93",
     "media_type": "text/csv"
    },
    "provenance": {
@@ -3484,9 +3516,11 @@
     "source_article_pdf_sha256": "002fd74618e3c423a200a227cf0ca18d3c149c6c6a41f9fd70da9e3bb9f84122"
    },
    "uncertainty": {
-    "confidence_convention": "Parenthetical source precision is transcribed as the final-digit uncertainty; its statistical convention is not explicitly stated.",
-    "pressure": "No row-level pressure uncertainties are printed."
+    "confidence_convention": "Parenthetical source precision is transcribed as the final-digit marginal uncertainty; its statistical convention is not explicitly stated.",
+    "pressure": "No row-level pressure uncertainties are printed.",
+    "correlations": "No within-row density/Vp/Vs correlations or acoustic-fit parameter covariance are published. Any diagonal weighting is therefore an explicit sensitivity assumption, not the recovered source objective."
    },
+   "notes": "The ambient row fixes rho0 and has no velocity observation. The eight remaining 300 K rows are inputs to the current-study acoustic finite-strain fit. The 700 K and 1200 K rows only test adopted thermoelastic parameters; paragraph 15 explicitly says they were insufficient for a thermal fit. The preferred combined acoustic fit also uses Li and Zhang (2005) rows that this paper does not republish.",
    "reference": {
     "authors": [
      "Chantel",

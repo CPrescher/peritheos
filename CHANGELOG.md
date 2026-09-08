@@ -5,6 +5,37 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Removed
+
+- Removed all 92 Delta-project benchmark records from the production material
+  catalog: 50 code-specific WIEN2k/FLEUR PBE curves and 42 heterogeneous
+  experimental-reference comparison curves. The associated benchmark-only
+  material cards, packaged datasets, import scripts, reproductions, and tests
+  were also removed.
+- Removed all 220 Sun et al. (2010) source-author universal-EOS benchmark
+  parameterizations and their 49 phase-unresolved material cards. The source
+  parameter table, Morse/Sun-Morse implementations, and equation tests remain
+  as non-catalog benchmark fixtures. The independently refitted, dataset-backed
+  AIP Handbook Cu isotherm remains on its own historical material card.
+- Removed 14 Caracas et al. (2005) EOS records for seven exploratory CaSiO3
+  octahedral-tilt branches that lacked diffraction-ready structures. The full
+  nine-structure BM3/BM4 coefficient table remains an audit fixture; production
+  retains the Pm-3m and lowest-energy I4/mcm pairs. The production catalog now
+  contains 208 materials and 487 primary-source-validated EOS records.
+
+### Changed
+
+- Reclassified the Chantel et al. (2012) bridgmanite BM3-MGD record from a
+  generic unrefittable P-V entry to a source-equation partial acoustic
+  reproduction. Added an executable third-order Eulerian density--Vp--Vs model
+  and fitter with latent-density/covariance support; clarified that the source
+  adopted its thermal terms and only validated them against two heated rows.
+- Linked 24 Dewaele (2019) metal records to their bundled source tables and
+  dedicated two-ruby-scale refits. They are now classified as numerically
+  similar within the source's printed 95% intervals instead of incorrectly
+  appearing as directly unrefittable. Be and hcp-Pb retain their documented
+  source-data gaps.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

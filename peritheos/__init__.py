@@ -1,5 +1,6 @@
 """Peritheos: thermodynamic equations of state calculations."""
 
+from peritheos.acoustics import EulerianFiniteStrainAcoustic
 from peritheos.catalog import (
     RangeQuery,
     RangeSemantics,
@@ -102,6 +103,7 @@ __all__ = [
     "EOSMAT_FORMAT_VERSION",
     "EOSUncertainty",
     "EquationOfState",
+    "EulerianFiniteStrainAcoustic",
     "EosError",
     "EosNumericalError",
     "EosValidationError",

@@ -78,7 +78,7 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 286 bundled
+`list_material_documents()` returns the identifiers of all 208 bundled
 materials. `get_material_document(identifier)` returns a defensive copy of one
 flat format-3 `.eosmat` document, including optional structure and its raw EOS
 records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
@@ -140,7 +140,7 @@ coverage.
 
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
-CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 813
+CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina. All 487
 bundled records are
 `primary_source_validated`; none remains pending or deferred. `Material.from_eosmat()` constructs
 validated records and refuses deferred ones by default; callers can inspect legacy values with
@@ -411,15 +411,26 @@ fitting, EOSMAT records, and phase-branch semantics.
 ## Fitting
 
 ```python
+from peritheos import EulerianFiniteStrainAcoustic
 from peritheos.fitting import (
+    AcousticFitResult,
     FitResult,
     HugoniotFitResult,
+    fit_acoustic_finite_strain,
     fit_joint_eos,
     fit_linear_us_up,
     fit_rt_eos,
     fit_thermal_eos,
 )
 ```
+
+`EulerianFiniteStrainAcoustic` evaluates the corresponding adiabatic bulk and
+shear moduli and Vp/Vs curves. `fit_acoustic_finite_strain()` fits those
+third-order Eulerian density--Vp--Vs relations and returns an
+`AcousticFitResult`. Density uncertainties are handled as shared latent
+coordinates; 2-by-2 or 3-by-3 observation covariance matrices can preserve
+within-row velocity or velocity/density correlations. See the [acoustic
+finite-strain guide](fitting.md#acoustic-finite-strain-fitting).
 
 `FitResult` contains the fitted `model`, parameter and uncertainty mappings,
 covariance and correlation matrices, raw and weighted residuals, chi-square,

@@ -140,14 +140,16 @@ def test_chantel_table3_model_and_complete_pure_table1_transcription():
     )
     assert (
         hashlib.sha256(resource.read_bytes()).hexdigest()
-        == "ea823b81c0285ccf10a159a21802d5f17ad29394ea195afad8c1ab88c87cbfb5"
+        == "d7e0c1d5c55d3943c52d3c0f417ae9f324df63eeea0f96cbeeb16fa12726ad93"
     )
     with resource.open(newline="", encoding="utf-8") as stream:
         rows = list(csv.DictReader(stream))
     assert len(rows) == 11
     assert rows[0]["density_g_cm3"] == "4.110"
     assert rows[-1]["temperature_k"] == "1200"
-    assert sum(row["room_temperature_fit_included"] == "1" for row in rows) == 9
+    assert sum(row["reference_density_anchor"] == "1" for row in rows) == 1
+    assert sum(row["acoustic_velocity_fit_included"] == "1" for row in rows) == 8
+    assert sum(row["thermoelastic_validation_only"] == "1" for row in rows) == 2
 
     eos = Material.from_eosmat(
         document, record_identifiers=[identifier]
@@ -162,16 +164,32 @@ def test_chantel_reproduction_and_withheld_source_rows():
     module = _load_script("reproduce_chantel_2012_bridgmanite.py")
     result = module.reproduce()
     assert result["observations"] == 11
-    assert result["room_temperature_observations"] == 9
-    assert result["accepted_table3_model"]["pressure_rmse_gpa"] == pytest.approx(
-        0.6284631087, abs=2e-9
+    assert result["reference_density_anchor"] == {"rows": 1, "rho0_g_cm3": 4.11}
+    assert result["table3_pressure_surface_at_300_k"][
+        "pressure_rmse_gpa"
+    ] == pytest.approx(0.6284631087, abs=2e-9)
+    acoustic = result["current_study_acoustic_fit"]
+    assert acoustic["observations"] == 8
+    assert acoustic["parameters"]["K_S0"]["refit"] == pytest.approx(
+        246.40205665, abs=2e-7
     )
-    assert result["table2_acoustic_reconstruction"]["K_S"] == pytest.approx(
-        246.06536677, abs=2e-7
+    assert acoustic["parameters"]["K_S0_prime"]["refit"] == pytest.approx(
+        4.54294826, abs=2e-7
     )
-    assert result["table2_acoustic_reconstruction"]["K_S_prime"] == pytest.approx(
-        4.57064356, abs=2e-7
+    assert all(
+        comparison["within_combined_two_sigma"]
+        for comparison in acoustic["parameters"].values()
     )
+    assert result["thermoelastic_fit_assessment"] == {
+        "high_temperature_validation_rows": 2,
+        "fit_performed_by_source": False,
+        "finding": (
+            "The source states that the high-temperature data were insufficient "
+            "to refine thermal parameters. Theta0, gamma0, q, and eta were adopted "
+            "from Xu et al. (2008), and the 700/1200 K velocities only tested the "
+            "resulting Stixrude-type thermoelastic model."
+        ),
+    }
 
     accepted = []
     for path in (ROOT / "peritheos/data/materials").glob("*.eosmat"):

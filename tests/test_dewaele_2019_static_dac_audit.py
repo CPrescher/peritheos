@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import csv
 import importlib.util
+import json
 from collections import Counter
 from pathlib import Path
 
@@ -12,6 +13,7 @@ SCRIPT = ROOT / "scripts" / "audit_dewaele_2019_static_dac.py"
 FE_DATA = (
     ROOT / "peritheos" / "data" / "datasets" / "iron-dewaele-2006-epaps-compression.csv"
 )
+REFIT_DATA = ROOT / "docs" / "data" / "dewaele-2019-static-dac-refit.json"
 
 
 def _load_script():
@@ -24,6 +26,8 @@ def _load_script():
 
 def test_dewaele_2019_audit_preserves_partial_reproduction_status():
     result = _load_script().reproduce()
+
+    assert json.loads(REFIT_DATA.read_text(encoding="utf-8")) == result
 
     assert result["catalog_record_count"] == 30
     assert len(result["row_level_refits"]) == 28

@@ -28,7 +28,12 @@ from peritheos import get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
 from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, Vinet
 from peritheos.eos.thermal import ThermalReferenceStateEOS
-from peritheos.fitting import fit_joint_eos, fit_linear_us_up, fit_rt_eos
+from peritheos.fitting import (
+    fit_acoustic_finite_strain,
+    fit_joint_eos,
+    fit_linear_us_up,
+    fit_rt_eos,
+)
 from peritheos.materials import Material
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,6 +41,7 @@ DATA_ROOT = ROOT / "peritheos" / "data"
 DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
 DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
 DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DEWAELE_REFIT_JSON = ROOT / "docs" / "data" / "dewaele-2019-static-dac-refit.json"
 
 MODEL_CLASSES = {
     "Baonza": Baonza,
@@ -111,13 +117,6 @@ INDIRECT_DATA = {
         "this polymorph. Those two states reproduce the published fixed-V0, "
         "fixed-K0-prime curve in the dedicated Funamori reproduction, but do not "
         "provide enough degrees of freedom for the generic refit campaign."
-    ),
-    "bridgmanite_chantel_2012_bm3_mgd": (
-        "The bundled density and acoustic-velocity observations validate the "
-        "published thermoelastic pressure surface in the dedicated Chantel "
-        "reproduction. The stored K0 and K0-prime come from the source's combined "
-        "acoustic fit, so these rows are not independent observations for a generic "
-        "pressure-volume coefficient refit."
     ),
 }
 
@@ -2391,8 +2390,183 @@ def _dorfman_cocompression_outcome(
     }
 
 
+def _dewaele_2019_outcome(
+    document: dict[str, Any],
+    record: dict[str, Any],
+    refit: dict[str, Any],
+) -> dict[str, Any]:
+    """Translate the dedicated two-ruby-scale audit into the common ledger."""
+    z = float(document["formula_units_per_cell"])
+    fitted_atomic = refit["unweighted_pressure_residual_fit"]["parameters"]
+    fitted = {
+        "V0": float(fitted_atomic[0]) * z,
+        "K0": float(fitted_atomic[1]),
+        "K0_prime": float(fitted_atomic[2]),
+    }
+    published = {
+        name: float(record["eos"]["parameters"][name])
+        for name in ("V0", "K0", "K0_prime")
+    }
+    errors = record["parameter_errors"]
+    comparisons = []
+    for name in ("V0", "K0", "K0_prime"):
+        difference = fitted[name] - published[name]
+        published_error = float(errors[name])
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": published[name],
+                "published_error": published_error,
+                "refit": fitted[name],
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[name]),
+                "within_combined_2sigma": None,
+                "within_reported_95pct": abs(difference) <= published_error,
+                "similar": _similar(name, published[name], fitted[name]),
+            }
+        )
+    if not all(
+        item["within_reported_95pct"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError(
+            f"dedicated Dewaele audit no longer supports {record['identifier']}"
+        )
+    pressure_fit = refit["unweighted_pressure_residual_fit"]
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": refit["rows"],
+        "selection": refit["scope"],
+        "observed_pressure_range_gpa": refit["pressure_range_gpa"],
+        "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["V0", "K0", "K0_prime"],
+        "parameters": comparisons,
+        "rmse_gpa": pressure_fit["rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Dewaele (2019) refit completed",
+        "qualification": (
+            "Complete source rows for this material are bundled and the dedicated "
+            "two-ruby-scale refit recovers every coefficient within the published "
+            "95% interval. The common ledger classifies the result as similar, not "
+            "strict parity, because the dedicated audit does not infer a refit "
+            "covariance from rounded source rows."
+        ),
+    }
+
+
+def _chantel_2012_outcome(
+    record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    """Run the source-owned acoustic stage without inventing a P-V objective."""
+    rows = _load_rows(dataset)
+    anchor = next(row for row in rows if row["reference_density_anchor"] == "1")
+    selected = [row for row in rows if row["acoustic_velocity_fit_included"] == "1"]
+    density = np.asarray([_number(row["density_g_cm3"]) for row in selected])
+    vp = np.asarray([_number(row["vp_km_s"]) for row in selected])
+    vs = np.asarray([_number(row["vs_km_s"]) for row in selected])
+    result = fit_acoustic_finite_strain(
+        density,
+        vp,
+        vs,
+        rho0=_number(anchor["density_g_cm3"]),
+        initial={
+            "K_S0": 247.0,
+            "K_S0_prime": 4.5,
+            "G0": 176.0,
+            "G0_prime": 1.6,
+        },
+        density_sigma=np.asarray(
+            [_number(row["density_sigma_g_cm3"]) for row in selected]
+        ),
+        compressional_velocity_sigma=np.asarray(
+            [_number(row["vp_sigma_km_s"]) for row in selected]
+        ),
+        shear_velocity_sigma=np.asarray(
+            [_number(row["vs_sigma_km_s"]) for row in selected]
+        ),
+        absolute_sigma=True,
+        max_nfev=5000,
+    )
+    published = {
+        "K_S0": 247.0,
+        "K_S0_prime": 4.5,
+        "G0": 176.0,
+        "G0_prime": 1.6,
+    }
+    published_errors = {
+        "K_S0": 4.0,
+        "K_S0_prime": 0.2,
+        "G0": 2.0,
+        "G0_prime": 0.1,
+    }
+    comparisons = []
+    for name in published:
+        fitted = float(result.parameters[name])
+        fitted_error = float(result.standard_errors[name])
+        difference = fitted - published[name]
+        combined = math.hypot(fitted_error, published_errors[name])
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": published[name],
+                "published_error": published_errors[name],
+                "refit": fitted,
+                "refit_error": fitted_error,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[name]),
+                "within_combined_2sigma": abs(difference) <= 2.0 * combined,
+                "similar": _similar(name, published[name], fitted),
+            }
+        )
+    if not all(
+        item["within_combined_2sigma"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError("Chantel current-study acoustic fit no longer agrees")
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": len(selected),
+        "selection": (
+            "eight 300 K rows with Vp and Vs; ambient rho0=4.110 g/cm^3 fixed"
+        ),
+        "fit_kind": "third_order_eulerian_acoustic_finite_strain",
+        "objective": (
+            "diagonal errors in density, Vp, and Vs with one latent density per row"
+        ),
+        "absolute_sigma": True,
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "rmse_compressional_velocity_km_s": float(
+            np.sqrt(np.mean(result.compressional_velocity_residuals**2))
+        ),
+        "rmse_shear_velocity_km_s": float(
+            np.sqrt(np.mean(result.shear_velocity_residuals**2))
+        ),
+        "reduced_chi_square": result.reduced_chi_square,
+        "solver_success": result.success,
+        "solver_message": result.message,
+        "qualification": (
+            "Source-equation partial reproduction, not a generic P-V refit. The "
+            "bundled current-study rows recover the four coefficients in the "
+            "Table 2 'This study' row within combined two-sigma uncertainty. The "
+            "preferred Table 3 K0/K0-prime instead use the combined Chantel plus "
+            "Li and Zhang (2005) acoustic fit; those external numerical rows are "
+            "not republished. The source also omits exact residual weights, "
+            "density/Vp/Vs correlations, parameter covariance, and the confidence "
+            "convention, so the diagonal errors-in-variables objective is an "
+            "explicit sensitivity reconstruction. The two high-temperature rows "
+            "only validate thermal parameters adopted from Xu et al. (2008)."
+        ),
+    }
+
+
 def validate_all() -> dict[str, Any]:
     results = []
+    dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
+        "row_level_refits"
+    ]
     for material_id in list_material_documents():
         document = get_material_document(material_id)
         datasets = {item["identifier"]: item for item in document.get("datasets", [])}
@@ -2427,7 +2601,17 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if record["identifier"] == "bridgmanite_chantel_2012_bm3_mgd":
+                outcome = _chantel_2012_outcome(record, datasets[identifiers[0]])
+            elif (
+                record["identifier"] in dewaele_refits
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _dewaele_2019_outcome(
+                    document, record, dewaele_refits[record["identifier"]]
+                )
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {
