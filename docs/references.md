@@ -125,8 +125,16 @@
   [doi:10.1103/fxgq-96sg](https://doi.org/10.1103/fxgq-96sg). Peritheos uses
   the reduced-300 K Vinet form in Equation 4, the fixed reference volumes and
   fitted parameters in Table II, and the phase/range qualifications in Table I
-  and Section III.E. The printed parameter errors are retained without an
-  inferred confidence level or covariance.
+  and Section III.E. Pressures are reconstructed from the official Table S1
+  same-run Cu volumes using Fratanduono et al.'s published third-order 298 K
+  Cu Vinet form. The printed parameter errors are retained without an inferred
+  confidence level, weighting scheme, or covariance.
+- Fratanduono, D. E. et al. (2020). Probing the solid phase of noble metal
+  copper at terapascal conditions. *Physical Review Letters*, 124, 015701.
+  [doi:10.1103/PhysRevLett.124.015701](https://doi.org/10.1103/PhysRevLett.124.015701).
+  Peritheos uses the 298 K central coefficients in main-article Table I and the
+  third-order Vinet pressure-density equation in Supplemental Section S4,
+  Equation 2, as Shen and Smith's Cu reference scale.
 - Sun, N., Mao, Z., Yan, S., Wu, X., Prakapenka, V. B. & Lin, J.-F. (2016).
   Confirming a pyrolitic lower mantle using self-consistent pressure scales
   and new constraints on CaSiO3 perovskite. *Journal of Geophysical Research:

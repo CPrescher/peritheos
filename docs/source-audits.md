@@ -97,6 +97,7 @@ The current collection contains 93 standalone reports.
 | Ricolleau et al. (2009) KLB-1 EOS audit | [`ricolleau-2009-klb1-eos.md`](literature-reproductions/ricolleau-2009-klb1-eos.md) |
 | Sakai et al. (2025): nine mutually consistent Rydberg-Stacey scales | [`sakai-2025-nine-materials.md`](literature-reproductions/sakai-2025-nine-materials.md) |
 | Satta et al. (2025): ambient elasticity of Fe-bearing delta-AlOOH | [`satta-2025-delta-alooh-elasticity.md`](literature-reproductions/satta-2025-delta-alooh-elasticity.md) |
+| Shen and Smith (2026) Cu-referenced Vinet audit | [`shen-smith-2026-cu-refits.md`](literature-reproductions/shen-smith-2026-cu-refits.md) |
 | Sherman (1993): stishovite and hypothetical post-stishovite SiO2 | [`sherman-1993-stishovite.md`](literature-reproductions/sherman-1993-stishovite.md) |
 | Shieh et al. (2006): natural-pyroxene pv and ppv | [`shieh-2006-natural-pyroxene-pv-ppv.md`](literature-reproductions/shieh-2006-natural-pyroxene-pv-ppv.md) |
 | Shukla et al. (2016): Fe3+- and Al-bearing bridgmanite | [`shukla-2016-ferric-al-bridgmanite.md`](literature-reproductions/shukla-2016-ferric-al-bridgmanite.md) |

@@ -194,6 +194,35 @@ INDIRECT_DATA = {
 
 SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
 
+# Fratanduono et al. (2020), Supplemental Material Eq. (2) and main-text
+# Table I. This is the analytic 298 K isotherm explicitly adopted by Shen and
+# Smith, not the reduced-isentrope rows printed in the supplement's Table S1.
+SHEN_CU_REFERENCE = {
+    "density0_g_cm3": 8.939,
+    "molar_mass_g_mol": 63.546,
+    "atoms_per_conventional_cell": 4,
+    "K0_gpa": 133.6,
+    "eta": 6.29,
+    "beta": 2.06,
+    "psi": 1.65,
+}
+
+# The experiment/run masks are stated in Shen and Smith's Table II and
+# Sections III.B/E. The NaCl coexistence rows are retained in the source CSV
+# but excluded here using the article's approximately 30--35 GPa interval.
+SHEN_SELECTIONS = {
+    "fe_shen_2026_vinet_1": ("bcc-Fe", {"DAC-1", "DAC-2"}, None),
+    "gold_shen_2026_vinet_3": ("Au", {"DAC-1"}, None),
+    "iron_shen_2026_vinet_2": ("hcp-Fe", {"DAC-1", "DAC-2"}, None),
+    "mgo_shen_2026_vinet_3": ("MgO", {"DAC-2"}, None),
+    "molybdenum_shen_2026_vinet_1": ("Mo", {"DAC-1", "DAC-2"}, None),
+    "nacl_b1_shen_2026_vinet_1": ("NaCl-B1", {"DAC-2"}, "below_30_gpa"),
+    "nacl_b2_shen_2026_vinet_2": ("NaCl-B2", {"DAC-2"}, "above_35_gpa"),
+    "platinum_shen_2026_vinet_2": ("Pt", {"DAC-2"}, None),
+    "tantalum_shen_2026_vinet_2": ("Ta", {"DAC-1"}, None),
+    "tungsten_shen_2026_vinet_3": ("W", {"DAC-1", "DAC-2"}, None),
+}
+
 # These plot-only observations do not provide numerical experimental error
 # bars. The stored uncertainties describe digitization, not the weights used
 # in the papers' least-squares fits.
@@ -781,6 +810,170 @@ def _load_rows(dataset: dict[str, Any]) -> list[dict[str, Any]]:
         reader = csv.reader(stream)
         next(reader)
         return [dict(zip(names, row)) for row in reader]
+
+
+def shen_cu_reference_volume_a3() -> float:
+    """Return the Fratanduono reference volume for an fcc Cu unit cell."""
+    # N_A is exact in the SI. Multiplication by 1e24 converts cm3 to A3,
+    # yielding the compact 0.602214076 denominator below.
+    return (
+        SHEN_CU_REFERENCE["atoms_per_conventional_cell"]
+        * SHEN_CU_REFERENCE["molar_mass_g_mol"]
+        / (SHEN_CU_REFERENCE["density0_g_cm3"] * 0.602214076)
+    )
+
+
+def shen_cu_pressure_gpa(volume_a3: Any) -> np.ndarray:
+    """Evaluate Fratanduono's published third-order 298 K Cu Vinet fit."""
+    volume = np.asarray(volume_a3, dtype=float)
+    if np.any(~np.isfinite(volume)) or np.any(volume <= 0.0):
+        raise ValueError("Cu volume must be finite and positive")
+    x = volume / shen_cu_reference_volume_a3()
+    strain = 1.0 - np.cbrt(x)
+    exponent = (
+        SHEN_CU_REFERENCE["eta"] * strain
+        + SHEN_CU_REFERENCE["beta"] * strain**2
+        + SHEN_CU_REFERENCE["psi"] * strain**3
+    )
+    return (
+        3.0
+        * SHEN_CU_REFERENCE["K0_gpa"]
+        * strain
+        / np.cbrt(x) ** 2
+        * np.exp(exponent)
+    )
+
+
+def _shen_series(record: dict[str, Any], dataset: dict[str, Any]) -> Series:
+    phase, experiments, pressure_mask = SHEN_SELECTIONS[record["identifier"]]
+    grouped: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for row in _load_rows(dataset):
+        grouped.setdefault((row["experiment"], row["run_number"]), []).append(row)
+
+    pressures: list[float] = []
+    volumes: list[float] = []
+    for (experiment, _run_number), rows in grouped.items():
+        if experiment not in experiments:
+            continue
+        cu_rows = [row for row in rows if row["phase"] == "Cu"]
+        if len(cu_rows) != 1:
+            raise ValueError(
+                f"expected one Cu volume per selected run, found {len(cu_rows)}"
+            )
+        pressure = float(
+            shen_cu_pressure_gpa(float(cu_rows[0]["unit_cell_volume_a3"]))
+        )
+        if pressure_mask == "below_30_gpa" and pressure >= 30.0:
+            continue
+        if pressure_mask == "above_35_gpa" and pressure <= 35.0:
+            continue
+        for row in rows:
+            if row["phase"] == phase:
+                pressures.append(pressure)
+                volumes.append(float(row["unit_cell_volume_a3"]))
+
+    if not pressures:
+        raise ValueError(f"no Shen-Smith observations selected for {phase}")
+    experiment_text = " and ".join(sorted(experiments))
+    selection = f"{phase}; {experiment_text}"
+    if pressure_mask == "below_30_gpa":
+        selection += "; Cu pressure below 30 GPa (coexistence excluded)"
+    elif pressure_mask == "above_35_gpa":
+        selection += "; Cu pressure above 35 GPa (coexistence excluded)"
+    return Series(
+        dataset_id=dataset["identifier"],
+        pressure=np.asarray(pressures),
+        volume=np.asarray(volumes),
+        temperature=None,
+        pressure_sigma=None,
+        volume_sigma=None,
+        temperature_sigma=None,
+        pressure_column="Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        volume_column="unit_cell_volume_a3",
+        temperature_column=None,
+        selection=selection,
+    )
+
+
+def _shen_smith_outcome(
+    document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    series = _shen_series(record, dataset)
+    initial, fixed = _static_parameters(record)
+    result = fit_rt_eos(
+        Vinet,
+        volume=series.volume,
+        pressure=series.pressure,
+        initial=initial,
+        fixed=fixed,
+        bounds={name: _bounds(name, value) for name, value in initial.items()},
+        # Shen and Smith state only "least-squares fitting" and publish no
+        # pressure errors, weights, or covariance. The workbook's phase-volume
+        # standard errors remain bundled but are not repurposed as an EIV model.
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    status, comparisons = _compare(record, result, False, 1.0)
+    residuals = np.asarray(result.residuals, dtype=float)
+    return {
+        "status": status,
+        "dataset_identifiers": [dataset["identifier"]],
+        "observations": int(series.pressure.size),
+        "selection": series.selection,
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": None,
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": None,
+        },
+        "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
+        "objective": "unweighted_pressure_residuals",
+        "absolute_sigma": False,
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": float(result.reduced_chi_square),
+        "degrees_of_freedom": int(result.degrees_of_freedom),
+        "solver_success": bool(result.success),
+        "solver_message": str(result.message),
+        "pressure_reconstruction": {
+            "reference": "Fratanduono et al. (2020)",
+            "doi": "10.1103/PhysRevLett.124.015701",
+            "source_locations": [
+                "main article Table I, 298 K isotherm row",
+                "Supplemental Material Eq. (2), Section S4",
+            ],
+            "model": "third_order_vinet",
+            "density0_g_cm3": SHEN_CU_REFERENCE["density0_g_cm3"],
+            "reference_unit_cell_volume_a3": shen_cu_reference_volume_a3(),
+            "parameters": {
+                key: SHEN_CU_REFERENCE[key]
+                for key in ("K0_gpa", "eta", "beta", "psi")
+            },
+            "pairing": (
+                "Each phase volume uses the single Cu volume with the same "
+                "experiment and run number; both source-labeled Pt first/last "
+                "measurements are retained when the run is selected."
+            ),
+        },
+        "qualification": (
+            "Direct reconstruction from source observations: each Table S1 phase "
+            "volume is paired with its simultaneous Cu volume, pressure is evaluated "
+            "from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 "
+            "and K0_prime are fitted with Shen and Smith's fixed V0 and stated run "
+            "selection. The source publishes no pressure weights, residual covariance, "
+            "or weighting protocol, so the reproduction uses unweighted pressure "
+            "residuals and does not infer any of them."
+        ),
+    }
 
 
 def _column_map(dataset: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -1474,14 +1667,7 @@ def _fit_record(
             "dataset_identifiers": indirect_identifiers,
         }
     if dataset["identifier"] == SHEN_PREFIX:
-        return {
-            "status": "not_refittable",
-            "reason": (
-                "The workbook contains simultaneous volumes but no pressures, and "
-                "the record declares its Cu anchor as reference_model_not_supported."
-            ),
-            "dataset_identifiers": dataset_identifiers,
-        }
+        return _shen_smith_outcome(document, record, dataset)
 
     chidester_high_temperature = None
     ice_vi_all_rows = None

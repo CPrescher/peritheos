@@ -111,6 +111,15 @@ All notable changes to Peritheos are documented here. The project follows
   recovering the published coefficients within their reported errors.
   The catalog now contains 286 materials and 815 validated EOS records.
 
+### Changed
+
+- Reconstructed the Fratanduono et al. (2020) third-order 298 K Cu pressure
+  scale used by all ten Shen and Smith (2026) calibrant records. Same-run Cu
+  volumes from the official Table S1 transcription now drive source-faithful,
+  unweighted fixed-`V0` fits: eight records reach uncertainty parity and MgO
+  plus NaCl-B2 are classified as numerically similar with explicit source-side
+  limitations instead of all ten being marked not refittable.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added
