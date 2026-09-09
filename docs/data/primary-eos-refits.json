@@ -10102,8 +10102,16 @@
       "status": "not_refittable"
     },
     {
+      "columns": {
+        "fit_selection": "used_in_published_eos_fit",
+        "phase_state": "phase_state",
+        "pressure": "pressure_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_cm3_mol"
+      },
       "dataset_identifiers": [
-        "fesio3_liquid_sun_2019_table1_pvt"
+        "fesio3_liquid_sun_2019_table1_pvt",
+        "fesio3_liquid_sun_2019_figures_s3_s4_digitized"
       ],
       "experimental_pressure_range_gpa": [
         0.0,
@@ -10113,16 +10121,113 @@
         2500.0,
         2500.0
       ],
+      "fit_kind": "non_source_thermal_reduction_sensitivity_only",
       "fixed_parameters": [],
       "label": "Sun et al. (2019), liquid FeSiO3 2500 K BM4 reference",
       "material_identifier": "fesio3_liquid",
       "model": "BM4",
-      "primary_data_finding": "All 46 printed P-V-T states and pressure standard errors are transcribed. Figure 1, rather than Table 1, distinguishes liquid states used in the fit from nonliquid simulations, so the bundled table is a source-data/checkpoint resource rather than an asserted exact regression input.",
-      "primary_data_status": "bundled_mixed_state_grid",
+      "objective": "diagnostic unweighted pressure residuals after subtracting the rounded printed Equations (4), (10)-(13) thermal pressure; this is not the paper's staged regression",
+      "observations": 40,
+      "observed_pressure_range_gpa": [
+        0.32,
+        296.11
+      ],
+      "observed_temperature_range_k": [
+        2500.0,
+        6000.0
+      ],
+      "observed_volume_range": [
+        27.046860326127614,
+        87.90229605991475
+      ],
+      "primary_data_finding": "All 46 printed P-V-T states and pressure standard errors are transcribed. Figure 1 symbol shapes supply an exact row classification at those already-tabulated coordinates: 40 circle states are liquid and used in the source EOS fit; six square states are nonliquid and excluded. The regression-line slopes in the original high-resolution raster TIFFs for supporting Figures S3-S4 are digitized at nine volumes, yielding the plotted Cv and gamma values with explicit digitization uncertainties.",
+      "primary_data_status": "bundled",
       "primary_source": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018GL081421",
-      "reason": "The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, rather than the numerical table, identifies the liquid states used by the source fit, so the table is a checkpoint resource and not an asserted exact regression input.",
+      "published_rmse_gpa": 0.6409268655910171,
+      "reason": "Figure 1 resolves state membership exactly: the 40 circles are the liquid states used in the source fit and the six squares are excluded. Supporting Figures S3-S4 contain only high-resolution raster plots, but their regression-line slopes are digitized at nine volumes and reproduce the paper's stated Cv and gamma ranges. The digitized Cv function is close to the published Gaussian; the gamma polynomial remains sensitive to the unavailable source weighting. Subtracting either published or digitized thermal coefficients and freely fitting four BM4 parameters is nearly singular and hits the K0-double-prime audit bound. A stabilized check with V0 and K0-double-prime fixed recovers K0=2.24587 GPa and K0'=23.0422, but the unstable four-parameter sensitivity result must not be reported as a refitted EOS. Exact reproduction still requires the unrounded source values, constraints, weighting, and covariance treatment.",
       "record_identifier": "fesio3_liquid_sun_2019_2500k_bm4_1",
-      "source_notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm.",
+      "selection": "phase_state=liquid and used_in_published_eos_fit=yes: 40 Figure 1 circles; six Figure 1 squares excluded",
+      "source_fit_diagnostics": {
+        "audit_bounds": {
+          "K0": [
+            0.11085,
+            11.085
+          ],
+          "K0_double_prime": [
+            -878.1399999999999,
+            0.0
+          ],
+          "K0_prime": [
+            0.0,
+            114.565
+          ],
+          "V0": [
+            39.23023546,
+            117.69070638000001
+          ]
+        },
+        "non_source_k0_k0_prime_check_with_v0_and_k0_double_prime_fixed": {
+          "fixed_parameters": {
+            "K0_double_prime": -175.628,
+            "V0": 78.46047092
+          },
+          "jacobian_condition_number": 164.9076497658556,
+          "parameters": {
+            "K0": 2.2405442972134617,
+            "K0_prime": 23.004050516480238
+          },
+          "purpose": "Equation-and-unit stability check only; V0 and K0_double_prime are held at the published values and this is not the source regression.",
+          "rmse_gpa": 0.5985183216348136,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true
+        },
+        "non_source_pressure_error_weighted_40_state_sensitivity": {
+          "jacobian_condition_number": 76467448.14468354,
+          "k0_double_prime_lower_audit_bound_hit": true,
+          "parameters": {
+            "K0": 1.2848657760900233,
+            "K0_double_prime": -878.1399999982102,
+            "K0_prime": 36.78799977958672,
+            "V0": 79.53268100279472
+          },
+          "rmse_gpa": 0.5881304433033451,
+          "solver_evaluations": 2004,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true
+        },
+        "non_source_unweighted_40_state_thermal_reduction_sensitivity": {
+          "jacobian_condition_number": 125044776.05771863,
+          "k0_double_prime_lower_audit_bound_hit": true,
+          "parameters": {
+            "K0": 1.3353492506258067,
+            "K0_double_prime": -878.139999999998,
+            "K0_prime": 37.427128915594245,
+            "V0": 78.784501120457
+          },
+          "rmse_gpa": 0.5807891127823098,
+          "solver_evaluations": 2033,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true
+        },
+        "non_source_unweighted_five_state_2500k_sensitivity": {
+          "jacobian_condition_number": 13286552.777368708,
+          "k0_double_prime_lower_audit_bound_hit": true,
+          "parameters": {
+            "K0": 1.8704128589320865,
+            "K0_double_prime": -878.1399999999998,
+            "K0_prime": 42.88086174952538,
+            "V0": 77.4485099352582
+          },
+          "rmse_gpa": 0.22106198603974997,
+          "solver_evaluations": 365,
+          "solver_message": "`ftol` termination condition is satisfied.",
+          "solver_success": true
+        },
+        "published_rounded_model_rmse_gpa": 0.6409268655910171,
+        "pvt_only_structural_nonidentifiability": "Table 1 pressure-volume-temperature rows constrain only the product gamma(V)*Cv(V): multiplying Cv_prime and A by any nonzero scale and dividing gamma(Vx), gamma_prime, and gamma_double_prime by the same scale leaves every predicted pressure unchanged.",
+        "source_protocol": "Equations (10) and (11) determine Cv from energy-temperature derivatives and gamma from pressure-energy derivatives before their volume functions enter Equation (4). Supporting Figures S3-S4 contain only rasterized regression lines rather than embedded numerical data. Their digitized slopes recover approximate Cv and gamma values, but the source uncertainties and relative weighting are not published."
+      },
+      "source_notes": "The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression.",
       "status": "not_refittable"
     },
     {
@@ -24303,25 +24408,25 @@
         "unweighted_volume_all_rows": {
           "observations": 78,
           "parameters": {
-            "K0": 178.82368901625466,
-            "K0_prime": 5.009939871339909,
-            "V0": 59.470128455871006
+            "K0": 178.823784857951,
+            "K0_prime": 5.009936202209765,
+            "V0": 59.470126904556565
           },
-          "pressure_rmse_gpa": 0.777234069440589,
-          "volume_rmse_a3_conventional_cell": 0.133936278128766
+          "pressure_rmse_gpa": 0.7772346300315278,
+          "volume_rmse_a3_conventional_cell": 0.13393627813173467
         },
         "upper_bound_errors_in_variables_all_rows": {
-          "chi_square": 608.079564969194,
+          "chi_square": 608.079564969376,
           "degrees_of_freedom": 75,
           "parameters": {
-            "K0": 169.06287747492132,
-            "K0_prime": 5.383182060319574,
-            "V0": 59.63865843972054
+            "K0": 169.0628783214669,
+            "K0_prime": 5.383182028177834,
+            "V0": 59.63865842353692
           },
-          "pressure_rmse_gpa": 0.7335363075461924,
+          "pressure_rmse_gpa": 0.7335363102939931,
           "pressure_sigma_gpa": 0.12,
           "purpose": "Sensitivity test using the maximum stated uncertainty at every row; the source does not provide row-wise sigmas.",
-          "reduced_chi_square": 8.107727532922587,
+          "reduced_chi_square": 8.107727532925013,
           "volume_sigma_a3_conventional_cell": 0.04
         }
       },

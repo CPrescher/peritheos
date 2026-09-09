@@ -1,6 +1,6 @@
 # CaSiO3, FeSiO3-liquid, and residual-source exhaustion audit
 
-Audit date: 2026-09-06.
+Audit date: 2026-09-06; Sun et al. state-selection follow-up: 2026-09-08.
 
 This audit resolves the ten LitCurate extracting-paper DOI families assigned to the Ca/other batch after the two Mg-only families were rerouted to their material owners. LitCurate remains discovery evidence only. A record was accepted only when the primary paper defines a complete executable pressure-volume equation, its volume basis, reference state, phase identity, and coefficient attribution.
 
@@ -16,7 +16,7 @@ This audit resolves the ten LitCurate extracting-paper DOI families assigned to 
 | Ono (2013), [10.3390/e15104300](https://doi.org/10.3390/e15104300) | 831 | One accepted | The candidate static BM3 is adopted from Shim et al. (2000), but Ono's Equation (9) and Table 1 provide a source-owned logarithmic-volume thermal-pressure extension. Both attribution layers are encoded. |
 | Kawai and Tsuchiya (2015), [10.1002/2015GL063446](https://doi.org/10.1002/2015GL063446) | 857 | No new record | The candidate is citation-reported and summarizes the authors' earlier thermoelastic parameterization. The primary underlying Kawai-Tsuchiya EOS is already represented under DOI 10.1002/2013JB010905. |
 | Mookherjee et al. accepted manuscript (2018), [10.2138/am-2018-6694](https://doi.org/10.2138/am-2018-6694) | 1012-1014 | Alias; no new record | The accepted manuscript instructs citation to final DOI 10.2138/am-2019-6694. Both LP and HP phase-Egg EOS records already use that canonical DOI; the Vanpeteghem comparison is not duplicated. |
-| Sun et al. (2019), [10.1029/2018GL081421](https://doi.org/10.1029/2018GL081421) | 1018 | One accepted | The explicit 2500 K BM4 reference isotherm is executable. The source's larger specialized P-V-T thermal term is outside the current schema and is not approximated. |
+| Sun et al. (2019), [10.1029/2018GL081421](https://doi.org/10.1029/2018GL081421) | 1018 | One accepted; direct refit unavailable | The explicit 2500 K BM4 reference isotherm is executable and Figure 1 resolves the exact 40-state liquid selection. Table 1 cannot reproduce the source's staged fit because the numerical energy-derived `Cv` and pressure-energy-derived `gamma` inputs are not deposited. |
 | Miyajima et al. (2025), [10.1029/2025GL115280](https://doi.org/10.1029/2025GL115280) | 1277-1281 | No new record | The source reports electron-diffraction volumes and a residual-pressure estimate, not an EOS fit. Three volumes are literature comparisons, and the coexisting bridgmanite volume is another single-state observation. |
 
 Net production yield: four new EOS records from four papers, plus six paper-family dispositions with no new record.
@@ -41,16 +41,49 @@ Net production yield: four new EOS records from four papers, plus six paper-fami
 
 ## Reproduction evidence
 
-`peritheos/data/datasets/fesio3-liquid-sun-2019-table1-pvt.csv` transcribes all 46 numerical P-V-T states and printed pressure standard errors in Sun et al. Table 1. `Vx=40.72 cm3/mol` is source-defined; the formula-unit-volume column is an exact Avogadro conversion. Table 1 does not label which simulations Figure 1 classifies as liquid, so the table is not falsely declared to be the exact regression subset.
+`peritheos/data/datasets/fesio3-liquid-sun-2019-table1-pvt.csv` transcribes all 46 numerical P-V-T states and printed pressure standard errors in Sun et al. Table 1. `Vx=40.72 cm3/mol` is source-defined; the formula-unit-volume column is an exact Avogadro conversion. Figure 1 plots those same discrete coordinates and defines circles as liquid states used in the EOS fit and squares as nonliquid states. Exact coordinate-to-marker matching therefore recovers the source selection without digitizing coordinates or tracing a subjective phase boundary: 40 liquid circles are included, while six nonliquid squares are excluded at `(V/Vx, T/K) = (0.4, 2500), (0.4, 3000), (0.4, 4000), (0.5, 2500), (0.5, 3000), (0.6, 2500)`.
 
 Run:
 
 ```bash
 UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run --frozen python scripts/reproduce_ca_other_source_exhaustion.py
+UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run --frozen python scripts/reproduce_sun_2019_fesio3_digitized.py
 UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run --frozen pytest -q tests/test_ca_other_source_exhaustion.py
+UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run --frozen pytest -q tests/test_sun_2019_fesio3_digitized.py
 ```
 
-The executable Sun BM4 predicts 1.084850 GPa at the Table 1 2500 K, `V/Vx=1` state, versus 1.07(12) GPa in the paper. Ono's thermal implementation is checked directly against Equation (9). The Karki and Shim records are checked by pressure-volume inversion at their reported maximum pressures.
+The executable Sun BM4 predicts 1.084850 GPa at the Table 1 2500 K, `V/Vx=1` state, versus 1.07(12) GPa in the paper. Re-evaluating the published BM4 plus the printed Equations (4) and (10)-(13) thermal coefficients on the 40 liquid rows gives 0.640927 GPa RMSE.
+
+The published BM4 is the 2500 K reference term in a staged P-V-T construction, not a standalone regression to the five liquid points that happen to lie at 2500 K. Equations (10) and (11) obtain `Cv` from energy-temperature derivatives and `gamma` from pressure-energy derivatives; the underlying numerical values are shown only in supporting Figures S3-S4. Table 1 by itself constrains only the product `gamma(V)*Cv(V)`: scaling both `Cv_prime` and `A` by any nonzero factor while inversely scaling all three gamma coefficients leaves every predicted pressure unchanged.
+
+The original 11.3 MB supporting-information DOCX was subsequently inspected. Figures S3 and S4 are embedded only as 5972x4213 and 5850x4213 raster TIFFs; there is no chart XML, spreadsheet, CSV, or other numerical payload. Their colored regression-line slopes were digitized at all nine plotted volumes and converted using the source's 32-formula-unit simulation cell. The derived `Cv` values span 170.078-199.806 J/(mol K), while `gamma` spans 0.199-1.112, independently reproducing the ranges stated in Section 3.2. The values and digitization uncertainties are bundled in `fesio3-liquid-sun-2019-figures-s3-s4-digitized.csv` and evaluated by `scripts/reproduce_sun_2019_fesio3_digitized.py`.
+
+| Thermal parameter | Paper | Unweighted digitized-line refit |
+|---|---:|---:|
+| `Cv_prime` (J mol^-1 K^-1) | 204.347 | 205.399 |
+| `A` (cm3 J mol^-2 K^-1) | -830.000 | -881.543 |
+| `w` (cm3 mol^-1) | 20.291 | 21.0448 |
+| `Vc` (cm3 mol^-1) | 29.110 | 29.0843 |
+| `gamma(Vx)` | 0.311 | 0.347132 |
+| `gamma_prime` | -0.933 | -1.05201 |
+| `gamma_double_prime` | 1.144 | 0.400846 |
+
+The heat-capacity reconstruction is close: the published and digitized Gaussian fits have RMS discrepancies of 1.274 and 1.263 J/(mol K), respectively, against the digitized `Cv` points. The gamma coefficients are more sensitive to the unknown source weighting, especially because only two liquid points constrain the `0.4Vx` slope and three constrain `0.5Vx`; an equal-weight refit therefore does not reproduce the printed gamma curvature. The printed Equation (13) was checked directly and contains the full `gamma_double_prime*(V/Vx-1)^2` term, with no factor of one half.
+
+Using the digitized thermal functions does not stabilize a four-free-parameter BM4 regression. It reaches the audit lower bound `K0_double_prime=-878.14 GPa^-1`, has a Jacobian condition number of `1.07e8`, and is not a publishable refit. Holding only the two weakly determined terms `V0` and `K0_double_prime` at the paper values gives the following transparent equation-and-unit check:
+
+| BM4 parameter | Paper | Stabilized digitized check |
+|---|---:|---:|
+| `V0` (cm3 mol^-1) | 47.25 | 47.25 fixed |
+| `K0` (GPa) | 2.217 | 2.24587 |
+| `K0_prime` | 22.913 | 23.0422 |
+| `K0_double_prime` (GPa^-1) | -175.628 | -175.628 fixed |
+
+The stabilized check has 0.6668 GPa pressure RMSE. It confirms the equation, units, and leading BM4 coefficients, but it is not the authors' unconstrained regression.
+
+The previous audit incorrectly presented a four-parameter BM4 fit after subtracting the rounded published thermal term as though it were a source refit. It is not. That non-source sensitivity is nearly singular, reaches its arbitrary lower audit bound on `K0_double_prime`, and merely absorbs rounding and missing-protocol differences into the BM4 coefficients. As an equation-and-unit check, holding `V0` and `K0_double_prime` at the published values gives `K0=2.24054 GPa` and `K0_prime=23.0041`, close to the published `2.217 GPa` and `22.913`; this constrained result is also not claimed as the source fit. The ledger now records `not_refittable` and retains both calculations only as diagnostics. Exact reproduction requires the unrounded energy/Cv and pressure-energy/gamma inputs plus the authors' constraints, weighting, and covariance treatment. There is no residual ambiguity in liquid-state membership.
+
+Ono's thermal implementation is checked directly against Equation (9). The Karki and Shim records are checked by pressure-volume inversion at their reported maximum pressures.
 
 ## Zotero-ready production metadata
 

@@ -49,12 +49,6 @@ MODEL_CLASSES = {
 
 # These observations do not define the pressure-volume fit stored by the record.
 INDIRECT_DATA = {
-    "fesio3_liquid_sun_2019_2500k_bm4_1": (
-        "The bundled Table 1 grid mixes liquid and nonliquid simulations. Figure 1, "
-        "rather than the numerical table, identifies the liquid states used by the "
-        "source fit, so the table is a checkpoint resource and not an asserted exact "
-        "regression input."
-    ),
     "coesite_v_bykova_2018_am05_static_bm3_refit": (
         "Table 10 contains only one coesite-V pressure-volume anchor, which is "
         "sufficient to verify the published-parameter reconstruction but not to "
@@ -580,6 +574,10 @@ VOLUME_COLUMNS = {
 }
 
 PHASE_FILTERS = {
+    "fesio3_liquid_sun_2019_2500k_bm4_1": {
+        "phase_state": "liquid",
+        "used_in_published_eos_fit": "yes",
+    },
     "cao_richet_1988_bm3_1": {"phase": "B1", "used_in_eos_fit": "yes"},
     "cao_b2_richet_1988_bm3_1": {"phase": "B2", "used_in_eos_fit": "yes"},
     "phase_d_ant_a_shieh_2000_bm2_1": {"sample": "1"},
@@ -2338,6 +2336,304 @@ def _masked_series(series: Series, mask: np.ndarray, selection: str) -> Series:
     )
 
 
+def _sun_2019_thermal_pressure(
+    volume_a3_per_formula_unit: np.ndarray, temperature_k: np.ndarray
+) -> np.ndarray:
+    """Evaluate Sun et al. (2019) Equations (4) and (10)-(13)."""
+    volume_cm3_mol = volume_a3_per_formula_unit * 0.602214076
+    cv = 204.347 + (-830.0) / (20.291 * math.sqrt(math.pi / 2.0)) * np.exp(
+        -2.0 * (volume_cm3_mol - 29.110) ** 2 / 20.291**2
+    )
+    reduced_volume = volume_cm3_mol / 40.72 - 1.0
+    gamma = 0.311 - 0.933 * reduced_volume + 1.144 * reduced_volume**2
+    # J/cm^3 = MPa, hence the factor 1e-3 for GPa.
+    return gamma * cv / volume_cm3_mol * (temperature_k - 2500.0) * 1.0e-3
+
+
+def _sun_2019_bm4_fit(
+    record: dict[str, Any],
+    series: Series,
+    *,
+    use_source_thermal_reduction: bool,
+    weighted: bool,
+) -> tuple[SimpleNamespace, float, bool]:
+    """Run a non-source BM4 sensitivity fit inside an explicit finite audit box."""
+    if series.temperature is None:
+        raise ValueError("Sun et al. source fit requires the Table 1 temperatures")
+    pressure = np.asarray(series.pressure, dtype=float)
+    if use_source_thermal_reduction:
+        pressure = pressure - _sun_2019_thermal_pressure(
+            series.volume, series.temperature
+        )
+    published = record["eos"]["parameters"]
+    names = ("V0", "K0", "K0_prime", "K0_double_prime")
+    start = np.asarray([float(published[name]) for name in names])
+    lower = np.asarray([start[0] * 0.5, start[1] * 0.05, 0.0, start[3] * 5.0])
+    upper = np.asarray([start[0] * 1.5, start[1] * 5.0, start[2] * 5.0, 0.0])
+    sigma = series.pressure_sigma if weighted else None
+
+    def objective(values: np.ndarray) -> np.ndarray:
+        residual = np.asarray(BM4(*values).pressure(series.volume)) - pressure
+        return residual if sigma is None else residual / sigma
+
+    fit = least_squares(
+        objective,
+        start,
+        bounds=(lower, upper),
+        x_scale="jac",
+        max_nfev=5000,
+        ftol=1.0e-12,
+        xtol=1.0e-12,
+        gtol=1.0e-12,
+    )
+    raw_residuals = np.asarray(BM4(*fit.x).pressure(series.volume)) - pressure
+    singular_values = np.linalg.svd(fit.jac, compute_uv=False)
+    condition_number = float(singular_values[0] / singular_values[-1])
+    lower_k0_double_prime_hit = bool(
+        np.isclose(fit.x[3], lower[3], rtol=0.0, atol=1.0e-5)
+    )
+    result = SimpleNamespace(
+        free_parameters=names,
+        parameters=dict(zip(names, (float(value) for value in fit.x))),
+        standard_errors={name: math.nan for name in names},
+        residuals=raw_residuals,
+        reduced_chi_square=math.nan,
+        degrees_of_freedom=int(series.pressure.size - len(names)),
+        success=bool(fit.success),
+        message=str(fit.message),
+        nfev=int(fit.nfev),
+    )
+    return result, condition_number, lower_k0_double_prime_hit
+
+
+def _sun_2019_constrained_bm4_check(
+    record: dict[str, Any], series: Series
+) -> dict[str, Any]:
+    """Check K0 and K0-prime while holding the weak high-order terms published."""
+    if series.temperature is None:
+        raise ValueError("Sun et al. source check requires the Table 1 temperatures")
+    target = series.pressure - _sun_2019_thermal_pressure(
+        series.volume, series.temperature
+    )
+    published = record["eos"]["parameters"]
+    fixed_v0 = float(published["V0"])
+    fixed_k0_double_prime = float(published["K0_double_prime"])
+    start = np.asarray(
+        [float(published["K0"]), float(published["K0_prime"])], dtype=float
+    )
+
+    def objective(values: np.ndarray) -> np.ndarray:
+        return (
+            np.asarray(
+                BM4(
+                    fixed_v0,
+                    float(values[0]),
+                    float(values[1]),
+                    fixed_k0_double_prime,
+                ).pressure(series.volume)
+            )
+            - target
+        )
+
+    fit = least_squares(
+        objective,
+        start,
+        bounds=([1.0e-12, -np.inf], [np.inf, np.inf]),
+        x_scale="jac",
+        ftol=1.0e-12,
+        xtol=1.0e-12,
+        gtol=1.0e-12,
+    )
+    return {
+        "purpose": (
+            "Equation-and-unit stability check only; V0 and K0_double_prime are "
+            "held at the published values and this is not the source regression."
+        ),
+        "fixed_parameters": {
+            "V0": fixed_v0,
+            "K0_double_prime": fixed_k0_double_prime,
+        },
+        "parameters": {
+            "K0": float(fit.x[0]),
+            "K0_prime": float(fit.x[1]),
+        },
+        "rmse_gpa": float(np.sqrt(np.mean(objective(fit.x) ** 2))),
+        "jacobian_condition_number": float(np.linalg.cond(fit.jac)),
+        "solver_success": bool(fit.success),
+        "solver_message": str(fit.message),
+    }
+
+
+def _sun_2019_fesio3_outcome(
+    document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    """Audit why Table 1 cannot reproduce the source's staged BM4 fit."""
+    digitized_dataset_id = "fesio3_liquid_sun_2019_figures_s3_s4_digitized"
+    if not any(
+        item["identifier"] == digitized_dataset_id
+        for item in document.get("datasets", ())
+    ):
+        raise ValueError("Sun et al. supporting-figure digitization is unavailable")
+    series = _series(document, record, dataset)
+    if series.pressure.size != 40:
+        raise ValueError("Sun et al. Figure 1 selection must contain 40 liquid states")
+    if series.temperature is None:
+        raise ValueError("Sun et al. Table 1 temperatures are unavailable")
+
+    primary, condition_number, bound_hit = _sun_2019_bm4_fit(
+        record,
+        series,
+        use_source_thermal_reduction=True,
+        weighted=False,
+    )
+    weighted, weighted_condition, weighted_bound_hit = _sun_2019_bm4_fit(
+        record,
+        series,
+        use_source_thermal_reduction=True,
+        weighted=True,
+    )
+    reference_mask = np.isclose(series.temperature, 2500.0)
+    reference = _masked_series(
+        series,
+        reference_mask,
+        "five 2500 K Figure 1 circle states",
+    )
+    reference_fit, reference_condition, reference_bound_hit = _sun_2019_bm4_fit(
+        record,
+        reference,
+        use_source_thermal_reduction=False,
+        weighted=False,
+    )
+    constrained_check = _sun_2019_constrained_bm4_check(record, series)
+    published = record["eos"]["parameters"]
+    published_model = BM4(
+        float(published["V0"]),
+        float(published["K0"]),
+        float(published["K0_prime"]),
+        float(published["K0_double_prime"]),
+    )
+    published_residuals = (
+        np.asarray(published_model.pressure(series.volume))
+        + _sun_2019_thermal_pressure(series.volume, series.temperature)
+        - series.pressure
+    )
+
+    def diagnostic(fit: SimpleNamespace, condition: float, hit: bool) -> dict[str, Any]:
+        return {
+            "parameters": {
+                name: float(value) for name, value in fit.parameters.items()
+            },
+            "rmse_gpa": float(
+                np.sqrt(np.mean(np.asarray(fit.residuals, dtype=float) ** 2))
+            ),
+            "jacobian_condition_number": condition,
+            "k0_double_prime_lower_audit_bound_hit": hit,
+            "solver_success": fit.success,
+            "solver_message": fit.message,
+            "solver_evaluations": fit.nfev,
+        }
+
+    return {
+        "status": "not_refittable",
+        "dataset_identifiers": [dataset["identifier"], digitized_dataset_id],
+        "observations": int(series.pressure.size),
+        "selection": (
+            "phase_state=liquid and used_in_published_eos_fit=yes: 40 Figure 1 "
+            "circles; six Figure 1 squares excluded"
+        ),
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": [
+            float(np.min(series.temperature)),
+            float(np.max(series.temperature)),
+        ],
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+            "phase_state": "phase_state",
+            "fit_selection": "used_in_published_eos_fit",
+        },
+        "fit_kind": "non_source_thermal_reduction_sensitivity_only",
+        "objective": (
+            "diagnostic unweighted pressure residuals after subtracting the rounded "
+            "printed Equations (4), (10)-(13) thermal pressure; this is not the "
+            "paper's staged regression"
+        ),
+        "published_rmse_gpa": float(np.sqrt(np.mean(published_residuals**2))),
+        "source_fit_diagnostics": {
+            "source_protocol": (
+                "Equations (10) and (11) determine Cv from energy-temperature "
+                "derivatives and gamma from pressure-energy derivatives before their "
+                "volume functions enter Equation (4). Supporting Figures S3-S4 contain "
+                "only rasterized regression lines rather than embedded numerical data. "
+                "Their digitized slopes recover approximate Cv and gamma values, but "
+                "the source uncertainties and relative weighting are not published."
+            ),
+            "pvt_only_structural_nonidentifiability": (
+                "Table 1 pressure-volume-temperature rows constrain only the product "
+                "gamma(V)*Cv(V): multiplying Cv_prime and A by any nonzero scale and "
+                "dividing gamma(Vx), gamma_prime, and gamma_double_prime by the same "
+                "scale leaves every predicted pressure unchanged."
+            ),
+            "audit_bounds": {
+                "V0": [
+                    float(record["eos"]["parameters"]["V0"]) * 0.5,
+                    float(record["eos"]["parameters"]["V0"]) * 1.5,
+                ],
+                "K0": [
+                    float(record["eos"]["parameters"]["K0"]) * 0.05,
+                    float(record["eos"]["parameters"]["K0"]) * 5.0,
+                ],
+                "K0_prime": [
+                    0.0,
+                    float(record["eos"]["parameters"]["K0_prime"]) * 5.0,
+                ],
+                "K0_double_prime": [
+                    float(record["eos"]["parameters"]["K0_double_prime"]) * 5.0,
+                    0.0,
+                ],
+            },
+            "non_source_unweighted_40_state_thermal_reduction_sensitivity": diagnostic(
+                primary, condition_number, bound_hit
+            ),
+            "non_source_pressure_error_weighted_40_state_sensitivity": diagnostic(
+                weighted, weighted_condition, weighted_bound_hit
+            ),
+            "non_source_unweighted_five_state_2500k_sensitivity": diagnostic(
+                reference_fit, reference_condition, reference_bound_hit
+            ),
+            "non_source_k0_k0_prime_check_with_v0_and_k0_double_prime_fixed": (
+                constrained_check
+            ),
+            "published_rounded_model_rmse_gpa": float(
+                np.sqrt(np.mean(published_residuals**2))
+            ),
+        },
+        "reason": (
+            "Figure 1 resolves state membership exactly: the 40 circles are the "
+            "liquid states used in the source fit and the six squares are excluded. "
+            "Supporting Figures S3-S4 contain only high-resolution raster plots, but "
+            "their regression-line slopes are digitized at nine volumes and reproduce "
+            "the paper's stated Cv and gamma ranges. The digitized Cv function is "
+            "close to the published Gaussian; the gamma polynomial remains sensitive "
+            "to the unavailable source weighting. Subtracting either published or "
+            "digitized thermal coefficients and freely fitting four BM4 parameters "
+            "is nearly singular and hits the K0-double-prime audit bound. A stabilized "
+            "check with V0 and K0-double-prime fixed recovers K0=2.24587 GPa and "
+            "K0'=23.0422, but the unstable four-parameter sensitivity result must not "
+            "be reported as a refitted EOS. Exact reproduction still requires the "
+            "unrounded source values, constraints, weighting, and covariance treatment."
+        ),
+    }
+
+
 def _dorfman_cocompression_outcome(
     material_id: str, record: dict[str, Any]
 ) -> dict[str, Any]:
@@ -2427,7 +2723,14 @@ def validate_all() -> dict[str, Any]:
                 + list(record["eos"].get("fixed_parameters", ()))
                 + list(record.get("thermal", {}).get("fixed_parameters", ())),
             }
-            if "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+            if (
+                record["identifier"] == "fesio3_liquid_sun_2019_2500k_bm4_1"
+                and check["status"] == "bundled"
+            ):
+                outcome = _sun_2019_fesio3_outcome(
+                    document, record, datasets[identifiers[0]]
+                )
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
                 outcome = _dorfman_cocompression_outcome(material_id, record)
             elif not identifiers:
                 outcome = {

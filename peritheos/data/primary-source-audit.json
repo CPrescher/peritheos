@@ -4888,9 +4888,10 @@
         "locations": [
           "Computational methods, Section 2",
           "Table 1",
+          "Figure 1 and caption",
           "Equations (4)-(9), Section 3.1"
         ],
-        "finding": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa."
+        "finding": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa."
       }
     },
     {
