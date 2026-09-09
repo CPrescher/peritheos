@@ -4658,6 +4658,7 @@
     },
     {
       "absolute_sigma": true,
+      "automatic_status": "parity",
       "columns": {
         "pressure": "pressure_pt_ye_gpa",
         "temperature": null,
@@ -4725,7 +4726,7 @@
       "primary_data_status": "bundled",
       "primary_source": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
       "published_rmse_gpa": 0.6885283944326519,
-      "qualification": "Complete source-scope table reproduction with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits.",
+      "qualification": "Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.",
       "record_identifier": "ca_perovskite_tetragonal_chen_2018_vinet",
       "reduced_chi_square": 0.5633471320594612,
       "rmse_gpa": 0.6341793610514413,
@@ -4733,7 +4734,7 @@
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
       "source_notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published.",
-      "status": "parity"
+      "status": "similar"
     },
     {
       "absolute_sigma": true,
@@ -27072,9 +27073,9 @@
   ],
   "summary": {
     "not_refittable": 214,
-    "parity": 156,
+    "parity": 155,
     "parity_not_achieved": 31,
-    "similar": 86,
+    "similar": 87,
     "total": 487
   }
 }

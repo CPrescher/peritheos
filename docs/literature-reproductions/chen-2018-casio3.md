@@ -25,7 +25,7 @@ The source protocol can be recovered as follows:
 - `K0' = 4.0` is fixed; `V0` and `K0` are fitted.
 - Table 1 lattice and angle parentheses are 2-sigma. Pressure uncertainties, residual direction, numerical weights, fit software, unrounded lattice values, and parameter covariance are not published.
 
-The complete rounded table therefore supports a production Vinet parameterization and a direct source-scope fit attempt, but not exact reconstruction of the authors' optimizer or covariance.
+The complete rounded table therefore supports the published production Vinet parameterization and a direct source-scope numerical check, but not exact reconstruction of the authors' optimizer or covariance. No independently refitted EOS record is added: the published coefficients remain the only production representation.
 
 ## Numerical result
 
@@ -46,4 +46,4 @@ The paper also reports a rejected sensitivity fit with `V0 = 45.58 A3/f.u.` fixe
 |---:|---|---|---|
 | 1008 | `litcurate_cb91837589707f8c` | ACCEPT, CORRECTED | The primary paper supplies a production Vinet record and complete seven-row table; the discovery ledger's BM2 identity was wrong. |
 
-Result: **1 corrected production Vinet record, 1 complete seven-row dataset, and a qualified source-scope refit**.
+Result: **1 corrected published Vinet record, 1 complete seven-row dataset, and qualified numerical diagnostics; no separate refit record**.

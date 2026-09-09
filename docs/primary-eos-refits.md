@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **487** EOS records. **156** achieve uncertainty parity, **86** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **214** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **487** EOS records. **155** achieve uncertainty parity, **87** are numerically similar, **[31](#parity-not-achieved)** do not achieve parity, **214** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -131,7 +131,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — The 300 and 2000 K P-V curves are plotted in Figure 7, but calculated P-V points are not tabulated. |
 | [`ca_perovskite_tetragonal_caracas_2005_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
 | [`ca_perovskite_tetragonal_caracas_2005_bm4_2`](https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL022144) | `theoretical_parameterization_only` | — | — | —/— | not_refittable — Complete coefficients and density checkpoints are published; the underlying E(V) grid is not. |
-| [`ca_perovskite_tetragonal_chen_2018_vinet`](https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf) | `ca_perovskite_tetragonal_chen_2018_table1_compression` | 7 | `V0` 185.2 → 185.978; `K0` 223 → 215.292 | 0.688528/0.634179 | parity — Complete source-scope table reproduction with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. |
+| [`ca_perovskite_tetragonal_chen_2018_vinet`](https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf) | `ca_perovskite_tetragonal_chen_2018_table1_compression` | 7 | `V0` 185.2 → 185.978; `K0` 223 → 215.292 | 0.688528/0.634179 | [similar](#investigation-ca_perovskite_tetragonal_chen_2018_vinet) — Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model. |
 | [`cairo3_perovskite_boffa_ballaran_2007_bm3_1`](https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases) | `cairo3_perovskite_boffa_ballaran_2007_table1_compression` | 11 | `V0` 229.463 → 229.463; `K0` 198 → 199.944; `K0_prime` 1.2 → 0.875978 | 0.0932461/0.0362281 | parity |
 | [`cairo3_post_perovskite_boffa_ballaran_2007_bm3_1`](https://www.researchgate.net/publication/250130096_Equations_of_state_of_CaIrO3_perovskite_and_post-perovskite_phases) | `cairo3_post_perovskite_boffa_ballaran_2007_table1_compression` | 11 | `V0` 226.38 → 226.378; `K0` 181 → 180.756; `K0_prime` 2.3 → 2.43979 | 0.0263262/0.0253869 | parity |
 | [`cairo3_post_perovskite_martin_2007_bm2`](https://dspace.sunyconnect.suny.edu/server/api/core/bitstreams/61973d9b-80a4-4be9-b292-576627366fb1/content) | `cairo3_martin_2007_table1a_compression` | 15 | `V0` 226.632 → 226.599; `K0` 180.2 → 184.038 | 0.575795/0.559939 | parity |
@@ -631,7 +631,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **117** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **118** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests. Causes described as possible remain hypotheses until
@@ -934,6 +934,26 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - The magnitude is similar for `K0`, `K0_prime`, but the quoted two-sigma intervals do not overlap. Differences in weighting, rounding, covariance, or the fitted residual variable remain plausible.
+
+<a id="investigation-ca_perovskite_tetragonal_chen_2018_vinet"></a>
+
+### `ca_perovskite_tetragonal_chen_2018_vinet`
+
+**Classification:** `similar`. **Model:** `Vinet`. **Data:** `ca_perovskite_tetragonal_chen_2018_table1_compression` with 7 selected observations.
+
+| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
+|---|---:|---:|---:|:---:|:---:|
+| `V0` | 185.2 | 185.978 ± 1.13265 | 0.42% | yes | yes |
+| `K0` | 223 | 215.292 ± 11.0393 | 3.46% | yes | yes |
+
+**Fit diagnostics.** Observed pressure range: 28.824-62.477 GPa; source-declared range: 28.824-62.477 GPa; fit kind: `isothermal_pv`; objective: `errors_in_variables`; published/refit pressure RMSE: 0.688528/0.634179 GPa; reduced chi-square: 0.563347; free parameters: `V0, K0`; source-fixed parameters: `K0_prime`.
+
+**Source/data scope.** All seven source-order Table 1 rows and both I4/mcm and P4/mmm refinements are transcribed at printed precision. Derived cell volumes are calculated without intermediate rounding. The publisher PDF and author manuscript were not redistributed; the bundle is limited to factual numerical values and audit metadata.
+
+**Registered source-fit note.** Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published.
+
+**Assessment and likely origin.**
+- The lowest checked pressure is 28.824 GPa while V0 is free, so the ambient reference volume and correlated elastic coefficients are extrapolated rather than directly anchored.
 
 <a id="investigation-calcium_carbonate_post_aragonite_lv_2020_bm3_2"></a>
 

@@ -154,14 +154,17 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 
 FIT_QUALIFICATIONS = {
     "ca_perovskite_tetragonal_chen_2018_vinet": (
-        "Complete source-scope table reproduction with unresolved fitting details: "
+        "Complete source-scope table check with unresolved fitting details: "
         "all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the "
         "reported Ye et al. Pt pressures are retained. The source does not publish "
         "pressure uncertainties, residual direction, weights, fit software, "
         "unrounded inputs, or covariance. The generic fit therefore uses an "
         "errors-in-variables objective with one-sigma volume errors propagated "
         "from the table's two-sigma lattice errors; the dedicated reproduction "
-        "also reports unweighted pressure- and volume-residual sensitivity fits."
+        "also reports unweighted pressure- and volume-residual sensitivity fits. "
+        "Those diagnostics do not define a replacement EOS, and the classification "
+        "is capped at similar because statistical parity cannot be established "
+        "without the source weighting and pressure-error model."
     ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
@@ -330,6 +333,14 @@ FIT_QUALIFICATIONS = {
         "[dedicated Campbell-Heinz reproduction]"
         "(literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl)."
     ),
+}
+
+# A numerical uncertainty overlap is insufficient for these records because a
+# source-faithful statistical comparison cannot be constructed from the published
+# information. Preserve the automatic result for transparency, but cap the public
+# classification at the strongest conclusion supported by the source evidence.
+QUALIFIED_STATUS_OVERRIDES = {
+    "ca_perovskite_tetragonal_chen_2018_vinet": "similar",
 }
 
 # Record-specific conclusions for cases that remain outside both the numerical
@@ -1738,6 +1749,9 @@ def _fit_record(
         }
     if record_id in FIT_QUALIFICATIONS:
         outcome["qualification"] = FIT_QUALIFICATIONS[record_id]
+    if record_id in QUALIFIED_STATUS_OVERRIDES:
+        outcome["automatic_status"] = outcome["status"]
+        outcome["status"] = QUALIFIED_STATUS_OVERRIDES[record_id]
     if record_id == "coo_clendenen_1966_murnaghan_1":
         free_names = list(result.free_parameters)
         k0_index = free_names.index("K0")

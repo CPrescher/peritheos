@@ -1002,7 +1002,7 @@ the primary-source and refit ledgers.
 | [Caracas and Cohen (2005), MgSiO3-FeSiO3-Al2O3 pv/ppv chemistry](https://doi.org/10.1029/2005GL023164) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Caracas et al. (2005)](https://doi.org/10.1029/2004gl022144) | Direct refit unavailable | 4 | 4 direct refit unavailable | 4 theoretical parameterization only |
 | [Chantel et al. (2012)](https://doi.org/10.1029/2012gl053075) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
-| [Chen et al. (2018)](https://doi.org/10.2138/am-2018-6087) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Chen et al. (2018)](https://doi.org/10.2138/am-2018-6087) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Chen et al. (2024), stishovite velocities](https://doi.org/10.1029/2023GL107700) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Chidester et al. (2021)](https://doi.org/10.1103/physrevb.104.094107) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Chizmeshya et al. (1996)](https://doi.org/10.1029/96gl02624) | Direct refit unavailable | 5 | 5 direct refit unavailable | 5 theoretical parameterization only |
