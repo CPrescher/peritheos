@@ -8,9 +8,9 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **845** EOS records. **190** achieve uncertainty parity, **91** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[38](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **1** have bounded partial refits, **512** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **846** EOS records. **191** achieve uncertainty parity, **91** are numerically similar, **11** have a coupled source reconstruction without an independent EOS refit, **[38](#parity-not-achieved)** do not achieve parity, **[2](#composite-reconstructions)** are exact source-equation reconstructions, **1** have bounded partial refits, **512** cannot be directly refitted, and **0** attempts failed before comparison.
 
-`parity` means all free coefficients agree within two combined standard
+`parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
 unidentifiable extrapolation with an enormous fitted error from being labeled
 parity. Where a source or refit uncertainty is unavailable, `similar`
@@ -18,6 +18,11 @@ uses explicit limits: 5% for V0, 15% for K0, 1.0 absolute or 20% for K0',
 25% for gamma0/q/theta0, 30% for thermal-expansion or dK/dT terms, and 20%
 for other coefficients. These broad limits identify broadly reproducible
 published reductions; they are not statistical confidence statements.
+The Sakai (2018) rhenium audit accepts numerical `parity` because both
+coefficients agree within the reported parameter error widths and the refit
+standard errors are comparable. Its explicit `parity_basis` preserves this
+distinction: the source confidence convention is unknown, and no formal
+combined-two-sigma result is asserted.
 `source_reconstruction` is deliberately separate: a coupled published
 calibration can be exercised against source-linked comparison rows, but
 the EOS coefficients themselves cannot be independently recovered from
@@ -737,6 +742,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`rhenium_dewaele_2019_mao_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`rhenium_dewaele_2019_dor_vinet`](https://www.mdpi.com/2075-163X/9/11/684) | `parameterization_only` | — | — | —/— | not_refittable — Published coefficients are executable; this import does not claim a new refit of row-level observations. |
 | [`rhenium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |
+| [`rhenium_sakai_2018_yokoo_pt_vinet`](https://doi.org/10.1080/08957959.2018.1448082) | `rhenium_sakai_2018_figure10` | 26 | `K0` 358 → 357.192; `K0_prime` 4.8 → 4.83483 | 3.21309/3.10617 | parity — Numerical parity: 26 RP01 Yokoo-Pt Figure 10 points reproduce both coefficients within the quoted errors, with comparable conditional refit standard errors (10.23 GPa and 0.180). Parity is based on the reported parameter error widths, not a formal combined-two-sigma claim. Exact row selection, weights and source error confidence are unspecified. Including six Micro17 points shifts K0/K0' to about 327.1/5.373; this selection sensitivity is retained in the dedicated Sakai 2018 audit. |
 | [`rhodium_rodrigo_ramon_2024_vinet_1`](https://doi.org/10.1038/s41598-024-78006-0) | `rhodium_rodrigo_ramon_2024_table2_compression` | 51 | `V0` 55.046 → 55.0484; `K0` 251 → 250.426; `K0_prime` 5.7 → 5.70433 | 0.0486409/0.018579 | parity |
 | [`rhodium_lejaeghere_2016_wien2k_pbe_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The official archive preserves the complete EOS coefficients and frozen structure, but not the seven row-level E(V) values for this code; direct coefficient refitting is unavailable. |
 | [`rhodium_delta_archive_experimental_reference_bm3`](https://archive.materialscloud.org/record/2023.133) | `parameterization_only` | — | — | —/— | not_refittable — The archive supplies only a constructed coefficient table. Exact pre-correction inputs, a unified P-V dataset, pressure calibration, uncertainties, weights, and selection rules are not available, so an independent fit of the composite triplet is impossible. Property-level upstream recovery is recorded separately and includes row-level data only where the cited source actually prints it. |

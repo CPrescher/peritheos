@@ -30,11 +30,11 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 844
+fit for every record with sufficient direct observations and documents all 846
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 179 uncertainty-parity matches and 86 additional numerically similar results. [36 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 529 records cannot be
+diagnostics. The current campaign finds 191 parity matches and 91 additional numerically similar results. [38 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+recover at least one published coefficient, while 512 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Two derived diamond records are exact source-equation
 reconstructions rather than coefficient refits. Eleven Sokolova records have the separate
@@ -44,6 +44,9 @@ are no unresolved
 extraction or solver failures. The
 machine-readable results are in
 [`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).
+Sakai (2018) rhenium achieves numerical parity within the reported parameter
+error widths, with comparable refit standard errors; its source confidence
+convention remains unspecified.
 The [source-audit index](source-audits.md) links the detailed publication-level
 investigations behind these classifications.
 

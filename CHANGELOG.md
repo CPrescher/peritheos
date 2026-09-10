@@ -2,6 +2,16 @@
 
 ## [Unreleased]
 
+- Recovered all 58 Sakai (2018) Figure 10 vector markers and independently
+  refitted the 26 RP01 Yokoo-Pt points. Both rhenium Vinet coefficients agree
+  within the quoted errors; the result is `parity`, with comparable refit
+  standard errors. Alternate row selections and fit objectives are documented.
+
+- Added Sakai et al. (2018)'s hcp-rhenium Vinet EOS on the Yokoo platinum
+  scale, with published errors, calibration provenance, and a documented
+  high-compression pressure reproduction.
+
+
 ### Added
 
 - Added four independently published MgSiO3 EOS records from Wang (2004),

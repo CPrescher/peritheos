@@ -54,6 +54,10 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     by_identifier = {item["record_identifier"]: item for item in ledger["records"]}
     markdown = MARKDOWN_PATH.read_text(encoding="utf-8")
 
+    sakai = by_identifier["rhenium_sakai_2018_yokoo_pt_vinet"]
+    assert sakai["status"] == "parity"
+    assert sakai["parity_basis"] == "within_reported_parameter_errors"
+
     correa_composite = by_identifier["diamond_correa_2008_dewaele_anchored"]
     benedict_composite = by_identifier["diamond_benedict_2014_dewaele_anchored"]
     assert (

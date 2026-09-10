@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 845,
-    "primary_source_validated": 845
+    "records": 846,
+    "primary_source_validated": 846
   },
   "records": [
     {
@@ -13188,6 +13188,27 @@
           "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
         "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "rhenium",
+      "file": "rhenium.eosmat",
+      "record": "rhenium_sakai_2018_yokoo_pt_vinet",
+      "label": "Sakai et al. (2018), Re Vinet on the Yokoo Pt scale",
+      "doi": "10.1080/08957959.2018.1448082",
+      "status": "primary_source_validated",
+      "note": "Primary PDF checked for the published Vinet fit and calibration. An independent refit of 26 RP01 Yokoo-Pt Figure 10 vector points achieves numerical parity: K0 and K0_prime agree within the quoted parameter error widths, with comparable conditional refit standard errors of 10.23 GPa and 0.180. Original weights, row selection and source error confidence remain unspecified; no formal combined-two-sigma claim is made.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1080/08957959.2018.1448082",
+        "doi": "10.1080/08957959.2018.1448082",
+        "source_filename": "08957959.2018.1448082.pdf",
+        "sha256": "b9cafc84c668283a96ae59c48d0c42696df38eae42765d9db483bc8f5117eb32",
+        "locations": [
+          "Section 2 (article p. 4), Re-Pt co-compression",
+          "Section 3, Figure 10 and following paragraph (article p. 10)",
+          "Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure"
+        ],
+        "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work."
       }
     },
     {

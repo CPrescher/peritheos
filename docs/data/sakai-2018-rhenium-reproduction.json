@@ -1,0 +1,118 @@
+{
+  "catalog_matches_independent_expression": true,
+  "catalog_minus_reported_gpa": -2.444234214348967,
+  "catalog_pressure_gpa": 461.55576578565103,
+  "classification": "qualified_digitized_refit",
+  "doi": "10.1080/08957959.2018.1448082",
+  "figure10_refits": {
+    "all_yokoo_pt": {
+      "conditional_parameter_correlation": -0.993833695351741,
+      "conditional_standard_errors": {
+        "K0": 10.26191701178497,
+        "K0_prime": 0.20071748438780437
+      },
+      "objective": "pressure_residuals",
+      "observations": 32,
+      "observed_pressure_range_gpa": [
+        131.48322882415857,
+        302.80959631080384
+      ],
+      "parameters": {
+        "K0": 327.07488068801507,
+        "K0_prime": 5.373479208587058
+      },
+      "pressure_rmse_gpa": 4.4633763413950724,
+      "published_pressure_rmse_gpa": 5.0555795145683415,
+      "solver_success": true,
+      "within_published_quoted_errors": false
+    },
+    "coordinate_offset_sensitivity": {
+      "K0_prime_range": [
+        4.816266526084014,
+        4.853413215828341
+      ],
+      "K0_range_gpa": [
+        355.0654216672311,
+        359.3277294739493
+      ],
+      "assumed_systematic_offset_pt": 0.1
+    },
+    "rp01_dewaele_pt_comparison": {
+      "conditional_parameter_correlation": -0.9960484830983216,
+      "conditional_standard_errors": {
+        "K0": 9.758670275415566,
+        "K0_prime": 0.17846817862446415
+      },
+      "objective": "pressure_residuals",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        130.68357084834713,
+        282.31570694841423
+      ],
+      "parameters": {
+        "K0": 344.40761131715874,
+        "K0_prime": 4.645293673363801
+      },
+      "pressure_rmse_gpa": 2.8828987603535263,
+      "published_pressure_rmse_gpa": 15.529677501018,
+      "solver_success": true,
+      "within_published_quoted_errors": false
+    },
+    "rp01_yokoo_pt": {
+      "conditional_parameter_correlation": -0.9960745687764266,
+      "conditional_standard_errors": {
+        "K0": 10.226614920564156,
+        "K0_prime": 0.18014696472120184
+      },
+      "objective": "pressure_residuals",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        138.5287109544056,
+        302.80959631080384
+      ],
+      "parameters": {
+        "K0": 357.1917448671756,
+        "K0_prime": 4.834834244655565
+      },
+      "pressure_rmse_gpa": 3.1061686073745998,
+      "published_pressure_rmse_gpa": 3.2130888524322523,
+      "solver_success": true,
+      "within_published_quoted_errors": true
+    },
+    "rp01_yokoo_pt_volume_objective": {
+      "conditional_parameter_correlation": -0.9947769490658561,
+      "conditional_standard_errors": {
+        "K0": 9.280333080601002,
+        "K0_prime": 0.1730332970971972
+      },
+      "objective": "volume_residuals",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        138.5287109544056,
+        302.80959631080384
+      ],
+      "parameters": {
+        "K0": 346.7705919334978,
+        "K0_prime": 5.025034663643189
+      },
+      "pressure_rmse_gpa": 3.1803026210979066,
+      "published_pressure_rmse_gpa": 3.2130888524322523,
+      "solver_success": true,
+      "within_published_quoted_errors": false
+    }
+  },
+  "independent_vinet_pressure_gpa": 461.55576578565103,
+  "printed_rounding_pressure_bounds_gpa": [
+    455.1895636282852,
+    468.0184973038822
+  ],
+  "qualification": "The reported maximum pressure lies outside the co-compression fit range. Rounding bounds are a compatibility check, not an uncertainty interval or a recovery of the authors' unrounded coefficients. Original fit observations and weights are unavailable.",
+  "record_identifier": "rhenium_sakai_2018_yokoo_pt_vinet",
+  "reported_pressure_gpa": 464.0,
+  "reported_value_within_rounding_bounds": true,
+  "source_locations": [
+    "Article p. 10, below Figure 10",
+    "Article p. 11"
+  ],
+  "volume_angstrom3": 18.65
+}

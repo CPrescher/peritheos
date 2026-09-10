@@ -1,0 +1,94 @@
+{
+  "doi": "10.1080/08957959.2018.1448082",
+  "source_filename": "08957959.2018.1448082.pdf",
+  "source_sha256": "b9cafc84c668283a96ae59c48d0c42696df38eae42765d9db483bc8f5117eb32",
+  "pdf_page_one_based": 11,
+  "article_page": 10,
+  "figure": "10",
+  "coordinate_basis": "PDF points, x from left and top from top of page",
+  "pressure_ticks": [
+    [
+      190.21,
+      0
+    ],
+    [
+      207.859,
+      50
+    ],
+    [
+      225.508,
+      100
+    ],
+    [
+      243.213,
+      150
+    ],
+    [
+      260.861,
+      200
+    ],
+    [
+      278.51,
+      250
+    ],
+    [
+      296.16,
+      300
+    ],
+    [
+      313.864,
+      350
+    ],
+    [
+      331.513,
+      400
+    ]
+  ],
+  "volume_ticks": [
+    [
+      211.73999999999995,
+      18
+    ],
+    [
+      185.83299999999997,
+      20
+    ],
+    [
+      159.92599999999993,
+      22
+    ],
+    [
+      134.01799999999992,
+      24
+    ],
+    [
+      108.11099999999999,
+      26
+    ],
+    [
+      82.20299999999997,
+      28
+    ],
+    [
+      56.295999999999935,
+      30
+    ]
+  ],
+  "pressure_affine_map": [
+    2.8306477019875125,
+    -538.3895498511862
+  ],
+  "volume_affine_map": [
+    -0.07719804192460741,
+    34.34593821094373
+  ],
+  "maximum_pressure_tick_residual_gpa": 0.06492643056446923,
+  "maximum_volume_tick_residual_a3": 3.584189103378321e-05,
+  "series_counts": {
+    "rp01_dewaele_pt": 26,
+    "rp01_yokoo_pt": 26,
+    "micro17_yokoo_pt": 6
+  },
+  "method": "Bounding-box centers of vector marker paths; one fill path per RP01 marker, excluding the duplicate stroke path. Micro17 uses six larger open diamond paths. Legend markers and three literature curves are excluded. Overlapping distinct markers are retained. Affine axes fitted to all labeled major ticks. No source experimental uncertainties are available; vector precision is not measurement precision.",
+  "csv_sha256": "d0e39a8e2259fab3f39423de5cc73012c801444abc793fb800ff937adb3de30a"
+}

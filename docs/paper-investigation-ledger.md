@@ -32,14 +32,14 @@ produce an executable record.
 
 ## Summary
 
-The register covers **329 primary papers**: **229** support the 845 audited catalog records and **100** were investigated without adding a production record.
+The register covers **330 primary papers**: **230** support the 846 audited catalog records and **100** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
 
 | Paper-level outcome | Papers |
 |---|---:|
-| Reproduced | 152 |
+| Reproduced | 153 |
 | Partly reproduced | 4 |
 | Mixed: reproduced and discrepant records | 7 |
 | Coefficient parity not achieved | 14 |
@@ -1228,6 +1228,7 @@ the primary-source and refit ledgers.
 | [Ross and Angel (1999)](https://doi.org/10.2138/am-1999-0309) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Sagatova et al. (2021)](https://doi.org/10.1134/s0016702921080073) | Direct refit unavailable | 7 | 7 direct refit unavailable |  |
 | [Sakai et al. (2016)](https://doi.org/10.1038/srep22652) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Sakai et al. (2018)](https://doi.org/10.1080/08957959.2018.1448082) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | Direct refit unavailable | 9 | 9 direct refit unavailable |  |
 | [Sato and Jeanloz (1981)](https://doi.org/10.1029/jb086ib12p11773) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Satta et al. (2025), Fe-bearing delta-AlOOH elasticity](https://doi.org/10.1007/s00269-025-01319-7) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

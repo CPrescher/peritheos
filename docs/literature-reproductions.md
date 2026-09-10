@@ -2489,3 +2489,12 @@ thermal-energy/volume normalization used to obtain the published coefficients.
 
 - [Fratanduono (2020) Cu Vinet3 and reconstruction limitations](literature-reproductions/fratanduono-2020-cu.md).
 - [Shen–Smith (2026) Cu-referenced refits](literature-reproductions/shen-smith-2026-cu-refits.md).
+
+## Rhenium: Sakai et al. (2018)
+
+The [Sakai (2018) rhenium audit](literature-reproductions/sakai-2018-rhenium.md)
+preserves the source-owned Yokoo-Pt-scale Vinet fit. An independent refit of 26
+Figure 10 RP01 vector markers recovers both published coefficients within their
+quoted errors, with a `parity` outcome, comparable refit standard errors, and
+explicit row-selection and objective sensitivities. The separate maximum-pressure checkpoint retains
+its printed-precision discrepancy.

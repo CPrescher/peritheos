@@ -19,7 +19,7 @@ def test_validation_narrative_matches_primary_refit_ledger():
     )
 
     assert f"{summary['total']} records" in validation
-    assert f"{summary['parity']} uncertainty-parity matches" in validation
+    assert f"{summary['parity']} parity matches" in validation
     assert f"{summary['similar']} additional numerically similar results" in validation
     assert f"[{summary['parity_not_achieved']} direct refits]" in validation
     assert f"while {summary['not_refittable']} records cannot be" in validation

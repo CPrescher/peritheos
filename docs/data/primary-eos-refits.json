@@ -5,7 +5,7 @@
   "policy": {
     "bounded_partial": "A declared subset/proxy fit is executable from primary rows, but missing source inputs or protocol details prevent an authoritative full-fit comparison.",
     "not_refittable": "The primary source supplies no direct row-level observations, or the necessary reduction/calibration is not executable.",
-    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold.",
+    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "reconstructed": "A derived record is reproduced exactly from separately audited source components without optimizing composite coefficients. Any independent component refit and source-data validation are reported separately.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
@@ -32720,6 +32720,167 @@
       "status": "not_refittable"
     },
     {
+      "dataset_identifiers": [
+        "rhenium_sakai_2018_figure10"
+      ],
+      "experimental_pressure_range_gpa": [
+        130.0,
+        310.0
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "diagnostic_vector_digitized_vinet",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Sakai et al. (2018), Re Vinet on the Yokoo Pt scale",
+      "material_identifier": "rhenium",
+      "model": "Vinet",
+      "objective": "pressure_residuals",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        138.5287109544056,
+        302.80959631080384
+      ],
+      "parameters": [
+        {
+          "difference": -0.8082551328243994,
+          "parameter": "K0",
+          "published": 358.0,
+          "published_error": 10.0,
+          "refit": 357.1917448671756,
+          "refit_error": 10.226614920564156,
+          "relative_difference": 0.0022576959017441326,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        },
+        {
+          "difference": 0.03483424465556517,
+          "parameter": "K0_prime",
+          "published": 4.8,
+          "published_error": 0.2,
+          "refit": 4.834834244655565,
+          "refit_error": 0.18014696472120184,
+          "relative_difference": 0.0072571343032427444,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "All 58 Figure 10 vector markers are bundled, preserving 26 RP01 observations on each Pt scale and six Micro17 observations. An unweighted Vinet refit of the 26 RP01 Yokoo-Pt points, with V0=29.47 A^3 fixed, gives K0=357.19 GPa and K0_prime=4.83483, within the printed 358(10) and 4.8(2). Original fit-row membership, residual coordinate, weights and uncertainty confidence are unspecified; including Micro17 or changing the objective shifts the optimum. This is a qualified digitized-data reproduction, not a recovery of the original fit table. See the [Sakai (2018) audit](literature-reproductions/sakai-2018-rhenium.md).",
+      "primary_data_status": "plot_only",
+      "primary_source": "https://doi.org/10.1080/08957959.2018.1448082",
+      "published_rmse_gpa": 3.2130888524322523,
+      "qualification": "Numerical parity: 26 RP01 Yokoo-Pt Figure 10 points reproduce both coefficients within the quoted errors, with comparable conditional refit standard errors (10.23 GPa and 0.180). Parity is based on the reported parameter error widths, not a formal combined-two-sigma claim. Exact row selection, weights and source error confidence are unspecified. Including six Micro17 points shifts K0/K0' to about 327.1/5.373; this selection sensitivity is retained in the dedicated Sakai 2018 audit.",
+      "record_identifier": "rhenium_sakai_2018_yokoo_pt_vinet",
+      "rmse_gpa": 3.1061686073745998,
+      "selection": "26 RP01 Yokoo-Pt gray diamonds only; source membership inferred, not explicitly enumerated",
+      "sensitivity": {
+        "all_yokoo_pt": {
+          "conditional_parameter_correlation": -0.993833695351741,
+          "conditional_standard_errors": {
+            "K0": 10.26191701178497,
+            "K0_prime": 0.20071748438780437
+          },
+          "objective": "pressure_residuals",
+          "observations": 32,
+          "observed_pressure_range_gpa": [
+            131.48322882415857,
+            302.80959631080384
+          ],
+          "parameters": {
+            "K0": 327.07488068801507,
+            "K0_prime": 5.373479208587058
+          },
+          "pressure_rmse_gpa": 4.4633763413950724,
+          "published_pressure_rmse_gpa": 5.0555795145683415,
+          "solver_success": true,
+          "within_published_quoted_errors": false
+        },
+        "coordinate_offset_sensitivity": {
+          "K0_prime_range": [
+            4.816266526084014,
+            4.853413215828341
+          ],
+          "K0_range_gpa": [
+            355.0654216672311,
+            359.3277294739493
+          ],
+          "assumed_systematic_offset_pt": 0.1
+        },
+        "rp01_dewaele_pt_comparison": {
+          "conditional_parameter_correlation": -0.9960484830983216,
+          "conditional_standard_errors": {
+            "K0": 9.758670275415566,
+            "K0_prime": 0.17846817862446415
+          },
+          "objective": "pressure_residuals",
+          "observations": 26,
+          "observed_pressure_range_gpa": [
+            130.68357084834713,
+            282.31570694841423
+          ],
+          "parameters": {
+            "K0": 344.40761131715874,
+            "K0_prime": 4.645293673363801
+          },
+          "pressure_rmse_gpa": 2.8828987603535263,
+          "published_pressure_rmse_gpa": 15.529677501018,
+          "solver_success": true,
+          "within_published_quoted_errors": false
+        },
+        "rp01_yokoo_pt": {
+          "conditional_parameter_correlation": -0.9960745687764266,
+          "conditional_standard_errors": {
+            "K0": 10.226614920564156,
+            "K0_prime": 0.18014696472120184
+          },
+          "objective": "pressure_residuals",
+          "observations": 26,
+          "observed_pressure_range_gpa": [
+            138.5287109544056,
+            302.80959631080384
+          ],
+          "parameters": {
+            "K0": 357.1917448671756,
+            "K0_prime": 4.834834244655565
+          },
+          "pressure_rmse_gpa": 3.1061686073745998,
+          "published_pressure_rmse_gpa": 3.2130888524322523,
+          "solver_success": true,
+          "within_published_quoted_errors": true
+        },
+        "rp01_yokoo_pt_volume_objective": {
+          "conditional_parameter_correlation": -0.9947769490658561,
+          "conditional_standard_errors": {
+            "K0": 9.280333080601002,
+            "K0_prime": 0.1730332970971972
+          },
+          "objective": "volume_residuals",
+          "observations": 26,
+          "observed_pressure_range_gpa": [
+            138.5287109544056,
+            302.80959631080384
+          ],
+          "parameters": {
+            "K0": 346.7705919334978,
+            "K0_prime": 5.025034663643189
+          },
+          "pressure_rmse_gpa": 3.1803026210979066,
+          "published_pressure_rmse_gpa": 3.2130888524322523,
+          "solver_success": true,
+          "within_published_quoted_errors": false
+        }
+      },
+      "source_notes": "Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.",
+      "status": "parity"
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -37936,11 +38097,11 @@
   "summary": {
     "bounded_partial": 1,
     "not_refittable": 512,
-    "parity": 190,
+    "parity": 191,
     "parity_not_achieved": 38,
     "reconstructed": 2,
     "similar": 91,
     "source_reconstruction": 11,
-    "total": 845
+    "total": 846
   }
 }

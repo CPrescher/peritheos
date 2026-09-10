@@ -829,6 +829,152 @@
     },
     "access_and_licensing": "The exact exp.txt coefficients are redistributed from the Materials Cloud archive under CC BY 4.0. The 2014 supplement is used for interpretation and citations, not copied as a dataset."
    }
+  },
+  {
+   "identifier": "rhenium_sakai_2018_yokoo_pt_vinet",
+   "label": "Sakai et al. (2018), Re Vinet on the Yokoo Pt scale",
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Yagi",
+     "Irifune",
+     "Kadobayashi",
+     "Hirao",
+     "Kunimoto",
+     "Ohfuji",
+     "Kawaguchi-Imada",
+     "Ohishi",
+     "Tateno",
+     "Hirose"
+    ],
+    "year": 2018,
+    "title": "High pressure generation using double-stage diamond anvil technique: problems and equations of state of rhenium",
+    "source": "High Pressure Research",
+    "volume": "38",
+    "locator": "107-119",
+    "details": "Issue 2; published online 7 March 2018",
+    "doi": "10.1080/08957959.2018.1448082"
+   },
+   "eos": {
+    "type": "Vinet",
+    "model": "vinet",
+    "parameters": {
+     "V0": 29.47,
+     "K0": 358.0,
+     "K0_prime": 4.8
+    }
+   },
+   "parameter_errors": {
+    "K0": 10.0,
+    "K0_prime": 0.2
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    130.0,
+    310.0
+   ],
+   "pressure_range_status": "reported_qualitatively",
+   "validity": {
+    "pressure_gpa": [
+     130.0,
+     310.0
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Approximate Yokoo-Pt pressure coverage read from Figure 10, not exact tabulated endpoints. The text reports RP01 to 280 GPa on the lower pressure scale; the Yokoo-Pt reduction reaches about 310 GPa.",
+     "Room temperature represented as 300 K; no exact temperature or thermal coefficients are reported.",
+     "The approximately 464 GPa Micro16 result is an extrapolation beyond the Re-Pt co-compression fit."
+    ]
+   },
+   "parameter_provenance": {
+    "V0": "Section 3, paragraph below Figure 10 (article p. 10; final p. 116): fixed conventional hcp cell volume, 29.47 A^3, Z=2.",
+    "K0": "Same paragraph: 358(10) GPa, fitted.",
+    "K0_prime": "Same paragraph: 4.8(2), fitted.",
+    "temperature_ref": "Ambient-temperature DAC experiment; 300 K is the catalog room-temperature convention, not a measured value."
+   },
+   "notes": "Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.",
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Yokoo",
+        "Kawai",
+        "Nakamura",
+        "Kondo"
+       ],
+       "year": 2009,
+       "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+       "source": "Physical Review B",
+       "doi": "10.1103/PhysRevB.80.104114"
+      },
+      "source_location": "Section 3, Figure 10 and following paragraph; reference [7]",
+      "scope": "Yokoo platinum Vinet scale applied to co-compressed Pt.",
+      "notes": "The Dewaele-Pt points in Figure 10 are a comparison, not the pressure scale of this fitted record."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "No exact Yokoo (2009) Pt record is bundled; original paired Pt-Re volumes and pressure uncertainties are also not tabulated."
+    },
+    "audit_date": "2026-09-10"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "note": "Primary PDF checked for the published Vinet fit and calibration. An independent refit of 26 RP01 Yokoo-Pt Figure 10 vector points achieves numerical parity: K0 and K0_prime agree within the quoted parameter error widths, with comparable conditional refit standard errors of 10.23 GPa and 0.180. Original weights, row selection and source error confidence remain unspecified; no formal combined-two-sigma claim is made.",
+    "audit_date": "2026-09-10",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1080/08957959.2018.1448082",
+     "doi": "10.1080/08957959.2018.1448082",
+     "source_filename": "08957959.2018.1448082.pdf",
+     "sha256": "b9cafc84c668283a96ae59c48d0c42696df38eae42765d9db483bc8f5117eb32",
+     "locations": [
+      "Section 2 (article p. 4), Re-Pt co-compression",
+      "Section 3, Figure 10 and following paragraph (article p. 10)",
+      "Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure"
+     ],
+     "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work."
+    },
+    "primary_data_check": {
+     "status": "plot_only",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "rhenium_sakai_2018_figure10"
+     ],
+     "source_locations": [
+      "Figure 10",
+      "Table 1 (anvil/sample setup only)"
+     ],
+     "finding": "All 58 Figure 10 vector markers are bundled, preserving 26 RP01 observations on each Pt scale and six Micro17 observations. An unweighted Vinet refit of the 26 RP01 Yokoo-Pt points, with V0=29.47 A^3 fixed, gives K0=357.19 GPa and K0_prime=4.83483, within the printed 358(10) and 4.8(2). Original fit-row membership, residual coordinate, weights and uncertainty confidence are unspecified; including Micro17 or changing the objective shifts the optimum. This is a qualified digitized-data reproduction, not a recovery of the original fit table. See the [Sakai (2018) audit](literature-reproductions/sakai-2018-rhenium.md).",
+     "reproduction_resource": "docs/data/sakai-2018-rhenium-reproduction.json",
+     "digitized_dataset_identifiers": [],
+     "fit_scope": "qualified_digitized_reconstruction"
+    }
+   },
+   "fit_datasets": [
+    "rhenium_sakai_2018_figure10"
+   ]
   }
  ],
  "datasets": [
@@ -983,6 +1129,88 @@
     },
     "transcribed_on": "2026-09-03"
    }
+  },
+  {
+   "identifier": "rhenium_sakai_2018_figure10",
+   "kind": "digitized_pressure_volume",
+   "description": "All 58 Figure 10 vector markers: 26 RP01 Yokoo-Pt gray diamonds, 26 alternate-scale RP01 Dewaele-Pt circles, and 6 Micro17 Yokoo-Pt open diamonds. The two RP01 series are alternative reductions of the same observations. The diagnostic source-fit reproduction selects the 26 RP01 Yokoo-Pt rows only.",
+   "reference": {
+    "authors": [
+     "Sakai",
+     "Yagi",
+     "Irifune",
+     "Kadobayashi",
+     "Hirao",
+     "Kunimoto",
+     "Ohfuji",
+     "Kawaguchi-Imada",
+     "Ohishi",
+     "Tateno",
+     "Hirose"
+    ],
+    "year": 2018,
+    "title": "High pressure generation using double-stage diamond anvil technique: problems and equations of state of rhenium",
+    "source": "High Pressure Research",
+    "volume": "38",
+    "locator": "107-119",
+    "details": "Issue 2; published online 7 March 2018",
+    "doi": "10.1080/08957959.2018.1448082"
+   },
+   "source_location": "Figure 10, article p. 10 (final p. 116)",
+   "source_url": "https://doi.org/10.1080/08957959.2018.1448082",
+   "columns": [
+    {
+     "name": "series",
+     "quantity": "series_label",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pdf_curve_index",
+     "quantity": "source_object_index",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "pdf_x_pt",
+     "quantity": "source_graphic_x",
+     "unit": "point",
+     "role": "value"
+    },
+    {
+     "name": "pdf_top_pt",
+     "quantity": "source_graphic_top",
+     "unit": "point",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/rhenium-sakai-2018-figure10.csv",
+    "sha256": "d0e39a8e2259fab3f39423de5cc73012c801444abc793fb800ff937adb3de30a",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "vector_digitized",
+    "method": "scripts/extract_sakai_2018_figure10.py recovers vector bounding-box centers and calibrates affine axes to all labeled major ticks. Fill/stroke duplicates are excluded; overlapping distinct markers are retained. Original experimental uncertainties are unavailable.",
+    "source_resource": "datasets/rhenium-sakai-2018-figure10-source.json",
+    "uncertainty": "No experimental sigma is inferred. A separate +/-0.1 PDF-point systematic coordinate sensitivity is reported; it is not a confidence interval.",
+    "license": "Numerical graphical transcription with source attribution; publisher PDF is not redistributed."
+   },
+   "used_by_eos_records": [
+    "rhenium_sakai_2018_yokoo_pt_vinet"
+   ]
   }
  ],
  "format": "peritheos.material",
