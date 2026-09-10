@@ -69,7 +69,7 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 892
+    assert len(records) == 895
     assert len(materials) == 287
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
@@ -91,6 +91,9 @@ def test_catalog_listing_lookup_and_material_filter():
         "au_sun_2010_low_sms3",
         "au_sun_2010_low_sms4",
         "au_sun_2010_low_vn",
+        "gold_hirose_2008_bm3_300k",
+        "gold_hirose_2008_bm3_fit1",
+        "gold_hirose_2008_bm3_fit2",
         "gold_anderson_1989_bm3_1",
         "gold_dewaele_2004_mao_ruby_vinet",
         "gold_dewaele_2004_vinet_5",

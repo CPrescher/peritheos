@@ -2339,6 +2339,10 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id.startswith("gold_hirose_2008_"):
+        from scripts.reproduce_hirose_2008_gold import ledger_outcome
+
+        return ledger_outcome(record)
     from scripts.reproduce_iron_source_papers import belongs
     from scripts.reproduce_iron_source_papers import (
         ledger_outcome as iron_source_outcome,

@@ -388,6 +388,8 @@ def test_xrd_recalculation_rejects_missing_standard_and_shape_mismatch():
 
 def test_recursive_graph_connects_kcl_ruby_diamond_platinum_and_gold():
     expected_edges = {
+        "gold_hirose_2008_to_mgo_speziale_2001_300k",
+        "gold_hirose_2008_to_mgo_speziale_2001_thermal",
         "kcl_tateno_2019_to_platinum_sokolova_2013",
         "kcl_chidester_2021_to_platinum_dorogokupets_2007",
         "diamond_akahama_2006_to_platinum_holmes_1989",

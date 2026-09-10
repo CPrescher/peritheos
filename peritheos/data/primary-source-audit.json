@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 892,
-    "primary_source_validated": 892
+    "records": 895,
+    "primary_source_validated": 895
   },
   "records": [
     {
@@ -5766,6 +5766,63 @@
           "Mendeley v3 Au optimizer and property scripts"
         ],
         "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_hirose_2008_bm3_fit2",
+      "label": "Hirose et al. (2008), thermal BM3 fit #2 (preferred)",
+      "doi": "10.1016/j.pepi.2008.03.002",
+      "status": "primary_source_validated",
+      "note": "Primary equations, coefficients, units and table outputs verified; this initial audit does not reproduce the complete preferred-fit regression including the 26 upstream Fei observations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+        "doi": "10.1016/j.pepi.2008.03.002",
+        "locations": [
+          "Table 1, page 150",
+          "Table 2, page 152",
+          "Sections 3.1-3.2, pages 151-153"
+        ],
+        "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_hirose_2008_bm3_fit1",
+      "label": "Hirose et al. (2008), thermal BM3 fit #1 (DAC only)",
+      "doi": "10.1016/j.pepi.2008.03.002",
+      "status": "primary_source_validated",
+      "note": "Primary equations, coefficients, units and table outputs verified; this initial audit does not reproduce the complete preferred-fit regression including the 26 upstream Fei observations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+        "doi": "10.1016/j.pepi.2008.03.002",
+        "locations": [
+          "Table 1, page 150",
+          "Table 2, page 152",
+          "Sections 3.1-3.2, pages 151-153"
+        ],
+        "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_hirose_2008_bm3_300k",
+      "label": "Hirose et al. (2008), 300 K BM3 on Speziale MgO scale",
+      "doi": "10.1016/j.pepi.2008.03.002",
+      "status": "primary_source_validated",
+      "note": "Primary equations, coefficients, units and table outputs verified; this initial audit does not reproduce the complete preferred-fit regression including the 26 upstream Fei observations.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+        "doi": "10.1016/j.pepi.2008.03.002",
+        "locations": [
+          "Table 1, page 150",
+          "Table 2, page 152",
+          "Sections 3.1-3.2, pages 151-153"
+        ],
+        "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
       }
     },
     {

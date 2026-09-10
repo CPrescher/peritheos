@@ -366,7 +366,7 @@ not qualify.
 | [Dorogokupets and Dewaele (2007)](https://doi.org/10.1080/08957950701659700) | MgO, Au, Pt, and NaCl | Joint model family | Not yet complete in shared library |
 | [Dorogokupets and Oganov (2007)](https://doi.org/10.1103/PhysRevB.75.024115) | Ruby, metals, MgO, and diamond | Semiempirical family and ruby scale | Ruby equation and complete Pt thermal EOS executable |
 | [Takemura and Dewaele (2008)](https://doi.org/10.1103/PhysRevB.78.104119) | Ruby and Au; 300 K to 123 GPa | Ruby-to-Au bridge | Executable bridge EOS |
-| [Hirose et al. (2008)](https://doi.org/10.1016/j.pepi.2008.03.002) | Au and MgO; high temperature to 140 GPa | Thermal cross-calibration | Not yet encoded as an edge |
+| [Hirose et al. (2008)](https://doi.org/10.1016/j.pepi.2008.03.002) | Au and MgO; high temperature to 140 GPa | Thermal cross-calibration | [Au EOS and paired Table 1 data](literature-reproductions/hirose-2008-gold.md); 300 K edge executable, thermal MgO anchor pending |
 | [Tateno et al. (2019)](https://doi.org/10.2138/am-2019-6779) | B2 KCl and Pt; 300 K to 229 GPa and high temperature to about 60 GPa | KCl bridge tied to Sokolova Pt | EOS and executable edge bundled |
 | [Dorfman et al. (2012)](https://doi.org/10.1029/2012JB009292) | Au, Pt, Mo, MgO, NaCl-B2, and Ne; 300 K to about 265 GPa | Relative family anchored to Tange MgO | Five convenience records; paired edge not encoded |
 | [Sokolova et al. (2013)](https://doi.org/10.1016/j.rgg.2013.01.005) | Diamond, MgO, Ag, Al, Au, Cu, Mo, Nb, Pt, Ta, and W; model to 4 Mbar and 3000 K | Internally consistent model family | All eleven members executable |

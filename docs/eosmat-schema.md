@@ -449,7 +449,7 @@ Bundled records additionally carry `audit_date`, a `primary_source_check`
 object with DOI/URL and equation-table-page locations, and either
 `verified_fields` or `unresolved`. These are additive extension fields. The
 record-by-record package ledger is
-`peritheos/data/primary-source-audit.json`. All 892 bundled records are
+`peritheos/data/primary-source-audit.json`. All 895 bundled records are
 validated, with no deferred or pending record.
 
 ## Complete EOS-only example
@@ -583,3 +583,6 @@ published density reference and explicit volume conversion.
 `1/K0(T)=1/K0(Tr)+beta1*(T-Tr)+beta2*(T²-Tr²)+beta3*(T³-Tr³)`
 and `dK_dT=0`. Optional `kprime_log_coefficient` shifts K0′ by
 `a*(T-Tr)*ln(T/Tr)` for supported three-parameter reference EOS families.
+
+See the [Hirose gold audit](literature-reproductions/hirose-2008-gold.md) for
+source parameters, reference-state rounding, and reproduction of these laws.

@@ -2,6 +2,11 @@
 
 ## [Unreleased]
 
+- Added Hirose et al. (2008) gold 300 K and both thermal EOS fits, all 21
+  paired Au/MgO observations, source reproduction, and calibration metadata.
+  The 300 K MgO link is executable; the thermal link awaits the exact
+  Speziale (2001) thermal MgO model.
+
 - Added Fei et al. (2016): three published hcp-iron EOS records and all 96
   supplementary observations, with a Debye plus quadratic thermal-pressure
   model in Python and Rust and explicit limits on global-fit reproduction.

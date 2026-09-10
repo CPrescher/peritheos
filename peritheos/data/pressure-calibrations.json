@@ -272,7 +272,10 @@
     "kcl_b2_dewaele_2012_vinet_3",
     "kcl_b2_tateno_2019_vinet_4",
     "platinum_dorogokupets_oganov_2007_vinet_4",
-    "platinum_sokolova_2013_holzapfel_3"
+    "platinum_sokolova_2013_holzapfel_3",
+    "gold_hirose_2008_bm3_fit2",
+    "gold_hirose_2008_bm3_fit1",
+    "gold_hirose_2008_bm3_300k"
   ],
   "cross_calibration_edges": [
     {
@@ -367,6 +370,62 @@
       },
       "source_location": "Equations 1-15, Tables 1 and 4, and simultaneous optimization of pressure markers",
       "notes": "Pressure identity is the shared pressure coordinate of the jointly optimized EOS family; it is not equality of Au and Pt volumes."
+    },
+    {
+      "identifier": "gold_hirose_2008_to_mgo_speziale_2001_300k",
+      "kind": "simultaneous_xrd_calibration",
+      "source_node": "gold_hirose_2008_bm3_300k",
+      "target_node": "mgo_speziale_2001_bm3_2",
+      "transformation": "pressure_identity",
+      "bidirectional": true,
+      "executable": true,
+      "reference": {
+        "authors": [
+          "Hirose",
+          "Sata",
+          "Komabayashi",
+          "Ohishi"
+        ],
+        "year": 2008,
+        "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "167",
+        "locator": "149-154",
+        "doi": "10.1016/j.pepi.2008.03.002"
+      },
+      "source_location": "Table 1, Table 2, and Section 3",
+      "dataset_identifiers": [
+        "gold_hirose_2008_table1"
+      ],
+      "notes": "Published shared MgO pressure basis, not an Au-to-MgO volume function. Room-temperature anchor only; paired raw lattice parameters retained."
+    },
+    {
+      "identifier": "gold_hirose_2008_to_mgo_speziale_2001_thermal",
+      "kind": "simultaneous_xrd_calibration",
+      "source_node": "gold_hirose_2008_bm3_fit2",
+      "target_node": "mgo_speziale_2001_thermal",
+      "transformation": "pressure_identity",
+      "bidirectional": true,
+      "executable": false,
+      "reference": {
+        "authors": [
+          "Hirose",
+          "Sata",
+          "Komabayashi",
+          "Ohishi"
+        ],
+        "year": 2008,
+        "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "167",
+        "locator": "149-154",
+        "doi": "10.1016/j.pepi.2008.03.002"
+      },
+      "source_location": "Table 1, Table 2, and Section 3",
+      "dataset_identifiers": [
+        "gold_hirose_2008_table1"
+      ],
+      "notes": "Published shared MgO pressure basis, not an Au-to-MgO volume function. Thermal anchor is not bundled; edge retained as evidence only."
     }
   ],
   "measurement_notes": [

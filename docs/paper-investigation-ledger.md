@@ -32,7 +32,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **335 primary papers**: **235** support the 892 audited catalog records and **100** were investigated without adding a production record.
+The register covers **336 primary papers**: **236** support the 895 audited catalog records and **100** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -40,7 +40,7 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Reproduced | 154 |
-| Partly reproduced | 5 |
+| Partly reproduced | 6 |
 | Mixed: reproduced and discrepant records | 8 |
 | Coefficient parity not achieved | 15 |
 | Bounded partial refit | 1 |
@@ -938,7 +938,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **61 papers** contain 525 records for which a
+These **62 papers** contain 526 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -969,6 +969,7 @@ have other records that were reproduced.
 | [Guigue et al. (2020)](https://doi.org/10.1063/1.5138697) | `palladium_guigue_2020_vinet_1` | The underlying pure-Pd observations are plotted but not tabulated in the accessible primary article; no numerical refit is claimed. |
 | [Hama and Suito (1996)](https://doi.org/10.1088/0953-8984/8/1/008) | `mgo_hama_suito_1996_qsm_static_vinet` | The theoretical comparison curves are plotted but no pressure-volume calculation table is published; validation uses the exact printed equation and coefficients without inventing pseudo-observations. |
 | [Hamahata et al. (2000)](https://doi.org/10.2465/jmps.95.236) | `bridgmanite_hamahata_2000_md_300k_bm3` | The complete fit coefficients are printed; the simulated 300 K volumes are plotted but not tabulated, so no pseudo-observations were digitized. |
+| [Hirose et al. (2008)](https://doi.org/10.1016/j.pepi.2008.03.002) | `gold_hirose_2008_bm3_fit2` | All 21 Table 1 output pressures are reproduced, including 12 high-temperature observations. The full 38-row fit also used 26 Fei et al. (2004) observations not bundled by this initial Hirose audit. Their recovery and complete-fit reproduction are handled in the separate Fei follow-up. |
 | [Holland et al. (2013)](https://doi.org/10.1093/petrology/egt035) | `al2o3_perovskite_holland_2013_apv_modified_tait`, `bridgmanite_holland_2013_mpv_modified_tait`, `ca_perovskite_holland_2013_cpv_modified_tait`, `feo_holland_2013_fper_modified_tait`, `fesio3_bridgmanite_holland_2013_fpv_modified_tait`, `mgo_holland_2013_per_modified_tait`, `sio2_stv_andr_holland_2013_stv_modified_tait` | The official tc-ds62 apv block provides all four coefficients. The official tc-ds62 mpv block provides V0, K0, K0', and K0'' without model-family conversion. The official tc-ds62 cpv block provides all four coefficients. The official tc-ds62 fper block provides all four coefficients. The official tc-ds62 fpv block provides all four coefficients. The official tc-ds62 per block provides all four coefficients. The official tc-ds62 stv block provides all four coefficients. |
 | [Holmes et al. (1989)](https://doi.org/10.1063/1.344177) | `platinum_holmes_1989_vinet_1` | The bundled rows are shock-Hugoniot qualification experiments; the stored equilibrium Vinet curve is a theoretical 300 K isotherm and cannot be refitted directly to those rows. |
 | [Karki and Crain (1998)](https://doi.org/10.1029/98gl51952) | `ca_perovskite_karki_crain_1998_static_bm3` | The source reports the complete EOS coefficients and plotted calculated curves but no reusable energy-volume table or fit covariance. |
@@ -1140,6 +1141,7 @@ the primary-source and refit ledgers.
 | [Hemley et al. (1989)](https://doi.org/10.1103/physrevb.39.11820) | Reproduced | 1 | 1 parity | 1 bundled |
 | [High pressure and high temperature in situ X‐ray observation of MgSiO3 Perovskite under lower mantle conditions (1993)](https://doi.org/10.1029/92gl02960) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Hirose et al. (2005)](https://doi.org/10.2138/am.2005.1702) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
+| [Hirose et al. (2008)](https://doi.org/10.1016/j.pepi.2008.03.002) | Partly reproduced | 3 | 2 similar; 1 direct refit unavailable | 2 bundled; 1 bundled indirect |
 | [Holland et al. (2013)](https://doi.org/10.1093/petrology/egt035) | Direct refit unavailable | 7 | 7 direct refit unavailable |  |
 | [Holmes et al. (1989)](https://doi.org/10.1063/1.344177) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
 | [Inbar and Cohen (1995), MgO thermal properties](https://doi.org/10.1029/95GL01086) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

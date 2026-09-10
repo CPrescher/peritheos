@@ -2644,6 +2644,508 @@
     ]
    },
    "notes": "This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm."
+  },
+  {
+   "identifier": "gold_hirose_2008_bm3_fit2",
+   "label": "Hirose et al. (2008), thermal BM3 fit #2 (preferred)",
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sata",
+     "Komabayashi",
+     "Ohishi"
+    ],
+    "year": 2008,
+    "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "167",
+    "locator": "149-154",
+    "doi": "10.1016/j.pepi.2008.03.002"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.96657
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 67.85,
+     "K0": 167.0,
+     "K0_prime": 5.58
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    140.58
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    2330.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     140.58
+    ],
+    "temperature_k": [
+     300.0,
+     3000.0
+    ],
+    "notes": [
+     "Fit #1 is explicitly restricted to >70 GPa; fit #2 is recommended to 140 GPa and 3000 K, beyond the measured maximum 2330 K. Marginal ranges do not guarantee phase stability."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/2000JB900318"
+      },
+      "source_location": "Section 3 and Table 1 footnote a",
+      "scope": "Speziale et al. MgO scale; Table 1 retains paired MgO lattice parameters and source pressures"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "The 300 K anchor is executable. The exact Speziale thermal MgO model is not bundled; thermal records must not link to the isothermal-only record."
+    },
+    "audit_date": "2026-09-10"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary equations, coefficients, units and table outputs verified; this initial audit does not reproduce the complete preferred-fit regression including the 26 upstream Fei observations.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+     "doi": "10.1016/j.pepi.2008.03.002",
+     "locations": [
+      "Table 1, page 150",
+      "Table 2, page 152",
+      "Sections 3.1-3.2, pages 151-153"
+     ],
+     "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+    },
+    "primary_data_check": {
+     "status": "bundled_indirect",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "gold_hirose_2008_table1"
+     ],
+     "source_locations": [
+      "Table 1"
+     ],
+     "finding": "All nine 300 K and twelve high-temperature observations are bundled. Fit #2 additionally used 26 Fei et al. (2004) rows, absent from the Hirose article; their recovery and full-fit reproduction are handled separately."
+    }
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits.",
+     "K0": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits.",
+     "K0_prime": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits."
+    },
+    "thermal_correction": {
+     "Tr": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "alpha0": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "alpha1": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "dK_dT": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "beta1": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "beta2": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "beta3": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "kprime_log_coefficient": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported."
+    }
+   },
+   "notes": "Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems. Preferred fit #2: alpha1 uncertainty comes from the separately fitted expansivity relation on page 153, although alpha1 was held fixed in the EOS regression. Printed beta0 is preserved in provenance; its tiny intercept adjustment enforces K(300)=167 GPa.",
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "bulk_modulus_law": "reciprocal_cubic",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 3.824e-05,
+     "alpha1": 1.499e-08,
+     "dK_dT": 0.0,
+     "beta1": 1.03e-06,
+     "beta2": 3.95e-10,
+     "beta3": 1.61e-13,
+     "kprime_log_coefficient": 0.000361
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": null,
+     "alpha1": 1.8e-10,
+     "dK_dT": null,
+     "beta1": 4.4e-07,
+     "beta2": 3.88e-10,
+     "beta3": 9.7e-14,
+     "kprime_log_coefficient": 2.2e-05
+    },
+    "fixed_parameters": [
+     "Tr",
+     "alpha0",
+     "alpha1",
+     "dK_dT"
+    ]
+   },
+   "source_coefficient_rounding": {
+    "printed_beta0_gpa_inverse": 0.005639,
+    "derived_beta0_gpa_inverse": 0.005639126952095809,
+    "derivation": "Enforce the source-fixed K(300)=167 GPa; the printed beta0 gives 167.003540642 GPa because of rounding.",
+    "source_location": "Table 2 and Section 3.2(2)"
+   },
+   "fit_datasets": [
+    "gold_hirose_2008_table1"
+   ]
+  },
+  {
+   "identifier": "gold_hirose_2008_bm3_fit1",
+   "label": "Hirose et al. (2008), thermal BM3 fit #1 (DAC only)",
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sata",
+     "Komabayashi",
+     "Ohishi"
+    ],
+    "year": 2008,
+    "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "167",
+    "locator": "149-154",
+    "doi": "10.1016/j.pepi.2008.03.002"
+   },
+   "record_kind": "published",
+   "equation_kind": "thermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.96657
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 67.85,
+     "K0": 167.0,
+     "K0_prime": 5.58
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": null
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0",
+    "K0_prime"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    78.2,
+    119.1
+   ],
+   "experimental_temperature_range_k": [
+    1340.0,
+    2330.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     70.0,
+     140.0
+    ],
+    "temperature_k": [
+     300.0,
+     2330.0
+    ],
+    "notes": [
+     "Fit #1 is explicitly restricted to >70 GPa; fit #2 is recommended to 140 GPa and 3000 K, beyond the measured maximum 2330 K. Marginal ranges do not guarantee phase stability."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/2000JB900318"
+      },
+      "source_location": "Section 3 and Table 1 footnote a",
+      "scope": "Speziale et al. MgO scale; Table 1 retains paired MgO lattice parameters and source pressures"
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "The 300 K anchor is executable. The exact Speziale thermal MgO model is not bundled; thermal records must not link to the isothermal-only record."
+    },
+    "audit_date": "2026-09-10"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary equations, coefficients, units and table outputs verified; this initial audit does not reproduce the complete preferred-fit regression including the 26 upstream Fei observations.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+     "doi": "10.1016/j.pepi.2008.03.002",
+     "locations": [
+      "Table 1, page 150",
+      "Table 2, page 152",
+      "Sections 3.1-3.2, pages 151-153"
+     ],
+     "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "gold_hirose_2008_table1"
+     ],
+     "source_locations": [
+      "Table 1"
+     ],
+     "finding": "All nine 300 K and twelve high-temperature observations are bundled. Fit #2 additionally used 26 Fei et al. (2004) rows, absent from the Hirose article; their recovery and full-fit reproduction are handled separately."
+    }
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits.",
+     "K0": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits.",
+     "K0_prime": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits."
+    },
+    "thermal_correction": {
+     "Tr": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "alpha0": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "alpha1": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported.",
+     "dK_dT": "Table 2 and Section 3.2; no parameter covariance or fitting weights reported."
+    }
+   },
+   "notes": "Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems.",
+   "thermal": {
+    "type": "AlphaKT",
+    "model": "thermal_reference_state",
+    "thermal_expansion_law": "linear_temperature",
+    "bulk_modulus_law": "linear_temperature",
+    "parameters": {
+     "Tr": 300.0,
+     "alpha0": 3.179e-05,
+     "alpha1": 1.477e-08,
+     "dK_dT": -0.028
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "alpha0": 1.39e-06,
+     "alpha1": 3.1e-09,
+     "dK_dT": 0.003
+    },
+    "fixed_parameters": [
+     "Tr"
+    ]
+   },
+   "fit_datasets": [
+    "gold_hirose_2008_table1"
+   ]
+  },
+  {
+   "identifier": "gold_hirose_2008_bm3_300k",
+   "label": "Hirose et al. (2008), 300 K BM3 on Speziale MgO scale",
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sata",
+     "Komabayashi",
+     "Ohishi"
+    ],
+    "year": 2008,
+    "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "167",
+    "locator": "149-154",
+    "doi": "10.1016/j.pepi.2008.03.002"
+   },
+   "record_kind": "published",
+   "equation_kind": "isothermal",
+   "volume_basis": {
+    "kind": "formula_units",
+    "formula_units": 4,
+    "molar_mass_g_mol": 196.96657
+   },
+   "eos": {
+    "type": "BM3",
+    "model": "birch_murnaghan_3",
+    "parameters": {
+     "V0": 67.85,
+     "K0": 167.0,
+     "K0_prime": 5.58
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": null,
+    "K0_prime": 0.02
+   },
+   "parameter_error_confidence": null,
+   "parameter_covariance": null,
+   "fixed_parameters": [
+    "V0",
+    "K0"
+   ],
+   "temperature_ref": 300.0,
+   "experimental_pressure_range_gpa": [
+    10.65,
+    140.58
+   ],
+   "experimental_temperature_range_k": [
+    300.0,
+    300.0
+   ],
+   "pressure_range_status": "reported_exactly",
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     140.58
+    ],
+    "temperature_k": [
+     300.0,
+     300.0
+    ],
+    "notes": [
+     "Fit #1 is explicitly restricted to >70 GPa; fit #2 is recommended to 140 GPa and 3000 K, beyond the measured maximum 2330 K. Marginal ranges do not guarantee phase stability."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Speziale",
+        "Zha",
+        "Duffy",
+        "Hemley",
+        "Mao"
+       ],
+       "year": 2001,
+       "source": "J. Geophys. Res.",
+       "doi": "10.1029/2000JB900318"
+      },
+      "source_location": "Section 3 and Table 1 footnote a",
+      "scope": "Speziale et al. MgO scale; Table 1 retains paired MgO lattice parameters and source pressures",
+      "reference_eos_record": "mgo_speziale_2001_bm3_2"
+     }
+    ],
+    "recalculation": {
+     "status": "ready",
+     "notes": "The 300 K anchor is executable. The exact Speziale thermal MgO model is not bundled; thermal records must not link to the isothermal-only record."
+    },
+    "audit_date": "2026-09-10"
+   },
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-09-10",
+    "note": "Primary equations, coefficients, units and table outputs verified; this initial audit does not reproduce the complete preferred-fit regression including the 26 upstream Fei observations.",
+    "verified_fields": [
+     "equation",
+     "parameters",
+     "units",
+     "reference_state",
+     "phase",
+     "published_uncertainties",
+     "validity"
+    ],
+    "primary_source_check": {
+     "access_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+     "doi": "10.1016/j.pepi.2008.03.002",
+     "locations": [
+      "Table 1, page 150",
+      "Table 2, page 152",
+      "Sections 3.1-3.2, pages 151-153"
+     ],
+     "finding": "Three published parameterizations retained. Preferred fit #2 reproduced against every Table 1 calculated Au pressure; all 21 simultaneous Au/MgO measurements are bundled."
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "audit_date": "2026-09-10",
+     "dataset_identifiers": [
+      "gold_hirose_2008_table1"
+     ],
+     "source_locations": [
+      "Table 1"
+     ],
+     "finding": "All nine 300 K and twelve high-temperature observations are bundled. Fit #2 additionally used 26 Fei et al. (2004) rows, absent from the Hirose article; their recovery and full-fit reproduction are handled separately."
+    }
+   },
+   "parameter_provenance": {
+    "reference_isotherm": {
+     "V0": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits.",
+     "K0": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits.",
+     "K0_prime": "Table 2: V0=67.85 A^3 and K0=167 GPa fixed; K0_prime=5.58(2) fitted at 300 K then fixed in both thermal fits."
+    },
+    "thermal_correction": {}
+   },
+   "notes": "Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems.",
+   "fit_datasets": [
+    "gold_hirose_2008_table1"
+   ]
   }
  ],
  "format": "peritheos.material",
@@ -3835,6 +4337,198 @@
    "used_by_eos_records": [
     "gold_zhu_2025_pvt"
    ]
+  },
+  {
+   "identifier": "gold_hirose_2008_table1",
+   "kind": "simultaneous_xrd_compression",
+   "description": "All 21 Table 1 rows, including both MgO pressure scales, all seven Au pressure columns, and NaCl lattice parameters. Conventional cubic volumes and linearized volume errors are derived from the printed lattice parameters.",
+   "reference": {
+    "authors": [
+     "Hirose",
+     "Sata",
+     "Komabayashi",
+     "Ohishi"
+    ],
+    "year": 2008,
+    "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "167",
+    "locator": "149-154",
+    "doi": "10.1016/j.pepi.2008.03.002"
+   },
+   "source_location": "Table 1, page 150",
+   "source_url": "https://doi.org/10.1016/j.pepi.2008.03.002",
+   "columns": [
+    {
+     "name": "run",
+     "quantity": "run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "mgo_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "mgo_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "mgo_a_angstrom"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa_uncertainty",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "mgo_matsui_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "gold_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "gold_a_angstrom"
+    },
+    {
+     "name": "gold_fit2_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_fit2_pressure_gpa_uncertainty",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "gold_fit2_pressure_gpa"
+    },
+    {
+     "name": "gold_jamieson_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_heinz_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_anderson_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_shim_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_tsuchiya_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "gold_fei_pressure_gpa",
+     "quantity": "comparison_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_b1_a_angstrom"
+    },
+    {
+     "name": "nacl_b2_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b2_a_angstrom_uncertainty",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "nacl_b2_a_angstrom"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "volume",
+     "unit": "angstrom^3",
+     "role": "uncertainty",
+     "of": "volume_a3"
+    },
+    {
+     "name": "mgo_volume_a3",
+     "quantity": "calibrant_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/gold-hirose-2008-table1.csv",
+    "sha256": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+    "media_type": "text/csv"
+   },
+   "used_by_eos_records": [
+    "gold_hirose_2008_bm3_300k",
+    "gold_hirose_2008_bm3_fit1",
+    "gold_hirose_2008_bm3_fit2"
+   ],
+   "uncertainty": {
+    "notes": "Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation."
+   },
+   "provenance": {
+    "type": "transcribed_from_primary_source_table",
+    "zotero_item_key": "RCISM6W3",
+    "source_artifact_sha256": "83c61450294d40e0ae6fed9a3dbbd4fdb5ef52c54a642f9c13ab540c32ba8d91"
+   }
   }
  ]
 }
