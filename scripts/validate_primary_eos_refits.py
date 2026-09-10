@@ -265,6 +265,17 @@ CUBIC_LATTICE_SIGMA_DATASETS = {
 }
 
 FIT_QUALIFICATIONS = {
+    "ca_perovskite_tetragonal_chen_2018_vinet": "Complete source-scope table check with unresolved fitting details: "
+        "all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the "
+        "reported Ye et al. Pt pressures are retained. The source does not publish "
+        "pressure uncertainties, residual direction, weights, fit software, "
+        "unrounded inputs, or covariance. The generic fit therefore uses an "
+        "errors-in-variables objective with one-sigma volume errors propagated "
+        "from the table's two-sigma lattice errors; the dedicated reproduction "
+        "also reports unweighted pressure- and volume-residual sensitivity fits. "
+        "Those diagnostics do not define a replacement EOS, and the classification "
+        "is capped at similar because statistical parity cannot be established "
+        "without the source weighting and pressure-error model.",
     "coesite_i_iii_bykova_2018_300k_bm3": "Conditional partial reproduction. The 24 exact bundled rows are the "
         "complete numerical subset recovered from Bykova et al. Supplementary "
         "Table 2 and the exact table in their cited Cernok et al. diffraction "
@@ -273,7 +284,7 @@ FIT_QUALIFICATIONS = {
         "unweighted pressure-residual diagnostic therefore tests the documented "
         "phase selection without claiming recovery of the unavailable full fit.",
     "ca_perovskite_wang_weidner_1994_bm2": (
-        "Complete plot-scope reproduction: Wang and Weidner state that the BM2 "
+        "Complete plot-scope check: Wang and Weidner state that the BM2 "
         "used only the four room-temperature Figure 3 points above 2.0 GPa and "
         "fixed K0'=4. All four marker centers are bundled and an unweighted "
         "pressure-residual refit recovers V0 and K0 within the published "
@@ -331,7 +342,10 @@ FIT_QUALIFICATIONS = {
         "varied coefficient is recovered within its published uncertainty; the result "
         "is classified similar because the small alpha1 coefficient has a 46% relative "
         "shift. See the dedicated [Zhao jadeite audit]"
-        "(literature-reproductions/zhao-1997-jadeite.md)."
+        "(literature-reproductions/zhao-1997-jadeite.md). "
+        "Those diagnostics do not define a replacement EOS, and the classification "
+        "is capped at similar because statistical parity cannot be established "
+        "without the source weighting and pressure-error model."
     ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
@@ -543,6 +557,14 @@ FIT_QUALIFICATIONS = {
         "[dedicated Campbell-Heinz reproduction]"
         "(literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl)."
     ),
+}
+
+# A numerical uncertainty overlap is insufficient for these records because a
+# source-faithful statistical comparison cannot be constructed from the published
+# information. Preserve the automatic result for transparency, but cap the public
+# classification at the strongest conclusion supported by the source evidence.
+QUALIFIED_STATUS_OVERRIDES = {
+    "ca_perovskite_tetragonal_chen_2018_vinet": "similar",
 }
 
 # Record-specific conclusions for cases that remain outside both the numerical
@@ -774,6 +796,7 @@ PRESSURE_COLUMNS = {
 }
 
 VOLUME_COLUMNS = {
+    "ca_perovskite_tetragonal_chen_2018_table1_compression": "i4mcm_volume_a3_conventional_cell",
     "coesite_i_ii_cernok_2014_table1_pv": "volume_a3_z16_equivalent_cell",
     "coesite_ii_iii_bykova_2018_table2_pv": "volume_a3_z16_equivalent_cell",
     "coesite_iv_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
@@ -3134,6 +3157,9 @@ def _fit_record(
         }
     if record_id in FIT_QUALIFICATIONS:
         outcome["qualification"] = FIT_QUALIFICATIONS[record_id]
+    if record_id in QUALIFIED_STATUS_OVERRIDES:
+        outcome["automatic_status"] = outcome["status"]
+        outcome["status"] = QUALIFIED_STATUS_OVERRIDES[record_id]
     if record_id == "coo_clendenen_1966_murnaghan_1":
         free_names = list(result.free_parameters)
         k0_index = free_names.index("K0")

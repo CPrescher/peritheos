@@ -37,9 +37,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert statuses == {
         "not_refittable": 528,
         "parity": 179,
-        "parity_not_achieved": 36,
+        "parity_not_achieved": 35,
         "reconstructed": 2,
-        "similar": 86,
+        "similar": 87,
         "source_reconstruction": 11,
     }
     assert all(
@@ -165,6 +165,24 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert "distinct fit" in reynard_ice["source_notes"]
 
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
+    chen = by_identifier["ca_perovskite_tetragonal_chen_2018_vinet"]
+    assert chen["status"] == "similar"
+    assert chen["automatic_status"] == "parity"
+    assert chen["observations"] == 7
+    assert chen["dataset_identifiers"] == [
+        "ca_perovskite_tetragonal_chen_2018_table1_compression"
+    ]
+    assert chen["columns"] == {
+        "pressure": "pressure_pt_ye_gpa",
+        "volume": "i4mcm_volume_a3_conventional_cell",
+        "temperature": None,
+    }
+    assert chen["fixed_parameters"] == ["K0_prime"]
+    assert [item["refit"] for item in chen["parameters"]] == pytest.approx(
+        [185.978098985, 215.291647167]
+    )
+    assert "residual direction" in chen["qualification"]
+    assert "do not define a replacement EOS" in chen["qualification"]
     assert by_identifier["kcl_campbell_1991_bm2_1"]["status"] == "parity"
     phase_egg = by_identifier["phase_egg_mookherjee_2019_bm3_lp_1"]
     assert phase_egg["status"] == "parity"

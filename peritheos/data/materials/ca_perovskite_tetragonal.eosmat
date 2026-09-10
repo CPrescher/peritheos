@@ -110,9 +110,21 @@
      "temperature_k": 300.0
     },
     "alternate_source_fit": {
-     "refined_parameters": ["V0", "K0", "K0_prime"],
-     "published_normalized_z1": {"V0": 45.6, "K0": 227.0, "K0_prime": 4.0},
-     "published_uncertainties": {"V0": 0.4, "K0": 21.0, "K0_prime": 0.3}
+     "refined_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+     ],
+     "published_normalized_z1": {
+      "V0": 45.6,
+      "K0": 227.0,
+      "K0_prime": 4.0
+     },
+     "published_uncertainties": {
+      "V0": 0.4,
+      "K0": 21.0,
+      "K0_prime": 0.3
+     }
     },
     "covariance_scaling": "absolute_sigma=False; covariance scaled by residual variance, inferred from reproduction of both published uncertainty sets",
     "statistics": {
@@ -704,8 +716,8 @@
    ]
   },
   {
-   "identifier": "ca_perovskite_tetragonal_chen_2018_bm2",
-   "label": "Chen et al. (2018), 300 K Ne-medium BM2",
+   "identifier": "ca_perovskite_tetragonal_chen_2018_vinet",
+   "label": "Chen et al. (2018), 300 K Ne-medium Vinet",
    "record_kind": "published",
    "equation_kind": "isothermal",
    "reference": {
@@ -725,8 +737,8 @@
     "doi": "10.2138/am-2018-6087"
    },
    "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
+    "type": "Vinet",
+    "model": "vinet",
     "parameters": {
      "V0": 185.2,
      "K0": 223.0,
@@ -738,15 +750,15 @@
     "K0": 6.0,
     "K0_prime": null
    },
-   "parameter_error_confidence": null,
+   "parameter_error_confidence": 0.9544997361036416,
    "parameter_covariance": null,
    "fixed_parameters": [
     "K0_prime"
    ],
    "temperature_ref": 300.0,
    "experimental_pressure_range_gpa": [
-    28.0,
-    62.0
+    28.824,
+    62.477
    ],
    "pressure_range_status": "reported_exactly",
    "experimental_temperature_range_k": [
@@ -760,8 +772,8 @@
    },
    "validity": {
     "pressure_gpa": [
-     28.0,
-     62.0
+     28.824,
+     62.477
     ],
     "temperature_k": [
      300.0,
@@ -772,25 +784,52 @@
      "The fitted zero-pressure volume is an extrapolated EOS parameter because CaSiO3 perovskite is unstable at one bar."
     ]
    },
+   "fit_datasets": [
+    "ca_perovskite_tetragonal_chen_2018_table1_compression"
+   ],
    "parameter_provenance": {
-    "equation": "EOS discussion and Figure 5: second-order Birch-Murnaghan, represented as BM3 with K0'=4 fixed.",
-    "parameters": "Primary text reports V0=46.3(1) A3 on the normalized one-formula-unit basis and K0=223(6) GPa.",
+    "equation": "EOS discussion, Figure 5, and Table 2: the pressure-volume data were fitted to the Vinet equation; Table 2 defines the abbreviation V as Vinet.",
+    "fit_scope": "The EOS discussion explicitly says the I4/mcm Rietveld results were fitted. All seven I4/mcm rows in Table 1 are retained in source order; no exclusion is reported. The parallel P4/mmm refinements are preserved in the dataset as a diagnostic branch but are not source-fit inputs.",
+    "parameters": "EOS discussion and Table 2 report V0=46.3(1) A3 on the one-formula-unit normalized basis and K0=223(6) GPa, with K0'=4.0 fixed.",
+    "parameter_uncertainties": "Table 2 states that parenthetical parameter uncertainties are 2-sigma values. No covariance matrix is published.",
     "volume_conversion": "V0 multiplied by four for the conventional I4/mcm Z=4 card basis: 46.3*4=185.2 A3; uncertainty 0.1*4=0.4 A3.",
-    "phase": "Rietveld refinement identifies tetragonal I4/mcm with octahedral rotation about c."
+    "phase": "Rietveld refinement identifies tetragonal I4/mcm with octahedral rotation about c.",
+    "weights": "The source does not identify the fitted residual variable, numerical weights, fit software, or covariance convention. Table 1 gives no pressure uncertainties; its lattice-parameter parentheses are 2-sigma. The reproducibility audit therefore reports unweighted-pressure and propagated-volume-uncertainty sensitivity fits without asserting either as the source objective."
    },
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "Pt",
+      "reference": {
+       "authors": [
+        "Ye",
+        "Prakapenka",
+        "Meng",
+        "Shim"
+       ],
+       "year": 2017,
+       "title": "Intercomparison of the gold, platinum, and MgO pressure scales up to 140 GPa and 2500 K",
+       "source": "Journal of Geophysical Research: Solid Earth",
+       "volume": "122",
+       "locator": "3450-3464",
+       "doi": "10.1002/2016JB013811"
+      },
+      "source_location": "Experimental methods and Table 1 note",
+      "scope": "all seven Table 1 observations"
+     }
+    ],
     "recalculation": {
      "status": "missing_calibrant_observations",
-     "notes": "The accessible primary record verifies the fitted parameters and neon medium but does not expose row-wise calibrant observables in machine-readable form."
+     "notes": "The Pt scale is identified exactly, but Table 1 reports only reduced sample pressures. Row-wise Pt lattice parameters or volumes are not published, so the pressure reduction cannot be recalculated."
     },
-    "audit_date": "2026-09-05"
+    "audit_date": "2026-09-07"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "note": "The final article PDF and the authors' accepted manuscript were visually checked. The previous BM2 attribution is contradicted by the primary source and has been corrected to Vinet.",
+    "audit_date": "2026-09-07",
     "verified_fields": [
      "equation",
      "parameters",
@@ -798,29 +837,36 @@
      "reference_state",
      "phase",
      "published_uncertainties",
-     "validity"
+     "fixed_parameters",
+     "fit_scope",
+     "validity",
+     "pressure_calibration",
+     "primary_observations"
     ],
     "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am-2018-6087",
+     "access_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
      "doi": "10.2138/am-2018-6087",
      "locations": [
-      "abstract",
-      "EOS discussion, manuscript lines 281-289",
-      "Figure 5",
-      "Table 1"
+      "Experimental methods, pages 463-464",
+      "EOS discussion, page 465",
+      "Figure 5, page 466",
+      "Tables 1-2, page 467"
      ],
-     "finding": "The paper reports a single tetragonal 300 K BM2 fit and explicitly fits rather than assumes V0 because the phase is unstable at ambient pressure."
+     "finding": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure."
     },
     "primary_data_check": {
-     "status": "available_in_primary_table_not_bundled",
-     "audit_date": "2026-09-05",
+     "status": "bundled",
+     "audit_date": "2026-09-07",
      "source_locations": [
-      "Table 1"
+      "Table 1, page 467"
      ],
-     "finding": "The article states that all EOS observations are in Table 1, but no authoritative open table artifact suitable for lossless redistribution was retrieved in this audit; no digitized pseudo-table was created."
+     "dataset_identifiers": [
+      "ca_perovskite_tetragonal_chen_2018_table1_compression"
+     ],
+     "finding": "All seven source-order Table 1 rows and both I4/mcm and P4/mmm refinements are transcribed at printed precision. Derived cell volumes are calculated without intermediate rounding. The publisher PDF and author manuscript were not redistributed; the bundle is limited to factual numerical values and audit metadata."
     }
    },
-   "notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after resolving the omitted V0 and BM2 identity directly from the primary manuscript."
+   "notes": "Accepted LitCurate source record litcurate_cb91837589707f8c after correcting its omitted V0 and erroneous BM2 identity against the primary paper. The seven rounded Table 1 points support a source-scope Vinet refit but not exact methodological reproduction: pressure errors, objective weights, software, and parameter covariance are not published."
   }
  ],
  "format": "peritheos.material",
@@ -836,7 +882,14 @@
    "kind": "pressure_volume_lattice",
    "description": "All 23 tetragonal CaSiO3 observations printed in Sun et al. (2022) Table 1: 14 reanalyzed Sun et al. (2016) rows plus nine new measurements.",
    "reference": {
-    "authors": ["Sun", "Bian", "Zhang", "Lin", "Prakapenka", "Mao"],
+    "authors": [
+     "Sun",
+     "Bian",
+     "Zhang",
+     "Lin",
+     "Prakapenka",
+     "Mao"
+    ],
     "year": 2022,
     "title": "High-pressure experimental study of tetragonal CaSiO3-perovskite to 200 GPa",
     "source": "American Mineralogist",
@@ -854,28 +907,250 @@
     "retrieved": "2026-09-07"
    },
    "columns": [
-    {"name": "source_order", "quantity": "source_order", "unit": "1", "role": "flag"},
-    {"name": "source_subset", "quantity": "source_subset", "unit": "1", "role": "flag"},
-    {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
-    {"name": "pressure_uncertainty_gpa", "quantity": "pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
-    {"name": "a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
-    {"name": "a_uncertainty_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "uncertainty", "of": "a_angstrom"},
-    {"name": "c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
-    {"name": "c_uncertainty_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "uncertainty", "of": "c_angstrom"},
-    {"name": "volume_a3_conventional_cell", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
-    {"name": "volume_uncertainty_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3/conventional_unit_cell", "role": "uncertainty", "of": "volume_a3_conventional_cell"}
+    {
+     "name": "source_order",
+     "quantity": "source_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "source_subset",
+     "quantity": "source_subset",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "a_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a_uncertainty_angstrom",
+     "quantity": "lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "a_angstrom"
+    },
+    {
+     "name": "c_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "c_uncertainty_angstrom",
+     "quantity": "lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "c_angstrom"
+    },
+    {
+     "name": "volume_a3_conventional_cell",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "volume_uncertainty_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "volume_a3_conventional_cell"
+    }
    ],
    "resource": {
     "path": "datasets/ca-perovskite-tetragonal-sun-2022-table1-pv.csv",
     "sha256": "c05a0bd7e76d8d969ce8cb4e2de0a00b2541b96cd4ebefc211187621ff584028",
     "media_type": "text/csv"
    },
-   "used_by_eos_records": ["ca_perovskite_tetragonal_sun_2022_bm3_1"],
+   "used_by_eos_records": [
+    "ca_perovskite_tetragonal_sun_2022_bm3_1"
+   ],
    "uncertainty": {
     "rows": "All parenthetical pressure, lattice, and volume uncertainties are transcribed literally and scaled to the last printed digit.",
     "fit": "The source does not state weights or a confidence convention. Numerical protocol discrimination supports ordinary unweighted pressure residuals with residual-variance covariance scaling."
    },
    "notes": "The source normalizes a and c by two and volume by Z=4 for its plotted/fitted Z=1 basis. The CSV preserves the printed conventional I4/mcm values; Peritheos fits conventional-cell volume. All 23 rows are included. The CSV contains only factual numbers and minimal subset labels, not article prose, table imagery, or the publisher's layout."
+  },
+  {
+   "identifier": "ca_perovskite_tetragonal_chen_2018_table1_compression",
+   "kind": "pressure_lattice_parameters_and_derived_volumes",
+   "description": "All seven 300 K CaSiO3 perovskite rows printed in Chen et al. (2018) Table 1, preserving the parallel I4/mcm and P4/mmm Rietveld refinements; the published EOS uses the I4/mcm branch.",
+   "source_location": "Table 1, article page 467",
+   "source_url": "https://doi.org/10.2138/am-2018-6087",
+   "columns": [
+    {
+     "name": "source_order",
+     "quantity": "source_row_order",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_id",
+     "quantity": "experimental_run_identifier",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_pt_ye_gpa",
+     "quantity": "pressure_from_platinum_eos",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "i4mcm_tilting_angle_deg",
+     "quantity": "i4mcm_octahedral_tilting_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "i4mcm_tilting_angle_2sigma_deg",
+     "quantity": "i4mcm_octahedral_tilting_angle",
+     "unit": "degree",
+     "role": "uncertainty",
+     "of": "i4mcm_tilting_angle_deg"
+    },
+    {
+     "name": "i4mcm_lattice_a_angstrom",
+     "quantity": "i4mcm_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "i4mcm_lattice_a_2sigma_angstrom",
+     "quantity": "i4mcm_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "i4mcm_lattice_a_angstrom"
+    },
+    {
+     "name": "i4mcm_lattice_c_angstrom",
+     "quantity": "i4mcm_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "i4mcm_lattice_c_2sigma_angstrom",
+     "quantity": "i4mcm_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "i4mcm_lattice_c_angstrom"
+    },
+    {
+     "name": "i4mcm_volume_a3_conventional_cell",
+     "quantity": "i4mcm_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "i4mcm_volume_1sigma_a3_conventional_cell",
+     "quantity": "i4mcm_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "i4mcm_volume_a3_conventional_cell"
+    },
+    {
+     "name": "p4mmm_tilting_angle_deg",
+     "quantity": "p4mmm_octahedral_tilting_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "p4mmm_lattice_a_angstrom",
+     "quantity": "p4mmm_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "p4mmm_lattice_a_2sigma_angstrom",
+     "quantity": "p4mmm_lattice_parameter_a",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "p4mmm_lattice_a_angstrom"
+    },
+    {
+     "name": "p4mmm_lattice_c_angstrom",
+     "quantity": "p4mmm_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "p4mmm_lattice_c_2sigma_angstrom",
+     "quantity": "p4mmm_lattice_parameter_c",
+     "unit": "angstrom",
+     "role": "uncertainty",
+     "of": "p4mmm_lattice_c_angstrom"
+    },
+    {
+     "name": "p4mmm_volume_a3_conventional_cell",
+     "quantity": "p4mmm_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "p4mmm_volume_1sigma_a3_conventional_cell",
+     "quantity": "p4mmm_conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation",
+     "of": "p4mmm_volume_a3_conventional_cell"
+    },
+    {
+     "name": "used_in_published_fit",
+     "quantity": "published_fit_inclusion",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ca-perovskite-tetragonal-chen-2018-table1-compression.csv",
+    "sha256": "021fbe144c850d18dccec643cf253760595af28869877aa91d8f4a525eb770e0",
+    "media_type": "text/csv"
+   },
+   "uncertainty": {
+    "reported_as": "Table 1 states that parenthetical lattice-parameter and tilting-angle uncertainties are 2-sigma values in the last digits. Pressure uncertainty is not tabulated.",
+    "derived_volume": "The 1-sigma volume columns use first-order independent-error propagation after dividing the printed 2-sigma lattice uncertainties by two.",
+    "covariance": "not_reported"
+   },
+   "artifact_provenance": {
+    "version_of_record_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
+    "author_manuscript_url": "https://www.researchgate.net/profile/Sang-Heon-Shim/publication/323517011_Crystal_structure_of_CaSiO3_perovskite_at_28-62_GPa_and_300_K_under_quasi-hydrostatic_stress_conditions/links/5e02cd4b4585159aa49853cf/Crystal-structure-of-CaSiO3-perovskite-at-28-62-GPa-and-300-K-under-quasi-hydrostatic-stress-conditions.pdf",
+    "retrieved": "2026-09-07",
+    "verification": "Table 1 was visually checked in both lossless PDF manifestations; Table 2 and the EOS text were checked in the same artifacts.",
+    "redistribution": "Neither PDF is bundled. MSA's publishing policy reserves the version-of-record copyright, and the accessible author copy is marked as author content subject to copyright. This CSV contains only directly transcribed numerical facts, identifiers, and derived quantities."
+   },
+   "reference": {
+    "authors": [
+     "Chen",
+     "Shim",
+     "Leinenweber",
+     "Prakapenka",
+     "Meng",
+     "Prescher"
+    ],
+    "year": 2018,
+    "source": "American Mineralogist",
+    "volume": "103",
+    "locator": "462-468",
+    "doi": "10.2138/am-2018-6087"
+   },
+   "used_by_eos_records": [
+    "ca_perovskite_tetragonal_chen_2018_vinet"
+   ],
+   "notes": "Every printed Table 1 data cell is retained at source precision. I4/mcm volumes are derived as a^2*c for the conventional Z=4 cell; P4/mmm volumes are derived as a^2*c for its Z=1 cell. The source states that the I4/mcm results define the Vinet fit and reports no exclusions. No fit software, residual direction, pressure uncertainties, weights, or parameter covariance are published."
   }
  ]
 }
