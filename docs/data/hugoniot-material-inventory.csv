@@ -78,8 +78,8 @@ fe3s,Fe3S,Fe3S,Fe3S,material name plus crystal structure,TETRAGONAL,I-4,8,isothe
 fe_bearing_al_phase_d,Fe-bearing Al-phase D,Al1.53Fe0.22Si0.86O6H3.33,"partially cation-ordered Fe-bearing Al-phase D, P63 22 structural model",top-level phase field,HEXAGONAL,P63 22,1,isothermal,2,peritheos/data/materials/fe_bearing_al_phase_d.eosmat
 feh2,FeH2,FeH2,FeH2,material name plus crystal structure,TETRAGONAL,I4/mmm,4,isothermal,1,peritheos/data/materials/feh2.eosmat
 feh3,FeH3,FeH3,FeH3,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/feh3.eosmat
-feo,FeO (B1),FeO,FeO (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,4,peritheos/data/materials/feo.eosmat
-feo_b8_2,FeO (B8),FeO,FeO (B8),material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/feo_b8_2.eosmat
+feo,FeO (B1),FeO,FeO (B1),material name plus crystal structure,CUBIC,Fm-3m,4,thermal;isothermal,4,peritheos/data/materials/feo.eosmat
+feo_b8_2,FeO (B8),FeO,FeO (B8),material name plus crystal structure,HEXAGONAL,P63/mmc,2,thermal,1,peritheos/data/materials/feo_b8_2.eosmat
 ferropericlase_fe27,Fe27 ferropericlase,Mg0.725Fe0.268O,"cation-deficient rocksalt ferropericlase, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/ferropericlase_fe27.eosmat
 fes,FeS-VI,FeS,FeS-VI,material name plus crystal structure,ORTHORHOMBIC,Pnma,4,isothermal,1,peritheos/data/materials/fes.eosmat
 fesio3_bridgmanite,Iron silicate perovskite,FeSiO3,"orthorhombic perovskite (Pv), high-spin antiferromagnetic",top-level phase field,ORTHORHOMBIC,,4,isothermal,2,peritheos/data/materials/fesio3_bridgmanite.eosmat
@@ -100,7 +100,7 @@ in_sun_2010_legacy,In legacy compression aggregate (Sun 2010),In,legacy multi-so
 indium_bct,Indium (body-centered tetragonal),In,"body-centered tetragonal indium, source P1-expanded cell",top-level phase field,TRICLINIC,P1,2,isothermal,2,peritheos/data/materials/indium_bct.eosmat
 indium_nitride,Indium Nitride,InN,Indium Nitride,material name plus crystal structure,HEXAGONAL,P63mc,2,isothermal,1,peritheos/data/materials/indium_nitride.eosmat
 iridium,Iridium,Ir,Iridium,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,3,peritheos/data/materials/iridium.eosmat
-iron,Iron,Fe,Iron,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal;thermal,8,peritheos/data/materials/iron.eosmat
+iron,Iron,Fe,Iron,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal;thermal,9,peritheos/data/materials/iron.eosmat
 iron_carbide_fe7c3,Iron carbide (orthorhombic Fe7C3),Fe7C3,Iron carbide (orthorhombic Fe7C3),material name plus crystal structure,ORTHORHOMBIC,Pbca,8,isothermal,1,peritheos/data/materials/iron_carbide_fe7c3.eosmat
 k_sun_2010_legacy,K legacy compression aggregate (Sun 2010),K,legacy multi-source compression aggregate; phase unresolved,top-level phase field,,,1,isothermal,2,peritheos/data/materials/k_sun_2010_legacy.eosmat
 kbr_b1,Potassium bromide (B1),KBr,Potassium bromide (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/kbr_b1.eosmat

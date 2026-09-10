@@ -10,10 +10,11 @@ use peritheos::isothermal::{
     NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DorogokupetsOganov2007, DorogokupetsOganov2007Parameters,
-    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
-    MultiOscillatorGruneisen, SecondOrderTaylorThermalPressure, SokolovaParameters,
-    ThermalModifiedTait, ThermalReferenceState,
+    AsymptoticPowerLawMieGruneisenDebye, Dewaele2006, DorogokupetsOganov2007,
+    DorogokupetsOganov2007Parameters, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
+    SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalModifiedTait,
+    ThermalReferenceState,
 };
 use peritheos::{EosResult, ThermalEos};
 use pyo3::prelude::*;
@@ -246,6 +247,7 @@ impl ThermalModel {
     fn pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
         match self {
             Self::AsymptoticPowerLawMieGruneisenDebye(model) => model.pressure(volume, temperature),
+            Self::Dewaele2006(model) => model.pressure(volume, temperature),
             Self::DorogokupetsOganov2007(model) => model.pressure(volume, temperature),
             Self::LinearThermalPressure(model) => model.pressure(volume, temperature),
             Self::LogVolumeThermalPressure(model) => model.pressure(volume, temperature),
@@ -280,6 +282,43 @@ impl ThermalModel {
                         value(names, values, "gamma0", model.gamma0),
                         value(names, values, "a", model.a),
                         value(names, values, "b", model.b),
+                        value(names, values, "n", model.n),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::Dewaele2006(model) => {
+                ensure_names(
+                    names,
+                    &[
+                        "Tr",
+                        "theta0",
+                        "gamma0",
+                        "gamma_inf",
+                        "beta",
+                        "anharmonic_a",
+                        "anharmonic_m",
+                        "electronic_e",
+                        "electronic_g",
+                        "n",
+                    ],
+                    true,
+                )?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::Dewaele2006(
+                    Dewaele2006::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "theta0", model.theta0),
+                        value(names, values, "gamma0", model.gamma0),
+                        value(names, values, "gamma_inf", model.gamma_inf),
+                        value(names, values, "beta", model.beta),
+                        value(names, values, "anharmonic_a", model.anharmonic_a),
+                        value(names, values, "anharmonic_m", model.anharmonic_m),
+                        value(names, values, "electronic_e", model.electronic_e),
+                        value(names, values, "electronic_g", model.electronic_g),
                         value(names, values, "n", model.n),
                     )
                     .map_err(FitError::from)?,

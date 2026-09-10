@@ -149,6 +149,22 @@ fn loaded_thermal_record_exposes_dac_forward_state_in_cell_units() {
 }
 
 #[test]
+fn bundled_dewaele_2006_iron_scale_loads_and_reproduces_fischer_pressure() {
+    let Some(material) = load_bundled_material("iron.eosmat") else {
+        return;
+    };
+    let record = material.record("iron_dewaele_2006_vinet_thermal").unwrap();
+
+    assert_close(record.reference_volume(), 22.428, 1.0e-14);
+    assert_close(record.pressure(22.428, 300.0).unwrap(), 0.0, 1.0e-14);
+    assert_close(
+        record.pressure(17.212_159_365_268_64, 1442.66).unwrap(),
+        95.195_764_136_542_34,
+        1.0e-12,
+    );
+}
+
+#[test]
 fn bundled_suzuki_epsilon_feooh_uses_reference_temperature_expansivity() {
     let Some(material) = load_bundled_material("e_feooh.eosmat") else {
         return;

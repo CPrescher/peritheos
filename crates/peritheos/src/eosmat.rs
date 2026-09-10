@@ -22,7 +22,7 @@ use crate::isothermal::{
     NaturalStrain4, RydbergStacey, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use crate::thermal::{
-    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, DorogokupetsOganov2007,
+    AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007,
     DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz,
     LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
     MultiOscillatorGruneisen, ReferenceStateEos, ReferenceVolumeLaw,
@@ -543,6 +543,8 @@ pub enum ThermalModel {
     DoubleDebyeHelmholtz(DoubleDebyeHelmholtz),
     /// Vinet double-Debye Helmholtz model constrained by the logarithmic moment.
     DoubleDebyeLogMomentHelmholtz(DoubleDebyeLogMomentHelmholtz),
+    /// Dewaele et al. (2006) single-Debye hcp-Fe pressure scale.
+    Dewaele2006(Dewaele2006<IsothermalModel>),
     /// Dorogokupets--Oganov (2007) four-oscillator Helmholtz model.
     DorogokupetsOganov2007(DorogokupetsOganov2007<IsothermalModel>),
     /// Constant-slope thermal pressure.
@@ -569,6 +571,7 @@ macro_rules! dispatch_thermal {
             ThermalModel::AsymptoticPowerLawMieGruneisenDebye($model) => $expression,
             ThermalModel::DoubleDebyeHelmholtz($model) => $expression,
             ThermalModel::DoubleDebyeLogMomentHelmholtz($model) => $expression,
+            ThermalModel::Dewaele2006($model) => $expression,
             ThermalModel::DorogokupetsOganov2007($model) => $expression,
             ThermalModel::LinearThermalPressure($model) => $expression,
             ThermalModel::LogVolumeThermalPressure($model) => $expression,
@@ -592,6 +595,7 @@ impl ThermalModel {
             }
             Self::DoubleDebyeHelmholtz(_) => "double_debye_helmholtz",
             Self::DoubleDebyeLogMomentHelmholtz(_) => "double_debye_log_moment_helmholtz",
+            Self::Dewaele2006(_) => "dewaele_2006",
             Self::DorogokupetsOganov2007(_) => "dorogokupets_oganov_2007",
             Self::LinearThermalPressure(_) => "linear_thermal_pressure",
             Self::LogVolumeThermalPressure(_) => "log_volume_thermal_pressure",
@@ -694,6 +698,7 @@ impl LoadedEos {
                 }
                 ThermalModel::DoubleDebyeHelmholtz(_)
                 | ThermalModel::DoubleDebyeLogMomentHelmholtz(_) => "vinet",
+                ThermalModel::Dewaele2006(value) => value.rt_eos.model_identifier(),
                 ThermalModel::DorogokupetsOganov2007(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LinearThermalPressure(value) => value.rt_eos.model_identifier(),
                 ThermalModel::LogVolumeThermalPressure(value) => value.rt_eos.model_identifier(),
@@ -2505,6 +2510,7 @@ fn is_molar_volume_model(model: &str) -> bool {
             | "asymptotic_power_law_mie_gruneisen_debye"
             | "double_debye_helmholtz"
             | "double_debye_log_moment_helmholtz"
+            | "dewaele_2006"
             | "dorogokupets_oganov_2007"
             | "multi_oscillator_gruneisen_thermal_pressure"
             | "thermal_modified_tait"
@@ -2535,6 +2541,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "AsymptoticPowerLawMieGruneisenDebye" => "asymptotic_power_law_mie_gruneisen_debye",
             "DoubleDebyeHelmholtz" => "double_debye_helmholtz",
             "DoubleDebyeLogMomentHelmholtz" => "double_debye_log_moment_helmholtz",
+            "Dewaele2006" => "dewaele_2006",
             "DorogokupetsOganov2007" => "dorogokupets_oganov_2007",
             "LinearThermalPressure" => "linear_thermal_pressure",
             "LogVolumeThermalPressure" => "log_volume_thermal_pressure",
@@ -2768,6 +2775,23 @@ fn build_thermal(
                     .map_err(|error| error.to_string())?;
             }
             Ok(ThermalModel::DoubleDebyeLogMomentHelmholtz(model))
+        }
+        "dewaele_2006" => {
+            check_type(component, "Dewaele2006")?;
+            Dewaele2006::new(
+                reference,
+                p("Tr")?,
+                p("theta0")?,
+                p("gamma0")?,
+                p("gamma_inf")?,
+                p("beta")?,
+                p("anharmonic_a")?,
+                p("anharmonic_m")?,
+                p("electronic_e")?,
+                p("electronic_g")?,
+                p("n")?,
+            )
+            .map(ThermalModel::Dewaele2006)
         }
         "dorogokupets_oganov_2007" => {
             check_type(component, "DorogokupetsOganov2007")?;

@@ -343,6 +343,7 @@ the mathematical definitions and coefficient domains.
 ```python
 from peritheos.eos.thermal import (
     AsymptoticPowerLawMieGruneisenDebyeExcess,
+    Dewaele2006,
     DorogokupetsOganov2007,
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
@@ -368,6 +369,7 @@ Thermal constructor signatures are:
 | `AsymptoticPowerLawMieGruneisenDebyeExcess` | `Tr, theta0, gamma0, a, b, n, beta0, m` |
 | `DoubleDebyeHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_1_0, a_1, b_1`, followed by optional `n, alpha0, Ve, kappa, phi0` |
 | `DoubleDebyeLogMomentHelmholtz` | `Vp, theta_a0, a_a, b_a, theta_b0, a_b, b_b, theta_0_0, a_0, b_0`, followed by optional `n, anharmonic_a, phi0` |
+| `Dewaele2006` | `Tr, theta0, gamma0, gamma_inf, beta, anharmonic_a, anharmonic_m, electronic_e, electronic_g, n` |
 | `DorogokupetsOganov2007` | `Tr`, four oscillator-mode parameter groups, `gamma0, gamma_inf, beta`, anharmonic, electronic, defect, and atom-count terms |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
 | `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |

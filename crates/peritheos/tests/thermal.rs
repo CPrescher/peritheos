@@ -1,6 +1,6 @@
 use peritheos::isothermal::{Holzapfel, ModifiedTait, Vinet, BM3};
 use peritheos::thermal::{
-    debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw,
+    debye_function_3, AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, Dewaele2006,
     DorogokupetsOganov2007, DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceVolumeLaw,
@@ -15,6 +15,43 @@ fn assert_close(actual: f64, expected: f64, relative_tolerance: f64) {
     assert!(
         (actual - expected).abs() <= relative_tolerance * scale,
         "actual {actual:.17e} differs from expected {expected:.17e}"
+    );
+}
+
+#[test]
+fn dewaele_2006_is_reference_subtracted_and_invertible() {
+    let v0 = 11.214 * 0.060_221_407_6;
+    let model = Dewaele2006::new(
+        Vinet::new(v0, 163.4, 5.38).unwrap(),
+        300.0,
+        417.0,
+        1.875,
+        1.305,
+        1.875 / (1.875 - 1.305),
+        3.7e-5,
+        1.87,
+        1.95e-4,
+        1.339,
+        1.0,
+    )
+    .unwrap();
+
+    assert_close(
+        model.thermal_pressure(0.8 * v0, 300.0).unwrap(),
+        0.0,
+        1.0e-14,
+    );
+    let volume = model.volume(300.0, 6000.0).unwrap();
+    assert_close(model.pressure(volume, 6000.0).unwrap(), 300.0, 1.0e-10);
+    let sum = model
+        .vibrational_pressure_increment(volume, 6000.0)
+        .unwrap()
+        + model.anharmonic_pressure_increment(volume, 6000.0).unwrap()
+        + model.electronic_pressure_increment(volume, 6000.0).unwrap();
+    assert_close(
+        model.thermal_pressure(volume, 6000.0).unwrap(),
+        sum,
+        1.0e-13,
     );
 }
 

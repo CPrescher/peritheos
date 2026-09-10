@@ -75,24 +75,47 @@
    ],
    "experimental_pressure_range_gpa": [
     0.0,
-    156.0
+    210.0
    ],
-   "notes": "Fischer et al. fit Fe0.94O with molar V0 = 12.256 cm^3/mol fixed, K0 = 149.4 +/- 1.0 GPa, and K0' = 3.60 +/- 0.04. V0 was converted to the conventional Z=4 B1 cell.",
+   "notes": "Fischer et al. report a thermal EOS for iron-saturated FeO, not a standalone 300 K BM3. The Fe0.94O starting powder was mixed with Fe and the authors treat the equilibrated high-P-T oxide as approximately stoichiometric FeO. Reported sample temperatures already include the source's 3% downward axial-gradient correction and must be evaluated at their tabulated values. All four row-level sources for the global B1 fit are now bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. Seagle contains 65 hcp-Fe rows, 14 fcc-Fe rows, and two rows without Fe volume that retain the source's 50 +/- 4 GPa isobar assignment; Campbell contains 10 hcp-Fe and 15 fcc-Fe rows. The exact regression weights/objective and Fischer's final combined row selection are not published. The marginal pressure range includes those comparison/fit-input studies and is not a phase-stability boundary.",
    "identifier": "feo_fischer_2011_bm3_2",
    "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "material": "hcp Fe",
+      "reference_eos_record": "iron_dewaele_2006_vinet_thermal",
+      "reference": {
+       "authors": [
+        "Dewaele",
+        "Loubeyre",
+        "Occelli",
+        "Mezouar",
+        "Dorogokupets",
+        "Torrent"
+       ],
+       "year": 2006,
+       "source": "Physical Review Letters",
+       "volume": "97",
+       "locator": "215504",
+       "doi": "10.1103/PhysRevLett.97.215504"
+      },
+      "source_location": "Experimental Methods, pressure determination; Figure 2 discussion",
+      "notes": "Fischer and Ozawa pressures use hcp-Fe volume and temperature directly. Fischer recalculated the Seagle and Campbell diamond-cell points from Fe volume using hcp-Fe (Dewaele) or fcc-Fe (Campbell); low-pressure Campbell multi-anvil observations are the stated exception."
+     }
+    ],
     "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+     "status": "missing_calibrant_observations",
+     "notes": "The exact Dewaele et al. (2006) thermal/electronic hcp-Fe reference EOS is bundled. Fischer Table S1, Ozawa Table 2, Seagle supplementary Table 1, and Campbell supplementary Table S2 preserve the available sample and calibrant observations. Seagle's 14 fcc-Fe rows and Campbell's 15 fcc-Fe rows require the Campbell et al. (2009) fcc-Fe calibration to be registered as an executable record. Two Seagle rows lack an Fe volume but belong to the source's 50 +/- 4 GPa approximately isobaric sequence and can be retained on that basis. Fischer's final combined row selection is not tabulated."
     },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+    "audit_date": "2026-09-08",
+    "notes": "NaCl was a secondary pressure standard. Published pressure errors propagate the temperature error and hcp-Fe lattice-parameter error."
    },
    "scientific_validation": {
     "status": "primary_source_validated",
     "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
+    "audit_date": "2026-09-07",
     "verified_fields": [
      "equation",
      "parameters",
@@ -100,16 +123,25 @@
      "reference_state",
      "phase",
      "published_uncertainties",
+     "fixed_parameters",
+     "thermal_model",
+     "temperature_correction",
+     "fit_selection",
+     "fit_reproducibility",
+     "pressure_calibration",
+     "primary_data",
      "validity"
     ],
     "primary_source_check": {
      "access_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
      "locations": [
-      "Equation-of-state section",
+      "Experimental Methods, pages 6-8",
+      "Equation (1) and equation-of-state section, pages 12-13",
       "Table 1",
-      "Figures 2 and 3"
+      "Figures 2 and 3",
+      "Supplementary Table S1 (mmc1.xls)"
      ],
-     "finding": "Fixed values in italics and fitted uncertainties were preserved.",
+     "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observations, 3% temperature correction, and global multi-study fit scope were reconstructed. All identifiable row-level sources are bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. The final combined row selection and exact weighting protocol remain unpublished.",
      "doi": "10.1016/j.epsl.2011.02.025"
     },
     "migration_source": {
@@ -120,16 +152,61 @@
     },
     "primary_data_check": {
      "status": "bundled",
-     "audit_date": "2026-09-03",
+     "audit_date": "2026-09-08",
      "dataset_identifiers": [
-      "feo_fischer_2011_table_s1_pvt"
+      "feo_fischer_2011_table_s1_pvt",
+      "feo_seagle_2008_supplement_volume_temperature",
+      "feo_ozawa_2010_table2_pvt",
+      "feo_campbell_2009_table_s2_pvt"
      ],
      "source_locations": [
-      "Supplementary Table S1 (mmc1.xls)"
+      "Fischer et al. (2011) Supplementary Table S1 (mmc1.xls)",
+      "Seagle et al. (2008) supplementary Table 1, Volume - Temperature Data (mmc1.pdf)",
+      "Ozawa et al. (2010) printed Table 2",
+      "Campbell et al. (2009) Supplementary Table S2 (mmc2.xls)"
      ],
-     "finding": "All 52 synchrotron X-ray diffraction observations in supplementary Table S1, including the B1-FeO and B8-FeO molar volumes used in the phase-specific EOS fits and the coexisting NaCl and iron measurements."
+     "finding": "The complete 52-row Fischer current-study workbook, 81-row Seagle subsolidus table, 20-row Ozawa printed volume table, and 25-row Campbell Fe-FeO Table S2 are bundled. This recovers every identifiable row-level source for Fischer's global B1 fit at source precision. Seagle's 65 hcp-Fe rows are immediately pressure-recalculable with the bundled Dewaele EOS; its 14 fcc-Fe rows and Campbell's 15 fcc-Fe rows require Campbell's fcc-Fe EOS to be registered. The two Seagle rows without Fe volume retain the source's 50 +/- 4 GPa series pressure. Fischer et al. do not publish their final combined selection or exact weights."
     }
-   }
+   },
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 417.0,
+     "gamma0": 1.41,
+     "q": 0.5,
+     "n": 2.0
+    },
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.05,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "q",
+     "n"
+    ]
+   },
+   "parameter_provenance": {
+    "equation": "Equation (1): a 300 K BM3 reference isotherm plus Mie-Gruneisen-Debye thermal pressure; no explicit anharmonic or electronic thermal-pressure terms.",
+    "V0": "Table 1: 12.256 cm^3/mol, fixed from McCammon and Liu (1984); converted here to the conventional Z=4 B1 cell.",
+    "K0": "Table 1: 149.4 +/- 1.0 GPa, fitted.",
+    "K0_prime": "Table 1: 3.60 +/- 0.04, fitted. The Table 1 uncertainty is used; the abstract rendering drops the zero and prints 0.4.",
+    "theta0": "Table 1: 417 K, fixed from Stixrude and Lithgow-Bertelloni (2007).",
+    "gamma0": "Table 1: 1.41 +/- 0.05, fitted.",
+    "q": "Equation-of-state section and Table 1: fixed at 0.5 after finding a good fit.",
+    "Tr": "Equation (1) defines P300 and subtracts the Debye energy at 300 K.",
+    "n": "Two atoms per FeO formula unit; this is the Debye energy normalization, not a fitted coefficient.",
+    "fit_scope": "Equation-of-state section and Figure 2: present B1 observations plus Campbell et al. (2009), Ozawa et al. (2010), and Seagle et al. (2008)."
+   },
+   "temperature_ref": 300.0,
+   "pressure_range_status": "reported_qualitatively"
   },
   {
    "label": "Jacobsen et al. (2005), cubic Fe0.93O constrained BM3",
@@ -549,7 +626,7 @@
    "kind": "pressure_volume_temperature_multiphase",
    "description": "All 52 synchrotron X-ray diffraction observations in supplementary Table S1, including the B1-FeO and B8-FeO molar volumes used in the phase-specific EOS fits and the coexisting NaCl and iron measurements.",
    "source_location": "Supplementary Table S1 (mmc1.xls)",
-   "source_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
+   "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X11000963-mmc1.xls",
    "columns": [
     {
      "name": "pressure_gpa",
@@ -643,6 +720,13 @@
      "of": "b8_feo_molar_volume_cm3_mol"
     },
     {
+     "name": "b8_feo_molar_volume_fit_uncertainty_cm3_mol",
+     "quantity": "b8_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "b8_feo_molar_volume_cm3_mol"
+    },
+    {
      "name": "b8_feo_c_over_a",
      "quantity": "b8_feo_axial_ratio_c_over_a",
      "unit": "1",
@@ -670,10 +754,10 @@
    ],
    "resource": {
     "path": "datasets/feo-fischer-2011-table-s1-pvt.csv",
-    "sha256": "eb960e0ca0d2d0733f42adec9038bb31a53ffd25f95cb0ecdb4f3b341f5d32da",
+    "sha256": "cfe5a2d9ed958bd5d26a87aa5eee8bc76ca9457fd9c982c0c161e92891d17c24",
     "media_type": "text/csv"
    },
-   "notes": "The dataset preserves the workbook's full numeric precision, normalized to 12 significant digits. Asterisks are represented by b8_observation=detected_one_peak_no_volume; dagger marks are represented by b1_observation=rhombohedrally_distorted_detected_no_volume; double-dagger rows retain the measured B8 values but leave their unconstrained uncertainties blank. The supplement labels all numeric error columns generically with +/- and does not define a statistic, so they are recorded as published uncertainties.",
+   "notes": "The dataset preserves the official workbook's full numeric precision, normalized to 12 significant digits. Asterisks are represented by b8_observation=detected_one_peak_no_volume; dagger marks are represented by b1_observation=rhombohedrally_distorted_detected_no_volume; double-dagger rows retain the measured B8 values and their blank raw uncertainty. The separate B8 fit-uncertainty column copies every constrained workbook value and assigns 0.1 cm^3/mol only to the three double-dagger volumes, following the Figure 3 caption; it remains blank when no volume was measured. The supplement labels numeric error columns generically with +/- and does not define a statistic. Temperatures are the reported values after the paper's 3% axial-gradient correction, not values reduced to 300 K.",
    "reference": {
     "authors": [
      "Fischer",
@@ -691,7 +775,12 @@
    },
    "used_by_eos_records": [
     "feo_fischer_2011_bm3_2"
-   ]
+   ],
+   "provenance": {
+    "type": "transcribed_official_supplement",
+    "source_workbook_sha256": "9a8807dcdb779840b4ad25811309cc7eeb179c42ffd53361eae36b95ebbaf561",
+    "source_author_manuscript_pdf_sha256": "c69717d039d80421dcdac45ff0207844dd734ad284039b0a573e6a30cb153d24"
+   }
   },
   {
    "identifier": "jacobsen_2005_table1_compression",
@@ -869,6 +958,363 @@
    "used_by_eos_records": [
     "fe093o_b1_jacobsen_2005_bm3_1"
    ]
+  },
+  {
+   "identifier": "feo_seagle_2008_supplement_volume_temperature",
+   "kind": "volume_temperature_multiphase_with_calibrant",
+   "description": "Complete 81-row subsolidus Volume - Temperature Data block for B1 FeO coexisting with fcc- or hcp-Fe from the Seagle et al. supplementary Table 1.",
+   "source_location": "Supplementary Table 1, Volume - Temperature Data (mmc1.pdf), pages 1-2",
+   "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X07007261-mmc1.pdf",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "feo_unit_cell_volume_a3",
+     "quantity": "b1_feo_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "feo_unit_cell_volume_uncertainty_a3",
+     "quantity": "b1_feo_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "feo_unit_cell_volume_a3"
+    },
+    {
+     "name": "iron_unit_cell_volume_a3",
+     "quantity": "iron_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "iron_unit_cell_volume_uncertainty_a3",
+     "quantity": "iron_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "iron_unit_cell_volume_a3"
+    },
+    {
+     "name": "iron_phase",
+     "quantity": "iron_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "source_series_pressure_gpa",
+     "quantity": "source_series_pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "source_series_pressure_uncertainty_gpa",
+     "quantity": "source_series_pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "source_series_pressure_gpa"
+    },
+    {
+     "name": "pressure_recalculation_status",
+     "quantity": "pressure_recalculation_status",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/feo-seagle-2008-supplement-volume-temperature.csv",
+    "sha256": "8cfbb93c222b64b5ebde5efe31e3dc73fe193f12542ca19993cec838567a7e05",
+    "media_type": "text/csv"
+   },
+   "notes": "The transcription preserves the supplement's printed precision and blank uncertainty cells. The source footnote defines iron volumes greater than 38 A^3 as fcc-Fe and all smaller reported volumes as hcp-Fe; the iron phase and pressure-recalculation status columns encode that rule transparently. Rows 61-62 lack an Fe volume but belong to the approximately isobaric sequence summarized by Seagle Table 1 at 50 +/- 4 GPa, so that source-series pressure is retained separately from Fe-EOS recalculated pressure. The 81 rows are the Volume - Temperature Data block used for thermal expansion, not the separate melting-bound observations. Seagle reports +/-150 K as the inclusive temperature uncertainty for these measurements; it applies globally and is not repeated as a row column. Fischer et al. (2011) recalculated Seagle pressures from the iron volumes using Dewaele et al. (2006) for hcp-Fe or Campbell et al. (2009) for fcc-Fe.",
+   "reference": {
+    "authors": [
+     "Seagle",
+     "Heinz",
+     "Campbell",
+     "Prakapenka",
+     "Wanless"
+    ],
+    "year": 2008,
+    "source": "Earth Planet. Sci. Lett.",
+    "volume": "265",
+    "locator": "655-665",
+    "doi": "10.1016/j.epsl.2007.11.004"
+   },
+   "used_by_eos_records": [
+    "feo_fischer_2011_bm3_2"
+   ],
+   "provenance": {
+    "type": "transcribed_official_supplement",
+    "source_supplement_pdf_sha256": "ddf0cc71bc4e251c2bf040f34eb7327f042c2b75b9787ec56636250bffeaeffa"
+   }
+  },
+  {
+   "identifier": "feo_ozawa_2010_table2_pvt",
+   "kind": "pressure_volume_temperature_multiphase_with_calibrant",
+   "description": "All 20 representative P-V-T rows printed in Ozawa et al. Table 2: 12 B1 FeO and 8 B8 FeO observations with coexisting hcp-Fe volumes.",
+   "source_location": "Printed Table 2, journal page 160",
+   "source_url": "https://doi.org/10.1016/j.pepi.2009.11.005",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "phase",
+     "quantity": "feo_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "pressure_gpa"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "feo_volume_a3_per_formula_unit",
+     "quantity": "feo_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "value"
+    },
+    {
+     "name": "feo_volume_uncertainty_a3_per_formula_unit",
+     "quantity": "feo_volume",
+     "unit": "angstrom^3/formula_unit",
+     "role": "uncertainty",
+     "of": "feo_volume_a3_per_formula_unit"
+    },
+    {
+     "name": "b8_c_over_a",
+     "quantity": "b8_feo_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "b8_c_over_a_uncertainty",
+     "quantity": "b8_feo_axial_ratio_c_over_a",
+     "unit": "1",
+     "role": "uncertainty",
+     "of": "b8_c_over_a"
+    },
+    {
+     "name": "iron_hcp_unit_cell_volume_a3",
+     "quantity": "hcp_iron_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "value"
+    },
+    {
+     "name": "iron_hcp_unit_cell_volume_uncertainty_a3",
+     "quantity": "hcp_iron_unit_cell_volume",
+     "unit": "angstrom^3/conventional_unit_cell",
+     "role": "uncertainty",
+     "of": "iron_hcp_unit_cell_volume_a3"
+    }
+   ],
+   "resource": {
+    "path": "datasets/feo-ozawa-2010-table2-pvt.csv",
+    "sha256": "cfc3f8b37a23bd6ea891b526051266e01bf543c6b9871b29506d49581b64d324",
+    "media_type": "text/csv"
+   },
+   "notes": "Parenthesized uncertainties are expanded to absolute numeric values at the printed precision; blank cells mean that Table 2 prints no uncertainty. The source states that pressure was determined from hcp-Fe using Dewaele et al. (2006), with pressure uncertainty below +/-5 GPa dominated by temperature uncertainty; radial temperature variation was about +/-10%. Table 2 is the article's available row-level EOS source and is explicitly described as representative volumes. No Ozawa supplementary dataset exists.",
+   "reference": {
+    "authors": [
+     "Ozawa",
+     "Hirose",
+     "Tateno",
+     "Sata",
+     "Ohishi"
+    ],
+    "year": 2010,
+    "source": "Phys. Earth Planet. Inter.",
+    "volume": "179",
+    "locator": "157-163",
+    "doi": "10.1016/j.pepi.2009.11.005"
+   },
+   "used_by_eos_records": [
+    "feo_fischer_2011_bm3_2"
+   ],
+   "provenance": {
+    "type": "transcribed_printed_table",
+    "source_article_pdf_sha256": "85e6e73b3dba68a453aebcaf22149fe3b9474fa5f15ac2d67e900d6667ba3f46"
+   }
+  },
+  {
+   "identifier": "feo_campbell_2009_table_s2_pvt",
+   "kind": "pressure_volume_temperature_multiphase_with_calibrant",
+   "description": "Complete 25-row Fe-FeO P-V-T dataset from Campbell et al. supplementary Table S2, including FeO, coexisting fcc- or hcp-Fe, NaCl, temperatures, reported pressures, and uncertainties.",
+   "source_location": "Supplementary Table S2 (mmc2.xls), worksheet Table S2, rows 8-32",
+   "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc2.xls",
+   "columns": [
+    {
+     "name": "source_row",
+     "quantity": "source_row",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "run_id",
+     "quantity": "experimental_run",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "iron_molar_volume_cm3_mol",
+     "quantity": "iron_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "iron_molar_volume_uncertainty_cm3_mol",
+     "quantity": "iron_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "iron_molar_volume_cm3_mol"
+    },
+    {
+     "name": "iron_phase",
+     "quantity": "iron_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "feo_molar_volume_cm3_mol",
+     "quantity": "b1_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "feo_molar_volume_uncertainty_cm3_mol",
+     "quantity": "b1_feo_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "feo_molar_volume_cm3_mol"
+    },
+    {
+     "name": "nacl_molar_volume_cm3_mol",
+     "quantity": "nacl_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "nacl_molar_volume_uncertainty_cm3_mol",
+     "quantity": "nacl_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "nacl_molar_volume_cm3_mol"
+    },
+    {
+     "name": "nacl_phase",
+     "quantity": "nacl_phase",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "delta_feo_fe_molar_volume_cm3_mol",
+     "quantity": "feo_minus_iron_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "delta_feo_fe_molar_volume_uncertainty_cm3_mol",
+     "quantity": "feo_minus_iron_molar_volume",
+     "unit": "cm^3/mol",
+     "role": "uncertainty",
+     "of": "delta_feo_fe_molar_volume_cm3_mol"
+    },
+    {
+     "name": "sample_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "sample_temperature_uncertainty_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "sample_temperature_k"
+    },
+    {
+     "name": "nacl_temperature_k",
+     "quantity": "nacl_temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "nacl_temperature_uncertainty_k",
+     "quantity": "nacl_temperature",
+     "unit": "K",
+     "role": "uncertainty",
+     "of": "nacl_temperature_k"
+    },
+    {
+     "name": "reported_pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "reported_pressure_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty",
+     "of": "reported_pressure_gpa"
+    }
+   ],
+   "resource": {
+    "path": "datasets/feo-campbell-2009-table-s2-pvt.csv",
+    "sha256": "ff207b7820f0b63bb127f790351a3f6c019e42cf42ffef1ec622051f76c93350",
+    "media_type": "text/csv"
+   },
+   "notes": "The transcription preserves the workbook's full stored numeric precision. Table S2 contains 15 fcc-Fe and 10 hcp-Fe observations. The workbook states that pressures below 26 GPa use Decker (1971) NaCl and pressures above 26 GPa use Fei et al. (2007) NaCl. Fischer et al. (2011) instead recalculated the Campbell comparison pressures from the coexisting iron volume using Campbell's fcc-Fe EOS or Dewaele et al. (2006) hcp-Fe EOS.",
+   "reference": {
+    "authors": [
+     "Campbell",
+     "Danielson",
+     "Righter",
+     "Seagle",
+     "Wang",
+     "Prakapenka"
+    ],
+    "year": 2009,
+    "source": "Earth Planet. Sci. Lett.",
+    "volume": "286",
+    "locator": "556-564",
+    "doi": "10.1016/j.epsl.2009.07.022"
+   },
+   "used_by_eos_records": [
+    "feo_fischer_2011_bm3_2"
+   ],
+   "provenance": {
+    "type": "transcribed_official_supplement",
+    "source_workbook_sha256": "de34fb0f7fa172a63c799f317d7310cdf729ecf0fee211a1c2fbf087a9b03974"
+   }
   }
  ]
 }

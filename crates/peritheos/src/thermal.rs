@@ -1166,6 +1166,189 @@ impl<R: IsothermalEos> CaloricEos for AsymptoticPowerLawMieGruneisenDebye<R> {
     }
 }
 
+/// Dewaele et al. (2006) hcp-Fe thermal pressure scale.
+///
+/// This is the single-Debye specialization of the Dorogokupets--Oganov
+/// formalism used in equations (1)--(2) of Dewaele et al. The reference EOS
+/// is a complete isotherm at [`Self::tr`]. The vibrational, intrinsic
+/// anharmonic, and electronic pressures are therefore all rebased to zero at
+/// that temperature.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct Dewaele2006<R> {
+    /// Reference isotherm.
+    pub rt_eos: R,
+    /// Reference temperature in kelvin.
+    pub tr: f64,
+    /// Debye temperature at the reference volume in kelvin.
+    pub theta0: f64,
+    /// Gruneisen parameter at the reference volume.
+    pub gamma0: f64,
+    /// Infinite-compression Gruneisen parameter.
+    pub gamma_inf: f64,
+    /// Volume exponent in the Gruneisen law.
+    pub beta: f64,
+    /// Intrinsic-anharmonicity coefficient in K^-1.
+    pub anharmonic_a: f64,
+    /// Intrinsic-anharmonicity volume exponent.
+    pub anharmonic_m: f64,
+    /// Electronic coefficient in K^-1.
+    pub electronic_e: f64,
+    /// Electronic volume exponent.
+    pub electronic_g: f64,
+    /// Number of atoms per chemical formula.
+    pub n: f64,
+}
+
+impl<R: IsothermalEos> Dewaele2006<R> {
+    /// Construct the Dewaele et al. (2006) thermal pressure scale.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid reference, Debye, Gruneisen, or
+    /// quadratic-pressure parameters.
+    #[allow(clippy::too_many_arguments)]
+    pub fn new(
+        rt_eos: R,
+        tr: f64,
+        theta0: f64,
+        gamma0: f64,
+        gamma_inf: f64,
+        beta: f64,
+        anharmonic_a: f64,
+        anharmonic_m: f64,
+        electronic_e: f64,
+        electronic_g: f64,
+        n: f64,
+    ) -> EosResult<Self> {
+        let gamma0 = positive_parameter(gamma0, "gamma0")?;
+        let gamma_inf = positive_parameter(gamma_inf, "gamma_inf")?;
+        if gamma_inf > gamma0 {
+            return Err(EosError::InvalidParameter {
+                name: "gamma_inf",
+                reason: "must not exceed gamma0",
+            });
+        }
+        Ok(Self {
+            rt_eos,
+            tr: positive_parameter(tr, "Tr")?,
+            theta0: positive_parameter(theta0, "theta0")?,
+            gamma0,
+            gamma_inf,
+            beta: positive_parameter(beta, "beta")?,
+            anharmonic_a: nonnegative_parameter(anharmonic_a, "anharmonic_a")?,
+            anharmonic_m: positive_parameter(anharmonic_m, "anharmonic_m")?,
+            electronic_e: nonnegative_parameter(electronic_e, "electronic_e")?,
+            electronic_g: positive_parameter(electronic_g, "electronic_g")?,
+            n: positive_parameter(n, "n")?,
+        })
+    }
+
+    /// Volume-dependent Gruneisen parameter.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or non-finite result.
+    pub fn volume_gruneisen_parameter(&self, volume: f64) -> EosResult<f64> {
+        let ratio = positive_state(volume, "volume")? / self.rt_eos.reference_volume();
+        finite_result(self.gamma_inf + (self.gamma0 - self.gamma_inf) * ratio.powf(self.beta))
+    }
+
+    /// Volume-dependent Debye temperature.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for an invalid volume or non-finite result.
+    pub fn characteristic_temperature(&self, volume: f64) -> EosResult<f64> {
+        let ratio = positive_state(volume, "volume")? / self.rt_eos.reference_volume();
+        finite_result(
+            self.theta0
+                * ratio.powf(-self.gamma_inf)
+                * (((self.gamma0 - self.gamma_inf) / self.beta) * (1.0 - ratio.powf(self.beta)))
+                    .exp(),
+        )
+    }
+
+    fn vibrational_energy(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let temperature = positive_state(temperature, "temperature")?;
+        let theta = self.characteristic_temperature(volume)?;
+        finite_result(
+            3.0 * self.n * GAS_CONSTANT * temperature * debye_function_3(theta / temperature)?,
+        )
+    }
+
+    /// Reference-relative single-Debye pressure in GPa.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid state variables or non-finite evaluation.
+    pub fn vibrational_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let energy_difference = self.vibrational_energy(volume, temperature)?
+            - self.vibrational_energy(volume, self.tr)?;
+        finite_result(self.volume_gruneisen_parameter(volume)? * energy_difference / volume / 1.0e4)
+    }
+
+    fn quadratic_pressure_increment(
+        &self,
+        volume: f64,
+        temperature: f64,
+        coefficient: f64,
+        exponent: f64,
+    ) -> EosResult<f64> {
+        let volume = positive_state(volume, "volume")?;
+        let temperature = positive_state(temperature, "temperature")?;
+        let ratio = volume / self.rt_eos.reference_volume();
+        finite_result(
+            1.5 * self.n
+                * GAS_CONSTANT
+                * coefficient
+                * exponent
+                * ratio.powf(exponent)
+                * (temperature * temperature - self.tr * self.tr)
+                / volume
+                / 1.0e4,
+        )
+    }
+
+    /// Reference-relative intrinsic-anharmonic pressure in GPa.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid state variables or non-finite evaluation.
+    pub fn anharmonic_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.quadratic_pressure_increment(volume, temperature, self.anharmonic_a, self.anharmonic_m)
+    }
+
+    /// Reference-relative electronic pressure in GPa.
+    ///
+    /// # Errors
+    ///
+    /// Returns an error for invalid state variables or non-finite evaluation.
+    pub fn electronic_pressure_increment(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        self.quadratic_pressure_increment(volume, temperature, self.electronic_e, self.electronic_g)
+    }
+}
+
+impl<R: IsothermalEos> ThermalEos for Dewaele2006<R> {
+    type Reference = R;
+
+    fn reference_eos(&self) -> &R {
+        &self.rt_eos
+    }
+
+    fn reference_temperature(&self) -> f64 {
+        self.tr
+    }
+
+    fn thermal_pressure(&self, volume: f64, temperature: f64) -> EosResult<f64> {
+        finite_result(
+            self.vibrational_pressure_increment(volume, temperature)?
+                + self.anharmonic_pressure_increment(volume, temperature)?
+                + self.electronic_pressure_increment(volume, temperature)?,
+        )
+    }
+}
+
 #[derive(Clone, Copy, Debug, PartialEq)]
 struct DoubleDebyeModeTerms {
     theta_a: f64,
