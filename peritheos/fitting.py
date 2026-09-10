@@ -17,6 +17,7 @@ from scipy.sparse import csr_matrix, issparse, lil_matrix
 from scipy.sparse.linalg import spsolve
 
 from peritheos import _rust
+from peritheos.acoustics import EulerianFiniteStrainAcoustic
 from peritheos.eos import EosBase, ThermalEOS
 from peritheos.errors import FitValidationError
 from peritheos.hugoniot import HugoniotBase, LinearUsUpHugoniot
@@ -287,6 +288,126 @@ class HugoniotFitResult:
                 "weighted_residuals": self.weighted_residuals,
                 "adjusted_particle_velocity": self.adjusted_particle_velocity,
                 "particle_velocity_corrections": self.particle_velocity_corrections,
+                "diagnostics": {
+                    "chi_square": self.chi_square,
+                    "reduced_chi_square": self.reduced_chi_square,
+                    "degrees_of_freedom": self.degrees_of_freedom,
+                    "aic": self.aic,
+                    "bic": self.bic,
+                },
+                "solver": {
+                    "success": self.success,
+                    "status": self.status,
+                    "message": self.message,
+                    "loss": self.loss,
+                    "f_scale": self.f_scale,
+                    "max_nfev": self.max_nfev,
+                    "nfev": self.nfev,
+                    "njev": self.njev,
+                    "cost": self.cost,
+                    "optimality": self.optimality,
+                },
+            }
+        )
+
+    def to_json(self, path: str | Path | None = None, *, indent: int | None = 2) -> str:
+        """Return strict JSON and optionally write it to *path*."""
+        serialized = json.dumps(
+            self.to_dict(), indent=indent, sort_keys=True, allow_nan=False
+        )
+        if path is not None:
+            Path(path).write_text(serialized + "\n", encoding="utf-8")
+        return serialized
+
+
+@dataclass(frozen=True)
+class AcousticFitResult:
+    """Result of a joint density--compressional--shear velocity fit."""
+
+    model: EulerianFiniteStrainAcoustic
+    parameters: dict[str, float]
+    standard_errors: dict[str, float]
+    covariance: NDArray[np.float64]
+    correlation: NDArray[np.float64]
+    free_parameters: tuple[str, ...]
+    compressional_velocity_residuals: NDArray[np.float64]
+    shear_velocity_residuals: NDArray[np.float64]
+    weighted_residuals: NDArray[np.float64]
+    adjusted_density: NDArray[np.float64]
+    density_corrections: NDArray[np.float64]
+    chi_square: float
+    reduced_chi_square: float
+    degrees_of_freedom: int
+    aic: float
+    bic: float
+    success: bool
+    message: str
+    loss: str = "linear"
+    f_scale: float = 1.0
+    max_nfev: int | None = None
+    status: int = 0
+    nfev: int = 0
+    njev: int | None = None
+    cost: float = np.nan
+    optimality: float = np.nan
+
+    def summary(self, *, precision: int = 6) -> str:
+        """Return a compact human-readable acoustic fit report."""
+        if isinstance(precision, bool) or not isinstance(precision, (int, np.integer)):
+            raise FitValidationError("precision must be a positive integer")
+        if precision <= 0:
+            raise FitValidationError("precision must be a positive integer")
+
+        def formatted(value: float) -> str:
+            return f"{float(value):.{int(precision)}g}"
+
+        free = set(self.free_parameters)
+        lines = [
+            "AcousticFitResult (EulerianFiniteStrainAcoustic)",
+            f"Success: {self.success} (status {self.status})",
+            f"Message: {self.message}",
+            "",
+            "Parameters:",
+        ]
+        for name, value in self.parameters.items():
+            lines.append(
+                f"  {name}: {formatted(value)} +/- "
+                f"{formatted(self.standard_errors[name])} "
+                f"({'free' if name in free else 'fixed'})"
+            )
+        lines.extend(
+            [
+                "",
+                "Diagnostics:",
+                f"  chi-square: {formatted(self.chi_square)}",
+                f"  reduced chi-square: {formatted(self.reduced_chi_square)}",
+                f"  degrees of freedom: {self.degrees_of_freedom}",
+            ]
+        )
+        return "\n".join(lines)
+
+    def to_dict(self) -> dict[str, Any]:
+        """Return a versioned, JSON-safe representation of the acoustic fit."""
+        return _json_safe(
+            {
+                "schema_version": 1,
+                "model": {
+                    "module": type(self.model).__module__,
+                    "class": type(self.model).__name__,
+                    "parameters": self.model.parameter_values(),
+                },
+                "parameters": self.parameters,
+                "standard_errors": self.standard_errors,
+                "free_parameters": self.free_parameters,
+                "covariance": self.covariance,
+                "correlation": self.correlation,
+                "compressional_velocity_residuals": (
+                    self.compressional_velocity_residuals
+                ),
+                "shear_velocity_residuals": self.shear_velocity_residuals,
+                "weighted_residuals": self.weighted_residuals,
+                "adjusted_density": self.adjusted_density,
+                "density_corrections": self.density_corrections,
                 "diagnostics": {
                     "chi_square": self.chi_square,
                     "reduced_chi_square": self.reduced_chi_square,
@@ -865,6 +986,256 @@ def _fit_model(
         degrees_of_freedom=degrees_of_freedom,
         aic=float(aic),
         bic=float(bic),
+        success=bool(optimization.success),
+        message=str(optimization.message),
+        loss=(
+            loss
+            if isinstance(loss, str)
+            else getattr(loss, "__qualname__", type(loss).__name__)
+        ),
+        f_scale=f_scale,
+        max_nfev=max_nfev,
+        status=int(optimization.status),
+        nfev=int(optimization.nfev),
+        njev=(None if optimization.njev is None else int(optimization.njev)),
+        cost=float(optimization.cost),
+        optimality=float(optimization.optimality),
+    )
+
+
+def fit_acoustic_finite_strain(
+    density: Any,
+    compressional_velocity: Any,
+    shear_velocity: Any,
+    *,
+    rho0: float,
+    initial: Mapping[str, float],
+    fixed: Mapping[str, float] | None = None,
+    bounds: Mapping[str, Sequence[float]] | None = None,
+    density_sigma: Any | None = None,
+    compressional_velocity_sigma: Any | None = None,
+    shear_velocity_sigma: Any | None = None,
+    absolute_sigma: bool = False,
+    observation_covariance: Any | None = None,
+    loss: str | Callable[..., Any] = "linear",
+    f_scale: float = 1.0,
+    max_nfev: int | None = None,
+) -> AcousticFitResult:
+    """Fit the third-order Eulerian acoustic finite-strain equations.
+
+    The dependent observations are compressional and shear velocity. Density
+    is the shared independent coordinate and becomes one latent value per point
+    when ``density_sigma`` is supplied. A 2-by-2 covariance is ordered as
+    ``(compressional_velocity, shear_velocity)``. A 3-by-3 covariance additionally
+    includes density and therefore requests an errors-in-variables fit.
+
+    Density must use g/cm^3 and velocities km/s; the fitted moduli are then in
+    GPa. The reference density ``rho0`` is a fixed measured state, not a fitted
+    elastic coefficient.
+    """
+    loss, f_scale, max_nfev = _validated_solver_options(loss, f_scale, max_nfev)
+    try:
+        densities, observed_p, observed_s = np.broadcast_arrays(
+            np.asarray(density, dtype=float),
+            np.asarray(compressional_velocity, dtype=float),
+            np.asarray(shear_velocity, dtype=float),
+        )
+    except ValueError as error:
+        raise FitValidationError(
+            "density and acoustic velocities must have broadcast-compatible shapes"
+        ) from error
+    if densities.size == 0:
+        raise FitValidationError("Acoustic observations must not be empty")
+    if (
+        not np.all(np.isfinite(densities))
+        or not np.all(np.isfinite(observed_p))
+        or not np.all(np.isfinite(observed_s))
+        or np.any(densities <= 0.0)
+        or np.any(observed_p <= 0.0)
+        or np.any(observed_s <= 0.0)
+    ):
+        raise FitValidationError(
+            "Density and acoustic velocities must be finite and greater than zero"
+        )
+    rho0 = float(rho0)
+    if not np.isfinite(rho0) or rho0 <= 0.0:
+        raise FitValidationError("rho0 must be finite and greater than zero")
+
+    fixed_values = {name: float(value) for name, value in (fixed or {}).items()}
+    names = tuple(initial)
+    allowed = {"K_S0", "K_S0_prime", "G0", "G0_prime"}
+    unknown = (set(names) | set(fixed_values)) - allowed
+    missing = allowed - (set(names) | set(fixed_values))
+    overlap = set(names) & set(fixed_values)
+    if unknown:
+        raise FitValidationError(f"Unknown acoustic parameters: {sorted(unknown)}")
+    if missing:
+        raise FitValidationError(f"Missing acoustic parameters: {sorted(missing)}")
+    if overlap:
+        raise FitValidationError(
+            f"Parameters cannot be both initial and fixed: {sorted(overlap)}"
+        )
+    if not names:
+        raise FitValidationError("At least one free parameter is required")
+    parameter_x0 = np.asarray([float(initial[name]) for name in names])
+    if not np.all(np.isfinite(parameter_x0)):
+        raise FitValidationError("Initial parameters must be finite")
+    if not all(np.isfinite(value) for value in fixed_values.values()):
+        raise FitValidationError("Fixed parameters must be finite")
+
+    raw_sigmas = (
+        compressional_velocity_sigma,
+        shear_velocity_sigma,
+        density_sigma,
+    )
+    if observation_covariance is not None and any(
+        sigma is not None for sigma in raw_sigmas
+    ):
+        raise FitValidationError(
+            "observation_covariance cannot be combined with individual sigma arguments"
+        )
+
+    shape = densities.shape
+    cholesky = None
+    latent_density = density_sigma is not None
+    uncertainty_supplied = any(sigma is not None for sigma in raw_sigmas)
+    if observation_covariance is not None:
+        covariance = np.asarray(observation_covariance, dtype=float)
+        component_count = covariance.shape[-1] if covariance.ndim >= 2 else 0
+        if covariance.shape[-2:] not in {(2, 2), (3, 3)}:
+            raise FitValidationError(
+                "observation_covariance must end in a 2-by-2 or 3-by-3 matrix"
+            )
+        component_names = (
+            ("compressional_velocity", "shear_velocity")
+            if component_count == 2
+            else ("compressional_velocity", "shear_velocity", "density")
+        )
+        cholesky = _validated_observation_covariance(covariance, shape, component_names)
+        latent_density = component_count == 3
+        uncertainty_supplied = True
+
+    p_sigma = _validated_uncertainty(
+        compressional_velocity_sigma,
+        shape,
+        "compressional_velocity_sigma",
+        default=1.0,
+    )
+    s_sigma = _validated_uncertainty(
+        shear_velocity_sigma,
+        shape,
+        "shear_velocity_sigma",
+        default=1.0,
+    )
+    rho_sigma = _validated_uncertainty(density_sigma, shape, "density_sigma")
+    assert p_sigma is not None and s_sigma is not None
+
+    configured_bounds = bounds or {}
+    parameter_lower = []
+    parameter_upper = []
+    for name in names:
+        default_lower = np.finfo(float).tiny if name in {"K_S0", "G0"} else -np.inf
+        interval = configured_bounds.get(name, (default_lower, np.inf))
+        if len(interval) != 2 or interval[0] >= interval[1]:
+            raise FitValidationError(f"Invalid bounds for {name}")
+        parameter_lower.append(float(interval[0]))
+        parameter_upper.append(float(interval[1]))
+
+    x0_parts = [parameter_x0]
+    lower_parts = [np.asarray(parameter_lower)]
+    upper_parts = [np.asarray(parameter_upper)]
+    if latent_density:
+        x0_parts.append(densities.ravel())
+        lower_parts.append(np.full(densities.size, np.finfo(float).tiny))
+        upper_parts.append(np.full(densities.size, np.inf))
+    x0 = np.concatenate(x0_parts)
+    lower = np.concatenate(lower_parts)
+    upper = np.concatenate(upper_parts)
+
+    def parameter_mapping(values: NDArray[np.float64]) -> dict[str, float]:
+        return {
+            **fixed_values,
+            **dict(zip(names, map(float, values[: len(names)]))),
+        }
+
+    def adjusted_density(values: NDArray[np.float64]) -> NDArray[np.float64]:
+        if not latent_density:
+            return densities
+        return values[len(names) :].reshape(shape)
+
+    def residual_function(values: NDArray[np.float64]) -> NDArray[np.float64]:
+        model = EulerianFiniteStrainAcoustic(rho0=rho0, **parameter_mapping(values))
+        adjusted = adjusted_density(values)
+        predicted_p, predicted_s = model.velocities(adjusted)
+        raw = [predicted_p - observed_p, predicted_s - observed_s]
+        if latent_density:
+            raw.append(adjusted - densities)
+        if cholesky is not None:
+            components = np.column_stack([component.ravel() for component in raw])
+            return np.linalg.solve(cholesky, components[..., np.newaxis])[
+                ..., 0
+            ].ravel()
+        residuals = [(raw[0] / p_sigma).ravel(), (raw[1] / s_sigma).ravel()]
+        if latent_density:
+            if rho_sigma is None:
+                raise AssertionError("Latent density requires density uncertainty")
+            residuals.append((raw[2] / rho_sigma).ravel())
+        return np.concatenate(residuals)
+
+    optimization = least_squares(
+        residual_function,
+        x0,
+        bounds=(lower, upper),
+        x_scale="jac",
+        loss=loss,
+        f_scale=f_scale,
+        max_nfev=max_nfev,
+    )
+    parameters = parameter_mapping(optimization.x)
+    model = EulerianFiniteStrainAcoustic(rho0=rho0, **parameters)
+    adjusted = adjusted_density(optimization.x)
+    predicted_p, predicted_s = model.velocities(adjusted)
+    p_residual = predicted_p - observed_p
+    s_residual = predicted_s - observed_s
+    weighted_residuals = np.asarray(optimization.fun, dtype=float)
+    count = int(weighted_residuals.size)
+    degrees_of_freedom = count - optimization.x.size
+    chi_square = float(np.sum(weighted_residuals**2))
+    reduced_chi_square = (
+        chi_square / degrees_of_freedom if degrees_of_freedom > 0 else np.nan
+    )
+    covariance = _parameter_covariance(optimization.jac, len(names))
+    if (not absolute_sigma or not uncertainty_supplied) and degrees_of_freedom > 0:
+        covariance *= reduced_chi_square
+    errors = np.sqrt(np.maximum(np.diag(covariance), 0.0))
+    denominator = np.outer(errors, errors)
+    correlation = np.divide(
+        covariance,
+        denominator,
+        out=np.zeros_like(covariance),
+        where=denominator > 0.0,
+    )
+    standard_errors = {name: float(error) for name, error in zip(names, errors)}
+    standard_errors.update({name: 0.0 for name in fixed_values})
+    log_variance = math.log(max(chi_square / count, float(np.finfo(float).tiny)))
+    fitted_count = optimization.x.size
+    return AcousticFitResult(
+        model=model,
+        parameters=parameters,
+        standard_errors=standard_errors,
+        covariance=covariance,
+        correlation=correlation,
+        free_parameters=names,
+        compressional_velocity_residuals=p_residual,
+        shear_velocity_residuals=s_residual,
+        weighted_residuals=weighted_residuals,
+        adjusted_density=adjusted,
+        density_corrections=adjusted - densities,
+        chi_square=chi_square,
+        reduced_chi_square=float(reduced_chi_square),
+        degrees_of_freedom=degrees_of_freedom,
+        aic=float(count * log_variance + 2.0 * fitted_count),
+        bic=float(count * log_variance + fitted_count * math.log(count)),
         success=bool(optimization.success),
         message=str(optimization.message),
         loss=(

@@ -167,6 +167,17 @@ All notable changes to Peritheos are documented here. The project follows
   explicit, and the remaining unpublished weighting/covariance details are
   documented in a dedicated audit.
 
+- Removed the Chantel et al. (2012) composite bridgmanite BM3-MGD
+  parameterization from the production EOS catalog. Its acoustic source audit
+  and Table 1 transcription remain as nonproduction evidence. The executable
+  third-order Eulerian density--Vp--Vs model and fitter remain available as a
+  general API.
+- Linked 24 Dewaele (2019) metal records to their bundled source tables and
+  dedicated two-ruby-scale refits. They are now classified as numerically
+  similar within the source's printed 95% intervals instead of incorrectly
+  appearing as directly unrefittable. Be and hcp-Pb retain their documented
+  source-data gaps.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

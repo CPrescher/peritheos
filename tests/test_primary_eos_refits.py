@@ -39,7 +39,7 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
         "parity": 179,
         "parity_not_achieved": 36,
         "reconstructed": 2,
-        "similar": 87,
+        "similar": 86,
         "source_reconstruction": 11,
     }
     assert all(

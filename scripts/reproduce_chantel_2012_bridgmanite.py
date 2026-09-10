@@ -11,10 +11,7 @@ import numpy as np
 from scipy.optimize import least_squares
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = (
-    ROOT
-    / "peritheos/data/datasets/bridgmanite-chantel-2012-table1-density-velocity.csv"
-)
+DATA = ROOT / "docs/data/bridgmanite-chantel-2012-table1-density-velocity.csv"
 
 
 def bm3_pressure(
