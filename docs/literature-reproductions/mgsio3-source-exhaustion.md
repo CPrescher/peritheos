@@ -24,7 +24,7 @@ Five records pass that standard:
 | `10.2138/am-2000-2-310` | LitCurate prints source-owned Vinet inputs for bridgmanite, CaSiO3 perovskite, and magnesiowustite, but the final 2000 article was not recoverable. A related 1998 proceedings paper confirms the general Vinet-plus-Debye method but cannot establish the exact same-DOI coefficients or compositions. | Hold row 292; rows 293-294 are outside this task's file ownership. Register this DOI as `primary_source_inaccessible`. |
 | `10.2465/jmps.95.236` | The open final PDF explicitly gives a third-order Birch-Murnaghan density equation and, for the 300 K MgSiO3-perovskite MD compression, rho0=4.030 g cm-3, KT0=271 GPa, and KT0'=4.4. | Accept row 314 after transparent density-to-Z=4 volume conversion. Row 315 is a Funamori et al. citation. |
 | `10.1029/2003GL018762` | This elasticity-temperature-derivative paper's five LitCurate entries are comparison/citation values. None has a source-owned reference volume or executable equation. | No record. Register as `citation_only`. |
-| `10.1029/2004GL020237` | Paragraph 4 prints a source-owned candidate high-pressure MgSiO3-melt EOS: rho0=3.68 g cm-3, K0S=125 GPa, K0S'=4.0. Paragraphs 3-4 and the electronic supplement describe theoretical Hugoniots as Mie-Gruneisen offsets from third-order Birch-Murnaghan isentropes. | Accept row 458 as the BM3 reference isentrope only; do not imply the unimplemented thermal/Hugoniot terms. |
+| `10.1029/2004GL020237` | Paragraph 4 prints a source-owned candidate high-pressure MgSiO3-melt EOS: rho0=3.68 g cm-3, K0S=125 GPa, K0S'=4.0. The author derivation shows that theoretical Hugoniots are Mie-Gruneisen energy-balance offsets from a BM3 isentrope, not direct BM3 fits to shock P-rho pairs. A bounded reconstruction from the three later re-reduced enstatite melt states recovers rho0=3.6891 g cm-3 and K0S=125.463 GPa when K0S'=4 and the printed thermal terms are fixed. | Retain row 458 in production as a qualified published candidate reference isentrope. The reconstruction is `similar`, not strict parity or an independent EOS determination. |
 | `10.1360/CJCP2006.19(4).311.4` | The open article reports the ambient MD molar volume and plots P-V behavior, but gives no complete fitted EOS equation and coefficients. The derivative-only row is a citation. | No record. Register as `incomplete_parameterization`. |
 | `10.1088/1674-0068/20/05/547-551` | The article reports an equilibrium volume for a new interaction potential, not a complete EOS parameterization. | No record. Register as `incomplete_parameterization`. |
 | `10.1111/j.1365-246X.1975.tb06463.x` | The 1975 shock-interpretation article is incorrectly year-labelled 2007 in LitCurate. Its tabulated compressibility/modulus values lack the reference volumes and, except one mixed-composition estimate, pressure derivatives needed for executable Murnaghan records. The pure-Mg endpoint is extrapolated/cited rather than an independent complete fit. | No record. Register as `incomplete_legacy_parameterization`. |
@@ -90,7 +90,61 @@ Peritheos `RydbergStacey` uses the same expression with `k=3 K_infinity_prime`, 
 
 For Hamahata et al., `V0 = Z M/(rho0 N_A)` with Z=4, M=100.387 g/mol, and rho0=4.030 g/cm3 gives 165.45561819988183 A3. For Akins et al., the same calculation with Z=1 and rho0=3.68 g/cm3 gives 45.29797155879917 A3 per formula unit.
 
-`scripts/reproduce_mgsio3_source_exhaustion.py` evaluates the serialized models against independent direct equations at several compression ratios. It is a parameter/equation reproduction. A later [dedicated Dorogokupets audit](dorogokupets-2015-mgsio3-refit.md) reconstructs the recoverable 298 K literature slices and documents why the missing weights, source rows, and pressure-scale choices still prevent exact refit parity.
+### Akins et al. candidate-melt reconstruction
+
+The 2004 publisher page still lists separate supporting files for the new shock
+states, model parameters, and derivation. Its automated download endpoint
+returned a challenge during this audit, so no byte identity with the final EDS
+text files is claimed. The audit instead triangulates the source content through
+the official Caltech copy of Akins's thesis, which contains the underlying 14-row
+state table and equations 2.6-2.18, and Mosenfelder et al. (2009), which
+re-tabulates the Akins shots and explicitly documents the reduction.
+
+That distinction matters. Initial density, flyer velocity, and shock velocity
+are experimental observables. Particle velocity, peak pressure, shock density,
+and internal energy are calculated by impedance matching. Phase labels are
+interpretations. Finally, the candidate pressure at a given shock density is a
+calculated Hugoniot obtained from
+
+`Delta_EH = E_transition + Delta_ES + Delta_EV`
+
+and `Delta_EV = V_H (P_H-P_S)/gamma`, with the Rankine-Hugoniot energy relation
+and `gamma=gamma0(V/V0)^q`. Solving the source equations gives
+
+`P_H = [P_S - gamma(E_transition+E_S)/V_H] / [1 - gamma(V_initial-V_H)/(2V_H)]`,
+
+where `P_S` and `E_S` are the BM3 reference-isentrope pressure and energy. Thus
+regressing the three liquid P-rho states directly with a BM3 would be circular
+and physically wrong.
+
+`scripts/reproduce_akins_2004_mgsio3_liquid.py` implements the complete pressure
+construction. Using the three Akins enstatite states classified as melt in the
+official 2009 re-reduction (shots 318, 322, and 319), an unweighted bounded
+pressure-residual fit refines only `rho0` and `K0S`. It fixes `K0S'=4`,
+`gamma0=2.4`, `q=1`, and `E_transition=2.4 MJ/kg` to the final 2004 values.
+The printed `Cv=0.92(3nR)` term is retained as provenance but does not enter
+this pressure-only energy-balance reconstruction; it is needed to calculate
+temperature along the candidate Hugoniot. The pressure-fit result is:
+
+| Quantity | Published candidate | Bounded reconstruction |
+|---|---:|---:|
+| `rho0` (g cm-3) | 3.68 | 3.68912 |
+| `V0` (A3/formula unit) | 45.29797 | 45.18598 |
+| `K0S` (GPa) | 125 | 125.46303 |
+| pressure RMSE (GPa) | 6.84602 | 6.79454 |
+
+This is strong curve-level consistency but weak parameter identification. Three
+states and two free coefficients leave one residual degree of freedom; the
+`rho0`-`K0S` correlation is 0.99964 and the diagnostic one-sigma errors are much
+larger than the tiny difference between the point estimates. A pressure-error-
+weighted sensitivity fit moves to about 3.39 g cm-3 and 97 GPa, confirming that
+the unpublished source objective matters. `K0S'` and the thermal terms cannot be
+independently fitted from this subset. The published values therefore remain
+unchanged, carry no invented uncertainties, and stay in production only as an
+explicitly labeled candidate reference isentrope—not as an ambient liquid
+isotherm, a direct shock-data BM3, or a complete executable Hugoniot.
+
+`scripts/reproduce_mgsio3_source_exhaustion.py` evaluates the serialized models against independent direct equations at several compression ratios. `scripts/reproduce_akins_2004_mgsio3_liquid.py` performs the separate source-equation Hugoniot validation described above.
 
 ## Zotero-ready metadata
 

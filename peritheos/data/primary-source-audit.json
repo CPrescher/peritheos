@@ -9965,16 +9965,17 @@
       "label": "Akins et al. (2004), candidate liquid MgSiO3 adiabatic BM3",
       "doi": "10.1029/2004gl020237",
       "status": "primary_source_validated",
-      "note": "Validated against the final primary article and its described electronic supplement; LitCurate was discovery-only.",
+      "note": "Validated against the final Wiley article, the official Caltech author thesis containing the underlying state table and derivation, and the later official author-team re-reduction; LitCurate was discovery-only.",
       "primary_source_check": {
-        "access_url": "https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf",
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020237",
         "doi": "10.1029/2004GL020237",
         "locations": [
           "Paragraphs 3-4",
-          "Electronic data supplement Table 2",
-          "Electronic data supplement Appendix"
+          "Wiley supporting-information manifest",
+          "Akins (2003) thesis, Table 4.2 and equations 2.6-2.18",
+          "Mosenfelder et al. (2009), Table 2 and paragraph 12"
         ],
-        "finding": "The paper reports a complete source-owned candidate liquid reference isentrope; LitCurate omitted the recoverable reference volume."
+        "finding": "The paper reports a complete source-owned candidate liquid reference isentrope; LitCurate omitted the recoverable reference volume. The underlying author derivation confirms that measured shock observables are compared with a calculated Mie-Gruneisen offset from this isentrope, not fitted directly as BM3 P-V observations."
       }
     },
     {

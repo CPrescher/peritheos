@@ -57,6 +57,9 @@
    "parameter_error_confidence": null,
    "parameter_covariance": null,
    "fixed_parameters": [],
+   "fit_datasets": [
+    "mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"
+   ],
    "temperature_ref": 298.15,
    "experimental_pressure_range_gpa": [
     0.0,
@@ -91,8 +94,27 @@
     "V0": "Paragraph 4 reports rho0=3.68 g/cm3. M/rho0/N_A with M=100.387 g/mol gives 45.29797155879917 A3 per formula unit.",
     "K0": "Paragraph 4: K0S=125 GPa.",
     "K0_prime": "Paragraph 4: K0S'=4.0.",
-    "thermodynamic_basis": "K0 and K0_prime are adiabatic/isentrope coefficients. The schema's isothermal token identifies the executable equilibrium BM3 family because it has no separate adiabatic enum."
+    "thermodynamic_basis": "K0 and K0_prime are adiabatic/isentrope coefficients. The schema's isothermal token identifies the executable equilibrium BM3 family because it has no separate adiabatic enum.",
+    "candidate_hugoniot": "Akins et al. use gamma=2.4(V/V0)^1, a transition energy of 2.4 MJ/kg relative to enstatite, and Cv=0.92 times 3nR to offset the BM3 reference isentrope. The stored record contains only the BM3 component.",
+    "optimization_status": "The source calls this a candidate parameterization and publishes no objective, weights, parameter errors, covariance, or assertion that all coefficients were freely optimized. A bounded diagnostic reconstruction therefore refines only rho0 and K0S, fixes K0S_prime and the printed thermal terms, and is not substituted for the published record."
    },
+   "source_lineage": [
+    {
+     "role": "published candidate reference isentrope, theoretical-Hugoniot method, and final parameter values",
+     "citation": "Akins, Luo, Asimow, and Ahrens (2004), Geophysical Research Letters 31, L14612",
+     "doi": "10.1029/2004GL020237"
+    },
+    {
+     "role": "author-source shock-state table and full algebraic derivation underlying the paper",
+     "citation": "Akins (2003), Dynamic compression of minerals in the MgO-FeO-SiO2 system, Caltech PhD thesis",
+     "doi": "10.7907/NA1N-0B58"
+    },
+    {
+     "role": "official author-team re-reduction of the Akins shock states and explicit measurement-versus-impedance-matching description",
+     "citation": "Mosenfelder et al. (2009), Journal of Geophysical Research 114, B01203",
+     "doi": "10.1029/2008JB005900"
+    }
+   ],
    "pressure_calibration": {
     "status": "resolved",
     "methods": [
@@ -104,14 +126,14 @@
     ],
     "recalculation": {
      "status": "not_possible",
-     "notes": "The publication deposits reduced Hugoniot states, but the executable record is the authors' candidate reference isentrope rather than an independent refit of those states."
+     "notes": "The source's impedance-match standards and streak records are not bundled, so the reduced shock states cannot be recalculated from raw timing data. The published reduced states can nevertheless be propagated through the source's explicit Mie-Gruneisen energy-balance model."
     },
-    "audit_date": "2026-09-06"
+    "audit_date": "2026-09-08"
    },
    "scientific_validation": {
     "status": "primary_source_validated",
-    "note": "Validated against the final primary article and its described electronic supplement; LitCurate was discovery-only.",
-    "audit_date": "2026-09-06",
+    "note": "Validated against the final Wiley article, the official Caltech author thesis containing the underlying state table and derivation, and the later official author-team re-reduction; LitCurate was discovery-only.",
+    "audit_date": "2026-09-08",
     "verified_fields": [
      "canonical_doi",
      "composition",
@@ -121,31 +143,169 @@
      "units",
      "reference_state",
      "volume_basis",
-     "thermodynamic_basis"
+     "thermodynamic_basis",
+     "primary_data",
+     "measurement_semantics",
+     "numerical_reconstruction",
+     "identifiability"
     ],
     "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~asimow/TJA_LindhurstLabWebsite/ListPublications/Papers_pdf/Akins2004GL020237.pdf",
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2004GL020237",
      "doi": "10.1029/2004GL020237",
      "locations": [
       "Paragraphs 3-4",
-      "Electronic data supplement Table 2",
-      "Electronic data supplement Appendix"
+      "Wiley supporting-information manifest",
+      "Akins (2003) thesis, Table 4.2 and equations 2.6-2.18",
+      "Mosenfelder et al. (2009), Table 2 and paragraph 12"
      ],
-     "finding": "The paper reports a complete source-owned candidate liquid reference isentrope; LitCurate omitted the recoverable reference volume."
+     "finding": "The paper reports a complete source-owned candidate liquid reference isentrope; LitCurate omitted the recoverable reference volume. The underlying author derivation confirms that measured shock observables are compared with a calculated Mie-Gruneisen offset from this isentrope, not fitted directly as BM3 P-V observations."
     },
     "primary_data_check": {
-     "status": "supporting_information_available",
-     "audit_date": "2026-09-06",
-     "source_locations": [
-      "Electronic data supplement Table 1",
-      "Electronic data supplement Table 2",
-      "Electronic data supplement Appendix"
+     "status": "bundled",
+     "audit_date": "2026-09-08",
+     "dataset_identifiers": [
+      "mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"
      ],
-     "finding": "The publisher deposits the new shock states and the derivation used to calculate theoretical Hugoniots; this record preserves the printed candidate parameters without refitting."
-    }
+     "context_dataset_identifiers": [
+      "mgsio3_liquid_akins_2004_shock_states"
+     ],
+     "source_locations": [
+      "Akins et al. (2004) electronic data supplement Table 1 (publisher manifest filename grl18478-sup-0002-table1.txt)",
+      "Akins (2003) thesis Table 4.2",
+      "Mosenfelder et al. (2009) Table 2, Akins et al. (2004) enstatite rows assigned to melt"
+     ],
+     "finding": "The 14 original author-tabulated shock states are bundled for context, and the three high-pressure enstatite states later re-reduced by the same author group are bundled as the diagnostic reconstruction input. Initial density, flyer velocity, and shock velocity are observations; particle velocity, pressure, shock density, and internal energy are impedance-match reductions; theoretical Hugoniot pressures are calculated model outputs."
+    },
+    "independent_numerical_check": {
+     "method": "Source-equation forward calculation and bounded unweighted pressure-residual reconstruction using scripts/reproduce_akins_2004_mgsio3_liquid.py. The three re-reduced enstatite melt states refine rho0 and K0S while K0S_prime=4, gamma0=2.4, q=1, and transition energy=2.4 MJ/kg remain fixed.",
+     "classification": "similar",
+     "published_candidate_pressure_rmse_gpa": 6.8460182173,
+     "bounded_reconstruction": {
+      "rho0_g_cm3": 3.6891205824,
+      "V0_a3_per_formula_unit": 45.1859817569,
+      "K0S_gpa": 125.4630286869,
+      "pressure_rmse_gpa": 6.7945426904,
+      "degrees_of_freedom": 1,
+      "rho0_K0S_correlation": 0.9996421305
+     },
+     "finding": "The bounded reconstruction is numerically similar to the printed 3.68 g/cm3 and 125 GPa candidate, but the very high correlation and one residual degree of freedom preclude an independent three-parameter BM3 determination."
+    },
+    "unresolved_issues": [
+     "The paper does not publish the candidate-parameter optimization objective, weights, covariance, or parameter uncertainties.",
+     "The final 2004 electronic-supplement files are still listed by Wiley, but their download endpoint returned an automated-access challenge during this audit; the state table and derivation were therefore triangulated through the official Caltech thesis and the 2009 author-team retabulation.",
+     "Only three Akins enstatite states are assigned to melt in the later reanalysis, so K0S_prime and the coupled thermal coefficients are not independently identifiable from this subset."
+    ]
    },
-   "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text."
+   "notes": "Accepted LitCurate source row 458 (litcurate_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states."
   }
  ],
- "datasets": []
+ "datasets": [
+  {
+   "identifier": "mgsio3_liquid_akins_2004_shock_states",
+   "kind": "shock_hugoniot",
+   "description": "All 14 shock experiments tabulated by Akins for the 2004 study: three glass and eleven enstatite shots, including separate elastic-precursor and second-wave velocities where reported.",
+   "source_location": "Akins (2003) thesis Table 4.2, the author-source table underlying Akins et al. (2004) electronic-data-supplement Table 1",
+   "source_url": "https://thesis.library.caltech.edu/2291/",
+   "columns": [
+    {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
+    {"name": "shot", "quantity": "shot_identifier", "unit": "1", "role": "flag"},
+    {"name": "starting_material", "quantity": "starting_material", "unit": "1", "role": "flag"},
+    {"name": "initial_density_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "value"},
+    {"name": "initial_density_uncertainty_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "uncertainty", "of": "initial_density_g_cm3"},
+    {"name": "flyer_driver_material", "quantity": "flyer_driver_material", "unit": "1", "role": "flag"},
+    {"name": "flyer_velocity_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "value"},
+    {"name": "flyer_velocity_uncertainty_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "uncertainty", "of": "flyer_velocity_km_s"},
+    {"name": "shock_velocity_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "value"},
+    {"name": "shock_velocity_uncertainty_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "uncertainty", "of": "shock_velocity_km_s"},
+    {"name": "elastic_precursor_velocity_km_s", "quantity": "elastic_precursor_velocity", "unit": "km/s", "role": "value"},
+    {"name": "elastic_precursor_velocity_uncertainty_km_s", "quantity": "elastic_precursor_velocity", "unit": "km/s", "role": "uncertainty", "of": "elastic_precursor_velocity_km_s"},
+    {"name": "second_wave_velocity_km_s", "quantity": "second_wave_velocity", "unit": "km/s", "role": "value"},
+    {"name": "second_wave_velocity_uncertainty_km_s", "quantity": "second_wave_velocity", "unit": "km/s", "role": "uncertainty", "of": "second_wave_velocity_km_s"},
+    {"name": "pressure_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "shock_density_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "value"},
+    {"name": "shock_density_uncertainty_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "uncertainty", "of": "shock_density_g_cm3"},
+    {"name": "candidate_melt_constraint", "quantity": "diagnostic_selection", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-liquid-akins-2004-shock-states.csv",
+    "sha256": "532cbb5e1d61c2e1a381389eef679f73464d38e973e7df6e47acdbb2e8a85fb7",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_author_table",
+    "method": "Manual transcription of the official Caltech thesis Table 4.2 with printed precision retained. The overlapping high-pressure rows were cross-checked against Mosenfelder et al. (2009) Table 2; later re-reduced values are kept in a separate dataset.",
+    "publisher_supporting_manifest": "grl18478-sup-0002-table1.txt",
+    "publisher_download_status": "Automated download challenged during the 2026-09-08 audit; no claim of byte identity with the final EDS file is made."
+   },
+   "uncertainty": {
+    "reported_as": "Parenthetical last-digit uncertainties expanded to decimal columns.",
+    "covariance": "not_reported"
+   },
+   "notes": "Initial density, flyer velocity, shock velocity, elastic-precursor velocity, and second-wave velocity are experimental observables. Pressure and shock density are impedance-match reductions and must not be treated as independent direct BM3 P-V measurements. candidate_melt_constraint marks only the three high-pressure enstatite states used by the diagnostic reconstruction.",
+   "reference": {
+    "authors": ["Akins", "Luo", "Asimow", "Ahrens"],
+    "year": 2004,
+    "title": "Shock-induced melting of MgSiO3 perovskite and implications for melts in Earth's lowermost mantle",
+    "source": "Geophysical Research Letters",
+    "volume": "31",
+    "locator": "L14612",
+    "doi": "10.1029/2004GL020237"
+   },
+   "used_by_eos_records": ["mgsio3_liquid_akins_2004_adiabatic_bm3"]
+  },
+  {
+   "identifier": "mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt",
+   "kind": "shock_hugoniot",
+   "description": "The three Akins et al. (2004) enstatite shock states assigned to melt in the official Mosenfelder et al. (2009) author-team re-reduction and used for the bounded validation reconstruction.",
+   "source_location": "Mosenfelder et al. (2009) Table 2, Akins et al. (2004) enstatite rows with phase state melt",
+   "source_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008JB005900",
+   "columns": [
+    {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
+    {"name": "shot", "quantity": "shot_identifier", "unit": "1", "role": "flag"},
+    {"name": "starting_material", "quantity": "starting_material", "unit": "1", "role": "flag"},
+    {"name": "reference", "quantity": "row_provenance", "unit": "1", "role": "flag"},
+    {"name": "flyer_driver_material", "quantity": "flyer_driver_material", "unit": "1", "role": "flag"},
+    {"name": "flyer_velocity_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "value"},
+    {"name": "flyer_velocity_uncertainty_km_s", "quantity": "flyer_velocity", "unit": "km/s", "role": "uncertainty", "of": "flyer_velocity_km_s"},
+    {"name": "initial_density_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "value"},
+    {"name": "initial_density_uncertainty_g_cm3", "quantity": "initial_density", "unit": "g/cm^3", "role": "uncertainty", "of": "initial_density_g_cm3"},
+    {"name": "shock_velocity_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "value"},
+    {"name": "shock_velocity_uncertainty_km_s", "quantity": "shock_velocity", "unit": "km/s", "role": "uncertainty", "of": "shock_velocity_km_s"},
+    {"name": "particle_velocity_km_s", "quantity": "impedance_matched_particle_velocity", "unit": "km/s", "role": "value"},
+    {"name": "particle_velocity_uncertainty_km_s", "quantity": "impedance_matched_particle_velocity", "unit": "km/s", "role": "uncertainty", "of": "particle_velocity_km_s"},
+    {"name": "pressure_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "value"},
+    {"name": "pressure_uncertainty_gpa", "quantity": "impedance_matched_shock_pressure", "unit": "GPa", "role": "uncertainty", "of": "pressure_gpa"},
+    {"name": "shock_density_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "value"},
+    {"name": "shock_density_uncertainty_g_cm3", "quantity": "impedance_matched_shock_density", "unit": "g/cm^3", "role": "uncertainty", "of": "shock_density_g_cm3"},
+    {"name": "phase_state", "quantity": "interpreted_phase_state", "unit": "1", "role": "flag"},
+    {"name": "fit_included", "quantity": "diagnostic_selection", "unit": "1", "role": "flag"}
+   ],
+   "resource": {
+    "path": "datasets/mgsio3-liquid-akins-2004-mosenfelder-2009-rereduced-melt.csv",
+    "sha256": "75eff1a3b9615b49696f6629b844554143a22050b53618dac44a8c19e4fe9add",
+    "media_type": "text/csv"
+   },
+   "provenance": {
+    "type": "transcribed_from_table",
+    "method": "Manual transcription of the three Akins et al. rows designated melt in the final Wiley HTML Table 2, with parenthetical last-digit uncertainties expanded.",
+    "relationship_to_2004_values": "Mosenfelder et al. reevaluated the uncertainties and applied a common enstatite initial density; these values are a documented later re-reduction, not silent replacements for the original table."
+   },
+   "uncertainty": {
+    "reported_as": "Parenthetical last-digit uncertainties expanded to decimal columns; the paper states +/-0.01 km/s for Caltech flyer velocities.",
+    "covariance": "not_reported"
+   },
+   "notes": "Shock velocity is measured from streak-camera records. Particle velocity, pressure, shock density, and internal energy are calculated by impedance matching. The phase-state label is an interpretation. The diagnostic fit compares theoretical Hugoniot pressure with these reduced states and does not regress the stored BM3 directly against P-rho.",
+   "reference": {
+    "authors": ["Mosenfelder", "Asimow", "Frost", "Rubie", "Ahrens"],
+    "year": 2009,
+    "title": "The MgSiO3 system at high pressure: Thermodynamic properties of perovskite, postperovskite, and melt from global inversion of shock and static compression data",
+    "source": "Journal of Geophysical Research: Solid Earth",
+    "volume": "114",
+    "locator": "B01203",
+    "doi": "10.1029/2008JB005900"
+   },
+   "used_by_eos_records": ["mgsio3_liquid_akins_2004_adiabatic_bm3"]
+  }
+ ]
 }
