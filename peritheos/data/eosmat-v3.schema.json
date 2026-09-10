@@ -738,7 +738,8 @@
             "MieGruneisenEinstein",
             "MultiOscillatorGruneisen",
             "Sokolova2016",
-            "ThermalModifiedTait"
+            "ThermalModifiedTait",
+            "SoundVelocityDebyeHelmholtz"
           ]
         },
         "model": {
@@ -755,7 +756,8 @@
             "mie_gruneisen_debye",
             "mie_gruneisen_einstein",
             "multi_oscillator_gruneisen_thermal_pressure",
-            "thermal_modified_tait"
+            "thermal_modified_tait",
+            "sound_velocity_debye_helmholtz"
           ]
         },
         "debye_temperature_law": {
@@ -964,6 +966,16 @@
                 },
                 "model": {
                   "const": "thermal_modified_tait"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "SoundVelocityDebyeHelmholtz"
+                },
+                "model": {
+                  "const": "sound_velocity_debye_helmholtz"
                 }
               }
             }

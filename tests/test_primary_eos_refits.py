@@ -74,8 +74,12 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert "## Composite reconstructions" in markdown
 
     luo = by_identifier["mgo_b1_luo_2023_vinet_thermal_5"]
-    assert luo["status"] == "not_refittable"
-    assert luo["dataset_identifiers"] == ["mgo_luo_2023_table1_shock"]
+    assert luo["status"] == "bounded_partial"
+    assert luo["dataset_identifiers"] == [
+        "mgo_luo_2023_table1_shock",
+        "mgo_li_2006_table1_elasticity",
+    ]
+    assert luo["observations"] == 12
     assert "derived EOS output" in luo["reason"]
     tange = by_identifier["mgo_b1_tange_2009_vinet"]
     assert tange["status"] == "similar"
@@ -137,6 +141,9 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert li["rmse_p_wave_velocity_km_s"] == pytest.approx(0.02164856)
     assert li["rmse_s_wave_velocity_km_s"] == pytest.approx(0.01473844)
     assert "never used as observations" in li["qualification"]
+    assert [parameter["refit"] for parameter in luo["parameters"]] == pytest.approx(
+        [83.8757019344, 58.0914562018, 6.5792403474]
+    )
     reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
     reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
     assert reynard_ruby["status"] == reynard_ice["status"] == "parity"

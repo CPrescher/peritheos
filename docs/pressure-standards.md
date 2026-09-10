@@ -441,7 +441,12 @@ The independent `mgo_b1_luo_2023_vinet_thermal_5` record is deliberately not a
 static Vinet alternative. It adds Luo et al.'s Appendix-B absolute thermal
 pressure to their 0 K cold Vinet curve. Its `Tr=300 K` is a Taylor expansion
 coordinate, and the thermal pressure is nonzero there. The record bundles the
-five new shock states and the paper's 576-value derived P-V-T table.
+five new shock states, links the bundled Li-2006 acoustic constraints, and
+retains the paper's 576-value derived P-V-T table strictly as a reproduction
+target. The underlying sound-velocity quasi-Debye mechanism is available as
+`SoundVelocityDebyeHelmholtz`; Luo's record remains on Appendix B because the
+source does not print the Kono velocity-density coefficients needed to
+instantiate the source-author model.
 
 ### Measurement and parameter uncertainty
 

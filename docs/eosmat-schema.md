@@ -304,6 +304,7 @@ Thermal `type` and `model` must likewise match:
 | `AlphaKT` | `thermal_reference_state` | `Tr`, `alpha0`, `dK_dT`; optional `alpha1` |
 | `LinearThermalPressure` | `linear_thermal_pressure` | `Tr`, `alpha_KT` |
 | `SecondOrderTaylorThermalPressure` | `second_order_taylor_thermal_pressure` | `Tr`, `eta0`, `c0`, `c1`, `c2`, `c3`, `c4`, `c5` |
+| `SoundVelocityDebyeHelmholtz` | `sound_velocity_debye_helmholtz` | `Tr`, `molar_mass_g_mol`, `n`, longitudinal/shear velocity intercepts and slopes |
 | `LogVolumeThermalPressure` | `log_volume_thermal_pressure` | `Tr`, `alpha_KT_ref`, `dK_dT_V` |
 | `MieGruneisenDebye` | `mie_gruneisen_debye` | `Tr`, `theta0`, `gamma0`, `q`, `n` |
 | `MieGruneisenEinstein` | `mie_gruneisen_einstein` | `Tr`, `theta0`, `gamma0`, `q`, `n` |

@@ -23,12 +23,16 @@ from types import SimpleNamespace
 from typing import Any
 
 import numpy as np
+from scipy.constants import Avogadro
 from scipy.optimize import least_squares, minimize
 
 from peritheos import get_eos_record, get_material_document, list_material_documents
 from peritheos.eos import ThermalEOS
 from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, Vinet
-from peritheos.eos.thermal import ThermalReferenceStateEOS
+from peritheos.eos.thermal import (
+    SoundVelocityDebyeHelmholtz,
+    ThermalReferenceStateEOS,
+)
 from peritheos.fitting import fit_joint_eos, fit_linear_us_up, fit_rt_eos
 from peritheos.materials import Material
 from scripts.reproduce_diamond_thermal_composites import (
@@ -121,13 +125,6 @@ INDIRECT_DATA = {
         "rather than the numerical table, identifies the liquid states used by the "
         "source fit, so the table is a checkpoint resource and not an asserted exact "
         "regression input."
-    ),
-    "mgo_b1_luo_2023_vinet_thermal_5": (
-        "The five bundled Table I rows are only the new shock subset of a global "
-        "quasi-Debye fit. The complete earlier-study observations, numerical "
-        "sound-velocity-density fits, objective weights, and covariance are not "
-        "published; Tables II-III are derived EOS output and cannot serve as "
-        "independent refit observations."
     ),
     "platinum_holmes_1989_vinet_1": (
         "The bundled rows are shock-Hugoniot qualification experiments; the stored "
@@ -2047,12 +2044,209 @@ def _fit_li_2006_acoustic(
     }
 
 
+def _luo_2023_bounded_partial_outcome(
+    document: dict[str, Any], record: dict[str, Any]
+) -> dict[str, Any]:
+    """Fit the locally identifiable Luo subset without using derived EOS tables.
+
+    Kono et al.'s exact velocity rows and Luo et al.'s fitted velocity-density
+    coefficients are unavailable.  Li et al.'s bundled primary acoustic rows,
+    which Luo et al. also cite as sound constraints, therefore define a declared
+    proxy Poisson-ratio law.  This is a sensitivity calculation, not a rerun of
+    the source global optimization.
+    """
+    datasets = {item["identifier"]: item for item in document["datasets"]}
+    shock_id = "mgo_luo_2023_table1_shock"
+    acoustic_id = "mgo_li_2006_table1_elasticity"
+    shock_rows = _load_rows(datasets[shock_id])
+    acoustic_rows = _load_rows(datasets[acoustic_id])
+
+    density = np.asarray(
+        [_number(row["density_g_cm3"]) for row in acoustic_rows], dtype=float
+    )
+    design = np.column_stack((np.ones(density.size), density))
+
+    def velocity_fit(value_name: str, sigma_name: str) -> np.ndarray:
+        values = np.asarray([_number(row[value_name]) for row in acoustic_rows])
+        sigma = np.asarray([_number(row[sigma_name]) for row in acoustic_rows])
+        selected = np.isfinite(density) & np.isfinite(values) & (sigma > 0.0)
+        matrix = design[selected]
+        weights = 1.0 / sigma[selected] ** 2
+        return np.linalg.solve(
+            matrix.T @ (matrix * weights[:, None]),
+            matrix.T @ (values[selected] * weights),
+        )
+
+    longitudinal = velocity_fit(
+        "p_wave_velocity_km_s", "p_wave_velocity_standard_deviation_km_s"
+    )
+    shear = velocity_fit(
+        "s_wave_velocity_km_s", "s_wave_velocity_standard_deviation_km_s"
+    )
+    molar_mass = 40.304
+    atoms_per_formula_unit = 2.0
+    initial_volume = molar_mass / (10.0 * 3.590)
+
+    def model(parameters: np.ndarray) -> SoundVelocityDebyeHelmholtz:
+        return SoundVelocityDebyeHelmholtz(
+            Vinet(*parameters),
+            300.0,
+            molar_mass,
+            atoms_per_formula_unit,
+            float(longitudinal[0]),
+            float(longitudinal[1]),
+            float(shear[0]),
+            float(shear[1]),
+        )
+
+    def residuals(parameters: np.ndarray) -> np.ndarray:
+        eos = model(parameters)
+        values: list[float] = []
+        for row in shock_rows:
+            volume = molar_mass / (10.0 * _number(row["density_g_cm3"]))
+            observed_pressure = _number(row["pressure_gpa"])
+            hugoniot_temperature = eos.hugoniot_temperature_from_state(
+                volume,
+                observed_pressure,
+                initial_volume=initial_volume,
+                initial_temperature=300.0,
+                initial_pressure=0.0,
+            )
+            values.append(
+                (float(eos.pressure(volume, hugoniot_temperature)) - observed_pressure)
+                / _number(row["pressure_sigma_gpa"])
+            )
+            temperature = _number(row["temperature_k"])
+            if np.isfinite(temperature):
+                values.append(
+                    (hugoniot_temperature - temperature)
+                    / (_number(row["temperature_2sigma_k"]) / 2.0)
+                )
+            sound_velocity = _number(row["euler_sound_velocity_km_s"])
+            if np.isfinite(sound_velocity):
+                values.append(
+                    (
+                        float(eos.longitudinal_velocity(volume)) - sound_velocity
+                    )
+                    / _number(row["euler_sound_velocity_sigma_km_s"])
+                )
+        return np.asarray(values)
+
+    published = record["eos"]["parameters"]
+    cell_to_molar = Avogadro * 1.0e-25 / float(
+        document["formula_units_per_cell"]
+    )
+    initial = np.asarray(
+        [
+            float(published["V0"]) * cell_to_molar,
+            float(published["K0"]),
+            float(published["K0_prime"]),
+        ]
+    )
+    fit = least_squares(
+        residuals,
+        initial,
+        bounds=([0.8, 1.0, 1.0], [1.5, 350.0, 10.0]),
+        x_scale="jac",
+        diff_step=1.0e-4,
+        ftol=1.0e-13,
+        xtol=1.0e-13,
+        gtol=1.0e-13,
+        max_nfev=5000,
+    )
+    dof = residuals(fit.x).size - fit.x.size
+    covariance = np.linalg.inv(fit.jac.T @ fit.jac)
+    standard_errors = np.sqrt(np.diag(covariance))
+    fitted_public = np.asarray(
+        [fit.x[0] / cell_to_molar, fit.x[1], fit.x[2]], dtype=float
+    )
+    errors_public = np.asarray(
+        [standard_errors[0] / cell_to_molar, standard_errors[1], standard_errors[2]],
+        dtype=float,
+    )
+    names = ("V0", "K0", "K0_prime")
+    comparisons = [
+        {
+            "parameter": name,
+            "published": float(published[name]),
+            "published_error": _number(record.get("parameter_errors", {}).get(name)),
+            "refit": float(value),
+            "refit_error": float(error),
+            "relative_difference": abs(float(value) - float(published[name]))
+            / abs(float(published[name])),
+            "within_combined_2sigma": None,
+            "similar": False,
+        }
+        for name, value, error in zip(names, fitted_public, errors_public)
+    ]
+    normalized = residuals(fit.x)
+    return {
+        "status": "bounded_partial",
+        "dataset_identifiers": [shock_id, acoustic_id],
+        "observations": int(normalized.size),
+        "selection": (
+            "all five Luo Table I P-V states, four reported temperatures, and "
+            "three Eulerian sound velocities; all 18 Li ambient/high-pressure "
+            "rows only determine the fixed proxy velocity-density regressions"
+        ),
+        "columns": {
+            "pressure": "pressure_gpa",
+            "temperature": "temperature_k",
+            "density": "density_g_cm3",
+            "longitudinal_velocity": "euler_sound_velocity_km_s",
+        },
+        "fit_kind": "sound_velocity_quasi_debye_bounded_partial",
+        "objective": (
+            "sum of squared shock-pressure, Hugoniot-temperature, and longitudinal-"
+            "velocity residuals divided by their printed one-standard-deviation "
+            "errors; printed two-sigma temperature errors are halved"
+        ),
+        "absolute_sigma": True,
+        "fixed_parameters": [
+            "Tr",
+            "molar_mass_g_mol",
+            "n",
+            "Li proxy velocity-density coefficients",
+        ],
+        "free_parameters": list(names),
+        "parameters": comparisons,
+        "chi_square": float(np.sum(normalized**2)),
+        "reduced_chi_square": float(np.sum(normalized**2) / dof),
+        "degrees_of_freedom": int(dof),
+        "solver_success": bool(fit.success),
+        "solver_message": str(fit.message),
+        "proxy_velocity_fits": {
+            "source_dataset": acoustic_id,
+            "method": "weighted least squares in velocity using printed velocity sigmas",
+            "longitudinal_intercept_km_s": float(longitudinal[0]),
+            "longitudinal_slope_km_s_per_g_cm3": float(longitudinal[1]),
+            "shear_intercept_km_s": float(shear[0]),
+            "shear_slope_km_s_per_g_cm3": float(shear[1]),
+        },
+        "reason": (
+            "A 12-residual primary-row sensitivity fit is executable, but it is "
+            "not the source global refit: Kono's exact velocity-density regressions, "
+            "the selected upstream shock/PVT rows, temperature/density error "
+            "propagation, cross-observable normalization, and covariance are still "
+            "unavailable. Tables II-III are excluded because they are derived EOS "
+            "output."
+        ),
+        "qualification": (
+            "The large coefficient shift is evidence that substituting Li's low-"
+            "pressure velocity ratio and retaining only Luo's new states does not "
+            "identify the published global parameterization."
+        ),
+    }
+
+
 def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
 
 
+    if record_id == "mgo_b1_luo_2023_vinet_thermal_5":
+        return _luo_2023_bounded_partial_outcome(document, record)
     dataset_identifiers = [dataset["identifier"]]
     if record_id in COMBINED_FIT_DATASET_RECORDS:
         dataset, dataset_identifiers = _combined_fit_dataset(document, record)
@@ -4358,6 +4552,11 @@ def validate_all() -> dict[str, Any]:
                 "independent component refit and source-data validation are reported "
                 "separately."
             ),
+            "bounded_partial": (
+                "A declared subset/proxy fit is executable from primary rows, but "
+                "missing source inputs or protocol details prevent an authoritative "
+                "full-fit comparison."
+            ),
             "not_refittable": (
                 "The primary source supplies no direct row-level observations, or "
                 "the necessary reduction/calibration is not executable."
@@ -4497,6 +4696,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "achieve parity, "
         f"**[{summary.get('reconstructed', 0)}](#composite-reconstructions)** are "
         "exact source-equation reconstructions, "
+        f"**{summary.get('bounded_partial', 0)}** have bounded partial refits, "
         f"**{summary.get('not_refittable', 0)}** cannot be directly refitted, and "
         f"**{summary.get('refit_failed', 0)}** attempts failed before comparison.",
         "",
@@ -4613,6 +4813,37 @@ def render_markdown(ledger: dict[str, Any]) -> str:
                 f"{_fmt(thermal['internal_energy_increment_rmse_ev_per_atom'])} "
                 "eV/atom."
             )
+
+    partial = [item for item in ledger["records"] if item["status"] == "bounded_partial"]
+    lines.extend(["", "## Bounded partial refits", ""])
+    if partial:
+        for item in partial:
+            parameters = "; ".join(
+                f"`{value['parameter']}` {_fmt(value['published'])} → "
+                f"{_fmt(value['refit'])}"
+                for value in item.get("parameters", [])
+            )
+            lines.extend(
+                [
+                    f"### `{item['record_identifier']}`",
+                    "",
+                    f"**Data:** `{', '.join(item['dataset_identifiers'])}`. "
+                    f"**Selection:** {item.get('selection', '—')}. ",
+                    "",
+                    f"**Objective:** {item.get('objective', '—')}. ",
+                    "",
+                    f"**Result:** {parameters}; chi-square "
+                    f"{_fmt(item.get('chi_square'))} for "
+                    f"{item.get('degrees_of_freedom', '—')} degrees of freedom.",
+                    "",
+                    f"**Boundary:** {item.get('reason', '—')}",
+                    "",
+                    f"**Interpretation:** {item.get('qualification', '—')}",
+                    "",
+                ]
+            )
+    else:
+        lines.append("No record has a bounded partial refit.")
 
     unsuccessful = [
         item

@@ -354,6 +354,7 @@ from peritheos.eos.thermal import (
     MultiOscillatorGruneisenThermalEOS,
     Sokolova2016,
     SecondOrderTaylorThermalPressure,
+    SoundVelocityDebyeHelmholtz,
     Tange2009Debye,
     ThermalModifiedTait,
     ThermalReferenceStateEOS,
@@ -370,6 +371,7 @@ Thermal constructor signatures are:
 | `DorogokupetsOganov2007` | `Tr`, four oscillator-mode parameter groups, `gamma0, gamma_inf, beta`, anharmonic, electronic, defect, and atom-count terms |
 | `LinearThermalPressure` | `Tr, alpha_KT` |
 | `SecondOrderTaylorThermalPressure` | `Tr, eta0, c0, c1, c2, c3, c4, c5` |
+| `SoundVelocityDebyeHelmholtz` | `Tr, molar_mass_g_mol, n, longitudinal_intercept, longitudinal_slope, shear_intercept, shear_slope` |
 | `LogVolumeThermalPressure` | `Tr, alpha_KT_ref, dK_dT_V` |
 | `ThermalReferenceStateEOS` | `Tr, alpha0, dK_dT, alpha1=0, thermal_expansion_law="constant", reference_volume_law="integrated_expansivity"`; volume laws also include `linear_temperature` and `berman` |
 | `MieGruneisenDebye` | `Tr, theta0, gamma0, q, n, debye_temperature_law="integrated_gruneisen", thermal_pressure_reference="reference_temperature", Cvmax=None` |
@@ -382,7 +384,8 @@ Thermal constructor signatures are:
 `MultiOscillatorGruneisenThermalEOS`.
 
 The Mie-Gruneisen, multi-oscillator, and constant linear thermal-pressure
-classes accept any `EosBase` reference. `LogVolumeThermalPressure` and
+classes accept any `EosBase` reference. `SoundVelocityDebyeHelmholtz` also
+requires the reference to implement `bulk_modulus`. `LogVolumeThermalPressure` and
 `SecondOrderTaylorThermalPressure` require `V0`; thermal modified Tait requires `ModifiedTait`; and
 `ThermalReferenceStateEOS` requires a reference that reconstructs through
 `V0` and `K0`. Energy-based thermal classes require molar volume in
