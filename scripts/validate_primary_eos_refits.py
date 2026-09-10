@@ -322,6 +322,17 @@ FIT_QUALIFICATIONS = {
         )
         for i in range(1, 13)
     },
+    "naalsi2o6_zhao_1997_bm3_1": (
+        "Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. "
+        "All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed "
+        "V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, "
+        "numerical weights, row-wise pressure/temperature uncertainties, covariance, or "
+        "confidence convention, so Peritheos uses ordinary pressure residuals. Every "
+        "varied coefficient is recovered within its published uncertainty; the result "
+        "is classified similar because the small alpha1 coefficient has a 46% relative "
+        "shift. See the dedicated [Zhao jadeite audit]"
+        "(literature-reproductions/zhao-1997-jadeite.md)."
+    ),
     "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": (
         "Exact final-input reproduction, not a reconstruction of every upstream "
         "reduction: the supplement deposits the 1,313 fit rows, but omits the "
@@ -1512,6 +1523,76 @@ def _compare(
     return "parity_not_achieved", comparisons
 
 
+def _fit_zhao_1997_thermal_result(
+    record: dict[str, Any], series: Series, executable: ThermalEOS, volume_scale: float
+) -> SimpleNamespace:
+    """Fit Zhao's four free parameters on numerically scaled coordinates."""
+    names = ("rt_eos.K0", "alpha0", "alpha1", "dK_dT")
+    initial = np.asarray(
+        [
+            record["eos"]["parameters"]["K0"],
+            record["thermal"]["parameters"]["alpha0"],
+            record["thermal"]["parameters"]["alpha1"],
+            record["thermal"]["parameters"]["dK_dT"],
+        ],
+        dtype=float,
+    )
+    scales = np.asarray([100.0, 3.0e-5, 3.0e-9, 2.0e-2])
+    lower = np.asarray([_bounds(name, value)[0] for name, value in zip(names, initial)])
+    upper = np.asarray([_bounds(name, value)[1] for name, value in zip(names, initial)])
+    fixed_rt = {
+        name: float(value)
+        for name, value in record["eos"]["parameters"].items()
+        if name != "K0"
+    }
+    fixed_thermal = {
+        "Tr": float(record["thermal"]["parameters"]["Tr"]),
+        "thermal_expansion_law": record["thermal"]["thermal_expansion_law"],
+        "reference_volume_law": record["thermal"]["reference_volume_law"],
+    }
+
+    def residuals(scaled_parameters: np.ndarray) -> np.ndarray:
+        k0, alpha0, alpha1, d_k_dt = scaled_parameters * scales
+        model = type(executable)(
+            rt_eos=type(executable.rt_eos)(K0=float(k0), **fixed_rt),
+            alpha0=float(alpha0),
+            alpha1=float(alpha1),
+            dK_dT=float(d_k_dt),
+            **fixed_thermal,
+        )
+        return (
+            np.asarray(
+                model.pressure(series.volume * volume_scale, series.temperature),
+                dtype=float,
+            )
+            - series.pressure
+        )
+
+    optimization = least_squares(
+        residuals,
+        initial / scales,
+        bounds=(lower / scales, upper / scales),
+        max_nfev=5000,
+    )
+    fitted = optimization.x * scales
+    residual = residuals(optimization.x)
+    degrees_of_freedom = int(series.pressure.size - len(names))
+    reduced_chi_square = float(np.sum(residual**2) / degrees_of_freedom)
+    covariance_scaled = np.linalg.pinv(optimization.jac.T @ optimization.jac)
+    covariance_scaled *= reduced_chi_square
+    errors = np.sqrt(np.diag(covariance_scaled)) * scales
+    return SimpleNamespace(
+        free_parameters=names,
+        parameters=dict(zip(names, map(float, fitted))),
+        standard_errors=dict(zip(names, map(float, errors))),
+        residuals=residual,
+        reduced_chi_square=reduced_chi_square,
+        degrees_of_freedom=degrees_of_freedom,
+        success=optimization.success,
+        message=optimization.message,
+    )
+
+
 def _combined_fit_dataset(
     document: dict[str, Any], record: dict[str, Any]
 ) -> tuple[dict[str, Any], list[str]]:
@@ -1966,6 +2047,15 @@ def _fit_record(
     if dataset["identifier"] in UNWEIGHTED_DATASETS:
         series.pressure_sigma = None
         series.volume_sigma = None
+    if record_id == "naalsi2o6_zhao_1997_bm3_1":
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        series.temperature_sigma = None
+        series.selection = (
+            "all 31 source-selected hydrostatic Table 1 rows; nonhydrostatic "
+            "cold-compression observations were excluded by the authors before tabulation"
+        )
+        source_protocol_unweighted = True
     if dataset["identifier"] in {
         "iron_zhang_2025_tables_s1_s3_s4_pvt",
         "mgal2o4_cafe2o4_irifune_2002_text_pv",
@@ -2180,32 +2270,39 @@ def _fit_record(
             fixed["rt_eos.V0"] *= volume_scale
         if not initial:
             raise ValueError("record has no free parameters")
-        result = fit_joint_eos(
-            type(executable),
-            rt_class,
-            volume=series.volume * material.eos_records[0].volume_scale,
-            temperature=(
-                series.temperature
-                if series.temperature is not None
-                else np.full(
-                    series.pressure.shape, material.eos_records[0].reference_temperature
-                )
-            ),
-            pressure=series.pressure,
-            initial=initial,
-            fixed=fixed,
-            configuration=_configuration(record),
-            bounds={name: _bounds(name, value) for name, value in initial.items()},
-            pressure_sigma=series.pressure_sigma,
-            volume_sigma=(
-                None
-                if series.volume_sigma is None
-                else series.volume_sigma * material.eos_records[0].volume_scale
-            ),
-            temperature_sigma=series.temperature_sigma,
-            absolute_sigma=not source_protocol_unweighted,
-            max_nfev=5000,
-        )
+        if record_id == "naalsi2o6_zhao_1997_bm3_1":
+            assert series.temperature is not None
+            result = _fit_zhao_1997_thermal_result(
+                record, series, executable, material.eos_records[0].volume_scale
+            )
+        else:
+            result = fit_joint_eos(
+                type(executable),
+                rt_class,
+                volume=series.volume * material.eos_records[0].volume_scale,
+                temperature=(
+                    series.temperature
+                    if series.temperature is not None
+                    else np.full(
+                        series.pressure.shape,
+                        material.eos_records[0].reference_temperature,
+                    )
+                ),
+                pressure=series.pressure,
+                initial=initial,
+                fixed=fixed,
+                configuration=_configuration(record),
+                bounds={name: _bounds(name, value) for name, value in initial.items()},
+                pressure_sigma=series.pressure_sigma,
+                volume_sigma=(
+                    None
+                    if series.volume_sigma is None
+                    else series.volume_sigma * material.eos_records[0].volume_scale
+                ),
+                temperature_sigma=series.temperature_sigma,
+                absolute_sigma=not source_protocol_unweighted,
+                max_nfev=5000,
+            )
     else:
         eos_class = MODEL_CLASSES[record["eos"]["type"]]
         if not static_initial:

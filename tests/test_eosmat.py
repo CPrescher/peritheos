@@ -1606,9 +1606,15 @@ def test_newly_validated_primary_records_retain_published_errors():
         "n": None,
     }
     assert jadeite["parameter_errors"] == {
-        "V0": pytest.approx(0.08),
+        "V0": None,
         "K0": pytest.approx(4.0),
         "K0_prime": None,
+    }
+    assert jadeite["thermal"]["parameter_errors"] == {
+        "Tr": None,
+        "alpha0": pytest.approx(2.2e-6),
+        "alpha1": pytest.approx(1.8e-9),
+        "dK_dT": pytest.approx(0.0049),
     }
     assert perovskite["parameter_errors"] == {
         "V0": pytest.approx(0.39),

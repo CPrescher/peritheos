@@ -171,9 +171,18 @@ Primary-source findings changed or qualified several migrated records:
   the source uncertainty on fixed `K0=169.2(9) GPa`, and the fitted
   `gamma0=1.64(2)` and `q=1.5(1)` errors. Fixed `theta0=826 K` remains
   errorless because the paper does not assign it an error.
-- Zhao et al.'s jadeite 300 K reference isotherm now uses the unrounded
-  `K0=124.5(4.0) GPa` and Table 1 `V0=403.32(8) angstrom^3`. Walker et al.'s
-  B2-KCl record now keeps one internally consistent preferred Table 3 fit.
+- Zhao et al.'s jadeite record now implements the complete 300--1280 K
+  Equation (1), not only its 300 K slice. It fixes the source's actual EOS
+  `V0=403 angstrom^3` and `K0'=5`, restores `K0=124.5(4.0) GPa`,
+  `dK/dT=-0.0165(49) GPa/K`, and `alpha=a+bT`, and fits all 31 hydrostatic
+  Table 1 states. The prior `V0=403.32(8) angstrom^3` was a measured ambient
+  row incorrectly substituted for the fixed coefficient. The Decker (1971)
+  NaCl pressure basis is identified, while absent calibrant volumes, exact
+  weights, covariance, and confidence convention remain explicit. The
+  full-table refit recovers every varied coefficient within its published
+  uncertainty and is classified `similar`; see the
+  [dedicated audit](literature-reproductions/zhao-1997-jadeite.md).
+- Walker et al.'s B2-KCl record now keeps one internally consistent preferred Table 3 fit.
   Equation BE1 is represented as BM3 plus linear thermal pressure, rather than
   as a temperature-shifted reference state. Individual `V0`, `K0`, `K0'`, and
   `alpha0` errors remain null because the authors explicitly reject them as

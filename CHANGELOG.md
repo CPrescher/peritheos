@@ -139,6 +139,13 @@ All notable changes to Peritheos are documented here. The project follows
   `MieGruneisenDebye` now supports a BM3 reference isentrope and an optional
   fitted high-temperature molar heat-capacity limit.
 
+- Restored Zhao et al.'s complete 300--1280 K jadeite BM3 thermal relation and
+  corrected its fixed EOS reference volume from the observed `403.32(8)` A^3
+  table row to the source's `403` A^3 coefficient. All 31 hydrostatic P-V-T
+  rows are now refitted, the Decker NaCl calibration and source exclusions are
+  explicit, and the remaining unpublished weighting/covariance details are
+  documented in a dedicated audit.
+
 ## [0.7.0] - 2026-09-07
 
 ### Added

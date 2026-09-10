@@ -95,6 +95,28 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     )
     assert all(parameter["similar"] for parameter in tange["parameters"])
     assert "classified as similar, not parity" in tange["qualification"]
+    jadeite = by_identifier["naalsi2o6_zhao_1997_bm3_1"]
+    assert jadeite["status"] == "similar"
+    assert jadeite["observations"] == 31
+    assert jadeite["objective"] == "pressure_residuals"
+    assert jadeite["absolute_sigma"] is False
+    assert jadeite["fixed_parameters"] == ["V0", "K0_prime", "Tr"]
+    assert jadeite["free_parameters"] == [
+        "rt_eos.K0",
+        "alpha0",
+        "alpha1",
+        "dK_dT",
+    ]
+    assert [item["refit"] for item in jadeite["parameters"]] == pytest.approx(
+        [123.765323309, 2.690777815e-5, 1.412020425e-9, -0.01527449748]
+    )
+    assert jadeite["published_rmse_gpa"] == pytest.approx(0.1100101303)
+    assert jadeite["rmse_gpa"] == pytest.approx(0.1005779893)
+    assert all(
+        abs(item["difference"]) <= item["published_error"]
+        for item in jadeite["parameters"]
+    )
+    assert "does not report its EOS residual definition" in jadeite["qualification"]
     reynard_ruby = by_identifier["akimotoite_reynard_1996_bm3_ruby_2"]
     reynard_ice = by_identifier["akimotoite_reynard_1996_bm3_ice_vii_3"]
     assert reynard_ruby["status"] == reynard_ice["status"] == "parity"
