@@ -9,8 +9,8 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 844,
-    "primary_source_validated": 844
+    "records": 845,
+    "primary_source_validated": 845
   },
   "records": [
     {
@@ -2553,21 +2553,21 @@
     {
       "material": "ca_perovskite_tetragonal",
       "file": "ca_perovskite_tetragonal.eosmat",
-      "record": "ca_perovskite_tetragonal_chen_2018_bm2",
-      "label": "Chen et al. (2018), 300 K Ne-medium BM2",
+      "record": "ca_perovskite_tetragonal_chen_2018_vinet",
+      "label": "Chen et al. (2018), 300 K Ne-medium Vinet",
       "doi": "10.2138/am-2018-6087",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "The final article PDF and the authors' accepted manuscript were visually checked. The previous BM2 attribution is contradicted by the primary source and has been corrected to Vinet.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.2138/am-2018-6087",
+        "access_url": "https://pubs.geoscienceworld.org/msa/ammin/article-pdf/103/3/462/4085107/am-2018-6087.pdf",
         "doi": "10.2138/am-2018-6087",
         "locations": [
-          "abstract",
-          "EOS discussion, manuscript lines 281-289",
-          "Figure 5",
-          "Table 1"
+          "Experimental methods, pages 463-464",
+          "EOS discussion, page 465",
+          "Figure 5, page 466",
+          "Tables 1-2, page 467"
         ],
-        "finding": "The paper reports a single tetragonal 300 K BM2 fit and explicitly fits rather than assumes V0 because the phase is unstable at ambient pressure."
+        "finding": "The paper reports a seven-observation I4/mcm 300 K Vinet fit, K0'=4 fixed, with V0 fitted because the phase is unstable at ambient pressure."
       }
     },
     {
@@ -3730,9 +3730,11 @@
         "locations": [
           "Results: Crystal structure of coesite-III",
           "Figure 1 caption",
-          "Methods: X-ray diffraction"
+          "Methods: X-ray diffraction",
+          "Supplementary Tables 1-2",
+          "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1"
         ],
-        "finding": "One complete source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data."
+        "finding": "One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only."
       }
     },
     {
@@ -4610,17 +4612,18 @@
       "label": "Ismailova et al. (2016), Fe-deficient bridgmanite 300 K BM2",
       "doi": "10.1126/sciadv.1600427",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Checked against the open primary article and the checksum-matched official supplementary PDF; no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4956391/",
         "doi": "10.1126/sciadv.1600427",
         "locations": [
           "Results",
           "Figure 3",
+          "Supplementary Table S2",
           "Supplementary Table S3",
           "Materials and Methods"
         ],
-        "finding": "One complete source-owned BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite."
+        "finding": "One source-owned 300 K BM2 fit for vacancy-rich Fe2+/Fe3+ bridgmanite, with K0_prime fixed at 4. The coefficients are complete, but the row-level inputs are not: Figure 3 shows substantially more markers than the four selected crystallographic states printed in Table S2."
       }
     },
     {
@@ -4783,11 +4786,13 @@
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
         "locations": [
-          "Equation-of-state section",
+          "Experimental Methods, pages 6-8",
+          "Equation (1) and equation-of-state section, pages 12-13",
           "Table 1",
-          "Figures 2 and 3"
+          "Figures 2 and 3",
+          "Supplementary Table S1 (mmc1.xls)"
         ],
-        "finding": "Fixed values in italics and fitted uncertainties were preserved.",
+        "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observations, 3% temperature correction, and global multi-study fit scope were reconstructed. All identifiable row-level sources are bundled: Fischer Table S1, Seagle supplementary Table 1, Ozawa printed Table 2, and Campbell supplementary Table S2. The final combined row selection and exact weighting protocol remain unpublished.",
         "doi": "10.1016/j.epsl.2011.02.025"
       }
     },
@@ -4858,11 +4863,13 @@
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.epsl.2011.02.025",
         "locations": [
-          "Equation-of-state section",
+          "Experimental Methods, pages 6-8",
+          "Equation (1) and equation-of-state section, pages 12-14",
           "Table 1",
-          "Figures 2 and 3"
+          "Figures 2 and 3",
+          "Supplementary Table S1 (mmc1.xls)"
         ],
-        "finding": "Fixed values in italics and fitted uncertainties were preserved.",
+        "finding": "The source equation, integrated-Gruneisen Debye-temperature law, 300 K reference subtraction, fixed and fitted coefficients, phase-specific observation rules, 3% temperature correction, Figure 3 fallback volume errors, explicit comparison-point exclusions, and Ozawa-inclusive fit scope were reconstructed. Fischer's current-study rows and Ozawa's printed Table 2 P-V-T rows are bundled; only the exact combined selection and weighting protocol remain unpublished.",
         "doi": "10.1016/j.epsl.2011.02.025"
       }
     },
@@ -5366,6 +5373,45 @@
       }
     },
     {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_ye_2017_vinet_300k",
+      "label": "Ye et al. (2017), Au Vinet 300 K co-compression fit",
+      "doi": "10.1002/2016jb013811",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+        "doi": "10.1002/2016jb013811",
+        "locations": [
+          "Section 3.3",
+          "Table 1",
+          "corrected Data Set S1",
+          "erratum"
+        ],
+        "finding": "Ye fits K0-prime=5.897(22) with V0 and K0 fixed......"
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_zhu_2025_pvt",
+      "label": "Zhu et al. (2025), Au internally consistent P-V-T EOS",
+      "doi": "10.22541/essoar.176236186.65259830/v1",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
+        "doi": "10.22541/essoar.176236186.65259830/v1",
+        "locations": [
+          "Equations (2)-(8)",
+          "Table 1",
+          "Mendeley v3 Au optimizer and property scripts"
+        ],
+        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
+      }
+    },
+    {
       "material": "graphite",
       "file": "graphite.eosmat",
       "record": "graphite_hanfland_1989_murnaghan_1",
@@ -5662,7 +5708,7 @@
       "material": "iridium",
       "file": "iridium.eosmat",
       "record": "iridium_anzellini_2025_bm3_1",
-      "label": "Anzellini et al. (2025), BM3",
+      "label": "Anzellini et al. (2025), BM3 + HP",
       "doi": "10.1038/s43246-025-00963-4",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -5670,10 +5716,13 @@
         "access_url": "https://doi.org/10.1038/s43246-025-00963-4",
         "locations": [
           "Model description",
+          "Equations 1-3",
           "Table 1, combined experimental fit",
-          "Figure 4"
+          "Methods, temperature averaging",
+          "Figure 4",
+          "Supplementary Figure 5"
         ],
-        "finding": "The stored record is the 300 K BM3 subset of a combined thermal fit.",
+        "finding": "The source publishes a BM3 300 K reference isotherm plus a volume-independent Holland-Powell Einstein thermal-pressure increment with Tr=300 K, theta=298 K, and alpha0=1.87(8)e-5 K^-1. The fit combines Monteseguro et al. (2019) ambient-temperature data with present resistive- and laser-heating data and averages the two pyrometry temperatures.",
         "doi": "10.1038/s43246-025-00963-4"
       }
     },
@@ -5868,6 +5917,25 @@
           "Supplementary Tables S1-S6"
         ],
         "finding": "The official supplement supplies every selected fit row, all five residual columns, covariance matrices, exact RMSE values, and the excluded self-calibrated Table S2 rows."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2006_vinet_thermal",
+      "label": "Dewaele et al. (2006), hcp-Fe Vinet thermal pressure scale",
+      "doi": "10.1103/physrevlett.97.215504",
+      "status": "primary_source_validated",
+      "note": "The Vinet reference coefficients, Equation (1) reference subtraction, Equation (2) three thermal terms, Gruneisen law, Debye-temperature integral, and all printed thermal coefficients were checked directly against the primary article.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1103/PhysRevLett.97.215504",
+        "doi": "10.1103/PhysRevLett.97.215504",
+        "locations": [
+          "Table III",
+          "Equations (1)-(2) and accompanying text",
+          "Figure 3 and core-temperature discussion"
+        ],
+        "finding": "Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K."
       }
     },
     {
@@ -9385,7 +9453,7 @@
       "label": "Luo et al. (2023), cold Vinet plus second-order thermal pressure",
       "doi": "10.1103/physrevb.107.134116",
       "status": "primary_source_validated",
-      "note": "The zero-temperature Vinet convention, quasi-Debye construction, inverse-variance objective, source-input scope, Appendix-B surrogate, and bounded-refit boundary were checked against Luo et al. (2023), Xian et al. (2022), and the available cited primary rows.",
+      "note": "The zero-temperature Vinet convention, quasi-Debye construction, inverse-variance objective, source-input scope, mass-to-cell conversion, Appendix-B surrogate, uncertainties, B1 identity, stated model range, shock pressure basis, and bounded refit boundary were checked against Luo et al. (2023), Xian et al. (2022), and the available cited primary rows.",
       "primary_source_check": {
         "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.107.134116/fulltext",
         "locations": [
@@ -9395,7 +9463,7 @@
           "Tables II-III, pages 8-9",
           "Appendices A-B, pages 9-10"
         ],
-        "finding": "The source-author form is a 0 K Rydberg-Vinet cold curve plus a sound-velocity-derived quasi-Debye Helmholtz free energy. Appendix B is an executable pressure surrogate retained by the catalog because the Kono velocity-density coefficients required by the full model are not printed. The source objective is inverse-variance least squares, but the complete row mask and reduction details remain unavailable; a bounded Luo-plus-Li proxy fit is executable without using Tables II-III.",
+        "finding": "The source-author model is a 0 K Rydberg-Vinet cold curve plus a sound-velocity-derived quasi-Debye Helmholtz free energy. Appendix B supplies a separately executable second-order Taylor pressure surrogate, which remains the catalog record because the Kono velocity-density coefficients required by the full source model are not printed.",
         "doi": "10.1103/physrevb.107.134116"
       }
     },
@@ -9884,6 +9952,45 @@
           "abstract"
         ],
         "finding": "Table 1 supplies a complete MgO reference triple used by the paper's Vinet comparison; the curve is distinct from the paper's later modified high-compression proposal."
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_ye_2017_vinet_300k",
+      "label": "Ye et al. (2017), MgO Vinet 300 K co-compression fit",
+      "doi": "10.1002/2016jb013811",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+        "doi": "10.1002/2016jb013811",
+        "locations": [
+          "Section 3.3",
+          "Table 1",
+          "corrected Data Set S1",
+          "erratum"
+        ],
+        "finding": "Ye fits K0-prime=4.182(19) with V0 and K0 fixed......"
+      }
+    },
+    {
+      "material": "mgo",
+      "file": "mgo.eosmat",
+      "record": "mgo_zhu_2025_pvt",
+      "label": "Zhu et al. (2025), MgO internally consistent P-V-T EOS",
+      "doi": "10.22541/essoar.176236186.65259830/v1",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
+        "doi": "10.22541/essoar.176236186.65259830/v1",
+        "locations": [
+          "Equations (2)-(8)",
+          "Table 1",
+          "Mendeley v3 MgO optimizer and property scripts"
+        ],
+        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
       }
     },
     {
@@ -12480,6 +12587,45 @@
           "Lejaeghere et al. (2014), Section II.B, equations (7)-(13), and Supplementary Tables 2.2-2.4"
         ],
         "finding": "The CC BY archive prints a per-atom V0, B0, and B0-prime comparison triplet. The paper and supplement show that the fields are separately compiled properties rather than row-level observations or coefficients from one experimental fit."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_ye_2017_vinet_300k",
+      "label": "Ye et al. (2017), Pt Vinet 300 K co-compression fit",
+      "doi": "10.1002/2016jb013811",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
+        "doi": "10.1002/2016jb013811",
+        "locations": [
+          "Section 3.3",
+          "Table 1",
+          "corrected Data Sets S1-S2",
+          "erratum"
+        ],
+        "finding": "Ye fits K0-prime=5.230(33) through the Au-D07 to MgO to Pt pathway with V0 and K0 fixed......"
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_zhu_2025_pvt",
+      "label": "Zhu et al. (2025), Pt internally consistent P-V-T EOS",
+      "doi": "10.22541/essoar.176236186.65259830/v1",
+      "status": "primary_source_validated",
+      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "primary_source_check": {
+        "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
+        "doi": "10.22541/essoar.176236186.65259830/v1",
+        "locations": [
+          "Equations (2)-(8)",
+          "Table 1",
+          "Mendeley v3 Pt optimizer and property scripts"
+        ],
+        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
       }
     },
     {
@@ -15811,142 +15957,6 @@
           "Table 3"
         ],
         "finding": "Table 3 prints the low-pressure range and Vinet, Baonza, MRS3, SMS3, and SMS4 coefficients; V0 is the experimental molar volume from Table 2."
-      }
-    },
-    {
-      "material": "gold",
-      "file": "gold.eosmat",
-      "record": "gold_ye_2017_vinet_300k",
-      "label": "Ye et al. (2017), Au Vinet 300 K co-compression fit",
-      "doi": "10.1002/2016jb013811",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
-        "doi": "10.1002/2016jb013811",
-        "locations": [
-          "Section 3.3",
-          "Table 1",
-          "corrected Data Set S1",
-          "erratum"
-        ],
-        "finding": "Ye fits K0-prime=5.897(22) with V0 and K0 fixed......"
-      }
-    },
-    {
-      "material": "gold",
-      "file": "gold.eosmat",
-      "record": "gold_zhu_2025_pvt",
-      "label": "Zhu et al. (2025), Au internally consistent P-V-T EOS",
-      "doi": "10.22541/essoar.176236186.65259830/v1",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
-        "doi": "10.22541/essoar.176236186.65259830/v1",
-        "locations": [
-          "Equations (2)-(8)",
-          "Table 1",
-          "Mendeley v3 Au optimizer and property scripts"
-        ],
-        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
-      }
-    },
-    {
-      "material": "mgo",
-      "file": "mgo.eosmat",
-      "record": "mgo_ye_2017_vinet_300k",
-      "label": "Ye et al. (2017), MgO Vinet 300 K co-compression fit",
-      "doi": "10.1002/2016jb013811",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
-        "doi": "10.1002/2016jb013811",
-        "locations": [
-          "Section 3.3",
-          "Table 1",
-          "corrected Data Set S1",
-          "erratum"
-        ],
-        "finding": "Ye fits K0-prime=4.182(19) with V0 and K0 fixed......"
-      }
-    },
-    {
-      "material": "mgo",
-      "file": "mgo.eosmat",
-      "record": "mgo_zhu_2025_pvt",
-      "label": "Zhu et al. (2025), MgO internally consistent P-V-T EOS",
-      "doi": "10.22541/essoar.176236186.65259830/v1",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
-        "doi": "10.22541/essoar.176236186.65259830/v1",
-        "locations": [
-          "Equations (2)-(8)",
-          "Table 1",
-          "Mendeley v3 MgO optimizer and property scripts"
-        ],
-        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
-      }
-    },
-    {
-      "material": "platinum",
-      "file": "platinum.eosmat",
-      "record": "platinum_ye_2017_vinet_300k",
-      "label": "Ye et al. (2017), Pt Vinet 300 K co-compression fit",
-      "doi": "10.1002/2016jb013811",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1002/2016JB013811",
-        "doi": "10.1002/2016jb013811",
-        "locations": [
-          "Section 3.3",
-          "Table 1",
-          "corrected Data Sets S1-S2",
-          "erratum"
-        ],
-        "finding": "Ye fits K0-prime=5.230(33) through the Au-D07 to MgO to Pt pathway with V0 and K0 fixed......"
-      }
-    },
-    {
-      "material": "platinum",
-      "file": "platinum.eosmat",
-      "record": "platinum_zhu_2025_pvt",
-      "label": "Zhu et al. (2025), Pt internally consistent P-V-T EOS",
-      "doi": "10.22541/essoar.176236186.65259830/v1",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-      "primary_source_check": {
-        "access_url": "https://d197for5662m48.cloudfront.net/documents/publicationstatus/288995/preprint_pdf/85b400a506980803732aafbd5816f7fb.pdf",
-        "doi": "10.22541/essoar.176236186.65259830/v1",
-        "locations": [
-          "Equations (2)-(8)",
-          "Table 1",
-          "Mendeley v3 Pt optimizer and property scripts"
-        ],
-        "finding": "The record implements the complete 300 K-referenced Debye plus T-squared-excess pressure form and the v3 optimizer/downstream-property coefficient set."
-      }
-    },
-    {
-      "material": "iron",
-      "file": "iron.eosmat",
-      "record": "iron_dewaele_2006_vinet_thermal",
-      "label": "Dewaele et al. (2006), hcp-Fe Vinet thermal pressure scale",
-      "doi": "10.1103/physrevlett.97.215504",
-      "status": "primary_source_validated",
-      "note": "The Vinet reference coefficients, Equation (1) reference subtraction, Equation (2) three thermal terms, Gruneisen law, Debye-temperature integral, and all printed thermal coefficients were checked directly against the primary article.",
-      "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevLett.97.215504",
-        "doi": "10.1103/PhysRevLett.97.215504",
-        "locations": [
-          "Table III",
-          "Equations (1)-(2) and accompanying text",
-          "Figure 3 and core-temperature discussion"
-        ],
-        "finding": "Table III supplies the 300 K Vinet isotherm and its 95% fit errors. The thermal EOS is a simplified Dorogokupets-Oganov formalism with one Debye term plus quadratic anharmonic and electronic terms, all subtracted at 300 K."
       }
     }
   ]

@@ -24,10 +24,10 @@ use crate::isothermal::{
 use crate::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeTemperatureLaw, Dewaele2006, DorogokupetsOganov2007,
     DorogokupetsOganov2007Parameters, DoubleDebyeHelmholtz, DoubleDebyeLogMomentHelmholtz,
-    LinearThermalPressure, LogVolumeThermalPressure, MieGruneisenDebye, MieGruneisenEinstein,
-    MultiOscillatorGruneisen, ReferenceStateEos, ReferenceVolumeLaw,
-    SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw, ThermalModifiedTait,
-    ThermalPressureReference, ThermalReferenceState,
+    HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
+    MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen, ReferenceStateEos,
+    ReferenceVolumeLaw, SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalExpansionLaw,
+    ThermalModifiedTait, ThermalPressureReference, ThermalReferenceState,
 };
 use crate::{EosError, EosResult, IsothermalEos, ThermalEos};
 
@@ -557,6 +557,8 @@ pub enum ThermalModel {
     MieGruneisenDebye(MieGruneisenDebye<IsothermalModel>),
     /// Mie--Gruneisen--Einstein EOS.
     MieGruneisenEinstein(MieGruneisenEinstein<IsothermalModel>),
+    /// Volume-independent Holland--Powell Einstein thermal pressure.
+    HollandPowellThermalPressure(HollandPowellThermalPressure<IsothermalModel>),
     /// Generic multi-oscillator Gruneisen thermal EOS.
     MultiOscillatorGruneisen(MultiOscillatorGruneisen<IsothermalModel>),
     /// Holland--Powell thermal modified Tait EOS.
@@ -578,6 +580,7 @@ macro_rules! dispatch_thermal {
             ThermalModel::SecondOrderTaylorThermalPressure($model) => $expression,
             ThermalModel::MieGruneisenDebye($model) => $expression,
             ThermalModel::MieGruneisenEinstein($model) => $expression,
+            ThermalModel::HollandPowellThermalPressure($model) => $expression,
             ThermalModel::MultiOscillatorGruneisen($model) => $expression,
             ThermalModel::ThermalModifiedTait($model) => $expression,
             ThermalModel::ThermalReferenceState($model) => $expression,
@@ -602,6 +605,7 @@ impl ThermalModel {
             Self::SecondOrderTaylorThermalPressure(_) => "second_order_taylor_thermal_pressure",
             Self::MieGruneisenDebye(_) => "mie_gruneisen_debye",
             Self::MieGruneisenEinstein(_) => "mie_gruneisen_einstein",
+            Self::HollandPowellThermalPressure(_) => "holland_powell_thermal_pressure",
             Self::MultiOscillatorGruneisen(_) => "multi_oscillator_gruneisen_thermal_pressure",
             Self::ThermalModifiedTait(_) => "thermal_modified_tait",
             Self::ThermalReferenceState(_) => "thermal_reference_state",
@@ -707,6 +711,9 @@ impl LoadedEos {
                 }
                 ThermalModel::MieGruneisenDebye(value) => value.rt_eos.model_identifier(),
                 ThermalModel::MieGruneisenEinstein(value) => value.rt_eos.model_identifier(),
+                ThermalModel::HollandPowellThermalPressure(value) => {
+                    value.rt_eos.model_identifier()
+                }
                 ThermalModel::MultiOscillatorGruneisen(value) => value.rt_eos.model_identifier(),
                 ThermalModel::ThermalModifiedTait(_) => "modified_tait",
                 ThermalModel::ThermalReferenceState(value) => value.rt_eos.model_identifier(),
@@ -2514,6 +2521,7 @@ fn is_molar_volume_model(model: &str) -> bool {
             | "dorogokupets_oganov_2007"
             | "multi_oscillator_gruneisen_thermal_pressure"
             | "thermal_modified_tait"
+            | "holland_powell_thermal_pressure"
     )
 }
 
@@ -2552,6 +2560,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
                 "multi_oscillator_gruneisen_thermal_pressure"
             }
             "ThermalModifiedTait" => "thermal_modified_tait",
+            "HollandPowellThermalPressure" => "holland_powell_thermal_pressure",
             _ => return Err(format!("unknown thermal type {model_type:?}")),
         }
     } else {
@@ -3011,6 +3020,17 @@ fn build_thermal(
             };
             ThermalModifiedTait::new(reference, p("Tr")?, p("theta")?, p("alpha0")?, p("n")?)
                 .map(ThermalModel::ThermalModifiedTait)
+        }
+        "holland_powell_thermal_pressure" => {
+            check_type(component, "HollandPowellThermalPressure")?;
+            HollandPowellThermalPressure::new(
+                reference,
+                p("Tr")?,
+                p("theta")?,
+                p("alpha0")?,
+                p("n")?,
+            )
+            .map(ThermalModel::HollandPowellThermalPressure)
         }
         _ => return Err(format!("unknown thermal model {model:?}")),
     };

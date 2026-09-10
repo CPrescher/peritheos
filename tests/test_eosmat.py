@@ -2692,7 +2692,7 @@ def test_normative_schema_is_bundled():
         "berman",
     ]
     assert len(schema["$defs"]["equation"]["allOf"][0]["oneOf"]) == 17
-    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 14
+    assert len(schema["$defs"]["thermal"]["allOf"][0]["oneOf"]) == 17
 
 
 def test_normative_schema_validates_every_bundled_document():

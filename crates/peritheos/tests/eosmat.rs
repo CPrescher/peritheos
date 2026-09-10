@@ -182,6 +182,29 @@ fn bundled_suzuki_epsilon_feooh_uses_reference_temperature_expansivity() {
 }
 
 #[test]
+fn bundled_anzellini_iridium_uses_bm3_holland_powell_thermal_pressure() {
+    let Some(material) = load_bundled_material("iridium.eosmat") else {
+        return;
+    };
+    let record = material.record("iridium_anzellini_2025_bm3_1").unwrap();
+
+    assert_eq!(
+        record.eos.isothermal_model_identifier(),
+        "birch_murnaghan_3"
+    );
+    assert_eq!(
+        record.eos.thermal_model_identifier(),
+        Some("holland_powell_thermal_pressure")
+    );
+    assert_close(record.pressure(56.62, 300.0).unwrap(), 0.0, 1.0e-12);
+    assert_close(
+        record.pressure(52.0, 2000.0).unwrap(),
+        46.256_015_001_654_87,
+        1.0e-11,
+    );
+}
+
+#[test]
 fn qin_2023_calcium_ferrite_records_load_and_reproduce_high_pressure_states() {
     let cases = [
         (

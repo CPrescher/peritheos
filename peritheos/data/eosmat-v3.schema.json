@@ -740,7 +740,8 @@
             "Sokolova2016",
             "ThermalModifiedTait",
             "SoundVelocityDebyeHelmholtz",
-            "Dewaele2006"
+            "Dewaele2006",
+            "HollandPowellThermalPressure"
           ]
         },
         "model": {
@@ -759,7 +760,8 @@
             "multi_oscillator_gruneisen_thermal_pressure",
             "thermal_modified_tait",
             "sound_velocity_debye_helmholtz",
-            "dewaele_2006"
+            "dewaele_2006",
+            "holland_powell_thermal_pressure"
           ]
         },
         "debye_temperature_law": {
@@ -988,6 +990,16 @@
                 },
                 "model": {
                   "const": "dewaele_2006"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "HollandPowellThermalPressure"
+                },
+                "model": {
+                  "const": "holland_powell_thermal_pressure"
                 }
               }
             }
@@ -1763,7 +1775,6 @@
           },
           "then": {
             "required": [
-              "derived_from_record",
               "fit_provenance"
             ]
           }

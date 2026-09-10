@@ -8,7 +8,11 @@ from .double_debye_helmholtz import (
     DoubleDebyeHelmholtz,
     DoubleDebyeLogMomentHelmholtz,
 )
-from .holland_powell import HollandPowell2011, ThermalModifiedTait
+from .holland_powell import (
+    HollandPowell2011,
+    HollandPowellThermalPressure,
+    ThermalModifiedTait,
+)
 from .linear import (
     LinearThermalPressure,
     LogVolumeThermalPressure,
@@ -31,6 +35,7 @@ __all__ = [
     "Dewaele2006",
     "DorogokupetsOganov2007",
     "HollandPowell2011",
+    "HollandPowellThermalPressure",
     "LinearThermalPressure",
     "LogVolumeThermalPressure",
     "MieGruneisenDebye",

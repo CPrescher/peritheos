@@ -11,7 +11,7 @@ use peritheos::isothermal::{
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, Dewaele2006, DorogokupetsOganov2007,
-    DorogokupetsOganov2007Parameters, LinearThermalPressure, LogVolumeThermalPressure,
+    DorogokupetsOganov2007Parameters, HollandPowellThermalPressure, LinearThermalPressure, LogVolumeThermalPressure,
     MieGruneisenDebye, MieGruneisenEinstein, MultiOscillatorGruneisen,
     SecondOrderTaylorThermalPressure, SokolovaParameters, ThermalModifiedTait,
     ThermalReferenceState,
@@ -254,6 +254,7 @@ impl ThermalModel {
             Self::SecondOrderTaylorThermalPressure(model) => model.pressure(volume, temperature),
             Self::MieGruneisenDebye(model) => model.pressure(volume, temperature),
             Self::MieGruneisenEinstein(model) => model.pressure(volume, temperature),
+            Self::HollandPowellThermalPressure(model) => model.pressure(volume, temperature),
             Self::ThermalModifiedTait(model) => model.pressure(volume, temperature),
             Self::Sokolova2016(model) => model.pressure(volume, temperature),
             Self::ThermalReferenceState(model) => model.pressure(volume, temperature),
@@ -472,6 +473,22 @@ impl ThermalModel {
                         value(names, values, "theta0", model.theta0),
                         value(names, values, "gamma0", model.gamma0),
                         value(names, values, "q", model.q),
+                        value(names, values, "n", model.n),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::HollandPowellThermalPressure(model) => {
+                ensure_names(names, &["Tr", "theta", "alpha0", "n"], true)?;
+                let reference = model
+                    .rt_eos
+                    .with_parameters(&reference_names, &reference_values)?;
+                Self::HollandPowellThermalPressure(
+                    HollandPowellThermalPressure::new(
+                        reference,
+                        value(names, values, "Tr", model.tr),
+                        value(names, values, "theta", model.theta),
+                        value(names, values, "alpha0", model.alpha0),
                         value(names, values, "n", model.n),
                     )
                     .map_err(FitError::from)?,
